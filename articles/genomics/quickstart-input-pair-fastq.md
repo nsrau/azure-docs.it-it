@@ -1,26 +1,26 @@
 ---
-title: 'Guida introduttiva: Inviare un flusso di lavoro usando input FASTQ - Genomica di Microsoft'
+title: Inviare un flusso di lavoro usando input FASTQ - Genomics di Microsoft
 titleSuffix: Azure
-description: Nella guida introduttiva si presuppone che il client msgen sia installato e che siano stati eseguiti i dati di esempio tramite il servizio.
+description: Questo articolo si presuppone che si è installato il client msgen e sono stati eseguiti correttamente i dati di esempio tramite il servizio.
 services: genomics
 author: grhuynh
 manager: cgronlun
 ms.author: grhuynh
 ms.service: genomics
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 12/07/2017
-ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: 2662a8f52c58a39916e5789fa9ed7fadd91216c0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735850"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438806"
 ---
 # <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Inviare un flusso di lavoro usando input FASTQ in Genomica di Microsoft
 
-Questa guida introduttiva illustra come inviare un flusso di lavoro al servizio Genomica di Microsoft se i file di input sono costituiti da una singola coppia di file FASTQ. In questo argomento si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se è già stato inviato un flusso di lavoro con i dati di esempio forniti, è possibile proseguire con questa guida introduttiva. 
+Questo articolo viene illustrato come inviare un flusso di lavoro al servizio Microsoft Genomics se i file di input sono una singola coppia di file FASTQ. In questo argomento si presuppone che sia già stato installato ed eseguito il client `msgen` e che si abbia familiarità con l'uso di Archiviazione di Azure. Se è già stato inviato un flusso di lavoro usando i dati di esempio forniti, si è pronti per procedere con questo articolo. 
 
-## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>Configurazione: caricare i file FASTQ in Archiviazione di Azure
+## <a name="set-up-upload-your-fastq-files-to-azure-storage"></a>Configurazione: Caricare i file FASTQ in archiviazione di Azure
 Si supponga che siano disponibili due file, *reads_1.fq.gz* e *reads_2.fq.gz*, e che i file siano stati caricati nell'account di archiviazione *myaccount* in Azure come **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/inputs/reads_1<span></span>.fq<span></span>.gz<span></span>** e **https://<span></span>myaccount.blob.core.<span></span>windows<span></span>.net/<span></span>inputs/<span></span>reads_2.fq<span></span>.gz<span></span>**. È necessario che siano disponibili l'URL dell'API e la chiave di accesso. Gli output devono essere disponibili in **https://<span></span>myaccount.blob.core<span></span>.windows<span></span>.net<span></span>/outputs<span></span>**.
 
 
@@ -82,4 +82,4 @@ output_storage_account_container: outputs
 Inviare il file `config.txt` con questa chiamata: `msgen submit -f config.txt`
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo è stata caricata una coppia di file FASTQ in Archiviazione di Azure ed è stato inviato un flusso di lavoro al servizio Genomica di Microsoft tramite il client `msgen` Python. Per altre informazioni sull'invio di flussi di lavoro e su altri comandi che possono essere usati con il servizio Genomica di Microsoft, vedere le [Domande frequenti](frequently-asked-questions-genomics.md). 
+In questo articolo è stata caricata una coppia di file FASTQ in Archiviazione di Azure ed è stato inviato un flusso di lavoro al servizio Genomica di Microsoft tramite il client `msgen` Python. Per altre informazioni sull'invio di flusso di lavoro e altri comandi è possibile usare con il servizio Microsoft Genomics, vedere la [domande frequenti su](frequently-asked-questions-genomics.md). 

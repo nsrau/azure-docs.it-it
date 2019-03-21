@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ea80824588980fdd6c580b6d77c2a5566159547
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211088"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224149"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: configurare G Suite per il provisioning utenti automatico
 
@@ -53,7 +53,7 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 > [!IMPORTANT]
 > È consigliabile assegnare un singolo utente di Azure AD a G Suite per testare la configurazione del provisioning. Sarà possibile assegnare altri utenti e gruppi in un secondo momento.
-
+> 
 > Quando si assegna un utente a G Suite, selezionare il ruolo **Utente** o **Gruppo** nella finestra di dialogo di assegnazione. Il ruolo **Accesso predefinito** non è applicabile per il provisioning.
 
 ## <a name="enable-automated-user-provisioning"></a>Abilitare il provisioning utenti automatico
@@ -80,8 +80,8 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
    
     ![Selezionare API Reference (Riferimento API).][16]
 
-    > [!IMPORTANT]
-    > Per ogni utente per cui si intende eseguire il provisioning in G Suite, si *deve* associare il relativo nome utente in Azure Active Directory a un dominio personalizzato. Ad esempio, nomi utente simili a bob@contoso.onmicrosoft.com non vengono accettati da G Suite. mentre bob@contoso.com viene accettato. È possibile modificare il dominio di un utente esistente modificandone le proprietà in Azure AD. Nella procedura seguente sono illustrate le istruzioni su come impostare un dominio personalizzato per Azure Active Directory e G Suite.
+   > [!IMPORTANT]
+   > Per ogni utente per cui si intende eseguire il provisioning in G Suite, si *deve* associare il relativo nome utente in Azure Active Directory a un dominio personalizzato. Ad esempio, nomi utente simili a bob@contoso.onmicrosoft.com non vengono accettati da G Suite. mentre bob@contoso.com viene accettato. È possibile modificare il dominio di un utente esistente modificandone le proprietà in Azure AD. Nella procedura seguente sono illustrate le istruzioni su come impostare un dominio personalizzato per Azure Active Directory e G Suite.
       
 1. Se non si è ancora aggiunto un nome di dominio personalizzato ad Azure Active Directory, seguire questa procedura:
   
@@ -105,8 +105,8 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
 
     e. Ripetere i passaggi precedenti per tutti i domini che si desidera aggiungere alla directory.
 
-    > [!NOTE]
-    Per il provisioning utenti, il dominio personalizzato deve corrispondere al nome di dominio di Azure AD di origine. Se non corrispondono, per risolvere il problema può essere utile implementare la personalizzazione del mapping degli attributi.
+   > [!NOTE]
+   >  Per il provisioning utenti, il dominio personalizzato deve corrispondere al nome di dominio di Azure AD di origine. Se non corrispondono, per risolvere il problema può essere utile implementare la personalizzazione del mapping degli attributi.
 
 
 1. Ora che tutti i domini sono stati verificati con Azure AD, è necessario verificarli nuovamente con Google Apps. Per ogni dominio non ancora registrato con Google, seguire questa procedura:
@@ -149,13 +149,13 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
 
 1. Impostare **Modalità di provisioning** su **Automatico**. 
 
-     ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
+       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Nella sezione **Credenziali amministratore** selezionare **Autorizza**. Verrà aperta una finestra di dialogo di autorizzazione di Google in una nuova finestra del browser.
 
 1. Confermare che si vuole concedere l'autorizzazione di Azure Active Directory per apportare modifiche al tenant di G Suite. Selezionare **Accetto**.
     
-     ![Verificare le autorizzazioni.][28]
+       ![Confirm permissions.][28]
 
 1. Nel portale di Azure selezionare **Test connessione** per verificare che Azure AD possa connettersi all'app. Se la connessione non riesce, verificare che l'account di G Suite disponga delle autorizzazioni di amministratore di team. Ripetere quindi il passaggio per l'**autorizzazione**.
 

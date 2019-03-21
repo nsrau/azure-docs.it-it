@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: d325cfd679c2a8b878ae9a7b483431aba32b2a5a
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ccb408a427680cffc339797bd3421ed9f53af640
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313280"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200685"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster HDInsight basati su Linux tramite azioni script
 
@@ -157,7 +157,6 @@ HDInsight fornisce script di esempio per installare i componenti seguenti nei cl
 | Aggiungere un account di archiviazione di Azure |`https://hdiconfigactions.blob.core.windows.net/linuxaddstorageaccountv01/add-storage-account-v01.sh`. Vedere [Aggiungere altri account di archiviazione a HDInsight](hdinsight-hadoop-add-storage.md). |
 | Installare Hue |`https://hdiconfigactions.blob.core.windows.net/linuxhueconfigactionv02/install-hue-uber-v02.sh`. Vedere [Installare e usare Hue nei cluster Hadoop di HDInsight](hdinsight-hadoop-hue-linux.md). |
 | Installare Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Vedere [Installare e usare Presto nei cluster HDInsight Hadoop](hdinsight-hadoop-install-presto.md). |
-| Installare Solr |`https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh`. Vedere [Installare e usare Apache Solr nei cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install-linux.md). |
 | Installare Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Vedere [Installare Apache Giraph nei cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | Precaricare le librerie Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Vedere [Aggiungere librerie Apache Hive personalizzate durante la creazione del cluster HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
 | Installare o aggiornare Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Vedere [Installare o aggiornare Mono in HDInsight](hdinsight-hadoop-install-mono.md). |
@@ -410,9 +409,9 @@ Nel servizio HDInsight sono disponibili due tipi di componenti open source:
 
 * **Componenti predefiniti**. Questi componenti sono preinstallati nei cluster HDInsight e forniscono la funzionalità di base del cluster. A questa categoria appartengono i componenti seguenti:
 
-    * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
-    * Il linguaggio di query Hive [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
-    * [Apache Mahout](https://mahout.apache.org/). 
+  * [Apache Hadoop YARN](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) ResourceManager.
+  * Il linguaggio di query Hive [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual).
+  * [Apache Mahout](https://mahout.apache.org/). 
     
     Un elenco completo dei componenti del cluster è disponibile in [Componenti e versioni di Apache Hadoop disponibili in HDInsight.](hdinsight-component-versioning.md)
 
@@ -524,8 +523,7 @@ Sussistono due eccezioni:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Sviluppare script di azioni script per HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Installare e usare Apache Solr in cluster Hadoop di HDInsight](hdinsight-hadoop-solr-install-linux.md)
-* [Installare e usare Apache Giraph in cluster Hadoop di HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Installare e usare Apache Giraph in cluster HDInsight](hdinsight-hadoop-giraph-install-linux.md)
 * [Add additional storage to an HDInsight cluster](hdinsight-hadoop-add-storage.md) (Aggiungere altra memoria a un cluster HDInsight)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fasi durante la creazione di un cluster"

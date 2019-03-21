@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 8b1504961254fefcaafc22008b4cc5adaf77e9c4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: b9a847f04048cd17d550ca66bd3e6502577746eb
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447872"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56878456"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -127,7 +127,7 @@ Quando si fa clic su un punto qualsiasi nel pannello **Exceptions** (Eccezioni),
 
 Indipendentemente dal fatto che si faccia clic su un elemento del dashboard **Connettore di Application Insights**, all'interno della pagina **Search** (Cerca), qualsiasi query che restituisce dati di Application Insights mostra la prospettiva di Application Insights. Se ad esempio vengono visualizzati i dati di Application Insights, una query **&#42;** mostra anche la scheda della prospettiva, come nell'immagine seguente:
 
-![Application Insights ](./media/app-insights-connector/app-insights-search.png)
+![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
 I componenti della prospettiva vengono aggiornati a seconda della query di ricerca. In questo modo è possibile filtrare i risultati usando qualsiasi campo di ricerca che consenta di visualizzare i dati da:
 

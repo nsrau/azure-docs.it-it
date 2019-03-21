@@ -4,12 +4,12 @@ ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/24/2019
-ms.openlocfilehash: d5a6692aceedb6dc7fad7a434a433882cdbea015
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 11a336bbcf75c6c4de61f1bb681ab6ee7aa05650
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984892"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56740762"
 ---
 È necessario innanzitutto completare e inviare il [modulo di richiesta dei contenitori di Visione artificiale in Servizi cognitivi](https://aka.ms/VisionContainersPreview) per richiedere l'accesso al contenitore. Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo l'invio, il team di Servizi cognitivi di Azure esamina il modulo per verificare che siano soddisfatti i criteri di accesso al registro contenitori privato.
 

@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 24375ca3fec50c1a9e194918ac4f824ab6fa81be
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 71d2d542d71977f9d8dfe07370dffd7fe508bc92
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568261"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314960"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applicazioni multi-tenant con strumenti di database elastici e sicurezza a livello di riga
 
@@ -42,20 +42,20 @@ L'obiettivo consiste nell'usare le API di [routing dipendente dai dati](sql-data
 - Utilizzare Visual Studio (2012 o versione successiva)
 - Creare tre database SQL di Azure
 - Scaricare il progetto di esempio: [Strumenti di database elastici per SQL di Azure - Partizioni multi-tenant](https://go.microsoft.com/?linkid=9888163)
-  - Immettere le informazioni per i database all'inizio di **Program.cs** 
+  - Immettere le informazioni per i database all'inizio di **Program.cs**
 
-Questo progetto estende quello descritto in [Strumenti di database elastici per SQL di Azure - Integrazione di Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) aggiungendo il supporto per i database di partizionamento multi-tenant. Viene compilata una semplice applicazione console per la creazione di blog e post, con quattro tenant e due database di partizionamento multi-tenant. Questa configurazione è illustrata nel diagramma precedente. 
+Questo progetto estende quello descritto in [Strumenti di database elastici per SQL di Azure - Integrazione di Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) aggiungendo il supporto per i database di partizionamento multi-tenant. Viene compilata una semplice applicazione console per la creazione di blog e post, con quattro tenant e due database di partizionamento multi-tenant. Questa configurazione è illustrata nel diagramma precedente.
 
-Compilare ed eseguire l'applicazione. In questo modo, viene eseguito il bootstrap del gestore mappa di partizionamento degli strumenti di database elastici e vengono effettuati i test seguenti: 
+Compilare ed eseguire l'applicazione. In questo modo, viene eseguito il bootstrap del gestore mappa di partizionamento degli strumenti di database elastici e vengono effettuati i test seguenti:
 
 1. Utilizzando Entity Framework e LINQ, creare un nuovo blog e quindi visualizzare tutti i blog per ciascun tenant
 2. Utilizzando ADO.NET SqlClient, visualizzare tutti i blog per un tenant
-3. Provare a inserire un blog per il tenant non corretto per verificare che venga generato un errore  
+3. Provare a inserire un blog per il tenant non corretto per verificare che venga generato un errore
 
-Si noti che poiché RLS non è stata ancora abilitata nei database di partizionamento, ciascuno di questi test rivela un problema: i tenant sono in grado di visualizzare i blog non appartenenti ad essi, e all'applicazione non viene impedito di inserire un blog per il tenant errato. Nella parte restante di questo articolo viene descritto come risolvere questi problemi mediante l'isolamento dei tenant con RLS. Sono disponibili due passaggi: 
+Si noti che poiché RLS non è stata ancora abilitata nei database di partizionamento, ciascuno di questi test rivela un problema: i tenant sono in grado di visualizzare i blog non appartenenti ad essi, e all'applicazione non viene impedito di inserire un blog per il tenant errato. Nella parte restante di questo articolo viene descritto come risolvere questi problemi mediante l'isolamento dei tenant con RLS. Sono disponibili due passaggi:
 
-1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre il TenantId corrente in SESSION\_CONTEXT dopo l'apertura di una connessione. Il progetto di esempio imposta il TenantId in questo modo. 
-2. **Livello dati**: creare criteri di sicurezza a livello di riga in ogni database di partizionamento per filtrare le righe in base al TenantId archiviato in SESSION\_CONTEXT. Creare criteri per ogni database di partizionamento; in caso contrario, le righe nelle partizioni multi-tenant non verranno filtrate. 
+1. **Livello applicazione**: modificare il codice dell'applicazione per impostare sempre il TenantId corrente in SESSION\_CONTEXT dopo l'apertura di una connessione. Il progetto di esempio imposta il TenantId in questo modo.
+2. **Livello dati**: creare criteri di sicurezza a livello di riga in ogni database di partizionamento per filtrare le righe in base al TenantId archiviato in SESSION\_CONTEXT. Creare criteri per ogni database di partizionamento; in caso contrario, le righe nelle partizioni multi-tenant non verranno filtrate.
 
 ## <a name="1-application-tier-set-tenantid-in-the-sessioncontext"></a>1. Livello applicazione: impostare TenantId in SESSION\_CONTEXT
 
@@ -65,14 +65,14 @@ In alternativa a SESSION\_CONTEXT, è possibile usare [CONTEXT\_INFO](https://do
 
 ### <a name="entity-framework"></a>Entity Framework
 
-Per le applicazioni che usano Entity Framework, l'approccio più semplice consiste nell'impostare SESSION\_CONTEXT all'interno dell'override ElasticScaleContext descritto in [Routing dipendente dai dati con DbContext di Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Creare ed eseguire un comando SqlCommand che imposti TenantId in SESSION\_CONTEXT sull'oggetto shardingKey specificato per la connessione. Restituire quindi la connessione negoziata tramite il routing dipendente dai dati. In questo modo, è sufficiente scrivere una sola volta il codice per impostare SESSION\_CONTEXT. 
+Per le applicazioni che usano Entity Framework, l'approccio più semplice consiste nell'impostare SESSION\_CONTEXT all'interno dell'override ElasticScaleContext descritto in [Routing dipendente dai dati con DbContext di Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md#data-dependent-routing-using-ef-dbcontext). Creare ed eseguire un comando SqlCommand che imposti TenantId in SESSION\_CONTEXT sull'oggetto shardingKey specificato per la connessione. Restituire quindi la connessione negoziata tramite il routing dipendente dai dati. In questo modo, è sufficiente scrivere una sola volta il codice per impostare SESSION\_CONTEXT.
 
 ```csharp
-// ElasticScaleContext.cs 
+// ElasticScaleContext.cs
 // Constructor for data-dependent routing.
 // This call opens a validated connection that is routed to the
 // proper shard by the shard map manager.
-// Note that the base class constructor call fails for an open connection 
+// Note that the base class constructor call fails for an open connection
 // if migrations need to be done and SQL credentials are used.
 // This is the reason for the separation of constructors.
 // ...
@@ -119,30 +119,30 @@ public static SqlConnection OpenDDRConnection(
         }
         throw;
     }
-} 
-// ... 
+}
+// ...
 ```
 
-SESSION\_CONTEXT viene ora impostato automaticamente sul TenantId specificato ogni volta che si richiama ElasticScaleContext: 
+SESSION\_CONTEXT viene ora impostato automaticamente sul TenantId specificato ogni volta che si richiama ElasticScaleContext:
 
 ```csharp
-// Program.cs 
-SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-{   
+// Program.cs
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
+{
     using (var db = new ElasticScaleContext<int>(
-        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))   
-    {     
+        sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
+    {
         var query = from b in db.Blogs
                     orderby b.Name
                     select b;
 
-        Console.WriteLine("All blogs for TenantId {0}:", tenantId);     
-        foreach (var item in query)     
-        {       
-            Console.WriteLine(item.Name);     
-        }   
-    } 
-}); 
+        Console.WriteLine("All blogs for TenantId {0}:", tenantId);
+        foreach (var item in query)
+        {
+            Console.WriteLine(item.Name);
+        }
+    }
+});
 ```
 
 ### <a name="adonet-sqlclient"></a>ADO.NET SqlClient
@@ -217,7 +217,7 @@ All blogs for TenantId {0} (using ADO.NET SqlClient):", tenantId4);
 
 ### <a name="create-a-security-policy-to-filter-the-rows-each-tenant-can-access"></a>Creare i criteri di sicurezza per filtrare le righe accessibili a ogni tenant
 
-Ora che l'applicazione imposta SESSION\_CONTEXT sul TenantId corrente prima di eseguire la query, i criteri di sicurezza a livello di riga possono filtrare le query ed escludere le righe che contengono un TenantId diverso.  
+Ora che l'applicazione imposta SESSION\_CONTEXT sul TenantId corrente prima di eseguire la query, i criteri di sicurezza a livello di riga possono filtrare le query ed escludere le righe che contengono un TenantId diverso.
 
 La sicurezza a livello di riga viene implementata in Transact-SQL: una funzione definita dall'utente definisce la logica di accesso e i criteri di sicurezza associano questa funzione a un numero qualsiasi di tabelle. Per questo progetto,
 
@@ -226,7 +226,7 @@ La sicurezza a livello di riga viene implementata in Transact-SQL: una funzione 
 
 2. Un predicato di FILTRO consente alle righe che soddisfano il filtro impostato dal TenantId di passare attraverso le query SELECT, UPDATE e DELETE.
     - Un predicato di BLOCCO impedisce l'inserimento e l'aggiornamento delle righe che non soddisfano le condizioni del filtro.
-    - Se SESSION\_CONTEXT non è stato impostato, verrà restituito NULL e non sarà possibile vedere o inserire alcuna riga. 
+    - Se SESSION\_CONTEXT non è stato impostato, verrà restituito NULL e non sarà possibile vedere o inserire alcuna riga.
 
 Per abilitare la sicurezza a livello di riga su tutte le partizioni, eseguire l'istruzione T-SQL seguente usando Visual Studio (SSDT), SSMS o lo script di PowerShell incluso nel progetto. Se si usano [processi di database elastici](sql-database-elastic-jobs-overview.md), è possibile automatizzare l'esecuzione di questa istruzione T-SQL in tutte le partizioni.
 
@@ -234,8 +234,8 @@ Per abilitare la sicurezza a livello di riga su tutte le partizioni, eseguire l'
 CREATE SCHEMA rls; -- Separate schema to organize RLS objects.
 GO
 
-CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)     
-    RETURNS TABLE     
+CREATE FUNCTION rls.fn_tenantAccessPredicate(@TenantId int)
+    RETURNS TABLE
     WITH SCHEMABINDING
 AS
     RETURN SELECT 1 AS fn_accessResult
@@ -250,55 +250,55 @@ CREATE SECURITY POLICY rls.tenantAccessPolicy
     ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Blogs,
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts,
     ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.Posts;
-GO 
+GO
 ```
 
 > [!TIP]
-> In un progetto complesso in cui potrebbe essere necessario aggiungere il predicato in centinaia di tabelle, questa operazione può essere noiosa. In questo caso, è disponibile una stored procedure helper che genera automaticamente criteri di sicurezza e aggiunge un predicato in tutte le tabelle di uno schema. Per altre informazioni, vedere il posto di blog relativo all'[applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> In un progetto complesso in cui potrebbe essere necessario aggiungere il predicato in centinaia di tabelle, questa operazione può essere noiosa. In questo caso, è disponibile una stored procedure helper che genera automaticamente criteri di sicurezza e aggiunge un predicato in tutte le tabelle di uno schema. Per altre informazioni, vedere il posto di blog relativo all'[applicazione della sicurezza a livello di riga a tutte le tabelle con lo script helper](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-to-all-tables-helper-script).
 
 Se si esegue di nuovo l'applicazione di esempio, ora i tenant potranno visualizzare unicamente le righe appartenenti ad essi. L'applicazione, inoltre, non può inserire righe che appartengono a tenant diversi da quello attualmente connesso al database di partizionamento e non può aggiornare il TenantId in alcuna delle righe visibili. Se l'app tenta di effettuare una qualsiasi di queste due operazioni, viene generata un'eccezione DbUpdateException.
 
 Se si aggiunge una nuova tabella in un secondo momento, MODIFICARE i criteri di sicurezza in modo da aggiungere predicati di FILTRO e di BLOCCO nella nuova tabella.
 
 ```sql
-ALTER SECURITY POLICY rls.tenantAccessPolicy     
+ALTER SECURITY POLICY rls.tenantAccessPolicy
     ADD FILTER PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable,
     ADD BLOCK  PREDICATE rls.fn_tenantAccessPredicate(TenantId) ON dbo.MyNewTable;
-GO 
+GO
 ```
 
 ### <a name="add-default-constraints-to-automatically-populate-tenantid-for-inserts"></a>Aggiungere vincoli predefiniti per inserire automaticamente il TenantId per le operazioni INSERT
 
-È possibile inserire un vincolo predefinito in ogni tabella per popolare automaticamente il TenantId con il valore attualmente archiviato in SESSION\_CONTEXT durante l'inserimento di righe. Di seguito è riportato un esempio. 
+È possibile inserire un vincolo predefinito in ogni tabella per popolare automaticamente il TenantId con il valore attualmente archiviato in SESSION\_CONTEXT durante l'inserimento di righe. Di seguito è riportato un esempio.
 
 ```sql
 -- Create default constraints to auto-populate TenantId with the
 -- value of SESSION_CONTEXT for inserts.
-ALTER TABLE Blogs     
-    ADD CONSTRAINT df_TenantId_Blogs      
+ALTER TABLE Blogs
+    ADD CONSTRAINT df_TenantId_Blogs
     DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
 GO
 
-ALTER TABLE Posts     
-    ADD CONSTRAINT df_TenantId_Posts      
+ALTER TABLE Posts
+    ADD CONSTRAINT df_TenantId_Posts
     DEFAULT CAST(SESSION_CONTEXT(N'TenantId') AS int) FOR TenantId;
-GO 
+GO
 ```
 
-A questo punto non è necessario che l'applicazione specifichi un TenantId durante l'inserimento di righe: 
+A questo punto non è necessario che l'applicazione specifichi un TenantId durante l'inserimento di righe:
 
 ```csharp
-SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() => 
-{   
+SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
+{
     using (var db = new ElasticScaleContext<int>(
         sharding.ShardMap, tenantId, connStrBldr.ConnectionString))
     {
         // The default constraint sets TenantId automatically!
         var blog = new Blog { Name = name };
-        db.Blogs.Add(blog);     
-        db.SaveChanges();   
-    } 
-}); 
+        db.Blogs.Add(blog);
+        db.SaveChanges();
+    }
+});
 ```
 
 > [!NOTE]
@@ -317,12 +317,12 @@ CREATE FUNCTION rls.fn_tenantAccessPredicateWithSuperUser(@TenantId int)
     RETURNS TABLE
     WITH SCHEMABINDING
 AS
-    RETURN SELECT 1 AS fn_accessResult 
-        WHERE 
+    RETURN SELECT 1 AS fn_accessResult
+        WHERE
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('dbo') -- Replace 'dbo'.
             AND CAST(SESSION_CONTEXT(N'TenantId') AS int) = @TenantId
-        ) 
+        )
         OR
         (
             DATABASE_PRINCIPAL_ID() = DATABASE_PRINCIPAL_ID('superuser')
@@ -342,11 +342,11 @@ GO
 ### <a name="maintenance"></a>Manutenzione 
 
 - **Aggiunta di nuove partizioni**: eseguire lo script T-SQL per abilitare Sicurezza a livello di riga in tutte le nuove partizioni. In caso contrario, le query su tali partizioni non verranno filtrate.
-- **Aggiunta di nuove tabelle**: aggiungere un predicato FILTER e BLOCK ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Aggiunta di nuove tabelle**: aggiungere un predicato FILTER e BLOCK ai criteri di sicurezza in tutte le partizioni ogni volta che si crea una nuova tabella. In caso contrario, le query sulla nuova tabella non verranno filtrate. Questa operazione può essere automatizzata tramite un trigger DDL, come descritto nel [blog relativo all'applicazione automatica della sicurezza a livello di riga alle tabelle create di recente](https://blogs.msdn.com/b/sqlsecurity/archive/20../../apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Summary
 
-Gli strumenti di database elastici e la sicurezza a livello di riga possono essere utilizzati insieme per scalare orizzontalmente il livello di dati di un'applicazione con supporto sia per le partizioni multi-tenant, sia per quelle con tenant singolo. Le partizioni multi-tenant possono essere usate per archiviare i dati in modo più efficiente, in particolar modo nei casi in cui un elevato numero di tenant dispone solo di poche righe di dati. Le partizioni a singolo tenant possono essere usate invece per supportare tenant "premium" con requisiti di prestazioni e isolamento più rigidi.  Per altre informazioni, vedere [Sicurezza a livello di riga][rls].
+Gli strumenti di database elastici e la sicurezza a livello di riga possono essere utilizzati insieme per scalare orizzontalmente il livello di dati di un'applicazione con supporto sia per le partizioni multi-tenant, sia per quelle con tenant singolo. Le partizioni multi-tenant possono essere usate per archiviare i dati in modo più efficiente, in particolar modo nei casi in cui un elevato numero di tenant dispone solo di poche righe di dati. Le partizioni a singolo tenant possono essere usate invece per supportare tenant "premium" con requisiti di prestazioni e isolamento più rigidi. Per altre informazioni, vedere [Sicurezza a livello di riga][rls].
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -360,10 +360,8 @@ Gli strumenti di database elastici e la sicurezza a livello di riga possono esse
 
 Per domande, è disponibile il [forum sul database SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Aggiungere una richiesta di funzionalità nel [forum dei commenti e suggerimenti sul database SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
-
 <!--Image references-->
 [1]: ./media/saas-tenancy-elastic-tools-multi-tenant-row-level-security/blogging-app.png
 <!--anchors-->
 [rls]: https://docs.microsoft.com/sql/relational-databases/security/row-level-security
 [s-d-elastic-database-client-library]: sql-database-elastic-database-client-library.md
-

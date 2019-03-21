@@ -7,12 +7,12 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 04/01/2018
-ms.openlocfilehash: 801f6dddfb3aaea850d76c80d43de93181c3d41c
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: f3850623f5918ea9405131edb1821b941019ac34
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913479"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532328"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
@@ -94,14 +94,14 @@ Per creare un server tramite un backup con ridondanza geografica, usare il coman
 Per eseguire un ripristino geografico del server, al prompt dei comandi dell'interfaccia della riga di comando di Azure immettere il comando seguente:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen4_8 
+az mysql server georestore --resource-group myresourcegroup --name mydemoserver-georestored --source-server mydemoserver --location eastus --sku-name GP_Gen5_8 
 ```
-Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quarta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
+Questo comando crea un nuovo server denominato *mydemoserver-georestored* negli Stati Uniti orientali che apparterrà a *myresourcegroup*. Si tratta di un server per utilizzo generico di quinta generazione con otto vCore. Il server viene creato dal backup con ridondanza geografica di *mydemoserver*, che si trova anch'esso nel gruppo di risorse *myresourcegroup*.
 
 Se si vuole creare il nuovo server in un gruppo di risorse diverso dal server esistente, nel parametro `--source-server` è necessario specificare il nome del server come nell'esempio seguente:
 
 ```azurecli-interactive
-az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen4_8
+az mysql server georestore --resource-group newresourcegroup --name mydemoserver-georestored --source-server "/subscriptions/$<subscription ID>/resourceGroups/$<resource group ID>/providers/Microsoft.DBforMySQL/servers/mydemoserver" --location eastus --sku-name GP_Gen5_8
 
 ```
 
@@ -113,7 +113,7 @@ Il comando `az mysql server georestore` richiede i parametri seguenti:
 |name | mydemoserver-georestored | Nome del nuovo server. |
 |source-server | mydemoserver | Nome del server esistente di cui vengono usati i backup con ridondanza geografica. |
 |location | eastus | Posizione del nuovo server. |
-|sku-name| GP_Gen4_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen4_8 indica un server per utilizzo generico di quarta generazione con otto vCore.|
+|sku-name| GP_Gen5_8 | Questo parametro imposta il piano tariffario, la generazione delle risorse di calcolo e il numero di vCore del nuovo server. GP_Gen5_8 indica un server per utilizzo generico di quinta generazione con otto vCore.|
 
 
 >[!Important]

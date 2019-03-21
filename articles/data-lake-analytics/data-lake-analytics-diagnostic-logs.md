@@ -5,16 +5,15 @@ services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 ms.assetid: cf5633d4-bc43-444e-90fc-f90fbd0b7935
 ms.topic: conceptual
 ms.date: 02/12/2018
-ms.openlocfilehash: e65c6396d859a128777c66cad6a44bb033b50d50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 7fd88383e909ebd6be64c22721b813946e37179e
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623486"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56959131"
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Accesso ai log di diagnostica per Azure Data Lake Analytics
 
@@ -42,7 +41,7 @@ La registrazione diagnostica consente di raccogliere audit trail di accesso ai d
 
      * Selezionare **Stream to an Event Hub** (Esegui streaming in un Hub eventi) per trasmettere i dati di log a un Hub eventi di Azure. Usare questa opzione se si ha una pipeline di elaborazione downstream che analizza in tempo reale i log in ingresso. Se si seleziona questa opzione, è necessario fornire i dettagli dell'Hub eventi di Azure che si desidera utilizzare.
 
-     * Selezionare __Send to Log Analytics__ (Invia a Log Analytics) per inviare i dati al servizio Log Analytics. Usare questa opzione per raccogliere e analizzare i log con Log Analytics.
+     * Selezionare __Invia a Log Analitica__ per inviare i dati al servizio di monitoraggio di Azure. Usare questa opzione se si desidera usare i log di monitoraggio di Azure per raccogliere e analizzare i log.
    * Specificare se si desidera ottenere i log di controllo, i log delle richieste o entrambi.  Un log delle richieste acquisisce tutte le richieste API. Un log di controllo registra tutte le operazioni attivate dalla richiesta dell'API.
 
    * Per __Archivia in un account di archiviazione__ specificare il numero di giorni per cui i dati verranno conservati.
@@ -126,10 +125,10 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 #### <a name="request-log-schema"></a>Schema del log delle richieste
 
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
-| ResourceId |string |Identificatore della risorsa interessata dall'operazione |
+| resourceId |string |Identificatore della risorsa interessata dall'operazione |
 | category |string |La categoria di log. Ad esempio, **Richieste**. |
 | operationName |string |Il nome dell'operazione registrata. Ad esempio, GetAggregatedJobHistory. |
 | resultType |string |Lo stato dell'operazione, ad esempio 200. |
@@ -140,7 +139,7 @@ Di seguito viene riportata una voce di esempio nel log delle richieste in format
 
 #### <a name="request-log-properties-schema"></a>Schema delle proprietà del log di richiesta
 
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | HttpMethod |string |Il metodo HTTP utilizzato per l'operazione. Esempio: GET. |
 | path |string |Il percorso coinvolto nell'operazione |
@@ -178,15 +177,15 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-schema"></a>Schema del log di controllo
 
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | time |string |Il timestamp del log (fusorario UTC) |
-| ResourceId |string |Identificatore della risorsa interessata dall'operazione |
+| resourceId |string |Identificatore della risorsa interessata dall'operazione |
 | category |string |La categoria di log. Ad esempio, **Audit**. |
 | operationName |string |Il nome dell'operazione registrata. Ad esempio, JobSubmitted. |
 | resultType |string |Stato secondario per lo stato del processo (operationName). |
 | resultSignature |string |Informazioni aggiuntive sullo stato di processo (operationName). |
-| identity |string |L'utente che ha richiesto l'operazione. Ad esempio, susan@contoso.com. |
+| identity |string |L'utente che ha richiesto l'operazione. Ad esempio: susan@contoso.com. |
 | properties |JSON |Per informazioni dettagliate, vedere la sezione successiva (Schema delle proprietà del log di controllo) |
 
 > [!NOTE]
@@ -196,7 +195,7 @@ Di seguito viene riportata una voce di esempio nel log di controllo in formato J
 
 #### <a name="audit-log-properties-schema"></a>Schema delle proprietà del log di controllo
 
-| NOME | type | DESCRIZIONE |
+| NOME | Type | DESCRIZIONE |
 | --- | --- | --- |
 | JobId |string |L'ID assegnato al processo |
 | JobName |string |Il nome fornito per il processo |

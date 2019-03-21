@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: spelluru
-ms.openlocfilehash: 1f1797cf3022285f81991eb15818b68df195de4b
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: a9426c20ae23fd3dad4cdba25590ff2eac271896
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834129"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56727962"
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Aggiungere proprietari e utenti in Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -40,20 +40,20 @@ La tabella seguente illustra le azioni che possono essere eseguite dagli utenti 
 | **Azioni che gli utenti in questo ruolo possono eseguire** | **Utente DevTest Labs** | **Proprietario** | **Collaboratore** |
 | --- | --- | --- | --- |
 | **Attività lab** | | | |
-| Aggiungere utenti a un lab |No  |Yes |No  |
-| Aggiornare le impostazioni dei costi |No  |Yes |Yes |
+| Aggiungere utenti a un lab |No  |Sì |No  |
+| Aggiornare le impostazioni dei costi |No  |Sì |Sì |
 | **Attività di base delle VM** | | | |
-| Aggiungere e rimuovere immagini personalizzate |No  |Yes |Yes |
-| Aggiungere, aggiornare ed eliminare formule |Yes |Sì |Yes |
-| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No  |Yes |Yes |
+| Aggiungere e rimuovere immagini personalizzate |No  |Sì |Sì |
+| Aggiungere, aggiornare ed eliminare formule |Sì |Sì |Sì |
+| Aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace |No  |Sì |Sì |
 | **Attività della macchina virtuale** | | | |
-| Creare VM |Yes |Sì |Yes |
-| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Yes |Yes |
-| Aggiornare i criteri delle VM |No  |Yes |Yes |
-| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Yes |Yes |
+| Creare VM |Sì |Sì |Sì |
+| Avviare, arrestare ed eliminare VM |Solo VM create dall'utente |Sì |Sì |
+| Aggiornare i criteri delle VM |No  |Sì |Sì |
+| Aggiungere/Rimuovere dischi dati nelle VM |Solo VM create dall'utente |Sì |Sì |
 | **Attività degli elementi** | | | |
-| Aggiungere e rimuovere repository di elementi |No  |Yes |Yes |
-| Applicare elementi |Yes |Sì |Yes |
+| Aggiungere e rimuovere repository di elementi |No  |Sì |Sì |
+| Applicare elementi |Sì |Sì |Sì |
 
 > [!NOTE]
 > Quando un utente crea una VM, tale utente viene automaticamente assegnato al ruolo **Proprietario** della VM creata.
@@ -77,6 +77,9 @@ Il processo di aggiunta di un proprietario o di un utente a un lab in Azure DevT
 11. Quando si torna al pannello **Utenti** , l'utente risulta aggiunto.  
 
 ## <a name="add-an-external-user-to-a-lab-using-powershell"></a>Aggiungere un utente esterno a un lab usando PowerShell
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 Oltre ad aggiungere gli utenti nel portale di Azure, è possibile aggiungere un utente esterno al lab usando uno script di PowerShell. Nell'esempio seguente, modificare i valori dei parametri nel commento **Values to change** (Valori da modificare).
 È possibile recuperare i valori `subscriptionId`, `labResourceGroup` e `labName` dal pannello Lab nel portale di Azure.
 
@@ -96,18 +99,18 @@ Oltre ad aggiungere gli utenti nel portale di Azure, è possibile aggiungere un 
     $userDisplayName = "<Enter user's display name here>"
 
     # Log into your Azure account
-    Connect-AzureRmAccount
+    Connect-AzAccount
 
     # Select the Azure subscription that contains the lab. 
     # This step is optional if you have only one subscription.
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId
+    Select-AzSubscription -SubscriptionId $subscriptionId
 
     # Retrieve the user object
-    $adObject = Get-AzureRmADUser -SearchString $userDisplayName
+    $adObject = Get-AzADUser -SearchString $userDisplayName
 
     # Create the role assignment. 
     $labId = ('subscriptions/' + $subscriptionId + '/resourceGroups/' + $labResourceGroup + '/providers/Microsoft.DevTestLab/labs/' + $labName)
-    New-AzureRmRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
+    New-AzRoleAssignment -ObjectId $adObject.Id -RoleDefinitionName 'DevTest Labs User' -Scope $labId
 
 ## <a name="add-an-owner-or-user-at-the-subscription-level"></a>Aggiungere un utente o un proprietario a livello di sottoscrizione
 Le autorizzazioni di Azure vengono propagate dall'ambito padre all'ambito figlio in Azure. Quindi i proprietari di una sottoscrizione di Azure contenente lab sono automaticamente proprietari di tali lab. Sono proprietari anche delle VM e delle altre risorse create dagli utenti del lab e dal servizio Azure DevTest Labs. 

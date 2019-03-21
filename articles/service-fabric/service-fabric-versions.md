@@ -3,8 +3,8 @@ title: Informazioni sulle versioni cluster di Azure Service Fabric | Microsoft D
 description: Versioni cluster di Azure Service Fabric supportate
 services: service-fabric
 documentationcenter: .net
-author: twhitney
-manager: jpconnock
+author: aljo-microsoft
+manager: chakdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
-ms.author: TylerMSFT
-ms.openlocfilehash: 154869c3e6bcd44a71480a3cf7363537dddcebf9
-ms.sourcegitcommit: 333d4246f62b858e376dcdcda789ecbc0c93cd92
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/01/2018
-ms.locfileid: "52727682"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57191648"
 ---
 # <a name="supported-service-fabric-versions"></a>Versioni di Service Fabric supportate
 
@@ -27,8 +27,8 @@ Verificare che il cluster esegua sempre una versione di Service Fabric supportat
 
 Fare riferimento ai documenti seguenti per informazioni dettagliate su come assicurarsi che il cluster esegua una versione di Service Fabric supportata.
 
-- [Aggiornare un cluster di Azure Service Fabric ](service-fabric-cluster-upgrade.md)
-- [Aggiornare il cluster autonomo di Service Fabric in Windows Server ](service-fabric-cluster-upgrade-windows-server.md)
+- [Aggiornare la versione di Service Fabric in un cluster di Azure](service-fabric-cluster-upgrade.md)
+- [Aggiornare la versione di Service Fabric in un cluster autonomo in windows server](service-fabric-cluster-upgrade-windows-server.md)
 
 Di seguito è riportato un elenco delle versioni di Service Fabric supportate con le relative date di fine supporto.
 
@@ -43,5 +43,5 @@ Di seguito è riportato un elenco delle versioni di Service Fabric supportate co
 | 6.0.* | 5.6.205.* |Versione 2.8 o precedente |30 marzo 2018     |
 | 6.1.* | 5.7.221.* |Versione 3.0 o precedente |15 luglio 2018      |
 | 6.2.* | 6.0.232.* |Versione 3.1 o precedente |26 ottobre 2018   |
-| 6.3.* | 6.1.480.* |Versione 3.2 o precedente |28 febbraio 2019  |
+| 6.3.* | 6.1.480.* |Versione 3.2 o precedente |Marzo 31,2019  |
 | 6.4.* | 6.2.301.* |Versione 3.3 o precedente |Versione corrente, nessuna data di fine supporto |

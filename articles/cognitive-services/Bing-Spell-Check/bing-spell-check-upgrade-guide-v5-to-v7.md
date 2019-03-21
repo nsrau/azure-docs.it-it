@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: conceptual
-ms.date: 06/21/2016
+ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 402fabc41908afc35396064ef4e518fc3c231052
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b19681fd1ad70985bccd375931f5d5801f153aa8
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866356"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56886350"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Controllo ortografico
 

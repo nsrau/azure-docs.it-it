@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/10/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4782afa71919a3545bd023f33f873969c86b6cc6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6d3bb9708c7bab41f87ad9c2b6ae18ac62849a2d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208351"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223921"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -107,12 +107,8 @@ Se una macchina virtuale non necessita più dell'identità assegnata dal sistema
 ```azurecli-interactive
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
-
-Per rimuovere l'estensione della macchina virtuale relativa all'identità gestita per le risorse di Azure (la cui deprecazione è pianificata per il gennaio 2019), usare il parametro `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux`, a seconda del tipo di macchina virtuale, con [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/):
-
-```azurecli-interactive
-az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
-```
+> [!NOTE]
+> Se è stato eseguito il provisioning di identità gestita per le risorse di Azure della macchina virtuale dell'estensione (deprecato), è necessario rimuoverla usando [Elimina estensione macchina virtuale di az](https://docs.microsoft.com/cli/azure/vm/). Per altre informazioni, vedere [eseguire la migrazione dall'estensione della macchina virtuale al servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
 
 ## <a name="user-assigned-managed-identity"></a>Identità gestita assegnata dall'utente
 
@@ -135,7 +131,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale durante
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity
    ```
-   La risposta contiene i dettagli relativi all'identità gestita assegnata dall'utente creata ed è simile all'esempio seguente. Il valore id risorsa assegnato all'identità gestita assegnata dall'utente viene usato nel passaggio seguente.
+   La risposta contiene i dettagli relativi all'identità gestita assegnata dall'utente creata ed è simile all'esempio seguente. Il valore di ID risorsa assegnato all'identità gestito assegnata dall'utente viene utilizzato nel passaggio seguente.
 
    ```json
    {

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 767021772fc86013cd8192216eb03840f1160807
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 0260ecbf23e0240b836f6d6004959a9604085fc1
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878698"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194963"
 ---
 # <a name="translator-text-api-v30"></a>API Traduzione testuale v3.0
 
@@ -51,7 +51,7 @@ Per fare in modo che la richiesta venga gestita da un data center specifico, cam
 
 ## <a name="authentication"></a>Authentication
 
-Sottoscrivere l'API Traduzione testuale o l'[offerta per Servizi cognitivi integrati](https://azure.microsoft.com/pricing/details/cognitive-services/) in Servizi cognitivi Microsoft e usare la chiave di sottoscrizione (disponibile nel portale di Azure) per eseguire l'autenticazione. 
+La sottoscrizione all'API traduzione testuale oppure [multi-servizio servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/) in servizi cognitivi Microsoft e utilizzare la sottoscrizione della chiave (disponibile nel portale di Azure) per l'autenticazione. 
 
 Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizione. Questa tabella spiega come usare ogni intestazione:
 
@@ -59,7 +59,7 @@ Sono tre le intestazioni che è possibile usare per autenticare la sottoscrizion
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Usare con la sottoscrizione di Servizi cognitivi se si passa la chiave privata*.<br/>Il valore è la chiave privata di Azure per la sottoscrizione dell'API Traduzione testuale.|
 |Authorization|*Usare con la sottoscrizione di Servizi cognitivi se si passa un token di autenticazione*.<br/>Il valore è il token di connessione: `Bearer <token>`.|
-|Ocp-Apim-Subscription-Region|*Usare con la sottoscrizione integrata di Servizi cognitivi se si passa una chiave privata integrata.*<br/>Il valore corrisponde all'area della sottoscrizione integrata. Questo valore è facoltativo quando non si usa una sottoscrizione integrata.|
+|Ocp-Apim-Subscription-Region|*Usare con servizi cognitivi multiservizio sottoscrizione se si passa una chiave privata multiservizio.*<br/>Il valore è l'area della sottoscrizione multiservizio. Questo valore è facoltativo se non si usa una sottoscrizione di multi-service.|
 
 ###  <a name="secret-key"></a>Chiave privata
 La prima opzione consiste nell'eseguire l'autenticazione usando l'intestazione `Ocp-Apim-Subscription-Key`. Aggiungere semplicemente l'intestazione `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` alla richiesta.
@@ -89,21 +89,22 @@ Authorization: Bearer <Base64-access_token>
 
 Un token di autenticazione è valido per 10 minuti. Il token deve essere riutilizzato quando si effettuano più chiamate alle API del servizio Translator. Tuttavia, se il programma effettua richieste all'API del servizio Translator per un periodo di tempo prolungato, il programma deve richiedere un nuovo token di accesso a intervalli regolari (ad esempio, ogni 8 minuti).
 
-### <a name="all-in-one-subscription"></a>Sottoscrizione integrata
+### <a name="multi-service-subscription"></a>Sottoscrizione multiservizio
 
-L'ultima opzione di autenticazione consiste nell'usare una sottoscrizione integrata di Servizi cognitivi. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
+L'ultima opzione authentication è usare multiservizio sottoscrizione di un servizio cognitivi. In questo modo è possibile usare una singola chiave privata per autenticare le richieste per più servizi. 
 
-Quando si usa una chiave privata integrata, è necessario includere due intestazioni di autenticazione nella richiesta. La prima passa la chiave privata, mentre la seconda specifica l'area associata alla sottoscrizione. 
-* `Ocp-Api-Subscription-Key`
+Quando si usa una chiave privata multiservizio, è necessario includere due intestazioni di autenticazione con la richiesta. La prima passa la chiave privata, mentre la seconda specifica l'area associata alla sottoscrizione. 
+* `Ocp-Apim-Subscription-Key`
 * `Ocp-Apim-Subscription-Region`
+
+Area è obbligatoria per la sottoscrizione di API traduzione testuale multiservizio. L'area selezionata è l'unica area che è possibile usare per la traduzione del testo quando si usa la chiave di sottoscrizione multiservizio, e deve trovarsi nella stessa area selezionata durante l'iscrizione per la sottoscrizione multi-service tramite il portale di Azure.
+
+Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` e `westus2`.
 
 Se si passa la chiave privata nella stringa di query con il parametro `Subscription-Key`, è necessario specificare l'area con il parametro di query `Subscription-Region`.
 
 Se si usa un bearer token, è necessario ottenere il token dall'endpoint di area: `https://<your-region>.api.cognitive.microsoft.com/sts/v1.0/issueToken`.
 
-Le aree disponibili sono `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `japaneast`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus` e `westus2`.
-
-L'area è obbligatoria per la sottoscrizione integrata dell'API Traduzione testuale.
 
 ## <a name="errors"></a>Errors
 

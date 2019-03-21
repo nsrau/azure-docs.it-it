@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: iainfou
-ms.openlocfilehash: 680e3990afa3ed08c69402e9e5403cb9a6f3266a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aaa16245fada7fbccdd0865d973de2fa19970989
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175456"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176583"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -116,7 +116,7 @@ Un controller in ingresso che distribuisce il traffico ai servizi e alle applica
 
 ![Un web application firewall (WAF), come il gateway applicazione di Azure, può proteggere e distribuire il traffico per il cluster del servizio Azure Kubernetes.](media/operator-best-practices-network/web-application-firewall-app-gateway.png)
 
-Un web application firewall (WAF) garantisce un ulteriore livello di sicurezza grazie al filtro del traffico in entrata. OWASP (Open Web Application Security Project) fornisce un insieme di regole da seguire in caso di attacchi come il Cross Site Scripting o la cookie poisoning. Il [gateway applicazione di Azure][app-gateway] è un WAF che può integrarsi con i cluster del servizio Azure Kubernetes per fornire queste funzionalità di sicurezza, prima che il traffico raggiunga le applicazioni e il cluster del servizio Azure Kubernetes. Anche altre soluzioni di terze parti svolgono queste funzioni ed è quindi possibile continuare a sfruttare gli investimenti esistenti o le competenze già acquisite per un determinato prodotto.
+Un web application firewall (WAF) garantisce un ulteriore livello di sicurezza grazie al filtro del traffico in entrata. OWASP (Open Web Application Security Project) fornisce un insieme di regole da seguire in caso di attacchi come il Cross Site Scripting o la cookie poisoning. [Gateway applicazione di Azure] [ app-gateway] (attualmente in anteprima nel servizio contenitore di AZURE) è un WAF in grado di integrarsi con i cluster servizio contenitore di AZURE per fornire queste funzionalità di sicurezza, prima che il traffico raggiunge le applicazioni e cluster AKS. Anche altre soluzioni di terze parti svolgono queste funzioni ed è quindi possibile continuare a sfruttare gli investimenti esistenti o le competenze già acquisite per un determinato prodotto.
 
 Le risorse in ingresso e il servizio di bilanciamento del carico continuano a essere eseguiti nel cluster del servizio Azure Kubernetes per perfezionare ulteriormente la distribuzione del traffico. Il gateway applicazione può essere gestito centralmente come controller in ingresso con una definizione delle risorse. Per iniziare, [creare un controller in ingresso del gateway applicazione][app-gateway-ingress].
 
@@ -124,7 +124,7 @@ Le risorse in ingresso e il servizio di bilanciamento del carico continuano a es
 
 **Suggerimento per la procedura consigliata**: usare criteri di rete per consentire o meno il traffico verso i pod. Per impostazione predefinita, è consentito tutto il traffico tra i pod in un cluster. Per garantire maggiore sicurezza, definire regole che limitino la comunicazione dei pod.
 
-I criteri di rete sono una funzionalità Kubernetes che consente di controllare il flusso del traffico tra pod. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. L'uso di criteri di rete rappresenta un metodo nativo del cloud per controllare il flusso del traffico. Poiché i pod vengono creati dinamicamente in un cluster del servizio Azure Kubernetes, i criteri di rete necessari possono essere applicati automaticamente. Usare tali criteri, anziché gruppi di sicurezza di rete di Azure, per controllare il traffico da pod a pod.
+Criteri di rete (attualmente in anteprima nel servizio contenitore di AZURE) sono una funzionalità di Kubernetes che consente di controllare il flusso del traffico tra i POD. È possibile scegliere di consentire o non consentire il traffico in base a impostazioni come la porta del traffico, lo spazio dei nomi o le etichette assegnate. L'uso di criteri di rete rappresenta un metodo nativo del cloud per controllare il flusso del traffico. Poiché i pod vengono creati dinamicamente in un cluster del servizio Azure Kubernetes, i criteri di rete necessari possono essere applicati automaticamente. Usare tali criteri, anziché gruppi di sicurezza di rete di Azure, per controllare il traffico da pod a pod.
 
 Per usare criteri di rete, è necessario che la funzionalità sia abilitata quando si crea un cluster del servizio Azure Kubernetes. Non è possibile abilitare criteri di rete in un cluster esistente di tale servizio. Pianificare in anticipo per essere certi di abilitare i criteri di rete nei cluster e poterli quindi usare in base alle esigenze.
 

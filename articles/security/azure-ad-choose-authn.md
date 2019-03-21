@@ -9,18 +9,18 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a05874e28c08087b6f82c3aa5a02e83d2629ffe5
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: efe4f1542d255232258329f26526bfc997cf6b50
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694687"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189751"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD 
 
 Questo articolo è il primo di una serie di articoli finalizzati ad aiutare le organizzazioni a implementare una soluzione ibrida completa di gestione delle identità di Azure Active Directory (Azure AD). Questa soluzione è stata presentata come [Hybrid Identity Digital Transformation Framework](https://aka.ms/aadframework). e include i risultati di business e gli obiettivi su cui le organizzazioni devono concentrarsi per implementare una soluzione ibrida di gestione delle identità affidabile e sicura. 
 
-Il primo risultato aziendale del framework illustra in dettaglio i requisiti necessari alle organizzazioni per proteggere il processo di autenticazione quando gli utenti accedono alle applicazioni cloud. Il primo obiettivo aziendale del risultato di business protetto tramite autenticazione è la possibilità per gli utenti di accedere ad app cloud usando nomi utente e password locali. Questo processo di accesso e la modalità di autenticazione degli utenti rendono possibile qualsiasi cosa nel cloud.
+Il primo risultato aziendale del framework illustra in dettaglio i requisiti necessari alle organizzazioni per proteggere il processo di autenticazione quando gli utenti accedono alle applicazioni cloud. Il primo obiettivo aziendale del risultato di business protetto tramite autenticazione è la possibilità per gli utenti di accedere ad app cloud usando nomi utente e password locali. Questo processo di accesso e l'autenticazione consente tutto nel cloud.
 
 La scelta del metodo di autenticazione corretto rappresenta la priorità assoluta per le organizzazioni che desiderano spostare le proprie applicazioni nel cloud. È bene non prendere questa decisione con leggerezza, per i motivi seguenti:
 
@@ -135,10 +135,10 @@ Per la procedura di distribuzione, fare riferimento all'[implementazione dell'au
 
 * **Scenari avanzati**. Una soluzione di autenticazione federata è in genere necessaria per le aziende con requisiti di autenticazione non supportati nativamente da Azure AD. Vedere le Informazioni dettagliate utili per la [scelta dell'opzione di accesso più adatta](https://blogs.msdn.microsoft.com/samueld/2017/06/13/choosing-the-right-sign-in-option-to-connect-to-azure-ad-office-365/). Considerare i requisiti comuni seguenti:
 
-    * Autenticazione che richiede smart card o certificati.
-    * Server MFA locali o provider di procedure di autenticazione a più fattori di terze parti.
-    * Autenticazione tramite soluzioni di autenticazione di terze parti. Vedere l'[Elenco di compatibilità di federazione di Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
-    * Accesso che richiede un sAMAccountName, ad esempio DOMINIO\nome utente, anziché un nome dell'entità utente (UPN), ad esempio user@domain.com.
+  * Autenticazione che richiede smart card o certificati.
+  * Server MFA locali o provider di procedure di autenticazione a più fattori di terze parti.
+  * Autenticazione tramite soluzioni di autenticazione di terze parti. Vedere l'[Elenco di compatibilità di federazione di Azure AD](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility).
+  * Accesso che richiede un sAMAccountName, ad esempio DOMINIO\nome utente, anziché un nome dell'entità utente (UPN), ad esempio user@domain.com.
 
 * **Continuità aziendale**. I sistemi federati richiedono in genere un array di server con bilanciamento del carico, noto come farm. Questa farm è configurata in una topologia di rete interna e perimetrale per garantire la disponibilità elevata per le richieste di autenticazione.
 
@@ -161,7 +161,7 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 
     ![Soluzione ibrida di gestione delle identità di Azure AD con sincronizzazione dell'hash delle password](media/azure-ad/azure-ad-authn-image2.png)
 
-* Requisiti dell'autenticazione pass-through a livello di agente:
+* Requisiti dell'agente di autenticazione pass-through, usando due agenti per la ridondanza:
 
     ![Soluzione ibrida di gestione delle identità di Azure AD con autenticazione pass-through](media/azure-ad/azure-ad-authn-image3.png)
 
@@ -180,7 +180,7 @@ I diagrammi seguenti definiscono i componenti dell'architettura generale necessa
 |Esiste una soluzione di monitoraggio dello stato?|Facoltativo|Stato agente fornito dall'[interfaccia di amministrazione di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-pass-through-authentication)|[Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-adfs)|
 |Gli utenti ottengono l'accesso Single Sign-On alle risorse cloud dai dispositivi aggiunti al dominio all'interno della rete aziendale?|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sì, con l'[accesso Single Sign-On facile](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)|Sì|
 |Quali tipi di accesso sono supportati?|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-custom)|UserPrincipalName + Password<br><br>Autenticazione integrata di Windows con [Seamless SSO](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sso)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-faq)|UserPrincipalName + Password<br><br>sAMAccountName + Password<br><br>Autenticazione integrata di Windows<br><br>[Autenticazione con certificato e smart card](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-user-certificate-authentication)<br><br>[ID di accesso alternativo](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id)|
-|Windows Hello for Business è supportato?|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati con Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati con Intune](https://blogs.technet.microsoft.com/microscott/setting-up-windows-hello-for-business-with-intune/)<br>*Richiede il livello di funzionalità del dominio di Windows Server 2016*|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
+|Windows Hello for Business è supportato?|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati con Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati con Intune](https://microscott.azurewebsites.net/2017/12/16/setting-up-windows-hello-for-business-with-intune/)<br>*Richiede il livello di funzionalità del dominio di Windows Server 2016*|[Modello di attendibilità chiavi](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)<br><br>[Modello di attendibilità certificati](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-key-trust-adfs)|
 |Quali sono le opzioni di autenticazione a più fattori?|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|[Azure MFA](https://docs.microsoft.com/azure/multi-factor-authentication/)<br><br>[Server di Azure MFA](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-deploy)<br><br>[MFA di terze parti](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-additional-authentication-methods-for-ad-fs)<br><br>[Controlli personalizzati con accesso condizionale*](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)|
 |Quali stati dell'account utente sono supportati?|Account disabilitati<br>(fino a 30 minuti di ritardo)|Account disabilitati<br><br>Account bloccato<br><br>Account scaduto<br><br>Password scaduta<br><br>Orari di accesso|Account disabilitati<br><br>Account bloccato<br><br>Account scaduto<br><br>Password scaduta<br><br>Orari di accesso|
 |Quali sono le opzioni di accesso condizionale?|[Accesso condizionale di Azure AD con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Accesso condizionale di Azure AD con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Accesso condizionale di Azure AD con Azure AD Premium](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[Regole di attestazione per AD FS](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
@@ -204,7 +204,7 @@ Usare o abilitare la sincronizzazione dell'hash delle password indipendentemente
 
    * Le organizzazioni che in precedenza avevano attivato la sincronizzazione dell'hash delle password hanno cambiato metodo di autenticazione per usare tale sincronizzazione. Sono tornati online in poche ore. Usando l'accesso alla posta elettronica tramite Office 365, hanno lavorato per risolvere i problemi e accedere ad altri carichi di lavoro basati sul cloud.
 
-   * Le organizzazioni che in precedenza non avevano abilitato la sincronizzazione dell'hash delle password hanno dovuto ricorrere a sistemi di posta elettronica consumer esterni non attendibili per le comunicazioni e la risoluzione dei problemi. In questi casi, ci sono volute settimane o più per tornare di nuovo in attività.
+   * Le organizzazioni che non è stata precedentemente abilitare la sincronizzazione dell'hash delle password hanno dovuto ricorrere a sistemi di posta elettronica consumer esterni non attendibili per le comunicazioni risolvere i problemi. In questi casi, ha richiesto loro settimane alla propria infrastruttura di identità in locale, di ripristino prima che gli utenti erano in grado di effettuare l'accesso alle App basate su cloud anche in questo caso.
 
 3. **Identity Protection** uno dei modi migliori per proteggere gli utenti nel cloud è Azure AD Identity Protection con Azure AD Premium P2. Microsoft esegue continuamente l'analisi di Internet alla ricerca degli elenchi di nomi utente e password venduti e resi disponibili sul dark web dai malintenzionati. Azure AD è in grado di usare queste informazioni per verificare se uno qualsiasi dei nomi utente e delle password dell'organizzazione sono compromessi. È pertanto essenziale abilitare la sincronizzazione dell'hash delle password indipendentemente dal metodo di autenticazione usato, sia che si tratti di autenticazione federata o pass-through. Le credenziali perse vengono presentate in forma di report. Usare queste informazioni per impedire o imporre agli utenti di cambiare la password quando cercano di accedere con una password persa.
 

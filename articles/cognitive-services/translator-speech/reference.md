@@ -10,12 +10,13 @@ ms.subservice: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ms.openlocfilehash: c68d9c3d40ffa3d4a5a5ae635fbc0ea0a010239c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 3493f6d25461836d8f6e48ce4213b0f5b78b6372
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874737"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675110"
 ---
 # <a name="translator-speech-api"></a>API Traduzione vocale
 
@@ -90,7 +91,7 @@ Si noti che le dimensioni del file totali (byte 4-7) e le dimensioni di "data" (
 Dopo l'invio dell'intestazione WAV (RIFF), il client invia blocchi di dati audio. Il client trasmetterà in genere blocchi con dimensioni fisse che rappresentano una durata fissa (ad esempio, 100 ms di audio per volta).
 
 ### <a name="signal-the-end-of-the-utterance"></a>Segnalare la fine dell'espressione
-L'API Traduzione vocale restituisce la trascrizione e la traduzione del flusso audio mentre è in corso l'invio dell'audio. La trascrizione finale, la traduzione finale e il contenuto audio tradotto verranno restituiti all'utente solo alla fine dell'espressione. In alcuni casi può essere necessario forzare la fine dell'espressione. A tal fine, inviare 2,5 secondi di silenzio. 
+L'API Traduzione vocale restituisce la trascrizione e la traduzione del flusso audio mentre è in corso l'invio dell'audio. La trascrizione finale, la traduzione finale e il contenuto audio tradotto verranno restituiti all'utente solo alla fine dell'espressione. In alcuni casi può essere necessario forzare la fine dell'espressione. A tal fine, inviare 2,5 secondi di silenzio.
 
 ### <a name="final-result"></a>Risultato finale
 Alla fine di un'espressione viene generato un risultato di riconoscimento vocale finale. Un risultato viene trasmesso dal servizio al client con un messaggio WebSocket di tipo Text. Il contenuto del messaggio è la serializzazione JSON di un oggetto con le proprietà seguenti:
@@ -112,7 +113,7 @@ Il seguente è un risultato finale di esempio:
 {
   type: "final"
   id: "23",
-  recognition: "what was said", 
+  recognition: "what was said",
   translation: "translation of what was said",
   audioStreamPosition: 319680,
   audioSizeBytes: 35840,
@@ -143,7 +144,7 @@ Il seguente è un risultato finale di esempio:
 {
   type: "partial"
   id: "23.2",
-  recognition: "what was", 
+  recognition: "what was",
   translation: "translation of what was",
   audioStreamPosition: 319680,
   audioSizeBytes: 25840,
@@ -193,46 +194,3 @@ Quando un'applicazione client ha completato la trasmissione dell'audio e ha rice
 |401    |Non autorizzato. Assicurarsi che le credenziali siano impostate, che siano valide e che la sottoscrizione di Azure Data Market sia in regola con il saldo disponibile.|||
 |500    |Si è verificato un errore. Se l'errore persiste, segnalarlo con l'identificatore di traccia client (X-ClientTraceId) o l'identificatore della richiesta (X-RequestId).|||
 |503    |Il server è temporaneamente non disponibile. Si prega di ripetere la richiesta. Se l'errore persiste, segnalarlo con l'identificatore di traccia client (X-ClientTraceId) o l'identificatore della richiesta (X-RequestId).|||
-
-    
-
-
-    
-
-
-
-
-
-    
-    
-
-
-
-
-    
-
-
-
-
-    
-
-
-
-
-    
-
-            
-
-
-
-
-        
-
-
-
-
-
-
-
-
-

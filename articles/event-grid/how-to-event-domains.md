@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
 ms.date: 01/17/2019
-ms.openlocfilehash: 662e946eee633d12cf517549509281fca4047385
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c49044d8bd96efb7e86cf54509c32033900be305
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470427"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180909"
 ---
 # <a name="manage-topics-and-publish-events-using-event-domains"></a>Gestire argomenti e pubblicare eventi con Domini eventi
 
@@ -24,6 +24,8 @@ Questo articolo illustra come:
 * Pubblicare eventi in un dominio
 
 Per informazioni su Domini eventi, vedere [Informazioni sui domini eventi per la gestione di argomenti di Griglia di eventi](event-domains.md).
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Installare la funzionalità di anteprima
 
@@ -132,7 +134,7 @@ New-AzureRmEventGridSubscription `
 
 Se è necessario un endpoint di test per sottoscrivere gli eventi, è sempre possibile distribuire un'[app Web preesistente](https://github.com/Azure-Samples/azure-event-grid-viewer) che visualizza gli eventi in ingresso. È possibile inviare gli eventi al sito Web di test all'indirizzo `https://<your-site-name>.azurewebsites.net/api/updates`.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 Le autorizzazioni impostate per un argomento vengono archiviate in Azure Active Directory e devono essere eliminate in modo esplicito. L'eliminazione di una sottoscrizione di eventi non implica la revoca di un accesso utente per creare le sottoscrizioni di eventi se l'utente ha accesso in scrittura per un argomento.
 

@@ -5,17 +5,17 @@ description: Informazioni su come ripetere il training di un modello e aggiornar
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: peterlu
 ms.author: amlstudiodocs
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 02/14/2019
-ms.openlocfilehash: 4f3ca01ae44900e4d0ce22b79db44d7bfa84e56d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: fa4448c2a44a3c56548120bd04abf53df9a85ba0
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456555"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56822020"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-web-service"></a>Ripetere il training e distribuire un servizio Web classico di Studio
 
@@ -23,7 +23,7 @@ La ripetizione del training dei modelli di Machine Learning è un modo per garan
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si disponga già di un esperimento di ripetizione del training e di un esperimento predittivo. La procedura è illustrata in [Ripetere il training e distribuire un modello di Machine Learning](retrain-models-programmatically.md). Tuttavia, invece di distribuire il modello di Machine Learning come nuovo servizio Web, si distribuirà l'esperimento predittivo come servizio Web classico.
+Questo articolo presuppone che si disponga già di un esperimento di ripetizione del training e di un esperimento predittivo. La procedura è illustrata in [Ripetere il training e distribuire un modello di Machine Learning](/azure/machine-learning/studio/retrain-machine-learning-model). Tuttavia, invece di distribuire il modello di Machine Learning come nuovo servizio Web, si distribuirà l'esperimento predittivo come servizio Web classico.
      
 ## <a name="add-a-new-endpoint"></a>Aggiungere un nuovo endpoint
 
@@ -60,7 +60,7 @@ Per ottenere l'URL PATCH corretto a livello di codice, seguire questa procedura:
 1. Eseguire il codice di esempio [AddEndpoint](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs) .
 1. Dall'output di AddEndpoint, trovare il valore *HelpLocation* e copiare l'URL.
 
-   ![HelpLocation nell'output dell'esempio addEndpoint.](./media/troubleshooting-retraining-a-model/addEndpoint-output.png)
+   ![HelpLocation nell'output dell'esempio addEndpoint.](./media/retrain-classic/addEndpoint-output.png)
 1. Incollare l'URL in un browser per passare a una pagina contenente i collegamenti della guida per il servizio Web.
 1. Fare clic sul collegamento **Aggiorna risorsa** per aprire la pagina della guida per l'applicazione di patch.
 
@@ -81,7 +81,7 @@ Seguire questa procedura per ottenere l'URL PATCH corretto tramite il portale We
 
 La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codice di esempio che è possibile usare per chiamarlo.
 
-![URL della patch.](./media/troubleshooting-retraining-a-model/ml-help-page-patch-url.png)
+![URL della patch.](./media/retrain-classic/ml-help-page-patch-url.png)
 
 ### <a name="update-the-endpoint"></a>Aggiornare l'endpoint
 

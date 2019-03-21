@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2017
 ms.author: magattus
-ms.openlocfilehash: 45b3698dd77bda815218b43405d64819c3e4789f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ef713c954d6eab05259547a277db12a1e9036bcf
+ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091267"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56650547"
 ---
 # <a name="analyze-azure-cdn-usage-patterns"></a>Analizzare i modelli di utilizzo della rete CDN di Azure
 
@@ -27,7 +27,7 @@ Dopo aver abilitato la rete CDN per l'applicazione, è possibile monitorare l'us
 
 ## <a name="core-analytics-via-azure-diagnostic-logs"></a>Analisi principale tramite i log di diagnostica di Azure
 
-Le funzionalità di analisi di base sono disponibili per tutti gli endpoint di rete CDN per tutti i piani tariffari. I log di diagnostica di Azure consentono di esportare l'analisi principale in archiviazione di Azure, negli hub eventi o in Log Analytics di Azure. Log Analytics di Azure offre una soluzione con grafici che sono configurabili e personalizzabili dall'utente. Per altre informazioni sui log di diagnostica di Azure, vedere [Log di diagnostica di Azure](cdn-azure-diagnostic-logs.md).
+Le funzionalità di analisi di base sono disponibili per tutti gli endpoint di rete CDN per tutti i piani tariffari. I log di diagnostica di Azure consentono di analitica di core per l'esportazione in archiviazione di Azure, hub eventi, o i log di monitoraggio di Azure. Log di monitoraggio di Azure offre una soluzione con grafici che sono configurabili dall'utente e personalizzabile. Per altre informazioni sui log di diagnostica di Azure, vedere [Log di diagnostica di Azure](cdn-azure-diagnostic-logs.md).
 
 ## <a name="verizon-core-reports"></a>Report principali da Verizon
 

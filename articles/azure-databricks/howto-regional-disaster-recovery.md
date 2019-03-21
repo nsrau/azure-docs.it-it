@@ -7,23 +7,17 @@ ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2018
-ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.openlocfilehash: 354f6014e3230b65a0c4f1cd7507e58ca94474dd
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50748324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188102"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Ripristino di emergenza a livello di area per cluster di Azure Databricks
 
 Questo articolo descrive un'architettura di ripristino di emergenza per i cluster di Azure Databricks e illustra i passaggi per implementare l'architettura.
-
-## <a name="azure-databricks-overview"></a>Panoramica di Azure Databricks
-
-Azure Databricks è un servizio di analisi veloce, semplice e collaborativo basato su Apache Spark. Nel caso di una pipeline di Big Data, i dati (non elaborati o strutturati) vengono inseriti in Azure tramite Azure Data Factory in batch o trasmessi quasi in tempo reale con l'IoT Hub, Hub eventi o Kafka. I dati vengono inseriti in un data lake per un'archiviazione permanente a lungo termine, in Archiviazione BLOB di Azure o Azure Data Lake Storage. Nel corso del flusso di lavoro dell'analisi, si usa Azure Databricks per leggere i dati da più origini, ad esempio [Archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) oppure [Azure SQL Data Warehouse](../sql-data-warehouse/index.md), e trasformarli in informazioni significative con Spark.
-
-![Pipeline di Databricks](media/howto-regional-disaster-recovery/databricks-pipeline.png)
 
 ## <a name="azure-databricks-architecture"></a>Architettura di Azure Databricks
 
@@ -37,7 +31,7 @@ Uno dei vantaggi di questa architettura consiste nel fatto che gli utenti posson
 
 ## <a name="how-to-create-a-regional-disaster-recovery-topology"></a>Come creare una topologia di ripristino di emergenza a livello di area
 
-Come indicato nella precedente descrizione dell'architettura, per una pipeline di Big Data con Azure Databricks vengono usati diversi componenti: Archiviazione di Azure, Database di Azure e altre origini dati. Azure Databricks è la risorsa di *calcolo* per la pipeline di Big Data. Si tratta di una risorsa di natura *temporanea*. Infatti, anche se i dati rimangono disponibili in Archiviazione di Azure, il *calcolo* (cluster di Azure Databricks) può essere terminato per evitare che vengano applicati addebiti quando non è necessario. Le origini di *calcolo* (Azure Databricks) e di archiviazione devono trovarsi nella stessa area in modo da evitare problemi di latenza elevata dei processi.  
+Come si nota nella descrizione dell'architettura precedente, esistono diversi componenti usati per una pipeline di Big Data con Azure Databricks:  Archiviazione di Azure, Database di Azure e altre origini dati. Azure Databricks è la risorsa di *calcolo* per la pipeline di Big Data. Si tratta di una risorsa di natura *temporanea*. Infatti, anche se i dati rimangono disponibili in Archiviazione di Azure, il *calcolo* (cluster di Azure Databricks) può essere terminato per evitare che vengano applicati addebiti quando non è necessario. Le origini di *calcolo* (Azure Databricks) e di archiviazione devono trovarsi nella stessa area in modo da evitare problemi di latenza elevata dei processi.  
 
 Per creare una topologia di ripristino di emergenza a livello di area, rispettare i requisiti seguenti:
 
@@ -269,9 +263,14 @@ Per creare una topologia di ripristino di emergenza a livello di area, rispettar
 
 10. **Riconfigurare e riapplicare manualmente il controllo di accesso**
 
-   Se l'area di lavoro primaria esistente è configurata per l'uso del livello Premium (SKU), è probabile che si usi anche la [funzionalità Controllo di accesso](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
+    Se l'area di lavoro primaria esistente è configurata per l'uso del livello Premium (SKU), è probabile che si usi anche la [funzionalità Controllo di accesso](https://docs.azuredatabricks.net/administration-guide/admin-settings/index.html#manage-access-control).
 
-   In tal caso, riapplicare manualmente il controllo di accesso alle risorse (notebook, cluster, processi, tabelle).
+    In tal caso, riapplicare manualmente il controllo di accesso alle risorse (notebook, cluster, processi, tabelle).
+
+## <a name="disaster-recovery-for-your-azure-ecosystem"></a>Ripristino di emergenza per l'ecosistema di Azure
+
+Se si usa altri servizi di Azure, assicurarsi di implementare disaster recovery le procedure consigliate per tali servizi, troppo. Ad esempio, se si sceglie di utilizzare un'istanza di metastore Hive esterna, è consigliabile per il ripristino di emergenza [Server SQL di Azure](../sql-database/sql-database-disaster-recovery.md), [Azure HDInsight](../hdinsight/hdinsight-high-availability-linux.md), e/o [Database di Azure per MySQL ](../mysql/concepts-business-continuity.md). Per informazioni generali sul ripristino di emergenza, vedere [ripristino di emergenza per le applicazioni Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni, vedere la [documentazione su Azure Databricks](https://docs.azuredatabricks.net/user-guide/index.html).

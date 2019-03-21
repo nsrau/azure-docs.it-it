@@ -1,26 +1,26 @@
 ---
-title: Esercitazione sui sinonimi in C# - Ricerca di Azure
-description: In questa esercitazione C# viene illustrato come aggiungere la funzionalità dei sinonimi a un indice in Ricerca di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
+title: Sinonimi C# esempio - ricerca di Azure
+description: In questo C# esempio informazioni su come aggiungere la funzionalità relativa ai sinonimi a un indice in ricerca di Azure. Un mapping dei sinonimi è un elenco di termini equivalenti. I campi con supporto dei sinonimi espandono le query in modo da includere il termine fornito dall'utente e tutti i relativi sinonimi.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
-ms.topic: tutorial
-ms.date: 07/10/2018
+ms.topic: conceptual
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b239fdc176951066699c557eaae5f7fe08a6c26f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: cb0d04e46834530c8fea29ef79a2156caabeeeff
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53309230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202368"
 ---
-# <a name="tutorial-add-synonyms-for-azure-search-in-c"></a>Esercitazione: Aggiungere sinonimi per Ricerca di Azure in C#
+# <a name="example-add-synonyms-for-azure-search-in-c"></a>Esempio: Aggiungere sinonimi per Ricerca di Azure in C#
 
 I sinonimi espandono una query tramite la corrispondenza con termini considerati semanticamente uguali al termine di input. È ad esempio possibile che si voglia che il termine "auto" consenta di rilevare corrispondenze con documenti contenenti i termini "automobile" o "veicolo". 
 
-In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. Questa esercitazione illustra i passaggi essenziali per l'aggiunta e l'uso dei sinonimi con un indice esistente. Si apprenderà come:
+In Ricerca di Azure i sinonimi sono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. In questo esempio illustra i passaggi essenziali per l'aggiunta e utilizzo dei sinonimi a un indice esistente. Si apprenderà come:
 
 > [!div class="checklist"]
 > * Abilitare i sinonimi creando e pubblicando regole di mapping 
@@ -42,7 +42,7 @@ I requisiti per l'esercitazione includono i seguenti:
 
 ## <a name="overview"></a>Panoramica
 
-Le query di tipo "prima e dopo" illustrano il valore dei sinonimi. In questa esercitazione viene usata un'applicazione di esempio che esegue query e restituisce risultati su un indice di esempio. L'applicazione di esempio crea un indice di dimensioni ridotte denominato "hotels", popolato con due documenti. L'applicazione esegue query di ricerca usando termini e frasi non visualizzati nell'indice, abilita la funzionalità relativa ai sinonimi e quindi esegue di nuovo le stesse ricerche. Il codice seguente illustra il flusso complessivo.
+Le query di tipo "prima e dopo" illustrano il valore dei sinonimi. In questo esempio, usare un'applicazione di esempio che esegue query e restituisce i risultati in un indice di esempio. L'applicazione di esempio crea un indice di dimensioni ridotte denominato "hotels", popolato con due documenti. L'applicazione esegue query di ricerca usando termini e frasi non visualizzati nell'indice, abilita la funzionalità relativa ai sinonimi e quindi esegue di nuovo le stesse ricerche. Il codice seguente illustra il flusso complessivo.
 
 ```csharp
   static void Main(string[] args)
@@ -114,7 +114,7 @@ no document matched
 L'abilitazione dei sinonimi è un processo in due passaggi. Vengono prima di tutto definite e caricate le regole dei sinonimi e quindi vengono configurati i campi per usarle. Il processo viene illustrato in `UploadSynonyms` e `EnableSynonymsInHotelsIndex`.
 
 1. Aggiungere una mappa di sinonimi al servizio di ricerca. In `UploadSynonyms` vengono definite quattro regole nella mappa di sinonimi 'desc-synonymmap' e viene eseguito il caricamento nel servizio.
-```csharp
+   ```csharp
     var synonymMap = new SynonymMap()
     {
         Name = "desc-synonymmap",
@@ -126,21 +126,21 @@ L'abilitazione dei sinonimi è un processo in due passaggi. Vengono prima di tut
     };
 
     serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
-```
-Una mappa di sinonimi deve essere conforme al formato `solr` dello standard open source. Il formato viene illustrato in [Synonyms in Azure Search](search-synonyms.md) (Sinonimi in Ricerca di Azure) nella sezione `Apache Solr synonym format`.
+   ```
+   Una mappa di sinonimi deve essere conforme al formato `solr` dello standard open source. Il formato viene illustrato in [Synonyms in Azure Search](search-synonyms.md) (Sinonimi in Ricerca di Azure) nella sezione `Apache Solr synonym format`.
 
 2. Configurare i campi disponibili per la ricerca per l'uso della mappa di sinonimi nella definizione dell'indice. In `EnableSynonymsInHotelsIndex` vengono abilitati i sinonimi in due campi, `category` e `tags`, tramite l'impostazione della proprietà `synonymMaps` sul nome della mappa di sinonimi appena caricata.
-```csharp
-  Index index = serviceClient.Indexes.Get("hotels");
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-  index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
+   ```csharp
+   Index index = serviceClient.Indexes.Get("hotels");
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
+   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
 
-  serviceClient.Indexes.CreateOrUpdate(index);
-```
-Quando si aggiunge una mappa di sinonimi, non è necessario ricompilare l'indice. È possibile aggiungere una mappa di sinonimi al servizio e quindi correggere le definizioni di campi esistenti in qualsiasi indice in modo da usare la nuova mappa di sinonimi. L'aggiunta di nuovi attributi non ha alcun impatto sulla disponibilità dell'indice. Ciò vale anche per la disabilitazione dei sinonimi per un campo. È possibile impostare semplicemente la proprietà `synonymMaps` su un elenco vuoto.
-```csharp
-  index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
-```
+   serviceClient.Indexes.CreateOrUpdate(index);
+   ```
+   Quando si aggiunge una mappa di sinonimi, non è necessario ricompilare l'indice. È possibile aggiungere una mappa di sinonimi al servizio e quindi correggere le definizioni di campi esistenti in qualsiasi indice in modo da usare la nuova mappa di sinonimi. L'aggiunta di nuovi attributi non ha alcun impatto sulla disponibilità dell'indice. Ciò vale anche per la disabilitazione dei sinonimi per un campo. È possibile impostare semplicemente la proprietà `synonymMaps` su un elenco vuoto.
+   ```csharp
+   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+   ```
 
 ## <a name="after-queries"></a>Query di tipo "dopo"
 
@@ -161,18 +161,18 @@ Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ~~~
 La prima query trova il documento dalla regola `five star=>luxury`. La seconda query espande la ricerca usando `internet,wifi` e la terza usando `hotel, motel` e `economy,inexpensive=>budget` nell'individuazione di documenti corrispondenti.
 
-L'aggiunta di sinonimi modifica completamente l'esperienza di ricerca. In questa esercitazione le query originali non sono in grado di restituire risultati significativi, anche se i documenti nell'indice sono rilevanti. Abilitando i sinonimi, è possibile espandere un indice in modo da includere termini di uso comune, senza modifiche ai dati sottostanti dell'indice.
+L'aggiunta di sinonimi modifica completamente l'esperienza di ricerca. In questo esempio, la query originale non è riuscito a restituire risultati significativi, anche se i documenti nell'indice sono rilevanti. Abilitando i sinonimi, è possibile espandere un indice in modo da includere termini di uso comune, senza modifiche ai dati sottostanti dell'indice.
 
 ## <a name="sample-application-source-code"></a>Esempio di codice sorgente dell'applicazione
 Il codice sorgente completo dell'applicazione di esempio utilizzata è disponibile in questa procedura dettagliata su [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Il modo più veloce per pulire le risorse dopo un'esercitazione consiste nell'eliminare il gruppo di risorse contenente il servizio Ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
+Il modo più rapido per la pulizia dopo che è un esempio, eliminando il gruppo di risorse che contiene il servizio di ricerca di Azure. È possibile eliminare ora il gruppo di risorse per eliminare definitivamente tutti gli elementi in esso contenuti. Nel portale, il nome del gruppo di risorse è indicato nella pagina Panoramica del servizio Ricerca di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questa esercitazione ha illustrato l'uso dell'[API REST Synonyms](https://aka.ms/rgm6rq) nel codice C# per creare e pubblicare regole di mapping e quindi chiamare la mappa di sinonimi per una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+In questo esempio viene illustrato il [API REST di sinonimi](https://aka.ms/rgm6rq) in C# codice per creare e pubblicare le regole di mapping e quindi chiamare la mappa di sinonimi per una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Come usare i sinonimi in Ricerca di Azure](search-synonyms.md)

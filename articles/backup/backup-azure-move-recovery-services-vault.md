@@ -6,18 +6,21 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 1/4/2019
+ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0eb19ba8278df2d77466e5be13731723557e85a8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082076"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199245"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Spostare un insieme di credenziali di Servizi di ripristino tra sottoscrizioni di Azure e gruppi di risorse (anteprima pubblica limitata)
 
 Questo articolo illustra come spostare un insieme di credenziali di Servizi di ripristino configurato per Backup di Azure tra sottoscrizioni di Azure o in un altro gruppo di risorse nella stessa sottoscrizione. È possibile usare il portale di Azure o PowerShell per spostare un insieme di credenziali di Servizi di ripristino.
+
+> [!NOTE]
+> Per spostare un insieme di credenziali di servizi di ripristino e le risorse associate al gruppo di risorse diverso, è necessario innanzitutto [registrare la sottoscrizione di origine](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Prerequisiti per lo spostamento di un insieme di credenziali
 
@@ -37,7 +40,7 @@ Questo articolo illustra come spostare un insieme di credenziali di Servizi di r
 -   Se si sposta un insieme di credenziali contenente i dati di backup di macchine virtuali tra sottoscrizioni diverse, è necessario spostare le macchine virtuali nella stessa sottoscrizione e usare lo stesso gruppo di risorse di destinazione per continuare l'esecuzione dei backup.<br>
 
 > [!NOTE]
-> 
+>
 > Gli insiemi di credenziali di Servizi di ripristino configurati per l'uso con **Azure Site Recovery** non possono ancora essere spostati. Se sono state configurate macchine virtuali (Azure IaaS, Hyper-V, VMware) o computer fisici per il ripristino di emergenza con **Azure Site Recovery**, l'operazione di spostamento verrà bloccata. La funzionalità di spostamento di risorse per il servizio Site Recovery non è ancora disponibile.
 
 ## <a name="register-the-source-subscription-to-move-your-recovery-services-vault"></a>Registrare la sottoscrizione di origine per spostare l'insieme di credenziali di Servizi di ripristino

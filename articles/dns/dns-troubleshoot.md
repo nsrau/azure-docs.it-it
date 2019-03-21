@@ -1,5 +1,5 @@
 ---
-title: Guida alla risoluzione dei problemi di DNS di Azure | Microsoft Docs
+title: Guida alla risoluzione dei problemi di DNS di Azure | Documentazione Microsoft
 description: Informazioni su come risolvere i problemi comuni di DNS di Azure
 services: dns
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/20/2017
 ms.author: genli
-ms.openlocfilehash: 816ad6c0079e9272286cdc072ff71bf15313eb8e
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
-ms.translationtype: HT
+ms.openlocfilehash: 535e7604915555f32a7636b739c49f72cb0220c8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34069100"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541571"
 ---
 # <a name="azure-dns-troubleshooting-guide"></a>Guida alla risoluzione dei problemi di DNS di Azure
 
@@ -69,11 +69,11 @@ La risoluzione dei nomi DNS è un processo articolato in più passaggi che può 
 
 1.  Verificare che i record DNS siano stati configurati correttamente nel servizio DNS di Azure. Esaminare i record DNS nel portale di Azure, controllando che il nome della zona, il nome del record e il tipo di record siano corretti.
 2.  Verificare che i record DNS vengano risolti correttamente nei server dei nomi DNS di Azure.
-    - Se si eseguono query DNS dal proprio computer locale, è possibile che vengano visualizzati risultati memorizzati nella cache che non riflettono lo stato corrente dei server dei nomi.  Nelle reti aziendali, inoltre, sono spesso presenti server proxy DNS che impediscono alle query DNS di essere reindirizzate a specifici server dei nomi.  Per evitare questi problemi, è possibile usare un servizio di risoluzione dei nomi basato sul Web come [digwebinterface](http://digwebinterface.com).
+    - Se si eseguono query DNS dal proprio computer locale, è possibile che vengano visualizzati risultati memorizzati nella cache che non riflettono lo stato corrente dei server dei nomi.  Nelle reti aziendali, inoltre, sono spesso presenti server proxy DNS che impediscono alle query DNS di essere reindirizzate a specifici server dei nomi.  Per evitare questi problemi, è possibile usare un servizio di risoluzione dei nomi basato sul Web come [digwebinterface](https://digwebinterface.com).
     - Assicurarsi di specificare i server dei nomi corretti per la propria zona DNS, così come sono riportati nel portale di Azure.
     - Verificare che siano corretti sia il nome DNS (è necessario specificare il nome completo, incluso il nome della zona) sia il tipo di record.
 3.  Assicurarsi che il nome di dominio DNS sia stato correttamente [delegato ai server dei nomi DNS di Azure](dns-domain-delegation.md). Esistono [molti siti Web di terze parti da cui è possibile eseguire la convalida della delega DNS](https://www.bing.com/search?q=dns+check+tool). Trattandosi di un test della delega per la *zona*, è sufficiente specificare il nome della zona DNS, non il nome completo del record.
-4.  Dopo aver completato la procedura appena descritta dovrebbe essere possibile risolvere correttamente il record DNS. Per verificarlo, è possibile usare nuovamente il servizio [digwebinterface](http://digwebinterface.com), questa volta specificando le impostazioni predefinite dei server dei nomi.
+4.  Dopo aver completato la procedura appena descritta dovrebbe essere possibile risolvere correttamente il record DNS. Per verificarlo, è possibile usare nuovamente il servizio [digwebinterface](https://digwebinterface.com), questa volta specificando le impostazioni predefinite dei server dei nomi.
 
 
 ### <a name="recommended-documents"></a>**Documenti consigliati**

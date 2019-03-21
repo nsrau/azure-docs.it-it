@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 9f818715895c2ff2c5d0e1758aaf17a2393287d2
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 70ac4319e2ea0081f7805c2fb936af1310d57d8f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54050646"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534941"
 ---
 # <a name="traffic-manager-traffic-view"></a>Visualizzazione traffico di Gestione traffico
 
@@ -35,6 +35,8 @@ Ad esempio, è possibile usare Visualizzazione traffico per comprendere quali ar
 
 Visualizzazione traffico fa in modo che Gestione traffico esamini le query in ingresso ricevute negli ultimi sette giorni da un profilo che ha questa funzionalità abilitata. Dalle informazioni delle query in ingresso, Visualizzazione traffico estrae l'IP di origine del resolver DNS che viene usato come rappresentazione della posizione degli utenti. Questi vengono quindi raggruppati in una granularità a livello del resolver DNS per creare aree di basi utente usando le informazioni geografiche degli indirizzi IP gestiti da Gestione traffico. Gestione traffico analizza quindi le aree di Azure a cui la query è stata indirizzata e costruisce una mappa del flusso di traffico per gli utenti da tali aree.  
 Nel passaggio successivo Gestione traffico mette in correlazione l'area della base utenti con il mapping delle aree di Azure con le tabelle di latenza della intelligence di rete che mantiene per reti di utenti finali diverse per comprendere la latenza media riscontrata dagli utenti di tali aree quando si connettono ad aree di Azure. Tutti questi calcoli vengono quindi combinati a un livello di IP del resolver DNS locale prima di essere presentati all'utente. È possibile usare le informazioni in vari modi.
+
+La frequenza di aggiornamento dei dati di visualizzazione traffico è dipende da più variabili interno del servizio. Tuttavia, i dati vengono in genere aggiornati una volta ogni 24 ore.
 
 >[!NOTE]
 >La latenza descritta in Visualizzazione traffico è una latenza rappresentativa tra l'utente finale e le aree di Azure a cui è stato connesso e non è la latenza di ricerca DNS. Visualizzazione traffico fa una stima del massimo sforzo della latenza tra il resolver DNS locale e l'area di Azure a cui è stata indirizzata la query. Se i dati disponibili sono insufficienti, la latenza restituita sarà Null. 

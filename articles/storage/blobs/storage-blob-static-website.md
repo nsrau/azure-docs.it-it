@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/19/18
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: cff8b8af4ca40d428edf7c6e35976bcb154a28f1
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328691"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56867740"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.
@@ -51,6 +51,7 @@ Quando non viene fornito un nome file, viene usato il nome file predefinito sele
 
 Per rendere disponibili i file di un sito Web statico tramite HTTPS, vedere [Uso della rete CDN di Azure per accedere a BLOB con domini personalizzati tramite HTTPS](storage-https-custom-domain-cdn.md). Come parte di questo processo, è necessario che *la rete CDN punti all'endpoint Web* invece che all'endpoint BLOB. Potrebbe essere necessario attendere alcuni minuti prima che il contenuto sia visibile perché la configurazione della rete CDN non viene eseguita immediatamente.
 
+Quando si aggiorna il sito Web statico, assicurarsi di cancellare il contenuto memorizzato nella cache nei server perimetrali della rete CDN eliminando l'endpoint della rete CDN. Per altre informazioni, vedere [Ripulire un endpoint della rete CDN di Azure](../../cdn/cdn-purge-endpoint.md).
 
 ## <a name="custom-domain-names"></a>Nomi di dominio personalizzati
 

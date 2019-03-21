@@ -1,6 +1,6 @@
 ---
-title: Guida di riferimento per i riquadri di Progettazione viste in Azure Log Analytics | Microsoft Docs
-description: Progettazione viste in Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
+title: Guida di riferimento per i riquadri di Progettazione viste in Monitoraggio di Azure | Microsoft Docs
+description: Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare viste personalizzate che vengono visualizzate nel portale di Azure e contengono numerose visualizzazioni sui dati nell'area di lavoro di Log Analitica. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
-ms.openlocfilehash: 5b01b55c8b2367861459069cc255840e883b9fc5
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: c380f0391c51628b0eb71723a0faf982a4399680
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817387"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887761"
 ---
-# <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guida di riferimento per i riquadri di Progettazione viste in Log Analytics
-Progettazione viste in Azure Log Analytics consente di creare nel portale di Azure visualizzazioni personalizzate che mostrano una serie di viste di dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
+# <a name="reference-guide-to-view-designer-tiles-in-azure-monitor"></a>Guida di riferimento per i riquadri di Progettazione viste in Monitoraggio di Azure
+Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analitica. Questo articolo è una guida di riferimento per le impostazioni relative ai riquadri disponibili nelle viste personalizzate.
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
@@ -177,5 +177,5 @@ Il riquadro **Due sequenze temporali** visualizza come istogramma i risultati di
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche nei log](../../azure-monitor/log-query/log-query-overview.md) per supportare le query nei riquadri.
+* Scopri [registrare query](../log-query/log-query-overview.md) per supportare le query nei riquadri.
 * Aggiungere [parti della visualizzazione](view-designer-parts.md) alla vista personalizzata.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 86b33bfa0f5383ac68080e2f8f7f9a004a1364a0
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652617"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433451"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -186,7 +186,7 @@ Se i dispositivi vengono distribuiti su una rete che utilizza un server proxy, d
 
 ### <a name="set-up-logs-and-diagnostics"></a>Impostare i log e la diagnostica
 
-In Linux, il daemon di IoT Edge usa journald come driver di registrazione predefinito. È possibile usare lo strumento della riga di comando `journalctl` per eseguire una query dei log daemon. In Windows, il daemon di IoT Edge usa la diagnostica di PowerShell. Usare `Get-WinEvent` per eseguire query dei log da daemon. I moduli IoT Edge utilizzano il driver JSON per la registrazione, che è l'impostazione predefinita di Docker.  
+In Linux, il daemon di IoT Edge Usa diari come impostazione predefinita la registrazione del driver. È possibile usare lo strumento della riga di comando `journalctl` per eseguire una query dei log daemon. In Windows, il daemon di IoT Edge usa la diagnostica di PowerShell. Usare `Get-WinEvent` per eseguire query dei log da daemon. I moduli IoT Edge utilizzano il driver JSON per la registrazione, che è l'impostazione predefinita di Docker.  
 
 Quando si esegue il test di una distribuzione di IoT Edge, è generalmente possibile accedere ai dispositivi per recuperare i log e risolvere i problemi. In uno scenario di distribuzione, quell'opzione potrebbe non essere disponibile. Considerare in che modo raccogliere informazioni sui dispositivi in produzione. Una possibilità consiste nell'usare un modulo di registrazione che raccoglie le informazioni da altri moduli e le invia al cloud. Un esempio di un modulo di registrazione [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), oppure è possibile progettare il proprio. 
 
@@ -194,7 +194,7 @@ Se si teme che i registri diventino troppo grandi in un dispositivo con risorse 
 
 * È possibile limitare specificamente la dimensione di tutti i file di log di docker nel daemon Docker stesso. Per Linux, configurare il daemon su `/etc/docker/daemon.json`. Per Windows, `C:\ProgramData\docker\confige\daemon.json`. 
 * Se si desidera modificare le dimensioni del file di log per ogni contenitore, è possibile farlo in CreateOptions di ciascun modulo. 
-* Configurare Docker per gestire automaticamente i log impostando journald come driver di registrazione predefinito per Docker. 
+* Configurare Docker per gestire automaticamente i log tramite l'impostazione registrazioni come il driver di registrazione predefinito per Docker. 
 * Rimuovere periodicamente i log precedenti dal dispositivo tramite l'installazione di uno strumento logrotate per Docker. Usare la specifica del file seguente: 
 
    ```

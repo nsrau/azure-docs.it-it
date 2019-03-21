@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: 53d9345784c16412c643f3b50506bf6abbab93ec
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 4fa4a9a8d01d499dc431c8b182401226aa72bf1f
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53094903"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56732569"
 ---
 # <a name="management-net-sdk-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>.NET SDK per la gestione: impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso di Azure per .NET
 Informazioni su come impostare ed eseguire processi di analisi tramite l'API di Analisi di flusso per .NET usando Management .NET SDK. Impostare un progetto, creare origini di input e output, trasformazioni e avviare e arrestare i processi. Per i processi di analisi, è possibile trasmettere i dati di flusso dall'archiviazione BLOB o da un hub eventi.
@@ -40,8 +40,8 @@ Per eseguire le procedure descritte nell'articolo è necessario:
    # Select the Azure subscription you want to use to create the resource group
    Select-AzureSubscription -SubscriptionName <subscription name>
    
-   # If Stream Analytics has not been registered to the subscription, remove the remark    symbol (#) to run the Register-AzureRMProvider cmdlet to register the provider namespace
-   #Register-AzureRMProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
+   # If Stream Analytics has not been registered to the subscription, remove the remark    symbol (#) to run the Register-AzProvider cmdlet to register the provider namespace
+   #Register-AzProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
    
    # Create an Azure resource group
    New-AzureResourceGroup -Name <YOUR RESOURCE GROUP NAME> -Location <LOCATION>

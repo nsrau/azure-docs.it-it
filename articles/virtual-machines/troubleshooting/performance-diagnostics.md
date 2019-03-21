@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: c2089f9f6267f318dafe641a6a5b22e7e87427ca
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387390"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441067"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostica delle prestazioni per le macchine virtuali di Azure
 
@@ -42,7 +42,7 @@ La diagnostica delle prestazioni consente di installare sulla macchina virtuale 
     ![Screenshot del portale di Azure che mostra il pulsante di installazione della diagnostica delle prestazioni evidenziato](media/performance-diagnostics/performance-diagnostics-install.png)
 
     > [!NOTE]
-    > In questa schermata, il pannello di nomi delle macchine virtuali è nascosto.
+    > In questa schermata, il pannello di nomi di macchina virtuale è nascosto.
 1. Selezionare un account di archiviazione (facoltativo)
 
     Se si desidera usare un singolo account di archiviazione per archiviare i risultati di diagnostica delle prestazioni per più macchine virtuali, è possibile selezionare un account di archiviazione facendo clic sul pulsante **Impostazioni** sulla barra degli strumenti. Fare clic sul pulsante **OK** dopo aver selezionato l'account di archiviazione.
@@ -143,10 +143,10 @@ Tutte le informazioni dettagliate di diagnostica delle prestazioni e i report ve
 ### <a name="how-do-i-share-this-data-with-microsoft-customer-support"></a>Come si condividono i dati con il Supporto tecnico Microsoft? 
 Esistono diversi modi per condividere il report di diagnostica con Microsoft.
 
-**Opzione 1:** condividere automaticamente il report più recente  
+**Opzione 1:** Condividere automaticamente il report più recente  
 Quando si apre un ticket di supporto con Microsoft, è importante condividere il report di diagnostica delle prestazioni. Se si sceglie di condividere queste informazioni con Microsoft mentre si esegue la diagnostica (selezionando la casella di controllo "**Accetto di condividere le informazioni di diagnostica con Microsoft**"), Microsoft sarà in grado di accedere al report nell’account di archiviazione usando un collegamento SAS al file ZIP di output fino a 30 giorni dalla data di esecuzione. Il tecnico del supporto avrà accesso solo al report più recente. 
 
-**Opzione 2:** generare una firma di accesso condiviso per il file ZIP contenente i dati di diagnostica  
+**Opzione 2:** Generare una firma di accesso condiviso per il file compresso report di diagnostica  
 È possibile condividere un collegamento al file ZIP del report usando una firma di accesso condiviso. A questo scopo, seguire questa procedura: 
 1.  Nel portale di Azure, passare all'account di archiviazione in cui i dati di diagnostica vengono archiviati.
 1.  Selezionare **BLOB** nella sezione **Servizio BLOB**. 
@@ -156,7 +156,7 @@ Quando si apre un ticket di supporto con Microsoft, è importante condividere il
 1.  Fare clic su **Genera token di firma di accesso condiviso e URL**.
 1.  Copiare l’**URL di firma di accesso condiviso al BLOB** e condividerlo con il tecnico del supporto. 
 
-**Opzione 3:** scaricare il report dall'account di archiviazione
+**Opzione 3:** Scaricare il report dall'account di archiviazione
 
 È anche possibile individuare il file ZIP di report di diagnostica delle prestazioni usando i passaggi 1-4 dell'opzione 2. Selezionare questa opzione per scaricare il file e quindi condividerlo tramite posta elettronica, o chiedere al tecnico del supporto le istruzioni da seguire per caricare il file.  
 

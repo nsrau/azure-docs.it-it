@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e7683883963db2cf1911405225fcdbf289de2bb
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 177d74a54e4ab4de698cbb63091656cc8b584e2b
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187539"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010685"
 ---
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gestire Azure Analysis Services con PowerShell
 
@@ -21,27 +21,29 @@ Questo articolo descrive i cmdlet di PowerShell usati per eseguire le attività 
 
 Le attività di gestione del server, ad esempio la creazione o l'eliminazione di un server, la sospensione o la ripresa delle operazioni di un server oppure la modifica del livello di servizio, usano i cmdlet di Azure Resource Manager (risorsa) e di Analysis Services (server). Le altre attività per la gestione dei database, ad esempio l'aggiunta o la rimozione dei membri di un ruolo, l'elaborazione o il partizionamento, usano i cmdlet inclusi nello stesso modulo SqlServer di SQL Server Analysis Services.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="permissions"></a>Autorizzazioni
 
 Per la maggior parte delle attività di PowerShell, sono necessari i privilegi di amministratore per il server Analysis Services gestito. Le attività di PowerShell pianificate sono operazioni automatiche. L'account o l'entità servizio che esegue l'utilità di pianificazione deve avere i privilegi di amministratore per il server Analysis Services. 
 
-Per le operazioni server con i cmdlet AzureRm, anche l'account o l'account che esegue l'utilità di pianificazione deve appartenere al ruolo di proprietario per la risorsa in [il controllo degli accessi in base al ruolo di Azure (RBAC)](../role-based-access-control/overview.md). 
+Per le operazioni server con i cmdlet di Azure PowerShell, l'account o l'esecuzione dell'utilità di pianificazione inoltre necessario appartenere al ruolo di proprietario per la risorsa nello [controllo di accesso di Azure (RBAC)](../role-based-access-control/overview.md). 
 
 ## <a name="resource-management-operations"></a>Operazioni di gestione risorse 
 
-Modulo - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
+Module - [Az.AnalysisServices](/powershell/module/az.analysisservices)
 
 |Cmdlet|DESCRIZIONE| 
 |------------|-----------------| 
-|[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Ottiene i dettagli di un'istanza del server.|  
-|[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Crea un'istanza del server.|   
-|[New-AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|Crea una nuova configurazione di firewall di Analysis Services.|   
-|[New-AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|Crea una nuova regola di firewall di Analysis Services.|   
-|[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Rimuove un'istanza del server.|  
-|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Riprende un'istanza del server.|  
-|[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Sospende un'istanza del server.| 
-|[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Modifica un'istanza del server.|   
-|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Testa l'esistenza di un'istanza del server.| 
+|[Get-AzAnalysisServicesServer](/powershell/module/az.analysisservices/get-azanalysisservicesserver)|Ottiene i dettagli di un'istanza del server.|  
+|[New-AzAnalysisServicesServer](/powershell/module/az.analysisservices/new-azanalysisservicesserver)|Crea un'istanza del server.|   
+|[New-AzAnalysisServicesFirewallConfig](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallconfig)|Crea una nuova configurazione di firewall di Analysis Services.|   
+|[New-AzAnalysisServicesFirewallRule](/powershell/module/az.analysisservices/new-azanalysisservicesfirewallrule)|Crea una nuova regola di firewall di Analysis Services.|   
+|[Remove-AzAnalysisServicesServer](/powershell/module/az.analysisservices/remove-azanalysisservicesserver)|Rimuove un'istanza del server.|  
+|[Resume-AzAnalysisServicesServer](/powershell/module/az.analysisservices/resume-azanalysisservicesserver)|Riprende un'istanza del server.|  
+|[Suspend-AzAnalysisServicesServer](/powershell/module/az.analysisservices/suspend-azanalysisservicesserver)|Sospende un'istanza del server.| 
+|[Set-AzAnalysisServicesServer](/powershell/module/az.analysisservices/set-azanalysisservicesserver)|Modifica un'istanza del server.|   
+|[Test-AzAnalysisServicesServer](/powershell/module/az.analysisservices/test-azanalysisservicesserver)|Testa l'esistenza di un'istanza del server.| 
 
 ## <a name="server-management-operations"></a>Operazioni di gestione del server
 
@@ -49,10 +51,10 @@ Modulo - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azu
 
 |Cmdlet|DESCRIZIONE| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Aggiunge un account autenticato da usare per le richieste server con cmdlet di Azure Analysis Services.| 
-|[Export-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Esporta un logo da un'istanza del server di Analysis Services nell'ambiente attualmente connesso specificato nel comando Add-AzureAnalysisServicesAccount|  
-|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Riavvia un'istanza del server di Analysis Services nell'ambiente attualmente connesso specificato nel comando Add-AzureAnalysisServicesAccount.|  
-|[Sync-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Sincronizza un database specificato nell'istanza specificata del server Analysis Services con tutte le istanze di scalabilità delle query nell'ambiente attualmente connesso specificato nel comando Add-AzureAnalysisServicesAccount|  
+|[Add-AzAnalysisServicesAccount](/powershell/module/az.analysisservices/add-AzAnalysisServicesaccount)|Aggiunge un account autenticato da usare per le richieste server con cmdlet di Azure Analysis Services.| 
+|[Export-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/export-AzAnalysisServicesinstancelog)|Consente di esportare un log da un'istanza del server Analysis Services attualmente connesso nell'ambiente come specificato nel comando Add-AzAnalysisServicesAccount|  
+|[Restart-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Riavvia un'istanza del server Analysis Services dell'ambiente attualmente connesso. specificato nel comando Add-AzAnalysisServicesAccount.|  
+|[Sync-AzAnalysisServicesInstance](/powershell/module/az.analysisservices/restart-AzAnalysisServicesinstance)|Consente di sincronizzare un database specificato nell'istanza specificata del server Analysis Services a tutte le istanze di scalabilità orizzontale delle query in attualmente connesso nell'ambiente come specificato nel comando Add-AzAnalysisServicesAccount|  
 
 ## <a name="database-operations"></a>Operazioni del database
 
