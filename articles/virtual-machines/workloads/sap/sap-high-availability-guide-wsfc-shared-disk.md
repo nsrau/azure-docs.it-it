@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91a72a4244e3cae081fe9a962bbb80d3ce19822d
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 608965160f4abb57ccdfe8b8256fef971754b4d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000302"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -39,7 +39,7 @@ ms.locfileid: "39113223"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 [ha-guide]:sap-high-availability-guide.md
@@ -210,9 +210,9 @@ Il servizio Azure Load Balancer include un servizio di *bilanciamento del carico
 
 È necessario distribuire il servizio di bilanciamento del carico interno nel gruppo di risorse che contiene i nodi del cluster. Configurare quindi tutte le necessarie regole di port forwarding usando le porte probe del servizio di bilanciamento del carico interno. I client possono connettersi tramite il nome host virtuale. Il server DNS risolve l'indirizzo IP del cluster e il servizio di bilanciamento del carico interno gestisce il port forwarding al nodo attivo del cluster.
 
-![Figura 1: Configurazione del servizio Clustering di failover di Windows in Azure senza disco condiviso][sap-ha-guide-figure-1001]
+![Figura 1: Configurazione in Azure senza disco condiviso il clustering di failover di Windows][sap-ha-guide-figure-1001]
 
-_**Figura 1:** Configurazione di Windows Server Failover Clustering in Azure senza disco condiviso_
+_**Figura 1:** Configurazione del servizio cluster Windows Server Failover Clustering in Azure senza disco condiviso_
 
 ### <a name="sap-ascsscs-ha-with-cluster-shared-disks"></a>Disponibilità elevata di SAP ASCS/SCS con i dischi condivisi del cluster
 In Windows, un'istanza di SAP ASCS/SCS contiene i servizi centrali SAP, il server di messaggistica SAP, i processi del server di accodamento e i file host globali di SAP. I file host globali di SAP archiviano i file centrali per l'intero sistema SAP.
@@ -221,25 +221,25 @@ Un'istanza di SAP ASCS/SCS include i componenti seguenti:
 
 * Servizi centrali SAP:
     * Due processi, un server di messaggistica e accodamento e un < nome host virtuale ASCS/SCS > usato per accedere a questi due processi.
-    * Struttura del file: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<numero di istanza\>
+    * Struttura del file: S:\usr\sap\\&lt;SID&gt;\ASCS/SCS\<il numero di istanza\>
 
 
 * File host globali di SAP:
-    * Struttura del file: S:\usr\sap\\&lt;SID&gt;\SYS\..
-    * La condivisione file sapmnt, che consente l'accesso a questi file globali S:\usr\sap\\&lt;SID&gt;\SYS\... usando il percorso UNC seguente:
+  * Struttura del file: S:\usr\sap\\&lt;SID&gt;\SYS\...
+  * La condivisione file sapmnt, che consente l'accesso a questi file globali S:\usr\sap\\&lt;SID&gt;\SYS\... usando il percorso UNC seguente:
 
-     \\\\< nome host virtuale ASCS/SCS > \sapmnt\\&lt;SID&gt;\SYS\....
+    \\\\< nome host virtuale ASCS/SCS > \sapmnt\\&lt;SID&gt;\SYS\....
 
 
-![Figura 2: Processi, struttura del file e condivisione file sapmnt host globale di un'istanza di SAP ASCS/SCS][sap-ha-guide-figure-8001]
+![Figura 2: Processi, struttura di file e condivisione file sapmnt host global di un'istanza di SAP ASCS/SCS][sap-ha-guide-figure-8001]
 
-_**Figura 2:** Processi, struttura del file e condivisione file sapmnt host globale di un'istanza di SAP ASCS/SCS_
+_**Figura 2:** Processi, struttura di file e condivisione file sapmnt host global di un'istanza di SAP ASCS/SCS_
 
 In un'impostazione con disponibilità elevata eseguire il clustering delle istanze di SAP ASCS/SCS. Per inserire i file SAP ASCS/SCS e i file host globali di SAP vengono usati i *dischi condivisi del cluster*, unità S nel nostro esempio.
 
-![Figura 3: Architettura a disponibilità elevata di SAP ASCS/SCS con disco condiviso][sap-ha-guide-figure-8002]
+![Figura 3: Architettura SAP ASCS/SCS a disponibilità elevata con disco condiviso][sap-ha-guide-figure-8002]
 
-_**Figura 3:** Architettura a disponibilità elevata di SAP ASCS/SCS con disco condiviso_
+_**Figura 3:** Architettura SAP ASCS/SCS a disponibilità elevata con disco condiviso_
 
 > [!IMPORTANT]
 > Questi due componenti vengono eseguiti nella stessa istanza di SAP ASCS/SCS:
@@ -248,9 +248,9 @@ _**Figura 3:** Architettura a disponibilità elevata di SAP ASCS/SCS con disco c
 >
 
 
-![Figura 4: Architettura a disponibilità elevata di SAP ASCS/SCS con disco condiviso][sap-ha-guide-figure-8003]
+![Figura 4: Architettura SAP ASCS/SCS a disponibilità elevata con disco condiviso][sap-ha-guide-figure-8003]
 
-_**Figura 4:** Architettura a disponibilità elevata di SAP ASCS/SCS con disco condiviso_
+_**Figura 4:** Architettura SAP ASCS/SCS a disponibilità elevata con disco condiviso_
 
 ### <a name="shared-disks-in-azure-with-sios-datakeeper"></a>Dischi condivisi in Azure con SIOS DataKeeper
 
@@ -266,9 +266,9 @@ Per creare una risorsa disco condiviso per un cluster:
 
 Altre informazioni su [SIOS DataKeeper](http://us.sios.com/products/datakeeper-cluster/).
 
-![Figura 5: Configurazione di Windows Server Failover Clustering in Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
+![Figura 5: Windows Server failover clustering configurazione in Azure con SIOS DataKeeper][sap-ha-guide-figure-1002]
 
-_**Figura 5:** Configurazione del servizio Clustering di failover di Windows in Azure con SIOS DataKeeper_
+_**Figura 5:** Configurazione in Azure con SIOS DataKeeper il clustering di failover di Windows_
 
 > [!NOTE]
 > Non sono necessari dischi condivisi per la disponibilità elevata con alcuni prodotti DBMS, ad esempio SQL Server. La funzionalità SQL Server AlwaysOn replica i file di dati e di log del sistema DBMS dal disco locale di un nodo del cluster al disco locale di un altro nodo del cluster. In questo caso, la configurazione del cluster Windows non richiede un disco condiviso.

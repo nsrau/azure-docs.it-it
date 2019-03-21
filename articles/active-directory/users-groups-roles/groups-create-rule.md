@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79b40af914cd55ae37205123df595ab177c87752
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f828ff83e6b9c60eb08edef7f47e88185fb5aef8
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098203"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199682"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>Creare un gruppo dinamico e controllare lo stato
 
@@ -34,11 +34,11 @@ Per esempi di sintassi, le proprietà supportate, operatori e valori per una reg
 2. Selezionare **Gruppi**.
 3. Selezionare **Tutti i gruppi** e selezionare **Nuovo gruppo**.
 
-   ![Aggiungere un nuovo gruppo](./media/groups-create-rule/new-group-creation.png)
+   ![Selezionare il comando per aggiungere nuovo gruppo](./media/groups-create-rule/new-group-creation.png)
 
 4. Nel **gruppo** pagina, immettere un nome e una descrizione per il nuovo gruppo. Selezionare una **tipo di appartenenza** per gli utenti o dispositivi e quindi selezionare **Aggiungi query dinamica**. È possibile usare il generatore di regole per creare una regola semplice, o [scrivere una regola di appartenenza](groups-dynamic-membership.md).
 
-   ![Aggiungere una regola di appartenenza dinamica](./media/groups-create-rule/add-dynamic-group-rule.png)
+   ![Aggiungi regola di appartenenza per un gruppo dinamico](./media/groups-create-rule/add-dynamic-group-rule.png)
 
 5. Per visualizzare le proprietà di estensione personalizzato disponibile per la query di appartenenza
    1. Selezionare **ottenere le proprietà di estensione personalizzato**
@@ -56,7 +56,7 @@ Quando viene creato un nuovo gruppo di Office 365, è possibile che gli utenti c
 
 È possibile visualizzare lo stato di elaborazione dell'appartenenza e la data dell'ultimo aggiornamento nella pagina **Panoramica** per il gruppo.
   
-  ![visualizzazione stato del gruppo dinamico](./media/groups-create-rule/group-status.png)
+  ![visualizzazione dello stato di gruppi dinamici](./media/groups-create-rule/group-status.png)
 
 I seguenti messaggi di stato possono essere visualizzati per lo stato di **Elaborazione appartenenza**:
 
@@ -74,7 +74,7 @@ I seguenti messaggi di stato possono essere visualizzati per lo stato dell'**Ult
 
 Se si verifica un errore durante l'elaborazione della regola di appartenenza per un gruppo specifico, un avviso viene visualizzato nella parte superiore della **Pagina di panoramica** per il gruppo. Se non è possibile elaborare aggiornamenti in sospeso per l'appartenenza dinamica per tutti i gruppi all'interno del tenant per oltre 24 ore, viene visualizzato un avviso nella parte superiore di **Tutti i gruppi** .
 
-![messaggio di errore di elaborazione](./media/groups-create-rule/processing-error.png)
+![gli avvisi di messaggio di errore di elaborazione](./media/groups-create-rule/processing-error.png)
 
 Questi articoli forniscono informazioni aggiuntive sui gruppi in Azure Active Directory.
 

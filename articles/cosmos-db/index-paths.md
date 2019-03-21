@@ -1,17 +1,17 @@
 ---
 title: Uso di percorsi di indice in Azure Cosmos DB
 description: Panoramica dei percorsi di indice in Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/5/2018
-ms.author: rimman
-ms.openlocfilehash: c22d8d69284c546a4fccc86302672d81ce65b9e8
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.date: 3/13/2019
+ms.author: mjbrown
+ms.openlocfilehash: d0fce763822ded374eab2f70c3f319aba0c89267
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54032772"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992827"
 ---
 # <a name="index-paths-in-azure-cosmos-db"></a>Percorsi di indice in Azure Cosmos DB
 
@@ -25,12 +25,12 @@ Di seguito sono indicati i modelli comuni per la definizione di percorsi di indi
 
 | **Percorso** | **Descrizione/Caso d'uso** |
 | ---------- | ------- |
-| /   | Percorso predefinito per la raccolta. Ricorsivo e applicabile all'intero albero del documento.|
-| /prop/?  | Percorso di indice necessario per gestire query come la seguente (rispettivamente con tipi hash e di intervallo):<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop  |
-| /prop/*  | Percorso di indice per tutti i percorsi al di sotto dell'etichetta specificata. Funziona con le query seguenti<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
-| /props/[]/?  | Percorso di indice che consente di servire iterazioni e query JOIN su matrici di valori scalari, come ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5  |
+| /          | Percorso predefinito per la raccolta. Ricorsivo e applicabile all'intero albero del documento.|
+| /prop/?    | Percorso di indice consente deve servire query come la seguente (con i tipi di intervallo, rispettivamente): <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5 <br><br>SELECT FROM collection c ORDER BY c.prop  |
+| /prop/*    | Percorso di indice per tutti i percorsi al di sotto dell'etichetta specificata. Funziona con le query seguenti <br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop |
+| /props/[]/?| Percorso di indice che consente di servire iterazioni e query JOIN su matrici di valori scalari, come ["a", "b", "c"]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5 |
 | /props/[]/subprop/? | Percorso di indice che consente di servire iterazioni e query JOIN su matrici di oggetti, come [{subprop: "a"}, {subprop: "b"}]:<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value" |
-| /prop/subprop/? | Percorso di indice necessario per gestire le query (rispettivamente con tipi hash e di intervallo):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
+| /prop/subprop/? | Percorso di indice consente deve servire query (con i tipi di intervallo, rispettivamente):<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5  |
 
 Quando si impostano percorsi di indice personalizzati, è necessario specificare la regola di indicizzazione predefinita per l'intero elemento, indicato dal percorso speciale `/*`.
 

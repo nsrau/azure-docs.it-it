@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dbac6fe421864f9479c9a4ee7eecde97c13f6052
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0200aa917894f4b7f1a45a9d3bd15b128aaf27a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200531"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124181"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 
@@ -58,14 +58,14 @@ I passaggi seguenti illustrano il funzionamento dell'esperienza di consenso per 
 
     **Per fornire il consenso per le autorizzazioni delegate di un'app**
 
-    1. Passare alla pagina **Impostazioni** dell'applicazione
-    1. Selezionare **Autorizzazioni necessarie**.
-    1. Fare clic sul pulsante **Concedi autorizzazioni**.
+   1. Passare alla pagina **Impostazioni** dell'applicazione
+   1. Selezionare **Autorizzazioni necessarie**.
+   1. Fare clic sul pulsante **Concedi autorizzazioni**.
 
-    ![Concedere le autorizzazioni per il consenso esplicito dell'amministratore](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
+      ![Concedere le autorizzazioni per il consenso esplicito dell'amministratore](./media/quickstart-v1-integrate-apps-with-azure-ad/grantpermissions.png)
 
-  > [!IMPORTANT]
-  > La concessione esplicita del consenso usando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso.
+   > [!IMPORTANT]
+   > La concessione esplicita del consenso usando il pulsante **Concedi autorizzazioni** è attualmente richiesta per le applicazioni a pagina singola (SPA) che usano ADAL.js. In caso contrario, l'applicazione non funziona quando viene richiesto il token di accesso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

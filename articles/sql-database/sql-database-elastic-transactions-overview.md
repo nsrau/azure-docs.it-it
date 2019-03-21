@@ -11,13 +11,13 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: ae9f4d1ebcb84748b665579104f63dab3ee6f076
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: d7865d394dfc955a7b24115e747dd77352d89e3d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55463872"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901917"
 ---
 # <a name="distributed-transactions-across-cloud-databases"></a>Transazioni distribuite in database cloud
 
@@ -126,13 +126,17 @@ Si noti che il programma di installazione per .NET 4.6.1 può richiedere più sp
 
 ## <a name="transactions-across-multiple-servers"></a>Transazioni tra più server
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+
 Le transazioni di database elastici sono supportate in diversi server di database SQL nel database SQL di Azure. Quando le transazioni oltrepassano i limiti dei server di database SQL, i server partecipanti devono essere innanzitutto inseriti in una relazione di comunicazione reciproca. Dopo aver stabilito la relazione di comunicazione, qualsiasi database in uno dei due server può partecipare alle transazioni elastiche con i database dell'altro server. Con le transazioni che si estendono su più di due server di database SQL, è necessaria una relazione di comunicazione per ogni coppia di server di database SQL.
 
 Usare i seguenti cmdlet di PowerShell per la gestione delle relazioni di comunicazione tra server per le transazioni di database elastici:
 
-* **New-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per creare una nuova relazione di comunicazione tra due server di database SQL in un database SQL di Azure. La relazione è simmetrica, ovvero entrambi i server possono avviare le transazioni con l'altro server.
-* **Get-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per recuperare le relazioni di comunicazione esistenti e le relative proprietà.
-* **Remove-AzureRmSqlServerCommunicationLink**: usare questo cmdlet per rimuovere una relazione di comunicazione esistente. 
+* **New-AzSqlServerCommunicationLink**: usare questo cmdlet per creare una nuova relazione di comunicazione tra due server di database SQL in un database SQL di Azure. La relazione è simmetrica, ovvero entrambi i server possono avviare le transazioni con l'altro server.
+* **Get-AzSqlServerCommunicationLink**: usare questo cmdlet per recuperare le relazioni di comunicazione esistenti e le relative proprietà.
+* **Remove-AzSqlServerCommunicationLink**: usare questo cmdlet per rimuovere una relazione di comunicazione esistente. 
 
 ## <a name="monitoring-transaction-status"></a>Monitoraggio dello stato delle transazioni
 

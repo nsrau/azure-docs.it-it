@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 7e3142e0274f2328d3e0c8a3e6f9a2e4c3d45d87
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: f1194d8385d1e7ddcb906d0c8c3a2b56648e2547
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55959138"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120823"
 ---
 # <a name="manage-lab-accounts-in-azure-lab-services"></a>Gestire account lab in Azure Lab Services 
-In Azure Lab Services, un account lab è un contenitore per lab gestiti, ad esempio, laboratori di classe. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
+In Azure Lab Services, un account del lab è un contenitore per i tipi di lab gestiti, ad esempio labs in aula. Un amministratore configura un account lab con Azure Lab Services e fornisce l'accesso ai proprietari del lab autorizzati a creare lab nell'account. Questo articolo descrive come creare un account lab, visualizzare tutti gli account lab o eliminare un account lab.
 
 ## <a name="create-a-lab-account"></a>Creare un account lab
 La procedura seguente illustra come usare il portale di Azure per creare un account lab con Azure Lab Services. 
@@ -38,7 +38,9 @@ La procedura seguente illustra come usare il portale di Azure per creare un acco
     2. Selezionare la **sottoscrizione di Azure** in cui creare l'account lab.
     3. In **Gruppo di risorse** selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
     4. In **Posizione** selezionare una posizione o un'area in cui si vuole creare l'account lab. 
-    5. Selezionare **Create**. 
+    5. Per la **rete virtuale Peer**, selezionare una rete virtuale (VNet) di peer per la rete lab. Lab creato in questo account connessi alla rete virtuale selezionata e hanno accesso alle risorse nella rete virtuale selezionata. 
+    7. Per il campo **Consenti all'autore del lab di selezionare la località del lab**, specificare se si vuole consentire agli autori di selezionare una località per il lab. L'opzione è disabilitata per impostazione predefinita. Quando l'opzione è disattivata, gli autori del lab non possono specificare una località per il lab che si sta creando. I lab vengono creati nella località geografica più vicina all'account lab. Quando l'opzione è abilitata, un autore può selezionare una località al momento della creazione di un lab.      
+    8. Selezionare **Create**. 
 
         ![Finestra Create a lab account (Crea un account lab)](../media/tutorial-setup-lab-account/lab-account-settings.png)
 5. Selezionare l'**icona del campanello** sulla barra degli strumenti (**Notifiche**), verificare se la distribuzione è riuscita e quindi selezionare **Vai alla risorsa**. 
@@ -86,6 +88,18 @@ In quanto proprietario di un account del lab, è possibile specificare le immagi
     1. Selezionare **... (puntini di sospensione)** nell'ultima colonna e selezionare **Enable image** (Abilita immagine). 
     2. Selezionare una o più immagini nell'elenco selezionando le caselle di controllo prima dei nomi delle immagini nell'elenco e selezionare **Enable selected images** (Abilita immagini selezionate). 
 
+## <a name="configure-the-lab-account"></a>Configurare l'account del lab
+1. Nel **Account del Lab** pagina, selezionare **configurazione Labs** nel menu a sinistra.
+
+    ![Pagina di configurazione del lab](../media/how-to-manage-lab-accounts/labs-configuration-page.png) 
+1. Per la **rete virtuale Peer**, selezionare **Enabled** oppure **disabilitato**. Il valore predefinito è **disabilitato**. Per abilitare la rete virtuale peer, procedere come segue: 
+    1. Selezionare **Enabled**.
+    2. Selezionare il **VNet** nell'elenco a discesa. 
+    3. Sulla barra degli strumenti selezionare **Salva**. 
+    
+        Lab creato in questo account connessi alla rete virtuale selezionata. Possono accedere alle risorse nella rete virtuale selezionata. 
+3. Per il **Consenti creatore di lab selezionare percorsi lab**, selezionare **abilitato** se si desidera che il creatore di lab sia in grado di selezionare un percorso per l'ambiente lab. Se è disabilitato, i laboratori vengono creati automaticamente nello stesso percorso in cui si trova l'account del lab. 
+
 ## <a name="view-lab-accounts"></a>Visualizzare gli account lab
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Selezionare **Tutte le risorse** dal menu. 
@@ -93,19 +107,6 @@ In quanto proprietario di un account del lab, è possibile specificare le immagi
     È anche possibile filtrare per sottoscrizione, gruppo di risorse, posizioni e tag. 
 
     ![Tutte le risorse -> Account Lab](../media/how-to-manage-lab-accounts/all-resources-lab-accounts.png)
-
-
-## <a name="delete-a-lab-account"></a>Eliminare un account lab
-Seguire le istruzioni della sezione precedente che visualizza gli account lab in un elenco. Per eliminare un account lab seguire questa procedura: 
-
-1. Selezionare l'**account lab** da eliminare. 
-2. Selezionare **Elimina** dalla barra degli strumenti. 
-
-    ![Account Lab -> Pulsante Elimina](../media/how-to-manage-lab-accounts/delete-button.png)
-1. Digitare **Sì** per confermare.
-1. Selezionare **Elimina**. 
-
-    ![Eliminazione dell'account lab - Conferma](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
 
 ## <a name="view-and-manage-labs-in-the-lab-account"></a>Visualizzare e gestire i lab nell'account lab
 
@@ -119,6 +120,8 @@ Seguire le istruzioni della sezione precedente che visualizza gli account lab in
     4. Numero massimo di utenti consentiti nel lab. 
     5. Stato del lab. 
 
+
+
 ## <a name="delete-a-lab-in-the-lab-account"></a>Eliminare un lab nell'account lab
 Per visualizzare un elenco dei lab nell'account lab, seguire le istruzioni nella sezione precedente.
 
@@ -128,6 +131,20 @@ Per visualizzare un elenco dei lab nell'account lab, seguire le istruzioni nella
 2. Selezionare **Sì** nel messaggio di avviso. 
 
     ![Conferma dell'eliminazione del lab](../media/how-to-manage-lab-accounts/confirm-lab-delete.png)
+
+## <a name="delete-a-lab-account"></a>Eliminare un account lab
+Seguire le istruzioni della sezione precedente che visualizza gli account lab in un elenco. Per eliminare un account lab seguire questa procedura: 
+
+1. Selezionare l'**account lab** da eliminare. 
+2. Selezionare **Elimina** dalla barra degli strumenti. 
+
+    ![Account Lab -> Pulsante Elimina](../media/how-to-manage-lab-accounts/delete-button.png)
+1. Digitare **Sì** per confermare.
+1. Selezionare **Elimina**. 
+
+    ![Eliminazione dell'account lab - Conferma](../media/how-to-manage-lab-accounts/delete-lab-account-confirmation.png)
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti:

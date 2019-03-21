@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
-ms.openlocfilehash: 41e7f0ea8616b25eac43ecff7802e0f9e1c08050
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55180705"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57900591"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Aggiungere una macchina virtuale Windows Server a un dominio gestito
 Questo articolo illustra come distribuire una macchina virtuale Windows Server usando il portale di Azure. Descrive quindi come aggiungere la macchina virtuale a un dominio gestito di Azure Active Directory Domain Services.
@@ -107,7 +107,7 @@ Per aggiungere la macchina virtuale Windows Server al dominio gestito di Azure A
 
 7. È possibile specificare le credenziali in uno dei modi seguenti:
 
-   * **Formato UPN**: (consigliato) specificare il suffisso UPN (User Principal Name) per l'account utente, come configurato in Azure Active Directory. In questo esempio, il suffisso UPN dell'utente *bob* è *bob@domainservicespreview.onmicrosoft.com*.
+   * **Formato UPN**: (consigliato) specificare il suffisso UPN (User Principal Name) per l'account utente, come configurato in Azure Active Directory. In questo esempio, il suffisso UPN dell'utente *bob* viene *bob\@domainservicespreview.onmicrosoft.com*.
 
    * **Formato sAMAccountName**: è possibile specificare il nome account con il formato SAMAccountName. In questo esempio l'utente *bob* deve immettere *CONTOSO100\bob*.
 
@@ -146,7 +146,7 @@ Se si verificano problemi con le credenziali e non è possibile completare l'agg
 
 * Controllare di avere [abilitato la sincronizzazione password](active-directory-ds-getting-started-password-sync.md) nel dominio gestito.
 
-* Controllare di avere usato l'UPN dell'utente come configurato in Azure AD, ad esempio *bob@domainservicespreview.onmicrosoft.com*, per eseguire l'accesso.
+* Verificare che sia stato usato il nome UPN dell'utente come configurato in Azure AD (ad esempio, *bob\@domainservicespreview.onmicrosoft.com*) per l'accesso.
 
 * Attendere il tempo necessario per consentire il completamento della sincronizzazione delle password, come specificato nella guida introduttiva.
 

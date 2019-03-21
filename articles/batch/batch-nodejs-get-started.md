@@ -7,16 +7,16 @@ manager: jeconnoc
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
-ms.topic: hero-article
+ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.openlocfilehash: 8844260c4364776ad0fc828dcd66932d37474ecf
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: bb0bfa5eac3dd9031718fb12f270f5fc03bbaea6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164620"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57772175"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introduzione all'SDK di Batch per Node.js
 
@@ -260,7 +260,7 @@ Un processo di Azure Batch è un gruppo logico di attività simili. In questo sc
 Queste attività verranno eseguite in parallelo e distribuite in più nodi, orchestrati dal servizio Azure Batch.
 
 > [!Tip]
-> È possibile usare la proprietà [maxTasksPerNode](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) per specificare il numero massimo di attività che è possibile eseguire simultaneamente in un singolo nodo.
+> È possibile usare la proprietà [maxTasksPerNode](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) per specificare il numero massimo di attività che è possibile eseguire simultaneamente in un singolo nodo.
 >
 >
 
@@ -273,7 +273,7 @@ Lo [script della shell](https://github.com/shwetams/azure-batchclient-sample-nod
 È possibile caricare lo script in un account di archiviazione di Azure e generare un URI di firma di accesso condiviso per accedere allo script. Questo processo può essere automatizzato con Azure Storage SDK per Node.js.
 
 > [!Tip]
-> Un'attività di preparazione per un processo viene eseguita solo sui nodi VM in cui deve essere eseguita l'attività specifica. Se si vogliono installare i prerequisiti in tutti i nodi indipendentemente dalle attività in essi eseguite, si può usare la proprietà [startTask](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) durante l'aggiunta di un pool. È possibile usare la definizione di attività di preparazione seguente come riferimento.
+> Un'attività di preparazione per un processo viene eseguita solo sui nodi VM in cui deve essere eseguita l'attività specifica. Se si vogliono installare i prerequisiti in tutti i nodi indipendentemente dalle attività in essi eseguite, si può usare la proprietà [startTask](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Pool.html#add) durante l'aggiunta di un pool. È possibile usare la definizione di attività di preparazione seguente come riferimento.
 >
 >
 
@@ -349,7 +349,7 @@ var container_list = ["con1","con2","con3","con4"]
 
 Il codice aggiunge più attività al pool. Ogni attività viene eseguita in un nodo del pool di VM creato. Se il numero di attività è superiore al numero di VM in un pool o alla proprietà maxTasksPerNode, le attività restano in attesa finché non diventa disponibile un nodo. Questa orchestrazione viene gestita automaticamente da Azure Batch.
 
-Il portale offre visualizzazioni dettagliate delle attività e degli stati del processo. È anche possibile usare le funzioni list e get in Azure SDK per Node. Per informazioni dettagliate, vedere la [documentazione](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
+Il portale offre visualizzazioni dettagliate delle attività e degli stati del processo. È anche possibile usare le funzioni list e get in Azure SDK per Node. Per informazioni dettagliate, vedere la [documentazione](https://azure.github.io/azure-sdk-for-node/azure-batch/latest/Job.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

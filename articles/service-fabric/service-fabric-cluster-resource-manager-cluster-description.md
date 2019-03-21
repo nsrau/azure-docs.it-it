@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 55f8ab37-9399-4c9a-9e6c-d2d859de6766
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 64f02b1165d014a0eaa89dae64a7d9aa283cac32
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 810388a85e4ad339ff1444d21ac231fe4c00aeac
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52834588"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120534"
 ---
 # <a name="describing-a-service-fabric-cluster"></a>Descrizione di un cluster di Service Fabric
 Cluster Resource Manager di Service Fabric fornisce alcuni meccanismi per descrivere un cluster. Durante la fase di esecuzione, Cluster Resource Manager usa queste informazioni per assicurare la disponibilità elevata dei servizi in esecuzione sul cluster. Applicando queste regole importanti, tenta anche di ottimizzare il consumo di risorse all'interno del cluster.
@@ -47,6 +47,7 @@ Un dominio di errore è un'area di errore coordinato. Un singolo computer è un 
 Nella figura seguente tutte le entità che contribuiscono ai domini di errore sono colorate e sono elencati tutti i diversi domini di errore risultanti. In questo esempio sono presenti data center ("DC"), rack ("R") e pannelli ("B"). Se ogni pannello include più macchine virtuali, è possibile che la gerarchia del dominio di errore includa un altro livello.
 
 <center>
+
 ![Nodi organizzati tramite domini di errore][Image1]
 </center>
 
@@ -59,7 +60,8 @@ Cluster Resource Manager di Service Fabric non si cura del numero di livelli pre
 Come appaiono i domini sbilanciati? La figura seguente illustra due diversi layout per un cluster. Nel primo esempio i nodi sono distribuiti uniformemente tra i domini di errore. Nel secondo esempio, un dominio di errore presenta molti più nodi degli altri. 
 
 <center>
-![Due layout diversi per i cluster][Image2]
+
+![Due layout di cluster diversi][Image2]
 </center>
 
 In Azure la scelta di quale dominio di errore deve contenere un nodo viene gestita automaticamente. Tuttavia, a seconda del numero di nodi di cui si esegue il provisioning, si possono comunque ottenere domini di errore con più nodi di altri. Si immagini ad esempio di avere cinque domini di errore nel cluster e di eseguire il provisioning di sette nodi per un determinato NodeType. In questo caso i primi due domini di errore avranno più nodi. Se si continua a distribuire altri NodeType con solo un paio di istanze, il problema peggiora. Per questo motivo è consigliabile che il numero di nodi in ogni NodeType sia multiplo del numero di domini di errore.
@@ -72,7 +74,8 @@ I domini di aggiornamento sono molto simili ai domini di errore, ma con un paio 
 Il diagramma seguente mostra tre domini di aggiornamento distribuiti su tre domini di errore. Illustra anche una sola posizione possibile per tre repliche diverse di un servizio con stato, dove ciascuna finisce in diversi domini di errore e di aggiornamento. Questo posizionamento consente la perdita di un dominio di errore mentre è in corso un aggiornamento del servizio, mantenendo comunque una copia del codice e dei dati.  
 
 <center>
-![Posizionamento con domini di errore e di aggiornamento][Image3]
+
+![Posizionamento con domini di errore e aggiornamento][Image3]
 </center>
 
 L'uso di un numero elevato di domini di aggiornamento presenta vantaggi e svantaggi. Se si hanno numerosi domini di aggiornamento, ogni passaggio dell'aggiornamento è più dettagliato e quindi influisce su un numero minore di nodi o servizi. Questo si traduce nella necessità di spostare meno servizi contemporaneamente nonché in una minore varianza del sistema. Anche l'affidabilità tende a migliorare, poiché una parte minore del servizio è interessata da eventuali problemi introdotti durante l'aggiornamento. La presenza di più domini di aggiornamento significa anche che è richiesto meno buffer disponibile negli altri nodi per gestire l'impatto dell'aggiornamento. Ad esempio, se si dispone di cinque domini di aggiornamento, i nodi di ciascuno gestiscono circa il 20% del traffico. Se è necessario bloccare il dominio di aggiornamento per un aggiornamento, il suo carico deve essere in genere trasferito altrove. Poiché sono presenti quattro domini di aggiornamento rimanenti, ognuno deve disporre di spazio per circa il 5% del traffico totale. Più domini di aggiornamento implicano la necessità di meno buffer nei nodi del cluster. Si consideri, ad esempio, di disporre invece di dieci domini di aggiornamento. In questo caso ogni dominio di aggiornamento dovrebbe gestire solo circa il 10% del traffico totale. Quando un aggiornamento passa per il cluster, ogni dominio deve avere spazio solo per circa l'1,1% del traffico totale. Un maggior numero di domini di aggiornamento in genere consente un maggiore uso dei nodi, poiché è necessaria una capacità di riserva minore. Lo stesso vale per i domini di errore.  
@@ -88,7 +91,8 @@ Non è previsto alcun limite effettivo per il numero totale di domini di errore 
 - Un modello con "striping" o a "matrice" in cui i domini di errore e i domini di aggiornamento formano una matrice e i computer sono disposti lungo le diagonali
 
 <center>
-![Layout dei domini di errore e di aggiornamento][Image4]
+
+![Errore e layout dei domini di aggiornamento][Image4]
 </center>
 
 Non esiste un layout ottimale, ogni layout presenta vantaggi e svantaggi. Ad esempio, il modello di tipo 1FD:1UD è semplice da configurare. Il modello con un dominio di aggiornamento per nodo è probabilmente quello più noto. Durante l'aggiornamento, ogni nodo viene aggiornato in modo indipendente. È simile alla modalità con la quale un piccolo gruppo di computer veniva aggiornato manualmente in passato. 
@@ -190,9 +194,9 @@ L'approccio di "sicurezza del quorum" offre una maggiore flessibilità rispetto 
 Poiché entrambi gli approcci presentano vantaggi e svantaggi, è stato introdotto un approccio adattivo che combina queste due strategie.
 
 > [!NOTE]
->Questo sarà il comportamento predefinito a partire dalla versione di Service Fabric 6.2. 
->
-L'approccio adattivo usa la logica della "differenza massima" per impostazione predefinita, per passare alla logica di "sicurezza del quorum" solo quando necessario. Il servizio Gestione risorse cluster rileva automaticamente la strategia necessaria esaminando la configurazione di cluster e servizi. Per un determinato servizio: *Se TargetReplicaSetSize è equamente divisibile per il numero di domini di errore e il numero di domini di aggiornamento **e** il numero di nodi è inferiore o uguale a (numero di domini di errore) * (numero di domini di aggiornamento), il Cluster Resource Manager deve usare la logica "basata sul quorum" per tale servizio.* Tenere presente che il servizio Gestione risorse cluster usa questo approccio sia per i servizi senza stato che per i servizi con stato, benché la perdita di quorum non sia rilevante per i servizi senza stato.
+> Questo sarà il comportamento predefinito a partire dalla versione di Service Fabric 6.2. 
+> 
+> L'approccio adattivo usa la logica della "differenza massima" per impostazione predefinita, per passare alla logica di "sicurezza del quorum" solo quando necessario. Il servizio Gestione risorse cluster rileva automaticamente la strategia necessaria esaminando la configurazione di cluster e servizi. Per un determinato servizio: *Se TargetReplicaSetSize è equamente divisibile per il numero di domini di errore e il numero di domini di aggiornamento **e** il numero di nodi è inferiore o uguale a (numero di domini di errore) * (numero di domini di aggiornamento), il Cluster Resource Manager deve usare la logica "basata sul quorum" per tale servizio.* Tenere presente che il servizio Gestione risorse cluster usa questo approccio sia per i servizi senza stato che per i servizi con stato, benché la perdita di quorum non sia rilevante per i servizi senza stato.
 
 Tornare all'esempio precedente, supponendo che un cluster disponga ora di 8 nodi. Il cluster è ancora configurato con cinque domini di errore e cinque domini di aggiornamento, mentre il valore TargetReplicaSetSize di un servizio ospitato su tale cluster rimane cinque. 
 
@@ -344,14 +348,16 @@ Nella maggior parte dei casi, si vuole assicurare che determinati carichi di lav
 Per supportare questi tipi di configurazione, Service Fabric dispone di tag estremamente efficienti applicabili ai nodi. Questi tag vengono chiamati **proprietà del nodo**. I **vincoli di posizionamento** sono le istruzioni collegate ai singoli servizi che selezionano una o più proprietà del nodo. Definiscono la posizione in cui i servizi devono essere eseguiti. Il set di vincoli è estendibile: si può usare qualsiasi coppia chiave/valore. 
 
 <center>
-![Layout di cluster con carichi di lavoro diversi][Image5]
+
+![Layout diversi carichi di lavoro del cluster][Image5]
 </center>
 
 ### <a name="built-in-node-properties"></a>Proprietà predefinite del nodo
 Service Fabric definisce alcune proprietà predefinite dei nodi che possono essere successivamente usate automaticamente, senza alcun intervento da parte dell'utente. Le proprietà predefinite specificate a livello di ogni nodo sono **NodeType** e **NodeName**. Ad esempio è possibile scrivere un vincolo di posizionamento come `"(NodeType == NodeType03)"`. NodeType è una delle proprietà più usate. È utile poiché ha una corrispondenza di 1:1 con un tipo di computer. Ogni tipo di computer corrisponde a un tipo di carico di lavoro in un'applicazione tradizionale a più livelli.
 
 <center>
-![Vincoli di posizionamento e proprietà dei nodi][Image6]
+
+![I vincoli di posizionamento e proprietà dei nodi][Image6]
 </center>
 
 ## <a name="placement-constraint-and-node-property-syntax"></a>Vincoli di posizionamento e sintassi delle proprietà dei nodi 
@@ -474,7 +480,8 @@ Se si disattiva completamente il *bilanciamento*di tutte le risorse, Cluster Res
 In fase di esecuzione, Cluster Resource Manager tiene traccia delle capacità rimanenti nel cluster e nei nodi. A tal fine, sottrae quanto usato da ciascun servizio dalla capacità del nodo in cui esso viene eseguito. Queste informazioni consentono a Cluster Resource Manager di Service Fabric di individuare la posizione ottimale per l'inserimento o lo spostamento di repliche, in modo che i nodi non superino le rispettive capacità.
 
 <center>
-![Nodi e capacità del cluster][Image7]
+
+![I nodi del cluster e la capacità][Image7]
 </center>
 
 C#:
@@ -603,7 +610,7 @@ LoadMetricInformation     :
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per informazioni sull'architettura e sul flusso di informazioni in Cluster Resource Manager, vedere [questo articolo](service-fabric-cluster-resource-manager-architecture.md)
+* Per informazioni sull'architettura e le informazioni sul flusso all'interno di Cluster Resource Manager, consultare [in questo articolo](service-fabric-cluster-resource-manager-architecture.md)
 * Definire la metrica di deframmentazione rappresenta un modo per consolidare il carico sui nodi anziché distribuirlo. Per informazioni su come configurare la deframmentazione, vedere [questo articolo](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
 * Partire dall'inizio e vedere l' [introduzione a Cluster Resource Manager di Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
 * Per informazioni sul modo in cui Cluster Resource Manager gestisce e bilancia il carico nel cluster, vedere l'articolo relativo al [bilanciamento del carico](service-fabric-cluster-resource-manager-balancing.md)

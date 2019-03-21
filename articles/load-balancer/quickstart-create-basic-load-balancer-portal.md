@@ -9,18 +9,18 @@ manager: twooley
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 3ec4b8fb9ebb7a03983ce5da3dad56e0fe9917e8
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
-ms.translationtype: HT
+ms.openlocfilehash: fe095b8f5a0080c0f28ec570303c9dc23962dfc8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986329"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57869813"
 ---
 # <a name="quickstart-create-a-basic-load-balancer-by-using-the-azure-portal"></a>Guida introduttiva: Creare un servizio Load Balancer Basic usando il portale di Azure
 
@@ -28,9 +28,9 @@ Il bilanciamento del carico offre un livello più elevato di disponibilità e sc
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
 
-Per eseguire le attività di questa guida introduttiva, accedere al [portale di Azure](http://portal.azure.com).
+Per eseguire le attività di questo avvio rapido, accedere al [portale di Azure](https://portal.azure.com).
 
-## <a name="create-a-basic-load-balancer"></a>Creare un servizio Load Balancer Basic
+## <a name="create-a-basic-load-balancer"></a>Creare un servizio di bilanciamento del carico di base
 
 Creare prima di tutto un servizio Load Balancer Basic pubblico usando il portale. Il nome e l'indirizzo IP pubblico specificati vengono configurati automaticamente come front-end del servizio di bilanciamento del carico.
 
@@ -207,7 +207,7 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
 1. Selezionare **OK**.
    
-  ![Aggiungere una regola di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
+   ![Aggiungere una regola di bilanciamento del carico](./media/load-balancer-get-started-internet-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
 
@@ -259,6 +259,7 @@ Aprire un Web browser e incollare l'indirizzo IP pubblico del servizio di bilanc
 
 ![Server Web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
+Per verificare la distribuzione del traffico tra tutte e tre le VM che eseguono l'app da parte del servizio di bilanciamento del carico, forzare l'aggiornamento del Web browser.
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Per eliminare il servizio di bilanciamento del carico e tutte le risorse correlate quando non sono più necessari, aprire il gruppo di risorse **MyResourceGroupLB** e selezionare **Elimina gruppo di risorse**.

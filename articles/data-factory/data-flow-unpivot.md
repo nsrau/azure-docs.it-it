@@ -7,14 +7,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 14326714fc8258e184024edb83666d3ed0c3eee7
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56271158"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57854254"
 ---
-# <a name="azure-data-factory-mapping-data-flow-unpivot-transformation"></a>Trasformazione UnPivot per il flusso di dati di mapping di Azure Data Factory
+# <a name="azure-data-factory-unpivot-transformation"></a>Trasformazione Unpivot Data Factory di Azure
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -51,3 +51,7 @@ Impostare la disposizione delle colonne "Normal" (Normale) per raggruppare insie
 ![Trasformazione UnPivot](media/data-flow//unpivot7.png "Opzioni UnPivot 5")
 
 Il set di risultati finale dei dati trasformati tramite UnPivot mostra i totali delle colonne, ora trasformati tramite UnPivot in valori di riga separati.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Usare la [trasformazione Pivot](data-flow-pivot.md) a pivot righe alle colonne.

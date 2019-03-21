@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 02/04/2019
+ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 4f67158c0de8cdd161bce269059af6d421bb68b5
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2d7dc6eb5ee77804f0c8c87ee2e5a5dd1d0dc30a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56340349"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57841124"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3
 
@@ -72,6 +72,7 @@ In caso di sviluppo di un servizio video basato sulle [API legacy di Servizi mul
     * Live Event sostituisce Channel.<br/>La fatturazione degli eventi live si basa sui contatori dei canali live. Per altre informazioni, vedere [fatturazione](live-event-states-billing.md) e [prezzi](https://azure.microsoft.com/pricing/details/media-services/).
     * Live Output sostituisce Program.
 * Le entità Live Output non devono essere necessariamente avviate in modo esplicito, ma vengono avviate alla creazione e arrestate durante l'eliminazione. I programmi funzionano in modo diverso nelle API v2 e devono essere avviati dopo la creazione.
+*  Per ottenere informazioni su un processo, è necessario conoscere il nome di trasformazione in cui è stato creato il processo. 
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>Gap di funzionalità rispetto alle API v2
 
@@ -98,6 +99,7 @@ La tabella seguente illustra le differenze a livello di codice tra v2 e v3 per s
 |Creare un asset e caricare un file |[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)|
 |Inviare un processo|[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)|[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)<br/><br/>Mostra come creare una trasformazione e quindi inviare un processo.|
 |Pubblicare un asset con crittografia AES |1. Creare ContentKeyAuthorizationPolicyOption<br/>2. Creare ContentKeyAuthorizationPolicy<br/>3. Creare AssetDeliveryPolicy<br/>4. Creare asset e caricare contenuto o inviare processi e usare asset di output<br/>5. Associare AssetDeliveryPolicy all'asset<br/>6. Creare ContentKey<br/>7. Collegare ContentKey all'asset<br/>8. Creare AccessPolicy<br/>9. Creare Locator<br/><br/>[Esempio .NET v2](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)|1. Creare criteri di chiave simmetrica<br/>2. Creare asset<br/>3. Caricare contenuto o usare asset come JobOutput<br/>4. Creare il localizzatore di streaming<br/><br/>[Esempio .NET v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)|
+|Ottenere i dettagli dei processi e gestione dei processi |[Gestire i processi con v2](../previous/media-services-dotnet-manage-entities.md#get-a-job-reference) |[Gestire i processi con v3](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L546)|
 
 ## <a name="known-issues"></a>Problemi noti
 

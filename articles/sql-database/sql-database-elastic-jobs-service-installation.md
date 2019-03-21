@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 12/04/2018
-ms.openlocfilehash: fb405d40458461fbdff8a7720425ff352bfc61de
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: a1e1be24f9cb6d762d5480385843e9a5356d4a29
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889788"
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Installazione dei processi di database elastici (panoramica)
 
@@ -27,12 +27,12 @@ ms.locfileid: "55565480"
 
 I [**processi di database elastico**](sql-database-elastic-jobs-overview.md) possono essere installati tramite PowerShell o tramite il portale di Azure. È possibile ottenere l'accesso per creare e gestire i processi tramite l'API di PowerShell solo se si installa il pacchetto di PowerShell. Inoltre, le API PowerShell forniscono molte più funzionalità rispetto al portale in questo momento.
 
-Se sono già stati installati i **processi di database elastici** tramite il portale da un **pool elastico**, l'ultima anteprima di Powershell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
+Se è già stato installato **processi di Database elastici** tramite il portale da un oggetto esistente **pool elastico**, l'anteprima più recente di PowerShell include gli script per aggiornare l'installazione esistente. È consigliabile aggiornare l'installazione alla versione più recente dei componenti dei **Processi di database elastici** per trarre vantaggio dalle nuove funzionalità esposte tramite le API di PowerShell.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Per una versione di valutazione gratuita, vedere [Versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installare la versione più recente tramite l’ [installazione guidata piattaforma Web](https://go.microsoft.com/fwlink/p/?linkid=320376). Per informazioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
-* [Utilità della riga di comando NuGet](https://nuget.org/nuget.exe) viene utilizzata per installare il pacchetto dei processi di database elastici. Per altre informazioni, vedere http://docs.nuget.org/docs/start-here/installing-nuget.
+* [Utilità della riga di comando NuGet](https://nuget.org/nuget.exe) viene utilizzata per installare il pacchetto dei processi di database elastici. Per altre informazioni, vedere https://docs.nuget.org/docs/start-here/installing-nuget.
 
 ## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Scaricare e importare il pacchetto di PowerShell dei processi di database elastici
 1. Avviare la finestra di comando Microsoft Azure PowerShell e passare alla directory in cui è stato scaricata l’utilità della riga di comando NuGet (nuget.exe).
@@ -75,9 +75,7 @@ I parametri forniti in questa chiamata di esempio possono essere modificati per 
     <td>Fornisce il nome del gruppo di risorse di Azure creato per contenere i componenti di Azure appena creati. Questo parametro viene impostato su "__ElasticDatabaseJob". È consigliabile non modificare questo valore.</td>
     </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ResourceGroupLocation</td>
     <td>Fornisce la posizione di Azure da utilizzare per i componenti di Azure appena creati. Questo parametro viene impostato per il percorso Stati Uniti centrali.</td>
 </tr>
@@ -85,28 +83,24 @@ I parametri forniti in questa chiamata di esempio possono essere modificati per 
 <tr>
     <td>ServiceWorkerCount</td>
     <td>Fornisce il numero di ruoli di lavoro del servizio da installare. Questo parametro viene impostato su 1. Per ridimensionare il servizio e per garantire un'elevata disponibilità, è possibile utilizzare un numero maggiore di ruoli di lavoro. È consigliabile utilizzare "2" per le distribuzioni che richiedono un'elevata disponibilità del servizio.</td>
-    </tr>
-
 </tr>
-    <tr>
+
+<tr>
     <td>ServiceVmSize</td>
-    <td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Sono accettati valori di parametri di A0/A1/A2/A3 che fanno si che il ruolo di lavoro utilizzi una dimensione Extrapiccola/Piccola/Media/Grande, rispettivamente. Per altre informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Valori dei parametri di... /.. / Sono accettati A3 causando il ruolo di lavoro da usare una dimensione ExtraSmall/piccola/Media/grande, rispettivamente. Per altre informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Specifica la dimensione di calcolo per un'edizione Standard. Questo parametro viene impostato su S0. Sono accettati i valori dei parametri S0/S1/S2/S3/S4/S6/S9/S12 che fanno sì che il database SQL di Azure usi la dimensione di calcolo corrispondente. Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Componenti e prezzi dei processi di database elastico](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Specifica la dimensione di calcolo per un'edizione Standard. Questo parametro viene impostato su S0. Valori dei parametri... /.. /.. /.. / S9/S12 sono accettati che provocano il Database SQL di Azure usare le dimensioni di calcolo corrispondente. Per altre informazioni sulle dimensioni di calcolo del database SQL, vedere [Componenti e prezzi dei processi di database elastico](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorUserName</td>
     <td>Fornisce il nome utente dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per la richiesta di credenziali.</td>
 </tr>
 
-</tr>
-    <tr>
+<tr>
     <td>SqlServerAdministratorPassword</td>
     <td>Fornisce la password dell’amministratore per il server del Database SQL di Azure appena creato. Se omesso, si aprirà una finestra di credenziali di PowerShell per richiedere le credenziali.</td>
 </tr>
@@ -131,24 +125,19 @@ Per aggiornare la dimensione della macchina virtuale di un'installazione, esegui
   <th>Description</th>
 </tr>
 
-  <tr>
+<tr>
     <td>ResourceGroupName</td>
     <td>Identifica il nome del gruppo di risorse di Azure utilizzato quando i componenti dei processi di database elastici sono stati inizialmente installati. Questo parametro viene impostato su "__ElasticDatabaseJob". Poiché non è consigliabile modificare questo valore, non è necessario specificare questo parametro.</td>
-    </tr>
 </tr>
 
-</tr>
-
-  <tr>
+<tr>
     <td>ServiceWorkerCount</td>
     <td>Fornisce il numero di ruoli di lavoro del servizio da installare.  Questo parametro viene impostato su 1.  Per ridimensionare il servizio e per garantire un'elevata disponibilità, è possibile utilizzare un numero maggiore di ruoli di lavoro.  È consigliabile utilizzare "2" per le distribuzioni che richiedono un'elevata disponibilità del servizio.</td>
 </tr>
 
-</tr>
-
-    <tr>
+<tr>
     <td>ServiceVmSize</td>
-    <td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Sono accettati valori di parametri di A0/A1/A2/A3 che fanno si che il ruolo di lavoro utilizzi una dimensione Extrapiccola/Piccola/Media/Grande, rispettivamente. Per altre informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Fornisce le dimensioni della macchina virtuale per l'utilizzo all'interno del servizio Cloud. Questo parametro viene impostato su A0. Valori dei parametri di... /.. / Sono accettati A3 causando il ruolo di lavoro da usare una dimensione ExtraSmall/piccola/Media/grande, rispettivamente. Per altre informazioni sulle dimensioni dei ruoli di lavoro, vedere [Componenti e prezzi dei processi di database elastici](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/11/2018
 ms.author: iainfou
-ms.openlocfilehash: 7d91366ee0fec2930484f7aaa7468e6d1d62f233
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4bd934c710d6300e95c60742d5873f5b71bdae59
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55701583"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002192"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>Configurare funzionalità di rete di Azure CNI nel servizio Azure Kubernetes
 
@@ -143,7 +143,7 @@ Le domande e le risposte seguenti si applicano alla configurazione delle funzion
 
 * *È possibile configurare criteri di rete per pod?*
 
-  No. I criteri di rete per pod non sono attualmente supportati.
+  Criteri di rete Kubernetes sono attualmente disponibili come funzionalità in anteprima nel servizio contenitore di AZURE. Per iniziare, vedere [proteggere il traffico tra i POD usando i criteri di rete in AKS][network-policy].
 
 * *Il numero massimo di pod distribuibili in un nodo è configurabile?*
 
@@ -201,3 +201,4 @@ I cluster Kubernetes creati con AKS Engine supportano entrambi i plug-in [kubene
 [aks-ingress-static-tls]: ingress-static-ip.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-internal]: ingress-internal-ip.md
+[network-policy]: use-network-policies.md

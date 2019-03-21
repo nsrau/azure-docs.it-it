@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8008f96e00b0d9a4366832110c696c67a9c7257
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dc3a42c280a344ef08fa23111df8652b6167cfb0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165409"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-panorama9"></a>Esercitazione: Integrazione di Azure Active Directory con Panorama9
 
@@ -198,18 +198,18 @@ Nel caso di Panorama9, il provisioning è un'attività manuale.
 
 1. Nel menu in alto fare clic su **Gestisci**, quindi fare clic su **Utenti**.
    
-  ![Utenti](./media/panorama9-tutorial/ic790027.png "Utenti")
+   ![Utenti](./media/panorama9-tutorial/ic790027.png "Utenti")
 
 1. Nella sezione utenti fare clic su **+** per aggiungere il nuovo utente.
 
- ![Utenti](./media/panorama9-tutorial/ic790028.png "Utenti")
+   ![Utenti](./media/panorama9-tutorial/ic790028.png "Utenti")
 
 1. Passare alla sezione Dati utente e digitare l'indirizzo di posta elettronica di un utente valido di Azure Active Directory di cui si vuole eseguire il provisioning nella casella di testo **Posta elettronica**.
 
 1. Tornare alla sezione Utenti e fare clic su **Salva**.
    
 > [!NOTE]
-    > Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
+> Il titolare dell'account Azure Active Directory riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Assegnazione dell'utente test di Azure AD
 

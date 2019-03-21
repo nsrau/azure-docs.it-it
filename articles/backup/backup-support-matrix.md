@@ -8,49 +8,50 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: raynew
-ms.openlocfilehash: ff4ee1d88bd13e647d0f6218d7e9c9b2c57a5a01
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 51bd4b935b32bea20d3f5de0b8cda62dfdbf07b8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429571"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57898721"
 ---
 # <a name="azure-backup-support-matrix"></a>Matrice di supporto di Backup di Azure
 
-È possibile usare il [servizio Backup di Azure](backup-overview.md) per eseguire il backup dei dati nel cloud di Microsoft Azure. Questo articolo riepiloga le impostazioni e i limiti generali del supporto per gli scenari e le distribuzioni di Backup di Azure.
+È possibile usare [Backup di Azure](backup-overview.md) per eseguire il backup dei dati alla piattaforma cloud di Microsoft Azure. Questo articolo riepiloga le impostazioni di supporto generali e limitazioni per le distribuzioni e gli scenari di Backup di Azure.
 
 Sono disponibili altre matrici di supporto:
 
-[Matrice di supporto](backup-support-matrix-iaas.md) per il backup di macchine virtuali di Azure [Matrice di supporto](backup-support-matrix-mabs-dpm.md) per il backup con un server System Center DPM/Backup di Microsoft Azure (MABS) [Matrice di supporto](backup-support-matrix-mars-agent.md) per il backup mediante l'agente di Servizi di ripristino di Microsoft Azure (MARS)
+- Matrice di supporto per [backup macchina virtuale di Azure (VM)](backup-support-matrix-iaas.md)
+- Matrice di supporto per eseguire il backup tramite [System Center Data Protection Manager (DPM) o Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md)
+- Matrice di supporto per il backup usando il [dell'agente di Microsoft Azure Recovery Services (MARS)](backup-support-matrix-mars-agent.md)
 
 ## <a name="vault-support"></a>Supporto degli insiemi di credenziali
 
-Backup di Azure usa l'insieme di credenziali di Servizi di ripristino per orchestrare e gestire i backup, nonché per archiviare i dati sottoposti a backup.
+Backup di Azure Usa gli insiemi di credenziali di servizi di ripristino per orchestrare e gestire i backup. Utilizza inoltre gli insiemi di credenziali per archiviare i dati di backup. 
 
-**Impostazione** | **Dettagli**
+Nella tabella seguente vengono descritte le funzionalità di insiemi di credenziali di servizi di ripristino:
+
+**Funzionalità** | **Dettagli**
 --- | ---
 **Insiemi di credenziali nella sottoscrizione** | Fino a 500 insiemi di credenziali di Servizi di ripristino in una sottoscrizione singola.
-**Computer in un insieme di credenziali** | Fino a 1000 VM di Azure in un singolo insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
-**Origini dati nell'archivio dell'insieme di credenziali** | Massimo 54400 GB. Non esistono limiti per i backup delle macchine virtuali di Azure.
-**Backup in un insieme di credenziali** | Macchine virtuali di Azure: una volta al giorno<br/><br/>Computer protetti da DPM/MABS: due volte al giorno<br/><br/> Computer sottoposti a backup direttamente tramite l'agente MARS: tre volte al giorno. 
+**Computer in un insieme di credenziali** | Fino a 1000 macchine virtuali di Azure in un unico insieme di credenziali.<br/><br/> In un singolo insieme di credenziali possono essere registrati fino a 50 server MABS.
+**Origini dati nell'archivio dell'insieme di credenziali** | Massimo 54.400 GB. Non esistono limiti per i backup delle macchine virtuali di Azure.
+**Backup in un insieme di credenziali** | **Macchine virtuali di Azure:** Una volta al giorno.<br/><br/>**Macchine protette da DPM/MABS:** Due volte al giorno.<br/><br/> **Il backup delle macchine direttamente tramite l'agente MARS:** Tre volte al giorno. 
 **Backup tra insiemi di credenziali** | Il backup avviene all'interno di un'area.<br/><br/> È necessario un insieme di credenziali in ogni area di Azure che contiene macchine virtuali di cui si vuole eseguire il backup. Non è possibile eseguire il backup in un'altra area. 
-**Spostamento degli insiemi di credenziali** | È possibile [spostare insiemi di credenziali](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) fra sottoscrizioni o fra gruppi di risorse nella stessa sottoscrizione.
-**Spostamento dei dati tra insiemi di credenziali** | Lo spostamento dei dati sottoposti a backup tra insiemi di credenziali non è supportato.
-**Modifica del tipo di archiviazione dell'insieme di credenziali** | È possibile modificare il tipo di replica di archiviazione (archiviazione con ridondanza geografica/locale) per un insieme di credenziali prima dell'archiviazione dei backup. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
-
-
+**Spostare insiemi di credenziali** | È possibile [spostare gli insiemi di credenziali](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) tra le sottoscrizioni o tra gruppi di risorse nella stessa sottoscrizione.
+**Spostamento dei dati tra insiemi di credenziali** | Non è supportato lo spostamento di dati di backup tra gli insiemi di credenziali.
+**Modifica del tipo di archiviazione dell'insieme di credenziali** | È possibile modificare il tipo di replica archiviazione (archiviazione con ridondanza geografica o archiviazione con ridondanza locale) per un insieme di credenziali prima che i backup vengono archiviati. Dopo l'avvio dei backup nell'insieme di credenziali, il tipo di replica non può essere modificato.
 
 ## <a name="on-premises-backup-support"></a>Supporto del backup in locale
 
-Se si vuole eseguire il backup dei computer locali, sono supportati gli scenari seguenti.
+Ecco cosa è supportata se si desidera eseguire il backup di macchine virtuali locali:
 
-**Computer** | **Backup eseguito** | **Posizione** | **Funzionalità**
+**Computer** | **Ciò che viene eseguito il backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
-**Backup diretto di computer Windows con l'agente MARS** | File, cartelle, stato del sistema | Backup in un insieme di credenziali di Servizi di ripristino | Backup eseguito tre volte al giorno.<br/><br/> Backup senza riconoscimento delle app.<br/><br/> Ripristino di file, cartelle, volumi.
-**Backup diretto di computer Linux con l'agente MARS** | Backup non supportato.
-**Backup in DPM** | File, cartelle, volumi, stato del sistema, dati delle app. | Backup in un archivio DPM locale. DPM esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/>. Oracle non supportato.
-**Backup in MABS** | File, cartelle, volumi, stato del sistema, dati delle app. | Backup in un archivio MABS locale. Il server MABS esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/>. Oracle non supportato.
-
+**Backup diretto di computer Windows con l'agente MARS** | File, cartelle, stato del sistema | Eseguire il backup dell'insieme di credenziali di servizi di ripristino. | Eseguire il backup tre volte al giorno<br/><br/> Nessun backup basato sulle app<br/><br/> Ripristinare file, cartelle, volumi
+**Backup diretto di computer Linux con l'agente MARS** | Backup non è supportato
+**Eseguire il backup DPM** | File, cartelle, volumi, dello stato del sistema, i dati delle app | Backup in un archivio DPM locale. DPM esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app<br/><br/> Granularità completa per il backup e ripristino<br/><br/> Linux è supportato per le macchine virtuali (Hyper-V o VMware)<br/><br/> Oracle non supportata
+**Eseguire il backup in backup di Microsoft AZURE** | File, cartelle, volumi, dello stato del sistema, i dati delle app | Backup in un archivio MABS locale. Il server MABS esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app<br/><br/> Granularità completa per il backup e ripristino<br/><br/> Linux è supportato per le macchine virtuali (Hyper-V o VMware)<br/><br/> Oracle non supportata
 
 ## <a name="azure-vm-backup-support"></a>Supporto per il backup di macchine virtuali di Azure
 
@@ -58,105 +59,97 @@ Se si vuole eseguire il backup dei computer locali, sono supportati gli scenari 
 
 **Limite** | **Dettagli**
 --- | ---
-Dischi di dati delle VM di Azure | Limite di 16.
-Dimensioni dei dischi di dati delle VM di Azure | Ogni singolo disco può avere dimensioni fino a 4095 GB.
-
+**Dischi di dati della macchina virtuale di Azure** | Limite di 16
+**Dimensioni del disco dati della macchina virtuale Azure** | I singoli dischi possono essere fino a 4.095 GB
 
 ### <a name="azure-vm-backup-options"></a>Opzioni di backup delle VM di Azure
 
-Se si vuole eseguire il backup delle VM di Azure, sono supportati gli scenari seguenti.
+Ecco cosa è supportata se si desidera eseguire il backup di macchine virtuali di Azure:
 
-**Computer** | **Backup eseguito** | **Posizione** | **Funzionalità**
+**Computer** | **Ciò che viene eseguito il backup** | **Posizione** | **Funzionalità**
 --- | --- | --- | ---
-**Backup di macchine virtuali di Azure tramite l'estensione di macchina virtuale** | Intera macchina virtuale | Backup nell'insieme di credenziali | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Backup eseguito una volta al giorno.<br/><br/> Backup con riconoscimento delle app per le VM Windows, backup coerenti con i file per le VM Linux. È possibile configurare la coerenza con le app per i computer Linux tramite script personalizzati.<br/><br/> VM/disco di ripristino.<br/><br/> Non è possibile eseguire il backup di una VM di Azure in una posizione locale.
-**Backup di macchine virtuali di Azure tramite l'agente MARS** | File, cartelle | Backup nell'insieme di credenziali | Backup eseguito tre volte al giorno.<br/><br/> L'agente MARS può essere eseguito insieme all'estensione di macchina virtuale se si vuole eseguire il backup di cartelle/file specifici invece che dell'intera macchina virtuale.
-**VM di Azure con DPM** | File, cartelle, volumi, stato del sistema, dati delle app. | Backup nell'archivio locale della macchina virtuale di Azure che esegue DPM. DPM esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/>. Oracle non supportato.
-**VM di Azure con MABS** | File, cartelle, volumi, stato del sistema, dati delle app. | Backup nell'archivio locale della macchina virtuale di Azure che esegue MABS. Il server MABS esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento delle app<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/> Oracle non supportato.
-
-
-
-
+**Backup di macchine Virtuali di Azure usando l'estensione della macchina virtuale** | Intera macchina virtuale | Eseguire il backup nell'insieme di credenziali. | Estensione installata quando si abilita il backup per una macchina virtuale.<br/><br/> Eseguire il backup una volta al giorno.<br/><br/> Backup basato sulle App per le macchine virtuali Windows; backup coerenti con i file per le macchine virtuali Linux. È possibile configurare la coerenza delle app per le macchine Linux usando script personalizzati.<br/><br/> Ripristino della macchina virtuale o un disco.<br/><br/> Non è possibile eseguire il backup una VM di Azure in un percorso locale.
+**Backup di macchine Virtuali di Azure usando l'agente MARS** | File, cartelle | Eseguire il backup nell'insieme di credenziali. | Eseguire il backup tre volte al giorno.<br/><br/> Se si desidera eseguire il backup di specifici file o cartelle anziché l'intera macchina virtuale, è possibile eseguire l'agente MARS insieme all'estensione di macchina virtuale.
+**VM di Azure con DPM** | File, cartelle, volumi, dello stato del sistema, i dati delle app | Eseguire il backup nell'archivio locale della macchina virtuale di Azure che esegue DPM. DPM esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento dell'applicazione.<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/> Oracle non supportato.
+**VM di Azure con MABS** | File, cartelle, volumi, dello stato del sistema, i dati delle app | Eseguire il backup nell'archivio locale della macchina virtuale di Azure che esegue MABS. Il server MABS esegue quindi il backup nell'insieme di credenziali. | Snapshot con riconoscimento dell'applicazione.<br/><br/> Piena granularità per backup e ripristino.<br/><br/> Linux supportato per le VM (Hyper-V/VMware).<br/><br/> Oracle non supportato.
 
 ## <a name="linux-backup-support"></a>Supporto di backup di Linux
 
-Se si vuole eseguire il backup di computer Linux, sono supportati gli scenari seguenti.
+Ecco cosa è supportata se si desidera eseguire il backup di macchine Linux:
 
-**Backup** | **Linux (approvato per Azure)**
+**Tipo di backup** | **Linux (approvato per Azure)**
 --- | ---
-**Backup diretto di un computer locale che esegue Linux**. |  No. L'agente MARS può essere installato solo in computer Windows.
-**Backup di una macchina virtuale di Azure che esegue Linux (mediante l'estensione agente)** | Backup coerenti con le app tramite [script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Ripristino a livello di file.<br/><br/> Ripristino tramite creazione di una VM da un punto di ripristino o da disco.
-**Backup locale o di una macchina virtuale di Azure che esegue Linux tramite DPM** | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux in Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le macchine virtuali di Azure
-**Backup di un computer locale o una macchina virtuale di Azure che esegue Linux tramite MABS** | Backup coerenti con i file di macchine virtuali guest Linux in Hyper-V e VMWare<br/><br/> Ripristino di macchine virtuali guest Linux Hyper-V e VMWare</br></br> Backup coerente con i file non disponibile per le VM di Azure.
+**Backup diretto del computer locale che esegue Linux** | Non supportati. L'agente MARS può essere installato solo nei computer Windows.
+**Uso di estensione dell'agente per eseguire il backup di macchine Virtuali di Azure che esegue Linux** | Backup coerente con l'App usando [gli script personalizzati](backup-azure-linux-app-consistent.md).<br/><br/> Ripristino a livello di file.<br/><br/> Ripristino tramite creazione di una VM da un punto di ripristino o da disco.
+**Utilizzo di DPM per eseguire il backup in locale o macchina virtuale di Azure che esegue Linux** | Backup coerenti con i file delle macchine virtuali Guest Linux in Hyper-V e VMWare.<br/><br/> Ripristino delle macchine Virtuali di Hyper-V e VMWare le macchine virtuali Guest di Linux.<br/><br/> Backup coerenti con i file non è disponibile per macchine Virtuali di Azure.
+**Uso di MABS per eseguire il backup nella macchina locale o macchina virtuale di Azure che esegue Linux** | Backup coerenti con i file delle macchine virtuali Guest Linux in Hyper-V e VMWare.<br/><br/> Ripristino delle macchine Virtuali di Hyper-V e macchine virtuali guest VMWare Linux.<br/><br/> Backup coerente con i file non disponibile per le VM di Azure.
 
-## <a name="daylight-saving-support"></a>Supporto dell'ora legale
+## <a name="daylight-saving-time-support"></a>Supporto dell'ora legale
 
-Backup di Azure non supporta la regolazione automatica dell'orologio in base all'ora legale per i backup delle macchine virtuali di Azure. Modificare manualmente i criteri di backup in base alle necessità.
-
+Backup di Azure non supporta la regolazione automatica dell'orologio per l'ora legale per i backup di macchine Virtuali di Azure. Modificare manualmente i criteri di backup in base alle necessità.
 
 ## <a name="disk-deduplication-support"></a>Supporto per la deduplicazione dei dischi
 
 La deduplicazione dei dischi è supportata come segue:
-- La deduplicazione dei dischi è supportata in locale se si usano DPM o MABS per eseguire il backup di VM Hyper-V che eseguono Windows. Windows Server esegue la deduplicazione dei dati a livello di host nei dischi rigidi virtuali (VHD) collegati alla macchina virtuale come archivio di backup.
-- La deduplicazione non è supportata in Azure per nessun componente di Backup. Se System Center DPM e il server di Backup vengono distribuiti in Azure, i dischi di archiviazione collegati alla macchina virtuale non possono essere deduplicati.
 
+- Deduplicazione dei dischi è supportata in locale quando si usa Data Protection Manager o backup di Microsoft Azure per eseguire il backup di macchine virtuali Hyper-V che eseguono Windows. Windows Server esegue la deduplicazione dei dati (a livello di host) nei dischi rigidi virtuali (VHD) collegati alla macchina virtuale come archivio di backup.
+- La deduplicazione non è supportata in Azure per nessun componente di Backup. Quando DPM e MABS vengono distribuiti in Azure, i dischi di archiviazione collegati alla macchina virtuale non possono essere deduplicati.
 
-## <a name="securityencryption-support"></a>Supporto di funzionalità di sicurezza/crittografia
+## <a name="security-and-encryption-support"></a>Supporto della protezione e crittografia
 
-Backup di Azure supporta la crittografia per i dati in movimento e inattivi:
+Backup di Azure supporta la crittografia per i dati in transito e inattivi.
 
-Traffico di rete verso Azure:
-- Il traffico di backup dai server all'insieme di credenziali di Servizi di ripristino viene crittografato con Advanced Encryption Standard 256.
+### <a name="network-traffic-to-azure"></a>Traffico di rete in Azure
+
+- Il traffico di backup dai server all'insieme di credenziali di servizi di ripristino viene crittografato usando Advanced Encryption Standard 256.
 - I dati di backup vengono inviati tramite un collegamento HTTPS sicuro.
-- I dati di backup vengono archiviati nell'insieme di credenziali di Servizi di ripristino in formato crittografato.
+- I dati di backup vengono archiviati nell'insieme di credenziali di servizi di ripristino in forma crittografata.
 - Solo il cliente ha la passphrase per sbloccare questi dati. Microsoft non può decrittografare i dati di backup in nessun caso.
+
     > [!WARNING]
     > Dopo aver configurato l'insieme di credenziali, solo il cliente ha accesso alla chiave di crittografia. Microsoft non conserva mai una copia e non ha accesso alla chiave. Se la chiave viene smarrita, Microsoft non può recuperare i dati di backup.
-Sicurezza dei dati:
-- Per il backup delle VM di Azure, è necessario configurare la crittografia *all'interno* della macchina virtuale.
-- Backup di Azure supporta Crittografia dischi di Azure, che usa BitLocker su macchine virtuali Windows e **dm-crypt** su macchine virtuali Linux.
-- Nel back-end Backup di Azure usa [Crittografia del servizio di archiviazione di Azure](../storage/common/storage-service-encryption.md), che protegge i dati inattivi.
 
+### <a name="data-security"></a>Sicurezza dei dati
+
+- Quando esegue il backup di macchine virtuali di Azure, è necessario impostare la crittografia *all'interno di* la macchina virtuale.
+- Backup di Azure supporta Crittografia dischi di Azure, che usa BitLocker su macchine virtuali Windows e **dm-crypt** su macchine virtuali Linux.
+- Nel back-end, Usa Backup di Azure [crittografia del servizio di archiviazione Azure](../storage/common/storage-service-encryption.md), che protegge i dati inattivi.
 
 **Computer** | **In movimento** | **Inattivi**
 --- | --- | ---
-Computer Windows locali senza DPM/MABS | ![Sì][green] | ![Sì][green]
-Macchine virtuali di Azure | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con DPM | ![Sì][green] | ![Sì][green]
-Computer locali/VM di Azure con MABS | ![Sì][green] | ![Sì][green]
-
-
+**Macchine virtuali Windows locali senza DPM/MABS** | ![Sì][green] | ![Sì][green]
+**Macchine virtuali di Azure** | ![Sì][green] | ![Sì][green]
+**Macchine virtuali Windows locali o macchine virtuali di Azure con DPM** | ![Sì][green] | ![Sì][green]
+**Macchine virtuali Windows locali o macchine virtuali di Azure con backup di Microsoft AZURE** | ![Sì][green] | ![Sì][green]
 
 ## <a name="compression-support"></a>Supporto della compressione
 
-Backup supporta la compressione del traffico di backup, come riepilogato nella tabella seguente. 
+Backup supporta la compressione dei backup del traffico, come riepilogato nella tabella seguente.
 
-- Per le VM di Azure, l'estensione macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione, quindi non è necessario comprimere il traffico.
-- Se si usa DPM o MABS, è possibile comprimere i dati prima di eseguirne il backup in questi server per risparmiare larghezza di banda.
+- Per le VM di Azure, l'estensione macchina virtuale legge i dati direttamente dall'account di archiviazione di Azure attraverso la rete di archiviazione, in modo che non è necessario comprimere il traffico.
+- Se si usa DPM e MABS, è possibile risparmiare larghezza di banda con la compressione dei dati prima di cui viene eseguito il backup.
 
-**Computer** | **Compressione in MABS/DPM (TCP)** | **Compressione (HTTPS) in insieme di credenziali**
+**Computer** | **Compressione in MABS/DPM (TCP)** | **Comprimere all'insieme di credenziali (HTTPS)**
 --- | --- | ---
-**Backup diretto di computer Windows locali** | ND | Sì
-**Backup di macchine virtuali di Azure con l'estensione macchina virtuale** | ND | ND
-**Backup in computer locali/macchine virtuali di Azure con MABS/DPM | ![Sì][green] | ![Sì][green]
-
-
+**Backup diretto di computer Windows locali** | ND | ![Sì][green]
+**Backup di macchine virtuali di Azure tramite l'estensione della macchina virtuale** | ND | ND
+**Backup con DPM/MABS prevede computer on-premises/Azure** | ![Sì][green] | ![Sì][green]
 
 ## <a name="retention-limits"></a>Limiti di conservazione
 
 **Impostazione** | **Limiti**
 --- | ---
-Numero massimo di punti di ripristino per ogni istanza protetta (computer/carico di lavoro) | 9999
-Tempo massimo prima della scadenza di un punto di ripristino | Nessun limite
-Frequenza massima di backup in DPM/MABS | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro.
-Frequenza massima di backup in insieme di credenziali | Computer Windows locali/VM di Azure che eseguono MARS: tre volte al giorno<br/><br/> DPM/MABS: due volte al giorno<br/><br/> Backup di VM di Azure: Una volta al giorno
-Conservazione dei punti di ripristino | Giornaliera, settimanale, mensile, annuale.
-Periodo massimo di conservazione | Dipende dalla frequenza dei backup.
-Punti di ripristino su disco DPM/MABS | 64 per i file server, 448 per i server applicazioni.<br/><br/> I punti di ripristino su nastro sono illimitati per DPM locale.
+**Max punti di ripristino per ogni istanza protetta (computer o del carico di lavoro)** | 9,999
+**Ora di scadenza massimo per un punto di ripristino** | Nessun limite
+**Frequenza massima di backup per DPM/MABS** | Ogni 15 minuti per SQL Server<br/><br/> Una volta all'ora per altri carichi di lavoro
+**Frequenza massima di backup nell'insieme di credenziali** | **In locale i computer Windows o macchine virtuali di Azure che eseguono MARS:** Tre al giorno<br/><br/> **DPM/MABS:** due volte al giorno<br/><br/> **Backup di macchine Virtuali di Azure:** Uno per ogni giorno
+**Conservazione del punto di ripristino** | Giornaliera, settimanale, mensile, annuale
+**Periodo di conservazione massimo** | Dipende dalla frequenza dei backup
+**Punti di ripristino su disco DPM/MABS** | 64 per i file server; 448 per i server di app <br/><br/>Punti di ripristino di nastri senza limiti per DPM in locale
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Vedere la matrice di supporto](backup-support-matrix-iaas.md) per il backup di macchine virtuali di Azure.
-
 
 [green]: ./media/backup-support-matrix/green.png
 [yellow]: ./media/backup-support-matrix/yellow.png

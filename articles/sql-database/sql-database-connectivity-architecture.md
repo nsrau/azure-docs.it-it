@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 5ce8464de552fb228b961af199e4b03e645478a2
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809981"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840920"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -28,10 +28,12 @@ Questo articolo illustra non solo l'architettura della connettività del databas
 > I clienti sono invitati a creare nuovi server e a impostare quelli esistenti con un tipo di connessione impostata esplicitamente su Redirect (scelta consigliata) oppure su Proxy a seconda della relativa architettura di connettività.
 >
 > Per impedire che la connettività tramite un endpoint di servizio venga interrotta negli ambienti esistenti in seguito a questa modifica, vengono usati i dati di telemetria per effettuare le operazioni seguenti:
+>
 > - Per i server a cui è stato effettuato l'accesso tramite gli endpoint di servizio prima della modifica, il tipo di connessione viene impostato su `Proxy`.
 > - Per tutti gli altri server, il tipo di connessione verrà impostato su `Redirect`.
 >
 > Gli utenti degli endpoint di servizio potrebbero tuttavia essere interessati dagli scenari seguenti:
+>
 > - L'applicazione si connette raramente a un server esistente, quindi i dati di telemetria non hanno acquisito le informazioni su tali applicazioni
 > - La logica di distribuzione automatizzata crea un database SQL presupponendo che il comportamento predefinito per le connessioni degli endpoint di servizio sia `Proxy`
 >
@@ -106,10 +108,7 @@ La tabella seguente elenca gli indirizzi IP primario e secondario del gateway de
 | Europa settentrionale | 191.235.193.75 | 40.113.93.91 |
 | Stati Uniti centro-meridionali | 23.98.162.75 | 13.66.62.124 |
 | Asia sudorientale | 23.100.117.95 | 104.43.15.0 |
-| Regno Unito settentrionale | 13.87.97.210 | |
-| Regno Unito meridionale 1 | 51.140.184.11 | |
-| Regno Unito meridionale 2 | 13.87.34.7 | |
-| Regno Unito occidentale | 51.141.8.11 | |
+| Regno Unito meridionale | 51.140.184.11 | |
 | Stati Uniti centro-occidentali | 13.78.145.25 | |
 | Europa occidentale | 191.237.232.75 | 40.68.37.158 |
 | Stati Uniti occidentali 1 | 23.99.34.75 | 104.42.238.205 |
@@ -127,6 +126,10 @@ Per modificare il criterio di connessione del database SQL di Azure per un serve
 
 ## <a name="script-to-change-connection-settings-via-powershell"></a>Script per modificare le impostazioni di connessione tramite PowerShell
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
+
 > [!IMPORTANT]
 > Per questo script è necessario il [modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
@@ -134,22 +137,22 @@ Lo script di PowerShell seguente mostra come modificare il criterio di connessio
 
 ```powershell
 # Get SQL Server ID
-$sqlserverid=(Get-AzureRmSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
+$sqlserverid=(Get-AzSqlServer -ServerName sql-server-name -ResourceGroupName sql-server-group).ResourceId
 
 # Set URI
 $id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy
-(Get-AzureRmResource -ResourceId $id).Properties.connectionType
+(Get-AzResource -ResourceId $id).Properties.connectionType
 
 # Update connection policy
-Set-AzureRmResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
+Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 ```
 
 ## <a name="script-to-change-connection-settings-via-azure-cli"></a>Script per modificare le impostazioni di connessione tramite l'interfaccia della riga di comando di Azure
 
 > [!IMPORTANT]
-> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Per questo script è necessaria l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 Lo script dell'interfaccia della riga di comando seguente mostra come modificare il criterio di connessione.
 

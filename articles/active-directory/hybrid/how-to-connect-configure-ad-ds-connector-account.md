@@ -11,12 +11,12 @@ ms.date: 01/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d39305b4a8fafbd2fe2f1ac101f92597d6a3e4a0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6510105af8c019b1aca5333f516a10667edaadb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000874"
 ---
 # <a name="azure-ad-connectconfigure-ad-ds-connector-account-permissions"></a>Azure AD Connect: Configurare le autorizzazioni dell'account del connettore di AD DS 
 
@@ -104,7 +104,7 @@ Get-ADSyncObjectsWithInheritanceDisabled -SearchBase '<DistinguishedName>' -Obje
 ```
  
 ### <a name="view-ad-ds-permissions-of-an-object"></a>Visualizzare le autorizzazioni di AD DS di un oggetto 
-È possibile usare il cmdlet seguente per visualizzare l'elenco delle autorizzazioni attualmente impostate per un oggetto di Active Directory specificandone il nome distinto: 
+È possibile usare il cmdlet seguente per visualizzare l'elenco di autorizzazioni attualmente impostate nell'oggetto Active Directory, fornendo il nome distinto: 
 
 ``` powershell
 Show-ADSyncADObjectPermissions -ADobjectDN '<DistinguishedName>' 
@@ -158,7 +158,7 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 
 |Type |NOME |Accesso |Si applica a|
 |-----|-----|-----|-----| 
-|CONSENTI|Account del connettore di AD DS|Lettura/scrittura proprietà|MS-DS-Consistency-Guid|Oggetti User discendenti|
+|CONSENTI|Account del connettore di AD DS|Lettura/scrittura proprietà|Oggetti User discendenti|
 
 ### <a name="permissions-for-password-hash-synchronization"></a>Autorizzazioni per la sincronizzazione degli hash delle password 
 Per impostare le autorizzazioni per l'account del connettore di AD DS quando si usa la sincronizzazione degli hash delle password, eseguire: 
@@ -271,7 +271,7 @@ Questo script di PowerShell limiterà le autorizzazioni per l'account del connet
 - Disabilitare l'ereditarietà nell'oggetto specificato 
 - Rimuovere tutte le voci ACE per l'oggetto specifico, ad eccezione delle voci ACE specifiche per SELF, perché si vogliono mantenere intatte le autorizzazioni predefinite per SELF. 
  
- Il parametro -ADConnectorAccountDN è l'account di AD per cui devono essere limitate le autorizzazioni. Si tratta in genere dell'account di dominio MSOL_nnnnnnnnnnnn configurato nel connettore di AD DS (vedere Determinare l'account del connettore di AD DS). Il parametro -Credential è necessario per specificare l'account amministratore con i privilegi necessari per limitare le autorizzazioni di Active Directory per l'oggetto di AD di destinazione. Si tratta in genere dell'amministratore di dominio o dell'organizzazione.  
+  Il parametro -ADConnectorAccountDN è l'account di AD per cui devono essere limitate le autorizzazioni. Si tratta in genere dell'account di dominio MSOL_nnnnnnnnnnnn configurato nel connettore di AD DS (vedere Determinare l'account del connettore di AD DS). Il parametro -Credential è necessario per specificare l'account amministratore con i privilegi necessari per limitare le autorizzazioni di Active Directory per l'oggetto di AD di destinazione. Si tratta in genere dell'amministratore di dominio o dell'organizzazione.  
 
 ``` powershell
 Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
@@ -299,7 +299,7 @@ Questo cmdlet imposterà le autorizzazioni seguenti:
 |CONSENTI |Utenti autenticati |Leggi tutte le proprietà |Questo oggetto 
 |CONSENTI |Utenti autenticati |Autorizzazioni di lettura |Questo oggetto 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Azure AD Connect: Account e autorizzazioni](reference-connect-accounts-permissions.md)
 - [Installazione rapida](how-to-connect-install-express.md)
 - [Installazione personalizzata](how-to-connect-install-custom.md)

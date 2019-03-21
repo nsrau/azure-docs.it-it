@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/06/2019
 ms.author: mikeray
-ms.openlocfilehash: b412d2b054fc8703c7524479359a3670782fd646
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 1b15a3966c6e408fb17655b112c1ec900bd86c5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999775"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurare uno o più listener di gruppi di disponibilità AlwaysOn - Resource Manager
 Questo argomento illustra come:
@@ -48,7 +48,7 @@ Gli esempi di questo articolo sono stati testati usando la versione 5.4.1 del mo
 
 Verificare che la versione del modulo di PowerShell in uso sia 5.4.1 o successiva.
 
-Vedere [Installare il modulo Azure PowerShell](http://docs.microsoft.com/powershell/azure/install-az-ps).
+Vedere [Installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
 
 ## <a name="configure-the-windows-firewall"></a>Configurare Windows Firewall
 
@@ -68,7 +68,7 @@ Gli esempi in questo articolo si riferiscono a un'istanza di Load Balancer Stand
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe -sku Standard
 ```
 
-Per creare un'istanza di Load Balancer Basic, rimuovere `-sku Standard` dalla riga che consente di creare le istanze di Load Balancer. Ad esempio:
+Per creare un'istanza di Load Balancer Basic, rimuovere `-sku Standard` dalla riga che consente di creare le istanze di Load Balancer. Ad esempio: 
 
 ```PowerShell
 $ILB= New-AzureRmLoadBalancer -Location $Location -Name $ILBName -ResourceGroupName $ResourceGroupName -FrontendIpConfiguration $FEConfig -BackendAddressPool $BEConfig -LoadBalancingRule $ILBRule -Probe $SQLHealthProbe
@@ -216,7 +216,7 @@ Per testare la connessione:
 La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Server ospiti la replica primaria. 
 
 > [!NOTE]
-> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](https://technet.microsoft.com/library/cc753558.aspx). 
+> Verificare che la porta specificata sia aperta nel firewall di entrambe le istanze di SQL Server. Per entrambi i server è necessaria una regola in ingresso per la porta TCP usata. Per altre informazioni, vedere [Aggiungere o modificare una regola del firewall](https://technet.microsoft.com/library/cc753558.aspx) . 
 > 
 > 
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.openlocfilehash: f38d9b40143391be34ce5f72627720e2f5119dc6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c3732dd2fa87b00eec38f88ab828605b33567235
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993776"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123148"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di log in Monitoraggio di Azure con il connettore per Microsoft Flow
 [Microsoft Flow](https://ms.flow.microsoft.com) consente di creare flussi di lavoro automatizzati che includono centinaia di azioni per un'ampia gamma di servizi. L'output di un'azione può essere usato come input per un'altra. È così possibile integrare servizi diversi.  Il connettore di Azure Log Analytics per Microsoft Flow consente di creare flussi di lavoro che includono dati recuperati da query di log da un'area di lavoro di Log Analytics in Monitoraggio di Azure.
@@ -48,13 +48,13 @@ L'esercitazione descritta in questo articolo illustra come creare un flusso che 
 
 1. Specificare i dettagli dell'area di lavoro, inclusi l'ID sottoscrizione, il gruppo di risorse e il nome dell'area di lavoro.
 2. Aggiungere la query di log seguente alla finestra **Query**.  Questa è una semplice query di esempio che può essere sostituita con una qualsiasi altra query che restituisce dati.
-```
+   ```
     Event
     | where EventLevelName == "Error" 
     | where TimeGenerated > ago(1day)
     | summarize count() by Computer
     | sort by Computer
-```
+   ```
 
 2. Selezionare **HTML Table** (Tabella HTML) per **Chart Type** (Tipo di grafico).<br><br>![Azione di Log Analytics](media/flow-tutorial/flow03.png)
 
@@ -80,7 +80,7 @@ L'esercitazione descritta in questo articolo illustra come creare un flusso che 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere altre informazioni sulle [query di log in Monitoraggio di Azure](../log-query/log-query-overview.md).
-- Vedere altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
+- Altre informazioni su [Microsoft Flow](https://ms.flow.microsoft.com).
 
 
 

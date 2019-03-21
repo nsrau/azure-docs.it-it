@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: a951e60b417167f2e1566efb689ea0f2d4e65374
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f4558c6fdb1e5e4f0ffb7a4b4fdb1ab62eb4cfa9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111425"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121282"
 ---
 # <a name="remediate-security-configurations-in-azure-security-center"></a>Correggere le configurazioni di sicurezza nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza ogni giorno il sistema operativo delle macchine virtuali e dei computer per trovare eventuali configurazioni che li renderebbero più vulnerabili agli attacchi. Il Centro sicurezza consiglia di risolvere le vulnerabilità quando la configurazione del sistema operativo non corrisponde alle regole di configurazione della sicurezza consigliate e suggerisce di modificare la configurazione per risolvere le vulnerabilità.
@@ -31,34 +31,34 @@ Per altre informazioni sulle configurazioni specifiche sottoposte a monitoraggio
 
 Questo esempio illustra la raccomandazione "Correggi le configurazioni di sicurezza" in **Risorse di calcolo e app**.
 1. Nel riquadro sinistro del Centro sicurezza selezionare **Risorse di calcolo e app**.  
-  Viene visualizzata la finestra **Risorse di calcolo e app**.
+   Viene visualizzata la finestra **Risorse di calcolo e app**.
 
    ![Correggere le configurazioni di sicurezza][1]
 
 2. Selezionare **Remediate security configurations** (Correggere le configurazioni di sicurezza).  
-  Viene aperta la finestra **Configurazioni della sicurezza**.
+   Viene aperta la finestra **Configurazioni della sicurezza**.
 
    ![Finestra "Configurazioni della sicurezza"][2]
 
-  La sezione superiore del dashboard include:
+   La sezione superiore del dashboard include:
 
-  - **Regole non riuscite per gravità**: numero totale di regole non riuscite nella configurazione del sistema operativo delle macchine virtuali e del computer, suddivise per gravità.
-  - **Regole non riuscite per tipo**: numero totale di regole non riuscite nella configurazione del sistema operativo delle macchine virtuali e del computer, suddivise per tipo.
-  - **Regole di Windows non riuscite**: numero totale di regole non riuscite nelle configurazioni del sistema operativo Windows.
-  - **Regole di Linux non riuscite**: numero totale di regole non riuscite nelle configurazioni del sistema operativo Linux.
+   - **Regole non riuscite per gravità**: numero totale di regole non riuscite nella configurazione del sistema operativo delle macchine virtuali e del computer, suddivise per gravità.
+   - **Regole non riuscite per tipo**: numero totale di regole non riuscite nella configurazione del sistema operativo delle macchine virtuali e del computer, suddivise per tipo.
+   - **Regole di Windows non riuscite**: numero totale di regole non riuscite nelle configurazioni del sistema operativo Windows.
+   - **Regole di Linux non riuscite**: numero totale di regole non riuscite nelle configurazioni del sistema operativo Linux.
 
-  Nella sezione inferiore del dashboard vengono elencate tutte le regole non riuscite per le macchine virtuali e i computer e la gravità dell'aggiornamento mancante. L'elenco include gli elementi seguenti:
+   Nella sezione inferiore del dashboard vengono elencate tutte le regole non riuscite per le macchine virtuali e i computer e la gravità dell'aggiornamento mancante. L'elenco include gli elementi seguenti:
 
-  - **CCEID**: identificatore univoco di CCE per la regola. Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci alle regole di configurazione.
-  - **Nome**: nome della regola non riuscita.
-  - **Tipo di regola**: *Chiave del Registro di sistema*, *Criteri di sicurezza*, *Criterio di controllo* o *IIS*.
-  - **N. di VM e computer**: numero totale di macchine virtuali e computer a cui si applica la regola non riuscita.
-  - **Gravità della regola**: valore di CCE *Critico*, *Importante* o *Avviso*.
-  - **Stato**: stato attuale della raccomandazione:
+   - **CCEID**: identificatore univoco di CCE per la regola. Il Centro sicurezza usa l'enumerazione di configurazione comune (CCE) per assegnare identificatori univoci alle regole di configurazione.
+   - **Nome**: nome della regola non riuscita.
+   - **Tipo di regola**: *Chiave del Registro di sistema*, *Criteri di sicurezza*, *Criterio di controllo* o *IIS*.
+   - **N. di VM e computer**: numero totale di macchine virtuali e computer a cui si applica la regola non riuscita.
+   - **Gravità della regola**: valore di CCE *Critico*, *Importante* o *Avviso*.
+   - **Stato**: stato attuale della raccomandazione:
 
-    - **Aperta**: la raccomandazione non è ancora stata risolta.
-    - **In corso**: è in corso l'applicazione della raccomandazione alle risorse e non è richiesta alcuna azione da parte dell'utente.
-    - **Risolta**: la raccomandazione è stata applicata. Quando il problema è risolto, la voce viene visualizzata in grigio.
+     - **Aperta**: la raccomandazione non è ancora stata risolta.
+     - **In corso**: è in corso l'applicazione della raccomandazione alle risorse e non è richiesta alcuna azione da parte dell'utente.
+     - **Risolta**: la raccomandazione è stata applicata. Quando il problema è risolto, la voce viene visualizzata in grigio.
 
 3. Per visualizzare i dettagli di una regola non riuscita, selezionarla nell'elenco.
 
@@ -79,17 +79,17 @@ Questo esempio illustra la raccomandazione "Correggi le configurazioni di sicure
    - **Operazione di regola**: operazione di regola usata dal Centro sicurezza durante l'analisi della configurazione del sistema operativo della VM rispetto alla regola.
 
 4. Nella parte superiore della finestra con la visualizzazione dettagliata selezionare **Cerca**.  
-  La ricerca apre un elenco di aree di lavoro con macchine virtuali e computer con la mancata corrispondenza delle configurazioni di sicurezza selezionata. La selezione delle aree di lavoro viene visualizzata solo se la regola selezionata si applica a più macchine virtuali connesse a diverse aree di lavoro.
+   La ricerca apre un elenco di aree di lavoro con macchine virtuali e computer con la mancata corrispondenza delle configurazioni di sicurezza selezionata. La selezione delle aree di lavoro viene visualizzata solo se la regola selezionata si applica a più macchine virtuali connesse a diverse aree di lavoro.
 
    ![Aree di lavoro elencate][4]
 
 5. Selezionare un'area di lavoro.  
-  Consente di aprire una query di ricerca di Log Analytics filtrata nell'area di lavoro con la mancata corrispondenza delle configurazioni di sicurezza.
+   Una query di ricerca log di monitoraggio di Azure consente di aprire filtrata nell'area di lavoro con la mancata corrispondenza delle configurazioni di sicurezza.
 
    ![Area di lavoro con vulnerabilità del sistema operativo][5]
 
 6. Selezionare un computer nell'elenco.  
-  Verrà visualizzata una nuova finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
+   Verrà visualizzata una nuova finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
 
    ![Informazioni dettagliate relative al computer selezionato][6]
 
