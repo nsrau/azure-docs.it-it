@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b82f32477efb2e45eb95651dd21ccd2ae3095e7c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431310"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286585"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -37,7 +37,7 @@ Questo diagramma illustra il flusso quando un utente prova ad accedere a un'appl
 1. L'utente immette l'URL di accesso l'applicazione locale tramite il Proxy di applicazione.
 2. Il proxy di applicazione reindirizza la richiesta ai servizi di autenticazione di Azure AD per la preautenticazione. A questo punto, Azure AD applica gli eventuali criteri di autenticazione e autorizzazione appropriati, ad esempio l'autenticazione a più fattori. Se l'utente viene convalidato, Azure AD crea un token e lo invia all'utente.
 3. L'utente passa il token al proxy di applicazione.
-4. Il proxy di applicazione convalida il token e recupera il nome dell'entità utente (UPN) da esso e invia la richiesta, il nome dell'entità utente e il nome dell'entità servizio (SPN) al connettore tramite un canale sicuro con doppia autenticazione.
+4. Proxy applicazione convalida il token e recupera il nome dell'entità utente (UPN) da esso e quindi il connettore reperisce l'UPN e il nome dell'entità di servizio (SPN) tramite un canale protetto doppiamente autenticato.
 5. Il connettore esegue la negoziazione della delega vincolata Kerberos (KCD) con Active Directory, rappresentando l'utente per ottenere un token Kerberos per l'applicazione locale.
 6. Active Directory invia il token Kerberos per l'applicazione al connettore.
 7. Il connettore invia la richiesta originale al server dell'applicazione, usando il token Kerberos ricevuto da Active Directory.

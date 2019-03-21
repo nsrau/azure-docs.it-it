@@ -12,12 +12,12 @@ ms.author: ayolubek
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/14/2019
-ms.openlocfilehash: 14c43fbc138d6d70b65f6afd1ef174488e066796
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: c96f2dc2b44ea2118d9f0dd6c988017efcba5800
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567741"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116776"
 ---
 # <a name="use-geo-restore-to-recover-a-multitenant-saas-application-from-database-backups"></a>Usare il ripristino geografico per ripristinare un'applicazione SaaS dai backup di database
 
@@ -32,13 +32,13 @@ Il ripristino geografico è la soluzione di ripristino di emergenza a minor cost
 
 Questa esercitazione illustra entrambi i flussi di lavoro di ripristino e ricollocamento. Si apprenderà come:
 > [!div class="checklist"]
-
->* Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant.
->* Configurare un ambiente con immagine speculare in un'area di ripristino che include applicazione, server e pool.   
->* Ripristinare i database di catalogo e tenant con il ripristino geografico.
->* Usare la replica geografica per ricollocare il catalogo dei tenant e i database tenant modificati dopo che il problema di interruzione è stato risolto.
->* Aggiornare il catalogo mentre ogni database viene ripristinato (o ricollocato) per tenere traccia della posizione corrente della copia attiva del database di ogni tenant.
->* Verificare che l'applicazione e il database tenant si trovino sempre nella stessa area di Azure per ridurre la latenza. 
+> 
+> * Sincronizzare le informazioni di configurazione dei database e dei pool elastici nel catalogo del tenant.
+> * Configurare un ambiente con immagine speculare in un'area di ripristino che include applicazione, server e pool.   
+> * Ripristinare i database di catalogo e tenant con il ripristino geografico.
+> * Usare la replica geografica per ricollocare il catalogo dei tenant e i database tenant modificati dopo che il problema di interruzione è stato risolto.
+> * Aggiornare il catalogo mentre ogni database viene ripristinato (o ricollocato) per tenere traccia della posizione corrente della copia attiva del database di ogni tenant.
+> * Verificare che l'applicazione e il database tenant si trovino sempre nella stessa area di Azure per ridurre la latenza. 
  
 
 Prima di iniziare questa esercitazione, eseguire queste operazioni:
@@ -194,13 +194,13 @@ Quando l'endpoint dell'applicazione è disabilitato in Gestione traffico, l'appl
 
 * Dopo che il database di catalogo è stato ripristinato, ma prima che i tenant siano tornati online, aggiornare l'hub eventi di Wingtip Tickets nel Web browser.
 
-    * Nella parte inferiore della pagina osservare che il nome del server di catalogo include ora un suffisso -recovery e si trova nell'area di ripristino.
+  * Nella parte inferiore della pagina osservare che il nome del server di catalogo include ora un suffisso -recovery e si trova nell'area di ripristino.
 
-    * Si noti che i tenant non ancora ripristinati sono contrassegnati come offline e non sono selezionabili.   
+  * Si noti che i tenant non ancora ripristinati sono contrassegnati come offline e non sono selezionabili.   
  
     ![Processo di ripristino](media/saas-dbpertenant-dr-geo-restore/events-hub-tenants-offline-in-recovery-region.png)    
 
-    * Se si apre direttamente la pagina degli eventi di un tenant mentre questo è offline, viene visualizzata una notifica per segnalare che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall.
+  * Se si apre direttamente la pagina degli eventi di un tenant mentre questo è offline, viene visualizzata una notifica per segnalare che il tenant è offline. Se, ad esempio, Contoso Concert Hall è offline, provare ad aprire http://events.wingtip-dpt.&lt;utente&gt;.trafficmanager.net/contosoconcerthall.
 
     ![Processo di ripristino](media/saas-dbpertenant-dr-geo-restore/dr-in-progress-offline-contosoconcerthall.png)
 
@@ -245,13 +245,13 @@ Al termine del processo di ripristino, l'applicazione e tutti i tenant funzionan
 
 4. Aprire il gruppo di risorse di ripristino e osservare gli elementi seguenti:
 
-    * Le versioni di ripristino dei server di catalogo e tenants1, con il suffisso -recovery. Tutti i database di catalogo e tenant ripristinati in questi server hanno i nomi usati nell'area di origine.
+   * Le versioni di ripristino dei server di catalogo e tenants1, con il suffisso -recovery. Tutti i database di catalogo e tenant ripristinati in questi server hanno i nomi usati nell'area di origine.
 
-    * Il server SQL tenants2-dpt-&lt;utente&gt;-recovery. Questo server viene usato per il provisioning di nuovi tenant durante l'interruzione.
+   * Il server SQL tenants2-dpt-&lt;utente&gt;-recovery. Questo server viene usato per il provisioning di nuovi tenant durante l'interruzione.
 
-    * Il servizio app denominato events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;utente&gt;, che rappresenta l'istanza di ripristino dell'app degli eventi.
+   * Il servizio app denominato events-wingtip-dpt-&lt;recoveryregion&gt;-&lt;utente&gt;, che rappresenta l'istanza di ripristino dell'app degli eventi.
 
-    ![Risorse di Contoso nell'area di ripristino](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
+     ![Risorse di Contoso nell'area di ripristino](media/saas-dbpertenant-dr-geo-restore/resources-in-recovery-region.png) 
     
 5. Aprire il server SQL tenants2-dpt-&lt;user&gt;-recovery. Si noti che contiene il database hawthornhall e il pool elastico Pool1. Il database hawthornhall è configurato come database elastico nel pool elastico Pool1.
 
@@ -367,12 +367,12 @@ Per un certo intervallo di tempo durante il ricollocamento, i database tenant po
 
 Questa esercitazione illustra come:
 > [!div class="checklist"]
-
->* Usare il catalogo dei tenant per memorizzare periodicamente le informazioni di configurazione aggiornate e consentire così la creazione di un ambiente di ripristino con immagine speculare in un'altra area.
->* Usare il ripristino geografico per ripristinare i database SQL di Azure nell'area di ripristino.
->* Aggiornare il catalogo dei tenant in base alle posizioni dei database tenant. 
->* Usare un alias DNS per consentire a un'applicazione di connettersi al catalogo dei tenant senza dover ridefinire la configurazione.
->* Usare la replica geografica per ricollocare i database ripristinati nella rispettiva area di origine dopo che è stato risolto un problema di interruzione.
+> 
+> * Usare il catalogo dei tenant per memorizzare periodicamente le informazioni di configurazione aggiornate e consentire così la creazione di un ambiente di ripristino con immagine speculare in un'altra area.
+> * Usare il ripristino geografico per ripristinare i database SQL di Azure nell'area di ripristino.
+> * Aggiornare il catalogo dei tenant in base alle posizioni dei database tenant. 
+> * Usare un alias DNS per consentire a un'applicazione di connettersi al catalogo dei tenant senza dover ridefinire la configurazione.
+> * Usare la replica geografica per ricollocare i database ripristinati nella rispettiva area di origine dopo che è stato risolto un problema di interruzione.
 
 Passare all'esercitazione [Ripristino di emergenza per un'applicazione SaaS multi-tenant con la replica geografica del database](saas-dbpertenant-dr-geo-replication.md) per informazioni su come ridurre notevolmente il tempo necessario per ripristinare un'applicazione multi-tenant su larga scala.
 

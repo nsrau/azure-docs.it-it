@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e66c694d2bfb5497712bcf81c4d50a8e68fdcef9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af106650f6e1d139ec7af2c8d243dc50f2e963fc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122521"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293959"
 ---
 # <a name="troubleshooting-azure-active-directory-b2b-collaboration"></a>Risoluzione dei problemi di Collaborazione B2B di Azure Active Directory
 
@@ -38,7 +38,7 @@ La possibilità di cercare gli utenti guest esistenti nella selezione utenti di 
 
 Se si riceve una notifica che indica che non si è autorizzati a invitare utenti, verificare che l'account utente abbia le autorizzazioni necessarie per invitare utenti esterni in Impostazioni utente:
 
-![Impostazioni degli utenti esterne](media/troubleshoot/external-user-settings.png)
+![Screenshot che mostra le impostazioni di utenti esterni](media/troubleshoot/external-user-settings.png)
 
 Se di recente sono state modificate queste impostazioni o è stato assegnato il ruolo Mittente dell'invito guest a un utente, potrebbero essere necessari 15-60 minuti perché le modifiche abbiano effetto.
 
@@ -50,7 +50,7 @@ Di seguito sono riportati gli errori più comuni.
 
 Questo si verifica quando si invitano utenti la cui organizzazione usa Azure Active Directory, ma dove l'account dell'utente specifico non esiste (ad esempio se l'utente non esiste in contoso.com di Azure AD). L'amministratore di contoso.com potrebbe aver impostato criteri che impediscono la creazione di utenti. L'utente deve rivolgersi all'amministratore per determinare se gli utenti esterni sono consentiti. L'amministratore dell'utente esterno potrebbe dover consentire gli utenti verificati tramite posta elettronica nel dominio (vedere questo [articolo](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0) su come consentire gli utenti verificati tramite posta elettronica).
 
-![Errore che indica che il tenant non consente l'indirizzo di posta elettronica verificato gli utenti da aggiungere](media/troubleshoot/allow-email-verified-users.png)
+![Errore che indica che il tenant non consente l'indirizzo di posta elettronica gli utenti verificati](media/troubleshoot/allow-email-verified-users.png)
 
 ### <a name="external-user-does-not-exist-already-in-a-federated-domain"></a>L'utente esterno non esiste già in un dominio federato
 

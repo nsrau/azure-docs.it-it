@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
-ms.openlocfilehash: 9f82ed280d18be304129bf8b7807213a75110df2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 186d0bb9161d70d9e458d25dc1b9cbe518bb790e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660987"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082738"
 ---
 # <a name="create-an-application-gateway-with-internal-redirection-using-the-azure-cli"></a>Creare un gateway applicazione con reindirizzamento interno tramite l'interfaccia della riga di comando di Azure
 
-È possibile usare l'interfaccia della riga di comando di Azure per configurare il [reindirizzamento del traffico Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione viene creato un pool back-end usando un set di scalabilità di macchine virtuali, quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web arrivi al pool appropriato. Questa esercitazione presuppone che l'utente sia proprietario di più domini e usi gli esempi di *www.contoso.com* e *www.contoso.org*.
+È possibile usare l'interfaccia della riga di comando di Azure per configurare il [reindirizzamento del traffico Web](application-gateway-multi-site-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questa esercitazione viene creato un pool back-end usando un set di scalabilità di macchine virtuali, quindi si configurano i listener e le regole in base ai domini di cui si è proprietari per assicurarsi che il traffico Web arrivi al pool appropriato. Questa esercitazione si presuppone che si è proprietari di più domini e usi gli esempi del *www\.contoso.com* e *www\.contoso.org*.
 
 In questo articolo viene spiegato come:
 
@@ -101,7 +101,7 @@ Il processo di creazione del gateway applicazione può richiedere alcuni minuti.
 
 ## <a name="add-listeners-and-rules"></a>Aggiungere listener e regole 
 
-È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini *www.contoso.com* e *www.contoso.org*.
+È necessario un listener per consentire al gateway applicazione di instradare il traffico in modo appropriato al pool back-end. In questa esercitazione vengono creati due listener per i due domini. In questo esempio vengono creati i listener per i domini *www\.contoso.com* e *www\.contoso.org*.
 
 Aggiungere i listener back-end necessari per instradare il traffico usando [az network application-gateway http-listener create](/cli/azure/network/application-gateway).
 
@@ -124,7 +124,7 @@ az network application-gateway http-listener create \
 
 ### <a name="add-the-redirection-configuration"></a>Aggiungere la configurazione di reindirizzamento
 
-Aggiungere la configurazione di reindirizzamento che invia il traffico da *www.consoto.org* al listener per *www.contoso.com* nel gateway applicazione usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
+Aggiungere la configurazione di reindirizzamento che invia il traffico da *www\.consoto.org* al listener per *www\.contoso.com* nel gateway applicazione usando [az network application-gateway redirect-config create](/cli/azure/network/application-gateway/redirect-config).
 
 ```azurecli-interactive
 az network application-gateway redirect-config create \
@@ -209,11 +209,11 @@ az network public-ip show \
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com.
+Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com .
 
 ![Testare il sito contoso nel gateway applicazione](./media/tutorial-internal-site-redirect-cli/application-gateway-nginxtest.png)
 
-Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org. Il traffico dovrebbe essere stato reindirizzato al listener per www.contoso.com.
+Modificare l'indirizzo per l'altro dominio, ad esempio http://www.contoso.org dovrebbe essere possibile visualizzare che il traffico è stato reindirizzato al listener per www\.contoso.com.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

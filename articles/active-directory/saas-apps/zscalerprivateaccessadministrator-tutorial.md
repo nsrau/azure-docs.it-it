@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ba2bde039cec65a1afe33efac58752d26f22c2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9cdb842c4cebe48f2f6534417a7fe6aa4686d1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894683"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-private-access-administrator"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Private Access Administrator
 
@@ -217,7 +217,7 @@ Per poter accedere a Zscaler Private Access Administrator, gli utenti di Azure A
 
     ![Amministratore utente in Zscaler Private Access Administrator](./media/zscalerprivateaccessadministrator-tutorial/tutorial_zscalerprivateaccessadministrator_useradmin.png)
 
-    a. Nella casella di testo **Nome utente**, immettere l'indirizzo di posta elettronica dell'utente, ad esempio **BrittaSimon@contoso.com**.
+    a. Nel **nomeutente** casella di testo immettere l'indirizzo di posta elettronica dell'utente, ad esempio **BrittaSimon\@contoso.com**.
 
     b. Nella casella di testo **Password**, digitare la password.
 
@@ -225,7 +225,7 @@ Per poter accedere a Zscaler Private Access Administrator, gli utenti di Azure A
 
     d. Per **Ruolo**, selezionare **Zscaler Private Access Administrator**.
 
-    e. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **BrittaSimon@contoso.com**.
+    e. Nel **messaggio di posta elettronica** casella di testo immettere l'indirizzo di posta elettronica dell'utente, ad esempio **BrittaSimon\@contoso.com**.
 
     f. Nella casella di testo **Telefono**, digitare il numero di telefono.
 

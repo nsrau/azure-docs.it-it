@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 940a5839fe2c2eea11d9570d3dca48cd514e21af
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7a3990366814beda83852fc7c07c896445388c23
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417245"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454902"
 ---
 # <a name="azure-automation-runbook-types"></a>Tipi di runbook di Automazione di Azure
 
@@ -22,10 +22,10 @@ Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nell
 
 | Type | DESCRIZIONE |
 |:--- |:--- |
-| [Grafico](#graphical-runbooks) |Basato su Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
-| [Grafico del flusso di lavoro di PowerShell](#graphical-runbooks) |Basato su flusso di lavoro Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
+| [Grafico](#graphical-runbooks)|Basato su Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
+| [Grafico del flusso di lavoro di PowerShell](#graphical-runbooks)|Basato su flusso di lavoro Windows PowerShell e creato e modificato completamente nell'editor grafico nel portale di Azure. |
 | [PowerShell](#powershell-runbooks) |Runbook di testo basato su script di Windows PowerShell. |
-| [Flusso di lavoro PowerShell](#powershell-workflow-runbooks) |Runbook di testo basato su flusso di lavoro Windows PowerShell. |
+| [Flusso di lavoro PowerShell](#powershell-workflow-runbooks)|Runbook di testo basato su flusso di lavoro Windows PowerShell. |
 | [Python](#python-runbooks) |Runbook di testo basato su Python. |
 
 ## <a name="graphical-runbooks"></a>Runbook grafici
@@ -45,6 +45,7 @@ Automazione di Azure supporta diversi tipi di runbook, descritti brevemente nell
 * Impossibilità di modificare il runbook all'esterno del portale di Azure.
 * Potrebbe richiedere un'attività di codice contenente il codice di PowerShell per eseguire una logica complessa.
 * Impossibilità di visualizzare o modificare direttamente il codice di PowerShell creato dal flusso di lavoro grafico. È possibile visualizzare il codice creato in qualsiasi attività di codice.
+* Non può essere eseguita in Linux Hybrid Runbook Workers
 
 ## <a name="powershell-runbooks"></a>Runbook di PowerShell
 
@@ -54,6 +55,7 @@ I runbook di PowerShell sono basati su Windows PowerShell.  È possibile modific
 
 * Implementazione di tutta la logica complessa con codice di PowerShell senza le complessità aggiuntive del flusso di lavoro PowerShell.
 * Avvio del runbook più rapido rispetto ai runbook del flusso di lavoro PowerShell poiché non è necessaria la compilazione prima dell'esecuzione.
+* Possono essere eseguiti in Azure o in Linux e Windows Hybrid Runbook Workers
 
 ### <a name="limitations"></a>Limitazioni
 
@@ -88,6 +90,7 @@ I runbook del flusso di lavoro PowerShell sono runbook di testo basati sul [flus
 * Gestione nel runbook della complessità aggiuntiva del flusso di lavoro PowerShell, ad esempio gli [oggetti deserializzati](automation-powershell-workflow.md#code-changes).
 * Tempi di avvio maggiori rispetto ai runbook di PowerShell perché è necessaria la compilazione prima dell'esecuzione.
 * Possibilità di includere i runbook di PowerShell come runbook figlio solo mediante il cmdlet Start-AzureAutomationRunbook, che crea un nuovo processo.
+* Non può essere eseguita in Linux Hybrid Runbook Workers
 
 ## <a name="python-runbooks"></a>Runbook Python
 
@@ -96,6 +99,7 @@ I runbook Python vengono compilati in Python 2.  È possibile modificare diretta
 ### <a name="advantages"></a>Vantaggi
 
 * Usare le affidabili librerie di Python.
+* Possono essere eseguiti in Azure o in entrambi i ruoli di lavoro Runbook ibrido Linux. Con sono supportati Windows Hybrid Runbook Workers [Python 2.7](https://www.python.org/downloads/release/latest/python2) installato.
 
 ### <a name="limitations"></a>Limitazioni
 

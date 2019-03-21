@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2017
 ms.author: trinadhk
-ms.openlocfilehash: fcb5941c56eda19f9c524a2c078a76483426b862
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: 2ba94963238cd5ee96df5c178a072addc5ddd75e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54266995"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082926"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e intrusioni, aumentano continuamente. Questi problemi di sicurezza possono essere costosi in termini di denaro e di dati. Per evitare questi attacchi, Backup di Azure offre ora una serie di funzionalità di sicurezza per la protezione dei backup ibridi. Questo articolo descrive come abilitare e usare queste funzionalità tramite un agente di Servizi di ripristino di Azure e il server di Backup di Azure. Queste funzionalità includono:
@@ -82,7 +82,7 @@ Sono stati aggiunti alcuni controlli per garantire che solo gli utenti validi po
 Come parte dell'aggiunta di un ulteriore livello di autenticazione per le operazioni critiche, viene chiesto di immettere un PIN di sicurezza quando si eseguono le operazioni **Arresta protezione dei dati con eliminazione dei dati** e **Modifica passphrase**.
 
 > [!NOTE]
-
+> 
 > Attualmente, il pin di sicurezza non è supportato per l'operazione **Arresta protezione dati con eliminazione dei dati** per DPM e MABS.
 
 Per ricevere questo PIN:

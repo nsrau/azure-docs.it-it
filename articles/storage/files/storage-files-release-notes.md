@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 2/12/2019
+ms.date: 3/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 2bbac21b9ac3e07cbb41ea8aa4cf93dcbd636d15
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 063699f016c3e165dfb07d17c26e7f29a13c81f8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181780"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118613"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Note sulla versione dell'agente Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Le installazioni Windows Server vengono trasformate in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS e FTPS. Si può usare qualsiasi numero di cache in tutto il mondo.
@@ -25,7 +25,8 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 
 | Attività cardine | Numero di versione dell'agente | Data di rilascio | Stato |
 |----|----------------------|--------------|------------------|
-| Versione v5 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 febbraio 2019 | Supportato (versione consigliata) |
+| Aggiornamento di marzo 2019 cumulativo - [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 7 marzo 2019 | Supportato (versione consigliata) |
+| Versione v5 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 12 febbraio 2019 | Supportato |
 | Gennaio 2019 aggiornamento cumulativo - [KB4481059](https://support.microsoft.com/help/4481059)| 4.3.0.0 | 14 gennaio 2019 | Supportato |
 | Aggiornamento cumulativo di dicembre 2018 - [KB4459990](https://support.microsoft.com/help/4459990)| 4.2.0.0 | 10 dicembre 2018 | Supportato |
 | Aggiornamento cumulativo di dicembre 2018 | 4.1.0.0 | 4 dicembre 2018 | Supportato |
@@ -38,13 +39,23 @@ L'agente Sincronizzazione file di Azure supporta le versioni seguenti:
 ### <a name="azure-file-sync-agent-update-policy"></a>Criteri di aggiornamento dell'agente Sincronizzazione file di Azure
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
+## <a name="agent-version-5100"></a>Versione dell'agente 5.1.0.0
+Le note seguenti si riferiscono alla versione 5.1.0.0 dell'agente sincronizzazione File di Azure il 7 marzo 2019. Queste note si aggiungono le note sulla versione elencate per la versione 5.0.2.0.
+
+Elenco dei problemi risolti in questa versione:  
+- File potrebbero non riuscire per la sincronizzazione con l'errore 0x80c8031d (ECS_E_CONCURRENCY_CHECK_FAILED) se non è possibile eseguire l'enumerazione delle modifiche nel server
+- Se un file o una sessione di sincronizzazione si verifica un errore 0x80072f78 (WININET_E_INVALID_SERVER_RESPONSE), sincronizzazione ora tenterà di ripetere l'operazione
+- File potrebbero non riuscire per la sincronizzazione con l'errore 0x80c80203 (ECS_E_SYNC_INVALID_STAGED_FILE)
+- Utilizzo elevato della memoria può verificarsi quando il richiamo di file
+- Miglioramenti della telemetria suddivisione in livelli nel cloud 
+
 ## <a name="agent-version-5020"></a>Versione dell'agente 5.0.2.0
 Le note seguenti si riferiscono alla versione 5.0.2.0 dell'agente Sincronizzazione file di Azure resa disponibile il 12 febbraio 2019.
 
 ### <a name="improvements-and-issues-that-are-fixed"></a>Miglioramenti e problemi risolti
 
 - Supporto per il cloud di Azure per enti pubblici
-    - È stato aggiunto il supporto di anteprima per il cloud di Azure per enti pubblici. Richiede una sottoscrizione consentita e un download di agenti speciali da Microsoft. Per ottenere l'accesso all'anteprima, inviare un messaggio di posta elettronica direttamente a Microsoft all'indirizzo [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
+  - È stato aggiunto il supporto di anteprima per il cloud di Azure per enti pubblici. Richiede una sottoscrizione consentita e un download di agenti speciali da Microsoft. Per ottenere l'accesso all'anteprima, inviare un messaggio di posta elettronica direttamente a Microsoft all'indirizzo [AzureFiles@microsoft.com](mailto:AzureFiles@microsoft.com).
 - Supporto per la deduplicazione dei dati
     - La deduplicazione dei dati ha un supporto completo con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. Abilitando la deduplicazione dei dati in un volume con cloud a livelli abilitato, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione.
 - Supporto per il trasferimento dei dati offline (ad esempio tramite Data Box)

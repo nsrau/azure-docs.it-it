@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: troubleshooting
 ms.date: 12/03/2018
 ms.author: genli
-ms.openlocfilehash: 85dca677238070ded13b59faf9a13081c2409987
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4d090740b75acbe2629ae4f1e13cde8947f190bb
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890859"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286432"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere l'errore di Backup di Azure: problemi relativi all'agente o all'estensione
 
@@ -102,19 +102,12 @@ Dopo la registrazione e la pianificazione di una macchina virtuale per il serviz
 **Causa 5: Il servizio di Backup di Azure non possiede l'autorizzazione per eliminare i punti di ripristino precedenti, a causa di un blocco del gruppo di risorse** <br>
 **Causa 6: [La macchina virtuale non ha accesso a Internet](#the-vm-has-no-internet-access)**
 
-## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-1023gb"></a>UserErrorUnsupportedDiskSize: Currently Azure Backup does not support disk sizes greater than 1023GB (Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB)
+## <a name="usererrorunsupporteddisksize---currently-azure-backup-does-not-support-disk-sizes-greater-than-4095gb"></a>UserErrorUnsupportedDiskSize - Backup di Azure attualmente non supporta dischi di dimensioni superiori a 4095GB
 
 **Codice errore**: UserErrorUnsupportedDiskSize <br>
-**Messaggio di errore**: Attualmente Backup di Azure non supporta dischi di dimensioni maggiori di 1023 GB. <br>
+**Messaggio di errore**: Backup di Azure non supporta attualmente dimensioni superiori a 4095GB <br>
 
-L'operazione di backup potrebbe non riuscire quando si esegue il backup di macchine virtuali con dimensioni del disco superiori a 1023 GB, poiché l'insieme di credenziali non viene aggiornato a Ripristino istantaneo. L'aggiornamento a Ripristino istantaneo fornirà supporto fino a 4TB, vedere questo [articolo](backup-instant-restore-capability.md#upgrading-to-instant-restore). Dopo l'aggiornamento, saranno necessarie fino a due ore prima che la sottoscrizione possa usufruire di questa funzionalità. Prevedere un buffer sufficiente prima di ripetere l'operazione.  
-
-## <a name="usererrorstandardssdnotsupported---currently-azure-backup-does-not-support-standard-ssd-disks"></a>UserErrorStandardSSDNotSupported: Currently Azure Backup does not support Standard SSD disks (Attualmente Backup di Azure non supporta i dischi SSD Standard)
-
-**Codice errore**: UserErrorStandardSSDNotSupported <br>
-**Messaggio di errore**: Backup di Azure al momento non supporta i dischi SSD standard. <br>
-
-Attualmente Backup di Azure supporta i dischi SSD Standard solo per gli insiemi di credenziali che vengono aggiornati a [Ripristino istantaneo](backup-instant-restore-capability.md).
+L'operazione di backup potrebbe non riuscire durante il backup della macchina virtuale con dischi di dimensioni superiori a 4095GB. Supporto per dischi di grandi dimensioni sarà presto disponibile.  
 
 ## <a name="usererrorbackupoperationinprogress---unable-to-initiate-backup-as-another-backup-operation-is-currently-in-progress"></a>UserErrorBackupOperationInProgress - Impossibile avviare il backup perché è attualmente in corso un'altra operazione di backup
 
@@ -200,7 +193,7 @@ Le condizioni seguenti possono causare errori dell'attività di snapshot:
 | Causa | Soluzione |
 | --- | --- |
 | Lo stato della macchina virtuale viene segnalato in modo non corretto perché la macchina virtuale viene arrestata in RDP (Remote Desktop Protocol). | Se si arresta la macchina virtuale in RDP, controllare il portale per determinare se lo stato della macchina virtuale è corretto. In caso contrario, arrestare la macchina virtuale nel portale tramite l'opzione **Spegni** nel dashboard della macchina virtuale. |
-| La macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP, con risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, configurarlo tramite il **portale di Azure** oppure **PowerShell** e assicurarsi che l'opzione DHCP all'interno della macchina virtuale sia abilitata. [Altre informazioni](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sulla configurazione di un indirizzo IP statico con PowerShell.
+| La macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP. | DHCP deve essere abilitato nel computer guest per consentire il funzionamento del backup delle VM IaaS. Se la macchina virtuale non riesce a ottenere l'indirizzo dell'host o dell'infrastruttura da DHCP, con risposta 245, non è possibile scaricare o eseguire le estensioni. Se è necessario un indirizzo IP privato statico, è necessario configurarlo tramite il **portale di Azure** oppure **PowerShell** e assicurarsi che l'opzione DHCP all'interno della VM sia abilitato. [Altre informazioni](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) sulla configurazione di un indirizzo IP statico con PowerShell.
 
 ### <a name="the-backup-extension-fails-to-update-or-load"></a>Non è possibile aggiornare o caricare l'estensione di backup
 Se non è possibile caricare le estensioni, si verifica un errore del backup perché non è possibile acquisire uno snapshot.

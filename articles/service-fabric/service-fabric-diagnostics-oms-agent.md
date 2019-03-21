@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric - Monitoraggio delle prestazioni con Log Analytics | Microsoft Docs
+title: I log di Azure Service Fabric - monitoraggio delle prestazioni con monitoraggio di Azure | Microsoft Docs
 description: Informazioni su come configurare l'agente di Log Analytics per il monitoraggio di contenitori e contatori delle prestazioni per i cluster di Azure Service Fabric.
 services: service-fabric
 documentationcenter: .net
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: da7ae9c77d7bb94f1d06cf5fdb48149775c93201
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: 6562156432a86c346a0fee382af50f210e3cf6dc
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52333804"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308517"
 ---
-# <a name="performance-monitoring-with-log-analytics"></a>Monitoraggio delle prestazioni con Log Analytics
+# <a name="performance-monitoring-with-azure-monitor-logs"></a>Monitoraggio delle prestazioni con i log di monitoraggio di Azure
 
 Questo articolo illustra i passaggi necessari per aggiungere l'agente di Log Analytics come estensione del set di scalabilità di macchine virtuali al cluster e connetterlo all'area di lavoro di Log Analytics di Azure esistente. Ciò consente la raccolta dei dati di diagnostica relativi a contenitori, applicazioni e monitoraggio delle prestazioni. Aggiungendolo come un'estensione alla risorsa del set di scalabilità di macchine virtuali, Azure Resource Manager ne garantisce l'installazione su ogni nodo, anche in caso di ridimensionamento del cluster.
 
 > [!NOTE]
-> Questo articolo presuppone che sia già stata configurata un'area di lavoro di Log Analytics di Azure. In caso contrario, vedere [Configurare Log Analytics di Azure](service-fabric-diagnostics-oms-setup.md)
+> Questo articolo presuppone che sia già stata configurata un'area di lavoro di Log Analytics di Azure. In caso contrario, andare alla [configurare i log di monitoraggio di Azure](service-fabric-diagnostics-oms-setup.md)
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Aggiungere l'estensione dell'agente tramite l'interfaccia della riga di comando di Azure
 
@@ -34,16 +36,16 @@ Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite 
 
 1. Dopo aver eseguito la richiesta per Cloud Shell, assicurarsi di usare la stessa sottoscrizione della risorsa. A tale scopo, usare `az account show` e assicurarsi che il valore "name" corrisponda a quello della sottoscrizione del cluster.
 
-2. Nel portale passare al gruppo di risorse in cui si trova l'area di lavoro di Log Analytics di Azure. Fare clic sulla risorsa Log Analytics (il tipo della risorsa sarà Log Analytics). Una volta visualizzata la pagina di panoramica della risorsa, fare clic su **Impostazioni avanzate** nella sezione Impostazioni nel menu a sinistra.
+2. Nel portale passare al gruppo di risorse in cui si trova l'area di lavoro di Log Analytics di Azure. Fare clic sulla risorsa log analitica (il tipo della risorsa sia dell'area di lavoro di Log Analitica). Una volta visualizzata la pagina di panoramica della risorsa, fare clic su **Impostazioni avanzate** nella sezione Impostazioni nel menu a sinistra.
 
-    ![Pagina delle proprietà di Log Analytics](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
- 
+    ![Pagina delle proprietà di log analitica](media/service-fabric-diagnostics-oms-agent/oms-advanced-settings.png)
+
 3. Fare clic su **Server Windows** in caso di creazione di un cluster Windows cluster o su **Server Linux** se si sta creando un cluster Linux. In questa pagina verranno visualizzati `workspace ID` e `workspace key` (elencata come Chiave primaria nel portale). Entrambi serviranno per il passaggio successivo.
 
 4. Eseguire il comando per installare l'agente di Log Analytics sul cluster tramite l'API `vmss extension set` nell'istanza corrente di Cloud Shell:
 
     Per un cluster Windows:
-    
+
     ```sh
     az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
@@ -57,7 +59,7 @@ Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite 
     Di seguito è riportato un esempio dell'aggiunta dell'agente di Log Analytics a un cluster Windows.
 
     ![Comando dell'interfaccia della riga di comando dell'agente di Log Analytics](media/service-fabric-diagnostics-oms-agent/cli-command.png)
- 
+
 5. L'operazione di aggiunta dell'agente ai nodi dovrebbe richiedere meno di 15 minuti. Per verificare l'esito dell'aggiunta degli agenti, usare l'API `az vmss extension list`:
 
     ```sh
@@ -72,7 +74,7 @@ Il modo migliore per aggiungere l'agente di Log Analytics al cluster è tramite 
 
 ## <a name="view-performance-counters"></a>Visualizzare i contatori delle prestazioni
 
-Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analytics per scegliere i contatori delle prestazioni da raccogliere. 
+Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analytics per scegliere i contatori delle prestazioni da raccogliere.
 
 1. Nel portale di Azure, passare al gruppo di risorse in cui è stata creata la soluzione Analisi Service Fabric. Selezionare **ServiceFabric\<nameOfLog AnalyticsWorkspace\>**.
 
@@ -90,7 +92,7 @@ Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analyti
 
 8. Saranno visualizzati riquadri sotto forma di grafo per ogni soluzione abilitata, tra cui uno per Service Fabric. Fare clic sul grafo **Service Fabric** per passare alla soluzione Analisi Service Fabric.
 
-9. Saranno visualizzati alcuni riquadri con grafi sugli eventi del canale operativo e di Reliable Services. La rappresentazione grafica dei dati trasmessi ai contatori selezionati sarà visualizzata sotto Metriche del nodo. 
+9. Saranno visualizzati alcuni riquadri con grafi sugli eventi del canale operativo e di Reliable Services. La rappresentazione grafica dei dati trasmessi ai contatori selezionati sarà visualizzata sotto Metriche del nodo.
 
 10. Fare clic su un grafico Metriche del contenitore per visualizzare dettagli aggiuntivi. È anche possibile eseguire query sui dati dei contatori delle prestazioni in modo analogo agli eventi cluster e applicare filtri sui nodi, sul nome del contatore delle prestazioni e sui valori usando il linguaggio di query Kusto.
 
@@ -99,5 +101,5 @@ Dopo avere aggiunto l'agente di Log Analytics, passare al portale di Log Analyti
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Raccogliere i [contatori delle prestazioni](service-fabric-diagnostics-event-generation-perf.md) rilevanti. Per configurare l'agente di Log Analytics affinché raccolga contatori di prestazioni specifici, vedere [Configurazione delle origini dati](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources).
-* Configurare Log Analytics per impostare gli [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) per semplificare il rilevamento e la diagnostica.
-* In alternativa, è possibile raccogliere i contatori delle prestazioni tramite l'[estensione di Diagnostica di Azure e inviarli ad Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)
+* Configurare i log di monitoraggio di Azure per configurare [avvisi automatizzati](../log-analytics/log-analytics-alerts.md) per semplificare il rilevamento e la diagnostica
+* In alternativa, è possibile raccogliere i contatori delle prestazioni tramite l'[estensione di Diagnostica di Azure e inviarli ad Application Insights](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template)

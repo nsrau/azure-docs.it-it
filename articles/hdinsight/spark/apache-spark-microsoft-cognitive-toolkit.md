@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: hrasheed
-ms.openlocfilehash: 76fc2c9a0864417e380471f8de59d148e0fbf7b4
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 093685ff2fa48799f0a91ee25727f5124dec6292
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53651828"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225791"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Usare il modello di apprendimento approfondito Microsoft Cognitive Toolkit con un cluster Azure HDInsight Spark
 
@@ -52,13 +52,13 @@ I passaggi rimanenti elencati sotto vengono trattati nel notebook di Jupyter.
 
 ## <a name="install-microsoft-cognitive-toolkit"></a>Installare Microsoft Cognitive Toolkit
 
-È possibile installare Microsoft Cognitive Toolkit in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. È possibile usare lo script personalizzato dal portale di Azure tramite HDInsight .NET SDK o Azure PowerShell. È possibile usare lo script anche per installare il toolkit sia nell’ambito della creazione del cluster sia quando il cluster è in esecuzione. 
+È possibile installare Microsoft Cognitive Toolkit in un cluster Spark tramite l'azione script. L'azione script usa script personalizzati per installare nel cluster i componenti che non sono disponibili per impostazione predefinita. È possibile usare lo script personalizzato dal portale di Azure con HDInsight .NET SDK o con Azure PowerShell. È possibile usare lo script anche per installare il toolkit sia nell’ambito della creazione del cluster sia quando il cluster è in esecuzione. 
 
 In questo articolo il toolkit verrà installato dal portale, dopo la creazione del cluster. Per altri modi di eseguire lo script personalizzato, vedere [Personalizzare cluster HDInsight tramite azione script](../hdinsight-hadoop-customize-cluster-linux.md).
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Per istruzioni su come usare il portale di Azure per eseguire azioni di script, vedere [Personalizzare cluster HDInsight tramite azione script](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Assicurarsi di specificare i dati seguenti per installare Microsoft Cognitive Toolkit.
+Per istruzioni su come usare il portale di Azure per eseguire azioni di script, vedere [cluster di personalizzare HDInsight tramite azione Script](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation). Assicurarsi di specificare i dati seguenti per installare Microsoft Cognitive Toolkit.
 
 * Specificare un valore per il nome dell'azione script.
 
@@ -74,7 +74,7 @@ Per usare Microsoft Cognitive Toolkit con il cluster Azure HDInsight Spark, è n
 
 1. Clonare il repository GitHub [https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration](https://github.com/Azure-Samples/hdinsight-pyspark-cntk-integration). Per istruzioni su come eseguire la clonazione, vedere [Cloning a repository](https://help.github.com/articles/cloning-a-repository/) (Clonazione di un repository).
 
-2. Dal portale di Azure, aprire il pannello del cluster Spark di cui è già stato eseguito il provisioning, fare clic su **Dashboard cluster** e quindi su **Notebook di Jupyter**.
+2. Dal portale di Azure, aprire il pannello del cluster Spark che già stato effettuato il provisioning, fare clic su **Dashboard Cluster**, quindi fare clic su **notebook di Jupyter**.
 
     È anche possibile avviare il notebook di Jupyter accedendo all'URL `https://<clustername>.azurehdinsight.net/jupyter/`. Sostituire \<clustername> con il nome del cluster HDInsight.
 

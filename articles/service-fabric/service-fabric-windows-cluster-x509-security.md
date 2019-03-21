@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: b23b2c46098fb53a3a08ff86c46cc6b6c9b936bb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 17dd2a8cf58066fda7f82ba53b048df8e9b89da8
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51228573"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285246"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-x509-certificates"></a>Proteggere un cluster autonomo in Windows usando i certificati X.509
 Questo articolo descrive come proteggere la comunicazione tra i vari nodi del cluster di Windows autonomo. Descrive inoltre come autenticare i client che si connettono a questo cluster usando i certificati X.509. Questa autenticazione garantisce che solo gli utenti autorizzati possano accedere al cluster e alle applicazioni distribuite ed eseguire attività di gestione. La sicurezza basata su certificati deve essere abilitata nel cluster durante la creazione del cluster.  
@@ -175,7 +175,7 @@ Ecco un esempio di una configurazione cluster in cui sono stati specificati cert
         "storeType": "FileShare",
         "IsEncrypted": "false",
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
-        }
+        },
         "security": {
             "metadata": "The Credential type X509 indicates this cluster is secured by using X509 certificates. The thumbprint format is d5 ec 42 3b 79 cb e5 07 fd 83 59 3c 56 b9 d5 31 24 25 42 64.",
             "ClusterCredentialType": "X509",
@@ -261,7 +261,7 @@ Per proteggere i cluster che eseguono carichi di lavoro di produzione, è necess
 
 Per i cluster usati solo a scopo di test, si può scegliere di usare un certificato autofirmato.
 
-## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: creare un certificato autofirmato
+## <a name="optional-create-a-self-signed-certificate"></a>Facoltativo: Creare un certificato autofirmato
 Un modo per creare un certificato autofirmato che possa essere protetto correttamente consiste nell'usare lo script CertSetup.ps1 della cartella Service Fabric SDK nella directory C:\Programmi\Microsoft SDKs\Service Fabric\ClusterSetup\Secure. Modificare questo file per cambiare il nome predefinito del certificato (individuare il valore CN=ServiceFabricDevClusterCert). Eseguire questo script come `.\CertSetup.ps1 -Install`.
 
 Esportare ora il certificato in un file con estensione pfx con una password protetta. Ottenere per prima cosa l'identificazione personale del certificato. 

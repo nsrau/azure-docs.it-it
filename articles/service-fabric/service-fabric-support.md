@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: 5d2edd3b4d8655133ef2835f0d0e579280123ae7
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: aa4fd391aef3acf8e72513d91b62c7f16a13062d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51249422"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889438"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opzioni di supporto di Azure Service Fabric
 
@@ -72,7 +72,7 @@ Non esiste alcuna opzione di supporto a pagamento per queste versioni di antepri
 
 <!--references-->
 [msdn-forum]: https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureServiceFabric
-[stackoverflow]: http://stackoverflow.com/questions/tagged/azure-service-fabric
+[stackoverflow]: https://stackoverflow.com/questions/tagged/azure-service-fabric
 [uservoice-forum]: https://feedback.azure.com/forums/293901-service-fabric
-[acom-docs]: http://aka.ms/servicefabricdocs
-[sample-repos]: http://aka.ms/servicefabricsamples
+[acom-docs]: https://aka.ms/servicefabricdocs
+[sample-repos]: https://aka.ms/servicefabricsamples

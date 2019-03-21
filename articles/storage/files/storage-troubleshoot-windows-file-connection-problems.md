@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 2289fc143abfde0aaaf2bcb079a6d24b74d57975
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564443"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195507"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -75,12 +75,11 @@ Per usare il cmdlet `Test-NetConnection` è necessario che sia installato il mod
     # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as sovereign clouds
     # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
     Test-NetConnection -ComputerName ([System.Uri]::new($storageAccount.Context.FileEndPoint).Host) -Port 445
-  
     
 Se la connessione ha avuto esito positivo, verrà visualizzato l'output seguente:
     
   
-    ComputerName     : <storage-account-host-name>
+    ComputerName     : <your-storage-account-name>
     RemoteAddress    : <storage-account-ip-address>
     RemotePort       : 445
     InterfaceAlias   : <your-network-interface>
@@ -93,7 +92,19 @@ Se la connessione ha avuto esito positivo, verrà visualizzato l'output seguente
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
-Collaborare con il reparto IT per aprire la porta 445 in uscita verso gli [intervalli IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+#### <a name="solution-1---use-azure-file-sync"></a>Soluzione 1: sincronizzazione File di Azure di uso
+Sincronizzazione File di Azure può Trasforma Windows Server in locale in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Sincronizzazione File di Azure funziona tramite la porta 443 e pertanto può essere utilizzato come soluzione alternativa per accedere ai file di Azure dai client che hanno la porta 445 bloccata. [Informazioni su come configurare Azure File Sync](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-extend-servers).
+
+#### <a name="solution-2---use-vpn"></a>Soluzione 2: usare VPN
+Configurando una connessione VPN all'Account di archiviazione specifico, il traffico passerà attraverso un tunnel sicuro anziché tramite internet. Seguire le [istruzioni per configurare la rete VPN](https://github.com/Azure-Samples/azure-files-samples/tree/master/point-to-site-vpn-azure-files
+) per accedere ai file di Azure da Windows.
+
+#### <a name="solution-3---unblock-port-445-with-help-of-your-ispit-admin"></a>Soluzione 3: sbloccare la porta 445 con l'aiuto dell'ISP / amministratore IT
+Lavorare con il reparto IT o ISP per aprire la porta 445 verso [intervalli di indirizzi IP Azure](https://www.microsoft.com/download/details.aspx?id=41653).
+
+#### <a name="solution-4---use-rest-api-based-tools-like-storage-explorerpowershell"></a>Soluzione 4: usare l'API REST basati su strumenti, ad esempio Storage Explorer o Powershell
+File di Azure supporta anche REST oltre a SMB. L'accesso REST funziona tramite la porta 443 (tcp standard). Sono disponibili vari strumenti che vengono scritti usando l'API REST che consentono l'esperienza dell'interfaccia utente avanzata. [Storage Explorer](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) è uno di essi. [Scaricare e installare Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) e connettersi alla condivisione di file supportata da file di Azure. È anche possibile usare [PowerShell](https://docs.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-powershell) quale utente anche l'API REST.
+
 
 ### <a name="cause-2-ntlmv1-is-enabled"></a>Causa 2: è abilitata la comunicazione NTLMv1
 

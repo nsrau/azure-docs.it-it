@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/23/2018
 ms.author: magoedte
-ms.openlocfilehash: 722712d1e38efa3e1accc41abca5c9d88b3c1229
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21294f61c77f0267601c5d0fc1fc9dcf213008e7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095926"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258827"
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Connettere Operations Manager a Log Analytics
 Per gestire l'investimento esistente in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) e usare le funzionalità estese con Log Analytics, è possibile integrare Operations Manager con l'area di lavoro di Log Analytics. Ciò consente di sfruttare le opportunità di Log Analytics pur continuando a usare Operations Manager per:
@@ -132,7 +132,7 @@ Seguire questa procedura se tra il gruppo di gestione e il servizio Log Analytic
 1. Aprire la console di Operations Manager e selezionare lo spazio di lavoro **Amministrazione** .
 1. Espandere Operations Management Suite e quindi fare clic su **Connessioni**.
 1. Nella visualizzazione OMS Connection (Connessione OMS), fare clic su **Configure Proxy Server**(Configura server proxy).
-1. Nella pagina **Configurazione guidata impostazioni di Operations Management Suite: Server proxy** selezionare **Usa un server proxy per accedere a Operations Management Suite** e immettere l'URL con il numero di porta, ad esempio <http://corpproxy:80>, quindi fare clic su **Fine**.
+1. Nella pagina **Configurazione guidata impostazioni di Operations Management Suite: Server proxy** pagina, selezionare **Usa un server proxy per accedere a Operations Management Suite**, quindi digitare l'URL con il numero di porta, ad esempio, http:\//corpproxy:80 e quindi fare clic su  **Fine**.
 
 Se il server proxy richiede l'autenticazione, seguire questa procedura per configurare le credenziali e le impostazioni da propagare ai computer gestiti che faranno riferimento a Log Analytics nel gruppo di gestione.
 

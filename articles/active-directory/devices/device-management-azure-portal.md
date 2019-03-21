@@ -17,12 +17,12 @@ ms.date: 10/26/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 830825c6ad54a6ff300fb7ee223b32ee0571a55a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bb244cb03ed5419762541e93784bb72fcf252676
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163535"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258055"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Come gestire i dispositivi usando il portale di Azure
 
@@ -83,7 +83,7 @@ La pagina delle impostazioni dei dispositivi consente di configurare:
 
 - **Gli utenti possono sincronizzare le impostazioni e i dati delle app su tutti i dispositivi**: per impostazione predefinita, il valore di questa opzione è **Nessuno**. Se si selezionano utenti o gruppi specifici oppure l'opzione TUTTI, si consente la sincronizzazione delle impostazioni dell'utente e dei dati delle app tra i dispositivi Windows 10. Leggere altre informazioni sul funzionamento della sincronizzazione in Windows 10.
 Questa opzione è una funzionalità Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
- 
+
 
 
 
@@ -119,7 +119,7 @@ Per alcuni dispositivi iOS, i nomi dei dispositivi contenenti apostrofi possono 
 
 ## <a name="device-management-tasks"></a>Attività di gestione dei dispositivi
 
-L'amministratore globale può gestire i dispositivi registrati o aggiunti. Gli amministratori del servizio Intune possono:
+Come amministratore globale o amministratore dispositivo cloud, è possibile gestire i dispositivi registrati o aggiunti. Gli amministratori del servizio Intune possono:
  
 - Aggiornare i dispositivi: esempi sono operazioni quotidiane, quali abilitazione/disabilitazione di dispositivi
 
@@ -151,7 +151,7 @@ Per abilitare o disabilitare un dispositivo, le opzioni disponibili sono due:
 
 **Osservazioni:**
 
-- Per abilitare o disabilitare un dispositivo, è necessario essere un amministratore globale in Azure AD. 
+- È necessario essere un amministratore globale o un cloud dell'amministratore del dispositivo in Azure AD per abilitare o disabilitare un dispositivo. 
 - La disabilitazione di un dispositivo impedisce l'autenticazione con Azure AD, impedendo in tal modo al dispositivo di accedere alle risorse di Azure AD che sono protette dall'autorità di certificazione di dispositivo o usando le credenziali WH4B un dispositivo. 
 
 

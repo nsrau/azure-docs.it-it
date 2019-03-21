@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 086a3b4bf34f2ea7454bb018f9468dd21629a8ce
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 2fe2e972d16bdb27c5d2fbd2d552dac825235b6d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903097"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286466"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -244,7 +244,7 @@ Disco P10 o P15 Premium | 8 KB  | 2 MB/s | 168 GB per disco
 Disco P10 o P15 Premium | 16 KB | 4 MB/s |  336 GB per disco
 Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
 Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
-Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |10 MB/s | 842 GB per disco
+Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per disco
 
 **Varianza dati di origine** | **Limite Massimo**
 ---|---

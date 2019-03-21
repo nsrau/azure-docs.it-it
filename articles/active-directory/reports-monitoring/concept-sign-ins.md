@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b958a8d7aa8566c62d5fdaf6b5b51064e4e5123
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32720669ae9d8941abce4429471c13608a18cbc5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183748"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294893"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -149,7 +149,7 @@ Se si aggiungono altri campi alla visualizzazione degli accessi, questi campi ve
 
 ## <a name="download-sign-in-activities"></a>Scaricare le attività di accesso
 
-È possibile [scaricare i dati relativi agli accessi](quickstart-download-sign-in-report.md) per usarli esternamente al portale di Azure. Facendo clic **scaricare** ti offre la possibilità di creare un file CSV o JSCON 250.000 record più recente.  
+È possibile [scaricare i dati relativi agli accessi](quickstart-download-sign-in-report.md) per usarli esternamente al portale di Azure. Facendo clic **scaricare** ti offre la possibilità di creare un file CSV o JSON dei record di 250.000 più recente.  
 
 ![Download](./media/concept-sign-ins/71.png "Download")
 
@@ -168,7 +168,7 @@ Oltre ad Azure AD, il portale di Azure fornisce altri punti di ingresso ai dati 
 
 ### <a name="users-sign-ins-data-in-identity-security-protection"></a>Dati degli accessi degli utenti in Identity Security e Protection
 
-Il grafico degli accessi utente nella pagina di panoramica **Identity Security e Protection** mostra le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
+Il grafico di accesso utente nel **Identity protection sicurezza** pagina di panoramica Mostra le aggregazioni settimanali degli accessi per tutti gli utenti in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
 ![Attività di accesso](./media/concept-sign-ins/06.png "Attività di accesso")
 
@@ -214,7 +214,7 @@ Il punto di ingresso a questi dati sono le prime 3 applicazioni nell'organizzazi
 
 ![Attività di accesso](./media/concept-sign-ins/10.png "Attività di accesso")
 
-Il grafico sull'utilizzo delle app visualizza le aggregazioni settimanali degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
+L'app utilizzo grafico le aggregazioni settimanali degli accessi per le prime 3 applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
 ![Attività di accesso](./media/concept-sign-ins/47.png "Attività di accesso")
 

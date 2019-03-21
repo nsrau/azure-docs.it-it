@@ -1,5 +1,5 @@
 ---
-title: Aggiungere un utente di Collaborazione B2B di Azure Active Directory a un ruolo | Microsoft Docs
+title: Aggiungere un utente di collaborazione B2B a un ruolo - Azure Active Directory | Microsoft Docs
 description: Aggiungere un utente guest a un ruolo in Azure Active Directory
 services: active-directory
 ms.service: active-directory
@@ -9,14 +9,15 @@ ms.date: 05/08/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df328228dea53f338c0b2c54422e6b343f96e43e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5ffebd117d1ea69a81395c1517b6f75505b83ac0
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172234"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294638"
 ---
 # <a name="grant-permissions-to-users-from-partner-organizations-in-your-azure-active-directory-tenant"></a>Concedere autorizzazioni agli utenti di organizzazioni partner nel tenant di Azure Active Directory
 
@@ -24,15 +25,15 @@ Gli utenti di Collaborazione B2B di Azure Active Directory (Azure AD) vengono ag
 
 ## <a name="default-role"></a>Ruolo predefinito
 
-![ruolo predefinito](./media/add-guest-to-role/default-role.png)
+![Screenshot che mostra il ruolo della directory predefinita](./media/add-guest-to-role/default-role.png)
 
 ## <a name="global-administrator-role"></a>Ruolo Amministratore globale
 
-![ruolo Amministratore globale](./media/add-guest-to-role/global-admin-role.png)
+![Screenshot che mostra il ruolo di amministratore globale](./media/add-guest-to-role/global-admin-role.png)
 
 ## <a name="limited-administrator-role"></a>Ruolo Amministratore con limitazioni
 
-![ruolo Amministratore con limitazioni](./media/add-guest-to-role/limited-admin-role.png)
+![Screenshot che mostra il ruolo di amministratore con limitazioni](./media/add-guest-to-role/limited-admin-role.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

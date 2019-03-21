@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: thoroet
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 5174723e7c9566fe90eb8bf49a1f353a5d9ae9ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f34991dca4dbb4275033c764981c44492b9920e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083972"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58257809"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Integrazione di Data Center Azure Stack - identità
 È possibile distribuire Azure Stack tramite Azure Active Directory (Azure AD) o Active Directory Federation Services (ADFS) come provider di identità. È necessario effettuare la scelta prima di distribuire Azure Stack. In uno scenario connesso, è possibile scegliere di Azure AD o AD FS. Per uno scenario disconnesso, è supportato solo da AD FS.
@@ -122,7 +122,7 @@ Le informazioni seguenti sono necessarie come input per i parametri di automazio
 |Parametro|DESCRIZIONE|Esempio|
 |---------|---------|---------|
 |CustomAdfsName|Nome del provider di attestazioni.<br>Viene visualizzato in questo modo nella pagina di destinazione AD FS.|Contoso|
-|CustomAD<br>FSFederationMetadataEndpointUri|Collegamento di metadati di federazione| https://ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
+|CustomAD<br>FSFederationMetadataEndpointUri|Collegamento di metadati di federazione| https:\//ad01.contoso.com/federationmetadata/2007-06/federationmetadata.xml |
 
 
 ### <a name="trigger-automation-to-configure-claims-provider-trust-in-azure-stack"></a>Attivare l'automazione per configurare i trust del provider di attestazioni in Azure Stack

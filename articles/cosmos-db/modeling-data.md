@@ -8,37 +8,38 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: a6781c3a94789b26beb85a9a3df3166ec47622bb
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: f122d60a4f4df011a0adbe7806e70ae173222641
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54041578"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295097"
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modellazione dei dati di un documento per un database NoSQL
 
-Anche se con i database privi di schema, come Azure Cosmos DB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati. 
+Anche se con i database privi di schema, come Azure Cosmos DB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati.
 
-Come verranno archiviati i dati? In che modo l'applicazione recupererà i dati e ne eseguirà la query? L'applicazione esegue un'intensa attività di lettura o un'intensa attività di scrittura? 
+Come verranno archiviati i dati? In che modo l'applicazione recupererà i dati e ne eseguirà la query? L'applicazione esegue un'intensa attività di lettura o un'intensa attività di scrittura?
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
 * Come si deve considerare un documento in un database di documenti?
-* Cos'è la modellazione dei dati e perché è importante? 
+* Cos'è la modellazione dei dati e perché è importante?
 * Come si distingue la modellazione dei dati in un database di documenti da quella in un database relazionale?
 * Come si esprimono le relazioni tra i dati in un database non relazionale?
 * Quando si incorporano i dati e quando si creano i collegamenti ai dati?
 
 ## <a name="embedding-data"></a>Incorporamento dei dati
+
 Quando si inizia a modellare i dati in un archivio documenti, ad esempio Cosmos DB, cercare di considerare le entità come **documenti autosufficienti** rappresentati in JSON.
 
-Prima di proseguire, è consigliabile fare un passo indietro e vedere come eseguire una modellazione in un database relazionale, un argomento con cui molti hanno già familiarità. L'esempio seguente mostra come una persona possa essere archiviata in un database relazionale. 
+Prima di proseguire, è consigliabile fare un passo indietro e vedere come eseguire una modellazione in un database relazionale, un argomento con cui molti hanno già familiarità. L'esempio seguente mostra come una persona possa essere archiviata in un database relazionale.
 
 ![Database relazionale](./media/sql-api-modeling-data/relational-data-model.png)
 
 Quando si lavora con i database relazionali, tutti hanno imparato ormai da anni a normalizzare, normalizzare, normalizzare.
 
-La normalizzazione dei dati implica di solito la suddivisione di un'entità, ad esempio una persona, in porzioni di dati discrete. Nell'esempio precedente, una persona può avere più record di dettagli contatto e più record di indirizzi. È possibile andare oltre e suddividere i dettagli contatto estraendo anche i campi comuni come tipo. Lo stesso per l'indirizzo: ogni record qui ha un tipo, ad esempio *Abitazione* o *Ufficio* 
+La normalizzazione dei dati implica di solito la suddivisione di un'entità, ad esempio una persona, in porzioni di dati discrete. Nell'esempio precedente, una persona può avere più record di dettagli contatto e più record di indirizzi. È possibile andare oltre e suddividere i dettagli contatto estraendo anche i campi comuni come tipo. Stesso indirizzo, ogni record qui ha un tipo, ad esempio *casa* oppure *Business*.
 
 Il presupposto principale quando si normalizzano i dati è **evitare di archiviare i dati ridondanti** in ogni record e fare invece riferimento ai dati. In questo esempio, per leggere una persona, con tutti i dettagli contatto e gli indirizzi, è necessario usare i JOIN per aggregare in modo efficace i dati in fase di esecuzione.
 
@@ -48,7 +49,7 @@ Il presupposto principale quando si normalizzano i dati è **evitare di archivia
     JOIN ContactDetailType on cdt ON cdt.Id = cd.TypeId
     JOIN Address a ON a.PersonId = p.Id
 
-Per aggiornare una singola persona con i dettagli contatto e gli indirizzi, è necessario eseguire operazioni di scrittura in più tabelle. 
+Per aggiornare una singola persona con i dettagli contatto e gli indirizzi, è necessario eseguire operazioni di scrittura in più tabelle.
 
 Ora si esaminerà come si modellano gli stessi dati come entità autosufficiente in un database di documenti.
 
@@ -57,7 +58,7 @@ Ora si esaminerà come si modellano gli stessi dati come entità autosufficiente
         "firstName": "Thomas",
         "lastName": "Andersen",
         "addresses": [
-            {            
+            {
                 "line1": "100 Some Street",
                 "line2": "Unit 1",
                 "city": "Seattle",
@@ -68,20 +69,21 @@ Ora si esaminerà come si modellano gli stessi dati come entità autosufficiente
         "contactDetails": [
             {"email": "thomas@andersen.com"},
             {"phone": "+1 555 555-5555", "extension": 5555}
-        ] 
+        ]
     }
 
 Con questo approccio si è ora **denormalizzato** il record della persona, in cui sono state **incorporate** tutte le informazioni relative alla persona, ad esempio i dati di contatto e gli indirizzi, in un singolo documento JSON.
-Inoltre, dal momento che non esistono limiti imposti da uno schema fisso, abbiamo la flessibilità necessaria, ad esempio, per avere dettagli contatto di forme completamente diverse. 
+Inoltre, dal momento che non esistono limiti imposti da uno schema fisso, abbiamo la flessibilità necessaria, ad esempio, per avere dettagli contatto di forme completamente diverse.
 
 Il recupero del record completo di una persona dal database richiede ora una sola operazione di lettura in una sola raccolta e per un solo documento. Anche l'aggiornamento del record di una persona, con i dettagli contatto e gli indirizzi, richiede una sola operazione di scrittura in un solo documento.
 
-Denormalizzando i dati, è possibile che l'applicazione debba eseguire meno query e aggiornamenti per completare le comuni operazioni. 
+Denormalizzando i dati, è possibile che l'applicazione debba eseguire meno query e aggiornamenti per completare le comuni operazioni.
 
 ### <a name="when-to-embed"></a>Quando eseguire l'incorporamento
+
 In generale, usare i modelli di dati incorporati quando:
 
-* Esistono relazioni contains** tra le entità.
+* Esistono **contenuti** le relazioni tra entità.
 * Esistono relazioni **one-to-few** tra le entità.
 * Esistono dati incorporati che **cambiano raramente**.
 * Esistono dati incorporati che non aumenteranno **senza limiti**.
@@ -89,10 +91,9 @@ In generale, usare i modelli di dati incorporati quando:
 
 > [!NOTE]
 > I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.
-> 
-> 
 
 ### <a name="when-not-to-embed"></a>Quando non eseguire l'incorporamento
+
 In linea generale in un database di documenti si denormalizza tutto e si incorporano tutti i dati in un solo documento. Questo modo di procedere, tuttavia, può creare situazioni che è consigliabile evitare.
 
 Consideriamo questo frammento JSON.
@@ -152,7 +153,7 @@ In questo caso, è meglio prendere in considerazione il modello seguente.
 
 Questo modello ha i tre commenti più recenti incorporati nel post, che questa volta è una matrice con un limite fisso. Gli altri commenti sono raggruppati in batch di 100 commenti e archiviati in documenti separati. La dimensione scelta per il batch è 100 perché l'applicazione fittizia consente all'utente di caricare 100 commenti per volta.  
 
-Un altro caso in cui non è consigliabile ricorrere all'incorporamento dei dati è quando i dati incorporati vengono usati spesso nei documenti e cambiano spesso. 
+Un altro caso in cui non è consigliabile ricorrere all'incorporamento dei dati è quando i dati incorporati vengono usati spesso nei documenti e cambiano spesso.
 
 Consideriamo questo frammento JSON.
 
@@ -174,14 +175,15 @@ Consideriamo questo frammento JSON.
 
 Questo potrebbe essere il portafoglio azionario di una persona. Si è scelto di incorporare le informazioni sulle azioni in ogni documento del portafoglio. In un ambiente in cui i dati correlati cambieranno spesso, come in un'applicazione per le contrattazioni azionarie, l'incorporamento di dati che cambiano spesso obbligherà ad aggiornare continuamente ogni documento del portafoglio ogni volta che viene scambiata un'azione.
 
-Il titolo *zaza* potrebbe essere scambiato diverse centinaia di volte in un solo giorno e migliaia di utenti potrebbero avere *zaza* nel portafoglio. Con un modello di dati come quello sopra è necessario aggiornare molte migliaia di documenti del portfolio più volte al giorno, con una scarsa efficienza della scalabilità del sistema. 
+Il titolo *zaza* potrebbe essere scambiato diverse centinaia di volte in un solo giorno e migliaia di utenti potrebbero avere *zaza* nel portafoglio. Con un modello di dati come quello sopra è necessario aggiornare molte migliaia di documenti del portfolio più volte al giorno, con una scarsa efficienza della scalabilità del sistema.
 
-## <a id="Refer"></a>Dati di riferimento
-L'incorporamento dei dati quindi funziona senza problemi in molti casi, ma è evidente che in altri scenari la denormalizzazione dei dati è più che altro causa di problemi. Cosa si può fare dunque? 
+## <a name="referencing-data"></a>Fare riferimento ai dati
 
-Le relazioni tra entità non devono essere necessariamente create in un database relazionale. In un database di documenti è possibile mantenere in un documento informazioni correlate in realtà ai dati di altri documenti. Non è necessario creare sistemi più appropriati per un database relazionale in Azure Cosmos DB o in qualsiasi altro database di documenti. Relazioni semplici, tuttavia, sono adeguate e possono essere molto utili. 
+L'incorporamento dei dati quindi funziona senza problemi in molti casi, ma è evidente che in altri scenari la denormalizzazione dei dati è più che altro causa di problemi. Cosa si può fare dunque?
 
-Nel codice JSON seguente abbiamo scelto di usare l'esempio del portafoglio di azioni di prima, ma questa volta facciamo riferimento all'elemento titolo nel portafoglio invece di incorporarlo. In questo modo, anche se l'elemento titolo cambia più volte nel corso della giornata, il solo documento da aggiornare è il documento del titolo. 
+Le relazioni tra entità non devono essere necessariamente create in un database relazionale. In un database di documenti è possibile mantenere in un documento informazioni correlate in realtà ai dati di altri documenti. Non è necessario creare sistemi più appropriati per un database relazionale in Azure Cosmos DB o in qualsiasi altro database di documenti. Relazioni semplici, tuttavia, sono adeguate e possono essere molto utili.
+
+Nel codice JSON seguente abbiamo scelto di usare l'esempio del portafoglio di azioni di prima, ma questa volta facciamo riferimento all'elemento titolo nel portafoglio invece di incorporarlo. In questo modo, anche se l'elemento titolo cambia più volte nel corso della giornata, il solo documento da aggiornare è il documento del titolo.
 
     Person document:
     {
@@ -216,18 +218,17 @@ Nel codice JSON seguente abbiamo scelto di usare l'esempio del portafoglio di az
         "pe": 75.82
     }
 
-
 L'aspetto negativo di questo approccio diventa però immediatamente evidente se l'applicazione deve mostrare informazioni su ogni titolo disponibile quando si visualizza il portafoglio di una persona. In questo caso, sarebbe necessario accedere più volte al database per caricare le informazioni del documento di ogni titolo. Qui è stata presa la decisione di aumentare l'efficienza delle operazioni di scrittura, che vengono eseguite spesso durante la giornata, compromettendo però le operazioni di lettura che hanno un impatto potenzialmente minore sulle prestazioni di questo particolare sistema.
 
 > [!NOTE]
 > I modelli di dati normalizzati **possono richiedere più round trip** al server.
-> 
-> 
 
 ### <a name="what-about-foreign-keys"></a>Chiavi esterne
+
 Poiché attualmente non esiste alcun vincolo, chiave esterna o altro, le relazioni esistenti tra i documenti sono di fatto "collegamenti deboli" e non verranno verificate dal database. Per essere certi che i dati a cui un documento fa riferimento esistano davvero, è eseguire questa operazione nell'applicazione oppure tramite trigger lato server o stored procedure in Azure Cosmos DB.
 
 ### <a name="when-to-reference"></a>Quando fare riferimento
+
 In generale, usare i modelli di dati denormalizzati quando:
 
 * Si rappresentano relazioni **uno a molti** .
@@ -237,10 +238,9 @@ In generale, usare i modelli di dati denormalizzati quando:
 
 > [!NOTE]
 > La normalizzazione offre di solito migliori prestazioni di **scrittura** .
-> 
-> 
 
 ### <a name="where-do-i-put-the-relationship"></a>Dove inserire le relazioni
+
 La crescita della relazione aiuterà a determinare in quale documento archiviare il riferimento.
 
 Il codice JSON seguente modella editori e libri.
@@ -261,17 +261,17 @@ Il codice JSON seguente modella editori e libri.
     ...
     {"id": "1000", "name": "Deep Dive into Azure Cosmos DB" }
 
-Se il numero di libri per editore è piccolo e ha una crescita limitata, può essere utile archiviare il riferimento ai libri nel documento dell'editore. Se invece il numero di libri per editore è illimitato, questo modello di dati darà origine a matrici modificabili e in costante crescita, come nel documento dell'editore di esempio precedente. 
+Se il numero di libri per editore è piccolo e ha una crescita limitata, può essere utile archiviare il riferimento ai libri nel documento dell'editore. Se invece il numero di libri per editore è illimitato, questo modello di dati darà origine a matrici modificabili e in costante crescita, come nel documento dell'editore di esempio precedente.
 
 Cambiando un po' le cose, si ottiene un modello che rappresenta sempre gli stessi dati, ma che ora evita queste grandi raccolte modificabili.
 
-    Publisher document: 
+    Publisher document:
     {
         "id": "mspress",
         "name": "Microsoft Press"
     }
 
-    Book documents: 
+    Book documents:
     {"id": "1","name": "Azure Cosmos DB 101", "pub-id": "mspress"}
     {"id": "2","name": "Azure Cosmos DB for RDBMS Users", "pub-id": "mspress"}
     {"id": "3","name": "Taking over the world one JSON doc at a time"}
@@ -283,13 +283,14 @@ Cambiando un po' le cose, si ottiene un modello che rappresenta sempre gli stess
 Nell'esempio precedente, abbiamo eliminato la raccolta illimitata nel documento dell'editore. Ora abbiamo solo un riferimento all'editore nel documento di ogni libro.
 
 ### <a name="how-do-i-model-manymany-relationships"></a>Come modellare le relazioni many:many?
-In un database relazionale le relazioni *molti a molti* vengono spesso modellate con le tabelle join, che creano un join dei record delle altre tabelle. 
+
+In un database relazionale le relazioni *molti a molti* vengono spesso modellate con le tabelle join, che creano un join dei record delle altre tabelle.
 
 ![Unione di tabelle](./media/sql-api-modeling-data/join-table.png)
 
 Si potrebbe essere tentati di replicare la stessa cosa con i documenti e di generare un modello di dati simile al seguente.
 
-    Author documents: 
+    Author documents:
     {"id": "a1", "name": "Thomas Andersen" }
     {"id": "a2", "name": "William Wakefield" }
 
@@ -300,13 +301,13 @@ Si potrebbe essere tentati di replicare la stessa cosa con i documenti e di gene
     {"id": "b4", "name": "Learn about Azure Cosmos DB" }
     {"id": "b5", "name": "Deep Dive into Azure Cosmos DB" }
 
-    Joining documents: 
+    Joining documents:
     {"authorId": "a1", "bookId": "b1" }
     {"authorId": "a2", "bookId": "b1" }
     {"authorId": "a1", "bookId": "b2" }
     {"authorId": "a1", "bookId": "b3" }
 
-Funzionerebbe, ma, per caricare un autore con i suoi libri o un libro con il suo autore, sarebbero sempre necessarie almeno altre due query sul database; una query per creare un join del documento e quindi un'altra query per recuperare il documento effettivo di cui viene creato il join. 
+Funzionerebbe, ma, per caricare un autore con i suoi libri o un libro con il suo autore, sarebbero sempre necessarie almeno altre due query sul database; una query per creare un join del documento e quindi un'altra query per recuperare il documento effettivo di cui viene creato il join.
 
 Se la tabella join si limita a incollare insieme due gruppi di dati, allora perché non eliminarla del tutto?
 Tenere in considerazione quanto segue.
@@ -315,30 +316,31 @@ Tenere in considerazione quanto segue.
     {"id": "a1", "name": "Thomas Andersen", "books": ["b1, "b2", "b3"]}
     {"id": "a2", "name": "William Wakefield", "books": ["b1", "b4"]}
 
-    Book documents: 
+    Book documents:
     {"id": "b1", "name": "Azure Cosmos DB 101", "authors": ["a1", "a2"]}
     {"id": "b2", "name": "Azure Cosmos DB for RDBMS Users", "authors": ["a1"]}
     {"id": "b3", "name": "Learn about Azure Cosmos DB", "authors": ["a1"]}
     {"id": "b4", "name": "Deep Dive into Azure Cosmos DB", "authors": ["a2"]}
 
-Se avessimo un autore, sapremmo immediatamente quali libri ha scritto e, al contrario, se avessimo caricato un documento relativo ai libri, conosceremmo gli ID degli autori. Questo evita la query intermedia sulla tabella join riducendo il numero di round trip al server che l'applicazione deve eseguire. 
+A questo punto, se avessi un autore, è possibile sapere immediatamente quali libri ha scritto e viceversa se è stato caricato un documento dei libri, conosceremmo gli ID degli autori. Questo evita la query intermedia sulla tabella join riducendo il numero di round trip al server che l'applicazione deve eseguire.
 
-## <a id="WrapUp"></a>Modelli di dati ibridi
-Come si è visto, sia l'incorporamento (o denormalizzazione) che il riferimento (o normalizzazione) ai dati presentano vantaggi e compromessi. 
+## <a name="hybrid-data-models"></a>Modelli di dati ibridi
 
-Ma non è sempre necessario scegliere uno dei due. È anche possibile mischiare un po' le cose. 
+Come si è visto, sia l'incorporamento (o denormalizzazione) che il riferimento (o normalizzazione) ai dati presentano vantaggi e compromessi.
+
+Ma non è sempre necessario scegliere uno dei due. È anche possibile mischiare un po' le cose.
 
 In base ai modelli di utilizzo e ai carichi di lavoro specifici dell'applicazione, in certi casi può avere senso unire i dati incorporati e quelli a cui si fa riferimento per ottenere una logica dell'applicazione più semplice con meno round trip al server, mantenendo ugualmente un buon livello di prestazioni.
 
-Si consideri il codice JSON seguente. 
+Si consideri il codice JSON seguente.
 
-    Author documents: 
+    Author documents:
     {
         "id": "a1",
         "firstName": "Thomas",
-        "lastName": "Andersen",        
+        "lastName": "Andersen",
         "countOfBooks": 3,
-         "books": ["b1", "b2", "b3"],
+        "books": ["b1", "b2", "b3"],
         "images": [
             {"thumbnail": "https://....png"}
             {"profile": "https://....png"}
@@ -373,21 +375,48 @@ Si consideri il codice JSON seguente.
         ]
     }
 
-Qui abbiamo per lo più seguito il modello incorporato, in cui i dati delle altre entità vengono incorporati nel documento di primo livello, ma viene fatto riferimento agli altri dati. 
+Qui abbiamo per lo più seguito il modello incorporato, in cui i dati delle altre entità vengono incorporati nel documento di primo livello, ma viene fatto riferimento agli altri dati.
 
-Se si osserva il documento dei libri, si possono vedere alcuni campi interessanti quando si considera la matrice degli autori. È presente un campo *id*che viene usato per fare riferimento al documento di un autore (procedura standard in un modello normalizzato), ma sono presenti anche i campi *name* e *thumbnailUrl*. È possibile limitarsi a usare *id* e lasciare che l'applicazione recuperi le altre informazioni necessarie dal documento dell'autore corrispondente usando il "collegamento", ma, dal momento che l'applicazione visualizza il nome e un'immagine di anteprima dell'autore con ogni libro visualizzato, è possibile evitare un round trip al server per ogni libro di un elenco denormalizzando **alcuni** dati dell'autore.
+Se si osserva il documento dei libri, si possono vedere alcuni campi interessanti quando si considera la matrice degli autori. È presente un' `id` campo che rappresenta il campo viene usato per fare riferimento a un documento dell'autore, la procedura standard in un modello normalizzato, ma poi sono presenti anche `name` e `thumbnailUrl`. È stato possibile hanno bloccato con `id` e chiuso l'applicazione per ottenere informazioni aggiuntive necessarie dal relativo documento dell'autore usando il "collegamento", tuttavia, poiché l'applicazione visualizza un'immagine di anteprima con ogni libro e il nome dell'autore visualizzata è possibile salvare un round trip al server per ogni libro in un elenco denormalizzando **alcuni** dati dall'autore.
 
-Se l'autore cambia nome o se la foto deve essere aggiornata, naturalmente, è necessario eseguire un aggiornamento per ogni libro pubblicato, ma per questa applicazione, che si basa sul presupposto che gli autori non cambino nome molto spesso, questa è una decisione di progettazione accettabile.  
+Certo, se il nome dell'autore o se volesse aggiornare la foto è stato necessario accedere e aggiornare ogni libro vengono sempre pubblicati ma per la nostra applicazione, partendo dal presupposto che gli autori non cambino nome spesso, si tratta di una decisione di progettazione accettabile.  
 
 Nell'esempio sono presenti valori di **aggregazioni precalcolate**, che consentono di evitare l'elaborazione di costose operazioni di lettura. Nell'esempio, alcuni dati incorporati nel documento dell'autore vengono calcolati in fase di esecuzione. Ogni volta che viene pubblicato un nuovo libro, viene creato un documento per il libro **e** il campo countOfBooks viene impostato su un valore calcolato in base al numero di documenti dei libri esistenti per un determinato autore. Questa ottimizzazione andrebbe bene nei sistemi che eseguono un'intensa attività di lettura, in cui si è disposti a effettuare calcoli nelle scritture per ottimizzare le letture.
 
 Azure Cosmos DB supporta le transazioni in più documenti e consente quindi di usare **transazioni su più documenti**. Molti archivi NoSQL non possono eseguire le transazioni nei documenti e, a causa di questa limitazione, inducono a prendere decisioni di progettazione, ad esempio "incorporare sempre tutto". Con Azure Cosmos DB è possibile usare trigger lato server, o stored procedure, che inseriscono i libri e aggiornano gli autori in una sola transazione ACID. Ora non è **necessario** incorporare tutto in un unico documento solo per essere sicuri che i dati rimangano coerenti.
 
-## <a name="NextSteps"></a>Passaggi successivi
-Il concetto principale espresso in questo articolo è che la modellazione dei dati in un ambiente senza schema è più importante che mai. 
+## <a name="distinguishing-between-different-document-types"></a>Applicare la distinzione tra diversi tipi di documento
 
-Come non esiste un solo modo per rappresentare i dati in una schermata, così non esiste un solo modo per modellare i dati. È necessario conoscere l'applicazione e come genererà, userà ed elaborerà i dati. Quindi, applicando alcune delle linee guida presentate qui, è possibile iniziare a creare un modello che risponda alle esigenze immediate dell'applicazione. Quando le applicazioni devono essere modificate, è possibile sfruttare la flessibilità di un database senza schema per accettare la modifica e far evolvere facilmente il modello di dati. 
+In alcuni scenari, è possibile combinare tipi di documento diverso nella stessa raccolta. Ciò avviene in genere quando si desidera più documenti a cui si trovano nella stessa correlati [partizione](partitioning-overview.md). Ad esempio, è possibile inserire entrambi libri e recensioni nella stessa raccolta e di partizione da `bookId`. In tale situazione, in genere da aggiungere ai documenti con un campo che identifica il tipo per distinguerli.
 
-Per altre informazioni su Azure Cosmos DB, vedere la pagina della [documentazione](https://azure.microsoft.com/documentation/services/cosmos-db/) del servizio. 
+    Book documents:
+    {
+        "id": "b1",
+        "name": "Azure Cosmos DB 101",
+        "bookId": "b1",
+        "type": "book"
+    }
 
-Per informazioni su come suddividere i dati in più partizioni, vedere [Partizionamento dei dati in Azure Cosmos DB](sql-api-partition-data.md). 
+    Review documents:
+    {
+        "id": "r1",
+        "content": "This book is awesome",
+        "bookId": "b1",
+        "type": "review"
+    },
+    {
+        "id": "r2",
+        "content": "Best book ever!",
+        "bookId": "b1",
+        "type": "review"
+    }
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Il concetto principale espresso in questo articolo è che la modellazione dei dati in un ambiente senza schema è più importante che mai.
+
+Come non esiste un solo modo per rappresentare i dati in una schermata, così non esiste un solo modo per modellare i dati. È necessario conoscere l'applicazione e come genererà, userà ed elaborerà i dati. Quindi, applicando alcune delle linee guida presentate qui, è possibile iniziare a creare un modello che risponda alle esigenze immediate dell'applicazione. Quando le applicazioni devono essere modificate, è possibile sfruttare la flessibilità di un database senza schema per accettare la modifica e far evolvere facilmente il modello di dati.
+
+Per altre informazioni su Azure Cosmos DB, vedere la pagina della [documentazione](https://azure.microsoft.com/documentation/services/cosmos-db/) del servizio.
+
+Per informazioni su come suddividere i dati in più partizioni, vedere [Partizionamento dei dati in Azure Cosmos DB](sql-api-partition-data.md).

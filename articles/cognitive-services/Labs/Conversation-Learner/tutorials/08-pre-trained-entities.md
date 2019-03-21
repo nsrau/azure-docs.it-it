@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: afa927009e684fa7f8c6217c91dcb589b331b5f5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224174"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163787"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Come aggiungere entità con training preliminare
 Questa esercitazione illustra come aggiungere entità con training preliminare a un modello di Conversation Learner.
@@ -25,7 +25,7 @@ Questa esercitazione illustra come aggiungere entità con training preliminare a
 [![Anteprima dell'esercitazione sulle entità con training preliminare](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities_Preview)](https://aka.ms/cl_Tutorial_v3_PreTrainedEntities)
 
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
 
     npm run tutorial-general
 
@@ -35,50 +35,49 @@ Le entità con training preliminare riconoscono tipi comuni di entità, ad esemp
 
 ## <a name="steps"></a>Passaggi
 
+Per iniziare, passare alla home page nell'interfaccia utente Web.
+
 ### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su "New Model" (Nuovo modello).
-2. Nel campo "Name" (Nome) digitare "PretrainedEntities" e premere INVIO.
-3. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **nuovo modello**.
+2. Immettere **PretrainedEntities** per **nome**.
+3. Selezionare **Create**.
 
 ### <a name="entity-creation"></a>Creazione di entità
 
-1. Nel riquadro a sinistra fare clic su "Entities" (Entità), quindi sul pulsante "New Entity" (Nuova entità).
-2. Selezionare "Pre-Trained/datetimeV2" per "Entity Type" (Tipo di entità).
-3. Selezionare la casella di controllo "Multi-valued" (Multivalore).
-    - Le entità multivalore accumulano uno o più valori nell'entità.
-    - Le proprietà negabili sono disabilitate per le entità con training preliminare.
-4. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **Entities** nel riquadro sinistro, quindi **nuova entità**.
+2. Selezionare **Pre-Trained/datetimeV2** per **tipo di entità**.
+3. Controllare **multivalore** per abilitare l'entità si accumulano uno o più valori. Si noti che non può essere negabile Pre-Trained entità.
+4. Selezionare **Create**.
 
-![](../media/tutorial7_entities_a.PNG)
+![](../media/T08_entity_create.png)
 
-### <a name="create-the-first-action"></a>Creare la prima azione
+1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
+2. Immettere **la data è $builtin-datetimev2** per **risposta del Bot...** .
+3. Selezionare **Create**.
 
-1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. Nel campo "Bot's response..." (Risposta del bot...) digitare "The date is $builtin-datetimev2".
-3. Fare clic sul pulsante "Create" (Crea).
-
-![](../media/tutorial7_actions_a.PNG)
+![](../media/T08_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Creare la seconda azione
 
-1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. NeI campo "Bot's response..." (Risposta del bot...) digitare "What's the date?".
-    - Le entità con training preliminare non possono essere entità obbligatorie perché vengono riconosciute per impostazione predefinita per tutte le espressioni degli utenti.
-3. Nel campo Disqualifying Entities (Entità non qualificanti) digitare "builtin-datetimev2".
-4. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
+2. Immettere **qual è la data?** per **risposta del Bot...** . Le entità con training preliminare non possono essere **le entità necessarie** come vengono riconosciute per impostazione predefinita per tutte le espressioni.
+3. Immettere **builtin datetimev2** per **qualificato dà diritto**.
+4. Selezionare **Create**.
 
-![](../media/tutorial7_actions2_a.PNG)
+![](../media/T08_action_create_2.png)
 
 ### <a name="train-the-model"></a>Eseguire il training del modello
 
-1. Nel riquadro a sinistra fare clic su "Train Dialogs" (Dialoghi di training), quindi sul pulsante "New Train Dialog" (Nuovo dialogo di training).
-2. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "hello".
-3. Fare clic su "Score Actions" (Punteggio azioni).
-4. Selezionare la risposta "What's the date?".
-5. Nel pannello della chat, dove è indicato il messaggio "Type your message..." (Digita il tuo messaggio...) digitare "today".
-    - L'espressione today viene riconosciuta automaticamente dai modelli con training preliminare di LUIS.
+1. Selezionare **Train Dialogs** nel riquadro sinistro, quindi **nuova finestra di dialogo Train**.
+2. Immettere **hello** per utterance dell'utente nel Pannello di chat a sinistra.
+3. Selezionare **assegnare un punteggio azioni**.
+4. Selezionare **qual è la data?** nell'elenco di azioni
+5. Immettere **oggi stesso** per utterance dell'utente nel Pannello di chat a sinistra.
+    - Il **oggi stesso** utterance viene automaticamente riconosciuta da modelli con training preliminare di LUIS.
     - Posizionando il mouse sui valori delle entità con training preliminare vengono visualizzati dati aggiuntivi forniti dal servizio LUIS.
+
+![](../media/T08_training.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

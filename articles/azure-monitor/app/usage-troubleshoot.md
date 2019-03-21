@@ -13,12 +13,12 @@ ms.date: 07/11/2018
 ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
-ms.openlocfilehash: 7c903390af54d1771bce1b6aff96e9bb54397189
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: eabc47c2acb33d8c6ee03477b5e8c7783edebbb7
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54045310"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258778"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Risolvere i problemi relativi agli strumenti di analisi del comportamento degli utenti in Application Insights
 Domande relative agli [strumenti di analisi del comportamento degli utenti in Application Insights](usage-overview.md): [Utenti, sessioni ed eventi](usage-segmentation.md), [Grafici a imbuto](usage-funnels.md), [Flussi utente](usage-flows.md), [Conservazione](usage-retention.md) oppure Coorte. offrendo alcune utili risposte.
@@ -39,7 +39,7 @@ Gli strumenti di analisi del comportamento degli utenti non supportano attualmen
 ## <a name="naming-events"></a>Denominazione degli eventi
 **Nell'app sono presenti migliaia di nomi diversi di visualizzazione pagina e di evento personalizzato. È difficile distinguere tra questi nomi e gli strumenti di analisi del comportamento degli utenti spesso smettono di rispondere. Come si possono risolvere questi problemi di denominazione?**
 
-I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi del comportamento degli utenti. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è trovare un equilibrio tra un limitato numero di nomi eccessivamente generici ("Button clicked") e un elevato numero di nomi eccessivamente specifici ("Edit button clicked on http://www.contoso.com/index").
+I nomi di visualizzazione pagina e quelli di evento personalizzato vengono usati in tutti gli strumenti di analisi del comportamento degli utenti. La corretta denominazione degli eventi è essenziale per poter ottenere risultati ottimali da questi strumenti. L'obiettivo è un equilibrio tra con un numero troppo ridotto nomi eccessivamente generici ("pulsante selezionato") e avere troppi nomi eccessivamente specifici ("fatto clic sul pulsante Modifica su http:\//www.contoso.com/index").
 
 Per apportare modifiche ai nomi di visualizzazione pagina e a quelli di evento personalizzato inviati dall'app, è necessario modificare il codice sorgente dell'app ed eseguire nuovamente la distribuzione. **Tutti i dati di telemetria disponibili in Application Insights vengono archiviati per 90 giorni e non possono essere eliminati**. Di conseguenza, le eventuali modifiche apportate ai nomi di evento saranno completamente visibili dopo 90 giorni. Per i 90 giorni successivi alle operazioni di modifica, nei dati di telemetria verranno visualizzati sia i nomi di evento precedenti sia quelli nuovi. Sarà pertanto opportuno modificare le query e comunicare all'interno dei team tenendo presente questo aspetto.
 

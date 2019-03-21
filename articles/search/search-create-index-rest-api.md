@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 0524bd224e3da3e6a9b18a4225c88e9c43d07606
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223411"
+ms.locfileid: "58285131"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Avvio rapido: Creare un indice di ricerca di Azure con PowerShell e l'API REST
 > [!div class="op_single_selector"]
@@ -77,7 +77,7 @@ Se il servizio è vuoto e non include indici, i risultati sono simili all'esempi
 }
 ```
 
-## <a name="1---create-an-index"></a>1 - creare un indice
+## <a name="1---create-an-index"></a>1 - Creare un indice
 
 A meno che non si usa il portale, deve esistere un indice nel servizio prima di caricare i dati. Questo passaggio definisce l'indice e ne esegue il push al servizio. Il [Create Index (API REST)](https://docs.microsoft.com/rest/api/searchservice/create-index) viene usato per questo passaggio.
 
@@ -162,6 +162,8 @@ Risultati dovrebbero essere simili al seguente (troncato per i primi due campi p
 
 > [!Tip]
 > Per la verifica, si potrebbe anche controllare l'elenco di indici nel portale di, o eseguire di nuovo il comando utilizzato per verificare la connessione del servizio per visualizzare il *hotel* indice elencato nella raccolta di indici.
+
+<a name="load-documents"></a>
 
 ## <a name="2---load-documents"></a>2 - caricare i documenti
 
@@ -253,7 +255,7 @@ Risultati dovrebbero essere simili all'esempio seguente. Verrà visualizzato un 
 }
 ```
 
-## <a name="3---search-an-index"></a>3 - eseguire la ricerca di un indice
+## <a name="3---search-an-index"></a>3 - Eseguire la ricerca in un indice
 
 Questo passaggio illustra come eseguire query su un indice con il [API di ricerca di documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

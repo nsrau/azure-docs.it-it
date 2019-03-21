@@ -8,18 +8,18 @@ ms.date: 12/07/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 14b51f109ca76661ac10c99d42002dda45bc0500
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 700e8e9fe0dac182d71df8ca66800fa03cf25a2e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53318402"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295794"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Esportare i dati in Azure IoT Central
 
 *Questo argomento riguarda gli amministratori.*
 
-Questo articolo descrive nel dettaglio come usare la funzionalità di esportazione continua dei dati in Azure IoT Central per esportare i dati nelle proprie istanze di **Hub eventi di Azure** e **Bus di servizio di Azure**. È possibile esportare **misurazioni**, **dispositivi** e **modelli di dispositivo** in una destinazione per ottenere informazioni dettagliate e analizzare i percorsi ad accesso frequente. La funzionalità include l'attivazione di regole personalizzate in Analisi di flusso di Azure, l'attivazione di flussi di lavoro personalizzati in App per la logica di Azure o la trasformazione dei dati e il loro passaggio a Funzioni di Azure. 
+Questo articolo descrive come usare la funzionalità di esportazione continua dei dati in Azure IoT Central per esportare i dati con i propri **hub eventi di Azure**, e **Bus di servizio di Azure** istanze. È possibile esportare **misurazioni**, **dispositivi** e **modelli di dispositivo** in una destinazione per ottenere informazioni dettagliate e analizzare i percorsi ad accesso frequente. La funzionalità include l'attivazione di regole personalizzate in Analisi di flusso di Azure, l'attivazione di flussi di lavoro personalizzati in App per la logica di Azure o la trasformazione dei dati e il loro passaggio a Funzioni di Azure. 
 
 > [!Note]
 > Quando si attiva l'esportazione continua dei dati, si recuperano solo i dati a partire dal momento dell'attivazione. Attualmente non è possibile recuperare i dati relativi a un periodo in cui l'esportazione continua era disattivata. Per conservare una maggiore quantità di dati cronologici, attivare presto l'esportazione continua dei dati.
@@ -28,6 +28,77 @@ Questo articolo descrive nel dettaglio come usare la funzionalità di esportazio
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario essere amministratore nell'applicazione IoT Central
+
+## <a name="set-up-export-destination"></a>Configurare la destinazione di esportazione
+
+Se non si dispone di un evento hub/Service Bus esistente per esportare in, seguire questa procedura:
+
+## <a name="create-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi
+
+1. Creare [un nuovo spazio dei nomi di Hub eventi nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.EventHub). Per altre informazioni, vedere la [documentazione di Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+2. Scegliere una sottoscrizione. 
+
+    > [!Note] 
+    > A questo punto è possibile esportare i dati in altre sottoscrizioni **diverse** da quella dell'applicazione IoT Central con pagamento in base al consumo. In questo caso ci si connetterà con una stringa di connessione.
+3. Creare un hub eventi nello spazio dei nomi di Hub eventi. Passare allo spazio dei nomi e selezionare **+ Hub eventi** in alto per creare un'istanza di hub eventi.
+
+## <a name="create-service-bus-namespace"></a>Creare uno spazio dei nomi del bus di servizio
+
+1. Creare un [nuovo spazio dei nomi del bus di servizio nel portale di Azure](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). Per altre informazioni, vedere la [documentazione del bus di servizio di Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
+2. Scegliere una sottoscrizione. 
+
+    > [!Note] 
+    > A questo punto è possibile esportare i dati in altre sottoscrizioni **diverse** da quella dell'applicazione IoT Central con pagamento in base al consumo. In questo caso ci si connetterà con una stringa di connessione.
+
+3. Passare allo spazio dei nomi del bus di servizio e selezionare **+ Coda** o **+ Argomento** in alto per creare una coda o un argomento in cui esportare i dati.
+
+
+## <a name="set-up-continuous-data-export"></a>Configurare l'esportazione continua dei dati
+
+Ora che si dispone di una destinazione di Bus di servizio/hub eventi per esportare i dati, seguire questa procedura per configurare l'esportazione continua dei dati. 
+
+1. Accedere all'applicazione IoT Central.
+
+2. Nel menu a sinistra, selezionare **esportazione continua dei dati**.
+
+    > [!Note]
+    > Se questa opzione non è presente nel menu a sinistra, significa che non si è amministratori dell'app. Chiedere a un amministratore di configurare l'esportazione dei dati.
+
+    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_menu.PNG)
+
+3. Selezionare il **+ nuovo** pulsante in alto a destra. Scegliere uno dei **hub eventi di Azure** oppure **Bus di servizio di Azure** come destinazione dell'esportazione. 
+
+    > [!NOTE] 
+    > Il numero massimo di esportazioni per app è cinque. 
+
+    ![Creare una nuova esportazione continua dei dati](media/howto-export-data/export_new.PNG)
+
+4. Nella casella di riepilogo a discesa, selezionare i **dello spazio dei nomi di hub eventi/servizio spazio dei nomi del Bus**. È anche possibile selezionare l'ultima opzione dell'elenco, ossia **Immettere una stringa di connessione**. 
+
+    > [!NOTE] 
+    > Saranno visibili solo gli account di archiviazione, gli spazi dei nomi di hub eventi o gli spazi dei nomi del bus di servizio nella **stessa sottoscrizione dell'app IoT Central**. Se si vogliono esportare i dati in una destinazione esterna a questa sottoscrizione, scegliere **Immettere una stringa di connessione** e vedere il passaggio 5.
+
+    > [!NOTE] 
+    > Per le app in versione di valutazione per 7 giorni l'unico modo per configurare l'esportazione continua dei dati è tramite una stringa di connessione. A queste app non è infatti associata una sottoscrizione di Azure.
+
+    ![Creare un nuovo hub eventi per l'esportazione continua dei dati](media/howto-export-data/export_create.PNG)
+
+5. (Facoltativo) Se si è selezionata l'opzione **Immettere una stringa di connessione**, viene visualizzata una nuova casella in cui incollare la stringa di connessione. Per ottenere la stringa di connessione per:
+    - Hub eventi o Bus di servizio, passare allo spazio dei nomi nel portale di Azure.
+        - Sotto **le impostazioni**, selezionare **criteri di accesso condiviso**
+        - Scegliere il valore predefinito **RootManageSharedAccessKey** oppure crearne uno nuovo
+        - Copiare la stringa di connessione primaria o secondaria.
+ 
+6. Scegliere una coda o hub eventi o argomento dall'elenco a discesa.
+
+7. In **Data to export** (Dati da esportare) specificare ogni tipo di dati da esportare impostando il tipo su **On** (Attivato).
+
+6. Per attivare l'esportazione continua dei dati, verificare che l'opzione **Esportazione dati** sia **attivata**. Selezionare **Salva**.
+
+  ![Configurare l'esportazione continua dei dati](media/howto-export-data/export_list.PNG)
+
+7. Dopo alcuni minuti, i dati vengono visualizzati nella destinazione scelta.
+
 
 ## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Esportare i dati in Hub eventi di Azure e nel bus di servizio di Azure
 

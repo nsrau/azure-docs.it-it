@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b5c43215ce1800ac162c8b5d19ba4d4c987a3bac
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445807"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258752"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gestire Key Vault in Azure Stack tramite PowerShell
 
@@ -92,7 +92,7 @@ New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location 
 
 ![Insieme di credenziali delle chiavi nuovo](media/azure-stack-key-vault-manage-powershell/image4.png)
 
-L'output di questo comando Mostra le proprietà dell'insieme di credenziali chiave che è stato creato. Quando un'applicazione accede a questo insieme di credenziali, è necessario usare il **URI dell'insieme di credenziali** proprietà, ovvero "https://vault01.vault.local.azurestack.external" in questo esempio.
+L'output di questo comando Mostra le proprietà dell'insieme di credenziali chiave che è stato creato. Quando un'applicazione accede a questo insieme di credenziali, è necessario usare il **URI dell'insieme di credenziali** proprietà, ovvero "https:\//vault01.vault.local.azurestack.external" in questo esempio.
 
 ### <a name="active-directory-federation-services-ad-fs-deployment"></a>Distribuzione di Active Directory Federation Services (ADFS)
 
@@ -127,8 +127,8 @@ Il **destinazione** parametro viene utilizzato per specificare che la chiave sof
 
 È ora possibile fare riferimento la chiave creata utilizzando il relativo URI. Se si crea o si importa una chiave con stesso nome di una chiave esistente, la chiave originale viene aggiornata con i valori specificati nella chiave del nuovo. È possibile accedere alla versione precedente usando l'URI specifico della versione della chiave. Ad esempio: 
 
-* Usare "https://vault10.vault.local.azurestack.external:443/keys/key01" per scaricare sempre la versione corrente.
-* Usare "https://vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" per ottenere questa versione specifica.
+* Utilizzare "https:\//vault10.vault.local.azurestack.external:443/keys/key01" per scaricare sempre la versione corrente.
+* Utilizzare "https:\//vault010.vault.local.azurestack.external:443/keys/key01/d0b36ee2e3d14e9f967b8b6b1d38938a" per ottenere questa versione specifica.
 
 ### <a name="get-a-key"></a>Ottenere una chiave
 

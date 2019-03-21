@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: fe0e325543d245e4415fea925fcdade32eb00614
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
-ms.translationtype: HT
+ms.openlocfilehash: 414ca7156fd59ec1dc08e45c73e9eb30835078d4
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570505"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259925"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Gestire l'autenticazione in Mappe di Azure
 
@@ -32,7 +32,7 @@ Dopo aver creato un account mappe di Azure, un ID client e le chiavi vengono cre
 
 Dopo aver creato un account mappe di Azure, è necessario stabilire un collegamento tra il tenant di Azure AD e la risorsa di mappe di Azure.
 
-1. Passare al pannello Azure AD e creare una registrazione dell'app. Specificare un nome per la registrazione. Nel **URL Sign-on** immettere la home page dell'app web / API (ad esempio, https://localhost/). Se si dispone già di un'app registrata, andare al passaggio 2.
+1. Passare al pannello Azure AD e creare una registrazione dell'app. Specificare un nome per la registrazione. Nel **URL Sign-on** immettere la home page dell'app web / API (ad esempio, https:\//localhost/). Se si dispone già di un'app registrata, andare al passaggio 2.
 
     ![Registrazione delle app](./media/how-to-manage-authentication/app-registration.png)
 

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 19e1721a638dfc750938e09e1626c4e291367723
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 234d59f9d625af6d0309b2995cc734fad6028b1e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432446"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767040"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Introduzione a Configurazione stato di Automazione di Azure
 
@@ -157,7 +157,6 @@ Con il completamento di un processo di compilazione vengono create una o più co
    ![Screenshot del pannello Registrazione](./media/automation-dsc-getting-started/RegisterVM.png)
 
    La configurazione del nodo specificata verrà applicata alla macchina virtuale agli intervalli specificati in **Frequenza modalità di configurazione** e la macchina virtuale verificherà la disponibilità di aggiornamenti agli intervalli specificati in **Frequenza di aggiornamento**. Per altre informazioni sul modo in cui vengono usati questi valori, vedere [Configuring the Local Configuration Manager](https://msdn.microsoft.com/PowerShell/DSC/metaConfig)(Configurazione di Gestione configurazione locale).
-1. Nel pannello **Aggiungi macchine virtuali di Azure** fare clic su **Crea**.
 
 Azure avvierà il processo di caricamento della macchina virtuale. Al termine, la macchina virtuale viene visualizzata nella scheda **Nodi** della pagina **Configurazione stato (DSC)** nell'account di Automazione.
 

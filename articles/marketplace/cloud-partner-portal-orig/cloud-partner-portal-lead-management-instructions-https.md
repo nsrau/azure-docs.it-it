@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8898149e6858c5a1cdb2d4510ad2764ffe25fda5
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55964254"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894122"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configurare la gestione dei clienti potenziali usando un endpoint HTTPS
 
@@ -88,7 +88,7 @@ ms.locfileid: "55964254"
    - **A**: immettere almeno un indirizzo di posta elettronica valido.
    - **Oggetto**: Flow offre la possibilità di aggiungere contenuto dinamico, ad esempio **LeadSource** nell'acquisizione di schermata seguente.
 
-    ![Aggiungere un'azione di posta elettronica usando contenuto dinamico](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
+     ![Aggiungere un'azione di posta elettronica usando contenuto dinamico](./media/cloud-partner-portal-lead-management-instructions-https/https-myflows-configure-email-dynamic-content.png)
 
    - **Corpo** : dall'elenco Contenuto dinamico aggiungere le informazioni desiderate nel corpo del messaggio di posta elettronica. Ad esempio, LastName, FirstName, Email e Company.
 
@@ -117,7 +117,7 @@ Nell'esempio di test JSON viene usato lo schema seguente:
 
 ``` json
 {
-  "$schema": "http://json-schema.org/draft-04/schema#",
+  "$schema": "https://json-schema.org/draft-04/schema#",
   "definitions": {},
   "id": "http://example.com/example.json",
   "properties": {

@@ -1,6 +1,6 @@
 ---
-title: Distribuire la funzione della password di protezione di Azure AD disponibile in anteprima
-description: Distribuire l'anteprima di protezione di password di Azure AD per vietare password errate in locale
+title: Distribuire la protezione delle password di Azure AD
+description: Distribuire la protezione di password di Azure AD per vietare password errate in locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 832f29d16e5976493da56b304c3de0288b83c9b6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 54d2d600771316b0a88ea0a2486c0dedd0f84594
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57848746"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286534"
 ---
-# <a name="preview-deploy-azure-ad-password-protection"></a>Anteprima: Distribuire la protezione delle password di Azure AD
-
-|     |
-| --- |
-| Protezione tramite password di Azure Active Directory (Azure AD) è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulla versione Preview, vedere [condizioni per l'utilizzo per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
+# <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
 Ora che abbiamo appreso [come applicare la protezione di password di Azure AD per Windows Server Active Directory](concept-password-ban-bad-on-premises.md), il passaggio successivo consiste per pianificare ed eseguire la distribuzione.
 

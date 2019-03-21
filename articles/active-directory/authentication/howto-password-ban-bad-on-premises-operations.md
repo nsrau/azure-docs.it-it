@@ -1,6 +1,6 @@
 ---
-title: Operazioni e reporting della password di protezione di Azure AD in anteprima
-description: Operazioni e reporting post-distribuzione della password di protezione di Azure AD in anteprima
+title: Operazioni di protezione con Password AD Azure e creazione di report
+description: Operazioni di post-distribuzione di protezione con Password AD Azure e creazione di report
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1fda79f16560a5c96e1283f4d9d9f14dbe503d61
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ac91a70465d79b235ae43681a1375d47e7691efe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175243"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285803"
 ---
-# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Anteprima: procedure operative della password di protezione di Azure AD
-
-|     |
-| --- |
-| La password di protezione di Azure AD è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+# <a name="azure-ad-password-protection-operational-procedures"></a>procedure operative della password di protezione di Azure AD
 
 Dopo aver completato l'[installazione della password di protezione di Azure AD](howto-password-ban-bad-on-premises-deploy.md) in locale, è necessario configurare alcuni componenti nel portale di Azure.
 
@@ -33,11 +28,11 @@ Seguire le indicazioni fornite nell'articolo [Configurazione dell'elenco persona
 
 ## <a name="enable-password-protection"></a>Abilitare la password di protezione
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**, **Authentication methods** (Metodi di autenticazione) e quindi **Password protection (Preview)** (Password di protezione - Anteprima).
+1. Accedi per il [portale di Azure](https://portal.azure.com) e passare alla **Azure Active Directory**, **metodi di autenticazione**, quindi **protezione con Password**.
 1. Impostare **Enable Password Protection on Windows Server Active Directory** (Abilita la password di protezione in Windows Server Active Directory) su **Sì**
 1. Come indicato nella [Guida alla distribuzione](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), è consigliabile impostare inizialmente **Modalità** su **Controllo**
    * Dopo avere familiarizzato con la funzione, è possibile impostare **Modalità** su **Applicato**
-1. Fare clic su **Save**
+1. Fare clic su **Save** (Salva).
 
 ![Abilitazione dei componenti della password di protezione di Azure AD nel portale di Azure](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 

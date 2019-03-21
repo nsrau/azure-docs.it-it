@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: sogup
-ms.openlocfilehash: fe0b47bbf1ebb9cba328bfc444172249135270c5
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 10b49c5ebcd73010a52da1fada32ba55198b287a
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310275"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961534"
 ---
 # <a name="frequently-asked-questions-azure-backup"></a>Domande frequenti su Backup di Azure
 
@@ -21,10 +21,8 @@ Questo articolo risponde alle domande comuni sul servizio [Backup di Azure](back
 
 ## <a name="general-questions"></a>Domande generali
 
-
 ### <a name="what-azure-vms-can-you-back-up-using-azure-backup"></a>Quali macchine virtuali di Azure è possibile sottoporre a backup con Backup di Azure?
 [Esaminare](backup-azure-arm-vms-prepare.md#before-you-start) le limitazioni e i sistemi operativi supportati.
-
 
 
 ## <a name="backup"></a>Backup
@@ -41,17 +39,16 @@ Sì, i backup continueranno a funzionare senza problemi. Non è necessario ricon
 ### <a name="why-cant-i-see-my-vm-in-the-configure-backup-wizard"></a>Perché non è visibile la macchina virtuale nella procedura guidata Configura backup?
 La procedura guidata visualizza solo le macchine virtuali che si trovano nella stessa area dell'insieme di credenziali e che non sono già state sottoposte a backup.
 
-
 ### <a name="my-vm-is-shut-down-will-an-on-demand-or-a-scheduled-backup-work"></a>La macchina virtuale è stata arrestata. Il backup pianificato o su richiesta viene eseguito ugualmente?
 Sì. I backup vengono eseguiti quando una macchina virtuale è spenta. Il punto di ripristino viene contrassegnato come coerente con l'arresto anomalo del sistema.
 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>È possibile annullare un processo di backup in corso?
 Sì. È possibile annullare un processo di backup nello stato **Creazione dello snapshot**. Non è possibile annullare un processo se è in corso il trasferimento di dati dallo snapshot.
 
-### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>È stato abilitato il blocco del gruppo di risorse sulle macchine virtuali con dischi gestiti di cui è stato eseguito il backup. I backup continueranno a funzionare?
-Se si blocca il gruppo di risorse, il servizio Backup di Azure non è in grado di eliminare i punti di ripristino precedenti.
-- Da un certo punto in poi i nuovi backup non verranno eseguiti poiché esiste un limite massimo di 18 punti di ripristino.
-- Se dopo il blocco i backup non vengono eseguiti e viene generato un errore interno, [seguire questa procedura](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) per rimuovere la raccolta di punti di ripristino.
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>È stato abilitato blocco sul gruppo di risorse creato dal servizio di Backup di Azure (ad es. ` AzureBackupRG_<geo>_<number>`), i backup continueranno a funzionare?
+Se si blocca il gruppo di risorse creato dal servizio Backup di Azure, i backup inizieranno ad avere esito negativo in quanto non esiste un limite massimo di 18 punti di ripristino.
+
+È necessario rimuovere il blocco e cancellare la raccolta di punti di ripristino da tale gruppo di risorse per poter raggiungere il risultato, i backup futuri [seguire questa procedura](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) per rimuovere la raccolta di punti di ripristino.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>L'ora legale viene presa in considerazione dai criteri di backup?
 No. La data e l'ora del computer locale si adeguano all'ora legale corrente applicata. L'ora impostata per i backup pianificati potrebbe essere diversa dall'ora locale dal momento che è in vigore l'ora legale.

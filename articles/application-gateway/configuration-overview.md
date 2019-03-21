@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 7bc3ea054056ac67cf0a116fb1538bc1483ab4d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223530"
+ms.locfileid: "58285839"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -33,7 +33,9 @@ Il gateway applicazione è una distribuzione dedicata nella rete virtuale. All'i
 
 #### <a name="size-of-the-subnet"></a>Dimensioni della subnet
 
-In caso di SKU v1, Gateway applicazione usa un indirizzo IP privato per ogni istanza più un altro indirizzo IP privato se è configurata una configurazione IP front-end privato. Inoltre, Azure riserva i primi quattro e l'ultimo indirizzo IP in ogni subnet per uso interno. Se ad esempio il gateway applicazione è impostato su tre istanze e nessun IP front-end privato, le dimensioni necessarie per la subnet sono pari a /29 o superiori. In questo caso, il gateway applicazione usa tre indirizzi IP. Se si hanno tre istanze e un indirizzo IP per la configurazione degli indirizzi IP front-end privati, le dimensioni della subnet devono essere pari a /28 o superiori, perché sono necessari quattro indirizzi IP.
+Il gateway applicazione utilizza un indirizzo IP privato per ogni istanza, oltre a un altro indirizzo IP privato in presenza di una configurazione degli indirizzi IP front-end privati. Inoltre, Azure riserva i primi quattro e l'ultimo indirizzo IP in ogni subnet per uso interno. Ad esempio, se un gateway applicazione è impostato su tre istanze e senza indirizzo IP privato front-end, quindi composta da almeno otto indirizzi IP saranno necessario nella subnet - cinque indirizzi IP per uso interno e tre gli indirizzi IP per le tre istanze del gateway applicazione. Pertanto, in questo caso/29 serve una subnet di dimensioni pari o superiore. Se si dispone di tre istanze e di indirizzi IP per la configurazione IP front-end privato, nove gli indirizzi IP sarà richiesto - tre indirizzi IP per le tre istanze del gateway applicazione, un indirizzo IP privato front-end IP e indirizzo IP cinque indirizzi per uso interno. Pertanto, in questo caso/28 serve una subnet di dimensioni pari o superiore.
+
+Come procedura consigliata, usare almeno/28 le dimensioni della subnet. In questo modo si 11 indirizzi utilizzabili. Se il carico dell'applicazione richiede più di 10 istanze, è necessario considerare/27 o/26 le dimensioni della subnet.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Gruppi di sicurezza di rete supportati nella subnet del Gateway applicazione
 
@@ -41,7 +43,7 @@ Gruppi di sicurezza di rete (Nsg) sono supportati nella subnet del Gateway appli
 
 - Devono essere inserite eccezioni per il traffico in ingresso sulle porte 65503-65534 per lo SKU versione 1 del gateway applicazione e sulle porte 65200-65535 per lo SKU versione 2. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
 
-- La connettività Internet in uscita non può essere bloccata.
+- La connettività Internet in uscita non può essere bloccata. Le regole in uscita predefinite in sicurezza di rete già consentono la connettività internet. Si consiglia di non rimuovere le regole in uscita predefinite e che non è possibile creare altre regole in uscita che nega la connettività internet in uscita.
 
 - È necessario consentire il traffico dal tag AzureLoadBalancer.
 
@@ -57,11 +59,12 @@ Questo scenario è possibile usando gruppi di sicurezza di rete nella subnet del
 
 #### <a name="user-defined-routes-supported-on-the-application-gateway-subnet"></a>Route definite dall'utente supportate nella subnet del Gateway applicazione
 
-In caso di SKU v1, route definite dall'utente (Udr) sono supportate nella subnet del gateway applicazione, purché non modificano la comunicazione end-to-end richiesta/risposta.
-
-Ad esempio, è possibile configurare una route UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti, ma è necessario assicurarsi che il pacchetto possa raggiungere l'ispezione dei post relativa alla destinazione prevista. In caso contrario, potrebbe tradursi in probe di integrità o comportamento di instradamento del traffico non corretti. Sono incluse route o route 0.0.0.0/0 predefinite propagate dal gateway VPN o ExpressRoute nella rete virtuale.
+In caso di SKU v1, route definite dall'utente (Udr) sono supportate nella subnet del gateway applicazione, purché non modificano la comunicazione end-to-end richiesta/risposta. Ad esempio, è possibile configurare una route UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti, ma è necessario assicurarsi che il pacchetto possa raggiungere l'ispezione dei post relativa alla destinazione prevista. In caso contrario, potrebbe tradursi in probe di integrità o comportamento di instradamento del traffico non corretti. Sono incluse route o route 0.0.0.0/0 predefinite propagate dal gateway VPN o ExpressRoute nella rete virtuale.
 
 In caso di v2 SKU, route definite dall'utente nella subnet del gateway applicazione non sono supportati. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#known-issues-and-limitations).
+
+> [!NOTE]
+> L'uso di route definite dall'utente nella subnet del gateway applicazione comporta lo stato di integrità nel [visualizzazione dell'integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) da visualizzare come **sconosciuto** e comporterà inoltre verificato della generazione di log del gateway applicazione e metriche. Si consiglia che non utilizzare route definite dall'utente nella subnet del gateway applicazione sia in grado di visualizzare l'integrità back-end, log e metriche.
 
 ## <a name="frontend-ip"></a>IP front-end
 
@@ -87,10 +90,11 @@ Un listener è un'entità logica che controlla le richieste di connessione in in
 
 - Se si sta configurando più di un'applicazione web o più sottodomini dello stesso dominio padre nella stessa istanza del gateway applicazione, quindi scegliere listener multisito. Per il listener multisito, sarà inoltre necessario immettere un nome host. Questo avviene perché il Gateway applicazione si basa su intestazioni host HTTP 1.1 per ospitare più siti Web sul stesso indirizzo IP pubblico e sulla porta.
 
-> [!NOTE]
-> In caso di SKU v1, i listener vengono elaborati nell'ordine in cui sono visibili. Per tale motivo, se un listener di base corrisponde a una richiesta in ingresso, questa viene elaborata per prima. Di conseguenza, i listener multisito devono essere configurati prima di un listener di base per verificare che il traffico viene indirizzato al back-end corretto.
->
-> In caso di SKU v2, vengono elaborati i listener multisito prima i listener di base.
+#### <a name="order-of-processing-listeners"></a>Ordine di elaborazione listener
+
+In caso di SKU v1, i listener vengono elaborati nell'ordine in cui sono visibili. Per tale motivo, se un listener di base corrisponde a una richiesta in ingresso, questa viene elaborata per prima. Di conseguenza, i listener multisito devono essere configurati prima di un listener di base per verificare che il traffico viene indirizzato al back-end corretto.
+
+In caso di SKU v2, vengono elaborati i listener multisito prima i listener di base.
 
 ### <a name="frontend-ip"></a>IP front-end
 
@@ -110,9 +114,9 @@ Scegliere la porta front-end. È possibile scegliere tra le porte esistenti o cr
 
   Per configurare la terminazione Secure Sockets Layer (SSL) e crittografia SSL end-to-end, è necessario un certificato da aggiungere al listener in modo da consentire al Gateway applicazione derivare una chiave simmetrica in base alla specifica del protocollo SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico. 
 
-#### <a name="supported-certs"></a>Certificati supportati
+#### <a name="supported-certificates"></a>Certificati supportati
 
-I certificati autofirmati, certificati CA, i certificati con caratteri jolly e convalida estesa certs sono supportati.
+Visualizzare [certificati supportati per la terminazione SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview#certificates-supported-for-ssl-termination).
 
 ### <a name="additional-protocol-support"></a>Supporto dei protocolli aggiuntivi
 
@@ -160,11 +164,11 @@ Quando si crea il gateway applicazione usando il portale di Azure, si crea una r
 - Scegliere come listener basato su percorso se si vuole indirizzare le richieste con percorso dell'URL specifico per i pool back-end specifico. Il modello di percorso viene applicato solo al percorso dell'URL, non ai relativi parametri di query.
 
 
-> [!NOTE]
->
-> In caso di SKU v1, corrispondenza del modello di richiesta in ingresso viene elaborata nell'ordine in cui sono elencati i percorsi nella mappa del percorso URL della regola basata sul percorso. Per questo motivo, se una richiesta corrisponde al modello in due o più percorsi nella mappa del percorso URL, quindi il percorso incluso nell'elenco prima di tutto si troverà una corrispondenza e la richiesta verrà inoltrata al back-end associato a tale percorso.
->
-> In caso di SKU v2, una corrispondenza esatta contiene priorità sull'ordine in cui sono elencati i percorsi nella mappa del percorso URL. Per tale motivo, se una richiesta corrisponde al modello in due o più percorsi, quindi la richiesta verrà inoltrata al back-end associato a tale percorso che corrisponde esattamente alla richiesta. Se il percorso nella richiesta in ingresso corrisponde esattamente a qualsiasi percorso nella mappa del percorso URL, quindi di corrispondenza del modello di richiesta in ingresso viene elaborata nell'ordine in cui sono elencati i percorsi nella mappa del percorso URL della regola basata sul percorso.
+#### <a name="order-of-processing-rules"></a>Ordine delle regole di elaborazione
+
+In caso di SKU v1, corrispondenza del modello di richiesta in ingresso viene elaborata nell'ordine in cui sono elencati i percorsi nella mappa del percorso URL della regola basata sul percorso. Per questo motivo, se una richiesta corrisponde al modello in due o più percorsi nella mappa del percorso URL, quindi il percorso incluso nell'elenco prima di tutto si troverà una corrispondenza e la richiesta verrà inoltrata al back-end associato a tale percorso.
+
+In caso di SKU v2, una corrispondenza esatta contiene priorità sull'ordine in cui sono elencati i percorsi nella mappa del percorso URL. Per tale motivo, se una richiesta corrisponde al modello in due o più percorsi, quindi la richiesta verrà inoltrata al back-end associato a tale percorso che corrisponde esattamente alla richiesta. Se il percorso nella richiesta in ingresso corrisponde esattamente a qualsiasi percorso nella mappa del percorso URL, quindi di corrispondenza del modello di richiesta in ingresso viene elaborata nell'ordine in cui sono elencati i percorsi nella mappa del percorso URL della regola basata sul percorso.
 
 ### <a name="associated-listener"></a>Listener associati
 
@@ -176,7 +180,7 @@ Associare il pool back-end che contiene le destinazioni di back-end che soddisfe
 
 ### <a name="associated-backend-http-setting"></a>Impostazione HTTP back-end associati
 
-Aggiungere un'impostazione HTTP back-end per ogni regola. Verranno indirizzate le richieste dal Gateway applicazione per le destinazioni di back-end usando il numero di porta, protocollo e altre impostazioni specificate in questa impostazione. In caso di una regola di base, è consentita una sola impostazione di back-end HTTP perché tutte le richieste sul listener associati verranno inoltrate alle destinazioni di back-end corrispondenti con questa impostazione HTTP. In caso di una regola basata sul percorso, aggiungere più impostazioni di back-end HTTP corrispondente a ciascun percorso URL. Verranno inoltrate le richieste che corrispondono al percorso URL immesso in questo caso, usando le impostazioni HTTP corrispondente a ciascun percorso URL nelle destinazioni dei back-end corrispondente. Aggiungere impostazioni HTTP predefinite, inoltre, poiché le richieste che non corrispondono ad alcun percorso dell'URL immesso in questa regola verranno inoltrate al pool back-end predefinito usando le impostazioni HTTP predefinite.
+Aggiungere un'impostazione HTTP back-end per ogni regola. Verranno indirizzate le richieste dal Gateway applicazione per le destinazioni di back-end usando il numero di porta, protocollo e altre impostazioni specificate in questa impostazione. In caso di una regola di base, è consentita una sola impostazione di back-end HTTP perché tutte le richieste sul listener associati verranno inoltrate alle destinazioni di back-end corrispondenti con questa impostazione HTTP. In caso di una regola basata sul percorso, aggiungere più impostazioni di back-end HTTP corrispondente a ciascun percorso URL. Verranno inoltrate le richieste che corrispondono al percorso URL immesso in questo caso, usando le impostazioni HTTP corrispondente a ciascun percorso URL nelle destinazioni dei back-end corrispondente. Inoltre, aggiungere un'impostazione HTTP predefinita poiché le richieste che non corrispondono ad alcun percorso dell'URL immesso in questa regola verranno inoltrate al pool back-end predefinito usando l'impostazione HTTP predefinito.
 
 ### <a name="redirection-setting"></a>Impostazione di reindirizzamento
 
@@ -186,7 +190,7 @@ Per informazioni sulla funzionalità di reindirizzamento, vedere [Panoramica del
 
 - #### <a name="redirection-type"></a>Tipo di reindirizzamento
 
-  Scegliere il tipo di reindirizzamento richiesto da: Permanente, temporaneo, trovare o visualizzare altre.
+  Scegliere il tipo di reindirizzamento richiesto da: Other(303) Permanent(301), Temporary(307), Found(302) o vedere.
 
 - #### <a name="redirection-target"></a>Destinazione di reindirizzamento
 
@@ -236,14 +240,14 @@ Il numero di secondi di attesa del gateway applicazione per ricevere risposta da
 
 Questa impostazione consente di configurare un percorso di inoltro personalizzato facoltativo da utilizzare per la richiesta viene inoltrata al back-end. Verranno copiati qualsiasi parte del percorso in ingresso che corrisponde al percorso personalizzato specificato nel **sostituire il percorso di back-end** campo percorso inoltrato. Vedere la tabella seguente per comprendere come funziona la funzionalità.
 
-- Quando le impostazioni HTTP è associato a una regola di routing di base richiesta:
+- Quando l'impostazione HTTP è associato a una regola di routing di base richiesta:
 
   | Richiesta originale  | Override del percorso back-end | Richiesta inoltrata al back-end |
   | ----------------- | --------------------- | ---------------------------- |
   | /Home/            | /override/            | / sostituzione/home /              |
   | / home/secondhome / | /override/            | / sostituzione/home/secondhome /   |
 
-- Quando le impostazioni HTTP è associato a una regola di routing basato sul percorso richiesta:
+- Quando l'impostazione HTTP è associato a una regola di routing basato sul percorso richiesta:
 
   | Richiesta originale           | Regola di percorso       | Override del percorso back-end | Richiesta inoltrata al back-end |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |

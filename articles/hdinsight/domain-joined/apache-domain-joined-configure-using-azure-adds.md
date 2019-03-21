@@ -9,12 +9,12 @@ ms.reviewer: hrasheed
 ms.topic: conceptual
 ms.date: 10/09/2018
 ms.custom: seodec18
-ms.openlocfilehash: 722a40dca0a64407a407ecad6d990d1651b0e998
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415732"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176175"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurare un cluster HDInsight con Enterprise Security Package usando Azure Active Directory Domain Services
 
@@ -56,7 +56,7 @@ Visualizzare lo stato integrità di Azure Active Directory Domain Services selez
 
 ## <a name="create-and-authorize-a-managed-identity"></a>Creare e autorizzare un'identità gestita
 
-L'**identità gestita assegnata dall'utente** viene usata per semplificare e proteggere le operazioni dei servizi di dominio. Quando si assegna l'identità gestita al ruolo Collaboratore per Servizi di dominio HDInsight, tale identità può leggere, creare, modificare ed eliminare le operazioni dei servizi di dominio. Alcune operazioni dei servizi di dominio, ad esempio la creazione di unità organizzative ed entità servizio, sono necessarie per HDInsight Enterprise Security Package. È possibile creare identità gestite in qualsiasi sottoscrizione. Per altre informazioni, vedere [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+L'**identità gestita assegnata dall'utente** viene usata per semplificare e proteggere le operazioni dei servizi di dominio. Quando si assegna l'identità gestita al ruolo Collaboratore per Servizi di dominio HDInsight, tale identità può leggere, creare, modificare ed eliminare le operazioni dei servizi di dominio. Alcune operazioni dei servizi di dominio, ad esempio la creazione di unità organizzative ed entità servizio, sono necessarie per HDInsight Enterprise Security Package. È possibile creare identità gestite in qualsiasi sottoscrizione. Per altre informazioni su gestiti in generale le identità, vedere [gestite le identità per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Per altre informazioni sulle attività di identità come gestito in Azure HDInsight, vedere [gestite le identità in Azure HDInsight](../hdinsight-managed-identities.md).
 
 Per configurare i cluster ESP, creare un'identità gestita assegnata dall'utente se non è già disponibile. Per le istruzioni, vedere [Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal). Assegnare quindi l'identità gestita al ruolo **Collaboratore per HDInsight Domain Services** nel controllo di accesso di Azure Active Directory Domain Services; per eseguire questa assegnazione di ruolo sono necessari i privilegi di amministratore di Azure Active Directory Domain Services.
 

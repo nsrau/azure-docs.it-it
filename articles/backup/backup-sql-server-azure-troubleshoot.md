@@ -6,22 +6,22 @@ author: anuragm
 manager: shivamg
 ms.service: backup
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: 0beb65d6ef7c036c8a294f53eeb3db327457ea84
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428620"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286013"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
 
 Questo articolo offre informazioni sulla risoluzione dei problemi relativi al backup di macchine virtuali di SQL Server in Azure (anteprima).
 
-## <a name="public-preview-limitations"></a>Limiti dell'anteprima pubblica
+## <a name="feature-consideration-and-limitations"></a>Considerazioni sulla funzionalità e limitazioni
 
-Per visualizzare i limiti dell'anteprima pubblica, vedere l'articolo [Eseguire il backup del database di SQL Server in Azure](backup-azure-sql-database.md#preview-limitations).
+Per visualizzare la considerazione delle funzionalità, vedere l'articolo [backup su SQL Server in macchine virtuali di Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
 ## <a name="sql-server-permissions"></a>Autorizzazioni di SQL Server
 
@@ -37,7 +37,7 @@ Usare le informazioni nelle tabelle seguenti per risolvere i problemi e gli erro
 
 | Gravità | DESCRIZIONE | Possibili cause | Azione consigliata |
 |---|---|---|---|
-| Avviso | Impostazioni correnti per questo database non supportano una determinata tipologia di tipi di backup presenti nei criteri associati. | <li>**Master DB**: solo un'operazione di backup completo del database può essere eseguita sul database master; né il backup **differenziale** né il backup del **log** delle transazioni sono possibili. </li> <li>Qualsiasi database nel **modello di recupero con registrazione minima** non consente l'esecuzione del backup del **log** delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato o il processo di backup avrà esito negativo per il backup ad hoc.
+| Avviso | Impostazioni correnti per questo database non supportano una determinata tipologia di tipi di backup presenti nei criteri associati. | <li>**Master DB**: Solo un'operazione di backup completo del database può essere eseguita sul database master. né **differenziale** backup né transazione **log** è possibile eseguire backup. </li> <li>Qualsiasi database nel **modello di recupero con registrazione minima** non consente l'esecuzione del backup del **log** delle transazioni.</li> | Modificare le impostazioni del database in modo che tutti i tipi di backup nei criteri siano supportati. In alternativa, modificare i criteri correnti in modo da includere solo i tipi di backup supportati. In caso contrario, i tipi di backup non supportati verranno ignorati durante il backup pianificato o il processo di backup avrà esito negativo per backup ad hoc.
 
 
 ## <a name="backup-failures"></a>Errori di backup
@@ -61,7 +61,7 @@ Le tabelle seguenti sono organizzate in base al codice di errore.
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
-| La catena di log è interrotta. | Il backup del database o della macchina virtuale viene eseguito con un'altra soluzione di backup, che tronca la catena di log.|<ul><li>Verificare se è in uso un'altra soluzione di backup o uno script. In tal caso, arrestare l'altra soluzione di backup. </li><li>Se il backup era un backup del log ad hoc, attivare un backup completo per avviare una nuova catena di log. Per i backup del log pianificati, non è richiesto alcun intervento perché il servizio Backup di Azure attiverà automaticamente un backup completo per risolvere questo problema.</li>|
+| La catena di log è interrotta. | Il backup del database o della macchina virtuale viene eseguito con un'altra soluzione di backup, che tronca la catena di log.|<ul><li>Verificare se è in uso un'altra soluzione di backup o uno script. In tal caso, arrestare l'altra soluzione di backup. </li><li>Se il backup è un backup del log ad hoc, attivare un backup completo per avviare una nuova catena di log. Per i backup del log pianificati, non è richiesto alcun intervento perché il servizio Backup di Azure attiverà automaticamente un backup completo per risolvere questo problema.</li>|
 
 ### <a name="usererroropeningsqlconnection"></a>UserErrorOpeningSQLConnection
 
@@ -80,7 +80,7 @@ Le tabelle seguenti sono organizzate in base al codice di errore.
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 | Cannot take backup as transaction log for the data source is full (Non è possibile eseguire il backup perché il log delle transazioni per l'origine dati è pieno). | Lo spazio del log delle transazioni del database è pieno. | Per risolvere questo problema, fare riferimento alla [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-9002-database-engine-error). |
-| Il database SQL non supporta il tipo di backup richiesto. | Le repliche secondarie di gruppi di disponibilità Always On non supportano backup completi e differenziali. | <ul><li>Se è stato attivato un backup ad hoc, attivare i backup nel nodo primario.</li><li>Se il backup è stato pianificato da criteri, verificare che il nodo primario sia registrato. Per registrare il nodo [seguire la procedura per individuare un database di SQL Server](backup-azure-sql-database.md#discover-sql-server-databases).</li></ul> |
+| Il database SQL non supporta il tipo di backup richiesto. | Le repliche secondarie di gruppi di disponibilità Always On non supportano backup completi e differenziali. | <ul><li>Se è attivato un backup ad hoc, attivare i backup nel nodo primario.</li><li>Se il backup è stato pianificato da criteri, verificare che il nodo primario sia registrato. Per registrare il nodo [seguire la procedura per individuare un database di SQL Server](backup-sql-server-database-azure-vms.md#discover-sql-server-databases).</li></ul> |
 
 ## <a name="restore-failures"></a>Errori di ripristino
 
@@ -136,6 +136,35 @@ I codici di errore seguenti riguardano gli errori di backup.
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 | La finalità di protezione automatica è stata rimossa o non è più valida. | Quando si abilita la protezione automatica in un'istanza SQL, i processi di **configurazione del backup** vengono eseguiti per tutti i database dell'istanza. Se si disabilita la protezione automatica mentre i processi sono in esecuzione, i processi **in corso** vengono annullati con questo codice di errore. | Abilitare di nuovo la protezione automatica per proteggere tutti i database rimanenti. |
+
+## <a name="re-registration-failures"></a>Errori di ri-registrazione
+
+Controllo per uno o più i [sintomi](#symptoms) prima di attivare l'operazione di ripetere la registrazione.
+
+### <a name="symptoms"></a>Sintomi
+
+* Tutte le operazioni, ad esempio backup, ripristino e configurare il backup hanno esito negativo nella macchina virtuale con uno dei codici di errore seguenti: **WorkloadExtensionNotReachable**, **UserErrorWorkloadExtensionNotInstalled**, **WorkloadExtensionNotPresent**, **WorkloadExtensionDidntDequeueMsg**
+* Il **lo stato di Backup** per il Backup viene visualizzato l'elemento **non è raggiungibile**. Anche se è necessario escludere tutti gli altri motivi per cui possono inoltre comportare lo stesso stato:
+
+  * Mancanza di autorizzazioni per eseguire operazioni correlate di backup nella macchina virtuale  
+  * Macchina virtuale è stata arrestata a causa della quale non possono avere luogo i backup
+  * Problemi di rete  
+
+    ![Ripetere la registrazione della macchina virtuale](./media/backup-azure-sql-database/re-register-vm.png)
+
+* In caso di gruppo di disponibilità always on, i backup hanno iniziato a bloccarsi dopo aver modificato la preferenza di backup o quando si è verificato un failover
+
+### <a name="causes"></a>Cause
+Questi problemi possono verificarsi a causa di uno o più dei motivi seguenti:
+
+  * Estensione è stata eliminata o disinstallata dal portale 
+  * Estensione è stata disinstallata dal **Pannello di controllo** della macchina virtuale in **Disinstalla o modifica programma** dell'interfaccia utente
+  * Macchina virtuale è stata ripristinata indietro nel tempo tramite il ripristino di dischi in locale
+  * Macchina virtuale è stata arrestata per un periodo prolungato a causa della quale la configurazione dell'estensione su di esso è scaduto
+  * Macchina virtuale è stata eliminata e un'altra macchina virtuale è stata creata con lo stesso nome e nello stesso gruppo di risorse della macchina virtuale eliminato
+  * Uno dei nodi del gruppo di disponibilità non è stata ricevuta la configurazione del backup completata, ciò può verificarsi sia al momento della registrazione di gruppo di disponibilità per l'insieme di credenziali o quando viene aggiunto un nuovo nodo  <br>
+    Negli scenari precedenti, è consigliabile attivare registrare di nuovo l'operazione sulla macchina virtuale. Questa opzione è disponibile solo tramite PowerShell e sarà presto disponibile nel portale di Azure anche.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

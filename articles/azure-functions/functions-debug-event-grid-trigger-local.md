@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/18/2018
 ms.author: cshoe
-ms.openlocfilehash: 7a3468d9a0d128bd51ae742189e60bb8e2af6c0e
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
-ms.translationtype: HT
+ms.openlocfilehash: 96d88fafd6824ed85f1d91bab59374b3490a55b2
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50128985"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56736499"
 ---
 # <a name="azure-function-event-grid-trigger-local-debugging"></a>Debug locale del trigger della Griglia di eventi di Funzioni di Azure
 
@@ -62,7 +62,7 @@ Poiché l'utilità è impostata, la finestra di comando dovrebbe apparire simile
 
 Copiare l'URL **HTTPS** generato quando *ngrok* viene eseguito. Questo valore viene usato quando si configura l'endpoint dell'evento della griglia di eventi.
 
- ## <a name="add-a-storage-event"></a>Aggiungere un evento di archiviazione
+## <a name="add-a-storage-event"></a>Aggiungere un evento di archiviazione
 
 Aprire il portale di Azure, passare a un account di archiviazione e fare clic sull'opzione **Eventi**.
 

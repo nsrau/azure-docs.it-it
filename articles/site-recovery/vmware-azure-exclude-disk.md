@@ -1,19 +1,19 @@
 ---
 title: Escludere dischi dalla replica per il ripristino di emergenza da VMware ad Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo descrive perché e come escludere dalla replica dischi di macchine virtuali per il ripristino di emergenza da VMware ad Azure.
-author: Rajeswari-Mamilla
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.workload: storage-backup-recovery
-ms.date: 11/27/2018
-ms.author: ramamill
+ms.date: 3/3/2019
+ms.author: mayg
 ms.topic: conceptual
-ms.openlocfilehash: af610aaec238e1b2ae8ec2387e5a8f71225cab8c
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 105074892cc6dfa4da1e7c8ddd0a0aad9f1b60a1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52848171"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002895"
 ---
 # <a name="exclude-disks-from-replication-of-vmware-vms-to-azure"></a>Escludere dischi dalla replica di macchine virtuali VMware in Azure
 
@@ -38,7 +38,7 @@ Spesso è necessario escludere dischi dalla replica per i motivi riportati di se
 1. Suddividere il singolo disco virtuale in due dischi virtuali, uno con il sistema operativo e l'altro con il file di paging.
 2. Escludere il disco del file di paging dalla replica.
 
-Analogamente, per ottimizzare un disco in cui sono presenti sia il file tempdb di Microsoft SQL Server sia il file del database di sistema, è possibile eseguire queste operazioni:
+Analogamente, per ottimizzare un disco in cui sono presenti sia il file tempdb di Microsoft SQL Server sia il file di database di sistema, è possibile eseguire queste operazioni:
 
 1. Archiviare il database di sistema e il tempdb in due dischi distinti.
 2. Escludere il disco del tempdb dalla replica.
@@ -80,7 +80,7 @@ Di seguito sono elencati i dischi presenti nella macchina virtuale di origine:
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
 DB-Disk1| Disk1 | D:\ | Database di sistema SQL e Database1 dell'utente
 DB-Disk2 (disco escluso dalla protezione) | Disk2 | E:\ | File temporanei
-DB-Disk3 (disco escluso dalla protezione) | Disk3 | F:\ | Database tempdb di SQL (percorso della cartella, F:\MSSQL\Data\) </br /> </br />Annotare il percorso della cartella prima del failover.
+DB-Disk3 (disco escluso dalla protezione) | Disk3 | F:\ | Database tempdb SQL (percorso della cartella, F:\MSSQL\Data\) <br /> <br />Annotare il percorso della cartella prima del failover.
 DB-Disk4 | Disk4 |G:\ |Database2 dell'utente
 
 Data la natura temporanea della varianza dei dati nei due dischi della macchina virtuale, è opportuno escludere Disk2 e Disk3 dalla replica quando si protegge la macchina virtuale SalesDB. Azure Site Recovery non eseguirà la replica di questi dischi, che durante il failover non saranno quindi presenti nella macchina virtuale di failover in Azure.
@@ -90,7 +90,7 @@ Di seguito sono elencati i dischi presenti nella macchina virtuale di Azure dopo
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 | E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
+Disk1 | E:\ | Archiviazione temporanea<br /> <br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
 Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente
 Disk3 | G:\ | Database2 dell'utente
 
@@ -154,7 +154,7 @@ Di seguito è illustrata la configurazione dei dischi della macchina virtuale di
 **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | ---
 DISK0 | C:\ | Disco del sistema operativo
-Disk1 | E:\ | Archiviazione temporanea</br /> </br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
+Disk1 | E:\ | Archiviazione temporanea<br /> <br />Azure aggiunge questo disco e assegna la prima lettera di unità disponibile.
 Disk2 | D:\ | Database di sistema SQL e Database1 dell'utente
 Disk3 | G:\ | Database2 dell'utente
 
@@ -193,7 +193,7 @@ Dopo il failover della macchina virtuale da VMware ad Azure, i dischi nella macc
 **Nome del disco** | **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0 | C:\ | Disco del sistema operativo
-DB-Disk1 | Disk1 | D:\ | Archiviazione temporanea</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Archiviazione temporanea<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Dati utente 1
 DB-Disk3 | Disk3 | F:\ | Dati utente 2
 
@@ -220,10 +220,10 @@ Di seguito sono illustrate le impostazioni del file di paging nella macchina vir
 
 Dopo il failover della macchina virtuale da VMware ad Azure, i dischi nella macchina virtuale di Azure hanno la configurazione seguente:
 
-**Nome del disco**| **N. disco sistema operativo guest**| **Lettera di unità** | **Tipo di dati nel disco**
+**Nome del disco** | **N. disco sistema operativo guest** | **Lettera di unità** | **Tipo di dati nel disco**
 --- | --- | --- | ---
 DB-Disk0-OS | DISK0  |C:\ |Disco del sistema operativo
-DB-Disk1 | Disk1 | D:\ | Archiviazione temporanea</br /> </br />pagefile.sys
+DB-Disk1 | Disk1 | D:\ | Archiviazione temporanea<br /> <br />pagefile.sys
 DB-Disk2 | Disk2 | E:\ | Dati utente 1
 DB-Disk3 | Disk3 | F:\ | Dati utente 2
 

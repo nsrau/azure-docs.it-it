@@ -11,15 +11,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3ce24100a0780f313a00b80129601f4e8f344bde
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
-ms.translationtype: MT
+ms.openlocfilehash: 4d1a9ae622de103b459d256cb48c5823f5866a3b
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189768"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294077"
 ---
 # <a name="content-protection-with-dynamic-encryption"></a>Protezione del contenuto con la crittografia dinamica
 
@@ -199,6 +199,13 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 |[Crittografia lato client di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Crittografia lato client offerta da Archiviazione di Azure, chiave gestita dal cliente in Key Vault|Non supportate|
 
 <sup>1</sup> In Servizi multimediali versione 3 la crittografia di archiviazione (crittografia AES-256) è supportata per la compatibilità con le versioni precedenti solo se gli asset sono stati creati con Servizi multimediali versione 2. In altre parole, la versione 3 funziona con asset con crittografia di archiviazione esistenti, ma non consente la creazione di nuovi asset di questo tipo.
+
+## <a name="troubleshoot"></a>Risolvere problemi
+
+Se viene visualizzato il `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` errore, assicurarsi di specificare i criteri di flusso appropriata.
+
+Se si verificano errori che terminano con `_NOT_SPECIFIED_IN_URL`, assicurarsi di specificare il formato di crittografia nell'URL. Ad esempio, .../manifest (formato = m3u8-cmaf, crittografia cbcs-AAPL). Visualizzare [protocolli e tipi di crittografia di Streaming](#streaming-protocols-and-encryption types).
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

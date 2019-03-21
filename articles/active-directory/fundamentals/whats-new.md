@@ -16,16 +16,16 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae0565bd51235f2d1b471adcc511786c204d175a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eda145f43c9268e5f6b291a767ed51249804f87d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890510"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286449"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
->Quando si torna a visitare questa pagina per informazioni sugli aggiornamenti, è possibile ricevere notifiche copiando e incollando l'URL `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` nel lettore di feed ![icona RSS](./media/whats-new/feed-icon-16x16.png).
+>Ricevere notifiche sulle situazioni in cui visualizzare nuovamente questa pagina per gli aggiornamenti da copiare e incollare questo URL: `https://docs.microsoft.com/api/search/rss?search=%22release+notes+for+azure+AD%22&locale=en-us` nella ![icona lettore del feed RSS](./media/whats-new/feed-icon-16x16.png) lettore di feed.
 
 Azure AD viene regolarmente migliorato. Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
@@ -577,7 +577,7 @@ Per altre informazioni, vedere [Informazioni sul portale delle app personali](ht
 
 La nuova scheda **Risoluzione dei problemi e supporto** nella pagina **Accessi** del portale di Azure ha lo scopo di semplificare la risoluzione dei problemi relativi agli accessi ad Azure AD per amministratori e tecnici del supporto. Questa nuova scheda indica il codice errore, il messaggio di errore ed eventuali consigli per la correzione per risolvere il problema. Se il problema non è risolvibile, è anche possibile creare un ticket di supporto usando l'esperienza **Copia negli Appunti**, che popola i campi **ID richiesta** e **Data (UTC)** per il file di log nel ticket di supporto.  
 
-![Log degli accessi con la nuova scheda](media/whats-new/troubleshooting-and-support.png)
+![Log di accesso che mostra la nuova scheda](media/whats-new/troubleshooting-and-support.png)
 
 ---
 

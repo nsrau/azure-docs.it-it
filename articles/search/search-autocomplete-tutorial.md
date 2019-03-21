@@ -1,32 +1,32 @@
 ---
-title: Esercitazione per l'aggiunta del completamento automatico alla casella di ricerca - Ricerca di Azure
+title: Esempio per l'aggiunta di completamento automatico per la casella di ricerca - ricerca di Azure
 description: Esempi di come migliorare l'esperienza dell'utente finale in riferimento alle applicazioni basate sui dati tramite le API di completamento automatico e suggerimenti di Ricerca di Azure.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: de48f3129beba31f80f5bd4d0c131b28f2b1c91a
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200277"
 ---
-# <a name="tutorial-add-autocomplete-to-your-search-box-using-azure-search"></a>Esercitazione: Aggiungere il completamento automatico alla casella di ricerca tramite Ricerca di Azure
+# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Esempio: Aggiungere il completamento automatico alla casella di ricerca tramite Ricerca di Azure
 
-In questa esercitazione si apprenderà come usare i [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions), il [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e i [facet](search-faceted-navigation.md) nell'[API REST](https://docs.microsoft.com/rest/api/searchservice/) e in [.NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) per creare una casella di ricerca avanzata. 
+In questo esempio, si apprenderà come usare [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facet](search-faceted-navigation.md) nel [API REST di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/) e [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) per compilare una casella di ricerca avanzate. 
 
 + I *suggerimenti* forniscono consigli sui risultati effettivi in base a ciò che l'utente ha digitato. 
 + *Completamento automatico*, [una nuova funzionalità di anteprima](search-api-preview.md) in Ricerca di Azure, fornisce i termini provenienti dall'indice per completare quanto digitato dall'utente. 
 
 Verranno confrontate più tecniche per migliorare la produttività degli utenti mettendo a disposizione le funzionalità di ricerca direttamente durante la digitazione.
 
-Questa esercitazione esplora le caratteristiche di un'applicazione basata su ASP.NET MVC che usa C# per chiamare le [librerie client .NET di Ricerca di Azure](https://aka.ms/search-sdk)e JavaScript per chiamare direttamente l'API REST di Ricerca di Azure. L'applicazione di questa esercitazione ha come riferimento un indice popolato da dati campione di [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). È possibile usare l'indice già configurato nella demo di NYC Jobs o popolare il proprio indice utilizzando un caricatore dati nella soluzione di esempio NYCJobs. L'esempio usa l'[interfaccia utente di jQuery](https://jqueryui.com/autocomplete/) e le librerie JavaScript [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) per creare una casella di ricerca che supporti il completamento automatico. Usando questi componenti unitamente a Ricerca di Azure, si vedranno diversi esempi relativi alle modalità di supporto del completamento automatico nella casella di ricerca.
+In questo esempio illustra un'applicazione basata su ASP.NET MVC che usa C# per chiamare il [le librerie client .NET di ricerca di Azure](https://aka.ms/search-sdk)e JavaScript da chiamare direttamente l'API REST di ricerca di Azure. L'applicazione in questo esempio è destinata a un indice popolato il [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) campionare i dati. È possibile usare l'indice già configurato nella demo di NYC Jobs o popolare il proprio indice utilizzando un caricatore dati nella soluzione di esempio NYCJobs. L'esempio usa l'[interfaccia utente di jQuery](https://jqueryui.com/autocomplete/) e le librerie JavaScript [XDSoft](https://xdsoft.net/jqplugins/autocomplete/) per creare una casella di ricerca che supporti il completamento automatico. Usando questi componenti unitamente a Ricerca di Azure, si vedranno diversi esempi relativi alle modalità di supporto del completamento automatico nella casella di ricerca.
 
 Eseguirai le seguenti attività:
 
@@ -35,16 +35,16 @@ Eseguirai le seguenti attività:
 > * Aggiungere le informazioni sul servizio di ricerca alle impostazioni dell'applicazione
 > * Implementare un riquadro di input di ricerca
 > * Aggiungere il supporto per un elenco di completamento automatico che effettua il pull da un'origine remota 
-> * Recuperare i suggerimenti e il completamento automatico tramite l'API REST e .Net SDK
+> * Recuperare i suggerimenti e il completamento automatico tramite .NET SDK e API REST
 > * Supportare la memorizzazione nella cache lato client per migliorare le prestazioni 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Visual Studio 2017. È possibile usare la versione [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuita. 
 
-* Scarica il [codice sorgente](https://github.com/azure-samples/search-dotnet-getting-started) di esempio per l'esercitazione.
+* Scaricare l'esempio [codice sorgente](https://github.com/azure-samples/search-dotnet-getting-started) per l'esempio.
 
-* (Facoltativo) Un account Azure attivo e un servizio di Ricerca di Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/). Per assistenza sul provisioning del servizio, vedi [Creare un servizio di ricerca](search-create-service-portal.md). L'account e il servizio sono facoltativi in quanto questa esercitazione può essere completata usando un indice NYCJobs ospitato già presente per una demo diversa.
+* (Facoltativo) Un account Azure attivo e un servizio di Ricerca di Azure. Se non si ha un account Azure, è possibile iscriversi per ottenere una [versione di valutazione gratuita](https://azure.microsoft.com/free/). Per assistenza sul provisioning del servizio, vedi [Creare un servizio di ricerca](search-create-service-portal.md). L'account e dei servizi sono facoltativi, perché in questo esempio può essere completato usando un indice NYCJobs ospitato già posto per una dimostrazione di diversa.
 
 * (Facoltativo) Scarica il codice di esempio [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) per importare i dati NYCJobs in un indice all'interno del servizio di Ricerca di Azure.
 
@@ -61,11 +61,11 @@ Segui i passaggi descritti in questa sezione se vuoi importare i dati per l'appl
 
 1. Premi F5per avviare l'applicazione.  Questa operazione crea 2 indici e importa i dati di esempio NYCJob.
 
-1. Nel codice di esempio dell'esercitazione, apri il file di soluzione AutocompleteTutorial.sln in Visual Studio.  Apri Web. config all'interno del progetto AutocompleteTutorial e modifica i valori SearchServiceName e SearchServiceApiKey come quelli mostrati sopra.
+1. Nel codice di esempio riportato, aprire il file di soluzione AutocompleteTutorial.sln in Visual Studio.  Apri Web. config all'interno del progetto AutocompleteTutorial e modifica i valori SearchServiceName e SearchServiceApiKey come quelli mostrati sopra.
 
 ### <a name="running-the-sample"></a>Esecuzione dell'esempio
 
-A questo punto è possibile far partire l'applicazione di esempio dell'esercitazione.  Apri il file di soluzione AutocompleteTutorial.sln in Visual Studio per far partire l'esercitazione.  La soluzione contiene un progetto ASP.NET MVC.  Premi F5 per far partire il progetto e caricare la pagina nel browser che preferisci.  Nella parte superiore, vedrai un'opzione per la selezione di C# o JavaScript.  L'opzione C# chiama la classe HomeController dal browser e usa .Net SDK di Ricerca di Azure per ottenere risultati.  L'opzione JavaScript chiama l'API REST di Ricerca di Azure direttamente dal browser.  Questa opzione ha in genere prestazioni nettamente migliori perché esclude i controller dal flusso.  È possibile scegliere l'opzione adatta alle proprie esigenze e preferenze linguistiche.  Nella pagina sono disponibili alcuni esempi di completamento automatico con istruzioni per ognuno.  Ogni esempio presenta un testo di esempio consigliato che è possibile provare.  Prova a digitare alcune lettere in ciascuna casella di ricerca per scoprire cosa succede.
+A questo punto si è pronti a eseguire l'applicazione di esempio.  Aprire il file di soluzione AutocompleteTutorial.sln in Visual Studio per eseguire l'esempio.  La soluzione contiene un progetto ASP.NET MVC.  Premi F5 per far partire il progetto e caricare la pagina nel browser che preferisci.  Nella parte superiore, vedrai un'opzione per la selezione di C# o JavaScript.  Il C# opzione chiama la classe HomeController dal browser e Usa Azure Search .NET SDK per recuperare i risultati.  L'opzione JavaScript chiama l'API REST di Ricerca di Azure direttamente dal browser.  Questa opzione ha in genere prestazioni nettamente migliori perché esclude i controller dal flusso.  È possibile scegliere l'opzione adatta alle proprie esigenze e preferenze linguistiche.  Nella pagina sono disponibili alcuni esempi di completamento automatico con istruzioni per ognuno.  Ogni esempio presenta un testo di esempio consigliato che è possibile provare.  Prova a digitare alcune lettere in ciascuna casella di ricerca per scoprire cosa succede.
 
 ## <a name="how-this-works-in-code"></a>Funzionamento in codice
 
@@ -79,7 +79,7 @@ Per ciascuna opzione linguistica, la casella di ricerca rimane esattamente la st
 <input class="searchBox" type="text" id="example1a" placeholder="search">
 ```
 
-Si tratta di una casella di testo di input semplice con una classe per definire lo stile, un id che dovrà essere utilizzato da JavaScript e un testo segnaposto.  Il trucco è JavaScript.
+Si tratta di una casella di testo di input semplice con una classe per lo stile, un ID a cui fa riferimento JavaScript e testo segnaposto.  Il trucco è JavaScript.
 
 ### <a name="javascript-code-c"></a>Codice JavaScript (C#)
 
@@ -132,7 +132,7 @@ Dopo aver esaminato il codice JavaScript come esempio, esaminiamo quello del con
 
 1. Apri il file HomeController.cs nella directory dei controller. 
 
-1. La prima cosa che puoi notare è un metodo nella parte superiore della classe chiamata InitSearch.  Questo genererà un client di indice HTTP autenticato nel servizio Ricerca di Azure.  Per altre informazioni sul funzionamento, guardare l'esercitazione seguente: [Come usare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+1. La prima cosa che puoi notare è un metodo nella parte superiore della classe chiamata InitSearch.  Questo genererà un client di indice HTTP autenticato nel servizio Ricerca di Azure.  Per altre informazioni sul funzionamento, vedere l'esempio seguente: [Come usare Ricerca di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
 
 1. Passa alla funzione Suggest.
 
@@ -209,15 +209,15 @@ $(function () {
 });
 ```
 
-Se lo si confronta con l'esempio precedente che chiama il controller Home, noterai diverse analogie.  La configurazione del completamento automatico per `minLength` e `position` è identica.  La modifica sostanziale risiede nell'origine.  Invece di chiamare il metodo Suggest nel controller home, una richiesta REST viene creata in una funzione JavaScript ed eseguita tramite ajax.  La risposta viene quindi elaborata in "success" e utilizzare come origine.
+Se lo si confronta con l'esempio precedente che chiama il controller Home, noterai diverse analogie.  La configurazione del completamento automatico per `minLength` e `position` è identica.  La modifica sostanziale risiede nell'origine.  Invece di chiamare il metodo Suggerisci nel controller home, una richiesta REST viene creata in una funzione JavaScript e viene eseguito tramite Ajax.  La risposta viene quindi elaborata in "success" e utilizzare come origine.
 
 ## <a name="takeaways"></a>Risultati
 
-Questa esercitazione illustra i passaggi di base per la creazione di una casella di ricerca che supporta il completamento automatico e i suggerimenti.  È stato illustrato come è possibile creare un'applicazione ASP.NET MVC e usare .Net SDK o l'API REST di Ricerca di Azure per recuperare i consigli.
+Questo esempio illustra i passaggi di base per la creazione di una casella di ricerca che supporta la funzionalità Completamento automatico e i suggerimenti.  È stato illustrato come è possibile compilare un'applicazione ASP.NET MVC e usare Azure Search .NET SDK o l'API REST per recuperare i suggerimenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Integrare i suggerimenti e il completamento automatico nell'esperienza di ricerca.  Prendi in considerazione come l’uso di .Net SDK o l'API REST consenta automaticamente di trasferire la potenza di Ricerca di Azure agli utenti mentre digitano in modo da renderli più produttivi.
+Integrare i suggerimenti e il completamento automatico nell'esperienza di ricerca.  Prendere in considerazione come usare .NET SDK o l'API REST direttamente consenta di trasferire la potenza di ricerca di Azure per gli utenti mentre si digita in modo da renderli più produttivi.
 
 > [!div class="nextstepaction"]
 > [L'API REST Completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete)

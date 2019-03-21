@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 8137e59de7ad33ea806fcc2be36bb778448c9adc
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: ab235c67e3a0e60999a0348d03a6e938944f7030
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58077276"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260188"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione analitica dell'archiviazione Azure
 
@@ -37,7 +37,7 @@ Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite
 - Richieste tramite una firma di accesso condiviso (SAS) o OAuth, incluse le richieste riuscite e non riuscite
 - Richieste ai dati di analisi
 
-  Le richieste eseguite dalla stessa Analisi archiviazione, ad esempio, la creazione oppure l'eliminazione di log, non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) e [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format.md).
+  Le richieste eseguite dalla stessa Analisi archiviazione, ad esempio, la creazione oppure l'eliminazione di log, non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format).
 
 ### <a name="logging-anonymous-requests"></a>Registrazione di richieste anonime
 
@@ -48,7 +48,7 @@ Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite
 - Errori di timeout per client e server
 - Richieste GET non riuscite con codice di errore 304 (non modificate)
 
-  Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md) e [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format.md).
+  Tutte le altre richieste anonime non riuscite non vengono registrate. Un elenco completo dei dati registrati è documentato negli argomenti [Operazioni registrate in Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) e [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format).
 
 ## <a name="how-logs-are-stored"></a>Come vengono archiviati i log
 
@@ -200,9 +200,9 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
 
  Per un esempio di come scaricare i dati di log a livello di codice, vedere il post di blog [registrazione archiviazione Windows Azure: Uso dei log per tenere traccia delle richieste di archiviazione](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/08/03/windows-azure-storage-logging-using-logs-to-track-storage-requests.aspx) e cercare la parola "DumpLogs" nella pagina.  
 
- Una volta scaricati i dati dei log, è possibile visualizzare le voci di log nei file. Questi file di log usano un formato di testo delimitato che molti log la lettura di strumenti sono in grado di analizzare, incluso Microsoft Message Analyzer (per altre informazioni, vedere la Guida [monitoraggio, diagnosi e risoluzione dei problemi di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Altri strumenti dispongono di funzionalità differenti per la formattazione, filtraggio, ordinamento e la ricerca dei contenuti dei file di log. Per altre informazioni sulla registrazione archiviazione formato file di log e sul contenuto, vedere [il formato di Log di archiviazione Analitica](storage-analytics-logging.md) e [archiviazione Analitica registrazione minima delle operazioni e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md).
+ Una volta scaricati i dati dei log, è possibile visualizzare le voci di log nei file. Questi file di log usano un formato di testo delimitato che molti log la lettura di strumenti sono in grado di analizzare, incluso Microsoft Message Analyzer (per altre informazioni, vedere la Guida [monitoraggio, diagnosi e risoluzione dei problemi di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Altri strumenti dispongono di funzionalità differenti per la formattazione, filtraggio, ordinamento e la ricerca dei contenuti dei file di log. Per altre informazioni sulla registrazione archiviazione formato file di log e sul contenuto, vedere [il formato di Log di archiviazione Analitica](/rest/api/storageservices/storage-analytics-log-format) e [archiviazione Analitica registrazione minima delle operazioni e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format.md)
-* [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)
+* [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format)
+* [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Metriche di Analitica di archiviazione (versione classica)](storage-analytics-metrics.md)

@@ -9,14 +9,15 @@ ms.date: 12/14/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dad4872f9bc32a1978de47a52cea23d6bb2742a1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 5763a7e5f122702ddaf86246fbfbd18326878146
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673614"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294196"
 ---
 # <a name="auditing-and-reporting-a-b2b-collaboration-user"></a>Controllo e creazione di report per un utente di Collaborazione B2B
 Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a quelle degli utenti membri. 
@@ -28,11 +29,11 @@ Con gli utenti guest, sono disponibili funzionalità di controllo analoghe a que
 
 I log di controllo di Azure AD forniscono i record delle attività di sistema e utente, incluse le attività avviate da parte degli utenti guest. Per accedere ai log di controllo in **Azure Active Directory**, in **Monitoraggio**, selezionare **Log di controllo**. Di seguito è riportato un esempio di cronologia di inviti e riscatti dell'invitato Sam Oogle:
 
-![log di controllo](./media/auditing-and-reporting/audit-log.png)
+![Screenshot che mostra e un esempio di controllo Registra output](./media/auditing-and-reporting/audit-log.png)
 
 È possibile selezionare ogni evento per visualizzare i dettagli. È ad esempio possibile esaminare i dettagli relativi all'accettazione.
 
-![dettagli dell'attività](./media/auditing-and-reporting/activity-details.png)
+![Screenshot che mostra e un esempio di output di dettagli attività](./media/auditing-and-reporting/activity-details.png)
 
 È anche possibile esportare i log da Azure AD e usare lo strumento di creazione di report per ottenere report personalizzati.
 

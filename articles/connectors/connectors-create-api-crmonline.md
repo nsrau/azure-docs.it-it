@@ -10,12 +10,12 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 1247f603b759364edcee2bff12f75bb0a217ecd6
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231255"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295301"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gestire i record di Dynamics 365 con App per la logica di Azure
 
@@ -42,7 +42,7 @@ Aggiungere prima di tutto un trigger di Dynamics 365 che viene attivato quando v
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica vuota in Progettazione app per la logica, se non è già aperta.
 
-1. Nella casella di ricerca immettere "Dynamics 365" come filtro. Per questo esempio, sotto l'elenco di trigger selezionare questo trigger: **quando viene creato un record**
+1. Nella casella di ricerca immettere "Dynamics 365" come filtro. Per questo esempio, sotto l'elenco di trigger, selezionare questo trigger: **Quando un record viene creato**
 
    ![Selezionare il trigger](./media/connectors-create-api-crmonline/select-dynamics-365-trigger.png)
 
@@ -50,12 +50,12 @@ Aggiungere prima di tutto un trigger di Dynamics 365 che viene attivato quando v
 
 1. Specificare i dettagli del trigger:
 
-   | Proprietà | Obbligatoria | DESCRIZIONE | 
+   | Proprietà | Obbligatorio | DESCRIZIONE | 
    |----------|----------|-------------| 
-   | **Nome organizzazione** | Yes | Nome dell'istanza di Dynamics 365 dell'organizzazione da monitorare, ad esempio "Contoso" |
-   | **Nome entità** | Yes | Nome dell'entità da monitorare, ad esempio "Clienti potenziali" | 
-   | **Frequenza** | Yes | Unità di tempo da usare con intervalli durante il controllo degli aggiornamenti correlati al trigger |
-   | **Interval** | Yes | Numero di secondi, minuti, ore, giorni, settimane o mesi che deve trascorrere prima della verifica successiva |
+   | **Nome organizzazione** | Sì | Nome dell'istanza di Dynamics 365 dell'organizzazione da monitorare, ad esempio "Contoso" |
+   | **Nome entità** | Sì | Nome dell'entità da monitorare, ad esempio "Clienti potenziali" | 
+   | **Frequenza** | Sì | Unità di tempo da usare con intervalli durante il controllo degli aggiornamenti correlati al trigger |
+   | **Interval** | Sì | Numero di secondi, minuti, ore, giorni, settimane o mesi che deve trascorrere prima della verifica successiva |
    ||| 
 
    ![Dettagli del trigger](./media/connectors-create-api-crmonline/trigger-details.png)
@@ -66,16 +66,16 @@ Aggiungere a questo punto l'azione di Dynamics 365 che crea un record di attivit
 
 1. Nel trigger scegliere **Nuovo passaggio**.
 
-1. Nella casella di ricerca immettere "Dynamics 365" come filtro. Nell'elenco di azioni selezionare l'azione **Crea un nuovo record**
+1. Nella casella di ricerca immettere "Dynamics 365" come filtro. Nell'elenco di azioni selezionare questa azione: **Creare un nuovo record**
 
    ![Seleziona azione](./media/connectors-create-api-crmonline/select-action.png)
 
 1. Specificare i dettagli dell'azione:
 
-   | Proprietà | Obbligatoria | DESCRIZIONE | 
+   | Proprietà | Obbligatorio | DESCRIZIONE | 
    |----------|----------|-------------| 
-   | **Nome organizzazione** | Yes | Istanza di Dynamics 365 in cui si desidera creare il record, che non deve essere la stessa istanza del trigger. In questo esempio è "Contoso". |
-   | **Nome entità** | Yes | Entità in cui si desidera creare il record, ad esempio "Attività" | 
+   | **Nome organizzazione** | Sì | Istanza di Dynamics 365 in cui si desidera creare il record, che non deve essere la stessa istanza del trigger. In questo esempio è "Contoso". |
+   | **Nome entità** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" | 
    | | |
 
    ![Informazioni dettagliate sulle azioni](./media/connectors-create-api-crmonline/action-details.png)
@@ -122,9 +122,9 @@ Questa tabella descrive alcuni dei tipi di campi e i tipi di dati necessari per 
 
 | Tipo di campo | Tipo di dati richiesto | DESCRIZIONE | 
 |------------|--------------------|-------------|
-| Campi di testo | Riga di testo singola | Questi campi richiedono una singola riga di testo oppure contenuto dinamico di tipo testo. <p><p>*Esempi di campi*: **Descrizione** e **Categoria** | 
-| Campi di tipo Integer | Numero intero | Alcuni campi richiedono un numero intero oppure contenuto dinamico di tipo Integer. <p><p>*Esempi di campi*: **Percentuale di completamento** e **Durata** | 
-| Campi di data | Data e ora | Alcuni campi richiedono una data immessa nel formato mm/gg/aaaa oppure contenuto dinamico di tipo data. <p><p>*Esempi di campi*: **Data di creazione**, **Data di inizio**, **Inizio effettivo**, **Fine effettiva** e **Data di scadenza** | 
+| Campi di testo | Riga di testo singola | Questi campi richiedono una singola riga di testo oppure contenuto dinamico di tipo testo. <p><p>*Esempi di campi*: **Descrizione** e **categoria** | 
+| Campi di tipo Integer | Numero intero | Alcuni campi richiedono un numero intero oppure contenuto dinamico di tipo Integer. <p><p>*Esempi di campi*: **Percentuale di completamento** e **durata** | 
+| Campi di data | Data e ora | Alcuni campi richiedono una data immessa nel formato mm/gg/aaaa oppure contenuto dinamico di tipo data. <p><p>*Esempi di campi*: **Creato nel**, **data di inizio**, **inizio effettivo**, **fine effettiva**, e **data di scadenza** | 
 | Campi che richiedono sia un ID record che il tipo di ricerca | Chiave primaria | Alcuni campi che fanno riferimento a un altro record di entità richiedono sia l'ID record che il tipo di ricerca. | 
 ||||
 
@@ -187,7 +187,7 @@ Per altre informazioni sulla risoluzione dei problemi delle app per la logica, v
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel file Swagger del connettore, vedere la [pagina di riferimento del connettore](/connectors/crm/). 
+Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel file Swagger del connettore, vedere la [pagina di riferimento del connettore](/connectors/dynamicscrmonline/). 
 
 ## <a name="get-support"></a>Supporto
 

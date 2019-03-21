@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/17/2016
 ms.author: keikhara
 ms.custom: mvc
-ms.openlocfilehash: 1278c788c0d36b2cadf860e379791ecd823a510b
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 290141136672729060f5156d645c47ac303fa0c3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113848"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110971"
 ---
 # <a name="deprecated-monitor-an-azure-container-service-dcos-cluster-with-log-analytics"></a>(DEPRECATO) Monitorare un cluster DC/OS del servizio Azure Container con Log Analytics
 
@@ -34,25 +34,25 @@ In questo articolo si presume di aver configurato un DC/OSe di aver distribuito 
 ### <a name="pre-requisite"></a>Prerequisito.
 - [Sottoscrizione di Microsoft Azure](https://azure.microsoft.com/free/): è possibile ottenerla gratuitamente.  
 - Configurazione dell'area di lavoro di Log Analytics (vedere il "Passaggio 3" sotto)
-- [Interfaccia della riga di comando di DC/OS](http://docs.mesosphere.com/1.12/cli) installata.
+- [Interfaccia della riga di comando di DC/OS](https://docs.mesosphere.com/1.12/cli) installata.
 
 1. Nel dashboard di DC/OS fare clic su Universo e cercare "OMS" come illustrato di seguito.
 
    >[!NOTE]
    >OMS viene a questo punto indicato come Log Analytics.
 
- ![](media/container-service-monitoring-oms/image2.png)
+   ![](media/container-service-monitoring-oms/image2.png)
 
 2. Fare clic su **Installa**. Si aprirà una finestra popup con le informazioni sulla versione e un pulsante **Installa pacchetto** o **Installazione avanzata**. Fare clic su **Installazione avanzata** per accedere alla pagina dedicata alle **proprietà di configurazione specifiche di OMS**.
 
- ![](media/container-service-monitoring-oms/image3.png)
+   ![](media/container-service-monitoring-oms/image3.png)
 
- ![](media/container-service-monitoring-oms/image4.png)
+   ![](media/container-service-monitoring-oms/image4.png)
 
 3. Qui verrà chiesto di immettere `wsid`, ovvero l'ID dell'area di lavoro di Log Analytics, e `wskey`, la chiave primaria per l'ID dell'area di lavoro. Per ottenere sia `wsid` che `wskey` è necessario creare un account alla pagina <https://mms.microsoft.com>.
-Attenersi alla procedura di creazione di un account. Dopo aver creato l'account, è necessario ottenere `wsid` e `wskey` facendo clic su **Impostazioni**, **Origini connesse** e **Server Linux**, come indicato di seguito.
+   Attenersi alla procedura di creazione di un account. Dopo aver creato l'account, è necessario ottenere `wsid` e `wskey` facendo clic su **Impostazioni**, **Origini connesse** e **Server Linux**, come indicato di seguito.
 
- ![](media/container-service-monitoring-oms/image5.png)
+   ![](media/container-service-monitoring-oms/image5.png)
 
 4. Selezionare il numero di istanze desiderato e fare clic sul pulsante "Verifica e installa". In genere, è opportuno scegliere un numero di istanze uguale al numero di macchine virtuali presenti nel cluster dell'agente. L'agente di Log Analytics per Linux viene installato come singolo contenitore in ciascuna macchina virtuale di cui si vuole raccogliere informazioni per fini di monitoraggio e registrazione.
 

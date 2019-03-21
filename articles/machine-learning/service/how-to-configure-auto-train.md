@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6bd61923dafb605e09c6ca6ab86dcd85fe60b37c
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 79d013e5836555547cbf254bb25c06add0a717e1
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734658"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295386"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurare esperimenti di Machine Learning automatizzato
 
@@ -396,4 +396,4 @@ RunDetails(local_run).show()
 
 Altre informazioni su [come e dove distribuire un modello](how-to-deploy-and-where.md).
 
-Altre informazioni su [come eseguire il training di un modello di classificazione con Machine Learning automatizzato](tutorial-auto-train-models.md) oppure [come eseguire il training con Machine Learning automatizzato su una risorsa remota](how-to-auto-train-remote.md).
+Altre informazioni sulle [come eseguire il training di un modello di regressione con Automated machine learning](tutorial-auto-train-models.md) oppure [come eseguire il training usando automatizzati di machine learning in una risorsa remota](how-to-auto-train-remote.md).

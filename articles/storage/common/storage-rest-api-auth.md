@@ -4,16 +4,16 @@ description: Operazioni per chiamare l'API REST di Archiviazione di Azure, inclu
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 08a86e1b2808a0778734edecc9385f4d61779b25
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55476197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012785"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
@@ -46,7 +46,7 @@ Questo comando consente di duplicare il repository nella cartella locale git. Pe
 
 ## <a name="what-is-rest"></a>Che cos'è REST?
 
-REST è l'acronimo di *representational state transfer*, ovvero trasferimento di stato rappresentativo. Per una definizione dettagliata, consultare [Wikipedia](http://en.wikipedia.org/wiki/Representational_state_transfer).
+REST è l'acronimo di *representational state transfer*, ovvero trasferimento di stato rappresentativo. Per una definizione dettagliata, consultare [Wikipedia](https://en.wikipedia.org/wiki/Representational_state_transfer).
 
 In pratica, REST è un'architettura che è possibile usare quando si eseguono chiamate alle API o si rendono disponibili le API per le chiamate. Questa architettura è indipendente da ciò che avviene su entrambi i lati della comunicazione e dal software usato per inviare o ricevere le chiamate REST. È possibile scrivere un'applicazione da eseguire su un computer Mac, Windows o Linux, un tablet o un telefono Android, un iPhone, un iPod o un sito Web e usare la stessa API REST per tutte le piattaforme. Quando viene chiamata l'API REST, i dati possono essere passati verso l'interno e/o l'esterno. Per l'API REST non è rilevante la piattaforma che esegue la chiamata, ma sono soprattutto importanti le informazioni passate nella richiesta e i dati forniti nella risposta.
 
@@ -80,7 +80,7 @@ Per usare parametri aggiuntivi, specificarli dopo la stringa di risorsa con il r
 
 [Corpo della richiesta](/rest/api/storageservices/List-Containers2#request-body)**:** per ListContainers non è previsto un corpo della richiesta, che viene usato invece per tutte le operazioni PUT, durante il caricamento di BLOB, e per SetContainerAccessPolicy, che consente di inviare un elenco XML di criteri di accesso archiviati da applicare. Per informazioni su questi criteri, vedere l'articolo [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
-[Codice di stato della risposta](/rest/api/storageservices/List-Containers2#status-code)**:** indica i codici di stato che è necessario conoscere. In questo esempio, il codice di stato HTTP 200 indica che l'operazione è stata eseguita correttamente. Per un elenco completo di codici di stato HTTP, consultare [Status Code Definitions](http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definizioni dei codici di stato). Per i codici di errore specifici per le API REST di archiviazione, vedere [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Codici di errore comuni delle API REST).
+[Codice di stato della risposta](/rest/api/storageservices/List-Containers2#status-code)**:** indica i codici di stato che è necessario conoscere. In questo esempio, il codice di stato HTTP 200 indica che l'operazione è stata eseguita correttamente. Per un elenco completo di codici di stato HTTP, consultare [Status Code Definitions](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html) (Definizioni dei codici di stato). Per i codici di errore specifici per le API REST di archiviazione, vedere [Common REST API error codes](/rest/api/storageservices/common-rest-api-error-codes) (Codici di errore comuni delle API REST).
 
 [Intestazioni della risposta](/rest/api/storageservices/List-Containers2#response-headers)**:** sono incluse *Content Type*, *x-ms-request-id* (ID della richiesta passata, se applicabile), *x-ms-version* (versione del servizio BLOB usato) e *Date* (data e ora UTC in cui è stata eseguita la richiesta).
 
@@ -88,7 +88,7 @@ Per usare parametri aggiuntivi, specificarli dopo la stringa di risorsa con il r
 
 ## <a name="creating-the-rest-request"></a>Creazione della richiesta REST
 
-Alcune note prima di iniziare. Per garantire la sicurezza, durante l'esecuzione in un ambiente di produzione, usare sempre HTTPS anziché HTTP. Ai fini di questo esercizio, si userà HTTP in modo da poter visualizzare i dati della richiesta e della risposta. Per esaminare le informazioni relative alla richiesta e alla risposta nelle chiamate REST effettive, è possibile scaricare [Fiddler](http://www.telerik.com/fiddler) o un'applicazione simile. Nella soluzione di Visual Studio, il nome e la chiave dell'account di archiviazione sono impostati come hardcoded nella classe e il metodo ListContainersAsyncREST passa il nome e la chiave dell'account di archiviazione ai metodi usati per creare i vari componenti della richiesta REST. In un'applicazione reale, il nome e la chiave dell'account di archiviazione si troveranno in un file di configurazione o in variabili di ambiente oppure verranno recuperati da un'istanza di Azure Key Vault.
+Alcune note prima di iniziare. Per garantire la sicurezza, durante l'esecuzione in un ambiente di produzione, usare sempre HTTPS anziché HTTP. Ai fini di questo esercizio, si userà HTTP in modo da poter visualizzare i dati della richiesta e della risposta. Per esaminare le informazioni relative alla richiesta e alla risposta nelle chiamate REST effettive, è possibile scaricare [Fiddler](https://www.telerik.com/fiddler) o un'applicazione simile. Nella soluzione di Visual Studio, il nome e la chiave dell'account di archiviazione sono impostati come hardcoded nella classe e il metodo ListContainersAsyncREST passa il nome e la chiave dell'account di archiviazione ai metodi usati per creare i vari componenti della richiesta REST. In un'applicazione reale, il nome e la chiave dell'account di archiviazione si troveranno in un file di configurazione o in variabili di ambiente oppure verranno recuperati da un'istanza di Azure Key Vault.
 
 In questo progetto di esempio, il codice per creare l'intestazione dell'autorizzazione si trova in una classe separata per consentire allo sviluppatore di prendere l'intera classe e aggiungerla a una soluzione personalizzata "così com'è". Il codice dell'intestazione dell'autorizzazione è utilizzabile per la maggior parte delle chiamate all'API REST in Archiviazione di Azure.
 
@@ -300,7 +300,7 @@ StringToSign = VERB + "\n" +
 
 La maggior parte di questi campi viene usata raramente. Per l'archiviazione BLOB, si specificano VERB, md5, Content-Length, CanonicalizedHeaders e CanonicalizedResource. Gli altri campi possono essere lasciati vuoti, ma è necessario specificare `\n` per indicare che sono effettivamente vuoti.
 
-Che significato hanno i campi CanonicalizedHeaders e CanonicalizedResource? Per capirlo, è necessario conoscere il significato della parola "canonizzazione". Questa è la definizione di [canonizzazione riportata su Wikipedia](http://en.wikipedia.org/wiki/Canonicalization): *In informatica, la canonizzazione (talvolta detta anche standardizzazione o normalizzazione) è un processo per convertire i dati che hanno più di una rappresentazione possibile in un formato standard, normale o canonico.* In parole semplici, ciò significa prendere un elenco di elementi (come le intestazioni nel caso di CanonicalizedHeaders) e convertirli nel formato standard richiesto. Fondamentalmente, Microsoft ha definito un formato specifico che è necessario rispettare.
+Che significato hanno i campi CanonicalizedHeaders e CanonicalizedResource? Per capirlo, è necessario conoscere il significato della parola "canonizzazione". Questa è la definizione di [canonizzazione riportata su Wikipedia](https://en.wikipedia.org/wiki/Canonicalization): *In informatica, la canonizzazione (talvolta detta anche standardizzazione o normalizzazione) è un processo per convertire i dati che hanno più di una rappresentazione possibile in un formato standard, normale o canonico.* In parole semplici, ciò significa prendere un elenco di elementi (come le intestazioni nel caso di CanonicalizedHeaders) e convertirli nel formato standard richiesto. Fondamentalmente, Microsoft ha definito un formato specifico che è necessario rispettare.
 
 Si esamineranno ora i due campi in forma canonica che sono necessari per creare l'intestazione dell'autorizzazione.
 
@@ -325,7 +325,7 @@ private static string GetCanonicalizedHeaders(HttpRequestMessage httpRequestMess
     StringBuilder sb = new StringBuilder();
 
     // Create the string in the right format; this is what makes the headers "canonicalized" --
-    //   it means put in a standard format. http://en.wikipedia.org/wiki/Canonicalization
+    //   it means put in a standard format. https://en.wikipedia.org/wiki/Canonicalization
     foreach (var kvp in headers)
     {
         StringBuilder headerBuilder = new StringBuilder(kvp.Key);
@@ -482,7 +482,7 @@ GET\n\n\n\n\n\n\n\n\n\n\n\nx-ms-date:Fri, 17 Nov 2017 05:16:48 GMT
 SharedKey contosorest:uzvWZN1WUIv2LYC6e3En10/7EIQJ5X9KtFQqrZkxi6s=
 ```
 
-I valori seguenti sono restituiti da [Fiddler](http://www.telerik.com/fiddler):
+I valori seguenti sono restituiti da [Fiddler](https://www.telerik.com/fiddler):
 
 **Richiesta:**
 

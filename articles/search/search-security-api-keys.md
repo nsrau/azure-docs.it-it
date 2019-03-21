@@ -8,15 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 03/19/2019
 ms.author: heidist
-ms.custom: seodec2018
-ms.openlocfilehash: 6ba63fa776e92dd2f8035cfbbdb8cea2860d106f
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316928"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286602"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Creare e gestire chiavi API per un servizio di ricerca di Azure
 
@@ -42,19 +41,35 @@ Per accedere al servizio di ricerca vengono usati due tipi di chiavi: amministra
 > [!NOTE]  
 >  Passare dati sensibili, ad esempio un elemento `api-key`, nell'URI della richiesta è considerato una procedura di sicurezza non ottimale. Per questo motivo, Ricerca di Azure accetta solo una chiave di query come `api-key` nella stringa di query ed è consigliabile evitare di eseguire questa operazione, a meno che i contenuti dell'indice non debbano essere disponibili pubblicamente. Come regola generale, è consigliabile passare l'elemento `api-key` come intestazione della richiesta.  
 
-## <a name="find-api-keys-for-your-service"></a>Trovare chiavi API per il servizio
+## <a name="find-existing-keys"></a>Trovare le chiavi esistenti
 
 È possibile ottenere le chiavi di accesso nel portale o tramite l'[API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/). Per altre informazioni, vedere [Manage admin and query api-keys](search-security-api-keys.md) (Gestione di chiavi API query e amministratore).
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
-3. Selezionare il servizio nella pagina dei servizi e trovare **Impostazioni** >**Chiavi** per visualizzare le chiavi amministratore e di query.
+3. Selezionare il servizio e nella pagina Panoramica fare clic su **le impostazioni** >**chiavi** per visualizzare le chiavi amministratore ed eseguire una query.
 
-![Pagina del portale, sezione Impostazioni, Chiavi](media/search-security-overview/settings-keys.png)
+   ![Pagina del portale, sezione Impostazioni, Chiavi](media/search-security-overview/settings-keys.png)
+
+## <a name="create-query-keys"></a>Creare le chiavi di query
+
+Le chiavi di query vengono usate per l'accesso di sola lettura di documenti all'interno di un indice. Limitazione dell'accesso e le operazioni nelle App client è essenziale per salvaguardare le risorse di ricerca nel servizio. Usare sempre una chiave di query anziché una chiave amministratore per le query provenienti da un'app client.
+
+1. Accedere al [portale di Azure](https://portal.azure.com).
+2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
+3. Selezionare il servizio e nella pagina Panoramica fare clic su **le impostazioni** >**chiavi**.
+4. Fare clic su **gestire le chiavi di query**.
+5. Usare la query già generata per il servizio o creare nuove chiavi di query fino a 50. La chiave di query predefinito non è denominata, ma le chiavi di query aggiuntive possono essere denominate per una migliore gestibilità.
+
+   ![Creare o usare una chiave di query](media/search-security-overview/create-query-key.png) 
+
+
+> [!Note]
+> Un esempio di codice che illustrano l'utilizzo di chiavi di query è reperibile nel [Query su un indice di ricerca di Azure in C# ](search-query-dotnet.md).
 
 ## <a name="regenerate-admin-keys"></a>Riscrivere una chiave amministratore
 
-Per ogni servizio vengono create due chiavi amministratore in modo che sia possibile eseguire il rollover della chiave primaria, usando la chiave secondaria per l'accesso continuo.
+Due chiavi amministratore vengono create per ogni servizio in modo che è possibile ruotare una chiave primaria, usando la chiave secondaria per l'accesso continuo.
 
 Riscrivendo contemporaneamente sia la chiave primaria che quella secondaria, qualsiasi applicazione che usa due chiavi per l'accesso alle operazioni del servizio non sarà in grado di accedere al servizio.
 

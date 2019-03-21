@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 512956d2de0f9a838cc6378345a334e489d1d120
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c80b007c3c9c1a35540e690554603a5ae8f16d62
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306868"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284630"
 ---
 # <a name="trigger-azure-functions-using-webhooks-in-azure-iot-central"></a>Attivare Funzioni di Azure usando i webhook in Azure IoT Central
 
 *Questo argomento è rivolto ai responsabili della compilazione e agli amministratori.*
 
-Usare Funzioni di Azure per eseguire codice serverless sull'output di webhook delle regole di IoT Central. Non è necessario effettuare il provisioning di una VM o pubblicare un'app Web per usare Funzioni di Azure, ma è possibile eseguire questo codice in modalità serverless. Usare Funzioni di Azure per trasformare il payload del webhook prima di inviarlo alla destinazione finale, ad esempio un database SQL o Griglia di eventi.
+Usare Funzioni di Azure per eseguire codice serverless sull'output di webhook delle regole di IoT Central. Non è necessario effettuare il provisioning di una macchina virtuale o pubblicare un'app web per usare le funzioni di Azure, ma è invece possibile eseguire questo codice senza server. Usare Funzioni di Azure per trasformare il payload del webhook prima di inviarlo alla destinazione finale, ad esempio un database SQL o Griglia di eventi.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,11 +31,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
     ![Creare una nuova app per le funzioni nel portale di Azure](media/howto-trigger-azure-functions/createfunction.png)
 
-2. Espandere l'app per le funzioni e selezionare il **sul pulsante +** accanto a funzioni. Se questa è la prima funzione nell'app per le funzioni, selezionare **Funzione personalizzata**. Verrà visualizzato il set completo di modelli di funzione.
+2. Espandere l'app per le funzioni e selezionare il **sul pulsante +** accanto a funzioni. Se questa funzione è la prima funzione nell'app, selezionare **nel portale** come ambiente di sviluppo e selezionare **continua**.
 
     ![Scegliere una funzione personalizzata nell'app per le funzioni](media/howto-trigger-azure-functions/customfunction.png)
 
-3. Nel campo di ricerca digitare **"generic"** e quindi scegliere la lingua da usare per il modello di attivazione del webhook generico. Questo argomento usa una funzione C#. 
+3. Scegli **Webhook + API** modello e selezionare **crea**. Questo argomento Usa funzioni di Azure basati su .NET.
 
     ![Selezionare il trigger del webhook generico](media/howto-trigger-azure-functions/genericwebhooktrigger.png)
 

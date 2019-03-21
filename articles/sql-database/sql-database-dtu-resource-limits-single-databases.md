@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/14/2019
-ms.openlocfilehash: 37dcde3d55ce704c7a5dbb6d7757420ba8c393f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/20/2019
+ms.openlocfilehash: 7c35c1f3568ab98bdd3c7fba8acd3aa958aa795b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57885102"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285134"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-based-purchasing-model"></a>Limiti di risorse per i database singoli usando il modello di acquisto basato su DTU
 
@@ -73,12 +73,14 @@ Le tabelle seguenti illustrano le risorse disponibili per un singolo database a 
 | **Dimensione di calcolo** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | Max DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| Risorse di archiviazione incluse (GB) | 500 | 500 | 500 | 500 | 4096 | 4096 |
-| Opzioni per lo spazio di archiviazione massimo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 | 4096 |
+| Risorse di archiviazione incluse (GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| Opzioni per lo spazio di archiviazione massimo (GB) | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | Spazio di archiviazione OLTP in memoria max (GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | Numero massimo di ruoli di lavoro simultanei (richieste)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | Numero massimo di sessioni simultanee | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
 |||||||
+
+\* Da 1024 GB fino a 4096 GB con incrementi di 256 GB
 
 > [!IMPORTANT]
 > Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le limitazioni correnti di P11-P15.  

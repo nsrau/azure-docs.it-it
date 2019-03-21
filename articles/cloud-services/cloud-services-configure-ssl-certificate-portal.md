@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jeconnoc
-ms.openlocfilehash: cf2fe10d6a0ab81ff71c948ee2defe6bc7edfd70
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.openlocfilehash: 2a9879ebc55a5f25c1a358e386697dce1c55ec90
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51300191"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084345"
 ---
 # <a name="configuring-ssl-for-an-application-in-azure"></a>Configurazione di SSL per un'applicazione in Azure
 
@@ -40,14 +40,14 @@ Il certificato deve soddisfare i requisiti seguenti per i certificati SSL in Azu
 
 * Il certificato deve includere una chiave privata.
 * Il certificato deve essere stato creato per lo scambio di chiave, esportabile in un file con estensione pfx (Personal Information Exchange).
-* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Se ad esempio il nome di dominio personalizzato è **contoso.com**, il certificato da richiedere alla CA è ***.contoso.com** o **www.contoso.com**.
+* Il nome del soggetto del certificato deve corrispondere al dominio usato per accedere al servizio cloud. Non è possibile ottenere un certificato SSL da un'Autorità di certificazione (CA) per il dominio cloudapp.net. È necessario acquistare un nome di dominio personalizzato da utilizzare per accedere al servizio. Quando si richiede un certificato da una CA, il nome del soggetto del certificato deve corrispondere al nome di dominio personalizzato utilizzato per accedere all'applicazione. Ad esempio, se è il nome di dominio personalizzato **contoso.com** , richiedere un certificato dalla CA per ***. contoso.com** oppure **www\.contoso.com**.
 * Per il certificato deve essere usata una crittografia di almeno 2048 bit.
 
 Per eseguire delle prove, è possibile [creare](cloud-services-certs-create.md) e usare un certificato auto firmato. Un certificato autofirmato non è autenticato tramite una CA e può usare il dominio cloudapp.net come URL del sito Web. Nell'attività seguente, ad esempio, viene usato un certificato autofirmato in cui il nome comune è **sslexample.cloudapp.net**.
 
 A questo punto, è necessario includere le informazioni sul certificato nei file di definizione e configurazione del servizio.
 
-<a name="modify"></a>
+<a name="modify"> </a>
 
 ## <a name="step-2-modify-the-service-definition-and-configuration-files"></a>Passaggio 2: Modificare i file di definizione e configurazione del servizio
 L'applicazione deve essere configurata per utilizzare il certificato ed è necessario aggiungere un endpoint HTTPS. Di conseguenza, è necessario aggiornare i file di definizione e configurazione del servizio.
@@ -138,7 +138,7 @@ Questo esempio usa **sha1** come algoritmo di identificazione personale. Specifi
 
 Ora che i file di definizione e configurazione del servizio sono stati aggiornati, creare il pacchetto della distribuzione per il caricamento in Azure. Se si usa **cspack**, non usare il flag **/generateConfigurationFile**, poiché questo sovrascriverebbe le informazioni del certificato appena inserite.
 
-## <a name="step-3-upload-a-certificate"></a>Passaggio 3: Caricare un certificato
+## <a name="step-3-upload-a-certificate"></a>Passaggio 3: Caricamento di un certificato
 Connettersi al portale di Azure e...
 
 1. Nella sezione **Tutte le risorse** del portale selezionare il servizio cloud.

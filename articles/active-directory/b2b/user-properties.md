@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e9553a3af8a09a6630efa771294661702feef5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670704"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294655"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -32,7 +33,7 @@ In base alle esigenze dell'organizzazione che emette l'invito, un utente di Coll
 
 - Stato 4: incluso in Azure AD dell'organizzazione host con UserType = Guest e credenziali gestite dall'organizzazione host.
 
-  ![Visualizzazione iniziali del mittente dell'invito](media/user-properties/redemption-diagram.png)
+  ![Diagramma che illustra gli stati quattro utente](media/user-properties/redemption-diagram.png)
 
 
 Di seguito viene ora mostrato l'aspetto dell'utente di Collaborazione B2B di Azure AD in Azure AD.
@@ -41,7 +42,7 @@ Di seguito viene ora mostrato l'aspetto dell'utente di Collaborazione B2B di Azu
 
 Gli account con stato 1 o 2 sono il risultato dell'invito di utenti guest a collaborare usando le credenziali degli utenti guest. Quando viene inizialmente inviato l'invito all'utente guest, viene creato un account nella directory. Questo account non ha credenziali, in quanto l'autenticazione viene eseguita dal provider di identità dell'utente guest. La proprietà **Source** per l'account utente guest nella directory è impostata su **Utente invitato**. 
 
-![Prima del riscatto dell'offerta](media/user-properties/before-redemption.png)
+![Screenshot che mostra le proprietà dell'utente prima del riscatto dell'offerta](media/user-properties/before-redemption.png)
 
 ### <a name="after-invitation-redemption"></a>Dopo il riscatto dell'invito
 
@@ -87,7 +88,7 @@ In genere, utente B2B di Azure AD è sinonimo di utente guest. Un utente di Coll
 
 ## <a name="filter-for-guest-users-in-the-directory"></a>Filtrare gli utenti guest nella directory
 
-![Filtrare gli utenti guest](media/user-properties/filter-guest-users.png)
+![Screenshot che mostra il filtro per gli utenti guest](media/user-properties/filter-guest-users.png)
 
 ## <a name="convert-usertype"></a>Convertire UserType
 È possibile convertire UserType da Membro a Guest e viceversa usando PowerShell. Tuttavia, la proprietà UserType rappresenta la relazione dell'utente con l'organizzazione. Di conseguenza, è consigliabile modificare questa proprietà solo se la relazione dell'utente con l'organizzazione cambia. Se la relazione dell'utente cambia, è necessario modificare anche il nome dell'entità utente (UPN)? L'utente deve continuare ad avere accesso alle stesse risorse? È necessario assegnare una cassetta postale all'utente? Non è consigliabile modificare UserType con PowerShell come attività atomica. Inoltre, se questa proprietà non è più modificabile con PowerShell, non è consigliabile creare una dipendenza da questo valore.
@@ -97,7 +98,7 @@ In alcuni casi può essere necessario dare privilegi più elevati agli utenti gu
 
 È possibile disattivare le limitazioni predefinite in modo che un utente guest nella directory aziendale abbia le stesse autorizzazioni di un utente membro.
 
-![Rimuovere le limitazioni dell'utente guest](media/user-properties/remove-guest-limitations.png)
+![Screenshot che mostra gli utenti esterni opzione nelle impostazioni utente](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
 Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Per informazioni dettagliate, vedere **È possibile creare oggetti guest visibili nell'elenco indirizzi globale?** in [Gestire l'accesso Guest in gruppi di Office 365](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#faq). 

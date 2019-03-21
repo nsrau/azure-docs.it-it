@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: be0cdeed81c66e1a848b44d2429c1c67bce9b4f3
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: cdd5c7592ebbc092c8e7be01a0fdd16e9c78aeaf
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54024094"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57240797"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 Questo articolo risponde ad alcune domande frequenti su Azure Data Factory.  
@@ -175,8 +175,35 @@ Sì. È possibile utilizzare un output di attività in un'attività successiva c
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Come gestire correttamente i valori null in un output di attività? 
 È possibile utilizzare il costrutto `@coalesce` nelle espressioni per gestire correttamente i valori null. 
 
+## <a name="mapping-data-flows"></a>Flussi di dati di mapping
+
+### <a name="which-adf-version-do-i-use-to-create-data-flows"></a>Quale versione di Azure Data factory usano per creare flussi di dati
+Usare la versione di Azure Data factory V2 per creare flussi di dati
+  
+### <a name="i-was-a-previous-private-preview-customer-using-data-flows-and-i-used-the-adf-v2-wdata-flows-preview-version"></a>Ero clienti dell'anteprima privata di precedente usando i dati vengono trasmessi e ho utilizzato la versione di anteprima di Azure Data factory V2 w/Data flussi
+Questa versione è obsoleta. Usare Azure Data factory V2 per i flussi di dati
+  
+### <a name="what-has-changed-from-private-preview-to-limited-public-preview-in-data-flows"></a>Cosa è cambiato dalla versione di anteprima privata per l'anteprima pubblica limitata nei flussi di dati?
+Non è necessario portare i propri cluster Databricks. Azure Data factory verrà gestita la creazione del cluster e chiusura. Set di dati di Azure Data Lake Store e i set di dati BLOB vengono suddivisi in set di dati Parquet e testo delimitato. È ancora possibile usare Azure Data Lake Store e Store di Blob per archiviare i file. Usare il servizio collegato appropriato per i motori di archiviazione.
+
+### <a name="can-i-migrate-my-private-preview-factories-to-adf-v2"></a>È possibile migrare la factory di anteprima privata di Azure Data factory V2?
+
+[Sì, seguire le istruzioni riportate qui](https://www.slideshare.net/kromerm/adf-mapping-data-flow-private-preview-migration)
+
+### <a name="i-need-help-troubleshooting-my-data-flow-logic-what-do-you-need"></a>Ho bisogno di aiuto la logica del flusso di dati di risoluzione dei problemi, cosa è necessario?
+
+Quando Microsoft fornisce assistenza o risoluzione dei problemi con flussi di dati, fornire il "DSL codice piano". A questo scopo, seguire questa procedura:
+
+* La progettazione del flusso di dati, fare clic su "Code" nell'angolo superiore destro. Verrà visualizzato il codice JSON modificabile per il flusso di dati.
+* Dalla visualizzazione codice, fare clic su "Piano" nell'angolo superiore destro. Attiva/disattiva il piano passerà da JSON a sola lettura formattato DSL script piano.
+* Copiare e incollare lo script o salvarlo in un file di testo.
+
+### <a name="how-do-i-access-data-using-the-other-80-dataset-types-in-adf"></a>Come posso accedere dati tramite altri 80 tipi di set di dati in Azure Data factory?
+
+Flusso di dati attualmente consente database SQL di Azure, Azure SQL Data Warehouse, i file di testo delimitati da Blob o Azure Data Lake Store e i file Parquet da Blob o Azure Data Lake Store in modo nativo per l'origine e Sink. Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri connettori e quindi eseguire un'attività flusso di dati e trasformare i dati dopo che è stato preconfigurato. Ad esempio, la pipeline prima di tutto verrà copiato nel Blob, quindi un'attività flusso di dati utilizzerà un set di dati nell'origine per trasformare i dati.
+
 ## <a name="next-steps"></a>Passaggi successivi
 Per istruzioni dettagliate per la creazione di una data factory, vedere le esercitazioni seguenti:
 
-- [Avvio rapido: Creare una data factory](quickstart-create-data-factory-dot-net.md)
+- [Guida introduttiva: Creare una data factory](quickstart-create-data-factory-dot-net.md)
 - [Esercitazione: Copiare i dati nel cloud](tutorial-copy-data-dot-net.md)

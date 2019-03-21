@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67cda814925c3e5b974e4580594724c890851f64
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55176207"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089234"
 ---
 # <a name="json-claims-transformations"></a>Trasformazioni delle attestazioni JSON
 
@@ -52,11 +52,11 @@ Nell'esempio seguente la trasformazione delle attestazioni ha estratto l'element
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
 - Parametro di input:
     - **claimToExtract**: emailAddress
 - Attestazioni di output: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 
 ## <a name="getclaimsfromjsonarray"></a>GetClaimsFromJsonArray
@@ -100,18 +100,18 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae le attestazion
 ```    
 
 - Attestazioni di input:
-    - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
+  - **jsonSourceClaim**: [{"key":"email","value":"someone@example.com"}, {"key":"displayName","value":"Someone"}, {"key":"membershipNum","value":6353399}, {"key":"active","value": true}, {"key":"birthdate","value":"1980-09-23T00:00:00Z"}]
 - Parametri di input:
     - **errorOnMissingClaims**: false
     - **includeEmptyClaims**: false
     - **jsonSourceKeyName**: key
     - **jsonSourceValueName**: value
 - Attestazioni di output:
-    - **email**: "someone@example.com"
-    - **displayName**: "Someone"
-    - **membershipNum**: 6353399
-    - **active**: true
-    - **birthdate**: 1980-09-23T00:00:00Z
+  - **email**: "someone@example.com"
+  - **displayName**: "Someone"
+  - **membershipNum**: 6353399
+  - **active**: true
+  - **birthdate**: 1980-09-23T00:00:00Z
 
 ## <a name="getnumericclaimfromjson"></a>GetNumericClaimFromJson
 
@@ -150,7 +150,7 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae l'elemento `id
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
 - Parametri di input
     - **claimToExtract**:  id
 - Attestazioni di output: 
@@ -181,9 +181,9 @@ Nell'esempio seguente la trasformazione delle attestazioni estrae il primo eleme
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
+  - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
 - Attestazioni di output: 
-    - **extractedClaim**: someone@example.com
+  - **extractedClaim**: someone@example.com
 
 ## <a name="xmlstringtojsonstring"></a>XmlStringToJsonString
 

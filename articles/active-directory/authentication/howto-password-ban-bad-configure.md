@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30627994a8fe8cfe73e7945dadf2153ea60860b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175133"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286931"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurazione dell'elenco personalizzato di password escluse
-
-|     |
-| --- |
-| La protezione password di Azure AD è una funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
 
 Molte organizzazioni riscontrano spesso il fatto che gli utenti creano password usando parole locali comuni, come una scuola, una squadra sportiva o una persona famosa, rendendole facili da indovinare. Oltre all'elenco globale di password escluse, l'elenco personalizzato di password escluse permette alle organizzazioni di aggiungere stringhe per valutare e bloccare i casi in cui utenti e amministratori tentano di modificare o reimpostare una password.
 
@@ -31,7 +26,7 @@ Molte organizzazioni riscontrano spesso il fatto che gli utenti creano password 
 
 Per configurare l'elenco personalizzato di password escluse, è necessaria una licenza di Azure Active Directory Premium P1 o P2. Per informazioni più dettagliate sulle licenze di Azure Active Directory, vedere la [pagina dei prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).|
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e passare a **Azure Active Directory**, **Metodi di autenticazione** e quindi **Password protection (Preview)** (Protezione password - Anteprima).
+1. Accedi per il [portale di Azure](https://portal.azure.com) e passare alla **Azure Active Directory**, **metodi di autenticazione**, quindi **protezione con Password**.
 1. Impostare l'opzione **Enforce custom list** (Applica elenco personalizzato) su **Sì**.
 1. Aggiungere stringhe per **Custom banned password list** (Elenco personalizzato di password escluse), una stringa per riga
    * L'elenco personalizzato di password escluse può contenere fino a 1000 parole.

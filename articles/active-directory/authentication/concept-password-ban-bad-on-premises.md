@@ -1,6 +1,6 @@
 ---
-title: Anteprima della protezione password di Azure AD
-description: Escludi password vulnerabili in Active Directory locali con Azure AD password protection preview
+title: Protezione delle password di Azure AD
+description: Escludi password vulnerabili in un'istanza locale di Active Directory usando la protezione con password Azure AD
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,21 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fdf308ff6178dcb51ec73e46d43b853f62e7777
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f1b3660d256e4beda948f723035aa75ca8a9ed2e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840954"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284869"
 ---
-# <a name="preview-enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Anteprima: Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
+# <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
 
-|     |
-| --- |
-| Protezione tramite password di Azure Active Directory (Azure AD) e l'elenco di password vietate personalizzati sono funzionalità di anteprima pubblica di Azure AD. Per informazioni sulla versione Preview, vedere [condizioni per l'utilizzo per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
-
-Protezione tramite password di Azure AD è una nuova funzionalità in anteprima pubblica che migliora i criteri password in un'organizzazione. Protezione tramite password di distribuzione da sito locale Usa entrambi globali e personalizzati di password da escludere gli elenchi che sono archiviati in Azure AD. Esegue la stessa controlli locale come Azure AD per le modifiche e basato sul cloud.
+Protezione tramite password di Azure AD è una funzionalità che migliorano i criteri password in un'organizzazione. Protezione tramite password di distribuzione da sito locale Usa entrambi globali e personalizzati di password da escludere gli elenchi che sono archiviati in Azure AD. Esegue la stessa controlli locale come Azure AD per le modifiche e basato sul cloud.
 
 ## <a name="design-principles"></a>Principi di progettazione
 

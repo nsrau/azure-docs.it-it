@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 63bdbeb08872988fb043413f8233281d22423731
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901356"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58284749"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Anteprima: protezione password di Azure AD locale - Domande frequenti
-
-|     |
-| --- |
-| La protezione password di Azure AD è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+# <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protezione password di Azure AD locale - Domande frequenti
 
 ## <a name="general-questions"></a>Domande generali
 

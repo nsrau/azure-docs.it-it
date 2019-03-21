@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 8714c91079d087b16a62af4af8b381edf6871f8b
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883441"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
 
@@ -63,7 +63,7 @@ Il modo più semplice per installare il modulo consiste nell'usare la [PowerShel
 1. Scaricare la versione più recente di [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
 2. Estrarre la cartella nella cartella del modulo PowerShell, in genere `%UserProfile%\Documents\WindowsPowerShell\Modules`.
 
-Per consentire il funzionamento del modulo con qualsiasi tenant e qualsiasi token di accesso della sottoscrizione, è consigliabile usare lo strumento della riga di comando [ARMClient](https://github.com/projectkudu/ARMClient).  Questo [post di blog ](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) illustra ARMClient in modo più dettagliato.
+Per consentire il funzionamento del modulo con qualsiasi tenant e qualsiasi token di accesso della sottoscrizione, è consigliabile usare lo strumento della riga di comando [ARMClient](https://github.com/projectkudu/ARMClient).  Questo [post di blog ](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) illustra ARMClient in modo più dettagliato.
 
 ### <a name="generate-a-logic-app-template-by-using-powershell"></a>Generare un modello di app per la logica tramite PowerShell
 Dopo aver installato PowerShell, è possibile generare un modello utilizzando il comando seguente:

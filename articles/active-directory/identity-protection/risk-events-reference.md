@@ -16,12 +16,12 @@ ms.date: 01/25/2018
 ms.author: markvi
 ms.reviewer: raluthra
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1509f40b88e3dc9c51bd00ed379c5b0130230a99
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b1c69705131cfea4e5ace9b5b9e829b3fdfa87e4
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178839"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56991649"
 ---
 # <a name="azure-active-directory-identity-protection-risk-events-reference"></a>Riferimento agli eventi di rischio in Azure Active Directory Identity Protection
 
@@ -83,6 +83,7 @@ Questo tipo di evento di rischio indica accessi da indirizzi IP infettati da mal
 **Tipo di rilevamento:** Tempo reale  
 **Nome precedente:** Accessi da posizioni non note
 
-Questo tipo di evento di rischio prende in considerazione le proprietà di accesso precedenti, ad esempio dispositivo, posizione o rete, per determinare gli accessi con proprietà non note. Il sistema archivia le proprietà sulle posizioni usate in precedenza da un utente e le considera "note". L'evento di rischio viene attivato quando viene eseguito l'accesso con proprietà non ancora presenti nell'elenco delle proprietà note. Il sistema ha un periodo di apprendimento iniziale di 30 giorni, durante i quali i nuovi rilevamenti non vengono contrassegnati.
+Questo tipo di evento di rischio prende in considerazione oltre cronologia di accesso (IP, latitudine / longitudine e l'ASN) per la ricerca per accessi anomali. Il sistema archivia le informazioni sulle posizioni usate in precedenza da un utente e le considera posizioni "note". L'evento di rischio viene attivato quando viene eseguito l'accesso da una posizione non inclusa nell'elenco delle posizioni note. Gli utenti appena creati sarà in "modalità di apprendimento" per un periodo di tempo in familiare Accedi le proprietà che gli eventi di rischio verranno spente durante gli algoritmi disponibili informazioni sul comportamento dell'utente. L'apprendimento durata della modalità è dinamica e dipende dal tempo richiede l'algoritmo per raccogliere informazioni sufficienti per valutare i modelli di accesso dell'utente. La durata minima è di cinque giorni. Un utente può tornare in modalità di apprendimento dopo un lungo periodo di inattività. Il sistema ignora anche gli accessi da dispositivi noti e le posizioni geograficamente vicine a una posizione nota. 
+
 È anche possibile eseguire questo rilevamento per l'autenticazione di base (o i protocolli legacy). Poiché questi protocolli non hanno proprietà moderne, ad esempio l'ID client, i dati di telemetria per ridurre i falsi positivi sono limitati. È consigliabile passare all'autenticazione moderna.
 

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: dineshm
 ms.subservice: common
-ms.openlocfilehash: 51ee5362a01a846378228a42343cc0e2b9f72497
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 13ddb4d64908421e999174623003acd2fb24024d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470213"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014901"
 ---
 # <a name="list-azure-storage-resources-in-c"></a>Elenco delle risorse di archiviazione di Azure in C++
 Elenco operazioni fondamentali per numerosi scenari di sviluppo con la risorsa di archiviazione di Azure. In questo articolo viene descritto come enumerare in modo più efficiente gli oggetti in archiviazione di Azure utilizzando l'elenco interfacce API fornito nella libreria client di archiviazione di Microsoft Azure per C++.
 
 > [!NOTE]
-> Questa guida fa riferimento alla libreria client di Archiviazione di Azure per la versione 2.x di C++, disponibile tramite [NuGet](http://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
+> Questa guida fa riferimento alla libreria client di Archiviazione di Azure per la versione 2.x di C++, disponibile tramite [NuGet](https://www.nuget.org/packages/wastorage) o [GitHub](https://github.com/Azure/azure-storage-cpp).
 > 
 > 
 
@@ -34,7 +34,7 @@ La libreria Client di archiviazione fornisce un'ampia gamma di metodi per elenca
 Ognuno di questi metodi viene visualizzato utilizzando diversi overload per scenari diversi.
 
 ## <a name="asynchronous-versus-synchronous"></a>Asincrono o sincrono
-Poiché la libreria client di archiviazione per C++ viene compilata sopra la [libreria REST C++](https://github.com/Microsoft/cpprestsdk), le operazioni asincrone sono intrinsecamente supportate tramite [pplx::task](http://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ad esempio: 
+Poiché la libreria client di archiviazione per C++ viene compilata sopra la [libreria REST C++](https://github.com/Microsoft/cpprestsdk), le operazioni asincrone sono intrinsecamente supportate tramite [pplx::task](https://microsoft.github.io/cpprestsdk/classpplx_1_1task.html). Ad esempio: 
 
 ```cpp
 pplx::task<list_blob_item_segment> list_blobs_segmented_async(continuation_token& token) const;
@@ -194,7 +194,7 @@ Per ulteriori informazioni sull'archiviazione di Azure e sulla libreria Client p
 * [Come usare l’archiviazione BLOB da C++](../blobs/storage-c-plus-plus-how-to-use-blobs.md)
 * [Come usare l’archiviazione tabelle da C++](../../cosmos-db/table-storage-how-to-use-c-plus.md)
 * [Come usare l’archiviazione delle code da C++](../storage-c-plus-plus-how-to-use-queues.md)
-* [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](http://azure.github.io/azure-storage-cpp/)
+* [Documentazione relativa alla libreria Client di archiviazione Azure per API C++.](https://azure.github.io/azure-storage-cpp/)
 * [Blog del team di Archiviazione di Azure](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Documentazione di Archiviazione di Azure](https://azure.microsoft.com/documentation/services/storage/)
 

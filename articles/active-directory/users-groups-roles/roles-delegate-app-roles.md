@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.component: users-groups-roles
+ms.subservice: users-groups-roles
 ms.topic: article
 ms.date: 01/31/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ebb7774a0420087bf9ed5c099a91d78a96fb0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181219"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119736"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegare i ruoli di amministratore dell'app in Azure Active Directory
 
@@ -37,8 +37,8 @@ Per concedere l'autorizzazione di gestire l'accesso all'applicazione nel portale
 1. Accedere al proprio [tenant di Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account idoneo per il ruolo di amministratore globale nel tenant.
 2. Quando si hanno autorizzazioni sufficienti, aprire la [pagina Ruoli e amministratori](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators).
 3. Aprire uno dei ruoli seguenti per visualizzare le assegnazioni dei membri:
-  * **Amministratore dell'applicazione**
-  * **Amministratore applicazione cloud**
+   * **Amministratore dell'applicazione**
+   * **Amministratore applicazione cloud**
 4. Nella pagina **Membri** del ruolo selezionare **Aggiungi membro**.
 5. Selezionare uno o più membri da aggiungere al ruolo. <!--Members can be users or groups.-->
 
@@ -50,8 +50,8 @@ Per impostazione predefinita, tutti gli utenti possono creare registrazioni dell
 
 1. Accedere al proprio [tenant di Azure AD](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account idoneo per il ruolo di amministratore globale nel tenant.
 2. Una volta ottenute autorizzazioni sufficienti, impostare una o entrambe le opzioni seguenti:
-  * Nella [pagina Impostazioni utente del tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) impostare **Gli utenti possono registrare applicazioni** su No.
-  * In [Applicazioni aziendali - Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) impostare **Gli utenti possono fornire il consenso alle app che accedono ai dati aziendali per loro conto** su No.
+   * Nella [pagina Impostazioni utente del tenant](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UserSettings) impostare **Gli utenti possono registrare applicazioni** su No.
+   * In [Applicazioni aziendali - Impostazioni utente](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/UserSettings/menuId/) impostare **Gli utenti possono fornire il consenso alle app che accedono ai dati aziendali per loro conto** su No.
 3. Aggiungere quindi gli utenti che hanno bisogno di questa autorizzazione come membri del ruolo Sviluppatore applicazioni.
 
 Quando un utente registra un'applicazione, viene aggiunto automaticamente come primo proprietario dell'applicazione.

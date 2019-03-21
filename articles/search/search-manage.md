@@ -7,28 +7,30 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 70343c0d66eb2a00ff2245b7e4876c2e94a96855
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: d5820c927b88eba37eaf092dfd4b209180bfc8eb
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53314490"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775595"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Amministrazione del servizio per Ricerca di Azure nel portale di Azure
 > [!div class="op_single_selector"]
-> * [Portale](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
+> * [API REST](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [Portale](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Ricerca di Azure è un servizio di ricerca basato sul cloud completamente gestito usato per offrire un'esperienza di ricerca avanzata nelle app personalizzate. Questo articolo illustra le attività di amministrazione del servizio che è possibile eseguire nel [portale di Azure](https://portal.azure.com) per un servizio di ricerca di cui si è già effettuato il provisioning. L'amministrazione del servizio è leggera come previsto dalla progettazione ed è limitata alle attività seguenti:
 
-* Gestire l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
-* Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
-* Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
+> [!div class="checklist"]
+> * Gestire l'accesso alle *chiavi API* usate per l'accesso in lettura o scrittura al servizio.
+> * Regolare la capacità del servizio modificando l'allocazione di partizioni e repliche.
+> * Monitorare l'uso della risorsa, relativamente ai limiti massimi del livello del servizio.
 
 Tenere presente che l'*aggiornamento* non è un'attività amministrativa. Poiché le risorse vengono allocate quando viene eseguito il provisioning sul servizio, lo spostamento a un altro livello richiede un nuovo servizio. Per informazioni dettagliate vedere [Creare un servizio di Ricerca di Azure nel portale](search-create-service-portal.md).
 
@@ -58,7 +60,7 @@ In termini di informazioni generali sul servizio, è possibile ottenere informaz
 <a id="sub-5"></a>
 
 ## <a name="monitor-resource-usage"></a>Monitorare l'uso delle risorse
-Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione.
+Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visualizzate nel dashboard del servizio e ad alcune metriche che è possibile ottenere effettuando query sul servizio. Nella sezione Utilizzo del Dashboard servizi è possibile determinare rapidamente se i livelli delle risorse di partizione sono adeguati per l'applicazione. È possibile eseguire il provisioning di risorse esterne, ad esempio il monitoraggio di Azure, se si desidera acquisire e salvare in modo permanente gli eventi registrati. Per altre informazioni, vedere [ricerca di Azure Monitoring](search-monitor-usage.md).
 
 Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici a livello di codice: 
 

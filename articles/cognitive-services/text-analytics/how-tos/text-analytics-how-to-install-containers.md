@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/21/2019
+ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 6ad48bb6e7d9c2fd0365b26999b67ad8c62fc42c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5f757218d29317f82339967a327f34438c62ab96
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58000249"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294145"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire uno dei contenitori di Analisi del testo, è necessario quanto segue:
+Per eseguire uno dei contenitori Analitica di testo, è necessario disporre di ambienti host computer e il contenitore.
 
 ## <a name="preparation"></a>Operazioni preliminari
 
@@ -46,11 +46,14 @@ Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequ
 
 La tabella seguente indica i core CPU minimi e consigliati, per una velocità di 2,6 gigahertz (GHz) o superiore, e la memoria, espressa in gigabyte (GB), da allocare per ogni contenitore di Analisi del testo.
 
-| Contenitore | Minima | Consigliato |
-|-----------|---------|-------------|
-|Estrazione frasi chiave | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |
-|Rilevamento lingua | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |
-|Analisi del sentiment | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |
+| Contenitore | Minima | Consigliato | TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Estrazione frasi chiave | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
+|Rilevamento lingua | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
+|Analisi del sentiment | 1 core, 2 GB di memoria | 1 core, 4 GB di memoria |15, 30|
+
+* Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
+* Programmi di transazione - transazioni al secondo
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
 
@@ -64,7 +67,7 @@ Le immagini dei contenitori per Analisi del testo sono disponibili in Registro c
 |Rilevamento lingua | `mcr.microsoft.com/azure-cognitive-services/language` |
 |Analisi del sentiment | `mcr.microsoft.com/azure-cognitive-services/sentiment` |
 
-Usare il comando [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal Registro Container di Microsoft.
+Usare la [ `docker pull` ](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore da registro contenitori di Microsoft.
 
 Per una descrizione completa dei tag disponibili per i contenitori di Analisi del testo, vedere i contenitori seguenti nell'hub Docker:
 
