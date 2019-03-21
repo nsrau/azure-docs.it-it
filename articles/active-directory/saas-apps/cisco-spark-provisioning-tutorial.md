@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: v-wingf
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c45a19c8f6bbce2ffdfff0758eb3e57203b7cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8fd7145be5f82a90acced0f02e35f6c8880dbcad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211207"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120398"
 ---
 # <a name="tutorial-configure-cisco-spark-for-automatic-user-provisioning"></a>Esercitazione: configurare Cisco Spark per il provisioning utenti automatico
 
@@ -113,28 +113,28 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
     *   Nel campo **Token segreto** immettere il token del segreto come descritto nel passaggio 6.
 
 1. Per trovare i valori di **ID tenant** e **Token segreto** del proprio account Cisco Spark, accedere al [sito per sviluppatori di Cisco Spark](https://developer.webex.com/) con l'account amministratore. Dopo aver eseguito l'accesso:
-    * Passare alla [pagina Getting Started](https://developer.webex.com/getting-started.html) (Introduzione)
-    * Scorrere fino alla [sezione Authentication](https://developer.webex.com/getting-started.html#authentication) (Autenticazione) 
-    ![Token di autenticazione di Cisco Spark](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
-    * La stringa alfanumerica riportata nella casella è il **token segreto**. Copiare il token negli Appunti
-    * Passare alla [pagina Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (Ottieni dettagli personali)
-        * Verificare che la modalità di test sia attiva
-        * Digitare la parola "Bearer" seguita da uno spazio e quindi incollare il token segreto nel campo Authorization (Autorizzazione) ![Token di autenticazione di Cisco Spark](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
-        * Fare clic su Run (Esegui)
-    * Nel testo della risposta a destra l'**ID tenant** compare come "orgId":
+   * Passare alla [pagina Getting Started](https://developer.webex.com/getting-started.html) (Introduzione)
+   * Scorrere fino alla [sezione Authentication](https://developer.webex.com/getting-started.html#authentication) (Autenticazione) 
+     ![Token di autenticazione di Cisco Spark](./media/cisco-spark-provisioning-tutorial/SecretToken.png)
+   * La stringa alfanumerica riportata nella casella è il **token segreto**. Copiare il token negli Appunti
+   * Passare alla [pagina Get My Own Details](https://developer.webex.com/endpoint-people-me-get.html) (Ottieni dettagli personali)
+       * Verificare che la modalità di test sia attiva
+       * Digitare la parola "Bearer" seguita da uno spazio e quindi incollare il token segreto nel campo Authorization (Autorizzazione) ![Token di autenticazione di Cisco Spark](./media/cisco-spark-provisioning-tutorial/GetMyDetails.png)
+       * Fare clic su Run (Esegui)
+   * Nel testo della risposta a destra l'**ID tenant** compare come "orgId":
 
-    ```json
-    {
-        "id": "(...)",
-        "emails": [
-            "admin.user@contoso.com"
-        ],
-        "displayName": "John Smith",
-        "nickName": "John",
-        "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
-        (...)
-    }
-    ```
+     ```json
+     {
+       "id": "(...)",
+       "emails": [
+           "admin.user@contoso.com"
+       ],
+       "displayName": "John Smith",
+       "nickName": "John",
+       "orgId": "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+       (...)
+     }
+     ```
 
 1. Dopo aver completato i campi indicati nel passaggio 5, fare clic su **Test connessione** per verificare che Azure AD possa connettersi a Cisco Spark. Se la connessione non riesce, verificare che l'account Cisco Spark abbia autorizzazioni di amministratore e riprovare.
 

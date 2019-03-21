@@ -1,15 +1,15 @@
 ---
-author: manish-shukla01
+author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 11-20-2018
-ms.openlocfilehash: 83b29aa1f0c12661eb1724eb505ad46987ed1019
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 0a8b4f9821164cca943064b20f1ec1a87981a172
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54906322"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58114113"
 ---
 # <a name="virtual-machine-size-flexibility-with-reserved-vm-instances"></a>Flessibilità di dimensioni delle macchine virtuali con le istanze di macchina virtuale riservate
 
@@ -142,7 +142,7 @@ Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate p
 |Standard_D32s_v3|16|
 |Standard_D64s_v3|32|
 
-Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-sup1sup).
+Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1).
 
 ## <a name="dv2-series"></a>Serie Dv2
 
@@ -179,7 +179,7 @@ Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate p
 |Standard_D32_v3|16|
 |Standard_D64_v3|32|
 
-Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../articles/virtual-machines/windows/sizes-general.md#dv3-series-sup1sup).
+Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo generico](../articles/virtual-machines/windows/sizes-general.md#dv3-series-1).
 
 ## <a name="esv3-series"></a>Serie ESv3
 
@@ -194,12 +194,13 @@ Per altre informazioni, vedere [Dimensioni delle macchine virtuali di utilizzo g
 |Standard_E16s_v3|8|
 |Standard_E16-4s_v3|8|
 |Standard_E16-8s_v3|8|
+|Standard_E20s_v3|10|
 |Standard_E32s_v3|16|
 |Standard_E32-8s_v3|16|
 |Standard_E32-16s_v3|16|
-|Standard_E64s_v3|32|
-|Standard_E64-16s_v3|32|
-|Standard_E64-32s_v3|32|
+|Standard_E64s_v3|28.8|
+|Standard_E64-16s_v3|28.8|
+|Standard_E64-32s_v3|28.8|
 
 Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate per la memoria](../articles/virtual-machines/windows/sizes-memory.md#esv3-series).
 
@@ -211,6 +212,7 @@ Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate p
 |Standard_E4_v3|2|
 |Standard_E8_v3|4|
 |Standard_E16_v3|8|
+|Standard_E20_v3|10|
 |Standard_E32_v3|16|
 |Standard_E64_v3|32|
 
@@ -238,7 +240,7 @@ Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate p
 |Standard_F8s|8|
 |Standard_F16s|16|
 
-Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate per il calcolo](../articles/virtual-machines/windows/sizes-compute.md#fs-series-sup1sup).
+Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate per il calcolo](../articles/virtual-machines/windows/sizes-compute.md#fs-series-1).
 
 ## <a name="fsv2-series"></a>Serie Fsv2
 
@@ -252,7 +254,7 @@ Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate p
 |Standard_F64s_v2|32|
 |Standard_F72s_v2|36|
 
-Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate per il calcolo](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-sup1sup).
+Per altre informazioni, vedere [Dimensioni delle macchine virtuali ottimizzate per il calcolo](../articles/virtual-machines/windows/sizes-compute.md#fsv2-series-1).
 
 ## <a name="h-series"></a>Serie H
 

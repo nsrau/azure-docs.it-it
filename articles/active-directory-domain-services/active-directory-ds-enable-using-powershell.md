@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: ergreenl
-ms.openlocfilehash: 758183efd6a6a2c2b8d172c52ad3bd5c5e12d969
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: f2c4f73af00e0093ce98f2de37e9c3a0ba381eda
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55169137"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119905"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>Abilitare Azure Active Directory Domain Services con PowerShell
 Questo articolo illustra come abilitare Azure Active Directory (AD) Domain Services con PowerShell.
@@ -141,8 +141,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Non dimenticare i passaggi di configurazione aggiuntivi dopo aver eseguito il provisioning del dominio gestito.**
 > Dopo aver eseguito il provisioning del dominio gestito, è necessario completare le attività seguenti:
 > * **[Aggiornare le impostazioni DNS](active-directory-ds-getting-started-dns.md)** per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
-* **[Abilitare la sincronizzazione password in Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)**, in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
->
+> * **[Abilitare la sincronizzazione password in Azure Active Directory Domain Services](active-directory-ds-getting-started-password-sync.md)**, in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
 
 
 ## <a name="powershell-script"></a>Script di PowerShell
@@ -226,8 +225,7 @@ New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$
 > **Non dimenticare i passaggi di configurazione aggiuntivi dopo aver eseguito il provisioning del dominio gestito.**
 > Dopo aver eseguito il provisioning del dominio gestito, è necessario completare le attività seguenti:
 > * Aggiornare le impostazioni DNS per la rete virtuale, in modo che le macchine virtuali possano trovare il dominio gestito per l'autenticazione o l'aggiunta al dominio.
-* Abilitare la sincronizzazione password in Azure Active Directory Domain Services, in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
->
+> * Abilitare la sincronizzazione password in Azure Active Directory Domain Services, in modo che gli utenti finali possano accedere al dominio gestito con le credenziali aziendali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato il dominio gestito, eseguire le attività di configurazione seguenti per poter usare il dominio gestito:

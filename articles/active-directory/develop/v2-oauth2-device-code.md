@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36b717bfd05a71639c5d1f467af8e9238474160d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f1f34796a98acb3ed4241edff57e506990479d1a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170195"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443267"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 e il flusso del codice del dispositivo OAuth 2.0
 
@@ -32,7 +32,7 @@ ms.locfileid: "56170195"
 Azure AD supporta la [concessione del codice del dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), che consente agli utenti di accedere a dispositivi con vincoli di input, ad esempio una smart TV, un dispositivo IoT o una stampante.  Per abilitare questo flusso, il dispositivo richiede all'utente di visitare una pagina Web nel browser in un altro dispositivo per l'accesso.  Una volta che l'utente avrà eseguito l'accesso, il dispositivo potrà ottenere i token di accesso e di aggiornamento in base alle esigenze.  
 
 > [!Important] 
-> Attualmente, l'endpoint v2.0 supporta il flusso del dispositivo unicamente per i tenant di Azure AD, ma non per gli account personali.  Ciò significa che è necessario usare un endpoint del tenant o l'endpoint dell'organizzazione.  
+> Attualmente, l'endpoint v2.0 supporta il flusso del dispositivo unicamente per i tenant di Azure AD, ma non per gli account personali.  Ciò significa che è necessario usare un endpoint configurato come un tenant o l'endpoint di organizzazioni.  
 >
 > Gli account personali che sono invitati in un tenant di Azure AD potranno usare la concessione del flusso del dispositivo, ma solo nel contesto del tenant.
 
@@ -63,8 +63,8 @@ scope=user.read%20openid%20profile
 
 | Parametro | Condizione | DESCRIZIONE |
 | --- | --- | --- |
-| tenant |Obbligatoria |Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID.  |
-| client_id |Obbligatoria |ID applicazione che il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ha assegnato all'app. |
+| tenant |Obbligatorio |Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere fornito nel formato di nome descrittivo o GUID.  |
+| client_id |Obbligatorio |ID applicazione che il [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) ha assegnato all'app. |
 | scope | Consigliato | Elenco separato da spazi di [ambiti](v2-permissions-and-consent.md) a cui si vuole che l'utente dia il consenso.  |
 
 ### <a name="device-authorization-response"></a>Risposta di autorizzazione dispositivo
@@ -96,11 +96,11 @@ client_id: 6731de76-14a6-49ae-97bc-6eba6914391e
 device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 ```
 
-|Parametro | Obbligatoria | DESCRIZIONE|
+|Parametro | Obbligatorio | DESCRIZIONE|
 | -------- | -------- | ---------- |
-|`grant_type` | Obbligatoria| Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
-|`client_id`  | Obbligatoria| Deve corrispondere al `client_id` usato nella richiesta iniziale. |
-|`device_code`| Obbligatoria| Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
+|`grant_type` | Obbligatorio| Deve essere `urn:ietf:params:oauth:grant-type:device_code`|
+|`client_id`  | Obbligatorio| Deve corrispondere al `client_id` usato nella richiesta iniziale. |
+|`device_code`| Obbligatorio| Il `device_code` restituito nella richiesta di autorizzazione del dispositivo.  |
 
 ### <a name="expected-errors"></a>Errori previsti
 
