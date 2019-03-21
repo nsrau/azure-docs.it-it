@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: bdc8549f5f72d6098bf132d8395c9892170be9b0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: a85fa543a6b26a5ea6452ce99fb91dc1ce465db7
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245457"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57545295"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Domande frequenti sul servizio cognitivo Analisi del testo
 
@@ -54,4 +54,4 @@ La domanda riguarda una funzione o una funzionalità mancante? È possibile rich
 ## <a name="see-also"></a>Vedere anche 
 
  [StackOverflow: API Analisi del testo   
- [StackOverflow: Servizi cognitivi](http://stackoverflow.com/questions/tagged/microsoft-cognitive)
+ [StackOverflow: Servizi cognitivi](https://stackoverflow.com/questions/tagged/microsoft-cognitive)

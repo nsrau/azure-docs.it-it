@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d8f42b49fe3dbdecec163ab47579346b71f0bf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b4be5087af70e10e5a73ea2a183a25b326aea664
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190501"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433468"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Esercitazione: Integrazione di Azure Active Directory con ServiceChannel
 
@@ -155,7 +155,7 @@ In questa sezione si abilita l'accesso Single Sign-On di Azure AD nel portale di
 
     ![Configure Single Sign-On](./media/servicechannel-tutorial/tutorial_general_400.png)
 
-1. Nella sezione **Configurazione di ServiceChannel** fare clic su **Configura ServiceChannel** per aprire la finestra **Configura accesso**. Prendere nota dell'**ID identità SAML** nella sezione **Riferimento rapido**.
+1. Nella sezione **Configurazione di ServiceChannel** fare clic su **Configura ServiceChannel** per aprire la finestra **Configura accesso**. Si noti il **ID entità SAML** dalle **riferimento rapido** sezione.
 
 1. Per configurare l'accesso Single Sign-On sul lato **ServiceChannel**, è necessario inviare il **certificato (Base64)** scaricato e l'**ID entità SAML** al [team di supporto di ServiceChannel](https://servicechannel.zendesk.com/hc/en-us). L'accesso verrà configurato in modo che la connessione SAML SSO sia impostata correttamente su entrambi i lati.
 

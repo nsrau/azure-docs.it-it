@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 02/26/2019
-ms.openlocfilehash: 4f72def4d81f51fcf1bedbeb83798b16ebb6eb32
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 4ade1b05b1ec5c81774b5340cfdceb97e41218f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123046"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
@@ -328,10 +328,10 @@ Nel processo di Analisi di flusso fare clic su **Avvia**, poi su **Adesso** e su
     > Quando si esegue l'applicazione di esempio e si trasmettono i dati all'hub eventi, il numero riportato su questo riquadro cambia rapidamente (ogni secondo). Il motivo è che la query di Analisi di flusso aggiorna effettivamente il valore **ogni secondo**. Aggiornare la query in una finestra a cascata di 3 minuti per vedere la somma degli ultimi minuti. 
 11. Aggiungere un'altra visualizzazione. Ripetere i primi passaggi:
 
-   * Fare clic su **Aggiungi riquadro**.
-   * Selezionare **Dati in streaming personalizzati**. 
-   * Fare clic su **Avanti**.
-   * Selezionare il set di dati e fare clic su **Avanti**. 
+    * Fare clic su **Aggiungi riquadro**.
+    * Selezionare **Dati in streaming personalizzati**. 
+    * Fare clic su **Avanti**.
+    * Selezionare il set di dati e fare clic su **Avanti**. 
 
 12. In **Tipo di visualizzazione** selezionare **Grafico a linee**.
 

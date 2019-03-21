@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 4c9f92f80275d04cd1bab408213fd02abf5c9139
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5e0ef8287b7ce257cd551a1ace043ccbed72b50b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279399"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087092"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Creare una funzione che si integra con le app per la logica di Azure
 
@@ -125,7 +125,7 @@ Funzioni permette di ripartire il carico di lavoro delle attività di elaborazio
     ```
     Questo codice di funzione restituisce una categoria colore in base al punteggio del sentiment ricevuto nella richiesta. 
 
-4. Per testare la funzione, fare clic su **Test** a destra per espandere la scheda Test. Digitare un valore di `0.2` per il **Corpo della richiesta`0.2` e quindi fare clic su **Esegui**. Nel corpo della risposta verrà restituito il valore **RED**. 
+4. Per testare la funzione, fare clic su **Test** a destra per espandere la scheda Test. Digitare un valore di  per il Corpo della richiesta`0.2` e quindi fare clic su **Esegui**. Nel corpo della risposta verrà restituito il valore **RED**. 
 
     ![Testare la funzione nel portale di Azure](./media/functions-twitter-email/07-function-test.png)
 
@@ -242,7 +242,7 @@ L'ultima parte del flusso di lavoro consiste nell'attivare l'invio di un messagg
 | **Oggetto** | Rilevato sentiment di tweet negativo  | Riga dell'oggetto della notifica di posta elettronica.  |
 | **Corpo** | Testo tweet, Località | Fare clic sui parametri **Testo tweet** e **Località**. |
 
-5.  Fare clic su **Save**.
+1. Fare clic su **Save**.
 
 Ora che il flusso di lavoro è completo, è possibile abilitare l'app per la logica e provarne il funzionamento.
 

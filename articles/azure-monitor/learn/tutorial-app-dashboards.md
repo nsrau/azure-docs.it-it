@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 5ce99e06ea1a8e72a8767367ddfd7bbb845c8400
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 3abe0511200bf5828b485b15a4b8a512731c4ffa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54318424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082127"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
@@ -42,18 +42,18 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 ## <a name="create-a-new-dashboard"></a>Creare un nuovo dashboard
 Un unico dashboard può contenere risorse da più applicazioni, gruppi di risorse e sottoscrizioni.  Iniziare l'esercitazione creando un nuovo dashboard per l'applicazione.  
 
-2.  Nel riquadro del dashboard selezionare **Nuovo dashboard**.
+1. Nel riquadro del dashboard selezionare **Nuovo dashboard**.
 
-    ![Nuovo dashboard](media/tutorial-app-dashboards/1newdashboard.png)
+   ![Nuovo dashboard](media/tutorial-app-dashboards/1newdashboard.png)
 
-3. Digitare un nome per il dashboard.
-4. La **Raccolta riquadri** include un'ampia gamma di riquadri che è possibile aggiungere al dashboard.  Oltre ad aggiungere riquadri dalla raccolta, è possibile aggiungere grafici e altre visualizzazioni direttamente da Application Insights al dashboard.
-5. Individuare il riquadro **Markdown** e trascinarlo nel dashboard.  Questo riquadro, che consente di aggiungere testo formattato in markdown, è lo strumento ideale per aggiungere un testo descrittivo al dashboard.
-6. Aggiungere il testo alle proprietà del riquadro e ridimensionarlo nel canvas del dashboard.
+1. Digitare un nome per il dashboard.
+1. La **Raccolta riquadri** include un'ampia gamma di riquadri che è possibile aggiungere al dashboard.  Oltre ad aggiungere riquadri dalla raccolta, è possibile aggiungere grafici e altre visualizzazioni direttamente da Application Insights al dashboard.
+1. Individuare il riquadro **Markdown** e trascinarlo nel dashboard.  Questo riquadro, che consente di aggiungere testo formattato in markdown, è lo strumento ideale per aggiungere un testo descrittivo al dashboard.
+1. Aggiungere il testo alle proprietà del riquadro e ridimensionarlo nel canvas del dashboard.
     
     ![Riquadro Modifica markdown](media/tutorial-app-dashboards/2dashboard-text.png)
 
-6. Fare clic su **Fine personalizzazione** nella parte superiore dello schermo per uscire dalla modalità di personalizzazione del riquadro.
+1. Fare clic su **Fine personalizzazione** nella parte superiore dello schermo per uscire dalla modalità di personalizzazione del riquadro.
 
 ## <a name="add-health-overview"></a>Aggiungere una panoramica sull'integrità
 Un dashboard contenente solo testo statico non è molto interessante. È consigliabile aggiungere un riquadro da Application Insights per mostrare le informazioni relative all'applicazione.  È possibile aggiungere riquadri di Application Insights dalla Raccolta riquadri oppure è possibile aggiungerli direttamente dalle schermate di Application Insights.  In questo modo è possibile configurare grafici e visualizzazioni con cui si ha già familiarità prima di aggiungerli al dashboard.  Per iniziare, aggiungere una panoramica sull'integrità standard per l'applicazione.  Ciò non richiede alcuna configurazione e consente una personalizzazione minima del dashboard.

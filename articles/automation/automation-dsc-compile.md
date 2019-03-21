@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d49ab32ace1ad0900c4867a41aba56900ef2bcaa
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: f2c6f45081b78d330033570ff322f90cd06e50dd
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54423409"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56594271"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Compilazione di configurazioni DSC in Configurazione stato di Automazione di Azure
 
@@ -130,7 +130,7 @@ Per informazioni sul passaggio di PSCredentials come parametri, vedere [Asset cr
 
 ## <a name="composite-resources"></a>Risorse composite
 
-Le **risorse composite** consentono di usare le configurazioni DSC come risorse annidate in una configurazione. Questo consente di applicare più configurazioni a un'unica risorsa. Per informazioni sulle **risorse composite**, vedere [Risorse composite: uso di una configurazione DSC come risorsa](/powershell/dsc/authoringresourcecomposite).
+Le **risorse composite** consentono di usare le configurazioni DSC come risorse annidate in una configurazione. Questo consente di applicare più configurazioni a un'unica risorsa. Per informazioni sulle risorse composite, vedere [Risorse composite: uso di una configurazione DSC come risorsa](/powershell/dsc/authoringresourcecomposite).
 
 > [!NOTE]
 > Per compilare le **risorse composite** nel modo corretto, verificare che le risorse DSC su cui si basa la risorsa composita siano installate nel repository del modulo Account di automazione di Azure altrimenti non vengono importate nel modo corretto.
@@ -284,6 +284,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 > [!NOTE]
 > Al termine della compilazione è possibile che venga visualizzato un messaggio per segnalare che **il modulo Microsoft.PowerShell.Management non è stato importato perché è già stato importato lo snap-in Microsoft.PowerShell.Management.** Questo avviso può essere ignorato.
+
+## <a name="partial-configuration"></a>Configurazione parziale
+
+Configurazione dello stato di automazione di Azure supporta l'utilizzo delle [configurazioni parziali](https://docs.microsoft.com/en-us/powershell/dsc/pull-server/partialconfigs).
+In questo scenario, DSC è configurato per gestire più configurazioni in modo indipendente e ogni configurazione viene retreieved da automazione di Azure.
+Tuttavia, solo una configurazione può essere assegnata a un nodo per ogni account di automazione.
+Ciò significa che se si usa due configurazioni per un nodo si richiederanno due account di automazione.
+Per altre informazioni sul modo in cui i team possono collaborare tramite configurazione come codice vedere insieme per gestire i server in modo collaborativo [ruolo comprensione di DSC in una Pipeline CI/CD](https://docs.microsoft.com/en-us/powershell/dsc/overview/authoringadvanced).
 
 ## <a name="importing-node-configurations"></a>Importazione delle configurazioni di nodo
 

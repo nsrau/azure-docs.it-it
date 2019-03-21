@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/30/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311ec7bacdfe58982ee670277000d81756f92005
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 03e10497b033fc3d97fde4cd524b358c05fdc943
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55648651"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57457905"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Domande frequenti sui dischi e sui dischi Premium delle macchine virtuali IaaS di Azure (gestiti e non gestiti)
 
@@ -347,7 +347,7 @@ Per raggiungere la velocità effettiva dei dischi di grandi dimensioni SSD Stand
 
 **In quali aree sono supportate le dimensioni di disco gestito più grandi di 4 TiB?**
 
-In questo momento dell'anteprima le dimensioni dei dischi gestiti sono supportate negli Stati Uniti centro-occidentali, nell'Europa settentrionale, nell'Europa occidentale, negli Stati Uniti occidentali 2, negli Stati Uniti orientali 2, negli Stati Uniti orientali.
+L'anteprima delle dimensioni di disco gestito oltre 4 TiB sono supportate in tutte le aree di produzione di Azure, ad eccezione per enti pubblici, Cina e Germania. 
 
 **L'abilitazione della memorizzazione della cache dell'host è supportata nelle dimensioni di disco più recenti?**
 
