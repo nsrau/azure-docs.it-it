@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.openlocfilehash: b8995436677c195317b9ac304fe8c52cc2fcfc80
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b9b4af353e5bbd36f1f8d7468c38542a0fabda85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602070"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112178"
 ---
 # <a name="use-azure-kubernetes-service-with-apache-kafka-on-hdinsight"></a>Usare il servizio Azure Kubernetes con Apache Kafka in HDInsight
 
@@ -56,8 +56,8 @@ Il diagramma seguente illustra la topologia di rete usata in questo documento:
 
 Se non si ha già un cluster del servizio Azure Container, vedere uno dei documenti seguenti per informazioni su come crearne uno:
 
-* [Distribuire un cluster Azure Kubernetes Service (AKS) - Portale](../../aks/kubernetes-walkthrough-portal.md)
-* [Distribuire un cluster Azure Kubernetes Service (AKS) - Interfaccia della riga di comando](../../aks/kubernetes-walkthrough.md)
+* [Distribuire un cluster del servizio Azure Kubernetes - Portale](../../aks/kubernetes-walkthrough-portal.md)
+* [Distribuire un cluster del servizio Azure Kubernetes - Interfaccia della riga di comando](../../aks/kubernetes-walkthrough.md)
 
 > [!NOTE]  
 > Il servizio Azure Container crea una rete virtuale durante l'installazione. Viene eseguito il peering di questa rete a quella creata per HDInsight nella sezione successiva.
@@ -81,17 +81,17 @@ Se non si ha già un cluster del servizio Azure Container, vedere uno dei docume
 
 5. Per configurare il peering tra la rete di HDInsight e la rete di cluster del servizio Azure Container, selezionare la rete virtuale e quindi selezionare __Peer__. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
 
-    * __Nome__: immettere un nome univoco per questa configurazione peering.
-    * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il **cluster del servizio Azure Kubernetes**.
+   * __Nome__: immettere un nome univoco per questa configurazione peering.
+   * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il **cluster del servizio Azure Kubernetes**.
 
-    Lasciare tutti gli altri campi impostati sul valore predefinito, quindi fare clic su __OK__ per configurare il peering.
+     Lasciare tutti gli altri campi impostati sul valore predefinito, quindi fare clic su __OK__ per configurare il peering.
 
 6. Per configurare il peering tra la rete di cluster del servizio Azure Container e la rete di HDInsight, selezionare la __rete virtuale del cluster del servizio Azure Container__ e quindi selezionare __Peer__. Selezionare __+ Aggiungi__ e usare i valori seguenti per popolare il modulo:
 
-    * __Nome__: immettere un nome univoco per questa configurazione peering.
-    * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il __cluster HDInsight__.
+   * __Nome__: immettere un nome univoco per questa configurazione peering.
+   * __Rete virtuale__: usare questo campo per selezionare la rete di cluster per il __cluster HDInsight__.
 
-    Lasciare tutti gli altri campi impostati sul valore predefinito, quindi fare clic su __OK__ per configurare il peering.
+     Lasciare tutti gli altri campi impostati sul valore predefinito, quindi fare clic su __OK__ per configurare il peering.
 
 ## <a name="install-apache-kafka-on-hdinsight"></a>Installare Apache Kafka in HDInsight
 

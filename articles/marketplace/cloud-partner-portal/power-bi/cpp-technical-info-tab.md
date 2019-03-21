@@ -14,33 +14,33 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d96ef2fd318d6164e1b7dfc5c4b72d6957af0f3e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: ca77da897eed51c8d832cad7052c2144d6ada562
+ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744435"
+ms.lasthandoff: 02/25/2019
+ms.locfileid: "56806487"
 ---
 # <a name="power-bi-apps-technical-info-tab"></a>Scheda Technical Info (Informazioni tecniche) delle app Power BI
 
-Nella scheda **Technical Info** (Informazioni tecniche) della pagina **New Offer** (Nuova offerta) è possibile specificare l'URL del pacchetto del programma di installazione Power BI e le eventuali informazioni aggiuntive necessarie per la convalida della nuova offerta.  Per la versione iniziale, tutte le app Power BI sono gratuite e quindi disponibili per il download da AppSource senza costi aggiuntivi. Non sarà pertanto possibile definire codici di riferimento del prodotto (SKU) per questo tipo di offerta.
+Nel **offrono nuove** pagina, utilizzare il **informazioni tecniche** pressione di tab per specificare il programma di installazione di Power BI, l'URL del pacchetto e altre informazioni che è necessario convalidare la nuova offerta.  Per il rilascio iniziale, tutte le app di Power BI sono gratuite e sono disponibili per il download da AppSource. Per questo motivo, è possibile definire le unità SKU (SKU) per questo tipo di offerta.
 
-![Scheda Technical Info (Informazioni tecniche)](./media/technical-info-tab.png)
+![La scheda di informazioni tecniche](./media/technical-info-tab.png)
 
 
 ## <a name="technical-info-fields"></a>Campi delle informazioni tecniche 
 
-Nella scheda **Technical Info** (Informazioni tecniche) è necessario completare i campi seguenti.  Un asterisco (*) accanto all'etichetta del campo indica che si tratta di un campo obbligatorio.
+Nel **informazioni tecniche** scheda, completare i campi descritti nella tabella seguente. Un asterisco (*) alla fine di un'etichetta di campo indica che il campo è obbligatorio.
 
-|        Campo          |  Descrizione                                                                 |
+|        Campo          |  DESCRIZIONE                                                                 |
 |    ---------------    |  ----------------------------------------------------------------------------|
-| **Installer URL** (URL programma di installazione)     | Indirizzo generato da Power BI quando l'app viene pubblicata e passa alla fase di produzione.  Per altre informazioni su come generare l'URL, vedere [Pubblicare app di servizio in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
-|  **Validation instructions** (Istruzioni di convalida)  |  Istruzioni facoltative in formato testo (fino a un massimo di 3000 caratteri) che possono facilitare il team di convalida Microsoft nelle operazioni di configurazione, connessione e testing dell'app, ovvero impostazioni di configurazione tipiche, account di test o parametri utilizzabili per testare l'opzione "Connetti dati" e così via. Queste informazioni saranno visibili solo al team di convalida e vengono usate solo a scopo di convalida.  |
-| **Is this app created as a Power BI content pack?** (L'app viene creata come pacchetto di contenuto Power BI?) | Per il momento questo è un campo usato internamente. Lasciarlo impostato sul valore predefinito, ovvero `No`. Impostandolo su `Yes` si potrebbe impedire la pubblicazione.  |  
+| **Installer URL** (URL programma di installazione)     | Power BI genera questo URL quando si pubblica l'app e promuoverlo alla produzione.  Per altre informazioni, vedere [pubblicare le app con dashboard e report in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).  |
+|  **Validation instructions** (Istruzioni di convalida)  |  Se si desidera, aggiungere le istruzioni (fino a 3000 caratteri) per consentire al team di convalida di Microsoft di configurare, connettersi e testare l'app. Includono impostazioni di configurazione comuni, gli account, parametri o altre informazioni che possono essere usati per verificare l'opzione di connessione dati. Queste informazioni sono visibili solo al team di convalida, e viene usato solo per scopi di convalida.  |
+| **Is this app created as a Power BI content pack?** (L'app viene creata come pacchetto di contenuto Power BI?) | Attualmente, questo campo viene usato solo internamente. Lasciare l'impostazione predefinita **No**. Se si modifica l'impostazione **Sì**, è possibile arrestare il processo di pubblicazione.  |  
 |  |  |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nella scheda successiva [Storefront Details](./cpp-storefront-details-tab.md) (Dettagli vetrina) si specificheranno le informazioni di marketing e di carattere legale per l'app.
+Nel [dettagli vetrina](./cpp-storefront-details-tab.md) scheda, fornire le informazioni di marketing e legali per l'app.
 

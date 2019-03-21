@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 3dda16450f5454b4fae6d18235b05b7bb29a8b91
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 4b622a5925aebd140fed2ac74eaf7cc186803b90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018859"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116131"
 ---
 # <a name="transform-data-using-hive-activity-in-azure-data-factory"></a>Trasformare dati usando l'attività Hive in Azure Data Factory 
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -73,14 +73,14 @@ L'attività Hive di HDInsight in una [pipeline](data-factory-create-pipelines.md
 }
 ```
 ## <a name="syntax-details"></a>Dettagli sintassi
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
-| name |Nome dell'attività |Yes |
+| name |Nome dell'attività |Sì |
 | description |Testo descrittivo per lo scopo dell'attività |No  |
-| type |HDinsightHive |Yes |
+| type |HDinsightHive |Sì |
 | inputs |Input utilizzati dall'attività Hive |No  |
-| outputs |Output generati dall'attività Hive |Yes |
-| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Yes |
+| outputs |Output generati dall'attività Hive |Sì |
+| linkedServiceName |Riferimento al cluster HDInsight registrato come servizio collegato in Data factory |Sì |
 | script |Specificare lo script Hive inline |No  |
 | script path |Archiviare lo script Hive in un archivio BLOB di Azure e immettere il percorso del file. Usare la proprietà "script" o "scriptPath". Non è possibile usare entrambe le proprietà. Il nome del file distingue tra maiuscole e minuscole. |No  |
 | defines |Specificare i parametri come coppie chiave/valore per fare riferimento ad essi nello script Hive usando "hiveconf" |No  |
@@ -242,7 +242,7 @@ Per usare lo script con parametri Hive, eseguire le operazioni seguenti:
         SUM(Duration)
     FROM HiveSampleIn Group by ProfileID
     ```
-## <a name="see-also"></a>Vedere anche
+  ## <a name="see-also"></a>Vedere anche
 * [Attività di Pig](data-factory-pig-activity.md)
 * [Attività MapReduce](data-factory-map-reduce.md)
 * [Attività di Hadoop Streaming](data-factory-hadoop-streaming-activity.md)

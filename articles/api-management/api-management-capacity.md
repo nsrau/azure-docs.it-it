@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: 31959cc1bef6b6434f6d3f586052a845837aa438
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: fe77361c4c9bed9310f8443ed4ff37faf7ea53a9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52442592"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454508"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacità di un'istanza di Gestione API di Azure
 
@@ -78,7 +78,7 @@ I picchi di **capacità** possono anche verificarsi a intermittenza o essere mag
 4. Dalla sezione verde selezionare **Località** per la suddivisione delle metriche in base alla dimensione.
 5. Selezionare un intervallo di tempo desiderato dalla barra superiore della sezione.
 
-    È anche possibile impostare un avviso collegato alle metriche che si attivi se si verifica qualcosa di imprevisto, ad esempio per ricevere notifica quando l'istanza di Gestione API supera la relativa capacità di picco per oltre 20 minuti.
+    È anche possibile impostare un avviso collegato alle metriche che si attivi se si verifica qualcosa di imprevisto, Ad esempio, ricevere notifiche quando l'istanza di gestione API è stata che superano la capacità di picco per oltre 20 minuti.
 
     >[!TIP]
     > È possibile configurare avvisi per ricevere una segnalazione quando il servizio sta per esaurire la capacità oppure usare la funzionalità di ridimensionamento automatico di Monitoraggio di Azure per aggiungere automaticamente un'unità Gestione API di Azure. L'operazione di ridimensionamento può richiedere circa 30 minuti, pertanto è consigliabile pianificare le regole di conseguenza.  

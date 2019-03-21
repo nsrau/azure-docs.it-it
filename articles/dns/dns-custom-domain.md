@@ -7,16 +7,16 @@ ms.service: dns
 ms.topic: article
 ms.date: 1/18/2019
 ms.author: victorh
-ms.openlocfilehash: b513e898e25397f54b8f7f7590a4466523a705ff
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.openlocfilehash: 78496dbc7891fe911ab0affd81f8a7d887e5d76e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54401419"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111413"
 ---
 # <a name="use-azure-dns-to-provide-custom-domain-settings-for-an-azure-service"></a>Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure
 
-Il servizio DNS di Azure consente di specificare il DNS per un dominio personalizzato per tutte le risorse di Azure che supportano i domini personalizzati o dispongono di un nome di dominio completo (FQDN). Ad esempio, si ha un'app Web di Azure e si vuole che gli utenti accedano usando contoso.com o www.contoso.com come FQDN. Questo articolo illustra la configurazione del servizio di Azure con il DNS di Azure per l'uso di domini personalizzati.
+Il servizio DNS di Azure consente di specificare il DNS per un dominio personalizzato per tutte le risorse di Azure che supportano i domini personalizzati o dispongono di un nome di dominio completo (FQDN). Un esempio è un'App web di Azure e si vuole che gli utenti accedano usando contoso.com o www\.contoso.com come FQDN. Questo articolo illustra la configurazione del servizio di Azure con il DNS di Azure per l'uso di domini personalizzati.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
 |NOME     | myfunctionapp        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
-|type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
+|Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | adatumfunction.azurewebsites.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS adatumfunction.azurewebsites.net specificato per impostazione predefinita per l'app per le funzioni.        |
@@ -54,7 +54,7 @@ Nel pannello **Aggiungi il nome host** immettere il record CNAME nel campo di te
 
 ## <a name="public-ip-address"></a>Indirizzo IP pubblico
 
-Per configurare un dominio personalizzato per i servizi che usano una risorsa indirizzo IP pubblico, ad esempio il gateway applicazione, Azure Load Balancer, il servizio cloud, le macchine virtuali di Azure Resource Manager e le macchine virtuali classiche, viene usato un record CNAME.
+Per configurare un dominio personalizzato per i servizi che usano un indirizzo IP pubblico indirizzare risorsa, ad esempio il Gateway applicazione, servizio di bilanciamento del carico, servizio Cloud, macchine virtuali di Resource Manager e, le macchine virtuali classiche, un record viene usata.
 
 Passare a **Rete** > **Indirizzo IP pubblico**, selezionare la risorsa indirizzo IP pubblico e fare clic su **Configurazione**. Prendere nota dell'indirizzo IP indicato.
 
@@ -66,7 +66,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
 |NOME     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
-|type     | Una         | Usare un record A perché la risorsa è un indirizzo IP.        |
+|Type     | Una         | Usare un record A perché la risorsa è un indirizzo IP.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Indirizzo IP     | <your ip address>       | Indirizzo IP pubblico.|
@@ -93,7 +93,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
 |NOME     | mywebserver        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
-|type     | CNAME        | L'uso di un record CNAME equivale a usare un alias. Se la risorsa ha usato indirizzo IP, viene usato un record A.        |
+|Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias. Se la risorsa ha usato indirizzo IP, viene usato un record A.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | webserver.azurewebsites.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS webserver.azurewebsites.net specificato per impostazione predefinita per l'app Web.        |
@@ -127,7 +127,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
 |NOME     | asverify.mystorageaccount        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
-|type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
+|Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | asverify.adatumfunctiona9ed.blob.core.windows.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS asverify.adatumfunctiona9ed.blob.core.windows.net specificato per impostazione predefinita per l'account di archiviazione.        |
@@ -155,7 +155,7 @@ Passare alla zona DNS e fare clic su **+ Set di record**. Inserire le informazio
 |Proprietà  |Valore  |DESCRIZIONE  |
 |---------|---------|---------|
 |NOME     | cdnverify.mycdnendpoint        | Insieme all'etichetta del nome di dominio, questo valore costituisce il dome di dominio completo (FQDN) per il nome di dominio personalizzato.        |
-|type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
+|Type     | CNAME        | L'uso di un record CNAME equivale a usare un alias.        |
 |TTL     | 1        | 1 corrisponde a 1 ora        |
 |Unità TTL     | Ore        | Le ore vengono usate per misurare il tempo         |
 |Alias     | cdnverify.adatumcdnendpoint.azureedge.net        | Nome DNS per cui si crea l'alias, in questo esempio è il nome DNS cdnverify.adatumcdnendpoint.azureedge.net specificato per impostazione predefinita per l'account di archiviazione.        |

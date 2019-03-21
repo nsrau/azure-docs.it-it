@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/06/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9d62ef2295abbb8f8fc6f45ffc0c7ab1ce9616e4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878358"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243891"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
@@ -33,7 +33,7 @@ La tabella seguente mette a confronto le funzionalità dei due tipi di eventi li
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No  |Sì |
 | Risoluzione video massima per feed di contributo |4K (4096 x 2160 a 60 fotogrammi/sec) |1080p (1920 x 1088 a 30 fotogrammi/sec)|
 | Livelli massimi consigliati per feed di contributo|Fino a 12|Un audio|
-| Livelli massimi nell'output| Uguale all'input|Fino a 7|
+| Livelli massimi nell'output| Uguale all'input|Fino a 6 (vedere il set di impostazioni di sistema riportata di seguito)|
 | Larghezza di banda aggregata massima per feed di contributo|60 Mbps|N/D|
 | Velocità in bit massima per un singolo livello all'interno del contributo |20 Mbps|20 Mbps|
 | Supporto per tracce audio in più lingue|Sì|No |
@@ -54,6 +54,30 @@ La tabella seguente mette a confronto le funzionalità dei due tipi di eventi li
 | Supporto per GOP di input non uniformi|Sì|No - La durate GOP dell’input deve essere fissa|
 | Supporto per input con frequenza dei fotogrammi variabile|Sì|No: l'input deve essere una frequenza di fotogrammi fissa. Sono tollerate lievi variazioni, ad esempio durante scene ad alta velocità. Il feed di contributo non può però diminuire la frequenza dei fotogrammi (ad esempio a 15 fotogrammi/sec).|
 | Arresto automatico dell'evento live in caso di perdita del feed di input|No |Dopo 12 ore, se nessun LiveOutput è in esecuzione|
+
+## <a name="system-presets"></a>Set di impostazioni di sistema
+
+Quando si usa la codifica live (evento Live impostato sullo **Standard**), il set di impostazioni di codifica definisce come viene codificato il flusso in ingresso a più velocità in bit o livelli. Attualmente, l'unico valore consentito per il set di impostazioni è *Default720p* (impostazione predefinita).
+
+Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
+
+### <a name="output-video-stream"></a>Flusso video di output
+
+| Velocità in bit | Larghezza | Altezza: | MaxFPS | Profilo | Nome del flusso di output |
+| --- | --- | --- | --- | --- | --- |
+| 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
+| 2200 |960 |540 |30 |Alto |Video_960x540_2200kbps |
+| 1350 |704 |396 |30 |Alto |Video_704x396_1350kbps |
+| 850 |512 |288 |30 |Alto |Video_512x288_850kbps |
+| 550 |384 |216 |30 |Alto |Video_384x216_550kbps |
+| 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
+
+> [!NOTE]
+> Se è necessario usare impostazioni codifica live personalizzato, contattare il amshelp@microsoft.com. È necessario specificare la tabella desiderata di risoluzione e velocità in bit. Verificare che vi sia un solo a 720p e al massimo 6 livelli.
+
+### <a name="output-audio-stream"></a>Flusso audio di output
+
+L'audio viene codificato nel formato stereo AAC-LC a 128 kbps, con una frequenza di campionamento di 48 kHz.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

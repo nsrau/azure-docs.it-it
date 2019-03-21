@@ -18,12 +18,12 @@ ms.author: billmath
 author: billmath
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a45d776ea241e04aacf39e45f7bf6d2cc58c689
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8bd46bb820c7127c4fa6105fcc0be73bb66024c6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172166"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446640"
 ---
 # <a name="manage-ad-fs-trust-with-azure-ad-using-azure-ad-connect"></a>Gestire il trust di AD FS con Azure AD usando Azure AD Connect
 
@@ -105,7 +105,7 @@ Azure AD Connect verifica che il trust di Azure AD sia sempre configurato con il
 
 Azure AD Connect versione 1.1.873.0 o successiva crea un backup delle impostazioni di trust di Azure AD ogni volta che queste vengono aggiornate. Il backup delle impostazioni di trust di Azure AD viene salvato in **%ProgramData%\AADConnect\ADFS**. Il nome file è nel formato AadTrust-&lt;data&gt;-&lt;ora&gt;.txt, ad esempio AadTrust-20180710-150216.txt
 
-![Snapshot di un backup di esempio del trust di Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
+![Screenshot di esempio di eseguire il backup dei trust di Azure AD](./media/how-to-connect-azure-ad-trust/backup.png)
 
 È possibile ripristinare le regole di trasformazione rilascio seguendo la procedura suggerita di seguito
 

@@ -4,18 +4,18 @@ ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
-ms.openlocfilehash: 5b7aa618df63bf813e0ab0d77025cf57cfe55c3a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: a8b4e3038bfa6a2e937de91804159e340ed13224
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50964573"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553695"
 ---
 | Risorsa | Destinazione |
 |----------|---------------|
 | Dimensioni massime di una singola tabella | 500 TiB |
-| Dimensione massima di un'entità di tabella | 1 MiB |
-| Numero massimo di proprietà di un'entità di tabella | 255 (incluse 3 proprietà di sistema: PartitionKey, RowKey e Timestamp) |
+| Dimensioni massime di un'entità di tabella | 1 MiB |
+| Numero massimo di proprietà di un'entità di tabella | 255, che include tre proprietà di sistema: PartitionKey, RowKey e Timestamp |
 | Numero massimo di criteri di accesso archiviati per ogni tabella | 5 |
-| Frequenza massima di richieste per account di archiviazione | 20.000 transazioni al secondo, supponendo una dimensione delle entità di 1 KB |
-| Velocità effettiva da raggiungere per partizione di tabella singola (entità di 1 KB) | Fino a 2000 entità al secondo |
+| Frequenza massima di richieste per account di archiviazione | 20.000 transazioni al secondo, in cui si presuppone una dimensione delle entità di 1 KiB |
+| Velocità effettiva da raggiungere per una partizione singola tabella (-entità di 1 KB) | Fino a 2000 entità al secondo |

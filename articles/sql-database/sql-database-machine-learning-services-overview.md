@@ -1,9 +1,8 @@
 ---
-title: Panoramica di Machine Learning Services (con R) nel database SQL di Azure (anteprima)
+title: Azure SQL Database Machine Learning Services con panoramica di R (anteprima)
 description: Questo argomento descrive Machine Learning Services (con R) nel database SQL di Azure e ne illustra il funzionamento.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,22 +10,26 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 02/06/2019
-ms.openlocfilehash: b50fd21e4d3325875134d2e2e9caeed9f8db75d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: e6d6250da4df6ab267ef28f8f15a73c8cbc68618
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875604"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762060"
 ---
-# <a name="machine-learning-services-with-r-in-azure-sql-database-preview"></a>Machine Learning Services (con R) nel database SQL di Azure (anteprima)
+# <a name="azure-sql-database-machine-learning-services-with-r-preview"></a>Azure SQL Database servizi Machine Learning con R (anteprima)
 
 Machine Learning Services è una funzionalità del database SQL di Azure, usata per l'esecuzione di script R nel database. La funzionalità include pacchetti Microsoft R che garantiscono prestazioni elevate per le analisi predittive e l'apprendimento automatico. I dati relazionali possono essere usati negli script R tramite stored procedure, script di T-SQL contenenti istruzioni R o codice R contenente T-SQL.
 
 > [!IMPORTANT]
-> Machine Learning Services (con R) nel database SQL di Azure è attualmente disponibile in anteprima pubblica per singoli database e pool elastici tramite il modello di acquisto basato su vCore dei livelli di servizio **Utilizzo generico** e **Business critical**. In questa anteprima pubblica iniziale, il livello di servizio **Hyperscale** e l'opzione di distribuzione **Istanza gestita** non sono supportati. R attualmente è l'unico linguaggio supportato. Al momento non è disponibile il supporto per Python. 
+> Azure SQL Database Machine Learning Services (con R) è attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
-> L'anteprima è disponibile attualmente nelle aree seguenti: Europa occidentale, Europa settentrionale, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Asia sud-orientale, India meridionale e Australia sud-orientale. 
+> L'anteprima pubblica è disponibile per i database singoli e pool elastici usando il modello di acquisto basato su vCore nel **generico** e **aziendale critica** livelli di servizio. In questa anteprima pubblica iniziale, il livello di servizio **Hyperscale** e l'opzione di distribuzione **Istanza gestita** non sono supportati. R attualmente è l'unico linguaggio supportato. Al momento non è disponibile il supporto per Python.
+>
+> L'anteprima è attualmente disponibile nelle aree seguenti: Europa occidentale, Europa settentrionale, Stati Uniti occidentali 2, Stati Uniti orientali, Stati Uniti centro-meridionali, Stati Uniti centro-settentrionali, Canada centrale, Asia sud-orientale, India meridionale e Australia sud-orientale.
 >
 > [Iscriversi per l'anteprima](#signup) più avanti.
 
@@ -60,7 +63,7 @@ Per iscriversi all'anteprima pubblica, seguire questa procedura:
 
 Dopo la registrazione nel programma, Microsoft eseguirà l'onboarding all'anteprima pubblica e abiliterà R per il database nuovo o esistente.
 
-Non usare Machine Learning Services con R per carichi di lavoro di produzione durante l'anteprima pubblica.
+Servizi di Machine Learning con R non è consigliato per il carico di lavoro di produzione durante l'anteprima pubblica.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

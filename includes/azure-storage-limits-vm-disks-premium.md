@@ -4,36 +4,36 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: rogarana
-ms.openlocfilehash: 5ac7982d306125804fc5b7873e537f9381f717cb
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: e7e57c6a821731874dcb1d99a3133b6ede1da26e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279723"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553570"
 ---
-**Dischi di macchina virtuale non gestiti Premium: limiti per account**
+**Dischi di macchine virtuali non gestiti Premium: Limiti per ogni account**
 
 | Risorsa | Limite predefinito |
 | --- | --- |
 | Capacità totale dischi per account |35 TB |
 | Capacità totale snapshot per account |10 TB |
-| Larghezza di banda massima per account (ingresso + uscita<sup>1</sup>) |<=50 Gbps |
+| Larghezza di banda massima per ogni account (ingresso + uscita)<sup>1</sup> |<=50 Gbps |
 
-<sup>1</sup>Si intendono in *ingresso* tutti i dati (richieste) inviati a un account di archiviazione. *uscita* tutti i dati (risposte) ricevuti da un account di archiviazione.
+<sup>1</sup>*ingress* fa riferimento a tutti i dati dalle richieste inviate a un account di archiviazione. *Traffico in uscita* fa riferimento a tutti i dati dalle risposte che vengono ricevute da un account di archiviazione.
 
-**Dischi di macchina virtuale non gestiti Premium: limiti per disco**
+**Dischi di macchine virtuali non gestiti Premium: Limiti per disco**
 
 | Tipo di disco di Archiviazione Premium | P10 | P20 | P30 | P40 | P50 |
 | --- | --- | --- | --- | --- | --- |
-| Dimensioni disco |128 GiB |512 GiB |1024 GiB (1 TB) |2048 GiB (2 TB)|4095 GiB (4 TB)|
-| Operazioni IOPS al secondo max per disco |500 |2300 |5000 |7500 |7500 |
-| Velocità effettiva massima per disco |100 MB/s | 150 MB/s |200 MB/s |250 MB/s |250 MB/s |
+| Dimensioni disco |128 GiB |512 GiB |1,024 GiB (1 TB) |2,048 GiB (2 TB)|4,095 GiB (4 TB)|
+| Numero massimo di IOPS per disco |500 |2.300 |5.000 |7.500 |7.500 |
+| Velocità effettiva massima per disco |100 MB/sec | 150 MB/sec |200 MB/sec |250 MB/sec |250 MB/sec |
 | Numero massimo di dischi per account di archiviazione |280 |70 |35 | 17 | 8 |
 
-**Dischi di macchina virtuale non gestiti Premium: limiti per macchina virtuale**
+**Dischi di macchine virtuali non gestiti Premium: Limiti per ogni VM**
 
 | Risorsa | Limite predefinito |
 | --- | --- |
-| Max operazioni IOPS per VM |80.000 IOPS con VM GS5 |
-| Max velocità effettiva per VM |2.000 MB/s con VM GS5 |
+| Numero massimo di IOPS per ogni macchina virtuale |80.000 IOPS con VM GS5 |
+| Velocità effettiva massima per macchina virtuale |2.000 MB/sec con VM GS5 |
 

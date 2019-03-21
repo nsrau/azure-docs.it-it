@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/09/2018
 ms.author: vashan, cynthn, rajsqr
 ms.custom: include file
-ms.openlocfilehash: b48de6a6eeed997fe162cabe4d57e6770e016971
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 57f557a812ec5e4eea75b76ca1394ca360a85d30
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54122803"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115604"
 ---
 Per Macchine virtuali di Azure (VM) sono previsti vari stati che possono essere categorizzati come stati di *provisioning* e di *alimentazione*. Lo scopo di questo articolo è descrivere questi stati e sottolineare in particolare quando viene addebitato l'utilizzo delle istanze ai clienti. 
 
@@ -32,7 +32,7 @@ La tabella seguente include una descrizione di ogni stato dell'istanza e indica 
 Stato
 </th>
 <th>
-Descrizione
+DESCRIZIONE
 </th>
 <th>
 Fatturazione dell'utilizzo dell'istanza
@@ -178,7 +178,7 @@ Di seguito sono indicati gli stati operativi transitori dopo che la piattaforma 
 <p><b>Stati</b></p>
 </td>
 <td width="366">
-<p>Descrizione</p>
+<p>DESCRIZIONE</p>
 </td>
 </tr>
 <tr>
@@ -255,14 +255,14 @@ Una volta completata l'operazione, la macchina virtuale passerà a uno degli sta
 - **Operazione riuscita** - Le azioni avviate dall'utente sono state completate.
 
     ```
- "statuses": [ 
- {
+  "statuses": [ 
+  {
      "code": "ProvisioningState/succeeded",
      "level": "Info",
      "displayStatus": "Provisioning succeeded",
      "time": "time"
- }
- ]
+  }
+  ]
     ```
 
  
@@ -270,7 +270,7 @@ Una volta completata l'operazione, la macchina virtuale passerà a uno degli sta
 - **Operazione non riuscita** - Rappresenta un'operazione non completata. Vedere i codici di errore per ottenere altre informazioni e possibili soluzioni.
 
     ```
- "statuses": [
+  "statuses": [
     {
       "code": "ProvisioningState/failed/InternalOperationError",
       "level": "Error",

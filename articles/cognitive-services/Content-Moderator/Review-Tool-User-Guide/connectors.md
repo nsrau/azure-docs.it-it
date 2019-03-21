@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 5e56579a856f7b6259acddcbe34f2e5361505cb5
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 3ee582e2541e4eb55e5ea1424782df132ecf3575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55217612"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58116555"
 ---
 # <a name="connect-to-other-cognitive-services"></a>Connettersi ad altri servizi cognitivi
 
@@ -33,27 +33,27 @@ Content Moderator include questi connettori predefiniti:
 
 Prima di definire un flusso di lavoro, verificare di avere delle credenziali valide per l'API del connettore che si vuole usare:
 
-1.  Nella scheda **Settings** (Impostazioni) del dashboard dello strumento di revisione selezionare  > **Connectors** (Connettori).
+1. Nella scheda **Settings** (Impostazioni) del dashboard dello strumento di revisione selezionare  > **Connectors** (Connettori).
 
-  ![In Content Moderator vengono selezionati i connettori](images/connectors-2.png)
+   ![In Content Moderator vengono selezionati i connettori](images/connectors-2.png)
 
-2.  Selezionare il simbolo di **modifica** accanto al connettore per cui si vogliono verificare le credenziali.
+2. Selezionare il simbolo di **modifica** accanto al connettore per cui si vogliono verificare le credenziali.
 
-  ![In Content Moderator viene selezionato il simbolo di modifica](images/connectors-3.png)
+   ![In Content Moderator viene selezionato il simbolo di modifica](images/connectors-3.png)
 
-3.  Viene visualizzata la chiave di sottoscrizione. Al termine, se si apportano modifiche, fare clic su **Save** (Salva).
+3. Viene visualizzata la chiave di sottoscrizione. Al termine, se si apportano modifiche, fare clic su **Save** (Salva).
 
-  ![Pagina della modifica dei connettori di Content Moderator](images/connectors-4-1.png)
+   ![Pagina della modifica dei connettori di Content Moderator](images/connectors-4-1.png)
  
 ## <a name="add-a-connector"></a>Aggiungere un connettore
 
-1.  Per poter aggiungere un connettore è necessaria una chiave di sottoscrizione. Nel dashboard dello strumento di revisione selezionare **Settings** (Impostazioni)  > **Credentials** (Credenziali). Selezionare e copiare il valore nella casella **Ocp-Admin-Subscription-Key**.
+1. Per poter aggiungere un connettore è necessaria una chiave di sottoscrizione. Nel dashboard dello strumento di revisione selezionare **Settings** (Impostazioni)  > **Credentials** (Credenziali). Selezionare e copiare il valore nella casella **Ocp-Admin-Subscription-Key**.
 
-2.  Selezionare **Connectors** (Connettori). Selezionare uno dei connettori disponibili che vengono visualizzati nel dashboard dello strumento di revisione. Selezionare **Connect** (Connetti). 
+2. Selezionare **Connectors** (Connettori). Selezionare uno dei connettori disponibili che vengono visualizzati nel dashboard dello strumento di revisione. Selezionare **Connect** (Connetti). 
 
-  ![Pagina dell'aggiunta di un connettore di Content Moderator](images/connectors-5.png)
+   ![Pagina dell'aggiunta di un connettore di Content Moderator](images/connectors-5.png)
 
-3.  Nella casella **Ocp-Admin-Subscription-Key** incollare la chiave copiata. Selezionare quindi **Salva**.
+3. Nella casella **Ocp-Admin-Subscription-Key** incollare la chiave copiata. Selezionare quindi **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

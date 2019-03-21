@@ -7,25 +7,25 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 38a01b4f81b76ba90a5fda4909d0e65e6307057e
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408715"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57569026"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Trasformazione origine del flusso di dati di mapping
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-La trasformazione origine configura un'origine dati che si desidera usare per inserire dati nel proprio flusso di dati. Si può avere più di una trasformazione origine in un singolo flusso di dati. Iniziare sempre a progettare il flusso di dati con un'origine.
+La trasformazione origine configura un'origine dati che si desidera usare per inserire dati nel proprio flusso di dati. Si può avere più di una trasformazione origine in un singolo flusso di dati. Sempre iniziare a progettare il flusso dei dati con una trasformazione di origine.
 
 > [!NOTE]
-> Ogni flusso di dati richiede almeno una trasformazione origine. Aggiungere tutte le origini aggiuntive necessarie per completare le trasformazioni di dati. È possibile aggiungere tali origini insieme a una trasformazione Join o unione.
+> Ogni flusso di dati richiede almeno una trasformazione origine. Aggiungere tutte le origini aggiuntive necessarie per completare le trasformazioni di dati. È possibile aggiungere tali origini insieme a una trasformazione Join o unione. Quando si esegue il debug del flusso di dati nelle sessioni di debug, leggerà i dati dall'origine utilizzando l'impostazione di campionamento o limiti di origine di Debug. Tuttavia, non sarà possibile scrivere dati a un Sink fino a quando non si esegue il flusso di dati da un'attività flusso di dati della pipeline. 
 
 ![Opzioni di trasformazione origine](media/data-flow/source.png "origine")
 
-Ogni trasformazione origine del flusso di dati deve essere associata esattamente al set di dati Data Factory che definisce la forma e la posizione dei dati da cui scrivere o da cui leggere. È possibile usare elenchi di file e caratteri jolly nell'origine per lavorare con più di un file alla volta.
+Ogni trasformazione di origine del flusso di dati deve essere associato a un solo set di dati di Data Factory. Il set di dati definisce la forma e la posizione dei dati per scrivere o leggere dal. È possibile usare gli elenchi di file e i caratteri jolly nell'origine per lavorare con più di un file alla volta quando si usano Origini file.
 
 ## <a name="data-flow-staging-areas"></a>Aree di gestione temporanea del flusso di dati
 
@@ -43,7 +43,7 @@ Selezionare Consenti deviazione schema in caso di modifica frequente delle colon
 Se la versione dei dati di origine in ingresso non corrisponde allo schema definito, l'esecuzione del flusso di dati avrà esito negativo.
 
 ### <a name="sampling"></a>campionamento
-Usare il campionamento per limitare il numero di righe dall'origine.  Ciò è utile quando è necessario solo un esempio dei dati di origine per il test e a fini di debug.
+Usare il campionamento per limitare il numero di righe dall'origine.  Ciò è utile durante la verifica o il campionamento dei dati dall'origine a scopo di debug.
 
 ## <a name="define-schema"></a>Definizione di Schema
 
@@ -53,7 +53,7 @@ Per i tipi di file di origine che non sono fortemente tipizzati (ad esempio file
 
 ![Trasformazione origine](media/data-flow/source003.png "tipi di dati")
 
-Per le origini fortemente tipizzate, è possibile modificare 
+Per le origini fortemente tipizzato, è possibile modificare i tipi di dati in una trasformazione seleziona successive. 
 
 ### <a name="optimize"></a>Eseguire l'ottimizzazione
 
@@ -74,7 +74,7 @@ Facoltativamente, è possibile scegliere di eseguire una partizione delle connes
 ## <a name="source-file-management"></a>Gestione file di origine
 ![Nuove impostazioni di origine](media/data-flow/source2.png "nuove impostazioni")
 
-* Percorso carattere jolly per selezionare una serie di file dalla cartella di origine che corrispondono a un modello. Questa impostazione sostituirà tutti i file che sono stati impostati nella definizione del set di dati.
+* Percorso carattere jolly per selezionare una serie di file dalla cartella di origine che corrispondono a un modello. Questa impostazione sostituirà tutti i file che è stato impostato nella definizione del set di dati.
 * Elenco di file. Uguale a un set di file. Puntare a un file di testo che si crea con un elenco di file di percorso relativo da elaborare.
 * La colonna per memorizzare il nome del file memorizzerà il nome del file dall'origine in una colonna dei dati. Immettere un nuovo nome per archiviare la stringa del nome file.
 * Dopo il completamento, è possibile scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione da parte del flusso di dati, eliminare i file di origine o spostare i file di origine. I percorsi di spostamento sono percorsi relativi.

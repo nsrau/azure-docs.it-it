@@ -1,6 +1,6 @@
 ---
-title: Usare l'identità del servizio gestito di Azure in Gestione API di Azure | Microsoft Docs
-description: Informazioni su come usare l'identità del servizio gestito di Azure in Gestione API
+title: Usa identità gestite in Gestione API di Azure | Microsoft Docs
+description: Informazioni su come usare identità gestite in Gestione API
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -11,27 +11,27 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 54c4d58dc881ffc7c1f5ecc2242b64e5b61fa68f
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: ebded5d1d58baf501ee5106d622162edc62d46ec
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55730748"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57310557"
 ---
-# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Usare l'identità del servizio gestito di Azure in Gestione API di Azure
+# <a name="use-managed-identities-in-azure-api-management"></a>Usa identità gestite in Gestione API di Azure
 
-Questo articolo descrive come creare un'identità del servizio gestito per un'istanza del servizio Gestione API e come accedere ad altre risorse. Un'identità del servizio gestito generata da Azure Active Directory (Azure AD) consente all'istanza di Gestione API di accedere con facilità e sicurezza ad altre risorse protette da Azure AD, ad esempio Azure Key Vault. L'identità del servizio gestito viene gestita da Azure e non è necessario eseguire il provisioning o ruotare il segreto. Per altre informazioni sull'identità del servizio gestito di Azure, vedere [Identità del servizio gestito per le risorse di Azure](../active-directory/msi-overview.md).
+Questo articolo illustra come creare un'identità gestita per un'istanza del servizio Gestione API e come accedere ad altre risorse. Un'identità gestita generata da Azure Active Directory (Azure AD) consente all'istanza di gestione API semplice e sicuro accedere ad altre risorse di protetto AD Azure, ad esempio Azure Key Vault. Questa identità viene gestita da Azure e non è necessario effettuare il provisioning o ruotare alcun segreto. Per altre informazioni sulle identità gestita, vedere [What ' s identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="create-a-managed-service-identity-for-an-api-management-instance"></a>Creare un'identità del servizio gestita per un'istanza di Gestione API
+## <a name="create-a-managed-identity-for-an-api-management-instance"></a>Creare un'identità gestita per un'istanza di gestione API
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Per impostare un'identità del servizio gestita nel portale, è prima necessario creare un'istanza di Gestione API come di consueto e quindi abilitare la funzionalità.
+Per configurare un'identità gestita nel portale, si verrà innanzitutto creata un'istanza di gestione API come di consueto e quindi abilitare la funzionalità.
 
 1. Creare un'istanza di Gestione API nel portale come di consueto. Accedervi nel portale.
-2. Selezionare **Managed service identity** (Identità servizio gestito).
+2. Selezionare **identità del servizio gestito**.
 3. Impostare Registra con Azure Active Directory su ON. Fare clic su Save.
 
 ![Abilitare l'identità del servizio gestita](./media/api-management-msi/enable-msi.png)
@@ -80,7 +80,7 @@ Ad esempio, un modello completo di Azure Resource Manager può essere simile al 
 ## <a name="use-the-managed-service-identity-to-access-other-resources"></a>Usare l'identità del servizio gestita per accedere ad altre risorse
 
 > [!NOTE]
-> Attualmente l'identità del servizio gestita può essere usata per ottenere i certificati da Azure Key Vault per i nomi di dominio personalizzati di Gestione API. Altri scenari saranno supportati a breve.
+> Attualmente, le identità gestito utilizzabile per ottenere i certificati da Azure Key Vault per i nomi di dominio personalizzato di gestione API. Altri scenari saranno supportati a breve.
 >
 >
 
@@ -110,7 +110,7 @@ Set-AzureKeyVaultSecret -VaultName KEY_VAULT_NAME -Name KEY_VAULT_SECRET_NAME -S
 
 L'esempio seguente mostra un modello di Azure Resource Manager che contiene i passaggi seguenti:
 
-1. Creare un'istanza di Gestione API con un'identità del servizio gestita.
+1. Creare un'istanza di gestione API con un'identità gestita.
 2. Aggiornare i criteri di accesso dell'istanza di Azure Key Vault e consentire all'istanza di Gestione API di ottenere i segreti da essa.
 3. Aggiornare l'istanza di Gestione API impostando un nome di dominio personalizzato tramite un certificato ottenuto dall'istanza di Key Vault.
 
@@ -166,7 +166,7 @@ L'esempio seguente mostra un modello di Azure Resource Manager che contiene i pa
         "keyVaultIdToCertificate": {
             "type": "string",
             "metadata": {
-                "description": "Reference to the KeyVault certificate."
+                "description": "Reference to the KeyVault certificate. https://contoso.vault.azure.net/secrets/contosogatewaycertificate."
             }
         }
     },
@@ -238,7 +238,7 @@ L'esempio seguente mostra un modello di Azure Resource Manager che contiene i pa
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni sull'identità del servizio gestito di Azure:
+Altre informazioni sulle identità gestita per le risorse di Azure:
 
-* [Identità del servizio gestito per le risorse di Azure](../active-directory/msi-overview.md)
+* [Che cos'è l'identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md)
 * [Modelli di Gestione risorse di Azure](https://github.com/Azure/azure-quickstart-templates)

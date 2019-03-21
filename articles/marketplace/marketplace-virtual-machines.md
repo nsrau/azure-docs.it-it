@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: fcfb3943109adbc095b90073f041662fb5c65b56
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: eb49d0fe610a78b8d1a407644a206fddaba0a67a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54078882"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58116216"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guida alla pubblicazione di offerte di macchine virtuali
 
@@ -56,17 +56,20 @@ Fornire ai clienti un'esperienza guidata della soluzione usando una demo interat
 
 Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente. Le macchine virtuali sono completamente abilitate per la commercializzazione tramite i modelli di licenza con pagamento in base al consumo o Bring Your Own License (BYOL). Microsoft gestisce la transazione commerciale e addebita il costo al cliente per conto dell'utente. Si ottiene il vantaggio di usare la relazione di pagamento preferita tra il cliente e Microsoft, compresi eventuali contratti Enterprise.
 
->[!NOTE]
->A questo punto, gli impegni monetari associati a un contratto Enterprise possono essere usati per l'utilizzo di Azure della macchina virtuale, ma non per i costi di licenza del software.  
-
->[!NOTE]
->È possibile limitare l'individuazione e la distribuzione della VM a un set specifico di clienti pubblicando l'immagine e i prezzi in un'inserzione privata. Le offerte private consentono agli utenti di creare offerte esclusive per i clienti principali e di proporre software e condizioni di utilizzo personalizzati. Tali condizioni personalizzate consentono di porre in evidenza numerosi scenari, con offerte contenenti condizioni e prezzi particolari, nonché l'accesso anticipato a versioni software limitate. Le offerte private consentono di offrire a un gruppo ristretto di clienti prezzi o prodotti specifici, creando un nuovo SKU con i dettagli selezionati.  
-*   Per altre informazioni sulle offerte private, visitare la pagina relativa alle offerte private in Azure Marketplace all'indirizzo [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
+> [!NOTE]
+> A questo punto, gli impegni monetari associati a un contratto Enterprise possono essere usati per l'utilizzo di Azure della macchina virtuale, ma non per i costi di licenza del software.  
+> 
+> [!NOTE]
+> È possibile limitare l'individuazione e la distribuzione della VM a un set specifico di clienti pubblicando l'immagine e i prezzi in un'inserzione privata. Le offerte private consentono agli utenti di creare offerte esclusive per i clienti principali e di proporre software e condizioni di utilizzo personalizzati. Tali condizioni personalizzate consentono di porre in evidenza numerosi scenari, con offerte contenenti condizioni e prezzi particolari, nonché l'accesso anticipato a versioni software limitate. Le offerte private consentono di offrire a un gruppo ristretto di clienti prezzi o prodotti specifici, creando un nuovo SKU con i dettagli selezionati.  
+> *   Per altre informazioni sulle offerte private, visitare la pagina relativa alle offerte private in Azure Marketplace all'indirizzo [azure.microsoft.com/blog/private-offers-on-azure-marketplace](https://azure.microsoft.com/blog/private-offers-on-azure-marketplace).  
 
 | Requisito | Dettagli |  
 |:--- |:--- | 
 | Fatturazione e misurazione | La macchina virtuale deve supportare la fatturazione mensile BYOL o con pagamento in base al consumo. |  
 | Disco rigido virtuale (VHD) compatibile con Azure | Le macchine virtuali devono essere compilate in Windows o Linux. <ul> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Linux, vedere [Distribuzioni di Linux approvate in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).</li> <li>Per altre informazioni sulla creazione di un disco rigido virtuale Windows, [vedere Creare un disco rigido virtuale compatibile con Azure](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md).</li> </ul> |  
+
+>[!Note]
+>Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](./cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

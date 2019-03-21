@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e39bdcde896bca094b60b87308127a6ea01f1dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4aecb2850f80f0991c7466b388147ab4b21c4780
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169736"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170701"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iriusrisk"></a>Esercitazione: Integrazione di Azure Active Directory con IriusRisk
 
@@ -40,7 +40,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con IriusRisk, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Sottoscrizione di IriusRisk abilitata per l'accesso Single Sign-On
+- Sottoscrizione abilitata per un IriusRisk accesso single sign-on
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.
@@ -89,7 +89,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con IriusRisk, è
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente test di IriusRisk](#create-a-iriusrisk-test-user)**: per avere una controparte di Britta Simon in IriusRisk collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Creare un utente test di IriusRisk](#create-a-iriusrisk-test-user)**  : per avere una controparte di Britta Simon in IriusRisk collegata alla rappresentazione in Azure AD dell'utente.
 1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -116,7 +116,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     b. Nella casella di testo **Identificatore** digitare il valore: `iriusrisk-sp`
 
     > [!NOTE] 
-    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso Sign-On effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di IriusRisk](mailto:info@continuumsecurity.net). 
+    > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di IriusRisk](mailto:info@continuumsecurity.net). 
 
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML di metadati** e quindi salvare il file dei metadati nel computer.
 
@@ -164,7 +164,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
  
-### <a name="create-a-iriusrisk-test-user"></a>Creare un utente test IriusRisk
+### <a name="create-an-iriusrisk-test-user"></a>Creare un utente test IriusRisk
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in IriusRisk. IriusRisk supporta il provisioning JIT, abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a IriusRisk viene creato un nuovo utente, se questo non esiste già.
 

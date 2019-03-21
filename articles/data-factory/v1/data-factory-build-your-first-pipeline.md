@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 266d16311115f788283eadc60ca16f95b433d6b0
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: d9d9e68b7e74ba7725e97162d01e1a35314fdd0f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015951"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544955"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Esercitazione: Creare la prima pipeline per la trasformazione di dati usando il cluster Hadoop
 > [!div class="op_single_selector"]
@@ -88,7 +88,7 @@ Prima di iniziare questa esercitazione, sono necessari i prerequisiti seguenti:
 3. Scaricare ed esaminare il file di query Hive (**HQL**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Questa query trasforma i dati di input per generare i dati di output. 
 4. Scaricare ed esaminare il file di input di esempio (**input.log**) che si trova in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log).
 5. Creare un contenitore BLOB denominato **adfgetstarted** nell'Archiviazione BLOB di Azure. 
-6. Caricare il file **partitionweblogs.hql** nella cartella **script** nel contenitore **adfgetstarted**. Usare strumenti come [Esplora archivi di Microsoft Azure](http://storageexplorer.com/). 
+6. Caricare il file **partitionweblogs.hql** nella cartella **script** nel contenitore **adfgetstarted**. Usare strumenti come [Esplora archivi di Microsoft Azure](https://storageexplorer.com/). 
 7. Caricare il file**input.log** nella cartella **inputdata** nel contenitore **adfgetstarted**. 
 
 Dopo avere completato i prerequisiti, selezionare uno dei seguenti strumenti/SDK per eseguire l'esercitazione: 

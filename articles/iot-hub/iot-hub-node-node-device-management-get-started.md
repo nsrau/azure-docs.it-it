@@ -1,19 +1,19 @@
 ---
 title: Introduzione alla gestione dei dispositivi dell'hub IoT di Azure (Node) | Documentazione Microsoft
 description: Come usare la gestione dei dispositivi dell'hub IoT per riavviare un dispositivo remoto. Usare Azure IoT SDK per Node.js per implementare un'app per dispositivo simulato che include un metodo diretto e un'app di servizio che richiama il metodo diretto.
-author: juanjperez
-manager: cberlin
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/25/2017
-ms.author: juanpere
-ms.openlocfilehash: 278765957156b56c3c476678b8db0efe5fb73c68
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: b1a224c4170349f0797d2d57acbf45e8b7649bd8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118269"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531573"
 ---
 # <a name="get-started-with-device-management-node"></a>Introduzione alla gestione dei dispositivi (Node)
 
@@ -239,7 +239,7 @@ A questo punto è possibile eseguire le app.
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md
 
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
+[lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management

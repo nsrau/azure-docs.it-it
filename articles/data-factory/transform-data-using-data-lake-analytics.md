@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: abnarain
-ms.openlocfilehash: 9918dd55181eb82257f23f8974159ed5e762fedd
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: d5b074fcf182bcc9bf4dc17ba21215d27e13cbdd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268083"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760971"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Trasformare i dati eseguendo script U-SQL in Azure Data Lake Analytics 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Creare un servizio collegato di **Azure Data Lake Analytics** per collegare un s
 
 La tabella seguente fornisce le descrizioni delle proprietà generiche usate nella definizione JSON. 
 
-| Proprietà                 | Descrizione                              | Obbligatoria                                 |
+| Proprietà                 | Descrizione                              | Obbligatorio                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
 | **type**                 | La proprietà type deve essere impostata su: **AzureDataLakeAnalytics**. | Sì                                      |
 | **accountName**          | Nome dell'account di Azure Data Lake Analytics.  | Sì                                      |
@@ -53,7 +53,7 @@ Concedere le autorizzazioni dell'entità servizio in Azure Data Lake Analytics u
 
 Usare l'autenticazione basata su entità servizio specificando le proprietà seguenti:
 
-| Proprietà                | Descrizione                              | Obbligatoria |
+| Proprietà                | Descrizione                              | Obbligatorio |
 | :---------------------- | :--------------------------------------- | :------- |
 | **servicePrincipalId**  | Specificare l'ID client dell'applicazione.     | Sì      |
 | **servicePrincipalKey** | Specificare la chiave dell'applicazione.           | Sì      |
@@ -117,7 +117,7 @@ Il frammento JSON seguente definisce una pipeline con un'attività U-SQL di Data
 
 Nella tabella seguente vengono descritti i nomi e le descrizioni delle proprietà specifiche per questa attività. 
 
-| Proprietà            | Descrizione                              | Obbligatoria |
+| Proprietà            | Descrizione                              | Obbligatorio |
 | :------------------ | :--------------------------------------- | :------- |
 | name                | Nome dell'attività nella pipeline     | Sì      |
 | description         | Testo che descrive l'attività.  | No        |
@@ -162,7 +162,7 @@ OUTPUT @rs1
       USING Outputters.Tsv(quoting:false, dateTimeFormat:null);
 ```
 
-Nello script di esempio sopra riportato i valori di input e di output dello script sono definiti nei parametri **@in** e **@out**. I valori dei parametri **@in** e **@out** dello script U-SQL vengono passati in modo dinamico da Data Factory tramite la sezione "parameters". 
+Nel precedente esempio di script, l'input e output dello script è definito  **\@nelle** e  **\@out** parametri. I valori per  **\@nelle** e  **\@out** parametri nello script U-SQL vengono passati in modo dinamico da Data Factory usando la sezione "parameters". 
 
 È possibile specificare anche altre proprietà come degreeOfParallelism e priorità nella definizione della pipeline per i processi in esecuzione sul servizio Azure Data Lake Analytics.
 

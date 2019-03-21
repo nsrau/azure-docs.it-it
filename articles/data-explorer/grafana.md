@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 5a9684605de9af1cd9006810d595ae846db01661
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52976773"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531953"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizzare i dati da Esplora dati di Azure in Grafana
 
@@ -23,7 +23,7 @@ Grafana è una piattaforma di analisi che consente di visualizzare i dati ed ese
 
 Per completare questa procedura, sono necessari gli elementi seguenti:
 
-* [Grafana versione 5.3.0 o versioni successive](http://docs.grafana.org/installation/) per il sistema operativo usato
+* [Grafana versione 5.3.0 o versioni successive](https://docs.grafana.org/installation/) per il sistema operativo usato
 
 * Il [plug-in di Esplora dati di Azure](https://grafana.com/plugins/grafana-azure-data-explorer-datasource/installation) per Grafana
 

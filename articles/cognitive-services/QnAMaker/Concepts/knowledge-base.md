@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 03/04/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 2173bc46471fec6bfbacbda9362e5530075faf18
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 02111ac90fe97ddaddbd41ad42410e7e76f1c405
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857332"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311097"
 ---
 # <a name="what-is-a-qna-maker-knowledge-base"></a>Che cos'è una knowledge base di QnA Maker?
 
@@ -28,7 +28,7 @@ Una knowledge base QnA Maker è costituita da un set di coppie di domanda/rispos
 * **Risposte** - Una risposta è la risposta restituita quando una query dell'utente viene confrontata con la domanda associata.  
 * **Metadati** - I metadati sono tag associati a una coppia QnA e vengono rappresentati come coppie di chiave-valore. I tag di metadati vengono usati per filtrare le coppie di QnA e limitano il set su cui viene eseguita la query corrispondente.
 
-Una singola QnA, rappresentata da un ID numerico di QnA, ha diverse varianti di una domanda ed eseguono il mapping di una sola risposta. Inoltre, ogni coppia di questo tipo può avere più campi di metadati associati.
+Una singola QnA, rappresentata da un ID numerico di QnA, ha diverse varianti di una domanda ed eseguono il mapping di una sola risposta. Inoltre, ogni coppia di questo tipo può avere più campi di metadati associati: una chiave e un valore.
 
 ![Knowledge base di QnA Maker](../media/qnamaker-concepts-knowledgebase/knowledgebase.png) 
 
@@ -36,7 +36,7 @@ Una singola QnA, rappresentata da un ID numerico di QnA, ha diverse varianti di 
 
 Quando si inseriscono contenuto avanzato in una knowledge base, QnA Maker prova a convertire il contenuto in un markdown. Leggere [questo](https://aka.ms/qnamaker-docs-markdown-support) blog per comprendere i formati markdown più comprensibili dai client chat.
 
-I campi di metadati sono costituiti da coppie chiave-valore separate da due punti **(Prodotto: Shredder)**. Sia la chiave che il valore deve essere di solo testo. La chiave dei metadati non deve contenere spazi.
+I campi di metadati sono costituiti da coppie chiave-valore separate da due punti **(Prodotto: Shredder)**. Sia la chiave che il valore deve essere di solo testo. La chiave dei metadati non deve contenere spazi. Metadati supportano un solo valore per ogni chiave.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

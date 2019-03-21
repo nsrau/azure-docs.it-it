@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 0765e5978f62a60b7a9b405c04c2471508947c60
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 908422927feabd156c5dcdc7a04d44ff8fc42094
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54433170"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57442878"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Azioni webhook per le regole di avviso relative ai log
 Quando [viene creato un avviso di log in Azure](alerts-log.md), è possibile scegliere di [configurarlo con gruppi di azioni](action-groups.md) in modo da eseguire una o più azioni.  Questo articolo descrive le diverse azioni webhook disponibili e spiega come configurare un webhook personalizzato basato su JSON.
@@ -54,7 +54,7 @@ I webhook includono un URL e un payload in fermato JSON che corrisponde ai dati 
 | ID sottoscrizione |#subscriptionid |ID della sottoscrizione di Azure usata con Application Insights. 
 
 > [!NOTE]
-> LinkToSearchResults passa i parametri come SearchQuery, Ora di inizio dell'intervallo di ricerca e Ora di fine dell'intervallo di ricerca nell'URL al portale di Azure per visualizzarli nella sezione relativa all'analisi. Il portale di Azure ha un limite di dimensione dell'URI di circa 2000 caratteri e *non* aprirà i collegamenti forniti negli avvisi se i valori dei parametri superano questo limite. Gli utenti possono immettere manualmente i dettagli per visualizzare i risultati nel portale Analytics o usare l'[API REST di Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) o l'[API REST di Log Analytics](https://dev.loganalytics.io/reference) per recuperare i risultati a livello di codice 
+> LinkToSearchResults passa i parametri come SearchQuery, Ora di inizio dell'intervallo di ricerca e Ora di fine dell'intervallo di ricerca nell'URL al portale di Azure per visualizzarli nella sezione relativa all'analisi. Portale di Azure include URI limite circa 2.000 caratteri di dimensione e verrà *non* aprire il collegamento fornito nel servizio avvisi, se i valori dei parametri superano il limite di tale. Gli utenti possono immettere manualmente i dettagli per visualizzare i risultati nel portale Analytics o usare l'[API REST di Application Insights Analytics](https://dev.applicationinsights.io/documentation/Using-the-API) o l'[API REST di Log Analytics](https://dev.loganalytics.io/reference) per recuperare i risultati a livello di codice 
 
 Ad esempio, è possibile specificare il payload personalizzato seguente che include un singolo parametro denominato *text*.  Il servizio chiamato da questo webhook si aspetta questo parametro.
 
@@ -77,9 +77,6 @@ Per includere i risultati della ricerca in un payload personalizzato, verificare
 
 ## <a name="sample-payloads"></a>Payload di esempio
 Questa sezione mostra un esempio di payload di webhook per gli avvisi di log, facendo distinzione tra payload standard e personalizzato.
-
-> [!NOTE]
-> Per garantire la compatibilità con le versioni precedenti, il payload di webhook standard per gli avvisi generati in base ad Azure Log Analytics corrisponde a quello della [gestione degli avvisi di Log Analytics](alerts-metric.md). Per gli avvisi del log generati tramite [Application Insights](../../azure-monitor/app/analytics.md), tuttavia, il payload di webhook standard si basa sullo schema del gruppo di azioni.
 
 ### <a name="standard-webhook-for-log-alerts"></a>Webhook standard per gli avvisi di log 
 In entrambi questi esempi è specificato un payload fittizio con solo due colonne e due righe.
@@ -118,7 +115,11 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
     "Description": null,
     "Severity": "Warning"
  }
- ```   
+ ```
+
+> [!NOTE]
+> Valore del campo gravità potrebbe cambiare se hai [passa la preferenza di API](alerts-log-api-switch.md) per gli avvisi del log in Log Analitica.
+
 
 #### <a name="log-alert-for-azure-application-insights"></a>Avviso di log per Azure Application Insights
 Di seguito è riportato un payload di esempio per un'azione webhook standard *senza opzione JSON personalizzata* se usato per gli avvisi del log basati su Application Insights.
@@ -154,7 +155,7 @@ Di seguito è riportato un payload di esempio per un'azione webhook standard *se
     "SearchIntervalInSeconds": 3600,
     "LinkToSearchResults": "https://analytics.applicationinsights.io/subscriptions/12345a-1234b-123c-123d-12345678e/?query=search+*+&timeInterval.intervalEnd=2018-03-26T09%3a10%3a40.0000000Z&_timeInterval.intervalDuration=3600&q=Usage",
     "Description": null,
-    "Severity": "Error",
+    "Severity": "3",
     "ApplicationId": "123123f0-01d3-12ab-123f-abc1ab01c0a1"
     }
 }
@@ -197,7 +198,7 @@ Di seguito è riportato un esempio di payload per un'azione webhook personalizza
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- Informazioni sugli [avvisi di log in Avvisi di Azure](alerts-unified-log.md)
+- Informazioni sugli [avvisi del log in Avvisi di Azure](alerts-unified-log.md)
 - Acquisire familiarità con la [gestione degli avvisi di log in Azure](alerts-log.md)
 - Creare e gestire [gruppi di azioni in Azure](action-groups.md)
 - Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md)

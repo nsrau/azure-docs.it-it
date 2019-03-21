@@ -14,25 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/13/2018
 ms.author: barclayn
-ms.openlocfilehash: bfe289e29a6a2bb048d9fd42323f32ce8c12792c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8835c4534b6dab1e8dbfb3546257ae4bc3b9d7af
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110609"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588653"
 ---
-# <a name="pen-testing"></a>Test di penetrazione
-Uno dei vantaggi che si ottengono usando Azure per il test e la distribuzione delle applicazioni consiste nella creazione rapida degli ambienti.  Non è necessario richiedere, acquistare e installare il proprio hardware locale.
+# <a name="penetration-testing"></a>Test di penetrazione
+Uno dei vantaggi che si ottengono usando Azure per il test e la distribuzione delle applicazioni consiste nella creazione rapida degli ambienti. Non è necessario richiedere, acquistare e installare il proprio hardware locale.
 
-È tuttavia necessario continuare ad applicare la normale due diligence in materia di sicurezza. Una delle operazioni da eseguire è il test di penetrazione delle applicazioni distribuite in Azure.
+È tuttavia necessario continuare ad applicare la normale due diligence in materia di sicurezza. Uno degli aspetti probabile che si voglia eseguire è penetrazione testare le applicazioni si distribuiscono in Azure.
 
 Forse si è già a conoscenza del fatto che Microsoft esegue [il test di penetrazione dell'ambiente di Azure](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e), utile per ottenere miglioramenti in Azure.
 
-Il test di penetrazione delle applicazioni non viene eseguito automaticamente, ma è ovvio che è auspicabile e necessario eseguirlo. Questo è positivo, perché quando si migliora la sicurezza delle applicazioni, l'intero ecosistema di Azure diventa più sicuro.
+Non è il test di penetrazione dell'applicazione, ma è ovvio che si sarà necessario ed è necessario eseguire il test delle applicazioni. Che è positivo, perché quando si migliora la sicurezza delle applicazioni contribuire a rendere più sicuro l'intero ecosistema di Azure.
 
-Cosa fare?
-
-A partire dal 15 giugno 2017, Microsoft non richiede più alcuna approvazione preventiva per condurre un test di penetrazione su risorse di Azure. I clienti che desiderano documentare formalmente i test di penetrazione previsti su Microsoft Azure sono invitati a compilare il [modulo di notifica dei test di penetrazione sul servizio Azure](https://portal.msrc.microsoft.com/en-us/engage/pentest). Questo processo interessa esclusivamente Microsoft Azure e non è applicabile ad alcun altro servizio Microsoft Cloud.
+A partire dal 15 giugno 2017, Microsoft non richiede approvazione preventiva per condurre un test di penetrazione su risorse di Azure. I clienti che desiderano documentare formalmente i test di penetrazione previsti su Microsoft Azure sono invitati a compilare il [modulo di notifica dei test di penetrazione sul servizio Azure](https://portal.msrc.microsoft.com/en-us/engage/pentest). Questo processo interessa esclusivamente Microsoft Azure e non è applicabile ad alcun altro servizio Microsoft Cloud.
 
 >[!IMPORTANT]
 >Anche se la notifica dei test di penetrazione Microsoft non è più necessaria, i clienti devono comunque conformarsi alle [Regole unificate di partecipazione ai test di penetrazione di Microsoft Cloud](https://technet.microsoft.com/mt784683).
@@ -47,4 +45,4 @@ Tra i tipi di test che non è possibile eseguire sono incluse tutte le tipologie
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Si è pronti a iniziare il test di penetrazione delle applicazioni ospitate in Microsoft Azure? In questo caso, andare a[Regole del test di penetrazione di engagement](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) e compilare il modulo di notifica di test.
+- Se si desidera documentare formalmente un' test di penetrazione delle applicazioni ospitate in Microsoft Azure, andare al [penetrazione test regole di accordo](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=2) e compilare il modulo di notifica di test.

@@ -7,12 +7,12 @@ ms.author: maghan
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9d80eddffaf376b6f6f0090dce74a4884b291531
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: de67ca0c209f9a61b00c5451a27a1198d0de3724
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405530"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57532909"
 ---
 # <a name="how-to-secure-access-to-data-catalog-and-data-assets"></a>Come proteggere l'accesso al catalogo dati e agli asset di dati
 > [!IMPORTANT]
@@ -23,7 +23,7 @@ Azure Data Catalog consente di specificare chi può accedere al catalogo dati e 
 ## <a name="catalog-users-and-permissions"></a>Utenti e autorizzazioni del catalogo
 Per assegnare a un utente o un gruppo l'accesso a un catalogo dati e impostare le autorizzazioni:
 
-1. Nella [home page del catalogo dati](http://www.azuredatacatalog.com) fare clic su **Impostazioni** sulla barra degli strumenti.
+1. Nella [home page del catalogo dati](https://www.azuredatacatalog.com) fare clic su **Impostazioni** sulla barra degli strumenti.
 
     ![Catalogo dati - Impostazioni](media/data-catalog-how-to-secure-catalog/data-catalog-settings.png)
 2. Nella pagina delle impostazioni espandere la sezione **Utenti del catalogo**.

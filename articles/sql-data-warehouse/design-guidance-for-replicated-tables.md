@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 04/23/2018
+ms.date: 03/15/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 5c791dc8216a4c905b4147f59a42d52091f14aae
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9b205dea0d6de6469847e8008010a3a2c9d19956
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465980"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113132"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Linee guida di progettazione per l'uso di tabelle replicate in Azure SQL Data Warehouse
 Questo articolo offre alcuni consigli per la progettazione di tabelle replicate nello schema Azure SQL Data Warehouse. Usare questi consigli per migliorare le prestazioni delle query riducendo lo spostamento dei dati e la complessità delle query stesse.
@@ -32,22 +32,23 @@ Come parte della progettazione di tabelle, è necessario comprendere quanto più
 - Sono presenti tabelle dei fatti e delle dimensioni in un data warehouse?   
 
 ## <a name="what-is-a-replicated-table"></a>Che cos'è una tabella replicata?
-Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.
+Una tabella replicata include una copia completa della tabella accessibile in ogni nodo di calcolo. La replica di una tabella elimina la necessità di trasferire dati tra i nodi di calcolo prima di un join o un'aggregazione. Poiché la tabella ha più copie, le tabelle replicate funzionano meglio quando le dimensioni delle tabelle sono inferiori a 2 GB, già compresse.  2 GB non è un limite rigido.  Se i dati sono statici e non cambiano, è possibile replicare le tabelle più grandi.
 
 Il diagramma seguente mostra una tabella replicata accessibile in ogni nodo di calcolo. In SQL Data Warehouse la tabella replicata viene interamente copiata in un database di distribuzione in ogni nodo di calcolo. 
 
 ![Tabella replicata](media/guidance-for-using-replicated-tables/replicated-table.png "Tabella replicata")  
 
-Le tabelle replicate sono più adatte per piccole tabelle delle dimensioni in uno schema star. Le tabelle delle dimensioni hanno in genere dimensioni tali da rendere possibile l'archiviazione e la conservazione di più copie. Nelle dimensioni sono archiviati dati descrittivi che cambiano raramente, come il nome e l'indirizzo di un cliente e i dettagli del prodotto. La rarità delle modifiche dei dati comporta un numero minore di ricompilazioni della tabella replicata. 
+Le tabelle replicate anche per le tabelle delle dimensioni in uno schema star. Le tabelle delle dimensioni vengono in genere unite alle tabelle dei fatti che vengono distribuite in modo diverso rispetto alla tabella della dimensione.  Le dimensioni sono generalmente di dimensioni che consente di archiviare e gestire più copie. Nelle dimensioni sono archiviati dati descrittivi che cambiano raramente, come il nome e l'indirizzo di un cliente e i dettagli del prodotto. La natura a modifica lenta dei dati comporta meno operazioni di manutenzione della tabella replicata. 
 
 Provare a usare una tabella replicata nei casi seguenti:
 
 - La dimensione della tabella su disco è inferiore a 2 GB, indipendentemente dal numero di righe. Per individuare la dimensione di una tabella, usare il comando [DBCC PDW_SHOWSPACEUSED](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showspaceused-transact-sql): `DBCC PDW_SHOWSPACEUSED('ReplTableCandidate')`. 
 - La tabella viene usata in join che richiederebbero altrimenti lo spostamento dei dati. Quando si crea un join di tabelle non distribuite nella stessa colonna, ad esempio una tabella con distribuzione hash in una tabella round robin, è necessario lo spostamento dei dati per completare la query.  Se una delle tabelle ha dimensioni ridotte, provare una tabella replicata. È consigliabile usare tabelle replicate invece di tabelle round robin nella maggior parte dei casi. Per visualizzare le operazioni di spostamento dei dati nei piani di query, usare [sys.dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql).  L'operazione tipica di spostamento di dati che può essere eliminata usando una tabella replicata è BroadcastMoveOperation.  
-  Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
+ 
+Le tabelle replicate possono essere causa di prestazioni delle query non ottimali nei casi seguenti:
 
 - La tabella prevede frequenti operazioni di inserimento, aggiornamento ed eliminazione. Queste operazioni di Data Manipulation Language (DML) richiedono una ricompilazione della tabella replicata. La ricompilazione causa spesso un rallentamento delle prestazioni.
-- Il data warehouse viene ridimensionato spesso. Il ridimensionamento di un data warehouse comporta la modifica del numero dei nodi di calcolo, che richiede una ricompilazione.
+- Il data warehouse viene ridimensionato spesso. Ridimensionamento di un data warehouse modifica il numero di nodi di calcolo, che comporta la ricompilazione tabella replicata.
 - La tabella include un numero elevato di colonne, ma le operazioni sui dati accedono in genere solo a una quantità ridotta di colonne. In questo scenario, invece di replicare l'intera tabella, può essere più efficace eseguire una distribuzione della tabella e quindi creare un indice per le colonne cui si accede di frequente. Quando una query richiede lo spostamento dei dati, SQL Data Warehouse sposta solo i dati per le colonne richieste. 
 
 ## <a name="use-replicated-tables-with-simple-query-predicates"></a>Usare tabelle replicate con predicati di query semplici
@@ -58,7 +59,7 @@ Prima di scegliere di distribuire o replicare una tabella, considerare i tipi di
 
 Le query che richiedono un uso intensivo della CPU hanno prestazioni migliori quando il lavoro viene distribuito tra tutti i nodi di calcolo. Ad esempio, le query che eseguono calcoli in ogni riga di una tabella hanno prestazioni migliori nelle tabelle distribuite che non nelle tabelle replicate. Poiché una tabella replicata viene completamente archiviata in ogni nodo di calcolo, una query che richiede un uso intensivo di CPU su una tabella replicata viene eseguita sull'intera tabella in ogni nodo di calcolo. Il calcolo aggiuntivo può rallentare le prestazioni delle query.
 
-Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente quando il fornitore è una tabella distribuita invece di una tabella replicata. In questo esempio il fornitore può avere una distribuzione round robin.
+Questa query, ad esempio, ha un predicato complesso.  Viene eseguita più rapidamente quando i dati in una tabella distribuita invece di una tabella replicata. In questo esempio, i dati possono essere distribuito round robin.
 
 ```sql
 
@@ -69,7 +70,7 @@ WHERE EnglishDescription LIKE '%frame%comfortable%'
 ```
 
 ## <a name="convert-existing-round-robin-tables-to-replicated-tables"></a>Convertire le tabelle round robin esistenti in tabelle replicate
-Se sono già presenti tabelle round robin, è consigliabile convertirle in tabelle replicate se soddisfano i criteri specificati in questo articolo. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join. 
+Se si dispone già di tabelle round robin, è consigliabile convertirle in tabelle replicate se soddisfano i criteri descritti in questo articolo. Le tabelle replicate migliorano le prestazioni rispetto alle tabelle round robin, perché eliminano la necessità di spostare i dati.  Una tabella round robin richiede lo spostamento dei dati per i join. 
 
 Questo esempio usa [CTAS](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) per modificare la tabella DimSalesTerritory in una tabella replicata. Questo esempio funziona indipendentemente dal fatto che per DimSalesTerritory sia stata eseguita una distribuzione hash o round robin.
 
@@ -102,7 +103,7 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 Una tabella replicata non richiede lo spostamento dei dati per i join, perché l'intera tabella è già presente in ogni nodo di calcolo. Se viene eseguita una distribuzione round robin delle tabelle delle dimensioni, un join copia interamente la tabella delle dimensioni in ogni nodo di calcolo. Per spostare i dati, il piano di query contiene un'operazione chiamata BroadcastMoveOperation. Questo tipo di operazione di spostamento dei dati rallenta le prestazioni delle query e viene eliminato usando tabelle replicate. Per visualizzare i passaggi del piano di query, usare la vista del catalogo di sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
 
 Nella query seguente sullo schema AdventureWorks, ad esempio, la tabella ` FactInternetSales` è con distribuzione hash. Le tabelle `DimDate` e `DimSalesTerritory` sono tabelle delle dimensioni più piccole. Questa query restituisce le vendite totali in America del Nord per l'anno fiscale 2004:
- 
+ 
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -138,7 +139,7 @@ La ricompilazione non viene eseguita immediatamente dopo la modifica dei dati. A
 
 ### <a name="use-indexes-conservatively"></a>Usare gli indici con moderazione
 Alle tabelle replicate si applicano le procedure di indicizzazione standard. SQL Data Warehouse ricompila ogni indice di tabella replicata come parte della ricompilazione. Usare gli indici solo quando le prestazioni sono più importanti del costo della ricompilazione degli indici.  
- 
+ 
 ### <a name="batch-data-loads"></a>Caricare in batch i dati
 Quando si caricano dati in tabelle replicate, provare a ridurre al minimo le ricompilazioni eseguendo i caricamenti in batch. Eseguire tutti i caricamenti in batch prima di eseguire istruzioni di selezione.
 
@@ -170,20 +171,20 @@ Questa query usa la DMV [sys.pdw_replicated_table_cache_state](/sql/relational-d
 ```sql 
 SELECT [ReplicatedTable] = t.[name]
   FROM sys.tables t  
-  JOIN sys.pdw_replicated_table_cache_state c  
-    ON c.object_id = t.object_id 
-  JOIN sys.pdw_table_distribution_properties p 
-    ON p.object_id = t.object_id 
+  JOIN sys.pdw_replicated_table_cache_state c  
+    ON c.object_id = t.object_id 
+  JOIN sys.pdw_table_distribution_properties p 
+    ON p.object_id = t.object_id 
   WHERE c.[state] = 'NotReady'
     AND p.[distribution_policy_desc] = 'REPLICATE'
 ```
- 
+ 
 Per attivare una ricompilazione, eseguire l'istruzione seguente in ogni tabella nell'output precedente. 
 
 ```sql
 SELECT TOP 1 * FROM [ReplicatedTable]
 ``` 
- 
+ 
 ## <a name="next-steps"></a>Passaggi successivi 
 Per creare una tabella replicata, usare una di queste istruzioni:
 

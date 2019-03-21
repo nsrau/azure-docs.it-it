@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 47b16966f9e72a43cf4fb934706f7b96becef59a
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4a6ed900753747c1d5bf394aced54da11177320f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694500"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118392"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-to-azure-vms"></a>Migrazione di Contoso: Rehosting di un'app locale in macchine virtuali di Azure
 
@@ -168,10 +168,10 @@ Per configurare questi elementi, Contoso segue questa procedura:
     - La VM del database dell'app (SQLVM) verrà migrata alla subnet del database (PROD-DB-EUS2) nella rete di produzione.
 
 2. Configurare un account di archiviazione. Contoso crea un account di archiviazione di Azure (contosovmsacc20180528) nell'area primaria.
-    - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
-    - Usa un account generico con archiviazione standard e la replica dell'archiviazione con ridondanza locale.
+   - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
+   - Usa un account generico con archiviazione standard e la replica dell'archiviazione con ridondanza locale.
 
-    ![Archiviazione di Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
+     ![Archiviazione di Site Recovery](./media/contoso-migration-rehost-vm/asr-storage.png)
 
 3. Creare un insieme di credenziali. Una volta configurati rete e account di archiviazione, Contoso crea un insieme di credenziali di Servizi di ripristino (ContosoMigrationVault) e lo inserisce nel gruppo di risorse ContosoFailoverRG nell'area primaria Stati Uniti orientali 2.
 
@@ -221,15 +221,15 @@ Dopo il failover, Contoso intende connettersi alle VM di Azure. A tale scopo, gl
 
 1. Per l'accesso tramite Internet:
 
- - Abilitano RDP nella VM locale prima del failover.
- - Verifica che per il profilo **Pubblico** siano aggiunte le regole TCP e UDP.
- - Verifica che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.
+   - Abilitano RDP nella VM locale prima del failover.
+   - Verifica che per il profilo **Pubblico** siano aggiunte le regole TCP e UDP.
+   - Verifica che RDP sia consentito in **Windows Firewall** > **App consentite** per tutti i profili.
 
 2. Per l'accesso tramite VPN da sito a sito:
 
- - Abilita RDP nella macchina virtuale locale.
- - Consente RDP in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.
- - Imposta i criteri SAN del sistema operativo nella VM locale su **OnlineAll**.
+   - Abilita RDP nella macchina virtuale locale.
+   - Consente RDP in **Windows Firewall** -> **App e funzionalità consentite** per le reti di **dominio e private**.
+   - Imposta i criteri SAN del sistema operativo nella VM locale su **OnlineAll**.
 
 Inoltre, quando esegue un failover, deve verificare quanto segue:
 
@@ -341,10 +341,10 @@ A questo punto gli amministratori di Contoso possono abilitare la replica per le
 
 4. Gli amministratori selezionano **WebVM** per la replica, controllano i criteri di replica e abilitano la replica.
 
-    - In questa fase selezionano solo WEBVM perché devono essere selezionate la rete virtuale e la subnet e le VM dell'app verranno posizionate in subnet diverse.
-    - Quando viene abilitata la replica, Site Recovery installa automaticamente il servizio Mobility nella VM.
+   - In questa fase selezionano solo WEBVM perché devono essere selezionate la rete virtuale e la subnet e le VM dell'app verranno posizionate in subnet diverse.
+   - Quando viene abilitata la replica, Site Recovery installa automaticamente il servizio Mobility nella VM.
 
-    ![Abilitare la replica](./media/contoso-migration-rehost-vm/enable-replication3.png)
+     ![Abilitare la replica](./media/contoso-migration-rehost-vm/enable-replication3.png)
 
 5. Contoso tiene traccia dell'avanzamento della replica in **Processi**. Dopo l'esecuzione del processo **Finalizza protezione** la macchina virtuale è pronta per il failover.
 6. In **Informazioni di base** nel portale di Azure gli amministratori possono visualizzare la struttura per le VM con replica in Azure.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: arjmands
-ms.openlocfilehash: eb5eecaca65cc8394bcc12fc5a475cf5e762f1c9
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: dc8c29b1c7d4e5056cb6aeee6335e32687fd547f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729966"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123675"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Come usare gli strumenti disponibili negli SDK per semplificare lo sviluppo per il provisioning
 Il servizio Device Provisioning in hub IoT semplifica il processo di provisioning supportando il provisioning JIT [automatico](concepts-auto-provisioning.md) in modo sicuro e scalabile.  È necessaria un'attestazione di sicurezza sotto forma di certificato X.509 o modulo TPM (Trusted Platform).  Microsoft sta inoltre collaborando con [altri produttori di hardware per la sicurezza](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) per migliorare il livello di protezione della distribuzione di IoT. Comprendere i requisiti di sicurezza hardware può risultare difficile per gli sviluppatori. Per questo motivo, viene fornito un set di SDK del servizio di provisioning di IoT di Azure in modo che gli sviluppatori possano usufruire di un livello dedicato per creare client in grado di comunicare con il servizio di provisioning. Gli SDK offrono anche esempi di scenari comuni, nonché un set di strumenti in grado di semplificare l'attestazione di sicurezza in fase di sviluppo.
@@ -23,9 +23,9 @@ Il concetto di [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security)
 
 Per usare il simulatore TPM, seguire questa procedura:
 1. [Preparare l'ambiente di sviluppo](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) e clonare il repository GitHub.
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Passare alla cartella del simulatore TPM in ```azure-iot-sdk-java/provisioning/provisioning-tool/tpm-simulator/```.
 3. Eseguire Simulator.exe prima di eseguire qualsiasi applicazione client per il dispositivo di provisioning.
 4. Mantenere l'esecuzione del simulatore in background durante l'intero processo di provisioning per ottenere l'ID di registrazione e la chiave di verifica dell'autenticità.  Entrambi i valori sono validi solo per un'istanza dell'esecuzione.
@@ -47,18 +47,18 @@ Sebbene l'emulatore DICE generi attualmente un certificato radice, un certificat
 
 Per generare un certificato X.509 usando questo generatore:
 1. [Preparare l'ambiente di sviluppo](https://docs.microsoft.com/azure/iot-dps/quick-enroll-device-x509-java) e clonare il repository GitHub.
-```
-git clone https://github.com/Azure/azure-iot-sdk-java.git
-```
+   ```
+   git clone https://github.com/Azure/azure-iot-sdk-java.git
+   ```
 2. Modificare la radice in azure-iot-sdk-java.
 3. Eseguire ```mvn install -DskipTests=true``` per scaricare tutti i pacchetti richiesti e compilare l'SDK
 4. Passare alla cartella radice per il generatore di certificati X.509 in ```azure-iot-sdk-java/provisioning/provisioning-tools/provisioning-x509-cert-generator```.
 5. Eseguire la compilazione con ```mvn clean install```
 6. Eseguire lo strumento con questi comandi:
-```
-cd target
-java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
-```
+   ```
+   cd target
+   java -jar ./provisioning-x509-cert-generator-{version}-with-deps.jar
+   ```
 7. Quando richiesto, è facoltativamente possibile immettere un _nome comune_ per i certificati.
 8. Lo strumento genera in locale un **certificato client**, la **chiave privata del certificato client**, un **certificato intermedio** e il **certificato radice**.
 

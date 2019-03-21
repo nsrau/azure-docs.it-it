@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: alinast
-ms.openlocfilehash: 897a350c345e6e284f30040c0d4fcf07d5a6f466
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 4db515a931bc7f423eb11ae31b7304a602f0da46
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54106842"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531735"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Elaborazione dati e funzioni definite dall'utente
 
@@ -40,7 +40,7 @@ L'elaborazione dei dati in Gemelli digitali di Azure consiste nella definizione 
 
 ### <a name="matchers"></a>Matcher
 
-I matcher definiscono un set di condizioni che valutano quali azioni vengono eseguite in base alla telemetria dei sensori in ingresso. Le condizioni per determinare l'associazione possono includere proprietà del sensore, del dispositivo padre del sensore e dello spazio padre del sensore. Le condizioni sono espresse come confronti rispetto a un [percorso JSON](http://jsonpath.com/), come mostrato in questo esempio:
+I matcher definiscono un set di condizioni che valutano quali azioni vengono eseguite in base alla telemetria dei sensori in ingresso. Le condizioni per determinare l'associazione possono includere proprietà del sensore, del dispositivo padre del sensore e dello spazio padre del sensore. Le condizioni sono espresse come confronti rispetto a un [percorso JSON](https://jsonpath.com/), come mostrato in questo esempio:
 
 - Tutti i sensori di tipo di dati **Temperatura** rappresentati dal valore stringa preceduto da un carattere di escape `\"Temperature\"`
 - Con `01` nella rispettiva porta

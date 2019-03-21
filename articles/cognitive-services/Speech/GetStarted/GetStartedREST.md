@@ -10,14 +10,15 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: fc40f20349e3424dbcf50f5ca0395b06a818566f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55224055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110189"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Guida introduttiva: Usare l'API REST Riconoscimento vocale Bing
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Avvio rapido: Usare l'API REST Riconoscimento vocale Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -32,7 +33,7 @@ Speech API fa parte di Servizi cognitivi (noto in precedenza come Project Oxford
 > [!IMPORTANT]
 >* Ottenere una chiave di sottoscrizione. Prima di accedere all'API REST, è necessario disporre di una [chiave di sottoscrizione](https://azure.microsoft.com/try/cognitive-services/).
 >
->* Usare la chiave di sottoscrizione. Negli esempi REST seguenti sostituire YOUR_SUBSCRIPTION_KEY con la propria chiave di sottoscrizione. 
+>* Usare la chiave di sottoscrizione. Negli esempi REST seguenti sostituire YOUR_SUBSCRIPTION_KEY con la propria chiave di sottoscrizione.
 >
 >* Per informazioni su come ottenere una chiave di sottoscrizione, consultare la pagina di [autenticazione](../how-to/how-to-authentication.md).
 
@@ -66,7 +67,7 @@ Alcuni esempi di URI del servizio sono elencati nella tabella seguente.
 | Modalità di riconoscimento  | Linguaggio | Formato di output | URI del servizio |
 |---|---|---|---|
 | `interactive` | pt-BR | Predefinito | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Dettagliato |https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `conversation` | en-US | Dettagliato | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
 | `dictation` | fr-FR | Semplice | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]

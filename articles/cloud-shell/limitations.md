@@ -3,7 +3,7 @@ title: Limitazioni di Azure Cloud Shell | Microsoft Docs
 description: Panoramica delle limitazioni di Azure Cloud Shell
 services: azure
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2018
-ms.author: juluk
-ms.openlocfilehash: 1f2c218ed9ba2f5f9285c60b8d4c11704825c0f5
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 8fd88221818d28c227c33719c03e522e815a408b
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563882"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245744"
 ---
 # <a name="limitations-of-azure-cloud-shell"></a>Limitazioni di Azure Cloud Shell
 
@@ -45,7 +45,7 @@ Cloud Shell supporta le versioni più recenti di Microsoft Edge, Microsoft Inter
 
 ### <a name="for-a-given-user-only-one-shell-can-be-active"></a>Per un determinato utente, può essere attiva una sola shell
 
-Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra Bash o PowerShell ha come conseguenza il riavvio di Cloud Shell e le sessioni esistenti vengono terminate.
+Gli utenti possono avviare solo un tipo di shell contemporaneamente, **Bash** o **PowerShell**. Tuttavia, si possono avere più istanze di Bash o PowerShell in esecuzione contemporaneamente. Lo scambio tra Bash o PowerShell utilizzando il menu fa sì che Cloud Shell per il riavvio che termina le sessioni esistenti. In alternativa, è possibile eseguire bash all'interno di PowerShell digitando `bash`, è possibile eseguire PowerShell all'interno di bash digitando `pwsh`.
 
 ### <a name="usage-limits"></a>Limiti di consumo
 
@@ -57,9 +57,9 @@ Cloud Shell è pensato per l'uso interattivo e qualsiasi sessione non interattiv
 
 Le autorizzazioni sono impostate come utenti normali senza accesso SUDO. Qualsiasi installazione esterna alla directory `$Home` non è permanente.
 
-### <a name="editing-bashrc"></a>Modifica di .bashrc
+### <a name="editing-bashrc-or-profile"></a>Modifica dei file con estensione bashrc o $PROFILE
 
-Fare attenzione quando si modifica il file con estensione bashrc, poiché questa operazione può provocare errori imprevisti in Cloud Shell.
+Fare attenzione quando si modifica dei file con estensione bashrc o file $PROFILE di PowerShell, questa operazione può provocare errori imprevisti in Cloud Shell.
 
 ## <a name="powershell-limitations"></a>Limitazioni PowerShell
 
@@ -73,23 +73,15 @@ Il modulo `SqlServer` incluso in Cloud Shell include solo il supporto delle vers
 
 ### <a name="default-file-location-when-created-from-azure-drive"></a>Percorso file predefinito quando creato dall'unità Azure:
 
-Usando dei cmdlet di PowerShell, gli utenti non possono creare i file sotto l'unità Azure. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita. 
+Gli utenti possono tramite i cmdlet di PowerShell, non creare file in Azure: unità. Quando gli utenti creano nuovi file con altri strumenti, ad esempio vim o nano, i file vengono salvati nella cartella `$HOME` per impostazione predefinita. 
 
 ### <a name="gui-applications-are-not-supported"></a>Le applicazioni GUI non sono supportate
 
-Se l'utente esegue un comando che determina la generazione di una finestra di dialogo di Windows, come `Connect-AzureAD`, `Connect-AzureRmAccount` o `Connect-AzAccount`, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
-
-### <a name="tab-completion-crashes-psreadline"></a>Il completamento scheda arresta PSReadline in modo anomalo
-
-Se la proprietà EditMode dell'utente in PSReadline è impostata su Emacs, l'utente tenta di visualizzare tutte le possibilità tramite il completamento scheda e le dimensioni della finestra sono troppo piccole per visualizzare tutte le possibilità, per cui PSReadline si arresterà in modo anomalo.
+Se l'utente esegue un comando che crea una finestra di dialogo di Windows, viene visualizzato un messaggio di errore, ad esempio: `Unable to load DLL 'IEFRAME.dll': The specified module could not be found. (Exception from HRESULT: 0x8007007E)`.
 
 ### <a name="large-gap-after-displaying-progress-bar"></a>Ampio spazio vuoto dopo aver visualizzato l'indicatore di stato
 
 Se l'utente esegue un'azione che visualizza un indicatore di stato, come il completamento di una scheda nell'unità `Azure:`, è possibile che il cursore non sia impostato correttamente e che venga visualizzato uno spazio vuoto dove prima era presente l'indicatore di stato.
-
-### <a name="random-characters-appear-inline"></a>Inline vengono visualizzati caratteri casuali
-
-La sequenza di posizione del cursore, ad esempio `5;13R`, può essere visualizzata nell'input dell'utente.  Questi caratteri possono essere rimossi manualmente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

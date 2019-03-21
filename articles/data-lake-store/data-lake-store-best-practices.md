@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 45d828b32984363f611828ca3ea33e5fa96a5017
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745844"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56961891"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
 
@@ -140,7 +140,7 @@ Se il log shipping di Data Lake Storage Gen1 non è attivato, Azure HDInsight co
 
     log4j.logger.com.microsoft.azure.datalake.store=DEBUG
 
-Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, la diagnostica di Data Lake Storage Gen1 viene scritta nei log YARN nei nodi (/tmp/\<user\>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o i limiti (codice errore HTTP 429). Le stesse informazioni possono essere monitorate anche in Log Analytics o in qualunque strumento che consenta il log shipping nel pannello [Diagnostica](data-lake-store-diagnostic-logs.md) dell'account Data Lake Storage Gen1. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Storage Gen1 per ottenere visibilità operativa e semplificare il debug.
+Dopo che la proprietà è stata impostata e i nodi sono stati riavviati, la diagnostica di Data Lake Storage Gen1 viene scritta nei log YARN nei nodi (/tmp/\<user\>/yarn.log) ed è possibile monitorare i dettagli importanti, come gli errori o i limiti (codice errore HTTP 429). Queste informazioni possono essere monitorate anche in log di monitoraggio di Azure o quando il log Shipping nel [diagnostica](data-lake-store-diagnostic-logs.md) pannello dell'account Data Lake archiviazione Gen1. È consigliabile attivare almeno la registrazione sul lato client oppure usare l'opzione di log shipping con Data Lake Storage Gen1 per ottenere visibilità operativa e semplificare il debug.
 
 ### <a name="run-synthetic-transactions"></a>Eseguire transazioni sintetiche
 

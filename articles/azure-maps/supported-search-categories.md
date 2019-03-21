@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: b2bb5e0f9b138af5ff69599b7ba35457788c8a65
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: HT
+ms.openlocfilehash: 64b28fc0db56be77bce9c22f9332110205a42b1d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968448"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437344"
 ---
 # <a name="azure-maps-supported-categories"></a>Categorie supportate in Mappe di Azure
 
@@ -45,7 +45,7 @@ Quando si esegue una [ricerca per categorie](https://docs.microsoft.com/rest/api
 | COLLEGE\_UNIVERSITY | junior college/college statale, college/università, college, scuola preparatoria all'università, università |
 | COMMERCIAL\_BUILDING | edificio di uffici, sede del complesso di uffici, edificio commerciale |
 | COMMUNITY\_CENTER | community center |
-| COMPANY | elettronica, produzione, servizi dati informatici, tecnologie per la sanità pubblica, servizi finanziari diversificati, rifugio animali, linea aerea, noleggio di apparecchiature, servizio, recapito di posta/pacchi/merci, linee di autobus, riparazione di elettrodomestici, servizi di pulizia, OEM, servizi fiscali, petrolio e gas naturali, servizi legali, costruzione, telecomunicazioni, trasporto, produzione automobilistica, chimica, servizi funerari, camere mortuarie, ponti/tunnel, automobili, ingegneria meccanica, servizi, consulenza sugli investimenti, pubblicità/marketing, depositi mobili, istituzioni di risparmio, assicurazioni, software, farmaceutica, catering, servizi matrimoniali, tecnologia agricola, mercato immobiliare, taxi, servizio navetta con limousine, noleggio di charter bus, settore minerario, tecnologie di pubblicazione, telefonia via cavo, distribuzione in importazione/esportazione, società, ospizi, miniera/e di carbone, immobile/i, produzione di birra, miniera/e d'oro |
+| COMPANY | Imposta Electronics, di produzione, di computer Servizi di dati, tecnologie sanità pubblica, finanza diversificata, riparo animal, delle compagnie aeree, apparecchi, servizio, recapito di posta elettronica/package/costo di spedizione, le righe del bus, riparazione appliance home, servizi, oem, di pulizia servizi, olio gas naturale, servizi legali, costruzione, telecomunicazioni, trasporto, produzione di automobili, sostanze chimiche, obitori di servizio monumenti, bridge tunnel operations, automobile, meccaniche, servizi, consulenti di investimento, marketing/pubblicità, lo spostamento di archiviazione, ente di risparmi, assicurazione, software per computer, pharmaceuticals, di cucina, servizi di matrimonio, tecnologia agricultural, immobiliare, relativi ai taxi, servizio shuttle limousine, bus noleggi charter, di data mining, la pubblicazione le tecnologie, telefono via cavo, importazione/esportazione di distribuzione, società, asylum, mine(s) carbone, estate(s), brewery, gold mine(s) |
 | COURTHOUSE | courthouse |
 | CULTURAL\_CENTER | cultural center |
 | DENTIST | dentist |

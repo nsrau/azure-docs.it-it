@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 58210db585befd7ce915d4579d4d0303eb15bff3
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27960562"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57552181"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
 Con i componenti di richiesta e risposta in un'app per la logica è possibile rispondere in tempo reale agli eventi.
@@ -38,7 +38,7 @@ Un trigger è un evento che può essere usato per avviare il flusso di lavoro de
 
 Ecco una sequenza di esempio di come configurare una richiesta HTTP nella finestra di progettazione dell'app per la logica.
 
-1. Aggiungere il trigger **Richiesta - Alla ricezione di una richiesta HTTP** all'app per la logica. È possibile facoltativamente fornire uno schema JSON (usando uno strumento come [JSONSchema.net](http://jsonschema.net)) per il corpo della richiesta. In questo modo la finestra di progettazione potrà generare i token per le proprietà nella richiesta HTTP.
+1. Aggiungere il trigger **Richiesta - Alla ricezione di una richiesta HTTP** all'app per la logica. È possibile facoltativamente fornire uno schema JSON (usando uno strumento come [JSONSchema.net](https://jsonschema.net)) per il corpo della richiesta. In questo modo la finestra di progettazione potrà generare i token per le proprietà nella richiesta HTTP.
 2. Aggiungere un'altra azione per poter salvare l'app per la logica.
 3. Dopo il salvataggio dell'app per la logica, è possibile ottenere l'URL della richiesta HTTP dalla scheda di richiesta.
 4. Un HTTP POST (è possibile usare uno strumento come [Postman](https://www.getpostman.com/)) all'URL attiva l'app per la logica.

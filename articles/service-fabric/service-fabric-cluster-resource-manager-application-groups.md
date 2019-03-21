@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 4cae2370-77b3-49ce-bf40-030400c4260d
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: c8bab609212c837802be6f70e7fc74df6b5eaf2e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.openlocfilehash: 94ae233f8591c43afa1bb73c3e17964922967d36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346254"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58123029"
 ---
 # <a name="introduction-to-application-groups"></a>Introduzione ai gruppi di applicazioni
 Cluster Resource Manager di Service Fabric generalmente gestisce le risorse del cluster distribuendo il carico (rappresentato tramite [Metriche](service-fabric-cluster-resource-manager-metrics.md)) in modo uniforme nell'intero cluster. Service Fabric gestisce la capacità dei nodi del cluster e il cluster nel suo complesso tramite la [capacità](service-fabric-cluster-resource-manager-cluster-description.md). Metriche e capacità rappresentano un'ottima soluzione per molti tipi di carichi di lavoro, ma i modelli che fanno largo uso di diverse istanze di applicazione di Service Fabric comportano a volte requisiti aggiuntivi. Ad esempio, si può desiderare di:
@@ -36,6 +36,7 @@ Il caso d'uso più semplice della capacità dell'applicazione è quando un'istan
 Nell'immagine seguente è mostrata un'istanza di applicazione con e senza un numero massimo di nodi definiti.
 
 <center>
+
 ![Istanza di applicazione che definisce il numero massimo di nodi][Image1]
 </center>
 
@@ -107,7 +108,7 @@ La riserva dello spazio nel cluster per l'applicazione si verifica immediatament
 - il numero di servizi all'interno dell'istanza dell'applicazione cambia ogni volta 
 - i servizi esistono ma non usano le risorse 
 
-Per prenotare le risorse per un'istanza dell'applicazione è necessario definire due parametri aggiuntivi: *MinimumNodes* e *NodeReservationCapacity*
+La prenotazione delle risorse per un'istanza dell'applicazione, è necessario specificare due parametri aggiuntivi: *MinimumNodes* e *NodeReservationCapacity*
 
 - **MinimumNodes**: definisce il numero minimo di nodi con cui l'istanza dell'applicazione deve essere eseguita.  
 - **NodeReservationCapacity**: questa impostazione è per ogni metrica per l'applicazione. Il valore è la quantità di tale metrica riservata per l'applicazione su ogni nodo in cui si eseguono i servizi dell'applicazione.
@@ -117,7 +118,8 @@ La combinazione di **MinimumNodes** e **NodeReservationCapacity** garantisce una
 Di seguito viene illustrato un esempio di come viene riservata la capacità:
 
 <center>
-![Istanze di applicazione che definiscono la capacità riservata][Image2]
+
+![Istanze dell'applicazione che definisce la capacità riservata][Image2]
 </center>
 
 Nell'esempio a sinistra, le applicazioni non hanno una capacità definita. Cluster Resource Manager bilancia tutti gli elementi in base alle normali regole.
@@ -178,10 +180,10 @@ foreach (ApplicationLoadMetricInformation metric in metrics)
 
 La query ApplicationLoad restituisce le informazioni di base sulla capacità dell'applicazione che è stata specificata. Queste informazioni includono le informazioni sul numero minimo e massimo di nodi e sul numero attualmente occupato dall'applicazione. Sono inoltre incluse informazioni su ogni metrica di carico dell'applicazione, tra cui:
 
-* Nome della metrica: nome della metrica.
-* Capacità di prenotazione: capacità riservata nel cluster per questa applicazione.
-* Carico dell'applicazione: carico totale delle repliche figlio dell'applicazione.
-* Capacità dell'applicazione: valore massimo consentito di carico dell'applicazione.
+* Nome della metrica: Nome della metrica.
+* Capacità di prenotazione: Capacità del cluster che è riservata per l'applicazione nel cluster.
+* Carico dell'applicazione: Carico totale delle repliche figlio dell'applicazione.
+* Capacità dell'applicazione: Valore massimo consentito pari a carico dell'applicazione.
 
 ## <a name="removing-application-capacity"></a>Rimozione della capacità dell'applicazione
 Dopo aver impostato i parametri di capacità per un'applicazione, questi parametri possono essere rimossi usando le API di aggiornamento dell'applicazione o i cmdlet PowerShell. Ad esempio: 

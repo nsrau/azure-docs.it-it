@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/21/2018
+ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0023ac374ef70593d0ab2d9589c99d0f37e19ff8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189600"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542746"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Attivare i ruoli della directory di Azure AD in PIM
 
@@ -71,25 +71,15 @@ Quando è necessario usare un ruolo della directory di Azure AD è possibile ric
 
 1. Fare clic su **Attiva**.
 
-    Se il ruolo non richiede l'approvazione, viene attivato e aggiunto all'elenco di ruoli attivi. Se si vuole usare il ruolo immediatamente, seguire i passaggi descritti nella sezione successiva.
+    Se il ruolo non richiede l'approvazione, un' **lo stato di attivazione** viene visualizzato il riquadro che visualizza lo stato di attivazione.
+
+    ![Stato di attivazione](./media/pim-how-to-activate-role/activation-status.png)
+
+    Dopo aver complete tutte le fasi, scegliere il **disconnettersi** collegamento disconnettersi dal portale di Azure. Quando si accede nuovamente al portale, è ora possibile usare il ruolo.
 
     Se il [ruolo richiede l'approvazione](./azure-ad-pim-approval-workflow.md) per l'attivazione, nell'angolo superiore destro del browser verrà visualizzata una notifica che informa che la richiesta è in attesa di approvazione.
 
     ![Notifica di richiesta in attesa](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
-
-## <a name="use-a-role-immediately-after-activation"></a>Usare un ruolo immediatamente dopo l'attivazione
-
-Quando si attiva un ruolo in PIM, sono necessari almeno 10 minuti prima di poter accedere al portale di amministrazione desiderato o eseguire funzioni all'interno di un carico di lavoro amministrativo specifico. Per forzare un aggiornamento delle autorizzazioni personali, usare la pagina **Accesso all'applicazione**, come descritto nei passaggi successivi.
-
-1. Aprire Azure AD Privileged Identity Management.
-
-1. Fare clic sulla pagina **Accesso all'applicazione**.
-
-    ![Accesso all'applicazione PIM](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. Fare clic sul collegamento **Azure Active Directory** per aprire nuovamente il portale nella pagina **Tutti gli utenti**.
-
-    Quando si fa clic su questo collegamento si invalida il token corrente, forzando il portale di Azure a ottenere un nuovo token che deve contenere le autorizzazioni aggiornate.
 
 ## <a name="view-the-status-of-your-requests"></a>Visualizzare lo stato della richiesta da attivare
 
@@ -139,7 +129,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Autorizzazioni non concesse dopo l'attivazione di un ruolo
 
-Quando si attiva un ruolo in PIM, sono necessari almeno 10 minuti prima di poter accedere al portale di amministrazione desiderato o eseguire funzioni all'interno di un carico di lavoro amministrativo specifico. Per forzare un aggiornamento delle autorizzazioni, usare la pagina **Accesso all'applicazione**, come descritto nella sezione precedente [Usare un ruolo immediatamente dopo l'attivazione](#use-a-role-immediately-after-activation).
+Quando si attiva un ruolo in PIM, sono necessari almeno 10 minuti prima di poter accedere al portale di amministrazione desiderato o eseguire funzioni all'interno di un carico di lavoro amministrativo specifico. Una volta completata l'attivazione, disconnettersi dal portale Azure e accedere nuovamente per iniziare a usare il ruolo appena attivato.
 
 Per altri passaggi per la risoluzione dei problemi, vedere [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx) (Risoluzione dei problemi relativi alle autorizzazioni elevate).
 

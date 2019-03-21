@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 6a568fa724d0d403833e938ae8b01556fe96cf1f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9b36332382de1317e386af59695f993efb233e79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428638"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108444"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scenari di sicurezza di un cluster di Service Fabric
 Un cluster di Azure Service Fabric è una risorsa di cui si è proprietari. È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. La creazione di cluster non protetti, anche se possibile, potrebbe consentire a utenti anonimi di connettersi a un cluster che espone gli endpoint di gestione a Internet pubblico. I cluster non protetti non sono supportati per l'esecuzione di carichi di lavoro di produzione. 
@@ -74,7 +74,7 @@ Per i cluster eseguiti in Azure è anche possibile proteggere l'accesso agli end
 
 ## <a name="security-recommendations"></a>Suggerimenti per la sicurezza
 Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, per l'autenticazione reciproca da client a nodo è consigliabile:
-*   Usare Azure Active Directory per l'identità client
+*   Usare Azure Active Directory per l'identità del client
 *   Un certificato per l'identità del server e la crittografia SSL della comunicazione HTTP
 
 Per i cluster di Service Fabric distribuiti in una rete pubblica ospitata in Azure, per la sicurezza da nodo a nodo consigliabile usare un certificato cluster per autenticare i nodi. 
@@ -112,7 +112,7 @@ Il certificato deve soddisfare i requisiti seguenti:
 
 Altri aspetti da considerare:
 
-* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. L'inizializzazione è in genere **CN** per il *nome comune*, ad esempio, **CN = www.contoso.com**. 
+* Il campo **Soggetto** può avere più valori. Ogni valore è preceduto da un'inizializzazione per indicare il tipo di valore. È in genere l'inizializzazione **CN** (per *nome comune*), ad esempio **CN = www\.contoso.com**. 
 * Il campo **Soggetto** può essere vuoto. 
 * Se il campo facoltativo **Nome alternativo soggetto** è popolato, deve contenere sia il nome comune del certificato sia una voce per ogni nome alternativo del soggetto. Queste voci vengono immesse come valori di **nomi DNS**. Per informazioni su come generare certificati con nomi alternativi del soggetto, vedere [Come aggiungere un nome alternativo del soggetto a un certificato LDAP sicuro](https://support.microsoft.com/kb/931351).
 * Il valore del campo **Scopi designati** del certificato deve includere un valore appropriato, ad esempio **Autenticazione server** o **Autenticazione client**.
