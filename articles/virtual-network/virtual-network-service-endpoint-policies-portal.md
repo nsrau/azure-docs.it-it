@@ -12,12 +12,12 @@ ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
 ms.date: 09/18/2018
 ms.author: anithaa
-ms.openlocfilehash: 06c034968b2577d6321ffe6f55f969547a35931f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: aaa07759ed8b10578d024d5838ac1d2658778695
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054436"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999882"
 ---
 # <a name="create-change-or-delete-service-endpoint-policy-using-the-azure-portal"></a>Creare, modificare o eliminare i criteri degli endpoint di servizio usando il portale di Azure
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure 
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-service-endpoint-policy"></a>Creare un criterio di endpoint di servizio
 

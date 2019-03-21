@@ -3,15 +3,15 @@ title: Configurare l'archiviazione di Avere vFXT - Azure
 description: Come aggiungere un sistema di archiviazione back-end ad Avere vFXT per Azure
 author: ekpgh
 ms.service: avere-vfxt
-ms.topic: procedural
+ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: v-erkell
-ms.openlocfilehash: 13084ac21315d725df3f0913583fff3e64ee5c4a
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6d35d5cdeafb80a36f910d71393802a3affb4df8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813229"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078813"
 ---
 # <a name="configure-storage"></a>Configurare l'archivio
 
@@ -72,7 +72,7 @@ A questo punto, passare a [Creare una giunzione](#create-a-junction).
 Per usare l'archivio BLOB di Azure come risorsa di archiviazione back-end del cluster vFXT, è necessario un contenitore vuoto da aggiungere come core filer.
 
 > [!TIP] 
-> Se si sceglie di creare un contenitore BLOB nello stesso momento in cui si crea il cluster Avere vFXT, il modello di distribuzione o lo script crea un contenitore di archiviazione, lo definisce come core filer e crea la giunzione dello spazio dei nomi come parte della creazione del cluster vFXT. 
+> Se si sceglie di creare un contenitore BLOB nello stesso momento in cui si crea il cluster Avere vFXT, il modello di distribuzione o lo script crea un contenitore di archiviazione, lo definisce come core filer e crea la giunzione dello spazio dei nomi come parte della creazione del cluster vFXT. Il modello crea anche un endpoint di servizio di archiviazione all'interno di rete virtuale del cluster. 
 
 L'aggiunta del servizio di archiviazione BLOB al cluster richiede queste attività:
 
@@ -149,7 +149,7 @@ Per aggiungere il servizio di archiviazione BLOB dopo la creazione del cluster, 
    * Facoltativamente, impostare **Encryption type** (Tipo di crittografia) su **None** (Nessuna).  Archiviazione di Azure viene crittografato per impostazione predefinita.
    * Fare clic su **Add Filer** (Aggiungi filer).
 
-  Per informazioni più dettagliate, vedere [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Aggiunta di un nuovo core filer cloud) nella guida alla configurazione del cluster Avere. 
+   Per informazioni più dettagliate, vedere [Adding a new cloud core filer](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html>) (Aggiunta di un nuovo core filer cloud) nella guida alla configurazione del cluster Avere. 
 
 La pagina verrà aggiornata oppure è possibile aggiornare la pagina per visualizzare il nuovo core filer.
 

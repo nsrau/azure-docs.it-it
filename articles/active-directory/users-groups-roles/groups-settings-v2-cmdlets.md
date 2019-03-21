@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1f0b99c3a388dcfd0dabaf874e03f276c494553
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7287616dbad1aa77a6e4aaa110ade39dcea4f195
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56176867"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082620"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 
@@ -218,15 +218,15 @@ Per disabilitare la creazione di gruppi da parte degli utenti non amministratori
 
 1. Verificare che gli utenti non amministratori siano autorizzati a creare gruppi:
    
-  ```
-  PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
-  ```
+   ```
+   PS C:\> Get-MsolCompanyInformation | fl UsersPermissionToCreateGroupsEnabled
+   ```
   
 2. Se restituisce `UsersPermissionToCreateGroupsEnabled : True`, gli utenti non amministratori possono creare gruppi. Per disabilitare questa funzionalità:
   
-  ``` 
-  Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
-  ```
+   ``` 
+   Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False
+   ```
   
 ## <a name="manage-owners-of-groups"></a>Gestire i proprietari di gruppi
 Per aggiungere proprietari a un gruppo, usare il cmdlet AzureADGroupOwner:
@@ -251,7 +251,7 @@ Per rimuovere un proprietario da un gruppo, usare il cmdlet Remove-AzureADGroupO
 
 ## <a name="reserved-aliases"></a>Alias riservati 
 Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di specificare un attributo mailNickname o un alias da usare come parte dell'indirizzo e-mail del gruppo. I gruppi con gli alias di posta elettronica con privilegi elevati seguenti possono essere creati solo da un amministratore globale di Azure AD. 
-  
+  
 * abuse 
 * admin 
 * entità 

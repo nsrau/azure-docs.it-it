@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 06/25/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e3933f10a777a1aa10a4e04f8901e7fd1af5c48
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 778897e1a146abd0655d76ef157f64522681cb0d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195635"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889676"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurare le identità gestite per risorse di Azure in una macchina virtuale di Azure usando le chiamate API REST
 
@@ -63,7 +63,7 @@ Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal 
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
+3. Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -80,6 +80,7 @@ Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal 
    ```
    
    **Intestazioni della richiesta**
+   
    |Intestazione della richiesta  |DESCRIZIONE  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
@@ -168,6 +169,7 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM?api-version=2018-06-01 HTTP/1.1
    ```
    **Intestazioni della richiesta**
+
    |Intestazione della richiesta  |DESCRIZIONE  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
@@ -239,6 +241,7 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |
    |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.        | 
+
    **Corpo della richiesta**
 
    ```JSON
@@ -314,7 +317,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
     az network nic create -g myResourceGroup --vnet-name myVnet --subnet mySubnet -n myNic
    ```
 
-3.  Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
+3. Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
 
    ```azurecli-interactive
    az account get-access-token
@@ -507,11 +510,12 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
    GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Compute/virtualMachines/<VM NAME>?api-version=2018-06-01 HTTP/1.1
    ```
    **Intestazioni della richiesta**
+
    |Intestazione della richiesta  |DESCRIZIONE  |
    |---------|---------|
    |*autorizzazioni*     | Richiesto. Impostare su un token di accesso `Bearer` valido.
 
-    Se sono presenti identità gestite assegnate dall'utente o dal sistema associate alla macchina virtuale come indicato nel valore `identity` della risposta, andare al passaggio 5 che spiega come conservare l'identità gestita assegnata dal sistema quando si aggiunge un'identità gestita assegnata dall'utente nella macchina virtuale.
+    Se si dispone di qualsiasi utente o assegnato dal sistema gestito le identità assegnate alla macchina virtuale come indicato nella `identity` valore nella risposta, andare al passaggio 5 che illustra come mantenere l'identità gestita assegnato dal sistema durante l'aggiunta di un'identità gestita assegnata dall'utente in la macchina virtuale.
 
 4. Se non si dispone di identità gestite assegnate dall'utente associate alla macchina virtuale, usare il comando CURL seguente per chiamare all'endpoint REST di Azure Resource Manager e assegnare la prima identità gestita assegnata dall'utente alla macchina virtuale.
 
@@ -675,6 +679,7 @@ Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'a
    ```
 
    **Intestazioni della richiesta**
+
    |Intestazione della richiesta  |DESCRIZIONE  |
    |---------|---------|
    |*Content-Type*     | Richiesto. Impostare su `application/json`.        |

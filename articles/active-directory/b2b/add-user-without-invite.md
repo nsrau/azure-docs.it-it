@@ -1,5 +1,5 @@
 ---
-title: Aggiungere utenti di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica - Azure Active Directory | Microsoft Docs
+title: Aggiungere utenti guest B2B senza un collegamento di invito o un messaggio di posta elettronica - Azure Active Directory | Microsoft Docs
 description: È possibile consentire a un utente guest di aggiungere altri utenti guest ad Azure Active Directory senza riscattare un invito in Collaborazione B2B di Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -12,12 +12,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c33d9a3755f2fb5397dd013c88ab542e727e125
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 1dca03f84b821d20ee6fecbaec24a1aa840836b5
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337669"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294978"
 ---
 # <a name="add-b2b-collaboration-guest-users-without-an-invitation-link-or-email"></a>Aggiungere utenti guest di collaborazione B2B senza un collegamento di invito o un messaggio di posta elettronica
 
@@ -33,7 +33,7 @@ Questo metodo originale continua a essere efficace. Tuttavia, vi è una piccola 
 
 Se si invita un utente nella directory, l'utente guest deve accedere direttamente all'URL del portale di Azure specifico per il tenant della risorsa (ad esempio https://portal.azure.com/*resourcetenant*.onmicrosoft.com) per visualizzare e accettare le condizioni sulla privacy.
 
-### <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)

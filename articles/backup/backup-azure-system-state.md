@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/23/2018
 ms.author: saurse
-ms.openlocfilehash: 14de0f632584ff5fb1a6b4395298e9cecfe455e6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 6d8cbac7eab797662896a96ed588c9d6370cb230
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58105200"
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Eseguire il backup dello stato del sistema Windows in una distribuzione Resource Manager
 Questo articolo illustra come eseguire il backup dello stato del sistema Windows Server in Azure. Si tratta di un'esercitazione che illustra le informazioni di base,
@@ -51,7 +51,7 @@ Per eseguire il backup dello stato del sistema di Windows Server, è necessario 
     Oppure
     * Selezionare **Usa esistente** e fare clic sul menu a discesa per visualizzare l'elenco di gruppi di risorse disponibili.
 
-  Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
+   Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
 7. Fare clic su **Località** per selezionare l'area geografica per l'insieme di credenziali. La scelta determina l'area geografica in cui vengono inviati i dati di backup.
 
@@ -130,9 +130,9 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
     Le credenziali dell'insieme di credenziali verranno scaricate nella cartella Download locale. Al termine del download delle credenziali dell'insieme di credenziali verrà visualizzato un messaggio popup che chiede se aprire o salvare le credenziali. Fare clic su **Save**. Se si fa clic accidentalmente su **Apri**, attendere che il tentativo di apertura delle credenziali termini con un errore. Non è possibile aprire le credenziali dell'insieme di credenziali. Procedere con il passaggio successivo. Le credenziali dell'insieme di credenziali si trovano nella cartella Downloads.   
 
     ![Il download delle credenziali dell'insieme di credenziali è terminato](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
-> [!NOTE]
-> Le credenziali dell'insieme devono essere salvate solo nel percorso locale per Windows Server in cui si prevede di usare l'agente.
->
+   > [!NOTE]
+   > Le credenziali dell'insieme devono essere salvate solo nel percorso locale per Windows Server in cui si prevede di usare l'agente.
+   >
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2a030daa8d9c30add1beb3a2628aa16b2da22dde
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: ede7037aabc85739ee47636f1390c15e0b0d1639
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338853"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106322"
 ---
 # <a name="elevate-access-to-manage-all-azure-subscriptions-and-management-groups"></a>Elevare i privilegi di accesso per gestire tutte le sottoscrizioni e i gruppi di gestione di Azure
 
@@ -227,39 +227,39 @@ Quando si chiama `elevateAccess`, si crea un'assegnazione di ruolo per se stessi
     >[!NOTE] 
     >Un amministratore della directory non dovrebbe avere molte assegnazioni. Se la query precedente restituisce troppe assegnazioni, è anche possibile eseguire una query per ottenere tutte le assegnazioni solo a livello di ambito della directory e quindi filtrare i risultati: `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Le chiamate precedenti restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è `"/"`, `roleDefinitionId` termina con l'ID del nome del ruolo presente nel passaggio 1 e `principalId` corrisponde all'objectId dell'amministratore della directory. 
+   1. Le chiamate precedenti restituiscono un elenco di assegnazioni di ruolo. Individuare l'assegnazione di ruolo in cui l'ambito è `"/"`, `roleDefinitionId` termina con l'ID del nome del ruolo presente nel passaggio 1 e `principalId` corrisponde all'objectId dell'amministratore della directory. 
     
-    Esempio di assegnazione di ruolo:
+      Esempio di assegnazione di ruolo:
 
-        ```json
-        {
-          "value": [
-            {
-              "properties": {
-                "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
-                "principalId": "{objectID}",
-                "scope": "/",
-                "createdOn": "2016-08-17T19:21:16.3422480Z",
-                "updatedOn": "2016-08-17T19:21:16.3422480Z",
-                "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
-                "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
-              },
-              "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
-              "type": "Microsoft.Authorization/roleAssignments",
-              "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
-            }
-          ],
-          "nextLink": null
-        }
-        ```
+       ```json
+       {
+         "value": [
+           {
+             "properties": {
+               "roleDefinitionId": "/providers/Microsoft.Authorization/roleDefinitions/18d7d88d-d35e-4fb5-a5c3-7773c20a72d9",
+               "principalId": "{objectID}",
+               "scope": "/",
+               "createdOn": "2016-08-17T19:21:16.3422480Z",
+               "updatedOn": "2016-08-17T19:21:16.3422480Z",
+               "createdBy": "93ce6722-3638-4222-b582-78b75c5c6d65",
+               "updatedBy": "93ce6722-3638-4222-b582-78b75c5c6d65"
+             },
+             "id": "/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099",
+             "type": "Microsoft.Authorization/roleAssignments",
+             "name": "e7dd75bc-06f6-4e71-9014-ee96a929d099"
+           }
+         ],
+         "nextLink": null
+       }
+       ```
         
-    Di nuovo, salvare l'ID dal parametro `name`, in questo caso e7dd75bc-06f6-4e71-9014-ee96a929d099.
+      Di nuovo, salvare l'ID dal parametro `name`, in questo caso e7dd75bc-06f6-4e71-9014-ee96a929d099.
 
-    3. Usare infine l'ID di assegnazione di ruolo per rimuovere l'assegnazione aggiunta da `elevateAccess`:
+   1. Usare infine l'ID di assegnazione di ruolo per rimuovere l'assegnazione aggiunta da `elevateAccess`:
 
-    ```http
-    DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
-    ```
+      ```http
+      DELETE https://management.azure.com/providers/Microsoft.Authorization/roleAssignments/e7dd75bc-06f6-4e71-9014-ee96a929d099?api-version=2015-07-01
+      ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

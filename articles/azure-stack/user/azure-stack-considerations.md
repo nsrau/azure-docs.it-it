@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 12/27/2018
 ms.author: sethm
 ms.lastreviewed: 12/27/2018
-ms.openlocfilehash: 1f65d7711c57930886ac9826bb105b6bc4931268
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 158f22ec2ab07bfc2f893d4b0c55d862e0b19de0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55238908"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106662"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerazioni principali: Uso dei servizi o creazione di App per Azure Stack
 
@@ -76,8 +76,8 @@ Azure Stack supporta versioni specifiche di Azure PowerShell e API del servizio 
 
 Per assicurarsi che si usa una versione corretta di Azure PowerShell, usare [i profili delle versioni API](azure-stack-version-profiles.md). Per determinare il profilo di versione API più recente che è possibile usare, scoprire la compilazione dello Stack di Azure in uso. È possibile ottenere queste informazioni dall'amministratore di Azure Stack.
 
->[!NOTE]
- Se si usa Azure Stack Development Kit e si dispone dell'accesso amministrativo, vedere la [determinare la versione corrente](../azure-stack-updates.md#determine-the-current-version) sezione per determinare la compilazione di Azure Stack.
+> [!NOTE]
+>  Se si usa Azure Stack Development Kit e si dispone dell'accesso amministrativo, vedere la [determinare la versione corrente](../azure-stack-updates.md#determine-the-current-version) sezione per determinare la compilazione di Azure Stack.
 
 Per altre API, eseguiti il comando PowerShell seguente per l'output di spazi dei nomi, tipi di risorse e le versioni API supportate nella sottoscrizione di Azure Stack. Nota potrebbe essere ancora differenze a livello una proprietà. Per questo comando funziona, è necessario avere già [installata](azure-stack-powershell-install.md) e [configurato](azure-stack-powershell-configure-user.md) PowerShell per un ambiente Azure Stack. È anche necessario avere una sottoscrizione a un'offerta di Azure Stack.
 
@@ -94,4 +94,4 @@ Per informazioni più dettagliate sulle differenze tra un livello di servizio, v
 
 * [Considerazioni per le macchine virtuali in Azure Stack](azure-stack-vm-considerations.md)
 * [Considerazioni per l'archiviazione in Azure Stack](azure-stack-acs-differences.md)
-* [Considerazioni per la rete di Azure Stack](azure-stack-network-differences.md)
+* [Considerazioni sulla rete di Azure Stack](azure-stack-network-differences.md)

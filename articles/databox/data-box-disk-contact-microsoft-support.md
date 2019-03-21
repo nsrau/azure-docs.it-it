@@ -8,12 +8,12 @@ ms.subservice: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 763dfbc3813a63ffbc91180de1d5b518cef2a46d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: d62ad37e6bbe9c89ef803cefc43f373e287a7af7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470162"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100446"
 ---
 # <a name="open-a-support-ticket-for-azure-data-box"></a>Aprire un ticket di supporto per Azure Data Box 
 
@@ -55,14 +55,14 @@ Per creare una richiesta di supporto, attenersi alla procedura seguente.
 
 4. In **Nuova richiesta di supporto** fare clic su **Passaggio 3 - Informazioni contatto**. In **Informazioni contatto** seguire la procedura seguente:
 
-    1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
-    2. In **Informazioni di contatto** specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
-    3. Fare clic su **Create**(Crea).
+   1. In **Opzioni contatti**, fornire il metodo di contatto preferito (telefono o posta elettronica) e la lingua. Il tempo di risposta viene selezionato automaticamente in base al piano di sottoscrizione.
+   2. In **Informazioni di contatto** specificare nome, posta elettronica, contatto facoltativo, paese. Selezionare **Salvare le modifiche apportate al contatto per le richieste di supporto future**.
+   3. Fare clic su **Create**(Crea).
    
-        ![Informazioni contatto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
+       ![Informazioni contatto](./media/data-box-disk-contact-microsoft-support/data-box-disk-support3.png)   
 
-    Il supporto tecnico Microsoft usa queste informazioni per contattare l'utente per altre informazioni, la diagnostica e la risoluzione.
-Dopo avere inviato la richiesta, si verrà presto contattati da un tecnico del supporto per procedere con la richiesta.
+      Il supporto tecnico Microsoft usa queste informazioni per contattare l'utente per altre informazioni, la diagnostica e la risoluzione.
+      Dopo avere inviato la richiesta, si verrà presto contattati da un tecnico del supporto per procedere con la richiesta.
 
 ## <a name="manage-a-support-request"></a>Gestire una richiesta di supporto
 

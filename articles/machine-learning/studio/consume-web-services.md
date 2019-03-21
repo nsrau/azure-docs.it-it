@@ -5,17 +5,17 @@ description: Dopo la distribuzione di un servizio di apprendimento automatico da
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 06/02/2017
-ms.openlocfilehash: 4a05b99cf0e40e63c01aee27bd745dd165dc23b8
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: a537227a7003391122e10f7f39233040cef49db3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452696"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57870062"
 ---
 # <a name="how-to-consume-an-azure-machine-learning-studio-web-service"></a>Come usare un servizio Web di Azure Machine Learning Studio
 
@@ -161,7 +161,7 @@ namespace CallRequestResponseService
                 client.BaseAddress = new Uri(apiUri);
 
                 // WARNING: The 'await' statement below can result in a deadlock
-                // if you are calling this code from the UI thread of an ASP.Net application.
+                // if you are calling this code from the UI thread of an ASP.NET application.
                 // One way to address this would be to call ConfigureAwait(false)
                 // so that the execution does not attempt to resume on the original context.
                 // For instance, replace code such as:

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: mayg
-ms.openlocfilehash: f2d8d070a8adbe7992795b06722427da2830cb50
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
-ms.translationtype: HT
+ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53253681"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106543"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Scalabilità per il failback con server di elaborazione aggiuntivi
 
@@ -24,8 +24,8 @@ Per impostazione predefinita, quando si esegue la replica di server fisici o mac
 
 Assicurarsi di aver [pianificato la capacità](site-recovery-plan-capacity-vmware.md) per la replica VMware. Ciò consente di identificare come e quando è necessario distribuire i server di elaborazione aggiuntivi.
 
->[!NOTE]
-L'uso di un componente server di processo clonato non è supportato. Seguire i passaggi in questo articolo per ciascun scale-out PS.
+> [!NOTE]
+> L'uso di un componente server di processo clonato non è supportato. Seguire i passaggi in questo articolo per ciascun scale-out PS.
 
 ### <a name="sizing-requirements"></a>Requisiti di dimensione 
 
@@ -56,11 +56,11 @@ Scaricare il file di installazione del server di elaborazione come indicato di s
 3. Selezionare il server di configurazione per eseguire il drill-down della relativa pagina delle informazioni. Fare clic su **+ Server di elaborazione**.
 4. Nella pagina **Aggiungi server di elaborazione** >  **Scegliere dove distribuire il server di elaborazione** selezionare l'opzione **Distribuire un server di elaborazione con scalabilità orizzontale in locale**.
 
-  ![Pagina di aggiunta server](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   ![Pagina di aggiunta server](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
 1. Scaricare il programma di **installazione unificata di Microsoft Azure Site Recovery**. Viene scaricata la versione più recente del file di installazione.
 
-  > [!WARNING]
-  La versione di installazione del server di elaborazione deve essere uguale o precedente alla versione del server di configurazione in esecuzione. Un modo semplice per garantire la compatibilità tra le versioni è l'utilizzo dello stesso programma di installazione usato per installare o aggiornare il server di configurazione.
+   > [!WARNING]
+   > La versione di installazione del server di elaborazione deve essere uguale o precedente alla versione del server di configurazione in esecuzione. Un modo semplice per garantire la compatibilità tra le versioni è l'utilizzo dello stesso programma di installazione usato per installare o aggiornare il server di configurazione.
 
 ## <a name="install-from-the-ui"></a>Installazione dall'interfaccia utente
 

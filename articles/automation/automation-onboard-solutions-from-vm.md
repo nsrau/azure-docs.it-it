@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 039e2d3c70493868ca2f79e89fc82d8970ec6865
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032400"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837763"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
@@ -26,7 +26,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Abilitare le soluzioni
 
-Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gestione degli aggiornamenti**, **Inventario** o **Rilevamento modifiche**.
+Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gestione degli aggiornamenti**, **Inventario** o **Rilevamento modifiche**. La macchina virtuale può esistere in qualsiasi area, indipendentemente dal percorso dell'Account di automazione.
 
 Per abilitare la soluzione solo per la macchina virtuale, assicurarsi che sia selezionata l'opzione **Enable for this VM** (Abilita per questa macchina virtuale). Per eseguire l'onboarding di più macchine virtuali nella soluzione, selezionare **Enable for VMs in this subscription** (Abilita per le macchine virtuali in questa sottoscrizione) e quindi selezionare **Click to select machines to enable** (Fare clic per selezionare le macchine virtuali da abilitare). Per informazioni su come eseguire l'onboarding di più macchine virtuali contemporaneamente, vedere [Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario](automation-onboard-solutions-from-automation-account.md).
 
@@ -34,7 +34,7 @@ Selezionare l'area di lavoro di Azure Log Analytics e l'account di Automazione, 
 
 ![Eseguire l'onboarding della soluzione Gestione aggiornamenti](media/automation-onboard-solutions-from-vm/onboard-solution.png)
 
-Passare alle altre soluzioni e quindi selezionare **Abilita**. Gli elenchi a discesa per Log Analytics e l'account di Automazione sono disabilitati perché queste soluzioni usano la stessa area di lavoro e lo stesso account di Automazione della soluzione abilitata in precedenza.
+Passare alle altre soluzioni e quindi selezionare **Abilita**. L'area di lavoro di Log Analitica ed elenchi a discesa account di automazione sono disabilitati perché queste soluzioni usano la stessa area di lavoro e account di automazione della soluzione abilitata in precedenza.
 
 > [!NOTE]
 > **Rilevamento delle modifiche** e **Inventario** usano la stessa soluzione. Quando una di queste soluzioni viene abilitata, anche l'altra viene abilitata.
@@ -76,7 +76,7 @@ Le soluzioni seguenti sono dipendenti da un'area di lavoro di Log Analytics:
 * [Rilevamento delle modifiche](automation-change-tracking.md)
 * [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 
-Se si decide che non si vuole più integrare l'account di Automazione con Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure.  Prima di procedere, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
+Se si decide di che non si desidera più integrare l'account di automazione con un'area di lavoro di Log Analitica, è possibile scollegare l'account direttamente dal portale di Azure.  Prima di procedere, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
 
 Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti per scollegare l'account di automazione.
 

@@ -17,12 +17,12 @@ ms.date: 01/30/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68593087c1fbb912cafb9c886f43f947744c5651
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 07466e40834b8bfaf4a452cf728bae517b8c7b00
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122716"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>Avvio rapido: Richiedere MFA per app specifiche con l'accesso condizionale di Azure Active Directory 
 
@@ -164,7 +164,7 @@ Per inizializzare lo strumento Valutazioni dei criteri di simulazione, impostare
 - **Isabella Simonsen** come utente 
 - **Gestione di Microsoft Azure** come app cloud
 
- Fare clic su **What If** per creare un report di simulazione che indica:
+  Fare clic su **What If** per creare un report di simulazione che indica:
 
 - **Richiedi MFA per l'accesso al portale di Azure** sotto **Criteri applicabili** 
 - **Richiedi autenticazione a più fattori** in **Concedi controlli**.

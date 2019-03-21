@@ -1,5 +1,5 @@
 ---
-title: Speech Synthesis Markup Language - Servizi di riconoscimento vocale
+title: Riconoscimento vocale sintesi Markup Language (SSML) - servizi di riconoscimento vocale
 titleSuffix: Azure Cognitive Services
 description: Uso di Speech Synthesis Markup Language per controllare la pronuncia e la prosodia nella sintesi vocale.
 services: cognitive-services
@@ -11,35 +11,35 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: f721c91c828b5c7c8497c07bb0cfe79646daf0f8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 57fc7e699d88dbe777750e3acdb7f96794b66fc0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868838"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837158"
 ---
-# <a name="speech-synthesis-markup-language"></a>Speech Synthesis Markup Language
+# <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
-Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML che fornisce un modo per controllare la pronuncia e la *prosodia* della sintesi vocale. La prosodia è il ritmo e tono della voce, ovvero la sua musicalità, se si vuole. È possibile specificare le parole foneticamente, fornire suggerimenti per l'interpretazione dei numeri, inserire pause, controllare tono, volume e frequenza e altro ancora. Per altre informazioni, vedere [Speech Synthesis Markup Language (SSML) Version 1.0](http://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) (Speech Synthesis Markup Language (SSML) versione 1.0).
+Speech Synthesis Markup Language (SSML) è un linguaggio di markup basato su XML che fornisce un modo per controllare la pronuncia e la *prosodia* della sintesi vocale. La prosodia è il ritmo e tono della voce, ovvero la sua musicalità, se si vuole. È possibile specificare le parole foneticamente, fornire suggerimenti per l'interpretazione dei numeri, inserire pause, controllare tono, volume e frequenza e altro ancora. Per altre informazioni, vedere [Speech Synthesis Markup Language (SSML) Version 1.0](https://www.w3.org/TR/2009/REC-speech-synthesis-20090303/) (Speech Synthesis Markup Language (SSML) versione 1.0).
 
 Per un elenco completo delle lingue supportate, delle impostazioni locali e delle voci (neurale e standard), vedere [Supporto per le lingue](language-support.md#text-to-speech).
 
 Le sezioni seguenti offrono esempi di attività di sintesi vocale comuni.
 
->[!IMPORTANT]
-> Attualmente, l'assegnazione di tag alla prosodia è disponibile solo per le voci standard.
-
 ## <a name="add-a-break"></a>Aggiungere un'interruzione
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
     Welcome to Microsoft Cognitive Services <break time="100ms" /> Text-to-Speech API.
 </voice> </speak>
 ```
 
-## <a name="change-speaking-rate"></a>Cambiare la velocità di pronuncia
+## <a name="change-speaking-rate"></a>Cambiare la velocità del parlato
+
+Velocità di pronuncia può essere applicato a voices standard a livello di frase o word. Mentre velocità di pronuncia applicabile solo a neurale voices a livello di frase.
+
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
 <prosody rate="+30.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -48,15 +48,18 @@ Le sezioni seguenti offrono esempi di attività di sintesi vocale comuni.
 
 ## <a name="pronunciation"></a>Pronuncia
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
     <phoneme alphabet="ipa" ph="t&#x259;mei&#x325;&#x27E;ou&#x325;"> tomato </phoneme>
 </voice> </speak>
 ```
 
 ## <a name="change-volume"></a>Cambiare il volume
+
+Volume modifiche possono essere applicate a voices standard a livello di frase o word. Mentre le modifiche di volumi è applicabile solo ai neurale voices a livello di frase.
+
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
 <prosody volume="+20.00%">
     Welcome to Microsoft Cognitive Services Text-to-Speech API.
@@ -64,16 +67,23 @@ Le sezioni seguenti offrono esempi di attività di sintesi vocale comuni.
 ```
 
 ## <a name="change-pitch"></a>Cambiare il tono
+
+Modifiche di tono possono essere applicate a voices standard a livello di frase o word. Mentre le modifiche di tono è applicabile solo ai neurale voices a livello di frase.
+
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
     <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
     Welcome to <prosody pitch="high">Microsoft Cognitive Services Text-to-Speech API.</prosody>
 </voice> </speak>
 ```
 
 ## <a name="change-pitch-contour"></a>Cambiare il profilo di intonazione
+
+> [!IMPORTANT]
+> Modifiche di contour passo non sono supportate con voci neurale.
+
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
 <prosody contour="(80%,+20%) (90%,+30%)" >
     Good morning.
@@ -82,7 +92,7 @@ Le sezioni seguenti offrono esempi di attività di sintesi vocale comuni.
 
 ## <a name="use-multiple-voices"></a>Usare più voci
 ```xml
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<speak version='1.0' xmlns="https://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
 <voice  name='Microsoft Server Speech Text to Speech Voice (en-US, JessaRUS)'>
     Good morning!
 </voice>

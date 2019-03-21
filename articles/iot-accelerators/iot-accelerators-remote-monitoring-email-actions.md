@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 08e80a9baa4c6841b6d88d1c5f2ba69992ffa7ef
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
-ms.translationtype: HT
+ms.openlocfilehash: 693da06ce14a4854d5db49f588fa29d791060166
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51977062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58108104"
 ---
 # <a name="add-an-email-action"></a>Aggiungere un'azione di posta elettronica
 
@@ -31,7 +31,7 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica a una reg
 
 1. Dal **Dashboard** passare alla pagina **Regole**:
 
-    ![Pagina delle regole](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Pagina delle regole](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Selezionare la casella di controllo accanto alla regola esistente da modificare e quindi fare clic su **Modifica** nella parte superiore. Viene visualizzato un pannello **Regola** modificabile.
 
@@ -41,7 +41,7 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica a una reg
 
 1. Immettere un indirizzo di posta elettronica nella casella del destinatario e premere il tasto **Invio** per ogni indirizzo di posta elettronica da aggiungere:
 
-    ![Voce della rubrica](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Voce della rubrica](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Immettere l'oggetto del messaggio di posta elettronica.
 
@@ -59,7 +59,7 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica quando si
 
 1. Dal **Dashboard** passare alla pagina **Regole**:
 
-    ![Pagina delle regole](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
+    ![Pagina delle regole](./media/iot-accelerators-remote-monitoring-email-actions/rules-email.png)
 
 1. Seguire la procedura descritta nella sezione relativa alla [creazione di una regola](iot-accelerators-remote-monitoring-automate.md#create-a-rule). Seguire la procedura descritta nella sezione relativa alla [creazione di una regola avanzata](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) fino al punto in cui si imposta un **Livello di gravità**. Non fare ancora clic su **Applica**.
 
@@ -69,7 +69,7 @@ Seguire questa procedura per aggiungere un'azione di posta elettronica quando si
 
 1. Immettere un indirizzo di posta elettronica nella casella del destinatario e premere il tasto **Invio** per ogni indirizzo di posta elettronica da aggiungere:
 
-    ![Voce della rubrica](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
+    ![Voce della rubrica](./media/iot-accelerators-remote-monitoring-email-actions/address-email.png)
 
 1. Immettere l'oggetto del messaggio di posta elettronica.
 
@@ -128,7 +128,7 @@ Seguire questa procedura per accedere e configurare le azioni di posta elettroni
 
 1. Fare clic per accedere ad Outlook. Viene visualizzato il portale di Azure:
 
-  ![Accedere ad Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
+   ![Accedere ad Outlook](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook-email.png)
 
 1. Fare clic su **Autorizza**. Viene richiesto di accedere. L'account usato per l'accesso deve corrispondere all'indirizzo di posta elettronica usato dall'applicazione per inviare notifiche tramite posta elettronica:
 
@@ -136,7 +136,7 @@ Seguire questa procedura per accedere e configurare le azioni di posta elettroni
 
 1. Se le notifiche tramite posta elettronica sono state configurate correttamente, viene visualizzato questo messaggio:
 
-  ![Accesso ad Outlook riuscito](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
+   ![Accesso ad Outlook riuscito](./media/iot-accelerators-remote-monitoring-email-actions/success-email.png)
 
 ## Personalizzare il modello HTML dei messaggi di posta elettronica <a name="htmledit"></a>
 
@@ -168,7 +168,7 @@ La procedura seguente mostra come modificare il modello di messaggio di posta el
 
 L'acceleratore della soluzione di monitoraggio remoto usa Outlook per inviare notifiche tramite posta elettronica. Outlook limita il numero di messaggi di posta elettronica inviati a [30 messaggi al minuto](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Anche i client di posta elettronica che ricevono i messaggi possono limitare il numero di messaggi ricevuti al minuto. Controllare quindi le limitazioni imposte dal client di posta elettronica. Quando si configura una notifica tramite posta elettronica per una regola, la regola deve calcolare i valori medi su un periodo di almeno un minuto e non usare valori immediati:
 
-![Calcolo medio](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
+![Calcolo medio](./media/iot-accelerators-remote-monitoring-email-actions/calculation-email.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

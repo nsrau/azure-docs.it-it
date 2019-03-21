@@ -4,30 +4,30 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: 62f5c1a1f6184feddad7f2b57bcfc1c4bb5bc339
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 1ae6c6ee59b66e6c61714c0ece9f306f1a885096
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279707"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553506"
 ---
-La tabella seguente elenca i limiti applicabili alle risorse del servizio Device Provisioning in hub IoT:
+Nella tabella seguente sono elencate le limitazioni che si applicano alle risorse di Azure IoT Hub servizio Device Provisioning.
 
 | Risorsa | Limite |
 | --- | --- |
-| Numero massimo di servizi Device Provisioning per sottoscrizione di Azure | 10 |
+| Massimo servizi device provisioning per ogni sottoscrizione di Azure | 10 |
 | Numero massimo di iscrizioni | 500.000 |
 | Numero massimo di registrazioni | 500.000 |
 | Numero massimo di gruppi di registrazione | 100 |
 | Numero massimo di autorità di certificazione | 25 |
 
 > [!NOTE]
-> È possibile contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/) per aumentare il numero di istanze nella sottoscrizione.
+> Per aumentare il numero di istanze nella sottoscrizione, contattare [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
 > [!NOTE]
-> È possibile contattare il [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/) per aumentare il numero di registrazioni al servizio di provisioning.
+> Per aumentare il numero di registrazioni e le registrazioni sul servizio di provisioning, contattare [supporto tecnico Microsoft](https://azure.microsoft.com/support/options/).
 
-Il servizio Device Provisioning limita le richieste quando vengono superate le quote seguenti:
+Il servizio Device Provisioning limita le richieste quando vengono superate le quote seguenti.
 
 | Limitazione | Valore per unità |
 | --- | --- |

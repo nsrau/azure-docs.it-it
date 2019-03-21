@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: ergreenl
-ms.openlocfilehash: e787d946aa62f0bcb6615d89192e7d9e4d91ffe4
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 867d061e46494e5ef65340ce325a71638acc8dfa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55197044"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099628"
 ---
 # <a name="deploy-azure-ad-application-proxy-on-an-azure-ad-domain-services-managed-domain"></a>Distribuire il proxy di applicazione di Azure AD in un dominio gestito di Azure AD Domain Services
 Il proxy dell'applicazione di Azure Active Directory (AD) consente di supportare lavoratori remoti pubblicando applicazioni locali in modo che siano accessibili tramite Internet. Azure AD Domain Services ora consente di trasferire in modalità lift-and-shift le applicazioni legacy in esecuzione in locale nei servizi di infrastruttura di Azure. È quindi possibile pubblicare queste applicazioni con il proxy di applicazione di Azure AD per garantire l'accesso remoto sicuro agli utenti dell'organizzazione.
@@ -75,12 +75,12 @@ In precedenza è stato effettuato il provisioning di una macchina virtuale Windo
 
     ![Accettare le condizione per l'installazione](./media/app-proxy/app-proxy-install-connector-terms.png)
 3. Durante l'installazione viene richiesto di registrare il connettore con il proxy di applicazione della directory di Azure AD.
-    * Specificare le **credenziali di amministratore globale di Azure AD**. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
-    * L'account amministratore usato per registrare il connettore deve trovarsi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias valido di tale dominio.
-    * Se la Sicurezza avanzata di Internet Explorer è abilitata per il server in cui si vuole installare il connettore, la schermata di registrazione potrebbe essere bloccata. Per consentire l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
-    * Se la registrazione del connettore non riesce, vedere [Risolvere i problemi del Proxy applicazione](../active-directory/manage-apps/application-proxy-troubleshoot.md).
+   * Specificare le **credenziali di amministratore globale di Azure AD**. Il tenant di amministratore globale può essere diverso dalle credenziali di Microsoft Azure.
+   * L'account amministratore usato per registrare il connettore deve trovarsi nella stessa directory in cui è stato abilitato il servizio proxy dell'applicazione. Se il dominio del tenant è contoso.com, ad esempio, l'amministratore deve essere admin@contoso.com o qualsiasi altro alias valido di tale dominio.
+   * Se la Sicurezza avanzata di Internet Explorer è abilitata per il server in cui si vuole installare il connettore, la schermata di registrazione potrebbe essere bloccata. Per consentire l'accesso, seguire le istruzioni contenute nel messaggio di errore. Verificare che Internet Explorer Enhanced Security Context sia disabilitato.
+   * Se la registrazione del connettore non riesce, vedere [Risolvere i problemi del Proxy applicazione](../active-directory/manage-apps/application-proxy-troubleshoot.md).
 
-    ![Connettore installato](./media/app-proxy/app-proxy-connector-installed.png)
+     ![Connettore installato](./media/app-proxy/app-proxy-connector-installed.png)
 4. Per garantire il corretto funzionamento del connettore, eseguire lo strumento di risoluzione dei problemi del connettore del proxy di applicazione di Azure AD. Dopo l'esecuzione dello strumento di risoluzione dei problemi verrà visualizzato un report relativo all'esito positivo dell'operazione.
 
     ![Esito positivo dello strumento di risoluzione dei problemi](./media/app-proxy/app-proxy-connector-troubleshooter.png)
@@ -93,7 +93,7 @@ In precedenza è stato effettuato il provisioning di una macchina virtuale Windo
 >
 >
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 È stato configurato il proxy di applicazione di Azure AD ed è stato integrato con il dominio gestito di Azure AD Domain Services.
 
 * **Migrare applicazioni in macchine virtuali di Azure:** è possibile trasferire in modalità lift-and-shift le applicazioni da server locali in macchine virtuali di Azure aggiunte al dominio gestito. Questo permette di eliminare i costi di infrastruttura legati all'esecuzione di server locali.

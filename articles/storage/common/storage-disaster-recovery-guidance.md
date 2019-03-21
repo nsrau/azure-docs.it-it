@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fbd4782d7fde089f9770e148564ec5941da3dc8e
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: e14e35cc8589bb524bae791ccd74952da90bdb04
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55753589"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56871537"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
 
@@ -152,7 +152,6 @@ I dischi non gestiti vengono archiviati come BLOB di pagine in Archiviazione di 
 4. Attendere che l'**ora dell'ultima sincronizzazione** venga aggiornata e che sia successiva all'ora in cui è stata eliminata la macchina virtuale. Questo passaggio è importante perché se l'endpoint secondario non è stato completamente aggiornato con i file VHD quando si verifica il failover, la macchina virtuale potrebbe non funzionare correttamente nella nuova area primaria.
 5. Avviare il failover dell'account.
 6. Attendere che il failover dell'account venga completato e che l'area secondaria diventi la nuova area primaria.
-6. Creare un account di archiviazione nella nuova area primaria e copiarvi i dischi non gestiti.
 7. Creare una macchina virtuale nella nuova area primaria e ricollegare i dischi rigidi virtuali.
 8. Avviare la nuova macchina virtuale.
 

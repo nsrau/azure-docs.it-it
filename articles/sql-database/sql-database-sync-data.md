@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b8844e6ca9effe78f8d98571af2ce59b4e0abee8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 01da5f0798316517869fcc94eed2a7428fffba7b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55465317"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850701"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL
 
@@ -40,7 +40,7 @@ La sincronizzazione dei dati non è la soluzione preferita per gli scenari segue
 |----------|----------------------------|
 | Ripristino di emergenza | [Backup con ridondanza geografica di Azure](sql-database-automated-backups.md) |
 | Scalabilità in lettura | [Usare le repliche di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura (anteprima)](sql-database-read-scale-out.md) |
-| ETL (da OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services?view=sql-server-2017) |
+| ETL (da OLTP a OLAP) | [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) o [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) |
 | Migrazione da SQL Server locale al database SQL di Azure | [Servizio Migrazione del database di Azure](https://azure.microsoft.com/services/database-migration/) |
 |||
 
@@ -228,7 +228,7 @@ Il database radice di federazione può essere usato nel servizio di sincronizzaz
 
 La sincronizzazione dati SQL ha le prestazioni previste? Per monitorare l'attività e risolvere i problemi, vedere gli articoli seguenti:
 
-- [Monitorare la sincronizzazione dati SQL con Log Analytics](sql-database-sync-monitor-oms.md)
+- [Monitorare sincronizzazione dati SQL di Azure con i log di monitoraggio di Azure](sql-database-sync-monitor-oms.md)
 - [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-database-troubleshoot-data-sync.md)
 
 ### <a name="learn-more-about-azure-sql-database"></a>Ulteriori informazioni sul database SQL di Azure

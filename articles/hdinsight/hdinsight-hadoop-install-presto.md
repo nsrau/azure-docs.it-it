@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/01/2019
 ms.author: hrasheed
-ms.openlocfilehash: fe3727c90819a96b7e1785362e557edd5cbbdf02
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: HT
+ms.openlocfilehash: 435c041bb5fb0a398f92914f943166108cc20080
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199325"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258344"
 ---
 # <a name="install-and-use-presto-on-hadoop-based-hdinsight-clusters"></a>Installare e usare Presto nei cluster HDInsight basati su Hadoop
 
-Questo articolo illustra come installare Presto nei cluster HDInsight basati su Hadoop usando azioni script. Si apprenderà anche come installare Airpal in un cluster HDInsight Presto esistente.
+Questo articolo illustra come installare Presto nei cluster HDInsight basato su Hadoop di Azure tramite le azioni di script. Si apprenderà anche come installare Airpal in un cluster HDInsight Presto esistente.
 
 HDInsight offre anche l'applicazione Starburst Presto per i cluster Apache Hadoop. Per altre informazioni, vedere [Installare applicazioni Apache Hadoop di terze parti in Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apps-install-applications).
 

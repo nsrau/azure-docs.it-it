@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: jaboes
 ms.custom: include file
-ms.openlocfilehash: b2561f4b1b5ef27f389114c85f0646b968f7765e
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
-ms.translationtype: HT
+ms.openlocfilehash: 6085eb2b520217c4e678a75032e8a1cb4b9343ec
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36269562"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58261620"
 ---
 # <a name="using-managed-disks-in-azure-resource-manager-templates"></a>Uso di Managed Disks nei modelli di Azure Resource Manager
 
@@ -26,8 +26,8 @@ Per iniziare, viene esaminata la modalità di distribuzione dei dischi non gesti
 ```json
 {
     "type": "Microsoft.Storage/storageAccounts",
+    "apiVersion": "2018-07-01",
     "name": "[variables('storageAccountName')]",
-    "apiVersion": "2016-01-01",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -41,8 +41,8 @@ All'interno dell'oggetto macchina virtuale aggiungere una dipendenza dall'accoun
 
 ```json
 {
-    "apiVersion": "2015-06-15",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -96,12 +96,12 @@ Con Azure Managed Disks, il disco diventa una risorsa di primo livello e non ric
 
 ### <a name="default-managed-disk-settings"></a>Impostazioni predefinite per i dischi gestiti
 
-Per creare una macchina virtuale con dischi gestiti, non è più necessario creare la risorsa account di archiviazione ed è possibile aggiornare la risorsa macchina virtuale come indicato di seguito. Si noti in particolare che `apiVersion` corrisponde a `2017-03-30` e che `osDisk` e `dataDisks` non fanno più riferimento a uno specifico URI per il disco rigido virtuale. Quando si distribuisce senza specificare proprietà aggiuntive, il disco usa l'[archiviazione con ridondanza locale Standard](../articles/storage/common/storage-redundancy.md). Se non si specifica un nome, assume il formato `<VMName>_OsDisk_1_<randomstring>` per il disco del sistema operativo e `<VMName>_disk<#>_<randomstring>` per ogni disco dati. Per impostazione predefinita, la crittografia dischi di Azure è disattivata; la memorizzazione nella cache è impostata su lettura/scrittura per il disco del sistema operativo e disattivata per i dischi dati. Nell'esempio seguente si può osservare che è ancora presente una dipendenza dall'account di archiviazione, ma è solo per l'archiviazione della diagnostica e non è necessaria per l'archiviazione su disco.
+Per creare una macchina virtuale con dischi gestiti, non è più necessario creare la risorsa account di archiviazione ed è possibile aggiornare la risorsa macchina virtuale come indicato di seguito. Si noti in particolare che `apiVersion` corrisponde a `2017-03-30` e che `osDisk` e `dataDisks` non fanno più riferimento a uno specifico URI per il disco rigido virtuale. Quando si distribuisce senza specificare proprietà aggiuntive, il disco userà il tipo di archiviazione in base alle dimensioni della macchina virtuale. Se, ad esempio, si usa una dimensione della macchina virtuale compatibile con l'archiviazione Premium (dimensioni con "s" nel nome, ad esempio Standard_D2s_v3), il sistema userà l'archiviazione con ridondanza locale Premium. Usare l'impostazione SKU del disco per specificare un tipo di archiviazione. Se non si specifica un nome, assume il formato `<VMName>_OsDisk_1_<randomstring>` per il disco del sistema operativo e `<VMName>_disk<#>_<randomstring>` per ogni disco dati. Per impostazione predefinita, la crittografia dischi di Azure è disattivata; la memorizzazione nella cache è impostata su lettura/scrittura per il disco del sistema operativo e disattivata per i dischi dati. Nell'esempio seguente si può osservare che è ancora presente una dipendenza dall'account di archiviazione, ma è solo per l'archiviazione della diagnostica e non è necessaria per l'archiviazione su disco.
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -142,8 +142,8 @@ Come alternativa alla specifica della configurazione del disco nell'oggetto macc
 ```json
 {
     "type": "Microsoft.Compute/disks",
+    "apiVersion": "2018-06-01",
     "name": "[concat(variables('vmName'),'-datadisk1')]",
-    "apiVersion": "2017-03-30",
     "location": "[resourceGroup().location]",
     "sku": {
         "name": "Standard_LRS"
@@ -161,8 +161,8 @@ All'interno dell'oggetto macchina virtuale, fare riferimento all'oggetto disco d
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/virtualMachines",
+    "apiVersion": "2018-10-01",
     "name": "[variables('vmName')]",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -206,8 +206,8 @@ Per creare set di disponibilità gestiti con macchine virtuali che usano dischi 
 
 ```json
 {
-    "apiVersion": "2017-03-30",
     "type": "Microsoft.Compute/availabilitySets",
+    "apiVersion": "2018-10-01",
     "location": "[resourceGroup().location]",
     "name": "[variables('avSetName')]",
     "properties": {
@@ -256,4 +256,4 @@ Per informazioni complete sulle specifiche dell'API REST, vedere la [documentazi
 * Per altre informazioni sui dischi gestiti, vedere [Panoramica di Azure Managed Disks](../articles/virtual-machines/windows/managed-disks-overview.md).
 * La documentazione di riferimento del modello per le risorse macchina virtuale è disponibile alla pagina [Microsoft.Compute/virtualMachines template reference](/azure/templates/microsoft.compute/virtualmachines).
 * La documentazione di riferimento del modello per le risorse disco è disponibile alla pagina [Microsoft.Compute/disks template reference](/azure/templates/microsoft.compute/disks).
-* Per informazioni su come usare i dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, vedere [Usare dischi dati con set di scalabilità](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).
+* Per informazioni su come usare i dischi gestiti nei set di scalabilità di macchine virtuali di Microsoft Azure, vedere [Usare dischi dati con set di scalabilità](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks).

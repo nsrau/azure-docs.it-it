@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0d1c2a35a6ad246eea593990c485181aa776594
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 76af36de833bc496df7c24ddb1cbfd75c91c7976
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175098"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57214759"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Come funziona: reimpostazione self-service della password di Azure AD
 
@@ -59,7 +59,7 @@ Leggere i passaggi seguenti per informazioni sulla logica alla base della pagina
 
 ## <a name="authentication-methods"></a>Metodi di autenticazione
 
-Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento.
+Se è abilitata la reimpostazione della password self-service, è necessario selezionare almeno una delle opzioni seguenti per i metodi di autenticazione. Queste opzioni sono a volte denominate "attività di controllo". È consigliabile **scegliere due o più metodi di autenticazione** in modo che gli utenti abbiano una maggiore flessibilità nel caso in cui non siano in grado di accedere a uno di questi in un dato momento. Dettagli aggiuntivi sui metodi elencati di seguito sono reperibili nell'articolo [quali sono i metodi di autenticazione?](concept-authentication-methods.md).
 
 * Notifica dell'app per dispositivi mobili (anteprima)
 * Codice dell'app per dispositivi mobili (anteprima)
@@ -69,6 +69,9 @@ Se è abilitata la reimpostazione della password self-service, è necessario sel
 * Domande di sicurezza
 
 Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi di autenticazione abilitati dall'amministratore.
+
+> [!IMPORTANT]
+> A partire da marzo del 2019 le opzioni telefonata non sarà disponibile per gli utenti MFA e SSPR nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Chiamata telefonica continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD. Questa modifica interessa solo i tenant gratuiti/versione di valutazione AD Azure.
 
 > [!WARNING]
 > Gli account assegnati i ruoli di amministratore di Azure verrà richiesto di utilizzare i metodi definiti nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).

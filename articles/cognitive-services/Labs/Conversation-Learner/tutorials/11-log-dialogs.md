@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9a819f94ae0cc90d86fdbdf4c9201f1d5a2df6ee
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: e3a84bfa643ebe74983bcef0d0ea72c701ffa589
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213345"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170497"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Informazioni su come registrare i dialoghi in un modello di Conversation Learner
 
@@ -55,6 +55,8 @@ Il modello contiene un'entità denominata "city" e le azioni progettate per risp
 9. Selezionare la risposta "The weather in Austin is probably sunny".
 10. Fare clic sul pulsante "Save As Train Dialog" (Salva come dialogo di training).
     - Il training viene avviato immediatamente.
+
+![](../media/T11_logdialog.png)
 
 Un'ultima nota: in base alle esigenze aziendali è possibile disattivare la funzione di registrazione delle conversazioni passando a Settings (Impostazioni) e deselezionando "Log Conversations" (Registra conversazioni).
 

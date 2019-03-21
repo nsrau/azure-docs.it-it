@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: article
 ms.date: 02/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 24af2150438d3db13323aaecdfd89302b8152fa9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ed6d567be255fe9b72be564c31d734541a1ffa73
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879123"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453338"
 ---
 # <a name="troubleshoot-issues-in-azure-data-box-disk"></a>Risoluzione dei problemi in Azure Data Box Disk
 
@@ -73,7 +73,7 @@ I registri attività vengono conservati per 90 giorni. È possibile eseguire que
 | Impossibile sbloccare o verificare i volumi. Contattare il supporto Microsoft.  <br><br>Lo strumento non riesce a sbloccare o verificare alcuna unità bloccata. | Lo strumento non è riuscito a sbloccare alcuna unità bloccata con la passkey fornita. Contattare il supporto tecnico Microsoft per i passaggi successivi.                                                |
 | I volumi seguenti sono sbloccati e verificati. <br>Lettere di unità dei volumi: E:<br>Impossibile sbloccare volumi con le passkey seguenti: werwerqomnf, qwerwerqwdfda <br><br>Lo strumento sblocca alcune unità ed elenca le lettere di unità per cui lo sblocco è riuscito o non è riuscito.| Operazione completata parzialmente. Impossibile sbloccare alcune delle unità con la passkey fornita. Contattare il supporto tecnico Microsoft per i passaggi successivi. |
 | Impossibile trovare volumi bloccati. Verificare che il disco ricevuto da Microsoft sia connesso correttamente e sia in stato bloccato.          | Lo strumento non riesce a trovare unità bloccate. Le unità sono già sbloccate o non vengono rilevate. Assicurarsi che le unità siano collegate e bloccate.                                                           |
-| Errore irreversibile: Parametro non valido<br>Nome del parametro: invalid_arg<br>SINTASSI:<br>DataBoxDiskUnlock /PassKeys:<elenco_passkey_delimitato_da_punti_e_virgola><br><br>Esempio: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Esempio: DataBoxDiskUnlock /SystemCheck<br>Esempio: DataBoxDiskUnlock /Help<br><br>/PassKeys:       ottenere questa passkey dall'ordine di Azure DataBox Disk. La passkey sblocca i dischi.<br>/Help:           questa opzione offre informazioni sull'utilizzo e gli esempi per il cmdlet.<br>/SystemCheck:    questa opzione controlla se il sistema soddisfa i requisiti per eseguire lo strumento.<br><br>Premere un tasto qualsiasi per uscire. | Immesso parametro non valido. I soli parametri consentiti sono /SystemCheck /PassKey e /Help.                                                                            |
+| Errore irreversibile: Parametro non valido<br>Nome del parametro: invalid_arg<br>SINTASSI:<br>DataBoxDiskUnlock /PassKeys:<elenco_passkey_delimitato_da_punti_e_virgola><br><br>Esempio: DataBoxDiskUnlock /PassKeys:passkey1;passkey2;passkey3<br>Esempio: DataBoxDiskUnlock /SystemCheck<br>Esempio: DataBoxDiskUnlock /Help<br><br>/PassKeys:       ottenere questa passkey dall'ordine di Azure DataBox Disk. La passkey sblocca i dischi.<br>/Help:           questa opzione offre informazioni sull'utilizzo e gli esempi per il cmdlet.<br>/SystemCheck:    questa opzione controlla se il sistema soddisfa i requisiti per eseguire lo strumento.<br><br>Premere un tasto qualsiasi per uscire. | Immesso parametro non valido. Gli unici parametri consentiti sono /SystemCheck /PassKey e /Help.                                                                            |
 
 ## <a name="data-box-disk-split-copy-tool-errors"></a>Errori dello strumento di divisione della copia di Data Box Disk
 

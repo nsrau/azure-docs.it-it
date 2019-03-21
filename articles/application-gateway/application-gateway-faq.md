@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 3/13/2019
+ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: 96bd9e679e1766e87a0bb807204df744bb3cca95
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897708"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286194"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -31,7 +31,7 @@ Il gateway applicazione supporta scalabilità automatica, offload SSL e SSL end-
 
 ### <a name="what-is-the-difference-between-application-gateway-and-azure-load-balancer"></a>Qual è la differenza tra gateway applicazione e Azure Load Balancer?
 
-Il gateway applicazione è un servizio di bilanciamento del carico di livello 7 e funziona quindi solo con il traffico Web (HTTP/HTTPS/WebSocket). Supporta funzionalità come terminazione SSL, affinità di sessione basata su cookie e round robin per il bilanciamento del carico del traffico. Load Balancer esegue il bilanciamento del carico del traffico al livello 4 (TCP/UDP).
+Il Gateway applicazione è un bilanciamento del carico di livello 7, quindi che usa solo il traffico web (HTTP/HTTPS/WebSocket/HTTP/2). Supporta funzionalità come terminazione SSL, affinità di sessione basata su cookie e round robin per il bilanciamento del carico del traffico. Load Balancer esegue il bilanciamento del carico del traffico al livello 4 (TCP/UDP).
 
 ### <a name="what-protocols-does-application-gateway-support"></a>Quali protocolli supporta il gateway applicazione?
 
@@ -39,19 +39,11 @@ Il gateway applicazione supporta HTTP, HTTPS, HTTP/2 e WebSocket.
 
 ### <a name="how-does-application-gateway-support-http2"></a>In che modo il gateway applicazione supporta HTTP/2?
 
-Il supporto del protocollo HTTP/2 è disponibile per i client che si connettono solo a listener del gateway applicazione. La comunicazione con i pool di server back-end avviene tramite HTTP/1.1. 
-
-Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. Il frammento di codice di esempio seguente, di Azure PowerShell, illustra come abilitarlo:
-
-```azurepowershell
-$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
-$gw.EnableHttp2 = $true
-Set-AzApplicationGateway -ApplicationGateway $gw
-```
+Visualizzare [supporto HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support) per scoprire se il gateway applicazione supporta il protocollo HTTP/2.
 
 ### <a name="what-resources-are-supported-today-as-part-of-backend-pool"></a>Quali risorse sono supportate oggi nell'ambito del pool back-end?
 
-I pool back-end possono essere costituiti da schede di interfaccia di rete, set di scalabilità di macchine virtuali, indirizzi IP pubblici, indirizzi IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. I membri del pool back-end del gateway applicazione non sono associati a un set di disponibilità. I membri del pool back-end possono trovarsi tra cluster, data center o all'esterno di Azure, purché abbiano connettività IP.
+Visualizzare [supportato risorse back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#backend-pool) per informazioni su quali risorse sono supportate dal gateway applicazione.
 
 ### <a name="what-regions-is-the-service-available-in"></a>In quale aree è disponibile il servizio?
 
@@ -104,9 +96,7 @@ La combinazione dei gateway applicazione Standard_v2 e Standard nella stessa sub
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Il gateway applicazione supporta le intestazioni x-forwarded-for?
 
-Sì, il gateway applicazione inserisce le intestazioni x-forwarded-for, x-forwarded-proto e x-forwarded-port nella richiesta inoltrata al back-end. Il formato dell'intestazione x-forwarded-for è un elenco di IP:Porta separato da virgole. I valori validi per x-forwarded-proto sono http o https. X-forwarded-port specifica la porta raggiunta dalla richiesta nel gateway applicazione.
-
-Il gateway applicazione inserisce anche un'intestazione X-Original-Host contenente l'intestazione Host originale con cui è arrivata la richiesta. Questa intestazione è utile in scenari come l'integrazione di un sito Web di Azure, in cui l'intestazione host in ingresso viene modificata prima che il traffico venga indirizzato al back-end.
+Sì. Visualizzare [modifiche per richiedere](https://docs.microsoft.com/azure/application-gateway/how-application-gateway-works#modifications-to-the-request) per apprendere le intestazioni x-forwarded-for supportate dal Gateway applicazione.
 
 ### <a name="how-long-does-it-take-to-deploy-an-application-gateway-does-my-application-gateway-still-work-when-being-updated"></a>Quanto tempo occorre per distribuire un gateway applicazione? Il gateway applicazione funziona durante l'aggiornamento?
 
@@ -114,15 +104,47 @@ Nuove distribuzioni di SKU versione 1 del gateway applicazione possono richieder
 
 Le distribuzioni di SKU versione 2 possono richiedere circa cinque e sei minuti per effettuare il provisioning.
 
+### <a name="can-exchange-server-be-used-as-backend-with-application-gateway"></a>Exchange server può essere usato come back-end con il Gateway applicazione?
+
+No, il Gateway applicazione non supporta i protocolli di messaggio di posta elettronica quali SMTP, IMAP e POP3. 
+
+## <a name="performance"></a>Prestazioni
+
+### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>In che modo il gateway applicazione supporta la disponibilità elevata e la scalabilità?
+
+Lo SKU versione 1 del gateway applicazione supporta scenari di disponibilità elevata se sono presenti due o più istanze distribuite. Azure distribuisce queste istanze nei domini di errore e di aggiornamento per impedire l'arresto simultaneo di tutte le istanze. Lo SKU versione 1 supporta la scalabilità tramite l'aggiunta di più istanze dello stesso gateway per ripartire il carico.
+
+Lo SKU V2 garantisce automaticamente che le nuove istanze vengono distribuite tra domini di errore e domini di aggiornamento. Se si sceglie la ridondanza della zona, le istanze più recenti vengono anche distribuite tra le zone di disponibilità per offrire resilienza dagli errori delle zone.
+
+### <a name="how-do-i-achieve-dr-scenario-across-data-centers-with-application-gateway"></a>Come si ottiene uno scenario di ripristino di emergenza tra data center con un gateway applicazione?
+
+I clienti possono usare Gestione traffico per distribuire il traffico tra più gateway applicazione in data center diversi.
+
+### <a name="is-autoscaling-supported"></a>La scalabilità automatica è supportata?
+
+Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
+
+### <a name="does-manual-scale-updown-cause-downtime"></a>Il ridimensionamento manuale causa tempi di inattività?
+
+Non si verificano tempi di inattività. Le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
+
+### <a name="does-application-gateway-support-connection-draining"></a>Il gateway applicazione supporta l'esaurimento delle connessioni?
+
+Sì. È possibile configurare l'esaurimento delle connessioni per modificare i membri all'interno di un pool back-end senza interruzioni. In questo modo le connessioni esistenti continuano a essere inviate alla relativa destinazione precedente fino a quando tale connessione viene chiusa o un timeout configurabile scade. L'esaurimento delle connessioni attende solo il completamento delle connessioni correnti in corso. Gateway applicazione non rileva lo stato della sessione applicazione.
+
+### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>È possibile modificare le dimensioni di un'istanza da medie a grandi senza interruzioni?
+
+Sì, Azure distribuisce le istanze nei domini di errore e di aggiornamento per impedire l'arresto simultaneo di tutte le istanze. Il gateway applicazione supporta la scalabilità con l'aggiunta di più istanze dello stesso gateway per la condivisione del carico.
+
 ## <a name="configuration"></a>Configurazione
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Il gateway applicazione viene sempre distribuito in una rete virtuale?
 
-Sì, il gateway applicazione viene sempre distribuito in una subnet di rete virtuale. Questa subnet può contenere solo gateway applicazione.
+Sì, il gateway applicazione viene sempre distribuito in una subnet di rete virtuale. Questa subnet può contenere solo gateway applicazione. Visualizzare [requisiti di rete e subnet virtuali](https://docs.microsoft.com/azure/application-gateway/configuration-overview#azure-virtual-network-and-dedicated-subnet) per comprendere le considerazioni di subnet per il Gateway applicazione.
 
-### <a name="can-application-gateway-communicate-with-instances-outside-its-virtual-network"></a>Il gateway applicazione può comunicare con istanze all'esterno della rete virtuale?
+### <a name="can-application-gateway-communicate-with-instances-outside-of-the-virtual-network-it-is-in-or-outside-of-the-subscription-it-is-in"></a>Il Gateway applicazione può comunicare con le istanze all'esterno della rete virtuale in che è o all'esterno della sottoscrizione in che si trova?
 
-Il gateway applicazione può comunicare con le istanze all'esterno della rete virtuale nella quale si trova se è disponibile la connettività IP. Se si prevede di usare indirizzi IP interni come membri del pool back-end, è necessario il [peering reti virtuali](../virtual-network/virtual-network-peering-overview.md) o il [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Il Gateway applicazione può comunicare con istanze all'esterno della rete virtuale a cui si trova o all'esterno della sottoscrizione che è, purché vi sia connettività IP. Se si prevede di usare indirizzi IP interni come membri del pool back-end, è necessario il [peering reti virtuali](../virtual-network/virtual-network-peering-overview.md) o il [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>È possibile distribuire altri elementi nella subnet del gateway applicazione?
 
@@ -140,11 +162,7 @@ I gruppi di sicurezza di rete (NSG) sono supportati nella subnet del gateway app
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Le route definite dall'utente sono supportate nella subnet del gateway applicazione?
 
-Le route definite dall'utente (Udr) sono supportate nella subnet del gateway applicazione, purché non modificano la comunicazione end-to-end di richiesta/risposta.
-
-Ad esempio, è possibile configurare una route UDR nella subnet del gateway applicazione in modo che punti a un'appliance firewall per l'ispezione dei pacchetti, ma è necessario assicurarsi che il pacchetto possa raggiungere l'ispezione dei post relativa alla destinazione prevista. In caso contrario, potrebbe tradursi in probe di integrità o comportamento di instradamento del traffico non corretti. Sono incluse route o route 0.0.0.0/0 predefinite propagate dal gateway VPN o ExpressRoute nella rete virtuale.
-
-Le route definite dall'utente nella subnet del gateway **non** sono supportate nello SKU v2. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md#known-issues-and-limitations).
+Visualizzare [restrizioni di route definite dall'utente](https://docs.microsoft.com/azure/application-gateway/configuration-overview#user-defined-routes-supported-on-the-application-gateway-subnet) per apprendere le route definite dall'utente supportate nella subnet del gateway applicazione.
 
 ### <a name="what-are-the-limits-on-application-gateway-can-i-increase-these-limits"></a>Quali sono i limiti del gateway applicazione? È possibile aumentare questi limiti?
 
@@ -180,51 +198,13 @@ Il campo Host specifica il nome a cui inviare il probe. Applicabile solo quando 
 
 ### <a name="can-i-whitelist-application-gateway-access-to-a-few-source-ips"></a>È possibile consentire l'accesso al gateway applicazione ad alcuni IP di origine?
 
-Questo scenario è possibile usando gruppi di sicurezza di rete nella subnet del gateway applicazione. Nella subnet nell'ordine di priorità elencato, è necessario inserire le restrizioni seguenti:
-
-* Consentire il traffico in ingresso dall'intervallo di IP/IP di origine.
-
-* Consentire le richieste in ingresso da tutte le origini alle porte 65503-65534 per la [comunicazione integrità back-end](application-gateway-diagnostics.md). Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
-
-* Consentire probe di bilanciamento del carico di Azure in ingresso (tag AzureLoadBalancer) e il traffico di rete virtuale in ingresso (tag VirtualNetwork) nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md).
-
-* Bloccare tutto il traffico in ingresso con una regola Nega tutto.
-
-* Consentire il traffico in uscita a Internet per tutte le destinazioni.
+Sì. Visualizzare [limitare l'accesso a specifici indirizzi IP di origine](https://docs.microsoft.com/azure/application-gateway/configuration-overview#whitelist-application-gateway-access-to-a-few-source-ips) per comprendere come garantire che solo nell'elenco elementi consentiti gli IP di origine possono accedere al Gateway applicazione.
 
 ### <a name="can-the-same-port-be-used-for-both-public-and-private-facing-listeners"></a>La stessa porta può essere usata per i listener pubblici e privati?
 
 No, questa operazione non è supportata.
 
-## <a name="performance"></a>Prestazioni
-
-### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>In che modo il gateway applicazione supporta la disponibilità elevata e la scalabilità?
-
-Lo SKU versione 1 del gateway applicazione supporta scenari di disponibilità elevata se sono presenti due o più istanze distribuite. Azure distribuisce queste istanze nei domini di errore e di aggiornamento per impedire l'arresto simultaneo di tutte le istanze. Lo SKU versione 1 supporta la scalabilità tramite l'aggiunta di più istanze dello stesso gateway per ripartire il carico.
-
-Lo SKU V2 garantisce automaticamente che le nuove istanze vengono distribuite tra domini di errore e domini di aggiornamento. Se si sceglie la ridondanza della zona, le istanze più recenti vengono anche distribuite tra le zone di disponibilità per offrire resilienza dagli errori delle zone.
-
-### <a name="how-do-i-achieve-dr-scenario-across-data-centers-with-application-gateway"></a>Come si ottiene uno scenario di ripristino di emergenza tra data center con un gateway applicazione?
-
-I clienti possono usare Gestione traffico per distribuire il traffico tra più gateway applicazione in data center diversi.
-
-### <a name="is-autoscaling-supported"></a>La scalabilità automatica è supportata?
-
-Sì, lo SKU versione 2 del gateway applicazione supporta la scalabilità automatica. Per altre informazioni, vedere [Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)](application-gateway-autoscaling-zone-redundant.md).
-
-### <a name="does-manual-scale-updown-cause-downtime"></a>Il ridimensionamento manuale causa tempi di inattività?
-
-Non si verificano tempi di inattività. Le istanze vengono distribuite tra domini di aggiornamento e domini di errore.
-
-### <a name="does-application-gateway-support-connection-draining"></a>Il gateway applicazione supporta l'esaurimento delle connessioni?
-
-Sì. È possibile configurare l'esaurimento delle connessioni per modificare i membri all'interno di un pool back-end senza interruzioni. In questo modo le connessioni esistenti continuano a essere inviate alla relativa destinazione precedente fino a quando tale connessione viene chiusa o un timeout configurabile scade. L'esaurimento delle connessioni attende solo il completamento delle connessioni correnti in corso. Gateway applicazione non rileva lo stato della sessione applicazione.
-
-### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>È possibile modificare le dimensioni di un'istanza da medie a grandi senza interruzioni?
-
-Sì, Azure distribuisce le istanze nei domini di errore e di aggiornamento per impedire l'arresto simultaneo di tutte le istanze. Il gateway applicazione supporta la scalabilità con l'aggiunta di più istanze dello stesso gateway per la condivisione del carico.
-
-## <a name="ssl-configuration"></a>Configurazione SSL
+## <a name="configuration---ssl"></a>Configurazione di SSL:
 
 ### <a name="what-certificates-are-supported-on-application-gateway"></a>Quali certificati sono supportati dal gateway applicazione?
 
@@ -294,7 +274,11 @@ Sono supportati fino a 10 certificati di autenticazione con un valore predefinit
 
 No, non è integrato con Azure Key Vault.
 
-## <a name="web-application-firewall-waf-configuration"></a>Configurazione del Web application firewall (WAF)
+### <a name="how-to-configure-https-listeners-for-com-and-net-sites"></a>Come configurare i listener HTTPS per i siti. com e .net? 
+
+Per più basati su dominio (host routing basato su), è possibile creare i listener multisito, selezionare HTTPS come protocollo nella configurazione del listener e associare i listener con le regole di routing. Per altre informazioni, vedere [che ospita più siti con un Gateway applicazione](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview). 
+
+## <a name="configuration---web-application-firewall-waf"></a>Configurazione di Web Application Firewall (WAF):
 
 ### <a name="does-the-waf-sku-offer-all-the-features-available-with-the-standard-sku"></a>Lo SKU del WAF offre tutte le funzionalità disponibili con lo SKU Standard?
 

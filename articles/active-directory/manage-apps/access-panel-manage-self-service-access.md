@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: japere,asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c7c7236b54ef44b0cc8602c0dce531c09f7d29
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3afe915f4fa1d9c1c36860d23912ac0e01088724
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169599"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093508"
 ---
 # <a name="how-to-use-self-service-application-access"></a>Come usare l'accesso alle applicazioni self-service
 
@@ -49,25 +49,25 @@ L'accesso alle applicazioni self-service è un modo efficace per consentire agli
 
 Per abilitare l'accesso self-service per un'applicazione, seguire questa procedura:
 
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
+1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
 
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
+2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
 
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
+3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
 
-4.  Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
+4. Fare clic su **Applicazioni aziendali** nel menu di navigazione a sinistra di Azure Active Directory.
 
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
+5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
 
-  * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
 
-6.  Selezionare l'applicazione per cui si desidera abilitare l'accesso self-service dall'elenco.
+6. Selezionare l'applicazione per cui si desidera abilitare l'accesso self-service dall'elenco.
 
-7.  Dopo il caricamento dell'applicazione, fare clic su **Self-service** nel menu di navigazione a sinistra dell'applicazione.
+7. Dopo il caricamento dell'applicazione, fare clic su **Self-service** nel menu di navigazione a sinistra dell'applicazione.
 
-8.  Per abilitare l'accesso self-service per questa applicazione, impostare l'opzione **Consentire agli utenti di richiedere l'accesso a questa applicazione?** su **Sì**.
+8. Per abilitare l'accesso self-service per questa applicazione, impostare l'opzione **Consentire agli utenti di richiedere l'accesso a questa applicazione?** su **Sì**.
 
-9.  Successivamente, per selezionare il gruppo al quale devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Gruppo a cui devono essere aggiunti gli utenti assegnati** e selezionare un gruppo.
+9. Successivamente, per selezionare il gruppo al quale devono essere aggiunti gli utenti che richiedono l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Gruppo a cui devono essere aggiunti gli utenti assegnati** e selezionare un gruppo.
 
 10. **Facoltativo:** se si vuole richiedere un'approvazione aziendale prima che venga consentito l'accesso agli utenti, impostare l'opzione **Richiedere l'approvazione prima di concedere l'accesso a questa applicazione?** su **Sì**.
 
@@ -75,7 +75,7 @@ Per abilitare l'accesso self-service per un'applicazione, seguire questa procedu
 
 12. **Facoltativo:** per specificare i responsabili approvazione aziendali che possono approvare l'accesso a questa applicazione, fare clic sul selettore accanto all'etichetta **Utenti autorizzati ad approvare l'accesso a questa applicazione** per selezionare fino a 10 singoli responsabili approvazione aziendali.
 
-   * I gruppi non sono supportati.
+    * I gruppi non sono supportati.
 
 13. **Facoltativo:** **per le applicazioni che espongono ruoli**, se si vuole assegnare un ruolo agli utenti approvati self-service, fare clic sul selettore accanto all'opzione **A quale ruolo è necessario assegnare gli utenti in questa applicazione?** per selezionare il ruolo cui devono essere assegnati questi utenti.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 03/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: c994190ed4ccbd8e5b90f17b70ec6b65477fb0d8
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d6b669f5baae13f9fb57c5c58060e70a8f871e17
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117269"
 ---
 # <a name="how-to-send-real-user-measurements-to-azure-traffic-manager-using-web-pages"></a>Come inviare le Misurazioni utente reale a Gestione traffico di Azure usando le pagine Web
 
@@ -34,7 +34,7 @@ Per ottenere la chiave RUM tramite il portale di Azure:
 3. Nel pannello del profilo di Gestione traffico fare clic su **Misurazioni utente reale** in **Impostazioni**.
 4. Fare clic su **Genera chiave** per creare una nuova chiave RUM.
  
-  ![Generare una chiave delle Misurazioni utente reale](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
+   ![Generare una chiave delle Misurazioni utente reale](./media/traffic-manager-create-rum-visual-studio/generate-rum-key.png)
 
    **Figura 1: Generazione della chiave per le misurazioni utente reale**
 
@@ -44,7 +44,7 @@ Per ottenere la chiave RUM tramite il portale di Azure:
 
     **Figura 2: Chiave delle misurazioni utente reale e JavaScript per le misurazioni**
  
-6.  Fare clic sul pulsante **Copia** per copiare il codice JavaScript. 
+6. Fare clic sul pulsante **Copia** per copiare il codice JavaScript. 
 
 >[!IMPORTANT]
 > Usare il codice JavaScript generato per eseguire correttamente la funzionalità Misurazioni utente reale. Le modifiche a questo script o agli script usati da Misurazioni utente reale possono causare un comportamento imprevedibile.

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: d2e29e183ab898635f550290b6ebd6eddd42c4d2
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 15dd878b7ff322ac8243b37649f16fed4e068af4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55659202"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091716"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-by-using-azure-cli-in-azure-stack"></a>Guida introduttiva: creare una macchina virtuale Windows Server usando Azure CLI in Azure Stack
 
@@ -42,8 +42,8 @@ ms.locfileid: "55659202"
 
 Un gruppo di risorse è un contenitore logico in cui è possibile distribuire e gestire le risorse di Azure Stack. Dall'ambiente Azure Stack, eseguire la [creare il gruppo di az](/cli/azure/group#az-group-create) comando per creare un gruppo di risorse.
 
->[!NOTE]
- I valori vengono assegnati per tutte le variabili negli esempi di codice. Tuttavia, è possibile assegnare nuovi valori, se si desidera.
+> [!NOTE]
+>  I valori vengono assegnati per tutte le variabili negli esempi di codice. Tuttavia, è possibile assegnare nuovi valori, se si desidera.
 
 L'esempio seguente crea un gruppo di risorse denominato myResourceGroup nella località locale.
 

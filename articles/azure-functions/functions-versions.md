@@ -9,16 +9,16 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
-ms.translationtype: HT
+ms.openlocfilehash: 6988fb547b07f81891efea3caad8bf34f4c8a476
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885188"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088418"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Panoramica delle versioni del runtime per Funzioni di Azure
 
- Esistono due versioni principali del runtime di Funzioni di Azure: 1.x e 2.x. La versione corrente in cui vengono apportati le nuove funzionalità e i miglioramenti è la 2.x, anche se entrambe sono supportate per gli scenari di produzione.  Di seguito sono illustrate in dettaglio alcune delle differenze tra le due versioni e viene descritto come creare ogni versione e come eseguire l'aggiornamento dalla versione 1.x alla versione 2.x.
+ Esistono due versioni principali del runtime di funzioni di Azure: versioni 1.x e 2.x. La versione corrente in cui vengono apportati le nuove funzionalità e i miglioramenti è la 2.x, anche se entrambe sono supportate per gli scenari di produzione.  Di seguito sono illustrate in dettaglio alcune delle differenze tra le due versioni e viene descritto come creare ogni versione e come eseguire l'aggiornamento dalla versione 1.x alla versione 2.x.
 
 > [!NOTE]
 > Questo articolo si riferisce al servizio cloud di Funzioni di Azure. Per informazioni sul prodotto in anteprima che consente di eseguire Funzioni di Azure in locale, vedere [Panoramica sul runtime di Funzioni di Azure](functions-runtime-overview.md).
@@ -29,7 +29,7 @@ Il runtime versione 2.x viene eseguito in .NET Core 2, che ne consente l'esecuzi
 
 A confronto, il runtime versione 1.x supporta solo lo sviluppo e l'hosting nel portale di Azure o nei computer Windows.
 
-## <a name="languages"></a>Lingue
+## <a name="languages"></a>Languages
 
 Il runtime versione 2.x usa un nuovo modello di estendibilità del linguaggio. Nella versione 2.x tutte le funzioni in un'app per le funzioni devono condividere lo stesso linguaggio. Il linguaggio delle funzioni in un'app per le funzioni viene scelto durante la creazione dell'app.
 
@@ -49,7 +49,7 @@ Per impostazione predefinita, le app per le funzioni create nel portale di Azure
 
 ### <a name="changes-in-triggers-and-bindings"></a>Modifiche apportate a trigger e binding
 
-La versione 2.x richiede di installare le estensioni per specifici trigger e binding usati dalle funzioni nell'app. L'unica eccezione sono i trigger HTTP e Timer, che non richiedono un'estensione.  Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-triggers-bindings.md#register-binding-extensions).
+La versione 2.x richiede di installare le estensioni per specifici trigger e binding usati dalle funzioni nell'app. L'unica eccezione sono i trigger HTTP e Timer, che non richiedono un'estensione.  Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-bindings-register.md).
 
 Sono state apportate anche alcune modifiche in `function.json` o negli attributi della funzione tra le versioni. Ad esempio, la proprietà `path` dell'hub eventi è ora `eventHubName`. Vedere la [tabella di binding esistente](#bindings) per collegamenti alla documentazione per ogni binding.
 
@@ -65,9 +65,9 @@ Nella versione 2.x sono state apportate le modifiche seguenti:
 
 * Il file di configurazione host (host.json) deve essere vuoto o avere la stringa `"version": "2.0"`.
 
-* Per migliorare il monitoraggio, il dashboard di Processi Web nel portale, che usa l'impostazione [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), è stato sostituito con Azure Application Insights, che usa l'impostazione [ `APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey). Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
+* Per migliorare il monitoraggio, il dashboard di Processi Web nel portale, che usa l'impostazione [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), è stato sostituito con Azure Application Insights, che usa l'impostazione [ `APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsights_instrumentationkey). Per altre informazioni, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).
 
-* Tutte le funzioni in un'app per le funzioni devono condividere lo stesso linguaggio. Quando si crea un'app per le funzioni, è necessario scegliere uno stack di runtime per l'app. Lo stack di runtime viene specificato dal valore [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) nelle impostazioni dell'applicazione. Questo requisito è stato aggiunto per migliorare tempi di avvio e footprint. In caso di sviluppo in locale, è necessario includere anche questa impostazione nel [file local.settings.json](functions-run-local.md#local-settings-file).
+* Tutte le funzioni in un'app per le funzioni devono condividere lo stesso linguaggio. Quando si crea un'app per le funzioni, è necessario scegliere uno stack di runtime per l'app. Lo stack di runtime viene specificato dal valore [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functions_worker_runtime) nelle impostazioni dell'applicazione. Questo requisito è stato aggiunto per migliorare tempi di avvio e footprint. In caso di sviluppo in locale, è necessario includere anche questa impostazione nel [file local.settings.json](functions-run-local.md#local-settings-file).
 
 * Il timeout predefinito per le funzioni in un piano di servizio app è ora di 30 minuti. È possibile riportare manualmente il timeout al valore illimitato mediante l'impostazione [functionTimeout](functions-host-json.md#functiontimeout) in host.json.
 
@@ -95,7 +95,7 @@ In Visual Studio è possibile selezionare la versione del runtime quando si crea
 ##### <a name="version-2x"></a>Versione 2.x
 
 ```xml
-<TargetFramework>netstandard2.0</TargetFramework>
+<TargetFramework>netcoreapp2.2</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
@@ -109,7 +109,7 @@ Per lo sviluppo con Visual Studio Code può anche essere necessario aggiornare l
 
 ### <a name="changing-version-of-apps-in-azure"></a>Modifica della versione delle app in Azure
 
-La versione del runtime di Funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell'applicazione [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion). Il valore `~2` si riferisce alla versione 2.x del runtime e il valore `~1` alla versione 1.x del runtime. Non modificare arbitrariamente questa impostazione, poiché sono probabilmente necessarie altre modifiche alle impostazioni dell'app e al codice nelle funzioni. Per individuare la procedura consigliata per la migrazione dell'app per le funzioni a una versione diversa del runtime, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md).
+La versione del runtime di Funzioni usata dalle app pubblicate in Azure è determinata dall'impostazione dell'applicazione [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functions_extension_version). Il valore `~2` si riferisce alla versione 2.x del runtime e il valore `~1` alla versione 1.x del runtime. Non modificare arbitrariamente questa impostazione, poiché sono probabilmente necessarie altre modifiche alle impostazioni dell'app e al codice nelle funzioni. Per individuare la procedura consigliata per la migrazione dell'app per le funzioni a una versione diversa del runtime, vedere [Come specificare le versioni del runtime per Funzioni di Azure](set-runtime-version.md).
 
 ## <a name="bindings"></a>Associazioni
 
@@ -121,11 +121,13 @@ La versione 2.x del runtime usa un nuovo [modello di estendibilità di binding](
 
 * Ambiente di esecuzione più leggero, in cui solo le associazioni in uso sono note e vengono caricate dal runtime.
 
-Ad eccezione dei trigger HTTP e Timer, tutti i binding devono essere esplicitamente aggiunti al progetto dell'app per le funzioni o registrati nel portale. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](functions-triggers-bindings.md#register-binding-extensions).
+Ad eccezione dei trigger HTTP e Timer, tutti i binding devono essere esplicitamente aggiunti al progetto dell'app per le funzioni o registrati nel portale. Per altre informazioni, vedere [Registrare le estensioni delle associazioni](./functions-bindings-expressions-patterns.md).
 
 Nella tabella seguente sono indicati i binding supportati in ogni versione del runtime.
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

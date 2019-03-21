@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 5c2d19c6-dd40-4c4b-abd3-5c5ec0abed38
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 66c51b08884c9d7a4d522c94f7b81774ec7a8bda
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 985d41d3a00974e25c9abc4709c5bf5e662f7a50
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642003"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086038"
 ---
 # <a name="placement-policies-for-service-fabric-services"></a>Criteri di posizionamento per i servizi di Service Fabric
 I criteri di posizionamento sono le regole aggiuntive che possono essere usate per definire la posizione del servizio in alcuni scenari specifici, meno comuni. Alcuni esempi di questi scenari sono:
@@ -44,6 +44,7 @@ La maggior parte dei comandi seguenti può essere configurata tramite le proprie
 Il criterio di posizionamento **InvalidDomain** consente di specificare che un particolare dominio di errore non è valido per un servizio specifico. Questo criterio garantisce che un particolare servizio non sia mai eseguito in una determinata area, ad esempio per motivi geopolitici o criteri aziendali. È possibile specificare più domini non validi tramite criteri separati.
 
 <center>
+
 ![Esempio di dominio non valido][Image1]
 </center>
 
@@ -64,6 +65,7 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 I criteri di selezione del dominio richiesto richiedono che il servizio sia presente solo nel dominio specificato. È possibile specificare più domini richiesti tramite criteri separati.
 
 <center>
+
 ![Esempio di dominio obbligatorio][Image2]
 </center>
 
@@ -85,7 +87,8 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 Il dominio primario preferito specifica il dominio di errore per posizionare il server primario. Quando ogni elemento è integro, l'elemento primario finisce in questo dominio. Se il dominio o la replica primaria non riescono o vengono chiusi, il database primario si sposta in un'altra posizione, idealmente nello stesso dominio. Se questa nuova posizione non si trova nel dominio preferito, Cluster Resource Manager riporta l'elemento nel dominio preferito. Naturalmente questa impostazione è adatta solo ai servizi con stati. Questo criterio è particolarmente utile in cluster distribuiti tra più data center o aree di Azure, ma hanno dei data center che preferiscono la collocazione in una determinata posizione. Mantenendo i Primari vicini agli utenti o ad altri servizi si permette di garantire una latenza più bassa, in particolare per le letture, che sono gestite dai Primari, per impostazione predefinita.
 
 <center>
-![Failover e domini primari preferiti][Image3]
+
+![Failover e domini primari Preferiti][Image3]
 </center>
 
 ```csharp

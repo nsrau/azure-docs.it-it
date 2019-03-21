@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Elaborare fatture EDIFACT con Servizi BizTalk di Azure | Documentazione Microsoft'
+title: 'Esercitazione: Elaborare fatture EDIFACT mediante servizi BizTalk di Azure | Microsoft Docs'
 description: Come creare e configurare l'app per le API o il connettore Box e usarlo in un'app per la logica in Azure App Service
 services: biztalk-services
 documentationcenter: .net,nodejs,java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51244492"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57550123"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Esercitazione: Elaborare fatture EDIFACT con Servizi BizTalk di Azure
 
@@ -55,13 +55,13 @@ Per ottenere questo scenario aziendale, Contoso usa le funzionalità fornite con
 Per completare lo scenario, vengono usate code di bus di servizio per inviare la fattura da Contoso a Northwind o ricevere un acknowledgement da Northwind. Queste code possono essere create usando un'applicazione client, disponibile come download e inclusa nel pacchetto di esempio fornito come parte dell'esercitazione.  
 
 ## <a name="prerequisites"></a>Prerequisiti
-* È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [Procedura: Creare o modificare uno spazio dei nomi del servizio del bus di servizio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
+* È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [How To: Creare o modificare un Namespace di servizio del Bus di servizio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
 * È necessario disporre di una sottoscrizione a Servizi BizTalk. Per questa esercitazione, si supponga di avere una sottoscrizione a Servizi BizTalk, denominata **contosowabs**.
 * Registrare la propria sottoscrizione a Servizi BizTalk nel portale di Servizi BizTalk. Per istruzioni, vedere [Registrazione e aggiornamento di una distribuzione del servizio BizTalk nel portale dei servizi BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * È necessario aver installato Visual Studio.
-* È necessario aver installato BizTalk Services SDK. È possibile scaricare l'SDK da [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
+* È necessario aver installato BizTalk Services SDK. È possibile scaricare l'SDK da [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
-## <a name="step-1-create-the-service-bus-queues"></a>Passaggio 1: creare le code del bus di servizio
+## <a name="step-1-create-the-service-bus-queues"></a>Passaggio 1: Creare le code del Bus di servizio
 Questa soluzione usa code di bus di servizio per lo scambio di messaggi tra i partner commerciali. Contoso e Northwind inviano messaggi alle code, da dove vengono usati dai bridge EAI e/o EDI. Per questa soluzione, sono necessarie tre code del bus di servizio:
 
 * **northwindreceive** : Northwind riceve la fattura da Contoso tramite questa coda.
@@ -78,7 +78,7 @@ Questa soluzione usa code di bus di servizio per lo scambio di messaggi tra i pa
 4. Un messaggio informa che verranno create tre code nello spazio dei nomi del bus di servizio. Fare clic su **OK**.
 5. Lasciare in esecuzione il client dell'esercitazione. Aprire , fare clic su **Bus di servizio** > ***spazio dei nomi del bus di servizio*** > **Code** e verificare che le tre code siano state create.  
 
-## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>Passaggio 2: creare e distribuire un contratto tra partner commerciali
+## <a name="step-2-create-and-deploy-trading-partner-agreement"></a>Passaggio 2: Creare e distribuire l'accordo tra partner commerciali
 Creare un accordo tra partner commerciali tra Contoso e Northwind. Questo tipo di accordo definisce un contratto per gli scambi tra i due partner commerciali, ad esempio quale schema dei messaggi usare, quale protocollo di messaggistica applicare e così via. Un accordo tra partner commerciali include due bridge EDI, uno per inviare messaggi ai partner commerciali (denominato **bridge di trasmissione EDI**) e uno per ricevere messaggi dai partner commerciali (denominato **bridge di ricezione EDI**).
 
 Nel contesto di questa soluzione il bridge di trasmissione EDI corrisponde al lato invio dell'accordo e viene usato per inviare la fattura EDIFACT da Contoso a Northwind. Analogamente, il bridge di ricezione EDI corrisponde al lato ricezione dell'accordo e viene usato per ricevere gli acknowledgement da Northwind.  
@@ -106,7 +106,7 @@ Gli accordi tra partner commerciali vengono creati tra i profili di business dei
    3. Nella scheda **Protocollo** caricare lo schema **EFACT_D93A_INVOIC.xsd** nella sezione **Schemi**. Questo schema è disponibile con il pacchetto di esempio.
       
       ![][4]  
-   4. Nella scheda **Trasporto** specificare i dettagli delle code del bus di servizio. Per l'accordo sul lato invio, viene usata la coda **northwindreceive** per inviare la fattura EDIFACT a Northwind, mentre la coda **suspended** viene usata per instradare gli eventuali messaggi che presentano problemi durante l'elaborazione e vengono sospesi. Queste code sono state create nel **Passaggio 1: Creare le code del bus di servizio** di questo argomento.
+   4. Nella scheda **Trasporto** specificare i dettagli delle code del bus di servizio. Per l'accordo sul lato invio, viene usata la coda **northwindreceive** per inviare la fattura EDIFACT a Northwind, mentre la coda **suspended** viene usata per instradare gli eventuali messaggi che presentano problemi durante l'elaborazione e vengono sospesi. In queste code sono state create **passaggio 1: Creare le code del Bus di servizio** (in questo argomento).
       
       ![][5]  
       
@@ -128,7 +128,7 @@ Gli accordi tra partner commerciali vengono creati tra i profili di business dei
    * Nella scheda **Impostazioni di invio** prendere nota dell'endpoint in **Inbound URL** (URL in ingresso). Per inviare un messaggio da Contoso a Northwind usando il bridge di trasmissione EDI è necessario inviare un messaggio a questo endpoint.
    * Nella scheda **Impostazioni di ricezione** prendere nota dell'endpoint in **Trasporto**. Per inviare un messaggio da Northwind a Contoso usando il bridge di ricezione EDI è necessario inviare un messaggio a questo endpoint.  
 
-## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Passaggio 3: creare e distribuire il progetto di Servizi BizTalk
+## <a name="step-3-create-and-deploy-the-biztalk-services-project"></a>Passaggio 3: Creare e distribuire il progetto di servizi BizTalk
 Nel passaggio precedente sono stati distribuiti gli accordi di invio e ricezione EDI per elaborare le fatture EDIFACT e gli acknowledgement. Questi accordi possono elaborare solo messaggi conformi allo schema EDIFACT standard. Tuttavia, in base allo scenario per questa soluzione, Contoso invia a Northwind una fattura in uno schema proprietario interno. Pertanto, prima di essere inviato al bridge di trasmissione EDI, il messaggio deve essere convertito dallo schema interno allo schema di fattura EDIFACT standard. Questa operazione viene eseguita dal progetto EAI di Servizi BizTalk.
 
 Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte il messaggio, è incluso come parte dell'esempio scaricato. Il progetto contiene i seguenti elementi:
@@ -223,7 +223,7 @@ Anche il progetto di Servizi BizTalk, **InvoiceProcessingBridge**, che converte 
    
    Dal riquadro di output copiare l'endpoint in cui è distribuito il bridge EAI, ad esempio `https://contosowabs.biztalk.windows.net/default/ProcessInvoiceBridge`. L'URL di questo endpoint sarà necessario più avanti.  
 
-## <a name="step-4-test-the-solution"></a>Passaggio 4: testare la soluzione
+## <a name="step-4-test-the-solution"></a>Passaggio 4: Testare la soluzione
 In questo argomento viene illustrato come testare la soluzione utilizzando l'applicazione **client dell'esercitazione** fornita come parte dell'esempio.  
 
 1. In Visual Studio premere F5 per avviare l'applicazione **client dell'esercitazione**.
@@ -246,7 +246,7 @@ In questo argomento viene illustrato come testare la soluzione utilizzando l'app
    
    ![][16]  
 
-## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Passaggio 5 (facoltativo): inviare le fatture EDIFACT in batch
+## <a name="step-5-optional-send-edifact-invoice-in-batches"></a>Passaggio 5 (facoltativo): Inviare la fattura EDIFACT in batch
 I bridge EDI di Servizi BizTalk supportano anche l'invio in batch dei messaggi in uscita. Questa funzionalità è utile per i partner destinatari che preferiscono ricevere un batch di messaggi (che soddisfano un determinato criterio) anziché messaggi singoli.
 
 Quando si usano i batch, l'aspetto più importante da considerare è l'effettivo rilascio del batch o, in altre parole, i criteri di rilascio. I criteri di rilascio possono essere basati sulla modalità con cui il partner destinatario desidera ricevere i messaggi. Se l'invio in batch è abilitato, il bridge EDI non invia il messaggio in uscita al partner destinatario finché i criteri di rilascio non sono soddisfatti. Ad esempio, se si impostano criteri di invio in batch basati sul numero di messaggi, viene inviato un batch solo quando vengono raggruppati 'n' messaggi. I criteri di batch possono anche essere basati sul tempo e in questo caso un batch può ad esempio essere inviato ogni giorno a una determinata ora. In questa soluzione si tenta di usare criteri basati sulla dimensione del messaggio.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: ef360fd56c3530a49c2f36846db34b29ca1cf444
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 3890283f70bfd922d0c436f76b38d7f81d7b8c6f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788019"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107019"
 ---
 # <a name="fail-over-and-fail-back-hyper-v-vms-replicated-to-your-secondary-on-premises-site"></a>Failover e failback di macchine virtuali Hyper-V replicate in un sito locale secondario
 
@@ -49,7 +49,7 @@ Per le macchine virtuali Hyper-V è possibile eseguire un failover regolare o pi
 - Usare un failover regolare per interruzioni impreviste. Quando si esegue questo failover, Site Recovery crea una macchina virtuale nel sito secondario e la accende. Può verificarsi una perdita di dati a seconda dei dati in sospeso che non sono stati sincronizzati.
 - È possibile usare un failover pianificato per le attività di manutenzione o durante un'interruzione prevista. Questa opzione offre una perdita di dati pari a zero. Quando viene attivato un failover pianificato, le macchine virtuali di origine vengono arrestate. I dati non sincronizzati vengono sincronizzati e il failover viene attivato. 
 - 
-Questa procedura descrive come eseguire un failover regolare.
+  Questa procedura descrive come eseguire un failover regolare.
 
 
 1. In **Impostazioni** > **Elementi replicati** fare clic sulla macchina virtuale > **Failover**.

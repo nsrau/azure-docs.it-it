@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/11/2019
-ms.openlocfilehash: a999553d7ba26daba674534b1656e90ad0de4f5f
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 7211ffddf82b38ca27b776ecfd12bca25ebbb0f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54243968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121945"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per PostgreSQL 
 
@@ -60,21 +60,21 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
 10. Configurare un tipo di azione **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce).
     
-   Scegliere "Invia un messaggio di posta elettronica al ruolo di Azure Resource Manager" per consentire a proprietari di sottoscrizioni, collaboratori e lettori di ricevere le notifiche.
+    Scegliere "Invia un messaggio di posta elettronica al ruolo di Azure Resource Manager" per consentire a proprietari di sottoscrizioni, collaboratori e lettori di ricevere le notifiche.
    
-   Facoltativamente, specificare un URI valido nel campo **Webhook** se lo si vuole chiamare quando viene attivato l'avviso.
+    Facoltativamente, specificare un URI valido nel campo **Webhook** se lo si vuole chiamare quando viene attivato l'avviso.
 
-   Al termine, fare clic su **OK**.
+    Al termine, fare clic su **OK**.
 
-   ![Gruppo di azioni](./media/howto-alert-on-metric/10-action-group-type.png)
+    ![Gruppo di azioni](./media/howto-alert-on-metric/10-action-group-type.png)
 
 11. Specificare un nome per la regola di avviso, una descrizione e il livello di gravità.
 
-   ![Gruppo di azioni](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    ![Gruppo di azioni](./media/howto-alert-on-metric/11-name-description-severity.png) 
 
 12. Selezionare **Crea regola di avviso** per creare l'avviso.
 
-   Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
+    Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
 ## <a name="manage-your-alerts"></a>Gestire gli avvisi
 Dopo aver creato un avviso, è possibile selezionarlo ed eseguire queste azioni:

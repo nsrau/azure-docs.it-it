@@ -14,12 +14,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0a7dc5152bb1ede5f7311e74815a6d58782d32a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 27e5ae48a8194c05a19e5164ee2cc6be68967a62
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199324"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112756"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacy dell'utente e Azure AD Connect Health 
 
@@ -62,17 +62,17 @@ Vedere [Per eliminare un server dal servizio Azure AD Connect Health](how-to-con
 Azure AD Connect Health consente anche di arrestare la raccolta di dati di **tutti** i servizi registrati nel tenant. È consigliabile un'analisi attenta e il riconoscimento completo di tutti gli amministratori globali prima di eseguire l'azione. Dopo che il processo è iniziato, il servizio Connect Health arresterà la ricezione, l'elaborazione e la creazione di report per i dati di tutti i servizi. I dati esistenti nel servizio Connect Health verranno conservati per non più di 30 giorni.
 Per arrestare la raccolta di dati di un server specifico, eseguire i passaggi durante l'eliminazione dei server specifici. Per arrestare la raccolta di dati a livello di tenant, seguire questa procedura per arrestare la raccolta di dati ed eliminare tutti i servizi del tenant.
 
-1.  Fare clic su **Impostazioni generali** sotto la configurazione nel pannello principale. 
-2.  Fare clic sul pulsante **Interrompi la raccolta di dati** nella parte superiore del pannello. Le altre opzioni delle impostazioni di configurazione del tenant verranno disabilitate dopo l'avvio del processo.  
+1. Fare clic su **Impostazioni generali** sotto la configurazione nel pannello principale. 
+2. Fare clic sul pulsante **Interrompi la raccolta di dati** nella parte superiore del pannello. Le altre opzioni delle impostazioni di configurazione del tenant verranno disabilitate dopo l'avvio del processo.  
  
- ![Arrestare la raccolta di dati](./media/reference-connect-health-user-privacy/gdpr4.png)
+   ![Arrestare la raccolta di dati](./media/reference-connect-health-user-privacy/gdpr4.png)
   
-3.  Verificare l'elenco di servizi caricati che sono interessati dall'arresto delle raccolte di dati. 
-4.  Immettere il nome esatto del tenant per abilitare il pulsante dell'azione **Elimina**
-5.  Fare clic su **Elimina** per attivare l'eliminazione di tutti i servizi. Connect Health arresterà la ricezione, l'elaborazione e la creazione di report per tutti i dati inviati dai servizi caricati. L'intero processo può richiedere fino a 24 ore. Si noti che questo passaggio non è reversibile. 
-6.  Dopo avere completato il processo, i servizi registrati non verranno più visualizzati in Connect Health. 
+3. Verificare l'elenco di servizi caricati che sono interessati dall'arresto delle raccolte di dati. 
+4. Immettere il nome esatto del tenant per abilitare il pulsante dell'azione **Elimina**
+5. Fare clic su **Elimina** per attivare l'eliminazione di tutti i servizi. Connect Health arresterà la ricezione, l'elaborazione e la creazione di report per tutti i dati inviati dai servizi caricati. L'intero processo può richiedere fino a 24 ore. Si noti che questo passaggio non è reversibile. 
+6. Dopo avere completato il processo, i servizi registrati non verranno più visualizzati in Connect Health. 
 
- ![Dopo l'arresto della raccolta dati](./media/reference-connect-health-user-privacy/gdpr5.png)
+   ![Dopo l'arresto della raccolta dati](./media/reference-connect-health-user-privacy/gdpr5.png)
 
 ## <a name="re-enable-data-collection-and-monitoring-in-azure-ad-connect-health"></a>Riabilitare la raccolta di dati e il monitoraggio in Azure AD Connect Health
 Per riabilitare il monitoraggio in Azure AD Connect Health per un servizio monitorato eliminato in precedenza, è necessario disinstallare e [reinstallare l'Agente integrità](how-to-connect-health-agent-install.md) in tutti i server.
@@ -85,14 +85,14 @@ Per riabilitare il monitoraggio in Azure AD Connect Health per un servizio monit
 > La procedura seguente sarà disponibile dopo 24 ore dall'azione di disabilitazione.
 > Dopo l'abilitazione della raccolta di dati, le informazioni presentate e i dati di monitoraggio in Connect Health non mostreranno più i dati legacy raccolti prima. 
 
-1.  Fare clic su **Impostazioni generali** sotto la configurazione nel pannello principale. 
-2.  Fare clic sul pulsante **Abilita la raccolta di dati** nella parte superiore del pannello. 
+1. Fare clic su **Impostazioni generali** sotto la configurazione nel pannello principale. 
+2. Fare clic sul pulsante **Abilita la raccolta di dati** nella parte superiore del pannello. 
  
- ![Abilitare la raccolta di dati](./media/reference-connect-health-user-privacy/gdpr6.png)
+   ![Abilitare la raccolta di dati](./media/reference-connect-health-user-privacy/gdpr6.png)
  
-3.  Immettere il nome esatto del tenant per attivare il pulsante **Attiva**.
-4.  Fare clic sul pulsante **Attiva** per concedere l'autorizzazione per la raccolta di dati nel servizio Connect Health. La modifica verrà applicata a breve. 
-5.  Seguire il [processo di installazione](how-to-connect-health-agent-install.md) per reinstallare l'agente nei server da monitorare. I servizi saranno in questo modo presenti nel portale.  
+3. Immettere il nome esatto del tenant per attivare il pulsante **Attiva**.
+4. Fare clic sul pulsante **Attiva** per concedere l'autorizzazione per la raccolta di dati nel servizio Connect Health. La modifica verrà applicata a breve. 
+5. Seguire il [processo di installazione](how-to-connect-health-agent-install.md) per reinstallare l'agente nei server da monitorare. I servizi saranno in questo modo presenti nel portale.  
 
 
 ## <a name="next-steps"></a>Passaggi successivi

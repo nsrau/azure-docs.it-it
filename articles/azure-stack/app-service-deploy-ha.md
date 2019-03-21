@@ -16,12 +16,12 @@ ms.date: 03/13/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
 ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: 50e5272d92ad333e70f65173cf024d165dc7501c
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58102044"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285667"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Distribuire il servizio App in una configurazione a disponibilità elevata
 
@@ -207,7 +207,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
     ![Valori delle istanze ruolo infrastruttura](media/app-service-deploy-ha/12.png)
 
     > [!NOTE]
-    > Modifica dai valori default a quelli consigliati in questo modo aumentano tutoral i requisiti hardware per l'installazione del servizio App. 46,592 MB di RAM e un totale di 26 core è necessario per supportare le VM consigliate 21 anziché 32.256 MB di RAM e azzerare 18 core per le macchine 15 virtuali.
+    > Il passaggio dai valori predefiniti a quelli consigliati in questo modo aumentano tutoral i requisiti hardware per l'installazione del servizio App. Un totale di 26 core e 46,592 MB di RAM è necessario per supportare le VM consigliate 21 anziché 32.256 MB di RAM e 18 core predefinito per le macchine 15 virtuali.
 
 14. Selezionare l'immagine della piattaforma da usare per l'installazione la VM dell'infrastruttura di servizio App e fare clic su **successivo**:
 

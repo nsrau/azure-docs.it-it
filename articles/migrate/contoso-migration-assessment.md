@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-ms.openlocfilehash: e948ee943db646ca83d39510485849b3c9956e90
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 4739308d301291bf88e8ae547ba85f9648339c4e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55697450"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118460"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migrazione di Contoso: Valutare i carichi di lavoro locali per la migrazione in Azure
 
@@ -90,7 +90,7 @@ Tecnologia | DESCRIZIONE | Costi
 --- | --- | ---
 [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso usa Data Migration Assistant per valutare e rilevare i problemi di compatibilità che potrebbero compromettere le funzionalità del database in Azure. Data Migration Assistant valuta la parità delle funzionalità tra origini e destinazioni SQL e consiglia miglioramenti per le prestazioni e l'affidabilità. | Data Migration Assistant è uno strumento gratuito e scaricabile.
 [Azure Migrate](https://docs.microsoft.com/azure/migrate/migrate-overview) | Contoso usa il servizio Azure Migrate per valutare le proprie macchine virtuali VMware. Azure Migrate valuta l'idoneità alla migrazione delle macchine. Fornisce stime di dimensioni e costi per l'esecuzione in Azure.  | A partire da maggio 2018, Azure Migrate è un servizio gratuito.
-[Elenco dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate usa Mapping dei servizi per mostrare le dipendenze tra le macchine di cui l'azienda vuole eseguire la migrazione. | Mapping dei servizi fa parte di Azure Log Analytics. Attualmente, Contoso può usare Mapping dei servizi per 180 giorni senza addebito di costi.
+[Elenco dei servizi](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-service-map) | Azure Migrate usa Mapping dei servizi per mostrare le dipendenze tra le macchine di cui l'azienda vuole eseguire la migrazione. | Service Map è una parte dei log di monitoraggio di Azure. Attualmente, Contoso può usare Mapping dei servizi per 180 giorni senza addebito di costi.
 
 In questo scenario, Contoso scarica ed esegue Data Migration Assistant per valutare il database di SQL Server locale per l'app di viaggi e usa Azure Migrate con il mapping delle dipendenze per valutare le macchine virtuali dell'app prima di eseguirne la migrazione ad Azure.
 
@@ -159,15 +159,15 @@ Contoso può ora eseguire una valutazione per analizzare il database di SQL Serv
 
     ![Data Migration Assistant - Selezionare l'origine](./media/contoso-migration-assessment/dma-assessment-1.png)
 
-    > [!NOTE]
-      Attualmente, Data Migration Assistant non supporta la valutazione per la migrazione a Istanza gestita di database SQL di Azure. Come soluzione alternativa, Contoso usa SQL Server in una macchina virtuale di Azure come destinazione prevista per la valutazione.
+   > [!NOTE]
+   >    Attualmente, Data Migration Assistant non supporta la valutazione per la migrazione a Istanza gestita di database SQL di Azure. Come soluzione alternativa, Contoso usa SQL Server in una macchina virtuale di Azure come destinazione prevista per la valutazione.
 
 3. In **Seleziona versione di destinazione** Contoso seleziona SQL Server 2017 come versione di destinazione. Contoso deve selezionare questa versione, perché si tratta della versione che viene usata da Istanza gestita di database SQL di Azure.
 4. Contoso seleziona i report per individuare le informazioni sulla compatibilità e sulle nuove funzionalità:
-    - **Problemi di compatibilità**: indica le modifiche che potrebbero causare un'interruzione nella migrazione o che richiedono una modifica secondaria prima della migrazione. Questo report mantiene Contoso informata su eventuali funzionalità attualmente in uso che vengono deprecate. I problemi sono organizzati per livello di compatibilità.
-    - **New features' recommendation** (Nuove funzionalità consigliate) indica le nuove funzionalità della piattaforma SQL Server di destinazione che possono essere usate per il database dopo la migrazione, Le nuove funzionalità consigliate sono organizzate nelle sezioni **Prestazioni**, **Sicurezza** e **Archiviazione**.
+   - **Problemi di compatibilità**: indica le modifiche che potrebbero causare un'interruzione nella migrazione o che richiedono una modifica secondaria prima della migrazione. Questo report mantiene Contoso informata su eventuali funzionalità attualmente in uso che vengono deprecate. I problemi sono organizzati per livello di compatibilità.
+   - **New features' recommendation** (Nuove funzionalità consigliate) indica le nuove funzionalità della piattaforma SQL Server di destinazione che possono essere usate per il database dopo la migrazione, Le nuove funzionalità consigliate sono organizzate nelle sezioni **Prestazioni**, **Sicurezza** e **Archiviazione**.
 
-    ![Data Migration Assistant - Problemi di compatibilità e nuove funzionalità](./media/contoso-migration-assessment/dma-assessment-2.png)
+     ![Data Migration Assistant - Problemi di compatibilità e nuove funzionalità](./media/contoso-migration-assessment/dma-assessment-2.png)
 
 2. In **Connetti a un server** Contoso immette il nome della macchina virtuale che esegue il database e le credenziali per accedervi. Contoso seleziona **Considera attendibile il certificato del server** per assicurarsi che la macchina virtuale possa accedere a SQL Server. Contoso seleziona quindi **Connetti**.
 
@@ -186,13 +186,13 @@ I risultati vengono visualizzati non appena disponibili. Se Contoso corregge i p
 
 1. Nel report **Problemi di compatibilità** Contoso controlla se sono presenti problemi a ogni livello di compatibilità. I livelli di compatibilità sono associati alle versioni di SQL Server come indicato di seguito.
 
-    - 100: SQL Server 2008/database SQL di Azure
-    - 110: SQL Server 2012/database SQL di Azure
-    - 120: SQL Server 2014/database SQL di Azure
-    - 130: SQL Server 2016/database SQL di Azure
-    - 140: SQL Server 2017/database SQL di Azure
+   - 100: SQL Server 2008/database SQL di Azure
+   - 110: SQL Server 2012/database SQL di Azure
+   - 120: SQL Server 2014/database SQL di Azure
+   - 130: SQL Server 2016/database SQL di Azure
+   - 140: SQL Server 2017/database SQL di Azure
 
-    ![Data Migration Assistant -Report Problemi di compatibilità](./media/contoso-migration-assessment/dma-assessment-5.png)
+     ![Data Migration Assistant -Report Problemi di compatibilità](./media/contoso-migration-assessment/dma-assessment-5.png)
 
 2. Nel report **Funzionalità consigliate** Contoso visualizza le funzionalità di archiviazione, sicurezza e prestazioni che la valutazione consiglia di configurare dopo la migrazione. Vengono consigliate diverse funzionalità, tra cui OLTP in memoria, indici columnstore, Stretch Database, Always Encrypted, Dynamic Data Masking e Transparent Data Encryption.
 
@@ -403,14 +403,14 @@ Contoso esegue l'installazione in ogni macchina virtuale.
 
     `sudo -i`
 3. Contoso installa MMA:
-    - Contoso immette l'ID e la chiave dell'area di lavoro nel comando.
-    - I comandi sono per la versione a 64 bit.
-    - La chiave primaria e l'ID dell'area di lavoro si trovano nell'area di lavoro di Log Analytics nel portale di Azure. Selezionare **Impostazioni** e quindi selezionare la scheda **Origini connesse**.
-    - Eseguire i comandi seguenti per scaricare l'agente di Log Analytics, convalidare il checksum e installare e caricare l'agente:
+   - Contoso immette l'ID e la chiave dell'area di lavoro nel comando.
+   - I comandi sono per la versione a 64 bit.
+   - La chiave primaria e l'ID dell'area di lavoro si trovano nell'area di lavoro di Log Analytics nel portale di Azure. Selezionare **Impostazioni** e quindi selezionare la scheda **Origini connesse**.
+   - Eseguire i comandi seguenti per scaricare l'agente di Log Analytics, convalidare il checksum e installare e caricare l'agente:
 
-    ```
-    wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
-    ```
+     ```
+     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
+     ```
 
 #### <a name="install-the-dependency-agent-on-linux-vms"></a>Installare Dependency Agent nelle macchine virtuali Linux
 

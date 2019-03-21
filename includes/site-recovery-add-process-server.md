@@ -4,24 +4,24 @@ ms.service: site-recovery
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: raynew
-ms.openlocfilehash: b6e3abb56ebd02131fac78c2a8f03ddcbf50958a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: c9a0d4387511bbfa033bcb90d9f83e1a7bb39719
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50165523"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115072"
 ---
 1. Avvio di UnifiedSetup.exe di Azure Site Recovery
 2. In **Prima di iniziare** selezionare **Add additional process servers to scale out deployment** (Aggiungere server di elaborazione per aumentare le istanze di distribuzione).
 
-  ![Aggiungere il server di elaborazione](./media/site-recovery-add-process-server/ps-page-1.png)
+   ![Aggiungere il server di elaborazione](./media/site-recovery-add-process-server/ps-page-1.png)
 
 3. In **Configuration Server Details** (Dettagli del server di configurazione) specificare l'indirizzo IP del server di configurazione e la passphrase.
 
-  ![Aggiungere il server di elaborazione 2](./media/site-recovery-add-process-server/ps-page-2.png)
+   ![Aggiungere il server di elaborazione 2](./media/site-recovery-add-process-server/ps-page-2.png)
 4. In **Impostazioni Internet** specificare in che modo il provider in esecuzione nel server di configurazione si connette ad Azure Site Recovery tramite Internet.
 
-  ![Aggiungere il server di elaborazione 3](./media/site-recovery-add-process-server/ps-page-3.png)
+   ![Aggiungere il server di elaborazione 3](./media/site-recovery-add-process-server/ps-page-3.png)
 
    * Per connettersi al proxy attualmente configurato nel computer, selezionare **Connetti con le impostazioni proxy esistenti**.
    * Per fare in modo che il provider si connetta direttamente, selezionare **Connetti direttamente senza un proxy**.

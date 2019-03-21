@@ -10,12 +10,12 @@ ms.service: azure-stack
 manager: femila
 ms.reviewer: xiaofmao
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: c1f210f7007426114c30e792186010b8905b1d15
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1640e06d2d6eec19d516fb3ddf0e98c579e667a7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764592"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080795"
 ---
 # <a name="get-started-with-azure-stack-storage-development-tools"></a>Introduzione agli strumenti di sviluppo per archiviazione di Azure Stack
 
@@ -79,13 +79,13 @@ Per l'installazione tramite Composer: (prendere BLOB come esempio).
 
 1. Creare un file denominato **Composer. JSON** nella radice del progetto con il codice seguente:
 
-  ```json
+   ```json
     {
       "require": {
       "Microsoft/azure-storage-blob":"1.0.0"
       }
     }
-  ```
+   ```
 
 2. Scaricare [Phar](https://getcomposer.org/composer.phar) alla radice del progetto.
 3. Eseguire: `php composer.phar install`.

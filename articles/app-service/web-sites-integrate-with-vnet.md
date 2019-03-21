@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 265dcccf9202d7b0116bba05b016e8967b68c67a
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53273358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112620"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] consentono di posizionare molte risorse di Azure in una rete instradabile non Internet. Queste reti possono quindi essere connesse alle reti locali mediante tecnologie VPN. 
@@ -82,7 +82,7 @@ Per creare un gateway:
 * 172.16.0.0/12: un intervallo di indirizzi IP da 172.16.0.0 a 172.31.255.255 
 * 192.168.0.0/16: un intervallo di indirizzi IP da 192.168.0.0 a 192.168.255.255
 
-Se si sta semplicemente creando il gateway per l'uso con Integrazione rete virtuale del servizio app, non è necessario caricare un certificato. La creazione del gateway può richiedere 30 minuti. Non sarà possibile integrare l'app con la rete virtuale fino al completamento del provisioning del gateway. 
+Se si è sufficiente creare il gateway per usare con integrazione rete virtuale del servizio App, quindi non è necessario caricare un certificato. La creazione del gateway può richiedere 30 minuti. Non sarà possibile integrare l'app con la rete virtuale fino al completamento del provisioning del gateway. 
 
 ### <a name="configure-vnet-integration-with-your-app"></a>Configurare Integrazione rete virtuale con l'app ###
 
@@ -277,19 +277,20 @@ La nuova versione è disponibile in anteprima e presenta le caratteristiche segu
 * La nuova funzionalità Integrazione rete virtuale non funziona per le app in un ambiente del servizio app.
 * Non è possibile eliminare una rete virtuale con un'app integrata.  
 * Le tabelle di route e il peering globale non sono ancora disponibili con la nuova funzionalità Integrazione rete virtuale.  
-* Viene usato un indirizzo per ogni istanza del piano di servizio app. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, usare una subnet che può coprire abbondantemente le dimensioni massime di scalabilità. Un /27 con 32 indirizzi è la dimensione consigliata per poter contenere un piano di servizio app ridimensionato a 20 istanze.  È possibile usare le risorse protette dell'endpoint servizio usando la nuova funzionalità Integrazione rete virtuale. A tale scopo, abilitare gli endpoint servizio nella subnet usata per Integrazione rete virtuale.
+* Viene usato un indirizzo per ogni istanza del piano di servizio app. Poiché le dimensioni della subnet non possono essere modificate dopo l'assegnazione, usare una subnet che può coprire abbondantemente le dimensioni massime di scalabilità. Un /27 con 32 indirizzi è la dimensione consigliata per poter contenere un piano di servizio app ridimensionato a 20 istanze.
+* È possibile usare le risorse protette dell'endpoint servizio usando la nuova funzionalità Integrazione rete virtuale. A tale scopo, abilitare gli endpoint servizio nella subnet usata per Integrazione rete virtuale.
 
 Per usare la nuova funzionalità:
 
 1. Passare all'interfaccia utente di Rete nel portale. Se l'app è in grado di usare la nuova funzionalità, risulterà possibile usarla in anteprima.  
 
- ![Selezionare la nuova funzionalità Integrazione rete virtuale in anteprima][6]
+   ![Selezionare la nuova funzionalità Integrazione rete virtuale in anteprima][6]
 
 1. Selezionare **Aggiungi rete virtuale (anteprima)**.  
 
 1. Selezionare la rete virtuale di Resource Manager da integrare e creare una nuova subnet o sceglierne una vuota esistente. Il completamento dell'integrazione richiede meno di un minuto. Durante l'integrazione, l'app viene riavviata.  Al termine dell'integrazione verranno visualizzati i dettagli della rete virtuale da integrare e un banner in alto indicante che la funzionalità è in anteprima.
 
- ![Selezionare la rete virtuale e la subnet][7]
+   ![Selezionare la rete virtuale e la subnet][7]
 
 Per abilitare l'app per l'uso del server DNS con cui è stata configurata la rete virtuale, creare un'impostazione Applicazione per l'app in cui il nome è WEBSITE_DNS_SERVER e il valore è l'indirizzo IP del server.  In presenza di un server DNS secondario, creare un'altra impostazione Applicazione in cui il nome è WEBSITE_DNS_ALT_SERVER e il valore è l'indirizzo IP del server. 
 

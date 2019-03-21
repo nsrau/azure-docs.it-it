@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 2e935425-3923-4a33-89b2-0f2100b0c0c4
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3bd7f895e3cc30c4c5a0496977d65d68c220931f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f63851359a19455ab0f46f66a801a679ee2c3bfe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084503"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079691"
 ---
 # <a name="quickstart-migrate-a-local-jupyter-notebook"></a>Avvio rapido: Eseguire la migrazione di un notebook di Jupyter locale
 
@@ -50,13 +50,13 @@ Questo argomento di avvio rapido illustra il processo di migrazione di un notebo
 
    Anche in questo caso, se il notebook si trova in un repository di GitHub, seguire la procedura descritta in [Avvio rapido: Clonare un notebook](quickstart-clone-jupyter-notebook.md).
 
-    - Se si usa l'opzione **From Computer** (Da computer), trascinare i file *.ipynb* nella finestra popup o selezionare **Choose Files** (Scegli file) e quindi passare ai file di dati da importare e selezionarli. Selezionare quindi **Carica**. A file caricati viene assegnato lo stesso nome dei file locali. Non è necessario caricare il contenuto della cartella *.ipynb_checkpoints*.
+   - Se si usa l'opzione **From Computer** (Da computer), trascinare i file *.ipynb* nella finestra popup o selezionare **Choose Files** (Scegli file) e quindi passare ai file di dati da importare e selezionarli. Selezionare quindi **Carica**. A file caricati viene assegnato lo stesso nome dei file locali. Non è necessario caricare il contenuto della cartella *.ipynb_checkpoints*.
 
-    ![Caricamento dalla finestra popup del computer](media/quickstarts/upload-from-computer-popup.png)
+     ![Caricamento dalla finestra popup del computer](media/quickstarts/upload-from-computer-popup.png)
 
-    - Se si usa l'opzione **From URL** (Da URL), immettere l'indirizzo dell'origine nel campo **File URL** (URL del file) e il nome file da assegnare al notebook nel progetto nel campo **File Name** (Nome file). Selezionare quindi **Carica**. Se si hanno più file con URL separati, usare il comando **+ Add file** (Aggiungi file) per verificare il primo URL immesso. Nella finestra popup verranno quindi visualizzati nuovi campi per un altro file.
+   - Se si usa l'opzione **From URL** (Da URL), immettere l'indirizzo dell'origine nel campo **File URL** (URL del file) e il nome file da assegnare al notebook nel progetto nel campo **File Name** (Nome file). Selezionare quindi **Carica**. Se si hanno più file con URL separati, usare il comando **+ Add file** (Aggiungi file) per verificare il primo URL immesso. Nella finestra popup verranno quindi visualizzati nuovi campi per un altro file.
 
-    ![Caricamento dalla finestra popup dell'URL](media/quickstarts/upload-from-url-popup.png)
+     ![Caricamento dalla finestra popup dell'URL](media/quickstarts/upload-from-url-popup.png)
 
 1. Aprire ed eseguire il notebook appena caricato per verificarne il contenuto e il funzionamento. Al termine, selezionare **File** > **Halt and close** (File > Interrompi e chiudi) per chiudere il notebook.
 
@@ -67,4 +67,4 @@ Questo argomento di avvio rapido illustra il processo di migrazione di un notebo
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)

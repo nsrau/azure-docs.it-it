@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 50f55ca3b05a6902841f1b1268cfbde742a9d589
-ms.sourcegitcommit: c61c98a7a79d7bb9d301c654d0f01ac6f9bb9ce5
-ms.translationtype: HT
+ms.openlocfilehash: b45c5abb66d927f247f62692f12bd9207958a3e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52429586"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181283"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
 
@@ -66,7 +66,7 @@ Per altre informazioni sulle misure e le assegnazioni delle risorse, vedere [Man
 
 ## <a name="develop-and-debug-applications-against-an-aks-cluster"></a>Sviluppare ed eseguire il debug di applicazioni in un cluster servizio Azure Kubernetes
 
-**Indicazioni sulle procedure consigliate**. I team di sviluppo devono eseguire la distribuzione e il debug in un cluster AKS usando Dev Spaces. Questo modello di sviluppo garantisce che le esigenze a livello di archiviazione, rete o controlli degli accessi in base al ruolo vengano implementate prima della distribuzione dell'app nell'ambiente di produzione.
+**Indicazioni sulle procedure consigliate**. I team di sviluppo devono eseguire la distribuzione e il debug in un cluster servizio Azure Kubernetes usando Dev Spaces. Questo modello di sviluppo garantisce che le esigenze a livello di archiviazione, rete o controlli degli accessi in base al ruolo vengano implementate prima della distribuzione dell'app nell'ambiente di produzione.
 
 Con Azure Dev Spaces, le applicazioni vengono sviluppate e sottoposte a debug e test direttamente in un cluster servizio Azure Kubernetes. Gli sviluppatori all'interno di un team collaborano per compilare ed eseguire test durante il ciclo di vita dell'applicazione. È possibile continuare a usare gli strumenti esistenti come Visual Studio o Visual Studio Code. Viene installata un'estensione per Dev Spaces che offre un'opzione per eseguire l'applicazione e sottoporla a debug in un cluster servizio Azure Kubernetes:
 
@@ -84,9 +84,9 @@ L'[estensione di Visual Studio Code per Kubernetes][vscode-kubernetes] consente 
 
 ## <a name="regularly-check-for-application-issues-with-kube-advisor"></a>Verificare regolarmente la presenza di problemi dell'applicazione con kube-advisor
 
-**Indicazioni sulle procedure consigliate**. Eseguire regolarmente la versione più recente di `kube-advisor` per rilevare eventuali problemi nel cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
+**Procedure consigliate** -regolarmente eseguono la versione più recente di `kube-advisor` strumento open source per rilevare i problemi nel cluster. Se si applicano le quote di risorse in un cluster servizio Azure Kubernetes esistente, eseguire per prima cosa `kube-advisor` per trovare i pod che non hanno richieste di risorse e limiti definiti.
 
-Lo strumento [kube-advisor][kube-advisor] analizza un cluster Kubernetes e segnala gli eventuali problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
+Il [kube-advisor] [ kube-advisor] lo strumento è un progetto open source AKS associato che esegue l'analisi di un cluster Kubernetes e segnala i problemi rilevati. Un controllo utile consiste nell'identificare i pod che non hanno richieste di risorse e limiti applicati.
 
 In un cluster servizio Azure Kubernetes che ospita molti team di sviluppo e applicazioni può essere difficile tenere traccia dei pod senza questi limiti e richieste di risorse impostati. Come procedura consigliata, eseguire regolarmente `kube-advisor` nei cluster servizio Azure Kubernetes.
 

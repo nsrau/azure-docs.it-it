@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/16/2018
 ms.author: alkohli
-ms.openlocfilehash: 6e62e923b6e983dfff8eb72c9526708a3b360930
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: b837aab871827c468295a365727a282f6c8a1a4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55494749"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086021"
 ---
 # <a name="use-azure-automation-to-trigger-a-job"></a>Usare Automazione di Azure per attivare un processo
 
@@ -53,20 +53,20 @@ Prima di iniziare, assicurarsi di disporre di:
 
 3. In **Aggiungi account di Automazione**:
 
-    1. Specificare il **nome** dell'account di automazione.
-    2. Selezionare la **sottoscrizione** collegata al servizio StorSimple Data Manager.
-    3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
-    4. Selezionare un **percorso**.
-    5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
-    6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Fare clic su **Create**(Crea).
+   1. Specificare il **nome** dell'account di automazione.
+   2. Selezionare la **sottoscrizione** collegata al servizio StorSimple Data Manager.
+   3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
+   4. Selezionare un **percorso**.
+   5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
+   6. Per ottenere un collegamento per l'accesso rapido nel dashboard, selezionare **Aggiungi al dashboard**. Fare clic su **Create**(Crea).
 
-    ![Creare un account di Automazione RunAs](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
+      ![Creare un account di Automazione RunAs](./media/storsimple-data-manager-job-using-automation/create-automation-run-as-account.png)
     
-    Quando la creazione dell'account di automazione è completata, si riceve una notifica.
+      Quando la creazione dell'account di automazione è completata, si riceve una notifica.
     
-    ![Notifica relativa alla distribuzione dell'account di Automazione](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
+      ![Notifica relativa alla distribuzione dell'account di Automazione](./media/storsimple-data-manager-job-using-automation/deployment-automation-account-notification1.png)
 
-    Per altre informazioni, vedere [Creare un account RunAs](../automation/automation-create-runas-account.md).
+      Per altre informazioni, vedere [Creare un account RunAs](../automation/automation-create-runas-account.md).
 
 3. Nell'account appena creato passare a **Risorse condivise > Moduli** e fare clic su **+ Aggiungi modulo**.
 

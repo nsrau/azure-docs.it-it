@@ -9,13 +9,13 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
-ms.date: 01/31/18
-ms.openlocfilehash: 6249c45a1cd3a8acbb9770fc39da881d8da9057f
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.date: 01/31/2018
+ms.openlocfilehash: 89e0294db3178cedd3b14aada0b505787b17c75e
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230139"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56671795"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Scenari comuni, esempi, esercitazioni e procedure dettagliate per le app per la logica di Azure
 
@@ -27,9 +27,9 @@ Per fornire maggiori informazioni sui numerosi modelli e sulle funzionalità sup
 
 Ogni app per la logica inizia con un [*trigger*](../logic-apps/logic-apps-overview.md#logic-app-concepts) e un solo trigger, che avvia il flusso di lavoro dell'app per la logica e passa tutti i dati come parte del trigger. Alcuni connettori forniscono trigger, che sono disponibili sotto questi tipi:
 
-* *Trigger di polling*: controlla periodicamente un endpoint del servizio per i nuovi dati. In presenza di nuovi dati, il trigger crea ed esegue una nuova istanza del flusso di lavoro con i dati come input.
+* *Trigger di polling*: Controlla periodicamente un endpoint del servizio per i nuovi dati. In presenza di nuovi dati, il trigger crea ed esegue una nuova istanza del flusso di lavoro con i dati come input.
 
-* *Trigger del push*: è in attesa di dati in un endpoint del servizio e attende fino a quando non si verifica un evento specifico. Quando si verifica l'evento, il trigger viene attivato immediatamente, creando ed eseguendo una nuova istanza del flusso di lavoro che usa tutti i dati disponibili come input.
+* *Trigger di push*: È in attesa di dati a un endpoint del servizio e attende fino a quando non si verifica un evento specifico. Quando si verifica l'evento, il trigger viene attivato immediatamente, creando ed eseguendo una nuova istanza del flusso di lavoro che usa tutti i dati disponibili come input.
 
 Ecco alcuni esempi comuni di trigger:
 
@@ -59,7 +59,7 @@ Per i sistemi e i servizi che non potrebbero non avere connettori pubblicati, è
 * [Configurare azioni con esecuzione prolungata per l'esecuzione dei flussi di lavoro](../logic-apps/logic-apps-create-api-app.md)
 * [Rispondere ad azioni ed eventi esterni con webhook](../logic-apps/logic-apps-create-api-app.md)
 * [Chiamare, attivare o annidare flussi di lavoro con risposte sincrone alle richieste HTTP](../logic-apps/logic-apps-http-endpoint.md)
-* [Esercitazione: Creare un dashboard social basato su AI in pochi minuti con le app per la logica e Power BI](https://aka.ms/logicappsdemo)
+* [Esercitazione: Creare un dashboard social basato su intelligenza artificiale in pochi minuti con App per la logica e Power BI](https://aka.ms/logicappsdemo)
 * [Video: Rispondere ai webhook SMS di Twilio e inviare una risposta di testo](https://channel9.msdn.com/Blogs/Windows-Azure/Azure-Logic-Apps-Walkthrough-Webhook-Functions-and-an-SMS-Bot)
 
 ## <a name="control-flow-error-handling-and-logging-capabilities"></a>Flusso di controllo, gestione degli errori e funzionalità di registrazione
@@ -70,7 +70,7 @@ Le app per la logica includono funzionalità sofisticate per il flusso di contro
 * [Ripetere passaggi o elementi del processo in matrici e raccolte con cicli](../logic-apps/logic-apps-control-flow-loops.md)
 * [Raggruppare le azioni con gli ambiti](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
 * [Creare la gestione degli errori e delle eccezioni in un flusso di lavoro](../logic-apps/logic-apps-exception-handling.md)
-* [Caso d'uso: come un'organizzazione sanitaria usa la gestione delle eccezioni delle app per la logica per i flussi di lavoro HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
+* [Caso d'uso: Modo in cui un'organizzazione sanitaria utilizza per la logica app gestione delle eccezioni per i flussi di lavoro HL7 FHIR](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
 * [Attivare il monitoraggio, la registrazione e gli avvisi per le app per la logica esistenti](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Abilitare il monitoraggio e la registrazione diagnostica durante la creazione di app per la logica](../logic-apps/logic-apps-monitor-your-logic-apps-oms.md)
 
@@ -96,15 +96,15 @@ Le app per la logica offrono inoltre l'integrazione con molti servizi, come Funz
 
 * [Create a real-time social dashboard with Azure Serverless](../logic-apps/logic-apps-scenario-social-serverless.md) (Creare un dashboard di social networking in tempo reale senza server di Azure)
 * [Chiamare Funzioni di Azure da app per la logica](../logic-apps/logic-apps-azure-functions.md)
-* [Esercitazione: Attivare app per la logica con Funzioni di Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
-* [Esercitazione: Monitorare le modifiche alla macchina virtuale con la griglia di eventi di Azure e le app per la logica](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
-* [Esercitazione: Creare una funzione che si integra con le app per la logica di Azure e i servizi cognitivi Microsoft per analizzare il sentiment dei post di Twitter](../azure-functions/functions-twitter-email.md)
-* [Esercitazione: Monitoraggio remoto e notifiche di IoT con App per la logica di Azure tramite la connessione all'hub IoT e alla cassetta postale](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
-* [Blog: Call SOAP endpoints from logic apps](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/) (Chiamare endpoint SOAP da app per la logica)
+* [Esercitazione: Trigger di App per la logica con funzioni di Azure](../logic-apps/logic-apps-scenario-function-sb-trigger.md)
+* [Esercitazione: Monitorare le modifiche alla macchina virtuale con griglia di eventi di Azure e App per la logica](../event-grid/monitor-virtual-machine-changes-event-grid-logic-app.md)
+* [Esercitazione: Creare una funzione che si integra con App per la logica di Azure e servizi cognitivi Microsoft per analizzare i sentiment nei post di Twitter](../azure-functions/functions-twitter-email.md)
+* [Esercitazione: Monitoraggio remoto IoT e notifiche con App per la logica di Azure ci si connette all'hub IoT e cassetta postale](../iot-hub/iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Blog: Chiamare gli endpoint SOAP da App per la logica](https://blogs.msdn.microsoft.com/logicapps/2016/04/07/using-soap-services-with-logic-apps/)
 
 ## <a name="end-to-end-scenarios"></a>Scenari end-to-end
 
-* [Whitepaper: End-to-end case management integration with Azure services, such as Logic Apps](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps) (White paper: Integrazione della gestione dei casi end-to-end con i servizi di Azure, ad esempio App per la logica)
+* [White paper: Integrazione di gestione dei casi end-to-end con servizi di Azure, ad esempio App per la logica](https://aka.ms/enterprise-integration-e2e-case-management-utilities-logic-apps)
 
 ## <a name="customer-stories"></a>Casi di successo dei clienti
 

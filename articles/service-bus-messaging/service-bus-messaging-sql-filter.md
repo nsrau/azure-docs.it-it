@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 7bac115ab3215a7dde625f194bdf325f9e0af318
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392857"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58118136"
 ---
 # <a name="sqlfilter-syntax"></a>Sintassi di SQLFilter
 
@@ -119,9 +119,9 @@ L'espressione corrisponde a qualsiasi stringa che inizia con una lettera seguita
   
 `<pattern>` deve essere un'espressione valutata come stringa. Viene usato come modello per l'operatore LIKE      e può contenere i caratteri jolly seguenti.  
   
--   `%`: qualsiasi stringa di zero o più caratteri.  
+-   `%`:  Qualsiasi stringa di zero o più caratteri.  
   
--   `_`: qualsiasi carattere singolo.  
+-   `_`: Qualsiasi carattere singolo.  
   
 ## <a name="escapechar"></a>escape_char  
   
@@ -223,29 +223,29 @@ Tenere presente la semantica di [SqlFilter](/dotnet/api/microsoft.servicebus.mes
   
 ### <a name="property-evaluation-semantics"></a>Semantica di valutazione delle proprietà  
   
--   Il tentativo di valutare una proprietà di sistema inesistente genera un'eccezione [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
+- Il tentativo di valutare una proprietà di sistema inesistente genera un'eccezione [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception).  
   
--   Una proprietà non esistente verrà valutata internamente come **valore sconosciuto**.  
+- Una proprietà non esistente verrà valutata internamente come **valore sconosciuto**.  
   
- Valutazione dei valori sconosciuti negli operatori aritmetici:  
+  Valutazione dei valori sconosciuti negli operatori aritmetici:  
   
--   Per gli operatori binari, se il lato sinistro e/o destro degli operandi viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Per gli operatori binari, se il lato sinistro e/o destro degli operandi viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
   
--   Per gli operatori unari, se un operando viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Per gli operatori unari, se un operando viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
   
- Valutazione dei valori sconosciuti negli operatori di confronto binari:  
+  Valutazione dei valori sconosciuti negli operatori di confronto binari:  
   
--   Se il lato sinistro e/o destro degli operandi viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Se il lato sinistro e/o destro degli operandi viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
   
- Valutazione dei valori sconosciuti in `[NOT] LIKE`:  
+  Valutazione dei valori sconosciuti in `[NOT] LIKE`:  
   
--   Se qualsiasi operando viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Se qualsiasi operando viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
   
- Valutazione dei valori sconosciuti in `[NOT] IN`:  
+  Valutazione dei valori sconosciuti in `[NOT] IN`:  
   
--   Se l'operando di sinistra viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
+- Se l'operando di sinistra viene valutato come **valore sconosciuto**, il risultato è un **valore sconosciuto**.  
   
- Valutazione dei valori sconosciuti nell'operatore **AND**:  
+  Valutazione dei valori sconosciuti nell'operatore **AND**:  
   
 ```  
 +---+---+---+---+  

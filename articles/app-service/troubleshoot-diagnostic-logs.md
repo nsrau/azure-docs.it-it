@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b73656e2bb7c413d2c29fafb682f39154499854a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904455"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56882876"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -34,8 +34,8 @@ Il servizio app offre funzionalità diagnostiche per la registrazione di informa
 ### <a name="web-server-diagnostics"></a>Diagnostica del server Web
 È possibile abilitare o disabilitare i seguenti tipi di log:
 
-* **Registrazione degli errori dettagliata**: consente di registrare informazioni dettagliate sugli errori relativi ai codici di stato HTTP che indicano un'operazione non riuscita (codice di stato 400 o superiore), incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore.
-* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP.
+* **Registrazione degli errori dettagliata** -informazioni dettagliate per tutte le richieste che genera codice di stato HTTP 400 o superiore. incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore. Un file HTML viene generato per ogni errore nel file system dell'app e fino a 50 errori (file) vengono mantenuti. Quando il numero di file HTML di superare i 50, i file di 26 meno recenti vengono eliminati automaticamente.
+* **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Una cartella viene generata per ogni errore nel file system dell'app. Criteri di conservazione dei file sono le stesse di registrazione sopra dettagliata degli errori.
 * **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
 ### <a name="application-diagnostics"></a>Diagnostica applicazioni
@@ -213,6 +213,10 @@ L'aspetto dei dati archiviati in un BLOB sarà simile all'esempio seguente:
 Le tracce delle richieste non riuscite vengono memorizzate nei file XML denominati **fr######.xml**. Per semplificare la visualizzazione delle informazioni registrate, è disponibile un foglio di stile XSL denominato **freb.xsl** nella stessa directory dei file XML. Se si apre uno dei file XML in Internet Explorer, Internet Explorer usa il foglio di stile XSL per offrire una visualizzazione formattata delle informazioni di traccia, simile all'esempio seguente:
 
 ![richiesta non riuscita visualizzata nel browser](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
+
+> [!NOTE]
+> Un modo semplice per visualizzare le tracce di richieste non riuscite formattata è passare alla pagina dell'app nel portale. Nel menu a sinistra, selezionare **diagnosi e risoluzione dei problemi**, quindi cercare **non è stato possibile log traccia delle richieste**, quindi fare clic sull'icona per esplorare e visualizzare la traccia desiderato.
+>
 
 ### <a name="detailed-error-logs"></a>Detailed Error Logs
 I log di errore dettagliati sono documenti HTML che offrono informazioni più approfondite sugli errori HTTP verificatisi. Poiché si tratta di semplici documenti HTML, è possibile visualizzarli in un browser Web.

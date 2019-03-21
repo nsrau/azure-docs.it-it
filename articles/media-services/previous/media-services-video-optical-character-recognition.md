@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/08/2019
 ms.author: juliako
-ms.openlocfilehash: e0fa769c9071cac0dccaf43c312c80c7d097e345
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: c1983f14a23f8929091f5b7ae43e24bb9a834034
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005132"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857743"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale  
 ## <a name="overview"></a>Panoramica
@@ -77,7 +77,7 @@ Configurazione delle attivit√† (set di impostazioni). Quando si crea un'attivit√
 
 ```xml
     <?xml version=""1.0"" encoding=""utf-16""?>
-    <VideoOcrPreset xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""http://www.windowsazure.com/media/encoding/Preset/2014/03"">
+    <VideoOcrPreset xmlns:xsi=""https://www.w3.org/2001/XMLSchema-instance"" xmlns:xsd=""https://www.w3.org/2001/XMLSchema"" Version=""1.0"" xmlns=""https://www.windowsazure.com/media/encoding/Preset/2014/03"">
       <Options>
          <AdvancedOutput>true</AdvancedOutput>
          <Language>English</Language>

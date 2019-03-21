@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7c87a0f478b6efbe7ae9ff07def8b4d0d730b111
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 47a77def43a9577e5a3506899da47db2f684b495
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55478492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835114"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Spostamento dei dati in SQL Server in una macchina virtuale di Azure
 
@@ -50,7 +50,7 @@ Il tutorial presuppone:
 Se i dati si trovano in un file flat (organizzati in un formato righe/colonne), possono essere spostati a una macchina virtuale di SQL Server attraverso i seguenti metodi:
 
 1. [Utilità copia di massa della riga di comando (BCP)](#insert-tables-bcp)
-2. [Inserimento di massa query SQL ](#insert-tables-bulkquery)
+2. [Inserimento di massa query SQL](#insert-tables-bulkquery)
 3. [Utilità grafiche integrate in SQL Server (importazione/esportazione, SSIS)](#sql-builtin-utilities)
 
 ### <a name="insert-tables-bcp"></a>Utilità copia di massa della riga di comando (BCP)
@@ -58,7 +58,7 @@ BCP è un'utilità della riga di comando installata con SQL Server e rappresenta
 
 > [!NOTE]
 > **Dove devono trovarsi i dati per eseguire la copia BCP?**  
-> Anche se non è obbligatorio che i file contenenti i dati di origine si trovino nello stesso computer del server SQL di destinazione, questo garantisce trasferimenti più rapidi, a causa della differenza tra velocità di rete e velocità di I/O dei dischi locali. È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server usando diversi strumenti per la copia dei file quali [AZCopy](../../storage/common/storage-use-azcopy.md), [Esplora archivi di Azure](http://storageexplorer.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
+> Anche se non è obbligatorio che i file contenenti i dati di origine si trovino nello stesso computer del server SQL di destinazione, questo garantisce trasferimenti più rapidi, a causa della differenza tra velocità di rete e velocità di I/O dei dischi locali. È possibile spostare i file flat contenenti i dati nel computer dove è installato SQL Server usando diversi strumenti per la copia dei file quali [AZCopy](../../storage/common/storage-use-azcopy.md), [Esplora archivi di Azure](https://storageexplorer.com/) o la funzione di copia/incolla di Windows tramite Remote Desktop Protocol (RDP).
 >
 >
 
@@ -75,10 +75,10 @@ CREATE TABLE <tablename>
 )
 ```
 
-2. Generare il file di formato che descrive lo schema per la tabella eseguendo il comando seguente dalla riga di comando del computer in cui è installato bcp.
+1. Generare il file di formato che descrive lo schema per la tabella eseguendo il comando seguente dalla riga di comando del computer in cui è installato bcp.
 
     `bcp dbname..tablename format nul -c -x -f exportformatfilename.xml -S servername\sqlinstance -T -t \t -r \n`
-3. Inserire i dati nel database utilizzando il comando bcp come indicato di seguito. Dovrebbe funzionare dalla riga di comando, presupponendo che SQL Server sia installato nello stesso computer:
+1. Inserire i dati nel database utilizzando il comando bcp come indicato di seguito. Dovrebbe funzionare dalla riga di comando, presupponendo che SQL Server sia installato nello stesso computer:
 
     `bcp dbname..tablename in datafilename.tsv -f exportformatfilename.xml -S servername\sqlinstancename -U username -P password -b block_size_to_move_in_single_attempt -t \t -r \n`
 
@@ -142,7 +142,7 @@ Ecco alcuni comandi di esempio per l'inserimento di massa:
 ```sql
 SET DATEFORMAT ymd;
 ```
-2. portare i dati utilizzando le istruzioni per eseguire importazioni di massa
+1. portare i dati utilizzando le istruzioni per eseguire importazioni di massa
 
 ```sql
 BULK INSERT <tablename>
@@ -195,7 +195,7 @@ La **Distribuzione di un Database SQL Server in una macchina virtuale di Microso
 4. Utilizzare uno dei metodi descritti nella sezione [Spostamento dei dati dall'origine file](#filesource_to_sqlonazurevm) per spostare i dati dai file flat in SQL Server.
 
 ### <a name="sql-migration"></a>Migrazione guidata database SQL
-[Migrazione guidata database SQL Server](http://sqlazuremw.codeplex.com/) fornisce un modo semplice per spostare i dati tra due istanze del server SQL. Consente all'utente di mappare lo schema dei dati tra origini e tabelle di destinazione, scegliere i tipi di colonna e varie altre funzionalità. Utilizza la copia di massa (BCP) dietro le quinte. Di seguito è riportata una schermata della schermata iniziale della procedura guidata di migrazione del database SQL.  
+[Migrazione guidata database SQL Server](https://sqlazuremw.codeplex.com/) fornisce un modo semplice per spostare i dati tra due istanze del server SQL. Consente all'utente di mappare lo schema dei dati tra origini e tabelle di destinazione, scegliere i tipi di colonna e varie altre funzionalità. Utilizza la copia di massa (BCP) dietro le quinte. Di seguito è riportata una schermata della schermata iniziale della procedura guidata di migrazione del database SQL.  
 
 ![Migrazione guidata in SQL Server][2]
 

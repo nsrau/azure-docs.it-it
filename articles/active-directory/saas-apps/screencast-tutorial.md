@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51daf3b9553babb5fc627c02d79914c68c318145
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 941a02ef9ab3d623d34c8dc6996040f6d9e44859
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190824"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58096844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screencast-o-matic"></a>Esercitazione: integrazione di Azure Active Directory con Screencast-O-Matic
 
@@ -133,17 +133,17 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 9. In **Setup Access Page** (Pagina di accesso di configurazione) seguire questa procedura:
 
-    * Nella sezione **Access URL** (URL di accesso) immettere il nome dell'istanza nella casella di testo specificata.
+   * Nella sezione **Access URL** (URL di accesso) immettere il nome dell'istanza nella casella di testo specificata.
 
-    ![Accesso](./media/screencast-tutorial/tutorial_screencast_access.png)
+     ![Accesso](./media/screencast-tutorial/tutorial_screencast_access.png)
 
-    * Selezionare **Require Domain User** (Richiedi utente di dominio) nella sezione **SAML User Restriction (optional)** (Restrizione utente SAML (facoltativa)).
+   * Selezionare **Require Domain User** (Richiedi utente di dominio) nella sezione **SAML User Restriction (optional)** (Restrizione utente SAML (facoltativa)).
 
-    * In **Upload IDP Metadata XML File** (Carica file XML metadati IDP) fare clic su **Choose File** (Scegli file) per caricare i metadati scaricati dal portale di Azure.
+   * In **Upload IDP Metadata XML File** (Carica file XML metadati IDP) fare clic su **Choose File** (Scegli file) per caricare i metadati scaricati dal portale di Azure.
 
-    * Fare clic su **OK**. 
+   * Fare clic su **OK**. 
 
-    ![Accesso](./media/screencast-tutorial/tutorial_screencast_save.png)
+     ![Accesso](./media/screencast-tutorial/tutorial_screencast_save.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 

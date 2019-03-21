@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: bd6384dcd132ffb53e3531707c600465e8d0b649
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 249ed7b1be2731fc8165ca7f205ba1d94066818e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58088044"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Note sulla versione di Microsoft Azure Storage Explorer
 
@@ -27,13 +27,115 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma che consente di usare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 
+## <a name="version-170"></a>Versione 1.7.0
+3/5/2019
+
+### <a name="download-azure-storage-explorer-170"></a>Scaricare Azure Storage Explorer 1.7.0
+- [Azure Storage Explorer 1.7.0 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.7.0 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.7.0 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nuovo
+
+* È ora possibile modificare il proprietario e il gruppo proprietario quando gestiscono l'accesso per un contenitore di Azure Data Lake Store Gen2, file o cartella.
+* In Windows, l'aggiornamento di Storage Explorer all'interno del prodotto è ora un'installazione incrementale. Verrà inserita un'esperienza di aggiornamento più veloce. Se si preferisce un'installazione pulita, quindi è possibile scaricare il [programma di installazione](https://azure.microsoft.com/en-us/features/storage-explorer/) manualmente e quindi installare manualmente. #1089
+
+### <a name="preview-features"></a>Anteprima funzionalità
+
+* Firmare di flusso di codice di dispositivo in è ora disponibile in anteprima. Per abilitarla, passare a "Anteprima" → "Uso dispositivo Code Flow Accedi". E invita gli utenti che hanno avuto problemi con finestre vuote Accedi per provare questa funzionalità, come potrebbe non risultare una forma più affidabile di accesso. #938
+* Storage Explorer integrato con AzCopy è attualmente disponibile in anteprima. Per abilitarla, passare a "Anteprima" → "Usare AzCopy per migliorato Blob caricare e scaricare". I trasferimenti di BLOB completati con AzCopy devono essere più veloce e più efficiente.
+
+### <a name="fixes"></a>Correzioni
+
+* È ora possibile scegliere il tipo di blob da caricare come se AzCopy è abilitato. #1111
+* In precedenza, se è abilitata per siti Web statici per un account di archiviazione Gen2 Azure Data Lake Store e viene quindi collegato con nome e la chiave, Storage Explorer potrebbe non sono rilevati che è stato abilitato tale spazio dei nomi gerarchico. Questo problema è stato risolto. #1081
+* Nell'editor di blob, l'ordinamento per i giorni di conservazione rimanente o stato è stata interrotta. Questo problema è stato risolto. #1106
+* Dopo la versione 1.5.0, Storage Explorer non è più in attesa per le copie lato server terminare prima che venga completato correttamente durante una ridenominazione o copia e Incolla. Questo problema è stato risolto. #976
+* Quando si usa la funzionalità di AzCopy sperimentale, il comando copiato dopo aver fatto clic "Copia comando negli Appunti" non era sempre eseguibile di per sé. A questo punto, verranno copiati tutti i comandi necessari per eseguire il trasferimento manualmente. #1079
+* In precedenza, i BLOB di Azure Data Lake Store Gen2 non erano accessibili se fosse dietro un proxy. Ciò è dovuto a un bug in una nuova libreria di rete usata dal SDK di archiviazione. In 1.7.0, è stato eseguito un tentativo per attenuare questo problema, ma alcuni utenti possono continuare a vedere i problemi. Una correzione completa verrà rilasciata in un aggiornamento futuro. #1090
+* In 1.7.0, save finestra di dialogo file memorizza ora correttamente l'ultimo percorso è stato salvato un file. #16
+* Nel Pannello proprietà, il livello di SKU di un account di archiviazione è stata attualmente visualizzato sotto forma di tipo dell'account. Questo problema è stato risolto. #654
+* In alcuni casi, non era possibile interrompere il lease di un blob, anche se il nome del blob è stato immesso correttamente. Questo problema è stato risolto. #1070
+
+### <a name="known-issues"></a>Problemi noti
+
+* Quando si usa RBAC, Storage Explorer richiede alcune autorizzazioni di livello di gestione per accedere alle risorse di archiviazione. Vedere le [Guida alla risoluzione dei](https://docs.microsoft.com/en-us/azure/storage/common/storage-explorer-troubleshooting) per altre informazioni.
+* Tentativo di accedere ai BLOB di Azure Data Lake Store Gen2 dietro un proxy potrebbe non riuscire.
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere il numero 537.
+* Lo scollegamento da una risorsa collegata tramite URI SAS, ad esempio un contenitore BLOB, può causare un errore che impedisce ad altri allegati di essere visualizzati correttamente. Per risolvere questo problema, aggiornare semplicemente il nodo del gruppo. Per altre informazioni, vedere #537.
+* Se si usa Visual Studio per Mac e non è mai stata creata una configurazione personalizzata di AAD, potrebbe non essere possibile effettuare l'accesso. Per risolvere il problema, eliminare il contenuto di ~/.IdentityService/AadConfigurations. Se con tale operazione non si viene sbloccati, aggiungere un commento su questo problema.
+* Azurite non ha ancora implementato completamente tutte le API di archiviazione. Per questo motivo, potrebbe esserci errori imprevisti o un comportamento imprevisto quando si usa Azurite per l'archivio di sviluppo.
+* In rari casi, lo stato attivo dell'albero può rimanere bloccato in Accesso rapido. Per sbloccare lo stato attivo, è possibile eseguire l’operazione Aggiorna tutto.
+* Il caricamento dalla cartella OneDrive non funziona a causa di un bug in NodeJS. Il bug è stato risolto ma non è ancora stato integrato in Electron. Per ovviare a questo problema quando si esegue il caricamento o il download da un contenitore BLOB, è possibile usare la funzionalità sperimentale AzCopy.
+* Quando la destinazione è Azure Stack, il caricamento di alcuni file come BLOB di accodamento può non riuscire.
+* L'azione "Annulla" per un'attività potrebbe impiegare qualche istante per diventare effettiva. Questo avviene perché si sta usando la soluzione alternativa di annullamento del filtro descritta qui.
+* Se si sceglie il certificato PIN/smart card non corretto, è necessario il riavvio per fare in modo che Storage Explorer dimentichi tale decisione.
+* La ridenominazione di BLOB singoli o all'interno di un contenitore BLOB rinominato non mantiene gli snapshot. Tutte le altre proprietà e i metadati di BLOB, file ed entità vengono conservati durante un'operazione di ridenominazione.
+* Azure Stack non supporta le funzionalità seguenti; se si prova a usarle mentre si lavora in Azure Stack, potrebbero verificarsi errori imprevisti.
+   * Condivisioni file
+   * Livelli di accesso
+   * Eliminazione temporanea
+* La shell Electron utilizzata da Azure Storage Explorer ha problemi con l'accelerazione hardware di alcune GPU (graphics processing unit, unità di elaborazione grafica). Se Azure Storage Explorer mostra una finestra principale vuota, è possibile provare ad avviare Azure Storage Explorer dalla riga di comando e disattivare l'accelerazione GPU aggiungendo il parametro `--disable-gpu`:
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Per gli utenti Linux, è necessario installare [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Per gli utenti di Ubuntu 14.04, è necessario assicurarsi che GCC sia aggiornato. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Per gli utenti di Ubuntu 17.04, è necessario installare GConf. Questa operazione può essere eseguita tramite i comandi seguenti e riavviando successivamente il computer:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versioni precedenti
+
+* [Versione 1.6.2](#version-162)
+* [Versione 1.6.1](#version-161)
+* [Versione 1.6.0](#version-160)
+* [Versione 1.5.0](#version-150)
+* [Versione 1.4.4](#version-144)
+* [Versione 1.4.3](#version-143)
+* [Versione 1.4.2](#version-142)
+* [Versione 1.4.1](#version-141)
+* [Versione 1.3.0](#version-130)
+* [Versione 1.2.0](#version-120)
+* [Versione 1.1.0](#version-110)
+* [Versione 1.0.0](#version-100)
+* [Versione 0.9.6](#version-096)
+* [Versione 0.9.5](#version-095)
+* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
+* [Versione 0.9.2](#version-092)
+* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
+* [ 0.8.16](#version-0816)
+* [Versione 0.8.14](#version-0814)
+* [Versione 0.8.13](#version-0813)
+* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
+* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
+* [Versione 0.8.7](#version-087)
+* [Versione 0.8.6](#version-086)
+* [Versione 0.8.5](#version-085)
+* [Versione 0.8.4](#version-084)
+* [Versione 0.8.3](#version-083)
+* [Versione 0.8.2](#version-082)
+* [Versione 0.8.0](#version-080)
+* [Versione 0.7.20160509.0](#version-07201605090)
+* [Versione 0.7.20160325.0](#version-07201603250)
+* [Versione 0.7.20160129.1](#version-07201601291)
+* [Versione 0.7.20160105.0](#version-07201601050)
+* [Versione 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-162"></a>Versione 1.6.2
 1/9/2019
-
-### <a name="download-azure-storage-explorer-162"></a>Scaricare Azure Storage Explorer 1.6.2
-- [Azure Storage Explorer 1.6.2 per Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.6.2 per Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.6.2 per Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Hotfix
 * In 1.6.1, le entità aggiunte a Azure Data Lake Storage Gen2 ACL da ObjectId che non sono utenti vengono aggiunte sempre come gruppi. A questo punto, solo i gruppi vengono aggiunti come gruppi; le entità quali applicazioni aziendali e le entità servizio, vengono aggiunte come utenti. [#1049](https://www.github.com/Microsoft/AzureStorageExplorer/issues/1049)
@@ -56,12 +158,12 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 * È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
-    * Creare ed eliminare contenitori
-    * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
-    * Visualizzare ed esplorare i dati all'interno dei contenitori
-    * Creare nuove cartelle
-    * Caricare, scaricare, rinominare ed eliminare file e cartelle
-    * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
+  * Creare ed eliminare contenitori
+  * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
+  * Visualizzare ed esplorare i dati all'interno dei contenitori
+  * Creare nuove cartelle
+  * Caricare, scaricare, rinominare ed eliminare file e cartelle
+  * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
     
     Altre funzionalità tipiche dei BLOB, come l'eliminazione temporanea e gli snapshot, non sono attualmente disponibili. La gestione delle autorizzazioni è disponibile solo se si è connessi. Se si usa un account di archiviazione di Azure Data Lake Storage Gen2, inoltre, Storage Explorer si avvarrà di AzCopy per tutti i caricamenti e i download e, per impostazione predefinita, userà le credenziali di nome e chiave per tutte le operazioni (se disponibili).
 * In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, è nuovamente possibile usare l'opzione di interruzione dei lease per interrompere i lease su più BLOB contemporaneamente.
@@ -104,42 +206,6 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="previous-releases"></a>Versioni precedenti
-
-* [Versione 1.6.1](#version-161)
-* [Versione 1.6.0](#version-160)
-* [Versione 1.5.0](#version-150)
-* [Versione 1.4.4](#version-144)
-* [Versione 1.4.3](#version-143)
-* [Versione 1.4.2](#version-142)
-* [Versione 1.4.1](#version-141)
-* [Versione 1.3.0](#version-130)
-* [Versione 1.2.0](#version-120)
-* [Versione 1.1.0](#version-110)
-* [Versione 1.0.0](#version-100)
-* [Versione 0.9.6](#version-096)
-* [Versione 0.9.5](#version-095)
-* [Versione 0.9.4 e 0.9.3](#version-094-and-093)
-* [Versione 0.9.2](#version-092)
-* [Versione 0.9.1 e 0.9.0](#version-091-and-090)
-* [ 0.8.16](#version-0816)
-* [Versione 0.8.14](#version-0814)
-* [Versione 0.8.13](#version-0813)
-* [Versione 0.8.12, 0.8.11 e 0.8.10](#version-0812-and-0811-and-0810)
-* [Versione 0.8.9 e 0.8.8](#version-089-and-088)
-* [Versione 0.8.7](#version-087)
-* [Versione 0.8.6](#version-086)
-* [Versione 0.8.5](#version-085)
-* [Versione 0.8.4](#version-084)
-* [Versione 0.8.3](#version-083)
-* [Versione 0.8.2](#version-082)
-* [Versione 0.8.0](#version-080)
-* [Versione 0.7.20160509.0](#version-07201605090)
-* [Versione 0.7.20160325.0](#version-07201603250)
-* [Versione 0.7.20160129.1](#version-07201601291)
-* [Versione 0.7.20160105.0](#version-07201601050)
-* [Versione 0.7.20151116.0](#version-07201511160)
-
 ## <a name="version-161"></a>Versione 1.6.1
 18/12/2018
 
@@ -161,12 +227,12 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 * È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
-    * Creare ed eliminare contenitori
-    * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
-    * Visualizzare ed esplorare i dati all'interno dei contenitori
-    * Creare nuove cartelle
-    * Caricare, scaricare, rinominare ed eliminare file e cartelle
-    * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
+  * Creare ed eliminare contenitori
+  * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
+  * Visualizzare ed esplorare i dati all'interno dei contenitori
+  * Creare nuove cartelle
+  * Caricare, scaricare, rinominare ed eliminare file e cartelle
+  * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
     
     Altre funzionalità tipiche dei BLOB, come l'eliminazione temporanea e gli snapshot, non sono attualmente disponibili. La gestione delle autorizzazioni è disponibile solo se si è connessi. Se si usa un account di archiviazione di Azure Data Lake Storage Gen2, inoltre, Storage Explorer si avvarrà di AzCopy per tutti i caricamenti e i download e, per impostazione predefinita, userà le credenziali di nome e chiave per tutte le operazioni (se disponibili).
 * In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, è nuovamente possibile usare l'opzione di interruzione dei lease per interrompere i lease su più BLOB contemporaneamente.
@@ -216,12 +282,12 @@ Questo articolo contiene le note sulla versione di Azure Storage Explorer 1.4.3,
 
 * È ora possibile usare Storage Explorer per accedere ai dati del BLOB tramite il [controllo degli accessi in base al ruolo](https://go.microsoft.com/fwlink/?linkid=2045904&clcid=0x409). Se si è connessi e Storage Explorer non riesce a recuperare le chiavi dell'account di archiviazione, verrà usato un token OAuth per l'autenticazione quando si interagisce con i dati.
 * Storage Explorer supporta ora gli account di archiviazione di Azure Data Lake Storage Gen2. Se Storage Explorer rileva che per un account di archiviazione è abilitato lo spazio dei nomi gerarchico, accanto al nome dell'account di archiviazione sarà visibile la voce "(ADLS Gen2 Preview)". Storage Explorer è in grado di rilevare se lo spazio dei nomi gerarchico è abilitato solo se si è connessi o se l'account di archiviazione è stato collegato con il nome e la chiave. Con gli account di archiviazione di Azure Data Lake Storage Gen2, è possibile usare Storage Explorer per:
-    * Creare ed eliminare contenitori
-    * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
-    * Visualizzare ed esplorare i dati all'interno dei contenitori
-    * Creare nuove cartelle
-    * Caricare, scaricare, rinominare ed eliminare file e cartelle
-    * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
+  * Creare ed eliminare contenitori
+  * Gestire proprietà e autorizzazioni (lato sinistro) dei contenitori
+  * Visualizzare ed esplorare i dati all'interno dei contenitori
+  * Creare nuove cartelle
+  * Caricare, scaricare, rinominare ed eliminare file e cartelle
+  * Gestire proprietà e autorizzazioni (lato destro) di file e cartelle.
     
     Altre funzionalità tipiche dei BLOB, come l'eliminazione temporanea e gli snapshot, non sono attualmente disponibili. La gestione delle autorizzazioni è disponibile solo se si è connessi. Se si usa un account di archiviazione di Azure Data Lake Storage Gen2, inoltre, Storage Explorer si avvarrà di AzCopy per tutti i caricamenti e i download e, per impostazione predefinita, userà le credenziali di nome e chiave per tutte le operazioni (se disponibili).
 * In seguito ai numerosi commenti e suggerimenti inviati dagli utenti, è nuovamente possibile usare l'opzione di interruzione dei lease per interrompere i lease su più BLOB contemporaneamente.

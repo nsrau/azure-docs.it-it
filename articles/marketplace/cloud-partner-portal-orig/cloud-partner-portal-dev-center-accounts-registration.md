@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 6482eea23707f451e59d21e70f7583a0cd6680cc
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: adfe0af646fae79bc9a954cd5d654626880915d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55168244"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894088"
 ---
 <a name="create-a-microsoft-developer-account"></a>Creare un account di Microsoft Developer
 ====================================
@@ -90,7 +90,7 @@ Microsoft Developer Center viene usato per registrare le informazioni della soci
 
 1. Aprire una nuova sessione di navigazione in incognito su Chrome o InPrivate Browsing in Internet Explorer per assicurarsi di non essere connessi a un account personale.
 
-2. Andare a [Windows Dev Center](http://dev.windows.com/registration?accountprogram=azure) e registrarsi come venditore. Prima di procedere, leggere la seguente nota importante.
+2. Andare a [Windows Dev Center](https://dev.windows.com/registration?accountprogram=azure) e registrarsi come venditore. Prima di procedere, leggere la seguente nota importante.
 
    ![Verifica dell'account Microsoft](./media/cloud-partner-portal-create-dev-center-registration/seller-dashboard-verify.jpg)
 
@@ -157,7 +157,7 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
 
 **Per aggiungere le informazioni bancarie**
 
-1.  Accedi a [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft.
+1.  Accedi a [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft.
 2.  Selezionare **Account proventi** nel menu a sinistra, quindi in corrispondenza di **Scegli il metodo di pagamento** fare clic su **Conto bancario** o **PayPal**.
 
     >[!NOTE]
@@ -173,7 +173,7 @@ Per poter pubblicare offerte commerciali per l'acquisto, è necessario aggiunger
 
 **Per aggiungere le informazioni fiscali**
 
-1.  Accedere a [Microsoft Developer Center](http://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft, se necessario.
+1.  Accedere a [Microsoft Developer Center](https://dev.windows.com/registration?accountprogram=azure) con l'account Microsoft, se necessario.
 2.  Selezionare **Profilo fiscale** nel menu a sinistra.
 3.  Nella pagina **Configura modulo per la tassazione**:
     - Selezionare il paese o la regione in cui si ha la residenza permanente.

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: dea0a38b1f543fbb17cb0cd98ee4f96144d07f4e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432905"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287180"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Aggiornare il data warehouse a Gen2
 
@@ -43,8 +43,8 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Cina settentrionale |\* |\* |
 | Cina settentrionale 2 |\* |\* |
 | Asia orientale |Disponibile |1 maggio 2019 |
-| Stati Uniti orientali |Disponibile |2 aprile 2019 |
-| Stati Uniti orientali 2 |Disponibile |2 aprile 2019 |
+| Stati Uniti orientali |Disponibile |1 maggio 2019 |
+| Stati Uniti orientali 2 |Disponibile |1 maggio. 2019 |
 | Francia centrale |\* |\* |
 | Germania centrale |\* |\* |
 | Germania centro-occidentale |1 settembre 2019|2 gennaio 2020 |
@@ -55,15 +55,15 @@ La tabella seguente indica la data in cui il livello di calcolo inferiore Gen2 s
 | Corea del Sud centrale |2 aprile 2019 |1 maggio 2019 |
 | Corea del Sud meridionale |2 aprile 2019 |1 giugno 2019 |
 | Stati Uniti centro-settentrionali |2 aprile 2019 |1 giugno 2019 |
-| Europa settentrionale |Disponibile |2 aprile 2019 |
+| Europa settentrionale |Disponibile |1 maggio 2019 |
 | Stati Uniti centro-meridionali |Disponibile |1 maggio 2019 |
-| Asia sudorientale |Disponibile |2 aprile 2019 |
+| Asia sudorientale |Disponibile |1 maggio 2019 |
 | Regno Unito meridionale |2 aprile 2019 |1 maggio 2019 |
 | Regno Unito occidentale |\*|\* |
 | Stati Uniti centro-occidentali |2 settembre 2019 |2 gennaio 2020|
-| Europa occidentale |Disponibile |2 aprile 2019 |
+| Europa occidentale |Disponibile |1 maggio 2019 |
 | Stati Uniti occidentali |2 aprile 2019 |1 giugno 2019 |
-| Stati Uniti occidentali 2 |Disponibile |2 aprile 2019 |
+| Stati Uniti occidentali 2 |Disponibile |1 maggio 2019 |
 
 ## <a name="automatic-upgrade-process"></a>Processo di aggiornamento automatico
 

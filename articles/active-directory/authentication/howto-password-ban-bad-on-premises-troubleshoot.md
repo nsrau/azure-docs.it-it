@@ -1,6 +1,6 @@
 ---
-title: Risoluzione dei problemi nell'anteprima di Password di protezione di Azure AD
-description: Informazioni sulla risoluzione dei problemi comuni nell'anteprima di Password di protezione di Azure AD
+title: Risoluzione dei problemi di protezione tramite password di Azure AD
+description: Comprendere i problemi comuni di Azure AD password protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 760ad30daabee61300768b7c67824f39437ac87f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 7ac97d7bda56a871e0b8f6de6d5d7262f3f44667
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006945"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285701"
 ---
-# <a name="preview-azure-ad-password-protection-troubleshooting"></a>Anteprima: Risoluzione dei problemi relativi a Password di protezione di Azure AD
-
-|     |
-| --- |
-| Password di protezione è una funzionalità di Azure Active Directory disponibile in anteprima pubblica. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
-|     |
+# <a name="azure-ad-password-protection-troubleshooting"></a>Risoluzione dei problemi relativi a Password di protezione di Azure AD
 
 Dopo la distribuzione di Password di protezione di Azure AD, può essere necessario risolvere alcuni problemi. Questo articolo presenta informazioni dettagliate su alcuni passaggi comuni per la risoluzione dei problemi.
 
@@ -101,7 +96,7 @@ Al termine dell'abbassamento di livello e quando il controller di dominio è sta
 
 ## <a name="removal"></a>Rimozione
 
-Se si decide di disinstallare il software in versione di anteprima pubblica e di pulire tutti gli stati correlati dai domini e dalla foresta, è possibile completare i passaggi seguenti a questo scopo:
+Se si decide di disinstallare il software di protezione di password di Azure AD e la pulizia dello stato di tutte le relative dai domini e foreste, questa attività può essere eseguita usando la procedura seguente:
 
 > [!IMPORTANT]
 > È importante eseguire i passaggi nell'ordine specificato. Se un'istanza del servizio proxy viene lasciata in esecuzione, ne viene periodicamente ricreare il relativo oggetto serviceConnectionPoint. Se un'istanza del servizio agente del controller di dominio viene lasciata in esecuzione, ne vengono ricreati periodicamente l'oggetto serviceConnectionPoint e lo stato sysvol.
@@ -120,7 +115,7 @@ Se si decide di disinstallare il software in versione di anteprima pubblica e di
 
    L'oggetto risultante individuabile tramite il comando `Get-ADObject` può quindi essere inoltrato tramite pipe a `Remove-ADObject` oppure può essere eliminato manualmente.
 
-4. Rimuovere manualmente tutti i punti di connessione dell'agente del controller di dominio in ogni contesto dei nomi di dominio. Potrebbe essere presente uno di questi oggetti per ogni controller di dominio nella foresta, a seconda dell'ampiezza della distribuzione del software in versione di anteprima pubblica. Il percorso dell'oggetto può essere individuato con il comando di PowerShell per Active Directory seguente:
+4. Rimuovere manualmente tutti i punti di connessione dell'agente del controller di dominio in ogni contesto dei nomi di dominio. Potrebbe essere presente un questi oggetti per ogni controller di dominio nella foresta, a seconda del contesto in cui è stato distribuito il software. Il percorso dell'oggetto può essere individuato con il comando di PowerShell per Active Directory seguente:
 
    ```PowerShell
    $scp = "serviceConnectionPoint"

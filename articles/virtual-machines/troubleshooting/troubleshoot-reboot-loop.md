@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/15/2018
 ms.author: genli
-ms.openlocfilehash: 693f28c04be5cd0acf1d5face2630a3f6d62328c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
-ms.translationtype: HT
+ms.openlocfilehash: 032bc1b9c4b1b0e3bf8040ed52bf4db65ba7b6c7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380745"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085593"
 ---
 # <a name="windows-reboot-loop-on-an-azure-vm"></a>Ciclo di riavvio di Windows in una macchina virtuale di Azure
 Questo articolo descrive una situazione di ciclo di riavvio che può verificarsi in una macchina virtuale Windows in Microsoft Azure.
@@ -83,9 +83,9 @@ Per risolvere questo problema, [eseguire il backup del disco del sistema operati
 
 12. Se una delle chiavi seguenti è presente nel Registro di sistema e il valore corrispondente è **2** o **3**, modificare il valore in **1**:
 
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
-  - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupCoordinatorSvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupInquirySvc\ErrorControl`
+    - `HKEY_LOCAL_MACHINE\BROKENSYSTEM\ControlSet00x\Services\AzureWLBackupPluginSvc\ErrorControl`
 
 13. Selezionare la chiave **BROKENSYSTEM** e, nel menu, selezionare **File** > **Carica Hive**.
 

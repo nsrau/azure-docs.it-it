@@ -8,12 +8,12 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 655d65ebfbb0141acd829a64414d9ba20dd2c697
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 850d8bbb525763e0e7d0c0441173180b7c469dd8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633743"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58085151"
 ---
 # <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integrare Azure Time Series Insights con il monitoraggio remoto
 
@@ -89,14 +89,15 @@ Creare una nuova origine evento per la connessione all'hub IoT. Verificare di us
     | Impostazione | Valore |
     | ------- | ----- |
     | Nome origine evento | Nella schermata seguente viene usato il nome **contosorm-iot-hub**. Quando si completa questo passaggio, usare il proprio nome univoco. |
-    | Sorgente | **Hub IoT** |
+    | Source (Sorgente) | **Hub IoT** |
     | Opzione di importazione | **Usare un hub IoT delle sottoscrizioni disponibili** |
     | ID sottoscrizione | Selezionare la sottoscrizione di Azure nell'elenco a discesa. |
     | Nome dell'hub IoT | **contosorma57a6**. Usare il nome dell'hub IoT della soluzione di monitoraggio remoto. |
     | Nome dei criteri dell'hub IoT | **iothubowner** Verificare che il criterio usato sia un criterio di proprietario. |
     | Chiave dei criteri dell'hub IoT | Il campo viene popolato automaticamente. |
     | Gruppo di consumer dell'hub IoT | **timeseriesinsights** |
-    | Formato di serializzazione eventi | **JSON**     | Nome della proprietà Timestamp | Lasciare vuoto |
+    | Formato di serializzazione eventi | **JSON**     | 
+    | Nome della proprietà Timestamp | Lasciare vuoto |
 
     ![Creare un'origine evento](./media/iot-accelerators-remote-monitoring-integrate-time-series-insights/time-series-insights-event-source-create.png)
 

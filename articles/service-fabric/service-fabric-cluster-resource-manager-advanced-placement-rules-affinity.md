@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 678073e1-d08d-46c4-a811-826e70aba6c4
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: bda70a6854dc6d94d3d4b37e6f587e4dcd045126
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9c4af55a5ddb05335f8acfdd23711df2290e217b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53543840"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085695"
 ---
 # <a name="configuring-and-using-service-affinity-in-service-fabric"></a>Configurazione e utilizzo dell'affinità del servizio in Service Fabric
 Il controllo di affinità è disponibile principalmente per facilitare la transizione di grandi applicazioni monolitiche verso ambienti cloud e di microservizi. Viene anche usato come ottimizzazione per migliorare le prestazioni dei servizi, sebbene questa operazione possa avere effetti collaterali.
@@ -59,6 +59,7 @@ await fabricClient.ServiceManager.CreateServiceAsync(serviceDescription);
 L'affinità è rappresentata tramite vari possibili schemi di correlazione e ha due modalità diverse. La modalità di affinità più comune è la cosiddetta NonAlignedAffinity. Nella modalità NonAlignedAffinity le repliche o le istanze dei diversi servizi vengono inserite negli stessi nodi. L'altra modalità è AlignedAffinity. La modalità AlignedAffinity viene usata solo con i servizi con stato. La configurazione di due servizi con stati per l'allineamento dell'affinità garantisce che i primari di tali servizi vengano inseriti negli stessi nodi. La configurazione consente anche di inserire ogni coppia di secondari dei servizi negli stessi nodi. È possibile anche configurare una relazione NonAlignedAffinity per i servizi con stato, sebbene questa pratica sia meno comune. Per la relazione NonAlignedAffinity, le diverse repliche dei due servizi con stato saranno in esecuzione sugli stessi nodi, ma le relative primarie potrebbero finire in nodi diversi.
 
 <center>
+
 ![Modalità di affinità e loro effetti][Image1]
 </center>
 
@@ -69,6 +70,7 @@ Una relazione di affinità è migliore. Non fornisce le stesse garanzie di collo
 Oggi Cluster Resource Manager non è in grado modellare le catene di relazioni di affinità di. Ciò significa che un servizio che è un elemento figlio in una relazione di affinità non potrà essere un elemento padre in un'altra relazione di affinità. Se si desidera modellare questo tipo di relazione, è necessario modellarla in modo efficace a forma di stella, invece di una catena. Per spostarsi da un modello a catena a uno a stella, l'elemento figlio più basso verrebbe imparentato con il padre del primo elemento figlio. A seconda della disposizione dei servizi, è possibile eseguire l'operazione più volte. Se non esiste alcun servizio padre naturale, è necessario crearne uno che funga da segnaposto. A seconda dei requisiti, è inoltre consigliabile esaminare i [gruppi di applicazioni](service-fabric-cluster-resource-manager-application-groups.md).
 
 <center>
+
 ![Modelli a catena o a stella nel contesto delle relazioni di affinità][Image2]
 </center>
 

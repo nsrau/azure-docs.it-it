@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 01/10/2019
-ms.openlocfilehash: 11c1f34176e7852806464781e80d6dc0fd5345a4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: 6022c016b83ffe1362db4d826a5ee4397afd4128
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750342"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844144"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>Esercitazione: Implementare un database con distribuzione geografica
 
@@ -31,6 +31,10 @@ Questa esercitazione mostra come configurare un database SQL di Azure e l'applic
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+> [!IMPORTANT]
+> Il modulo Azure PowerShell per Resource Manager è ancora supportato dal Database SQL di Azure, ma i progetti di sviluppo future è per il modulo Az.Sql. Per questi cmdlet, vedere [azurerm. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nel modulo Az e nei moduli AzureRm sono sostanzialmente identici.
 
 Per completare l'esercitazione, verificare di avere installato i componenti seguenti:
 
@@ -72,14 +76,14 @@ Per creare un gruppo di failover, eseguire lo script seguente:
     $myfailovergroupname = "<your globally unique failover group name>"
 
     # Create a backup server in the failover region
-    New-AzureRmSqlServer -ResourceGroupName $myresourcegroupname `
+    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
        -ServerName $mydrservername `
        -Location $mydrlocation `
        -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
           -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
     # Create a failover group between the servers
-    New-AzureRMSqlDatabaseFailoverGroup `
+    New-AzSqlDatabaseFailoverGroup `
        –ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -PartnerServerName $mydrservername  `
@@ -88,11 +92,11 @@ Per creare un gruppo di failover, eseguire lo script seguente:
        -GracePeriodWithDataLossHours 2
 
     # Add the database to the failover group
-    Get-AzureRmSqlDatabase `
+    Get-AzSqlDatabase `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -DatabaseName $mydatabasename | `
-     Add-AzureRmSqlDatabaseToFailoverGroup `
+     Add-AzSqlDatabaseToFailoverGroup `
        -ResourceGroupName $myresourcegroupname `
        -ServerName $myservername `
        -FailoverGroupName $myfailovergroupname
@@ -300,7 +304,7 @@ Eseguire gli script seguenti per simulare un failover e osservare i risultati de
 È anche possibile verificare il ruolo del server di ripristino di emergenza durante il test con il comando seguente:
 
    ```powershell
-   (Get-AzureRMSqlDatabaseFailoverGroup `
+   (Get-AzSqlDatabaseFailoverGroup `
       -FailoverGroupName $myfailovergroupname `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername).ReplicationRole
@@ -311,7 +315,7 @@ Per testare un failover:
 1. Avviare un failover manuale del gruppo di failover:
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $mydrservername `
       -FailoverGroupName $myfailovergroupname
@@ -320,7 +324,7 @@ Per testare un failover:
 1. Ripristinare il gruppo di failover nel server primario:
 
    ```powershell
-   Switch-AzureRMSqlDatabaseFailoverGroup `
+   Switch-AzSqlDatabaseFailoverGroup `
       -ResourceGroupName $myresourcegroupname `
       -ServerName $myservername `
       -FailoverGroupName $myfailovergroupname

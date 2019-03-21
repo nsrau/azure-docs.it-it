@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: e223cb060857d45d9f25e2ee1dfca7e159225d8b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237111"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983909"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>Creare una Cache Redis di Azure usando un modello
 
@@ -37,8 +37,8 @@ Per il modello completo, vedere [Modello di Cache Redis di Azure](https://github
 > Sono disponibili modelli di Resource Manager per il nuovo [livello Premium](cache-premium-tier-intro.md) . 
 > 
 > * [Creare un'istanza di Cache Redis di Azure Premium con clustering](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
-> * [Creare una Cache Redis Premium di Azure con persistenza dei dati](https://azure.microsoft.com/documentation/templates/201-redis-premium-persistence/)
-> * [Creare una Cache Redis Premium di Azure con rete virtuale e clustering opzionale](https://azure.microsoft.com/documentation/templates/201-redis-premium-vnet-cluster-diagnostics/)
+> * [Creare una Cache Redis Premium di Azure con persistenza dei dati](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
+> * [Creare una Cache Redis Premium distribuite in una rete virtuale](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > Per verificare gli ultimi modelli, vedere [Modelli di avvio rapido di Azure](https://azure.microsoft.com/documentation/templates/) e cercare `Azure Cache for Redis`.
 > 

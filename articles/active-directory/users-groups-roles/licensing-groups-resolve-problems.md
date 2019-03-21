@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c40a25cd2baebaaeedc012e8e9faff91b297f57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c92969015910cc5bd72e2d9339d5c15c1f7af48b
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082501"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201535"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identificare e risolvere i problemi relativi alle licenze per un gruppo in Azure Active Directory
 
@@ -35,19 +35,19 @@ Quando si usano le licenze basate sui gruppi, è possibile che si verifichino gl
 
 1. Per trovare gli utenti con stato di errore in un gruppo specifico, aprire il riquadro del gruppo. In **Licenze** compare una notifica se sono presenti utenti con stato di errore.
 
-   ![Gruppo, notifica di errore](./media/licensing-groups-resolve-problems/group-error-notification.png)
+   ![Messaggio di notifiche di errore e di gruppo](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
 2. Selezionare la notifica per aprire un elenco di tutti gli utenti interessati. È possibile selezionare ogni singolo utente per visualizzare altri dettagli.
 
-   ![Gruppo, elenco degli utenti in stato di errore](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
+   ![elenco degli utenti nel gruppo di gestione delle licenze di stato di errore](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
 3. Per trovare tutti i gruppi che contengono almeno un errore, nel pannello **Azure Active Directory** selezionare **Licenze** e quindi selezionare **Panoramica**. Se ci sono gruppi che richiedono attenzione, viene visualizzata una casella di informazioni.
 
-   ![Panoramica, informazioni sui gruppi in stato di errore](./media/licensing-groups-resolve-problems/group-errors-widget.png)
+   ![Panoramica e informazioni sui gruppi in stato di errore](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
 4. Selezionare la casella per visualizzare un elenco di tutti i gruppi con errori. È possibile selezionare ciascun gruppo per visualizzare altri dettagli.
 
-   ![Panoramica, elenco di gruppi con errori](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
+   ![Panoramica ed elenco di gruppi con errori](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
 
 Le sezioni seguenti riportano una descrizione di ogni potenziale problema con la relativa soluzione.

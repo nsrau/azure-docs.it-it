@@ -1,17 +1,21 @@
 ---
-ms.openlocfilehash: 1555a577d4fdf0436e891e3d73495d1fe2f7e606
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+title: Gruppi di contenitori in Istanze di Azure Container
+description: Informazioni sui gruppi multicontenitore come funzionano in istanze di contenitore di Azure
+services: container-instances
+author: dlepow
+manager: jeconnoc
+ms.service: container-instances
+ms.topic: article
+ms.date: 03/20/2018
+ms.author: danlep
+ms.custom: mvc
+ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901322"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202011"
 ---
----
-title: Descrizione gruppi contenitore di istanze di contenitore Azure: Informazioni sui gruppi multicontenitore come funzionano in servizi di istanze di contenitore di Azure: creare istanze di contenitore: dlepow manager: jeconnoc
-
-ms. Service: istanze di contenitore ms. topic: articolo ms. date: 03/20/2018 ms.author: danlep ms.custom: mvc
-
-
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
 La risorsa di livello principale in Istanze di Azure Container è il *gruppo di contenitori*. Questo articolo descrive le caratteristiche dei gruppi di contenitori e i tipi di scenari possibili.

@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: monitor
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 11/02/2018
-ms.openlocfilehash: e53d77c4faea5b9461395a0098261866bdf6252f
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 93337e39a117c1f8d38f24dc416ff8ae95513a34
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430430"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855589"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-data-warehouse-using-azure-portal"></a>Creare avvisi per il database SQL di Azure e il data warehouse usando il portale di Azure
 
@@ -59,7 +59,7 @@ Questo articolo descrive come impostare gli avvisi per il database SQL di Azure 
 4. Assegnare alla regola di avviso un **Nome** e scegliere una **Descrizione**, che viene visualizzata anche nella notifica inviata tramite posta elettronica.
 5. Selezionare la **Metrica** da monitorare e quindi scegliere una **Condizione** e un valore **Soglia**. Scegliere inoltre il **Periodo** di tempo entro il quale la regola della metrica deve essere soddisfatta prima dell'attivazione dell'avviso. Ad esempio, se si usa il periodo "PT5M" e l'avviso deve rilevare una CPU superiore all'80%, l'avviso si attiva quando la CPU **media** resta sopra all'80% per 5 minuti. Dopo la prima attivazione, l'avviso si attiverà di nuovo quando la CPU media è al di sotto dell'80% per più di 5 minuti. La CPU viene misurata ogni minuto. Consultare la tabella seguente per gli intervalli di tempo supportati e il tipo di aggregazione usato da ogni avviso. Non tutti gli avvisi usano il valore medio.   
 6. Selezionare la casella di controllo **Invia messaggio a proprietari, collaboratori e lettori** se si desidera che gli amministratori e i coamministratori ricevano un messaggio di posta elettronica quando si attiva l'avviso.
-7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, completare il campo **E-mail dell'amministratore aggiuntivo** . Separare gli indirizzi di posta elettronica con punti e virgola: *email@contoso.com;email2@contoso.com*
+7. Per aggiungere altri indirizzi di posta elettronica ai quali inviare una notifica quando viene attivato l'avviso, completare il campo **E-mail dell'amministratore aggiuntivo** . Separare più messaggi di posta elettronica con punti e virgola: *messaggio di posta elettronica\@contoso.com;email2\@contoso.com*
 8. Inserire un URI valido nel campo **Webhook** per eseguire la chiamata quando viene attivato l'avviso.
 9. Al termine fare clic su **OK** per creare l'avviso.   
 

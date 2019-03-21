@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/27/2017
 ms.author: diegomrtnzg
 ms.custom: mvc
-ms.openlocfilehash: a2ecc2b0b8bfcf65d2ba566b8524a0c37c89ab78
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 8aa62e4ed65f8223071786ac165f8343cb6901d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980551"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079095"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-acs-engine-and-docker-swarm-mode-using-azure-devops"></a>(DEPRECATO) Pipeline CI/CD completa per distribuire un'applicazione con più contenitori nel servizio contenitore di Azure con il motore ACS e la modalità Docker Swarm tramite Azure DevOps
 
@@ -163,21 +163,21 @@ Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'imm
 
    ![Azure DevOps - Aggiungere attività della riga di comando](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-command-task.png)
 
-      1. Un'attività della riga di comando che usa uno script bash per sostituire l'occorrenza *RegistryURL* nel file docker-compose.yml con la variabile RegistryURL. 
+   1. Un'attività della riga di comando che usa uno script bash per sostituire l'occorrenza *RegistryURL* nel file docker-compose.yml con la variabile RegistryURL. 
     
-          ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/RegistryUrl/$(RegistryURL)/g' src/docker-compose-v3.yml"```
 
-          ![Azure DevOps - Aggiornare file Compose con l'indirizzo Web del registro](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
+       ![Azure DevOps - Aggiornare file Compose con l'indirizzo Web del registro](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-replace-registry.png)
 
-      2. Un'attività della riga di comando che usa uno script bash per sostituire l'occorrenza *AgentURL* nel file docker-compose.yml con la variabile AgentURL.
+   2. Un'attività della riga di comando che usa uno script bash per sostituire l'occorrenza *AgentURL* nel file docker-compose.yml con la variabile AgentURL.
   
-          ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
+       ```-c "sed -i 's/AgentUrl/$(AgentURL)/g' src/docker-compose-v3.yml"```
 
-     3. Un'attività che rimuove il file Compose aggiornato come elemento di compilazione per poterlo usare nel rilascio. Vedere i dettagli nella schermata di seguito.
+      1. Un'attività che rimuove il file Compose aggiornato come elemento di compilazione per poterlo usare nel rilascio. Vedere i dettagli nella schermata di seguito.
 
-         ![Azure DevOps - Pubblicare un artefatto](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
+      ![Azure DevOps - Pubblicare un artefatto](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish.png) 
 
-         ![Servizi di Azure DevOps - Pubblicare file Compose](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
+      ![Servizi di Azure DevOps - Pubblicare file Compose](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-publish-compose.png) 
 
 5. Fare clic su **Salva e accoda** per testare la pipeline di compilazione.
 
@@ -187,7 +187,7 @@ Sono necessari due passaggi di Docker per ogni immagine, uno per compilare l'imm
 
 6. Se la **compilazione**  è corretta, viene visualizzata la schermata seguente:
 
-  ![DevOps di Azure - Compilazione completata](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
+   ![DevOps di Azure - Compilazione completata](./media/container-service-docker-swarm-mode-setup-ci-cd-acs-engine/vsts-build-succeeded.png) 
 
 ## <a name="step-3-create-the-release-pipeline"></a>Passaggio 3: Creare la pipeline di versione
 
@@ -235,14 +235,14 @@ Il flusso di lavoro di rilascio è composto da due attività che vengono aggiunt
 
     Il comando eseguito nel nodo principale usa l'interfaccia della riga di comando di Docker e Docker-Compose per eseguire queste attività:
 
-    - Accedere al registro contenitori di Azure, con tre variabili di compilazione definite nella scheda **Variabili**
-    - Definire la variabile **DOCKER_HOST** in modo che sia compatibile con l'endpoint Swarm (:2375)
-    - Accedere alla cartella di *distribuzione* che è stata creata dall'attività di copia sicura precedente e che contiene il file docker-compose.yml 
-    - Eseguire comandi `docker stack deploy`, che effettuano il pull di nuove immagini e creano i contenitori.
+   - Accedere al registro contenitori di Azure, con tre variabili di compilazione definite nella scheda **Variabili**
+   - Definire la variabile **DOCKER_HOST** in modo che sia compatibile con l'endpoint Swarm (:2375)
+   - Accedere alla cartella di *distribuzione* che è stata creata dall'attività di copia sicura precedente e che contiene il file docker-compose.yml 
+   - Eseguire comandi `docker stack deploy`, che effettuano il pull di nuove immagini e creano i contenitori.
 
-    >[!IMPORTANT]
-    > Come illustrato nella schermata precedente, lasciare deselezionata la casella **Interrompi in caso di STDERR**. Questa impostazione permette di completare il processo di rilascio, perché `docker-compose` stampa diversi messaggi di diagnostica, ad esempio in caso di contenitori arrestati o in fase di eliminazione, nell'output di errore standard. Se si seleziona la casella di controllo, Azure DevOps segnala che si sono verificati errori durante il rilascio, anche se tutto va bene.
-    >
+     >[!IMPORTANT]
+     > Come illustrato nella schermata precedente, lasciare deselezionata la casella **Interrompi in caso di STDERR**. Questa impostazione permette di completare il processo di rilascio, perché `docker-compose` stampa diversi messaggi di diagnostica, ad esempio in caso di contenitori arrestati o in fase di eliminazione, nell'output di errore standard. Se si seleziona la casella di controllo, Azure DevOps segnala che si sono verificati errori durante il rilascio, anche se tutto va bene.
+     >
 3. Salvare la nuova pipeline di versione.
 
 ## <a name="step-4-test-the-cicd-pipeline"></a>Passaggio 4: Testare la pipeline CI/CD

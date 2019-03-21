@@ -4,18 +4,20 @@ description: Inviare le metriche del sistema operativo guest all'archivio delle 
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 2b032405a2fb3b8b608228d8a739bf91dcf439ef
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 64fb3acf9b134b7188d316633bc663d7dd9b14b8
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895942"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760223"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Inviare le metriche del sistema operativo guest all'archivio delle metriche di Monitoraggio di Azure usando un modello di Azure Resource Manager per un set di scalabilità di macchine virtuali Windows
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 L'[estensione Diagnostica di Microsoft Azure (WAD)](diagnostics-extension-overview.md) di Monitoraggio di Azure consente di raccogliere le metriche e i log dal sistema operativo guest eseguito come parte di una macchina virtuale, di un servizio cloud o di un cluster di Azure Service Fabric. L'estensione può inviare i dati di telemetria a molti percorsi diversi elencati nell'articolo indicato in precedenza.  
 
@@ -27,7 +29,7 @@ Se non si ha familiarità con i modelli di Resource Manager, vedere le [distribu
 
 - La sottoscrizione deve essere registrata con [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services). 
 
-- È necessario avere installato [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) oppure è possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
+- È necessario avere installato [Azure PowerShell](/powershell/azure) oppure è possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). 
 
 
 ## <a name="set-up-azure-monitor-as-a-data-sink"></a>Configurare Monitoraggio di Azure come sink dei dati 
@@ -236,17 +238,17 @@ Salvare e chiudere entrambi i file.
 Per distribuire il modello di Resource Manager, usare Azure PowerShell:  
 
 1. Avviare PowerShell. 
-1. Accedere al portale di Azure con `Login-AzureRmAccount`.
-1. Ottenere l'elenco delle sottoscrizioni usando `Get-AzureRmSubscription`.
+1. Accedere al portale di Azure con `Login-AzAccount`.
+1. Ottenere l'elenco delle sottoscrizioni usando `Get-AzSubscription`.
 1. Impostare la sottoscrizione che verrà creata o aggiornare la macchina virtuale: 
 
    ```PowerShell
-   Select-AzureRmSubscription -SubscriptionName "<Name of the subscription>" 
+   Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
 1. Creare un nuovo gruppo di risorse per la VM da distribuire. Eseguire il comando seguente: 
 
    ```PowerShell
-    New-AzureRmResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
+    New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 
    ```
 
    > [!NOTE]  
@@ -258,7 +260,7 @@ Per distribuire il modello di Resource Manager, usare Azure PowerShell:
    > Se si vuole aggiornare un set di scalabilità esistente, aggiungere **-Mode Incremental** alla fine del comando. 
  
    ```PowerShell
-   New-AzureRmResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
+   New-AzResourceGroupDeployment -Name "VMSSWADTest" -ResourceGroupName "VMSSWADtestGrp" -TemplateFile "<File path of your azuredeploy.JSON file>" -TemplateParameterFile "<File path of your azuredeploy.parameters.JSON file>"  
    ```
 
 1. Al termine della distribuzione, il set di scalabilità di macchine virtuali dovrebbe essere disponibile nel portale di Azure e inviare metriche a Monitoraggio di Azure. 

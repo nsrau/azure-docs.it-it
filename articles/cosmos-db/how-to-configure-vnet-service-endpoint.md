@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
-ms.openlocfilehash: 4511ef81ccfa7008cd21a22b09459fb122d46327
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: efe85e017d883ca82414fe5ff10b5c2932366e48
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452941"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101126"
 ---
 # <a name="configure-access-from-virtual-networks-vnet"></a>Configurare l'accesso da reti virtuali
 
@@ -49,8 +49,11 @@ Le sezioni seguenti descrivono come configurare un endpoint di servizio della re
 
 > [!NOTE]
 > Per abilitare gli endpoint di servizio della rete virtuale sono necessarie le autorizzazioni seguenti per la sottoscrizione:
-  * Sottoscrizione con la rete virtuale: Collaboratore Rete
-  * Sottoscrizione con account Azure Cosmos DB: Collaboratore Account DocumentDB
+>   * Sottoscrizione con la rete virtuale: Collaboratore Rete
+>   * Sottoscrizione con account Azure Cosmos DB: Collaboratore Account DocumentDB
+>   * Se la rete virtuale e un account Azure Cosmos DB si trovano in sottoscrizioni diverse, assicurarsi che la sottoscrizione con rete virtuale disponga anche `Microsoft.DocumentDB` provider di risorse registrato. Per registrare un provider di risorse, vedere [provider di risorse di Azure e i tipi](../azure-resource-manager/resource-manager-supported-services.md) articolo. 
+
+Ecco le istruzioni per la registrazione di abbonamento con provider di risorse.
 
 ### <a name="configure-a-service-endpoint-for-a-new-azure-virtual-network-and-subnet"></a>Configurare un endpoint di servizio per una rete virtuale e una subnet Azure nuove
 

@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 990e6b4d869df030bfddfeb2d60f0ca0e23ea8ca
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.date: 03/19/2019
+ms.openlocfilehash: b1467550ac84c57eaad9178d32fdcfaf14d84ae8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902264"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260231"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limiti del modello di acquisto basato su vCore per il database SQL di Azure per un database singolo
 
@@ -149,7 +149,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di accessi simultanei|200|400|600|800|1000|1200|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -173,7 +173,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di accessi simultanei (richieste)|1400|1600|1800|2000|3200|4800|
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|
-|Zone di disponibilità multiple|N/D|N/D|N/D|N/D|N/D|N/D|
+|Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|
 |Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
@@ -198,7 +198,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 ### <a name="business-critical-service-tier-generation-5-compute-platform-part-2"></a>Livello di servizio business critical: Piattaforma di calcolo Generazione 5 (parte 2)
@@ -222,7 +222,7 @@ Per i limiti del modello di acquisto basati su DTU per i singoli database in un 
 |Numero massimo di sessioni consentite|30000|30000|30000|30000|30000|30000|30000|
 |Numero di repliche|4|4|4|4|4|4|4|
 |Zone di disponibilità multiple|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
-|Scalabilità orizzontale in lettura|N/D|N/D|N/D|N/D|N/D|N/D|N/D|
+|Scalabilità orizzontale in lettura|Sì|Sì|Sì|Sì|Sì|Sì|Sì|
 |Archivio di backup incluso|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|Dimensioni del database 1X|
 
 ## <a name="hyperscale-service-tier-preview"></a>Livello di servizio con iperscalabilità (anteprima)

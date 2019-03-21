@@ -11,16 +11,19 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/11/2018
+ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: 46be596cbd2641b9ecd3206f44a6e7de7beed255
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417507"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110155"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gestire Log Analytics usando i modelli di Azure Resource Manager
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 È possibile usare i [modelli di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per creare e configurare aree di lavoro di Log Analytics. Ecco alcuni esempi di attività eseguibili con i modelli:
 
 * Creare un'area di lavoro inclusa l'impostazione del piano tariffario 
@@ -40,9 +43,9 @@ Questo articolo presenta esempi di modelli che illustrano alcune configurazioni 
 La tabella seguente elenca la versione dell'API per le risorse usate in questo esempio.
 
 | Risorsa | Tipo di risorsa | Versione dell'API |
-|:---|:---|:---|:---|
+|:---|:---|:---|
 | Area di lavoro   | aree di lavoro    | 2017-03-15-preview |
-| Ricerca      | savedSearches | 2017-03-15-preview |
+| Ricerca      | savedSearches | 2015-03-20 |
 | Origine dati | datasources   | 2015-11-01-preview |
 | Soluzione    | solutions     | 2015-11-01-preview |
 
@@ -101,7 +104,7 @@ I parametri seguenti impostano un valore predefinito:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -122,7 +125,7 @@ I parametri seguenti impostano un valore predefinito:
    * Per PowerShell usare i comandi seguenti dalla cartella che contiene il modello:
    
         ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
         ```
 
    * Per la riga di comando usare i comandi seguenti dalla cartella che contiene il modello:
@@ -218,7 +221,7 @@ Il modello di esempio seguente illustra come:
   },
   "resources": [
     {
-      "apiVersion": "2017-03-15-preview",
+      "apiVersion": "2015-11-01-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -230,7 +233,7 @@ Il modello di esempio seguente illustra come:
       },
       "resources": [
         {
-          "apiVersion": "2017-03-15-preview",
+          "apiVersion": "2015-03-20",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -379,7 +382,7 @@ Il modello di esempio seguente illustra come:
           }
         },
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2015-03-20",
           "name": "[concat(parameters('applicationDiagnosticsStorageAccountName'),parameters('workspaceName'))]",
           "type": "storageinsightconfigs",
           "dependsOn": [
@@ -500,7 +503,7 @@ Per distribuire il modello di esempio:
 
 #### <a name="powershell"></a>PowerShell
 ```powershell
-New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
+New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile azuredeploy.json
 ```
 
 #### <a name="command-line"></a>Riga di comando

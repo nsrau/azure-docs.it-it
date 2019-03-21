@@ -10,12 +10,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 5/15/2018
 ms.author: victorh
-ms.openlocfilehash: 2ae8c14b40fa13a1aa8008588fb0efb1b1d2c3f6
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
-ms.translationtype: HT
+ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159418"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091835"
 ---
 # <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configurare un gateway applicazione con la terminazione SSL tramite il portale di Azure
 
@@ -29,6 +29,8 @@ In questo articolo viene spiegato come:
 > * Creare le macchine virtuali usate come server back-end
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -76,12 +78,12 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 4. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
 5. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
-    - *myVNet* come nome della rete virtuale.
-    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
-    - *myAGSubnet* come nome della subnet.
-    - *10.0.0.0/24* come spazio indirizzi della subnet.
+   - *myVNet* come nome della rete virtuale.
+   - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
+   - *myAGSubnet* come nome della subnet.
+   - *10.0.0.0/24* come spazio indirizzi della subnet.
 
-    ![Creare una rete virtuale](./media/create-ssl-portal/application-gateway-vnet.png)
+     ![Creare una rete virtuale](./media/create-ssl-portal/application-gateway-vnet.png)
 
 6. Fare clic su **OK** per creare la rete virtuale e la subnet.
 7. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
@@ -132,7 +134,7 @@ In questo esempio, vengono create due macchine virtuali da usare come server bac
 2. Eseguire questo comando per installare IIS nella macchina virtuale: 
 
     ```azurepowershell-interactive
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -ExtensionName IIS `
       -VMName myVM `
@@ -143,17 +145,17 @@ In questo esempio, vengono create due macchine virtuali da usare come server bac
       -Location EastUS
     ```
 
-3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *myVM2* per il nome e per VMName in Set-AzureRmVMExtension.
+3. Creare una seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *myVM2* per il nome e per VMName in Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Aggiungere i server back-end
 
-3. Fare clic su **Tutte le risorse** e quindi su **myAppGateway**.
-4. Fare clic su **Pool back-end**. È stato creato automaticamente un pool predefinito con il gateway applicazione. Fare clic su **appGatewayBackendPool**.
-5. Fare clic su **Aggiungi destinazione** per aggiungere ogni macchina virtuale creata al pool back-end.
+1. Fare clic su **Tutte le risorse** e quindi su **myAppGateway**.
+1. Fare clic su **Pool back-end**. È stato creato automaticamente un pool predefinito con il gateway applicazione. Fare clic su **appGatewayBackendPool**.
+1. Fare clic su **Aggiungi destinazione** per aggiungere ogni macchina virtuale creata al pool back-end.
 
     ![Aggiungere i server back-end](./media/create-ssl-portal/application-gateway-backend.png)
 
-6. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 

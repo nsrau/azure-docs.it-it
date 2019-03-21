@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 1f79330f12117c6ade8884165d1538623e19c7ea
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55175265"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58094627"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Usare gli attributi personalizzati in un criterio di modifica del profilo personalizzato
 
@@ -260,20 +260,20 @@ Il token ID inviato all'applicazione include la nuova proprietà di estensione c
 
 1. Aggiungere la nuova attestazione ai flussi per gli accessi con account di social networking modificando gli elementi **TechnicalProfile** elencati. Gli account di social networking e federati usano questi due elementi **TechnicalProfile** per l'accesso. Scrivono e leggono i dati utente usando **alternativeSecurityId** come localizzatore dell'oggetto utente.
 
-  ```xml
+   ```xml
     <TechnicalProfile Id="AAD-UserWriteUsingAlternativeSecurityId">
 
     <TechnicalProfile Id="AAD-UserReadUsingAlternativeSecurityId">
-  ```
+   ```
 
 2. È possibile usare gli stessi attributi di estensione tra i criteri predefiniti e personalizzati. Quando si aggiungono attributi di estensione, o personalizzati, tramite il portale, gli attributi vengono registrati usando la **b2c-extensions-app** presente in ogni tenant B2C. Per usare questi attributi di estensione nei criteri personalizzati, seguire la seguente procedura:
 
-  a. All'interno del tenant B2C in portal.azure.com, passare a **Azure Active Directory** e selezionare **Registrazioni dell'app**.  
-  b. Trovare **b2c-extensions-app** e selezionarlo.  
-  c. Nel campo **Informazioni di base** immettere l'**ID applicazione** e l'**ID oggetto**.  
-  d. Includerli nei metadati dell'elemento **AAD-Common** in TechnicalProfile:  
+   a. All'interno del tenant B2C in portal.azure.com, passare a **Azure Active Directory** e selezionare **Registrazioni dell'app**.  
+   b. Trovare **b2c-extensions-app** e selezionarlo.  
+   c. Nel campo **Informazioni di base** immettere l'**ID applicazione** e l'**ID oggetto**.  
+   d. Includerli nei metadati dell'elemento **AAD-Common** in TechnicalProfile:  
 
-  ```xml
+   ```xml
       <ClaimsProviders>
         <ClaimsProvider>
           <DisplayName>Azure Active Directory</DisplayName>
@@ -285,16 +285,16 @@ Il token ID inviato all'applicazione include la nuova proprietà di estensione c
               <Item Key="ApplicationObjectId">insert objectId here</Item> <!-- This is the "Object ID" from the "b2c-extensions-app"-->
               <Item Key="ClientId">insert appId here</Item> <!--This is the "Application ID" from the "b2c-extensions-app"-->
             </Metadata>
-  ```
+   ```
 
 3. Per mantenere la coerenza con l'esperienza del portale, Creare questi attributi tramite l'interfaccia utente del portale prima di usarli nei criteri personalizzati. Quando si crea un attributo **ActivationStatus** nel portale, è necessario farvi riferimento, come indicato di seguito:
 
-  ```
-  extension_ActivationStatus in the custom policy.
-  extension_<app-guid>_ActivationStatus via Graph API.
-  ```
+   ```
+   extension_ActivationStatus in the custom policy.
+   extension_<app-guid>_ActivationStatus via Graph API.
+   ```
 
-## <a name="reference"></a>riferimento
+## <a name="reference"></a>Riferimenti
 
 Per una descrizione completa delle proprietà di estensione, vedere l'articolo [Estensioni dello schema della directory | Concetti relativi all'API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
 

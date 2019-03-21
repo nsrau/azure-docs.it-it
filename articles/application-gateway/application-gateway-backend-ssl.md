@@ -9,18 +9,18 @@ editor: amsriva
 ms.assetid: 3976399b-25ad-45eb-8eb3-fdb736a598c5
 ms.service: application-gateway
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 07/19/2017
 ms.author: amsriva
-ms.openlocfilehash: 689ee54dc1db2ea371b08270718278fd98c65bb5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 856f23de8a8772255f570a923ecf1708dc819bb5
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22704711"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57778349"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Panoramica di SSL end-to-end con il gateway applicazione
 

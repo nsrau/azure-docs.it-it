@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/14/2018
 ms.author: kumud
-ms.openlocfilehash: fb8b3ac69797400af962ae40816943d6a32b8ec6
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: 913693e684ba8640a93f50d21dd3df6a6295e1c5
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245549"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450448"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -212,9 +212,9 @@ Non abilitare i [timestamp TCP](https://tools.ietf.org/html/rfc1323).  Se vengon
 
 ## <a name="monitoring"></a>Monitoraggio
 
-Entrambi i servizi [Load Balancer Standard](load-balancer-standard-overview.md) pubblico e interno espongono lo stato dei probe di integrità come una metrica multidimensionale per ogni istanza di back-end e per ogni endpoint tramite Monitoraggio di Azure. Queste metriche possono quindi essere usate da altri servizi di Azure o da altre applicazioni di terze parti. 
+Entrambi i servizi [Load Balancer Standard](load-balancer-standard-overview.md) pubblico e interno espongono lo stato dei probe di integrità come una metrica multidimensionale per ogni istanza di back-end e per ogni endpoint tramite Monitoraggio di Azure. Queste metriche possono essere utilizzate da altri servizi di Azure o applicazioni di partner. 
 
-Il sistema Load Balancer Basic pubblico espone lo stato dei probe di integrità riepilogato per ogni pool back-end tramite Log Analytics.  Log Analytics non è disponibile per i sistemi Load Balancer Basic interni.  È possibile usare [Log Analytics](load-balancer-monitor-log.md) per verificare lo stato di integrità e il conteggio dei probe del servizio di bilanciamento del carico pubblico. La registrazione può essere usata con Power BI o Azure Operational Insights per fornire statistiche sullo stato di integrità del servizio di bilanciamento del carico.
+Base pubblica di Load Balancer espone lo stato probe di integrità riepilogato per ogni pool back-end con i log di monitoraggio di Azure.  Log di monitoraggio di Azure non sono disponibili per i bilanciamenti del carico Basic interna.  È possibile usare [monitoraggio di Azure registra](load-balancer-monitor-log.md) per controllare lo stato di integrità probe del servizio di bilanciamento carico pubblico e conteggio dei probe. La registrazione può essere usata con Power BI o Azure Operational Insights per fornire statistiche sullo stato di integrità del servizio di bilanciamento del carico.
 
 ## <a name="limitations"></a>Limitazioni
 

@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: e29d4c0a4279ae44a45b082c5a36b471af3cb12a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: ead4026ecec4878c69bc21a9ebc989eaf3d69a13
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110189"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259942"
 ---
-# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Avvio rapido: Usare l'API REST Riconoscimento vocale Bing
+# <a name="quickstart-use-the-bing-speech-recognition-rest-api"></a>Guida introduttiva: Usare l'API REST Riconoscimento vocale Bing
 
 [!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
@@ -66,9 +66,9 @@ Alcuni esempi di URI del servizio sono elencati nella tabella seguente.
 
 | Modalità di riconoscimento  | Linguaggio | Formato di output | URI del servizio |
 |---|---|---|---|
-| `interactive` | pt-BR | Predefinito | https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
-| `conversation` | en-US | Dettagliato | https://speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
-| `dictation` | fr-FR | Semplice | https://speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
+| `interactive` | pt-BR | Predefinito | https:\//speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=pt-BR |
+| `conversation` | en-US | Dettagliato | https:\//speech.platform.bing.com/speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed |
+| `dictation` | fr-FR | Semplice | https:\//speech.platform.bing.com/speech/recognition/dictation/cognitiveservices/v1?language=fr-FR&format=simple |
 
 > [!NOTE]
 > L'URI del servizio è necessario solo quando l'applicazione usa le API REST per chiamare il Servizio di riconoscimento vocale. Se si usa una delle [librerie client](GetStartedClientLibraries.md), in genere non occorre conoscere quale URI viene usato. Le librerie client possono usare diversi URI del servizio applicabili solo a una libreria client specifica. Per altre informazioni, vedere la libreria client scelta.

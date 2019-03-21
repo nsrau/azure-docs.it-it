@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: conceptual
-ms.date: 01/22/2019
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: f20d51905d90f9f80007dcaa39cf978c7100026d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 617696c842ab90fc36c68e74831ffd1d79d14bc4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762890"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225706"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gestire la capacità di archiviazione per Azure Stack 
 
@@ -89,12 +89,12 @@ Come operatore di cloud, è possibile monitorare la capacità di archiviazione d
 Come operatore di cloud, è possibile utilizzare il portale di amministrazione per visualizzare la capacità di archiviazione di tutte le condivisioni.
 
 1. Accedi per il [del portale di amministrazione](https://adminportal.local.azurestack.external).
-2. Selezionare **tutti i servizi** > **archiviazione** per aprire l'elenco di condivisione file in cui è possibile visualizzare le informazioni sull'utilizzo. 
+2. Selezionare **tutti i servizi** > **archiviazione** > **condivisioni File** per aprire l'elenco di condivisione file in cui è possibile visualizzare le informazioni sull'utilizzo. 
 
     ![Esempio: Condivisioni file di archiviazione](media/azure-stack-manage-storage-shares/storage-file-shares.png)
 
-  - **TOTALE** è lo spazio totale in byte che sono disponibili per la condivisione. Questo spazio viene usato per i dati e metadati gestiti da servizi di archiviazione.
-  - **UTILIZZATO** è la quantità di dati in byte che viene usato da tutti gli extent dai file di cui sono archiviati i dati dei tenant e i metadati associati.
+   - **TOTALE** è lo spazio totale in byte che sono disponibili per la condivisione. Questo spazio viene usato per i dati e metadati gestiti da servizi di archiviazione.
+   - **UTILIZZATO** è la quantità di dati in byte che viene usato da tutti gli extent dai file di cui sono archiviati i dati dei tenant e i metadati associati.
 
 ### <a name="storage-space-alerts"></a>Avvisi di spazio di archiviazione
 Quando si usa il portale di amministrazione, si ricevere avvisi sulle condivisioni che su spazio sono insufficiente.
@@ -140,64 +140,64 @@ Migrazione consolida tutti un blob in contenitori nella nuova condivisione.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Per eseguire la migrazione dei contenitori tramite PowerShell
 1. Verificare di avere [Azure PowerShell installato e configurato](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](https://go.microsoft.com/fwlink/?LinkId=394767).
-2.  Esaminare il contenitore per comprendere quali dati sono nella condivisione che si intende eseguire la migrazione. Per identificare i contenitori di candidati ottimali per la migrazione in un volume, usare il **Get-AzsStorageContainer** cmdlet:
+2. Esaminare il contenitore per comprendere quali dati sono nella condivisione che si intende eseguire la migrazione. Per identificare i contenitori di candidati ottimali per la migrazione in un volume, usare il **Get-AzsStorageContainer** cmdlet:
 
-    ```PowerShell  
-    $farm_name = (Get-AzsStorageFarm)[0].name
-    $shares = Get-AzsStorageShare -FarmName $farm_name
-    $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
-    ```
-    Esaminare quindi $containers:
+   ```PowerShell  
+   $farm_name = (Get-AzsStorageFarm)[0].name
+   $shares = Get-AzsStorageShare -FarmName $farm_name
+   $containers = Get-AzsStorageContainer -ShareName $shares[0].ShareName -FarmName $farm_name
+   ```
+   Esaminare quindi $containers:
 
-    ```PowerShell
-    $containers
-    ```
+   ```PowerShell
+   $containers
+   ```
 
-    ![Esempio: $Containers](media/azure-stack-manage-storage-shares/containers.png)
+   ![Esempio: $Containers](media/azure-stack-manage-storage-shares/containers.png)
 
-3.  Identificare le condivisioni di destinazione migliore per contenere il contenitore che si esegue la migrazione:
+3. Identificare le condivisioni di destinazione migliore per contenere il contenitore che si esegue la migrazione:
 
-    ```PowerShell
-    $destinationshares = Get-AzsStorageShare -SourceShareName
-    $shares[0].ShareName -Intent ContainerMigration
-    ```
+   ```PowerShell
+   $destinationshares = Get-AzsStorageShare -SourceShareName
+   $shares[0].ShareName -Intent ContainerMigration
+   ```
 
-    Esaminare quindi $destinationshares:
+   Esaminare quindi $destinationshares:
 
-    ```PowerShell 
-    $destinationshares
-    ```
+   ```PowerShell 
+   $destinationshares
+   ```
 
-    ![Esempio: $destination condivisioni](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
+   ![Esempio: $destination condivisioni](media/azure-stack-manage-storage-shares/examine-destinationshares.png)
 
-4. Avviare la migrazione di un contenitore. La migrazione è asincrona. Se si avvia la migrazione dei contenitori aggiuntivi prima che venga completata la prima migrazione, usare l'id del processo per tenere traccia dello stato di ognuno.
+4. Avviare la migrazione di un contenitore. La migrazione è asincrona. Se si avvia la migrazione dei contenitori aggiuntivi prima che venga completata la prima migrazione, usare l'ID del processo per tenere traccia dello stato di ognuno.
 
-  ```PowerShell
-  $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
-  ```
+   ```PowerShell
+   $job_id = Start-AzsStorageContainerMigration -StorageAccountName $containers[0].Accountname -ContainerName $containers[0].Containername -ShareName $containers[0].Sharename -DestinationShareUncPath $destinationshares[0].UncPath -FarmName $farm_name
+   ```
 
-  Esaminare quindi $jobId. Nell'esempio seguente, sostituire *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* con l'id del processo che si desidera esaminare:
+   Esaminare quindi $jobId. Nell'esempio seguente, sostituire *d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0* con l'ID del processo che si desidera esaminare:
 
-  ```PowerShell
-  $jobId
-  d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
-  ```
+   ```PowerShell
+   $jobId
+   d62f8f7a-8b46-4f59-a8aa-5db96db4ebb0
+   ```
 
-5. Usare l'id del processo per controllare lo stato del processo di migrazione. Al termine, la migrazione di contenitori **MigrationStatus** è impostata su **completa**.
+5. Usare l'ID del processo per controllare lo stato del processo di migrazione. Al termine, la migrazione di contenitori **MigrationStatus** è impostata su **completa**.
 
-  ```PowerShell 
-  Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell 
+   Get-AzsStorageContainerMigrationStatus -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![Esempio: Stato di migrazione](media/azure-stack-manage-storage-shares/migration-status1.png)
+   ![Esempio: Stato di migrazione](media/azure-stack-manage-storage-shares/migration-status1.png)
 
-6.  È possibile annullare un processo di migrazione in corso. Annullamento della migrazione dei processi vengono elaborati in modo asincrono. È possibile rilevare l'annullamento tramite $jobid:
+6. È possibile annullare un processo di migrazione in corso. Annullamento della migrazione dei processi vengono elaborati in modo asincrono. È possibile rilevare l'annullamento tramite $jobid:
 
-  ```PowerShell
-  Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
-  ```
+   ```PowerShell
+   Stop-AzsStorageContainerMigration -JobId $job_id -FarmName $farm_name
+   ```
 
-  ![Esempio: Stato rollback](media/azure-stack-manage-storage-shares/rollback.png)
+   ![Esempio: Stato rollback](media/azure-stack-manage-storage-shares/rollback.png)
 
 7. È possibile eseguire nuovamente il comando del passaggio 6, fino a quando lo stato confermi che il processo di migrazione viene **Canceled**:  
 

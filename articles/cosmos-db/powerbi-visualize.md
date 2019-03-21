@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: f6ba66aa37b4a1902f98d2a1fcf5f542fa6476d7
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: 2c58b982e596c95aa47442c1897410fe9ab6b99a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54043652"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58137675"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualizzare i dati di Azure Cosmos DB con il connettore Power BI
 
@@ -122,7 +122,7 @@ I dati sui vulcani verranno recuperati dall'account di Azure Cosmos DB e i dati 
 8. Specificare un nome per la nuova colonna, ad esempio LatLong.
 9. Specificare quindi la formula personalizzata per la nuova colonna.  Per questo esempio, verranno concatenati i valori di latitudine e longitudine separati da una virgola, come illustrato di seguito, usando la formula seguente: `Text.From([coordinates]{1})&","&Text.From([coordinates]{0})`. Fare clic su **OK**.
    
-    Per altre informazioni su Data Analysis Expressions (DAX), incluse le funzioni DAX, vedere [Nozioni di base su DAX in Power BI Designer](https://support.powerbi.com/knowledgebase/articles/554619-dax-basics-in-power-bi-desktop).
+    Per altre informazioni su Data Analysis Expressions (DAX) incluse le funzioni DAX, visitare [nozioni di DAX in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-quickstart-learn-dax-basics).
    
     ![Esercitazione su Power BI per il connettore Azure Cosmos DB per Power BI: Aggiungi colonna personalizzata](./media/powerbi-visualize/power_bi_connector_pbicustomlatlong.png)
 

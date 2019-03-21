@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc09756e30cec75a1a121c25f162aa0408fd7a9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 53c14ce92a422c2254a1e9b7fc4989b49790a88a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173692"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57774439"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
@@ -261,7 +261,7 @@ In questo esempio si modifica il filtro in modo che vengano sincronizzati solo g
 4. A seconda della versione di Connect in uso, trovare la regola denominata **Out to AAD – User Join** (Verso ADD - Aggiunta utente) o **Out to AAD - User Join SOAInAD** (Verso ADD - Aggiunta utente SOAInAD) e fare clic su **Edit** (Modifica).
 5. Nel popup selezionare **Yes** (Sì) per creare una copia della regola.
 6. Nella pagina **Description** (Descrizione) modificare il campo **Precedence** (Precedenza) su un valore non usato, ad esempio 50.
-7. Fare clic su **Scoping filter** (Filtro ambito) nel riquadro di spostamento a sinistra e quindi fare clic su **Add clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **mail**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **Value** (Valore) digitare **@contoso.com** e quindi fare clic su **Add clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **userPrincipalName**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **Value** (Valore) digitare **@contoso.com**.
+7. Fare clic su **Scoping filter** (Filtro ambito) nel riquadro di spostamento a sinistra e quindi fare clic su **Add clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **mail**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). Nelle **valore**, digitare  **\@contoso.com**, quindi fare clic su **clausola Add**. In **Attribute** (Attributo) selezionare **userPrincipalName**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). Nelle **valore**, digitare  **\@contoso.com**.
 8. Fare clic su **Save**.
 9. Per completare la configurazione, è necessario eseguire un'operazione **Full sync** (Sincronizzazione completa). Per continuare, vedere la sezione [Applicare e verificare le modifiche](#apply-and-verify-changes).
 

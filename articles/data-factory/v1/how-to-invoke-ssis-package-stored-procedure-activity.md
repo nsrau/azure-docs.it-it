@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c7731de810dab8b252294d694ace5df3f5d0a185
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427560"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108713"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chiamare un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
 Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
@@ -54,20 +54,20 @@ La prima operazione da eseguire è creare una data factory usando il portale di 
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
 4. Per il **gruppo di risorse**, eseguire una di queste operazioni:
      
-      - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
-      - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
+   - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
+   - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-    Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../../azure-resource-manager/resource-group-overview.md).  
+     Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../../azure-resource-manager/resource-group-overview.md).  
 4. Selezionare **V1** per la **versione**.
 5. Selezionare la **località** per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate da Data Factory. Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre località.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Fare clic su **Create**(Crea).
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
-    ![Riquadro Deploying data factory (Distribuzione della data factory)](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
+     ![Riquadro Deploying data factory (Distribuzione della data factory)](media//how-to-invoke-ssis-package-stored-procedure-activity/deploying-data-factory.png)
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
-    ![Home page di Data factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
+     ![Home page di Data factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-home-page.png)
 10. Fare clic sul riquadro **Creare e distribuire** per avviare l'editor di Data Factory.
 
     ![Editor di Data factory](./media/how-to-invoke-ssis-package-stored-procedure-activity/data-factory-editor.png)
@@ -165,7 +165,9 @@ Per altre informazioni sul monitoraggio delle pipeline, vedere [Monitorare e ges
 ## <a name="azure-powershell"></a>Azure PowerShell
 In questa sezione verrà usato Azure PowerShell per creare una pipeline di Data Factory con un'attività stored procedure che chiama un pacchetto SSIS.
 
-Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Installare i moduli di Azure PowerShell più recenti seguendo le istruzioni descritte in [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
 La procedura seguente descrive le operazioni necessarie per creare una data factory. Viene creata una pipeline con un'attività stored procedure in questa data factory. L'attività stored procedure esegue una stored procedure nel database SSISDB per l'esecuzione del pacchetto SSIS.
@@ -180,7 +182,7 @@ La procedura seguente descrive le operazioni necessarie per creare una data fact
 2. Per creare il gruppo di risorse di Azure, eseguire questo comando: 
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'eastus'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'eastus'
     ``` 
     Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$ResourceGroupName` ed eseguire di nuovo il comando. 
 3. Definire una variabile per il nome della data factory. 
@@ -192,10 +194,10 @@ La procedura seguente descrive le operazioni necessarie per creare una data fact
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Per creare la data factory, eseguire il cmdlet **New-AzureRmDataFactory** seguente usando le proprietà Location e ResourceGroupName della variabile $ResGrp: 
+5. Per creare la data factory, eseguire il comando seguente **New-AzDataFactory** cmdlet, usando la proprietà Location e ResourceGroupName della variabile $ResGrp: 
     
     ```powershell       
-    $df = New-AzureRmDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
+    $df = New-AzDataFactory -ResourceGroupName $ResourceGroupName -Name $dataFactoryName -Location "East US"
     ```
 
 Tenere presente quanto segue:
@@ -227,10 +229,10 @@ Creare un servizio collegato per collegare il database SQL di Azure che ospita i
         }
     ```
 2. In **Azure PowerShell** passare alla cartella **C:\ADF\RunSSISPackage**.
-3. Eseguire il cmdlet **New-AzureRmDataFactoryLinkedService** per creare il servizio collegato **AzureSqlDatabaseLinkedService**. 
+3. Eseguire la **New-AzDataFactoryLinkedService** cmdlet per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
-    New-AzureRmDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
+    New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
 ### <a name="create-an-output-dataset"></a>Creare un set di dati di output
@@ -252,10 +254,10 @@ Questo set di dati di output è un set di dati fittizio che determina la pianifi
         }
     }
     ```
-2. Eseguire il cmdlet **New-AzureRmDataFactoryDataset** per creare un set di dati. 
+2. Eseguire la **New-AzDataFactoryDataset** cmdlet per creare un set di dati. 
 
     ```powershell
-    New-AzureRmDataFactoryDataset $df -File ".\OutputDataset.json"
+    New-AzDataFactoryDataset $df -File ".\OutputDataset.json"
     ```
 
 ### <a name="create-a-pipeline-with-stored-procedure-activity"></a>Creare una pipeline con un'attività stored procedure 
@@ -294,24 +296,24 @@ In questo passaggio viene creata una pipeline con un'attività stored procedure.
     }    
     ```
 
-2. Per creare la pipeline **RunSSISPackagePipeline**, eseguire il cmdlet **New-AzureRmDataFactoryPipeline**.
+2. Per creare la pipeline **RunSSISPackagePipeline**, eseguire il **New-AzDataFactoryPipeline** cmdlet.
 
     ```powershell
-    $DFPipeLine = New-AzureRmDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
+    $DFPipeLine = New-AzDataFactoryPipeline -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "RunSSISPackagePipeline" -DefinitionFile ".\RunSSISPackagePipeline.json"
     ```
 
 ### <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
 
-2. Eseguire **Get-AzureRmDataFactorySlice** per ottenere dettagli su tutte le sezioni del set di dati di output\*\*, ovvero la tabella di output della pipeline.
+1. Eseguire **Get-AzDataFactorySlice** per ottenere informazioni dettagliate su tutte le sezioni dell'output set di dati * *, ovvero la tabella di output della pipeline.
 
     ```PowerShell
-    Get-AzureRmDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Si noti che il valore di StartDateTime specificato qui corrisponde all'ora di inizio specificata nel codice JSON della pipeline. 
-3. Eseguire **Get-AzureRmDataFactoryRun** per ottenere i dettagli delle esecuzioni di attività per una sezione specifica.
+1. Eseguire **Get-AzDataFactoryRun** per ottenere i dettagli di esecuzioni di attività per una sezione specifica.
 
     ```PowerShell
-    Get-AzureRmDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
+    Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 
     È possibile continuare a eseguire questo cmdlet fino a quando la sezione non passa allo stato **Pronto** oppure **Operazione non riuscita**. 

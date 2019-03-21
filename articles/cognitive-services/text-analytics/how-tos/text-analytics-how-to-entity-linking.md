@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 1ea34d69c867d2d14496320f497df2ece5280e0c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009346"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258072"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
 
@@ -62,7 +62,7 @@ L'uso del collegamento delle entità in varie lingue richiede l'uso di una corri
 | DateTime      | Duration      | "1 minuto e 45 secondi"   | 
 | DateTime      | Configurazione           | "ogni martedì"     | 
 | DateTime      | TimeZone      |    | 
-| URL           | N/D\*         | "<https://www.bing.com>"    |
+| URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
 \*A seconda delle entità immesse ed estratte, alcune entità possono omettere `SubType`.

@@ -4,16 +4,16 @@ description: Inviare metriche personalizzate per una risorsa di Azure all'archiv
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
-ms.topic: howto
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ed810726a0709c80034412eba437c05e76f65758
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: c7ec3ba960929250f2d23d09b9a5ab06e3f6cd38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54460380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095416"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Inviare metriche personalizzate per una risorsa di Azure all'archivio delle metriche di Monitoraggio di Azure usando un'API REST
 
@@ -78,13 +78,13 @@ Salvare il token di accesso ottenuto dalla risposta.
     ``` 
 
 1. Nella finestra del prompt dei comandi inserire i dati delle metriche: 
-    - **azureRegion**. Deve corrispondere all'area di distribuzione della risorsa di cui si stanno generando le metriche. 
-    - **resourceID**.  ID della risorsa di Azure di cui si stanno rilevando le metriche.  
-    - **AccessToken**. Incollare il token acquisito in precedenza.
+   - **azureRegion**. Deve corrispondere all'area di distribuzione della risorsa di cui si stanno generando le metriche. 
+   - **resourceID**.  ID della risorsa di Azure di cui si stanno rilevando le metriche.  
+   - **AccessToken**. Incollare il token acquisito in precedenza.
 
-    ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
-    ```
+     ```Shell 
+     curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+     ```
 1. Modificare il timestamp e i valori nel file JSON. 
 1. Ripetere i due passaggi precedenti più volte in modo da disporre dei dati relativi a diversi minuti.
 

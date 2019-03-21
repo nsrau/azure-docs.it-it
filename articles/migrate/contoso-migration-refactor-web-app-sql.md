@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 94ed136b48c53bd582a8b3ad210d421764b9f0f6
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: 271e18d370068e0445f183af0c694b19f0da22f2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54808460"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102755"
 ---
 # <a name="contoso-migration-refactor-an-on-premises-app-to-an-azure-web-app-and-azure-sql-database"></a>Migrazione di Contoso: Riprogettazione di un'app in locale in un contenitore di Azure e nel database SQL di Azure
 
@@ -244,9 +244,9 @@ Dopo la migrazione del database, gli amministratori di Contoso possono eseguire 
 
 Contoso deve creare l'infrastruttura DevOps e le pipeline per l'applicazione.  A tale scopo, gli amministratori di Contoso creano un nuovo progetto DevOps, importano il codice e quindi configurano le pipeline di compilazione e versione.
 
-1.   Nell'account Azure DevOps di Contoso creano un nuovo progetto (**ContosoSmartHotelRefactor**) e selezionano **GIT** per il controllo della versione.
+1. Nell'account Azure DevOps di Contoso creano un nuovo progetto (**ContosoSmartHotelRefactor**) e selezionano **GIT** per il controllo della versione.
 
-    ![Nuovo progetto](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
+   ![Nuovo progetto](./media/contoso-migration-refactor-web-app-sql/vsts1.png)
 2. Importano il repository GIT che attualmente contiene il codice dell'app. Si trova in un [repository pubblico](https://github.com/Microsoft/SmartHotel360-internal-booking-apps) ed è possibile scaricarlo.
 
     ![Scaricare il codice dell'app](./media/contoso-migration-refactor-web-app-sql/vsts2.png)
@@ -277,7 +277,7 @@ Gli amministratori di Contoso devono verificare che le app Web e il database sia
 
     ![Stringa di connessione](media/contoso-migration-refactor-web-app-sql/strings3.png)
 
-5. Dopo che le modifiche sono state apportate al codice, gli amministratori devono eseguire il commit delle modifiche. Il commit e la sincronizzazione vengono eseguiti tramite Team Explorer in Visual Studio.
+5. Dopo che le modifiche sono state apportate al codice, gli amministratori devono eseguire il commit delle modifiche. Tramite Team Explorer in Visual Studio, eseguire il commit e sincronizzazione.
 
 
 ## <a name="step-6-set-up-build-and-release-pipelines-in-azure-devops"></a>Passaggio 6: Configurare pipeline di compilazione e versione in Azure DevOps
@@ -306,8 +306,8 @@ Gli amministratori di Contoso configurano ora Azure DevOps per eseguire il proce
 
 6. La cartella **Drop** (Rilascio) contiene i risultati della compilazione.
 
-    - I due file con estensione due zip sono i pacchetti che contengono le app.
-    - Tali file vengono usati nella pipeline di versione per la distribuzione nelle app Web di Azure
+   - I due file con estensione due zip sono i pacchetti che contengono le app.
+   - Tali file vengono usati nella pipeline di versione per la distribuzione nelle app Web di Azure
 
      ![Elemento](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -341,7 +341,7 @@ Gli amministratori di Contoso configurano ora Azure DevOps per eseguire il proce
 
 16. Si noti anche che il trigger di distribuzione continua deve essere impostato su **Attivato**.
 
-   ![Distribuzione continua abilitata](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
+    ![Distribuzione continua abilitata](./media/contoso-migration-refactor-web-app-sql/pipeline14.png) 
 
 17. A questo punto, ritornano alla fase del job 1, attività 1 e fanno clic su **Deploy Azure App Service** (Distribuisci servizio app di Azure).
 

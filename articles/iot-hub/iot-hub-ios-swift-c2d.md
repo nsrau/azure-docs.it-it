@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: cccffb2f63fe0c929f88d172070ede1c12bcec5b
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: e7e8d12af92a566753d8f3d7baf5019bae44de2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51239458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58163518"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (iOS)
 
@@ -37,7 +37,7 @@ Alla fine di questo articolo, vengono eseguiti due progetti Swift iOS:
 * **sample-service**, che invia un messaggio da cloud a dispositivo all'app per dispositivo simulato tramite l'hub IoT e quindi riceve la conferma di recapito.
 
 > [!NOTE]
-> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT](http://www.azure.com/develop/iot).
+> L’hub IoT dispone del supporto SDK per molte piattaforme e linguaggi (inclusi C, Java e Javascript) tramite gli SDK del dispositivo IoT Azure. Per istruzioni dettagliate su come connettere il dispositivo al codice dell'esercitazione e in generale all'hub IoT di Azure, vedere il [Centro per sviluppatori Azure IoT](https://www.azure.com/develop/iot).
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
@@ -128,7 +128,7 @@ Oltre a installare i pod necessari per il progetto, il comando di installazione 
 1. Recuperare la stringa di connessione del servizio per l'hub IoT. È possibile copiare questa stringa dal [portale di Azure](https://portal.azure.com) dal criterio **iothubowner** nel pannello **Criteri di accesso condiviso** o recuperarla con il comando dell'interfaccia della riga di comando seguente:  
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
+    az iot hub show-connection-string --name {YourIoTHubName} --output table
     ```
 
 2. Aprire l'area di lavoro di esempio in XCode.

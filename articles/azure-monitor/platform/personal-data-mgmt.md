@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 6254a32349a0f7c743c3fb4993080ca3437c8276
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
-ms.translationtype: HT
+ms.openlocfilehash: 9112d50384aba288038343ff9a14ed55542fb722
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53810271"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121350"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Materiale sussidiario per i dati personali archiviati in Log Analytics e Application Insights
 
@@ -53,7 +53,7 @@ Log Analytics è un archivio flessibile che, pur definendo uno schema per i dati
     ```
     search "[username goes here]"
     ```
-Ricordarsi di cercare non solo i nomi utente in un formato leggibile, ma anche gli identificatori univoci globali (GUID) che è possibile far risalire direttamente a un determinato utente.
+  Ricordarsi di cercare non solo i nomi utente in un formato leggibile, ma anche gli identificatori univoci globali (GUID) che è possibile far risalire direttamente a un determinato utente.
 * *ID dispositivo*: come gli ID utente, gli ID dispositivo in alcuni casi sono considerati "privati". Usare lo stesso approccio riportato in precedenza per gli ID utente per identificare le tabelle in cui questo aspetto potrebbe costituire un problema. 
 * *Dati personalizzati*: Log Analytics consente la raccolta con diversi metodi: log personalizzati e campi personalizzati, l'[API di raccolta dati HTTP](../../azure-monitor/platform/data-collector-api.md) e dati personali raccolti come parte dei log eventi di sistema. Tutti questi elementi potrebbero contenere dati privati e devono essere esaminati per verificare la presenza di dati di questo tipo.
 * *Dati acquisiti dalle soluzioni*: dato che il meccanismo delle soluzioni è aperto, è consigliabile esaminare tutte le tabelle generate dalle soluzioni per garantire la conformità.

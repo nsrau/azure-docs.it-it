@@ -5,17 +5,17 @@ description: La serie di Data Science per principianti illustra i concetti di ba
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
+ms.topic: conceptual
 author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 01/03/2018
-ms.openlocfilehash: 93af2e283a1dd1ec11541087b33b3303c13364cc
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 4483fc82ad4bf935153c76922fbece84c6ca2ea8
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55491995"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816905"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Data science per principianti, video 1: 5 domande a cui può rispondere la data science
 La serie *Data Science for Beginners* (Analisi scientifica dei dati per principianti) offre in cinque brevi video una rapida introduzione all'analisi scientifica dei dati offerta da un esperto in materia. Questi video sono basilari, ma utili per chi è interessato a eseguire l'analisi scientifica dei dati oppure lavora con addetti a questa operazione.
@@ -136,4 +136,4 @@ Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Effettuare il primo esperimento di analisi scientifica dei dati con Machine Learning Studio](create-experiment.md)
-* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](what-is-machine-learning.md)
+* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/preview/overview-what-is-azure-ml)

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: 5c45918a2cdcdd0a848e392d125849953af976ea
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: f3522f065d22ce276174fbd165c37df3914e32b9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445118"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56962027"
 ---
 # <a name="ship-an-application"></a>Spedire un'applicazione
 
@@ -24,7 +24,7 @@ Osservare la [licenza Speech SDK](https://aka.ms/csspeech/license201809), nonch�
 
 A seconda della piattaforma, esistono diverse dipendenze per eseguire l'applicazione.
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 Speech SDK do Servizi cognitivi è stato testato su Windows 10 e su Windows Server 2016.
 
@@ -42,8 +42,10 @@ I file Speech SDK richiesti possono essere distribuiti nella stessa directory de
 | NOME | Funzione
 |:-----|:----|
 | `Microsoft.CognitiveServices.Speech.core.dll` | SDK di base, necessario per la distribuzione nativa e gestita
-| `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` | Obbligatorio per le distribuzioni gestite
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Obbligatorio per le distribuzioni gestite
+
+>[!NOTE]
+> Iniziando con la versione 1.3.0 file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (forniti nelle versioni precedenti) non è più necessaria. La funzionalità è ora integrata nel nucleo SDK.
 
 ## <a name="linux"></a>Linux
 

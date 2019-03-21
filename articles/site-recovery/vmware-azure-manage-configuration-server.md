@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: 9aa6b9dc26b53315957b7ddbb113d1d129dcc1da
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: da7750198f76bc9e17c23b1347e9fc78262aa06c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086956"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di macchine virtuali VMware
 
@@ -93,25 +93,25 @@ Il modello OVF (Open Virtualization Format) distribuisce la macchina virtuale de
 È possibile registrare nuovamente il server di configurazione nello stesso insieme di credenziali, se necessario. Se si ha un altro computer server di elaborazione, oltre al server di elaborazione predefinito in esecuzione nel computer server di configurazione, registrare nuovamente entrambi i computer.
 
 
-  1. Nell'insieme di credenziali aprire **Gestisci** > **Site Recovery Infrastructure** (Infrastruttura di Site Recovery) > **Server di configurazione**.
-  2. In **Server** selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
-  3. Accedere al computer del server di configurazione.
-  4. In **%ProgramData%\ASR\home\svsystems\bin** aprire **cspsconfigtool.exe**.
-  5. Nella scheda **Registrazione insieme di credenziali** selezionare **Sfoglia** e individuare il file di credenziali dell'insieme di credenziali scaricato.
-  6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Register** (Registra).
-  7. Aprire una finestra dei comandi di PowerShell per amministratore ed eseguire il comando seguente:
+1. Nell'insieme di credenziali aprire **Gestisci** > **Site Recovery Infrastructure** (Infrastruttura di Site Recovery) > **Server di configurazione**.
+2. In **Server** selezionare **Scarica chiave di registrazione** per scaricare il file di credenziali dell'insieme di credenziali.
+3. Accedere al computer del server di configurazione.
+4. In **%ProgramData%\ASR\home\svsystems\bin** aprire **cspsconfigtool.exe**.
+5. Nella scheda **Registrazione insieme di credenziali** selezionare **Sfoglia** e individuare il file di credenziali dell'insieme di credenziali scaricato.
+6. Se necessario, fornire i dettagli del server proxy. Selezionare quindi **Register** (Registra).
+7. Aprire una finestra dei comandi di PowerShell per amministratore ed eseguire il comando seguente:
    ```
-      $pwd = ConvertTo-SecureString -String MyProxyUserPassword
-      Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
+    $pwd = ConvertTo-SecureString -String MyProxyUserPassword
+    Set-OBMachineSetting -ProxyServer http://myproxyserver.domain.com -ProxyPort PortNumber – ProxyUserName domain\username -ProxyPassword $pwd
    ```
 
-      >[!NOTE]
-      >Per **eseguire il pull dei certificati più recenti** dal server di configurazione al server di elaborazione scale-out, eseguire il comando *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
+    >[!NOTE]
+    >Per **eseguire il pull dei certificati più recenti** dal server di configurazione al server di elaborazione scale-out, eseguire il comando *“<Installation Drive\Microsoft Azure Site Recovery\agent\cdpcli.exe>" --registermt*
 
-  8. Infine, riavviare obengine eseguendo il comando seguente.
-  ```
-          net stop obengine
-          net start obengine
+8. Infine, riavviare obengine eseguendo il comando seguente.
+   ```
+        net stop obengine
+        net start obengine
    ```
 
 
@@ -182,19 +182,19 @@ Eseguire il file di installazione come segue:
 
 |Nome parametro| Type | DESCRIZIONE| Valori|
 |-|-|-|-|
-| /Modalità server|Obbligatoria|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
-|/InstallLocation|Obbligatoria|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
-|/MySQLCredsFilePath|Obbligatoria|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
-|/VaultCredsFilePath|Obbligatoria|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
-|/EnvType|Obbligatoria|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
-|/PSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
-|/CSIP|Obbligatoria|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
-|/PassphraseFilePath|Obbligatoria|Percorso completo del file della passphrase|Percorso del file valido|
+| /Modalità server|Obbligatorio|Specifica se devono essere installati i server di configurazione e di elaborazione o solo il server di elaborazione|CS<br>PS|
+|/InstallLocation|Obbligatorio|Cartella in cui sono installati i componenti| Qualsiasi cartella del computer|
+|/MySQLCredsFilePath|Obbligatorio|Percorso del file in cui sono archiviate le credenziali del server MySQL|Il file deve essere nel formato specificato di seguito|
+|/VaultCredsFilePath|Obbligatorio|Percorso del file di credenziali dell'insieme di credenziali|Percorso del file valido|
+|/EnvType|Obbligatorio|Tipo di ambiente che si vuole proteggere |VMware<br>NonVMware|
+|/PSIP|Obbligatorio|Indirizzo IP della scheda di interfaccia di rete da utilizzare per il trasferimento di dati di replica| Qualsiasi indirizzo IP valido|
+|/CSIP|Obbligatorio|Indirizzo IP della scheda di interfaccia di rete su cui il server di configurazione è in ascolto| Qualsiasi indirizzo IP valido|
+|/PassphraseFilePath|Obbligatorio|Percorso completo del file della passphrase|Percorso del file valido|
 |/BypassProxy|Facoltativo|Specifica che il server di configurazione si connette ad Azure senza un proxy|Per ottenere questo valore da Venu|
 |/ProxySettingsFilePath|Facoltativo|Impostazioni proxy, il proxy predefinito richiede l'autenticazione o un proxy personalizzato|Il file deve essere nel formato specificato di seguito|
 |DataTransferSecurePort|Facoltativo|Numero di porta su PSIP da usare per i dati di replica| Numero di porta valido (il valore predefinito è 9433)|
 |/SkipSpaceCheck|Facoltativo|Ignora la verifica dello spazio per il disco della cache| |
-|/AcceptThirdpartyEULA|Obbligatoria|Il flag implica l'accettazione dell'EULA di terze parti| |
+|/AcceptThirdpartyEULA|Obbligatorio|Il flag implica l'accettazione dell'EULA di terze parti| |
 |/ShowThirdpartyEULA|Facoltativo|Visualizza le condizioni di licenza di terze parti. Se specificato come input, tutti gli altri parametri vengono ignorati| |
 
 

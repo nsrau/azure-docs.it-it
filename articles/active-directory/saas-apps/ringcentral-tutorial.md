@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e01b06b2031da20ee9349588bd4a7ee757fbc22c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e9cd97bc226ec69441b933a9f7bf3caec17f1478
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173301"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57877123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ringcentral"></a>Esercitazione: integrazione di Azure Active Directory con RingCentral
 
@@ -127,6 +127,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![image](./media/ringcentral-tutorial/b21-domains_and_urls.png)
 
     d. Nella casella di testo **URL di accesso** digitare un URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -137,9 +138,10 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     > [!NOTE]
     > Il **file di metadati del provider di servizi** sarà disponibile nella pagina di configurazione SSO di RingCentral, come spiegato più avanti nell'esercitazione.
 
-6. Se non si dispone del **file di metadati del provider di servizi**, seguire questa procedura:
+6. Se non hai **file di metadati Provider di servizi**, procedere come segue:
 
     a. Nella casella di testo **URL di accesso** digitare un URL:
+
     | |
     |--|
     | `https://service.ringcentral.com` |
@@ -148,12 +150,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     | `https://service.ringcentral.eu` |
 
     b. Nella casella di testo **Identificatore** digitare un URL:
+
     | |
     |--|
     |  `https://sso.ringcentral.com` |
     | `https://ssoeuro.ringcentral.com` |
 
     c. Nella casella di testo **URL di risposta** digitare un URL:
+    
     | |
     |--|
     | `https://sso.ringcentral.com/sp/ACS.saml2` |
@@ -191,7 +195,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     d. Fare clic su **Save**.
 
-    e. In **Step 2** (Passaggio 2) fare clic su **Download** (Scarica) per scaricare il **file di metadati del provider di servizi** e caricarlo nella sezione **Configurazione SAML di base** per popolare automaticamente i valori **Identificatore** e **URL di risposta** nel portale di Azure.
+    e. Dal **passaggio 2** fare clic su **scaricare** per scaricare il **file di metadati Provider di servizi** e caricarlo nella **base di configurazione SAML** sezione per popolare automaticamente la **Identifier** e **URL di risposta** valori nel portale di Azure.
 
     ![image](./media/ringcentral-tutorial/ringcentral6.png) 
 
@@ -223,7 +227,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** tipo di campo **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

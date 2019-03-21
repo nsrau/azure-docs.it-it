@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f83499e52b6405ec5475795a80c5a4325043a441
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
-ms.translationtype: HT
+ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899520"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Informazioni su come viene applicato lo sconto per la prenotazione ad Azure Cosmos DB
 
@@ -117,5 +117,5 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

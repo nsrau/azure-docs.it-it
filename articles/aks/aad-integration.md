@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: 0dced367f62ab97d62cd4b11758e13a05278442e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 0cf83180647c142c9db2a1229674de96fec6a6bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087534"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Integrare Azure Active Directory con il servizio Azure Kubernetes
 
@@ -40,47 +40,47 @@ La prima applicazione di Azure AD viene usata per ottenere l'appartenenza ai gru
 
 1. Selezionare **Azure Active Directory** > **Registrazioni per l'app** > **Registrazione nuova applicazione**.
 
-  Assegnare un nome all'applicazione, selezionare **App Web / API** per il tipo di applicazione e immettere un valore URI formattato per **URL accesso**. Selezionare **Crea** al termine.
+   Assegnare un nome all'applicazione, selezionare **App Web / API** per il tipo di applicazione e immettere un valore URI formattato per **URL accesso**. Selezionare **Crea** al termine.
 
-  ![Creare la registrazione di Azure AD](media/aad-integration/app-registration.png)
+   ![Creare la registrazione di Azure AD](media/aad-integration/app-registration.png)
 
 2. Selezionare **Manifesto** e modificare il valore `groupMembershipClaims` in `"All"`.
 
-  Salvare gli aggiornamenti al termine.
+   Salvare gli aggiornamenti al termine.
 
-  ![Impostare l'appartenenza al gruppo su All](media/aad-integration/edit-manifest.png)
+   ![Impostare l'appartenenza al gruppo su All](media/aad-integration/edit-manifest.png)
 
 3. Tornare all'applicazione Azure AD e selezionare **Impostazioni** > **Chiavi**.
 
-  Aggiungere una descrizione della chiave, selezionare una scadenza e selezionare **Salva**. Prendere nota del valore della chiave. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Server application secret`.
+   Aggiungere una descrizione della chiave, selezionare una scadenza e selezionare **Salva**. Prendere nota del valore della chiave. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Server application secret`.
 
-  ![Ottenere la chiave privata dell'applicazione](media/aad-integration/application-key.png)
+   ![Ottenere la chiave privata dell'applicazione](media/aad-integration/application-key.png)
 
 4. Tornare all'applicazione di Azure AD, selezionare **Impostazioni** > **Autorizzazioni necessarie** > **Aggiungi** > **Selezionare un'API** > **Microsoft Graph** > **Seleziona**.
 
-  ![Selezionare l'API Graph](media/aad-integration/graph-api.png)
+   ![Selezionare l'API Graph](media/aad-integration/graph-api.png)
 
 5. In **Autorizzazioni applicazione** selezionare **Lettura dati directory**.
 
-  ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/read-directory.png)
+   ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/read-directory.png)
 
 6. In **Autorizzazioni delegate** selezionare **Accedi e leggi il profilo di un altro utente** e **Lettura dati directory**. Salvare gli aggiornamenti al termine.
 
-  ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/delegated-permissions.png)
+   ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/delegated-permissions.png)
 
-  Selezionare **Operazione completata**.
+   Selezionare **Operazione completata**.
 
 7. Scegliere *Microsoft Graph* nell'elenco delle API, quindi selezionare **Concedi autorizzazioni**. Questo passaggio avrà esito negativo se l'account corrente non è un amministratore del tenant.
 
-  ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/grant-permissions.png)
+   ![Impostare le autorizzazioni dell'applicazione per Graph](media/aad-integration/grant-permissions.png)
 
-  Quando le autorizzazioni sono state concesse correttamente, viene visualizzata nel portale la notifica seguente:
+   Quando le autorizzazioni sono state concesse correttamente, viene visualizzata nel portale la notifica seguente:
 
-  ![Notifica di esito positivo delle autorizzazioni concesse](media/aad-integration/permissions-granted.png)
+   ![Notifica di esito positivo delle autorizzazioni concesse](media/aad-integration/permissions-granted.png)
 
 8. Tornare all'applicazione e prendere nota di **ID applicazione**. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Server application ID`.
 
-  ![Ottenere l'ID applicazione](media/aad-integration/application-id.png)
+   ![Ottenere l'ID applicazione](media/aad-integration/application-id.png)
 
 ## <a name="create-client-application"></a>Creare l'applicazione client
 
@@ -88,27 +88,27 @@ La seconda applicazione di Azure AD viene usata per l'accesso con l'interfaccia 
 
 1. Selezionare **Azure Active Directory** > **Registrazioni per l'app** > **Registrazione nuova applicazione**.
 
-  Assegnare un nome all'applicazione, selezionare **Nativa** per il tipo di applicazione e immettere un valore URI formattato per **URI di reindirizzamento**. Selezionare **Crea** al termine.
+   Assegnare un nome all'applicazione, selezionare **Nativa** per il tipo di applicazione e immettere un valore URI formattato per **URI di reindirizzamento**. Selezionare **Crea** al termine.
 
-  ![Creare la registrazione per AAD](media/aad-integration/app-registration-client.png)
+   ![Creare la registrazione per AAD](media/aad-integration/app-registration-client.png)
 
 2. Dall'applicazione Azure AD selezionare **Impostazioni** > **Autorizzazioni richieste** > **Aggiungi** > **Selezionare un'API** e cercare il nome dell'applicazione server creata nell'ultimo passaggio del documento.
 
-  ![Configurare le autorizzazioni per l'applicazione](media/aad-integration/select-api.png)
+   ![Configurare le autorizzazioni per l'applicazione](media/aad-integration/select-api.png)
 
 3. Inserire un segno di spunta accanto all'applicazione e fare clic su **Seleziona**.
 
-  ![Selezionare l'endpoint dell'applicazione server AAD servizio Azure Kubernetes](media/aad-integration/select-server-app.png)
+   ![Selezionare l'endpoint dell'applicazione server AAD servizio Azure Kubernetes](media/aad-integration/select-server-app.png)
 
-  Selezionare **Operazione completata**
+   Selezionare **Operazione completata**
 
 4. Selezionare l'API del server dall'elenco e quindi scegliere **Concedi autorizzazioni**:
 
-  ![Concedere le autorizzazioni](media/aad-integration/grant-permissions-client.png)
+   ![Concedere le autorizzazioni](media/aad-integration/grant-permissions-client.png)
 
 5. Tornare all'applicazione AD e prendere nota di **ID applicazione**. Quando si distribuisce un cluster servizio Azure Kubernetes abilitato per Azure AD, questo valore viene definito `Client application ID`.
 
-  ![Ottenere l'ID dell'applicazione](media/aad-integration/application-id-client.png)
+   ![Ottenere l'ID dell'applicazione](media/aad-integration/application-id-client.png)
 
 ## <a name="get-tenant-id"></a>Ottenere l'ID tenant
 
@@ -228,7 +228,7 @@ Se viene visualizzato un messaggio di errore di autorizzazione dopo aver avuto a
 error: You must be logged in to the server (Unauthorized)
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Scoprire di più sulla protezione dei cluster Kubernetes con RBAC nella documentazione [Using RBAC Authorization][rbac-authorization] (Uso delle autorizzazioni RBAC).
 

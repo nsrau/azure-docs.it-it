@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2019
 ms.author: cherylmc
-ms.openlocfilehash: 0d31129a94d6e575ead01a62d22ae3ce8f2acf64
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 1096c120b4e7731fabd574c4096e70fe02b6272d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56414917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081084"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-radius-authentication-powershell"></a>Configurare una connessione da punto a sito a una rete virtuale usando l'autenticazione RADIUS: PowerShell
 
@@ -20,7 +20,7 @@ Questo articolo illustra come creare una rete virtuale con una connessione da pu
 
 Un gateway VPN da punto a sito (P2S) consente di creare una connessione sicura alla rete virtuale da un singolo computer client. Le connessioni VPN da punto a sito sono utili per connettersi alla rete virtuale da una posizione remota, ad esempio nel caso di telecomunicazioni da casa o durante una riunione. Una VPN P2S è anche una soluzione utile da usare al posto di una VPN da sito a sito quando solo pochi client devono connettersi a una rete virtuale.
 
-Una connessione VPN P2S viene avviata dai dispositivi Windows e Mac. I client che si connettono possono usare i metodi di autenticazione seguenti:
+Una connessione VPN P2S viene avviata dai dispositivi Windows e Mac. I client che si connettono possono usare i metodi di autenticazione seguenti: 
 
 * Server RADIUS
 * Autenticazione del certificato nativo tramite il gateway VPN
@@ -46,7 +46,7 @@ Le connessioni da punto a sito richiedono gli elementi seguenti:
 ## <a name="aboutad"></a>Informazioni sull'autenticazione di un dominio di Active Directory (AD) per le VPN P2S
 
 L'autenticazione di un dominio di AD consente agli utenti di accedere ad Azure usando le credenziali di dominio dell'organizzazione. Richiede un server RADIUS che si integra con il server AD. Le organizzazioni possono anche sfruttare la distribuzione RADIUS esistente.
- 
+ 
 Il server RADIUS può trovarsi in locale o nella rete virtuale di Azure. Durante l'autenticazione, il gateway VPN funge da pass-through e inoltra i messaggi di autenticazione tra il server RADIUS e il dispositivo che si connette e viceversa. È importante per il gateway VPN poter raggiungere il server RADIUS. Se il server RADIUS si trova in locale, è necessaria una connessione VPN da sito a sito da Azure al sito locale.
 
 Oltre che con Active Directory, un server RADIUS può anche integrarsi con altri sistemi di identità esterni, offrendo così molte opzioni di autenticazione per le VPN da punto a sito, incluse le opzioni MFA. Vedere la documentazione del fornitore del server RADIUS per ottenere l'elenco dei sistemi di identità con cui si integra.
@@ -63,10 +63,6 @@ Oltre che con Active Directory, un server RADIUS può anche integrarsi con altri
 Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile attivare i [vantaggi per i sottoscrittori di MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial).
 
 [!INCLUDE [powershell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
-
-### <a name="sign-in"></a>Accesso
-
-[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ### <a name="example"></a>Valori di esempio
 
@@ -87,7 +83,34 @@ Verificare di possedere una sottoscrizione di Azure. Se non si ha una sottoscriz
 * **Server DNS: indirizzo IP** del server DNS che si vuole usare per la risoluzione dei nomi per la rete virtuale. (facoltativo).
 * **Nome GW: Vnet1GW**
 * **Nome IP pubblico: VNet1GWPIP**
-* **VpnType: RouteBased** 
+* **VpnType: RouteBased**
+
+
+## <a name="signin"></a>Accedere e impostare le variabili
+
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
+
+### <a name="declare-variables"></a>Dichiarare le variabili
+
+Dichiarare le variabili da usare. Usare l'esempio seguente, sostituendo i valori con quelli personalizzati, se necessario. Se si chiude la sessione di PowerShell o Cloud Shell in qualsiasi momento durante l'esercizio, copiare e incollare nuovamente i valori per dichiarare nuovamente le variabili.
+
+  ```azurepowershell-interactive
+  $VNetName  = "VNet1"
+  $FESubName = "FrontEnd"
+  $BESubName = "Backend"
+  $GWSubName = "GatewaySubnet"
+  $VNetPrefix1 = "192.168.0.0/16"
+  $VNetPrefix2 = "10.254.0.0/16"
+  $FESubPrefix = "192.168.1.0/24"
+  $BESubPrefix = "10.254.1.0/24"
+  $GWSubPrefix = "192.168.200.0/26"
+  $VPNClientAddressPool = "172.16.201.0/24"
+  $RG = "TestRG"
+  $Location = "East US"
+  $GWName = "VNet1GW"
+  $GWIPName = "VNet1GWPIP"
+  $GWIPconfName = "gwipconf"
+  ```
 
 ## 1. <a name="vnet"></a>Creare il gruppo di risorse, la rete virtuale e l'indirizzo IP pubblico
 
@@ -95,33 +118,33 @@ I passaggi seguenti creano un gruppo di risorse e una rete virtuale nel gruppo d
 
 1. Creare un gruppo di risorse.
 
-  ```azurepowershell-interactive
-  New-AzResourceGroup -Name "TestRG" -Location "East US"
-  ```
+   ```azurepowershell-interactive
+   New-AzResourceGroup -Name "TestRG" -Location "East US"
+   ```
 2. Creare le configurazioni delle subnet per la rete virtuale, denominandole *FrontEnd*, *BackEnd* e *GatewaySubnet*. Questi prefissi devono fare parte dello spazio indirizzi della rete virtuale dichiarato.
 
-  ```azurepowershell-interactive
-  $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
-  $besub = New-AzVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
-  $gwsub = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "192.168.200.0/24"
-  ```
+   ```azurepowershell-interactive
+   $fesub = New-AzVirtualNetworkSubnetConfig -Name "FrontEnd" -AddressPrefix "192.168.1.0/24"  
+   $besub = New-AzVirtualNetworkSubnetConfig -Name "Backend" -AddressPrefix "10.254.1.0/24"  
+   $gwsub = New-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -AddressPrefix "192.168.200.0/24"
+   ```
 3. Creare la rete virtuale.
 
-  In questo esempio il parametro del server -DnsServer è facoltativo. Se si specifica un valore, non verrà creato un nuovo server DNS. L'indirizzo IP del server DNS specificato deve essere un server DNS che riesce a risolvere i nomi per le risorse a cui ci si connette dalla rete virtuale. Per questo esempio, è stato usato un indirizzo IP privato, ma è probabile che non si tratti dell'indirizzo IP del server DNS. Assicurarsi di usare valori personalizzati. Il valore specificato viene usato dalle risorse distribuite nella rete virtuale, non dalla connessione P2S.
+   In questo esempio il parametro del server -DnsServer è facoltativo. Se si specifica un valore, non verrà creato un nuovo server DNS. L'indirizzo IP del server DNS specificato deve essere un server DNS che riesce a risolvere i nomi per le risorse a cui ci si connette dalla rete virtuale. Per questo esempio, è stato usato un indirizzo IP privato, ma è probabile che non si tratti dell'indirizzo IP del server DNS. Assicurarsi di usare valori personalizzati. Il valore specificato viene usato dalle risorse distribuite nella rete virtuale, non dalla connessione P2S.
 
-  ```azurepowershell-interactive
-  New-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
-  ```
+   ```azurepowershell-interactive
+   New-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG" -Location "East US" -AddressPrefix "192.168.0.0/16","10.254.0.0/16" -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
+   ```
 4. Un gateway VPN deve avere un indirizzo IP pubblico. È necessario richiedere prima di tutto la risorsa dell'indirizzo IP e quindi farvi riferimento durante la creazione del gateway di rete virtuale. L'indirizzo IP viene assegnato dinamicamente alla risorsa durante la creazione del gateway VPN. Il gateway VPN supporta attualmente solo l'allocazione degli indirizzi IP pubblici *dinamici*. Non è possibile richiedere un'assegnazione degli indirizzi IP pubblici statici. Ciò non significa tuttavia che l'indirizzo IP viene modificato dopo l'assegnazione al gateway VPN. L'indirizzo IP pubblico viene modificato solo quando il gateway viene eliminato e ricreato. Non viene modificato in caso di ridimensionamento, reimpostazione o altre manutenzioni/aggiornamenti del gateway VPN.
 
-  Specificare le variabili per richiedere un indirizzo IP pubblico assegnato dinamicamente.
+   Specificare le variabili per richiedere un indirizzo IP pubblico assegnato dinamicamente.
 
-  ```azurepowershell-interactive
-  $vnet = Get-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
-  $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
-  $pip = New-AzPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
-  $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
-  ```
+   ```azurepowershell-interactive
+   $vnet = Get-AzVirtualNetwork -Name "VNet1" -ResourceGroupName "TestRG"  
+   $subnet = Get-AzVirtualNetworkSubnetConfig -Name "GatewaySubnet" -VirtualNetwork $vnet 
+   $pip = New-AzPublicIpAddress -Name "VNet1GWPIP" -ResourceGroupName "TestRG" -Location "East US" -AllocationMethod Dynamic 
+   $ipconf = New-AzVirtualNetworkGatewayIpConfig -Name "gwipconf" -Subnet $subnet -PublicIpAddress $pip
+   ```
 
 ## 2. <a name="radius"></a>Configurare il server RADIUS
 
@@ -147,25 +170,25 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 ```
 
 ## 4. <a name="addradius"></a>Aggiungere il server RADIUS e il pool di indirizzi client
- 
+ 
 * -RadiusServer può essere specificato con il nome o con l'indirizzo IP. Se si specifica il nome e il server si trova in locale, il gateway VPN potrebbe non riuscire a risolvere il nome. In tal caso è meglio specificare l'indirizzo IP del server. 
 * -RadiusSecret deve corrispondere a quanto configurato nel server RADIUS.
 * -VpnClientAddressPool è l'intervallo da cui i client VPN che si connettono ricevono un indirizzo IP. Usare un intervallo di indirizzi IP privati che non si sovrapponga con la posizione locale da cui verrà effettuata la connessione o con la rete virtuale a cui ci si vuole connettere. Assicurarsi di avere configurato un pool di indirizzi di dimensioni sufficienti.  
 
 1. Creare una stringa sicura per il segreto RADIUS.
 
-  ```azurepowershell-interactive
-  $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
-  ```
+   ```azurepowershell-interactive
+   $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
+   ```
 
 2. Viene richiesto di immettere il segreto RADIUS. I caratteri immessi non verranno visualizzati e saranno sostituiti dal carattere "*".
 
-  ```azurepowershell-interactive
-  RadiusSecret:***
-  ```
+   ```azurepowershell-interactive
+   RadiusSecret:***
+   ```
 3. Aggiungere il pool di indirizzi client VPN e le informazioni sul server RADIUS.
 
-  Per le configurazioni SSTP:
+   Per le configurazioni SSTP:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -174,7 +197,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  Per le configurazioni IKEv2:
+   Per le configurazioni IKEv2:
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -183,7 +206,7 @@ New-AzVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
-  Per SSTP + IKEv2
+   Per SSTP + IKEv2
 
     ```azurepowershell-interactive
     $Gateway = Get-AzVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
@@ -202,10 +225,10 @@ La configurazione del client VPN consente ai dispositivi di connettersi a una re
 
 1. Per connettersi alla rete virtuale, nel computer client passare alle connessioni VPN e individuare quella creata, che ha lo stesso nome della rete virtuale locale. Immettere le credenziali di dominio e fare clic su "Connetti". Viene visualizzato un messaggio popup che richiede diritti elevati. Accettarlo e immettere le credenziali.
 
-  ![Connessione del client VPN ad Azure](./media/point-to-site-how-to-radius-ps/client.png)
+   ![Connessione del client VPN ad Azure](./media/point-to-site-how-to-radius-ps/client.png)
 2. Verrà stabilita la connessione.
 
-  ![Connessione stabilita](./media/point-to-site-how-to-radius-ps/connected.png)
+   ![Connessione stabilita](./media/point-to-site-how-to-radius-ps/connected.png)
 
 ### <a name="connect-from-a-mac-vpn-client"></a>Connettersi da un client VPN Mac
 
@@ -218,8 +241,8 @@ Dalla finestra di dialogo Rete individuare il profilo client che si vuole usare,
 1. Per verificare che la connessione VPN è attiva, aprire un prompt dei comandi con privilegi elevati ed eseguire *ipconfig/all*.
 2. Visualizzare i risultati. Si noti che l'indirizzo IP ricevuto è uno degli indirizzi compresi nel pool di indirizzi del client VPN da punto a sito specificato al momento della configurazione. I risultati sono simili a questo esempio:
 
-  ```
-  PPP adapter VNet1:
+   ```
+   PPP adapter VNet1:
       Connection-specific DNS Suffix .:
       Description.....................: VNet1
       Physical Address................:
@@ -229,7 +252,7 @@ Dalla finestra di dialogo Rete individuare il profilo client che si vuole usare,
       Subnet Mask.....................: 255.255.255.255
       Default Gateway.................:
       NetBIOS over Tcpip..............: Enabled
-  ```
+   ```
 
 Per informazioni sulla risoluzione dei problemi della connessione da punto a sito, vedere [Risoluzione dei problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).
 

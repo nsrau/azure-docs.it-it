@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
 ROBOTS: NOINDEX
-ms.openlocfilehash: 2b02b048719dd7707db7e97df3641a314b512177
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 02c41e2510fd77f4bb65143faf62737f0985d2b7
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861681"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431139"
 ---
 # <a name="analyze-method"></a>Metodo analyze
 
@@ -24,7 +24,7 @@ ms.locfileid: "55861681"
 > L'anteprima di Analisi linguistica è stata ritirata il 9 agosto 2018. Per l'elaborazione e l'analisi del testo è consigliabile usare i [moduli di analisi del testo di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics).
 
 L'API REST **analyze** API viene usata per analizzare un input specificato in linguaggio naturale.
-Potrebbe trattarsi semplicemente dell'individuazione di [frasi e token](Sentences-and-Tokens.md) all'interno dell'input, della ricerca di [tag delle parti del discorso](POS-tagging.md) o dell'individuazione dell'[albero sintattico](Constituency-Parsing.md).
+Che può implicare trovare solo il [frasi e token](Sentences-and-Tokens.md) all'interno di tale input, la ricerca i [tag parti del discorso](POS-tagging.md), o la ricerca del [albero degli elementi costitutivi](Constituency-Parsing.md).
 È possibile specificare i risultati desiderati selezionando gli analizzatori pertinenti.
 Per ottenere un elenco di tutti gli analizzatori disponibili, esaminare gli **[analizzatori](AnalyzersMethod.md)**.
 
@@ -38,7 +38,7 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 ## <a name="request-parameters"></a>Parametri della richiesta
 
-NOME | Type | Obbligatoria | DESCRIZIONE
+NOME | Type | Obbligatorio | DESCRIZIONE
 -----|-------|----------|------------
 **language**    | stringa | Sì | Codice di lingua ISO di due lettere da usare per l'analisi. Ad esempio il codice per l'italiano è "it".
 **analyzerIds** | elenco di stringhe | Sì | Elenco di GUID degli analizzatori da applicare. Per altre informazioni, vedere la documentazione sugli analizzatori.

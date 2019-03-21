@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 61211db72928bebf0e1ea50cad6362337f66f0eb
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859616"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57844589"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
@@ -201,7 +201,7 @@ Alcune di queste entità predefinite sono definite nel progetto open source [Rec
 
 ## <a name="regular-expression-entity"></a>Entità di espressione regolare 
 
-Un'espressione regolare è ideale per il testo di un'espressione non elaborata. Maiuscole e minuscole vengono ignorate così come la variante relativa alla lingua.  La corrispondenza tramite le espressioni regolari viene applicata dopo le modifiche del controllo ortografico a livello di carattere e non a livello di token. Se l'espressione regolare è troppo complessa, ad esempio con molte parentesi, non è possibile aggiungere l'espressione al modello. Usa parte della libreria [.Net Regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) ma non l'intera libreria. 
+Un'espressione regolare è ideale per il testo di un'espressione non elaborata. Maiuscole e minuscole vengono ignorate così come la variante relativa alla lingua.  La corrispondenza tramite le espressioni regolari viene applicata dopo le modifiche del controllo ortografico a livello di carattere e non a livello di token. Se l'espressione regolare è troppo complessa, ad esempio con molte parentesi, non è possibile aggiungere l'espressione al modello. Usa parte ma non tutte le [Regex .NET](https://docs.microsoft.com/dotnet/standard/base-types/regular-expressions) libreria. 
 
 Questa entità è idonea quando:
 

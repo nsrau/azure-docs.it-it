@@ -18,15 +18,18 @@ ms.author: celested
 ms.reviewer: lenalepa
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 109ababa78292bf8b172144174af3216f3844941
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b77b5185056329113ee1fd17fa3ed3f364380ca2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203659"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095875"
 ---
 # <a name="app-registration-reference"></a>Riferimento alla registrazione delle app
 Questo documento contiene il contesto e le descrizioni di varie funzionalità disponibili nel [portale di registrazione delle applicazioni](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/).
+
+> [!NOTE]
+> Verrà non è più supportata la registrazione e la gestione di applicazioni AD convergente e Azure nel [portale di registrazione applicazione](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/) avvio maggio 2019. Si consiglia di gestire le applicazioni esistenti e registrare nuove applicazioni usando il [registrazioni per l'App (anteprima)](https://aka.ms/appregistrations) esperienza nel portale di Azure.
 
 ## <a name="my-applications-or-converged-applications"></a>Applicazioni personali o con convergenza
 Questo elenco include tutte le applicazioni registrate per l'uso con l'endpoint Azure AD 2.0. Queste applicazioni permettono di eseguire l'accesso sia con account Microsoft personali che aziendali o dell'istituto d'istruzione da Azure Active Directory. Per altre informazioni sull'endpoint Azure AD 2.0, vedere la [panoramica della versione 2.0](active-directory-appmodel-v2-overview.md). Queste applicazioni possono essere usate anche per l'integrazione con l'endpoint di autenticazione dell'account Microsoft, `https://login.live.com`.

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 084a921123badb786503ce6696eb4ace14dd59b8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a26418a5159781eab96cf7730d669ccb65742d86
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170483"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57861486"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-pingboard"></a>Esercitazione: Integrazione di Azure Active Directory con PingBoard
 
@@ -202,7 +202,7 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
     a. Nella casella di testo **Full Name** (Nome completo) digitare il nome completo dell'utente, ad esempio **Britta Simon**.
 
-    b. Nella casella di testo **Email** digitare l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    b. Nel **messaggio di posta elettronica** digitare l'indirizzo di posta elettronica dell'utente, ad esempio di casella di testo **brittasimon\@contoso.com**.
 
     c. Nella casella di testo **Posizione** digitare la posizione di Britta Simon.
 

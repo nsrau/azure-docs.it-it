@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 7278eba1c9039c180f75cdd2dfd1e18a77baf423
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: dc30b28203ad416370f1304436e7e6e642921be9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56416786"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441509"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gestire i pre-script e i post-script (anteprima)
 
-I pre-script e i post-script consentono di eseguire runbook di PowerShell nell'account di automazione prima (attività preliminare) e dopo (attività successiva) una distribuzione di aggiornamento. I pre-script e i post-script vengono eseguiti nel contesto di Azure e non in locale. I pre-script sono eseguiti all'inizio della distribuzione di aggiornamento. Registrare gli script eseguiti al termine della distribuzione e dopo eventuali riavvii che sono configurati.
+I pre-script e i post-script consentono di eseguire runbook di PowerShell nell'account di automazione prima (attività preliminare) e dopo (attività successiva) una distribuzione di aggiornamento. I pre-script e i post-script vengono eseguiti nel contesto di Azure e non in locale. Pre-script eseguiti all'inizio della distribuzione degli aggiornamenti. Registrare gli script eseguiti al termine della distribuzione e dopo eventuali riavvii che sono configurati.
 
 ## <a name="runbook-requirements"></a>Requisiti dei runbook
 

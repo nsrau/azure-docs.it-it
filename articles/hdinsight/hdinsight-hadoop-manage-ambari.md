@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
 ms.openlocfilehash: 738ef5df0b2e2a7f31a7316a1d2ef4395168d41e
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722023"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57576957"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Gestire i cluster HDInsight usando l'interfaccia utente Web di Apache Ambari
 
@@ -114,7 +114,7 @@ Per altre informazioni sui nodi presenti nel cluster, selezionare **Host**. Sele
 
 ![dettagli dell'host](./media/hdinsight-hadoop-manage-ambari/host-details.png)
 
-### <a name="services"></a>Services
+### <a name="services"></a>Servizi
 
 La barra laterale **Services** sul dashboard fornisce informazioni rapide sullo stato dei servizi in esecuzione nel cluster. Vengono usate varie icone per indicare lo stato o le azioni da eseguire. Un simbolo di riciclo giallo, ad esempio, indica che un servizio deve essere riciclato.
 
