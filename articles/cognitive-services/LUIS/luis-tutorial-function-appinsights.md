@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: c9a772af79cba8b5bfb592eaf03efa37520d5e48
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1c44d2e41d37a9236ee6d6936c349acf5ca5e44c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870606"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098765"
 ---
 # <a name="add-luis-results-to-application-insights-and-azure-functions"></a>Aggiungere i risultati LUIS ad Application Insights e Funzioni di Azure
 Questa esercitazione aggiunge le informazioni relative a richieste e risposte LUIS all'archivio dei dati di telemetria di [Application Insights](https://azure.microsoft.com/services/application-insights/). Quando si dispone dei dati, è possibile eseguire query su di essi con il linguaggio Kusto o Power BI per analizzare, aggregare e registrare le finalità e le entità delle espressioni in tempo reale. Questa analisi consente di determinare se è necessario aggiungere o modificare le finalità e le entità dell'app LUIS.
@@ -26,9 +26,9 @@ Il bot viene compilato con Bot Framework 3.x e il bot per app Web di Azure.
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-* Aggiungere la libreria di Application Insights a un bot app Web
-* Acquisire i risultati di query LUIS e inviarli ad Application Insights
-* Eseguire query su Application Insights per finalità principale, punteggio ed espressione
+> * Aggiungere la libreria di Application Insights a un bot app Web
+> * Acquisire i risultati di query LUIS e inviarli ad Application Insights
+> * Eseguire query su Application Insights per finalità principale, punteggio ed espressione
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -51,11 +51,11 @@ Per acquisire le richieste e le risposte LUIS, il bot app Web richiede che il pa
 
 1. Nel portale di Azure, nel servizio bot app Web, selezionare **Compila** nella sezione **Bot Management** (Gestione bot). 
 
-    ![Nel portale di Azure, nel servizio bot app Web, selezionare "Compila" nella sezione "Bot Management" (Gestione bot). ](./media/luis-tutorial-appinsights/build.png)
+    ![Nel portale di Azure, nel servizio bot app Web, selezionare "Compila" nella sezione "Bot Management" (Gestione bot).](./media/luis-tutorial-appinsights/build.png)
 
 2. Viene visualizzata una nuova scheda del browser con l'Editor del servizio app. Selezionare il nome dell'app nella barra superiore e quindi scegliere **Open Kudu Console** (Apri console Kudu). 
 
-    ![Selezionare il nome dell'app nella barra superiore e quindi scegliere "Open Kudu Console" (Apri console Kudu). ](./media/luis-tutorial-appinsights/kudu-console.png)
+    ![Selezionare il nome dell'app nella barra superiore e quindi scegliere "Open Kudu Console" (Apri console Kudu).](./media/luis-tutorial-appinsights/kudu-console.png)
 
 3. Nella console immettere il comando seguente per installare Application Insights e i pacchetti Underscore:
 

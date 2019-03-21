@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 5e9104f59173c3d39ef2f2232ed2a9c6864cf84f
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 27028903daeaf62a25584300944538341a861c80
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892559"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905223"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Frame di sicurezza: dati sensibili | Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
 | --------------- | ------- |
 | **Limite di Trust del computer** | <ul><li>[Assicurarsi che i file binari che contengono informazioni riservate vengano offuscati](#binaries-info)</li><li>[Valutare l'uso della tecnologia EFS (Encrypting File System) per proteggere dati riservati specifici dell'utente](#efs-user)</li><li>[Assicurarsi che i dati sensibili archiviati dall'applicazione nel file system vengano crittografati](#filesystem)</li></ul> | 
 | **Applicazione Web** | <ul><li>[Assicurarsi che i contenuti sensibili non vengano memorizzati nella cache del browser](#cache-browser)</li><li>[Crittografare le sezioni dei file di configurazione dell'app Web contenenti dati sensibili](#encrypt-data)</li><li>[Disabilitare in modo esplicito l'attributo HTML di completamento automatico in input e moduli sensibili](#autocomplete-input)</li><li>[Assicurarsi che i dati sensibili visualizzati nella schermata dell'utente vengano mascherati](#data-mask)</li></ul> | 
-| **Database** | <ul><li>[Implementare la maschera dati dinamica per limitare l'esposizione di dati sensibili a utenti senza privilegi](#dynamic-users)</li><li>[Assicurarsi che le password vengano archiviate in formato hash con valori salt](#salted-hash)</li><li>[Assicurarsi che i dati sensibili nelle colonne di database vengano crittografati](#db-encrypted)</li><li>[Assicurarsi che venga abilitata la crittografia a livello di database (TDE)](#tde-enabled)</li><li>[Assicurarsi che i backup di database vengano crittografati](#backup)</li></ul> | 
+| **Database** | <ul><li>[Implementare la maschera dati dinamica per limitare l'esposizione di dati sensibili a utenti senza privilegi](#dynamic-users)</li><li>[Assicurarsi che le password vengano archiviate in formato hash con valori salt](#salted-hash)</li><li>[Assicurarsi che i dati sensibili nelle colonne del database vengano crittografati](#db-encrypted)</li><li>[Assicurarsi che venga abilitata la crittografia a livello di database (TDE)](#tde-enabled)</li><li>[Assicurarsi che i backup di database vengano crittografati](#backup)</li></ul> | 
 | **API Web** | <ul><li>[Assicurarsi che i dati sensibili relativi all'API Web non vengano memorizzati nell'archivio del browser](#api-browser)</li></ul> | 
 | Azure DocumentDB | <ul><li>[Crittografare i dati sensibili archiviati in Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite di trust della macchina virtuale IaaS di Azure** | <ul><li>[Usare Crittografia dischi di Azure per crittografare i dischi usati dalle macchine virtuali](#disk-vm)</li></ul> | 
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (Attributo autocomplete), [Using AutoComplete in HTML Forms](https://msdn.microsoft.com/library/ms533032.aspx) (Uso di AutoComplete nei form HTML), [Vulnerabilità legata alla disinfezione del contenuto HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete...again?!](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Ancora autocomplete?) |
+| **Riferimenti**              | [MSDN: autocomplete attribute](https://msdn.microsoft.com/library/ms533486(VS.85).aspx) (Attributo autocomplete), [Using AutoComplete in HTML Forms](https://msdn.microsoft.com/library/ms533032.aspx) (Uso di AutoComplete nei form HTML), [Vulnerabilità legata alla disinfezione del contenuto HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete...again?!](https://blog.mindedsecurity.com/2011/10/autocompleteagain.html) (Ancora autocomplete?) |
 | **Passaggi** | L'attributo autocomplete specifica se la funzionalità di completamento automatico di un modulo debba essere abilitata o disabilitata. Quando il completamento automatico è abilitato, il browser completa automaticamente i valori in base a valori immessi in precedenza dall'utente. Ad esempio, quando si immette un nuovo nome e una password in un modulo, che poi viene inviato, il browser chiede se si vuole salvare la password. Quando il modulo viene visualizzato successivamente, il nome e la password vengono popolati automaticamente o vengono compilati immettendo il nome. Un utente malintenzionato con accesso in locale può ottenere la password non crittografata dalla cache del browser. Il completamento automatico è abilitato per impostazione predefinita e deve essere disabilitato in modo esplicito. |
 
 ### <a name="example"></a>Esempio
@@ -182,7 +182,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Hash delle password con le API di crittografia di .NET](http://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
+| **Riferimenti**              | [Hash delle password con le API di crittografia di .NET](https://docs.asp.net/en/latest/security/data-protection/consumer-apis/password-hashing.html) |
 | **Passaggi** | Le password non devono essere archiviate in database dell'archivio utenti personalizzati. Gli hash delle password devono invece essere archiviati con valori salt. Assicurarsi che il valore salt per l'utente sia sempre univoco e di applicare b-crypt, s-crypt o PBKDF2 prima di archiviare la password, con un conteggio delle iterazioni del fattore lavoro minimo di 150.000 cicli per eliminare la possibilità di attacchi di forza bruta.| 
 
 ## <a id="db-encrypted"></a>Assicurarsi che i dati sensibili nelle colonne di database vengano crittografati
@@ -399,7 +399,7 @@ Se non si tratta di un'applicazione aziendale, usare l'archivio chiavi offerto d
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Crypto Obfuscation For .Net](http://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
+| **Riferimenti**              | [Crypto Obfuscation For .Net](https://www.ssware.com/cryptoobfuscator/obfuscator-net.htm) |
 | **Passaggi** | È necessario offuscare i file binari generati, ovvero gli assembly all'interno di APK, per impedire che gli assembly siano sottoposti a reverse engineering. A questo scopo, è possibile usare strumenti come `CryptoObfuscator`. |
 
 ## <a id="cert"></a>Impostare clientCredentialType su Certificate o su Windows
@@ -429,7 +429,7 @@ Impostare clientCredentialType su Certificate o su Windows.
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico, .NET Framework 3 |
 | **Attributes (Attributi)**              | Modalità di sicurezza: trasporto, modalità di sicurezza: messaggio |
-| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [CoDe Magazine: Fundamentals of WCF Security](http://www.codemag.com/article/0611051) (Concetti fondamentali sulla sicurezza in WCF) |
+| **Riferimenti**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Fortify Kingdom](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_weak_class_reference), [CoDe Magazine: Fundamentals of WCF Security](https://www.codemag.com/article/0611051) (Concetti fondamentali sulla sicurezza in WCF) |
 | **Passaggi** | Non è stata definita alcuna sicurezza del trasporto o del messaggio. Le applicazioni che trasmettono messaggi senza sicurezza del trasporto o del messaggio non possono garantire l'integrità o la riservatezza dei messaggi. Quando un'associazione di sicurezza di WCF è impostata su None, la sicurezza del trasporto e quella del messaggio sono entrambe disabilitate. |
 
 ### <a name="example"></a>Esempio
@@ -453,8 +453,8 @@ Le associazioni ai servizi presentano cinque modalità di sicurezza possibili:
 * Both. Permette di specificare le impostazioni per la sicurezza del trasporto e a livello di messaggio (supportata solo in MSMQ). 
 * TransportWithMessageCredential. Le credenziali vengono passate con il messaggio. La protezione dei messaggi e l'autenticazione server sono garantite dal livello di trasporto. 
 * TransportCredentialOnly. Le credenziali del client vengono passate con il livello di trasporto e non viene applicata alcuna protezione al messaggio. Usare la sicurezza del messaggio e del trasporto per proteggere l'integrità e riservatezza dei messaggi. La configurazione seguente indica al servizio di usare la sicurezza del trasporto con le credenziali del messaggio.
-```
-<system.serviceModel>
+  ```
+  <system.serviceModel>
   <bindings>
     <wsHttpBinding>
     <binding name=""MyBinding""> 
@@ -462,5 +462,5 @@ Le associazioni ai servizi presentano cinque modalità di sicurezza possibili:
     <message clientCredentialType=""Windows""/> 
     </binding> 
   </bindings> 
-</system.serviceModel> 
-```
+  </system.serviceModel> 
+  ```

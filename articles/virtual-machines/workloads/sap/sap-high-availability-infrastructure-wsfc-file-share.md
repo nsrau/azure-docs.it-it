@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf0f06528b3571ce8307a2fed2fb9c43f608d15d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 064daa7ed8fb5be34524d9ea27cfa6c22b9c3e66
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34656714"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008364"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparare l'infrastruttura di Azure per la disponibilità elevata di SAP con un cluster di failover Windows e la condivisione di file per le istanze di SAP ASCS/SCS
 
@@ -46,7 +46,7 @@ ms.locfileid: "34656714"
 
 [deployment-guide]:deployment-guide.md
 
-[dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
+[dr-guide-classic]:https://go.microsoft.com/fwlink/?LinkID=521971
 
 [getting-started]:get-started.md
 
@@ -213,7 +213,7 @@ Questo articolo descrive la procedura di preparazione dell'infrastruttura di Azu
 
 Prima di iniziare l'installazione, esaminare l'articolo seguente:
 
-* [Architecture guide: Cluster an SAP ASCS/SCS instance on a Windows failover cluster by using a file share][sap-high-availability-guide-wsfc-file-share](Guida all'architettura: clustering di un'istanza ASCS/SCS di SAP in un cluster di failover Windows che usa una condivisione di file)
+* [Guida all'architettura: Istanze del cluster SAP ASCS/SCS in un cluster di failover Windows tramite condivisione file][sap-high-availability-guide-wsfc-file-share]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nomi host e indirizzi IP
@@ -226,13 +226,13 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | Nome di rete del cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
 
 
-**Tabella 1**: cluster ASCS/SCS
+**Tabella 1**: Cluster ASCS/SCS
 
 | SAP \<SID> | Numero di istanza di SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabella 2**: dettagli dell'istanza SAP ASCS/SCS
+**Tabella 2**: Dettagli dell'istanza SAP ASCS/SCS
 
 
 | Ruolo nome host virtuale | Nome host virtuale | Indirizzo IP statico | Set di disponibilità |
@@ -243,7 +243,7 @@ Prima di iniziare l'installazione, esaminare l'articolo seguente:
 | Nome rete di cluster | sofs-cl | 10.0.6.13 | n/d |
 | Nome host di SAP GLOBAL | sapglobal | Usare gli indirizzi IP di tutti i nodi del cluster | n/d |
 
-**Tabella 3**: cluster di file server di scalabilità orizzontale
+**Tabella 3**: Cluster di tipo Scale-Out File Server
 
 
 ## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Distribuire le macchine virtuali per un cluster SAP ASCS/SCS, un cluster di sistema di gestione orizzontale (DBMS, Database Management System) e le istanze dei server di applicazioni SAP
@@ -271,9 +271,9 @@ Per preparare l'infrastruttura di Azure, completare la procedura seguente:
 * Se si usa Windows Server 2016, è consigliabile configurare il [controllo cloud di Azure][deploy-cloud-witness].
 
 
-## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuire manualmente il cluster di file server di scalabilità orizzontale 
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Distribuire manualmente il cluster di file server di scalabilità orizzontale 
 
-È possibile distribuire manualmente il cluster di file server di scalabilità orizzontale Microsoft come descritto nel blog su [Spazi di archiviazione diretta di Azure][ms-blog-s2d-in-azure] eseguendo il codice seguente:  
+È possibile distribuire manualmente il cluster di file server di scalabilità orizzontale Microsoft come descritto nel blog su [Spazi di archiviazione diretta di Azure][ms-blog-s2d-in-azure] eseguendo il codice seguente:  
 
 
 ```PowerShell
@@ -322,9 +322,9 @@ Il modello di Azure Resource Manager per la distribuzione del file server di sca
 
 È consigliabile usare Managed Disks.
 
-![Figura 1: Schermata dell'interfaccia utente per il modello di Resource Manager del file server di scalabilità orizzontale con dischi gestiti][sap-ha-guide-figure-8010]
+![Figura 1: Schermata dell'interfaccia utente per il modello di gestione risorse di tipo Scale-Out File Server con dischi gestiti][sap-ha-guide-figure-8010]
 
-_**Figura 1**: Schermata dell'interfaccia utente per il modello di Resource Manager del file server di scalabilità orizzontale con dischi gestiti_
+_**Figura 1**: Schermata dell'interfaccia utente per il modello di gestione risorse di tipo Scale-Out File Server con dischi gestiti_
 
 Nel modello eseguire le operazioni seguenti:
 1. Nella casella **Conteggio macchine virtuali** inserire un numero minimo di **2**.
@@ -336,9 +336,9 @@ Nel modello eseguire le operazioni seguenti:
 
 Il modello di Azure Resource Manager per la distribuzione del file server di scalabilità orizzontale con Spazi di archiviazione diretta e Azure Unmanaged Disks è disponibile su [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: Schermata dell'interfaccia utente per il modello di Azure Resource Manager del file server di scalabilità orizzontale con dischi gestiti][sap-ha-guide-figure-8011]
+![Figura 2: Schermata dell'interfaccia utente per il modello di Azure Resource Manager di tipo Scale-Out File Server senza dischi gestiti][sap-ha-guide-figure-8011]
 
-_**Figura 2**: Schermata dell'interfaccia utente per il modello di Azure Resource Manager del file server di scalabilità orizzontale con dischi gestiti_
+_**Figura 2**: Schermata dell'interfaccia utente per il modello di Azure Resource Manager di tipo Scale-Out File Server senza dischi gestiti_
 
 Nella casella **Tipo di account di archiviazione** selezionare **Archiviazione Premium**. Le altre impostazioni sono le stesse usate con i dischi gestiti.
 

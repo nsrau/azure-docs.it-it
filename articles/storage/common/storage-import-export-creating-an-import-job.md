@@ -8,52 +8,52 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 15ec4f006147cdffb46598d22a937aec429fd8ac
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: fa76f4fb5d4da5fd00bb9fa4ed862c6977a47e90
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102180"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Creazione di un processo di importazione per Importazione/Esportazione di Azure
 
 La creazione di un processo di importazione per il servizio di Importazione/Esportazione di Microsoft Azure utilizzando l'API REST prevede i passaggi seguenti:
 
--   Preparazione delle unità con lo strumento Importazione/Esportazione di Azure.
+- Preparazione delle unità con lo strumento Importazione/Esportazione di Azure.
 
--   Ottenimento della posizione a cui si desidera spedire l'unità.
+- Ottenimento della posizione a cui si desidera spedire l'unità.
 
--   Creazione del processo di importazione.
+- Creazione del processo di importazione.
 
--   Spedizione delle unità vuote a Microsoft tramite un vettore supportato.
+- Spedizione delle unità vuote a Microsoft tramite un vettore supportato.
 
--   Aggiornamento del processo di importazione con i dettagli di spedizione.
+- Aggiornamento del processo di importazione con i dettagli di spedizione.
 
- Vedere [Uso del servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](storage-import-export-service.md) per una panoramica del servizio Importazione/Esportazione e un'esercitazione che illustra come usare il [portale di Azure](https://portal.azure.com/) per creare e gestire i processi di importazione ed esportazione.
+  Vedere [Uso del servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati nell'archiviazione BLOB](storage-import-export-service.md) per una panoramica del servizio Importazione/Esportazione e un'esercitazione che illustra come usare il [portale di Azure](https://portal.azure.com/) per creare e gestire i processi di importazione ed esportazione.
 
 ## <a name="preparing-drives-with-the-azure-importexport-tool"></a>Preparazione delle unità con lo strumento di Importazione/Esportazione di Azure
 
-I passaggi per preparare le unità per un processo di importazione sono uguali se si crea il processo tramite il portale o l'API REST.
+I passaggi per preparare le unità per un processo di importazione sono lo stesso se si crea il processo tramite il portale o tramite l'API REST.
 
 Di seguito è riportata una breve panoramica della preparazione dell'unità. Per istruzioni complete, vedere il [Riferimento dello strumento di importazione/esportazione di Azure](storage-import-export-tool-how-to-v1.md). È possibile scaricare lo strumento Importazione/Esportazione di Azure [qui](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 La preparazione dell'unità comporta:
 
--   Identificazione dei dati da importare.
+- Identificazione dei dati da importare.
 
--   Identificazione dei BLOB di destinazione in Archiviazione di Azure.
+- Identificazione dei BLOB di destinazione in Archiviazione di Azure.
 
--   Uso dello strumento Importazione/Esportazione di Azure per copiare i dati in uno o più dischi rigidi.
+- Uso dello strumento Importazione/Esportazione di Azure per copiare i dati in uno o più dischi rigidi.
 
- Lo strumento Importazione/Esportazione di Azure genererà anche un file manifesto per ciascuna unità preparata. Contiene un file manifesto:
+  Lo strumento Importazione/Esportazione di Azure genererà anche un file manifesto per ciascuna unità preparata. Contiene un file manifesto:
 
--   Enumerazione di tutti i file destinati al caricamento e il mapping tra questi file sui BLOB.
+- Enumerazione di tutti i file destinati al caricamento e il mapping tra questi file sui BLOB.
 
--   Checksum dei segmenti di ciascun file.
+- Checksum dei segmenti di ciascun file.
 
--   Informazioni sui metadati e proprietà da associare a ogni BLOB.
+- Informazioni sui metadati e proprietà da associare a ogni BLOB.
 
--   Elenco delle azioni da intraprendere se un BLOB che viene caricato ha lo stesso nome di un BLOB esistente nel contenitore. Le opzioni possibili sono: a) sovrascrivere il BLOB con il file, b) mantenere il BLOB esistente e ignorare il caricamento del file, c) aggiungere un suffisso al nome in modo che non sia in conflitto con altri file.
+- Elenco delle azioni da intraprendere se un BLOB che viene caricato ha lo stesso nome di un BLOB esistente nel contenitore. Le opzioni possibili sono: a) sovrascrivere il BLOB con il file, b) mantenere il BLOB esistente e ignorare il caricamento del file, c) aggiungere un suffisso al nome in modo che non sia in conflitto con altri file.
 
 ## <a name="obtaining-your-shipping-location"></a>Acquisizione della località di spedizione
 

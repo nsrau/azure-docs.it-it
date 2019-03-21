@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 79f0e58ea11d8bdb8c30ca1e50fae2635f719681
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3368be291770133cdfa10158f6e30540e17b8223
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58084311"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job-preview"></a>Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure (anteprima)
 
@@ -134,21 +134,46 @@ Prima di distribuire il processo in Azure, è possibile testare la logica di que
 
 Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel database SQL di Azure](../sql-database/sql-database-temporal-tables.md).
 
-1. Creare la query snapshot. 
+1. Creare una tabella temporale nel Database SQL di Azure.
+   
+   ```SQL 
+      CREATE TABLE DeviceTemporal 
+      (  
+         [DeviceId] int NOT NULL PRIMARY KEY CLUSTERED 
+         , [GroupDeviceId] nvarchar(100) NOT NULL
+         , [Description] nvarchar(100) NOT NULL 
+         , [ValidFrom] datetime2 (0) GENERATED ALWAYS AS ROW START
+         , [ValidTo] datetime2 (0) GENERATED ALWAYS AS ROW END
+         , PERIOD FOR SYSTEM_TIME (ValidFrom, ValidTo)
+      )  
+      WITH (SYSTEM_VERSIONING = ON (HISTORY_TABLE = dbo.DeviceHistory));  -- DeviceHistory table will be used in Delta query
+   ```
+2. Creare la query snapshot. 
 
-   Usare il parametro **@snapshotTime** per indicare al runtime di Analisi di flusso di ottenere il set di dati di riferimento dalla tabella temporale del database SQL valida nell'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
-
-   ![Query snapshot di Analisi di flusso](./media/sql-reference-data/snapshot-query.png)
+   Usare la  **\@snapshotTime** parametro per indicare al runtime di Analitica Stream per ottenere il set di dati di riferimento dalla tabella del database SQL temporale valida come l'ora di sistema. Se non si specifica questo parametro si rischia di ottenere un set di dati di riferimento di base non accurato, a causa degli sfasamenti di orario. Di seguito è riportata una query snapshot completa di esempio:
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, [Description]
+      FROM dbo.DeviceTemporal
+      FOR SYSTEM_TIME AS OF @snapshotTime
+   ```
  
 2. Creare la query delta. 
    
-   Questa query recupera tutte le righe nel database SQL che sono state inserite tra un'ora di inizio **@deltaStartTime**e un'ora di fine **@deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_**. Questa colonna definisce se la riga è stata inserita o eliminata tra **@deltaStartTime** e **@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. 
+   Questa query recupera tutte le righe nel database SQL che sono state inserite o eliminate all'interno di un'ora di inizio  **\@deltaStartTime**e un'ora di fine  **\@deltaEndTime**. La query delta deve restituire le stesse colonne della query snapshot, nonché la colonna **_operation_**. Questa colonna definisce se la riga viene inserita o eliminata tra  **\@deltaStartTime** e  **\@deltaEndTime**. Le righe risultanti vengono contrassegnate con **1** se i record sono stati inseriti, con **2** se sono stati eliminati. 
 
    Per i record aggiornati, la tabella temporale registra un'operazione di inserimento ed eliminazione. Il runtime di Analisi di flusso applicherà quindi i risultati della query delta allo snapshot precedente per mantenere aggiornati i dati di riferimento. Un esempio di query delta è illustrato di seguito:
 
-   ![Query delta di Analisi di flusso](./media/sql-reference-data/delta-query.png)
+   ```SQL
+      SELECT DeviceId, GroupDeviceId, Description, 1 as _operation_
+      FROM dbo.DeviceTemporal
+      WHERE ValidFrom BETWEEN @deltaStartTime AND @deltaEndTime   -- records inserted
+      UNION
+      SELECT DeviceId, GroupDeviceId, Description, 2 as _operation_
+      FROM dbo.DeviceHistory   -- table we created in step 1
+      WHERE ValidTo BETWEEN @deltaStartTime AND @deltaEndTime     -- record deleted
+   ```
  
-  Si noti che il runtime di Analisi di flusso può eseguire periodicamente la query snapshot oltre alla query delta per archiviare i checkpoint.
+   Si noti che il runtime di Analisi di flusso può eseguire periodicamente la query snapshot oltre alla query delta per archiviare i checkpoint.
 
 ## <a name="faqs"></a>Domande frequenti
 
@@ -158,7 +183,7 @@ Non sono previsti [costi per unità di streaming](https://azure.microsoft.com/pr
 
 **Come si capisce se lo snapshot dei dati di riferimento viene interrogato dal database SQL e usato nel processo di Analisi di flusso di Azure?**
 
-Nel portale di Azure sono presenti due metriche, filtrate in base al nome logico, che è possibile usare per monitorare l'integrità dell'input dei dati di riferimento del database SQL.
+Esistono due metriche filtrate in base al nome logico (con il portale di Azure le metriche) che è possibile usare per monitorare l'integrità dei dati di riferimento del database SQL di input.
 
    * InputEvents: questa metrica misura il numero di record caricati dal set di dati di riferimento del database SQL.
    * InputEventBytes: questa metrica misura le dimensioni dello snapshot dei dati di riferimento caricato nella memoria del processo di Analisi di flusso. 

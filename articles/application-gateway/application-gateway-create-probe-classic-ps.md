@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 2b661968fd64f4d2a61bc59f9b99b1eea6b01f86
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52997279"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004977"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creare un probe personalizzato per il gateway applicazione di Azure (classico) con PowerShell
 
@@ -151,7 +151,7 @@ I parametri di configurazione sono:
 |Parametro|DESCRIZIONE|
 |---|---|
 |**Nome** |Nome di riferimento del probe personalizzato. |
-* **Protocol** | Protocollo usato. I valori possibili sono HTTP o HTTPS.|
+| **Protocollo** | Protocollo usato. I valori possibili sono HTTP o HTTPS.|
 | **Host** e **Path** | Percorso URL completo richiamato dal gateway applicazione per determinare l'integrità dell'istanza. Se si ha un sito Web http://contoso.com/, ad esempio, il probe personalizzato può essere configurato per "http://contoso.com/path/custompath.htm" in modo che i controlli del probe ottengano una risposta HTTP corretta.|
 | **Interval** | Configura i controlli dell'intervallo di probe, in secondi.|
 | **Timeout** | Definisce il timeout del probe per un controllo della risposta HTTP.|
@@ -165,14 +165,14 @@ Per modificare la configurazione corrente di un gateway applicazione sono necess
 
 1. Ottenere il file XML usando `Get-AzureApplicationGatewayConfig`. Questo cmdlet esporta il file XML di configurazione, che potrà quindi essere modificato per aggiungere un'impostazione di probe.
 
-  ```powershell
-  Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
-  ```
+   ```powershell
+   Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
+   ```
 
 1. Aprire il file XML in un editor di testo. Aggiungere una sezione `<probe>` dopo `<frontendport>`.
 
-  ```xml
-<Probes>
+   ```xml
+   <Probes>
     <Probe>
         <Name>Probe01</Name>
         <Protocol>Http</Protocol>
@@ -182,12 +182,12 @@ Per modificare la configurazione corrente di un gateway applicazione sono necess
         <Timeout>15</Timeout>
         <UnhealthyThreshold>5</UnhealthyThreshold>
     </Probe>
-</Probes>
-  ```
+   </Probes>
+   ```
 
-  Nella sezione backendHttpSettings del file XML aggiungere il nome del probe, come nell'esempio seguente:
+   Nella sezione backendHttpSettings del file XML aggiungere il nome del probe, come nell'esempio seguente:
 
-  ```xml
+   ```xml
     <BackendHttpSettings>
         <Name>setting1</Name>
         <Port>80</Port>
@@ -196,9 +196,9 @@ Per modificare la configurazione corrente di un gateway applicazione sono necess
         <RequestTimeout>120</RequestTimeout>
         <Probe>Probe01</Probe>
     </BackendHttpSettings>
-  ```
+   ```
 
-  Salvare il file XML.
+   Salvare il file XML.
 
 1. Aggiornare la configurazione del gateway applicazione con il nuovo file XML usando `Set-AzureApplicationGatewayConfig`. Questo cmdlet aggiorna il gateway applicazione con la nuova configurazione.
 

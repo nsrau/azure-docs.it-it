@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 05/01/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9daf0f0d1c7ca94308bfb0d894366b457a045770
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 3398c6d318e0e3c51d3f6cfe8af651a6e3f55c9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094821"
 ---
 # <a name="visualize-remote-monitoring-data-using-power-bi"></a>Visualizzare i dati della soluzione di monitoraggio remoto usando Power BI - Azure
 
@@ -42,10 +42,10 @@ Questa esercitazione illustrerà in modo dettagliato come collegare i dati della
 
 5. Nel pannello a sinistra fare clic sulla sezione "Chiavi" e prendere nota dei valori seguenti da usare in Power BI:
 
-    - URI
-    - Chiave primaria
+   - URI
+   - Chiave primaria
 
-    ![chiavi](./media/iot-accelerators-integrate-data-powerbi/keys.png)
+     ![chiavi](./media/iot-accelerators-integrate-data-powerbi/keys.png)
 
 ## <a name="setting-up-the-stream-in-power-bi"></a>Impostazione del flusso in Power BI
   

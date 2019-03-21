@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: d963cdd484727ac46aed1915643dd92462e2c643
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 2e40165bde7f3ce2eabd91b55c5bbc8139282b60
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857813"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101466"
 ---
 # <a name="create-reviews-from-the-api-console"></a>Creare revisioni dalla console per le API
 
@@ -33,35 +33,35 @@ Per eseguire il test drive dell'API usando la console online, sono necessari alc
 
 Il modo più semplice per accedere a una console di test è dalla finestra **Credentials** (Credenziali).
 
-1.  Nella finestra **Credentials** (Credenziali) selezionare [Review API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) (Informazioni di riferimento per l'API di revisione).
+1. Nella finestra **Credentials** (Credenziali) selezionare [Review API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c4) (Informazioni di riferimento per l'API di revisione).
 
-  Verrà aperta la pagina **Review - Create** (Revisione - Creazione).
+   Verrà aperta la pagina **Review - Create** (Revisione - Creazione).
 
-2.  Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.
+2. Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.
 
-  ![Selezione dell'area nella pagina Review - Create (Revisione - Creazione)](images/test-drive-region.png)
+   ![Selezione dell'area nella pagina Review - Create (Revisione - Creazione)](images/test-drive-region.png)
 
-  Viene visualizzata la console dell'API **Review - Create** (Revisione - Creazione).
+   Viene visualizzata la console dell'API **Review - Create** (Revisione - Creazione).
   
-3.  Immettere i valori per i parametri di query obbligatori, il tipo di contenuto e la chiave di sottoscrizione. Nella casella **Request body** (Corpo della richiesta) specificare il contenuto (ad esempio, la posizione dell'immagine), i metadati e altre informazioni associate al contenuto.
+3. Immettere i valori per i parametri di query obbligatori, il tipo di contenuto e la chiave di sottoscrizione. Nella casella **Request body** (Corpo della richiesta) specificare il contenuto (ad esempio, la posizione dell'immagine), i metadati e altre informazioni associate al contenuto.
 
-  ![Parametri di query, intestazioni e casella Corpo della richiesta della console di creazione della revisione](images/test-drive-review-1.PNG)
+   ![Parametri di query, intestazioni e casella Corpo della richiesta della console di creazione della revisione](images/test-drive-review-1.PNG)
   
-4.  Selezionare **Send** (Invia). Viene creato un ID revisione. Copiare questo ID da usare nei passaggi seguenti.
+4. Selezionare **Send** (Invia). Viene creato un ID revisione. Copiare questo ID da usare nei passaggi seguenti.
 
-  ![La casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione) visualizza l'ID revisione](images/test-drive-review-2.PNG)
+   ![La casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione) visualizza l'ID revisione](images/test-drive-review-2.PNG)
   
-5.  Selezionare **Get** (Ottieni) e quindi aprire l'API selezionando il pulsante corrispondente all'area. Nella pagina risultante immettere i valori per **teamName**, **ReviewID** e la **chiave di sottoscrizione**. Selezionare il pulsante **Send** (Invia) nella pagina. 
+5. Selezionare **Get** (Ottieni) e quindi aprire l'API selezionando il pulsante corrispondente all'area. Nella pagina risultante immettere i valori per **teamName**, **ReviewID** e la **chiave di sottoscrizione**. Selezionare il pulsante **Send** (Invia) nella pagina. 
 
-  ![Ottenere i risultati nella console di creazione della revisione](images/test-drive-review-3.PNG)
+   ![Ottenere i risultati nella console di creazione della revisione](images/test-drive-review-3.PNG)
   
-6.  Verranno visualizzati i risultati dell'analisi.
+6. Verranno visualizzati i risultati dell'analisi.
 
-  ![Casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione)](images/test-drive-review-4.PNG)
+   ![Casella Response content (Contenuto della risposta) della console Review - Create (Revisione - Creazione)](images/test-drive-review-4.PNG)
   
-7.  Nel dashboard di Content Moderator selezionare **Review** (Revisione) > **Image** (Immagine). Viene visualizzata l'immagine analizzata, pronta per la revisione umana.
+7. Nel dashboard di Content Moderator selezionare **Review** (Revisione) > **Image** (Immagine). Viene visualizzata l'immagine analizzata, pronta per la revisione umana.
 
-  ![Immagine di un pallone da calcio nello strumento di revisione](images/test-drive-review-5.PNG)
+   ![Immagine di un pallone da calcio nello strumento di revisione](images/test-drive-review-5.PNG)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

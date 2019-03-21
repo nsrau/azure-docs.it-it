@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: 357cf832f8878364965c8d8a85d7af8c5a2bc21c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: a0ec87f2afb8e2a18727fe6dd62547e6ad6ecfac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992085"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841056"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Ottenere un token di test basato sulla restrizione Token usata per i criteri di 
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+Per testare il flusso, è possibile usare il [lettore di Servizi multimediali di Azure](https://amsplayer.azurewebsites.net/azuremediaplayer.html).
 
 ## <a id="client_request"></a>In che modo il client può richiedere una chiave dal servizio di distribuzione delle chiavi?
 Nel passaggio precedente, è stato realizzato l'URL che punta a un file manifesto. Il client deve estrarre le informazioni necessarie dai file manifesto del flusso per effettuare una richiesta al servizio di distribuzione delle chiavi.

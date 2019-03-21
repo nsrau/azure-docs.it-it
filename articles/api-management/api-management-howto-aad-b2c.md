@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2017
 ms.author: apimpm
-ms.openlocfilehash: 8c60e7dec2d2a9bc3e063adfee0ffaff63417265
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: db701a239aedb312c7671e403cdfde7135130c6d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52960164"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089608"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Come autorizzare gli account per sviluppatore usando Azure Active Directory B2C in Gestione API di Azure
 
@@ -38,7 +38,7 @@ Azure Active Directory B2C è una soluzione di gestione delle identità cloud pe
    > [!NOTE]
    > Se non è stata ancora creata un'istanza del servizio Gestione API, vedere [Creare un'istanza del servizio Gestione API][Create an API Management service instance] nell'esercitazione [Introduzione a Gestione API di Azure][Get started with Azure API Management].
 
-2. In **Sicurezza** selezionare **Identità**. Fare clic su **+Aggiungi** nella parte superiore.
+2. Sotto **identità**. Fare clic su **+Aggiungi** nella parte superiore.
 
    Sulla destra verrà visualizzato il riquadro **Aggiungi provider di identità**. Scegliere **Azure Active Directory B2C**.
     
@@ -46,54 +46,54 @@ Azure Active Directory B2C è una soluzione di gestione delle identità cloud pe
 
 3. Copiare l' **URL di reindirizzamento**.
 
-  ![URL di reindirizzamento del provider di identità AAD B2C][api-management-howto-copy-b2c-identity-provider-redirect-url]
+   ![URL di reindirizzamento del provider di identità AAD B2C][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
 4. In una nuova scheda accedere al tenant di Azure Active Directory B2C nel portale di Azure e aprire il pannello **Applicazioni**.
 
-  ![Registrare una nuova applicazione 1][api-management-howto-aad-b2c-portal-menu]
+   ![Registrare una nuova applicazione 1][api-management-howto-aad-b2c-portal-menu]
 
 5. Fare clic sul pulsante **Aggiungi** per creare una nuova applicazione Azure Active Directory B2C.
 
-  ![Registrare una nuova applicazione 2][api-management-howto-aad-b2c-add-button]
+   ![Registrare una nuova applicazione 2][api-management-howto-aad-b2c-add-button]
 
 6. Nel pannello **Nuova applicazione** immettere un nome per l'applicazione. Scegliere **Sì** in **App Web/API Web** e quindi **Sì** in **Consenti flusso implicito**. Incollare quindi l'**URL di reindirizzamento** copiato nel passaggio 3 nella casella di testo **URL di risposta**.
 
-  ![Registrare una nuova applicazione 3][api-management-howto-aad-b2c-app-details]
+   ![Registrare una nuova applicazione 3][api-management-howto-aad-b2c-app-details]
 
 7. Fare clic sul pulsante **Create** (Crea). Dopo che è stata creata, l'applicazione viene visualizzata nel pannello **Applicazioni**. Fare clic sul nome dell'applicazione per visualizzarne i dettagli.
 
-  ![Registrare una nuova applicazione 4][api-management-howto-aad-b2c-app-created]
+   ![Registrare una nuova applicazione 4][api-management-howto-aad-b2c-app-created]
 
 8. Dal pannello **Proprietà** copiare l'**ID applicazione** negli Appunti.
 
-  ![ID applicazione 1][api-management-howto-aad-b2c-app-id]
+   ![ID applicazione 1][api-management-howto-aad-b2c-app-id]
 
 9. Tornare al pannello **Aggiungi provider di identità** di Gestione API e incollare l'ID nella casella di testo **ID client**.
 
-  ![ID applicazione 2][api-management-howto-aad-b2c-client-id]
+   ![ID applicazione 2][api-management-howto-aad-b2c-client-id]
 
 10. Tornare alla registrazione dell'app B2C, fare clic sul pulsante **Chiavi** e quindi su **Genera chiave**. Fare clic su **Salva** per salvare la configurazione e visualizzare la **chiave dell'app**. Copiare la chiave negli Appunti.
 
-  ![Chiave dell'app 1][api-management-howto-aad-b2c-app-key]
+    ![Chiave dell'app 1][api-management-howto-aad-b2c-app-key]
 
 11. Tornare al pannello **Aggiungi provider di identità** di Gestione API e incollare la chiave nella casella di testo **Segreto client**.
 
-  ![Chiave dell'app 2][api-management-howto-aad-b2c-client-secret]
+    ![Chiave dell'app 2][api-management-howto-aad-b2c-client-secret]
 
 12. Specificare il nome di dominio del tenant di Azure Active Directory B2C nel campo **Tenant consentito**.
 
-  ![Tenant consentito][api-management-howto-aad-b2c-allowed-tenant]
+    ![Tenant consentito][api-management-howto-aad-b2c-allowed-tenant]
 
 13. Come criteri del tenant B2C specificare **Criteri di iscrizione** e **Criteri di accesso**. Facoltativamente è possibile specificare anche **Criteri di modifica del profilo** e **Criteri di reimpostazione password**.
 
-  ![Criteri][api-management-howto-aad-b2c-policies]
+    ![Criteri][api-management-howto-aad-b2c-policies]
 
-  > [!NOTE]
-  > Per altre informazioni sui criteri, vedere [Azure Active Directory B2C: framework di criteri estendibile].
+    > [!NOTE]
+    > Per altre informazioni sui criteri, vedere [Azure Active Directory B2C: framework di criteri estendibile].
 
 14. Dopo avere specificato la configurazione desiderata, fare clic su **Salva**.
 
-  Dopo il salvataggio delle modifiche, gli sviluppatori potranno creare nuovi account e accedere al portale per sviluppatori con Azure Active Directory B2C.
+    Dopo il salvataggio delle modifiche, gli sviluppatori potranno creare nuovi account e accedere al portale per sviluppatori con Azure Active Directory B2C.
 
 ## <a name="sign-up-for-a-developer-account-by-using-azure-active-directory-b2c"></a>Eseguire l'iscrizione per un account per sviluppatore usando Azure Active Directory B2C
 
