@@ -5,21 +5,21 @@ description: Condividere e scoprire risorse di analisi e altro in Azure AI Galle
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 48bb9b24901cd07891f3d52bcd916f95bc2801f4
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 382d05869a56dc0920d60bca55d99be4b46e3f52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244223"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57885420"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Condividere e scoprire risorse in Azure AI Gallery
 
-**[Azure AI Gallery](http://gallery.azure.ai)** è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con Azure AI.
+**[Azure AI Gallery](https://gallery.azure.ai)** è un sito basato su community per l'individuazione e la condivisione delle soluzioni create con Azure AI.
 Questo sito include diverse risorse che è possibile usare per sviluppare soluzioni di analisi.
 
 ## <a name="what-can-i-find-in-the-gallery"></a>Che cosa è disponibile all'interno di Cortana Intelligence Gallery?
@@ -201,4 +201,4 @@ La raccolta è stata concepita per essere creata dagli utenti per gli utenti. Pe
 
 ![Commenti e suggerimenti](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
-**[VAI A CORTANA INTELLIGENCE GALLERY >>](http://gallery.azure.ai)**
+**[VAI A CORTANA INTELLIGENCE GALLERY >>](https://gallery.azure.ai)**

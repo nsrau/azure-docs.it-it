@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: raynew
-ms.openlocfilehash: eaef1c904b5404339c476d86c5b8c2a1740e5a3e
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 0bd19492c844e217dc520ae0c189ca467bb7ac0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700078"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011090"
 ---
 # <a name="best-practices-for-securing-and-managing-workloads-migrated-to-azure"></a>Procedure consigliate per proteggere e gestire i carichi di lavoro migrati ad Azure
 
@@ -267,7 +267,7 @@ Spesso l'uso di un nome di un gruppo di risorse correlato solo alle risorse non 
 
 - [Informazioni](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) sull'assegnazione e sulle limitazioni dei tag.
 - [Consultare](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#powershell) alcuni esempi di PowerShell e dell'interfaccia della riga di comando per configurare l'assegnazione di tag e applicarli da un gruppo alle relative risorse.
-- [Leggere](http://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) le procedure consigliate sull'assegnazione di tag di Azure.
+- [Leggere](https://www.azurefieldnotes.com/2016/07/18/azure-resource-tagging-best-practices/) le procedure consigliate sull'assegnazione di tag di Azure.
 
 
 ## <a name="best-practice-implement-blueprints"></a>Procedura consigliata: Implementare progetti
@@ -588,7 +588,7 @@ Le risorse di Azure generano un numero notevole di metriche di registrazione e d
 
 - Per impostazione predefinita, nella maggior parte dei tipi di risorsa non è abilitata la registrazione diagnostica.
 - Abilitando la registrazione diagnostica in tutte le risorse, è possibile eseguire query sui dati di registrazione e creare avvisi e playbook di conseguenza.
-- Quando si abilita la registrazione diagnostica, ogni risorsa avrà un set specifico di categorie. Selezionare una o più categorie di registrazione e una posizione per i dati di log. I log possono essere inviati a un account di archiviazione, un hub eventi o Log Analytics. 
+- Quando si abilita la registrazione diagnostica, ogni risorsa avrà un set specifico di categorie. Selezionare una o più categorie di registrazione e una posizione per i dati di log. È possibile inviare i log per un account di archiviazione, hub eventi, o per i log di monitoraggio di Azure. 
 
 
 ![Registrazione diagnostica](./media/migrate-best-practices-security-management/diagnostics.png)
@@ -679,7 +679,7 @@ Come in qualsiasi sistema di produzione, qualsiasi tipo di modifica può avere r
 Azure include la soluzione Rilevamento modifiche in Automazione di Azure:
 
 - La soluzione rileva le modifiche apportate al software e ai file di Windows e Linux, alle chiavi del Registro di sistema, ai servizi di Windows e ai daemon Linux.
-- Le modifiche nei server monitorati vengono inviate al servizio Log Analytics nel cloud per l'elaborazione.
+- Le modifiche nei server monitorati vengono inviate al servizio di monitoraggio di Azure nel cloud per l'elaborazione.
 - Viene applicata la logica ai dati ricevuti, quindi questi ultimi vengono registrati nel servizio cloud.
 - Nel dashboard Rilevamento modifiche è possibile visualizzare facilmente le modifiche apportate all'infrastruttura del server.
 

@@ -5,17 +5,17 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2018
+ms.date: 03/20/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 9ae3a17c9756a38414ee25fd24f7d12d6179e95f
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
-ms.translationtype: HT
+ms.openlocfilehash: b1a9d93d9fccf02ba1517e429625150736e539e9
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285691"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305101"
 ---
-Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Selezionare lo SKU che soddisfa i requisiti relativi a tipi di carichi di lavoro, velocità effettive, funzionalità e contratti di servizio.
+Quando si crea un gateway di rete virtuale è necessario specificare il codice SKU del gateway da usare. Selezionare lo SKU che soddisfa i requisiti relativi a tipi di carichi di lavoro, velocità effettive, funzionalità e contratti di servizio. Per il gateway di rete virtuale gli SKU in zone di disponibilità di Azure, vedere [SKU del Gateway le zone di disponibilità Azure](../articles/vpn-gateway/about-zone-redundant-vnet-gateways.md).
 
 ###  <a name="benchmark"></a>SKU del gateway per tunnel, connessione e velocità effettiva
 
@@ -29,7 +29,7 @@ I nuovi SKU del gateway VPN semplificano i set di funzionalità offerti nei gate
 
 | **SKU**| **Funzionalità**|
 | ---    | ---         |
-|**Basic** (\*\*)   | **VPN basata su route**: 10 tunnel per connessioni da sito a sito; assenza di autenticazione RADIUS per connessioni da punto a sito; assenza di IKEv2 per connessioni da punto a sito<br>**VPN basata su criteri**: (IKEv1): 1 tunnel per connessioni da sito a sito; nessuna connessione da punto a sito|
+|**Basic** (\*\*)   | **VPN basato su route**: 10 tunnel per S2S/connessioni. Nessuna autenticazione RADIUS per P2S; Nessun IKEv2 per P2S<br>**VPN basata su criteri**: (IKEv1): 1 tunnel/connessione S2S; Nessun P2S|
 | **VpnGw1, VpnGw2 e VpnGw3** | **VPN basata su route**: fino a 30 tunnel (\*), P2S, BGP, attivo-attivo, IPsec personalizzato/criteri IKE, coesistenza ExpressRoute/VPN |
 |        |             |
 

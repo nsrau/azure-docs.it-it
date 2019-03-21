@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 799a40d759dc5614bd43234638982d5275d9d325
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: da465fb9fe51b2be5ec90df1ac75c50271db87a9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429197"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57992072"
 ---
 # <a name="high-availability-for-nfs-on-azure-vms-on-suse-linux-enterprise-server"></a>Disponibilità elevata per NFS in macchine virtuali di Azure su SUSE Linux Enterprise Server
 
@@ -426,9 +426,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
    Quando si usa drbd per sincronizzare i dati da un host a un altro, può verificarsi un fenomeno denominato split brain. Uno split brain è uno scenario in cui entrambi i nodi del cluster hanno innalzato di livello il dispositivo drbd come primario e non sono più sincronizzati. Questa situazione può essere rara, ma è comunque consigliabile essere preparati a gestire e risolvere uno scenario di split brain il più rapidamente possibile. Di conseguenza, è importante ricevere una notifica quando si verifica uno scenario di split brain.
 
-   Leggere la [documentazione ufficiale di drbd](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) su come configurare una notifica di split brain.
+   Leggere la [documentazione ufficiale di drbd](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-split-brain-notification) su come configurare una notifica di split brain.
 
-   È anche possibile ripristinare automaticamente il sistema da uno scenario di split brain. Per altre informazioni, vedere [Automatic split brain recovery policies](http://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration) (Criteri di ripristino automatico da scenari di split brain)
+   È anche possibile ripristinare automaticamente il sistema da uno scenario di split brain. Per altre informazioni, vedere [Automatic split brain recovery policies](https://docs.linbit.com/doc/users-guide-83/s-configure-split-brain-behavior/#s-automatic-split-brain-recovery-configuration) (Criteri di ripristino automatico da scenari di split brain)
    
 ### <a name="configure-cluster-framework"></a>Configurare il framework del cluster
 

@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 49c41b436e0d935d1f9fce5ba2de10e0f2d0c99d
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57903794"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB
 
@@ -112,7 +112,7 @@ Con la possibilità di accelerare/diminuore la velocità dei nodi di calcolo di 
 
 ## <a name="create-a-hyperscale-database"></a>Creare un database con iperscalabilità
 
-È possibile creare un database con iperscalabilità usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) o l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). I database con iperscalabilità sono disponibili solo con il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
+Un database con scalabilità elevatissima può essere creato usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabase) oppure [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create). I database con iperscalabilità sono disponibili solo con il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
 
 Il comando T-SQL seguente crea un database con iperscalabilità. Nell'istruzione `CREATE DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio.
 
@@ -124,7 +124,7 @@ GO
 
 ## <a name="migrate-an-existing-azure-sql-database-to-the-hyperscale-service-tier"></a>Eseguire la migrazione di un database SQL di Azure esistente al livello di servizio con iperscalabilità
 
-È possibile spostare i database SQL di Azure esistenti nel livello di servizio con iperscalabilità usando il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/set-azurermsqldatabase) o l'[interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). In anteprima pubblica questo spostamento è una migrazione unidirezionale. Non è possibile spostare i database dal livello di servizio con iperscalabilità in un altro livello di servizio. È consigliabile creare una copia dei database di produzione ed eseguire la migrazione al livello di servizio con iperscalabilità per il modello di verifica.
+È possibile spostare i database SQL di Azure esistenti all'uso su scala molto vasta il [portale di Azure](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current), [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) oppure [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update). In anteprima pubblica questo spostamento è una migrazione unidirezionale. Non è possibile spostare i database dal livello di servizio con iperscalabilità in un altro livello di servizio. È consigliabile creare una copia dei database di produzione ed eseguire la migrazione al livello di servizio con iperscalabilità per il modello di verifica.
 
 Il comando T-SQL seguente sposta un database nel livello di servizio con iperscalabilità. Nell'istruzione `ALTER DATABASE` è necessario specificare sia l'edizione che l'obiettivo del servizio.
 
@@ -145,7 +145,7 @@ Server=tcp:<myserver>.database.windows.net;Database=<mydatabase>;ApplicationInte
 
 ## <a name="available-regions"></a>Aree disponibili
 
-Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica ed è limitato alle aree di Azure seguenti: EastUS1, EastUS2, WestUS2, CentralUS, NorthCentralUS, WestEurope, NorthEurope, UKWest, AustraliaEast, AustraliaSouthEast, SouthEastAsia, JapanEast, KoreaCentral
+Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica ed è limitato alle aree di Azure seguenti: Stati Uniti orientali 1, Stati Uniti orientali 2, Stati Uniti occidentali 2, Stati Uniti centrali, Nord CentralU S, Europa occidentale, Europa settentrionale, Australia orientale, Australia sud-orientale, Asia sudorientale, Giappone orientale e Corea centrale
 
 ## <a name="known-limitations"></a>Limitazioni note
 

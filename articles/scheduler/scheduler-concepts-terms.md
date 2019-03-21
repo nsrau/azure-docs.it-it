@@ -8,14 +8,14 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 5ed15a58e5b709b003e9f45d04c3654f814aefc7
-ms.sourcegitcommit: 922f7a8b75e9e15a17e904cc941bdfb0f32dc153
-ms.translationtype: HT
+ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/27/2018
-ms.locfileid: "52334228"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887052"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
@@ -69,21 +69,21 @@ Utilità di pianificazione di Microsoft Azure supporta più tipi di processo:
 A un livello elevato, un processo di Utilità di pianificazione di Microsoft Azure include i seguenti elementi di base:
 
 * L'azione eseguita quando viene si attiva il timer del processo
-* Facoltativo: il tempo necessario per eseguire il processo
-* Facoltativo: quando e quanto spesso ripetere il processo
-* Facoltativo: un'azione di errore da eseguire in caso di esito negativo dell'azione primaria
+* Facoltativo: Il tempo di esecuzione del processo
+* Facoltativo: Quando e quanto spesso ripetere il processo
+* Facoltativo: Un'azione di errore che viene eseguita se l'azione principale ha esito negativo
 
 Il processo include anche i dati forniti dal sistema, ad esempio l'ora successiva di esecuzione pianificata del processo. La definizione di codice del processo è un oggetto in formato JavaScript Object Notation (JSON), con questi elementi:
 
-| Elemento | Obbligatoria | DESCRIZIONE | 
+| Elemento | Obbligatorio | DESCRIZIONE | 
 |---------|----------|-------------| 
-| [**startTime**](#start-time) | No  | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601) | 
-| [**azione**](#action) | Yes | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
+| [**startTime**](#start-time) | No  | L'ora di inizio per il processo con una differenza di fuso orario in [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) | 
+| [**azione**](#action) | Sì | I dettagli per l'azione principale, che può includere un oggetto **errorAction** | 
 | [**errorAction**](#error-action) | No  | I dettagli per l’azione secondaria eseguita se l'azione principale ha esito negativo |
 | [**recurrence**](#recurrence) | No  | I dettagli, ad esempio frequenza e intervallo per un processo ricorrente | 
 | [**retryPolicy**](#retry-policy) | No  | I dettagli per la frequenza con cui ripetere un'azione | 
-| [**state**](#state) | Yes | I dettagli per lo stato del processo corrente |
-| [**status**](#status) | Yes | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
+| [**state**](#state) | Sì | I dettagli per lo stato del processo corrente |
+| [**status**](#status) | Sì | I dettagli per lo stato del processo corrente, che viene controllato dal servizio |
 ||||
 
 Ecco un esempio che illustra una definizione del processo completo per un'azione HTTP. I dettagli più completi degli elementi sono descritti nelle sezioni successive: 
@@ -137,7 +137,7 @@ Ecco un esempio che illustra una definizione del processo completo per un'azione
 
 ## <a name="starttime"></a>startTime
 
-Nell’oggetto **startTime**, è possibile specificare l'ora di inizio e una differenza di fuso orario nel [formato ISO 8601](http://en.wikipedia.org/wiki/ISO_8601).
+Nell’oggetto **startTime**, è possibile specificare l'ora di inizio e una differenza di fuso orario nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601).
 
 <a name="action"></a>
 
@@ -239,7 +239,7 @@ Un processo è ricorrente se la definizione JSON del processo include l’oggett
 },
 ```
 
-| Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+| Proprietà | Obbligatorio | Value | DESCRIZIONE | 
 |----------|----------|-------|-------------| 
 | **frequency** | Sì, quando viene utilizzata la **ricorrenza** | "Minute", "Hour", "Day", "Week", "Month", "Year" | L'unità di tempo tra le occorrenze | 
 | **interval** | No  | da 1 a 1000 (inclusi) | Un numero intero positivo che determina il numero di unità di tempo tra ogni occorrenza sulla base della **frequenza** | 
@@ -269,9 +269,9 @@ Nel caso in cui un processo di Utilità di pianificazione di Microsoft Azure abb
 },
 ```
 
-| Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+| Proprietà | Obbligatorio | Value | DESCRIZIONE | 
 |----------|----------|-------|-------------| 
-| **retryType** | Yes | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
+| **retryType** | Sì | **Fixed**, **None** | Determina se sono stati specificati criteri di ripetizione (**fixed**) o no (**none**). | 
 | **retryInterval** | No  | PT30S | Specifica l'intervallo e la frequenza tra i tentativi di ripetizione dei tentativi nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Il valore minimo è 15 secondi, mentre il valore massimo è 18 mesi. | 
 | **retryCount** | No  | 4 | Specificare il numero di tentativi. Il valore massimo è 20. | 
 ||||

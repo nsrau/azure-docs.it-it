@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 10/16/2018
-ms.openlocfilehash: cb64b96f179bd71c3f885a54b17decb794b40c1a
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 8f19303dba7fcf2a9edb325464fdd3748220903e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567384"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994916"
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Distribuire ed esplorare un'applicazione multi-tenant partizionata
 
@@ -66,9 +66,9 @@ Scegliere ora i nomi e annotarli.
 ### <a name="steps"></a>Passaggi
 
 1. Fare clic sul pulsante azzurro **Distribuisci in Azure** illustrato di seguito.
-    - Verrà aperto il portale di Azure con il modello di distribuzione SaaS Wingtip Tickets.
+   - Verrà aperto il portale di Azure con il modello di distribuzione SaaS Wingtip Tickets.
 
-    [![Pulsante per la distribuzione in Azure][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
+     [![Pulsante per la distribuzione in Azure][image-deploy-to-azure-blue-48d]][link-aka-ms-deploywtp-mtapp-52k]
 
 1. Immettere i valori dei parametri necessari per la distribuzione.
 
@@ -125,9 +125,9 @@ Ogni sede è associata a un'app Web personalizzata in cui sono elencati i relati
 In una pagina Web centrale **Events Hub** (Hub eventi) sono elencati i collegamenti ai tenant nella distribuzione specifica. Attenersi alla seguente procedura per provare la pagina Web **Events Hub** (Hub eventi) e un'app Web singola:
 
 1. Aprire la pagina **Events Hub** (Hub eventi) nel Web browser:
-    - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp;  *Sostituire &lt;utente&gt; con il valore corrispondente all'utente della distribuzione.*
+   - http://events.wingtip-mt.&lt;utente&gt;.trafficmanager.net &nbsp;  *Sostituire &lt;utente&gt; con il valore corrispondente all'utente della distribuzione.*
 
-    ![Hub eventi](media/saas-multitenantdb-get-started-deploy/events-hub.png)
+     ![Hub eventi](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
 2. Fare clic su **Fabrikam Jazz Club** in **Events Hub** (Hub eventi).
 
@@ -208,7 +208,7 @@ Successivamente si effettua il provisioning di un altro tenant, questa volta in 
 
 Ora si esamineranno alcune delle risorse distribuite:
 
-1. Nel [portale di Azure](http://portal.azure.com) passare all'elenco dei gruppi di risorse. Aprire il gruppo di risorse creato al momento della distribuzione dell'applicazione.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco dei gruppi di risorse. Aprire il gruppo di risorse creato al momento della distribuzione dell'applicazione.
 
    ![gruppo di risorse](./media/saas-multitenantdb-get-started-deploy/resource-group.png)
 
@@ -275,7 +275,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 -->
 
-[link-aka-ms-deploywtp-mtapp-52k]: http://aka.ms/deploywtp-mtapp
+[link-aka-ms-deploywtp-mtapp-52k]: https://aka.ms/deploywtp-mtapp
 
 
 [link-azure-get-started-powershell-41q]: https://docs.microsoft.com/powershell/azure/get-started-azureps
@@ -286,7 +286,7 @@ A [series of related tutorials] is available that build upon this initial deploy
 
 <!--  Image references.
 
-[image-deploy-to-azure-blue-48d]: http://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
+[image-deploy-to-azure-blue-48d]: https://aka.ms/deploywtp-mtapp "Button for Deploy to Azure."
 -->
 
 [image-deploy-to-azure-blue-48d]: media/saas-multitenantdb-get-started-deploy/deploy.png "Pulsante per la distribuzione in Azure."

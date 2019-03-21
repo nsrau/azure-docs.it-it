@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 12/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 82382ecc3adf0d0621f51438a082f7807b031fc9
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ec71f8998f7db07cafca7f8141acb9898b016328
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54431215"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821354"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Output di runbook e messaggi in automazione di Azure
 La maggior parte dei runbook di Automazione Azure ha una forma di output. L'output può essere un messaggio di errore destinato all'utente o un oggetto complesso che si prevede di usare con un altro runbook. Windows PowerShell fornisce [più flussi](/powershell/module/microsoft.powershell.core/about/about_redirection) per inviare l'output da uno script o flusso di lavoro. Automazione di Azure funziona con ogni flusso in modo diverso. Seguire le procedure consigliate per usare ogni flusso quando si crea un runbook.
@@ -220,8 +220,8 @@ Per i runbook grafici, è disponibile una registrazione aggiuntiva sotto forma d
    
    ![Pannello Registrazione e traccia per la creazione grafica](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
 
-### <a name="microsoft-azure-log-analytics"></a>Log Analytics di Microsoft Azure
-Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro di Log Analytics. Con Log Analytics è possibile:
+### <a name="microsoft-azure-monitor-logs"></a>Log di monitoraggio di Microsoft Azure
+Automazione può inviare lo stato e i flussi del processo del runbook all'area di lavoro di Log Analytics. Con i log di monitoraggio di Azure è possibile,
 
 * Ottenere informazioni dettagliate sui processi di Automazione. 
 * Attivare un messaggio e-mail o un avviso in base allo stato del processo del runbook, ad esempio non riuscito o sospeso. 
@@ -229,7 +229,7 @@ Automazione può inviare lo stato e i flussi del processo del runbook all'area d
 * Correlare i processi tra account di Automazione. 
 * Visualizzare la cronologia dei processi nel tempo.    
 
-Per altre informazioni sulla configurazione dell'integrazione con Log Analytics per raccogliere e correlare i dati del processo e agire su tali dati, vedere [Inoltrare lo stato e i flussi del processo da Automazione a Log Analytics](automation-manage-send-joblogs-log-analytics.md).
+Per altre informazioni su come configurare l'integrazione con i log di monitoraggio di Azure per raccogliere, correlare e agire sui dati del processo, vedere [inoltrare lo stato del processo e i flussi del processo da automazione a log di monitoraggio di Azure](automation-manage-send-joblogs-log-analytics.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per maggiori informazioni sull'esecuzione dei runbook, su come monitorare i processi dei runbook e su altri dettagli tecnici, vedere come tenere traccia del processo di un runbook in [Esecuzione di runbook in Automazione di Azure](automation-runbook-execution.md)

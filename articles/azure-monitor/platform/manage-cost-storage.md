@@ -11,15 +11,15 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 03/20/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 851098840356c7d391c2b10fae1c18884f5dab02
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236109"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295675"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics"></a>Gestire l'utilizzo e i costi per Log Analytics
 
@@ -112,13 +112,13 @@ Se l'area di lavoro di Log Analytics ha accesso ai piani tariffari esistenti, mo
 3. In **Piano tariffario** selezionare un piano tariffario e quindi fare clic su **Seleziona**.  
     ![Piano tariffario selezionato](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è necessario [modificare il modello di prezzi di monitoraggio dell’abbonamento in Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs#moving-to-the-new-pricing-model) che modificherà il piano tariffario di tutte le aree di lavoro in tale abbonamento.
+Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è necessario [modificare il modello di prezzi di monitoraggio dell’abbonamento in Monitoraggio di Azure](usage-estimated-costs.md#moving-to-the-new-pricing-model) che modificherà il piano tariffario di tutte le aree di lavoro in tale abbonamento.
 
 > [!NOTE]
 > Se l'area di lavoro è collegata a un account di Automazione, prima di poter selezionare il piano tariffario *Standalone (Per GB)* (Autonomo - per GB), è necessario eliminare eventuali soluzioni di **Automazione e controllo** e scollegare l'account di Automazione. Nel pannello dell'area di lavoro in **Generale** fare clic su **Soluzioni** per visualizzare ed eliminare le soluzioni. Per scollegare l'account di Automazione, fare clic sul nome dell'account di Automazione nel pannello **Piano tariffario**.
 
 > [!NOTE]
-> Altre informazioni sull'impostazione del piano tariffario tramite ARM [https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#create-a-log-analytics-workspace] e su come assicurarsi che la distribuzione ARM avrà esito positivo indipendentemente dal fatto che la sottoscrizione si trova nel modello di tariffe legacy o nuovo. 
+> Per ulteriori informazioni sulle [impostando il piano tariffario tramite ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) e assicurarsi che la distribuzione ARM riuscirà indipendentemente dal fatto che la sottoscrizione è nel preesistente o nuovo modello di determinazione prezzi. 
 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati
@@ -138,24 +138,12 @@ Per ricevere una notifica all'interruzione della raccolta dati, usare la procedu
 
 ## <a name="troubleshooting-why-usage-is-higher-than-expected"></a>Risoluzione dei problemi che determinano un utilizzo superiore al previsto
 Un utilizzo più elevato è dovuto a una o entrambe le cause seguenti:
-- Vengono inviati più dati del previsto a Log Analytics
 - Più nodi del previsto inviano dati a Log Analytics
+- Vengono inviati più dati del previsto a Log Analytics
 
-### <a name="data-volume"></a>Volume dati 
-Nella pagina **Utilizzo e costi stimati** il grafico *Inserimento dati per soluzione* mostra il volume totale dei dati inviati e la quantità inviata da ogni soluzione. In questo modo è possibile determinare tendenze specifiche, ad esempio se l'utilizzo dei dati complessivo (o da parte di una particolare soluzione) sta aumentando, è stabile o sta diminuendo. La query usata per generare questi dati è
+Il successivo soluzio sezioni
 
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-Si noti che la clausola "where IsBillable = true" esclude i tipi di dati da determinate soluzioni per le quali non è addebitato alcun inserimento. 
-
-È possibile approfondire ulteriormente l'analisi per visualizzare le tendenze relative a tipi di dati specifici, ad esempio per studiare i dati risultanti dai log di IIS:
-
-`Usage| where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
-
-### <a name="nodes-sending-data"></a>Nodi che inviano dati
+## <a name="understanding-nodes-sending-data"></a>Informazioni sui nodi che inviano dati
 
 Per conoscere il numero di computer (nodi) che hanno segnalato dati ogni giorno nell'ultimo mese, usare
 
@@ -163,7 +151,7 @@ Per conoscere il numero di computer (nodi) che hanno segnalato dati ogni giorno 
 | summarize dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart`
 
-Per ottenere un elenco di computer che inviano **tipi di dati fatturati** (alcuni tipi di dati sono gratuiti), sfruttare la proprietà [_IsBillable](log-standard-properties.md#isbillable):
+Per ottenere un elenco di computer che inviano **tipi di dati fatturati** (alcuni tipi di dati sono gratuiti), sfruttare la proprietà [_IsBillable](log-standard-properties.md#_isbillable):
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -171,9 +159,9 @@ Per ottenere un elenco di computer che inviano **tipi di dati fatturati** (alcun
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName`
 
-Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose. 
+Usare queste query `union withsource = tt *` solo se necessario, poiché le analisi tra tipi di dati sono costose. Questa query sostituisce quello precedente di una query su informazioni per ogni computer con il tipo di dati di utilizzo.  
 
-Questo processo può essere esteso per restituire il conteggio orario dei computer che inviano tipi di dati fatturati:
+Ciò può essere esteso per restituire il conteggio dei computer che inviano all'ora fatturati i tipi di dati (ovvero come Log Analitica calcola i nodi fatturabili per il nodo legacy per ogni piano tariffario):
 
 `union withsource = tt * 
 | where _IsBillable == true 
@@ -181,13 +169,30 @@ Questo processo può essere esteso per restituire il conteggio orario dei comput
 | where computerName != ""
 | summarize dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc`
 
-Per vedere le **dimensioni** degli eventi fatturabili inseriti per computer, usare la proprietà `_BilledSize` che fornisce la dimensione in byte:
+## <a name="understanding-ingested-data-volume"></a>Volume di dati inserito conoscenza 
+
+Nella pagina **Utilizzo e costi stimati** il grafico *Inserimento dati per soluzione* mostra il volume totale dei dati inviati e la quantità inviata da ogni soluzione. In questo modo è possibile determinare tendenze specifiche, ad esempio se l'utilizzo dei dati complessivo (o da parte di una particolare soluzione) sta aumentando, è stabile o sta diminuendo. La query usata per generare questi dati è
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+Si noti che la clausola "where IsBillable = true" esclude i tipi di dati da determinate soluzioni per le quali non è addebitato alcun inserimento. 
+
+È possibile approfondire ulteriormente l'analisi per visualizzare le tendenze relative a tipi di dati specifici, ad esempio per studiare i dati risultanti dai log di IIS:
+
+`Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
+| where DataType == "W3CIISLog"
+| summarize TotalVolumeGB = sum(Quantity) / 1024 by bin(TimeGenerated, 1d), Solution| render barchart`
+
+### <a name="data-volume-by-computer"></a>Volume dati per computer
+
+Per visualizzare il **dimensioni** degli eventi fatturabili inseriti al computer, utilizzare il `_BilledSize` proprietà ([log-standard-properties & _billedsize.md](learn more)) che fornisce la dimensione in byte:
 
 `union withsource = tt * 
 | where _IsBillable == true 
 | summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
 
-Questa query sostituisce il modo precedente di eseguire query con il tipo di dati Utilizzo. 
+Il `_IsBillable` proprietà specifica se i dati inseriti si incorrerà in spese ([_isbillable & log-standard-properties.md](Learn more).)
 
 Per visualizzare il **numero** di eventi inseriti per computer, usare
 
@@ -207,8 +212,29 @@ Per sapere il numero di tipi dati fatturabili che inviano dati a uno specifico c
 | where _IsBillable == true 
 | summarize count() by tt | sort by count_ nulls last `
 
+### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume di dati da risorse di Azure, gruppo di risorse o sottoscrizione
+
+Per i dati dai nodi ospitati in Azure è possibile ottenere il **dimensioni** degli eventi fatturabili inseriti __per ogni computer__, usare il `_ResourceId` proprietà che fornisce il percorso completo della risorsa ([ log-standard-properties.md & _resourceid](learn more)):
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+
+Per i dati dai nodi ospitati in Azure è possibile ottenere il **dimensioni** degli eventi fatturabili inseriti __per ogni sottoscrizione di Azure__, analizzare il `_ResourceId` proprietà come:
+
+`union withsource = tt * 
+| where _IsBillable == true 
+| parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
+    resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+
+Modificando `subscriptionId` a `resourceGroup` indicherà il volume di dati inseriti fatturabili dal gruppo resouurce Azure. 
+
+
 > [!NOTE]
 > Benché siano ancora inclusi nello schema, alcuni campi del tipo di dati Utilizzo sono stati deprecati e i rispettivi valori non verranno più popolati. Si tratta del campo **Computer** e dei campi correlati all'inserimento, ossia **TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** e **AverageProcessingTimeMs**.
+
+### <a name="querying-for-common-data-types"></a>L'esecuzione di query per tipi di dati comuni
 
 Ecco alcune query di esempio utili per analizzare in maggiore profondità l'origine dei dati di un particolare tipo di dati:
 
@@ -241,7 +267,7 @@ Ecco alcuni suggerimenti utili per ridurre il volume dei log raccolti:
 | AzureDiagnostics           | Modificare la raccolta dei log delle risorse per: <br> - Ridurre il numero di risorse che inviano log a Log Analytics <br> - Raccogliere solo i log necessari |
 | Dati della soluzione da computer che non richiedono la soluzione | Usare il [targeting della soluzione](../insights/solution-targeting.md) per raccogliere dati unicamente dai gruppi di computer necessari |
 
-### <a name="getting-node-counts"></a>Ottenere il conteggio dei nodi 
+### <a name="getting-security-and-automation-node-counts"></a>Ottenere i conteggi di nodo sicurezza e automazione 
 
 Se si usa un piano tariffario "Per nodo (OMS)", l'addebito viene effettuato in base al numero di nodi e soluzioni usati e il numero di nodi di Informazioni dettagliate e analisi fatturati sarà visualizzato in una tabella nella pagina **Utilizzo e costi stimati**.  
 
@@ -282,6 +308,7 @@ Per visualizzare il numero di nodi di Automazione distinti usare la query:
  | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creare un avviso quando la raccolta dati supera le dimensioni previste
+
 Questa sezione descrive come creare un avviso nei casi seguenti:
 - Il volume di dati supera una quantità specificata.
 - Si prevede che il volume di dati superi una quantità specificata.

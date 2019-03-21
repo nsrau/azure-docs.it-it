@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: da6be839f5e7c1bfd885015c9b0206945feb77d1
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: d90f23f52ca4c0cce3d853114acf673aa085d3c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452786"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57889786"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Invio di notifiche push con Hub di notifica di Azure e Node.js
 
@@ -31,7 +31,7 @@ ms.locfileid: "54452786"
 > [!IMPORTANT]
 > Per completare l'esercitazione, è necessario disporre di un account Azure attivo. Se non si ha un account, creare un account di valutazione gratuita in pochi minuti tramite la [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A643EE910&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fnotification-hubs-nodejs-how-to-use-notification-hubs).
 
-Questa guida illustra come inviare notifiche push con Hub di notifica di Azure direttamente da un'applicazione [Node.js](http://nodejs.org).
+Questa guida illustra come inviare notifiche push con Hub di notifica di Azure direttamente da un'applicazione [Node.js](https://nodejs.org).
 
 Gli scenari presentati includono l'invio di notifiche push ad applicazioni nelle piattaforme seguenti:
 
@@ -60,7 +60,7 @@ Per usare Hub di notifica di Azure, è necessario scaricare e usare il [pacchett
 4. All'interno di tale cartella trovare il pacchetto **azure** , che contiene le librerie necessarie per accedere a Hub di notifica.
 
 > [!NOTE]
-> Altre informazioni sull'installazione di NPM sono disponibili nel [blog NPM](http://blog.npmjs.org/post/85484771375/how-to-install-npm)ufficiale.
+> Altre informazioni sull'installazione di NPM sono disponibili nel [blog NPM](https://blog.npmjs.org/post/85484771375/how-to-install-npm)ufficiale.
 
 ### <a name="import-the-module"></a>Importare il modulo
 
@@ -107,7 +107,7 @@ L'oggetto `GcmService` specifica un metodo `send` che è possibile usare per inv
 - **Payload** : il payload JSON o la stringa non elaborata del messaggio.
 - **Callback** : la funzione di richiamata.
 
-Per altre informazioni sul formato di payload, vedere la sezione **Payload** del documento relativo all' [implementazione del server GCM](http://developer.android.com/google/gcm/server.html#payload) .
+Per altre informazioni sul formato di payload, vedere la sezione **Payload** del documento relativo all' [implementazione del server GCM](https://developer.android.com/google/gcm/server.html#payload) .
 
 Nel codice seguente viene usata l'istanza di `GcmService` esposta da `NotificationHubService` per inviare una notifica push a tutti i client registrati.
 
@@ -132,7 +132,7 @@ Come per le applicazioni Android descritte sopra, l'oggetto `ApnsService` specif
 - **Payload** : il payload JSON o stringa del messaggio.
 - **Callback** : la funzione di richiamata.
 
-Per altre informazioni sul formato di payload, vedere la sezione relativa al **payload di notifica** nella [guida alla programmazione di notifiche push e locali](http://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) .
+Per altre informazioni sul formato di payload, vedere la sezione relativa al **payload di notifica** nella [guida alla programmazione di notifiche push e locali](https://developer.apple.com/library/ios/#documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/ApplePushService/ApplePushService.html) .
 
 Nel codice seguente viene usata l'istanza di `ApnsService` esposta da `NotificationHubService` per inviare un messaggio di avviso a tutti i client:
 
@@ -194,7 +194,7 @@ Nel codice seguente viene usata l'istanza di `WnsService` esposta da `Notificati
     });
     ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 I frammenti di codice di esempio riportati sopra consentono di creare facilmente l'infrastruttura del servizio per recapitare notifiche push a un'ampia gamma di dispositivi. A questo punto, dopo aver appreso le nozioni di base dell'uso di Hub di notifica con Node.js, usare i collegamenti seguenti per scoprire come estendere ulteriormente queste funzionalità.
 
@@ -221,9 +221,9 @@ I frammenti di codice di esempio riportati sopra consentono di creare facilmente
 [3]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-05.png
 [4]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-06.png
 [5]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/sb-queues-07.png
-[SqlFilter.SqlExpression]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
-[Azure Service Bus Notification Hubs]: http://msdn.microsoft.com/library/windowsazure/jj927170.aspx
-[SqlFilter]: http://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
+[SqlFilter.SqlExpression]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.sqlexpression.aspx
+[Azure Service Bus Notification Hubs]: https://msdn.microsoft.com/library/windowsazure/jj927170.aspx
+[SqlFilter]: https://msdn.microsoft.com/library/windowsazure/microsoft.servicebus.messaging.sqlfilter.aspx
 [Web Site with WebMatrix]: /develop/nodejs/tutorials/web-site-with-webmatrix/
 [Node.js Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Previous Management Portal]: .media/notification-hubs-nodejs-how-to-use-notification-hubs/previous-portal.png

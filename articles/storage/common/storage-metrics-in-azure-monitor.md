@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: aabd0ab55c061c9d2cdc27b4ab5a241ad9e9793c
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899027"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -23,7 +23,7 @@ Monitoraggio di Azure fornisce interfacce utente unificate per il monitoraggio t
 
 ## <a name="access-metrics"></a>Accedere alle metriche
 
-Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedervi dal [portale di Azure](https://portal.azure.com), dalle API di Monitoraggio di Azure (REST e .Net) e da soluzioni di analisi come Hub eventi. Per altre informazioni, vedere [Metriche di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedervi dal [portale di Azure](https://portal.azure.com), le API di monitoraggio di Azure (REST e .NET) e le soluzioni di analisi, ad esempio hub eventi. Per altre informazioni, vedere [Metriche di Monitoraggio di Azure](../../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
 Le metriche sono abilitate per impostazione predefinita ed è possibile accedere agli ultimi 93 giorni di dati. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo approccio viene configurato nelle [Impostazioni di diagnostica](../../azure-monitor/platform/diagnostic-logs-overview.md) in Monitoraggio di Azure.
 
@@ -136,9 +136,9 @@ La risposta seguente contiene valori di metriche in formato JSON:
 
 ### <a name="access-metrics-with-the-net-sdk"></a>Accedere alle metriche con .NET SDK
 
-Monitoraggio di Azure fornisce [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) per leggere definizioni e valori delle metriche. Il [codice di esempio](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) illustra come usare l'SDK con parametri diversi. È necessario usare `0.18.0-preview` o versione successiva per le metriche di archiviazione. L'ID risorsa viene usato in .NET SDK. Per altre informazioni, leggere Understanding resource ID for services in Storage (Informazioni sull'ID risorsa per i servizi in Archiviazione).
+Monitoraggio di Azure offre [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) per leggere definizioni delle metriche e i valori. Il [codice di esempio](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) illustra come usare l'SDK con parametri diversi. È necessario usare `0.18.0-preview` o versione successiva per le metriche di archiviazione. ID risorsa viene usato in .NET SDK. Per altre informazioni, leggere Understanding resource ID for services in Storage (Informazioni sull'ID risorsa per i servizi in Archiviazione).
 
-L'esempio seguente mostra come usare .NET SDK di Monitoraggio di Azure per la lettura delle metriche di archiviazione.
+Nell'esempio seguente viene illustrato come usare .NET SDK di monitoraggio di Azure per la lettura delle metriche di archiviazione.
 
 #### <a name="list-account-level-metric-definition-with-the-net-sdk"></a>Elencare le definizioni delle metriche a livello di account con .NET SDK
 

@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 67217b63588946782d42b4287cf5f24e29ebe5bd
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961263"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076820"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Informazioni sull'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
-Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare diverse condizioni utilizzando Log Analytics o Monitoraggio di Azure, queste applicazioni non sono progettate per modellare e rappresentare l'integrità dei componenti di base o quella globale della macchina virtuale.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
+Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare per diverse condizioni tramite Monitoraggio di Azure, non è stato progettato per modellare e rappresentano l'integrità complessiva della macchina virtuale o per l'integrità dei componenti di base.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
 
 Lo stato di integrità globale della macchina virtuale di Azure e del sistema operativo sottostante può essere visualizzato da due prospettive con Monitoraggio di Azure per le macchine virtuali, direttamente dalla macchina virtuale o per tutte le macchine virtuali in un gruppo di risorse da Monitoraggio di Azure.
 
@@ -29,22 +29,22 @@ Questo articolo illustra come valutare, analizzare e risolvere rapidamente i pro
 
 Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
 
->[!NOTE]
->A partire dall'11 febbraio 2019 Microsoft inizierà la migrazione dal modello di integrità corrente in Monitoraggio di Azure per le macchine virtuali, visibile oggi all'interno dell'esperienza Diagnostica integrità, a una nuova versione del modello di integrità. Questo aggiornamento migliora le prestazioni di elaborazione di rollup dell'integrità e include un modello di integrità affinato presentato nella vista Diagnostica integrità. 
->
->Con il nuovo modello di integrità il rollup dei criteri di integrità figlio ai criteri di integrità a livello padre o entità sarà più rapido, e di conseguenza, si avrà una minore latenza dello stato di integrità degli aggiornamenti padre allo stato desiderato o di destinazione. È comunque possibile filtrare i criteri di integrità nelle categorie **Prestazioni** e **Disponibilità** a differenza del metodo precedente basato su schede per selezionare una categoria all'interno della vista.
->
->Per altre informazioni sull'esperienza di Diagnostica integrità, vedere la [sezione](#health-diagnostics) relativa a Diagnostica integrità in questo articolo. 
->
->Questo aggiornamento migliorerà le operazioni seguenti: 
->
->- Elaborazione del rollup di integrità con latenza ridotta  
->- Avvisi più rapidi sulle modifiche dello stato di integrità 
->- Aggiornamento più rapido dello stato di integrità nella visualizzazione aggregata di macchine virtuali per tutte le macchine virtuali 
->
->Nessuna regressione di qualsiasi funzionalità fornita oggi con la funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali.
-
->Questa modifica influisce su due esperienze di Diagnostica integrità: la cronologia delle modifiche dello stato verrà reimpostata e le modifiche dello stato precedenti per i criteri di integrità non saranno disponibili per la revisione nella colonna Modifiche stato della pagina Diagnostica integrità. Se si è interessati ai dati cronologici di qualsiasi macchina virtuale considerata cruciale, è possibile acquisire come riferimento una schermata dei dati dei criteri di integrità e delle modifiche stato corrispondenti. 
+> [!NOTE]
+> A partire dall'11 febbraio 2019 Microsoft inizierà la migrazione dal modello di integrità corrente in Monitoraggio di Azure per le macchine virtuali, visibile oggi all'interno dell'esperienza Diagnostica integrità, a una nuova versione del modello di integrità. Questo aggiornamento migliora le prestazioni di elaborazione di rollup dell'integrità e include un modello di integrità affinato presentato nella vista Diagnostica integrità. 
+> 
+> Con il nuovo modello di integrità il rollup dei criteri di integrità figlio ai criteri di integrità a livello padre o entità sarà più rapido, e di conseguenza, si avrà una minore latenza dello stato di integrità degli aggiornamenti padre allo stato desiderato o di destinazione. È comunque possibile filtrare i criteri di integrità nelle categorie **Prestazioni** e **Disponibilità** a differenza del metodo precedente basato su schede per selezionare una categoria all'interno della vista.
+> 
+> Per altre informazioni sull'esperienza di Diagnostica integrità, vedere la [sezione](#health-diagnostics) relativa a Diagnostica integrità in questo articolo. 
+> 
+> Questo aggiornamento migliorerà le operazioni seguenti: 
+> 
+> - Elaborazione del rollup di integrità con latenza ridotta  
+> - Avvisi più rapidi sulle modifiche dello stato di integrità 
+> - Aggiornamento più rapido dello stato di integrità nella visualizzazione aggregata di macchine virtuali per tutte le macchine virtuali 
+> 
+> Nessuna regressione di qualsiasi funzionalità fornita oggi con la funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali.
+> 
+> Questa modifica influisce su due esperienze di Diagnostica integrità: la cronologia delle modifiche dello stato verrà reimpostata e le modifiche dello stato precedenti per i criteri di integrità non saranno disponibili per la revisione nella colonna Modifiche stato della pagina Diagnostica integrità. Se si è interessati ai dati cronologici di qualsiasi macchina virtuale considerata cruciale, è possibile acquisire come riferimento una schermata dei dati dei criteri di integrità e delle modifiche stato corrispondenti. 
 
 ## <a name="monitoring-configuration-details"></a>Dettagli di configurazione di monitoraggio
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando viene rilevata una condizione di non integrità. 
@@ -192,7 +192,7 @@ La pagina Diagnostica integrità ha tre sezioni principali:
 
 * Modello componente 
 * Criteri di integrità
-* Modifiche stato 
+* Modifiche di stato 
 
 ![Sezioni della pagina Diagnostica integrità](./media/vminsights-health/health-diagnostics-page-02.png)
 
@@ -227,18 +227,18 @@ Nel riquadro di configurazione per i criteri di integrità selezionato, usando l
 Per altre informazioni sull'indicatore di integrità, sono inclusi articoli della Knowledge Base sull'identificazione di problemi, cause e risoluzioni. Fare clic sul collegamento **Visualizza informazioni** nella pagina per aprire una nuova scheda del browser che mostra lo specifico articolo della Knowledge Base. In qualsiasi momento, è possibile esaminare tutti gli articoli della Knowledge Base sui criteri di integrità inclusi con la funzionalità dell'integrità di Monitoraggio di Azure per le macchine virtuali [qui](https://docs.microsoft.com/azure/monitoring/infrastructure-health/).
   
 ### <a name="state-changes"></a>Modifiche stato
-La colonna più a destra nella pagina Diagnostica integrità è **Modifiche stato**. Elenca tutte le modifiche di stato associate ai criteri di integrità selezionati nella sezione **Criteri di integrità** o la modifica di stato della macchina virtuale se ne è stata selezionata una nella colonna **Modello componente** o **Criteri di integrità** della tabella. 
+La colonna più a destra nella pagina Diagnostica integrità è **Modifiche stato**. Elenca tutte le modifiche di state associate ai criteri di integrità selezionati nella sezione **Criteri di integrità** o la modifica di stato della macchina virtuale se ne è stata selezionata una nella colonna **Modello componente** o **Criteri di integrità** della tabella. 
 
 ![Esempio di modifiche di stato presentato in Diagnostica integrità](./media/vminsights-health/health-diagnostics-page-statechanges.png)
 
 Questa sezione è costituita dallo stato dei criteri di integrità e dall'ora associata ordinati con lo stato più recente in alto.   
 
-### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Associazione delle colonne Modello componente, Criteri di integrità e Modifiche stato 
-Le tre colonne sono correlate tra loro. Quando un utente seleziona un'istanza individuata nella sezione **Modello componente**, la sezione **Criteri di integrità** viene filtrata in base alla visualizzazione di tale componente e, di conseguenza, la sezione **Modifiche stato** viene aggiornata in base ai criteri di integrità selezionati. 
+### <a name="association-of-component-model-health-criteria-and-state-change-columns"></a>Associazione delle colonne Modello componente, Criteri di integrità e Modifica stato 
+Le tre colonne sono correlate tra loro. Quando un utente seleziona un'istanza individuata nella sezione **Modello componente**, la sezione **Criteri di integrità** viene filtrata in base alla visualizzazione di tale componente e, di conseguenza, la sezione **Modifica stato** viene aggiornata in base ai criteri di integrità selezionati. 
 
 ![Esempio di selezione dell'istanza monitorata e dei risultati](./media/vminsights-health/health-diagnostics-vm-example-01.png)
 
-Nell'esempio precedente, quando si seleziona **Disk - 1 D:**, l'albero Criteri di integrità viene filtrato in base a **Disk - 1 D:**. La colonna **Modifiche stato** indica il cambiamento dello stato in base alla disponibilità di **Disk - 1 D:**. 
+Nell'esempio precedente, quando si seleziona **Disk - 1 D:**, l'albero Criteri di integrità viene filtrato in base a **Disk - 1 D:**. La colonna **State Change** (Modifica stato) indica il cambiamento dello stato in base alla disponibilità di **Disk - 1 D:**. 
 
 Per visualizzare lo stato di integrità aggiornato, è possibile aggiornare la pagina Diagnostica integrità facendo clic sul collegamento **Aggiorna**.  Se lo stato di integrità del criterio di integrità viene aggiornato in base all'intervallo di polling predefinito, questa attività consente di evitare l'attesa e riflette lo stato di integrità più recente.  Il filtro **Stato criteri di integrità** consente di esaminare i risultati in base allo stato di integrità selezionato: *Integro*, *Avviso*, *Critico*, *Sconosciuti* e *tutti*.  L'ora riportata in **Ultimo aggiornamento** nell'angolo in alto a destra indica l'ora dell'ultimo aggiornamento della pagina Diagnostica integrità.  
 
@@ -251,7 +251,7 @@ Il numero totale di avvisi di integrità delle macchine virtuali classificati in
 
 Nella pagina **Avvisi** non vengono solo visualizzati gli avvisi corrispondenti alla sezione, ma viene anche applicato il filtro **Tipo di risorsa**, che consente di visualizzare solo gli avvisi di integrità generati dalla risorsa macchina virtuale.  Nell'elenco degli avvisi presente nella colonna **Risorsa di destinazione** viene infatti visualizzata la macchina virtuale di Azure per la quale è stato generato l'avviso quando è stata rilevata una condizione di non integrità in base a determinati criteri di integrità.  
 
-In questa visualizzazione non sono inclusi gli avvisi provenienti da altri tipi di risorse o servizi, come gli avvisi di log basati su query di Log Analytics o gli avvisi di metriche normalmente visualizzati nella pagina [Tutti gli avvisi](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) predefinita di Monitoraggio di Azure. 
+Gli avvisi provenienti da altri tipi di risorse o servizi non devono essere inclusi in questa visualizzazione, ad esempio gli avvisi di log basati su query di log o avvisi sulle metriche che verrebbero normalmente visualizzati da quello predefinito di monitoraggio di Azure [tutti gli avvisi](../../azure-monitor/platform/alerts-overview.md#all-alerts-page) pagina. 
 
 È possibile filtrare questa visualizzazione selezionando i valori nei menu a discesa nella parte superiore della pagina.
 

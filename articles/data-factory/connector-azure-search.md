@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2018
 ms.author: jingwang
-ms.openlocfilehash: aa6c6a35a66569d5db182e1871012b9697c2802c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 1c8cbcd2e5f137b1e8381dcce164ae9a4b87e804
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852842"
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiare dati in un indice di Ricerca di Azure usando Azure Data Factory
 
@@ -41,15 +41,15 @@ Le sezioni seguenti riportano le informazioni dettagliate sulle proprietà che v
 
 Per il servizio collegato di Ricerca di Azure sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **AzureSearch** | Yes |
-| URL | URL del servizio Ricerca di Azure. | Yes |
+| type | La proprietà type deve essere impostata su: **AzureSearch** | Sì |
+| URL | URL del servizio Ricerca di Azure. | Sì |
 | key | Chiave amministratore del servizio Ricerca di Azure. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
 
 > [!IMPORTANT]
-> Quando si copiano dati da un archivio dati cloud nell'indice di Ricerca di Azure, nel servizio collegato di Ricerca di Azure è necessario fare riferimento a un runtime di integrazione di Azure con area esplicita in connactVia. Impostare l'area in base a quella in cui si trova Ricerca di Azure. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
+> Quando si copiano dati da un archivio dati cloud nell'indice di ricerca di Azure, in ricerca di Azure, servizio collegato, è necessario fare riferimento a un Runtime di integrazione di Azure con area esplicita in connactVia. Impostare l'area in base a quella in cui si trova Ricerca di Azure. Altre informazioni da [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Esempio:**
 
@@ -73,16 +73,16 @@ Per il servizio collegato di Ricerca di Azure sono supportate le proprietà segu
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati Ricerca di Azure.
 
 Per copiare dati in Ricerca di Azure, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Yes |
-| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **AzureSearchIndex** | Sì |
+| indexName | Nome dell'indice di Ricerca di Azure. Il servizio Data Factory non crea l'indice. L'indice deve essere presente in Ricerca di Azure. | Sì |
 
 **Esempio:**
 
@@ -110,10 +110,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati in Ricerca di Azure, impostare il tipo di origine nell'attività di copia su **AzureSearchIndexSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzureSearchIndexSink** | Yes |
-| writebehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono i seguenti: **Merge** (predefinito) e **Upload**. | No  |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **AzureSearchIndexSink** | Sì |
+| writeBehavior | Specifica se eseguire un'unione o una sostituzione quando nell'indice esiste già un documento. Vedere la [proprietà WriteBehavior](#writebehavior-property).<br/><br/>I valori consentiti sono i seguenti: **Merge** (predefinito) e **Upload**. | No  |
 | writeBatchSize | Consente di caricare dati nell'indice di Ricerca di Azure quando le dimensioni del buffer raggiungono il valore indicato da writeBatchSize. Per informazioni dettagliate, vedere la [proprietà WriteBatchSize](#writebatchsize-property).<br/><br/>I valori consentiti sono: integer da 1 a 1.000; il valore predefinito è 1000. | No  |
 
 ### <a name="writebehavior-property"></a>Proprietà WriteBehavior
@@ -173,7 +173,7 @@ La tabella seguente indica se un tipo di dati di Ricerca di Azure è supportato 
 | Int32 | S |
 | Int64 | S |
 | Double | S |
-| boolean | S |
+| Boolean | S |
 | DataTimeOffset | S |
 | String Array | N |
 | GeographyPoint | N |

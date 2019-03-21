@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: gokuma
-ms.openlocfilehash: b06ca287f03c62b3947e6c37712cf491396392e0
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 0ca3cee0c818bf9d5dda4a7ea8a1f356ed017973
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245834"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57891087"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Data science con una macchina virtuale di data science Linux in Azure
 Questa procedura dettagliata illustra come eseguire varie attività comuni di analisi scientifica dei dati con la macchina virtuale Linux per l'analisi scientifica dei dati. La macchina virtuale Linux per l'analisi scientifica dei dati (DSVM) è un'immagine di macchina virtuale, disponibile in Azure, in cui è preinstallata una raccolta di strumenti usati comunemente per l'analisi dei dati e l'apprendimento automatico. I componenti software principali sono elencati nell'argomento [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md). L'immagine di macchina virtuale permette di iniziare le attività di analisi scientifica dei dati in pochi minuti, senza dover installare e configurare ogni strumento singolarmente. Se necessario, è possibile aumentare facilmente le prestazioni della macchina virtuale e arrestarla quando non viene usata, caratteristiche che rendono questa risorsa flessibile e conveniente.
@@ -36,7 +36,7 @@ Prima di usare una macchina virtuale Linux per l'analisi scientifica dei dati, �
 
 * Una **sottoscrizione di Azure**. Se non è già disponibile, vedere [Crea subito il tuo account Azure gratuito](https://azure.microsoft.com/free/).
 * Una [**macchina virtuale Linux per l'analisi scientifica dei dati**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Per informazioni sul provisioning di questa macchina virtuale, vedere [Effettuare il provisioning di una macchina virtuale Linux per l'analisi scientifica dei dati](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) installato nel computer con una sessione di XFCE aperta. Per informazioni sull'installazione e la configurazione di un **client X2Go**, vedere [Installazione e configurazione del client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* [X2Go](https://wiki.x2go.org/doku.php) installato nel computer con una sessione di XFCE aperta. Per informazioni sull'installazione e la configurazione di un **client X2Go**, vedere [Installazione e configurazione del client X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
 * Per un'esperienza di scorrimento più uniforme, attivare o disattivare il flag gfx.xrender.enabled in about:config nel browser FireFox delle macchine virtuali. [Altre informazioni sono disponibili qui](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Considerare anche di impostare *mousewheel.enable_pixel_scrolling* su False. [Le istruzioni sono disponibili qui.](https://support.mozilla.org/en-US/questions/981140)
 * Un **account Azure ML**. Se non è già disponibile, è possibile iscriversi e ottenere un nuovo account nella [home page di Azure ML](https://studio.azureml.net/). Il livello di utilizzo gratuito permette di iniziare.
 
@@ -52,7 +52,7 @@ Se è necessario più spazio di archiviazione, è possibile creare altri dischi 
 
 Per scaricare i dati, aprire una finestra del terminale ed eseguire questo comando:
 
-    wget http://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
+    wget https://archive.ics.uci.edu/ml/machine-learning-databases/spambase/spambase.data
 
 Il file scaricato non ha una riga di intestazione. È quindi necessario creare un altro file che abbia un'intestazione. Eseguire questo comando per creare un file con le intestazioni appropriate:
 
@@ -263,7 +263,7 @@ XGBoost permette anche di eseguire chiamate da Python o da una riga di comando.
 Per lo sviluppo tramite Python, nella DSVM sono installate le distribuzioni Anaconda Python 2.7 e 3.5.
 
 > [!NOTE]
-> La distribuzione Anaconda include [Conda](http://conda.pydata.org/docs/index.html), che può essere usato per creare ambienti personalizzati per Python in cui sono installati versioni e/o pacchetti diversi.
+> La distribuzione Anaconda include [Conda](https://conda.pydata.org/docs/index.html), che può essere usato per creare ambienti personalizzati per Python in cui sono installati versioni e/o pacchetti diversi.
 >
 >
 
@@ -318,21 +318,19 @@ La distribuzione Anaconda nella DSVM include un notebook di Jupyter, un ambiente
 
 > [!NOTE]
 > Per usare Python Package Manager (tramite il comando `pip`) da un notebook Jupyter nel kernel corrente, il comando seguente può essere usato nella cella di codice, ad esempio:
-  ```python
-   import sys
-   ! {sys.executable} -m pip install numpy -y
-  ```
->
->
-
+>   ```python
+>    import sys
+>    ! {sys.executable} -m pip install numpy -y
+>   ```
+> 
+> 
+> 
 > [!NOTE]
 > Per usare il programma di installazione di Conda (tramite il comando `conda`) da un notebook Jupyter nel kernel corrente, il comando seguente può essere usato nella cella di codice, ad esempio:
-  ```python
-   import sys
-   ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
-  ```
->
->
+>   ```python
+>    import sys
+>    ! {sys.prefix}/bin/conda install --yes --prefix {sys.prefix} numpy
+>   ```
 
 Nella macchina virtuale sono già installati diversi notebook di esempio:
 
@@ -515,7 +513,7 @@ Oppure, quali sono le caratteristiche dei messaggi di posta elettronica che cont
 
 La maggior parte dei messaggi con un'occorrenza elevata della parola *3d* sembra essere posta indesiderata. Questa funzionalità potrebbe quindi essere utile per compilare un modello predittivo per la classificazione dei messaggi di posta elettronica.
 
-Per eseguire l'apprendimento automatico con dati archiviati in un database PostgreSQL, è consigliabile usare [MADlib](http://madlib.incubator.apache.org/).
+Per eseguire l'apprendimento automatico con dati archiviati in un database PostgreSQL, è consigliabile usare [MADlib](https://madlib.incubator.apache.org/).
 
 ## <a name="sql-server-data-warehouse"></a>SQL Server Data Warehouse
 Azure SQL Data Warehouse è un database basato sul cloud, con possibilità di aumentare il numero di istanze, che può elaborare volumi massivi di dati sia relazionali che non relazionali. Per altre informazioni, vedere [Informazioni su Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)

@@ -5,17 +5,17 @@ description: Come convertire un esperimento di training in un esperimento predit
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
-ms.topic: article
-author: ericlicoding
+ms.topic: conceptual
+author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 5990f47a7cc1517349d85654bf5f02f6240e9baa
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 2ffc9055f23b8221a6f711f741b6146545ff0821
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56327596"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895730"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio
 
@@ -93,23 +93,23 @@ La pagina di test del servizio di richiesta-risposta (RRS) visualizza gli input,
 
 Per eseguire il test usando il servizio di richiesta-risposta (RRS), nella modalità di visualizzazione elenco immettere i valori appropriati per gli input e fare clic su **Test Request-Response**(Test Richiesta-risposta). I risultati della stima verranno visualizzati nella colonna di output a sinistra.
 
-![Distribuire il servizio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
+![Immettere i valori appropriati per testare il servizio web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Per testare il servizio BES, fare clic su **Batch**. Nella pagina di test Batch, fare clic su Sfoglia sotto l'input dell'utente e selezionare un file CSV contenente i valori di esempio appropriati. Se non si ha un file CSV e l'esperimento predittivo è stato creato con Machine Learning Studio, è possibile scaricare e usare il set di dati per l'esperimento predittivo.
 
 Per scaricare il set di dati, aprire Machine Learning Studio. Aprire l'esperimento predittivo e fare clic con il pulsante destro del mouse sull'input per l'esperimento. Dal menu di scelta rapida scegliere **dataset** (set di dati) e quindi selezionare **Download**(Scarica).
 
-![Distribuire il servizio web](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
+![Scaricare il set di dati dall'area di disegno di Studio](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
 Fare clic su **Test**. Lo stato del processo di esecuzione del batch verrà visualizzato a destra sotto **Test Batch Jobs** (Test Processi batch).
 
-![Distribuire il servizio web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
+![Testare il processo di esecuzione Batch con il portale dei servizi web](./media/publish-a-machine-learning-web-service/figure-6-test-batch-execution.png)
 
 <!--![Test the web service](./media/publish-a-machine-learning-web-service/figure-3.png)-->
 
 Nella pagina **CONFIGURAZIONE** è possibile modificare la descrizione e il titolo, aggiornare la chiave dell'account di archiviazione e abilitare i dati di esempio per il servizio Web.
 
-![Configurare il servizio Web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
+![Configurare il servizio web](./media/publish-a-machine-learning-web-service/figure-8-arm-configure.png)
 
 ### <a name="access-your-new-web-service"></a>Accedere al nuovo servizio Web
 
@@ -161,7 +161,7 @@ Ora che l'esperimento predittivo è stato sufficientemente preparato, è possibi
 
 Per distribuire l'esperimento predittivo, fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento e quindi fare clic su **Deploy Web Service** (Distribuisci servizio Web). Il servizio Web viene configurato e viene visualizzato il dashboard del servizio Web.
 
-![Distribuire il servizio web](./media/publish-a-machine-learning-web-service/figure-2.png)
+![Distribuire il servizio web da Studio](./media/publish-a-machine-learning-web-service/figure-2.png)
 
 ### <a name="test-your-classic-web-service"></a>Testare il servizio Web classico
 
@@ -181,7 +181,7 @@ Nella pagina **CONFIGURATION** (CONFIGURAZIONE) è possibile modificare il nome 
 
 È possibile abilitare la registrazione per diagnosticare eventuali errori che si verificano quando si accede al servizio Web. Per altre informazioni, vedere [Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio](web-services-logging.md).
 
-![Configurare il servizio Web](./media/publish-a-machine-learning-web-service/figure-4.png)
+![Abilitare la registrazione nel portale dei servizi web](./media/publish-a-machine-learning-web-service/figure-4.png)
 
 È anche possibile configurare gli endpoint per il servizio Web nel portale dei servizi Web di Azure Machine Learning, con una procedura simile a quella illustrata in precedenza nella sezione relativa al nuovo servizio Web. Le opzioni sono diverse: è possibile aggiungere o modificare la descrizione del servizio, abilitare la registrazione e abilitare i dati di esempio per il test.
 
@@ -209,7 +209,7 @@ Poiché questo esperimento è stato distribuito prima, viene chiesto se si desid
 > [!NOTE]
 > Se sono state apportate modifiche di configurazione al servizio Web originale, ad esempio immettendo un nuovo nome o descrizione, è necessario immettere nuovamente questi valori.
 
-Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training di un modello di Azure Machine Learning Studio](retrain-models-programmatically.md).
+Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere [Ripetere il training di un modello di Azure Machine Learning Studio](/azure/machine-learning/studio/retrain-machine-learning-model).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -219,13 +219,12 @@ Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il trainin
 
 * È possibile utilizzare l'API REST e accedere al servizio Web in diversi modi. Vedere [Come usare un servizio Web di Azure Machine Learning Studio](consume-web-services.md).
 
-
 <!-- internal links -->
 [Creare un esperimento di training]: #create-a-training-experiment
 [Eseguire la conversione in un esperimento predittivo]: #convert-the-training-experiment-to-a-predictive-experiment
 [Nuovo servizio Web]: #deploy-it-as-a-new-web-service
 [Servizio Web classico]: #deploy-it-as-a-classic-web-service
-[Nuovo]: #deploy-the-predictive-experiment-as-a-new-web-service
+[Nuovo]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
 [Manage]: #manage-the-Web-service-in-the-azure-management-portal

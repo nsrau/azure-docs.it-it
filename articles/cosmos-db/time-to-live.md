@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 9b5054da56bdc6a88642ea7860702b280a76dbb1
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461169"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549188"
 ---
 # <a name="time-to-live-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB 
 
@@ -30,7 +30,7 @@ Il valore TTL viene impostato in secondi e interpretato come differenziale dall'
 
    - Se è presente e il valore è impostato su un numero ("n"), gli elementi scadono "n" secondi dopo l'ultima modifica.
 
-2. **Durata (TTL) per un elemento** (impostata tramite `TimeToLive`):
+2. **Durata (TTL) per un elemento** (impostata tramite `ttl`):
 
    - Questa proprietà è applicabile solo se `DefaultTimeToLive` è presente e non è impostato su Null per il contenitore padre.
 
@@ -48,6 +48,6 @@ L'eliminazione di elementi in base alla durata (TTL) è gratuita. Non vengono ap
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come configurare la durata (TTL) sono disponibili nell'articolo seguente:
+Informazioni su come configurare Time to Live negli articoli seguenti:
 
 * [Come configurare la durata (TTL)](how-to-time-to-live.md)

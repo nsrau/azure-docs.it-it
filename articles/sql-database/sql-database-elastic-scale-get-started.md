@@ -12,12 +12,12 @@ ms.author: anjangsh
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: dbc3b7e2e013dc53a1e2524c44bd2229a6a1b18d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 7c2e3b2bea7ddef3dfbf69f85b499d9a60158689
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55462971"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999130"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Iniziare a usare gli strumenti di database elastico
 
@@ -28,7 +28,7 @@ Questo documento presenta l'esperienza di sviluppo per la [libreria client del d
 ### <a name="prerequisites"></a>Prerequisiti
 
 * Java Developer Kit (JDK) versione 1.8 o successiva
-* [Maven](http://maven.apache.org/download.cgi)
+* [Maven](https://maven.apache.org/download.cgi)
 * Un server di database SQL in Azure o un'istanza di SQL Server locale
 
 ### <a name="download-and-run-the-sample-app"></a>Scaricare ed eseguire l'app di esempio
@@ -74,7 +74,7 @@ Per aggiungere la libreria client al progetto Maven, aggiungere la dipendenza se
 ### <a name="prerequisites"></a>Prerequisiti
 
 * Visual Studio 2012 o versione successiva con C#. Scaricare una versione gratuita dalla pagina [Download di Visual Studio](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
-* NuGet 2.7 o versione successiva. Per ottenere la versione più recente, vedere [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget) (Installazione di NuGet).
+* NuGet 2.7 o versione successiva. Per ottenere la versione più recente, vedere [Installing NuGet](https://docs.nuget.org/docs/start-here/installing-nuget) (Installazione di NuGet).
 
 ### <a name="download-and-run-the-sample-app"></a>Scaricare ed eseguire l'app di esempio
 
@@ -131,8 +131,8 @@ Per altre informazioni sugli strumenti di database elastico, vedere gli articoli
   * Strumenti di database elastici ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Elastic DB Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE) (Strumenti di database elastico per SQL di Azure - Integrazione con Entity Framework)
   * [Elasticità di partizionamento in Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
-* Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/) (Annuncio della scalabilità elastica)
-* Channel 9: [video di panoramica della scalabilità elastica](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
+* Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/) (Annuncio della scalabilità elastica)
+* Channel 9: [video di panoramica della scalabilità elastica](https://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
 * Forum di discussione: [Forum del database SQL di Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * Per misurare le prestazioni: [Contatori delle prestazioni per Gestore mappe partizioni](sql-database-elastic-database-client-library.md)
 

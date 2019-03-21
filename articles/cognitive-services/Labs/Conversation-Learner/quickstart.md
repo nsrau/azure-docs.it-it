@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 0990ae2c21017c0d6ff25478eb4b5e3bfb4f0d11
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
-ms.translationtype: HT
+ms.openlocfilehash: 743b4d4888738579a023e879dc7b6e95cd23ccc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251436"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994364"
 ---
 # <a name="create-a-conversation-learner-model-using-nodejs"></a>Creare un modello dello Strumento di apprendimento di conversazioni usando Node.js
 
@@ -33,7 +33,7 @@ Il Progetto Strumento di apprendimento di conversazioni è costituito da un SDK 
   
 - Chiave di creazione di LUIS:
 
-  1. Accedere a [http://www.luis.ai](http://www.luis.ai).
+  1. Accedere a [https://www.luis.ai](https://www.luis.ai).
 
   2. Fare clic sul nome in alto a destra, quindi scegliere "impostazioni"
 
@@ -78,35 +78,35 @@ Il Progetto Strumento di apprendimento di conversazioni è costituito da un SDK 
 
     Questo procedimento esegue il bot vuoto generico in `cl-bot-01/src/app.ts`.
 
-3. Aprire il browser alla pagina http://localhost:3978
+3. Aprire il browser alla pagina `http://localhost:3978`
 
 Si sta ora usando lo Strumento di apprendimento di conversazioni ed è possibile creare e migliorare un modello dello Strumento di apprendimento di conversazioni.  
 
 > [!NOTE]
-> Al momento del lancio, il Progetto Strumento di apprendimento di conversazioni è disponibile su invito.  Se http://localhost:3978/ui mostra un errore HTTP `403`, l'account non è stato invitato.  [Richiedere un invito](https://aka.ms/conversation-learner-request-invite).
+> Al momento del lancio, il Progetto Strumento di apprendimento di conversazioni è disponibile su invito.  Se `http://localhost:3978/ui` mostra un errore HTTP `403`, l'account non è stato invitato.  [Richiedere un invito](https://aka.ms/conversation-learner-request-invite).
 
 ## <a name="tutorials-demos-and-switching-between-bots"></a>Esercitazioni, demo e passaggio tra bot
 
 Le istruzioni sopra riportate hanno avviato il bot vuoto generico.  Per eseguire invece un'esercitazione o bot demo:
 
-1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco dei modelli su http://localhost:3978/ui/home.
+1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco dei modelli su `http://localhost:3978/ui/home`.
     
 2. Se un altro bot (ad esempio `npm start` o `npm run demo-pizza`) è in esecuzione, arrestarlo.  Non è necessario arrestare il processo dell'interfaccia utente o chiudere il Web browser.
 
 3. Eseguire un bot demo dalla riga di comando (passaggio 2 in alto).  Le demo includono:
 
-  ```bash
-  npm run tutorial-general
-  npm run tutorial-entity-detection
-  npm run tutorial-session-callbacks
-  npm run tutorial-api-calls
-  npm run tutorial-hybrid
-  npm run demo-password
-  npm run demo-pizza
-  npm run demo-storage
-  ```
+   ```bash
+   npm run tutorial-general
+   npm run tutorial-entity-detection
+   npm run tutorial-session-callbacks
+   npm run tutorial-api-calls
+   npm run tutorial-hybrid
+   npm run demo-password
+   npm run demo-pizza
+   npm run demo-storage
+   ```
 
-4. Se non è già aperta, passare all'interfaccia utente Web dello Strumento di apprendimento di conversazioni in Chrome caricando http://localhost:3978/ui/home. 
+4. Se non è già aperta, passare all'interfaccia utente Web dello Strumento di apprendimento di conversazioni in Chrome caricando `http://localhost:3978/ui/home`. 
 
 5. Fare clic su "Import tutorials" (Importa esercitazioni) e selezionare il modello demo nell'interfaccia utente di Conversation Learner che corrisponde alla demo avviata.
 
@@ -114,7 +114,7 @@ I file di origine per le demo si trovano in `cl-bot-01/src/demos`
 
 ## <a name="create-a-bot-which-includes-back-end-code"></a>Creare un bot che include il codice di back-end
 
-1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco dei modelli su http://localhost:3978/ui/home.
+1. Se l'interfaccia utente Web dello Strumento di apprendimento di conversazioni è aperta, tornare all'elenco dei modelli su `http://localhost:3978/ui/home`.
     
 2. Se un bot (ad esempio `npm run demo-pizza`) è in esecuzione, arrestarlo.  Non è necessario arrestare il processo dell'interfaccia utente o chiudere il Web browser.
 
@@ -127,7 +127,7 @@ I file di origine per le demo si trovano in `cl-bot-01/src/demos`
     npm start
     ```
 
-5. Se non è già aperta, passare all'interfaccia utente Web dello Strumento di apprendimento di conversazioni in Chrome caricando http://localhost:3978/ui/home. 
+5. Se non è già aperta, passare all'interfaccia utente Web dello Strumento di apprendimento di conversazioni in Chrome caricando `http://localhost:3978/ui/home`. 
 
 6. Creare un nuovo modello dello Strumento di apprendimento di conversazioni nell'interfaccia utente e avviare l'insegnamento.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 9d82ff29b988925f244fc33d7124fe43487895b8
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
-ms.translationtype: HT
+ms.openlocfilehash: c43d3b236a305f1e6d2bd392527a5206b6a5c974
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53341236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074897"
 ---
 # <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Come effettuare il provisioning di dispositivi legacy usando chiavi simmetriche
 
@@ -114,23 +114,23 @@ L'SDK include il codice di esempio per il dispositivo simulato. Il dispositivo s
 
 ## <a name="create-a-symmetric-key-enrollment-group"></a>Creare un gruppo di registrazioni con chiave simmetrica
 
-1. Accedere al [portale di Azure](http://portal.azure.com) e aprire l'istanza del servizio Device Provisioning.
+1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'istanza del servizio Device Provisioning.
 
 2. Selezionare la scheda **Gestisci registrazioni**, quindi fare clic sul pulsante **Aggiungi gruppo di registrazioni** nella parte superiore della pagina. 
 
 3. In **Aggiungi gruppo di registrazioni** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
 
-    - **Nome gruppo**: immettere **mylegacydevices**.
+   - **Nome gruppo**: immettere **mylegacydevices**.
 
-    - **Tipo di attestazione**: selezionare **Chiave simmetrica**.
+   - **Tipo di attestazione**: selezionare **Chiave simmetrica**.
 
-    - **Genera chiavi automaticamente**: selezionare questa casella.
+   - **Genera chiavi automaticamente**: selezionare questa casella.
 
-    - **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Configurazione statica** in modo da assegnare i dispositivi a un hub specifico.
+   - **Selezionare la modalità di assegnazione dei dispositivi agli hub**: selezionare **Configurazione statica** in modo da assegnare i dispositivi a un hub specifico.
 
-    - **Selezionare gli hub IoT a cui può essere assegnato questo gruppo**: selezionare uno degli hub.
+   - **Selezionare gli hub IoT a cui può essere assegnato questo gruppo**: selezionare uno degli hub.
 
-    ![Aggiungere il gruppo di registrazione per l'attestazione con chiave simmetrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Aggiungere il gruppo di registrazione per l'attestazione con chiave simmetrica](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
 4. Dopo aver salvato la registrazione, la **chiave primaria** e la **chiave secondaria** verranno generate e aggiunte alla voce di registrazione. Il gruppo di registrazione con chiave simmetrica viene visualizzato come **mylegacydevices**nella colonna *Nome gruppo* della scheda *Gruppi di registrazione*. 
 
@@ -294,7 +294,7 @@ Tenere presente che in tal modo la chiave di dispositivo derivata viene inclusa 
 
 * Per altre informazioni sulla ripetizione del provisioning, vedere [Concetti per la ripetizione del provisoning di dispositivo in hub IoT](concepts-device-reprovision.md) 
 * [Avvio rapido: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
-* Per altre informazioni sul deprovisioning, vedere [Come effettuare il deprovisioning di dispositivi per cui è stato effettuato il provisioning automatico in precedenza ](how-to-unprovision-devices.md) 
+* Per informazioni su ulteriori il deprovisioning di utenti, vedere [come effettuare il deprovisioning di dispositivi che sono stati precedentemente sottoposti a provisioning](how-to-unprovision-devices.md) 
 
 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 28630a1d1b2ce212fe1054496814a9084f8cfc98
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ed57d72d32ba82a37036c9af77590bd4e93db8d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116304"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904253"
 ---
 # <a name="introduction-to-azure-security"></a>Introduzione alla sicurezza in Azure
 ## <a name="overview"></a>Panoramica
@@ -59,7 +59,7 @@ Di seguito sono elencate le funzionalità che è possibile esaminare per assicur
 | [Sicurezza della piattaforma](https://www.microsoft.com/en-us/trustcenter/Security/default.aspx)  | [Privacy e controlli](https://www.microsoft.com/en-us/trustcenter/Privacy/default.aspx)  |[Conformità](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)   | [Trasparenza](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
 | :-- | :-- | :-- | :-- |
 | [Ciclo di sviluppo per la sicurezza](https://www.microsoft.com/en-us/sdl/), controlli interni | [Gestione costante dei propri dati](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data) | [Centro protezione](https://www.microsoft.com/en-us/trustcenter/default.aspx) |[Come vengono protetti da Microsoft i dati dei clienti nei servizi di Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx) |
-| [Formazione sulla sicurezza obbligatoria, controlli del background](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controllo sulla posizione dei dati](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Come viene gestita da Microsoft la posizione dei dati nei servizi di Azure](http://azuredatacentermap.azurewebsites.net/)|
+| [Formazione sulla sicurezza obbligatoria, controlli del background](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Controllo sulla posizione dei dati](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Come viene gestita da Microsoft la posizione dei dati nei servizi di Azure](https://azuredatacentermap.azurewebsites.net/)|
 | [Test di penetrazione](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [rilevamento delle intrusioni, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [controlli e registrazione](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Accesso ai dati in base ai propri termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Elenco di controllo della due diligence per i servizi cloud](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Personale Microsoft che ha accesso ai dati e in quali termini](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Data center all'avanguardia](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), sicurezza fisica, [rete protetta](https://docs.microsoft.com/azure/security/security-network-overview) | [Risposta alle richieste delle forze dell'ordine](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformità in base al servizio, alla località e al settore](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Come vengono protetti da Microsoft i dati dei clienti nei servizi di Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
 |  [Risposta a eventi imprevisti di sicurezza](https://aka.ms/SecurityResponsepaper), [responsabilità condivisa](https://aka.ms/sharedresponsibility) |[Standard di privacy rigorosi](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Certificazione di verifica per i servizi di Azure, hub per la trasparenza](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
@@ -75,7 +75,7 @@ Le funzionalità incorporate sono organizzate in sei (6) aree funzionali: Operaz
 Questa sezione contiene informazioni aggiuntive sulle caratteristiche principali per le operazioni di sicurezza e informazioni di riepilogo su tali funzionalità.
 
 ### <a name="security-and-audit-dashboard"></a>Dashboard Sicurezza e controllo
-La [soluzione Sicurezza e controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre un quadro completo dello stato della sicurezza IT dell'organizzazione con [query di ricerca predefinite](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) per i problemi rilevanti che richiedono l'attenzione dell'utente. Il dashboard [Sicurezza e controllo](https://technet.microsoft.com/library/mt484091.aspx) è la schermata iniziale per tutti gli elementi correlati alla sicurezza in Log Analytics. Offre una visione generale dello stato dei computer in termini di sicurezza. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
+La [soluzione Sicurezza e controllo](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre un quadro completo dello stato della sicurezza IT dell'organizzazione con [query di ricerca predefinite](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) per i problemi rilevanti che richiedono l'attenzione dell'utente. Il [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) dashboard è la schermata iniziale per tutti gli elementi correlati alla sicurezza nei log di monitoraggio di Azure. Offre una visione generale dello stato dei computer in termini di sicurezza. Consente anche di visualizzare tutti gli eventi delle ultime 24 ore, di 7 giorni o di qualsiasi altro intervallo di tempo personalizzato.
 
 È anche possibile configurare Sicurezza e conformità per [eseguire automaticamente azioni specifiche](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) quando viene rilevato un determinato evento.
 
@@ -94,10 +94,10 @@ Se sono presenti arresti anomali del sistema, errori o problemi di prestazioni, 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
 [Monitoraggio di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre funzionalità di visualizzazione, query, routing, avviso, ridimensionamento automatico e automazione dei dati sia dall'infrastruttura di Azure ([log attività](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) che da ogni singola risorsa di Azure ([log di diagnostica](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). È possibile usare Monitoraggio di Azure per ricevere avvisi sugli eventi relativi alla sicurezza generati nei log di Azure.
 
-### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) offre una soluzione di gestione IT per l'infrastruttura sia locale che basata sul cloud di terze parti (ad esempio AWS) in aggiunta alle risorse di Azure. I dati di Monitoraggio di Azure possono essere indirizzati direttamente a Log Analytics, in modo da visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
+### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
+[Log di monitoraggio di Azure](https://azure.microsoft.com/documentation/services/log-analytics/) : offre una soluzione di gestione IT per un'istanza locale sia terze parti basati sul cloud dell'infrastruttura (ad esempio AWS), oltre alle risorse di Azure. I dati da monitoraggio di Azure possono essere indirizzati direttamente ai log di monitoraggio di Azure in modo che è possibile visualizzare le metriche e i log dell'intero ambiente in un'unica posizione.
 
-Log Analytics può essere utile per analisi della sicurezza per scopi legali e di altro tipo perché questo strumento consente di eseguire rapidamente ricerche in grandi quantità di voci relative alla sicurezza con un approccio di query flessibile. Inoltre, [i log di proxy e firewall locali possono essere esportati in Azure ed essere resi disponibili per l'analisi con Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall).
+Log di monitoraggio di Azure può essere uno strumento utile per analisi della sicurezza per scopi legali e di altri, come lo strumento consente di eseguire rapidamente ricerche in grandi quantità di voci relative alla sicurezza con un approccio di query flessibili. Inoltre, in locale [registri firewall e proxy possono essere esportati in Azure e resi disponibili per l'analisi usando i log di monitoraggio di Azure.](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall)
 
 ### <a name="azure-advisor"></a>Azure Advisor
 [Azure Advisor](https://docs.microsoft.com/azure/advisor/) è un servizio di consulenza personalizzato per il cloud che consente di ottimizzare le distribuzioni di Azure. Analizza la configurazione e la telemetria delle risorse e propone quindi soluzioni utili per migliorare le [prestazioni](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations), la [sicurezza](https://docs.microsoft.com/azure/advisor/advisor-security-recommendations) e la [disponibilità elevata](https://docs.microsoft.com/azure/advisor/advisor-high-availability-recommendations) delle risorse cercando al tempo stesso opportunità di [ridurre la spesa complessiva di Azure](https://docs.microsoft.com/azure/advisor/advisor-cost-recommendations). Azure Advisor offre consigli che possono migliorare notevolmente lo stato di sicurezza complessivo delle soluzioni distribuite in Azure. Tali raccomandazioni vengono ricavate dall'analisi della sicurezza eseguita dal [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro).
@@ -116,7 +116,7 @@ Uno dei modi più semplici per iniziare a testare le vulnerabilità di un'[app d
 Se si preferisce eseguire i propri test di penetrazione o usare un altro gruppo o fornitore di strumenti di scansione, è necessario seguire il [processo di approvazione dei test di penetrazione di Azure](https://docs.microsoft.com/azure/security/azure-security-pen-testing ) e ottenere l'approvazione preventiva per eseguire i test di penetrazione desiderati.
 
 ### <a name="web-application-firewall"></a>Web application firewall
-Il Web application firewall (WAF) del [gateway applicazione di Azure](https://azure.microsoft.com/services/application-gateway/) consente di proteggere le applicazioni Web da attacchi basati sul Web comuni come SQL injection, cross-site scripting e hijack della sessione. Include la protezione preconfigurata dalle minacce identificate da [Open Web Application Security Project (OWASP) come le 10 principali vulnerabilità comuni](https://msdn.microsoft.com/library/).
+Il Web application firewall (WAF) del [gateway applicazione di Azure](https://azure.microsoft.com/services/application-gateway/) consente di proteggere le applicazioni Web da attacchi basati sul Web comuni come SQL injection, cross-site scripting e hijack della sessione. Include la protezione preconfigurata dalle minacce identificate da [Open Web Application Security Project (OWASP) come le 10 principali vulnerabilità comuni](https://www.owasp.org/index.php/Category:OWASP_Top_Ten_Project).
 
 ### <a name="authentication-and-authorization-in-azure-app-service"></a>Autenticazione e autorizzazione nel servizio app di Azure
 La funzionalità di [autenticazione/autorizzazione del servizio app](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization) consente all'applicazione di eseguire la procedura di accesso degli utenti in modo che non sia necessario modificare il codice nel back-end dell'app. Fornisce un modo semplice per proteggere l'applicazione e utilizzare dati per-utente.
@@ -287,7 +287,7 @@ Gestione traffico offre diversi metodi di routing del traffico per soddisfare le
 
 ### <a name="azure-dns"></a>DNS di Azure
 Il sistema [DNS (Domain Name System)](https://technet.microsoft.com/library/bb629410.aspx) è responsabile della conversione (o risoluzione) del nome di un servizio o sito Web nel relativo indirizzo IP. [DNS di Azure](https://docs.microsoft.com/azure/dns/dns-overview) è un servizio di hosting per domini DNS che fornisce la risoluzione dei nomi usando l'infrastruttura di Microsoft Azure. Ospitando i domini in Azure, è possibile gestire i record DNS usando le stesse credenziali, API, strumenti e fatturazione come per gli altri servizi Azure. Il sistema DNS supporta l'aspetto della disponibilità della triade di sicurezza "riservatezza, integrità e disponibilità".
-### <a name="log-analytics-nsgs"></a>Gruppi di sicurezza di rete in Log Analytics
+### <a name="azure-monitor-logs-nsgs"></a>Monitoraggio di Azure registra gli Nsg
 È possibile abilitare le seguenti categorie di log di diagnostica per i gruppi di sicurezza di rete:
 -   Evento: contiene voci per cui le regole dei gruppi di sicurezza di rete sono applicate alle macchine virtuali e ai ruoli delle istanze in base all'indirizzo MAC. Lo stato di queste regole viene raccolto ogni 60 secondi.
 
@@ -385,7 +385,7 @@ Per gestire le identità e l'accesso, Microsoft usa più procedure e tecnologie 
 
 - Il [proxy di applicazione di Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-application-proxy-get-started/) fornisce l'accesso remoto sicuro e SSO per le applicazioni Web ospitate in locale.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Introduzione alla sicurezza in Microsoft Azure](https://docs.microsoft.com/azure/security/azure-security-getting-started)
 
 Servizi e funzionalità di Azure che è possibile usare per proteggere i servizi e i dati in Azure

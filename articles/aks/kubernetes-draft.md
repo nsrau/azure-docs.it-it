@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: d94f70771cf3ee364dbb3e4c4256cd2248ce3828
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 5169b8856155df5e62b1e85d291ce6c1b54c8a87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164773"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011939"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usare Draft con il servizio Azure Kubernetes
 
@@ -144,7 +144,7 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Per accedere all'applicazione, aprire un browser WEB all'indirizzo e sulla porta specificata nell'output `draft connect`, ad esempio *http://localhost:49804*. 
+Per accedere all'applicazione, aprire un web browser all'indirizzo e alla porta specificata nel `draft connect` output, ad esempio `http://localhost:49804`. 
 
 ![App Java di esempio in esecuzione con Draft](media/kubernetes-draft/sample-app.png)
 

@@ -4,7 +4,7 @@ description: Procedure consigliate per la pianificazione e il ridimensionamento 
 services: service-fabric
 documentationcenter: .net
 author: peterpogorski
-manager: jeanpaul.connock
+manager: chackdan
 editor: ''
 ms.assetid: 19ca51e8-69b9-4952-b4b5-4bf04cded217
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 9de6cc224c82bb07fee4d62cd5de1d1964001bab
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 425154958e4c60902b56f320f714a011b9095830
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997353"
 ---
 # <a name="capacity-planning-and-scaling"></a>Pianificazione della capacità e ridimensionamento
 
@@ -40,7 +40,7 @@ Le operazioni di ridimensionamento devono essere eseguite tramite la distribuzio
 
 ## <a name="vertical-scaling-considerations"></a>Considerazioni sul ridimensionamento verticale
 
-Per [ridimensionare verticalmente](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out#upgrade-the-size-and-operating-system-of-the-primary-node-type-vms) un tipo di nodo in Azure Service Fabric, ovvero modificarne la capacità, è necessario eseguire una serie di passaggi e tenere presenti alcune considerazioni. Ad esempio: 
+Per [ridimensionare verticalmente](https://docs.microsoft.com/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out) un tipo di nodo in Azure Service Fabric, ovvero modificarne la capacità, è necessario eseguire una serie di passaggi e tenere presenti alcune considerazioni. Ad esempio: 
 * Prima del ridimensionamento, il cluster deve essere integro, altrimenti si rischia solo di destabilizzarlo ulteriormente.
 * Per tutti i tipi di nodo del cluster di Service Fabric che ospitano servizi con stato è necessario il **livello di durabilità Silver o superiore**.
 
@@ -159,6 +159,13 @@ var newCapacity = (int)Math.Max(MinimumNodeCount, scaleSet.Capacity - 1); // Che
 
 scaleSet.Update().WithCapacity(newCapacity).Apply();
 ```
+
+> [!NOTE]
+> Quando si ridimensiona un cluster verrà visualizzato l'istanza di rimozione nodo/macchina virtuale visualizzato in uno stato non integro in Service Fabric Explorer. Per una spiegazione di questo comportamento, vedere [comportamenti è possibile osservare in Service Fabric Explorer](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#behaviors-you-may-observe-in-service-fabric-explorer).
+> 
+> È possibile:
+> * Chiamare [cmd Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) con il nome del nodo appropriato.
+> * Distribuire [applicazione di service fabric di scalabilità automatica helper](https://github.com/Azure/service-fabric-autoscale-helper/) nel cluster che assicura la scalabilità verso il basso i nodi vengono cancellati da Service Fabric Explorer.
 
 ## <a name="reliability-levels"></a>Livelli di affidabilità
 

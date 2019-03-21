@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 02/01/2018
 ms.author: garye
-ms.openlocfilehash: c69e8b7360774971316b5a060aff9e7057d3e9aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873973"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534804"
 ---
 # <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure
 
@@ -35,7 +35,7 @@ Nelle sezioni successive vengono illustrati i passaggi per la creazione di una s
 
 ### <a name="single-service-subscription"></a>Sottoscrizione di un singolo servizio
 
-1. Accedere al [portale di Azure](http://portal.azure.com) e fare clic su **+Crea una risorsa**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **+Crea una risorsa**.
 
     ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azurePortalScreen.png)
 
@@ -57,7 +57,7 @@ Nelle sezioni successive vengono illustrati i passaggi per la creazione di una s
 
 ### <a name="multi-service-subscription"></a>Sottoscrizione multiservizio
 
-1. Accedere al [portale di Azure](http://portal.azure.com) e fare clic su **+Crea una risorsa**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **+Crea una risorsa**.
 
     ![Selezionare API Servizi cognitivi](media/cognitive-services-apis-create-account/azurePortalScreenMulti.png)
 

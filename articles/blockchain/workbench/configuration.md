@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 6024a11f518432b735ccec6a3d89db687aed8ae6
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: b45cd84322279d7f81cc3f047f72a75a6d898bc6
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332592"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452692"
 ---
 # <a name="azure-blockchain-workbench-configuration-reference"></a>Informazioni di riferimento sulla configurazione di Azure Blockchain Workbench
 
@@ -39,13 +39,13 @@ Ogni flusso di lavoro definito specifica quanto segue:
 
 Un'applicazione blockchain contiene metadati di configurazione, flussi di lavoro e ruoli utente che possono operare o partecipare all'interno dell'applicazione.
 
-| Campo | DESCRIZIONE | Obbligatoria |
+| Campo | DESCRIZIONE | Obbligatorio |
 |-------|-------------|:--------:|
-| ApplicationName | Nome applicazione univoco. Il contratto intelligente corrispondente deve usare lo stesso valore di **ApplicationName** per la classe di contratto applicabile.  | Yes |
-| DisplayName | Nome visualizzato descrittivo dell'applicazione. | Yes |
+| ApplicationName | Nome applicazione univoco. Il contratto intelligente corrispondente deve usare lo stesso valore di **ApplicationName** per la classe di contratto applicabile.  | Sì |
+| DisplayName | Nome visualizzato descrittivo dell'applicazione. | Sì |
 | DESCRIZIONE | Descrizione dell'applicazione. | No  |
-| ApplicationRoles | Raccolta di [ruoli applicazione](#application-roles). Ruoli utente che possono operare o partecipare all'interno dell'applicazione.  | Yes |
-| Flussi di lavoro | Raccolta di [flussi di lavoro](#workflows). Ogni flusso di lavoro opera come macchina a stati per controllare il flusso della logica di business. | Yes |
+| ApplicationRoles | Raccolta di [ruoli applicazione](#application-roles). Ruoli utente che possono operare o partecipare all'interno dell'applicazione.  | Sì |
+| Flussi di lavoro | Raccolta di [flussi di lavoro](#workflows). Ogni flusso di lavoro opera come macchina a stati per controllare il flusso della logica di business. | Sì |
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
@@ -53,25 +53,25 @@ Per un esempio, vedere il [file di configurazione di esempio](#configuration-fil
 
 La logica di business di un'applicazione può essere modellata come macchina a stati in cui l'esecuzione di un'azione fa sì che il flusso della logica di business passi da uno stato a un altro. Un flusso di lavoro è una raccolta di questi stati e azioni. Ogni flusso di lavoro è costituito da uno o più contratti intelligenti, che rappresentano la logica di business nei file di codice. Un contratto eseguibile è un'istanza di un flusso di lavoro.
 
-| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+| Campo | DESCRIZIONE | Obbligatorio | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| NOME | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Yes | 50 |
-| DisplayName | Nome visualizzato descrittivo del flusso di lavoro. | Yes | 255 |
+| NOME | Nome univoco del flusso di lavoro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la classe di contratto applicabile. | Sì | 50 |
+| DisplayName | Nome visualizzato descrittivo del flusso di lavoro. | Sì | 255 |
 | DESCRIZIONE | Descrizione del flusso di lavoro. | No  | 255 |
-| Initiators | Raccolta di [ruoli applicazione](#application-roles). Ruoli assegnati agli utenti autorizzati a creare contratti nel flusso di lavoro. | Yes | |
-| StartState | Nome dello stato iniziale del flusso di lavoro. | Yes | |
-| Properties | Raccolta di [identificatori](#identifiers). Rappresenta i dati che possono essere letti off-chain o visualizzati in uno strumento di visualizzazione dell'esperienza utente. | Yes | |
-| Costruttore | Definisce i parametri di input per la creazione di un'istanza del flusso di lavoro. | Yes | |
-| Funzioni | Raccolta di [funzioni](#functions) che possono essere eseguite nel flusso di lavoro. | Yes | |
-| Stati | Raccolta di [stati](#states) del flusso di lavoro. | Yes | |
+| Initiators | Raccolta di [ruoli applicazione](#application-roles). Ruoli assegnati agli utenti autorizzati a creare contratti nel flusso di lavoro. | Sì | |
+| StartState | Nome dello stato iniziale del flusso di lavoro. | Sì | |
+| Properties | Raccolta di [identificatori](#identifiers). Rappresenta i dati che possono essere letti off-chain o visualizzati in uno strumento di visualizzazione dell'esperienza utente. | Sì | |
+| Costruttore | Definisce i parametri di input per la creazione di un'istanza del flusso di lavoro. | Sì | |
+| Funzioni | Raccolta di [funzioni](#functions) che possono essere eseguite nel flusso di lavoro. | Sì | |
+| Stati | Raccolta di [stati](#states) del flusso di lavoro. | Sì | |
 
 Per un esempio, vedere il [file di configurazione di esempio](#configuration-file-example).
 
-## <a name="type"></a>type
+## <a name="type"></a>Type
 
 Tipi di dati supportati.
 
-| type | DESCRIZIONE |
+| Type | DESCRIZIONE |
 |-------|-------------|
 | Address  | Tipo di indirizzo della blockchain, ad esempio *contratti* o *utenti*. |
 | array    | Matrice a livello singolo di tipo integer, bool, money o time. Le matrici possono essere statiche o dinamiche. Usare **ElementType** per specificare il tipo di dati degli elementi all'interno della matrice. Vedere una [configurazione di esempio](#example-configuration-of-type-array). |
@@ -174,9 +174,9 @@ function AssetTransfer(string description, uint256 price, PropertyTypeEnum prope
 
 Definisce i parametri di input per un'istanza di un flusso di lavoro.
 
-| Campo | DESCRIZIONE | Obbligatoria |
+| Campo | DESCRIZIONE | Obbligatorio |
 |-------|-------------|:--------:|
-| Parametri | Raccolta di [identificatori](#identifiers) richiesti per avviare un contratto intelligente. | Yes |
+| Parametri | Raccolta di [identificatori](#identifiers) richiesti per avviare un contratto intelligente. | Sì |
 
 ### <a name="constructor-example"></a>Esempio di costruttore
 
@@ -207,12 +207,12 @@ Definisce i parametri di input per un'istanza di un flusso di lavoro.
 
 Definisce le funzioni che possono essere eseguite nel flusso di lavoro.
 
-| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+| Campo | DESCRIZIONE | Obbligatorio | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| NOME | Nome univoco della funzione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la funzione applicabile. | Yes | 50 |
-| DisplayName | Nome visualizzato descrittivo della funzione. | Yes | 255 |
+| NOME | Nome univoco della funzione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la funzione applicabile. | Sì | 50 |
+| DisplayName | Nome visualizzato descrittivo della funzione. | Sì | 255 |
 | DESCRIZIONE | Descrizione della funzione | No  | 255 |
-| Parametri | Raccolta di [identificatori](#identifiers) corrispondenti ai parametri della funzione. | Yes | |
+| Parametri | Raccolta di [identificatori](#identifiers) corrispondenti ai parametri della funzione. | Sì | |
 
 ### <a name="functions-example"></a>Esempio di funzioni
 
@@ -255,13 +255,13 @@ Definisce le funzioni che possono essere eseguite nel flusso di lavoro.
 
 Raccolta di stati univoci all'interno di un flusso di lavoro. Ogni stato acquisisce una fase nel flusso di controllo della logica di business. 
 
-| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+| Campo | DESCRIZIONE | Obbligatorio | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| NOME | Nome univoco dello stato. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per lo stato applicabile. | Yes | 50 |
-| DisplayName | Nome visualizzato descrittivo dello stato. | Yes | 255 |
+| NOME | Nome univoco dello stato. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per lo stato applicabile. | Sì | 50 |
+| DisplayName | Nome visualizzato descrittivo dello stato. | Sì | 255 |
 | DESCRIZIONE | Descrizione dello stato. | No  | 255 |
-| PercentComplete | Valore intero visualizzato nell'interfaccia utente di Blockchain Workbench per mostrare lo stato di avanzamento all'interno del flusso di controllo della logica di business. | Yes | |
-| Style | Indicatore visivo che specifica se lo stato è di esito positivo o negativo. I due valori validi sono `Success` e `Failure`. | Yes | |
+| PercentComplete | Valore intero visualizzato nell'interfaccia utente di Blockchain Workbench per mostrare lo stato di avanzamento all'interno del flusso di controllo della logica di business. | Sì | |
+| Style | Indicatore visivo che specifica se lo stato è di esito positivo o negativo. I due valori validi sono `Success` e `Failure`. | Sì | |
 | Transizioni | Raccolta di [transizioni](#transitions) disponibili dallo stato corrente al set successivo di stati. | No  | |
 
 ### <a name="states-example"></a>Esempio di stati
@@ -312,7 +312,7 @@ Raccolta di stati univoci all'interno di un flusso di lavoro. Ogni stato acquisi
     {
       "Name": "Terminated",
       "DisplayName": "Terminated",
-      "Description": "Asset transfer has been cancelled",
+      "Description": "Asset transfer has been canceled",
       "PercentComplete": 100,
       "Style": "Failure",
       "Transitions": []
@@ -324,14 +324,14 @@ Raccolta di stati univoci all'interno di un flusso di lavoro. Ogni stato acquisi
 
 Azioni disponibili per lo stato successivo. Uno o più ruoli utente possono eseguire un'azione in ogni stato, in cui un'azione può passare da uno stato a un altro nel flusso di lavoro. 
 
-| Campo | DESCRIZIONE | Obbligatoria |
+| Campo | DESCRIZIONE | Obbligatorio |
 |-------|-------------|:--------:|
 | AllowedRoles | Elenco di ruoli applicazione consentiti per avviare la transizione. Tutti gli utenti del ruolo specificato possono essere in grado di eseguire l'azione. | No  |
 | AllowedInstanceRoles | Elenco di ruoli utente che fanno parte o che sono specificati nel contratto intelligente cui è consentito avviare la transizione. I ruoli di istanza vengono definiti in **proprietà** all'interno dei flussi di lavoro. AllowedInstanceRoles rappresenta un utente che fa parte di un'istanza di un contratto intelligente. AllowedInstanceRoles consente di limitare l'adozione di un'azione a un ruolo utente in un'istanza del contratto.  Ad esempio, è possibile consentire solo all'utente che ha creato il contratto (InstanceOwner) di terminarlo anziché a tutti gli utenti nel tipo di ruolo (Owner), se il ruolo è stato specificato in AllowedRoles. | No  |
-| DisplayName | Nome visualizzato descrittivo della transizione. | Yes |
+| DisplayName | Nome visualizzato descrittivo della transizione. | Sì |
 | DESCRIZIONE | Descrizione della transizione. | No  |
-| Funzione | Nome della funzione per avviare la transizione. | Yes |
-| NextStates | Raccolta dei possibili stati successivi dopo una transizione riuscita. | Yes |
+| Funzione | Nome della funzione per avviare la transizione. | Sì |
+| NextStates | Raccolta dei possibili stati successivi dopo una transizione riuscita. | Sì |
 
 ### <a name="transitions-example"></a>Esempio di transizioni
 
@@ -369,9 +369,9 @@ Azioni disponibili per lo stato successivo. Uno o più ruoli utente possono eseg
 
 I ruoli applicazione definiscono un set di ruoli che possono essere assegnati agli utenti che vogliono operare o partecipare all'interno dell'applicazione. I ruoli applicazione possono essere usati per limitare le azioni e la partecipazione all'interno dell'applicazione blockchain e dei flussi di lavoro corrispondenti. 
 
-| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+| Campo | DESCRIZIONE | Obbligatorio | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| NOME | Identificatore univoco del ruolo applicazione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per il ruolo applicabile. I nomi del tipo di base sono riservati. Non è possibile assegnare a un ruolo applicazione lo stesso nome come [tipo](#type)| Yes | 50 |
+| NOME | Identificatore univoco del ruolo applicazione. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per il ruolo applicabile. I nomi del tipo di base sono riservati. Non è possibile assegnare a un ruolo applicazione lo stesso nome come [tipo](#type)| Sì | 50 |
 | DESCRIZIONE | Descrizione del ruolo applicazione. | No  | 255 |
 
 ### <a name="application-roles-example"></a>Esempio di ruoli applicazione
@@ -392,10 +392,10 @@ I ruoli applicazione definiscono un set di ruoli che possono essere assegnati ag
 
 Gli identificatori rappresentano una raccolta di informazioni usate per descrivere le proprietà, il costruttore e i parametri di funzione del flusso di lavoro. 
 
-| Campo | DESCRIZIONE | Obbligatoria | Lunghezza massima |
+| Campo | DESCRIZIONE | Obbligatorio | Lunghezza massima |
 |-------|-------------|:--------:|-----------:|
-| NOME | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Yes | 50 |
-| DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Yes | 255 |
+| NOME | Nome univoco della proprietà o del parametro. Il contratto intelligente corrispondente deve usare lo stesso valore di **Name** per la proprietà o il parametro applicabile. | Sì | 50 |
+| DisplayName | Nome visualizzato descrittivo per la proprietà o il parametro. | Sì | 255 |
 | DESCRIZIONE | Descrizione della proprietà o del parametro. | No  | 255 |
 
 ### <a name="identifiers-example"></a>Esempio di identificatori
@@ -988,7 +988,7 @@ Il file di configurazione seguente è relativo all'esempio di trasferimento cesp
         {
           "Name": "Terminated",
           "DisplayName": "Terminated",
-          "Description": "Asset transfer has been cancelled",
+          "Description": "Asset transfer has been canceled",
           "PercentComplete": 100,
           "Style": "Failure",
           "Transitions": []

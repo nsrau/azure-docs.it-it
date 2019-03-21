@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/31/2018
 ms.author: raynew
-ms.openlocfilehash: 797838b077993ddcb4120bcf48b026063abbe1ab
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: ef75ec40df50931f5a49c06184c61d2f78608dcf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105322"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58015004"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Architettura del ripristino di emergenza da Azure ad Azure
 
@@ -63,7 +63,7 @@ Quando si abilita la replica per una macchina virtuale, Site Recovery offre la p
 
 Quando si abilita la replica delle macchine virtuali di Azure, per impostazione predefinita Site Recovery crea nuovi criteri di replica con le impostazioni predefinite riepilogate nella tabella.
 
-**Impostazione criteri** | **Dettagli** | **Impostazione predefinita**
+**Impostazione criteri** | **Dettagli** | **Default**
 --- | --- | ---
 **Conservazione del punto di ripristino** | Specifica per quanto tempo Site Recovery conserva i punti di ripristino | 24 ore
 **Frequenza snapshot coerenti con l'applicazione** | Specifica con quale frequenza Site Recovery accetta uno snapshot coerente con l'app. | Ogni 60 minuti.
@@ -102,9 +102,10 @@ La tabella seguente illustra i vari tipi di coerenza.
 Uno snapshot coerente con l'arresto anomalo del sistema acquisisce i dati contenuti nel disco al momento dell'acquisizione dello snapshot. Non include alcun dato in memoria.<br/><br/> Contiene l'equivalente dei dati su disco che sarebbero presenti se si verificasse un arresto anomalo della macchina virtuale o se il cavo di alimentazione del server venisse scollegato nell'istante esatto dell'acquisizione dello snapshot.<br/><br/> Uno snapshot coerente con l'arresto anomalo del sistema non garantisce la coerenza dei dati per il sistema operativo o per le app in esecuzione nella macchina virtuale. | Per impostazione predefinita, Site Recovery crea punti di ripristino coerenti con l'arresto anomalo del sistema ogni cinque minuti. Questa impostazione non può essere modificata.<br/><br/>  | Attualmente, la maggior parte delle app può essere ripristinata correttamente da punti coerenti con l'arresto anomalo del sistema.<br/><br/> I punti di ripristino coerenti con l'arresto anomalo del sistema sono in genere sufficienti per la replica di sistemi operativi e app come i server DHCP e i server di stampa.
 
 ### <a name="app-consistent"></a>Coerenza con l'app
+
 **Descrizione** | **Dettagli** | **Consiglio**
 --- | --- | ---
-I punti di ripristino coerenti con l'app vengono creati dagli snapshot coerenti con l'app.<br/><br/> Uno snapshot coerente con l'app contiene tutte le informazioni contenute in uno snapshot coerente con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e le transazioni in corso. | Gli snapshot coerenti con l'app usano il servizio Copia Shadow del volume:<br/><br/>   1) All'avvio di uno snapshot, il servizio esegue un'operazione di copia su scrittura sul volume.<br/><br/>   2) Prima di eseguire l'operazione di copia su scrittura, il servizio informa ogni app presente nella macchina virtuale che dovrà scaricare i dati residenti in memoria su disco.<br/><br/>   3) Il servizio Copia Shadow del volume consente quindi all'app di backup/ripristino di emergenza (in questo caso Site Recovery) di leggere i dati dello snapshot e di procedere. | Gli snapshot vengono acquisiti in base alla frequenza specificata. Questa frequenza deve essere sempre inferiore a quella impostata per la conservazione dei punti di ripristino. Ad esempio, se i punti di ripristino vengono conservati in base all'impostazione predefinita di 24 ore, la frequenza deve essere impostata su un periodo inferiore a 24 ore.<br/><br/>Gli snapshot coerenti con l'app sono più complessi e il loro completamento richiede più tempo rispetto agli snapshot coerenti con l'arresto anomalo del sistema.<br/><br/> Influiscono sulle prestazioni delle app in esecuzione su una macchina virtuale abilitata per la replica. | <br/><br/>I punti di ripristino coerenti con le applicazioni sono consigliati per sistemi operativi di database e applicazioni quali SQL.<br/><br/> Gli snapshot coerenti con l'app sono supportati solo per le macchine virtuali Windows.
+I punti di ripristino coerenti con l'app vengono creati dagli snapshot coerenti con l'app.<br/><br/> Uno snapshot coerente con l'app contiene tutte le informazioni contenute in uno snapshot coerente con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e le transazioni in corso. | Gli snapshot coerenti con l'app usano il servizio Copia Shadow del volume:<br/><br/>   1) All'avvio di uno snapshot, il servizio esegue un'operazione di copia su scrittura sul volume.<br/><br/>   2) Prima di eseguire l'operazione di copia su scrittura, il servizio informa ogni app presente nella macchina virtuale che dovrà scaricare i dati residenti in memoria su disco.<br/><br/>   3) Il servizio Copia Shadow del volume consente quindi all'app di backup/ripristino di emergenza (in questo caso Site Recovery) di leggere i dati dello snapshot e di procedere. | Gli snapshot vengono acquisiti in base alla frequenza specificata. Questa frequenza deve essere sempre inferiore a quella impostata per la conservazione dei punti di ripristino. Ad esempio, se i punti di ripristino vengono conservati in base all'impostazione predefinita di 24 ore, la frequenza deve essere impostata su un periodo inferiore a 24 ore.<br/><br/>Gli snapshot coerenti con l'app sono più complessi e il loro completamento richiede più tempo rispetto agli snapshot coerenti con l'arresto anomalo del sistema.<br/><br/> Influiscono sulle prestazioni delle app in esecuzione su una macchina virtuale abilitata per la replica. 
 
 ## <a name="replication-process"></a>Processo di replica
 
@@ -116,8 +117,7 @@ Quando si abilita la replica per una macchina virtuale di Azure, accade quanto s
 4. Site Recovery elabora i dati nella cache e li invia all'account di archiviazione di destinazione o ai dischi gestiti di replica.
 5. Al termine dell'elaborazione dei dati, i punti di ripristino coerenti con l'arresto anomalo del sistema vengono generati ogni pochi minuti. I punti di ripristino coerenti con l'app vengono generati in base all'impostazione specificata nei criteri di replica.
 
-
-   ![Abilitare il processo di replica - Passaggio 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
+![Abilitare il processo di replica - Passaggio 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
 **Processo di replica**
 

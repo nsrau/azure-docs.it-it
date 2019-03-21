@@ -1,30 +1,32 @@
 ---
-title: Esempi di Log Analytics per Firewall di Azure
-description: Esempi di Log Analytics per Firewall di Azure
+title: Esempi di Azure Firewall log analitica
+description: Esempi di Azure Firewall log analitica
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: cff31ba73730b7cf7cb27ecb132ec70806234924
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233396"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534004"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Esempi di Log Analytics per Firewall di Azure
+# <a name="azure-firewall-log-analytics-samples"></a>Esempi di Azure Firewall log analitica
 
-Gli esempi di Log Analytics seguenti possono essere usati per analizzare i log di Firewall di Azure. Il file di esempio viene compilato in Progettazione viste di Log Analytics, l'articolo [Progettazione viste di Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) contiene ulteriori informazioni sul concetto di Progettazione viste.
+I seguenti esempi di registri di monitoraggio di Azure sono utilizzabile per analizzare i log del Firewall di Azure. Il file di esempio viene compilato in Progettazione viste di monitoraggio di Azure, il [Progettazione viste di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) articolo contiene ulteriori informazioni sul concetto di visualizzazione progettazione.
 
-## <a name="log-analytics-view"></a>Visualizzazione di Log Analytics
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-Ecco come è possibile configurare una visualizzazione di esempio di Log Analytics. È possibile scaricare la visualizzazione di esempio dal repository [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). Il modo più semplice è fare clic con il pulsante destro sul collegamento ipertestuale in questa pagina e scegliere *Salva con nome* e specificare un nome, ad esempio **AzureFirewall.omsview**. 
+## <a name="azure-monitor-logs-view"></a>Visualizzazione dei log di monitoraggio di Azure
 
-Eseguire i seguenti passaggi per aggiungere la vista all'area di lavoro di Log Analytics:
+Ecco come è possibile configurare un esempio di visualizzazione dei log di monitoraggio di Azure. È possibile scaricare la visualizzazione di esempio dal repository [azure-docs-json-samples](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-firewall/AzureFirewall.omsview). Il modo più semplice è fare clic con il pulsante destro sul collegamento ipertestuale in questa pagina e scegliere *Salva con nome* e specificare un nome, ad esempio **AzureFirewall.omsview**. 
 
-1. Aprire un'area di lavoro di Log Analytics nel portale di Azure.
+Eseguire la procedura seguente per aggiungere la visualizzazione nell'area di lavoro di Log Analitica:
+
+1. Aprire l'area di lavoro di Log Analitica nel portale di Azure.
 2. Aprire **Progettazione viste** sotto **Generale**.
 3. Fare clic su **Importa**.
 4. Sfogliare e selezionare il file **AzureFirewall.omsview** scaricato in precedenza.
@@ -98,7 +100,7 @@ RuleCollection = case(RuleCollection2b == "",case(RuleCollection2a == "","No rul
 
 ## <a name="network-rules-log-data-query"></a>Query sui dati di log delle regole di rete
 
-La query seguente consente di analizzare i dati di log delle regole di rete. Nelle diverse righe di commento sono previste alcune indicazioni su come è stata compilata la query:
+La query seguente consente di analizzare i dati di log della regola di rete. Nelle diverse righe di commento sono previste alcune indicazioni su come è stata compilata la query:
 
 ```Kusto
 AzureDiagnostics
@@ -149,6 +151,21 @@ AzureDiagnostics
 | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action, NatDestination
 ```
 
+## <a name="threat-intelligence-log-data-query"></a>Query di dati di Threat Intelligence log
+
+La query seguente consente di analizzare i dati di log di Intelligence sulle minacce regola:
+
+```Kusto
+AzureDiagnostics
+| where OperationName  == "AzureFirewallThreatIntelLog"
+| parse msg_s with Protocol " request from " SourceIP ":" SourcePortInt:int " to " TargetIP ":" TargetPortInt:int *
+| parse msg_s with * ". Action: " Action "." Message
+| parse msg_s with Protocol2 " request from " SourceIP2 " to " TargetIP2 ". Action: " Action2
+| extend SourcePort = tostring(SourcePortInt),TargetPort = tostring(TargetPortInt)
+| extend Protocol = case(Protocol == "", Protocol2, Protocol),SourceIP = case(SourceIP == "", SourceIP2, SourceIP),TargetIP = case(TargetIP == "", TargetIP2, TargetIP),SourcePort = case(SourcePort == "", "N/A", SourcePort),TargetPort = case(TargetPort == "", "N/A", TargetPort)
+| sort by TimeGenerated desc | project TimeGenerated, msg_s, Protocol, SourceIP,SourcePort,TargetIP,TargetPort,Action,Message
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sul monitoraggio e la diagnostica di Firewall di Azure, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).
+Per altre informazioni sui Firewall di Azure il monitoraggio e diagnostica, vedere [esercitazione: Monitorare i log del Firewall di Azure e le metriche](tutorial-diagnostics.md).

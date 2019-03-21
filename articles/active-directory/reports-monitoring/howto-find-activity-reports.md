@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46fc0a49ebae86a715685e1073b4eb7cc10e6032
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 65e803ca373fb9853fc23d17f1a27ecadc6a209c
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533409"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295216"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -86,7 +86,7 @@ I servizi includono:
 - Utenti invitati
 - PIM
 - Gestione gruppi self-service
-- Gestione self-service Passord
+- Gestione delle password self-service
 - Condizioni per l'utilizzo
 
 ## <a name="sign-ins-report"></a>Report sugli accessi 
@@ -153,11 +153,11 @@ I log attività (controllo o accessi) sono stati scaricati ma non vengono visual
  
 #### <a name="cause"></a>Causa
 
-Quando si scaricano i log attività nel portale di Azure, viene applicata una limitazione a 5000 record, ordinati a partire dal più recente come primo. 
+Quando si scaricano i log attività nel portale di Azure, è necessario limitare la scalabilità necessaria per i 250000 record, ordinate dalla più recente. 
 
 #### <a name="resolution"></a>Risoluzione
 
-È possibile sfruttare le [API di Creazione rapporti di Azure AD](concept-reporting-api.md) per recuperare fino a un milione di record per un momento specifico. L'approccio consigliato consiste nell'[eseguire uno script in base a una pianificazione](tutorial-signin-logs-download-script.md) per chiamare le API creazione report per recuperare i record in modo incrementale in un periodo di tempo specifico (ad esempio ogni giorno oppure ogni settimana). 
+È possibile sfruttare le [API di Creazione rapporti di Azure AD](concept-reporting-api.md) per recuperare fino a un milione di record per un momento specifico.
 
 ### <a name="missing-audit-data-for-recent-actions-in-the-azure-portal"></a>Dati di controllo mancanti per le azioni recenti nel portale di Azure
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/04/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1262ed841fe8f6f9c2d5339d79abf06c1ab15a25
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
-ms.translationtype: HT
+ms.openlocfilehash: 724a91b6ba0be030a2281bce366e4378892df59b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392874"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011574"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>Architettura di rete di SAP HANA (istanze Large)
 
@@ -27,7 +27,7 @@ L'architettura dei servizi di rete di Azure è un componente fondamentale per la
 
 - Sistemi SAP distribuiti in locale. A causa delle dimensioni, attualmente questi sistemi non possono essere ospitati in Azure. Un esempio può essere un sistema SAP ERP di produzione che viene eseguito su SQL Server (come database) e richiede risorse di memoria o CPU superiori a quelle che possono essere disponibili nelle VM.
 - Sistemi SAP basati su SAP HANA distribuiti in locale.
-- Sistemi SAP distribuiti nelle VM. Questi sistemi possono essere istanze di sviluppo, test, sandbox o produzione per qualsiasi applicazione basata su SAP NetWeaver distribuibile in VM di Azure in base alle richieste di memoria e all'utilizzo delle risorse. Questi sistemi possono essere basati su database come SQL Server. Per altre informazioni, vedere [SAP Support Note #1928533 - SAP applications on Azure: Supported products and Azure VM types](https://launchpad.support.sap.com/#/notes/1928533/E) (Nota SAP 1928533 - Applicazioni SAP in Azure: prodotti supportati e tipi di VM di Azure) Possono inoltre essere basati su database come SAP HANA. Per altre informazioni, vedere [SAP HANA certified IaaS platforms](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) (Piattaforme IaaS certificate per SAP HANA).
+- Sistemi SAP distribuiti nelle VM. Questi sistemi possono essere istanze di sviluppo, test, sandbox o produzione per qualsiasi applicazione basata su SAP NetWeaver distribuibile in VM di Azure in base alle richieste di memoria e all'utilizzo delle risorse. Questi sistemi possono essere basati su database come SQL Server. Per altre informazioni, vedere [supporto nota SAP #1928533-applicazioni SAP in Azure: Prodotti e tipi di macchine Virtuali di Azure supportati](https://launchpad.support.sap.com/#/notes/1928533/E). Possono inoltre essere basati su database come SAP HANA. Per altre informazioni, vedere [SAP HANA certified IaaS platforms](https://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html) (Piattaforme IaaS certificate per SAP HANA).
 - Server applicazioni SAP distribuiti in Azure (nelle VM) che utilizzano SAP HANA in Azure (istanze Large) in moduli per istanze Large in Azure.
 
 Il caso tipico consiste in un panorama applicativo SAP ibrido con quattro o più diversi scenari di distribuzione. In molti casi, tuttavia, i clienti hanno un panorama applicativo SAP completo in esecuzione in Azure. Grazie alla potenza sempre maggiore delle VM, il numero di clienti che sposta tutte le soluzioni SAP in Azure è in aumento.
@@ -79,7 +79,7 @@ Le differenze rispetto alle distribuzioni SAP in Azure sono le seguenti:
 - L'architettura delle applicazioni SAP è più sensibile alla latenza di rete rispetto agli scenari tipici con scambio dei dati tra ambiente locale e Azure.
 - Il gateway di rete virtuale ha almeno due connessioni ExpressRoute. Entrambe condividono la larghezza di banda massima per i dati in ingresso del gateway di rete virtuale.
 
-La latenza di rete rilevata tra le VM e le unità di istanze Large di HANA può essere superiore alla latenza di andata e ritorno tipica di una rete da VM a VM. A seconda dell'area di Azure, i valori misurati possono superare la latenza di andata e ritorno di 0,7 millisecondi classificata come inferiore alla media in [SAP Note #1100926 - FAQ: Network performance](https://launchpad.support.sap.com/#/notes/1100926/E) (Nota SAP 1100926 - Domande frequenti sulle prestazioni di rete). A seconda dell'area di Azure e dello strumento usato per misurare la latenza di andata e ritorno di rete tra una macchina virtuale di Azure e l'unità di istanze Large di HANA, la latenza misurata può arrivare fino a 2 millisecondi. Nonostante ciò, i clienti distribuiscono applicazioni SAP di produzione basate su SAP HANA in istanze Large di SAP HANA con ottimi risultati. È importante testare accuratamente i processi aziendali nelle istanze Large di HANA in Azure.
+La latenza di rete rilevata tra le VM e le unità di istanze Large di HANA può essere superiore alla latenza di andata e ritorno tipica di una rete da VM a VM. A seconda dell'area di Azure, i valori misurati possono superare la latenza di andata e ritorno di 0,7-ms classificata come inferiore alla media in [SAP Note #1100926 - domande frequenti: Prestazioni di rete](https://launchpad.support.sap.com/#/notes/1100926/E). A seconda dell'area di Azure e dello strumento usato per misurare la latenza di andata e ritorno di rete tra una macchina virtuale di Azure e l'unità di istanze Large di HANA, la latenza misurata può arrivare fino a 2 millisecondi. Nonostante ciò, i clienti distribuiscono applicazioni SAP di produzione basate su SAP HANA in istanze Large di SAP HANA con ottimi risultati. È importante testare accuratamente i processi aziendali nelle istanze Large di HANA in Azure.
  
 Per garantire una latenza di rete deterministica tra le VM e le istanze Large di HANA, la scelta dello SKU del gateway di rete virtuale è essenziale. A differenza dei modelli di traffico tra l'ambiente locale e le VM, il modello di traffico tra le VM e le istanze Large di HANA può sviluppare burst di piccole dimensioni ma frequenti di richieste e volumi di dati da trasmettere. Per gestire in modo efficiente tali burst, è consigliabile usare lo SKU del gateway UltraPerformance. Per gli SKU della classe di tipo II delle istanze Large di HANA, l'uso dello SKU UltraPerformance come gateway di rete virtuale è obbligatorio.
 
@@ -113,7 +113,7 @@ Per un'architettura di rete più scalabile:
 - Utilizzare più reti virtuali per un livello applicazione SAP singolo e di dimensioni maggiori.
 - Distribuire una rete virtuale separata per ogni sistema SAP distribuito anziché combinare questi sistemi SAP in subnet separate nella stessa rete virtuale.
 
- Un'architettura di rete più scalabile per SAP HANA in Azure (istanze di grandi dimensioni):
+  Un'architettura di rete più scalabile per SAP HANA in Azure (istanze di grandi dimensioni):
 
 ![Distribuire il livello applicazione SAP su più reti virtuali](./media/hana-overview-architecture/image4-networking-architecture.png)
 
@@ -132,12 +132,12 @@ Per SAP HANA in Azure (istanze Large) sono importanti tre considerazioni sul rou
 
 * Alle unità SAP HANA in Azure (istanze Large) viene assegnato un indirizzo IP dall'intervallo di indirizzi del pool IP del server che è stato inviato. Per altre informazioni, vedere [Infrastruttura e connettività a SAP HANA (istanze Large) in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Questo indirizzo IP è accessibile tramite le sottoscrizioni di Azure ed ExpressRoute che connette le reti virtuali di Azure ad HANA in Azure (istanze Large). L'indirizzo IP assegnato al di fuori dell'intervallo di indirizzi del pool IP del server viene assegnato direttamente all'unità hardware. *Non* viene più assegnato tramite NAT, come avveniva nelle prime distribuzioni di questa soluzione. 
 
-> [!NOTE] 
+> [!NOTE]
 > Per superare la restrizione relativa al routing temporaneo, come illustrato nelle prime due voci dell'elenco precedente, usare componenti aggiuntivi per il routing. I componenti che consentono di superare la restrizione possono essere:
-
+> 
 > * Un proxy inverso per instradare i dati in modo bidirezionale. Ad esempio, F5 BIG-IP, NGINX con Gestione traffico distribuita in Azure come soluzione di routing del traffico o del firewall virtuale.
 > * [Regole di IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in una VM Linux per abilitare il routing tra le posizioni locali e le unità di istanze Large di HANA o fra tali unità in aree diverse.
-
+> 
 > Tenere presente che Microsoft non fornisce l'implementazione e il supporto per soluzioni personalizzate che riguardano IPTables o appliance di rete di terze parti. Il supporto deve essere reso disponibile dal fornitore del componente usato o dall'integratore. 
 
 ## <a name="internet-connectivity-of-hana-large-instance"></a>Connettività Internet delle istanze Large di HANA

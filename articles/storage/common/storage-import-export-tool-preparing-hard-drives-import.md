@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7645694e9f2b90bfbe26ac3d0747791570f32d1b
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 777e0aac46dbffb1e491874b5889667a888aadf5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510137"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898687"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 
@@ -25,7 +25,7 @@ WAImportExport è lo strumento di preparazione e ripristino delle unità che è 
 
 - **Configurazione del computer**
   - Windows 7, Windows Server 2008 R2 o un sistema operativo Windows più recente
-  - Deve essere installato .NET Framework 4. Vedere le [domande frequenti](#faq) per informazioni su come verificare se .Net Framework è installato nel computer.
+  - Deve essere installato .NET Framework 4. Visualizzare [domande frequenti su](#faq) su come controllare se .NET Framework è installato nel computer.
 - **Chiave dell'account di archiviazione:** è necessaria almeno una delle chiavi dell'account di archiviazione.
 
 ### <a name="preparing-disk-for-import-job"></a>Preparazione del disco per il processo di importazione
@@ -152,12 +152,12 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 Se le unità specificate in InitialDriveset non sono sufficienti per i dati, è possibile usare lo strumento per aggiungere altre unità alla stessa sessione di copia. 
 
->[!NOTE] 
->L'ID sessione deve corrispondere all'ID della sessione precedente. Il file journal deve corrispondere a quello specificato nella sessione precedente.
->
-```
-WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
-```
+> [!NOTE]
+> L'ID sessione deve corrispondere all'ID della sessione precedente. Il file journal deve corrispondere a quello specificato nella sessione precedente.
+> 
+> ```
+> WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
+> ```
 
 **Esempio:**
 
@@ -365,7 +365,7 @@ Per disabilitare TPM in BitLocker, attenersi alla procedura seguente:<br/>
 
 Tutte le versioni di Microsoft .NET Framework sono installate nella directory seguente: %windir%\Microsoft.NET\Framework\
 
-Selezionare la directory del computer di destinazione citata in precedenza in cui deve essere eseguito lo strumento. Cercare il nome di cartella che inizia con "v4". Se non è presente una directory di questo tipo, .NET 4 non è installato nel computer in uso. È possibile scaricare .Net 4 nel computer dalla pagina [Microsoft .NET Framework 4 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=17851).
+Selezionare la directory del computer di destinazione citata in precedenza in cui deve essere eseguito lo strumento. Cercare il nome di cartella che inizia con "v4". Se non è presente una directory di questo tipo, .NET 4 non è installato nel computer in uso. È possibile scaricare .NET 4 nel computer usando [Microsoft .NET Framework 4 (programma di installazione Web)](https://www.microsoft.com/download/details.aspx?id=17851).
 
 ### <a name="limits"></a>Limiti
 

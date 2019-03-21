@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 5d0259726a45346f1e9b891cb235531d6c24d4a2
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
-ms.translationtype: HT
+ms.openlocfilehash: 34a63c8f283f24fa58b4e2a41d3a44ff0c8c3c17
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53433424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003457"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---data-migration-best-practices"></a>Eseguire la migrazione di cluster Apache Hadoop locali ad Azure HDInsight - Procedure consigliate per la migrazione dei dati
 
@@ -34,9 +34,9 @@ Esistono due opzioni principali per eseguire la migrazione dei dati da un sistem
 
 La tabella seguente indica una durata di trasferimento dei dati approssimativa, basata sul volume dei dati e sulla larghezza di banda della rete. Usare un'appliance Data Box se si prevede che la migrazione dei dati richieda più di tre settimane.
 
-|**Qtà di dati**|**Larghezza di banda della rete**|||
-|---|---|---|---|
-|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**
+|**Qtà di dati**|**Larghezza di banda della rete**||||
+|---|---|---|---|---|
+|| **45 Mbps (T3)**|**100 Mbps**|**1 Gbps**|**10 Gbps**|
 |1 TB|2 giorni|1 giorno| 2 ore|14 minuti|
 |10 TB|22 giorni|10 giorni|1 giorno|2 ore|
 |35 TB|76 giorni|34 giorni|3 giorni|8 ore|
@@ -94,7 +94,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 
 #### <a name="hive-metastore-migration-using-scripts"></a>Migrazione del metastore Hive con gli script
 
-1. Generare le istruzioni DDL Hive da un metastore Hive locale. Questo passaggio può essere eseguito tramite uno [script Bash wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
+1. Generare il DDL Hive nel metastore Hive locali. Questo passaggio può essere eseguito tramite uno [script Bash wrapper](https://github.com/hdinsight/hdinsight.github.io/blob/master/hive/hive-export-import-metastore.md).
 1. Modificare l'istruzione DDL generata per sostituire l'URL Hadoop Distributed File System con gli URL WASB/ADLS/ABFS.
 1. Eseguire l'istruzione DDL aggiornata sul metastore dal cluster HDInsight.
 1. Assicurarsi che la versione del metastore Hive sia compatibile per il passaggio da sistemi locali a cloud.
@@ -111,7 +111,7 @@ hadoop distcp -Dmapreduce.fileoutputcommitter.algorithm.version=2 -numListstatus
 ### <a name="apache-ranger"></a>Apache Ranger
 
 - Esportare i criteri locali di Ranger nei file xml.
-- Trasformare i percorsi basati su HDFS specifici del sistema locale in WASB/ADLS usando uno strumento come XSLT.
+- Trasforma in locale percorsi specifici basati su HDFS in WASB/ADLS usando uno strumento come XSLT.
 - Importare i criteri in Ranger che viene eseguito in HDInsight.
 
 ## <a name="next-steps"></a>Passaggi successivi
