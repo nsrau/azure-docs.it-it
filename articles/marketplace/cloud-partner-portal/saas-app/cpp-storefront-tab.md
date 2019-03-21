@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 25fdce2381cc6dd65559a2450a42de5389589863
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7c4bd326c597b8e989dfc7aac5239ddb2d38376a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195941"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884770"
 ---
 # <a name="saas-application-storefront-details-tab"></a>Scheda Dettagli vetrina per un'applicazione SaaS
 
@@ -37,7 +37,7 @@ La tabella seguente descrive i dettagli della vetrina che è possibile specifica
 |  **Campi offerta**   |  **Descrizione**  |
 |  ---------------   |  ---------------  |
 |      Riepilogo offerta              |        Riepilogo della proposta di valore dell'offerta. Verrà visualizzato nella pagina di ricerca dell'offerta. La lunghezza massima è 100 caratteri.           |
-|      Descrizione dell'offerta              |      Descrizione che verrà visualizzata nella pagina dei dettagli dell'applicazione. La lunghezza massima consentita è 1300 caratteri. È possibile usare i tag di markup HTML di base per formattare il contenuto. Ad esempio, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; e &lt;li&gt;. Per vedere come apparirà la descrizione formattata, usare uno strumento HTML online in tempo reale, ad esempio [http://htmledit.squarefree.com](http://htmledit.squarefree.com)             |
+|      Descrizione dell'offerta              |      Descrizione che verrà visualizzata nella pagina dei dettagli dell'applicazione. La lunghezza massima consentita è 1300 caratteri. È possibile usare i tag di markup HTML di base per formattare il contenuto. Ad esempio, &lt;p&gt;, &lt;h1&gt;, &lt;h2&gt; e &lt;li&gt;. Per vedere come apparirà la descrizione formattata, usare uno strumento HTML online in tempo reale, ad esempio [http://htmledit.squarefree.com](https://htmledit.squarefree.com)             |
 |          Settori          |        Selezionare i settori che corrispondono meglio all'offerta. Se l'app rientra in più settori, è possibile selezionare un massimo di due settori.           |
 |          Suggested Categories (Max 3) (Categorie suggerite - al massimo 3)         |        Selezionare le categorie che corrispondono meglio all'offerta. È possibile selezionare un massimo di tre categorie.           |
 |           Versione dell'app         |        Immettere il numero di versione dell'applicazione.           |

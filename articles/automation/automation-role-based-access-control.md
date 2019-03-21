@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fb90dbdb02fc0a0448b8cb6723c980c0fe41bd6
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424320"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57544981"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Controllo degli accessi in base al ruolo in Automazione di Azure
 
@@ -142,7 +142,7 @@ Un collaboratore di Log Analytics può leggere tutti i dati di monitoraggio e mo
 |Microsoft.Compute/virtualMachines/extensions/*|Crea e gestisce le estensioni macchina virtuale classiche.|
 |Microsoft.Insights/alertRules/*|Regole di avviso di lettura, scrittura ed eliminazione.|
 |Microsoft.Insights/diagnosticSettings/*|Impostazioni di diagnostica di lettura, scrittura ed eliminazione.|
-|Microsoft.OperationalInsights/*|Gestisce Log Analytics.|
+|Microsoft.OperationalInsights/*|Gestire i log di monitoraggio di Azure.|
 |Microsoft.OperationsManagement/*|Gestisce le soluzioni nelle aree di lavoro.|
 |Microsoft.Resources/deployments/*|Crea e gestisce distribuzioni di gruppi di risorse.|
 |Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Crea e gestisce distribuzioni di gruppi di risorse.|
@@ -156,8 +156,8 @@ Un ruolo Lettore di Log Analytics può visualizzare ed eseguire ricerche in tutt
 |**Actions**  |**Descrizione**  |
 |---------|---------|
 |*/lettura|Legge risorse di tutti i tipi, eccetto i segreti.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Gestisce le query in Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/search/action|Cerca i dati in Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Gestire le query nei log di monitoraggio di Azure.|
+|Microsoft.OperationalInsights/workspaces/search/action|Cercare i dati di log di monitoraggio di Azure.|
 |Microsoft.Support/*|Crea e gestisce ticket di supporto.|
 |**Non azioni**| |
 |Microsoft.OperationalInsights/workspaces/sharedKeys/read|Non può leggere le chiavi di accesso condivise.|
@@ -180,11 +180,11 @@ Un ruolo Monitoraggio del ruolo Collaboratore può leggere tutti i dati di monit
 |Microsoft.Insights/Metrics/*|Metriche per una risorsa.|
 |Microsoft.Insights/Register/Action|Registra il provider Microsoft.Insights.|
 |Microsoft.Insights/webtests/*|Gestisce i test Web di Application Insights.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gestisce i pacchetti della soluzione Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gestisce le ricerche salvate di Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Gestire i pacchetti di soluzione di monitoraggio di Azure i log.|
+|Microsoft.OperationalInsights/workspaces/savedSearches/*|Gestire le ricerche log salvate di monitoraggio di Azure.|
 |Microsoft.OperationalInsights/workspaces/search/action|Cercare aree di lavoro di Log Analytics.|
 |Microsoft.OperationalInsights/workspaces/sharedKeys/action|Elencare chiavi per un'area di lavoro di Log Analytics.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gestisce la configurazione di dati di archiviazione di Log Analytics.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Gestire le configurazioni di monitoraggio di Azure log archiviazione insight.|
 |Microsoft.Support/*|Crea e gestisce ticket di supporto.|
 |Microsoft.WorkloadMonitor/workloads/*|Gestisce i carichi di lavoro.|
 

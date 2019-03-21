@@ -10,16 +10,30 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: gracez
-ms.openlocfilehash: 2e51bdd24f33789a95017c9fe5df88b0bb55de26
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 4d802b9f71edee1eec4b2c92881e2a8796db2865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55870708"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005516"
 ---
 # <a name="release-notes-of-cognitive-services-speech-devices-sdk"></a>Note sulla versione di Speech Devices SDK di Servizi cognitivi
 
 L'elenco nelle sezioni seguenti è modificato nelle versioni più recenti.
+
+## <a name="cognitive-services-speech-devices-sdk-131-2019-mar-release"></a>Dispositivi vocale di servizi cognitivi 1.3.1 SDK: Versione-marzo 2019 
+
+* Aggiornato il [Speech SDK](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-sdk-reference) componente alla versione 1.3.1. Per altre informazioni, vedere le relative [Note sulla versione](https://aka.ms/csspeech/whatsnew). 
+*   Word riattivazione aggiornata la gestione, vedere le modifiche di rilievo.
+*   Applicazione di esempio aggiunge una scelta del linguaggio per il riconoscimento vocale e traduzione.
+
+**Modifiche di rilievo** 
+
+*   [Installazione di una parola riattivazione](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg#run-a-sample-application) è stato semplificato, fa ora parte dell'app e non richiede installazione separata sul dispositivo.
+*   Il riconoscimento delle parole la riattivazione è stato modificato e sono supportati due eventi.
+    - RecognizingKeyword, indica il risultato di riconoscimento vocale contiene testo (parola chiave) (non verificato).
+    - RecognizedKeyword, indica che il riconoscimento (parola chiave) completato riconoscendo la parola chiave Data.
+
 
 ## <a name="cognitive-services-speech-devices-sdk-110-2018-nov-release"></a>Speech Devices SDK di Servizi cognitivi 1.1.0: versione di novembre 2018 
 

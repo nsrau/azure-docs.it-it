@@ -18,12 +18,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49a82e1452a4380920271f4fb4f7397208e32d78
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 021e13dafcc659337d4096a068e224312e69db1b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174453"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870942"
 ---
 # <a name="manage-and-customize-active-directory-federation-services-by-using-azure-ad-connect"></a>Gestire e personalizzare Active Directory Federation Services con Azure AD Connect
 In questo articolo viene descritto come gestire e personalizzare Active Directory Federation Services (ADFS) tramite Azure Active Directory (Azure AD) Connect. Si includono inoltre altre attività comuni di AD FS che potrebbero essere necessarie per eseguire una configurazione completa di una farm di AD FS.
@@ -32,7 +32,7 @@ In questo articolo viene descritto come gestire e personalizzare Active Director
 |:--- |:--- |
 | **Gestire AD FS** | |
 | [Ripristinare il trust](#repairthetrust) |Come ripristinare il trust federativo con Office 365. |
-| [Attuare la federazione con Azure AD mediante l'ID di accesso alternativo ](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
+| [Attuare la federazione con Azure AD usando l'ID di accesso alternativo](#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
 | [Aggiungere un server AD FS](#addadfsserver) |Come espandere una farm AD FS con un server AD FS aggiuntivo. |
 | [Aggiungere un server proxy applicazione Web AD FS](#addwapserver) |Come espandere la farm AD FS con un server Proxy applicazione Web (WAP) aggiuntivo. |
 | [Aggiunta di un dominio federato](#addfeddomain) |Come aggiungere un dominio federato. |
