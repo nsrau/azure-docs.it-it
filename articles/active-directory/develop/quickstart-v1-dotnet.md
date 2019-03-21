@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b06ceb86e8406657766be1375889fcfe1b4673d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2b55f7e615f2c2edb604d5b9433db6cc48d9f36f
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204543"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223394"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-a-net-desktop-wpf-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app Desktop .NET (WPF)
 
@@ -77,9 +77,9 @@ Ora che si dispone di un'applicazione in Azure AD, è possibile installare ADAL 
 
 1. Nel progetto `DirectorySearcher` aprire `app.config`.
 1. Sostituire i valori degli elementi nella sezione `<appSettings>` in modo che corrispondano ai valori inseriti nel portale di Azure. Il codice farà riferimento a questi valori ogni volta che userà ADAL.
-  * `ida:Tenant` è il dominio del tenant di Azure AD, ad esempio contoso.onmicrosoft.com.
-  * `ida:ClientId` è l'ID client dell'applicazione copiato dal portale.
-  * `ida:RedirectUri` è l'URL di reindirizzamento registrato nel portale.
+   * `ida:Tenant` è il dominio del tenant di Azure AD, ad esempio contoso.onmicrosoft.com.
+   * `ida:ClientId` è l'ID client dell'applicazione copiato dal portale.
+   * `ida:RedirectUri` è l'URL di reindirizzamento registrato nel portale.
 
 ## <a name="step-3-use-adal-to-get-tokens-from-azure-ad"></a>Passaggio 3: Usare ADAL per ottenere i token da Azure AD
 
@@ -172,7 +172,7 @@ Il principio alla base di ADAL è che l'app, ogni volta che ha bisogno di un tok
                 MessageBox.Show(ex.Message);
             }
 
-            // If user interaction is required, proceed to main page without singing the user in.
+            // If user interaction is required, proceed to main page without signing the user in.
             return;
         }
 

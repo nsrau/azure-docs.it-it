@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: 1c8f280d58d12df33b687fa9c09712176987cdd1
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 1e0e5deea8602b3da16074155e69c952227b8609
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53259546"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117677"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Avvio rapido: Eseguire un processo Spark in Azure Databricks mediante il portale di Azure
 
@@ -74,11 +74,11 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
     Accettare tutti gli altri valori predefiniti tranne i seguenti:
 
-    * Immettere un nome per il cluster.
-    * Per questo articolo creare un cluster con il runtime **4.0**.
-    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
+   * Immettere un nome per il cluster.
+   * Per questo articolo creare un cluster con il runtime **4.0**.
+   * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
     
-    Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
+     Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 
 Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluster in Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html) (Creare un cluster Spark in Azure Databricks).
 
@@ -89,12 +89,12 @@ Scaricare un file di dati JSON di esempio e salvarlo nell'archivio BLOB di Azure
 1. Scaricare questo file di dati JSON di esempio [da GitHub](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) nel computer locale. Fare clic con il pulsante destro del mouse e salvare il file non elaborato in locale.
 
 2. Se non è già disponibile un account di archiviazione, crearne uno.
-    - Nel portale di Azure fare clic su **Crea una risorsa**. Selezionare la categoria **Archiviazione** e selezionare **Account di archiviazione**
-    - Fornire un nome univoco per l'account di archiviazione.
-    - Selezionare **Tipologia account**: **Archiviazione BLOB**
-    - Selezionare un nome per **Gruppo di risorse**. Usare lo stesso gruppo di risorse creato per l'area di lavoro di Databricks.
+   - Nel portale di Azure fare clic su **Crea una risorsa**. Selezionare la categoria **Archiviazione** e selezionare **Account di archiviazione**
+   - Fornire un nome univoco per l'account di archiviazione.
+   - Selezionare **Tipologia account**: **Archiviazione BLOB**
+   - Selezionare un nome per **Gruppo di risorse**. Usare lo stesso gruppo di risorse creato per l'area di lavoro di Databricks.
     
-    Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
+     Per altre informazioni, vedere [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md).
 
 3. Creare un contenitore di archiviazione nell'account di archiviazione BLOB e caricare il file JSON di esempio nel contenitore. Per caricare il file, è possibile usare il portale di Azure o [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
@@ -130,21 +130,21 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
     Nel frammento di codice seguente sostituire `{YOUR CONTAINER NAME}`, `{YOUR STORAGE ACCOUNT NAME}` e `{YOUR STORAGE ACCOUNT ACCESS KEY}` con i valori appropriati per l'account di archiviazione di Azure. Incollare il frammento in una cella vuota del blocco appunti e quindi premere MAIUSC+INVIO per eseguire la cella di codice.
 
-    * **Montare l'account di archiviazione con DBFS (opzione consigliata)**. In questo frammento di codice il percorso dell'account di archiviazione di Azure viene montato in `/mnt/mypath`. In occasione di tutti gli accessi futuri all'account di archiviazione di Azure non sarà quindi necessario fornire il percorso completo. È sufficiente usare `/mnt/mypath`.
+   * **Montare l'account di archiviazione con DBFS (opzione consigliata)**. In questo frammento di codice il percorso dell'account di archiviazione di Azure viene montato in `/mnt/mypath`. In occasione di tutti gli accessi futuri all'account di archiviazione di Azure non sarà quindi necessario fornire il percorso completo. È sufficiente usare `/mnt/mypath`.
 
-          dbutils.fs.mount(
-            source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
-            mountPoint = "/mnt/mypath",
-            extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
+         dbutils.fs.mount(
+           source = "wasbs://{YOUR CONTAINER NAME}@{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net/",
+           mountPoint = "/mnt/mypath",
+           extraConfigs = Map("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net" -> "{YOUR STORAGE ACCOUNT ACCESS KEY}"))
 
-    * **Accedere direttamente all'account di archiviazione**
+   * **Accedere direttamente all'account di archiviazione**
 
-          spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
+         spark.conf.set("fs.azure.account.key.{YOUR STORAGE ACCOUNT NAME}.blob.core.windows.net", "{YOUR STORAGE ACCOUNT ACCESS KEY}")
 
-    Per istruzioni su come recuperare la chiave dell'account di archiviazione, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys).
+     Per istruzioni su come recuperare la chiave dell'account di archiviazione, vedere [Gestire le chiavi di accesso alle risorse di archiviazione](../storage/common/storage-account-manage.md#access-keys).
 
-    > [!NOTE]
-    > È anche possibile usare Azure Data Lake Store con un cluster Spark in Azure Databricks. Per istruzioni, vedere [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084) (Usare Data Lake Store con Azure Databricks).
+     > [!NOTE]
+     > È anche possibile usare Azure Data Lake Store con un cluster Spark in Azure Databricks. Per istruzioni, vedere [Use Data Lake Store with Azure Databricks](https://go.microsoft.com/fwlink/?linkid=864084) (Usare Data Lake Store con Azure Databricks).
 
 4. Eseguire un'istruzione SQL per creare una tabella temporanea con i dati dal file di dati JSON di esempio **small_radio_json.json**. Nel frammento di codice seguente sostituire i valori dei segnaposto con il nome del contenitore e il nome dell'account di archiviazione. Incollare il frammento in una cella di codice del blocco appunti e quindi premere MAIUSC+INVIO. Nel frammento di codice `path` indica il percorso del file JSON di esempio caricato nell'account di archiviazione di Azure.
 
@@ -183,12 +183,12 @@ Eseguire le operazioni seguenti per creare un blocco appunti in Databricks, conf
 
     ![Personalizzare il grafico a barre](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Personalizzare il grafico a barre")
 
-    * Impostare **Keys** (Chiavi) su **gender**.
-    * Impostare **Series groupings** (Raggruppamenti di serie) su **level**.
-    * Impostare **Values** (Valori) su **level**.
-    * Impostare **Aggregation** (Aggregazione) su **COUNT** (CONTEGGIO).
+   * Impostare **Keys** (Chiavi) su **gender**.
+   * Impostare **Series groupings** (Raggruppamenti di serie) su **level**.
+   * Impostare **Values** (Valori) su **level**.
+   * Impostare **Aggregation** (Aggregazione) su **COUNT** (CONTEGGIO).
 
-    Fare clic su **Apply**.
+     Fare clic su **Apply**.
 
 9. L'output mostra la rappresentazione visiva illustrata nello screenshot seguente:
 

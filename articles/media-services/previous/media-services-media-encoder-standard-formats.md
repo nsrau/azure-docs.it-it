@@ -11,16 +11,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: 27e9a5b33170855455e8906b659e0f0c009e42d3
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c862de2eec4e6c116218457a20b567dc02778685
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984104"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58190023"
 ---
-# <a name="media-encoder-standard-formats-and-codecs-legacy"></a>Formati e codec Media Encoder Standard (legacy)
+# <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
 
 > [!div class="op_single_selector" title1="Select the version of Media Services that you are using:"]
 > * [Versione 2](media-services-media-encoder-standard-formats.md)
@@ -30,7 +30,7 @@ Questo documento contiene un elenco dei formati di file di importazione ed espor
 
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 | Formato di file (estensioni di file) | Supportato |
-| --- | --- | --- | --- |
+| --- | --- |
 | FLV (con codec H. 264 e AAC) (.flv) |Sì |
 | MXF    (.mxf) |Sì |
 | GXF    (.gxf) |Sì |
@@ -59,7 +59,7 @@ oppure
 
 ## <a name="input-video-codecs"></a>Codec video di input
 | Codec video di input | Supportato |
-| --- | --- | --- | --- |
+| --- | --- |
 | AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit |
 | Avid DNxHD (in MXF) |Sì |
 | DVCPro/DVCProHD (in MXF) |Sì |
@@ -82,7 +82,7 @@ oppure
 
 ## <a name="input-audio-codecs"></a>Codec audio di input
 | Codec audio di input | Supportato |
-| --- | --- | --- | --- |
+| --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |Sì |
 | MPEG Layer 2 |Sì |
 | MP3 (MPEG-1 Audio Layer 3) |Sì |

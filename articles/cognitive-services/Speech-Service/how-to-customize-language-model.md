@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 57d112cfce00839f1381dc41d24bfb697179b5a4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8276b86df2dc1bc90fc07da262aa0979f7562619
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878681"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548490"
 ---
 # <a name="tutorial-create-a-custom-language-model"></a>Esercitazione: Creare un modello linguistico personalizzato
 
@@ -59,7 +59,7 @@ Nella tabella seguente sono riassunti i requisiti principali per i dati linguist
 | N. di espressioni per riga | 1 |
 | Dimensione massima dei file | 1,5 GB |
 | Osservazioni | Evitare di ripetere i caratteri più di quattro volte, ad esempio "aaaaa"|
-| Osservazioni | Non inserire caratteri speciali come "\t" o altri caratteri UTF-8 successivi a U+00A1 nella [tabella dei caratteri Unicode](http://www.utf8-chartable.de/)|
+| Osservazioni | Non inserire caratteri speciali come "\t" o altri caratteri UTF-8 successivi a U+00A1 nella [tabella dei caratteri Unicode](https://www.utf8-chartable.de/)|
 | Osservazioni | anche gli URI verranno rifiutati in quanto non esiste un modo univoco per pronunciarli|
 
 Quando viene importato, il testo viene normalizzato per poter essere elaborato dal sistema. Tuttavia, esistono alcune importanti normalizzazioni da effettuare _prima_ di caricare i dati. Vedere [Linee guida per la trascrizione](prepare-transcription.md) per determinare la lingua corretta da usare per preparare i dati linguistici.

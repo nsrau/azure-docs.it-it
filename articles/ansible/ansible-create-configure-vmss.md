@@ -1,19 +1,19 @@
 ---
 title: Crea set di scalabilità di macchine virtuali in Azure con Ansible
 description: Informazioni su come usare Ansible per creare e configurare un set di scalabilità di macchine virtuali Linux in Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, macchina virtuale, set di scalabilità di macchine virtuali, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/24/2018
-ms.openlocfilehash: 920a631ed379651751641c22e4b43f6731197377
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 1176987ab318a97a7db6a12e619e7b7db06ad2da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54054159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097890"
 ---
 # <a name="create-virtual-machine-scale-sets-in-azure-using-ansible"></a>Crea set di scalabilità di macchine virtuali in Azure con Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire il set di scalabilità di macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa di Azure. Questo articolo illustra come usare Ansible per creare e scalare orizzontalmente un set di scalabilità di macchine virtuali. 
@@ -276,5 +276,5 @@ I risultati dell'esecuzione del comando in Cloud Shell indicano che ora sono dis
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"] 
 > [Distribuire applicazioni nei set di scalabilità di macchine virtuali tramite Ansible](https://docs.microsoft.com/azure/ansible/ansible-deploy-app-vmss)
-
+> 
 > [Ridimensionare automaticamente un set di scalabilità di macchine virtuali con Ansible](https://docs.microsoft.com/azure/ansible/ansible-auto-scale-vmss)

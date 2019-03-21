@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 04fbbbf0f1ecd280153c5b23fff681808be51998
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 6a62e75fadad14148f5f82da3a213d4b13cbe343
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51259582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122674"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato X.509 usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -25,8 +25,8 @@ Questi passaggi illustrano come simulare un dispositivo X.509 in un computer di 
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
-- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
-- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
 
 Questo articolo descrive le registrazioni singole.
 
@@ -95,15 +95,15 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 6. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazione singola) e fare clic sul pulsante in alto **Add individual enrollment** (Aggiungi registrazione singola). 
 
 7. Nel riquadro **Add Enrollment** (Aggiungi registrazione) immettere le informazioni seguenti:
-    - Selezionare **X.509** come *meccanismo* di attestazione dell'identità.
-    - In *Primary certificate .pem or .cer file* (File di certificato primario con estensione pem o cer) fare clic su *Selezionare un file* per selezionare il file di certificato **X509testcertificate.pem** creato nei passaggi precedenti.
-    - Facoltativamente, è possibile specificare le informazioni seguenti:
-      - Selezionare un hub IoT collegato al servizio di provisioning.
-      - Immettere un ID dispositivo univoco. Assicurarsi di non usare dati sensibili quando si assegna un nome al dispositivo. 
-      - Aggiornare lo **stato iniziale del dispositivo gemello** con la configurazione iniziale desiderata per il dispositivo.
-    - Al termine, fare clic sul pulsante **Save** (Salva). 
+   - Selezionare **X.509** come *meccanismo* di attestazione dell'identità.
+   - In *Primary certificate .pem or .cer file* (File di certificato primario con estensione pem o cer) fare clic su *Selezionare un file* per selezionare il file di certificato **X509testcertificate.pem** creato nei passaggi precedenti.
+   - Facoltativamente, è possibile specificare le informazioni seguenti:
+     - Selezionare un hub IoT collegato al servizio di provisioning.
+     - Immettere un ID dispositivo univoco. Assicurarsi di non usare dati sensibili quando si assegna un nome al dispositivo. 
+     - Aggiornare lo **stato iniziale del dispositivo gemello** con la configurazione iniziale desiderata per il dispositivo.
+   - Al termine, fare clic sul pulsante **Save** (Salva). 
 
-    [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
+     [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/python-quick-create-simulated-device-x509/device-enrollment.png)](./media/python-quick-create-simulated-device-x509/device-enrollment.png#lightbox)
 
    Al termine della registrazione, il dispositivo X.509 verrà visualizzato come **riot-device-cert** nella colonna *ID registrazione* della scheda *Registrazioni singole*. 
 
@@ -120,8 +120,8 @@ Si userà il codice di esempio da Azure IoT C SDK per creare il certificato da u
 
 3. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) per compilare i pacchetti Python.
 
-    > [!NOTE]
-        > Se si usa `pip`, assicurarsi di installare anche il pacchetto `azure-iot-provisioning-device-client`.
+   > [!NOTE]
+   > Se si usa `pip`, assicurarsi di installare anche il pacchetto `azure-iot-provisioning-device-client`.
 
 4. Passare alla cartella degli esempi.
 

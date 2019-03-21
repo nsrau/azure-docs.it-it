@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 9db223075284b02de1cf3de8cfa7a0b5aa35f286
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
+ms.openlocfilehash: a6fe5b0452771cd2e618d1a08cb2f4af52e3cc0d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754221"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57538689"
 ---
 # <a name="tutorial-run-a-parallel-workload-with-azure-batch-using-the-net-api"></a>Esercitazione: Eseguire un carico di lavoro parallelo con Azure Batch usando l'API .NET
 
@@ -31,7 +31,7 @@ Usare Azure Batch per eseguire in modo efficiente processi batch paralleli e HPC
 > * Monitorare l'esecuzione delle attività
 > * Recuperare i file di output
 
-In questa esercitazione file multimediali MP4 vengono convertiti in parallelo in formato MP3 usando lo strumento open source [ffmpeg](http://ffmpeg.org/). 
+In questa esercitazione file multimediali MP4 vengono convertiti in parallelo in formato MP3 usando lo strumento open source [ffmpeg](https://ffmpeg.org/). 
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

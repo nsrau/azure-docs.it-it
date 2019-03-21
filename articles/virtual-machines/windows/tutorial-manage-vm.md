@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/28/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: a2e056baa2dd27ca0bf054d0dacf15d35e0ef384
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 94858a147dc0383376a54bc94685d855d37e12d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977925"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991202"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>Esercitazione: Creare e gestire VM Windows con Azure PowerShell
 
@@ -180,6 +180,7 @@ La dimensione di VM determina la quantità di risorse di calcolo, come CPU, GPU 
 ### <a name="vm-sizes"></a>Dimensioni delle VM
 
 La tabella seguente classifica le dimensioni a seconda dei casi d'uso.  
+
 | Type                     | Dimensioni comuni           |    DESCRIZIONE       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Utilizzo generico](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Rapporto equilibrato tra CPU e memoria. Soluzione ideale per sviluppo/test e soluzioni di dati e applicazioni medio-piccole.  |

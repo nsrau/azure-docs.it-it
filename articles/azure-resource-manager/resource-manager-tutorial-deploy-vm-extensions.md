@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9361c8b17d1b43b4ef63aca6ab4660571efddcde
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: a40619000998d7222781094db2829aabcc6a7fb2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492788"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100769"
 ---
 # <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Esercitazione: Distribuire le estensioni di macchina virtuale con i modelli di Azure Resource Manager
 
@@ -68,13 +68,13 @@ I modelli di avvio rapido di Azure costituiscono un repository di modelli di Res
 1. Selezionare **Apri** per aprire il file.  
     Il modello definisce cinque risorse:
 
-    * **Microsoft.Storage/storageAccounts**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * **Microsoft.Network/publicIPAddresses**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * **Microsoft.Network/virtualNetworks**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * **Microsoft.Network/networkInterfaces**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * **Microsoft.Compute/virtualMachines**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * **Microsoft.Storage/storageAccounts**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * **Microsoft.Network/publicIPAddresses**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * **Microsoft.Network/virtualNetworks**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * **Microsoft.Network/networkInterfaces**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * **Microsoft.Compute/virtualMachines**. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
+     Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
 
 1. Salvare una copia del file nel computer locale con il nome *azuredeploy.json* selezionando **File** > **Salva con nome**.
 
@@ -108,7 +108,7 @@ Aggiungere una risorsa estensione di macchina virtuale al modello esistente con 
 
 Per altre informazioni su questa definizione di risorsa, vedere il [materiale di riferimento dell'estensione](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Di seguito sono illustrati alcuni elementi importanti.
 
-* **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Risorse figlio](./resource-manager-templates-resources.md#child-resources).
+* **name**: dato che la risorsa estensione è una risorsa figlio dell'oggetto macchina virtuale, il nome deve includere il nome della macchina virtuale come prefisso. Vedere [Risorse figlio](./resource-group-authoring-templates.md#child-resources).
 * **dependsOn**: creare la risorsa estensione dopo aver creato la macchina virtuale.
 * **fileUris**: posizioni in cui risiedono i file di script. Se si sceglie di non usare la posizione indicata, è necessario aggiornare i valori.
 * **commandToExecute**: questo comando avvia lo script.  

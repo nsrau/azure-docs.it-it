@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 9a94f76e2d1fe930d2d6d43e81a756f0cb15d23d
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 8413044beff68390dbccdf16c4477e113a85f81b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58125049"
 ---
 ## <a name="create-the-webapi-project"></a>Creare il progetto WebAPI
 
@@ -55,7 +55,7 @@ Creare un nuovo back-end WebAPI ASP.NET eseguendo le azioni seguenti:
     * Selezionare un piano di servizio app creato in precedenza.
     * Selezionare **Crea un nuovo piano di servizio app** e quindi creare un piano.
 
-  Per questa esercitazione non è necessario disporre di un database. Dopo aver selezionato il piano di servizio app, fare clic su **OK** per creare il progetto.
+   Per questa esercitazione non è necessario disporre di un database. Dopo aver selezionato il piano di servizio app, fare clic su **OK** per creare il progetto.
 
     ![Finestra Configura app Web di Microsoft Azure][B5]
 
@@ -84,9 +84,9 @@ In questa sezione si crea una nuova classe del gestore di messaggi denominata **
    * La richiesta usa l'autenticazione *di base* .
    * La stringa del nome utente corrisponde alla stringa della password.
 
-  In caso contrario, la richiesta viene rifiutata. Non si tratta di un vero approccio di autenticazione e autorizzazione. È solo un esempio semplice per questa esercitazione.
+   In caso contrario, la richiesta viene rifiutata. Non si tratta di un vero approccio di autenticazione e autorizzazione. È solo un esempio semplice per questa esercitazione.
 
-  Se il messaggio di richiesta viene autenticato e autorizzato da `AuthenticationTestHandler`, l'utente dell'autenticazione di base viene associato alla richiesta corrente in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Le informazioni utente in HttpContext verranno usate da un altro controller (RegisterController) in un secondo momento per aggiungere un [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) alla richiesta di registrazione per le notifiche.
+   Se il messaggio di richiesta viene autenticato e autorizzato da `AuthenticationTestHandler`, l'utente dell'autenticazione di base viene associato alla richiesta corrente in [HttpContext](https://msdn.microsoft.com/library/system.web.httpcontext.current.aspx). Le informazioni utente in HttpContext verranno usate da un altro controller (RegisterController) in un secondo momento per aggiungere un [tag](https://msdn.microsoft.com/library/azure/dn530749.aspx) alla richiesta di registrazione per le notifiche.
 
     ```csharp
     public class AuthenticationTestHandler : DelegatingHandler

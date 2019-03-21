@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 4b4706baa5148bba955a980b6184e0747f023066
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1d6f4bb2bda550c72566243b2d2d98b1685e9147
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875094"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119803"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-python"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per Python
 
@@ -86,4 +86,4 @@ else:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-[Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)
+> [Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)

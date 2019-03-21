@@ -10,14 +10,14 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e3bb00cee679671ed382ee46690fc4dff8bddfb
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: b02259e2eaf497fb1bfefc4c1ed7611a22394d48
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453886"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894190"
 ---
-# <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse nel portale di Azure
+## <a name="quickstart-scale-compute-in-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Aumentare il numero delle risorse di calcolo in Azure SQL Data Warehouse nel portale di Azure
 
 È possibile ridimensionare le risorse di calcolo in Azure SQL Data Warehouse dal portale di Azure, [aumentandone il numero](sql-data-warehouse-manage-compute-overview.md) per ottenere prestazioni migliori o riducendolo per diminuire i costi. 
 

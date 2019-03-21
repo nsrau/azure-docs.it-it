@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/19/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 2c16e82ccf259a4cc5ae8fcf35b2dd6b5d50ee2d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0b3af1bd7b3ab48074432d9e39552d72c6664b98
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38740575"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124732"
 ---
 Durante la distribuzione delle risorse in Azure, è possibile avere una notevole flessibilità al momento di decidere quali tipi di risorse distribuire, dove posizionarle e come configurarle. Tuttavia, tale flessibilità potrebbe rendere disponibili più opzioni rispetto a quelle che devono essere consentite nell'organizzazione. Quando si valuta la distribuzione delle risorse in Azure, ci si potrebbe chiedere:
 
@@ -25,9 +25,9 @@ Durante la distribuzione delle risorse in Azure, è possibile avere una notevole
 In questo articolo vengono illustrate le risposte a tali domande. In particolare, verrà descritto come:
 
 > [!div class="checklist"]
-* Assegnare utenti ai ruoli e assegnare i ruoli a un ambito in modo che gli utenti dispongano dell'autorizzazione per eseguire le azioni previste, ma non altre azioni.
-* Applicare criteri che definiscono convenzioni per le risorse nella sottoscrizione.
-* Bloccare le risorse di importanza critica per il sistema.
-* Aggiungere tag alle risorse in modo da tenerne traccia tramite valori significativi per l'organizzazione.
+> * Assegnare utenti ai ruoli e assegnare i ruoli a un ambito in modo che gli utenti dispongano dell'autorizzazione per eseguire le azioni previste, ma non altre azioni.
+> * Applicare criteri che definiscono convenzioni per le risorse nella sottoscrizione.
+> * Bloccare le risorse di importanza critica per il sistema.
+> * Aggiungere tag alle risorse in modo da tenerne traccia tramite valori significativi per l'organizzazione.
 
 Questo articolo è incentrato sulle attività da eseguire per implementare la governance. Per una discussione più ampia dei concetti, vedere [Governance in Azure](../articles/security/governance-in-azure.md). 

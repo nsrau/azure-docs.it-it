@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 0b4e7165f30364ba61b583cf5d2f55e8826b9cf3
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 90004c27463a61de1b36eaea6754215f911f7483
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092126"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095858"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
 
@@ -75,16 +75,16 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
 
 - **Dettagli dell'ordine** - Dopo aver creato l'ordine, l'indirizzo di spedizione, l'indirizzo di posta elettronica e le informazioni di contatto degli utenti vengono archiviate nel portale di Azure. Le informazioni salvate includono:
 
-    - Nome del contatto
-    - Numero di telefono
-    - Email
-    - Indirizzo
-    - city
-    - CAP
-    - Stato
-    - Paese/provincia/area geografica
-    - Numero di account del vettore
-    - Numero di tracciabilità della spedizione
+  - Nome del contatto
+  - Numero di telefono
+  - Email
+  - Indirizzo
+  - city
+  - CAP
+  - Stato
+  - Paese/provincia/area geografica
+  - Numero di account del vettore
+  - Numero di tracciabilità della spedizione
 
     Al termine del processo o quando si elimina l'ordine, i dettagli dell'ordine vengono eliminati dal servizio Data Box.
 
@@ -99,11 +99,11 @@ In Data Box sono implementate le seguenti linee guida sulla sicurezza:
 
 |Linee guida   |DESCRIZIONE   |
 |---------|---------|
-|[IEC 60529 IP52](http://www.iec.ch/)    | Per la protezione da acqua e polvere         |
+|[IEC 60529 IP52](https://www.iec.ch/)    | Per la protezione da acqua e polvere         |
 |[ISTA 2A](https://ista.org/docs/2Aoverview.pdf)     | Per la resistenza a condizioni di trasporto avverse          |
-|[NIST SP 800-147](http://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Per l'aggiornamento protetto del firmware         |
+|[NIST SP 800-147](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-147.pdf)      | Per l'aggiornamento protetto del firmware         |
 |[FIPS 140-2 livello 2](https://csrc.nist.gov/csrc/media/publications/fips/140/2/final/documents/fips1402.pdf)      | Per la protezione dei dati         |
-|[NIST SP 800-88r1](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Per la bonifica dei dati         |
+|[NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf)      | Per la bonifica dei dati         |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

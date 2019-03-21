@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3904a59a3462d7d83f976583bd7e714763af2c69
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: c3a7c089bcc6dca2379c84330d3b937b9c7f1167
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446733"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57450274"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-by-using-the-rest-api"></a>Avvio rapido: Creare una data factory di Azure e una pipeline usando l'API REST
 
@@ -34,10 +34,12 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile creare un account di [valutazione gratuito](https://azure.microsoft.com/pricing/free-trial/).
 * **Account di archiviazione di Azure**. Usare l'archivio BLOB come archivio dati di **origine** e **sink**. Se non si ha un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md) per informazioni su come crearne uno.
 * Creare un **contenitore BLOB** in Archiviazione BLOB, creare una **cartella** di input nel contenitore e caricare alcuni file nella cartella. È possibile usare strumenti come [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi all'archivio BLOB di Azure, creare un contenitore BLOB, caricare il file di input e verificare il file di output.
-* Installare **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Questa guida introduttiva usa PowerShell per richiamare le chiamate API REST.
+* Installare **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Questa guida introduttiva usa PowerShell per richiamare le chiamate API REST.
 * **Creare un'applicazione in Azure Active Directory** seguendo [queste istruzioni](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Annotare i valori seguenti, da usare nei passaggi successivi: **ID applicazione**, **chiave di autenticazione** e **ID tenant**. Assegnare l'applicazione al ruolo **Collaboratore**.
 
 ## <a name="set-global-variables"></a>Configurare le variabili globali
@@ -47,17 +49,17 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:
     
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
     Eseguire questo comando per visualizzare tutte le sottoscrizioni per l'account:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire **SubscriptionId** con l'ID della sottoscrizione di Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
 2. Eseguire i comandi seguenti dopo aver sostituito i segnaposto con i propri valori, per impostare le variabili globali da usare nei passaggi successivi.
 
@@ -438,13 +440,13 @@ Usare Azure Storage Explorer per verificare che i BLOB siano stati copiati in "o
 
 Eseguire il comando seguente per eliminare l'intero gruppo di risorse:
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 Eseguire il comando seguente per eliminare solo la data factory:
 
 ```powershell
-Remove-AzureRmDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
+Remove-AzDataFactoryV2 -Name "<NameOfYourDataFactory>" -ResourceGroupName "<NameOfResourceGroup>"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

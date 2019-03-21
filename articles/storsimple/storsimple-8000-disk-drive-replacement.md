@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 073/2017
+ms.date: 8/25/2017
 ms.author: alkohli
-ms.openlocfilehash: a8616eb51b177a9447a7c466c9d934b9139afedf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 3d6ef22e4df36996d68194589f43ea0f57def22c
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108319"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673924"
 ---
 # <a name="replace-a-disk-drive-on-your-storsimple-8000-series-device"></a>Sostituire un'unità disco del dispositivo StorSimple serie 8000
 
@@ -53,7 +53,7 @@ In questa procedura viene illustrato come i blocchi antimanomissione sul disposi
 2. Ruotare la chiave in senso antiorario fino a quando l'indicatore rosso non è visibile nell'apertura sopra la chiave.
 3. Rimuovere la chiave.
    
-    ![Unità disco sbloccata](./media/storsimple-disk-drive-replacement/IC741057.png)
+    ![ Unità disco sbloccata](./media/storsimple-disk-drive-replacement/IC741057.png)
    
     **Figura 2** Unità disco sbloccata
 4. È ora possibile rimuovere l'unità disco.

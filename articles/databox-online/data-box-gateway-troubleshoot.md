@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: overview
 ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: e6042d9a1d6dc0e737fb4cf7e55d2c6938f9b0f4
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961049"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100854"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Risolvere i problemi di Azure Data Box Gateway 
 
@@ -67,16 +67,16 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
 
 2. Fare clic sulla cartella _Microsoft Data Box Gateway_. Questa cartella contiene due sottocartelle:
 
-    - Una cartella di caricamento contenente i file di log per gli errori di caricamento
-    - Una cartella di aggiornamento per gli errori durante l'aggiornamento
+   - Una cartella di caricamento contenente i file di log per gli errori di caricamento
+   - Una cartella di aggiornamento per gli errori durante l'aggiornamento
 
-    Ecco come appare un file di log per l'aggiornamento:
+     Ecco come appare un file di log per l'aggiornamento:
 
-    ```
-    <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
-    <file item="test.txt" local="False" remote="True" error="16001" />
-    <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
-    ``` 
+     ```
+     <root container="brownbag1" machine="VM15BS020663" timestamp="07/18/2018 00:11:10" />
+     <file item="test.txt" local="False" remote="True" error="16001" />
+     <summary runtime="00:00:00.0945320" errors="1" creates="2" deletes="0" insync="3" replaces="0" pending="9" />
+     ``` 
 
 3. Quando viene visualizzato un errore in questo file (evidenziato nell'esempio), annotare il codice di errore, che in questo caso è 16001. Cercare la descrizione di questo codice di errore con il riferimento di errore seguente.
 

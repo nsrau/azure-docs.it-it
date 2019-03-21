@@ -2,19 +2,19 @@
 title: Creare un cluster di macchine virtuali con Terraform e HCL
 description: Usare Terraform e il linguaggio HCL (HashiCorp Configuration Language) per creare un cluster di macchine virtuali Linux con un servizio di bilanciamento del carico in Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, macchina virtuale, rete, moduli
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2017
-ms.openlocfilehash: a53fee8ee492de4d9eaa8b45a8d4a88e692da02d
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a0358859d6f806a94c529bae2eb6fa9d1ab82963
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54410371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077837"
 ---
 # <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Creare un cluster di macchine virtuali con Terraform e HCL
 
@@ -46,30 +46,30 @@ In questa sezione vengono generati un'entità servizio di Azure e due file di co
 
 5. Copiare il codice seguente nel file di dichiarazione delle variabili:
 
-  ```tf
-  variable subscription_id {}
-  variable tenant_id {}
-  variable client_id {}
-  variable client_secret {}
+   ```tf
+   variable subscription_id {}
+   variable tenant_id {}
+   variable client_id {}
+   variable client_secret {}
   
-  provider "azurerm" {
+   provider "azurerm" {
       subscription_id = "${var.subscription_id}"
       tenant_id = "${var.tenant_id}"
       client_id = "${var.client_id}"
       client_secret = "${var.client_secret}"
-  }
-  ```
+   }
+   ```
 
 6. Creare un nuovo file che contiene i valori per le variabili Terraform. È uso comune denominare il file delle variabili Terraform `terraform.tfvars` in quanto Terraform carica automaticamente qualsiasi file denominato `terraform.tfvars` (o che segue un modello di `*.auto.tfvars`) se presente nella directory corrente. 
 
 7. Copiare il codice seguente nel file di dichiarazione delle variabili. Assicurarsi di sostituire i segnaposto come segue: Per `subscription_id`, usare l'ID sottoscrizione di Azure specificato durante l'esecuzione di `az account set`. Per `tenant_id`, usare il valore `tenant` restituito da `az ad sp create-for-rbac`. Per `client_id`, usare il valore `appId` restituito da `az ad sp create-for-rbac`. Per `client_secret`, usare il valore `password` restituito da `az ad sp create-for-rbac`.
 
-  ```tf
-  subscription_id = "<azure-subscription-id>"
-  tenant_id = "<tenant-returned-from-creating-a-service-principal>"
-  client_id = "<appId-returned-from-creating-a-service-principal>"
-  client_secret = "<password-returned-from-creating-a-service-principal>"
-  ```
+   ```tf
+   subscription_id = "<azure-subscription-id>"
+   tenant_id = "<tenant-returned-from-creating-a-service-principal>"
+   client_id = "<appId-returned-from-creating-a-service-principal>"
+   client_secret = "<password-returned-from-creating-a-service-principal>"
+   ```
 
 ## <a name="2-create-a-terraform-configuration-file"></a>2. Creare un file di configurazione Terraform
 
@@ -79,34 +79,34 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
 
 2. Copiare le definizioni delle risorse di esempio seguenti nel file `main.tf` appena creato: 
 
-  ```tf
-  resource "azurerm_resource_group" "test" {
+   ```tf
+   resource "azurerm_resource_group" "test" {
     name     = "acctestrg"
     location = "West US 2"
-  }
+   }
 
-  resource "azurerm_virtual_network" "test" {
+   resource "azurerm_virtual_network" "test" {
     name                = "acctvn"
     address_space       = ["10.0.0.0/16"]
     location            = "${azurerm_resource_group.test.location}"
     resource_group_name = "${azurerm_resource_group.test.name}"
-  }
+   }
 
-  resource "azurerm_subnet" "test" {
+   resource "azurerm_subnet" "test" {
     name                 = "acctsub"
     resource_group_name  = "${azurerm_resource_group.test.name}"
     virtual_network_name = "${azurerm_virtual_network.test.name}"
     address_prefix       = "10.0.2.0/24"
-  }
+   }
 
-  resource "azurerm_public_ip" "test" {
+   resource "azurerm_public_ip" "test" {
     name                         = "publicIPForLB"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
     public_ip_address_allocation = "static"
-  }
+   }
 
-  resource "azurerm_lb" "test" {
+   resource "azurerm_lb" "test" {
     name                = "loadBalancer"
     location            = "${azurerm_resource_group.test.location}"
     resource_group_name = "${azurerm_resource_group.test.name}"
@@ -115,15 +115,15 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
       name                 = "publicIPAddress"
       public_ip_address_id = "${azurerm_public_ip.test.id}"
     }
-  }
+   }
 
-  resource "azurerm_lb_backend_address_pool" "test" {
+   resource "azurerm_lb_backend_address_pool" "test" {
     resource_group_name = "${azurerm_resource_group.test.name}"
     loadbalancer_id     = "${azurerm_lb.test.id}"
     name                = "BackEndAddressPool"
-  }
+   }
 
-  resource "azurerm_network_interface" "test" {
+   resource "azurerm_network_interface" "test" {
     count               = 2
     name                = "acctni${count.index}"
     location            = "${azurerm_resource_group.test.location}"
@@ -135,9 +135,9 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
       private_ip_address_allocation = "dynamic"
       load_balancer_backend_address_pools_ids = ["${azurerm_lb_backend_address_pool.test.id}"]
     }
-  }
+   }
 
-  resource "azurerm_managed_disk" "test" {
+   resource "azurerm_managed_disk" "test" {
     count                = 2
     name                 = "datadisk_existing_${count.index}"
     location             = "${azurerm_resource_group.test.location}"
@@ -145,18 +145,18 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
     storage_account_type = "Standard_LRS"
     create_option        = "Empty"
     disk_size_gb         = "1023"
-  }
+   }
 
-  resource "azurerm_availability_set" "avset" {
+   resource "azurerm_availability_set" "avset" {
     name                         = "avset"
     location                     = "${azurerm_resource_group.test.location}"
     resource_group_name          = "${azurerm_resource_group.test.name}"
     platform_fault_domain_count  = 2
     platform_update_domain_count = 2
     managed                      = true
-  }
+   }
 
-  resource "azurerm_virtual_machine" "test" {
+   resource "azurerm_virtual_machine" "test" {
     count                 = 2
     name                  = "acctvm${count.index}"
     location              = "${azurerm_resource_group.test.location}"
@@ -215,8 +215,8 @@ In questa sezione viene creato un file che contiene le definizioni delle risorse
     tags {
       environment = "staging"
     }
-  }
-  ```
+   }
+   ```
 
 ## <a name="3-initialize-terraform"></a>3. Inizializzare Terraform 
 

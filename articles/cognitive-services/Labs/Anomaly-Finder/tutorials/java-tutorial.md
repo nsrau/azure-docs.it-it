@@ -10,12 +10,12 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: wenya
-ms.openlocfilehash: 8f087e07bbf5033698b18b4349c4d13e862a1555
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: ba66c96f9129b253fc5897c3a2eaaefb53056cea
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55223341"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548729"
 ---
 # <a name="tutorial-anomaly-detection-with-java-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione Java
 
@@ -28,7 +28,7 @@ Nell'esempio vengono inviati i dati di una serie temporale all'API Rilevamento a
 
 ### <a name="platform-requirements"></a>Requisiti di piattaforma
 
-Questa esercitazione è stata sviluppata usando [IntelliJ IDEA](https://www.jetbrains.com/idea). È necessario installare anche [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versione 1.8 + e uno strumento di compilazione aggiornato [Apache's Maven](http://maven.apache.org/).
+Questa esercitazione è stata sviluppata usando [IntelliJ IDEA](https://www.jetbrains.com/idea). È necessario installare anche [Java Development Kit (JDK)](https://aka.ms/azure-jdks) versione 1.8 + e uno strumento di compilazione aggiornato [Apache's Maven](https://maven.apache.org/).
 
 ### <a name="subscribe-to-anomaly-detection-and-get-a-subscription-key"></a>Sottoscrivere Rilevamento anomalie e ottenere una chiave di sottoscrizione 
 

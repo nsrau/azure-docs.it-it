@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/11/2018
-ms.openlocfilehash: 9bd601aee87ab0776069c80bfdeffb70b06c3c86
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54073884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092294"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Eseguire la distribuzione nel servizio Azure Kubernetes usando Jenkins e il modello di distribuzione di tipo blu-verde
 
@@ -104,7 +104,7 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
-1. Creare il cluster Kubernetes. Sostituire il segnaposto &lt;your-resource-group-name > con il nome del gruppo di risorse creato nel passaggio precedente e sostituire &lt;your-kubernetes-cluster-name> con il nome del nuovo cluster. Il processo può richiedere alcuni minuti.
+1. Creare il cluster del servizio Azure Kubernetes. Sostituire il segnaposto &lt;your-resource-group-name > con il nome del gruppo di risorse creato nel passaggio precedente e sostituire &lt;your-kubernetes-cluster-name> con il nome del nuovo cluster. Il processo può richiedere alcuni minuti.
 
     ```bash
     az aks create -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --generate-ssh-keys --node-count 2
@@ -117,12 +117,12 @@ Per creare un cluster Kubernetes gestito con l'[interfaccia della riga di comand
 #### <a name="set-up-the-kubernetes-cluster-via-the-sample-setup-script"></a>Configurare il cluster Kubernetes tramite lo script di configurazione di esempio
 1. Modificare il file **deploy/aks/setup/setup.sh** sostituendo i segnaposto seguenti con i valori appropriati per l'ambiente: 
 
-    - **&lt;your-resource-group-name>**
-    - **&lt;your-kubernetes-cluster-name>**
-    - **&lt;your-location>**
-    - **&lt;your-dns-name-suffix>**
+   - **&lt;your-resource-group-name>**
+   - **&lt;your-kubernetes-cluster-name>**
+   - **&lt;your-location>**
+   - **&lt;your-dns-name-suffix>**
 
-    ![Screenshot script setup.sh in bash, con diversi segnaposto evidenziati](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
+     ![Screenshot script setup.sh in bash, con diversi segnaposto evidenziati](./media/jenkins-aks-blue-green-deployment/edit-setup-script.png)
 
 1. Eseguire lo script di configurazione.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, C# (UWP) - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Traduzione vocale, C# (UWP) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione di piattaforma UWP (Universal Windows Platform) per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: bb0296098d0717e95e9aa1d73229d59709d13766
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6195d9c978ccb7d9ff16454cbff9f46dbe08dbb8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106087"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57871765"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Avvio rapido: Traduzione vocale con Speech SDK per C# (UWP)
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-c-uwp"></a>Guida introduttiva: Traduzione vocale con Speech SDK per C# (UWP)
 
 In questa guida introduttiva si creerà una semplice applicazione di piattaforma UWP (Universal Windows Platform) per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. L'applicazione è progettata per l'esecuzione in Windows a 64 bit e si basa sul pacchetto [NuGet Speech SDK](https://aka.ms/csspeech/nuget) e su Microsoft Visual Studio 2017.
 

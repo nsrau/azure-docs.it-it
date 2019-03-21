@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7db08cde0df1ba3d9bc227758ab3ad00c1fc422
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 2f569b497afe01db0fc4c3aa29589e6f2c538faf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207371"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108662"
 ---
 # <a name="quickstart-set-up-a-dev-environment"></a>Guida introduttiva: Configurare un ambiente di sviluppo
 
@@ -55,8 +55,8 @@ Molti sviluppatori dispongono già di tenant attraverso sottoscrizioni o servizi
 
 > [!TIP]
 > Se è necessario individuare l'ID tenant, è possibile:
-* Passare il mouse sul nome dell'account per ottenere l'ID directory/tenant oppure
-* Selezionare **Azure Active Directory > Proprietà > ID directory** nel portale di Azure.
+> * Passare il mouse sul nome dell'account per ottenere l'ID directory/tenant oppure
+> * Selezionare **Azure Active Directory > Proprietà > ID directory** nel portale di Azure.
 
 Se all'account non è associato un tenant, verrà visualizzato un GUID sotto il nome dell'account e non sarà possibile eseguire operazioni come la registrazione di app finché non si applica la procedura descritta nella sezione seguente.
 

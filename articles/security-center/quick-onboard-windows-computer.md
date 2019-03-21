@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3cc6cdb84b2c77b15b79c7d6a04cc7c6ae0721e5
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: bee4618ff08c89bbdab7413ca7f7f74a266d96dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115862"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077905"
 ---
-# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guida introduttiva: Onboarding di computer Windows in Centro sicurezza di Azure
+# <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Avvio rapido: Onboarding di computer Windows in Centro sicurezza di Azure
 Dopo l'onboarding delle sottoscrizioni di Azure, è possibile abilitare il Centro sicurezza per le risorse in esecuzione all'esterno di Azure, ad esempio in locale o in altri cloud, effettuando il provisioning di Microsoft Monitoring Agent.
 
 Questa Guida introduttiva illustra come installare Microsoft Monitoring Agent in un computer Windows.
@@ -37,7 +37,7 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
 
- ![Panoramica del Centro sicurezza di Azure][2]
+   ![Panoramica del Centro sicurezza di Azure][2]
 
 3. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
 4. Selezionare la scheda **Introduzione**.
@@ -48,13 +48,13 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 
     ![Aggiungere computer non Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
-  Il pannello **Agente diretto** si apre con un collegamento per scaricare un agente Windows e le chiavi per l'ID dell'area di lavoro da usare nella configurazione dell'agente.
+   Il pannello **Agente diretto** si apre con un collegamento per scaricare un agente Windows e le chiavi per l'ID dell'area di lavoro da usare nella configurazione dell'agente.
 
-6.  Selezionare il collegamento **Scarica agente Windows** applicabile al tipo di processore del computer per scaricare il file di installazione.
+6. Selezionare il collegamento **Scarica agente Windows** applicabile al tipo di processore del computer per scaricare il file di installazione.
 
-7.  A destra di **ID area di lavoro** selezionare l'icona di copia e incollare l'ID nel Blocco note.
+7. A destra di **ID area di lavoro** selezionare l'icona di copia e incollare l'ID nel Blocco note.
 
-8.  A destra di **Chiave primaria** selezionare l'icona di copia e incollare la chiave nel Blocco note.
+8. A destra di **Chiave primaria** selezionare l'icona di copia e incollare la chiave nel Blocco note.
 
 ## <a name="install-the-agent"></a>Installare l'agente
 Ora è necessario installare il file scaricato nel computer di destinazione.
@@ -68,7 +68,7 @@ Ora è necessario installare il file scaricato nel computer di destinazione.
 7. Se il computer deve fare riferimento a un'area di lavoro di Log Analytics nel cloud di Azure per enti pubblici, selezionare **Azure per enti pubblici statunitensi** nell'elenco a discesa **Cloud di Azure**.  Se il computer deve comunicare tramite un server proxy con il servizio Log Analytics, scegliere **Avanzate** e specificare l'URL e il numero di porta del server proxy.
 8. Scegliere **Avanti** dopo aver specificato le impostazioni di configurazione necessarie.
 
-  ![Installare l'agente][5]
+   ![Installare l'agente][5]
 
 9. Nella pagina **Pronto per l'installazione** rivedere le scelte effettuate e quindi scegliere **Installa**.
 10. Nella pagina **Configurazione completata** scegliere **Fine**

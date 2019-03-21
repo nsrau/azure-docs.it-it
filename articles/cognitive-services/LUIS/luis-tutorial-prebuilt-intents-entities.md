@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: cf16f27a8d39871491b7cf46a509b9714a669667
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 87e006cc5d56e0c7eb5455147c5ce9eb40afc162
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086616"
 ---
 # <a name="tutorial-identify-common-intents-and-entities"></a>Esercitazione: Identificare finalità ed entità comuni
 
@@ -55,13 +55,13 @@ LUIS fornisce diverse finalità predefinite per le intenzioni comuni degli utent
 
 1. Selezionare le finalità seguenti e quindi scegliere **Done** (Fine): 
 
-    * Utilities.Cancel
-    * Utilities.Confirm
-    * Utilities.Help
-    * Utilities.StartOver
-    * Utilities.Stop
+   * Utilities.Cancel
+   * Utilities.Confirm
+   * Utilities.Help
+   * Utilities.StartOver
+   * Utilities.Stop
 
-    Queste finalità sono utili a determinare in quale punto della conversazione si trova l'utente e cosa sta chiedendo di fare. 
+     Queste finalità sono utili a determinare in quale punto della conversazione si trova l'utente e cosa sta chiedendo di fare. 
 
 
 ## <a name="add-prebuilt-entities-to-help-with-common-data-type-extraction"></a>Aggiungere entità predefinite per aiutare nell'estrazione del tipo di dati comune
@@ -74,12 +74,12 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 1. Selezionare le entità seguenti dall'elenco delle entità predefinite e quindi selezionare **Done** (Fine):
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
-    * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[GeographyV2](luis-reference-prebuilt-geographyV2.md)**
 
-    ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
+     ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-tutorial-prebuilt-intents-and-entities/select-prebuilt-entities.png)
 
-    Queste entità consentono di aggiungere il riconoscimento di nome e posizione all'applicazione client.
+     Queste entità consentono di aggiungere il riconoscimento di nome e posizione all'applicazione client.
 
 ## <a name="add-example-utterances-to-the-none-intent"></a>Aggiungere espressioni di esempio alla finalità None (Nessuna) 
 

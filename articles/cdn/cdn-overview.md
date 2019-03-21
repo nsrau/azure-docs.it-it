@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 05/09/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: bdc98a87a71dc7f8552f4bf869ec035409e0535e
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 9692d495ada8a311fd5037a4f17f24ed6da9243a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091539"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843675"
 ---
 # <a name="what-is-a-content-delivery-network-on-azure"></a>Definizione di rete per la distribuzione di contenuti
 Una rete per la distribuzione di contenuti (CDN) è una rete di server distribuita in grado di fornire contenuti Web agli utenti in modo efficiente. Per ridurre al minimo la latenza, le reti CDN archiviano il contenuto memorizzato nella cache in server perimetrali presenti in località POP (Point of Presence) prossime agli utenti finali. 
@@ -59,7 +59,7 @@ Ogni sottoscrizione di Azure ha limiti predefiniti per le risorse seguenti:
  - Numero di endpoint che possono essere creati in un profilo CDN. 
  - Numero di domini personalizzati di cui è possibile eseguire il mapping a un endpoint.
 
-Per altre informazioni sui limiti delle sottoscrizioni CDN, vedere [Limiti relativi alla rete CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits#cdn-limits).
+Per altre informazioni sui limiti delle sottoscrizioni CDN, vedere [Limiti relativi alla rete CDN](https://docs.microsoft.com/azure/azure-subscription-service-limits).
     
 ## <a name="azure-cdn-features"></a>Funzionalità della rete CDN di Azure
 La rete CDN di Azure offre le funzionalità chiave seguenti:
@@ -79,4 +79,3 @@ Per un elenco completo delle funzionalità supportate da ogni prodotto della ret
 - Informazioni su come automatizzare la rete CDN di Azure con [.NET](cdn-app-dev-net.md) o [Node.js](cdn-app-dev-node.md).
 - Per vedere la rete CDN di Azure in azione, guardare i [video della rete CDN di Azure](https://azure.microsoft.com/resources/videos/index/?services=cdn&sort=newest).
 - Per informazioni sulle funzionalità più recenti della rete CDN di Azure, vedere il [blog della rete CDN Azure](https://azure.microsoft.com/blog/tag/azure-cdn/).
-

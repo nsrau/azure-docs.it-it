@@ -3,20 +3,20 @@ title: Trasformare dati usando Hive nella rete virtuale di Azure | Microsoft Doc
 description: Questa esercitazione offre istruzioni dettagliate per la trasformazione dei dati tramite l'attività Hive in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
-ms.author: douglasl
-ms.openlocfilehash: e643dc2167457b9dc3183e101e816b3a1eb8f052
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 8ab647a7d97ace0d0f67fa462ada06901184933f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54422458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102993"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che trasforma i dati con un'attività Hive in un cluster HDInsight che si trova in una rete virtuale di Azure. In questa esercitazione vengono completati i passaggi seguenti:
@@ -33,6 +33,9 @@ In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Account di archiviazione di Azure**. Creare uno script Hive e caricarlo nell'archivio di Azure. L'output dello script Hive viene archiviato in questo account di archiviazione. In questo esempio, il cluster HDInsight usa questo account di archiviazione di Azure come risorsa di archiviazione primaria. 
 - **Rete virtuale di Azure.** Se non è disponibile una rete virtuale di Azure, crearla seguendo [queste istruzioni](../virtual-network/quick-create-portal.md). In questo esempio, il cluster HDInsight si trova in una rete virtuale di Azure. Ecco una configurazione di esempio della rete virtuale di Azure. 
 
@@ -40,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 - **Cluster HDInsight.** Creare un cluster HDInsight e aggiungerlo alla rete virtuale creata nel passaggio precedente seguendo questo articolo: [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Ecco una configurazione di esempio di HDInsight in una rete virtuale. 
 
     ![HDInsight in una rete virtuale](media/tutorial-transform-data-using-hive-in-vnet/hdinsight-in-vnet-configuration.png)
-- **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+- **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Caricare lo script Hive nell'account di archiviazione BLOB
 
@@ -64,7 +67,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 3. Creare una cartella denominata **hivescripts**.
 4. Caricare il file **hivescript.hql** nella sottocartella **hivescripts**.
 
- 
+  
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
@@ -93,27 +96,27 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:
         
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
     Eseguire questo comando per visualizzare tutte le sottoscrizioni per l'account:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire **SubscriptionId** con l'ID della sottoscrizione di Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"    
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```  
 3. Creare il gruppo di risorse: ADFTutorialResourceGroup se non esiste già nella sottoscrizione. 
 
     ```powershell
-    New-AzureRmResourceGroup -Name $resourceGroupName -Location "East Us" 
+    New-AzResourceGroup -Name $resourceGroupName -Location "East Us" 
     ```
 4. Creare la data factory. 
 
     ```powershell
-     $df = Set-AzureRmDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
+     $df = Set-AzDataFactoryV2 -Location EastUS -Name $dataFactoryName -ResourceGroupName $resourceGroupName
     ```
 
     Eseguire questo comando per visualizzare l'output: 
@@ -128,13 +131,13 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 1. Creare un runtime di integrazione self-hosted. Usare un nome univoco nel caso esista un altro runtime di integrazione con lo stesso nome.
 
    ```powershell
-   Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
+   Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted
    ```
     Questo comando crea una registrazione logica del runtime di integrazione self-hosted. 
 2. Usare PowerShell per recuperare le chiavi di autenticazione per registrare il runtime di integrazione self-hosted. Copiare una delle chiavi per registrare il runtime di integrazione self-hosted.
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
+   Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName | ConvertTo-Json
    ```
 
    Di seguito è riportato l'output di esempio: 
@@ -233,12 +236,12 @@ In PowerShell passare alla cartella in cui sono stati creati i file JSON ed eseg
 2. Eseguire il comando seguente per creare un servizio collegato Archiviazione di Azure. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyStorageLinkedService" -File "MyStorageLinkedService.json"
     ```
 3. Eseguire il comando seguente per creare un servizio collegato Azure HDInsight. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "MyHDInsightLinkedService" -File "MyHDInsightLinkedService.json"
     ```
 
 ## <a name="author-a-pipeline"></a>Creare una pipeline
@@ -284,7 +287,7 @@ Passare alla cartella in cui sono stati creati i file JSON ed eseguire questo co
 
 
 ```powershell
-Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MyHivePipeline.json"
+Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name $pipelineName -File "MyHivePipeline.json"
 ```
 
 ## <a name="start-the-pipeline"></a>Avviare la pipeline 
@@ -292,13 +295,13 @@ Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGrou
 1. Avviare un'esecuzione della pipeline. Viene anche acquisito l'ID di esecuzione della pipeline per il monitoraggio futuro.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
+    $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName $pipelineName
    ```
 2. Eseguire questo script per verificare costantemente lo stato di esecuzione della pipeline fino al termine.
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if(!$result) {
             Write-Host "Waiting for pipeline to start..." -foregroundcolor "Yellow"

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: kgremban
-ms.openlocfilehash: 7c5030a80ead7e84526e01aa3a8a4a75ee2b276a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 9c84e1a62ad8b67e398c62074c390711f4b0be28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53135016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079998"
 ---
 # <a name="tutorial-send-email-notifications-about-azure-iot-hub-events-using-logic-apps"></a>Esercitazione: Inviare notifiche di posta elettronica sugli eventi dell'hub IoT di Azure usando App per la logica
 
@@ -162,14 +162,14 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
    ![Creare una nuova sottoscrizione di eventi](./media/publish-iot-hub-events-to-logic-apps/event-subscription.png)
 
 4. Creare la sottoscrizione di eventi con i valori seguenti: 
-    * **Tipo di evento**: deselezionare Esegui la sottoscrizione di tutti i tipi di eventi e selezionare **Creati da dispositivo** dal menu.
-    * **Dettagli endpoint**: come Tipo di endpoint selezionare **Webhook**, fare clic su Selezione endpoint, incollare l'URL copiato dall'app per la logica e confermare la selezione.
+   * **Tipo di evento**: deselezionare Esegui la sottoscrizione di tutti i tipi di eventi e selezionare **Creati da dispositivo** dal menu.
+   * **Dettagli endpoint**: come Tipo di endpoint selezionare **Webhook**, fare clic su Selezione endpoint, incollare l'URL copiato dall'app per la logica e confermare la selezione.
 
-    ![URL di Selezione endpoint](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
+     ![URL di Selezione endpoint](./media/publish-iot-hub-events-to-logic-apps/endpoint-url.png)
 
-    * **Dettagli sottoscrizione evento**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**
+   * **Dettagli sottoscrizione evento**: fornire un nome descrittivo e selezionare **Schema Griglia di eventi**
 
-  Al termine, verrà visualizzato un modulo simile all'esempio seguente: 
+   Al termine, verrà visualizzato un modulo simile all'esempio seguente: 
 
     ![Modulo sottoscrizione di eventi di esempio](./media/publish-iot-hub-events-to-logic-apps/subscription-form.png)
 
@@ -177,8 +177,8 @@ In questa sezione viene configurato l'hub IoT per la pubblicazione degli eventi 
 
 6. Creare i filtri seguenti:
 
-  * **L'oggetto inizia con**: immettere `devices/Building1_` per filtrare gli eventi del dispositivo nell'edificio 1.
-  * **L'oggetto termina con**: immettere `_Temperature` per filtrare gli eventi del dispositivo correlati alla temperatura.
+   * **L'oggetto inizia con**: immettere `devices/Building1_` per filtrare gli eventi del dispositivo nell'edificio 1.
+   * **L'oggetto termina con**: immettere `_Temperature` per filtrare gli eventi del dispositivo correlati alla temperatura.
 
 5. Selezionare **Crea** per salvare la sottoscrizione di eventi.
 

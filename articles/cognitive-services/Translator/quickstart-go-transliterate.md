@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 2382bc553a7b27676ae4137933e322822a23c0a6
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fe8b1807ea08529ad6be11493de659bd32f0a129
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738692"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858219"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-transliterate-text-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per traslitterare un testo con Go
 
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -171,7 +171,7 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 [
   {
     "script": "latn",
-    "text": "konnnichiha"
+    "text": "konnichiwa"
   }
 ]
 ```

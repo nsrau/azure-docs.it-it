@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb235ab96ed8a85cbe44dd672dff004dd0a7310
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185317"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007620"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
@@ -146,7 +146,8 @@ In Visual Studio creare una nuova visualizzazione per aggiungere il pulsante di 
 
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
-<!--start-collapse--> Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Pulsante "Accedi con Microsoft"](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md).
+<!--start-collapse-->
+Questa pagina aggiunge un pulsante di accesso in formato SVG con sfondo nero:<br/>![Pulsante "Accedi con Microsoft"](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> Per altri pulsanti di accesso, vedere [Linee guida sulla personalizzazione per le applicazioni](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## <a name="step-7-display-users-claims-by-adding-a-controller"></a>Passaggio 7: Visualizzare le attestazioni dell'utente tramite l'aggiunta di un controller
@@ -300,7 +301,7 @@ Viene visualizzata anche una tabella contenente tutte le attestazioni utente inc
 
 In questo passaggio si testerà l'accesso al controller di attestazioni come utente anonimo:<br/>
 Selezionare il collegamento per la disconnessione dell'utente e completare il processo di disconnessione.<br/>
-Nel browser digitare http://localhost:{port}/claims per accedere al controller protetto con l'attributo `[Authorize]`.
+Nel browser digitare `http://localhost:{port}/claims` per accedere al controller protetto con l'attributo `[Authorize]`.
 
 #### <a name="expected-results"></a>Risultati previsti
 

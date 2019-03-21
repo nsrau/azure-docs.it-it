@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 15ef1905562d04c2732016dfd1340910b3a8f699
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 381eecefbba238e712820a09c8ec489706ef3751
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54900358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106458"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Aggiungere messaggi a una coda di archiviazione di Azure tramite Funzioni
 
@@ -122,7 +122,7 @@ Quando il binding di output viene usato per la prima volta, nell'account di arch
 
 Se Storage Explorer è già stato installato e connesso all'account di archiviazione in uso in questa guida introduttiva, ignorare questa sezione.
 
-2. Eseguire lo strumento [Microsoft Azure Storage Explorer](https://storageexplorer.com/), selezionare l'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e selezionare **Avanti**.
+1. Eseguire lo strumento [Microsoft Azure Storage Explorer](https://storageexplorer.com/), selezionare l'icona di connessione a sinistra, scegliere **Use a storage account name and key** (Usare il nome e la chiave di un account di archiviazione) e selezionare **Avanti**.
 
     ![Eseguire lo strumento di esplorazione dell'account di archiviazione.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-1.png)
 
@@ -140,13 +140,13 @@ Se Storage Explorer è già stato installato e connesso all'account di archiviaz
  
 1. Fare clic sull'icona Mostra/Nascondi accanto a **Chiave account** per visualizzare il valore e quindi copiare il valore di **Chiave account** e incollarlo nella casella **Chiave account** in Storage Explorer.
   
-3. Selezionare **Avanti > Connetti**.
+1. Selezionare **Avanti > Connetti**.
 
    ![Incollare le credenziali di archiviazione ed eseguire la connessione.](./media/functions-integrate-storage-queue-output-binding/functions-storage-manager-connect-2.png)
 
 ### <a name="examine-the-output-queue"></a>Esaminare la coda di output
 
-4. In Storage Explorer selezionare l'account di archiviazione in uso in questa guida rapida.
+1. In Storage Explorer selezionare l'account di archiviazione in uso in questa guida rapida.
 
 1. Espandere il nodo **Code** e quindi selezionare la coda denominata **outqueue**. 
 
@@ -154,7 +154,7 @@ Se Storage Explorer è già stato installato e connesso all'account di archiviaz
 
     ![Messaggio della coda visualizzato in Storage Explorer](./media/functions-integrate-storage-queue-output-binding/function-queue-storage-output-view-queue.png)
 
-2. Eseguire nuovamente la funzione e verrà visualizzato un nuovo messaggio nella coda.  
+1. Eseguire nuovamente la funzione e verrà visualizzato un nuovo messaggio nella coda.  
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

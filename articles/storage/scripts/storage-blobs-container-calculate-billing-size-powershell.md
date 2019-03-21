@@ -15,12 +15,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 11/07/2017
 ms.author: fryu
-ms.openlocfilehash: f1e905b0b67048a10f6eb455d77275375a99dbd0
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 805abec84b26a6b2b9af3dfe318f877f4edb9547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56245406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080897"
 ---
 # <a name="calculate-the-total-billing-size-of-a-blob-container"></a>Calcolare le dimensioni di fatturazione totali di un contenitore BLOB
 
@@ -101,17 +101,17 @@ I dettagli sono indicati di seguito:
 * Per ogni blocco di metadati archiviato aggiungere la lunghezza del nome (archiviato come ASCII) alla lunghezza del valore della stringa.
 
 * Per i BLOB in blocchi:
-    * 8 byte per l'elenco di blocchi.
-    * Il numero di blocchi moltiplicato per le dimensioni dell'ID blocco in byte.
-    * Le dimensioni dei dati in tutti blocchi con commit e senza commit.
+  * 8 byte per l'elenco di blocchi.
+  * Il numero di blocchi moltiplicato per le dimensioni dell'ID blocco in byte.
+  * Le dimensioni dei dati in tutti blocchi con commit e senza commit.
 
     >[!NOTE]
     >Quando vengono usati gli snapshot, questa dimensione include solo i dati univoci per il BLOB di base o il BLOB snapshot. Se i blocchi senza commit non vengono usati dopo una settimana, sono sottoposto a Garbage Collection. In seguito non vengono considerati per la fatturazione.
 
 * Per i BLOB di pagine:
-    * Numero di intervalli di pagine non consecutivi con i dati per 12 byte. Questo è il numero di intervalli di pagine univoche visualizzato quando si chiama l'API **GetPageRanges**.
+  * Numero di intervalli di pagine non consecutivi con i dati per 12 byte. Questo è il numero di intervalli di pagine univoche visualizzato quando si chiama l'API **GetPageRanges**.
 
-    * Le dimensioni dei dati in byte di tutte le pagine archiviate.
+  * Le dimensioni dei dati in byte di tutte le pagine archiviate.
 
     >[!NOTE]
     >Quando vengono usati gli snapshot, questa dimensione include solo le pagine univoche per il BLOB di base o snapshot in fase di conteggio.

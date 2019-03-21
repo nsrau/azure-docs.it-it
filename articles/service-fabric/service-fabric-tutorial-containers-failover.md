@@ -16,14 +16,14 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: b099d1765f0ed56d6768501086bf8b9f83d5a86a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: f5ac1c53a97fc2a3749582c5f48b967e3ce0c2c4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37112270"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104268"
 ---
-# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Esercitazione: illustrare il failover e il ridimensionamento dei servizi contenitore con Service Fabric
+# <a name="tutorial-demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Esercitazione: Illustrare il failover e il ridimensionamento dei servizi contenitore con Service Fabric
 
 Questa è la terza di una serie di esercitazioni. In questa esercitazione si apprenderà come viene gestito il failover nelle applicazioni contenitore di Service Fabric e come ridimensionare i contenitori. In questa esercitazione:
 
@@ -31,7 +31,7 @@ Questa è la terza di una serie di esercitazioni. In questa esercitazione si app
 > * Informazioni sul failover del contenitore in un cluster di Service Fabric
 > * Ridimensionare i contenitori front-end Web in un'applicazione
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 L'applicazione della [parte 2](service-fabric-tutorial-package-containers.md) è ora in esecuzione nel cluster attivo di Service Fabric.
 
@@ -63,8 +63,8 @@ Per scalare il front-end Web, seguire questa procedura:
 
 Ora è possibile scegliere di modificare il numero di istanze del front-end Web.
 
-3. Impostare il numero su **2** e fare clic su **Scale Service** (Ridimensiona servizio).
-4. Fare clic sul nodo **fabric:/TestContainer/azurevotefront** nella visualizzazione albero ed espandere il nodo della partizione (rappresentato da un GUID).
+1. Impostare il numero su **2** e fare clic su **Scale Service** (Ridimensiona servizio).
+1. Fare clic sul nodo **fabric:/TestContainer/azurevotefront** nella visualizzazione albero ed espandere il nodo della partizione (rappresentato da un GUID).
 
 ![sfxscaledone][sfxscaledone]
 

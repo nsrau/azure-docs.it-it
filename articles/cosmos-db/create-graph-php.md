@@ -8,12 +8,12 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: e7ca026d47952721c7aa28de401738ef50b697c6
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: aace9b61ae7625f1d3bbed5181fd88e367ea8f12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586717"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082756"
 ---
 # <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-php-and-the-azure-portal"></a>Avvio rapido: Creare un database a grafo in Azure Cosmos DB usando PHP e il portale di Azure
 
@@ -239,17 +239,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 12. È ora possibile connettere rakesh e ashley. Assicurarsi che il valore **ashley** sia selezionato nell'elenco **Risultati**, quindi fare clic sul pulsante di modifica accanto a **Destinazioni** in basso a destra. Potrebbe essere necessario allargare la finestra per visualizzare l'area **Proprietà**.
 
-   ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-php/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Nella casella **Destinazione** digitare *rakesh* e nella casella **Edge label** (Etichetta arco) digitare *knows*, quindi selezionare la casella di controllo.
 
-   ![Aggiungere una connessione tra ashley e rakesh in Esplora dati](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
+    ![Aggiungere una connessione tra ashley e rakesh in Esplora dati](./media/create-graph-php/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Selezionare ora **rakesh** dall'elenco Risultati. Come si può notare ashley e rakesh sono connessi. 
 
-   ![Due vertici connessi in Esplora dati](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
+    ![Due vertici connessi in Esplora dati](./media/create-graph-php/azure-cosmosdb-graph-explorer.png)
 
-   È stata completata la parte relativa alla creazione delle risorse di questa guida introduttiva. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
+    È stata completata la parte relativa alla creazione delle risorse di questa guida introduttiva. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

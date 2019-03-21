@@ -1,6 +1,6 @@
 ---
-title: Domande frequenti su Password di protezione di Azure AD locale
-description: Domande frequenti su Password di protezione di Azure AD locale
+title: Domande frequenti sulla protezione password di Azure AD locale
+description: Domande frequenti sulla protezione password di Azure AD locale
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,25 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d3b0f7cdacfb781ba7925be8146c10919c5269b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 91ab8e8757c4a5313fde5f4d883e45648c9143b7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901356"
 ---
-# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Anteprima: Password di protezione di Azure AD locale - Domande frequenti
+# <a name="preview-azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Anteprima: protezione password di Azure AD locale - Domande frequenti
 
 |     |
 | --- |
-| Password di protezione di Azure AD è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| La protezione password di Azure AD è una funzionalità di anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzioni in anteprima, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
 |     |
 
 ## <a name="general-questions"></a>Domande generali
-
-**D: quando sarà disponibile a livello generale Password di protezione di Azure AD?**
-
-La versione disponibile a livello generale è prevista per il primo trimestre del 2019 (prima della fine del mese di marzo 2019). Grazie a tutti coloro che ad oggi hanno fornito commenti e suggerimenti sulla funzionalità - lo apprezziamo molto!
 
 **D: quali indicazioni devono avere gli utenti su come scegliere una password sicura?**
 
@@ -37,15 +33,23 @@ Le indicazioni correnti di Microsoft su questo argomento sono disponibili nella 
 
 [Microsoft Password Guidance](https://www.microsoft.com/en-us/research/publication/password-guidance) (Indicazioni di Microsoft sulle password)
 
-**D: Password di protezione di Azure AD locale è supportata nei cloud non pubblici?**
+**D: la protezione password di Azure AD locale è supportata nei cloud non pubblici?**
 
-No, Password di protezione di Azure AD locale è supportata solo nel cloud pubblico. Non è stata annunciata alcuna data per la disponibilità nei cloud non pubblici.
+No, la protezione password di Azure AD locale è supportata solo nel cloud pubblico. Non è stata annunciata alcuna data per la disponibilità nei cloud non pubblici.
 
-**D: in che modo è possibile applicare i vantaggi di Password di protezione di Azure AD a un sottoinsieme di utenti in locale?**
+**D: in che modo è possibile applicare i vantaggi della protezione password di Azure AD a un sottoinsieme di utenti in locale?**
 
 Non supportati. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
 
-**D: l'installazione di Password di protezione di Azure AD è supportata in affiancamento ad altri prodotti basati su filtri password?**
+**D: Che cos'è la differenza tra una modifica della password e un set di password (o reset)?**
+
+Una modifica della password è quando un utente sceglie una nuova password dopo dimostrando che e conoscono la vecchia password. Ad esempio, questo è ciò che accade quando un utente accede a Windows e viene quindi richiesto di scegliere una nuova password.
+
+Quando un amministratore sostituisce la password per un account con una nuova password, ad esempio usando lo strumento di gestione di Active Directory Users and Computers è una serie di password (operazione talvolta denominata la reimpostazione della password). Questa operazione richiede un elevato livello di privilegio (in genere un amministratore di dominio) e la persona che esegue l'operazione in genere non conoscono la vecchia password. Scenari di help desk spesso eseguire questa operazione, ad esempio quando un utente che ha dimenticato la password di ad assistere. Si vedrà anche la password impostata gli eventi di creazione di un nuovo account utente in corso per la prima volta con una password.
+
+I criteri di convalida delle password esattamente lo stesso indipendentemente dal fatto che viene eseguita una modifica della password o un set. Il servizio agente di protezione controller di dominio di Password di Azure AD accedere a diversi eventi per segnalare se una modifica della password o è stata eseguita l'operazione di impostazione.  Visualizzare [protezione di Password di Azure AD, monitoraggio e registrazione](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
+
+**D: l'installazione della protezione password di Azure AD è supportata in affiancamento ad altri prodotti basati su filtri password?**
 
 Sì. Il supporto di più DLL di filtro password registrate è una funzionalità di base di Windows e non è specifico della protezione password di Azure AD. Tutte le DLL di filtro password registrate devono concordare, prima che venga accettata una password.
 
@@ -59,7 +63,7 @@ Non supportati. È possibile amministrare i criteri solo tramite il portale di g
 
 **D: perché è necessario il servizio DFSR per la replica di sysvol?**
 
-Il servizio Replica file (la tecnologia precedente a DFSR) include molti problemi noti e non è completamente supportato nelle versioni più recenti di Windows Server Active Directory. Password di protezione di Azure AD non verrà testata nei domini configurati con il servizio Replica file.
+Il servizio Replica file (la tecnologia precedente a DFSR) include molti problemi noti e non è completamente supportato nelle versioni più recenti di Windows Server Active Directory. La protezione password di Azure AD non verrà testata nei domini configurati con il servizio Replica file.
 
 Per altre informazioni, vedere gli articoli seguenti:
 
@@ -82,6 +86,10 @@ Questo requisito dipende dal comportamento di base di Windows.
 **D: è possibile distribuire il servizio proxy di Password di protezione di Azure AD side-by-side con altri servizi come Azure AD Connect?**
 
 Sì. Il servizio proxy di Password di protezione di Azure AD e Azure AD Connect non devono essere mai direttamente in conflitto l'uno con l'altro.
+
+**D: In quale ordine devono gli agenti di DC e proxy essere installati e registrati?**
+
+È supportato alcun tipo di ordinamento di installazione dell'agente Proxy, l'installazione dell'agente controller di dominio, la registrazione dell'insieme di strutture e registrazione del Proxy.
 
 **D: La distribuzione di questa funzionalità può avere un impatto preoccupante sulle prestazioni dei controller di dominio?**
 

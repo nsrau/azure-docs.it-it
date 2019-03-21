@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 03/01/2017
 ms.author: rogardle
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 348bde94bc01e00777603af8ac078d5e319d732c
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 25b6f2b1e79cb6efdcb9d7ee0e956648673e48c0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "53001991"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528866"
 ---
 # <a name="deprecated-introduction-to-docker-container-hosting-solutions-with-azure-container-service"></a>(DEPRECATO) Introduzione alle soluzioni di hosting di contenitori Docker con il servizio contenitore di Azure 
 
@@ -38,7 +38,7 @@ Per iniziare a usare il servizio Azure Container, distribuire un cluster del ser
 Il servizio Azure Container consente di scegliere tra Docker Swarm, DC/OS o Kubernetes per l'orchestrazione. La modalità di distribuzione dell'applicazione dipende dall'agente di orchestrazione scelto.
 
 ### <a name="using-dcos"></a>Uso di DC/OS
-DC/OS è un sistema operativo distribuito basato sul kernel dei sistemi distribuiti Apache Mesos. Apache Mesos fa parte di Apache Software Foundation e annovera tra gli utenti e i collaboratori alcuni dei [nomi più importanti del panorama IT](http://mesos.apache.org/documentation/latest/powered-by-mesos/) .
+DC/OS è un sistema operativo distribuito basato sul kernel dei sistemi distribuiti Apache Mesos. Apache Mesos fa parte di Apache Software Foundation e annovera tra gli utenti e i collaboratori alcuni dei [nomi più importanti del panorama IT](https://mesos.apache.org/documentation/latest/powered-by-mesos/) .
 
 ![servizio Azure Container configurato per DC/OS che mostra agenti e schemi.](media/acs-intro/dcos.png)
 

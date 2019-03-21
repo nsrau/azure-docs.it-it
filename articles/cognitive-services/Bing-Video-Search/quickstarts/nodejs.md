@@ -10,14 +10,14 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 6a5c2df6859a0020160ae0de9b6e498f63dc253b
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: a4e3d37b2eb32fa0384986e37781f21b906bed42
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871983"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077310"
 ---
-# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Guida introduttiva: Cercare video con l'API REST Ricerca video Bing e Node.js
+# <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-nodejs"></a>Avvio rapido: Cercare video con l'API REST Ricerca video Bing e Node.js
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca video Bing e visualizzare un risultato della ricerca dalla risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca video HTTP all'API e visualizza la risposta. L'applicazione è scritta in JavaScript ed eseguita in Node.js, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingVideoSearchv7.js) con altre annotazioni di codice e informazioni sulla gestione degli errori.
 
@@ -61,19 +61,19 @@ Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca v
     };
     ```
     
-    2. Quando viene segnalata l'istruzione `end`, usare `response.on()` per archiviare le intestazioni correlate a Bing (che iniziano con `bingapis` o `x-msedge-`). Quindi analizzare il codice JSON usando `JSON.parse()`, convertirlo in una stringa con `JSON.stringify()` e stamparlo.
+   1. Quando viene segnalata l'istruzione `end`, usare `response.on()` per archiviare le intestazioni correlate a Bing (che iniziano con `bingapis` o `x-msedge-`). Quindi analizzare il codice JSON usando `JSON.parse()`, convertirlo in una stringa con `JSON.stringify()` e stamparlo.
 
-        ```javascript
-        response.on('end', function () {
-            for (var header in response.headers)
-                // header keys are lower-cased by Node.js
-                if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
-                     console.log(header + ": " + response.headers[header]);
-            body = JSON.stringify(JSON.parse(body), null, '  ');
-            //JSON Response body
-            console.log(body);
-        });
-        ```
+       ```javascript
+       response.on('end', function () {
+           for (var header in response.headers)
+               // header keys are lower-cased by Node.js
+               if (header.startsWith("bingapis-") || header.startsWith("x-msedge-"))
+                    console.log(header + ": " + response.headers[header]);
+           body = JSON.stringify(JSON.parse(body), null, '  ');
+           //JSON Response body
+           console.log(body);
+       });
+       ```
 
 # <a name="create-and-send-the-search-request"></a>Creare e inviare la richiesta di ricerca
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Traduzione vocale, C# (.NET Framework Windows) - Servizi di riconoscimento vocale'
+title: 'Avvio rapido: Traduzione vocale, C# (.NET Framework Windows) - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si creerà una semplice applicazione .NET Framework per acquisire i contenuti vocali dell'utente, convertirli in un'altra lingua e restituire il testo nella riga di comando. Questa guida è destinata agli utenti di Windows.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/13/2018
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 6bf7c92b0c9b143f9622cf1698fa39b0f45843f1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 34161989bf98f2605cbc2e238cb832523b2f23cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874529"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57843324"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Guida introduttiva: Traduzione vocale con Speech SDK per .NET Framework
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7ad5f22b0604cb9de38f7990c88d760df97098d9
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: dc2fb3faddc8af30edd66b926259c05580d9872a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235836"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104523"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Individuare e valutare le macchine virtuali VMware locali per la migrazione ad Azure
 
@@ -179,16 +179,16 @@ Importare il file scaricato nel server vCenter.
 3. Sul desktop fare clic sul collegamento **Run collector** (Esegui agente di raccolta).
 4. Fare clic su **Check for updates** (Controlla aggiornamenti) nella barra superiore dell'interfaccia utente dell'agente di raccolta e verificare che sia in esecuzione la versione più recente dell'agente di raccolta. In caso contrario, è possibile scegliere di scaricare il pacchetto di aggiornamento più recente dal collegamento e aggiornare l'agente di raccolta.
 5. In Agente di raccolta di Azure Migrate aprire **Set up prerequisites** (Configura prerequisiti).
-    - Selezionare il cloud di Azure in cui si intende eseguire la migrazione (Azure globale o Azure per enti pubblici).
-    - Accettare le condizioni di licenza e leggere le informazioni di terze parti.
-    - L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
-    - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sui requisiti di connettività Internet e l'[elenco di URL](https://docs.microsoft.com/azure/migrate/concepts-collector) ai quali accede l'agente di raccolta.
+   - Selezionare il cloud di Azure in cui si intende eseguire la migrazione (Azure globale o Azure per enti pubblici).
+   - Accettare le condizioni di licenza e leggere le informazioni di terze parti.
+   - L'agente di raccolta verifica che la macchina virtuale abbia accesso a Internet.
+   - Se la macchina virtuale accede a Internet tramite un proxy, fare clic su **Proxy settings** (Impostazioni proxy) e specificare l'indirizzo e la porta di ascolto del proxy. Se il proxy richiede l'autenticazione, specificare le credenziali. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector#collector-prerequisites) sui requisiti di connettività Internet e l'[elenco di URL](https://docs.microsoft.com/azure/migrate/concepts-collector) ai quali accede l'agente di raccolta.
 
-      > [!NOTE]
-      > È necessario immettere l'indirizzo proxy nel formato http://ProxyIPAddress o http://ProxyFQDN. È supportato solo il proxy HTTP. Se si ha un proxy di intercettazione, inizialmente la connessione Internet potrebbe non riuscire se non è stato importato il certificato proxy. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector) sul modo in cui è possibile risolvere il problema importando il certificato proxy come certificato attendibile nella macchina virtuale dell'agente di raccolta.
+     > [!NOTE]
+     > È necessario immettere l'indirizzo proxy nel formato <http://ProxyIPAddress> o <http://ProxyFQDN>. È supportato solo il proxy HTTP. Se si ha un proxy di intercettazione, inizialmente la connessione Internet potrebbe non riuscire se non è stato importato il certificato proxy. [Altre informazioni](https://docs.microsoft.com/azure/migrate/concepts-collector) sul modo in cui è possibile risolvere il problema importando il certificato proxy come certificato attendibile nella macchina virtuale dell'agente di raccolta.
 
-    - L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
-    - Scaricare e installare VMware PowerCLI.
+   - L'agente di raccolta verifica che il servizio dell'agente di raccolta sia in esecuzione. Il servizio è installato per impostazione predefinita nella macchina virtuale dell'agente di raccolta.
+   - Scaricare e installare VMware PowerCLI.
 
 6. In **Specify vCenter Server details** (Specificare i dettagli del Server vCenter) eseguire queste operazioni:
     - Specificare il nome completo o l'indirizzo IP del server vCenter.

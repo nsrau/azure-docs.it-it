@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 02/22/2019
 ms.author: dech
-ms.openlocfilehash: c2020688359fafe6cf39dacc84c84ea79251ddbb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: e23b65904d16fbd2d8ffe0412603699a9e36aa7e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099526"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Usare l'utilità di migrazione dati per la migrazione dei dati in Azure Cosmos DB
 
@@ -58,7 +58,7 @@ Lo strumento di importazione, anche se include un'interfaccia utente grafica (dt
 
 ## <a id="Install"></a>Installazione
 
-Il codice sorgente dell'utilità di migrazione è disponibile in GitHub in [questo repository](https://github.com/azure/azure-documentdb-datamigrationtool). È possibile scaricare e compilare la soluzione in locale o [scaricare un binario precompilato](http://aka.ms/csdmtool), quindi eseguire uno degli eseguibili seguenti:
+Il codice sorgente dell'utilità di migrazione è disponibile in GitHub in [questo repository](https://github.com/azure/azure-documentdb-datamigrationtool). È possibile scaricare e compilare la soluzione in locale o [scaricare un binario precompilato](https://aka.ms/csdmtool), quindi eseguire uno degli eseguibili seguenti:
 
 * **Dtui.exe**: versione con interfaccia grafica dello strumento
 * **Dt.exe**: versione con riga di comando dello strumento
@@ -195,7 +195,7 @@ Come per l'origine SQL, la proprietà del separatore di annidamento può essere 
 
 Si notino gli alias come DomainInfo.Domain_Name e RedirectInfo.Redirecting. Specificando un separatore di annidamento '.', lo strumento di importazione creerà i documenti secondari DomainInfo e RedirectInfo durante l'importazione. Ecco un esempio di documento risultante in Azure Cosmos DB:
 
-*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "https://www.ACUS.GOV" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
+*{ "DomainInfo": { "Domain_Name": "ACUS.GOV", "Domain_Name_Address": "<https://www.ACUS.GOV>" }, "Federal Agency": "Administrative Conference of the United States", "RedirectInfo": { "Redirecting": "0", "Redirect_Destination": "" }, "id": "9cc565c5-ebcd-1c03-ebd3-cc3e2ecd814d" }*
 
 Lo strumento di importazione prova a dedurre le informazioni sul tipo per i valori non racchiusi tra virgolette nei file CSV. I valori tra virgolette vengono sempre considerati come stringhe.  I tipi vengono identificati nell'ordine seguente: tipo numerico, datetime, booleano.  
 

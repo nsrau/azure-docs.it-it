@@ -17,12 +17,12 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b50b8f6c54cbefde2120dd61643c23f5175927c9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: e8706e839005d43ab9fa2662d13d7d3c3994c136
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211751"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077752"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account-preview"></a>Esercitazione: Archiviare i log di Azure AD in un account di archiviazione di Azure (anteprima)
 
@@ -45,11 +45,11 @@ Per usare questa funzionalità, sono necessari:
 3. Selezionare **Esporta impostazioni**. 
 
 4. Nel riquadro **Impostazioni di diagnostica** eseguire una delle operazioni seguenti:
-    * Per modificare le impostazioni esistenti, selezionare **Modifica l'impostazione**.
-    * Per aggiungere nuove impostazioni, selezionare **Aggiungi impostazioni di diagnostica**.  
-      È possibile avere fino a tre impostazioni. 
+   * Per modificare le impostazioni esistenti, selezionare **Modifica l'impostazione**.
+   * Per aggiungere nuove impostazioni, selezionare **Aggiungi impostazioni di diagnostica**.  
+     È possibile avere fino a tre impostazioni. 
 
-    ![Esportazione impostazioni](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
+     ![Esportazione impostazioni](./media/quickstart-azure-monitor-route-logs-to-storage-account/ExportSettings.png)
 
 5. Immettere un nome descrittivo per l'impostazione per ricordarsi del suo scopo (ad esempio *Invia ad account di archiviazione di Azure*). 
 

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/04/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: db3401ffd0f13b9c735d38bf027cc3c8adebe4aa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 641247a0ddc08f15fa70006e280426fda083241f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882364"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083029"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>Avvio rapido: Cercare immagini con l’SDK di Ricerca immagini Bing per Node.js
 
@@ -68,7 +68,7 @@ Ottenere una [chiave di accesso di Servizi cognitivi](https://azure.microsoft.co
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-## <a name="send-a-query-and-handle-the-response"></a>Inviare una query e gestire la risposta
+   ## <a name="send-a-query-and-handle-the-response"></a>Inviare una query e gestire la risposta
 
 1. Chiamare la funzione helper e gestire il relativo `promise` per analizzare i risultati di immagine restituiti con la risposta.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: tutorial
-ms.date: 10/16/2017
+ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: c1124e710c3bb2cc4d00595989ccb95e584025c4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 6f44d4e6e5a0ee940394e09ceff8a425700d34e1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100735"
 ---
 # <a name="tutorial-build-a-custom-search-web-page"></a>Esercitazione: Compilare una pagina Web di Ricerca personalizzata
 
@@ -49,11 +49,11 @@ Per creare un'istanza di Ricerca personalizzata Bing:
   
 4. Dopo aver eseguito l'accesso, fare clic su **New custom search** (Nuova ricerca personalizzata). Nella finestra **Create a new custom search instance** (Crea una nuova istanza di Ricerca personalizzata) immettere un nome significativo che descriva il tipo di contenuto restituito dalla ricerca. È possibile modificare il nome in qualsiasi momento.  
   
-  ![Screenshot della casella di creazione di una nuova istanza di Ricerca personalizzata](../media/newCustomSrch.png)  
+   ![Screenshot della casella di creazione di una nuova istanza di Ricerca personalizzata](../media/newCustomSrch.png)  
   
 5. Fare clic su OK, specificare un URL e indicare se includere le pagine secondarie dell'URL.  
   
-  ![Screenshot della pagina di definizione dell'URL](../media/newCustomSrch1-a.png)  
+   ![Screenshot della pagina di definizione dell'URL](../media/newCustomSrch1-a.png)  
 
 
 ## <a name="add-active-entries"></a>Aggiungere voci attive
@@ -97,28 +97,28 @@ Ricerca personalizzata fornisce un'interfaccia utente ospitata per eseguire il r
   
 2. Selezionare un layout.  
   
-  ![Screenshot del passaggio di selezione layout per l'interfaccia utente ospitata](./media/custom-search-hosted-ui-select-layout.png)  
+   ![Screenshot del passaggio di selezione layout per l'interfaccia utente ospitata](./media/custom-search-hosted-ui-select-layout.png)  
   
 3. Selezionare un tema colori.  
   
-  ![Screenshot della selezione della combinazione di colori per l'interfaccia utente ospitata](./media/custom-search-hosted-ui-select-color-theme.png)  
+   ![Screenshot della selezione della combinazione di colori per l'interfaccia utente ospitata](./media/custom-search-hosted-ui-select-color-theme.png)  
 
-  Se è necessario ottimizzare la combinazione di colori per una migliore integrazione con l'app Web, fare clic su **Customize theme** (Personalizza tema). Non tutte le configurazioni di colori si applicano a tutti i temi del layout. Per modificare un colore, immettere il valore RGB esadecimale del colore (ad esempio, #366eb8) nella casella di testo corrispondente. In alternativa, fare clic sul pulsante del colore e quindi sulla sfumatura appropriata. Quando si scelgono i colori, considerare sempre l'accessibilità.
+   Se è necessario ottimizzare la combinazione di colori per una migliore integrazione con l'app Web, fare clic su **Customize theme** (Personalizza tema). Non tutte le configurazioni di colori si applicano a tutti i temi del layout. Per modificare un colore, immettere il valore RGB esadecimale del colore (ad esempio, #366eb8) nella casella di testo corrispondente. In alternativa, fare clic sul pulsante del colore e quindi sulla sfumatura appropriata. Quando si scelgono i colori, considerare sempre l'accessibilità.
   
-  ![Screenshot della personalizzazione della combinazione di colori per l'interfaccia utente ospitata](./media/custom-search-hosted-ui-customize-color-theme.png)  
+   ![Screenshot della personalizzazione della combinazione di colori per l'interfaccia utente ospitata](./media/custom-search-hosted-ui-customize-color-theme.png)  
 
   
 4. Specificare opzioni di configurazione aggiuntive.  
   
-  ![Screenshot del passaggio di configurazioni aggiuntive dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-additional-configurations.png)  
+   ![Screenshot del passaggio di configurazioni aggiuntive dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-additional-configurations.png)  
   
-  Per ottenere le configurazioni avanzate, fare clic su **Show advanced configurations** (Mostra configurazioni avanzate). Vengono aggiunte configurazioni come *Link target* (Destinazione collegamento) per le opzioni di ricerca Web, *Enable filters* (Abilita filtri) per le opzioni relative a immagini e video e *Search box text placeholder* (Segnaposto testo casella di ricerca) per le opzioni varie.
+   Per ottenere le configurazioni avanzate, fare clic su **Show advanced configurations** (Mostra configurazioni avanzate). Vengono aggiunte configurazioni come *Link target* (Destinazione collegamento) per le opzioni di ricerca Web, *Enable filters* (Abilita filtri) per le opzioni relative a immagini e video e *Search box text placeholder* (Segnaposto testo casella di ricerca) per le opzioni varie.
 
-  ![Screenshot del passaggio di configurazioni avanzate dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-advanced-configurations.png)  
+   ![Screenshot del passaggio di configurazioni avanzate dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-advanced-configurations.png)  
   
 5. Selezionare le chiavi della sottoscrizione negli elenchi a discesa. In alternativa, è possibile immettere manualmente la chiave della sottoscrizione. Per informazioni su come ottenere le chiavi, vedere [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search-api).  
   
-  ![Screenshot del passaggio di configurazioni aggiuntive dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-subscription-key.png)
+   ![Screenshot del passaggio di configurazioni aggiuntive dell'interfaccia utente ospitata](./media/custom-search-hosted-ui-subscription-key.png)
 
 [!INCLUDE [publish or revert](../includes/publish-revert.md)]
 
@@ -140,66 +140,66 @@ La parte restante di questa esercitazione illustra l'**opzione 1: frammento di c
   
 3. Nella finestra **Nuovo progetto** selezionare **Visual C# / Web / Applicazione Web ASP.NET Core**, assegnare un nome al progetto e quindi fare clic su **OK**.  
   
-  ![Screenshot della finestra Nuovo progetto](./media/custom-search-new-project.png)  
+   ![Screenshot della finestra Nuovo progetto](./media/custom-search-new-project.png)  
   
 4. Nella finestra **Nuova applicazione Web ASP.NET Core** selezionare **Applicazione Web** e fare clic su **OK**.  
   
-  ![Screenshot della finestra Nuovo progetto](./media/custom-search-new-webapp.png)  
+   ![Screenshot della finestra Nuovo progetto](./media/custom-search-new-webapp.png)  
 
 ## <a name="edit-indexcshtml"></a>Modificare index.cshtml
 
 1. In **Esplora soluzioni** espandere **Pagine** e fare doppio clic su **index.cshtml** per aprire il file.  
   
-  ![Screenshot di Esplora soluzioni con pagine espanse e index.cshtml selezionato](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
+   ![Screenshot di Esplora soluzioni con pagine espanse e index.cshtml selezionato](./media/custom-search-visual-studio-webapp-solution-explorer-index.png)  
   
 2. In index.cshtml eliminare tutto a partire dalla riga 7.  
   
-  ```razor
-  @page
-  @model IndexModel
-  @{
+   ```razor
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }    
-  ```  
+   }    
+   ```  
   
 3. Aggiungere un elemento di interruzione di riga e un elemento div che funga da contenitore.  
   
-  ```html
-  @page
-  @model IndexModel
-  @{
+   ```html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch"></div>
-  ```  
+   }
+   <br />
+   <div id="customSearch"></div>
+   ```  
   
 4. Nella pagina **Hosted UI** (Interfaccia utente ospitata) scorrere fino alla sezione **Consuming the UI** (Uso interfaccia utente). Fare clic su *Endpoints* (Endpoint) per accedere al frammento di codice JavaScript. È anche possibile accedere al frammento di codice facendo clic su **Production** (Produzione) e quindi sulla scheda **Hosted UI** (Interfaccia utente ospitata).
   
-  <!-- Get new screenshot after prod gets new bits
-  ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
-  -->
+   <!-- Get new screenshot after prod gets new bits
+   ![Screenshot of the Hosted UI save button](./media/custom-search-hosted-ui-consuming-ui.png)  
+   -->
   
 5. Incollare l'elemento script nel contenitore aggiunto.  
   
-  ``` html
-  @page
-  @model IndexModel
-  @{
+   ``` html
+   @page
+   @model IndexModel
+   @{
       ViewData["Title"] = "Home page";
-  }
-  <br />
-  <div id="customSearch">
+   }
+   <br />
+   <div id="customSearch">
       <script type="text/javascript" 
           id="bcs_js_snippet"
           src="https://ui.customsearch.ai /api/ux/rendering-js?customConfig=<YOUR-CUSTOM-CONFIG-ID>&market=en-US&safeSearch=Moderate&version=latest&q=">
       </script>
-  </div>
-  ```  
+   </div>
+   ```  
   
 6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **wwwroot** e scegliere **Visualizza nel browser**.  
   
-  ![Screenshot di Esplora soluzioni con il comando Visualizza nel browser del menu di scelta rapida wwwroot selezionato](./media/custom-search-webapp-view-in-browser.png)  
+   ![Screenshot di Esplora soluzioni con il comando Visualizza nel browser del menu di scelta rapida wwwroot selezionato](./media/custom-search-webapp-view-in-browser.png)  
 
 La nuova pagina Web di Ricerca personalizzata dovrebbe essere simile alla seguente:
 

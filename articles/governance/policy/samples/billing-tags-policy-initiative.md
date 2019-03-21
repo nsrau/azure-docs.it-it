@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: b659d6f681b980b956992f0d488995fd1a55de93
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 3964d75aa87fe76432af6b28e74a48fd1f2b49ef
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56337601"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543833"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>Esempio - Iniziativa relativa ai criteri dei tag di fatturazione
 
@@ -29,7 +29,7 @@ Questo set di criteri richiede valori di tag specifici per il centro di costo e 
 
 ## <a name="deploy-with-the-portal"></a>Eseguire la distribuzione con il portale
 
-[![Distribuzione in Azure](http://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 

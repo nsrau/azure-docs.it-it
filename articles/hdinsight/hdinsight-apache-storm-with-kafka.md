@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: 341278237bc18bfbb8f4bb1e5d600e2cab894926
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343358"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111855"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
@@ -129,7 +129,7 @@ Questa esercitazione include due topologie:
     >
     > Se non si usa il modello in questo documento per creare il cluster Storm, è necessario applicare manualmente l'azione script al cluster.
     >
-    > L'azione script si trova in `https://hdiconfigactions2.blob.core.windows.net/stormextlib/stormextlib.sh` e viene applicata ai nodi supervisore e nimbus del cluster Storm. Per altre informazioni sull'uso di azioni script, vedere il documento [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) (Personalizzare HDInsight tramite azioni script).
+    > L'azione script si trova in `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` e viene applicata ai nodi supervisore e nimbus del cluster Storm. Per altre informazioni sull'uso di azioni script, vedere il documento [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) (Personalizzare HDInsight tramite azioni script).
 
 Le topologie vengono definite tramite [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux è stato introdotto in Storm 0.10.x e consente di separare la configurazione della topologia dal codice. Per le topologie che fanno uso del framework Flux, la topologia viene definita in un file YAML. Il file YAML può essere incluso come parte della topologia. Può essere anche un file autonomo usato quando si invia la topologia. Flux supporta anche la sostituzione delle variabili in fase di esecuzione, caratteristica che viene usata in questo esempio.
 
@@ -400,26 +400,26 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
     * Kafka in HDInsight versione 3.6 con tre nodi di lavoro
     * Storm in HDInsight versione 3.6 con tre nodi di lavoro
 
-  > [!WARNING]  
-  > Per garantire la disponibilità di Kafka in HDInsight, il cluster deve contenere almeno tre nodi del ruolo di lavoro. Questo modello crea un cluster Kafka contenente tre nodi di lavoro.
+   > [!WARNING]  
+   > Per garantire la disponibilità di Kafka in HDInsight, il cluster deve contenere almeno tre nodi del ruolo di lavoro. Questo modello crea un cluster Kafka contenente tre nodi di lavoro.
 
 2. Usare le linee guida seguenti per popolare le voci nella sezione **Distribuzione personalizzata**:
 
-    2. Usare le informazioni seguenti per popolare le voci nella sezione **Modello personalizzato**:
+   1. Usare le informazioni seguenti per popolare le voci nella sezione **Modello personalizzato**:
 
-    | Impostazione | Valore |
-    | --- | --- |
-    | Sottoscrizione | Sottoscrizione di Azure |
-    | Gruppo di risorse | Gruppo di risorse che contiene le risorse. |
-    | Località | Area di Azure in cui vengono create le risorse. |
-    | Nome del cluster Kafka | Nome del cluster Kafka. |
-    | Nome del cluster Storm | Nome del cluster Storm. |
-    | Nome utente dell'account di accesso del cluster | Nome utente dell'amministratore per i cluster. |
-    | Password di accesso al cluster | Password dell'utente amministratore per i cluster. |
-    | Nome utente SSH | Utente SSH da creare per i cluster. |
-    | Password SSH | Password per l'utente SSH. |
+      | Impostazione | Valore |
+      | --- | --- |
+      | Sottoscrizione | Sottoscrizione di Azure |
+      | Gruppo di risorse | Gruppo di risorse che contiene le risorse. |
+      | Località | Area di Azure in cui vengono create le risorse. |
+      | Nome del cluster Kafka | Nome del cluster Kafka. |
+      | Nome del cluster Storm | Nome del cluster Storm. |
+      | Nome utente dell'account di accesso del cluster | Nome utente dell'amministratore per i cluster. |
+      | Password di accesso al cluster | Password dell'utente amministratore per i cluster. |
+      | Nome utente SSH | Utente SSH da creare per i cluster. |
+      | Password SSH | Password per l'utente SSH. |
    
-    ![Immagine dei parametri del modello](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
+      ![Immagine dei parametri del modello](./media/hdinsight-apache-storm-with-kafka/storm-kafka-template.png)
 
 3. Leggere le **Condizioni** e quindi selezionare **Accetto le condizioni riportate sopra**.
 
@@ -434,17 +434,17 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
 
 2. Dalla directory **hdinsight-storm-java-kafka** usare il comando seguente per compilare il progetto e creare un pacchetto per la distribuzione:
 
-  ```bash
-  mvn clean package
-  ```
+   ```bash
+   mvn clean package
+   ```
 
     Il processo del pacchetto crea un file denominato `KafkaTopology-1.0-SNAPSHOT.jar` nella directory `target`.
 
 3. Usare i comandi seguenti per copiare il pacchetto nel cluster Storm in HDInsight. Sostituire `sshuser` con il nome utente SSH per il cluster. Sostituire `stormclustername` con il nome del cluster __Storm__.
 
-  ```bash
-  scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
-  ```
+   ```bash
+   scp ./target/KafkaTopology-1.0-SNAPSHOT.jar sshuser@stormclustername-ssh.azurehdinsight.net:KafkaTopology-1.0-SNAPSHOT.jar
+   ```
 
     Quando richiesto, immettere la password usata durante la creazione del cluster.
 
@@ -518,7 +518,7 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
 4. Salvare il file `dev.properties` e quindi usare il comando seguente per caricarlo nel cluster **Storm**:
 
      ```bash
-    scp dev.properties USERNAME@storm-BASENAME-ssh.azurehdinsight.net:dev.properties
+    scp dev.properties USERNAME@BASENAME-ssh.azurehdinsight.net:dev.properties
     ```
 
     Sostituire **USERNAME** con il nome utente SSH per il cluster. Sostituire **BASENAME** con il nome di base usato durante la creazione del cluster.
@@ -577,9 +577,9 @@ Kafka archivia i dati in un _argomento_. È necessario creare l'argomento prima 
 
 1. Dalla sessione SSH nel cluster Storm usare il comando seguente per avviare la topologia del reader:
 
-  ```bash
-  storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
-  ```
+   ```bash
+   storm jar KafkaTopology-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --remote -R /reader.yaml --filter dev.properties
+   ```
 
 2. Attendere un minuto e quindi usare il comando seguente per visualizzare i file creati dalla topologia reader:
 

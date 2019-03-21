@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 2/20/2019
+ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 8f365bd5711f8478379394630f43a86dd442389d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 36eaaeabcf888aac10bcf9b8a27e3590d21079ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897104"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Guida introduttiva: Traduzione vocale con Speech SDK per Java
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Avvio rapido: Traduzione vocale con Speech SDK per Java
 
 In questa guida introduttiva si creerà una semplice applicazione Java per acquisire i contenuti vocali dell'utente dal microfono del computer, tradurli e trascrivere il testo tradotto nella riga di comando in tempo reale. Quest'applicazione è progettata per l'esecuzione in Windows a 64 bit o Ubuntu Linux a 64 bit 16.04/18.04 ed è integrata con il pacchetto Speech SDK Maven e l'ambiente IDE Java Eclipse.
 

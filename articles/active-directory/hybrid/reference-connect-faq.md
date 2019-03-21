@@ -15,16 +15,33 @@ ms.date: 11/02/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 594fb736b8ec4b49cf1525047ff8a7ce5e5dc959
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a392fd03016f83f86364d8f92e8bb4da0aa3364a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194972"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57840903"
 ---
 # <a name="azure-active-directory-connect-faq"></a>Domande frequenti su Azure Active Directory Connect
 
 ## <a name="general-installation"></a>Installazione generale
+
+**D: Come posso protezione avanzata del server di Azure AD Connect per ridurre la superficie di attacco della sicurezza?**
+
+Microsoft consiglia di protezione avanzata dei server di Azure AD Connect per ridurre la superficie di attacco di sicurezza per questo componente fondamentale dell'ambiente IT.  Seguire le indicazioni riportate di seguito consentirà di ridurre i rischi di sicurezza per l'organizzazione.
+
+* Distribuire Azure AD Connect in un server di dominio e limitare l'accesso amministrativo per gli amministratori di dominio o altri gruppi di sicurezza strettamente controllato
+
+Per altre informazioni, vedere: 
+
+* [Protezione dei gruppi di amministratori](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+
+* [Protezione degli account amministratore predefinito](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+
+* [Miglioramento della protezione e sustainment riducendo le superfici di attacco](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+
+* [La riduzione della superficie di attacco di Active Directory](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+
 **D: L'installazione funziona se per l'amministrazione globale di Azure Active Directory (Azure AD) è abilitata l'autenticazione a due fattori (2FA)?**  
 A partire dalle build di febbraio 2016, questo scenario è supportato.
 

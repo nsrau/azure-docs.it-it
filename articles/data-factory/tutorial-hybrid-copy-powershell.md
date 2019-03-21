@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: ff1d873b44f91f64a114a6da01091bbd3aa01663
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 8131806aa741c3f2c347599f857f45ade392d90e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424813"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451638"
 ---
 # <a name="tutorial-copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa Azure PowerShell per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud. 
@@ -112,15 +112,10 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 ### <a name="windows-powershell"></a>Windows PowerShell
 
 #### <a name="install-azure-powershell"></a>Installare Azure PowerShell
-Installare la versione più recente di Azure PowerShell, se non è già presente nel computer. 
 
-1. Passare alla pagina di [download degli SDK di Azure](https://azure.microsoft.com/downloads/). 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-1. In **Strumenti da riga di comando**, sezione **PowerShell**, selezionare **Windows - Installazione**. 
-
-1. Per installare Azure PowerShell, eseguire il file MSI. 
-
-Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). 
+Installare la versione più recente di Azure PowerShell, se non è già presente nel computer. Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). 
 
 #### <a name="log-in-to-powershell"></a>Accedere a PowerShell
 
@@ -131,13 +126,13 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
 1. Eseguire questo comando e immettere il nome utente e la password di Azure usati per accedere al portale di Azure:
        
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```        
 
 1. Se si hanno più sottoscrizioni di Azure, eseguire questo comando per selezionare la sottoscrizione che si vuole usare. Sostituire **SubscriptionId** con l'ID della sottoscrizione di Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"       
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"    
     ```
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
@@ -151,7 +146,7 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
 1. Per creare il gruppo di risorse di Azure, eseguire questo comando: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
 
     Se il gruppo di risorse esiste già, potrebbe essere preferibile non sovrascriverlo. Assegnare un valore diverso alla variabile `$resourceGroupName` ed eseguire di nuovo il comando.
@@ -171,10 +166,10 @@ Per istruzioni dettagliate, vedere [Come installare e configurare Azure PowerShe
     $location = "East US"
     ```  
 
-1. Per creare la data factory, eseguire il cmdlet `Set-AzureRmDataFactoryV2` seguente: 
+1. Per creare la data factory, eseguire il cmdlet `Set-AzDataFactoryV2` seguente: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location $location -Name $dataFactoryName 
     ```
 
 > [!NOTE]
@@ -201,7 +196,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 1. Creare un runtime di integrazione self-hosted. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $integrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ``` 
     Di seguito è riportato l'output di esempio:
 
@@ -217,7 +212,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 1. Eseguire questo comando per recuperare lo stato del runtime di integrazione creato:
 
     ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -242,7 +237,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 1. Eseguire questo comando per recuperare le *chiavi di autenticazione* per la registrazione del runtime di integrazione self-hosted nel servizio Data Factory nel cloud. Copiare una delle chiavi (escluse le virgolette) per la registrazione del runtime di integrazione self-hosted che si installerà nel computer nel passaggio successivo. 
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+    Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
     ```
     
     Di seguito è riportato l'output di esempio:
@@ -345,10 +340,10 @@ In questo passaggio, l'account di archiviazione di Azure viene collegato alla da
 
 1. In PowerShell passare alla cartella *C:\ADFv2Tutorial*.
 
-1. Eseguire il cmdlet `Set-AzureRmDataFactoryV2LinkedService` seguente per creare il servizio collegato denominato AzureStorageLinkedService: 
+1. Eseguire il cmdlet `Set-AzDataFactoryV2LinkedService` seguente per creare il servizio collegato denominato AzureStorageLinkedService: 
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
    ```
 
    Di seguito è riportato un output di esempio:
@@ -423,17 +418,17 @@ In questo passaggio si collega l'istanza di SQL Server locale alla data factory.
     > - Prima di salvare il file, sostituire **\<servername>**, **\<databasename>**, **\<username>** e **\<password>** con i valori dell'istanza di SQL Server.
     > - Se è necessario usare una barra rovesciata (\\) nell'account utente o nel nome del server, farla precedere dal carattere di escape (\\). Ad esempio, usare *mydomain\\\\myuser*. 
 
-1. Per crittografare i dati sensibili (nome utente, password e così via), eseguire il cmdlet `New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential`.  
+1. Per crittografare i dati sensibili (nome utente, password e così via), eseguire il cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  
     Con questa crittografia, le credenziali vengono crittografate con Data Protection API (DPAPI). Le credenziali crittografate vengono archiviate in locale (computer locale) nel nodo del runtime di integrazione self-hosted. Il payload di output può essere reindirizzato a un altro file JSON (in questo caso *encryptedLinkedService.json*) che contiene le credenziali crittografate.
     
    ```powershell
-   New-AzureRmDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
+   New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
    ```
 
 1. Eseguire questo comando, che crea EncryptedSqlServerLinkedService:
 
    ```powershell
-   Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
+   Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -Name "EncryptedSqlServerLinkedService" -File ".\encryptedSqlServerLinkedService.json"
    ```
 
 
@@ -475,10 +470,10 @@ In questo passaggio si definisce un set di dati che rappresenta i dati nell'ista
     }
     ```
 
-1. Per creare il set di dati SqlServerDataset, eseguire il cmdlet `Set-AzureRmDataFactoryV2Dataset`.
+1. Per creare il set di dati SqlServerDataset, eseguire il cmdlet `Set-AzDataFactoryV2Dataset`.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SqlServerDataset" -File ".\SqlServerDataset.json"
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -517,10 +512,10 @@ Il servizio collegato ha le informazioni di connessione usate da Data Factory in
     }
     ```
 
-1. Per creare il set di dati AzureBlobDataset, eseguire il cmdlet `Set-AzureRmDataFactoryV2Dataset`.
+1. Per creare il set di dati AzureBlobDataset, eseguire il cmdlet `Set-AzDataFactoryV2Dataset`.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureBlobDataset" -File ".\AzureBlobDataset.json"
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -572,10 +567,10 @@ In questa esercitazione viene creata una pipeline con un'attività di copia. L'a
     }
     ```
 
-1. Eseguire il cmdlet `Set-AzureRmDataFactoryV2Pipeline` per creare la pipeline SQLServerToBlobPipeline.
+1. Eseguire il cmdlet `Set-AzDataFactoryV2Pipeline` per creare la pipeline SQLServerToBlobPipeline.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SQLServerToBlobPipeline" -File ".\SQLServerToBlobPipeline.json"
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -592,7 +587,7 @@ In questa esercitazione viene creata una pipeline con un'attività di copia. L'a
 Avviare un'esecuzione della pipeline SQLServerToBlobPipeline e acquisire l'ID di esecuzione della pipeline per il monitoraggio futuro.
 
 ```powershell
-$runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
+$runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'SQLServerToBlobPipeline'
 ```
 
 ## <a name="monitor-the-pipeline-run"></a>Monitorare l'esecuzione della pipeline
@@ -601,7 +596,7 @@ $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -
 
     ```powershell
     while ($True) {
-        $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+        $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
 
         if (($result | Where-Object { $_.Status -eq "InProgress" } | Measure-Object).count -ne 0) {
             Write-Host "Pipeline run status: In Progress" -foregroundcolor "Yellow"

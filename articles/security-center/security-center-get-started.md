@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3442ced47e50485da1ffdd475d9649243b1c8583
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 37f85afbdd55d3f14638f0833f69bb1992770449
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116695"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086072"
 ---
-# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Guida introduttiva: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
+# <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Avvio rapido: Caricamento della sottoscrizione di Azure al livello Standard del Centro di sicurezza
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione dalle minacce per carichi di lavoro cloud ibridi. Mentre il livello gratuito offre sicurezza limitata delle risorse di Azure, il livello Standard estende le funzionalità in locale e in altri ambienti cloud. Il livello Standard del Centro sicurezza consente di individuare e risolvere le vulnerabilità di sicurezza, di applicare i controlli su applicazioni e accessi per bloccare le attività dannose, di rilevare le minacce usando funzioni di analisi e di intelligenza e di rispondere rapidamente in caso di attacco. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
 
 Questo articolo descrive come eseguire l'aggiornamento al livello Standard per aumentare la sicurezza e come installare Microsoft Monitoring Agent nelle macchine virtuali per monitorare le vulnerabilità di sicurezza e le minacce.
@@ -37,7 +37,7 @@ Per aggiornare una sottoscrizione al livello Standard, è necessario disporre de
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
 
- ![Panoramica del Centro sicurezza di Azure][2]
+   ![Panoramica del Centro sicurezza di Azure][2]
 
 **Centro di sicurezza - Panoramica** offre una visualizzazione unificata del comportamento di sicurezza dei carichi di lavoro di cloud ibrido, consentendo all'utente di individuarne e valutarne la sicurezza e di identificare e ridurre i rischi. Il Centro sicurezza abilita automaticamente una sottoscrizione Azure non caricata in precedenza dall'utente o da un altro utente della sottoscrizione al livello gratuito.
 
@@ -55,13 +55,13 @@ Ai fini della Guida introduttiva e delle esercitazioni per il Centro di sicurezz
 
 1. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
  
-  ![Attività iniziali][4]
+   ![Attività iniziali][4]
 
 2. In **Aggiorna**, il Centro sicurezza di Azure elenca tutte le sottoscrizioni e i carichi di lavoro idonei per il caricamento. 
    - È possibile espandere **Applica la versione di prova gratuita** per visualizzare un elenco di tutte le sottoscrizioni e aree di lavoro con il relativo stato di idoneità di valutazione.
    -    È possibile aggiornare le sottoscrizioni e le aree di lavoro che non sono idonee per la versione di prova gratuita.
    -    È possibile selezionare le aree di lavoro e le sottoscrizioni idonee per avviare la versione di prova gratuita.
-3.  Fare clic su **Avvia versione di prova gratuita** per avviare la versione di prova gratuita nelle sottoscrizioni selezionate.
+3. Fare clic su **Avvia versione di prova gratuita** per avviare la versione di prova gratuita nelle sottoscrizioni selezionate.
 
 
   ![Avvisi di sicurezza][9]

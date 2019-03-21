@@ -8,14 +8,14 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: lbosq
-ms.openlocfilehash: 88bb87dea4508ba41ee97a127fc60c531f2bfcab
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5b76d7393e78b464227e93a4c7c8a3f22ccc169e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092532"
 ---
-# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Avvio rapido: Creare un database a grafo in Azure Cosmos DB usando Python e il portale di Azure
+# <a name="quickstart-create-a-graph-database-in-azure-cosmos-db-using-python-and-the-azure-portal"></a>Guida introduttiva: Creare un database a grafo in Azure Cosmos DB usando Python e il portale di Azure
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -222,17 +222,17 @@ Tornare ora al portale di Azure per recuperare la stringa di connessione e copia
 
 12. È ora possibile connettere rakesh e ashley. Assicurarsi che il valore **ashley** sia selezionato nell'elenco **Risultati**, quindi fare clic sul pulsante di modifica accanto a **Destinazioni** in basso a destra. Potrebbe essere necessario allargare la finestra per visualizzare l'area **Proprietà**.
 
-   ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
+    ![Cambiare la destinazione di un vertice in un grafo](./media/create-graph-python/azure-cosmosdb-data-explorer-edit-target.png)
 
 13. Nella casella **Destinazione** digitare *rakesh* e nella casella **Edge label** (Etichetta arco) digitare *knows*, quindi selezionare la casella di controllo.
 
-   ![Aggiungere una connessione tra ashley e rakesh in Esplora dati](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
+    ![Aggiungere una connessione tra ashley e rakesh in Esplora dati](./media/create-graph-python/azure-cosmosdb-data-explorer-set-target.png)
 
 14. Selezionare ora **rakesh** dall'elenco Risultati. Come si può notare ashley e rakesh sono connessi. 
 
-   ![Due vertici connessi in Esplora dati](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
+    ![Due vertici connessi in Esplora dati](./media/create-graph-python/azure-cosmosdb-graph-explorer.png)
 
-   È stata completata la parte relativa alla creazione delle risorse di questa esercitazione. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
+    È stata completata la parte relativa alla creazione delle risorse di questa esercitazione. È possibile continuare ad aggiungere vertici al grafo, modificare quelli esistenti o modificare le query. Vengono ora esaminate le metriche di Azure Cosmos DB e quindi pulite le risorse. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

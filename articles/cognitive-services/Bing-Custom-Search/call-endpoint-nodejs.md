@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 05/07/2018
+ms.date: 03/04/2018
 ms.author: aahi
-ms.openlocfilehash: 81746f1c1516bd59cbfb917dcaefa00195558d05
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 65b0e6e9fb6f04d4536b642fe58da4e6c0f1aa69
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875451"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57336582"
 ---
-# <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Avvio rapido: Chiamare l'endpoint di Ricerca personalizzata Bing usando Node.js
+# <a name="quickstart-call-your-bing-custom-search-endpoint-using-nodejs"></a>Guida introduttiva: Chiamare l'endpoint di Ricerca personalizzata Bing usando Node.js
 
 Usare questo argomento di avvio rapido per iniziare a richiedere risultati della ricerca dall'istanza di Ricerca personalizzata Bing. Benché l'applicazione sia scritta in JavaScript, l'API Ricerca personalizzata Bing è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingCustomSearchv7.js).
 

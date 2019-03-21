@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/30/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 0a71b88f6ad85cbd76f9bc789e87ad5b032418c9
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
+ms.openlocfilehash: d2daa23a22fae6ba420a146599c0c0ba659a94f2
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297107"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540806"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>Scegliere tra i servizi di messaggistica di Azure - Griglia di eventi, Hub eventi, bus di servizio
 
@@ -30,21 +30,21 @@ Nonostante alcune analogie, ogni servizio è progettato per determinati scenari.
 
 È importante tenere presente la differenza tra servizi che recapitano un evento e servizi che recapitano un messaggio.
 
-### <a name="event"></a>Evento
+### <a name="event"></a>Event
 
 Un evento è una notifica leggera di una condizione o di una modifica di stato. L'autore dell'evento non ha aspettative su come viene gestito l'evento. Il consumer dell'evento decide come procedere con la notifica. Gli eventi possono essere unità separate o fare parte di una serie.
 
-Gli eventi separati segnalano una modifica dello stato ed possibile intervenire. Per eseguire il passaggio successivo, il consumer deve solo sapere che è accaduto qualcosa. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai consumer che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi separati sono ideali per le soluzioni [senza server](http://azure.com/serverless) che devono essere ridimensionate.
+Gli eventi separati segnalano una modifica dello stato ed possibile intervenire. Per eseguire il passaggio successivo, il consumer deve solo sapere che è accaduto qualcosa. I dati dell'evento contengono informazioni su ciò che è accaduto, ma non includono i dati che hanno attivato l'evento. Un evento ad esempio notifica ai consumer che è stato creato un file. Può contenere informazioni generali sul file, ma non il file stesso. Gli eventi separati sono ideali per le soluzioni [senza server](https://azure.com/serverless) che devono essere ridimensionate.
 
 Gli eventi di una serie segnalano una condizione e sono analizzabili. Gli eventi sono ordinati nel tempo e intercorrelati. Il consumer ha bisogno della serie sequenziata di eventi per analizzare che cosa è accaduto.
 
-### <a name="message"></a>Messaggio
+### <a name="message"></a>Message
 
 I messaggi sono dati non elaborati generati da un servizio da utilizzare o archiviare altrove. Il messaggio contiene i dati che hanno attivato la pipeline del messaggio. L'autore del messaggio ha un'aspettativa su come il consumer gestisce il messaggio. Esiste un contratto tra le due parti. L'autore, ad esempio, invia un messaggio con i dati non elaborati e prevede che il consumer crei un file da tali dati e al termine invii una risposta.
 
 ## <a name="comparison-of-services"></a>Confronto dei servizi
 
-| Service | Scopo | Tipo | Quando usare le autorizzazioni |
+| Service | Scopo | Type | Quando usare le autorizzazioni |
 | ------- | ------- | ---- | ----------- |
 | Griglia di eventi | Programmazione reattiva | Distribuzione di eventi (separati) | Reazione alle modifiche di stato |
 | Hub eventi | Pipeline di Big Data | Streaming di eventi (serie) | Flusso dei dati di telemetria e distribuiti |

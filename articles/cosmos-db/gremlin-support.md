@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: e7230e9c4d97c1c3ba8f0cf20d32f5a59ea2219b
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034523"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081101"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Supporto Gremlin Graph di Azure Cosmos DB
 Azure Cosmos DB supporta il linguaggio di attraversamento di grafi [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps) di [Apache Tinkerpop](https://tinkerpop.apache.org), ovvero un'API Gremlin per la creazione di entità di grafi e l'esecuzione di operazioni di query sui grafi. È possibile usare il linguaggio Gremlin per creare le entità dei grafi (vertici e archi), modificare proprietà all'interno di tali entità, eseguire query e attraversamenti ed eliminare entità. 
@@ -181,7 +181,7 @@ Verranno ora esaminati gli step di Gremlin supportati da Azure Cosmos DB. Per in
 | `range` | Filtra per l'intervallo di valori specificato| [range step](https://tinkerpop.apache.org/docs/current/reference/#range-step) |
 | `repeat` | Ripete lo step per il numero di volte specificato. Usato per eseguire i cicli | [repeat step](https://tinkerpop.apache.org/docs/current/reference/#repeat-step) |
 | `sample` | Usato per campionare i risultati dell'attraversamento | [sample step](https://tinkerpop.apache.org/docs/current/reference/#sample-step) |
-| `select` | Usato per proiettare i risultati dell'attraversamento |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) | |
+| `select` | Usato per proiettare i risultati dell'attraversamento |  [select step](https://tinkerpop.apache.org/docs/current/reference/#select-step) |
 | `store` | Usato per le aggregazioni non bloccanti risultanti dall'attraversamento | [store step](https://tinkerpop.apache.org/docs/current/reference/#store-step) |
 | `tree` | Aggrega i percorsi da un vertice a una struttura ad albero | [tree step](https://tinkerpop.apache.org/docs/current/reference/#tree-step) |
 | `unfold` | Srotola un iteratore come step| [unfold step](https://tinkerpop.apache.org/docs/current/reference/#unfold-step) |

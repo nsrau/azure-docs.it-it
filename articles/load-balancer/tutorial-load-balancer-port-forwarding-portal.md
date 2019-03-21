@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6cb9e839b1fffd29ce1d78e82fb4ab054b92efc6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959128"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118358"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Esercitazione: configurare il port forwarding in Azure Load Balancer tramite il portale
 
@@ -45,7 +45,7 @@ Per tutti i passaggi in questa esercitazione, accedere al portale di Azure all'i
 Per prima cosa, creare un servizio di bilanciamento del carico standard pubblico in grado di bilanciare il traffico nelle macchine virtuali. Un servizio di bilanciamento del carico standard supporta solo indirizzi IP pubblici standard. Quando si crea un servizio di bilanciamento del carico standard, si crea anche un nuovo indirizzo IP pubblico standard configurato come front-end del bilanciamento del carico, denominato **LoadBalancerFrontEnd** per impostazione predefinita.  
 
 1. Nella parte superiore sinistra dello schermo fare clic su **Crea una risorsa** > **Rete** > **Servizio di bilanciamento del carico**.
-2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Rivedi e crea**:
+2. Nella scheda **Generale** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le opzioni rimanenti e quindi selezionare **Rivedi e crea**:
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
@@ -220,7 +220,7 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
 1. Selezionare **OK**.
    
-  ![Aggiungere una regola di bilanciamento del carico](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
+   ![Aggiungere una regola di bilanciamento del carico](./media/tutorial-load-balancer-port-forwarding-portal/5-load-balancing-rules.png)
 
 ## <a name="create-an-inbound-nat-port-forwarding-rule"></a>Creare una regola NAT di port forwarding in ingresso
 

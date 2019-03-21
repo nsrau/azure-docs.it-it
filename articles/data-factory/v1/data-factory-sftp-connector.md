@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c29cf0604e651902474d85dbd6edd3208e6b5944
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 55a829f2ed32152d14ef637c8079f7af8c487bea
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811297"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097645"
 ---
 # <a name="move-data-from-an-sftp-server-using-azure-data-factory"></a>Spostare dati da un server SFTP usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,7 @@ Quando si copiano dati da un server SFTP locale, è necessario installare un gat
 La tabella seguente contiene le descrizioni degli elementi JSON specifici del servizio collegato FTP.
 
 | Proprietà | Descrizione | Obbligatoria |
-| --- | --- | --- | --- |
+| --- | --- | --- |
 | type | La proprietà type deve essere impostata su `Sftp`. |Sì |
 | host | Nome o indirizzo IP del server SFTP. |Sì |
 | port |Porta su cui è in ascolto il server SFTP. Il valore predefinito è: 21 |No  |
@@ -64,8 +64,8 @@ La tabella seguente contiene le descrizioni degli elementi JSON specifici del se
 
 Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP introdotte nell'ultima sezione:
 
-| Proprietà | Descrizione | Obbligatoria |
-| --- | --- | --- | --- |
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
 | username | Utente che ha accesso al server SFTP. |Sì |
 | password | Password per l'utente (nome utente). | Sì |
 
@@ -114,8 +114,8 @@ Per usare l'autenticazione di base, impostare `authenticationType` come `Basic` 
 
 Per usare l'autenticazione con chiave pubblica SSH, impostare `authenticationType` su `SshPublicKey` e specificare le proprietà seguenti oltre a quelle generiche del connettore SFTP presentate nell'ultima sezione:
 
-| Proprietà | Descrizione | Obbligatoria |
-| --- | --- | --- | --- |
+| Proprietà | Descrizione | Obbligatorio |
+| --- | --- | --- |
 | username |Utente che ha accesso al server SFTP |Sì |
 | privateKeyPath | Specificare un percorso assoluto al file di chiave privato a cui il gateway può accedere. | Specificare `privateKeyPath` o `privateKeyContent`. <br><br> Applicare solo se si copiano i dati da un server SFTP locale. |
 | privateKeyContent | Una stringa serializzata del contenuto di chiave privata. La copia guidata può leggere il file di chiave privata ed estrarre automaticamente il contenuto della chiave privata. Se si usa un qualsiasi altro strumento/SDK, usare la proprietà privateKeyPath. | Specificare `privateKeyPath` o `privateKeyContent`. |
@@ -170,7 +170,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati. Fornisce informazioni specifiche del tipo di set di dati. La sezione typeProperties per un set di dati di tipo **FileShare** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | folderPath |Sottopercorso alla cartella. Usare il carattere di escape "\" per i caratteri speciali nella stringa. Per ottenere alcuni esempi, vedere Servizio collegato di esempio e definizioni del set di dati.<br/><br/>È possibile combinare questa proprietà con **partitionBy** per ottenere percorsi di cartelle basati su data e ora di inizio/fine delle sezioni. |Sì |
 | fileName |Specificare il nome del file in **folderPath** se si vuole che la tabella faccia riferimento a un file specifico nella cartella. Se non si specifica alcun valore per questa proprietà, la tabella punta a tutti i file nella cartella.<br/><br/>Quando fileName non viene specificato per un set di dati di output, il nome del file generato sarà nel formato seguente: <br/><br/>Data.<Guid>.txt (esempio: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |No  |
@@ -411,7 +411,7 @@ La pipeline contiene un'attività di copia configurata per usare i set di dati d
 ## <a name="performance-and-tuning"></a>Ottimizzazione delle prestazioni
 Per informazioni sui fattori chiave che influiscono sulle prestazioni dello spostamento dei dati, ovvero dell'attività di copia, in Azure Data Factory e sui vari modi per ottimizzare tali prestazioni, vedere la [Guida alle prestazioni delle attività di copia e all'ottimizzazione](data-factory-copy-activity-performance.md).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Vedere gli articoli seguenti:
 
 * [Esercitazione dell'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per le istruzioni dettagliate della creazione di una pipeline con un'attività di copia.

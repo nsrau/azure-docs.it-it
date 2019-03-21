@@ -10,17 +10,17 @@ tags: azure-resource-manager
 ms.assetid: ''
 ms.service: azure
 ms.devlang: ''
-ms.topic: ''
+ms.topic: overview
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 508614d2126d95323ce3550954b4b8a7d4d9d7d8
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 5e879395e034813f954d1046e4a69e21534f3968
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077157"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Guida introduttiva per gli operatori IT di Azure
 
@@ -481,9 +481,9 @@ Per la distribuzione di una rete virtuale sono disponibili diverse opzioni.
 
 - Modelli di Azure Resource Manager
 
->**Uso consigliato**: ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
-
->**Come iniziare**: Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
+> **Uso consigliato**: ogni volta che si lavora con le macchine virtuali in Azure, si usano reti virtuali. In questo modo è possibile suddividere le macchine virtuali in data center locali simili a subnet rivolte al pubblico e private.
+> 
+> **Come iniziare**: Per la distribuzione di una rete virtuale di Azure tramite il Portale di Azure servono solo una sottoscrizione di Azure attiva e l'accesso a un Web browser. È possibile distribuire una nuova rete virtuale in un gruppo di risorse nuovo o esistente. Quando si crea una nuova macchina virtuale dal portale, è possibile selezionare una rete virtuale esistente o crearne una nuova. Iniziare e [Creare una rete virtuale con il portale di Azure](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Accesso e sicurezza delle reti virtuali
 

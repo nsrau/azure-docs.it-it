@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 02/26/2019
 ms.author: apimpm
-ms.openlocfilehash: 4aa4c69857bfd1ab99945cb0f5f748e60cff9978
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: e50c5d942bdbafc60bf0e2b8c74b008ac12b3bc6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417331"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084981"
 ---
-# <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API 
+# <a name="transform-and-protect-your-api"></a>Trasformare e proteggere l'API
 
 L'esercitazione illustra come trasformare l'API in modo che non riveli le informazioni di un back-end privato. Potrebbe, ad esempio, essere necessario nascondere le informazioni sullo stack di tecnologie in esecuzione nel back-end. Potrebbe anche essere necessario nascondere gli URL originali visualizzati nel corpo della risposta HTTP dell'API e reindirizzarli invece al gateway di Gestione API.
 
@@ -30,19 +30,20 @@ Questa esercitazione illustra quanto sia semplice aggiungere la protezione all'A
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Trasformare un'API per rimuovere le intestazioni di risposta
-> * Sostituire gli URL originali nel corpo della risposta dell'API con URL del gateway di Gestione API
-> * Proteggere un'API aggiungendo criteri relativi ai limiti di frequenza (limitazione delle richieste)
-> * Testare le trasformazioni
+>
+> -   Trasformare un'API per rimuovere le intestazioni di risposta
+> -   Sostituire gli URL originali nel corpo della risposta dell'API con URL del gateway di Gestione API
+> -   Proteggere un'API aggiungendo criteri relativi ai limiti di frequenza (limitazione delle richieste)
+> -   Testare le trasformazioni
 
 ![Criteri](./media/transform-api/api-management-management-console.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-+ Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Comprendere il [concetto di criteri in Gestione API di Azure](api-management-howto-policies.md).
-+ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
+-   Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
+-   Comprendere il [concetto di criteri in Gestione API di Azure](api-management-howto-policies.md).
+-   Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
+-   Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
@@ -50,8 +51,8 @@ In questa esercitazione si apprenderà come:
 
 Questa sezione illustra come nascondere le intestazioni HTTP che non devono essere visualizzate dagli utenti. In questo esempio le intestazioni seguenti vengono eliminate nella risposta HTTP:
 
-* **X-Powered-By**
-* **X-AspNet-Version**
+-   **X-Powered-By**
+-   **X-AspNet-Version**
 
 ### <a name="test-the-original-response"></a>Testare la risposta originale
 
@@ -78,13 +79,14 @@ La risposta originale dovrebbe avere l'aspetto seguente:
 5. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
 6. Nella finestra di destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Set HTTP header** (+ Imposta intestazione HTTP) due volte (per inserire due frammenti di criteri).
 
-    ![Criteri](./media/transform-api/transform-api.png)
+   ![Criteri](./media/transform-api/transform-api.png)
+
 7. Modificare il codice **<outbound>** in modo che risulti simile al seguente:
 
-        <set-header name="X-Powered-By" exists-action="delete" />
-        <set-header name="X-AspNet-Version" exists-action="delete" />
+       <set-header name="X-Powered-By" exists-action="delete" />
+       <set-header name="X-AspNet-Version" exists-action="delete" />
 
-    ![Criteri](./media/transform-api/set-policy.png)
+   ![Criteri](./media/transform-api/set-policy.png)
 
 8. Fare clic sul pulsante **Salva** .
 
@@ -99,7 +101,7 @@ Per visualizzare la risposta originale:
 1. Selezionare **Demo Conference API**.
 2. Fare clic sulla scheda **Test** nella parte superiore della schermata.
 3. Selezionare l'operazione **GetSpeakers**.
-4. Fare clic sul pulsante **Invia** nella parte inferiore della schermata. 
+4. Fare clic sul pulsante **Invia** nella parte inferiore della schermata.
 
     Come si può notare, la risposta originale è simile alla seguente:
 
@@ -107,13 +109,13 @@ Per visualizzare la risposta originale:
 
 ### <a name="set-the-transformation-policy"></a>Impostare i criteri di trasformazione
 
-1. Selezionare **Demo Conference API**.
-2. Selezionare **Tutte le operazioni**.
-3. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-4. Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>**.
-5. Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
-6. Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
-7. Modificare il codice **find-and-replace** (nell'elemento **\<in uscita\>**) per sostituire l'URL in modo che corrisponda al gateway di Gestione API. Ad esempio: 
+1.  Selezionare **Demo Conference API**.
+2.  Selezionare **Tutte le operazioni**.
+3.  Nella parte superiore della schermata selezionare la scheda **Progettazione**.
+4.  Nella sezione **Elaborazione in uscita** fare clic sull'icona **</>**.
+5.  Posizionare il cursore all'interno dell'elemento **&lt;outbound&gt;**.
+6.  Nella finestra a destra, in **Transformation policies** (Criteri di trasformazione) fare clic su **+ Find and replace string in body** (+ Trova e sostituisci la stringa nel corpo).
+7.  Modificare il codice **find-and-replace** (nell'elemento **\<in uscita\>**) per sostituire l'URL in modo che corrisponda al gateway di Gestione API. Ad esempio: 
 
         <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
 
@@ -123,18 +125,18 @@ Questa sezione illustra come aggiungere la protezione per l'API back-end configu
 
 ![Impostare i criteri in ingresso](./media/transform-api/04-ProtectYourAPI-01-SetPolicy-Inbound.png)
 
-1. Selezionare **Demo Conference API**.
-2. Selezionare **Tutte le operazioni**.
-3. Nella parte superiore della schermata selezionare la scheda **Progettazione**.
-4. Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>**.
-5. Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;**.
-6. Nella finestra a destra, in **Access restriction policies** (Criteri di restrizione dell'accesso) fare clic su **+ Limit call rate per key** (+ Limita frequenza delle chiamate per chiave).
-7. Sostituire il codice **rate-limit-by-key** (nell'elemento **\<in ingresso\>**) con il codice seguente:
+1.  Selezionare **Demo Conference API**.
+2.  Selezionare **Tutte le operazioni**.
+3.  Nella parte superiore della schermata selezionare la scheda **Progettazione**.
+4.  Nella sezione **Elaborazione in ingresso** fare clic sull'icona **</>**.
+5.  Posizionare il cursore all'interno dell'elemento **&lt;inbound&gt;**.
+6.  Nella finestra a destra, in **Access restriction policies** (Criteri di restrizione dell'accesso) fare clic su **+ Limit call rate per key** (+ Limita frequenza delle chiamate per chiave).
+7.  Sostituire il codice **rate-limit-by-key** (nell'elemento **\<in ingresso\>**) con il codice seguente:
 
         <rate-limit-by-key calls="3" renewal-period="15" counter-key="@(context.Subscription.Id)" />
 
 ## <a name="test-the-transformations"></a>Testare le trasformazioni
-        
+
 A questo punto, se si esamina il codice nell'editor di codice, i criteri sono simili ai seguenti:
 
     <policies>
@@ -148,6 +150,7 @@ A questo punto, se si esamina il codice nell'editor di codice, i criteri sono si
         <outbound>
             <set-header name="X-Powered-By" exists-action="delete" />
             <set-header name="X-AspNet-Version" exists-action="delete" />
+            <find-and-replace from="://conferenceapi.azurewebsites.net:443" to="://apiphany.azure-api.net/conference"/>
             <find-and-replace from="://conferenceapi.azurewebsites.net" to="://apiphany.azure-api.net/conference"/>
             <base />
         </outbound>
@@ -202,10 +205,11 @@ La parte rimanente della sezione testa le trasformazioni dei criteri impostate i
 Questa esercitazione illustra come:
 
 > [!div class="checklist"]
-> * Trasformare un'API per rimuovere le intestazioni di risposta
-> * Sostituire gli URL originali nel corpo della risposta dell'API con URL del gateway di Gestione API
-> * Proteggere un'API aggiungendo criteri relativi ai limiti di frequenza (limitazione delle richieste)
-> * Testare le trasformazioni
+>
+> -   Trasformare un'API per rimuovere le intestazioni di risposta
+> -   Sostituire gli URL originali nel corpo della risposta dell'API con URL del gateway di Gestione API
+> -   Proteggere un'API aggiungendo criteri relativi ai limiti di frequenza (limitazione delle richieste)
+> -   Testare le trasformazioni
 
 Passare all'esercitazione successiva:
 

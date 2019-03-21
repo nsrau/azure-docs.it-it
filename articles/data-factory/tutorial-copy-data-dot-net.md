@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jingwang
-ms.openlocfilehash: 3cbfb29542f2c71f4308b63319e77b37093529d4
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 630b17a3467f372190004172b31b481dcb5af3ce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445901"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863135"
 ---
 # <a name="copy-data-from-azure-blob-to-azure-sql-database-using-azure-data-factory"></a>Copiare dati da un BLOB di Azure al database SQL di Azure con Azure Data Factory
 In questa esercitazione si crea una pipeline di Data Factory che copia i dati da un archivio BLOB di Azure al database SQL di Azure. Il modello di configurazione di questa esercitazione si applica alla copia da un archivio dati basato su file a un archivio dati relazionale. Per un elenco degli archivi dati supportati come origini e sink, vedere la tabella degli [archivi dati supportati](copy-activity-overview.md#supported-data-stores-and-formats).
@@ -57,7 +57,7 @@ Preparare ora il BLOB di Azure e il database SQL di Azure per l'esercitazione se
     Jane|Doe
     ```
 
-2. Usare strumenti come [Azure Storage Explorer](http://storageexplorer.com/) per creare il contenitore **adfv2tutorial** e per caricare il file **inputEmp.txt** nel contenitore.
+2. Usare strumenti come [Azure Storage Explorer](https://storageexplorer.com/) per creare il contenitore **adfv2tutorial** e per caricare il file **inputEmp.txt** nel contenitore.
 
 #### <a name="create-a-sink-sql-table"></a>Creare una tabella SQL sink
 
@@ -236,7 +236,7 @@ Definire un set di dati che rappresenta i dati di origine nel BLOB di Azure. Que
 - Struttura dei dati, inclusi i nomi di colonna e i tipi di dati mappati in questo caso alla tabella SQL sink.
 
 ```csharp
-// Create a Azure Blob dataset
+// Create an Azure Blob dataset
 Console.WriteLine("Creating dataset " + blobDatasetName + "...");
 DatasetResource blobDataset = new DatasetResource(
     new AzureBlobDataset
@@ -274,7 +274,7 @@ Aggiungere il codice seguente al metodo **Main** per creare un **set di dati del
 Definire un set di dati che rappresenta i dati sink nel database SQL di Azure. Questo set di dati fa riferimento al servizio collegato Database SQL di Azure creato nel passaggio precedente e specifica anche la tabella SQL contenente i dati copiati. 
 
 ```csharp
-// Create a Azure SQL Database dataset
+// Create an Azure SQL Database dataset
 Console.WriteLine("Creating dataset " + sqlDatasetName + "...");
 DatasetResource sqlDataset = new DatasetResource(
     new AzureSqlTableDataset

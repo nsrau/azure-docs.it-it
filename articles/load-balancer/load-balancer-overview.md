@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/11/2019
 ms.author: kumud
-ms.openlocfilehash: 9ca8e6876b67167429dbc0b5e6c3f5b454878c2a
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
+ms.openlocfilehash: c2f6a614524f0dfb242db11618fda94ce57e6e6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382673"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111532"
 ---
 # <a name="what-is-azure-load-balancer"></a>Informazioni su Azure Load Balancer
 
@@ -94,8 +94,8 @@ Load Balancer offre le funzionalità principali seguenti per applicazioni TCP e 
 
     Tutti i flussi in uscita dagli indirizzi IP privati all'interno della rete virtuale verso gli indirizzi IP pubblici in Internet possono essere convertiti in indirizzi IP front-end di Load Balancer. Quando un front-end pubblico è associato a una macchina virtuale back-end tramite una regola di bilanciamento del carico, Azure programma le connessioni in uscita da convertire automaticamente nell'indirizzo IP front-end pubblico.
 
-    * È possibile eseguire in modo semplice l'aggiornamento e il ripristino di emergenza dei servizi, perché è possibile eseguire il mapping dinamico del front-end in un'altra istanza del servizio.
-    * Gestione semplificata degli elenchi di controllo di accesso (ACL). Gli ACL espressi in termini di indirizzi IP front-end non si modificano in caso di ridimensionamento o ridistribuzione dei servizi.  La conversione delle connessioni in uscita in un numero di indirizzi IP inferiore a quello delle macchine può ridurre il carico correlato all'inserimento nell'elenco di elementi consentiti.
+  * È possibile eseguire in modo semplice l'aggiornamento e il ripristino di emergenza dei servizi, perché è possibile eseguire il mapping dinamico del front-end in un'altra istanza del servizio.
+  * Gestione semplificata degli elenchi di controllo di accesso (ACL). Gli ACL espressi in termini di indirizzi IP front-end non si modificano in caso di ridimensionamento o ridistribuzione dei servizi.  La conversione delle connessioni in uscita in un numero di indirizzi IP inferiore a quello delle macchine può ridurre il carico correlato all'inserimento nell'elenco di elementi consentiti.
 
     Per altre informazioni, vedere [Connessioni in uscita](load-balancer-outbound-connections.md).
 

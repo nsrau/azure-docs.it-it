@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: overview
 ms.date: 04/10/2018
 ms.author: stevelas
-ms.openlocfilehash: d65267992876b3b3255a5eea22ff827522ddcdf1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2dc314dd1d1e728f03c1d0c660d9339254ddc462
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674702"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541860"
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replica geografica nel servizio Registro Azure Container
 
@@ -69,7 +69,7 @@ La replica geografica è una funzionalità disponibile solo per i [registri Prem
 
 ![Cambio di SKU nel portale di Azure](media/container-registry-skus/update-registry-sku.png)
 
-Per configurare la replica geografica per un registro Premium, accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Per configurare la replica geografica per un registro Premium, accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Passare a Registro Azure Container e selezionare **Repliche**:
 

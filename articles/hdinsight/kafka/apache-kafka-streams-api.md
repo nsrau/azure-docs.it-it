@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 11/06/2018
-ms.openlocfilehash: cb959bd74322534573f83c2b3258ff28d4c324ff
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 3c40e00d55af49b1b040d3fe706f08af719b2238
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584157"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112790"
 ---
 # <a name="tutorial-apache-kafka-streams-api"></a>Esercitazione: API Apache Kafka Streams
 
@@ -199,13 +199,13 @@ Per creare e distribuire il progetto in un cluster Kafka in HDInsight, seguire q
 
     Gli argomenti vengono usati per gli scopi seguenti:
 
-    * `test`: in questo argomento vengono ricevuti i record. Applicazione di streaming legge i dati da questo argomento.
-    * `wordcounts`: in questo argomento l'applicazione di streaming archivia l'output.
-    * `RekeyedIntermediateTopic`: questo argomento viene usato per partizionare nuovamente i dati mentre il conteggio viene aggiornato dall'operatore `countByKey`.
-    * `wordcount-example-Counts-changelog`: questo argomento è un archivio di stati usato dall'operazione `countByKey`
+   * `test`: in questo argomento vengono ricevuti i record. Applicazione di streaming legge i dati da questo argomento.
+   * `wordcounts`: in questo argomento l'applicazione di streaming archivia l'output.
+   * `RekeyedIntermediateTopic`: questo argomento viene usato per partizionare nuovamente i dati mentre il conteggio viene aggiornato dall'operatore `countByKey`.
+   * `wordcount-example-Counts-changelog`: questo argomento è un archivio di stati usato dall'operazione `countByKey`
 
-    > [!IMPORTANT]  
-    > È possibile configurare Kafka in HDInsight anche in modo che gli argomenti vengano creati automaticamente. Per altre informazioni, vedere il documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configurare la creazione automatica degli argomenti).
+     > [!IMPORTANT]  
+     > È possibile configurare Kafka in HDInsight anche in modo che gli argomenti vengano creati automaticamente. Per altre informazioni, vedere il documento [Configure automatic topic creation](apache-kafka-auto-create-topics.md) (Configurare la creazione automatica degli argomenti).
 
 ## <a name="run-the-code"></a>Eseguire il codice
 

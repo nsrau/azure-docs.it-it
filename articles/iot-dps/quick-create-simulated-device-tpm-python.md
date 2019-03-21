@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: 78381bd34bd7fe7a8941d7e3a567ec1282d6a8d9
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 186bd272fdca20475686847dc4e86b8ad50e5e41
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080965"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-python-device-sdk-for-iot-hub-device-provisioning-service"></a>Creare ed effettuare il provisioning di un dispositivo simulato TPM usando l'SDK per dispositivi Python per il servizio Device Provisioning in hub IoT
 
@@ -26,8 +26,8 @@ Questi passaggi illustrano come creare un dispositivo simulato nel computer di s
 Se non si ha familiarità con il processo di provisioning automatico, è necessario vedere [Concetti relativi al provisioning automatico](concepts-auto-provisioning.md). È anche necessario aver completato la procedura descritta in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md) prima di continuare. 
 
 Il servizio Device Provisioning in Azure IoT supporta due tipi di registrazione:
-- [Gruppi di registrazioni](concepts-service.md#enrollment-group): usato per registrare più dispositivi correlati.
-- [Registrazioni singole](concepts-service.md#individual-enrollment): usato per registrare un singolo dispositivo.
+- [Gruppi di registrazioni](concepts-service.md#enrollment-group): Usato per registrare più dispositivi correlati.
+- [Registrazioni singole](concepts-service.md#individual-enrollment): Usato per registrare un singolo dispositivo.
 
 Questo articolo descrive le registrazioni singole.
 
@@ -83,14 +83,14 @@ Questo articolo descrive le registrazioni singole.
 1. Nel pannello di riepilogo del servizio Device Provisioning selezionare **Manage enrollments** (Gestisci registrazioni). Selezionare la scheda **Individual Enrollments** (Registrazione singola) e fare clic sul pulsante in alto **Add individual enrollment** (Aggiungi registrazione singola). 
 
 1. Nella sezione **Add Enrollment**(Aggiungi registrazione) immettere le seguenti informazioni:
-    - Selezionare **TPM** come *meccanismo* di attestazione dell'identità.
-    - Immettere l'*ID registrazione* e la *chiave di verifica dell'autenticità* per il dispositivo TPM. 
-    - Selezionare un hub IoT collegato al servizio di provisioning.
-    - Immettere un ID dispositivo univoco. Assicurarsi di non usare dati sensibili quando si assegna un nome al dispositivo.
-    - Aggiornare lo **stato iniziale del dispositivo gemello** con la configurazione iniziale desiderata per il dispositivo.
-    - Al termine, fare clic sul pulsante **Save** (Salva). 
+   - Selezionare **TPM** come *meccanismo* di attestazione dell'identità.
+   - Immettere l'*ID registrazione* e la *chiave di verifica dell'autenticità* per il dispositivo TPM. 
+   - Selezionare un hub IoT collegato al servizio di provisioning.
+   - Immettere un ID dispositivo univoco. Assicurarsi di non usare dati sensibili quando si assegna un nome al dispositivo.
+   - Aggiornare lo **stato iniziale del dispositivo gemello** con la configurazione iniziale desiderata per il dispositivo.
+   - Al termine, fare clic sul pulsante **Save** (Salva). 
 
-    ![Immettere le informazioni di registrazione del dispositivo nel pannello del portale](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
+     ![Immettere le informazioni di registrazione del dispositivo nel pannello del portale](./media/python-quick-create-simulated-device/enterdevice-enrollment.png)  
 
    Dopo la corretta registrazione, l'*ID registrazione* del dispositivo verrà visualizzato nell'elenco della scheda *Individual Enrollments* (Registrazioni singole). 
 
@@ -102,11 +102,11 @@ Questo articolo descrive le registrazioni singole.
 
 1. Seguire [queste istruzioni](https://github.com/Azure/azure-iot-sdk-python/blob/master/doc/python-devbox-setup.md) per compilare i pacchetti Python.
 
-    > [!NOTE]
-        > Se si esegue `build_client.cmd`, assicurarsi di usare il flag `--use-tpm-simulator`.
-
-    > [!NOTE]
-        > Se si usa `pip`, assicurarsi di installare anche il pacchetto `azure-iot-provisioning-device-client`. Si noti che i pacchetti PIP rilasciati usano il vero modulo TPM, non il simulatore. Per usare il simulatore, è necessario eseguire la compilazione dall'origine usando il flag `--use-tpm-simulator`.
+   > [!NOTE]
+   > Se si esegue `build_client.cmd`, assicurarsi di usare il flag `--use-tpm-simulator`.
+   > 
+   > [!NOTE]
+   > Se si usa `pip`, assicurarsi di installare anche il pacchetto `azure-iot-provisioning-device-client`. Si noti che i pacchetti PIP rilasciati usano il vero modulo TPM, non il simulatore. Per usare il simulatore, è necessario eseguire la compilazione dall'origine usando il flag `--use-tpm-simulator`.
 
 1. Passare alla cartella degli esempi.
 

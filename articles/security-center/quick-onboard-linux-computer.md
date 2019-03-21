@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e6d2404e6f509c03d2d3965f34d8229de25df4b7
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ee28bfebb6732c7bb3b689cf08b9b876adb74b1b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104676"
 ---
-# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Avvio rapido: Caricare i computer Linux nel Centro sicurezza di Azure
+# <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Guida introduttiva: Caricare i computer Linux nel Centro sicurezza di Azure
 Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse di Linux in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning dell'agente Linux.
 
 Questa guida introduttiva mostra come installare l'agente Linux in un computer Linux.
@@ -37,7 +37,7 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 1. Accedere al [portale di Azure](https://azure.microsoft.com/features/azure-portal/).
 2. Scegliere **Centro sicurezza** dal menu **Microsoft Azure**. Viene visualizzato **Centro sicurezza - Panoramica**.
 
- ![Panoramica del Centro sicurezza di Azure][2]
+   ![Panoramica del Centro sicurezza di Azure][2]
 
 3. Scegliere **Introduzione** dal menu principale del Centro sicurezza.
 4. Selezionare la scheda **Introduzione**. ![Introduzione][3]
@@ -46,16 +46,16 @@ Prima di iniziare questa guida introduttiva, è necessario essere nel piano tari
 
     ![Aggiungere computer non Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
-6.  Nella pagina **Direct Agent** (Agente diretto) sotto **DOWNLOAD AND ONBOARD AGENT FOR LINUX** (SCARICARE E CARICARE L'AGENTE PER LINUX) selezionare il pulsante di **copia** per copiare il comando *wget*.
+6. Nella pagina **Direct Agent** (Agente diretto) sotto **DOWNLOAD AND ONBOARD AGENT FOR LINUX** (SCARICARE E CARICARE L'AGENTE PER LINUX) selezionare il pulsante di **copia** per copiare il comando *wget*.
 
-7.  Aprire Blocco note e incollare il comando. Salvare questo file in un percorso accessibile dal computer Linux.
+7. Aprire Blocco note e incollare il comando. Salvare questo file in un percorso accessibile dal computer Linux.
 
 ## <a name="install-the-agent"></a>Installare l'agente
 
-1.  Nel computer Linux aprire il file salvato in precedenza. Selezionare tutto il contenuto, quindi copiare, aprire una console del terminale e incollare il comando.
-2.  Al termine dell'installazione è possibile convalidare che *omsagent* sia installato eseguendo il comando *pgrep*. Il comando restituirà il PID (ID processo) *omsagent* come riportato di seguito:
+1. Nel computer Linux aprire il file salvato in precedenza. Selezionare tutto il contenuto, quindi copiare, aprire una console del terminale e incollare il comando.
+2. Al termine dell'installazione è possibile convalidare che *omsagent* sia installato eseguendo il comando *pgrep*. Il comando restituirà il PID (ID processo) *omsagent* come riportato di seguito:
 
-  ![Installare l'agente][5]
+   ![Installare l'agente][5]
 
 I log per l'agente del Centro sicurezza per Linux sono reperibili in: */var/opt/microsoft/omsagent/<workspace id>/log/*
 

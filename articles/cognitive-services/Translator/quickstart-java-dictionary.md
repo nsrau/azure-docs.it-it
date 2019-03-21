@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 9a84b87a3577d3b88d49040d309f48083d494879
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 5c2f85e6417c3185df58e757f9831ef171e39add
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730852"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181895"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-java"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Java
 
@@ -74,7 +74,7 @@ Tenere presente che questo esempio ha dipendenze da OkHttp per le richieste HTTP
 È possibile creare una cartella per l'app di esempio. Dalla directory di lavoro eseguire:
 
 ```console
-mkdir -p src/main/java
+mkdir -p src\main\java
 ```
 
 Successivamente, in questa cartella creare un file denominato `AltTranslation.java`.

@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 5b749a85295e85ecde8d283ca02066a31be33666
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 259787a90b61b171f391dc02276214f17a57d0d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673070"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838817"
 ---
 # <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Esercitazione: Riconoscere i logo dei servizi di Azure nelle immagini della fotocamera
 
@@ -101,7 +101,6 @@ Aprire quindi il file *Source\VisualProvision\AppSettings.cs* e popolare le vari
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=28-32)]
 
-
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
 L'app richiede un account dell'entità servizio di Azure per distribuire i servizi alla sottoscrizione di Azure. Un'entità servizio consente di delegare specifiche autorizzazione a un'app usando il controllo degli accessi in base al ruolo. Per altre informazioni, vedere la [guida delle entità servizio](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-create-service-principals).
@@ -131,6 +130,7 @@ Al termine verrà visualizzato l'output JSON seguente, contenente le credenziali
   ...
 }
 ```
+
 Prendere nota dei valori `clientId` e `tenantId`. Aggiungerli ai campi appropriati del file *Source\VisualProvision\AppSettings.cs*.
 
 [!code-csharp[Computer Vision fields](~/AIVisualProvision/Source/VisualProvision/AppSettings.cs?range=8-16)]
@@ -138,9 +138,10 @@ Prendere nota dei valori `clientId` e `tenantId`. Aggiungerli ai campi appropria
 ## <a name="run-the-app"></a>Esecuzione dell'app
 
 A questo punto, all'app è stato concesso l'accesso a:
-* Un modello di Visione personalizzata sottoposto a training
-* Il servizio Visione artificiale
-* Un account dell'entità servizio 
+
+- Un modello di Visione personalizzata sottoposto a training
+- Il servizio Visione artificiale
+- Un account dell'entità servizio
 
 Per eseguire l'app, procedere come segue:
 
@@ -163,7 +164,6 @@ Per eseguire l'app, procedere come segue:
 
     ![Schermata dell'app con un campo a discesa per la sottoscrizione di Azure di destinazione](media/azure-logo-tutorial/app-az-subscription.png)
 
-    
 
 1. La fotocamera del dispositivo verrà attivata. Scattare una foto di uno dei logo dei servizi di Azure di cui è stato eseguito il training. Una finestra di distribuzione chiederà di selezionare un'area geografica e un gruppo di risorse per i nuovi servizi, come si farebbe se venissero distribuiti dal portale di Azure. 
 
@@ -171,7 +171,7 @@ Per eseguire l'app, procedere come segue:
 
     ![Schermata dell'app con i campi per l'immissione dell'area geografica e del gruppo di risorse per la distribuzione](media/azure-logo-tutorial/app-deployment-options.png)
 
-## <a name="clean-up-resources"></a>Pulire le risorse 
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se sono stati seguiti tutti i passaggi di questo scenario ed è stata usata l'app per distribuire i servizi di Azure nell'account, passare al [portale di Azure](https://ms.portal.azure.com/) per annullare i servizi che non si vogliono usare.
 

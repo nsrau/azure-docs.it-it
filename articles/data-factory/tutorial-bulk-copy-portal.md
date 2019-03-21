@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 37aa248af30c4beae3f9d170174842c908933339
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 16741461df2431cbf4433899dd375741e944ce0f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112569"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiare più tabelle in blocco con Azure Data Factory
 Questa esercitazione illustra la **copia di alcune tabelle dal database SQL di Azure ad Azure SQL Data Warehouse**. È possibile applicare lo stesso modello anche in altri scenari di copia, ad esempio per la copia di tabelle da SQL Server/Oracle in database SQL di Azure/SQL Data Warehouse/archivio BLOB di Azure o la copia di percorsi diversi dall'archivio BLOB alle tabelle del database SQL di Azure.
@@ -87,24 +87,24 @@ Per il database SQL e per SQL Data Warehouse è necessario consentire ai servizi
 1. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
 1. Per il **gruppo di risorse**, eseguire una di queste operazioni:
      
-      - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
-      - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
+   - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
+   - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-      Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+     Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
 1. Selezionare **V2** per **version**.
 1. Selezionare la **località** per la data factory. Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 1. Selezionare **Aggiungi al dashboard**.     
 1. Fare clic su **Create**(Crea).
 1. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
-    ![Riquadro Deploying data factory (Distribuzione della data factory)](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
+     ![Riquadro Deploying data factory (Distribuzione della data factory)](media//tutorial-bulk-copy-portal/deploying-data-factory.png)
 1. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
-    ![Home page di Data factory](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
+     ![Home page di Data factory](./media/tutorial-bulk-copy-portal/data-factory-home-page.png)
 1. Fare clic sul riquadro **Crea e monitora** per avviare l'applicazione dell'interfaccia utente di Data Factory in una scheda separata.
 1. Nella pagina **Attività iniziali** passare alla scheda **Modifica** nel pannello a sinistra, come mostrato nell'immagine seguente:  
 
-    ![Pagina delle attività iniziali](./media/tutorial-bulk-copy-portal/get-started-page.png)
+     ![Pagina delle attività iniziali](./media/tutorial-bulk-copy-portal/get-started-page.png)
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 Si creano servizi collegati per collegare gli archivi dati e le risorse di calcolo a una data factory. Un servizio collegato include le informazioni di connessione usate dal servizio Data Factory per connettersi all'archivio dati in fase di esecuzione. 
@@ -179,10 +179,10 @@ In questa esercitazione le tabelle SQL di origine e di destinazione non sono har
 
 1. Passare alla scheda **Connessione** e seguire questa procedura: 
 
-    1. Selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**.
-    1. Selezionare una tabella per **Tabella**. Questa è una tabella fittizia. Specificare una query sul set di dati di origine quando si crea una pipeline. La query viene usata per estrarre dati dal database SQL di Azure. In alternativa è possibile selezionare la casella di controllo **Modifica** e immettere **dummyName** come nome della tabella. 
+   1. Selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**.
+   1. Selezionare una tabella per **Tabella**. Questa è una tabella fittizia. Specificare una query sul set di dati di origine quando si crea una pipeline. La query viene usata per estrarre dati dal database SQL di Azure. In alternativa è possibile selezionare la casella di controllo **Modifica** e immettere **dummyName** come nome della tabella. 
 
-    ![Pagina di connessione al set di dati di origine](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
+      ![Pagina di connessione al set di dati di origine](./media/tutorial-bulk-copy-portal/source-dataset-connection-page.png)
  
 
 ### <a name="create-a-dataset-for-sink-sql-data-warehouse"></a>Creare un set di dati per l'istanza sink di SQL Data Warehouse

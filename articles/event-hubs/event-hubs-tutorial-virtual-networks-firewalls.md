@@ -1,7 +1,7 @@
 ---
 title: Esercitazione - Abilitare l'integrazione di reti virtuali e firewall in Hub eventi di Azure | Microsoft Docs
 description: Questa esercitazione illustra come integrare Hub eventi di Azure con reti virtuali e firewall per abilitare l'accesso sicuro.
-services: event-hubs-messaging
+services: event-hubs
 author: axisc
 manager: darosa
 ms.author: aschhab
@@ -9,12 +9,12 @@ ms.date: 11/28/2018
 ms.topic: tutorial
 ms.service: event-hubs-messaging
 ms.custom: mvc
-ms.openlocfilehash: e47c2af353a7f365534ba4cf9ce574c16a0ea4ca
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9eea40a8ad2f08099b2662a0e7539c326d4d143e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233140"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57779046"
 ---
 # <a name="tutorial-enable-virtual-networks-integration-and-firewalls-on-event-hubs-namespace"></a>Esercitazione: abilitare l'integrazione di reti virtuali e firewall nello spazio dei nomi di Hub eventi di Azure
 

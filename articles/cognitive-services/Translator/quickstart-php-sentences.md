@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: erhopf
-ms.openlocfilehash: a9d16037bd814c8fb0e18a27187a905efafa3fd2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 2844017986b39b417407fc3da4b92af4aea51a42
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984291"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542727"
 ---
 # <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-php"></a>Guida introduttiva: Ottenere la lunghezza delle frasi con l'API REST Traduzione testuale (PHP)
 
@@ -23,7 +23,7 @@ In questa guida introduttiva si identifica la lunghezza delle frasi nel testo us
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per eseguire il codice è necessario [PHP 5.6.x](http://php.net/downloads.php).
+Per eseguire il codice è necessario [PHP 5.6.x](https://php.net/downloads.php).
 
 Per usare l'API Traduzione testuale, è necessario avere anche una chiave di sottoscrizione. Per informazioni, vedere [Come registrarsi all'API Traduzione testuale](translator-text-how-to-signup.md).
 
@@ -74,7 +74,7 @@ function BreakSentences ($host, $path, $key, $params, $content) {
         "X-ClientTraceId: " . com_create_guid() . "\r\n";
 
     // NOTE: Use the key 'http' even if you are making an HTTPS request. See:
-    // http://php.net/manual/en/function.stream-context-create.php
+    // https://php.net/manual/en/function.stream-context-create.php
     $options = array (
         'http' => array (
             'header' => $headers,
@@ -98,7 +98,7 @@ $result = BreakSentences ($host, $path, $key, "", $content);
 
 // Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
 // We want to avoid escaping any Unicode characters that result contains. See:
-// http://php.net/manual/en/function.json-encode.php
+// https://php.net/manual/en/function.json-encode.php
 $json = json_encode(json_decode($result), JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 echo $json;
 ?>

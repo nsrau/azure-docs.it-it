@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 1819d1dba777d97590c0b02a89cde3b46af78fff
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 11bd639d86c6ad9a9f373ac26dc271817bc46b08
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749236"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773087"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
+# <a name="quickstart-upload-download-and-list-blobs-using-the-azure-cli"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con l'interfaccia della riga di comando di Azure
 
 L'interfaccia della riga di comando di Azure è l'esperienza della riga di comando di Azure per gestire le risorse di Azure. È possibile usarla nel browser con Azure Cloud Shell. È anche possibile installarla in macOS, Linux o Windows ed eseguirla dalla riga di comando. Questa guida introduttiva spiega come usare l'interfaccia della riga di comando di Azure per caricare e scaricare dati in Archiviazione BLOB di Azure.
 
@@ -60,7 +60,7 @@ Se è stato usato il metodo descritto prima per creare un file in Azure Cloud Sh
 ```azurecli-interactive
 az storage blob upload \
     --container-name mystoragecontainer \
-    --name helloworld
+    --name helloworld \
     --file helloworld
 ```
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 861a4d4d64f970a13aba68f831d2148f8a354ef4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: bddfccaf0749bbb5eaf206e5961c713efa5eea17
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732159"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57311900"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>Come risolvere il problema del "runtime di Funzioni di Azure non raggiungibile"
 
@@ -55,7 +55,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 
 ### <a name="required-application-settings"></a>Impostazioni dell'applicazione necessarie
 
-* Obbligatoria
+* Obbligatorio
     * [`AzureWebJobsStorage`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#azurewebjobsstorage)
 * Obbligatoria per funzioni di Piano a consumo
     * [`WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`](https://docs.microsoft.com/azure/azure-functions/functions-app-settings#websitecontentazurefileconnectionstring)
@@ -66,7 +66,7 @@ Nel passaggio precedente, se non si disponeva di una stringa di connessione dell
 ### <a name="guidance"></a>Materiale sussidiario
 
 * Non selezionare "impostazione slot" per qualsiasi di queste impostazioni. Quando si scambiano gli slot di distribuzione la funzione verrà interrotta.
-* Non impostare queste impostazioni quando si usano le distribuzioni automatizzate.
+* Non modificare queste impostazioni come parte di distribuzioni automatizzate.
 * Queste impostazioni devono essere valide e devono essere indicate al momento della creazione. Una distribuzione automatizzata che non contiene queste impostazioni comporterà un'app non funzionante, anche se le impostazioni vengono aggiunte al termine dell'attività.
 
 ## <a name="storage-account-credentials-invalid"></a>Credenziali dell'account di archiviazione non valide
@@ -88,7 +88,7 @@ Se si dispone di una Quota di esecuzione giornaliera configurata, verrà disabil
     * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
 * Rimuovere la quota e riavviare l'app per risolvere il problema.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Ora che l'app per le funzioni è nuovamente operativa, esaminare i riferimenti per sviluppatori e i modelli di avvio rapido per iniziare a usare nuovamente l'app.
 

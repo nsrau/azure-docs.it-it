@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 07/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: d208d989fb9b84ae7bc94c6a1882754ed2bacb5d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 0bf1558f81f2936b4556ee658a235cd09dddf905
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892915"
 ---
 # <a name="azure-managed-applications-in-the-marketplace"></a>Applicazioni gestite di Azure nel marketplace
 
@@ -43,7 +43,7 @@ Per diventare editore in Azure Marketplace, è necessario:
 
 1. Creare un ID Microsoft - Creare l'account Microsoft usando un indirizzo di posta elettronica appartenente al dominio dell'azienda, ma non a un singolo utente. Questo indirizzo di posta elettronica viene usato sia per Microsoft Developer Center che per il portale Cloud Partner. Per altre informazioni, vedere [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide) (Guida per gli editori di Azure Markeptlace).
 1. Inviare il [modulo di candidatura per Azure Marketplace](https://aka.ms/ampnomination) - Per **Solution that you intend to publish?** (Soluzione da pubblicare?) selezionare **Managed Application** (Applicazione gestita). Una volta inviato il modulo, il team Marketplace Onboarding esamina l'applicazione e convalida la richiesta. Il processo di approvazione può richiedere da uno a tre giorni. Quando la candidatura viene approvata, si riceve un codice promozionale che consente di evitare di pagare la tariffa di registrazione per Developer Center. Se **non** si completa il modulo di candidatura per il Marketplace, sarà necessario pagare una tariffa di registrazione equivalente a 99 dollari.
-1. Eseguire la registrazione in [Developer Center](http://dev.windows.com/registration?accountprogram=azure) - Microsoft verifica che l'organizzazione sia una persona giuridica valida con un ID fiscale valido per il paese di registrazione. Il processo di approvazione può richiedere da 5 a 10 giorni. Per evitare di pagare la tariffa di registrazione, usare il codice promozionale ricevuto nel messaggio di posta elettronica durante il processo di candidatura. Per altre informazioni, vedere [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide) (Guida per gli editori di Azure Markeptlace).
+1. Eseguire la registrazione in [Developer Center](https://dev.windows.com/registration?accountprogram=azure) - Microsoft verifica che l'organizzazione sia una persona giuridica valida con un ID fiscale valido per il paese di registrazione. Il processo di approvazione può richiedere da 5 a 10 giorni. Per evitare di pagare la tariffa di registrazione, usare il codice promozionale ricevuto nel messaggio di posta elettronica durante il processo di candidatura. Per altre informazioni, vedere [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide) (Guida per gli editori di Azure Markeptlace).
 1. Accedere al [portale Cloud Partner](https://cloudpartner.azure.com) - Nel profilo di pubblicazione, associare l'account di Developer Center al profilo di pubblicazione del Marketplace. Per altre informazioni, vedere [Azure Marketplace Publisher Guide](https://aka.ms/sellerguide) (Guida per gli editori di Azure Markeptlace).
 
 ## <a name="create-a-new-azure-application-offer"></a>Creare una nuova offerta di applicazione Azure

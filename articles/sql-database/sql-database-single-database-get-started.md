@@ -12,14 +12,14 @@ ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/25/2019
-ms.openlocfilehash: 64d16073062c0fd7f0b97a64950ceab9efc0eacf
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 5aeb84e5086fb0cf5c30e175ad419ee70bed55ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984884"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58075186"
 ---
-# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Avvio rapido: Creare un database singolo del database SQL di Azure usando il portale di Azure
+# <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-portal"></a>Guida introduttiva: Creare un database singolo del database SQL di Azure usando il portale di Azure
 
 La creazione di un [database singolo](sql-database-single-database.md) è l'opzione di distribuzione più semplice e rapida per la creazione di database nel database SQL di Azure. Questa guida introduttiva mostra come creare un database singolo e quindi eseguire query usando il portale di Azure.
 
@@ -42,8 +42,8 @@ Per creare un database singolo contenente i dati di esempio di AdventureWorksLT:
    - **Gruppo di risorse**: selezionare **Crea nuovo**, digitare *myResourceGroup* e selezionare **OK**.
    - **Selezionare l'origine**: selezionare **Sample (AdventureWorksLT)** nell'elenco a discesa.
 
-    > [!IMPORTANT]
-    > Assicurarsi di selezionare i dati di **Sample (AdventureWorksLT)** per poter seguire questa e le altre guide introduttive per il database SQL di Azure in cui vengono usati tali dati.
+     > [!IMPORTANT]
+     > Assicurarsi di selezionare i dati di **Sample (AdventureWorksLT)** per poter seguire questa e le altre guide introduttive per il database SQL di Azure in cui vengono usati tali dati.
   
    ![Creare un database singolo](./media/sql-database-get-started-portal/create-database-1.png)
 
@@ -67,7 +67,7 @@ Per creare un database singolo contenente i dati di esempio di AdventureWorksLT:
    > [!NOTE]
    > Questa guida introduttiva usa il [modello di acquisto basato su DTU](sql-database-service-tiers-dtu.md), ma è disponibile anche il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md).
    > [!IMPORTANT]
-   > Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
+   > Nel livello Premium è attualmente disponibile uno spazio di archiviazione superiore a 1 TB in tutte le aree tranne Cina orientale, Cina settentrionale, Germania centrale, Germania nord-orientale, Stati Uniti centro-occidentali, aree US DoD e US Government (area centrale). In queste aree la quantità massima di spazio di archiviazione nel livello Premium è limitata a 1 TB.  Per altre informazioni, vedere le [limitazioni correnti di P11 e P15](sql-database-single-database-scale.md#dtu-based-purchasing-model-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
 
 8. Per questa guida introduttiva selezionare il livello di servizio **Standard** e quindi usare il dispositivo di scorrimento per selezionare **10 DTU (S0)** e **1** GB di spazio di archiviazione.
 9. Selezionare **Applica**.  
@@ -76,9 +76,9 @@ Per creare un database singolo contenente i dati di esempio di AdventureWorksLT:
 
 10. Nel modulo **Database SQL** selezionare **Crea** per distribuire il gruppo di risorse, il server e il database ed effettuarne il provisioning.
 
-   La distribuzione richiede alcuni minuti. È possibile selezionare **Notifiche** sulla barra degli strumenti per monitorare lo stato di avanzamento della distribuzione.
+    La distribuzione richiede alcuni minuti. È possibile selezionare **Notifiche** sulla barra degli strumenti per monitorare lo stato di avanzamento della distribuzione.
 
-   ![Notifica](./media/sql-database-get-started-portal/notification.png)
+    ![Notifica](./media/sql-database-get-started-portal/notification.png)
 
 ## <a name="query-the-database"></a>Eseguire query sul database
 

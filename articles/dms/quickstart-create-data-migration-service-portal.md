@@ -1,24 +1,24 @@
 ---
-title: "Guida introduttiva: Creare un'istanza del Servizio Migrazione del database di Azure mediante il portale di Azure | Microsoft Docs"
+title: "Avvio rapido: Creare un'istanza del Servizio Migrazione del database di Azure mediante il portale di Azure | Microsoft Docs"
 description: Usare il portale di Azure per creare un'istanza del Servizio Migrazione del database di Azure
 services: database-migration
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/09/2018
-ms.openlocfilehash: 2b3ec4a09fb2baee7d532f348fc18cb3d428d092
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: af5ffdb1c1f030c2bbc0616d027c06b59f1a34de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53711823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58177467"
 ---
-# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Guida introduttiva: Creare un'istanza del Servizio Migrazione del database di Azure usando il portale di Azure
+# <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Avvio rapido: Creare un'istanza del Servizio Migrazione del database di Azure usando il portale di Azure
 In questa guida introduttiva usare il portale di Azure per creare un'istanza del servizio Migrazione del database di Azure.  Dopo aver creato il servizio, è possibile usarlo per eseguire la migrazione dei dati da SQL Server locale a un database SQL di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ce48e9a17ab6b63c7fb8caa752258e218ca51ba3
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 74329624b6e0f1b105349d87a6d166efad520076
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226384"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58010913"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Eseguire la migrazione di macchine virtuali Amazon Web Services (AWS) ad Azure
 
@@ -33,12 +33,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 - Assicurarsi che nelle macchine virtuali di cui si vuole eseguire la migrazione sia in esecuzione una versione supportata del sistema operativo. Le versioni supportate includono: 
-      - Windows Server 2016 
-      - Windows Server 2012 R2
-      - Windows Server 2012 
-      - Versione a 64 bit di Windows Server 2008 R2 SP1 o versione successiva
-      - Red Hat Enterprise Linux da 6.4 a 6.10, da 7.1 a 7.6 (solo istanze virtualizzate HVM) *(Le istanze che eseguono driver PV RedHat non sono supportate).*
-      - CentOS da 6.4 a 6.10, da 7.1 a 7.6 (solo istanze virtualizzate HVM)
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - Versione a 64 bit di Windows Server 2008 R2 SP1 o versione successiva
+  - Red Hat Enterprise Linux da 6.4 a 6.10, da 7.1 a 7.6 (solo istanze virtualizzate HVM) *(Le istanze che eseguono driver PV RedHat non sono supportate).*
+  - CentOS da 6.4 a 6.10, da 7.1 a 7.6 (solo istanze virtualizzate HVM)
  
 - Il servizio Mobility deve essere installato in ogni macchina virtuale da replicare. 
 
@@ -172,39 +172,39 @@ Abilitare la replica per ogni macchina virtuale di cui si vuole eseguire la migr
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Nella pagina dell'insieme di credenziali in **Riquadro attività iniziale** selezionare **Site Recovery**.
 2. In **Per macchine locali e macchine virtuali di Azure** selezionare **Passaggio 1: Eseguire la replica dell'applicazione**. Completare le pagine della procedura guidata con le informazioni seguenti. Selezionare **OK** in ogni pagina al termine:
-    - 1: Configurare l'origine
+   - 1: Configurare l'origine
 
-    |  |  |
-    |-----|-----|
-    | Origine: | Selezionare **Locale**.|
-    | Percorso di origine:| Immettere il nome dell'istanza EC2 del server di configurazione.|
-    |Tipo di computer: | Selezionare **Computer fisici**.|
-    | Server di elaborazione: | Selezionare il server di configurazione dall'elenco a discesa.|
+     |  |  |
+     |-----|-----|
+     | Origine: | Selezionare **Locale**.|
+     | Percorso di origine:| Immettere il nome dell'istanza EC2 del server di configurazione.|
+     |Tipo di computer: | Selezionare **Computer fisici**.|
+     | Server di elaborazione: | Selezionare il server di configurazione dall'elenco a discesa.|
 
-    - 2: Configurare la destinazione
+   - 2: Configurare la destinazione
 
-    |  |  |
-    |-----|-----|
-    | Destinazione: | Lasciare il valore predefinito.|
-    | Sottoscrizione: | Selezionare la sottoscrizione in uso.|
-    | Gruppo di risorse di post-failover:| Usare il gruppo di risorse creato in [Preparare le risorse di Azure](#prepare-azure-resources).|
-    | Modello di distribuzione post-failover: | Selezionare **Gestione risorse**.|
-    | Account di archiviazione: | Selezionare l'account di archiviazione creato in [Preparare le risorse di Azure](#prepare-azure-resources).|
-    | Rete di Azure: | Selezionare **Configurare ora per le macchine virtuali selezionate**.|
-    | Rete di Azure per il post-failover: | Scegliere la rete creata in [Preparare le risorse di Azure](#prepare-azure-resources).|
-    | Subnet: | Selezionare il **valore predefinito** nell'elenco a discesa.|
+     |  |  |
+     |-----|-----|
+     | Destinazione: | Lasciare il valore predefinito.|
+     | Sottoscrizione: | Selezionare la sottoscrizione in uso.|
+     | Gruppo di risorse di post-failover:| Usare il gruppo di risorse creato in [Preparare le risorse di Azure](#prepare-azure-resources).|
+     | Modello di distribuzione post-failover: | Selezionare **Gestione risorse**.|
+     | Account di archiviazione: | Selezionare l'account di archiviazione creato in [Preparare le risorse di Azure](#prepare-azure-resources).|
+     | Rete di Azure: | Selezionare **Configurare ora per le macchine virtuali selezionate**.|
+     | Rete di Azure per il post-failover: | Scegliere la rete creata in [Preparare le risorse di Azure](#prepare-azure-resources).|
+     | Subnet: | Selezionare il **valore predefinito** nell'elenco a discesa.|
 
-    - 3: Selezionare i computer fisici
+   - 3: Selezionare i computer fisici
 
-      Selezionare **Computer fisico** e quindi immettere i valori per **Nome**, **Indirizzo IP** e **Tipo di sistema operativo** dell'istanza EC2 di cui si vuole eseguire la migrazione. Selezionare **OK**.
+     Selezionare **Computer fisico** e quindi immettere i valori per **Nome**, **Indirizzo IP** e **Tipo di sistema operativo** dell'istanza EC2 di cui si vuole eseguire la migrazione. Selezionare **OK**.
 
-    - 4: Configurare le proprietà
+   - 4: Configurare le proprietà
 
-      Selezionare l'account creato nel server di configurazione e quindi selezionare **OK**.
+     Selezionare l'account creato nel server di configurazione e quindi selezionare **OK**.
 
-    - 5: Configurare le impostazioni di replica
+   - 5: Configurare le impostazioni di replica
 
-      Verificare che i criteri di replica selezionati nell'elenco a discesa siano **myReplicationPolicy** e quindi selezionare **OK**.
+     Verificare che i criteri di replica selezionati nell'elenco a discesa siano **myReplicationPolicy** e quindi selezionare **OK**.
 
 3. Al termine della procedura guidata, selezionare **Abilita replica**.
 
@@ -245,10 +245,10 @@ Eseguire un failover per le istanze EC2 per eseguirne la migrazione alle macchin
 1. Assicurarsi che la macchina virtuale venga visualizzata in **Elementi replicati**.
 2. Fare clic con il pulsante destro del mouse su ogni macchina virtuale e quindi selezionare **Completa la migrazione**. Vengono eseguite le operazioni seguenti:
 
-    - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
-    - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione. 
+   - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+   - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione. 
 
-    ![Completare la migrazione](./media/migrate-tutorial-aws-azure/complete-migration.png)
+     ![Completare la migrazione](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
 > [!WARNING]
 > *Non annullare un failover in corso*. Prima dell'avvio del failover, la replica della macchina virtuale viene arrestata. Se si annulla un failover in corso, il failover viene arrestato ma non verrà eseguita di nuovo la replica della macchina virtuale.  

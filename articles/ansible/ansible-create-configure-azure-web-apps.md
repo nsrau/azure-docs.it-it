@@ -1,19 +1,19 @@
 ---
 title: Creare app Web di Azure con Ansible
 description: Informazioni su come usare Ansible per creare un'app Web con il runtime di Java 8 e del contenitore Tomcat nel servizio app in Linux
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, Servizio app di Azure, App Web, Java
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/08/2018
-ms.openlocfilehash: 106fe11355d629e57f71b12d1125d188b98c2236
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 5f67a9f7d629eec9ab1462a25940355869c1cd28
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051346"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791223"
 ---
 # <a name="create-azure-app-service-web-apps-by-using-ansible"></a>Creare le app Web del servizio app di Azure con Ansible
 Le [app Web del servizio app di Azure ](https://docs.microsoft.com/azure/app-service/overview), o semplicemente app Web, consentono l'hosting di applicazioni Web, API REST e back-end mobili. È possibile usare il linguaggio di sviluppo preferito &mdash; .NET, .NET Core, Java, Ruby, Node.js, PHP o Python.

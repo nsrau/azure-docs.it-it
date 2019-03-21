@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: d333eb6baa41321fdf7daca3c545d5d5e3ed5fe4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100293"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Esercitazione: Estrarre nomi con entità semplice ed elenco di frasi
 
@@ -127,7 +127,7 @@ Le entità semplici hanno bisogno di molti esempi per avere un'attendibilità el
     |Apply for tile work.|riquadro|
     |Attached resume for landscape architect.|landscape architect|
     |My curriculum vitae for professor of biology is enclosed.|professor of biology|
-    |I would like to apply for the position in photography.|photography|git 
+    |I would like to apply for the position in photography.|photography|
 
 ## <a name="mark-job-entity-in-other-intents"></a>Contrassegnare l'entità Job in altre finalità
 

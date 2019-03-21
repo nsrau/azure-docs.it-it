@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Analizzare un'immagine - SDK, C#"
+title: "Avvio rapido: Analizzare un'immagine - SDK, C#"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si analizza un'immagine usando la libreria client Windows C# di Visione artificiale.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 4af3e175c334c082e4520343d6c8ad3a62db431d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 21ee4f8b0fe20588646287945ba35efa5bc55606
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308996"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57542982"
 ---
-# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Guida introduttiva: Analizzare un'immagine usando SDK e C# di Visione artificiale
+# <a name="quickstart-analyze-an-image-using-the-computer-vision-sdk-and-c"></a>Avvio rapido: Analizzare un'immagine usando SDK e C# di Visione artificiale
 
 In questa guida introduttiva si analizzeranno un'immagine locale e una remota per estrarre le caratteristiche visive usando la libreria client di Visione artificiale per C#. Se si vuole, è possibile scaricare il codice contenuto in questa guida come app di esempio completa dal repository per [Visione artificiale di Servizi cognitivi e C#](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision) in GitHub.
 
@@ -59,7 +59,7 @@ Per eseguire l'esempio, seguire questa procedura:
             private const string localImagePath = @"<LocalImage>";
 
             private const string remoteImageUrl =
-                "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
+                "https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
 
             // Specify the features to return
             private static readonly List<VisualFeatureTypes> features =
@@ -154,7 +154,7 @@ Una risposta con esito positivo visualizza la didascalia più pertinente per ogn
 Vedere [Guide introduttive per API: Analizzare un'immagine locale con C#](../QuickStarts/CSharp-analyze.md#examine-the-response) per un esempio di output JSON non elaborato.
 
 ```
-http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
+https://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
 a large waterfall over a rocky cliff
 ```
 

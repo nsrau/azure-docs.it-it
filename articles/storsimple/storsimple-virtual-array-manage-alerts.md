@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cd3f506205a3ee4f4435b16fd2185eeb20aef3c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: bb6ef5a87c5610d90188471db961ef20dfb18835
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447225"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57895465"
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usare Gestione dispositivi StorSimple per gestire gli avvisi per l'array virtuale StorSimple
 
@@ -39,7 +39,7 @@ Questa esercitazione descrive come configurare le notifiche di avviso, le condiz
 > [!NOTE]
 > È possibile immettere un massimo di 20 indirizzi di posta elettronica per ogni array virtuale.
 
-Dopo aver attivato la notifica di posta elettronica per un array virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply@mail.windowsazure.com* e conterranno una descrizione della condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
+Dopo aver attivato la notifica di posta elettronica per un array virtuale, i membri dell'elenco delle notifiche riceveranno un messaggio di posta elettronica ogni volta che si verifica un avviso critico. I messaggi verranno inviati da *storsimple-alerts-noreply\@mail.windowsazure.com* e descriveranno la condizione di avviso. I destinatari possono fare clic su **Annulla sottoscrizione** per essere rimossi dall'elenco delle notifiche e-mail.
 
 #### <a name="to-enable-email-notification-for-alerts"></a>Per abilitare la notifica di posta elettronica degli avvisi
 
@@ -53,7 +53,7 @@ Dopo aver attivato la notifica di posta elettronica per un array virtuale, i mem
    
    1. Nel campo **Abilita notifica e-mail** selezionare **SÌ**.
    2. Nel campo **Invia messaggio di posta elettronica agli amministratori del servizio** selezionare **SÌ** se si vuole che l'amministratore del servizio e tutti i co-amministratori ricevano le notifiche di avviso.
-   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *someone@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
+   3. Nel campo **Altri destinatari di posta elettronica** immettere gli indirizzi di posta elettronica di tutti gli altri destinatari che devono ricevere le notifiche di avviso. Immettere i nomi nel formato *qualcuno\@somewhere.com*. Utilizzare il punto e virgola per separare gli indirizzi di posta elettronica. È possibile configurare un massimo di 20 indirizzi di posta elettronica per ogni dispositivo virtuale.
       
        ![configurazione delle notifiche degli avvisi](./media/storsimple-virtual-array-manage-alerts/alerts6.png)
    4. Per inviare una notifica di posta elettronica di prova, fare clic su **Invia messaggio di posta elettronica di prova**. Il servizio Gestione dispositivi StorSimple visualizza i messaggi di stato e inoltra la notifica di prova.
@@ -147,6 +147,7 @@ Nelle tabelle seguenti sono elencati alcuni avvisi di StorSimple che potrebbero 
 | Non è stato possibile completare la creazione del clone di <*nome dispositivo*\>. |Il processo di clonazione non è riuscito. |Impossibile creare un clone. Considerare uno degli aspetti seguenti:<ul><li>L'elenco di backup potrebbe non essere valido. Aggiornare l'elenco per verificare che sia ancora valido.</li><li>I problemi di connettività potrebbero impedire il completamento dell'operazione di clonazione. Assicurarsi che non siano presenti problemi di connettività.</li><li>È stato raggiunto il limite di archiviazione disponibile. Provare a eliminare i backup che non sono più necessari per liberare spazio.</li></ul> Risolvere i problemi, cancellare l'avviso e ripetere l'operazione. |
 
 ### <a name="networking-alerts"></a>Avvisi di rete
+
 | Testo dell'avviso | Event | Ulteriori informazioni/Azioni consigliate |
 |:--- |:--- |:--- |
 | Impossibile connettersi al servizio di autenticazione. |Errore di percorso dati |L'URL usato per l'autenticazione non è raggiungibile. Verificare che nelle regole del firewall siano inclusi i modelli di URL specificati per il dispositivo StorSimple. Per altre informazioni sui modelli di URL nel portale di Azure, vedere [Requisiti di sistema dell'array virtuale StorSimple](storsimple-ova-system-requirements.md#url-patterns-for-firewall-rules).|

@@ -14,12 +14,12 @@ ms.date: 08/16/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc6d1d53fd292a936c833450fee3af91671eec86
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: a51175d192a5afb1f84f8d0ed2de9796f198f82d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56171167"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58102401"
 ---
 # <a name="tutorial-federate-a-single-ad-forest-environment-to-the-cloud"></a>Esercitazione: Attuare la federazione di un ambiente con singola foresta di AD sul cloud
 
@@ -83,7 +83,7 @@ Per concludere la creazione della macchina virtuale, è necessario completare l'
 
 1. Nella console di gestione di Hyper-V fare doppio clic sulla macchina virtuale
 2. Fare clic sul pulsante Start.
-3.  Sarà richiesto di premere un tasto qualsiasi per avviare il CD o il DVD. Procedere.
+3. Sarà richiesto di premere un tasto qualsiasi per avviare il CD o il DVD. Procedere.
 4. Nella schermata di avvio di Windows Server selezionare la lingua e fare clic su **Avanti**.
 5. Fare clic su **Installa**.
 6. Immettere il codice di licenza e fare clic su **Avanti**.
@@ -281,9 +281,9 @@ A questo punto è necessario verificare che gli utenti presenti nella directory 
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Testare l'accesso con uno degli utenti
 
-1.  Passare a [https://myapps.microsoft.com](httpss://myapps.microsoft.com)
+1. Passare a [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Accedere con uno degli account utente creati nel nuovo tenant.  Per accedere, sarà necessario usare il formato seguente: (user@domain.onmicrosoft.com). Usare la stessa password che l'utente usa per accedere in locale.
-![Verificare](media/tutorial-password-hash-sync/verify1.png)
+   ![Verificare](media/tutorial-password-hash-sync/verify1.png)
 
 La configurazione di un ambiente ibrido di gestione delle identità è stata completata. A questo punto è possibile usare questo ambiente a scopo di test o per acquisire familiarità con le funzionalità di Azure.
 

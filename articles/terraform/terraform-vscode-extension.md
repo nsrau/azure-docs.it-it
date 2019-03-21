@@ -2,19 +2,19 @@
 title: Installare e usare l'estensione Azure Terraform di Visual Studio Code
 description: Questo articolo illustra come installare e usare l'estensione Azure Terraform in Visual Studio Code.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, azure, devops, visual studio code, estensione
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 08/31/2018
-ms.openlocfilehash: 137a57638207a05f797692b25a5d5a31bd66ce3d
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: b1102649e48af8cb36a64f1142c078bf9ebc0d99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074581"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006199"
 ---
 # <a name="install-and-use-the-azure-terraform-visual-studio-code-extension"></a>Installare e usare l'estensione Azure Terraform di Visual Studio Code
 
@@ -59,7 +59,7 @@ Per usare Terraform in Cloud Shell, è necessario [installare Node.js](https://n
 
 ### <a name="install-graphviz"></a>Installare GraphViz
 
-Per usare la funzione visualize di Terraform è necessario [installare GraphViz](http://graphviz.org/).
+Per usare la funzione visualize di Terraform è necessario [installare GraphViz](https://graphviz.org/).
 
 >[!NOTE]
 >Per verificare se GraphViz è installato, aprire una finestra del terminale e immettere `dot -V`.
@@ -128,7 +128,7 @@ In questo esercizio si crea ed esegue un file di configurazione di Terraform di 
     ![Salvare con il nome main.tf](media/terraform-vscode-extension/tf-save-as-main.png)
 
 1. Selezionare **Salva**.
-- Dalla barra dei menu selezionare **File > Open Folder** (Apri cartella). Individuare e selezionare la nuova cartella creata.
+1. Dalla barra dei menu selezionare **File > Open Folder** (Apri cartella). Individuare e selezionare la nuova cartella creata.
 
 ### <a name="run-terraform-init-command"></a>Eseguire il comando *init* di Terraform
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 506e36f72237f776c3969d945156c3edd6a64ffb
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: c39931ab5d391020e0e7b5ad26ebfa41806fc4ba
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54319971"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404672"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Che cos'è Azure Data Box Disk?
 
@@ -82,7 +82,7 @@ Per altre informazioni, vedere [Azure Data Box Disk security and data protection
 | Capacità di archiviazione per ordine                              | 40 TB (circa 35 TB utilizzabili)|
 | Capacità di archiviazione su disco                                   | 8 TB (circa 7 TB utilizzabili)|
 | Interfaccia dati                                          | USB   |
-| Sicurezza                                                | Pre-crittografia con BitLocker e aggiornamento sicuro <br> Dischi protetti con passkey <br> Dati crittografati costantemente  |
+| Security                                                | Pre-crittografia con BitLocker e aggiornamento sicuro <br> Dischi protetti con passkey <br> Dati crittografati costantemente  |
 | Velocità di trasferimento dei dati                                      | fino a 430 MBps a seconda della dimensione del file      |
 |Gestione                                               | Portale di Azure |
 
@@ -102,6 +102,7 @@ Attualmente Data Box Disk può trasferire dati nelle aree di Azure seguenti:
 |Stati Uniti centro-settentrionali  |Australia sud-orientale   |
 |Stati Uniti orientali      |Australia centrale |
 |Stati Uniti Orientali 2     |Australia centrale 2|
+|Giappone orientale     |Corea del Sud centrale |
 
 
 ## <a name="pricing"></a>Prezzi

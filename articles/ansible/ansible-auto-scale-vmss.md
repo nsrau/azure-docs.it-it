@@ -1,19 +1,19 @@
 ---
 title: Ridimensionare automaticamente un set di scalabilità di macchine virtuali in Azure con Ansible
 description: Informazioni su come usare Ansible per ridimensionare un set di scalabilità di macchine virtuali con scalabilità automatica in Azure
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, scalabilità, scalabilità automatica, macchina virtuale, set di scalabilità di macchine virtuali, vmss
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 12/10/2018
-ms.openlocfilehash: 7721dba37131616122f8a5a902e3c63de5c7157f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 578ad3207f62e74805be056ca11d3bd9b46513da
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54157055"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792430"
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-azure-using-ansible"></a>Ridimensionare automaticamente un set di scalabilità di macchine virtuali in Azure con Ansible
 Ansible consente di automatizzare la distribuzione e la configurazione delle risorse nell'ambiente in uso. È possibile usare Ansible per gestire il set di scalabilità di macchine virtuali in Azure, così come si farebbe con qualsiasi altra risorsa di Azure. 

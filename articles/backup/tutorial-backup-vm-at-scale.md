@@ -9,12 +9,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: a73568fd1dd7ed6b6cd3a7938768db4982725658
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 99f5b09d0b5dfc144dca7f19efff3f0656a82b35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497882"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093246"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -77,16 +77,16 @@ Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio
     ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/create-new-policy.png)
 
 5. Nel menu **Criteri di Backup**, per **Nome criterio** digitare *Finance*. Immettere le seguenti modifiche per il criterio di Backup:
-    - Per **Frequenza di backup**, impostare il fuso orario su *Fuso cen.* Poiché il complesso sportivo si trova in Texas, il proprietario desidera che il fuso orario sia quello locale. Lasciare la frequenza di backup impostata su Ogni giorno alle 03:30.
-    - Per **Conservazione del punto di backup giornaliero**, impostare un periodo di 90 giorni.
-    - Per **Conservazione del punto di backup settimanale**, usare il punto di recupero *Lunedì* e mantenerlo per 52 settimane.
-    - Per **Conservazione del punto di backup mensile**, usare il punto di recupero dalla prima domenica del mese e mantenerlo per 36 mesi.
-    - Deselezionare l'opzione **Conservazione del punto di backup annuale**. Il responsabile del criterio Finance non desidera conservare i dati oltre 36 mesi.
-    - Fare clic su **OK** per creare il criterio di backup.
+   - Per **Frequenza di backup**, impostare il fuso orario su *Fuso cen.* Poiché il complesso sportivo si trova in Texas, il proprietario desidera che il fuso orario sia quello locale. Lasciare la frequenza di backup impostata su Ogni giorno alle 03:30.
+   - Per **Conservazione del punto di backup giornaliero**, impostare un periodo di 90 giorni.
+   - Per **Conservazione del punto di backup settimanale**, usare il punto di recupero *Lunedì* e mantenerlo per 52 settimane.
+   - Per **Conservazione del punto di backup mensile**, usare il punto di recupero dalla prima domenica del mese e mantenerlo per 36 mesi.
+   - Deselezionare l'opzione **Conservazione del punto di backup annuale**. Il responsabile del criterio Finance non desidera conservare i dati oltre 36 mesi.
+   - Fare clic su **OK** per creare il criterio di backup.
 
-    ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
+     ![Selezionare il carico di lavoro](./media/tutorial-backup-vm-at-scale/set-new-policy.png)
 
-    Dopo avere creato il criterio di backup, associarlo alle macchine virtuali.
+     Dopo avere creato il criterio di backup, associarlo alle macchine virtuali.
 
 6. Nella finestra di dialogo **Seleziona macchine virtuali**, selezionare *myVM* e fare clic su **OK** per distribuire il criterio di backup alle macchine virtuali.
 

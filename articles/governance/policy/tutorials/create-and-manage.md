@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: e49cffc5ba08d400c733ef7c211132c4909f9ef4
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 32962e6d40103c23a0ec7fd1116aec8820f513bd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343562"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57780287"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Creare e gestire i criteri per applicare la conformità
 
@@ -87,32 +87,32 @@ Dopo avere assegnato una definizione predefinita del criterio, è possibile eseg
       - Le regole/condizioni del criterio, in questo caso: dimensione dello SKU della VM uguale alla serie G.
       - L'effetto del criterio, in questo caso: **Nega**.
 
-    Di seguito viene mostrato l'aspetto del codice JSON. Incollare il codice rivisto nel portale di Azure.
+   Di seguito viene mostrato l'aspetto del codice JSON. Incollare il codice rivisto nel portale di Azure.
 
-    ```json
-    {
-        "policyRule": {
-            "if": {
-                "allOf": [{
-                        "field": "type",
-                        "equals": "Microsoft.Compute/virtualMachines"
-                    },
-                    {
-                        "field": "Microsoft.Compute/virtualMachines/sku.name",
-                        "like": "Standard_G*"
-                    }
-                ]
-            },
-            "then": {
-                "effect": "deny"
-            }
-        }
-    }
-    ```
+   ```json
+   {
+       "policyRule": {
+           "if": {
+               "allOf": [{
+                       "field": "type",
+                       "equals": "Microsoft.Compute/virtualMachines"
+                   },
+                   {
+                       "field": "Microsoft.Compute/virtualMachines/sku.name",
+                       "like": "Standard_G*"
+                   }
+               ]
+           },
+           "then": {
+               "effect": "deny"
+           }
+       }
+   }
+   ```
 
-    La proprietà *campo* nella regola dei criteri deve essere uno dei valori seguenti: Nome, tipo, posizione, tag o un alias. Un esempio di un alias potrebbe essere `"Microsoft.Compute/VirtualMachines/Size"`.
+   La proprietà *campo* nella regola dei criteri deve essere uno dei valori seguenti: Nome, tipo, posizione, tag o un alias. Un esempio di un alias potrebbe essere `"Microsoft.Compute/VirtualMachines/Size"`.
 
-    Per visualizzare altri esempi di criteri di Azure, vedere [Esempi di Criteri di Azure](../samples/index.md).
+   Per visualizzare altri esempi di criteri di Azure, vedere [Esempi di Criteri di Azure](../samples/index.md).
 
 1. Selezionare **Salva**.
 

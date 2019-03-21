@@ -2,24 +2,24 @@
 title: Creare un modello Terraform di base in Azure con Yeoman
 description: Informazioni su come creare un modello Terraform di base in Azure con Yeoman.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, macchina virtuale, azure, yeoman
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 1133e6b35d200ec7f855b41f3ae5d6f37949fc97
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001269"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Creare un modello Terraform di base in Azure con Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
-) fornisce un modo per creare con facilità l'infrastruttura in Azure. [Yeoman](http://yeoman.io/) semplifica notevolmente il lavoro dello sviluppatore di moduli Terraform fornendo al contempo un eccellente framework di *procedure consigliate*.
+) fornisce un modo per creare con facilità l'infrastruttura in Azure. [Yeoman](https://yeoman.io/) semplifica notevolmente il lavoro dello sviluppatore di moduli Terraform fornendo al contempo un eccellente framework di *procedure consigliate*.
 
 Questo articolo descrive come usare il generatore di moduli Yeoman per creare un modello Terraform di base. Verrà quindi illustrato come testare il nuovo modello Terraform con due diversi metodi:
 

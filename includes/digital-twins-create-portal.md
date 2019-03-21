@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/17/2018
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: f286676cba3d1333db52fb1125279772d518dd88
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 0c89c8353d410ddd54e8a59f3838c914702b96ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53584811"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124526"
 ---
 1. Accedere al [portale di Azure](http://portal.azure.com).
 
@@ -23,11 +23,11 @@ ms.locfileid: "53584811"
 
 1. Nel riquadro **Gemelli digitali** immettere le informazioni seguenti:
    * **Nome risorsa**: Creare un nome univoco per l'istanza di Gemelli digitali.
-   * **Sottoscrizione**: scegliere la sottoscrizione da usare per creare questa istanza di Gemelli digitali. 
+   * **Sottoscrizione** scegliere la sottoscrizione da usare per creare questa istanza di Gemelli digitali. 
    * **Gruppo di risorse**: selezionare o creare un [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) per l'istanza di Gemelli digitali.
    * **Località**: selezionare la località più vicina ai dispositivi.
 
-    ![Riquadro Gemelli digitali con le informazioni immesse](./media/create-digital-twins-portal/create-digital-twins-param.png)
+     ![Riquadro Gemelli digitali con le informazioni immesse](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
 1. Rivedere le informazioni relative a Gemelli digitali e quindi selezionare **Crea**. La creazione dell'istanza di Gemelli digitali può richiedere qualche minuto. È possibile monitorare lo stato di avanzamento nel riquadro **Notifiche**.
 

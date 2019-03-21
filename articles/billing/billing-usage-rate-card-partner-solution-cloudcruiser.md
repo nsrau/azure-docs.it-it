@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/09/2017
 ms.author: erikre
-ms.openlocfilehash: 79582e59d9ad9396acf29d6e35d640edcb20dca3
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: bae35f9e153227ddcca6e0d20ce862317b968eb1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275956"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57536012"
 ---
 # <a name="cloud-cruiser-and-microsoft-azure-billing-api-integration"></a>Cloud Cruiser e integrazione delle API di fatturazione di Microsoft Azure
 In questo articolo viene descritto in che modo le informazioni raccolte dalle nuove API di fatturazione di Microsoft Azure possono essere utilizzate in Cloud Cruiser per l'analisi e la simulazione dei costi e l’analisi dei flussi di lavoro.
@@ -137,7 +137,7 @@ Cloud Cruiser con la nuova API di utilizzo di Azure può ottenere informazioni s
 Sul lato degli addebiti Cloud Cruiser automatizza il processo Showback/Chargeback e può usare le informazioni sui tag per collegare l'utilizzo al consumatore appropriato (reparto, divisione, progetto e così via). Questa automazione offre un notevole miglioramento e può assicurare un processo di addebito coerente e controllabile.
 
 ### <a name="creating-a-resource-group-with-tags-on-microsoft-azure"></a>Creazione di un gruppo di risorse con tag in Microsoft Azure
-Il primo passaggio in questa esercitazione consiste nel creare un gruppo di risorse nel portale di Azure e quindi creare nuovi tag da associare alle risorse. In questo esempio verranno creati i seguenti tag: reparto, ambiente, proprietario, progetto.
+Il primo passaggio in questa esercitazione consiste nel creare un gruppo di risorse nel portale di Azure e quindi creare nuovi tag da associare alle risorse. In questo esempio verranno creati i seguenti tag: Reparto, ambiente, proprietario, progetto.
 
 Lo screenshot seguente illustra un gruppo di risorse di esempio con i tag associati.
 
@@ -199,8 +199,8 @@ Ora è necessario solo aggiungere un passaggio per pubblicare i dati di utilizzo
 
 Il vantaggio è che questo processo si deve eseguire solo una volta. Una volta completata la cartella di lavoro, è sufficiente aggiungerla all'utilità di pianificazione e verrà eseguita su base oraria o giornaliera all'ora pianificata. Poi si tratta solo di creare nuovi report o di personalizzare quelli esistenti, per analizzare i dati per ottenere informazioni significative dall'utilizzo del cloud.
 
-### <a name="next-steps"></a>Passaggi successivi
-* Per istruzioni dettagliate sulla creazione di cartelle di lavoro e report Cloud Cruiser, fare riferimento alla [documentazione](http://docs.cloudcruiser.com/) online di Cloud Cruiser (è necessario un account di accesso valido).  Per altre informazioni su Cloud Cruiser, contattare [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
+### <a name="next-steps"></a>Fasi successive
+* Per istruzioni dettagliate sulla creazione di cartelle di lavoro e report Cloud Cruiser, fare riferimento alla [documentazione](https://docs.cloudcruiser.com/) online di Cloud Cruiser (è necessario un account di accesso valido).  Per altre informazioni su Cloud Cruiser, contattare [info@cloudcruiser.com](mailto:info@cloudcruiser.com).
 * Per una panoramica sulle API di utilizzo delle risorse e sulle API RateCard di Azure, vedere [Ottenere informazioni significative sul consumo di risorse di Microsoft Azure](billing-usage-rate-card-overview.md) .
 * Per ulteriori informazioni su entrambe le API, appartenenti al set di API fornito da Gestione risorse di Azure, vedere il [riferimento all'API REST di fatturazione di Azure](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) .
 * Se si desidera approfondire il codice di esempio, vedere gli esempi di codice dell'API di fatturazione di Microsoft Azure in [Esempi di codice di Azure](https://azure.microsoft.com/documentation/samples/?term=billing).

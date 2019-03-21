@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure'
+title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure'
 description: Questa guida introduttiva descrive come creare un database e un cluster di Esplora dati di Azure e inserire (caricare) i dati.
 services: data-explorer
 author: orspod
@@ -8,14 +8,23 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/21/2019
-ms.openlocfilehash: e87f9b4905abec2c00ed238445b3e36e41cfa2f6
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 1aaaba58b4af90891caf98708f7e280f7eea6e70
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674872"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285821"
 ---
-# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure
+# <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Avvio rapido: Creare un database e un cluster di Esplora dati di Azure
+
+> [!div class="op_single_selector"]
+> * [Portale](create-cluster-database-portal.md)
+> * [CLI](create-cluster-database-cli.md)
+> * [PowerShell](create-cluster-database-powershell.md)
+> * [C#](create-cluster-database-csharp.md)
+> * [Python](create-cluster-database-python.md)
+>  
+
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questa guida introduttiva vengono creati un cluster e un database.
 

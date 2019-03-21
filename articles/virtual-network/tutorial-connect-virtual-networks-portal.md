@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: e66747cd350d10a5a66ec54b9aae9e9b485b0ba2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918339"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014482"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Esercitazione: Connettere reti virtuali con il peering reti virtuali usando il portale di Azure
 
@@ -121,6 +121,7 @@ Creare una macchina virtuale in ogni rete virtuale per poter stabilire la comuni
     |Località| Selezionare **Stati Uniti orientali**.|
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
 5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
+
     |Impostazione|Valore|
     |---|---|
     |Rete virtuale| myVirtualNetwork1 - se non è già selezionato, selezionare **Rete virtuale**, quindi selezionare **myVirtualNetwork1** in **Scegli rete virtuale**.|

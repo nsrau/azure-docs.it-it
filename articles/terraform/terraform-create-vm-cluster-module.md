@@ -2,19 +2,19 @@
 title: Usare moduli Terraform per creare un cluster di macchine virtuali in Azure
 description: Informazioni su come usare moduli Terraform per creare un cluster di macchine virtuali Windows in Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, macchina virtuale, rete, moduli
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2017
-ms.openlocfilehash: d5a820da94254fe0da416d9219f7582d3a4241cb
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: c6aa780b04c85b8156463011c2b90da2da4541f6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696167"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776275"
 ---
 # <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Creare un cluster di macchine virtuali con il registro del modulo
 

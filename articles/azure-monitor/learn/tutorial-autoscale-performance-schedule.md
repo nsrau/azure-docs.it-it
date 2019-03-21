@@ -9,12 +9,12 @@ ms.date: 12/11/2017
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: autoscale
-ms.openlocfilehash: 9c8803ff73b3e70c19a409ef6c1e072b5f7c8b53
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 44fecf47ccd1ce07c7e51f7bcf51ef7823f2cf97
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734269"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088350"
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Creare un'impostazione di scalabilità automatica per le risorse di Azure in base ai dati sulle prestazioni o a una pianificazione
 
@@ -60,7 +60,7 @@ I passaggi successivi consentono di compilare la schermata di scalabilità autom
 2. Nel profilo predefinito assicurarsi che l'opzione **Modalità di ridimensionamento** sia impostata su "Ridimensiona in base a un numero di istanze specifico".
 3. Impostare il numero di istanze su **1**. Questa impostazione fa in modo che quando non sono attivi oppure operativi altri profili, il profilo predefinito restituisce 1 come numero di istanze.
 
-  ![Passare alle impostazioni di scalabilità automatica](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
+   ![Passare alle impostazioni di scalabilità automatica](./media/tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
 ## <a name="create-recurrence-profile"></a>Creare un profilo Ricorrenza

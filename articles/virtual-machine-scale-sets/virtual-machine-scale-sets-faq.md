@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/30/2019
+ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 924ed7c2a253ab74a4807559d190218d3125b92c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 994612f390cb6c6dcb3b4c2acaaec839ef461d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999554"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Domande frequenti sui set di scalabilità di macchine virtuali di Azure
 
@@ -233,8 +233,8 @@ Quando si crea una VM Linux è possibile fornire le chiavi pubbliche SSH in test
 }
 ```
 
-Nome dell'elemento linuxConfiguration | Obbligatoria | Type | DESCRIZIONE
---- | --- | --- | --- |  ---
+Nome dell'elemento linuxConfiguration | Obbligatorio | Type | DESCRIZIONE
+--- | --- | --- | --- 
 ssh | No  | Raccolta | Specifica la configurazione delle chiavi SSH per un sistema operativo Linux
 path | Sì | string | Specifica il percorso del file Linux in cui devono essere salvate le chiavi SSH o il certificato
 keyData | Sì | string | Specifica una chiave pubblica SSH con codifica Base64
@@ -309,7 +309,7 @@ La documentazione di Azure Key Vault indica che l'API REST di recupero del segre
 
 Metodo | URL
 --- | ---
-GET | https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}
+GET | <https://mykeyvault.vault.azure.net/secrets/{secret-name}/{secret-version}?api-version={api-version}>
 
 Sostituire {*secret-name*} con il nome e {*secret-version*} con la versione del segreto da recuperare. È possibile che la versione del segreto venga esclusa. In questo caso viene recuperata la versione corrente.
 
@@ -374,9 +374,9 @@ Update-AzVmss -ResourceGroupName "resource_group_name" -VMScaleSetName "vmssName
 
 È possibile trovare il valore extensionName in `$vmss`.
 
-### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-log-analytics"></a>È disponibile un esempio di modello di set di scalabilità di macchine virtuali che si integra con Log Analytics?
+### <a name="is-there-a-virtual-machine-scale-set-template-example-that-integrates-with-azure-monitor-logs"></a>È disponibile che esempio di modello che si integra con monitoraggio di Azure i log di set di scalabilità di macchine virtuali?
 
-Per un esempio di modello di set di scalabilità di macchine virtuali che si integra con Log Analytics, vedere il secondo esempio in [Deploy an Azure Service Fabric cluster and enable monitoring by using Log Analytics](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric) (Distribuire un cluster di Azure Service Fabric e abilitare il monitoraggio usando Log Analytics).
+Per scalabilità di macchine virtuali del set di esempio di modello che si integra con i log di monitoraggio di Azure, vedere il secondo esempio nella [distribuire un cluster Azure Service Fabric e abilitare il monitoraggio tramite Monitoraggio di Azure log](https://github.com/krnese/AzureDeploy/tree/master/OMS/MSOMS/ServiceFabric).
 
 ### <a name="extensions-seem-to-run-in-parallel-on-virtual-machine-scale-sets-this-causes-my-custom-script-extension-to-fail-what-can-i-do-to-fix-this"></a>Le estensioni vengono eseguite apparentemente in parallelo nei set di scalabilità di macchine virtuali. Ciò provoca un errore dell'estensione di script personalizzata. Come si può risolvere questo problema?
 
@@ -535,7 +535,7 @@ Per distribuire un set di scalabilità di macchine virtuali in una rete virtuale
 
 ### <a name="how-do-i-add-the-ip-address-of-the-first-vm-in-a-virtual-machine-scale-set-to-the-output-of-a-template"></a>Come si aggiunge l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello?
 
-Per aggiungere l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello, vedere [Azure Resource Manager: Ottenere gli indirizzi IP privati dei set di scalabilità di macchine virtuali](http://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
+Per aggiungere l'indirizzo IP della prima VM di un set di scalabilità di macchine virtuali all'output di un modello, vedere [Azure Resource Manager: Ottenere gli indirizzi IP privati dei set di scalabilità di macchine virtuali](https://stackoverflow.com/questions/42790392/arm-get-vmsss-private-ips).
 
 ### <a name="can-i-use-scale-sets-with-accelerated-networking"></a>È possibile usare i set di scalabilità con la rete accelerata?
 
@@ -658,15 +658,18 @@ Sì, è possibile usare l'operazione di ricreazione dell'immagine per ripristina
 
 Per altre informazioni, vedere [Manage all VMs in a virtual machine scale set](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set) (Gestire tutte le VM in un set di scalabilità di macchine virtuali).
 
-### <a name="is-it-possible-to-integrate-scale-sets-with-azure-log-analytics"></a>È possibile integrare i set di scalabilità con Azure Log Analytics?
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-monitor-logs"></a>È possibile integrare i set di scalabilità con i log di monitoraggio di Azure?
 
-Sì, è possibile installando l'estensione Log Analytics nelle VM dei set di scalabilità. Di seguito è riportato un esempio dell'interfaccia della riga di comando di Azure:
+Sì, è possibile installando l'estensione di monitoraggio di Azure sulla scala set macchine virtuali. Di seguito è riportato un esempio dell'interfaccia della riga di comando di Azure:
 ```
 az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
 ```
 È possibile trovare l'ID e la chiave dell'area di lavoro necessari nell'area di lavoro di Log Analytics nel portale di Azure. Nella pagina Panoramica fare clic sul riquadro Impostazioni. Fare clic sula scheda Origini connesse nella parte superiore.
 
-Nota: se il set di scalabilità _upgradePolicy_ è impostato su Manuale, è necessario applicare l'estensione a tutte le VM del set tramite una chiamata di aggiornamento. Nell'interfaccia della riga di comando è necessario chiamare _az vmss update-instances_.
+> [!NOTE]
+> Se il set di scalabilità _upgradePolicy_ è impostato su manuale, è necessario applicare l'estensione a tutte le VM nel set di chiamata di aggiornamento. Nell'interfaccia della riga di comando è necessario chiamare _az vmss update-instances_.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
@@ -718,3 +721,26 @@ La differenza principale tra l'eliminazione di una VM in un set di scalabilità 
 - Si vuole avviare un set di VM con una velocità maggiore rispetto all'aumento del numero di istanze di un set di scalabilità di macchine virtuali.
   - In relazione a questo scenario è stato creato un motore di ridimensionamento automatico proprio e si vuole ottenere una scalabilità end-to-end più rapida.
 - È presente un set di scalabilità di macchine virtuali distribuito in modo non uniforme nei domini di errore o nei domini di aggiornamento. Questo problema può essere stato causato dall'eliminazione selettiva di VM o dall'eliminazione di VM dopo l'overprovisioning. L'esecuzione di `stop deallocate` seguito da `start` nel set di scalabilità di macchine virtuali consente di distribuire uniformemente le VM nei domini di errore o nei domini di aggiornamento.
+
+### <a name="how-do-i-take-a-snapshot-of-a-vmss-instance"></a>Come trarre uno snapshot di un'istanza VMSS?
+Creare uno snapshot da un'istanza di un set di scalabilità.
+
+```azurepowershell-interactive
+$rgname = "myResourceGroup"
+$vmssname = "myVMScaleSet"
+$Id = 0
+$location = "East US"
+ 
+$vmss1 = Get-AzVmssVM -ResourceGroupName $rgname -VMScaleSetName $vmssname -InstanceId $Id     
+$snapshotconfig = New-AzSnapshotConfig -Location $location -AccountType Standard_LRS -OsType Windows -CreateOption Copy -SourceUri $vmss1.StorageProfile.OsDisk.ManagedDisk.id
+New-AzSnapshot -ResourceGroupName $rgname -SnapshotName 'mySnapshot' -Snapshot $snapshotconfig
+``` 
+ 
+Creare un disco gestito dallo snapshot.
+
+```azurepowershell-interactive
+$snapshotName = "myShapshot"
+$snapshot = Get-AzSnapshot -ResourceGroupName $rgname -SnapshotName $snapshotName  
+$diskConfig = New-AzDiskConfig -AccountType Premium_LRS -Location $location -CreateOption Copy -SourceResourceId $snapshot.Id
+$osDisk = New-AzDisk -Disk $diskConfig -ResourceGroupName $rgname -DiskName ($snapshotName + '_Disk') 
+```

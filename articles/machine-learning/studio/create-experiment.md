@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare un esperimento di data science'
+title: 'Avvio rapido: Creare un esperimento di data science'
 titleSuffix: Azure Machine Learning Studio
 description: Questa guida introduttiva di Machine Learning illustra un esperimento semplice di data science. Verrà stimato il prezzo di un'automobile usando un algoritmo di regressione.
 services: machine-learning
@@ -10,14 +10,14 @@ author: garyericson
 ms.author: garye
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: 803a52994536d2d6f39a064f97af7831af0cebb6
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 0819c232412e1619f82a25476a8318d26c8087da
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453172"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105727"
 ---
-# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Guida introduttiva: Creare il primo esperimento data science in Azure Machine Learning Studio
+# <a name="quickstart-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Avvio rapido: Creare il primo esperimento data science in Azure Machine Learning Studio
 
 In questa guida introduttiva si crea un esperimento di apprendimento automatico in [Azure Machine Learning Studio](what-is-ml-studio.md) per stimare il prezzo di un'automobile in base a diverse variabili, ad esempio il marchio e le specifiche tecniche.
 
@@ -95,21 +95,21 @@ In primo luogo si aggiunge un modulo che rimuove completamente la colonna **norm
 
 1. Fare clic su [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e fare clic su **Launch column selector** (Avvia selettore di colonna) nel riquadro **Properties** (Proprietà).
 
-    - A sinistra, fare clic su **With rules** (Con regole)
-    - In **Begin With** (Inizia con), fare clic su **All columns** (Tutte le colonne). Queste regole indicano a [Select Columns in Dataset][select-columns] di analizzare tutte le colonne, ad eccezione di quelle che verranno escluse.
-    - Negli elenchi a discesa selezionare **Escludi** e **nomi colonna**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
-    - Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne nella parte inferiore destra.
+   - A sinistra, fare clic su **With rules** (Con regole)
+   - In **Begin With** (Inizia con), fare clic su **All columns** (Tutte le colonne). Queste regole indicano a [Select Columns in Dataset][select-columns] di analizzare tutte le colonne, ad eccezione di quelle che verranno escluse.
+   - Negli elenchi a discesa selezionare **Escludi** e **nomi colonna**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
+   - Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne nella parte inferiore destra.
 
-    ![Avviare il selettore di colonne ed escludere la colonna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
+     ![Avviare il selettore di colonne ed escludere la colonna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
 
-    Il riquadro delle proprietà del modulo **Select Columns in Dataset** indica ora che verranno analizzate tutte le colonne del set di dati, a eccezione di **normalized-losses**.
+     Il riquadro delle proprietà del modulo **Select Columns in Dataset** indica ora che verranno analizzate tutte le colonne del set di dati, a eccezione di **normalized-losses**.
 
-    ![Il riquadro delle proprietà mostra che la colonna "normalized-losses" è stata esclusa](./media/create-experiment/showing-excluded-column.png)
+     ![Il riquadro delle proprietà mostra che la colonna "normalized-losses" è stata esclusa](./media/create-experiment/showing-excluded-column.png)
 
-    > [!TIP] 
-    > È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e immettere il commento "Escludi perdite normalizzate".
+     > [!TIP] 
+     > È possibile aggiungere un commento a un modulo facendo doppio clic sul modulo e immettendo del testo. In tal modo sarà possibile individuare subito l'operazione eseguita dal modulo nell'esperimento. In questo caso, fare doppio clic sul modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e immettere il commento "Escludi perdite normalizzate".
 
-    ![Fare doppio clic su un modulo per aggiungere un commento](./media/create-experiment/add-comment.png)
+     ![Fare doppio clic su un modulo per aggiungere un commento](./media/create-experiment/add-comment.png)
 
 1. Trascinare il modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) nell'area di disegno dell'esperimento e connetterlo al modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati). Nel riquadro delle **proprietà** selezionare **Remove entire row** (Rimuovi riga intera) in **modalità Cleaning** (Pulizia). Queste opzioni indicano al modulo [Clean Missing Data][clean-missing-data] di pulire i dati rimuovendo le righe con valori mancanti. Fare doppio clic sul modulo e digitare il commento "Rimuovi righe valori mancanti".
 

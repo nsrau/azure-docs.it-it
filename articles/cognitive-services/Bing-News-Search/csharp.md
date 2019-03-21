@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 1/10/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 74ac8602e61404214f300682f5696100b8fa0c60
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f7c5ce2ce4725277fc08634a021d2b38d11abc1c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58074796"
 ---
-# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Guida introduttiva: Cercare le notizie usando C# e l'API REST Ricerca notizie Bing
+# <a name="quickstart-search-for-news-using-c-and-the-bing-news-search-rest-api"></a>Avvio rapido: Cercare le notizie usando C# e l'API REST Ricerca notizie Bing
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca notizie Bing e visualizzare la risposta JSON. Questa semplice applicazione C# invia una query di ricerca notizie all'API e visualizza la risposta. Il codice completo per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingNewsSearchv7.cs).
 
@@ -28,7 +28,7 @@ L'applicazione è scritta in C#, ma l'API è un servizio Web RESTful compatibile
 
 * Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
-* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](http://www.mono-project.com/).
+* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../includes/cognitive-services-bing-news-search-signup-requirements.md)]
 
@@ -53,7 +53,7 @@ Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.m
     const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/news/search";
     const string searchTerm = "Microsoft";
     ```
-## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Creare uno struct per formattare la risposta di Ricerca notizie Bing
+   ## <a name="create-a-struct-to-format-the-bing-news-search-response"></a>Creare uno struct per formattare la risposta di Ricerca notizie Bing
 
 1. Definire uno struct `SearchResult` in cui saranno contenuti i risultati della ricerca di immagini e le informazioni dell'intestazione JSON.
 

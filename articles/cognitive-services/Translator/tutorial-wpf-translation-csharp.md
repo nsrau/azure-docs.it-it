@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 97766472ea5f7b62a452e6cc5a71a77426e975ad
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f7f8e86f17b0fdb715afc96dba80db0746440cef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235411"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078126"
 ---
 # <a name="tutorial-create-a-translation-app-with-wpf"></a>Esercitazione: Creare un'app di traduzione con WPF
 
@@ -37,11 +37,11 @@ In questa esercitazione si apprenderà come:
 
 Questo elenco include i Servizi cognitivi usati nell'esercitazione. Seguire il collegamento per esplorare il riferimento API per ogni funzionalità.
 
-| Servizio | Funzionalità | Descrizione |
+| Service | Funzionalità | DESCRIZIONE |
 |---------|---------|-------------|
 | Traduzione testuale | [Recupera lingue](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages) | Recupera un elenco completo di lingue supportate per la traduzione testuale. |
-| Traduzione testuale | [Traduci](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduce il testo in più di 60 lingue. |
-| Traduzione testuale | [Rileva](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Rileva la lingua del testo di input. Include il punteggio di attendibilità per il rilevamento. |
+| Traduzione testuale | [Translate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate) | Traduce il testo in più di 60 lingue. |
+| Traduzione testuale | [Detect](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-detect) | Rileva la lingua del testo di input. Include il punteggio di attendibilità per il rilevamento. |
 | Controllo ortografico Bing | [Controllo ortografico](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference) | Corregge gli errori di ortografia per migliorare l'accuratezza della traduzione. |
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -108,11 +108,11 @@ Ecco il modulo da creare.
 
 L'interfaccia utente include questi componenti:
 
-| Nome | Tipo | Descrizione |
+| NOME | Type | DESCRIZIONE |
 |------|------|-------------|
 | `FromLanguageComboBox` | Casella combinata | Visualizza un elenco delle lingue supportate da Microsoft Translator per la traduzione testuale. L'utente seleziona la lingua da cui eseguire la traduzione. |
 | `ToLanguageComboBox` | Casella combinata | Visualizza lo stesso elenco di lingue di `FromComboBox`, ma viene usata per selezionare la lingua verso cui l'utente esegue la traduzione. |
-| `TextToTranslate` | Casella di testo | Consente all'utente di immettere il testo da tradurre. |
+| `TextToTranslate` | TextBox | Consente all'utente di immettere il testo da tradurre. |
 | `TranslateButton` | Pulsante | Usare questo pulsante per tradurre il testo. |
 | `TranslatedTextLabel` | Etichetta | Visualizza la traduzione. |
 | `DetectedLanguageLabel` | Etichetta | Visualizza la lingua rilevata del testo da tradurre (`TextToTranslate`). |
@@ -240,11 +240,11 @@ Tutto il progetto è incapsulato nella classe `MainWindow : Window`. Per iniziar
    // In the following sections, we'll add code below this.
    }
    ```
-   4. Aggiungere la chiave di sottoscrizione di Servizi cognitivi e salvare.
+   1. Aggiungere la chiave di sottoscrizione di Servizi cognitivi e salvare.
 
 In questo blocco di codice vengono dichiarate due variabili membro che contengono informazioni sulle lingue disponibili per la traduzione:
 
-| Variabile | Tipo | Descrizione |
+| Variabile | Type | DESCRIZIONE |
 |----------|------|-------------|
 |`languageCodes` | Matrice di stringhe |Memorizza nella cache i codici di lingua. Il servizio Microsoft Translator usa codici brevi, ad esempio `en` per l'inglese, per identificare le lingue. |
 |`languageCodesAndTitles` | Dizionario ordinato | Esegue il mapping dei nomi descrittivi dell'interfaccia utente nei codici brevi usati nell'API. Il mapping rispetta l'ordine alfabetico indipendentemente dalle maiuscole/minuscole. |
@@ -318,7 +318,7 @@ Riprendendo da dove è stata interrotta l'ultima sezione, aggiungere un metodo p
 
 Il metodo `GetLanguagesForTranslate()` crea una richiesta HTTP GET e usa il parametro della stringa di query `scope=translation` per limitare l'ambito della richiesta alle lingue supportate per la traduzione. Viene aggiunta l'intestazione `Accept-Language` con il valore `en`, in modo che le lingue supportate vengano restituite in inglese.
 
-La risposta JSON viene analizzata e convertita in un dizionario. Quindi vengono aggiunti i codici lingua alla variabile membro `languageCodes`. Viene eseguita la ricerca delle coppie chiave/valore che contengono i codici di lingua e i nomi di lingua descrittivi e tali coppie vengono aggiunte alla variabile membro `languageCodesAndTitles`. I menu a discesa nel modulo visualizzano i nomi descrittivi, ma per richiedere la traduzione sono necessari i codici.
+La risposta JSON viene analizzata e convertita in un dizionario. Quindi vengono aggiunti i codici lingua alla variabile membro `languageCodes`. Viene quindi eseguita la ricerca delle coppie chiave/valore che contengono i codici di lingua e i nomi di lingua descrittivi e tali coppie vengono aggiunte alla variabile membro `languageCodesAndTitles`. I menu a discesa nel modulo visualizzano i nomi descrittivi, ma per richiedere la traduzione sono necessari i codici.
 
 ## <a name="populate-language-drop-down-menus"></a>Popolare i menu a discesa delle lingue
 

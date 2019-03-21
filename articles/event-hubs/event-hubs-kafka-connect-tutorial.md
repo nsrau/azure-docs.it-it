@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: bahariri
-ms.openlocfilehash: f405fe1c93ad17476ac47bc23951c65a5ea5db73
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 2ed4432aec9b833efe6b521b4452177088d21d70
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53091364"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119412"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Integrare il supporto di Apache Kafka Connect in Hub eventi di Azure (anteprima)
 Man mano che aumentano i volumi di inserimento per le esigenze aziendali, aumentano di pari passo i requisiti di inserimento per i vari sink e le varie origini esterne. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) fornisce un framework che consente di connettere e importare/esportare dati da/a qualsiasi sistema esterno come MySQL, HDFS e il file system tramite un cluster Kafka. Questa esercitazione illustra in dettaglio come usare il framework di Kafka Connect con Hub eventi con supporto per Kafka.
@@ -23,7 +23,7 @@ Man mano che aumentano i volumi di inserimento per le esigenze aziendali, aument
 L'esercitazione mostra come integrare Kafka Connect con un hub eventi di Azure con supporto per Kafka e come distribuire i connettori di base FileStreamSource e FileStreamSink. Questa funzionalità è attualmente in anteprima. Questi connettori non sono destinati all'uso in ambiente di produzione, ma servono semplicemente a dimostrare uno scenario completo di Kafka Connect in cui il servizio Hub eventi di Azure funge da broker Kafka.
 
 > [!NOTE]
-Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
+> Questo esempio è disponibile in [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 In questa esercitazione vengono completati i passaggi seguenti:
 

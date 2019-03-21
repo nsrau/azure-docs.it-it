@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 2504a6e4ade46e1746443a8ec3e494563a52ae18
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7833b5d6b9b94ddcd4b94d96201ccc85497f2529
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884180"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57446929"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Creare un archivio di Configurazione app di Azure
 
@@ -75,8 +75,8 @@ Questo script usa i comandi seguenti per creare un nuovo gruppo di risorse e un 
 | Comando | Note |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | Crea una risorsa archivio di configurazione di app. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/key#ext-appconfig-az-appconfig-key-list) | Elenca le chiavi archiviate in un archivio di configurazione di app. |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | Crea una risorsa archivio di configurazione di app. |
+| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | Elenca le chiavi archiviate in un archivio di configurazione di app. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

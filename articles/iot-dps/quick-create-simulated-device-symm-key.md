@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5899b2b667df4800bf98aa6ed7b70f2f8ba4f931
-ms.sourcegitcommit: edacc2024b78d9c7450aaf7c50095807acf25fb6
+ms.openlocfilehash: 7d56f01aabe77680ed78927848668457344a0f2c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/13/2018
-ms.locfileid: "53337105"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080296"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche
 
@@ -114,15 +114,15 @@ L'SDK include il codice di esempio per un dispositivo simulato. Il dispositivo s
 
 3. In **Aggiungi registrazione** immettere le informazioni seguenti e fare clic sul pulsante **Salva**.
 
-    - **Meccanismo**: selezionare **Chiave simmetrica** come *meccanismo* di attestazione dell'identità.
+   - **Meccanismo**: selezionare **Chiave simmetrica** come *meccanismo* di attestazione dell'identità.
 
-    - **Genera chiavi automaticamente**: selezionare questa casella.
+   - **Genera chiavi automaticamente**: selezionare questa casella.
 
-    - **ID di registrazione**: immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio: `symm-key-device-007`.
+   - **ID di registrazione**: immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio: `symm-key-device-007`.
 
-    - **ID dispositivo hub IoT:** Immettere un identificatore di dispositivo. Ad esempio: **device-007**.
+   - **ID dispositivo hub IoT:** Immettere un identificatore di dispositivo. Ad esempio: **device-007**.
 
-    ![Aggiungere una registrazione singola per l'attestazione della chiave simmetrica nel portale](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
+     ![Aggiungere una registrazione singola per l'attestazione della chiave simmetrica nel portale](./media/quick-create-simulated-device-symm-key/create-individual-enrollment.png)
 
 4. Dopo aver salvato la registrazione, la **chiave primaria** e la **chiave secondaria** verranno generate e aggiunte alla voce di registrazione. La registrazione del dispositivo di chiave simmetrica verrà visualizzato come **symm-key-device-007** nella colonna *ID registrazione* della scheda *Registrazioni singole*. 
 

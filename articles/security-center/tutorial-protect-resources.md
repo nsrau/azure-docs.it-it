@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: monhaber
-ms.openlocfilehash: 8662539257422289053e75beeadd07c63d8d3f4d
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 6e8c10ecb85addf2ef6a995e3c0b8ac611343cfa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56106632"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110342"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Esercitazione: Protezione delle risorse con Centro sicurezza di Azure
 Centro sicurezza di Azure limita l'esposizione a minacce usando i controlli di accesso e delle applicazioni per bloccare le attività dannose. L'accesso JIT (Just-in-Time) alle macchine virtuali (VM) riduce l'esposizione agli attacchi grazie alla possibilità di negare l'accesso permanente alle macchine virtuali. In alternativa, è possibile fornire l'accesso controllato alle macchine virtuali solo quando è necessario. I controlli delle applicazioni adattivi consentono di applicare la protezione avanzata delle macchine virtuali contro il malware controllando quali applicazioni possono essere eseguite nelle macchine virtuali. Il Centro sicurezza usa Machine Learning per analizzare i processi in esecuzione nella macchina virtuale e, grazie a questa funzionalità intelligente, aiuta ad applicare regole di inserimento nell'elenco elementi consentiti.
@@ -43,30 +43,30 @@ Non è necessario lasciare aperte le porte di gestione in qualsiasi momento. Dev
 
 1. Nel menu principale del Centro sicurezza selezionare **Accesso Just-In-Time alla VM** in **DIFESA CLOUD AVANZATA**.
 
-  ![Accesso Just-In-Time alla VM][1]
+   ![Accesso Just-In-Time alla VM][1]
 
-  **Accesso Just-In-Time alla VM** fornisce informazioni sullo stato delle macchine virtuali:
+   **Accesso Just-In-Time alla VM** fornisce informazioni sullo stato delle macchine virtuali:
 
-  - **Configurata** - Macchine virtuali che sono state configurate per supportare l'accesso Just-In-Time.
-  - **Consigliata** - Macchine virtuali che possono supportare l'accesso Just-In-Time, ma che non sono state configurate a tale scopo.
-  - **Nessuna raccomandazione** - I motivi per cui una macchina virtuale può risultare non raccomandata sono:
+   - **Configurata** - Macchine virtuali che sono state configurate per supportare l'accesso Just-In-Time.
+   - **Consigliata** - Macchine virtuali che possono supportare l'accesso Just-In-Time, ma che non sono state configurate a tale scopo.
+   - **Nessuna raccomandazione** - I motivi per cui una macchina virtuale può risultare non raccomandata sono:
 
-    - Gruppo di sicurezza di rete mancante - La soluzione Just-In-Time richiede la presenza di un gruppo di sicurezza di rete.
-    - Macchina virtuale classica - L'accesso Just-in-Time alle macchine virtuali in Centro sicurezza attualmente supporta solo le macchine virtuali distribuite tramite Azure Resource Manager.
-    - Altro - Una macchina virtuale rientra in questa categoria se la soluzione Just-In-Time è disattivata nei criteri di sicurezza della sottoscrizione o del gruppo di risorse oppure se la macchina virtuale non dispone di un indirizzo IP pubblico e di un gruppo di sicurezza di rete.
+     - Gruppo di sicurezza di rete mancante - La soluzione Just-In-Time richiede la presenza di un gruppo di sicurezza di rete.
+     - Macchina virtuale classica - L'accesso Just-in-Time alle macchine virtuali in Centro sicurezza attualmente supporta solo le macchine virtuali distribuite tramite Azure Resource Manager.
+     - Altro - Una macchina virtuale rientra in questa categoria se la soluzione Just-In-Time è disattivata nei criteri di sicurezza della sottoscrizione o del gruppo di risorse oppure se la macchina virtuale non dispone di un indirizzo IP pubblico e di un gruppo di sicurezza di rete.
 
 2. Selezionare una macchina virtuale consigliata e fare clic su **Enable JIT on 1 VM** (Abilita JIT in una VM) per configurare i criteri JIT per quella macchina virtuale:
 
-  È possibile salvare le porte predefinite consigliate da Centro sicurezza di Azure o è possibile aggiungere e configurare una nuova porta su cui si intende abilitare la soluzione JIT. In questa esercitazione si aggiunge una porta selezionando **Aggiungi**.
+   È possibile salvare le porte predefinite consigliate da Centro sicurezza di Azure o è possibile aggiungere e configurare una nuova porta su cui si intende abilitare la soluzione JIT. In questa esercitazione si aggiunge una porta selezionando **Aggiungi**.
 
-  ![Aggiungere la configurazione della porta][2]
+   ![Aggiungere la configurazione della porta][2]
 
 3. In **Aggiungi configurazione della porta**, si identifica:
 
-  - La porta
-  - Il tipo di protocollo
-  - Gli indirizzi IP di origine consentiti: gli intervalli IP a cui è consentito di ottenere l'accesso in seguito a una richiesta approvata
-  - Il tempo massimo per la richiesta: l'intervallo di tempo in cui può essere aperta una porta specifica
+   - La porta
+   - Il tipo di protocollo
+   - Gli indirizzi IP di origine consentiti: gli intervalli IP a cui è consentito di ottenere l'accesso in seguito a una richiesta approvata
+   - Il tempo massimo per la richiesta: l'intervallo di tempo in cui può essere aperta una porta specifica
 
 4. Selezionare **OK** per salvare.
 
@@ -79,22 +79,22 @@ Questa funzionalità è disponibile solo per i computer Windows.
 
    ![Controlli delle applicazioni adattivi][3]
 
-  La sezione **Gruppi di risorse** contiene tre schede:
+   La sezione **Gruppi di risorse** contiene tre schede:
 
-  - **Configurato**: elenco dei gruppi di risorse contenenti le macchine virtuali configurate con il controllo delle applicazioni.
-  - **Consigliato**: elenco dei gruppi di risorse per cui è consigliato il controllo delle applicazioni.
-  - **Nessuna raccomandazione**: elenco dei gruppi di risorse contenenti le macchine virtuali senza alcuna raccomandazione per il controllo delle applicazioni. Ad esempio, le macchine virtuali in cui le applicazioni cambiano sempre e che non hanno raggiunto uno stato stabile.
+   - **Configurato**: elenco dei gruppi di risorse contenenti le macchine virtuali configurate con il controllo delle applicazioni.
+   - **Consigliato**: elenco dei gruppi di risorse per cui è consigliato il controllo delle applicazioni.
+   - **Nessuna raccomandazione**: elenco dei gruppi di risorse contenenti le macchine virtuali senza alcuna raccomandazione per il controllo delle applicazioni. Ad esempio, le macchine virtuali in cui le applicazioni cambiano sempre e che non hanno raggiunto uno stato stabile.
 
 2. Selezionare la scheda **Consigliato** per un elenco dei gruppi di risorse con raccomandazioni per il controllo delle applicazioni.
 
-  ![Raccomandazioni per il controllo delle applicazioni][4]
+   ![Raccomandazioni per il controllo delle applicazioni][4]
 
 3. Selezionare un gruppo di risorse per aprire l'opzione **Create application control rules** (Crea regole di controllo applicazioni). In **Seleziona macchine virtuali** esaminare l'elenco di macchine virtuali consigliate e deselezionare quelle a cui non si vuole applicare il controllo delle applicazioni. In **Selezionare i processi per le regole di inserimento nell'elenco elementi consentiti** esaminare l'elenco delle applicazioni consigliate e deselezionare quelle a cui non si vuole applicare il controllo. L'elenco include:
 
-  - **NOME**: il percorso completo dell'applicazione
-  - **PROCESSI**: il numero di applicazioni in ogni percorso
-  - **COMUNE**: "Sì" indica che i processi sono stati eseguiti nella maggior parte delle macchine virtuali nel gruppo di risorse
-  - **SFRUTTABILE**: un'icona di avviso indica se le applicazioni possono essere usate da un utente malintenzionato per aggirare l'inserimento nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle.
+   - **NOME**: il percorso completo dell'applicazione
+   - **PROCESSI**: il numero di applicazioni in ogni percorso
+   - **COMUNE**: "Sì" indica che i processi sono stati eseguiti nella maggior parte delle macchine virtuali nel gruppo di risorse
+   - **SFRUTTABILE**: un'icona di avviso indica se le applicazioni possono essere usate da un utente malintenzionato per aggirare l'inserimento nell'elenco elementi consentiti. È consigliabile esaminare queste applicazioni prima di approvarle.
 
 4. Dopo avere selezionato le opzioni desiderate, scegliere **Crea**.
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 12/03/2018
 ms.custom: seodec18
 Customer intent: As a developer, I want to migrate my existing Cassandra workloads to Azure Cosmos DB so that the overhead to manage resources, clusters, and garbage collection is automatically handled by Azure Cosmos DB.
-ms.openlocfilehash: b12e7aad5fbdf65a8936b943f5053eda76dbd883
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: c9f7ec5009c9299e317d9b10f857e326d25fa005
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037481"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120109"
 ---
 # <a name="tutorial-migrate-your-data-to-cassandra-api-account-in-azure-cosmos-db"></a>Esercitazione: eseguire la migrazione dei dati in un account dell'API Cassandra in Azure Cosmos DB
 
@@ -35,31 +35,31 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * **Elaborare una stima delle esigenze di velocità effettiva:** prima di eseguire la migrazione dei dati nell'account dell'API Cassandra in Azure Cosmos DB, è necessario elaborare una stima delle esigenze di velocità effettiva del carico di lavoro. In generale, è consigliabile iniziare con la velocità effettiva media necessaria per le operazioni CRUD, quindi includere la velocità effettiva aggiuntiva necessaria per le operazioni picco o di estrazione, trasformazione e caricamento (ETL). Per pianificare la migrazione, sono necessari i dettagli seguenti: 
 
-   * **Dimensioni dei dati esistenti o stimate:** definisce le dimensioni minime del database e i requisiti di velocità effettiva. Se si sta stimando la dimensione dei dati per una nuova applicazione, è possibile presumere che i dati vengano distribuiti uniformemente tra le righe e stimare il valore moltiplicando la dimensione dei dati. 
+  * **Dimensioni dei dati esistenti o stimate:** definisce le dimensioni minime del database e i requisiti di velocità effettiva. Se si sta stimando la dimensione dei dati per una nuova applicazione, è possibile presumere che i dati vengano distribuiti uniformemente tra le righe e stimare il valore moltiplicando la dimensione dei dati. 
 
-   * **Velocità effettiva richiesta:** la velocità effettiva approssimativa in lettura (query/get) e in scrittura (update/delete/insert). Questo valore è obbligatorio per calcolare le unità richiesta necessarie insieme alle dimensioni dei dati con stato stabile.  
+  * **Velocità effettiva richiesta:** la velocità effettiva approssimativa in lettura (query/get) e in scrittura (update/delete/insert). Questo valore è obbligatorio per calcolare le unità richiesta necessarie insieme alle dimensioni dei dati con stato stabile.  
 
-   * **Schema:** connettersi al cluster Cassandra esistente tramite cqlsh ed esportare lo schema da Cassandra: 
+  * **Schema:** connettersi al cluster Cassandra esistente tramite cqlsh ed esportare lo schema da Cassandra: 
 
-     ```bash
-     cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
-     ```
+    ```bash
+    cqlsh [IP] "-e DESC SCHEMA" > orig_schema.cql
+    ```
 
-   Dopo avere identificato i requisiti del carico di lavoro esistente, è necessario creare un account, un database e i contenitori Azure Cosmos in base ai requisiti di velocità effettiva raccolti.  
+    Dopo avere identificato i requisiti del carico di lavoro esistente, è necessario creare un account, un database e i contenitori Azure Cosmos in base ai requisiti di velocità effettiva raccolti.  
 
-   * **Determinare gli addebiti di UR per un'operazione:** è possibile determinare le UR usando uno degli SDK supportati dall'API Cassandra. Questo esempio illustra la versione .NET per ottenere gli addebiti delle unità richiesta.
+  * **Determinare gli addebiti di UR per un'operazione:** è possibile determinare le UR usando uno degli SDK supportati dall'API Cassandra. Questo esempio illustra la versione .NET per ottenere gli addebiti delle unità richiesta.
 
-     ```csharp
-     var tableInsertStatement = table.Insert(sampleEntity);
-     var insertResult = await tableInsertStatement.ExecuteAsync();
+    ```csharp
+    var tableInsertStatement = table.Insert(sampleEntity);
+    var insertResult = await tableInsertStatement.ExecuteAsync();
 
-     foreach (string key in insertResult.Info.IncomingPayload)
-       {
-          byte[] valueInBytes = customPayload[key];
-          string value = Encoding.UTF8.GetString(valueInBytes);
-          Console.WriteLine($"CustomPayload:  {key}: {value}");
-       }
-     ```
+    foreach (string key in insertResult.Info.IncomingPayload)
+      {
+         byte[] valueInBytes = customPayload[key];
+         string value = Encoding.UTF8.GetString(valueInBytes);
+         Console.WriteLine($"CustomPayload:  {key}: {value}");
+      }
+    ```
 
 * **Allocare la velocità effettiva richiesta:** Azure Cosmos DB può ridimensionare automaticamente l'archiviazione e la velocità effettiva man mano che aumentano i requisiti. È possibile stimare le esigenze di velocità effettiva usando il [calcolatore di unità di richieste di Azure Cosmos DB](https://www.documentdb.com/capacityplanner). 
 

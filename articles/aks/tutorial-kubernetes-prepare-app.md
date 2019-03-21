@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b529af1db6d72d87abc25eb37f2f1c39216a0ba4
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 9212e065ff7f6b0e3df1b90296f54159762bdaf9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724165"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002015"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Esercitazione: Preparare un'applicazione per il servizio Azure Kubernetes
 
@@ -89,7 +89,7 @@ b68fed4b66b6        redis             "docker-entrypoint..."   57 seconds ago   
 
 ## <a name="test-application-locally"></a>Testare l'applicazione in locale
 
-Per vedere l'applicazione in esecuzione, immettere http://localhost:8080 in un Web browser locale. L'applicazione di esempio viene caricata, come illustrato nell'esempio seguente:
+Per vedere l'applicazione in esecuzione, immettere `http://localhost:8080` in un Web browser locale. L'applicazione di esempio viene caricata, come illustrato nell'esempio seguente:
 
 ![Immagine del cluster Kubernetes in Azure](./media/container-service-tutorial-kubernetes-prepare-app/azure-vote.png)
 
@@ -117,7 +117,7 @@ In questa esercitazione è stata testata un'applicazione e sono state create le 
 Passare alla prossima esercitazione per apprendere come archiviare le immagini del contenitore in Registro Azure Container.
 
 > [!div class="nextstepaction"]
-> [Eseguire il push delle immagini nel Registro contenitori di Azure][aks-tutorial-prepare-acr]
+> [Eseguire il push delle immagini in Registro Azure Container][aks-tutorial-prepare-acr]
 
 <!-- LINKS - external -->
 [docker-compose]: https://docs.docker.com/compose/

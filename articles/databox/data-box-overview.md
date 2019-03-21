@@ -9,12 +9,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/18/2019
 ms.author: alkohli
-ms.openlocfilehash: d0d5ee18e37436562f1e9e15571dc39fb0e00129
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a81eef9e3f7892afa1d64befec35852381ffe17b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117745"
 ---
 # <a name="what-is-azure-data-box"></a>Che cos'è Azure Data Box?
 
@@ -44,11 +44,11 @@ Data Box è progettato per spostare in Azure grandi quantità di dati senza alcu
 - **Velocità**: Data Box usa interfacce di rete da 1 Gbps o 10 Gbps per spostare fino a 80 TB di dati in Azure.
 
 - **Sicurezza**: Data Box è dotato di protezioni di sicurezza integrate per il dispositivo, i dati e il servizio.
-    - Il dispositivo è imballato in una scatola rigida assicurata con viti e adesivi antimanomissione. 
-    - I dati sul dispositivo sono sempre protetti con crittografia AES a 256 bit.
-    - Il dispositivo può essere sbloccato solo con una password disponibile nel portale di Azure.
-    - Il servizio è protetto dalle funzioni di sicurezza di Azure.
-    - Dopo che i dati sono stati caricati in Azure, i dischi sul dispositivo verranno cancellati, in conformità con gli standard NIST 800-88r1.
+  - Il dispositivo è imballato in una scatola rigida assicurata con viti e adesivi antimanomissione. 
+  - I dati sul dispositivo sono sempre protetti con crittografia AES a 256 bit.
+  - Il dispositivo può essere sbloccato solo con una password disponibile nel portale di Azure.
+  - Il servizio è protetto dalle funzioni di sicurezza di Azure.
+  - Dopo che i dati sono stati caricati in Azure, i dischi sul dispositivo verranno cancellati, in conformità con gli standard NIST 800-88r1.
     
     Per altre informazioni, vedere [Azure Data Box security and data protection](data-box-security.md) (Sicurezza e protezione dei dati in Azure Data Box).
 

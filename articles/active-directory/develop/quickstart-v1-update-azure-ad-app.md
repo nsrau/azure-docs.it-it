@@ -17,14 +17,14 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e705bbbd08882f56020192a3b42c311e05bfa399
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: bee16ed8205453546702946628c98c73b0f34b15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103809"
 ---
-# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Guida introduttiva: Aggiornare un'applicazione in Azure Active Directory
+# <a name="quickstart-update-an-application-in-azure-active-directory"></a>Avvio rapido: Aggiornare un'applicazione in Azure Active Directory
 
 Gli sviluppatori aziendali e i provider di software-as-a-service (SaaS) che hanno effettuato la registrazione delle applicazioni con Azure Active Directory (Azure AD) potrebbero dover configurare le applicazioni per accedere ad altre risorse, ad esempio le API Web, renderle disponibili in altre organizzazioni e altro ancora.
 
@@ -60,24 +60,24 @@ Prima che un client possa accedere a un'API Web esposta da un'applicazione della
    ![Aggiornare la registrazione di un'applicazione](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
 4. Viene visualizzata la pagina di registrazione principale dell'applicazione che contiene la pagina **Impostazioni** per l'applicazione. Per aggiungere una credenziale per l'applicazione Web:
-  1. Selezionare la sezione **Chiavi** della pagina **Impostazioni**.
-  2. Per aggiungere un certificato:
-    - Selezionare **Carica la chiave pubblica**.
-    - Selezionare il file da caricare. Il tipo di file deve essere uno dei seguenti: .cer, .pem, .crt.
-  - Per aggiungere una password:
-    - Aggiungere una descrizione per la chiave.
-    - Selezionare una durata.
-    - Selezionare **Salva**. Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. **Assicurarsi di copiare la chiave** per l'utilizzo nel codice dell'applicazione client, in quanto non è più accessibile dopo aver lasciato la pagina.
+   1. Selezionare la sezione **Chiavi** della pagina **Impostazioni**.
+   1. Per aggiungere un certificato:
+      - Selezionare **Carica la chiave pubblica**.
+      - Selezionare il file da caricare. Il tipo di file deve essere uno dei seguenti: .cer, .pem, .crt.
+   1. Per aggiungere una password:
+      - Aggiungere una descrizione per la chiave.
+      - Selezionare una durata.
+      - Selezionare **Salva**. Dopo che le modifiche apportate alla configurazione sono state salvate, il valore della chiave viene visualizzato nella colonna di destra. **Assicurarsi di copiare la chiave** per l'utilizzo nel codice dell'applicazione client, in quanto non è più accessibile dopo aver lasciato la pagina.
 
 5. Per aggiungere le autorizzazioni per accedere alle API di risorsa dal client
-  1. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie** e quindi **Aggiungi**.
-  1. Scegliere **Selezionare un'API** per visualizzare il tipo di risorse da cui scegliere.
-  1. Scorrere l'elenco delle API disponibili o usare la casella di ricerca per selezionare fra le applicazioni di risorse disponibili nella directory che espongono un'API Web. Selezionare la risorsa desiderata, quindi scegliere **Seleziona**.
-  1. Nella pagina **Abilita accesso** selezionare le autorizzazioni per l'applicazione e/o le autorizzazioni delegate di cui l'applicazione ha bisogno quando accede all'API.
+   1. Nella pagina **Impostazioni** selezionare **Autorizzazioni necessarie** e quindi **Aggiungi**.
+   1. Scegliere **Selezionare un'API** per visualizzare il tipo di risorse da cui scegliere.
+   1. Scorrere l'elenco delle API disponibili o usare la casella di ricerca per selezionare fra le applicazioni di risorse disponibili nella directory che espongono un'API Web. Selezionare la risorsa desiderata, quindi scegliere **Seleziona**.
+   1. Nella pagina **Abilita accesso** selezionare le autorizzazioni per l'applicazione e/o le autorizzazioni delegate di cui l'applicazione ha bisogno quando accede all'API.
    
-  ![Aggiornare la registrazione di un'applicazione - API di autorizzazione](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
+   ![Aggiornare la registrazione di un'applicazione - API di autorizzazione](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-api.png)
 
-  ![Aggiornare la registrazione di un'applicazione - Autorizzazioni](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
+   ![Aggiornare la registrazione di un'applicazione - Autorizzazioni](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Al termine, selezionare il pulsante **Seleziona** della pagina **Abilita accesso**, quindi sul pulsante **Fatto** della pagina **Aggiungi accesso all'API**. Verrà visualizzata di nuovo la pagina **Autorizzazioni necessarie**, in cui la nuova risorsa viene aggiunta all'elenco di API.
 
@@ -98,8 +98,8 @@ La sezione seguente illustra come esporre gli ambiti di accesso modificando il m
 4. Viene visualizzata la pagina di registrazione principale dell'applicazione che apre la pagina **Impostazioni** per l'applicazione. Passare alla pagina **Modifica manifesto** facendo clic su **Manifesto** dalla pagina di registrazione dell'applicazione. Si apre un editor di manifesto basato sul Web che consente di **modificare** il manifesto all'interno del portale. Facoltativamente è possibile fare clic su **Scarica** e modificare il manifesto localmente, quindi usare **Carica** per associarlo nuovamente all'applicazione.
 5. In questo esempio si esporrà un nuovo ambito denominato `Employees.Read.All` nella risorsa/API, aggiungendo l'elemento JSON seguente all'insieme `oauth2Permissions`. L'ambito esistente `user_impersonation` viene fornito per impostazione predefinita durante la registrazione. `user_impersonation` consente a un'applicazione client di richiedere l'autorizzazione per accedere alla risorsa con l'identità dell'utente connesso. Assicurarsi di aggiungere la virgola dopo l'elemento di ambito esistente `user_impersonation` e modificare i valori delle proprietà in base alle esigenze della risorsa. 
 
-  ```json
-  {
+   ```json
+   {
     "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
     "adminConsentDisplayName": "Read-only access to Employee records",
     "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
@@ -108,17 +108,17 @@ La sezione seguente illustra come esporre gli ambiti di accesso modificando il m
     "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
     "userConsentDisplayName": "Read-only access to your Employee records",
     "value": "Employees.Read.All"
-  }
-  ```
+   }
+   ```
 
-  > [!NOTE]
-  > Il valore di `id` deve essere generato a livello di codice oppure usando uno strumento per la generazione di GUID come [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` rappresenta un identificatore univoco per l'ambito esposto dall'API Web. Dopo che un client è stato configurato in modo appropriato con le autorizzazioni di accesso all'API Web, viene generato un token di accesso OAuth 2.0 da Azure AD. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (scp) impostata sulle autorizzazioni richieste nella registrazione della relativa applicazione.
-  >
-  > Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando l'attestazione (o le attestazioni) di ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
+   > [!NOTE]
+   > Il valore di `id` deve essere generato a livello di codice oppure usando uno strumento per la generazione di GUID come [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx). `id` rappresenta un identificatore univoco per l'ambito esposto dall'API Web. Dopo che un client è stato configurato in modo appropriato con le autorizzazioni di accesso all'API Web, viene generato un token di accesso OAuth 2.0 da Azure AD. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (scp) impostata sulle autorizzazioni richieste nella registrazione della relativa applicazione.
+   >
+   > Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando l'attestazione (o le attestazioni) di ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
 
 6. Al termine fare clic su **Salva**. Ora l'API Web è configurata in modo che possa essere usata da altre applicazioni nella directory.
 
-  ![Aggiornare la registrazione di un'applicazione](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
+   ![Aggiornare la registrazione di un'applicazione](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-manifest.png)
 
 ### <a name="verify-the-web-api-is-exposed-to-other-applications-in-your-tenant"></a>Verificare che l'API Web sia esposta ad altre applicazioni nel tenant
 
@@ -130,7 +130,7 @@ La sezione seguente illustra come esporre gli ambiti di accesso modificando il m
 
 3. Nella pagina **Abilita accesso** sarà visibile il nuovo ambito, disponibile per le richieste di autorizzazione del client.
 
-  ![Le nuove autorizzazioni sono visualizzate](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
+   ![Le nuove autorizzazioni sono visualizzate](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms-newscopes.png)
 
 ### <a name="more-on-the-application-manifest"></a>Altre informazioni sul manifesto dell'applicazione
 
@@ -211,9 +211,9 @@ Per impostazione predefinita, la concessione implicita OAuth 2.0 è disabilitata
 3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** quindi trovare/fare clic sull'applicazione che si vuole configurare. Viene visualizzata la pagina di registrazione principale dell'applicazione che apre la pagina **Impostazioni** per l'applicazione.
 4. Passare alla pagina **Modifica manifesto** facendo clic su **Manifesto** dalla pagina di registrazione dell'applicazione. Si apre un editor di manifesto basato sul Web che consente di **modificare** il manifesto all'interno del portale. Individuare e impostare il valore "oauth2AllowImplicitFlow" su "true". Per impostazione predefinita, il valore è impostato su "false".
    
-  ```json
-  "oauth2AllowImplicitFlow": true,
-  ```
+   ```json
+   "oauth2AllowImplicitFlow": true,
+   ```
 5. Salvare il manifesto aggiornato. Dopo il salvataggio, l'API Web è configurata in modo da usare la concessione implicita OAuth 2.0 per autenticare gli utenti.
 
 ## <a name="next-steps"></a>Passaggi successivi

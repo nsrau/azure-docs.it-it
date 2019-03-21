@@ -10,15 +10,15 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/09/2018
+ms.date: 02/28/2019
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 08897b2085c2a8f0eafb90b77486d60a0edce190
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 17df4415166c71f49c6b2534289b2c1f79cb6174
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359868"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117252"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Ridimensionamento e hosting di Funzioni di Azure
 
@@ -43,9 +43,6 @@ In un piano di servizio app è possibile applicare la scalabilità tra i livelli
 
 Quando si usa un piano a consumo, le istanze dell'host di Funzioni di Azure vengono aggiunte e rimosse in modo dinamico in base al numero di eventi in ingresso. Questo piano senza server offre la scalabilità automatica e sono previsti costi per le risorse di calcolo solo quando le funzioni sono in esecuzione. In un piano A consumo, il timeout dell'esecuzione di una funzione si verifica dopo un periodo di tempo configurabile.
 
-> [!NOTE]
-> Il timeout predefinito per le funzioni in un piano a consumo è di 5 minuti. Il valore può essere aumentato per l'app per le funzioni fino a un massimo di 10 minuti modificando la proprietà `functionTimeout` nel file di progetto [host.json](functions-host-json.md#functiontimeout).
-
 La fatturazione si basa sul numero di esecuzioni, il tempo di esecuzione e la memoria usata. La fatturazione viene aggregata tra tutte le funzioni all'interno di un'app per le funzioni. Per altre informazioni, vedere la [Pagina dei prezzi di Funzioni di Azure].
 
 Il piano a consumo è l'opzione di hosting predefinita e offre i vantaggi seguenti:
@@ -62,7 +59,7 @@ Prendere in considerazione un piano di servizio app nei casi seguenti:
 * Sono presenti macchine virtuali sottoutilizzate, che eseguono già altre istanze del servizio app.
 * Le app per le funzioni vengono eseguite in modo continuo o quasi continuo. In questo caso, un piano di servizio app può essere più conveniente.
 * Sono necessarie altre opzioni per CPU o memoria, rispetto alle opzioni disponibili nel piano a consumo.
-* È necessario un tempo di esecuzione del codice superiore al tempo di esecuzione massimo consentito nel piano a consumo, che è fino a 10 minuti.
+* Il codice deve eseguire più di [tempo di esecuzione massimo consentito](#timeout) nel piano a consumo.
 * Sono necessarie funzionalità disponibili solo in un piano di servizio app, ad esempio il supporto per Ambiente del servizio app, la connettività di rete virtuale/VPN e dimensioni maggiori delle macchine virtuali.
 * Si vuole eseguire l'app per le funzioni in Linux o fornire un'immagine personalizzata in cui eseguire le funzioni.
 
@@ -70,13 +67,15 @@ Una macchina virtuale separa i costi associati al numero di esecuzioni, al tempo
 
 Con un piano di servizio app, è possibile aumentare manualmente il numero di istanze aggiungendo altre istanze di macchine virtuali oppure abilitare la scalabilità automatica. Per altre informazioni, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json). Per aumentare le prestazioni è anche possibile scegliere un piano di servizio App diverso. Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](../app-service/web-sites-scale.md). 
 
-Quando si eseguono funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di vCPU. Per altre informazioni, vedere [Scegliere i piani di servizio app single core](functions-reference-node.md#considerations-for-javascript-functions).  
+Quando si eseguono funzioni JavaScript in un piano di servizio app, è necessario scegliere un piano con un minor numero di vCPU. Per altre informazioni, vedere [scegliere i piani di servizio App single core](functions-reference-node.md#choose-single-vcpu-app-service-plans).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
-<a name="always-on"></a>
-### <a name="always-on"></a>Always On
+
+### <a name="always-on"></a> Always On
 
 Se per l'esecuzione si usa un piano di servizio app, è necessario abilitare l'impostazione **Always on** in modo che l'app per le funzioni venga eseguita correttamente. In un piano di servizio app il runtime delle funzioni risulta inattivo dopo pochi minuti di inattività. Solo i trigger HTTP "attiveranno" quindi le funzioni. L'opzione Always on è disponibile solo nel piano di servizio app. In un piano a consumo, la piattaforma attiva automaticamente le app per le funzioni.
+
+[!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 ## <a name="what-is-my-hosting-plan"></a>Determinare il piano di hosting in uso
 
@@ -125,7 +124,8 @@ L'unità di scalabilità è l'app per le funzioni. In caso di aumento del numero
 Il ridimensionamento può variare in base a numerosi fattori e comportarsi diversamente a seconda del trigger e della lingua selezionati. Esistono tuttavia alcuni aspetti del ridimensionamento comuni a livello di sistema:
 
 * Un'app per le funzioni viene ridimensionata solo fino a un massimo di 200 istanze. Una singola istanza può elaborare più di un messaggio o più di una richiesta alla volta. Pertanto, non esiste alcun limite per quanto riguarda il numero di esecuzioni parallele.
-* Le nuove istanze verranno allocate al massimo una volta ogni 10 secondi.
+* Per i trigger HTTP, le nuove istanze verranno allocate al massimo una volta ogni secondo.
+* Per i trigger non HTTP, le nuove istanze verranno allocate al massimo una volta ogni 30 secondi.
 
 Trigger distinti possono avere limiti di ridimensionamento diversi come illustrato di seguito:
 

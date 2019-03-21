@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: d3154e137aec8dcedcb066e2c9aab046b5a7b6e0
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d726006d3ecce69f129b1576c7c6d12833582873
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108824"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081991"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti per la sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a indicatori o origini di intelligence dell'utente. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. In questa esercitazione si apprenderà come:
@@ -45,28 +45,28 @@ Il Centro sicurezza offre una vista centralizzata di tutti gli avvisi di sicurez
 
 1. Nel menu principale del Centro sicurezza selezionare **Avvisi di sicurezza** in **RILEVAMENTO**:
 
-  ![Avvisi di sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
+   ![Avvisi di sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)  
 
 2. Nell'elenco degli avvisi fare clic su un evento imprevisto della sicurezza, ovvero una raccolta di avvisi, per ottenere altre informazioni sull'evento imprevisto. Si aprirà **Security incident detected** (Rilevato evento imprevisto sicurezza).
 
-  ![Evento imprevisto della sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Evento imprevisto della sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Questa schermata indica la descrizione dell'evento imprevisto della sicurezza in alto e l'elenco degli avvisi che fanno parte di questo evento imprevisto. Fare clic sull'avviso da analizzare per ottenere altre informazioni.
 
-  ![Evento imprevisto della sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Evento imprevisto della sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
-  Il tipo di avviso può variare. Vedere [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) per altre informazioni sul tipo di avviso e le possibili procedure correttive. Per gli avvisi che possono essere ignorati, è possibile fare clic con il pulsante destro del mouse sull'avviso e scegliere **Ignora**:
+   Il tipo di avviso può variare. Vedere [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) per altre informazioni sul tipo di avviso e le possibili procedure correttive. Per gli avvisi che possono essere ignorati, è possibile fare clic con il pulsante destro del mouse sull'avviso e scegliere **Ignora**:
 
-  ![Avviso](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
+   ![Avviso](./media/tutorial-security-incident/tutorial-security-incident-fig4.png)
 
 4. Se la causa radice e l'ambito dell'attività dannosa sono sconosciuti, procedere al passaggio successivo per approfondire la verifica.
 
 ## <a name="investigate-an-alert-or-incident"></a>Analizzare un avviso o un evento imprevisto
 1. Nella pagina **Avviso di sicurezza** fare clic sul pulsante **Avvia indagine**. Se l'indagine è già stata avviata, il pulsante visualizzerà **Continua l'indagine**.
 
-  ![Analisi](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
+   ![Analisi](./media/tutorial-security-incident/tutorial-security-incident-fig5.png)
 
-  La mappa dell'indagine è una rappresentazione grafica delle entità collegate a questo evento imprevisto o avviso di sicurezza. Facendo clic su un'entità nella mappa, le informazioni sull'entità visualizzeranno nuove entità, espandendo la mappa. Le proprietà dell'entità selezionata sono evidenziate nel riquadro sul lato destro della pagina. Le informazioni disponibili in ogni scheda variano a seconda dell'entità selezionata. Durante il processo di indagine, esaminare tutte le informazioni pertinenti per comprendere meglio l'attività dell'utente malintenzionato.
+   La mappa dell'indagine è una rappresentazione grafica delle entità collegate a questo evento imprevisto o avviso di sicurezza. Facendo clic su un'entità nella mappa, le informazioni sull'entità visualizzeranno nuove entità, espandendo la mappa. Le proprietà dell'entità selezionata sono evidenziate nel riquadro sul lato destro della pagina. Le informazioni disponibili in ogni scheda variano a seconda dell'entità selezionata. Durante il processo di indagine, esaminare tutte le informazioni pertinenti per comprendere meglio l'attività dell'utente malintenzionato.
 
 2. Procedere al passaggio successivo se sono necessarie altre prove oppure se si devono analizzare in modo più approfondito le entità trovate durante l'indagine.
 

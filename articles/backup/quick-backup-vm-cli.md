@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 961f231f9d8ab339d06e9521830c58d175c4a9e3
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 8a7c722944aacaca9780939a1726c6e47be79be1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58112042"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Eseguire il backup di una macchina virtuale in Azure con l'interfaccia della riga di comando
 L'interfaccia della riga di comando di Azure viene usata per creare e gestire le risorse di Azure dalla riga di comando o negli script. È possibile proteggere i dati eseguendo backup a intervalli regolari. Backup di Azure crea punti di ripristino che possono essere archiviati in insiemi di credenziali di ripristino con ridondanza geografica. Questo articolo illustra in modo dettagliato come eseguire il backup di una macchina virtuale (VM) in Azure con l'interfaccia della riga di comando di Azure. È anche possibile eseguire questa procedura con [Azure PowerShell](quick-backup-vm-powershell.md) o nel [portale di Azure](quick-backup-vm-portal.md).
@@ -58,7 +58,7 @@ az backup protection enable-for-vm \
 ```
 
 > [!NOTE]
-Se la macchina virtuale non è inclusa nello stesso gruppo di risorse dell'insieme di credenziali, myResourceGroup fa riferimento al gruppo di risorse in cui è stato creato l'insieme di credenziali. Invece del nome della macchina virtuale, specificare l'ID della macchina virtuale come indicato di seguito.
+> Se la macchina virtuale non è inclusa nello stesso gruppo di risorse dell'insieme di credenziali, myResourceGroup fa riferimento al gruppo di risorse in cui è stato creato l'insieme di credenziali. Invece del nome della macchina virtuale, specificare l'ID della macchina virtuale come indicato di seguito.
 
 ```azurecli-interactive 
 az backup protection enable-for-vm \

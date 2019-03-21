@@ -4,17 +4,18 @@ titleSuffix: Azure Cognitive Services
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. La Knowledge Base di QnA Maker in questo esempio viene creata da una semplice pagina Web di domande frequenti per rispondere alle domande sul recupero chiavi di BitLocker.
 author: diberry
 manager: nitinme
+services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 2ac6e6fcd73abddcee668b8f73184b923aeab5d3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3f7b24af3d48075150ae7c192ccf421b928a7aa3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55876998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113700"
 ---
 # <a name="create-train-and-publish-your-qna-maker-knowledge-base"></a>Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
@@ -53,7 +54,7 @@ ms.locfileid: "55876998"
 
 10. In alto a destra, selezionare **Add QnA pair** (Aggiungi coppia domanda/risposta) per aggiungere una nuova riga nella sezione **editoriale** della Knowledge Base. Sotto **domanda**, immettere **Ciao.** Sotto **risposta**, immettere **Salve. Ponimi domande di bitlocker.**
 
-   ![Aggiungere una coppia domanda/risposta](../media/qnamaker-quickstart-kb/add-qna-pair.png)
+    ![Aggiungere una coppia domanda/risposta](../media/qnamaker-quickstart-kb/add-qna-pair.png)
 
 11. In alto a destra, selezionare **Save and train** (Salva ed esegui il training) per salvare le modifiche e il training del modello di QnA Maker. Le modifiche non vengono mantenute a meno che non vengano salvate.
 
@@ -61,7 +62,7 @@ ms.locfileid: "55876998"
 
 13. Selezionare **Ispeziona** per esaminare la risposta in modo più dettagliato. La finestra di test viene utilizzata per testare le modifiche alla Knowledge Base prima che vengano pubblicate.
 
-   ![Pannello Test](../media/qnamaker-quickstart-kb/inspect-panel.png)
+    ![Pannello Test](../media/qnamaker-quickstart-kb/inspect-panel.png)
 
 14. Selezionare nuovamente **Esegui test** per comprimere il pop-up **Esegui test**.
 
@@ -69,7 +70,7 @@ ms.locfileid: "55876998"
 
 16. Il servizio QnA Maker viene pubblicato correttamente. Utilizza l'endpoint nell’applicazione o nel codice bot.
 
-   ![Pubblica](../media/qnamaker-quickstart-kb/publish-sucess.png)
+    ![Pubblica](../media/qnamaker-quickstart-kb/publish-sucess.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

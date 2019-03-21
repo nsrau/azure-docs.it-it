@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 36f1b39ca4cef33a8cfcdb295b5c4d59e1128a0c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54426846"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104761"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Guida introduttiva: Usare Azure PowerShell per creare una coda del bus di servizio
 Il bus di servizio di Microsoft Azure è un broker di messaggi di integrazione aziendale che garantisce la sicurezza della messaggistica e completa affidabilità. Uno scenario tipico del bus di servizio comporta in genere il disaccoppiamento di due o più applicazioni, servizi o processi e il trasferimento delle modifiche apportate ai dati o allo stato. Scenari di questo tipo potrebbero comportare la pianificazione di più processi batch in un'altra applicazione o servizio oppure l'attivazione dell'evasione degli ordini. Una società di vendita al dettaglio, ad esempio, potrebbe inviare i dati dei punti vendita a un back office o al centro di distribuzione locale per gli aggiornamenti di rifornimento e inventario. In questo scenario l'app client invia e riceve messaggi verso e da una coda del bus di servizio.
@@ -96,15 +96,15 @@ Per eseguire il codice, seguire questa procedura:
    Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
-5.  Al prompt di PowerShell, digitare il comando seguente:
+5. Al prompt di PowerShell, digitare il comando seguente:
 
    ```shell
    dotnet build
    ```
 
-6.  Passare alla cartella `bin\Debug\netcoreapp2.0`.
+6. Passare alla cartella `bin\Debug\netcoreapp2.0`.
 
-7.  Digitare il comando seguente per eseguire il programma. Assicurarsi di sostituire `myConnectionString` con il valore ottenuto in precedenza e `myQueueName` con il nome della coda creata:
+7. Digitare il comando seguente per eseguire il programma. Assicurarsi di sostituire `myConnectionString` con il valore ottenuto in precedenza e `myQueueName` con il nome della coda creata:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"

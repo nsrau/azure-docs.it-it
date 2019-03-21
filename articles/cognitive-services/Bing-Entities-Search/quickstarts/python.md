@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 73b666116a23ab8d861d38af4dc9fa5e19d5d1bd
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: b35fa32776fa449bf4f46479345a94e63fe28e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857159"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109577"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Python
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Python
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione Python invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingEntitySearchv7.py).
 
@@ -53,18 +53,18 @@ L'applicazione è scritta in Python, ma l'API è un servizio Web RESTful compati
 ## <a name="send-a-request-and-get-a-response"></a>Inviare una richiesta e ottenere una risposta
 
 1. Creare una funzione denominata `get_suggestions()`. Quindi, eseguire i passaggi seguenti.
-    1. Aggiungere la chiave di sottoscrizione a un dizionario, usando `Ocp-Apim-Subscription-Key` come chiave.
-    2. Usare `http.client.HTTPSConnection()` per creare un oggetto client HTTPS. Inviare una richiesta `GET` usando `request()` con le informazioni di percorso, parametri e intestazione.
-    3. Archiviare la risposta con `getresponse()` e restituire `response.read()`.
+   1. Aggiungere la chiave di sottoscrizione a un dizionario, usando `Ocp-Apim-Subscription-Key` come chiave.
+   2. Usare `http.client.HTTPSConnection()` per creare un oggetto client HTTPS. Inviare una richiesta `GET` usando `request()` con le informazioni di percorso, parametri e intestazione.
+   3. Archiviare la risposta con `getresponse()` e restituire `response.read()`.
 
-    ```python
-    def get_suggestions ():
-        headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
-        conn = http.client.HTTPSConnection (host)
-        conn.request ("GET", path + params, None, headers)
-        response = conn.getresponse ()
-        return response.read()
-    ```
+      ```python
+      def get_suggestions ():
+       headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}
+       conn = http.client.HTTPSConnection (host)
+       conn.request ("GET", path + params, None, headers)
+       response = conn.getresponse ()
+       return response.read()
+      ```
 
 2. Chiamare `get_suggestions()` e stampare la risposta json.
 
@@ -113,7 +113,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

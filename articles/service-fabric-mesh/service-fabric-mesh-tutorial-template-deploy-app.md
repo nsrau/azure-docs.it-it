@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 906efa00243cc622c374d442a7982d87d106079b
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.openlocfilehash: 773a466f9619f162fe3f7cbeeab0b766d3ca32ae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55158843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864865"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Esercitazione: Distribuire un'applicazione in Service Fabric Mesh usando un modello
 
@@ -211,7 +211,7 @@ La sezione dei parametri è definita all'inizio del modello di distribuzione, su
 
 ```json
 {
-    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+    "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
     "parameters": {
       ...
@@ -229,7 +229,7 @@ I servizi sono specificati nel modello come proprietà della risorsa applicazion
 
 ```json
 {
-  "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
+  "$schema": "https://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
     ...
@@ -344,6 +344,7 @@ Vedere il file del [modello di distribuzione mesh_rp.windows.json](https://githu
 Creare l'applicazione e le risorse correlate usando il comando seguente e specificare le credenziali dal passaggio precedente [Recuperare le credenziali per il registro](#retrieve-credentials-for-the-registry).
 
 Nel file di parametri aggiornare i valori dei parametri seguenti:
+
 |Parametro|Valore|
 |---|---|
 |location|L'area in cui distribuire l'applicazione.  Ad esempio, "eastus".|

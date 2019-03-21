@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: 7b01ee726d8417e34645e743497a02455fbe709c
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 9baeb1c21252f8b7f7b24debde48108532d9865c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453153"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118307"
 ---
 # <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Esercitazione: Effettuare il push di notifiche in base alla posizione con Hub di notifica di Azure e i dati spaziali di Bing
 
@@ -63,12 +63,12 @@ In questa esercitazione vengono completati i passaggi seguenti:
 
     ![](./media/notification-hubs-geofence/bing-maps-geofence.png)
 5. Nella pagina **Carica un'origine dati**, procedere come segue:
-    1. Selezionare **pipe** per **Formato dati**.
-    2. Individuare e selezionare il file `NotificationHubGeofence.pipe` creato nel passaggio precedente.
-    3. Selezionare il pulsante **Carica**.
+   1. Selezionare **pipe** per **Formato dati**.
+   2. Individuare e selezionare il file `NotificationHubGeofence.pipe` creato nel passaggio precedente.
+   3. Selezionare il pulsante **Carica**.
 
-    > [!NOTE]
-    > È possibile che venga richiesto di specificare una nuova chiave per **Master Key** (Chiave master) diversa da **Query Key** (Chiave di query). Creare semplicemente una nuova chiave tramite il dashboard e aggiornare la pagina di caricamento dell'origine dati.
+      > [!NOTE]
+      > È possibile che venga richiesto di specificare una nuova chiave per **Master Key** (Chiave master) diversa da **Query Key** (Chiave di query). Creare semplicemente una nuova chiave tramite il dashboard e aggiornare la pagina di caricamento dell'origine dati.
 6. Dopo aver caricato il file di dati, è necessario assicurarsi di pubblicare l'origine dati. Selezionare **Origini dati** -> **Gestisci origini dati** come in precedenza.
 7. Selezionare l'origine dati nell'elenco e scegliere **Pubblica** nella colonna **Azioni**.
 
@@ -112,11 +112,11 @@ In questa esercitazione vengono completati i passaggi seguenti:
     ```
     Per renderlo funzionante, specificare i parametri seguenti:
 
-    * **ID origine dati** e **Nome origine dati**: nell'API Bing Maps le origini dati contengono diversi metadati suddivisi in bucket, ad esempio posizioni e orario di ufficio dell'operazione.  
-    * **Nome entità** : l'entità che si vuole usare come punto di riferimento per la notifica.
-    * **Chiave API di Bing Maps**: la chiave ottenuta in precedenza durante la creazione dell'account Bing Dev Center.
+   * **ID origine dati** e **Nome origine dati**: nell'API Bing Maps le origini dati contengono diversi metadati suddivisi in bucket, ad esempio posizioni e orario di ufficio dell'operazione.  
+   * **Nome entità** : l'entità che si vuole usare come punto di riferimento per la notifica.
+   * **Chiave API di Bing Maps**: la chiave ottenuta in precedenza durante la creazione dell'account Bing Dev Center.
 
-    Ora che l'origine dati è pronta, è possibile iniziare a usare l'applicazione UWP.
+     Ora che l'origine dati è pronta, è possibile iniziare a usare l'applicazione UWP.
 2. Abilitare i servizi di posizione per l'applicazione. Aprire il `Package.appxmanifest` file in **Esplora soluzioni**.
 
     ![](./media/notification-hubs-geofence/vs-package-manifest.png)

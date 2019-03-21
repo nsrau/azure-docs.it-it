@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Inserire dati da Logstash in Esplora dati di Azure'
+title: 'Avvio rapido: Inserire dati da Logstash in Esplora dati di Azure'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure da Logstash
 services: data-explorer
 author: tamirkamara
@@ -8,14 +8,14 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/14/2019
-ms.openlocfilehash: 4b5934123f5bb7fa9eaa2c67c212bcef2a5de0aa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: 01115524ae3890c1d6a0220bcf89e86090d148cd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54479268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078874"
 ---
-# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Avvio rapido: Inserire dati da Logstash in Esplora dati di Azure
+# <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Guida introduttiva: Inserire dati da Logstash in Esplora dati di Azure
 
 [Logstash](https://www.elastic.co/products/logstash) è una pipeline di elaborazione dati lato server e open source che inserisce i dati da più origini contemporaneamente, li trasforma e quindi li invia all'accantonamento preferito. In questa guida introduttiva, i dati vengono inviati a Esplora dati di Azure, un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Inizialmente si creerà una tabella e il mapping dei dati in un cluster di test, quindi si istruirà Logstash a inviare i dati nella tabella e convalidare i risultati.
 
@@ -108,7 +108,7 @@ output {
 ```
 
 | Nome parametro | DESCRIZIONE |
-| --- | --- | --- |
+| --- | --- |
 | **path** | Il plug-in Logstash scrive gli eventi in file temporanei prima di inviarli a Esplora dati di Azure. Questo parametro include un percorso in cui devono essere scritti i file e un'espressione di data per la rotazione dei file per attivare un'operazione di caricamento nel servizio Esplora dati di Azure.|
 | **ingest_url** | Endpoint Kusto per le comunicazioni relative l'inserimento.|
 | **app_id**,  **app_key** e **app_tenant**| Credenziali necessarie per connettersi a Esplora dati di Azure. Assicurarsi di usare un'applicazione con privilegi di inserimento. |

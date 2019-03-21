@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 426a8f3df67ee00ded0591024447770e4cfedc32
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 11e92b4c6b8799cde489369a202f8f7c8c05ca6c
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020711"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535995"
 ---
 # <a name="tutorial-build-your-first-data-factory-by-using-the-azure-portal"></a>Esercitazione: Creare la prima data factory con il portale di Azure
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
      c. Il cluster HDInsight crea un contenitore predefinito nell'archivio BLOB specificato nella proprietà JSON (**linkedServiceName**). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che viene elaborata una sezione, a meno che non esista un cluster attivo (**timeToLive**). Il cluster viene eliminato automaticamente al termine dell'elaborazione.
 
-     Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB, usare strumenti come [Azure Storage Explorer](http://storageexplorer.com/).
+     Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono questo schema: "adf**yourdatafactoryname**-**linkedservicename**-datetimestamp". Per eliminare i contenitori nell'archivio BLOB, usare strumenti come [Azure Storage Explorer](https://storageexplorer.com/).
 
      Per altre informazioni, vedere [Servizio collegato HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service).
 

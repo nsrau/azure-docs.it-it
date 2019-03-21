@@ -2,19 +2,19 @@
 title: Terraform con gli slot di distribuzione del provider di Azure
 description: Esercitazione sull'uso di Terraform con gli slot di distribuzione del provider di Azure
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: Terraform, DevOps, macchina virtuale, Azure, slot di distribuzione
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 4/05/2018
-ms.openlocfilehash: 1564991ecfe29b1977837c2fdff4be7b3a3e1797
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 08e90a69791b0555a6497166f6008e8619f40704
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992232"
 ---
 # <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Usare Terraform per effettuare il provisioning dell'infrastruttura con slot di distribuzione di Azure
 
@@ -26,11 +26,11 @@ Questo articolo presenta un esempio di uso degli slot di distribuzione descriven
 
 - **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
-- **Account GitHub**: è necessario un account [GitHub](http://www.github.com) per creare una copia tramite fork e usare il repository GitHub di test.
+- **Account GitHub**: è necessario un account [GitHub](https://www.github.com) per creare una copia tramite fork e usare il repository GitHub di test.
 
 ## <a name="create-and-apply-the-terraform-plan"></a>Creare e applicare il piano Terraform
 
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Aprire [Azure Cloud Shell](/azure/cloud-shell/overview). Se in precedenza non è stato selezionato un ambiente, selezionare **Bash** come ambiente.
 

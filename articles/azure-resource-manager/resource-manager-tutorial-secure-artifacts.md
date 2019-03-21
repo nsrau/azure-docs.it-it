@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 02/25/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53cc987d13479fc0d9276ec80f33a163a2a6ded7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: f7f235ce709fd81c4bb4c367774b4a96cd920e13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817032"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120347"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Esercitazione: Proteggere gli elementi nelle distribuzioni di modelli di Azure Resource Manager
 
@@ -126,11 +126,11 @@ Prima di poter caricare i file, è necessario un contenitore BLOB.
 3. Selezionare **Genera token di firma di accesso condiviso e URL**.
 4. Creare una copia dell'**URL di firma di accesso condiviso del BLOB**. Al centro l'URL si trova il nome file **SQLDatabaseExtension.bacpac**.  Il nome del file divide l'URL in tre parti:
 
-    - **Percorso dell'elemento**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Assicurarsi che il percorso termini con un "/".
-    - **Nome file BACPAC**: SQLDatabaseExtension.bacpac.
-    - **Token di firma di accesso condiviso posizione elementi**: Assicurarsi che il token sia preceduto da un "?."
+   - **Percorso dell'elemento**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Assicurarsi che il percorso termini con un "/".
+   - **Nome file BACPAC**: SQLDatabaseExtension.bacpac.
+   - **Token di firma di accesso condiviso posizione elementi**: Assicurarsi che il token sia preceduto da un "?."
 
-    Sono necessari questi tre valori in [distribuire il modello](#deploy-the-template).
+     Sono necessari questi tre valori in [distribuire il modello](#deploy-the-template).
 
 ## <a name="open-an-existing-template"></a>Aprire un modello esistente
 
@@ -146,13 +146,13 @@ In questa sessione si modifica il modello creato in [Esercitazione: Importare fi
 
     Sono presenti cinque risorse definite nel modello:
 
-    * `Microsoft.Sql/servers`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
-    * `Microsoft.SQL/servers/securityAlertPolicies`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
-    * `Microsoft.SQL/servers/filewallRules`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
-    * `Microsoft.SQL/servers/databases`.  Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
-    * `Microsoft.SQL/server/databases/extensions`.  Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
+   * `Microsoft.Sql/servers`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers).
+   * `Microsoft.SQL/servers/securityAlertPolicies`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/securityalertpolicies).
+   * `Microsoft.SQL/servers/filewallRules`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2015-05-01-preview/servers/firewallrules).
+   * `Microsoft.SQL/servers/databases`.  Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
+   * `Microsoft.SQL/server/databases/extensions`.  Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-    Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
+     Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
 4. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
 
 ## <a name="edit-the-template"></a>Modificare il modello

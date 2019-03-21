@@ -7,16 +7,16 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: fdb481961680d5f84170a25c7a76bffa8423e0cc
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: cecf23d61d6a12c20aa3e64e4ee0ddacddbe7823
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56097168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183357"
 ---
-# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Guida introduttiva: Provare una soluzione basata sul cloud per eseguire un'analisi di manutenzione predittiva sui dispositivi connessi
+# <a name="quickstart-try-a-cloud-based-solution-to-run-a-predictive-maintenance-analysis-on-my-connected-devices"></a>Avvio rapido: Provare una soluzione basata sul cloud per eseguire un'analisi di manutenzione predittiva sui dispositivi connessi
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Manutenzione predittiva di Azure IoT per eseguire una simulazione di manutenzione predittiva basata sul cloud. Dopo aver distribuito l'acceleratore di soluzione, si usa la pagina **Dashboard** della soluzione per eseguire una simulazione di manutenzione predittiva usando i dati da un motore di aeromobile simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
 

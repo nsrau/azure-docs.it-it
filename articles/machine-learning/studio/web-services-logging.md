@@ -3,7 +3,7 @@ title: Registrazione per i servizi Web - Azure Machine Learning Studio | Microso
 description: Informazioni su come abilitare la registrazione per i servizi Web di Machine Learning Studio. La registrazione fornisce informazioni aggiuntive per risolvere i problemi relativi alle API.
 services: machine-learning
 documentationcenter: ''
-author: ericlicoding
+author: xiaoharper
 ms.custom: seodec18
 ms.author: amlstudiodocs
 editor: cgronlun
@@ -11,16 +11,16 @@ ms.assetid: c54d41e1-0300-46ef-bbfc-d6f7dca85086
 ms.service: machine-learning
 ms.subservice: studio
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/15/2017
-ms.openlocfilehash: 53eedd4d00b212879389d29541c4ca55ea1bfde6
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 727379edb60756ca8cb3e5ebdc29cd38858945e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270095"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57857556"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio
 Questo documento include informazioni sulla capacità di registrazione dei servizi Web di Machine Learning Studio. La registrazione offre informazioni aggiuntive per la risoluzione dei problemi delle API di Machine Learning Studio, non soltanto un semplice codice di errore e un messaggio.  
@@ -57,7 +57,7 @@ La registrazione viene abilitata nel portale dei [servizi Web di Azure Machine L
 
    3. Se il contenitore **ml-diagnostics** non esiste, fare clic su **+ Contenitore**, assegnare al contenitore il nome "ml-diagnostics" e selezionare il **Tipo di accesso** "BLOB". Fare clic su **OK**.
 
-      ![Selezione del livello di registrazione](./media/web-services-logging/create-ml-diagnostics-container.png)
+      ![Creare un nuovo contenitore per archiviare i log di diagnostica](./media/web-services-logging/create-ml-diagnostics-container.png)
 
 > [!TIP]
 >

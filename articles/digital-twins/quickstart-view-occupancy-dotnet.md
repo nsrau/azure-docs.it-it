@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc seodec18
 ms.date: 12/17/2018
 ms.author: alinast
-ms.openlocfilehash: d2588090ced3e82e63397a416245ca69204f3d87
-ms.sourcegitcommit: 7cd706612a2712e4dd11e8ca8d172e81d561e1db
+ms.openlocfilehash: 4c41fbaa00dc3460df3f94433428c448a7b41250
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53583086"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089701"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Guida introduttiva: Trovare le stanze disponibili usando Gemelli digitali di Azure
 
@@ -115,8 +115,8 @@ L'esempio dei sensori simula valori di dati casuali per i due sensori: di movime
 1. Esaminare fianco a fianco questo prompt dei comandi e il prompt dei comandi dei dati dei sensori.
 
     Un prompt dei comandi invia i dati simulati relativi a movimento e anidride carbonica a Gemelli digitali ogni 5 secondi. L'altro prompt legge in tempo reale il grafico per trovare le stanze disponibili con aria pulita in base ai dati simulati casuali. Mostra una delle condizioni seguenti in tempo quasi reale, in base agli ultimi dati dei sensori inviati:
-    - Stanze disponibili con aria pulita.
-    - Occupata o con qualità dell'aria non soddisfacente.
+   - Stanze disponibili con aria pulita.
+   - Occupata o con qualità dell'aria non soddisfacente.
 
      ![Ottenere gli spazi disponibili con aria pulita][3]
 
@@ -149,7 +149,7 @@ Le esercitazioni analizzano in dettaglio come:
 Per continuare con le esercitazioni, non eliminare le risorse create in questa guida introduttiva. Se non si intende continuare, eliminare tutte le risorse create da questa guida introduttiva.
 
 1. Eliminare la cartella che è stata creata durante il download del repository di esempio.
-1. Scegliere [Tutte le risorse](http://portal.azure.com) dal menu a sinistra nel **portale di Azure**. Selezionare quindi la risorsa Gemelli digitali. Nella parte superiore del riquadro **Tutte le risorse** selezionare **Elimina**.
+1. Scegliere [Tutte le risorse](https://portal.azure.com) dal menu a sinistra nel **portale di Azure**. Selezionare quindi la risorsa Gemelli digitali. Nella parte superiore del riquadro **Tutte le risorse** selezionare **Elimina**.
 
     > [!TIP]
     > Se si sono riscontrati problemi durante l'eliminazione dell'istanza di Gemelli digitali, è stato reso disponibile un aggiornamento del servizio con la correzione. Riprovare a eliminare l'istanza.

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 569f89d389e4bc8c7f2d1f46f3713e9792d4e466
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: afb344418f843e54c3172c17d28bde7055e101b4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159690"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093457"
 ---
 # <a name="azure-data-box-disk-security-and-data-protection"></a>Sicurezza e protezione dei dati per Azure Data Box Disk
 
@@ -71,17 +71,17 @@ Azure Data Box Disk raccoglie e visualizza informazioni personali nei principali
 
 - **Dettagli dell'ordine** - Dopo aver creato l'ordine, l'indirizzo di spedizione, l'indirizzo di posta elettronica e le informazioni di contatto degli utenti vengono archiviate nel portale di Azure. Le informazioni salvate includono:
 
-    - Nome del contatto
-    - Numero di telefono
-    - Email
-    - Indirizzo
-    - city
-    - CAP
-    - Stato
-    - Paese/provincia/area geografica
-    - ID unità
-    - Numero di account del vettore
-    - Numero di tracciabilità della spedizione
+  - Nome del contatto
+  - Numero di telefono
+  - Email
+  - Indirizzo
+  - city
+  - CAP
+  - Stato
+  - Paese/provincia/area geografica
+  - ID unità
+  - Numero di account del vettore
+  - Numero di tracciabilità della spedizione
 
     Al termine del processo o quando si elimina l'ordine, i dettagli dell'ordine vengono eliminati dal servizio Data Box.
 

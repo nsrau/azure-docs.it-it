@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 04b6ad25c1ecd10a9480dcbf3e2b4f75e114a6f9
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 9c59b98fb615266c193f997c01c83922c18d4408
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56331698"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56890960"
 ---
 *Preparare la cache*  
 Il disco con memorizzazione nella cache dell'host di tipo ReadOnly è in grado di ottenere valori di IOPS più elevati rispetto al limite del disco. Per ottenere queste prestazioni di lettura massime dalla cache dell'host, è prima di tutto necessario preparare la cache del disco. Ciò assicura che le operazioni di I/O di lettura che lo strumento di benchmarking eseguirà sul volume CacheReads raggiungano effettivamente la cache e non direttamente il disco. I riscontri nella cache producono IOPS aggiuntivi da un singolo disco abilitato per la cache.
@@ -102,7 +102,7 @@ Le schermate seguenti illustrano i risultati dei test di Iometer per scenari com
 
 ### <a name="fio"></a>FIO
 
-FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione illustrata all'inizio della [sezione Benchmarking](#Benchmarking) e preparare la cache prima di eseguire i test di benchmarking.
+FIO è uno strumento popolare per il benchmarking dell'archiviazione sulle VM Linux. Offre la flessibilità necessaria per selezionare diverse dimensioni di I/O e letture e scritture sequenziali o casuali. Genera thread di lavoro o processi per l'esecuzione delle operazioni I/O specificate. È possibile specificare il tipo di operazioni I/O che ogni thread di lavoro deve eseguire usando i file processo. È stato creato un file processo per ogni scenario illustrato negli esempi seguenti. È possibile cambiare le specifiche di questi file processo per il benchmarking di diversi carichi di lavoro in esecuzione sull'Archiviazione Premium. Negli esempi viene usata una VM DS 14 Standard che esegue **Ubuntu**. Usare la stessa configurazione descritta all'inizio della sezione Benchmarking e preparare la cache prima di eseguire i test di benchmarking.
 
 Prima di iniziare, [scaricare FIO](https://github.com/axboe/fio) e installarlo nella macchina virtuale.
 

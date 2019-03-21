@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a707ae6959b035ae0bcc05ead027dabd528e1b59
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
+ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747510"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101534"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creare e usare un servizio di bilanciamento del carico interno con un ambiente del servizio app #
 
@@ -80,11 +80,11 @@ Per creare un ambiente del servizio app con bilanciamento del carico interno:
 
    È possibile [eseguire il mapping di un nome DNS esistente all'app][customdomain]. Il nome di dominio personalizzato usato per le app e il nome di dominio usato dall'ambiente del servizio app non possono sovrapporsi. Per un ambiente del servizio app ILB con nome di dominio _contoso.com_, non è possibile usare nomi di dominio personalizzati per le app come:
 
-    * www.contoso.com
+   * www\.contoso.com
 
-    * abcd.def.contoso.com
+   * abcd.def.contoso.com
 
-    * abcd.contoso.com
+   * abcd.contoso.com
 
    Se si conoscono i nomi di dominio personalizzati per le app, scegliere un dominio per l'ambiente del servizio app ILB che non sia in conflitto con questi nomi di dominio personalizzati. In questo esempio è possibile usare un nome come *contoso-internal.com* per il dominio dell'ambiente del servizio app perché non è in conflitto con i nomi di dominio personalizzati che terminano in *.contoso.com*.
 
@@ -222,7 +222,7 @@ Per altre informazioni sulla configurazione dell'ambiente del servizio app ILB c
 ## <a name="get-started"></a>Attività iniziali ##
 
 * Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione ad Ambiente del servizio app][Intro].
- 
+ 
 
 <!--Image references-->
 [1]: ./media/creating_and_using_an_internal_load_balancer_with_app_service_environment/createilbase-network.png

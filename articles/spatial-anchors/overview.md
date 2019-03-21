@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f5d54f90c0b53105953726b1f26dab98192b40a6
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752820"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57833799"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Panoramica di Ancoraggi nello spazio di Azure
 
@@ -30,7 +30,7 @@ Gli esempi di caso d'uso resi possibili da Ancoraggi nello spazio includono:
 
 - [Orientamento](concepts/anchor-relationships-way-finding.md). Gli sviluppatori possono anche connettere gli ancoraggi nello spazio tra loro per metterli in relazione. Un'app può ad esempio offrire un'esperienza che include due o più punti di interesse con cui gli utenti devono interagire per completare un'attività. Questi punti di interesse possono essere creati in modalità connessa. In seguito, quando l'utente completa l'attività in più passaggi, l'app può richiedere gli ancoraggi vicini a quello corrente per indirizzarlo verso il passaggio successivo dell'attività.
 
-- [Contenuto virtuale persistente nel mondo reale](concepts/create-locate-anchors-unity.md#creating-a-cloud-spatial-anchor). Un'app può consentire a un utente di collocare un calendario virtuale sulla parete di una sala riunioni, che le persone possono vedere usando un'app per telefono o un dispositivo HoloLens. In un ambiente industriale, un utente potrebbe ricevere informazioni contestuali su una macchina puntandovi la fotocamera di un dispositivo supportato.
+- [Contenuto virtuale persistente nel mondo reale](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Un'app può consentire a un utente di collocare un calendario virtuale sulla parete di una sala riunioni, che le persone possono vedere usando un'app per telefono o un dispositivo HoloLens. In un ambiente industriale, un utente potrebbe ricevere informazioni contestuali su una macchina puntandovi la fotocamera di un dispositivo supportato.
 
 Ancoraggi nello spazio di Azure è costituito da un servizio gestito e da SKD client per le piattaforme di dispositivi supportate. Le sezioni seguenti forniscono informazioni su come iniziare a creare app con Ancoraggi nello spazio di Azure.
 

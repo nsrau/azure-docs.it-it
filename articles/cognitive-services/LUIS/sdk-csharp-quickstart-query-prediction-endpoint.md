@@ -1,20 +1,21 @@
 ---
-title: "Guida introduttiva: Eseguire query sull'endpoint di previsione con l'SDK per C#"
+title: "Avvio rapido: Eseguire query sull'endpoint di previsione con l'SDK per C#"
 titleSuffix: Azure Cognitive Services
 description: Usare l'SDK per C# per inviare un'espressione dell'utente a LUIS e ricevere una previsione.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
+services: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: diberry
-ms.openlocfilehash: e009ef159a51a22c56409cd1564fa9fde3c67b55
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 086f55094474d4c06e52001d77630932cd04213c
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344200"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404094"
 ---
 # <a name="quickstart-query-prediction-endpoint-with-c-net-sdk"></a>Guida introduttiva: Eseguire query sull'endpoint di previsione con .NET SDK per C#
 
@@ -129,7 +130,7 @@ String bingSpellCheckKey = null;
 var log = false;
 ```
 
-## <a name="query-prediction-endpoint"></a>Eseguire query sull'endpoint di previsione
+## <a name="query-prediction-endpoint"></a>Eseguire query sull'endpoint di stima
 
 Nel metodo `GetPrediction` aggiungere il codice seguente dopo quello precedente per impostare i parametri di query:
 

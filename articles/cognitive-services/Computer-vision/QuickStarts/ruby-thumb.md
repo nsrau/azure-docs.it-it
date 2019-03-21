@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Generare un'anteprima - REST, Ruby"
+title: "Avvio rapido: Generare un'anteprima - REST, Ruby"
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva, si genererà l'anteprima di un'immagine usando l'API Visione artificiale con Ruby.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 957dd6faf1ca2c445b09300382796ad07186714c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: bc0941175538c36190999e8c6d191fb8c3701c2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839628"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Avvio rapido: Generare un'anteprima con l'API REST e Ruby in Visione artificiale
 
@@ -77,10 +77,6 @@ end
 ## <a name="examine-the-response"></a>Esaminare i risultati
 
 Una risposta positiva è costituita dai dati binari che rappresentano i dati dell'immagine per l'anteprima. Se la richiesta ha esito negativo, la risposta viene visualizzata nella finestra della console. La risposta a una richiesta con esito negativo contiene un codice di errore e un messaggio utile per determinarne la causa.
-
-## <a name="clean-up-resources"></a>Pulire le risorse
-
-Quando non è più necessario, eliminare il file.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

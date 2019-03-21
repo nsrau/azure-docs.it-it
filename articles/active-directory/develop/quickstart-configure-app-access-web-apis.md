@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 08ad61070fd3bfb8472cffb51fd0b1bb4bcf169b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7ef499e49fc4d1a0dc79dfc4efb818f7330b57b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57995207"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis-preview"></a>Guida introduttiva: Configurare un'applicazione client per l'accesso ad API Web (anteprima)
 
@@ -74,11 +74,11 @@ Per aggiungere un URI di reindirizzamento all'applicazione:
 
 1. Per aggiungere un URI di reindirizzamento personalizzato per applicazioni client pubbliche e Web, seguire questa procedura:
 
-    1. Individuare la sezione **URI di reindirizzamento**.
-    1. Selezionare il tipo di applicazione che si sta creando, ossia **Web** o **Client pubblico (per dispositivi mobili e desktop)**.
-    1. Immettere l'URI di reindirizzamento per l'applicazione.
-        * Per le applicazioni Web, specificare l'URL di base dell'applicazione. L'URL per un'applicazione Web in esecuzione nel computer locale potrebbe essere ad esempio http://localhost:31544. Gli utenti useranno questo URL per accedere a un'applicazione client Web.
-        * Per le applicazione pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio https://MyFirstApp.
+   1. Individuare la sezione **URI di reindirizzamento**.
+   1. Selezionare il tipo di applicazione che si sta creando, ossia **Web** o **Client pubblico (per dispositivi mobili e desktop)**.
+   1. Immettere l'URI di reindirizzamento per l'applicazione.
+      * Per le applicazioni Web, specificare l'URL di base dell'applicazione. L'URL per un'applicazione Web in esecuzione nel computer locale potrebbe essere ad esempio `http://localhost:31544`. Gli utenti useranno questo URL per accedere a un'applicazione client Web.
+      * Per le applicazione pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio https://MyFirstApp.
 
 1. Per scegliere tra gli URI di reindirizzamento suggeriti per client pubblici (per dispositivi mobili e desktop), seguire questa procedura:
 

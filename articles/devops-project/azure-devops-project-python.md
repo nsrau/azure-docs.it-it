@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare una pipeline CI/CD per Python con Azure DevOps Projects'
+title: 'Avvio rapido: Creare una pipeline CI/CD per Python con Azure DevOps Projects'
 description: DevOps Projects consente di iniziare a usare Azure in modo semplice. Con pochi rapidi passaggi, è possibile avviare un'app in un servizio di Azure a scelta.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -17,12 +17,12 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 90af443621ec47400779bdc1689fc07be558e4b8
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 695056be67294c6a0787bad61bf5ee00378275b0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52164541"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111430"
 ---
 # <a name="create-a-cicd-pipeline-for-python-with-azure-devops-projects"></a>Creare una pipeline CI/CD per Python con Azure DevOps Projects
 
@@ -64,7 +64,7 @@ La destinazione della distribuzione predefinita è App Web per contenitori. Il f
 
     ![Visualizzazione dashboard](_img/azure-devops-project-python/dashboardnopreview.png) 
     
- DevOps Projects configura automaticamente un trigger di compilazione e di versione di integrazione continua. A questo punto, si è pronti per collaborare con un team a un'app Python usando un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
+   DevOps Projects configura automaticamente un trigger di compilazione e di versione di integrazione continua. A questo punto, si è pronti per collaborare con un team a un'app Python usando un processo di CI/CD che distribuisce automaticamente il lavoro più recente nel sito Web.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>Eseguire il commit delle modifiche al codice e la pipeline di CI/CD
 

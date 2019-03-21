@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: shlo
-ms.openlocfilehash: 037dafcfc60c629841e326cecc38bb2b3250d77c
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 092a346d8303bb9e88a53b6fa529bb820635c554
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015424"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099543"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 In questa esercitazione si crea una pipeline di Data Factory che illustra alcune funzionalità del flusso di controllo. La pipeline esegue una semplice copia da un contenitore nell'archivio BLOB di Azure a un altro contenitore nello stesso account di archiviazione. Se l'attività di copia ha esito positivo, la pipeline invia i dettagli dell'operazione di copia completata (ad esempio, la quantità di dati scritti) in un messaggio di posta elettronica di operazione riuscita. Se l'attività di copia ha esito negativo, la pipeline invia i dettagli dell'errore di copia (ad esempio, il messaggio di errore) in un messaggio di posta elettronica di operazione non riuscita. Nel corso dell'esercitazione verrà illustrato come passare i parametri.
@@ -52,7 +52,7 @@ Questa esercitazione usa il portale di Azure. È possibile usare altri meccanism
     John,Doe
     Jane,Doe
     ```
-2. Usare strumenti come [Azure Storage Explorer](http://storageexplorer.com/) per seguire questa procedura: 
+2. Usare strumenti come [Azure Storage Explorer](https://storageexplorer.com/) per seguire questa procedura: 
     1. Creare il contenitore **adfv2branch**.
     2. Creare la cartella di **input** nel contenitore **adfv2branch**.
     3. Caricare il file **input.txt** nel contenitore.
@@ -199,10 +199,10 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
    ![Nuovo servizio collegato di archiviazione di Azure](./media/tutorial-control-flow-portal/new-azure-storage-linked-service.png)
 12. Immettere `@pipeline().parameters.sourceBlobContainer` per la cartella e `emp.txt` per il nome file. Usare il parametro sourceBlobContainer della pipeline per configurare il percorso della cartella per il set di dati. 
 
-    ![Impostazioni del set di dati di origine](./media/tutorial-control-flow-portal/source-dataset-settings.png)
+   ![Impostazioni del set di dati di origine](./media/tutorial-control-flow-portal/source-dataset-settings.png)
 13. Passare alla scheda **pipeline** oppure fare clic sulla visualizzazione albero. Assicurarsi che **SourceBlobDataset** sia selezionato per **Source Dataset** (Set di dati di origine). 
 
-   ![Set di dati di origine](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
+    ![Set di dati di origine](./media/tutorial-control-flow-portal/pipeline-source-dataset-selected.png)
 13. Nella finestra delle proprietà passare alla scheda **Sink** e fare clic su **+ Nuovo** per **Sink Dataset** (Set di dati sink). In questo passaggio viene creato un set di dati sink per l'attività di copia con una procedura simile a quella per il set di dati di origine. 
 
     ![Pulsante per il nuovo set di dati sink](./media/tutorial-control-flow-portal/new-sink-dataset-button.png)
@@ -217,7 +217,7 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
         ![Impostazioni del set di dati sink](./media/tutorial-control-flow-portal/sink-dataset-settings.png)
 17. Passare alla scheda **pipeline** nella parte superiore della schermata. Espandere **Generale** nella casella degli strumenti **Attività** e trascinare un'attività **Web** nell'area di progettazione della pipeline. Impostare il nome dell'attività su **SendSuccessEmailActivity**. L'attività Web consente una chiamata a qualsiasi endpoint REST. Per altre informazioni sull'attività, vedere l'articolo relativo all'[attività Web](control-flow-web-activity.md). Questa pipeline usa un'attività Web per chiamare il flusso di lavoro di app per la logica per il messaggio di posta elettronica. 
 
-   ![Trascinare la prima attività Web](./media/tutorial-control-flow-portal/success-web-activity-general.png)
+    ![Trascinare la prima attività Web](./media/tutorial-control-flow-portal/success-web-activity-general.png)
 18. Passare alla scheda **Impostazioni** dalla scheda **Generale** e seguire questa procedura: 
     1. Per **URL** specificare l'URL per il flusso di lavoro di app per la logica che invia il messaggio di posta elettronica di operazione riuscita.  
     2. Selezionare **POST** per **Metodo**. 
@@ -235,12 +235,12 @@ In questo passaggio viene creata una pipeline con un'attività Copia e due attiv
         ```
         Il corpo del messaggio contiene le proprietà seguenti:
 
-        - Messaggio: passa il valore di `@{activity('Copy1').output.dataWritten`. Accede a una proprietà della precedente attività di copia e passa il valore di dataWritten. In caso di esito negativo, passa invece l'output di errore di `@{activity('CopyBlobtoBlob').error.message`.
-        - Nome data factory: passa il valore di `@{pipeline().DataFactory}`. È una variabile di sistema che consente di accedere al nome di data factory corrispondente. Per un elenco delle variabili di sistema, vedere l'articolo relativo alle [variabili di sistema](control-flow-system-variables.md).
-        - Nome pipeline: passa il valore di `@{pipeline().Pipeline}`. È anche questa una variabile di sistema, che consente di accedere al nome di pipeline corrispondente. 
-        - Destinatario: passa il valore di "\@pipeline().parameters.receiver"). per l'accesso ai parametri della pipeline.
+       - Messaggio: passa il valore di `@{activity('Copy1').output.dataWritten`. Accede a una proprietà della precedente attività di copia e passa il valore di dataWritten. In caso di esito negativo, passa invece l'output di errore di `@{activity('CopyBlobtoBlob').error.message`.
+       - Nome data factory: passa il valore di `@{pipeline().DataFactory}`. È una variabile di sistema che consente di accedere al nome di data factory corrispondente. Per un elenco delle variabili di sistema, vedere l'articolo relativo alle [variabili di sistema](control-flow-system-variables.md).
+       - Nome pipeline: passa il valore di `@{pipeline().Pipeline}`. È anche questa una variabile di sistema, che consente di accedere al nome di pipeline corrispondente. 
+       - Destinatario: passa il valore di "\@pipeline().parameters.receiver"). per l'accesso ai parametri della pipeline.
     
-        ![Impostazioni per la prima attività Web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
+         ![Impostazioni per la prima attività Web](./media/tutorial-control-flow-portal/web-activity1-settings.png)         
 19. Connettere l'attività **Copia** all'attività **Web** trascinando il pulsante verde accanto all'attività Copia e rilasciandolo sull'attività Web. 
 
     ![Connettere l'attività Copia con la prima attività Web](./media/tutorial-control-flow-portal/connect-copy-web-activity1.png)

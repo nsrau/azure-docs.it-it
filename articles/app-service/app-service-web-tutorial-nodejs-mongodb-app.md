@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 514915d68ef79c3f6db2ff1da2b5ea6e348de150
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: f123a443d9a00aa7f1b35bd8ed540f90d66de97f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53633811"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891825"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Esercitazione: Creare un'app Node.js e MongoDB in Azure
 
@@ -349,7 +349,7 @@ Aprire _modules/articles/server/models/article.server.model.js_.
 In `ArticleSchema` aggiungere un tipo `String` denominato `comment`. Al termine, il codice dello schema dovrebbe avere un aspetto simile al seguente:
 
 ```javascript
-var ArticleSchema = new Schema({
+const ArticleSchema = new Schema({
   ...,
   user: {
     type: Schema.ObjectId,
@@ -375,7 +375,7 @@ Nella funzione `update` aggiungere un'assegnazione per `article.comment`. Il cod
 
 ```javascript
 exports.update = function (req, res) {
-  var article = req.article;
+  let article = req.article;
 
   article.title = req.body.title;
   article.content = req.body.content;

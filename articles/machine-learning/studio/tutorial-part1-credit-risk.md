@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: c067b0e6a85e0b5c4bd4cbb582de13bb1bc87774
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: f69b3f2c8de4cf137583ad7a33e8edfe31373096
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453614"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904508"
 ---
 # <a name="tutorial-1-predict-credit-risk---azure-machine-learning-studio"></a>Esercitazione 1: Prevedere il rischio di credito - Azure Machine Learning Studio
 
@@ -70,7 +70,7 @@ Dopo aver creato l'area di lavoro, aprire Machine Learning Studio ([https://stud
 ## <a name="upload"></a>Caricare i dati esistenti
 
 Per sviluppare un modello predittivo per il rischio di credito, sono necessari dati che è possibile usare per eseguire il training e quindi testare il modello. Per questa esercitazione verrà usato il set di dati "UCI Statlog (German Credit Data)" del repository di apprendimento automatico della UC Irvine, disponibile al seguente indirizzo:  
-<a href="http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">http://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
+<a href="https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)">https://archive.ics.uci.edu/ml/datasets/Statlog+(German+Credit+Data)</a>
 
 Verrà usato il file denominato **german.data**. Scaricare questo file nel disco rigido locale.  
 
@@ -212,18 +212,18 @@ Per usare [Edit Metadata][edit-metadata] (Modifica metadati), è necessario spec
 
 1. Di nuovo nel riquadro **Properties** (Proprietà) cercare il parametro **New column names** (Nuovi nomi di colonna). In questo campo immettere un elenco di nomi per le 21 colonne nel set di dati, separati da virgole e nell'ordine delle colonne. È possibile ottenere i nomi di colonna dalla documentazione relativa ai set di dati disponibile sul sito Web UCI, oppure, per praticità, è possibile copiare e incollare l'elenco seguente:  
 
-  ```   
-  Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
-  ```
+   ```   
+   Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
+   ```
 
-  Il riquadro Proprietà (Proprietà) ha l'aspetto seguente:
+   Il riquadro Proprietà (Proprietà) ha l'aspetto seguente:
 
-  ![Proprietà per Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
+   ![Proprietà per Edit Metadata](./media/tutorial-part1-credit-risk/edit-metadata-properties.png)
 
-  > [!TIP]
-  > Se si vuole verificare le intestazioni di colonna, eseguire l'esperimento (fare clic su **RUN** (ESEGUI) sotto l'area di disegno dell'esperimento). Al termine dell'esecuzione, ovvero quando viene visualizzato un segno di spunta in [Edit Metadata][edit-metadata] (Modifica metadati), fare clic sulla porta di output del modulo [Edit Metadata][edit-metadata] (Modifica metadati) e selezionare **Visualize** (Visualizza). È possibile visualizzare l'output di ogni modulo nello stesso modo in cui si visualizza lo stato dei dati nel corso dell'esperimento.
-  > 
-  > 
+   > [!TIP]
+   > Se si vuole verificare le intestazioni di colonna, eseguire l'esperimento (fare clic su **RUN** (ESEGUI) sotto l'area di disegno dell'esperimento). Al termine dell'esecuzione, ovvero quando viene visualizzato un segno di spunta in [Edit Metadata][edit-metadata] (Modifica metadati), fare clic sulla porta di output del modulo [Edit Metadata][edit-metadata] (Modifica metadati) e selezionare **Visualize** (Visualizza). È possibile visualizzare l'output di ogni modulo nello stesso modo in cui si visualizza lo stato dei dati nel corso dell'esperimento.
+   > 
+   > 
 
 ### <a name="create-training-and-test-datasets"></a>Creazione di set di dati di training e di test
 

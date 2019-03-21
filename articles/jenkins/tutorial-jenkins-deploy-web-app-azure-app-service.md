@@ -8,16 +8,16 @@ ms.author: tarcher
 manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/15/2018
-ms.openlocfilehash: b0f909bb7f4b59e083f0ef1c8a19c11d5d9fb312
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 90f89f9ffb1d55e7621c87f168375251c78d9730
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821304"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533494"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-app-service-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub in Servizio app di Azure con integrazione continua e distribuzione continua di Jenkins
 
-Questa esercitazione distribuisce un'app Web Java di esempio da GitHub in [Servizio app di Azure in Linux](/azure/app-service/containers/app-service-linux-intro) configurando l'integrazione continua (CI) e la distribuzione continua (CD) in Jenkins. Quando si aggiorna l'app eseguendo il push di commit in GitHub, Jenkins compila automaticamente l'app e la pubblica di nuovo in Servizio app di Azure. L'app di esempio in questa esercitazione è stata sviluppata usando il framework [Spring Boot](http://projects.spring.io/spring-boot/). 
+Questa esercitazione distribuisce un'app Web Java di esempio da GitHub in [Servizio app di Azure in Linux](/azure/app-service/containers/app-service-linux-intro) configurando l'integrazione continua (CI) e la distribuzione continua (CD) in Jenkins. Quando si aggiorna l'app eseguendo il push di commit in GitHub, Jenkins compila automaticamente l'app e la pubblica di nuovo in Servizio app di Azure. L'app di esempio in questa esercitazione è stata sviluppata usando il framework [Spring Boot](https://projects.spring.io/spring-boot/). 
 
 ![Panoramica](media/tutorial-jenkins-deploy-web-app-azure-app-service/overview.png)
 
@@ -193,7 +193,7 @@ In Jenkins creare il processo di pipeline per la compilazione e la distribuzione
 
    1. Nella casella **Properties Content** (Contenuto proprietà) visualizzata aggiungere queste variabili di ambiente e i relativi valori. 
 
-      ```text
+      ```ini
       AZURE_CRED_ID=yourAzureServicePrincipalName
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
@@ -212,7 +212,7 @@ Creare ora i file usati da Jenkins per la compilazione e la distribuzione dell'a
 1. Nella cartella `src/main/resources/` del fork di GitHub creare il file di configurazione dell'app denominato `web.config`, contenente questo codice XML, ma sostituire `$(JAR_FILE_NAME)` con `gs-spring-boot-0.1.0.jar`:
 
    ```xml
-   <?xml version="1.0" encoding="UTF-8">
+   <?xml version="1.0" encoding="UTF-8"?>
    <configuration>
       <system.webServer>
          <handlers>
@@ -225,7 +225,7 @@ Creare ora i file usati da Jenkins per la compilazione e la distribuzione dell'a
 
 1. Nella cartella radice del fork di GitHub creare questo script di compilazione e distribuzione denominato `Jenkinsfile`, contenente questo testo ([codice sorgente disponibile in GitHub qui](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
-   ```text  
+   ```groovy
    node {
       stage('init') {
          checkout scm

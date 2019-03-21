@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 94e9d19302c4a51d1401a88248431f237bf59758
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
+ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53743509"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996733"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Python
+# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Python
 
 In questa guida rapida si vedrà come usare Python per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. 
 
@@ -69,7 +69,7 @@ Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-9
 ```
 Prima di continuare, controllare che nella cartella *Documenti* siano presenti i due file. È possibile aprirli e vedere che sono identici.
 
-È anche possibile usare uno strumento come [Azure Storage Explorer](http://storageexplorer.com) per visualizzare i file nell'archiviazione BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione. 
+È anche possibile usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com) per visualizzare i file nell'archiviazione BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione. 
 
 Dopo aver verificato i file, premere un tasto qualsiasi per terminare la demo ed eliminare i file di test. Ora che si conosce il risultato dell'esempio, aprire il file *example.py* per esaminare il codice. 
 

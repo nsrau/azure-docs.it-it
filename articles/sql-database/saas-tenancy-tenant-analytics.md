@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: f7c482a0308d3c2b2583d99cf4079040065b80c0
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 9f88314bbf507dc3b4e282532acfa079c2a63cce
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561377"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890543"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
  
@@ -93,7 +93,7 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
 3. Premere **F5** per eseguire lo script dimostrativo che chiama lo script *Deploy-TenantAnalytics<XX>.ps1* e crea l'archivio di analisi dei tenant. 
 
-Dopo aver distribuito l'applicazione e avervi inserito i dati dei tenant a cui si è interessati, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-dpt-&lt;Utente&gt;** e **catalog-dpt-&lt;Utente&gt;** con l'account di accesso *developer* e la password *P@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
+Dopo aver distribuito l'applicazione e avervi inserito i dati tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) connettersi **tenants1-dpt -&lt;utente&gt;**  e **catalog-dpt -&lt;utente&gt;**  server usando l'account di accesso = *developer*, Password = *P\@ssword1*. Per altre indicazioni, vedere l'[esercitazione introduttiva](saas-dbpertenant-wingtip-app-overview.md).
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/ssmsSignIn.png)
 
@@ -175,7 +175,7 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
     ![signinpowerbi](./media/saas-tenancy-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro e quindi immettere il nome utente *developer* e la password *P@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **Database** nel riquadro sinistro, quindi immettere nome utente = *developer*, quindi immettere la password = *P\@ssword1*. Fare clic su **Connetti**.  
 
     ![databasesignin](./media/saas-tenancy-tenant-analytics/databaseSignIn.PNG)
 

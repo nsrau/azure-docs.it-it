@@ -17,12 +17,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d99c25d6203bd86987430bdccd08f770022dc28c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 366d6fe8921a5330f48da2879444e0b80cbc9bd2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090713"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform (anteprima)
 
@@ -41,20 +41,20 @@ Per iniziare, è necessario acconsentire esplicitamente all'esperienza di antepr
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app (anteprima) > Nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** visualizzata immettere le informazioni di registrazione dell'applicazione.
 
-    - **Nome**: immettere un nome di applicazione significativo, che verrà visualizzato agli utenti dell'app.
-    - **Tipi di account supportati**: selezionare gli account che dovranno essere supportati dall'applicazione.
+   - **Nome**: immettere un nome di applicazione significativo, che verrà visualizzato agli utenti dell'app.
+   - **Tipi di account supportati**: selezionare gli account che dovranno essere supportati dall'applicazione.
 
-        | Tipi di account supportati | DESCRIZIONE |
-        |-------------------------|-------------|
-        | **Account solo in questa directory organizzativa** | Selezionare questa opzione se si sta creando un'applicazione line-of-business. L'opzione non è disponibile se non si registra l'applicazione in una directory.<br><br>Questa opzione esegue il mapping solo a un tenant singolo di Azure AD.<br><br>È l'opzione predefinita a meno che non si registri l'app all'esterno di una directory. Nei casi in cui l'app viene registrata all'esterno di una directory, l'impostazione predefinita è costituita da account Microsoft personali e multi-tenant Azure AD. |
-        | **Account in qualsiasi directory organizzativa** | Selezionare questa opzione se si preferisce includere tutti i clienti aziendali o di istituti di istruzione.<br><br>Questa opzione esegue il mapping solo a multi-tenant Azure AD.<br><br>Un'app registrata solo come a tenant singolo Azure AD può essere aggiornata a multi-tenant Azure AD e di nuovo a tenant singolo tramite il pannello **Autenticazione**. |
-        | **Account in qualsiasi directory organizzativa e account Microsoft personali** | Selezionare questa opzione per includere il set più ampio possibile di clienti.<br><br>Questa opzione esegue il mapping ad account Microsoft personali e multi-tenant Azure AD.<br><br>Se l'app è stata registrata come multi-tenant Azure AD e per account Microsoft personali, non è possibile modificare questa impostazione nell'interfaccia utente. Per modificare i tipi di account supportati è necessario usare l'editor del manifesto dell'applicazione. |
+       | Tipi di account supportati | DESCRIZIONE |
+       |-------------------------|-------------|
+       | **Account solo in questa directory organizzativa** | Selezionare questa opzione se si sta creando un'applicazione line-of-business. L'opzione non è disponibile se non si registra l'applicazione in una directory.<br><br>Questa opzione esegue il mapping solo a un tenant singolo di Azure AD.<br><br>È l'opzione predefinita a meno che non si registri l'app all'esterno di una directory. Nei casi in cui l'app viene registrata all'esterno di una directory, l'impostazione predefinita è costituita da account Microsoft personali e multi-tenant Azure AD. |
+       | **Account in qualsiasi directory organizzativa** | Selezionare questa opzione se si preferisce includere tutti i clienti aziendali o di istituti di istruzione.<br><br>Questa opzione esegue il mapping solo a multi-tenant Azure AD.<br><br>Un'app registrata solo come a tenant singolo Azure AD può essere aggiornata a multi-tenant Azure AD e di nuovo a tenant singolo tramite il pannello **Autenticazione**. |
+       | **Account in qualsiasi directory organizzativa e account Microsoft personali** | Selezionare questa opzione per includere il set più ampio possibile di clienti.<br><br>Questa opzione esegue il mapping ad account Microsoft personali e multi-tenant Azure AD.<br><br>Se l'app è stata registrata come multi-tenant Azure AD e per account Microsoft personali, non è possibile modificare questa impostazione nell'interfaccia utente. Per modificare i tipi di account supportati è necessario usare l'editor del manifesto dell'applicazione. |
 
-    - **URI di reindirizzamento (facoltativo)**: selezionare il tipo di app che si sta creando, ossia **Web** o **Client pubblico (per dispositivi mobili e desktop)**, e quindi immettere l'URI di reindirizzamento (o l'URL di risposta) per l'applicazione.
-        - Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, `http://localhost:31544` potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web.
-        - Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio `myapp://auth`.
+   - **URI di reindirizzamento (facoltativo)**: selezionare il tipo di app che si sta creando, ossia **Web** o **Client pubblico (per dispositivi mobili e desktop)**, e quindi immettere l'URI di reindirizzamento (o l'URL di risposta) per l'applicazione.
+       - Per le applicazioni Web, specificare l'URL di base dell'app. Ad esempio, `http://localhost:31544` potrebbe essere l'URL per un'app Web eseguita sul computer locale. Gli utenti possono usare questo URL per accedere a un'applicazione client Web.
+       - Per le applicazioni client pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio `myapp://auth`.
 
-    Per esempi specifici per le applicazioni Web o per le applicazioni native, vedere le [guide introduttive](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
+     Per esempi specifici per le applicazioni Web o per le applicazioni native, vedere le [guide introduttive](https://docs.microsoft.com/azure/active-directory/develop/#quickstarts).
 
 1. Al termine, selezionare **Registra**.
 

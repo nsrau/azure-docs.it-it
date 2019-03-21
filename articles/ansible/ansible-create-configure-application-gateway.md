@@ -1,19 +1,19 @@
 ---
 title: Gestire il traffico Web con un gateway applicazione di Azure tramite Ansible
 description: Informazioni su come usare Ansible per la creazione e la configurazione di un gateway applicazione di Azure per gestire il traffico Web
-ms.service: ansible
+ms.service: azure
 keywords: ansible, azure, devops, bash, playbook, gateway applicazione, bilanciamento del carico, traffico Web
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/20/2018
-ms.openlocfilehash: 43e8681e5266f113d466a138abeeda77aff1c18b
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
+ms.openlocfilehash: 83f21573af7ec523acc376c4b3364cdcfb47f96f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052258"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57792141"
 ---
 # <a name="manage-web-traffic-with-azure-application-gateway-by-using-ansible"></a>Gestire il traffico Web con un gateway applicazione di Azure tramite Ansible
 

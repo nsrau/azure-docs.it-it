@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b590d75abb9e3f6465594a5c8c684b94e6f2e07f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864303"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122013"
 ---
 # <a name="what-is-azure-backup"></a>Informazioni su Backup di Azure
 
@@ -55,10 +55,10 @@ I due servizi offrono funzionalità complementari ma differenti.
 Consultare la tabella seguente per identificare le proprie esigenze ai fini della strategia BCDR. 
 
 **Obiettivo** | **Dettagli** | **Confronto**
---- | --- | --- | --- |
+--- | --- | --- 
 **Backup/conservazione dei dati** | I dati di backup possono essere conservati e archiviati per diversi giorni, mesi o anche anni se necessario ai fini della conformità. | Le soluzioni come Backup di Azure consentono di selezionare con precisione i dati di cui eseguire il backup, nonché di ottimizzare i criteri di backup e conservazione.<br/><br/> Site Recovery non offre lo stesso livello di ottimizzazione.
 **Obiettivo del punto di ripristino (RPO)** | Quantità di perdita di dati accettabile se si rende necessario un ripristino. | I backup hanno RPO più variabili.<br/><br/> I backup delle VM hanno in genere un RPO di un giorno, mentre i backup dei database hanno RPO fino a un minimo di 15 minuti.<br/><br/> Site Recovery fornisce un RPO basso, perché la replica è continua o frequente, quindi il delta tra l'origine e la copia di replica è piccolo.
-**Obiettivo del tempo di ripristino (RTO)** |Quantità di tempo necessario per completare un ripristino o un recupero. | Dato l'RPO più alto, la quantità di dati che deve essere elaborata dalla soluzione di backup è in genere molto più grande e questo comporta un RTO maggiore. Ad esempio, il ripristino dei dati dai nastri può richiedere giorni, a seconda del tempo richiesto per il trasporto del nastro da una posizione esterna. | Le soluzioni di ripristino di emergenza come Site Recovery hanno un RPO basso, perché la replica continua e/o frequente implica in genere che la destinazione è maggiormente sincronizzata con l'origine. |
+**Obiettivo del tempo di ripristino (RTO)** |Quantità di tempo necessario per completare un ripristino o un recupero. | Dato l'RPO più alto, la quantità di dati che deve essere elaborata dalla soluzione di backup è in genere molto più grande e questo comporta un RTO maggiore. Ad esempio, il ripristino dei dati dai nastri può richiedere giorni, a seconda del tempo richiesto per il trasporto del nastro da una posizione esterna. 
 
 ## <a name="what-backup-scenarios-are-supported"></a>Quali scenari di backup sono supportati?
 

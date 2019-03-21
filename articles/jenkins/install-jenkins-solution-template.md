@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 69ab376e9c4924babcb249a1d80f6f0d0a846f20
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54079018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004071"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Creare un server Jenkins in una VM Linux di Azure dal portale di Azure
 
@@ -22,7 +22,7 @@ Questa guida introduttiva illustra come installare [Jenkins](https://jenkins.io)
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure.
-* Accesso a SSH nella riga di comando del computer (ad esempio, la shell Bash o [PuTTY](http://www.putty.org/))
+* Accesso a SSH nella riga di comando del computer (ad esempio, la shell Bash o [PuTTY](https://www.putty.org/))
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +43,7 @@ Configurare il tunnel usando il comando `ssh` sulla pagina dalla riga di comando
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
 ```
 
-Dopo aver avviato il tunnel, passare a http://localhost:8080/ nel computer locale. 
+Dopo aver avviato il tunnel, passare a `http://localhost:8080/` nel computer locale. 
 
 Ottenere la password iniziale eseguendo questo comando nella riga di comando mentre si è connessi tramite SSH alla VM Jenkins:
 

@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8225f5a093724c00dcc336d5dc2195f4addc998b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090475"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
 
@@ -74,9 +74,9 @@ A questo punto creare la cache per l'app.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Per modificare il file *CacheSecrets.config*
 
-3. Creare un file nel computer denominato *CacheSecrets.config*. Inserirlo in una posizione in cui non verrà archiviato con il codice sorgente dell'applicazione di esempio. Per questa guida introduttiva, il file *CacheSecrets.config* si trova in *C:\AppSecrets\CacheSecrets.config*.
+1. Creare un file nel computer denominato *CacheSecrets.config*. Inserirlo in una posizione in cui non verrà archiviato con il codice sorgente dell'applicazione di esempio. Per questa guida introduttiva, il file *CacheSecrets.config* si trova in *C:\AppSecrets\CacheSecrets.config*.
 
-4. Modificare il file *CacheSecrets.config*. Aggiungere quindi il contenuto seguente:
+1. Modificare il file *CacheSecrets.config*. Aggiungere quindi il contenuto seguente:
 
     ```xml
     <appSettings>
@@ -84,14 +84,14 @@ A questo punto creare la cache per l'app.
     </appSettings>
     ```
 
-5. Sostituire `<cache-name>` con il nome host della cache.
+1. Sostituire `<cache-name>` con il nome host della cache.
 
-6. Sostituire `<access-key>` con la chiave primaria per la cache.
+1. Sostituire `<access-key>` con la chiave primaria per la cache.
 
     > [!TIP]
     > È possibile usare la chiave di accesso secondaria durante la rotazione delle chiavi come chiave alternativa mentre si rigenera la chiave di accesso primaria.
->
-7. Salvare il file.
+   >
+1. Salvare il file.
 
 ## <a name="update-the-mvc-application"></a>Aggiornare l'applicazione MVC
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: ae6ab0eb4c966ef57c7859098217b5b6b560614b
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: bd591ff30755fd68bb2dc673899d0ac993215e68
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834721"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Guida introduttiva: Distribuire Azure Data Box usando il portale di Azure
 
@@ -43,7 +43,7 @@ Prima di iniziare:
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
+Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="order"></a>Ordine
 
@@ -74,7 +74,7 @@ Quando si riceve il Data Box, procedere come segue per cablare e connettersi al 
     
 4. Cablare il dispositivo come illustrato di seguito.  
 
-    ![Data Box cablato](media/data-box-quickstart-portal/data-box-cabled-dhcp.png)  
+    ![Backplane cablato di un dispositivo Data Box](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)  
 
     1. Collegare il cavo di alimentazione al dispositivo.
     2. Usare il cavo di rete RJ-45 CAT 6 per connettere il computer host alla porta di gestione sul dispositivo. 
@@ -86,7 +86,7 @@ Quando si riceve il Data Box, procedere come segue per cablare e connettersi al 
 
 Questa operazione richiede circa 5-7 minuti.
 
-1. Per ottenere la password del dispositivo, passare a **Generale > Dettagli dispositivo** nel [portale di Azure](http://portal.azure.com).
+1. Per ottenere la password del dispositivo, passare a **Generale > Dettagli dispositivo** nel [portale di Azure](https://portal.azure.com).
 2. Assegnare un indirizzo IP statico 192.168.100.5 e la subnet 255.255.255.0 alla scheda Ethernet nel computer usato per connettersi a Data Box. Accedere all'interfaccia utente Web locale del dispositivo all'indirizzo `https://192.168.100.10`. La connessione potrebbe richiedere fino a 5 minuti dopo l'accensione del dispositivo. 
 3. Eseguire l'accesso usando la password dal portale di Azure. Viene visualizzato un errore in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. Seguire le istruzioni specifiche del browser per passare alla pagina Web.
 4. Per impostazione predefinita, le impostazioni di rete per l'interfaccia dati a 10 Gbps (o 1 Gbps) sono configurate come DHCP. Se necessario, è possibile configurare questa interfaccia come statica e specificare un indirizzo IP. 

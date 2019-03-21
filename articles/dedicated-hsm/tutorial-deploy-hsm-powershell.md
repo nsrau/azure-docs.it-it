@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 4fd701c92ea2cf1447f0c3ea14db6a968ac8910e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115675"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122353"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -255,8 +255,8 @@ Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa
 9. `syslog rotate`
 
 
->[!NOTE]
-In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
+> [!NOTE]
+> In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
 
 Se le risorse di questo gruppo di risorse non sono più necessarie, è possibile rimuoverle tutte con il comando seguente:
 

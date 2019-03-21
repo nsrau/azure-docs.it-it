@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: e240cbadbee87938107c4a9bf034c47db42acf92
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: bb5a4b3a3019007948a9996ed6715e755f284f9e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55098647"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175168"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -97,14 +97,14 @@ Gli avvisi permettono anche di inviare una notifica automatica alle parti intere
 
 Questo esempio usa il report **Actual Cost Over Time** (Costo effettivo nel tempo) per inviare una notifica quando la spesa di una macchina virtuale di Azure si avvicina al budget totale. In questo scenario si dispone di un budget totale di 20.000 $ e si vuole ricevere una notifica quando i costi si avvicinano alla prima metà del budget, 9.000 $, e un ulteriore avviso quando i costi raggiungono i 10.000 $.
 
-1. Dal menu nella parte superiore del portale di Cloudyn selezionare **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo). 
-2. Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale). 
+1. Dal menu nella parte superiore del portale di Cloudyn selezionare **Costo** > **Analisi dei costi** > **Actual Cost Over Time** (Costo effettivo nel tempo).
+2. Impostare **Groups** (Gruppi) su **Service** (Servizio) e impostare **Filter on the service** (Filtro sul servizio) su **Azure/VM** (Azure/macchina virtuale).
 3. Nella parte superiore destra del report selezionare **Actions** (Azioni) e quindi selezionare **Schedule report** (Pianifica report).
-4. Per inviare a se stessi un messaggio di posta elettronica del report a intervalli pianificati, selezionare la scheda **Scheduling** (Pianificazione) nella finestra di report **Save or Schedule this report** (Salva o pianifica report). Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati. 
-5. Selezionare la scheda **Threshold** (Soglia) e quindi selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia). 
-   1. Nella casella di soglia **Red alert** (Avviso rosso) immettere 10000. 
-   2. Nella casella di soglia **Yellow alert** (Avviso giallo) immettere 9000. 
-   3. Nella casella **Number of consecutive alerts** (Numero di avvisi consecutivi) immettere il numero di avvisi consecutivi da ricevere. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi. 
+4. Per inviare a se stessi un messaggio di posta elettronica del report a intervalli pianificati, selezionare la scheda **Scheduling** (Pianificazione) nella finestra di report **Save or Schedule this report** (Salva o pianifica report). Assicurarsi di selezionare **Send via email** (Invia tramite posta elettronica). Nel report inviato tramite posta elettronica sono inclusi tutti i tag, i raggruppamenti e i filtri usati.
+5. Selezionare la scheda **Threshold** (Soglia) e quindi selezionare **Actual Cost vs. Threshold** (Costo effettivo/soglia).
+   1. Nella casella di soglia **Red alert** (Avviso rosso) immettere 10000.
+   2. Nella casella di soglia **Yellow alert** (Avviso giallo) immettere 9000.
+   3. Nella casella **Number of consecutive alerts** (Numero di avvisi consecutivi) immettere il numero di avvisi consecutivi da ricevere. Dopo aver ricevuto il numero totale di avvisi specificato, non vengono inviati altri avvisi.
 6. Selezionare **Salva**.
 
 ![Esempio che mostra gli avvisi di colore giallo e rosso in base alle soglie di spesa](./media/tutorial-review-usage/schedule-alert01.png)

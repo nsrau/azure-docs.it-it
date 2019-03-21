@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 038a70f5cce5b78f6c0e95316e66de42fa529954
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321739"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851364"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 
@@ -187,7 +187,7 @@ Aprire **Views/Shared/_Layout.cshtml**, ovvero il layout predefinito per l'app A
 
 ```html
 <!DOCTYPE html>
-<html ng-app="VotingApp" xmlns:ng="http://angularjs.org">
+<html ng-app="VotingApp" xmlns:ng="https://angularjs.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -621,22 +621,22 @@ Per osservare che cosa avviene nel codice, completare la procedura seguente:
 4. Tornare al browser e fare clic su un'opzione di voto oppure aggiungere una nuova opzione di voto. È stato raggiunto il primo punto di interruzione nel controller API del front-end Web.
     
 
-    1. In questa posizione, il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end.
+   1. In questa posizione, il codice JavaScript nel browser invia una richiesta al controller API Web nel servizio front-end.
 
-    ![Aggiungere il servizio front-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
+      ![Aggiungere il servizio front-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-frontend.png)
 
-    2. Per prima cosa, costruire l'URL del proxy inverso per il servizio back-end **(1)**.
-    3. Inviare quindi la richiesta HTTP PUT al proxy inverso **(2)**.
-    4. Restituire infine la risposta dal servizio back-end al client **(3)**.
+   2. Per prima cosa, costruire l'URL del proxy inverso per il servizio back-end **(1)**.
+   3. Inviare quindi la richiesta HTTP PUT al proxy inverso **(2)**.
+   4. Restituire infine la risposta dal servizio back-end al client **(3)**.
 
 5. Premere **F5** per continuare.
-    1. Ora ci troviamo al punto di interruzione nel servizio back-end.
+   1. Ora ci troviamo al punto di interruzione nel servizio back-end.
 
-    ![Aggiungere il servizio back-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
+      ![Aggiungere il servizio back-end di voto](./media/service-fabric-tutorial-create-dotnet-app/addvote-backend.png)
 
-    2. Nella prima riga del metodo **(1)** usare `StateManager` per ottenere o aggiungere un oggetto Reliable Dictionary denominato `counts`.
-    3. Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)**.
-    4. Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)**. Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
+   2. Nella prima riga del metodo **(1)** usare `StateManager` per ottenere o aggiungere un oggetto Reliable Dictionary denominato `counts`.
+   3. Tutte le interazioni con i valori in un oggetto Reliable Dictionary richiedono una transazione, che viene creata dall'istruzione using **(2)**.
+   4. Nella transazione aggiornare il valore della chiave pertinente per l'opzione di voto ed eseguire il commit dell'operazione **(3)**. Dopo la restituzione del metodo Commit, i dati vengono aggiornati nel dizionario e replicati negli altri nodi del cluster. A questo punto, i dati sono archiviati in modo sicuro nel cluster e il servizio back-end può eseguire il failover in altri nodi, rendendo comunque disponibili i dati.
 6. Premere **F5** per continuare.
 
 Per interrompere la sessione di debug, premere **MAIUSC+F5**.

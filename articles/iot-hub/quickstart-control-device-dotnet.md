@@ -1,21 +1,21 @@
 ---
 title: Controllare un dispositivo dalla guida introduttiva di Hub IoT di Azure (.NET) | Microsoft Docs
 description: In questa guida introduttiva vengono eseguite due applicazioni C# di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 5de2fa7e7ae18bf5a6212f6571acdf545116b88b
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a24f0810a5b785a57a8a255f3f762f2d2a8e6ee4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170820"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>Guida introduttiva: Controllare un dispositivo connesso a un hub IoT (.NET)
 
@@ -63,7 +63,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
    **YourIoTHubName**: sostituire il segnaposto in basso con il nome scelto per l'hub IoT.
 
-   **MyDotnetDevice**: il nome del dispositivo da registrare. Usare **MyDotnetDevice** come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
+   **MyDotnetDevice**: nome del dispositivo da registrare. Usare **MyDotnetDevice** come illustrato. Se si sceglie un altro nome per il dispositivo, sarà necessario usare tale nome nell'ambito di questo articolo e aggiornare il nome del dispositivo nelle applicazioni di esempio prima di eseguirle.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -93,7 +93,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 È necessaria anche una _stringa di connessione del servizio_ per l'hub IoT per consentire all'applicazione back-end di connettersi all'hub e recuperare i messaggi. Il comando seguente recupera la stringa di connessione del servizio per l'hub IoT:
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name YourIoTHubName --output table
+az iot hub show-connection-string --name YourIoTHubName --output table
 ```
 
 Annotare la stringa di connessione del servizio, che avrà questo aspetto:

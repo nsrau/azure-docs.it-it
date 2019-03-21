@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: b8600ed03140e302c730d44c6410d2020b7c48a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983184"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105302"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Esercitazione: Bilanciare il carico del traffico interno con un servizio di bilanciamento del carico Basic nel portale di Azure
 
@@ -105,7 +105,7 @@ Creare un servizio di bilanciamento del carico interno Basic usando il portale. 
 3. Nella scheda **Rivedi e crea** fare clic su **Crea**. 
    
 
-## <a name="create-basic-load-balancer-resources"></a>Creare le risorse del servizio Load Balancer Basic
+## <a name="create-basic-load-balancer-resources"></a>Creare le risorse del servizio di bilanciamento del carico Basic
 
 In questa sezione si configurano le impostazioni del servizio di bilanciamento del carico per un pool di indirizzi back-end e un probe di integrità e si specificano le regole di bilanciamento del carico.
 
@@ -185,7 +185,7 @@ La regola di bilanciamento del carico denominata **MyLoadBalancerRule** rimane i
    
 1. Selezionare **OK**.
    
-  ![Aggiungere una regola di bilanciamento del carico](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
+   ![Aggiungere una regola di bilanciamento del carico](./media/tutorial-load-balancer-basic-internal-portal/5-load-balancing-rules.png)
 
 ## <a name="test-the-load-balancer"></a>Testare il servizio di bilanciamento del carico
 

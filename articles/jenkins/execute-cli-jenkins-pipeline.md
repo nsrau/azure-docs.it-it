@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 6/7/2017
-ms.openlocfilehash: dfdc572810cfcfd275faa4502e508b9c8ccec9b6
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727842"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57546144"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Distribuire nel servizio app di Azure con Jenkins e l'interfaccia della riga di comando di Azure
 Per distribuire un'app Web di Java in Azure, è possibile usare l'interfaccia della riga di comando di Azure in [Jenkins Pipeline](https://jenkins.io/doc/book/pipeline/). In questa esercitazione viene creata una pipeline CI/CD in una macchina virtuale di Azure e viene illustrato come:
@@ -117,7 +117,7 @@ Quando la definizione dell'app Web è pronta, l'interfaccia della riga di comand
 
 Impostare la configurazione del runtime Java necessaria per l'app con il comando [az appservice web config update](/cli/azure/webapp/config).
 
-Il comando seguente configura l'app Web per l'esecuzione in un'istanza recente di Java 8 JDK e in [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+Il comando seguente configura l'app Web per l'esecuzione in un'istanza recente di Java 8 JDK e in [Apache Tomcat](https://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set \ 
@@ -152,7 +152,7 @@ Aprire Jenkins in un Web browser, fare clic su **New Item**.
 * Per **Definition** selezionare **Pipeline script from SCM**.
 * Per **SCM** selezionare **Git**.
 * Immettere l'URL di GitHub per il repository con fork: https:\<your forked repo\>.git
-* Fare clic su **Save**
+* Fare clic su **Save** (Salva).
 
 ## <a name="test-your-pipeline"></a>Testare la pipeline
 * Passare alla pipeline creata e fare clic su **Build now**

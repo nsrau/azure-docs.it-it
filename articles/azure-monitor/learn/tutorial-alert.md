@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 300f0ddc8b738b5fd8578ed0b33cc15000c1098a
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
+ms.openlocfilehash: 70a11867dded3b7156f6b212ceb4756ee7c287f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54101786"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079163"
 ---
 # <a name="monitor-and-alert-on-application-health-with-azure-application-insights"></a>Monitorare e inviare avvisi sullo stato di integrità dell'applicazione con Azure Application Insights
 
@@ -69,18 +69,18 @@ I test di disponibilità in Application Insights consentono di testare automatic
 ## <a name="create-an-alert-from-metrics"></a>Creare un avviso dalle metriche
 Oltre a inviare avvisi da un test di disponibilità, è possibile creare un avviso da qualsiasi metrica delle prestazioni raccolta per l'applicazione.
 
-2. Selezionare **Avvisi** nel menu **Configura**.  Verrà aperto il pannello Avvisi di Azure.  Potrebbero essere presenti altre regole di avviso configurate per altri servizi.
-3. Fare clic su **Aggiungi avviso per la metrica**.  Verrà aperto il pannello per la creazione di una nuova regola di avviso.
+1. Selezionare **Avvisi** nel menu **Configura**.  Verrà aperto il pannello Avvisi di Azure.  Potrebbero essere presenti altre regole di avviso configurate per altri servizi.
+1. Fare clic su **Aggiungi avviso per la metrica**.  Verrà aperto il pannello per la creazione di una nuova regola di avviso.
 
     ![Aggiungi avviso per la metrica](media/tutorial-alert/add-metric-alert.png)
 
-4. Digitare un **Nome** per la regola di avviso e selezionare l'applicazione nell'elenco a discesa **Risorsa**.
-5. Selezionare una **Metrica** da campionare.  Verrà visualizzato un grafico per indicare il valore di questa richiesta nelle ultime 24 ore.  Ciò consente di impostare la condizione per la metrica.
+1. Digitare un **Nome** per la regola di avviso e selezionare l'applicazione nell'elenco a discesa **Risorsa**.
+1. Selezionare una **Metrica** da campionare.  Verrà visualizzato un grafico per indicare il valore di questa richiesta nelle ultime 24 ore.  Ciò consente di impostare la condizione per la metrica.
 
     ![Aggiungi regola di avviso](media/tutorial-alert/add-alert-01.png)
 
-6. Specificare una **Condizione** e una **Soglia** per l'avviso, ovvero il numero di volte in cui la metrica deve essere superata perché venga creato un avviso. 
-6. In **Notifica tramite** selezionare la casella di controllo **Invia messaggio a proprietari, collaboratori e lettori** per inviare un messaggio e-mail a questi utenti quando la condizione di avviso viene soddisfatta e aggiungere l'indirizzo e-mail di eventuali destinatari aggiuntivi.  È inoltre possibile specificare un webhook o un'app per la logica da eseguire quando viene soddisfatta la condizione,  che sarà possibile usare per tentare di attenuare il problema rilevato. 
+1. Specificare una **Condizione** e una **Soglia** per l'avviso, ovvero il numero di volte in cui la metrica deve essere superata perché venga creato un avviso. 
+1. In **Notifica tramite** selezionare la casella di controllo **Invia messaggio a proprietari, collaboratori e lettori** per inviare un messaggio e-mail a questi utenti quando la condizione di avviso viene soddisfatta e aggiungere l'indirizzo e-mail di eventuali destinatari aggiuntivi.  È inoltre possibile specificare un webhook o un'app per la logica da eseguire quando viene soddisfatta la condizione,  che sarà possibile usare per tentare di attenuare il problema rilevato. 
 
     ![Aggiungi regola di avviso](media/tutorial-alert/add-alert-02.png)
 

@@ -2,19 +2,19 @@
 title: Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure da un'immagine di Packer personalizzata
 description: Usare Terraform per configurare e specificare la versione di un set di scalabilità di macchine virtuali da un'immagine personalizzata generata da Packer (completo di una rete virtuale e di dischi collegati gestiti).
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, set di scalabilità, macchina virtuale, rete, archiviazione, moduli, immagini personalizzate, packer
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/29/2017
-ms.openlocfilehash: 12c6ebc9b29c356ad169dbd921e71c7aa0c273b7
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 5aff45b4a6b5da62569e0a39c13239a726e6b80b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077505"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58002002"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image"></a>Usare Terraform per creare un set di scalabilità di macchine virtuali di Azure da un'immagine di Packer personalizzata
 
@@ -180,7 +180,7 @@ In questo passaggio si creano le risorse seguenti nella rete distribuita prima:
 - Pool di indirizzi back-end di Azure da assegnare al servizio di bilanciamento del carico 
 - Una porta probe di integrità usata dall'applicazione e configurata nel servizio di bilanciamento del carico 
 - Un set di scalabilità di macchine virtuali posto dietro il servizio di bilanciamento del carico, in esecuzione nella rete virtuale distribuita in precedenza
-- [Nginx](http://nginx.org/) nei nodi del set di scalabilità di macchine virtuali installato dall'immagine personalizzata
+- [Nginx](https://nginx.org/) nei nodi del set di scalabilità di macchine virtuali installato dall'immagine personalizzata
 
 
 Aggiungere il codice seguente alla fine del file `vmss.tf`.

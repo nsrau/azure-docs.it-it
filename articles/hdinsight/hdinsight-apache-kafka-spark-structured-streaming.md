@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,seodec18
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 4dcf482e02d38e18b7b86fc57565a47510627d44
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
+ms.openlocfilehash: e470f9d6f33e8b534be22132881f4806bed85f5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53652865"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078364"
 ---
 # <a name="tutorial-use-apache-spark-structured-streaming-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare lo streaming strutturato di Apache Spark con Apache Kafka in HDInsight
 
@@ -131,12 +131,12 @@ Per creare una Rete virtuale di Microsoft Azure e quindi crearvi i cluster Kafka
 
     Questo modello crea le risorse seguenti:
 
-    * Kafka nel cluster HDInsight 3.6.
-    * Spark 2.2.0 nel cluster HDInsight 3.6.
-    * Una rete virtuale Azure contenente i cluster HDInsight.
+   * Kafka nel cluster HDInsight 3.6.
+   * Spark 2.2.0 nel cluster HDInsight 3.6.
+   * Una rete virtuale Azure contenente i cluster HDInsight.
 
-    > [!IMPORTANT]  
-    > Il notebook di streaming strutturato che è stato usato in questa esercitazione richiede Spark 2.2.0 in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
+     > [!IMPORTANT]  
+     > Il notebook di streaming strutturato che è stato usato in questa esercitazione richiede Spark 2.2.0 in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
 
 2. Usare le informazioni seguenti per popolare le voci nella sezione **Modello personalizzato**:
 

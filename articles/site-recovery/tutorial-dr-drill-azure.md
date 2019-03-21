@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: c01cc6bd6244bcaa8d33baead35ac2a1dadc3d7a
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: e3a2b45e2039c5cabaa7c507c85a045ca73add83
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53970798"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57993949"
 ---
 # <a name="run-a-disaster-recovery-drill-to-azure"></a>Eseguire un'esercitazione sul ripristino di emergenza in Azure
 
@@ -23,10 +23,10 @@ In questo articolo viene illustrato come eseguire un'analisi del ripristino di e
 Questa è la quarta esercitazione di una serie che illustra come configurare il ripristino di emergenza in Azure per macchine virtuali VMware locali o macchine virtuali Hyper-V.
 
 Per questa esercitazione si presuppone che siano state completate le prime tre esercitazioni:
-    - Nella [prima esercitazione](tutorial-prepare-azure.md) sono stati configurati i componenti di Azure necessari per il ripristino di emergenza di VMware.
-    - Nella [seconda esercitazione](vmware-azure-tutorial-prepare-on-premises.md) sono stati preparati i componenti locali per il ripristino di emergenza e sono stati esaminati i prerequisiti.
-    - Nella [terza esercitazione](vmware-azure-tutorial.md) è stata configurata e abilitata la replica per la macchina virtuale VMware locale.
-    - Le esercitazioni sono progettate per illustrare il **percorso di distribuzione più semplice per uno scenario**. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per informazioni più dettagliate sui passaggi del failover di test, leggere la [guida alle procedure](site-recovery-test-failover-to-azure.md).
+- Nella [prima esercitazione](tutorial-prepare-azure.md) sono stati configurati i componenti di Azure necessari per il ripristino di emergenza di VMware.
+- Nella [seconda esercitazione](vmware-azure-tutorial-prepare-on-premises.md) sono stati preparati i componenti locali per il ripristino di emergenza e sono stati esaminati i prerequisiti.
+- Nella [terza esercitazione](vmware-azure-tutorial.md) è stata configurata e abilitata la replica per la macchina virtuale VMware locale.
+- Le esercitazioni sono progettate per illustrare il **percorso di distribuzione più semplice per uno scenario**. Quando possibile, vengono usate le opzioni predefinite e non sono riportati tutti i percorsi e le impostazioni possibili. Per informazioni più dettagliate sui passaggi del failover di test, leggere la [guida alle procedure](site-recovery-test-failover-to-azure.md).
 
 In questa esercitazione si apprenderà come:
 

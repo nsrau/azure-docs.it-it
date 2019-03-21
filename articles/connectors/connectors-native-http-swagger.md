@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: bb89c76fb19bff74d39d919c8d2e65d430cb0566
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817751"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57551972"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chiamare gli endpoint REST con il connettore HTTP + Swagger in App per la logica di Azure
 
@@ -60,7 +60,7 @@ Ecco i passaggi per creare, configurare e archiviare i documenti di Swagger in A
 
 3. Caricare il file di Swagger nel BLOB. 
 
-   È possibile eseguire questo passaggio nel [portale di Azure](https://portal.azure.com) o con uno strumento come [Esplora archivi di Azure](http://storageexplorer.com/).
+   È possibile eseguire questo passaggio nel [portale di Azure](https://portal.azure.com) o con uno strumento come [Esplora archivi di Azure](https://storageexplorer.com/).
 
 4. Rimandare un collegamento HTTPS al documento nell'archiviazione BLOB di Azure 
 

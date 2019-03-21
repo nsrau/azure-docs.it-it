@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 11/15/2017
 ms.reviewer: sngun
-ms.openlocfilehash: 9a47333c8cd8968c007a2d328e81d8ea8585971c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 28e9b420f3abc972e047af72e1b5bc755e7f9d2b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037991"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001630"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>Esercitazione: Eseguire query in Azure Cosmos DB con l'API Tabella
 
@@ -78,7 +78,7 @@ Per altre informazioni su come creare espressioni filtro per vari tipi di dati s
 
 | PartitionKey | RowKey | Email | PhoneNumber |
 | --- | --- | --- | --- |
-| Ben |Smith | Ben@contoso.com| 425-555-0102 |
+| Smith |Ben | Ben@contoso.com| 425-555-0102 |
 
 ## <a name="query-by-using-linq"></a>Eseguire una query utilizzando LINQ 
 È anche possibile eseguire query con LINQ, che consente di tradurle nelle corrispondenti espressioni di query OData. L'esempio seguente mostra come compilare le query usando .NET SDK:

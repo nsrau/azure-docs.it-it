@@ -2,19 +2,19 @@
 title: Creare un cluster Kubernetes con un gateway applicazione come controller in ingresso con il servizio Azure Kubernetes
 description: Esercitazione che illustra come creare un cluster Kubernetes con il servizio Azure Kubernetes con il gateway applicazione come controller di ingresso
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, macchina virtuale, azure, kubernetes, in ingresso, gateway applicazione
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 1/10/2019
-ms.openlocfilehash: 6add7323fdbcf07681e8566437632aa6679828e4
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 477b2ec1af4c52f51c3ab20ac2ddf7ef043dfcc7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891982"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994358"
 ---
 # <a name="create-a-kubernetes-cluster-with-application-gateway-ingress-controller-using-azure-kubernetes-service-and-terraform"></a>Creare un cluster Kubernetes con un gateway applicazione come controller in ingresso con il servizio Azure Kubernetes e Terraform
 Il [servizio Azure Kubernetes](/azure/aks/) gestisce l'ambiente Kubernetes ospitato, consentendo di distribuire e gestire applicazioni in contenitori in modo semplice e rapido senza competenze nell'orchestrazione di contenitori. Elimina anche l'impegno delle operazioni in corso e della manutenzione effettuando il provisioning, l'aggiornamento e il ridimensionamento delle risorse su richiesta, senza portare le applicazioni offline.
@@ -36,16 +36,16 @@ Questa esercitazione illustra come eseguire le attività seguenti nella creazion
 - **Configurare Terraform**: Seguire le indicazioni nell'articolo su [Terraform e configurazione dell'accesso ad Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
 - **Entità servizio di Azure**: seguire le indicazioni riportate nella sezione relativa a **Creare l'entità servizio** nell'articolo [Creare entità servizio di Azure con l'interfaccia della riga di comando di Azure](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). Prendere nota dei valori per appId, displayName e password.
-    - Prendere nota dell'ID oggetto dell'entità servizio eseguendo il comando seguente
+  - Prendere nota dell'ID oggetto dell'entità servizio eseguendo il comando seguente
 
     ```bash
-     az ad sp list --display-name <displayName>
+    az ad sp list --display-name <displayName>
     ```
 
 ## <a name="create-the-directory-structure"></a>Creare la struttura di directory
 Il primo passaggio consiste nel creare la directory che contiene i file di configurazione Terraform per l'esercitazione.
 
-1. Accedere al [portale di Azure](http://portal.azure.com).
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 1. Aprire [Azure Cloud Shell](/azure/cloud-shell/overview). Se in precedenza non è stato selezionato un ambiente, selezionare **Bash** come ambiente.
 
@@ -99,8 +99,8 @@ Creare il file di configurazione Terraform che dichiara il provider di Azure.
     ```bash
     :wq
     ```
-## <a name="define-input-variables"></a>Definire le variabili di input
-Creare il file di configurazione di Terraform in cui sono elencate tutte le variabili necessarie per la distribuzione
+   ## <a name="define-input-variables"></a>Definire le variabili di input
+   Creare il file di configurazione di Terraform in cui sono elencate tutte le variabili necessarie per la distribuzione
 1. In Cloud Shell creare un file denominato `variables.tf`
     ```bash
     vi variables.tf

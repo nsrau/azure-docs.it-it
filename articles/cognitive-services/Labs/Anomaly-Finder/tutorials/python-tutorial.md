@@ -10,18 +10,18 @@ ms.subservice: anomaly-detection
 ms.topic: tutorial
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 2df1e2c261069473a02b40e4a7e45895eadea42d
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 5a2fb54658599e0500944aaae9225f314277f9da
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55219397"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539089"
 ---
 # <a name="tutorial-anomaly-detection-with-python-application"></a>Esercitazione: Rilevamento anomalie con un'applicazione Python
 
 [!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
-Questa esercitazione illustra come usare l'API Rilevamento anomalie in Python e come visualizzare i risultati usando librerie comuni. Si userà Jupyter per svolgere l'esercitazione e si useranno per prova i propri dati con la propria chiave di sottoscrizione. Per informazioni su come iniziare a usare i notebook Jupyter interattivi, fare riferimento alla [documentazione di Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
+Questa esercitazione illustra come usare l'API Rilevamento anomalie in Python e come visualizzare i risultati usando librerie comuni. Si userà Jupyter per svolgere l'esercitazione e si useranno per prova i propri dati con la propria chiave di sottoscrizione. Per informazioni su come iniziare a usare i notebook Jupyter interattivi, fare riferimento alla [documentazione di Jupyter](https://jupyter.readthedocs.io/en/latest/index.html). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

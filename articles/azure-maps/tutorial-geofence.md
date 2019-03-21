@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 7bd4c261af4159429a91bd8b425180037eec8c23
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 112d0bd4b6802179692d0d177775027e552d1170
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56670894"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085321"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Configurare un recinto virtuale con Mappe di Azure
 
@@ -25,11 +25,11 @@ Per altre informazioni su Griglia di eventi, vedere [Griglia di eventi di Azure]
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-* Caricare l'area del recinto virtuale nel servizio dati di Mappe di Azure usando l'API Caricamento dati.
-*   Configurare una griglia di eventi per gestire gli eventi del recinto virtuale.
-*   Impostare il gestore di eventi del recinto virtuale.
-*   Configurare gli avvisi in risposta agli eventi del recinto virtuale usando App per la logica.
-*   Usare le API del servizio del recinto virtuale di Mappe di Azure per verificare se un asset di costruzione si trova nel cantiere o meno.
+> * Caricare l'area del recinto virtuale nel servizio dati di Mappe di Azure usando l'API Caricamento dati.
+> *   Configurare una griglia di eventi per gestire gli eventi del recinto virtuale.
+> *   Impostare il gestore di eventi del recinto virtuale.
+> *   Configurare gli avvisi in risposta agli eventi del recinto virtuale usando App per la logica.
+> *   Usare le API del servizio del recinto virtuale di Mappe di Azure per verificare se un asset di costruzione si trova nel cantiere o meno.
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -150,9 +150,9 @@ Aprire l'app Postman e seguire questi passaggi per caricare il recinto virtuale 
 
 5. Fare clic su Send (Invia) e quindi esaminare l'intestazione della risposta. L'intestazione di posizione contiene l'URI per accedere o scaricare i dati per un uso futuro. Include anche un valore `udId` univoco per i dati caricati.
 
-  ```HTTP
-  https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
 
 ## <a name="set-up-an-event-handler"></a>Configurare un gestore di eventi
 
@@ -163,15 +163,15 @@ Verranno creati due servizi di [App per la logica](https://docs.microsoft.com/az
 
 1. Creare un'app per la logica nel portale di Azure
 
-  ![Creare app per la logica](./media/tutorial-geofence/logic-app.png)
+   ![Creare app per la logica](./media/tutorial-geofence/logic-app.png)
 
 2. Selezionare un trigger di richiesta HTTP e quindi selezionare "Send and email" (Invia una e-mail) come azione nel connettore di Outlook
   
-  ![Schema di App per la logica](./media/tutorial-geofence/logic-app-schema.png)
+   ![Schema di App per la logica](./media/tutorial-geofence/logic-app-schema.png)
 
 3. Salvare l'app per la logica per generare l'endpoint dell'URL HTTP e copiare l'URL HTTP.
 
-  ![Endpoint di App per la logica](./media/tutorial-geofence/logic-app-endpoint.png)
+   ![Endpoint di App per la logica](./media/tutorial-geofence/logic-app-endpoint.png)
 
 
 ## <a name="create-an-azure-maps-events-subscription"></a>Creare una sottoscrizione di Eventi di Mappe di Azure
@@ -208,53 +208,53 @@ Di seguito sono riportate cinque richieste HTTP GET dell'API Geofencing, con le 
  
 1. Posizione 1:
     
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
-  ![Query recinto virtuale 1](./media/tutorial-geofence/geofence-query1.png)
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
+   ![Query recinto virtuale 1](./media/tutorial-geofence/geofence-query1.png)
 
-  Se si osserva la risposta precedente, la distanza negativa rispetto al recinto virtuale principale indica che il macchinario si trova all'interno del recinto virtuale, mentre la differenza positiva rispetto al recinto virtuale della sottoarea indica che il macchinario si trova all'esterno del recinto virtuale della sottoarea. 
+   Se si osserva la risposta precedente, la distanza negativa rispetto al recinto virtuale principale indica che il macchinario si trova all'interno del recinto virtuale, mentre la differenza positiva rispetto al recinto virtuale della sottoarea indica che il macchinario si trova all'esterno del recinto virtuale della sottoarea. 
 
 2. Posizione 2: 
    
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
     
-  ![Query recinto virtuale 2](./media/tutorial-geofence/geofence-query2.png)
+   ![Query recinto virtuale 2](./media/tutorial-geofence/geofence-query2.png)
 
-  Se si osserva attentamente la risposta JSON precedente, il macchinario si trova all'esterno della sottoarea, ma all'interno del recinto principale. Non vengono attivati eventi e non vengono inviate e-mail.
+   Se si osserva attentamente la risposta JSON precedente, il macchinario si trova all'esterno della sottoarea, ma all'interno del recinto principale. Non vengono attivati eventi e non vengono inviate e-mail.
 
 3. Posizione 3: 
   
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Query recinto virtuale 3](./media/tutorial-geofence/geofence-query3.png)
+   ![Query recinto virtuale 3](./media/tutorial-geofence/geofence-query3.png)
 
-  Si è verificata una variazione di stato e ora il macchinario si trova all'interno del recinto virtuale principale e del recinto della sottoarea. Verrà pubblicato un evento e verrà inviata una e-mail di notifica al direttore di cantiere.
+   Si è verificata una variazione di stato e ora il macchinario si trova all'interno del recinto virtuale principale e del recinto della sottoarea. Verrà pubblicato un evento e verrà inviata una e-mail di notifica al direttore di cantiere.
 
 4. Posizione 4: 
 
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.637988&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
   
-  ![Query recinto virtuale 4](./media/tutorial-geofence/geofence-query4.png)
+   ![Query recinto virtuale 4](./media/tutorial-geofence/geofence-query4.png)
 
    Se si osserva attentamente la risposta corrispondente, si può notare che non vengono pubblicati eventi anche se il macchinario è uscito dal recinto virtuale della sottoarea. Se si osserva il tempo specificato dall'utente nella richiesta GET, si può notare che il recinto virtuale della sottoarea è scaduto e il macchinario si trova ancora all'interno del recinto virtuale principale. È anche visibile l'ID geometria del recinto virtuale della sottoarea sotto `expiredGeofenceGeometryId` nel corpo della risposta.
 
 
 5. Posizione 5:
       
-  ```HTTP
-  https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
-  ```
+   ```HTTP
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63799&lon=-122.134505&userTime=2019-01-16&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   ```
 
-  ![Query recinto virtuale 5](./media/tutorial-geofence/geofence-query5.png)
+   ![Query recinto virtuale 5](./media/tutorial-geofence/geofence-query5.png)
 
-  Si può vedere che il macchinario è uscito dal recinto virtuale principale del cantiere. Verrà pubblicato un evento in quanto si tratta di una grave violazione e verrà inviata una e-mail di avviso critico al direttore del cantiere.
+   Si può vedere che il macchinario è uscito dal recinto virtuale principale del cantiere. Verrà pubblicato un evento in quanto si tratta di una grave violazione e verrà inviata una e-mail di avviso critico al direttore del cantiere.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

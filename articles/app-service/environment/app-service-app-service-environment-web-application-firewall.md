@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/03/2018
 ms.author: naziml
 ms.custom: seodec18
-ms.openlocfilehash: 4681dad55807705a2ce8e9908cbd3ee53fb3c32e
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
+ms.openlocfilehash: c1930777f44266755f20400d063ec938ee631adb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53631499"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58089319"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>Configurazione di un Web application firewall (WAF) per l'ambiente del servizio app
 ## <a name="overview"></a>Panoramica
@@ -66,7 +66,7 @@ Aggiungere l'endpoint di gestione, come illustrato nell'immagine seguente, per c
 
 ![Aggiungere l'endpoint di gestione][AddManagementEndpoint]
 
-Usare un browser per passare all'endpoint di gestione nel servizio cloud. Se il servizio cloud è denominato test.cloudapp.net, si accederà a questo endpoint passando a http://test.cloudapp.net:8000. Dovrebbe essere visualizzata una pagina di accesso come quella illustrata nell'immagine seguente, a cui è possibile accedere usando le credenziali specificate in fase di configurazione delle VM WAF.
+Usare un browser per passare all'endpoint di gestione nel servizio cloud. Se il servizio cloud è denominato test.cloudapp.net, si accederà a questo endpoint passando a `http://test.cloudapp.net:8000`. Dovrebbe essere visualizzata una pagina di accesso come quella illustrata nell'immagine seguente, a cui è possibile accedere usando le credenziali specificate in fase di configurazione delle VM WAF.
 
 ![Pagina di accesso gestione][ManagementLoginPage]
 

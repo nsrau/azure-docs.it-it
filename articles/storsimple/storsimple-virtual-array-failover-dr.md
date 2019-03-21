@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/27/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 12079f8dbc409afe5acc274fa08bda878c90b76e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: be3d98dc0b3a8119fb853493440c6fc78d65c5a2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23110749"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57454239"
 ---
 # <a name="disaster-recovery-and-device-failover-for-your-storsimple-virtual-array-via-azure-portal"></a>Ripristino di emergenza e failover del dispositivo per l'array virtuale StorSimple tramite il portale di Azure
 
@@ -44,7 +44,7 @@ Il ripristino di emergenza viene gestito tramite la funzionalità di failover de
 
 ## <a name="prerequisites-for-device-failover"></a>Prerequisiti per il failover del dispositivo
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Per il failover del dispositivo, verificare che siano soddisfatti i prerequisiti seguenti:
 
@@ -134,7 +134,7 @@ Eseguire i passaggi seguenti per ripristinare il dispositivo su un dispositivo v
     
     1. Il campo del dispositivo di origine viene popolato automaticamente. Si noti la dimensione totale dei dati per il dispositivo di origine. La dimensione dei dati deve essere inferiore alla capacità disponibile sul dispositivo di destinazione. Esaminare i dettagli associati al dispositivo di origine, ad esempio il nome del dispositivo, la capacità totale e i nomi delle condivisioni di cui è stato eseguito il failover.
 
-    2. Nell'elenco a discesa dei dispositivi disponibili scegliere un **Dispositivo di destinazione**. Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
+    2. Nell'elenco a discesa dei dispositivi disponibili scegliere un **Dispositivo di destinazione**.  Solo i dispositivi dotati di capacità sufficiente vengono visualizzati nell'elenco a discesa.
 
     3. Selezionare **Sono consapevole che questa operazione effettuerà il failover dei dati nel dispositivo di destinazione**. 
 

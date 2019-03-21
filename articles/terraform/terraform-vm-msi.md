@@ -2,19 +2,19 @@
 title: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con un'identità gestita
 description: Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con un'identità gestita e la funzione di gestione dello stato remoto per distribuire facilmente le risorse in Azure.
 services: terraform
-ms.service: terraform
+ms.service: azure
 keywords: terraform, devops, MSI, macchina virtuale, stato remoto, azure
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 3/12/2018
-ms.openlocfilehash: 3f10e5dfd0a4aac859c1a946b5f0a680899e0888
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: a1a980e1f8b004c4a3dba53e4f83367022074c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54852542"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58007970"
 ---
 # <a name="use-an-azure-marketplace-image-to-create-a-terraform-linux-virtual-machine-with-managed-identities-for-azure-resources"></a>Usare un'immagine di Azure Marketplace per creare una macchina virtuale Terraform Linux con identità gestite per risorse di Azure
 
@@ -77,7 +77,7 @@ L'immagine della macchina virtuale Terraform esegue questa procedura:
 
 ## <a name="access-and-configure-a-linux-terraform-virtual-machine"></a>Accedere a una macchina virtuale Linux Terraform e configurarla
 
-Dopo avere creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione "Nozioni di base" del passaggio 3 per l'interfaccia della shell di testo. In Windows è possibile scaricare uno strumento client SSH come [Putty](http://www.putty.org/).
+Dopo avere creato la VM, è possibile accedervi tramite SSH. Usare le credenziali dell'account creato nella sezione "Nozioni di base" del passaggio 3 per l'interfaccia della shell di testo. In Windows è possibile scaricare uno strumento client SSH come [Putty](https://www.putty.org/).
 
 Dopo avere usato SSH per stabilire la connessione alla macchina virtuale, è necessario assegnare le autorizzazioni di collaboratore per l'intera sottoscrizione a identità gestite per risorse di Azure nella macchina virtuale. 
 

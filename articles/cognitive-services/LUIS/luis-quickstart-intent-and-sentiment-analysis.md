@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 1805d54e66187a97bf598734801f0d94895e7490
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0e61f6a914c33842f4f42b2e1e4206b370a11dd4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880353"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099036"
 ---
 # <a name="tutorial--get-sentiment-of-utterance"></a>Esercitazione:  Ottenere la valutazione dell'espressione
 
@@ -61,9 +61,9 @@ Poiché si tratta di un'impostazione di pubblicazione, non è presente nelle pag
 
 1. Selezionare l'entità seguente dall'elenco delle entità predefinite e quindi selezionare **Done** (Fine):
 
-    * **[PersonName](luis-reference-prebuilt-person.md)** 
+   * **[PersonName](luis-reference-prebuilt-person.md)** 
 
-    ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
+     ![Screenshot dell'entità number selezionata nella finestra di dialogo relativa alle entità predefinite](./media/luis-quickstart-intent-and-sentiment-analysis/add-personname-prebuilt-entity.png)
 
 ## <a name="create-an-intent-to-determine-employee-feedback"></a>Creare una finalità per determinare il feedback dei dipendenti
 

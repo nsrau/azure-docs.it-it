@@ -3,20 +3,20 @@ title: Trasformare dati usando Hive nella rete virtuale di Azure | Microsoft Doc
 description: Questa esercitazione offre istruzioni dettagliate per la trasformazione dei dati tramite l'attività Hive in Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: douglaslMS
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/04/2018
-ms.author: douglasl
-ms.openlocfilehash: b7d536a9dc411dfd6420278ed42116b546315f3e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+author: nabhishek
+ms.author: abnarain
+manager: craigg
+ms.openlocfilehash: 9cea3e7494ee81638923cbcaff9f1b82d08a1ad1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436706"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58085032"
 ---
 # <a name="transform-data-in-azure-virtual-network-using-hive-activity-in-azure-data-factory"></a>Trasformare dati nella rete virtuale di Azure usando l'attività Hive in Azure Data Factory
 In questa esercitazione si usa il portale di Azure per creare una pipeline di Data Factory che trasforma i dati con un'attività Hive in un cluster HDInsight che si trova in una rete virtuale di Azure. In questa esercitazione vengono completati i passaggi seguenti:
@@ -33,6 +33,9 @@ In questa esercitazione si usa il portale di Azure per creare una pipeline di Da
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Account di archiviazione di Azure**. Creare uno script Hive e caricarlo nell'archivio di Azure. L'output dello script Hive viene archiviato in questo account di archiviazione. In questo esempio, il cluster HDInsight usa questo account di archiviazione di Azure come risorsa di archiviazione primaria. 
 - **Rete virtuale di Azure.** Se non è disponibile una rete virtuale di Azure, crearla seguendo [queste istruzioni](../virtual-network/quick-create-portal.md). In questo esempio, il cluster HDInsight si trova in una rete virtuale di Azure. Ecco una configurazione di esempio della rete virtuale di Azure. 
 
@@ -40,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 - **Cluster HDInsight.** Creare un cluster HDInsight e aggiungerlo alla rete virtuale creata nel passaggio precedente seguendo questo articolo: [Estendere Azure HDInsight usando Rete virtuale di Azure](../hdinsight/hdinsight-extend-hadoop-virtual-network.md). Ecco una configurazione di esempio di HDInsight in una rete virtuale. 
 
     ![HDInsight in una rete virtuale](media/tutorial-transform-data-using-hive-in-vnet-portal/hdinsight-virtual-network-settings.png)
-- **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+- **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 - **Una macchina virtuale**. Creare una macchina virtuale (VM) di Azure e aggiungerla alla stessa rete virtuale che contiene il cluster HDInsight. Per informazioni dettagliate, vedere [come creare macchine virtuali](../virtual-network/quick-create-portal.md#create-virtual-machines). 
 
 ### <a name="upload-hive-script-to-your-blob-storage-account"></a>Caricare lo script Hive nell'account di archiviazione BLOB
@@ -82,24 +85,24 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 3. Selezionare la **sottoscrizione** di Azure in cui creare la data factory. 
 4. Per il **gruppo di risorse**, eseguire una di queste operazioni:
      
-      - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
-      - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
+   - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa. 
+   - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.   
          
-      Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
+     Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/resource-group-overview.md).  
 4. Selezionare **V2** per **version**.
 5. Selezionare la **località** per la data factory. Nell'elenco vengono mostrate solo le località supportate per la creazione di data factory.
 6. Selezionare **Aggiungi al dashboard**.     
 7. Fare clic su **Create**(Crea).
 8. Nel dashboard viene visualizzato il riquadro seguente con lo stato: **Deploying data factory** (Distribuzione della data factory). 
 
-    ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
+     ![Riquadro Deploying data factory (Distribuzione della data factory)](media/tutorial-transform-data-using-hive-in-vnet-portal/deploying-data-factory.png)
 9. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
    
-   ![Home page di Data factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
+    ![Home page di Data factory](./media/tutorial-transform-data-using-hive-in-vnet-portal/data-factory-home-page.png)
 10. Fare clic su **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
 11. Nella pagina **Attività iniziali** passare alla scheda **Modifica** nel pannello a sinistra, come mostrato nell'immagine seguente: 
 
-   ![Scheda Modifica](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
+    ![Scheda Modifica](./media/tutorial-transform-data-using-hive-in-vnet-portal/get-started-page.png)
 
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creare un runtime di integrazione self-hosted
 Dato che il cluster Hadoop si trova all'interno di una rete virtuale, è necessario installare un runtime di integrazione self-hosted nella stessa rete virtuale. In questa sezione si crea una nuova VM, si aggiunge la VM alla stessa rete virtuale e vi si installa un runtime di integrazione self-hosted. Il runtime di integrazione self-hosted consente al servizio Data Factory di inviare richieste di elaborazione a un servizio di calcolo come HDInsight all'interno di una rete virtuale, nonché di spostare dati tra archivi dati in una rete virtuale e Azure. Un runtime di integrazione self-hosted viene usato anche quando l'archivio dati o il servizio di calcolo si trova in un ambiente locale. 

@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b35060aec8d9d040777fda247c798a42533b2ea4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3c5cad3f735494ee74156e22a9bf150911c36eb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56182681"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58091478"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti in:
@@ -119,9 +119,9 @@ Dopo aver eseguito l'autenticazione dell'utente tramite Azure AD, è importante 
 
 Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenario di controllo di accesso che può essere gestito da Azure AD. Di seguito è mostrata una descrizione di ogni scenario:
 
-  1. Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2.
+1. Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2.
 
-  2. Controllo di accesso al portale di Azure:  Azure consente inoltre di controllare l'accesso al portale tramite il controllo di accesso basato sui ruoli (RBAC)). Questo metodo permette all'azienda di limitare il numero di operazioni che possono essere eseguite da un soggetto nel portale di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
+2. Controllo di accesso al portale di Azure:  Azure consente inoltre di controllare l'accesso al portale tramite il controllo di accesso basato sui ruoli (RBAC)). Questo metodo permette all'azienda di limitare il numero di operazioni che possono essere eseguite da un soggetto nel portale di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
 
    - Assegnazione di ruolo basata su gruppo: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
    - Uso dei ruoli predefiniti in Azure: sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.
@@ -131,9 +131,9 @@ Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenari
    > Gli sviluppatori che creano applicazioni e che vogliono personalizzare il controllo di accesso per tali applicazioni, possono usare i ruoli applicazione di Azure AD per l'autorizzazione. Per informazioni su come progettare l'app per usare questa funzionalità, vedere l' [esempio WebApp-RoleClaims-DotNet](https://github.com/AzureADSamples/WebApp-RoleClaims-DotNet) .
 
 
-  3. Accesso condizionale per applicazioni di Office 365 con Microsoft Intune:  Gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli information worker che usano dispositivi conformi di accedere ai servizi. 
+3. Accesso condizionale per applicazioni di Office 365 con Microsoft Intune:  Gli amministratori IT possono effettuare il provisioning dei criteri di accesso condizionale dei dispositivi per proteggere le risorse aziendali, consentendo allo stesso tempo agli information worker che usano dispositivi conformi di accedere ai servizi. 
   
-  4. Accesso condizionale per app SaaS: [Questa funzione](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) consente la configurazione di una regola di accesso con autenticazione a più fattori per ogni applicazione e la possibilità di bloccare l'accesso agli utenti su una rete non affidabile. La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
+4. Accesso condizionale per app SaaS: [Questa funzione](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/25/azure-ad-conditional-access-preview-update-more-apps-and-blocking-access-for-users-not-at-work/) consente la configurazione di una regola di accesso con autenticazione a più fattori per ogni applicazione e la possibilità di bloccare l'accesso agli utenti su una rete non affidabile. La regola di autenticazione a più fattori può essere applicata a tutti gli utenti assegnati all'applicazione oppure solo agli utenti inclusi in gruppi di sicurezza specificati. Gli utenti possono essere esclusi dal requisito di autenticazione a più fattori se accedono all'applicazione da un indirizzo IP all'interno della rete dell'organizzazione.
 
 Poiché le opzioni per il controllo di accesso usano un approccio multilivello, il confronto tra tali opzioni non è applicabile per questa attività. Assicurarsi di usare tutte le opzioni disponibili per ogni scenario che richiede di controllare l'accesso alle risorse.
 

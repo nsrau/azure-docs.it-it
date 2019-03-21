@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 01/25/2019
 ms.author: alkohli
-ms.openlocfilehash: b3d79f106554bf4a80df835ac880fbb7a72c8bfe
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 9e4308eea3384b20f21ffcf378f711a705f9f9e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268397"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077344"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -209,10 +209,10 @@ R.  Quando lo stato dell'ordine per l'operazione **Copia dati** è **Completato*
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>D: Dove vengono collocati i dati in Azure dopo il caricamento?
 R.  Quando si copiano i dati in Data Box, a seconda che siano BLOB in blocchi, BLOB di pagine o file di Azure, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
- - `https://<storage_account_name>.blob.core.windows.net/<containername>` 
- -  `https://<storage_account_name>.file.core.windows.net/<sharename>`
+- `https://<storage_account_name>.blob.core.windows.net/<containername>` 
+- `https://<storage_account_name>.file.core.windows.net/<sharename>`
  
- In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
+  In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>D: Se non si seguono i requisiti di denominazione di Azure per i contenitori, i dati non verranno caricati in Azure?
 R.  Se i nomi dei contenitori includono lettere maiuscole, tali nomi verranno convertiti automaticamente in lettere minuscole. Se i nomi non sono conformi per altri aspetti (caratteri speciali, altre lingue e così via), il caricamento non viene eseguito in modo corretto. Per altre informazioni sulle procedure consigliate per la denominazione di condivisioni, contenitori e file, vedere:

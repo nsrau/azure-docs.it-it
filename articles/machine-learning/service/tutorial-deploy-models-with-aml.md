@@ -6,17 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-author: hning86
-ms.author: haining
-ms.reviewer: sgilley
+author: sdgilley
+ms.author: sgilley
 ms.date: 01/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0f596f40cdea095ea152785e656c44eaa062e28c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: a8f3a5c6a1c7adaff620f8675fcffa4018eb9874
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564035"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58133094"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
 

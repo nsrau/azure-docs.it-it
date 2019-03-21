@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/01/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 243697c20f10a019a73326c3bd79e23fc3342640
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113601"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093770"
 ---
 # <a name="tutorial-install-azure-data-box-edge-preview"></a>Esercitazione: Installare Azure Data Box Edge (anteprima)
 
@@ -94,15 +94,15 @@ Il dispositivo deve essere installato su un rack standard da 19 pollici. Usare l
     ![Installare le guide di montaggio su rack](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
 
 2. Installare le guide esterne sugli elementi verticali dell'armadio rack. Per un migliore orientamento, le guide a scorrimento sono contrassegnate con la dicitura **Front** e questa estremità deve essere a contatto con la parte anteriore dello chassis.    
-    1. Individuare i perni nella parte anteriore e posteriore del gruppo guida. Estendere la guida per posizionarla tra i montanti del rack. Prima di tutto, fissare la guida esterna sul retro del rack. Regolare la staffa di montaggio posteriore in modo da posizionarla all'interno dei fori di montaggio posteriori del rack.   
+   1. Individuare i perni nella parte anteriore e posteriore del gruppo guida. Estendere la guida per posizionarla tra i montanti del rack. Prima di tutto, fissare la guida esterna sul retro del rack. Regolare la staffa di montaggio posteriore in modo da posizionarla all'interno dei fori di montaggio posteriori del rack.   
 
-    2. Spingere e tenere premuta la leva sulla staffa posteriore per esporre i ganci metallici. Allineare e inserire la staffa posteriore nei fori di montaggio e quindi rilasciare la leva.
+   2. Spingere e tenere premuta la leva sulla staffa posteriore per esporre i ganci metallici. Allineare e inserire la staffa posteriore nei fori di montaggio e quindi rilasciare la leva.
 
-    3. Allineare la staffa anteriore con il foro di montaggio.
+   3. Allineare la staffa anteriore con il foro di montaggio.
 
-    4. La staffa anteriore sarà ora fissata al rack. Se necessario, è possibile usare viti M5 X 10L per fissare le guide ai montanti. 
+   4. La staffa anteriore sarà ora fissata al rack. Se necessario, è possibile usare viti M5 X 10L per fissare le guide ai montanti. 
 
-    ![Installare le guide di montaggio su rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+      ![Installare le guide di montaggio su rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
 
 3. Per fissare la guida interna allo chassis, verificare che i fori di apertura sulla guida interna siano allineati ai perni di posizionamento sul lato dello chassis. Assicurarsi che le teste dei perni di posizionamento dello chassis sporgano attraverso i fori a forma di buco della serratura nella guida interna. Tirare la guida verso la parte anteriore dello chassis finché non scatta in posizione con un clic. Ripetere l'operazione con l'altra guida interna. Spingere lo chassis con la guida interna nella slitta per completare l'installazione su rack.
 

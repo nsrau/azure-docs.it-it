@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/13/2018
 ms.author: rogarana
 ms.custom: mvc
-ms.openlocfilehash: 42c67d73ee776488fbe932676f61cb7166c2984b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: acf01788a1ac8ed8ca476941c402801abfbd8adf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53599841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011311"
 ---
 # <a name="tutorial-search-unstructured-data-in-cloud-storage"></a>Esercitazione: Cercare dati non strutturati nell'archiviazione cloud
 
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 
 Ogni account di archiviazione deve appartenere a un gruppo di risorse di Azure. Un gruppo di risorse è un contenitore logico per raggruppare i servizi di Azure. Quando si crea un account di archiviazione, è possibile creare un nuovo gruppo di risorse o usarne uno esistente. In questa esercitazione viene creato un nuovo gruppo di risorse.
 
-Accedere al [portale di Azure](http://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -63,7 +63,7 @@ Per questa esercitazione usare un solo contenitore per archiviare i file di test
 
 5. Fare clic su **OK** per creare il contenitore.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/storageactinfo.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/storageactinfo.png)
 
 ## <a name="upload-the-example-data"></a>Caricare i dati di esempio
 
@@ -77,7 +77,7 @@ Dopo aver creato il contenitore, è possibile caricarvi i dati di esempio.
 
 4. Selezionare **Carica** per avviare il processo di caricamento.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/upload.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/upload.png)
 
 Il processo di caricamento può richiedere alcuni istanti.
 
@@ -107,7 +107,7 @@ Per questa esercitazione, usare un servizio di ricerca per cercare nei file di t
 
 8. Selezionare **Crea** per creare il servizio di ricerca.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/createsearch2.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/createsearch2.png)
 
 ## <a name="connect-your-search-service-to-your-container"></a>Collegare il servizio di ricerca al contenitore
 
@@ -127,13 +127,13 @@ Dopo aver creato il servizio di ricerca, è possibile collegarlo nell'archiviazi
 
 2. Poiché i BLOB usati sono file di testo, impostare **Modalità di analisi** su **Testo**.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/datasources.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/datasources.png)
 
 3. Selezionare **Contenitore di archiviazione** per elencare gli account di archiviazione disponibili.
 
 4. Selezionare l'account di archiviazione e quindi il contenitore creato in precedenza.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/datacontainer.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/datacontainer.png)
 
 5. Fare clic su **Seleziona** per tornare a **Nuova origine dati** e selezionare **OK** per continuare.
 
@@ -147,7 +147,7 @@ Dopo aver creato il servizio di ricerca, è possibile collegarlo nell'archiviazi
 
 3. Selezionare la casella di controllo dell'attributo **Recuperabile** in **metadata_storage_name**.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/valuestoselect.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/valuestoselect.png)
 
 4. Selezionare **OK**. Verrà visualizzato **Crea un indicizzatore**.
 
@@ -157,7 +157,7 @@ La colonna **NOME CAMPO** contiene i parametri. La tabella seguente contiene un 
 
 #### <a name="field-attributes"></a>Attributi dei campi
 
-| Attributo | Descrizione |
+| Attributo | DESCRIZIONE |
 | --- | --- |
 | *Chiave* |Stringa che fornisce l'ID univoco di ogni documento, usata per la ricerca di documenti. Ogni indice deve avere una chiave. Un solo campo può essere la chiave e deve essere impostata su Edm.String. |
 | *Recuperabile* |Specifica se il campo può essere restituito nel risultato di una ricerca. |
@@ -172,7 +172,7 @@ La colonna **NOME CAMPO** contiene i parametri. La tabella seguente contiene un 
 
 1. Immettere un nome per il campo **Nome** e selezionare **OK**.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/exindexer.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/exindexer.png)
 
 2. Verrà visualizzato di nuovo **Importa dati**. Selezionare **OK** per completare il processo di connessione.
 
@@ -186,19 +186,19 @@ I passaggi seguenti illustrano dove trovare Esplora ricerche e indicano alcuni e
 
 1. Passare a tutte le risorse e individuare il servizio di ricerca appena creato.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/exampleurl.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/exampleurl.png)
 
 2. Selezionare l'indice per aprirlo.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/overview.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/overview.png)
 
 3. Selezionare **Esplora ricerche** per aprire Esplora ricerche, in cui è possibile eseguire query in tempo reale sui dati.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/indexespane.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/indexespane.png)
 
 4. Selezionare **Cerca** quando il campo della stringa di query è vuoto. Una query vuota restituisce *tutti* i dati dei BLOB.
 
-  ![Ricerca su dati non strutturati](media/storage-unstructured-search/emptySearch.png)
+   ![Ricerca su dati non strutturati](media/storage-unstructured-search/emptySearch.png)
 
 ### <a name="perform-a-full-text-search"></a>Eseguire una ricerca full-text
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 39c2416bb692c9b97571eebbcb590c955744cac6
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 51de0397e246d3b9e7d4878fd2c8050af1f0ce6f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857091"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090050"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-c"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per C#
 
@@ -26,7 +26,7 @@ Usare questa guida introduttiva per iniziare a cercare notizie con l'SDK di Rice
 
 * Qualsiasi edizione di [Visual Studio 2017](https://www.visualstudio.com/downloads/).
 * Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet.
-* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](http://www.mono-project.com/).
+* Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
 
 * Pacchetto [NuGet SDK di Ricerca notizie Bing](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.NewsSearch/1.2.0). Installando questo pacchetto vengono anche installati gli elementi seguenti:
     * Microsoft.Rest.ClientRuntime
@@ -91,4 +91,4 @@ Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.m
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-[Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)
+> [Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)

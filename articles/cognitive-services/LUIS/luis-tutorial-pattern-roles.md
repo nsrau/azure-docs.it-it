@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: diberry
-ms.openlocfilehash: 866e93c81e5c4f7ad38528ae937317fde3a3f45d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857057"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106594"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Esercitazione: Estrarre criteri correlati in base al contesto usando i ruoli
 
@@ -369,7 +369,7 @@ In modo analogo ai nomi di persone, i nomi di città sono complessi perché poss
         "label": "neutral",
         "score": 0.5
       }
-}
+   }
     ```
 
 Il punteggio di finalità è ora molto più elevato e i nomi di ruolo fanno parte della risposta dell'entità.

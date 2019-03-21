@@ -1,21 +1,21 @@
 ---
 title: Controllare un dispositivo dalla guida introduttiva di Hub IoT di Azure (Node.js) | Microsoft Docs
 description: In questa guida introduttiva vengono eseguite due applicazioni Node.js di esempio. Una è un'applicazione back-end che può controllare in remoto i dispositivi connessi all'hub. L'altra applicazione simula un dispositivo connesso all'hub che può essere controllato in remoto.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 02/22/2019
-ms.author: dobett
-ms.openlocfilehash: 97491ca483ec402a491e5f20b2527b93df810d64
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.date: 02/27/2019
+ms.openlocfilehash: 8c297c973a8d6a03b6d5990164bbde1485e36023
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674107"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170905"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-nodejs"></a>Avvio rapido: Controllare un dispositivo connesso a un hub IoT (Node.js)
 
@@ -94,7 +94,7 @@ Se è stata completata la precedente [Guida introduttiva: Inviare dati di teleme
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --hub-name YourIoTHubName --output table
+      --name YourIoTHubName --output table
     ```
 
     Annotare la stringa di connessione del servizio, che avrà questo aspetto:

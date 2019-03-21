@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 5b6f968bef3708ca311bc5a41fe029ea9a10f62b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 8ac17c00f635c4c14c0e4752847aff941f81804a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54015849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58111617"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Esercitazione: Creare una pipeline con l'attività Copia usando Visual Studio
 > [!div class="op_single_selector"]
@@ -47,6 +47,9 @@ Una pipeline può includere più attività ed è possibile concatenarne due, ovv
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Vedere la [panoramica dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) ed eseguire i passaggi relativi ai **prerequisiti** .       
 2. Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.
 3. È necessario disporre dei seguenti prodotti installati nel computer in uso: 
@@ -129,8 +132,8 @@ In questo contesto si usa il termine "tabelle" invece di "set di dati". Una tabe
 2. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare **BLOB di Azure** e fare clic su **Aggiungi**.   
 3. Sostituire il testo JSON con il testo seguente e salvare il file **AzureBlobLocation1.json** . 
 
-  ```json   
-  {
+   ```json   
+   {
     "name": "InputDataset",
     "properties": {
       "structure": [
@@ -158,8 +161,8 @@ In questo contesto si usa il termine "tabelle" invece di "set di dati". Una tabe
         "interval": 1
       }
     }
-  }
-  ``` 
+   }
+   ``` 
     La tabella seguente fornisce le descrizioni delle proprietà JSON usate nel frammento di codice:
 
     | Proprietà | DESCRIZIONE |
@@ -182,7 +185,7 @@ In questo passaggio si crea un set di dati di output denominato **OutputDataset*
 2. Nella finestra di dialogo **Aggiungi nuovo elemento** selezionare **Azure SQL** e fare clic su **Aggiungi**. 
 3. Sostituire il testo JSON con il testo JSON seguente e salvare il file **AzureSqlTableLocation1.json** .
 
-  ```json
+   ```json
     {
      "name": "OutputDataset",
      "properties": {
@@ -230,7 +233,7 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
 2. Selezionare **Copia pipeline dati** nella finestra di dialogo **Aggiungi nuovo elemento** e fare clic su **Aggiungi**. 
 3. Sostituire il codice JSON con il codice JSON seguente e salvare il file **CopyActivity1.json** .
 
-  ```json   
+   ```json   
     {
      "name": "ADFTutorialPipeline",
      "properties": {
@@ -274,19 +277,19 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
      }
     }
     ```   
-    - Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Nelle soluzioni Data Factory è anche possibile usare le [attività di trasformazione dei dati](data-factory-data-transformation-activities.md).
-    - L'input per l'attività è impostato su **InputDataset** e l'output è impostato su **OutputDataset**. 
-    - Nella sezione **typeProperties** vengono specificati **BlobSource** come tipo di origine e **SqlSink** come tipo di sink. Per un elenco completo degli archivi dati supportati dall'attività di copia come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Per informazioni su come usare uno specifico archivio dati supportato come origine/sink, fare clic sul collegamento nella tabella.  
+   - Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Nelle soluzioni Data Factory è anche possibile usare le [attività di trasformazione dei dati](data-factory-data-transformation-activities.md).
+   - L'input per l'attività è impostato su **InputDataset** e l'output è impostato su **OutputDataset**. 
+   - Nella sezione **typeProperties** vengono specificati **BlobSource** come tipo di origine e **SqlSink** come tipo di sink. Per un elenco completo degli archivi dati supportati dall'attività di copia come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Per informazioni su come usare uno specifico archivio dati supportato come origine/sink, fare clic sul collegamento nella tabella.  
      
-    Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2016-02-03", che equivale a "2016-02-03T00:00:00Z".
+     Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2016-02-03", che equivale a "2016-02-03T00:00:00Z".
      
-    Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
+     Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
      
-    Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
+     Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
      
-    Nell'esempio precedente sono visualizzate 24 sezioni di dati, perché viene generata una sezione di dati ogni ora.
+     Nell'esempio precedente sono visualizzate 24 sezioni di dati, perché viene generata una sezione di dati ogni ora.
 
-    Per le descrizioni delle proprietà JSON nella definizione di una pipeline, vedere l'articolo su come [creare pipeline](data-factory-create-pipelines.md). Per le descrizioni delle proprietà JSON nella definizione di un'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Per le descrizioni delle proprietà JSON supportate da BlobSource, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md). Per le descrizioni delle proprietà JSON supportate da SqlSink, vedere l'articolo relativo al [connettore del database SQL di Azure](data-factory-azure-sql-connector.md).
+     Per le descrizioni delle proprietà JSON nella definizione di una pipeline, vedere l'articolo su come [creare pipeline](data-factory-create-pipelines.md). Per le descrizioni delle proprietà JSON nella definizione di un'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Per le descrizioni delle proprietà JSON supportate da BlobSource, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md). Per le descrizioni delle proprietà JSON supportate da SqlSink, vedere l'articolo relativo al [connettore del database SQL di Azure](data-factory-azure-sql-connector.md).
 
 ## <a name="publishdeploy-data-factory-entities"></a>Pubblicare/Distribuire le entità della data factory
 In questo passaggio vengono pubblicate le entità di Data Factory, ovvero i servizi collegati, i set di dati e la pipeline, create in precedenza. Viene anche specificato il nome della nuova data factory da creare che dovrà contenere tali entità.  
@@ -333,12 +336,12 @@ Tenere presente quanto segue:
   * In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
 
     ```PowerShell    
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato. 
     
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Questa azione registra automaticamente il provider.
 * Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.
@@ -441,7 +444,7 @@ Per aggiungere un file di configurazione per ogni ambiente, seguire questa proce
     }
     ```
 
-    Questo esempio configura la proprietà connectionString di un servizio collegato Archiviazione di Azure e di un servizio collegato Azure SQL. Si noti che la sintassi per specificare il nome è [JsonPath](http://goessner.net/articles/JsonPath/).   
+    Questo esempio configura la proprietà connectionString di un servizio collegato Archiviazione di Azure e di un servizio collegato Azure SQL. Si noti che la sintassi per specificare il nome è [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     Se JSON ha una proprietà con una matrice di valori come indicato nel codice seguente:  
 

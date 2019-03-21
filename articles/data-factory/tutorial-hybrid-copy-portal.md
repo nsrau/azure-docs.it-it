@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: af764557a6bd3d3f60a3aa628834d5929e073a82
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: ab13b0db843e5a2652ed1dd61a0e5ab5f7541244
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54021986"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58120262"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copiare dati da un database di SQL Server locale a un archivio BLOB di Azure
 In questa esercitazione si usa l'interfaccia utente di Azure Data Factory per creare una pipeline di Data Factory che copia i dati da un database di SQL Server locale a un archivio BLOB di Azure. Si crea e si usa un runtime di integrazione self-hosted, che sposta i dati tra gli archivi dati locali e cloud.
@@ -134,11 +134,11 @@ Il nome della data factory deve essere *univoco a livello globale*. Se viene vis
 1. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
    
-      - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
+   - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
 
-      - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.
+   - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse.
         
-    Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
+     Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-overview.md).
 1. In **Versione** selezionare **V2**.
 1. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati da Data Factory possono trovarsi in altre aree.
 1. Selezionare **Aggiungi al dashboard**. 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27456f672e2fa67928b43e80bef384a14e9c1d62
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166964"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110121"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Avvio rapido: Aggiungere un'applicazione al tenant di Azure Active Directory
 
@@ -113,35 +113,35 @@ Per modificare le proprietà dell'applicazione
 
 4. Usare le tabelle seguenti per scegliere le opzioni ottimali per le proprie esigenze.
 
-    - Comportamento per gli utenti **assegnati**:
+   - Comportamento per gli utenti **assegnati**:
 
-        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
-        |---|---|---|---|---|
-        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
-        | Sì | Sì | Sì | Sì | Sì  |
-        | Sì | Sì | no  | Sì | no   |
-        | Sì | no  | Sì | Sì | Sì  |
-        | Sì | no  | no  | Sì | no   |
-        | no  | Sì | Sì | no  | no   |
-        | no  | Sì | no  | no  | no   |
-        | no  | no  | Sì | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti assegnati | |
+       |---|---|---|---|---|
+       | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti assegnati?* |
+       | Sì | Sì | Sì | Sì | Sì  |
+       | Sì | Sì | no  | Sì | no   |
+       | Sì | no  | Sì | Sì | Sì  |
+       | Sì | no  | no  | Sì | no   |
+       | no  | Sì | Sì | no  | no   |
+       | no  | Sì | no  | no  | no   |
+       | no  | no  | Sì | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    - Comportamento per gli utenti **non assegnati**:
+   - Comportamento per gli utenti **non assegnati**:
 
-        | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
-        |---|---|---|---|---|
-        | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
-        | Sì | Sì | Sì | no  | no   |
-        | Sì | Sì | no  | no  | no   |
-        | Sì | no  | Sì | Sì | no   |
-        | Sì | no  | no  | Sì | no   |
-        | no  | Sì | Sì | no  | no   |
-        | no  | Sì | no  | no  | no   |
-        | no  | no  | Sì | no  | no   |
-        | no  | no  | no  | no  | no   |
+       | Impostazioni delle proprietà dell'applicazione | | | Esperienza degli utenti non assegnati | |
+       |---|---|---|---|---|
+       | Abilitata per l'accesso degli utenti? | Assegnazione utenti obbligatoria | Visibile agli utenti? | Gli utenti non assegnati possono eseguire l'accesso? | L'applicazione viene visualizzata agli utenti non assegnati?* |
+       | Sì | Sì | Sì | no  | no   |
+       | Sì | Sì | no  | no  | no   |
+       | Sì | no  | Sì | Sì | no   |
+       | Sì | no  | no  | Sì | no   |
+       | no  | Sì | Sì | no  | no   |
+       | no  | Sì | no  | no  | no   |
+       | no  | no  | Sì | no  | no   |
+       | no  | no  | no  | no  | no   |
 
-    *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?
+     *L'applicazione viene visualizzata agli utenti nel pannello di accesso e nell'icona di avvio delle app di Office 365?
 
 ## <a name="use-a-custom-logo"></a>Usare un logo personalizzato
 

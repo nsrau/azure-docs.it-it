@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 12/26/2018
-ms.openlocfilehash: 24c47acd028aa767d1f02dd7c4119692eeac479a
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 35159a1630c7f1268119cd55cc6e0ac99dfd7b5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119208"
 ---
-# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Avvio rapido: Creare un'app Python usando l'API Azure Cosmos DB per MongoDB
+# <a name="quickstart-build-a-python-app-using-azure-cosmos-dbs-api-for-mongodb"></a>Guida introduttiva: Creare un'app Python usando l'API Azure Cosmos DB per MongoDB
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -37,10 +37,10 @@ Questa guida di avvio rapido usa l'[esempio Flask](https://github.com/Azure-Samp
 - Se necessario, è possibile installare rapidamente [Visual Studio Code](https://code.visualstudio.com/Download) per la piattaforma in uso (Windows, Mac, Linux).
 
 - Assicurarsi di aggiungere il supporto per il linguaggio Python installando una delle più diffuse estensioni Python.
-    1. Selezionare un'estensione.
-    2. Installare l'estensione digitando `ext install` nel riquadro comandi `Ctrl+Shift+P`.
+  1. Selezionare un'estensione.
+  2. Installare l'estensione digitando `ext install` nel riquadro comandi `Ctrl+Shift+P`.
 
-    Gli esempi di questo documento usano la popolare [estensione Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) con funzionalità complete di Don Jayamanne.
+     Gli esempi di questo documento usano la popolare [estensione Python](https://marketplace.visualstudio.com/items?itemName=donjayamanne.python) con funzionalità complete di Don Jayamanne.
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 

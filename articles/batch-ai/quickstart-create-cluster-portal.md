@@ -16,12 +16,12 @@ ms.topic: quickstart
 ms.date: 08/15/2018
 ms.author: danlep
 ROBOTS: NOINDEX
-ms.openlocfilehash: 78c743448a7f7439875d3598d6ba5d4eb6dc12fc
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
+ms.openlocfilehash: 49e78f1774a2998de7070453f7c098aef1761242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53408936"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093229"
 ---
 # <a name="quickstart-create-a-cluster-for-batch-ai-training-jobs-using-the-azure-portal"></a>Avvio rapido: creare un cluster per i processi di training di Batch per intelligenza artificiale tramite il portale di Azure
 
@@ -59,7 +59,7 @@ Creare innanzitutto un'area di lavoro Batch per intelligenza artificiale in cui 
 
 3. Immettere i valori nei campi **Nome dell'area di lavoro** e **Gruppo di risorse**. È anche possibile selezionare opzioni diverse per **Sottoscrizione** e **Percorso** dell'area di lavoro. Selezionare **Crea area di lavoro**.
 
-  ![Creare un'area di lavoro di Azure Batch per intelligenza artificiale](./media/quickstart-create-cluster-portal/create-workspace.png)
+   ![Creare un'area di lavoro di Azure Batch per intelligenza artificiale](./media/quickstart-create-cluster-portal/create-workspace.png)
 
 Quando viene visualizzato il messaggio **La distribuzione è riuscita**, passare alla risorsa creata e selezionare l'area di lavoro.
 
@@ -73,7 +73,7 @@ Un file server di Batch per intelligenza artificiale è un server NFS a nodo sin
 
 3. Immettere un **Nome utente amministratore** e copiare il contenuto del file di chiave pubblica SSH in **Chiave SSH**. Accettare le impostazioni predefinite per i restanti valori e selezionare **Create File server** (Crea file server).
 
-  ![Creare un file server di Batch per intelligenza artificiale](./media/quickstart-create-cluster-portal/create-file-server.png)
+   ![Creare un file server di Batch per intelligenza artificiale](./media/quickstart-create-cluster-portal/create-file-server.png)
 
 La distribuzione del file server può richiedere alcuni minuti.
 

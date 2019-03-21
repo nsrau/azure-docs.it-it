@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: a624540e95d054ef5edadfada29fa13cd47419d6
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
+ms.openlocfilehash: b3ab3552ad1b9bdd14a3d07cd426f8c0bc9dc865
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848870"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57759237"
 ---
 # <a name="run-your-first-resource-graph-query-using-azure-powershell"></a>Eseguire la prima query di Resource Graph usando Azure PowerShell
 
@@ -79,8 +79,8 @@ Ora che il modulo di Azure PowerShell è stato aggiunto all'ambiente scelto, è 
    Search-AzGraph -Query 'project name, type | limit 5 | order by name asc'
    ```
 
-  > [!NOTE]
-  > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. In questo modo i risultati della query verranno prima limitati e poi ordinati.
+   > [!NOTE]
+   > Come nella prima query, se si esegue questa query più volte, è probabile che venga restituito un set di risorse diverso per ogni richiesta. L'ordine dei comandi della query è importante. In questo esempio `order by` segue `limit`. In questo modo i risultati della query verranno prima limitati e poi ordinati.
 
 1. Aggiornare la query applicando prima `order by` alla proprietà **Name** e quindi `limit` ai primi cinque risultati:
 

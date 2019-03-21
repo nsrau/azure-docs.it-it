@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 246ee5f8360869c1b0f901ee54d56e017ac8aeb7
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649680"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097458"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
@@ -221,7 +221,7 @@ Non si è limitati solo alle risorse disponibili tramite l'interfaccia di Visual
 
 1. Aprire il file WebsiteSqlDeploy.json e aggiungere il codice JSON seguente dopo la risorsa dell'account di archiviazione ma prima della parentesi `]` di chiusura della sezione relativa alle risorse.
 
-  ```json
+   ```json
     ,{
       "properties": {
         "lenses": {
@@ -296,7 +296,7 @@ Non si è limitati solo alle risorse disponibili tramite l'interfaccia di Visual
         "hidden-title": "[concat('OPS-',resourceGroup().name)]"
       }
     }
-  ```
+   ```
 
 2. Ridistribuire il gruppo di risorse. Esaminando il dashboard nel portale di Azure,si noti che il dashboard condiviso è stata aggiunto al proprio elenco di scelte.
 

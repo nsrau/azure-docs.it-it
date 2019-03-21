@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 07/03/2018
 ms.author: lahugh
 ms.custom: mvc
-ms.openlocfilehash: 4356ea57e73e063d18155611b8c11090aa11edb3
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: d478307ff4393d84a854fcd3b2ea0efd77de7135
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471216"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087840"
 ---
-# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Guida introduttiva: Eseguire il primo processo batch con il portale di Azure
+# <a name="quickstart-run-your-first-batch-job-in-the-azure-portal"></a>Avvio rapido: Eseguire il primo processo batch con il portale di Azure
 
 Questa guida introduttiva illustra come usare il portale di Azure per creare un account Batch, un *pool* di nodi di calcolo (macchine virtuali) e un *processo* che esegue *attività* di base nel pool. Dopo aver completato questa guida introduttiva, saranno chiari i concetti fondamentali del servizio Batch e sarà possibile provare Batch con carichi di lavoro più realistici su scala più ampia.
 
@@ -34,7 +34,7 @@ Seguire questa procedura per creare un account Batch di esempio a scopo di test.
 
 1. Selezionare **Crea una risorsa** > **Calcolo** > **Servizio Batch**. 
 
-  ![Batch in Marketplace][marketplace_portal]
+   ![Batch in Marketplace][marketplace_portal]
 
 2. Immettere i valori nei campi **Nome account** e **Gruppo di risorse**. Il nome dell'account deve essere univoco nella **località** di Azure selezionata, usare solo lettere minuscole o numeri e avere una lunghezza di 3-24 caratteri. 
 
@@ -42,7 +42,7 @@ Seguire questa procedura per creare un account Batch di esempio a scopo di test.
 
 4. Mantenere le impostazioni predefinite per le altre opzioni e selezionare **Crea** per creare l'account.
 
-  ![Creare un account Batch][account_portal]  
+   ![Creare un account Batch][account_portal]  
 
 Quando viene visualizzato il messaggio **La distribuzione è riuscita**, passare all'account Batch nel portale.
 
@@ -57,23 +57,23 @@ Ora che è disponibile un account Batch, creare un pool di esempio di nodi di ca
 
 3. In **Sistema operativo** selezionare le impostazioni seguenti (è possibile esplorare altre opzioni).
   
-  |Impostazione  |Valore  |
-  |---------|---------|
-  |**Tipo di immagine**|Marketplace (Linux/Windows)|
-  |**Autore**     |MicrosoftWindowsServer|
-  |**Offerta**     |WindowsServer|
-  |**Sku**     |2012-R2-Datacenter-smalldisk|
+   |Impostazione  |Valore  |
+   |---------|---------|
+   |**Tipo di immagine**|Marketplace (Linux/Windows)|
+   |**Autore**     |MicrosoftWindowsServer|
+   |**Offerta**     |WindowsServer|
+   |**Sku**     |2012-R2-Datacenter-smalldisk|
 
-  ![Selezionare un sistema operativo per il pool][pool_os] 
+   ![Selezionare un sistema operativo per il pool][pool_os] 
 
 4. Scorrere verso il basso per immettere le impostazioni di **Dimensioni nodo** e **Piano**. Le dimensioni consigliate per i nodi offrono un buon compromesso in termini di costi/prestazioni per questo esempio rapido.
   
-  |Impostazione  |Valore  |
-  |---------|---------|
-  |**Piano tariffario del nodo**     |Standard_A1|
-  |**Nodi dedicati target**     |2|
+   |Impostazione  |Valore  |
+   |---------|---------|
+   |**Piano tariffario del nodo**     |Standard_A1|
+   |**Nodi dedicati target**     |2|
 
-  ![Selezionare le dimensioni del pool][pool_size] 
+   ![Selezionare le dimensioni del pool][pool_size] 
 
 5. Mantenere le impostazioni predefinite per le altre opzioni e selezionare **OK** per creare il pool.
 
@@ -91,7 +91,7 @@ Dopo aver creato un pool, creare un processo da eseguire nel pool stesso. Un pro
 
 2. Immettere un **ID processo** denominato *myjob*. In **Pool** selezionare *mypool*. Mantenere le impostazioni predefinite per le altre opzioni e fare clic su **OK**.
 
-  ![Creare un processo][job_create]
+   ![Creare un processo][job_create]
 
 Dopo aver creato il processo si aprirà la pagina **Attività**.
 
@@ -109,7 +109,7 @@ Per creare la prima attività:
 
 3. In **Riga di comando** immettere `cmd /c "set AZ_BATCH & timeout /t 90 > NUL"`. Mantenere le impostazioni predefinite per le altre opzioni e fare clic su **OK**.
 
-  ![Crea un'attività][task_create]
+   ![Crea un'attività][task_create]
 
 Dopo aver creato un'attività, Batch la accoda per l'esecuzione nel pool. Quando è disponibile un nodo per l'esecuzione, l'attività viene eseguita.
 

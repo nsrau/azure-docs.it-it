@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: fcef143f48bc9e7864fe69900e3c9002fd597fb5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 264a1200ce78d85181650de716f9898033834bc0
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001869"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549834"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-python"></a>Avvio rapido: Creare una data factory e una pipeline con Python
 
@@ -45,7 +45,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
     John|Doe
     Jane|Doe
     ```
-2.  Usare strumenti come [Azure Storage Explorer](http://storageexplorer.com/) per creare il contenitore **adfv2tutorial** e la cartella **input** nel contenitore. Caricare quindi il file **input.txt** nella cartella **input**.
+2.  Usare strumenti come [Azure Storage Explorer](https://storageexplorer.com/) per creare il contenitore **adfv2tutorial** e la cartella **input** nel contenitore. Caricare quindi il file **input.txt** nella cartella **input**.
 
 ## <a name="install-the-python-package"></a>Installare il pacchetto Python
 
