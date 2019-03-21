@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: f8a5c12bb57a8f59960320c6227174b240bcbc3d
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 1f9d012754cdfa5b0f4c4e7a102d826080166484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864627"
 ---
 # <a name="row-level-security-with-power-bi-workspace-collections"></a>Sicurezza a livello di riga con le raccolte di aree di lavoro di Power BI
 
@@ -119,4 +119,4 @@ Al termine di queste procedure, se un utente accede all'applicazione per visuali
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Esempio di incorporamento con JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
+Altre domande? [Contattare la community di Power BI](https://community.powerbi.com/)

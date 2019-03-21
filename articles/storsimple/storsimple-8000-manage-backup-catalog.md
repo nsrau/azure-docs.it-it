@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.openlocfilehash: ac2577c6cd350d6d437d55e61ec73d954cb24893
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 07d9e03f1631ebce88a7a7c2e33be62f21dda522
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108379"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076786"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-backup-catalog"></a>Usare il servizio Gestione dispositivi StorSimple per gestire il catalogo di backup
 ## <a name="overview"></a>Panoramica
@@ -86,7 +86,7 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
 #### <a name="to-delete-a-backup-set"></a>Per eliminare un set di backup
  Passare al servizio Gestione dispositivi StorSimple e fare clic su **Catalogo di backup**.
-2. Filtrare le selezioni come segue:
+1. Filtrare le selezioni come segue:
    
    1. Specificare l'intervallo di tempo. 
    2. Selezionare un dispositivo appropriato. 
@@ -97,15 +97,15 @@ Eliminare un backup quando non si desidera più conservare i dati associati. Ese
 
       ![Passare a un catalogo di backup](./media/storsimple-8000-manage-backup-catalog/bucatalog1.png)
 
-3. Selezionare ed espandere un set di backup È ora possibile visualizzare i set di backup suddivisi in base ai volumi che contengono. Le opzioni **Ripristina** ed **Elimina** sono disponibili nel menu di scelta rapida del set di backup. Fare clic con il pulsante destro del mouse sul set di backup selezionato e scegliere **Elimina** dal menu di scelta rapida.
+1. Selezionare ed espandere un set di backup È ora possibile visualizzare i set di backup suddivisi in base ai volumi che contengono. Le opzioni **Ripristina** ed **Elimina** sono disponibili nel menu di scelta rapida del set di backup. Fare clic con il pulsante destro del mouse sul set di backup selezionato e scegliere **Elimina** dal menu di scelta rapida.
 
     ![Passare a un catalogo di backup](./media/storsimple-8000-manage-backup-catalog/bucatalog3.png)
 
-4. Quando viene richiesta la conferma, esaminare le informazioni visualizzate e quindi fare clic su **Elimina**. Il backup selezionato verrà eliminato definitivamente.
+1. Quando viene richiesta la conferma, esaminare le informazioni visualizzate e quindi fare clic su **Elimina**. Il backup selezionato verrà eliminato definitivamente.
 
     ![Passare a un catalogo di backup](./media/storsimple-8000-manage-backup-catalog/bucatalog4.png)  
 
-5. Verrà visualizzata una notifica dell'operazione di eliminazione in corso e del corretto completamento. Al termine dell'eliminazione, aggiornare la query nella pagina. Il set di backup eliminato non verrà più visualizzato nell'elenco dei set di backup.
+1. Verrà visualizzata una notifica dell'operazione di eliminazione in corso e del corretto completamento. Al termine dell'eliminazione, aggiornare la query nella pagina. Il set di backup eliminato non verrà più visualizzato nell'elenco dei set di backup.
 
     ![Passare a un catalogo di backup](./media/storsimple-8000-manage-backup-catalog/bucatalog7.png)
 

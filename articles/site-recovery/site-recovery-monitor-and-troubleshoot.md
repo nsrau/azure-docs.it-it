@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 11/27/2018
 ms.author: bsiva
-ms.openlocfilehash: 48e53bcc542b9a0e00a544f80ec796082fa71f7b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 5bbde2f1059982424c2557d6a767692b3491f6aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55210421"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098475"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Monitorare e risolvere i problemi di Azure Site Recovery
 
@@ -84,7 +84,7 @@ La sezione **Riepilogo errori** visualizza i sintomi di errore attualmente attiv
 In **Visualizzazione dell'infrastruttura** vengono mostrati i componenti dell'infrastruttura coinvolti nella replica e l'integrità della connettività tra i server e i servizi di Azure.
 
 - Una linea verde indica che la connessione è integra.
-- Una linea rossa con un'icona di errore sovrapposta indica la presenza di uno o più sintomi di errore che influiscono sulla connettività.
+- Una linea rossa con l'icona di errore sovrapposta indica l'esistenza di uno o più sintomi di errore che la connettività di impatto.
 -  Passare il puntatore del mouse sopra l'icona di errore per visualizzare l'errore e il numero di entità interessate. Fare clic sull'icona per visualizzare un elenco filtrato delle entità interessate.
 
     ![Visualizzazione dell'infrastruttura di Site Recovery (insieme di credenziali)](./media/site-recovery-monitor-and-troubleshoot/site-recovery-vault-infra-view.png)
@@ -98,9 +98,9 @@ In **Visualizzazione dell'infrastruttura** vengono mostrati i componenti dell'in
     **Scenario** | **State**  | **Visualizzazione disponibile?**
     --- |--- | ---
     **Replica tra siti locali** | Tutti gli stati | No  
-    **Replica di VM di Azure tra aree di Azure**  | Replica abilitata/replica iniziale in corso | Yes
+    **Replica di VM di Azure tra aree di Azure**  | Replica abilitata/replica iniziale in corso | Sì
     **Replica di VM di Azure tra aree di Azure** | Failover/failback | No    
-    **Replica VMware in Azure** | Replica abilitata/replica iniziale in corso | Yes     
+    **Replica VMware in Azure** | Replica abilitata/replica iniziale in corso | Sì     
     **Replica VMware in Azure** | Failover/failback | No       
     **Replica Hyper-V in Azure** | Failover/failback | No 
 
@@ -149,19 +149,19 @@ Monitorare i processi come indicato di seguito:
     ![Visualizzazione dell'elenco Elementi replicati di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-list-view.png)
 
 2. Nella pagina **Elementi replicati** è possibile visualizzare e filtrare le informazioni. Dal menu Azione nella parte superiore è possibile eseguire azioni per una determinata macchina, ad esempio l'esecuzione un failover di test o la visualizzazione di errori specifici.
-3.  Fare clic su **Colonne** per visualizzare colonne aggiuntive, ad esempio l'obiettivo RPO, i problemi di configurazione della destinazione e gli errori di replica.
+3. Fare clic su **Colonne** per visualizzare colonne aggiuntive, ad esempio l'obiettivo RPO, i problemi di configurazione della destinazione e gli errori di replica.
 4. Fare clic su **Filtro** per visualizzare le informazioni in base a parametri specifici, ad esempio l'integrità della replica o criteri di replica specifici.
 5. Fare clic con il pulsante destro del mouse su una macchina per avviare operazioni come il failover di test o per visualizzare i dettagli degli specifici errori.
 6. Fare clic su una macchina per visualizzare maggiori dettagli su di essa. I dettagli includono:
-      - **Informazioni replica**: stato corrente e integrità della macchina.
-      - **RPO** (obiettivo del punto di ripristino): RPO corrente per la macchina virtuale e ora dell'ultimo calcolo dell'RPO.
-      - **Punti di ripristino**: punti di ripristino disponibili più recenti per la macchina.
-      - **Conformità failover**: indica se è stato eseguito un failover di test per la macchina, la versione dell'agente in esecuzione nella macchina (per le macchine che eseguono il servizio Mobility) ed eventuali problemi di configurazione.
-      - **Errori**: elenco di sintomi di errore di replica attualmente osservati nella macchina, con le possibili cause e azioni.
-      - **Eventi**: elenco cronologico di eventi recenti con conseguenze sulla macchina. I dettagli dell'errore indicano i sintomi di errore attualmente osservabili, mentre gli eventi sono costituiti da una registrazione cronologica dei problemi che potrebbero avere avuto effetto sulla macchina.
-      - **Visualizzazione dell'infrastruttura**: mostra lo stato dell'infrastruttura per lo scenario durante la replica delle macchine in Azure.
+   - **Informazioni replica**: stato corrente e integrità della macchina.
+   - **RPO** (obiettivo del punto di ripristino): RPO corrente per la macchina virtuale e ora dell'ultimo calcolo dell'RPO.
+   - **Punti di ripristino**: punti di ripristino disponibili più recenti per la macchina.
+   - **Conformità failover**: indica se è stato eseguito un failover di test per la macchina, la versione dell'agente in esecuzione nella macchina (per le macchine che eseguono il servizio Mobility) ed eventuali problemi di configurazione.
+   - **Errori**: elenco di sintomi di errore di replica attualmente osservati nella macchina, con le possibili cause e azioni.
+   - **Eventi**: elenco cronologico di eventi recenti con conseguenze sulla macchina. I dettagli dell'errore indicano i sintomi di errore attualmente osservabili, mentre gli eventi sono costituiti da una registrazione cronologica dei problemi che potrebbero avere avuto effetto sulla macchina.
+   - **Visualizzazione dell'infrastruttura**: mostra lo stato dell'infrastruttura per lo scenario durante la replica delle macchine in Azure.
 
-    ![Dettagli/Panoramica degli elementi replicati di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
+     ![Dettagli/Panoramica degli elementi replicati di Site Recovery](./media/site-recovery-monitor-and-troubleshoot/site-recovery-virtual-machine-details.png)
 
 
 ### <a name="common-questions"></a>Domande frequenti
@@ -191,7 +191,7 @@ Monitorare i processi come indicato di seguito:
 Eseguire la sottoscrizione come indicato di seguito:
 
 Nell'insieme di credenziali > **Monitoraggio e report** fare clic su **Eventi di Site Recovery**.
-2. Fare clic su **Notifiche tramite posta elettronica**.
-3. In **Notifiche tramite posta elettronica** attivare le notifiche e specificare i destinatari. È possibile inviare le notifiche a tutti gli amministratori della sottoscrizione e facoltativamente a specifici indirizzi di posta elettronica.
+1. Fare clic su **Notifiche tramite posta elettronica**.
+1. In **Notifiche tramite posta elettronica** attivare le notifiche e specificare i destinatari. È possibile inviare le notifiche a tutti gli amministratori della sottoscrizione e facoltativamente a specifici indirizzi di posta elettronica.
 
     ![Notifiche tramite posta elettronica](./media/site-recovery-monitor-and-troubleshoot/email.png)

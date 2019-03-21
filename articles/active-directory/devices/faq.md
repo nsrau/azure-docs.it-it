@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31e380379b5237f6b1a72b3427eb857f64d55c2e
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: eaaad0d7351c398c9b2cc013f40d62461a2dd3f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56269060"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57845531"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -36,7 +36,7 @@ Sotto **Dispositivi utente** vengono elencati solo i dispositivi seguenti:
 - Tutti i dispositivi non Windows 10 o Windows Server 2016.
 - Tutti i dispositivi non Windows. 
 
---- 
+---
 
 **D: Come è possibile conoscere lo stato di registrazione del dispositivo client?**
 
@@ -86,6 +86,12 @@ Per le versioni del sistema operativo Windows di livello inferiore aggiunte a un
 -   Per le versioni di sistemi operativi Windows di livello inferiore aggiunte a un dominio Azure Directory locale, la registrazione automatica crea un nuovo record di dispositivo con lo stesso nome per ogni utente del dominio che accede al dispositivo. 
 
 -   Un computer aggiunto ad Azure AD cancellato, reinstallato e aggiunto nuovamente con lo stesso nome viene visualizzato con un record diverso ma con lo stesso nome dispositivo.
+
+---
+
+**D: Registrazione del dispositivo Windows 10 in Azure AD supporta i moduli TPM in modalità FIPS?**
+
+**R:** No, attualmente la registrazione dei dispositivi in Windows 10 per tutti gli stati di dispositivo - aggiunta all'identità ibrida di Azure AD, l'aggiunta ad Azure AD e registrati in Azure AD - non supporta TPM in modalità FIPS. Per partecipare o registrarsi ad Azure AD correttamente, deve essere disattivata per i TPM su tali dispositivi in modalità FIPS
 
 ---
 
@@ -231,7 +237,13 @@ Lo stato di aggiunto ad Azure AD ibrido ha la precedenza rispetto allo stato di 
 
 **D: I dispositivi aggiunti ad Azure AD ibrido di Windows 10 richiedono la comunicazione diretta con il controller di dominio per avere accesso alle risorse cloud?**
 
-**R:**  No. Dopo che l'aggiunta ad Azure AD ibrido di Windows 10 è stata completata e che l'utente ha eseguito l'accesso almeno una volta, il dispositivo non richiede la comunicazione diretta con il controller di dominio per accedere alle risorse cloud. Windows 10 può avere l'accesso Single Sign-On alle applicazioni Azure AD da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Se una password viene modificata all'esterno della rete aziendale, ad esempio mediante la reimpostazione della password self-service di Azure AD, l'utente deve avere la comunicazione diretta con il controller di dominio prima di poter eseguire l'accesso al dispositivo con la nuova password. In caso contrario, l'utente può accedere solo con la password precedente, la quale però viene invalidata da Azure AD, il che impedisce l'accesso Single Sign-On. Questo problema tuttavia non si verifica quando si usa Windows Hello for Business. Gli utenti che accedono con Windows Hello for Business continueranno ad avere l'accesso Single Sign-On alle applicazioni Azure AD dopo la modifica della password, anche se non hanno la comunicazione diretta con il controller di dominio. 
+**R:** In genere no, tranne quando viene modificata la password dell'utente. Dopo che l'aggiunta ad Azure AD ibrido di Windows 10 è stata completata e che l'utente ha eseguito l'accesso almeno una volta, il dispositivo non richiede la comunicazione diretta con il controller di dominio per accedere alle risorse cloud. Windows 10 può avere l'accesso Single Sign-On alle applicazioni Azure AD da qualsiasi posizione con una connessione Internet, tranne quando viene modificata una password. Accedi con Windows Hello for Business continuano a ricevere solo gli utenti accedano alle applicazioni di Azure AD anche dopo che una modifica della password, anche se non hanno comunichi con il controller di dominio. 
+
+---
+
+**D: Cosa accade se un utente modifica la propria password e tenta di accedere a relativi ad Azure AD ibrido di Windows 10 aggiunti al dispositivo esterno alla rete aziendale?**
+
+**R:** Se viene modificata una password all'esterno della rete azienda (ad esempio, usando Azure AD SSPR), l'account di accesso utente con la nuova password avrà esito negativo. Per i dispositivi aggiunti ad Azure AD ibrido, in Active Directory locale è l'autorità principale. Quando un dispositivo non dispone di comunichi con il controller di dominio, non è in grado di convalidare la nuova password. Pertanto, è necessario stabilire una connessione con il controller di dominio (sia tramite la VPN o in corso nella rete aziendale) prima che sia in grado di accedere al dispositivo con la nuova password. In caso contrario, può accedere solo con la vecchia password a causa di funzionalità di accesso memorizzato nella cache in Windows. Tuttavia, la vecchia password non viene invalidata tramite Azure AD durante le richieste di token e di conseguenza, impedisce l'accesso single sign in e si verifica un errore di eventuali criteri di accesso condizionale basato su dispositivo. Se si usa Windows Hello for Business, non si verifica questo problema. 
 
 ---
 

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: kexia
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 807643146c4f2821cecf60499ea1985f56e9d251
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9fb657d2c2cd4eeae0eb96dd37505a1c47278725
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168596"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58103061"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
 Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un aspetto coerente per le pagine di accesso di Azure Active Directory (Azure AD). La pagina di accesso viene visualizzata quando si accede alle applicazioni basate sul Web dell'organizzazione, come Office 365, che usano Azure AD come provider di identità.
@@ -29,7 +29,7 @@ Usare il logo e combinazioni colori personalizzate dell'azienda per offrire un a
 ## <a name="customize-your-azure-ad-sign-in-page"></a>Personalizzare la pagina di accesso di Azure AD
 È possibile personalizzare le pagine di accesso di Azure AD che vengono visualizzate quando gli utenti accedono alle applicazioni specifiche del tenant dell'organizzazione, quali [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), o passando la variabile del dominio, ad esempio [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
 
-Le personalizzazioni distintive non verranno visualizzate immediatamente quando gli utenti accedono a siti come www.office.com. L'utente dovrà effettuare invece l'accesso prima che vengano visualizzate le informazioni distintive.
+Le impostazioni di personalizzazione non verrà immediatamente visualizzata quando gli utenti accedono ai siti, ad esempio, www\.office.com. L'utente dovrà effettuare invece l'accesso prima che vengano visualizzate le informazioni distintive.
 
 > [!NOTE]
 > Tutti gli elementi personalizzati distintivi sono facoltativi. Se, ad esempio, si specifica un logo del banner senza immagine di sfondo, la pagina di accesso mostrerà il logo con un'immagine di sfondo predefinita ricavata dal sito di destinazione, ad esempio Office 365.<br><br>Inoltre, la personalizzazione della pagina di accesso non si applica agli account Microsoft personali. Se gli utenti o gli utenti guest aziendali accedono mediante un account Microsoft personale, la pagina di accesso non rifletterà le informazioni personalizzate distintive dell'azienda.
@@ -103,7 +103,7 @@ Dopo aver creato le informazioni personalizzate distintive dell'azienda, è poss
 
 4. Selezionare **Salva**.
 
-  Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la personalizzazione della pagina di accesso venga visualizzata.
+   Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la personalizzazione della pagina di accesso venga visualizzata.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Per aggiungere alla directory informazioni personalizzate distintive dell'azienda specifiche di una lingua
 Non è possibile modificare la lingua della configurazione originale dalla lingua predefinita. Tuttavia, se è necessaria una configurazione in una lingua diversa, è possibile creare una nuova configurazione.

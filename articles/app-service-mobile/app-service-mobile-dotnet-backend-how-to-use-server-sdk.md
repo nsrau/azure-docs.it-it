@@ -15,12 +15,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 33e968ac608c393d65f69bfd6abbc0d205fb9bd9
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: 195a2dd88f443120f337ba441358389f0dc290f8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53718878"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078789"
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Usare l'SDK del server back-end .NET per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -263,7 +263,7 @@ Per informazioni su come autenticare i client nel back-end di App per dispositiv
 > Per abilitare l'autenticazione personalizzata, è prima necessario abilitare l'autenticazione del servizio app senza selezionare un provider per il servizio app nel portale di Azure. In tal modo, viene abilitata la variabile di ambiente WEBSITE_AUTH_SIGNING_KEY quando ospitata.
 > 
 > 
-Se non si vuole usare uno dei provider di autenticazione/autorizzazione del servizio app, è possibile implementare il proprio sistema di accesso. Installare il pacchetto [Microsoft.Azure.Mobile.Server.Login] per facilitare la generazione dei token di autenticazione.  Fornire il proprio codice per la convalida delle credenziali utente. È possibile, ad esempio, confrontare le password con salting e hashing in un database. Nell'esempio seguente il metodo `isValidAssertion()` (definito altrove) è responsabile di questi controlli.
+> Se non si vuole usare uno dei provider di autenticazione/autorizzazione del servizio app, è possibile implementare il proprio sistema di accesso. Installare il pacchetto [Microsoft.Azure.Mobile.Server.Login] per facilitare la generazione dei token di autenticazione.  Fornire il proprio codice per la convalida delle credenziali utente. È possibile, ad esempio, confrontare le password con salting e hashing in un database. Nell'esempio seguente il metodo `isValidAssertion()` (definito altrove) è responsabile di questi controlli.
 
 L'autenticazione personalizzata viene esposta creando un ApiController ed esponendo le azioni `register` e `login`. Il client dovrà usare un'interfaccia utente personalizzata per raccogliere le informazioni dall'utente.  Le informazioni vengono quindi inviate all'API con una chiamata HTTP POST standard. Dopo la convalida dell'asserzione da parte del server, viene rilasciato un token con il metodo `AppServiceLoginHandler.CreateToken()` .  ApiController **non dovrà** usare l'attributo `[MobileAppController]`.
 

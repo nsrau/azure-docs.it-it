@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/16/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d08b1f3889136fadee68b3aa95d879b0495bddb1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: fce7653770d0fb3134f266137e167125b9161865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yonyx-interactive-guides"></a>Esercitazione: Integrazione di Azure Active Directory con Yonyx Interactive Guides
 
@@ -174,8 +174,8 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in Yonyx Int
 
 Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Yonyx Interactive Guides viene creato un nuovo utente, se questo non esiste già.
 
->[!NOTE]
->Per creare un utente manualmente è necessario contattare il team di supporto di Yonyx Interactive Guides all'indirizzo <mailto:support@yonyx.com>. 
+> [!NOTE]
+> Per creare un utente manualmente è necessario contattare il team di supporto di Yonyx Interactive Guides all'indirizzo <mailto:support@yonyx.com>. 
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 

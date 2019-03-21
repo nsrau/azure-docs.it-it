@@ -14,12 +14,12 @@ ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d9a60544f01048cd90605306e64d750982bf7a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3b91e2c15e86cdda4daab27892fa7a2b6ed0c0e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200548"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008912"
 ---
 # <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Visualizzare la cronologia dei controlli per i ruoli della directory di Azure AD in PIM
 È possibile usare la cronologia dei controlli di Privileged Identity Management (PIM) per visualizzare tutte le assegnazioni utente e le attivazioni in un determinato periodo di tempo per tutti i ruoli con privilegi. Se si desidera visualizzare la cronologia di controllo completa dell'attività nel tenant, inclusi amministratore, utente finale e attività di sincronizzazione, è possibile usare i [report di accesso e utilizzo di Azure Active Directory.](../reports-monitoring/overview-reports.md)
@@ -27,10 +27,10 @@ ms.locfileid: "56200548"
 ## <a name="navigate-to-audit-history"></a>Passare alla cronologia dei controlli
 Nel dashboard del [portale di Azure](https://portal.azure.com) selezionare l'app **Azure AD Privileged Identity Management** . Da questo punto è possibile accedere alla cronologia dei controlli facendo clic su **Gestione dei ruoli con privilegi** > **Cronologia dei controlli** nel dashboard di PIM.
 
-![](media/azure-ad-pim-approval-workflow/image021.png)
+![Cronologia dei controlli](media/azure-ad-pim-approval-workflow/image021.png)
 
->[!NOTE]
-È possibile ordinare i dati per azione e ricercare “L’attivazione è stata approvata”.
+> [!NOTE]
+> È possibile ordinare i dati per azione e ricercare “L’attivazione è stata approvata”.
 
 
 ## <a name="audit-history-graph"></a>Grafico della cronologia dei controlli

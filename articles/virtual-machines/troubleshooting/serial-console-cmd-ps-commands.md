@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 6eb0ce9098b5cc5f66035851c6837e9e46fcf2df
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.openlocfilehash: 55b7e45bb9e600267e1dad0e36e9a97eca9a7d40
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47412864"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074999"
 ---
 # <a name="windows-commands---cmd-and-powershell"></a>Comandi di Windows - CMD e PowerShell
 
@@ -118,7 +118,7 @@ Se limitato ai metodi disponibili in Windows per impostazione predefinita, Power
 ### <a name="disable-windows-firewall"></a>Disabilitare Windows Firewall
 `netsh advfirewall set allprofiles state off`
 
-Per escludere temporaneamente Windows Firewall, è possibile usare questo comando durante la risoluzione dei problemi. Verrà abilitato al riavvio successivo o quando lo si abilita usando il comando indicato sotto. Non arrestare il servizio Windows Firewall (MPSSVC) o il servizio Base Filtering Engine (BFE) per escludere Windows Firewall. L'arresto di MPSSVC o BFE determinerà il blocco di tutta la connettività.
+Per escludere temporaneamente Windows Firewall, è possibile usare questo comando durante la risoluzione dei problemi. Sarà possibile consentire al riavvio successivo o quando si abilita tramite il comando riportato di seguito. Non arrestare il servizio Windows Firewall (MPSSVC) o il servizio Base Filtering Engine (BFE) per escludere Windows Firewall. L'arresto di MPSSVC o BFE determinerà il blocco di tutta la connettività.
 ### <a name="enable-windows-firewall"></a>Abilitare Windows Firewall
 `netsh advfirewall set allprofiles state on`
 ## <a name="manage-users-and-groups"></a>Gestire utenti e gruppi
@@ -247,8 +247,8 @@ Per eseguire PowerShell in SAC, dopo avere raggiunto un prompt CMD, digitare:
 
 `powershell <enter>`
 
->[!CAUTION]
-Rimuovere il modulo PSReadLine dalla sessione di PowerShell prima di eseguire altri comandi di PowerShell. Esiste un problema noto per cui possono essere introdotti caratteri aggiuntivi nel testo incollato dagli Appunti se PSReadLine è in esecuzione in una sessione di PowerShell in SAC.
+> [!CAUTION]
+> Rimuovere il modulo PSReadLine dalla sessione di PowerShell prima di eseguire altri comandi di PowerShell. Esiste un problema noto per cui possono essere introdotti caratteri aggiuntivi nel testo incollato dagli Appunti se PSReadLine è in esecuzione in una sessione di PowerShell in SAC.
 
 Controllare prima di tutto se PSReadLine viene caricato. Viene caricato per impostazione predefinita in Windows Server 2016, Windows 10 e versioni successive di Windows. È presente nelle versioni precedenti di Windows solo se è stato installato manualmente. 
 

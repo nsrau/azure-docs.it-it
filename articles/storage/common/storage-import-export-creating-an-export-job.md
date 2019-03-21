@@ -8,44 +8,44 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 33234c03a3e691a95e61f825a0351cf481431294
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: e0513bc18f1cf14beb4c1becfc1835235a5ddc96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731395"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092226"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Creazione di un processo di esportazione per Importazione/Esportazione di Azure
 La creazione di un processo di esportazione per il servizio Importazione/Esportazione di Microsoft Azure con l'API REST prevede i passaggi seguenti:
 
--   Selezione dei BLOB da esportare.
+- Selezione dei BLOB da esportare.
 
--   Acquisizione di una località di spedizione.
+- Acquisizione di una località di spedizione.
 
--   Creazione del processo di esportazione.
+- Creazione del processo di esportazione.
 
--   Spedizione delle unità vuote a Microsoft tramite un vettore supportato.
+- Spedizione delle unità vuote a Microsoft tramite un vettore supportato.
 
--   Aggiornamento del processo di esportazione con le informazioni del pacchetto.
+- Aggiornamento del processo di esportazione con le informazioni del pacchetto.
 
--   Ricezione delle unità da Microsoft.
+- Ricezione delle unità da Microsoft.
 
- Vedere [Uso del servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati all'archivio BLOB](storage-import-export-service.md) per una panoramica del servizio Importazione/Esportazione e un'esercitazione che illustra come usare il [portale di Azure](https://portal.azure.com/) per creare e gestire i processi di importazione ed esportazione.
+  Vedere [Uso del servizio Importazione/Esportazione di Microsoft Azure per trasferire i dati all'archivio BLOB](storage-import-export-service.md) per una panoramica del servizio Importazione/Esportazione e un'esercitazione che illustra come usare il [portale di Azure](https://portal.azure.com/) per creare e gestire i processi di importazione ed esportazione.
 
 ## <a name="selecting-blobs-to-export"></a>Selezione dei BLOB da esportare
  Per creare un processo di esportazione, sarà necessario specificare un elenco di BLOB che si vuole esportare dall'account di archiviazione. È possibile selezionare i BLOB da esportare in modi diversi:
 
--   È possibile usare un percorso BLOB relativo per selezionare un singolo BLOB e tutti gli snapshot.
+- È possibile usare un percorso BLOB relativo per selezionare un singolo BLOB e tutti gli snapshot.
 
--   È possibile usare un percorso BLOB relativo per selezionare un singolo BLOB escludendo gli snapshot.
+- È possibile usare un percorso BLOB relativo per selezionare un singolo BLOB escludendo gli snapshot.
 
--   È possibile usare un percorso BLOB relativo e un tempo di snapshot per selezionare un singolo snapshot.
+- È possibile usare un percorso BLOB relativo e un tempo di snapshot per selezionare un singolo snapshot.
 
--   È possibile usare un prefisso BLOB per selezionare tutti i BLOB e gli snapshot con il prefisso specificato.
+- È possibile usare un prefisso BLOB per selezionare tutti i BLOB e gli snapshot con il prefisso specificato.
 
--   È possibile esportare tutti i BLOB e gli snapshot nell'account di archiviazione.
+- È possibile esportare tutti i BLOB e gli snapshot nell'account di archiviazione.
 
- Per altre informazioni sulla specifica dei BLOB da esportare, vedere l'operazione [Put Job](/rest/api/storageimportexport/jobs).
+  Per altre informazioni sulla specifica dei BLOB da esportare, vedere l'operazione [Put Job](/rest/api/storageimportexport/jobs).
 
 ## <a name="obtaining-your-shipping-location"></a>Acquisizione della località di spedizione
 Prima di creare un processo di esportazione, è necessario ottenere il nome e l'indirizzo di una località di spedizione chiamando l'operazione [Get Location](https://portal.azure.com) o [List Locations](https://docs.microsoft.com/rest/api/storageimportexport/locations/list). `List Locations` restituirà un elenco di località con gli indirizzi postali. È possibile selezionare una posizione dall'elenco restituito e spedire i dischi rigidi a tale indirizzo. È anche possibile usare l'operazione `Get Location` per ottenere direttamente l'indirizzo di spedizione di una posizione specifica.

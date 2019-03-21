@@ -5,18 +5,26 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 3/14/2019
 ms.author: mayg
-ms.openlocfilehash: d1e406567b5f56f6ad08e4d276202ebf43d92534
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 8a36a80903a47bb4163666baf86ed8dac13a00de
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093838"
 ---
 # <a name="review-the-cost-estimation-report-in-the-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Esaminare il report della stima dei costi in Azure Site Recovery Deployment Planner per il ripristino di emergenza da VMware ad Azure
 
 Il report di Deployment Planner offre il riepilogo della stima dei costi nei fogli [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations) (Raccomandazioni) e l'analisi dettagliata dei costi nel foglio Cost Estimation (Stima costi), che contiene l'analisi dettagliata dei costi per VM. 
+
+>[!Note]
+>La versione corrente di strumento Deployment planner non fornisce la stima dei costi per le VM di replica a Managed Disks.
+>* Le stime dei costi di DR Drill sono gli stessi per gli account di archiviazione e i dischi gestiti, quando il parametro 'Usare Managed Disks' è impostato su "Sì" nel pannello "Calcolo e rete".
+>* Per ottenere una stima dei costi annuali approssimativa per la replica, effettuare le seguenti impostazioni temporanee sul **stima dei costi** foglio:
+>    * Impostare il parametro "Costo di durata" nella **impostazioni** tabella a "Year"
+>    * Nella **Detailed analisi dei costi** di tabella, la colonna "Number of DR-Drills in un anno" impostata su 12 e "Each DR-Drill duration (giorni)" e 30 
+>    * Il costo della replica sarà simile al costo popolato nel costo di archiviazione di 'R', ovvero DR-Drill di colonna per ogni anno in **DR-Drill di costo per ogni anno** sottosezione.
 
 ### <a name="cost-estimation-summary"></a>Riepilogo della stima dei costi 
 Il grafico offre la visualizzazione di riepilogo del costo stimato totale del ripristino di emergenza in Azure per l'area di destinazione scelta e la valuta specificata per la generazione del report.
@@ -106,9 +114,9 @@ Per aggiungere manualmente le VM:
 * Ridondanza dei dati 
 * Vantaggio Azure Hybrid
 
-3.  È possibile applicare lo stesso valore a tutte le VM nella tabella facendo clic sul pulsante "Apply to all" (Applica a tutte) per il numero di esercitazioni sul ripristino di emergenza in un anno, la durata di ogni esercitazione sul ripristino di emergenza (in giorni), la ridondanza dei dati e il vantaggio Azure Hybrid Use.
+1. È possibile applicare lo stesso valore a tutte le VM nella tabella facendo clic sul pulsante "Apply to all" (Applica a tutte) per il numero di esercitazioni sul ripristino di emergenza in un anno, la durata di ogni esercitazione sul ripristino di emergenza (in giorni), la ridondanza dei dati e il vantaggio Azure Hybrid Use.
 
-4.  Fare clic su "Re-calculate cost" (Ricalcola costo) per aggiornare il costo.
+1. Fare clic su "Re-calculate cost" (Ricalcola costo) per aggiornare il costo.
 
 **Nome macchina virtuale**: Nome della macchina virtuale.
 
@@ -156,7 +164,7 @@ Azure Site Recovery Deployment Planner può generare il report dei costi con una
 |IDR|Rupia indonesiana (Rp)||INR|Rupia indiana (₹)||JPY|Yen giapponese (¥)|
 |KRW|Won coreano (₩)||MXN|Peso messicano (MXN$)||MYR|Ringgit malese (RM$)|
 |NOK|Corona norvegese (kr)||NZD|Dollaro neozelandese ($)||RUB|Rublo russo (руб)|
-|SAR|Riyal saudita (SR)||SEK|Corona svedese (kr)||TWD|Dollaro taiwanese (NT$)|
+|SAR|Riyal saudita (R)||SEK|Corona svedese (kr)||TWD|Dollaro taiwanese (NT$)|
 |TRY|Lira turca (TL)||USD| Dollaro USA ($)||ZAR|Rand sudafricano (R)|
 
 ## <a name="next-steps"></a>Passaggi successivi

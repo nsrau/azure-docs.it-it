@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a81754b9b95c7cc6e257707aec188abf1dab58c3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6ed8bae32cb8d0680b1f9aa66f26407c3313ea06
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077820"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Esercitazione: configurare Tableau Online per il provisioning utenti automatico
 
@@ -106,13 +106,13 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 5. Nella sezione **Credenziali amministratore** completare i campi **Dominio**, **Nome utente amministratore**, **Password amministratore** e **URL del contenuto dell'account Tableau Online**:
 
-    *   Nel campo **Dominio** inserire il sottodominio come descritto nel passaggio 6.
+   * Nel campo **Dominio** inserire il sottodominio come descritto nel passaggio 6.
 
-    *   Nel campo **Nome utente amministratore** immettere il nome utente dell'account amministratore nel tenant di Clarizen. Esempio: admin@contoso.com.
+   * Nel campo **Nome utente amministratore** immettere il nome utente dell'account amministratore nel tenant di Clarizen. Esempio: admin@contoso.com.
 
-    *   Nel campo **Password amministratore** inserire la password dell'account amministratore corrispondente al nome utente amministratore.
+   * Nel campo **Password amministratore** inserire la password dell'account amministratore corrispondente al nome utente amministratore.
 
-    *   Nel campo **URL del contenuto** inserire il sottodominio come descritto nel passaggio 6.
+   * Nel campo **URL del contenuto** inserire il sottodominio come descritto nel passaggio 6.
 
 6. Dopo avere effettuato l'accesso al proprio account amministrativo di Tableau Online, i valori per **Dominio** e **URL del contenuto** possono essere estratti dall'URL della pagina di amministrazione.
 

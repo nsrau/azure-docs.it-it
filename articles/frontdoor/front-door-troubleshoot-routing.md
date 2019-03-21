@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 78370b004d18f70ae4d485f3ad7cfd910e6dd70a
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
-ms.translationtype: HT
+ms.openlocfilehash: 7a261d65a7bd3eea150dd764c65b94ddd47466b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046170"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100310"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Risoluzione dei più frequenti problemi di routing
 Questo articolo descrive come risolvere alcuni dei problemi di routing comuni che possono verificarsi per la configurazione del servizio Frontdoor di Azure. 
@@ -28,7 +28,7 @@ Questo articolo descrive come risolvere alcuni dei problemi di routing comuni ch
 ### <a name="symptom"></a>Sintomo
 - È stato creato un Frontdoor, ma una richiesta all'host del front-end restituisce un codice di stato HTTP 400.
 
- - È stato creato un mapping DNS da un dominio personalizzato all'host del front-end che è stato configurato. Tuttavia, l'invio di una richiesta al nome host del dominio personalizzato restituisce un codice di stato HTTP 400 e non viene visualizzata per indirizzare il back-end che è stato configurato.
+  - È stato creato un mapping DNS da un dominio personalizzato all'host del front-end che è stato configurato. Tuttavia, l'invio di una richiesta al nome host del dominio personalizzato restituisce un codice di stato HTTP 400 e non viene visualizzata per indirizzare il back-end che è stato configurato.
 
 ### <a name="cause"></a>Causa
 - Questo problema può verificarsi se non è stata configurata una regola di gestione per il dominio personalizzato che è stato aggiunto come host front-end. Una regola di gestione deve essere aggiunta in modo esplicito per l'host front-end, anche se è già stato configurato per l'host del front-end nel sottodominio Frontdoor (*. azurefd.net) su cui il dominio personalizzato ha eseguito il mapping DNS.
@@ -54,11 +54,11 @@ Le cause del problema possono essere diverse:
     - Assicurarsi di avere atteso ~ 10 minuti per la distribuzione della configurazione.
 
 2. Controllare le impostazioni di back-end
-     - Passare al pool di back-end a cui la richiesta deve essere indirizzata (dipende dalla modalità con cui è stata configurata la regola di gestione) e verificare che il _tipo di host di back-end_ e il nome host di back-end siano corretti. Se il back-end è un host personalizzato, assicurarsi che sia stato digitato correttamente. 
+   - Passare al pool di back-end a cui la richiesta deve essere indirizzata (dipende dalla modalità con cui è stata configurata la regola di gestione) e verificare che il _tipo di host di back-end_ e il nome host di back-end siano corretti. Se il back-end è un host personalizzato, assicurarsi che sia stato digitato correttamente. 
 
-     - Controllare le porte HTTP e HTTPS. Nella maggior parte dei casi, 80 e 443 (rispettivamente), sono corretti e non sarà necessaria alcuna modifica. Tuttavia, è probabile che il back-end non sia configurato in questo modo e sia in ascolto su una porta diversa.
+   - Controllare le porte HTTP e HTTPS. Nella maggior parte dei casi, 80 e 443 (rispettivamente), sono corretti e non sarà necessaria alcuna modifica. Tuttavia, è probabile che il back-end non sia configurato in questo modo e sia in ascolto su una porta diversa.
 
-    - Verificare l'_intestazione host di back-end_ configurata per il back-end a cui l'host di front-end deve essere indirizzato. Nella maggior parte dei casi, questa intestazione deve essere la stessa del _nome host di back-end_. Tuttavia, un valore non corretto può causare diversi codici di stato HTTP 4xx se il back-end prevede un elemento diverso. Se si immette l'indirizzo IP del back-end, potrebbe essere necessario impostare l'_intestazione host di back-end_ sul nome host di back-end.
+     - Verificare l'_intestazione host di back-end_ configurata per il back-end a cui l'host di front-end deve essere indirizzato. Nella maggior parte dei casi, questa intestazione deve essere la stessa del _nome host di back-end_. Tuttavia, un valore non corretto può causare diversi codici di stato HTTP 4xx se il back-end prevede un elemento diverso. Se si immette l'indirizzo IP del back-end, potrebbe essere necessario impostare l'_intestazione host di back-end_ sul nome host di back-end.
 
 
 3. Controllare le impostazioni delle regole di gestione

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 12/13/2018
 ms.author: genli
-ms.openlocfilehash: b5e3e84ce8f8b4b364b2fa69dda0b0091db25b6d
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 0988902e0a2154f2935a01ddcfb6a460be693df3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329780"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093804"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure
 Prima di caricare una macchina virtuale di Windows dall'ambiente locale a Microsoft Azure, è necessario preparare il disco rigido virtuale, VHD o VHDX. Azure supporta **solo macchine virtuali di prima generazione** nel formato di file VHD e con un disco a dimensione fissa. La dimensione massima consentita per il disco rigido virtuale è 1023 GB. È possibile convertire una VM di prima generazione dal file system VHDX a VHD e da un disco a espansione dinamica a un disco a dimensione fissa. Non è tuttavia possibile modificare la generazione di una macchina virtuale. Per altre informazioni, vedere [Should I create a generation 1 or 2 VM in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v) (Creare una macchina virtuale di prima o seconda generazione in Hyper-V).
@@ -320,14 +320,14 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
 
 9. Controllare i seguenti criteri AD per assicurarsi di non rimuovere uno dei seguenti account di accesso necessari:
 
-    - Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti utente\Accesso a questo calcolo dalla rete
+   - Configurazione computer\Impostazioni di Windows\Impostazioni protezione\Criteri locali\Assegnazione diritti utente\Accesso a questo calcolo dalla rete
 
-    I gruppi seguenti devono essere elencati in questo criterio:
+     I gruppi seguenti devono essere elencati in questo criterio:
 
-    - Administrators
-    - Operatori di backup
-    - Tutti
-    - Utenti
+   - Administrators
+   - Operatori di backup
+   - Tutti
+   - Utenti
 
 10. Riavviare la VM per assicurarsi che Windows sia ancora integro e che possa essere raggiunto con la connessione RDP. A questo punto può essere opportuno creare una VM nell'ambiente Hyper-V locale per assicurarsi che la macchina virtuale si avvi completamente e quindi testare se è raggiungibile con la connessione RDP.
 
@@ -338,7 +338,7 @@ Assicurarsi che le impostazioni seguenti siano configurate correttamente per la 
 ### <a name="install-windows-updates"></a>Installare gli aggiornamenti di Windows
 La configurazione ideale è **avere la versione più recente del livello di patch del computer**. Se ciò non è possibile, assicurarsi di aver installato i seguenti aggiornamenti:
 
-| Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 versione 1607, Windows Server 2016 versione 1607 | Windows 10 versione 1703    | Windows 10 versione 1709, Windows Server 2016 versione 1709 | Windows 10 versione 1803, Windows Server 2016 versione 1803 |
+| Componente               | Binary         | Windows 7 SP1, Windows Server 2008 R2 SP1 | Windows 8, Windows Server 2012               | Windows 8.1, Windows Server 2012 R2 | Windows 10 versione 1607 con Windows Server 2016 versione 1607 | Windows 10 versione 1703    | Windows 10 versione 1709, Windows Server 2016 versione 1709 | Windows 10 1803 Windows Server 2016 versione 1803 |
 |-------------------------|----------------|-------------------------------------------|---------------------------------------------|------------------------------------|---------------------------------------------------------|----------------------------|-------------------------------------------------|-------------------------------------------------|
 | Archiviazione                 | disk.sys       | 6.1.7601.23403 - KB3125574                | 6.2.9200.17638 / 6.2.9200.21757 - KB3137061 | 6.3.9600.18203 - KB3137061         | -                                                       | -                          | -                                               | -                                               |
 |                         | storport.sys   | 6.1.7601.23403 - KB3125574                | 6.2.9200.17188 / 6.2.9200.21306 - KB3018489 | 6.3.9600.18573 - KB4022726         | 10.0.14393.1358 - KB4022715                             | 10.0.15063.332             | -                                               | -                                               |
@@ -409,23 +409,19 @@ Non tutti i ruoli o le applicazioni installate in un computer basato su Windows 
 
 
 >[!NOTE]
-> Un file unattend.xml personalizzato non è supportato. La proprietà additionalUnattendContent è supportata, ma fornisce solo supporto limitato per l'aggiunta delle opzioni di [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) nel file unattend.xml usato dall'agente di provisioning di Azure. Ad esempio  è possibile usare [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) per aggiungere elementi FirstLogonCommands e LogonCommands. Vedere anche l'[esempio relativo ad additionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Un file unattend.xml personalizzato non è supportato. La proprietà additionalUnattendContent è supportata, ma fornisce solo supporto limitato per l'aggiunta delle opzioni di [microsoft-windows-shell-setup](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) nel file unattend.xml usato dall'agente di provisioning di Azure. ad esempio  è possibile usare [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) per aggiungere elementi FirstLogonCommands e LogonCommands. Vedere anche l'[esempio relativo ad additionalUnattendContent FirstLogonCommands](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-recommended-configurations"></a>Completare le configurazioni consigliate
 Le seguenti impostazioni non influenzano il caricamento del disco rigido virtuale. È tuttavia fortemente consigliabile configurarle.
 
-* Installare l'[agente di macchine virtuali di Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sarà quindi possibile abilitare le estensioni delle VM. Le estensioni delle VM implementano la maggior parte delle funzionalità critiche da usare con le macchine virtuali, come la reimpostazione delle password, la configurazione di RDP e così via. Per altre informazioni, vedere:
+* Installare l'[agente di macchine virtuali di Azure](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sarà quindi possibile abilitare le estensioni delle VM. Le estensioni delle VM implementano la maggior parte delle funzionalità critiche da usare con le macchine virtuali, come la reimpostazione delle password, la configurazione di RDP e così via. Per altre informazioni, vedere [panoramica dell'agente di macchine virtuali di Azure](../extensions/agent-windows.md).
+* Dopo aver creato la VM in Azure, è consigliabile inserire il file di paging nel volume della "unità temporale" per migliorare le prestazioni. A tale scopo, procedere come segue:
 
-    - [Agente ed estensioni delle VM - Parte 1](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-1/)
-    - [Agente ed estensioni delle VM - Parte 2](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/)
-
-*  Dopo aver creato la VM in Azure, è consigliabile inserire il file di paging nel volume della "unità temporale" per migliorare le prestazioni. A tale scopo, procedere come segue:
-
-    ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
-    ```
-Se è presente un disco dati collegato alla macchina virtuale, la lettera del volume dell'unità temporale è in genere "D". Questa designazione può differire a seconda del numero di unità disponibili e delle impostazioni.
+   ```PowerShell
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   ```
+  Se è presente un disco dati collegato alla macchina virtuale, la lettera del volume dell'unità temporale è in genere "D". Questa designazione può differire a seconda del numero di unità disponibili e delle impostazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Caricare l'immagine di una VM Windows in Azure per distribuzioni di Resource Manager](upload-generalized-managed.md)

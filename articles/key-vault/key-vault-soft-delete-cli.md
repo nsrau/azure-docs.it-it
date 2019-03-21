@@ -1,18 +1,18 @@
 ---
 title: Azure Key Vault - Come usare la funzionalità di eliminazione temporanea con l'interfaccia della riga di comando
 description: Esempi di casi d'uso della funzionalità di eliminazione temporanea con frammenti di codice dell'interfaccia della riga di comando
-author: bryanla
+author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: bryanla
-ms.openlocfilehash: f0c1db2274eea6281bd4a350909b79d048ad21c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.author: mbaldwin
+ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116724"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097611"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -167,19 +167,19 @@ az keyvault set-policy --name ContosoVault --key-permissions get create delete l
 Come le chiavi, i segreti vengono gestiti con comandi specifici:
 
 - Eliminare un segreto denominato SQLPassword: 
-```azurecli
-az keyvault secret delete --vault-name ContosoVault -name SQLPassword
-```
+  ```azurecli
+  az keyvault secret delete --vault-name ContosoVault -name SQLPassword
+  ```
 
 - Elencare tutti i segreti eliminati in un insieme di credenziali delle chiavi: 
-```azurecli
-az keyvault secret list-deleted --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret list-deleted --vault-name ContosoVault
+  ```
 
 - Ripristinare un segreto in stato "eliminato": 
-```azurecli
-az keyvault secret recover --name SQLPassword --vault-name ContosoVault
-```
+  ```azurecli
+  az keyvault secret recover --name SQLPassword --vault-name ContosoVault
+  ```
 
 - Eliminare in modo definitivo un segreto in stato "eliminato": 
 
@@ -195,7 +195,7 @@ az keyvault secret recover --name SQLPassword --vault-name ContosoVault
 > [!IMPORTANT]
 > Dopo l'operazione di pulizia, un insieme di credenziali delle chiavi o un oggetto dell'insieme non è più recuperabile.
 
-La funzione di pulizia viene usata per eliminare in modo permanente un oggetto dell'insieme di credenziali delle chiavi, o un intero insieme, che in precedenza è stato eliminato temporaneamente. Come illustrato nella sezione precedente, gli oggetti archiviati in un insieme di credenziali delle chiavi con la funzionalità di eliminazione temporanea abilitata, possono passare attraverso più stati:
+La funzione di eliminazione viene usata per eliminare definitivamente un oggetto insieme di credenziali delle chiavi o un'intera istanza Key vault, che è stata precedentemente eliminati temporaneamente. Come illustrato nella sezione precedente, gli oggetti archiviati in un insieme di credenziali delle chiavi con la funzionalità di eliminazione temporanea abilitata, possono passare attraverso più stati:
 
 - **Attivo**: prima dell'eliminazione.
 - **Eliminato temporaneamente**: dopo l'eliminazione, può essere recuperato e ripristinato allo stato attivo.
@@ -226,5 +226,5 @@ Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene ind
 ## <a name="other-resources"></a>Altre risorse:
 
 - Per una panoramica della funzionalità di eliminazione temporanea di Key Vault, vedere [Panoramica della funzionalità di eliminazione temporanea di Azure Key Vault](key-vault-ovw-soft-delete.md).
-- Per una panoramica generale dell'utilizzo di Azure Key Vault, vedere [Cos'è l'Insieme di credenziali delle chiavi di Azure?](key-vault-overview.md).
+- Per una panoramica generale dell'uso di Azure Key Vault, vedere [Cos'è Azure Key Vault?](key-vault-overview.md)
 

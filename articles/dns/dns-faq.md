@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 1/16/2019
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: a83ded660b56028ea311992ba6161e8a8e43f65d
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098094"
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
 
@@ -42,7 +42,7 @@ Per altre informazioni, vedere la pagina relativa al [contratto di Servizio per 
 
 Un dominio è un nome univoco nel Domain Name System, ad esempio contoso.com.
 
-Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. Tali record possono includere mail.contoso.com per un server di posta e www.contoso.com per un sito Web e sono ospitati nella zona DNS contoso.com.
+Una zona DNS viene usata per ospitare i record DNS per un particolare dominio. Il dominio contoso.com può contenere, ad esempio, diversi record DNS. I record potrebbero includere mail.contoso.com per un server di posta elettronica e www\.contoso.com per un sito Web. e sono ospitati nella zona DNS contoso.com.
 
 Un nome di dominio è *solo un nome*, mentre una zona DNS è una risorsa di dati contenente i record DNS per un nome di dominio. È possibile usare DNS di Azure per ospitare una zona DNS e gestire i record DNS per un dominio in Azure. Offre anche server dei nomi DNS per rispondere alle query DNS da Internet.
 
@@ -239,7 +239,7 @@ Sì. Per scollegare da una zona privata una rete virtuale di registrazione, si a
 
 Sì. Quando si elimina una rete virtuale di registrazione o di risoluzione senza prima scollegarla da una zona privata, l'operazione di eliminazione ha esito positivo, ma la rete virtuale non viene scollegata automaticamente dalla zona privata, se presente. È necessario scollegare manualmente la rete virtuale dalla zona privata. Per questo motivo è consigliabile scollegare la rete virtuale dalla zona privata prima di eliminarla.
 
-### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-contosolocal-is-linked-to-a-virtual-network"></a>La risoluzione DNS tramite il nome di dominio completo (FQDN) predefinito (internal.cloudapp.net) continua a funzionare anche quando una zona privata, ad esempio contoso.local, è collegata a una rete virtuale?
+### <a name="will-dns-resolution-by-using-the-default-fqdn-internalcloudappnet-still-work-even-when-a-private-zone-for-example-privatecontosocom-is-linked-to-a-virtual-network"></a>La risoluzione DNS usando il nome di dominio completo (internal.cloudapp.net) predefinito continuerà a funzionare anche quando una zona privata (ad esempio, private.contoso.com) viene collegata a una rete virtuale?
 
 Sì. La funzionalità Zone private non sostituisce le risoluzioni DNS predefinite eseguite tramite la zona internal.cloudapp.net di Azure e viene offerta come funzionalità o aggiornamento aggiuntivo. Indipendentemente dal fatto che si usi la zona internal.cloudapp.net di Azure o la propria zona privata, è consigliabile usare il nome FQDN della zona rispetto alla quale si vuole eseguire la risoluzione. 
 
@@ -262,7 +262,7 @@ Sì. Nell'anteprima pubblica sono presenti le limitazioni seguenti:
 
 ### <a name="are-there-any-quotas-or-limits-on-zones-or-records-for-private-zones"></a>Sono presenti quote o limiti relativi al numero di zone o di record per le zone private?
 
-Per le zone private non sono previsti limiti relativi né al numero di zone consentite per sottoscrizione né al numero di set di record per zona. Per le zone pubbliche e private vengono applicati i limiti complessivi relativi a DNS. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#dns-limits).
+Per le zone private non sono previsti limiti relativi né al numero di zone consentite per sottoscrizione né al numero di set di record per zona. Per le zone pubbliche e private vengono applicati i limiti complessivi relativi a DNS. Per altre informazioni, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md#azure-dns-limits).
 
 ### <a name="is-there-portal-support-for-private-zones"></a>È disponibile il supporto del portale per le zone private?
 

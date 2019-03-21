@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 845227ea5e32d10eaed555cee80c8fc520a1771a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6f8fadc42d1c725002f2552a3fc1fc98e8564437
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58098773"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Monitorare identità e accesso nel Centro sicurezza di Azure (anteprima)
 Questo articolo illustra come usare il Centro sicurezza di Azure per monitorare l'identità e le attività di accesso degli utenti.
@@ -68,11 +68,11 @@ In **Panoramica** è presente un elenco di consigli. La prima colonna elenca la 
 
 1. Selezionare un consiglio. Viene aperta la finestra del consiglio, che visualizza:
 
-  - Descrizione del consiglio
-  - Elenco delle sottoscrizioni non integre e integre
-  - Elenco di risorse non analizzate a causa di una valutazione non riuscita o del fatto che la risorsa è all'interno di una sottoscrizione in esecuzione a livello gratuito e non viene quindi valutata
+   - Descrizione del consiglio
+   - Elenco delle sottoscrizioni non integre e integre
+   - Elenco di risorse non analizzate a causa di una valutazione non riuscita o del fatto che la risorsa è all'interno di una sottoscrizione in esecuzione a livello gratuito e non viene quindi valutata
 
-  ![Finestra del consiglio][3]
+   ![Finestra del consiglio][3]
 
 1. Per altri dettagli, selezionare una sottoscrizione nell'elenco.
 
@@ -81,27 +81,27 @@ In **Sottoscrizioni** è presente un elenco di sottoscrizioni. La prima colonna 
 
 ![Scheda Sottoscrizioni][4]
 
-1.  Selezionare una sottoscrizione. Viene aperta una visualizzazione di riepilogo con tre schede:
+1. Selezionare una sottoscrizione. Viene aperta una visualizzazione di riepilogo con tre schede:
 
-  - **Consigli**: in base alle valutazioni non riuscite eseguite dal Centro sicurezza.
-  - **Valutazioni superate**: elenco di valutazioni superate eseguite dal Centro sicurezza.
-  - **Valutazioni non disponibili**: elenco di valutazioni la cui esecuzione non è riuscita a causa di un errore o perché la sottoscrizione ha più di 600 account.
+   - **Consigli**: in base alle valutazioni non riuscite eseguite dal Centro sicurezza.
+   - **Valutazioni superate**: elenco di valutazioni superate eseguite dal Centro sicurezza.
+   - **Valutazioni non disponibili**: elenco di valutazioni la cui esecuzione non è riuscita a causa di un errore o perché la sottoscrizione ha più di 600 account.
 
-  In **Consigli** è presente un elenco di consigli per la sottoscrizione selezionata, con l'indicazione del livello di gravità per ogni consiglio.
+   In **Consigli** è presente un elenco di consigli per la sottoscrizione selezionata, con l'indicazione del livello di gravità per ogni consiglio.
 
-  ![Consigli per la sottoscrizione selezionata][5]
+   ![Consigli per la sottoscrizione selezionata][5]
 
 1. Selezionare un consiglio per una descrizione di questo, l'elenco delle sottoscrizioni non integre e integre e l'elenco delle risorse non analizzate.
 
-  ![Descrizione del consiglio][6]
+   ![Descrizione del consiglio][6]
 
-  In **Valutazioni superate** è presente un elenco di valutazioni superate.  Il livello di gravità di tali valutazioni è sempre di colore verde.
+   In **Valutazioni superate** è presente un elenco di valutazioni superate.  Il livello di gravità di tali valutazioni è sempre di colore verde.
 
-  ![Valutazioni superate][7]
+   ![Valutazioni superate][7]
 
 1. Selezionare una valutazione superata dall'elenco per visualizzare la descrizione di questa e un elenco di sottoscrizioni integre. Per le sottoscrizioni non integre è presente una scheda che elenca tutte le sottoscrizioni non riuscite.
 
-  ![Valutazioni superate][8]
+   ![Valutazioni superate][8]
 
 ## <a name="recommendations"></a>Consigli
 Usare la tabella seguente come riferimento per comprendere i consigli relativi a Identità e accesso disponibili e gli effetti che producono se si decide di metterli in pratica.

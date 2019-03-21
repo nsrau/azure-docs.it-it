@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
-ms.openlocfilehash: 9748cd2c37775a47eb630797dd09981c38f8f7e1
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 4b2763629a3036551cb3d362e609c72737436f4a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995408"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012228"
 ---
 # <a name="work-with-strings-in-azure-monitor-log-queries"></a>Usare le stringhe nelle query di log di Monitoraggio di Azure
 
 
 > [!NOTE]
-> Prima di seguire questa esercitazione, è consigliabile completare [Get started with Azure Monitor log analytics](get-started-portal.md) (Introduzione a Log Analytics in Monitoraggio di Azure) e [Introduzione alle query di log in Monitoraggio di Azure](get-started-queries.md).
+> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) e [Introduzione alle query di log di monitoraggio di Azure](get-started-queries.md) prima di completare questa esercitazione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -64,9 +64,9 @@ operatore       |DESCRIZIONE                         |Distinzione maiuscole/minu
 `hasprefix_cs`    |La stringa a destra corrisponde a un prefisso di un termine a sinistra         |Sì            |`"North America" hasprefix_cs "Ame"`
 `!hasprefix_cs`   |La stringa a destra non corrisponde a un prefisso di un termine a sinistra     |Sì            |`"North America" !hasprefix_cs "CA"` 
 `hassuffix`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |No             |`"North America" hassuffix "ica"`
-`!hassuffix`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |No             |`"North America" !hassuffix "americ"
+`!hassuffix`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |No             |`"North America" !hassuffix "americ"`
 `hassuffix_cs`    |La stringa a destra corrisponde a un suffisso di un termine a sinistra         |Sì            |`"North America" hassuffix_cs "ica"`
-`!hassuffix_cs`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |Sì            |`"North America" !hassuffix_cs "icA"
+`!hassuffix_cs`   |La stringa a destra non corrisponde a un suffisso di un termine a sinistra     |Sì            |`"North America" !hassuffix_cs "icA"`
 `contains`     |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |No             |`"FabriKam" contains "BRik"`
 `!contains`    |La stringa a destra non è presente come sottosequenza nella stringa a sinistra           |No             |`"Fabrikam" !contains "xyz"`
 `contains_cs`   |La stringa a destra è presente come sottosequenza nella stringa a sinistra  |Sì           |`"FabriKam" contains_cs "Kam"`
@@ -259,6 +259,7 @@ SecurityEvent
 ```
 
 Può avere i risultati seguenti:
+
 Attività                                        |valore sostituito
 ------------------------------------------------|----------------------------------------------------------
 4663 - È stato effettuato un tentativo di accedere a un oggetto  |ID attività 4663: è stato effettuato un tentativo di accedere a un oggetto.

@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: a8897288e19a7628dbd1cc2c022de4db2a111393
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58098009"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuire un cluster di Service Fabric in Azure Stack
 
@@ -37,17 +37,17 @@ Per distribuire il cluster di Service Fabric è necessario quanto segue:
    Questo è il certificato server X.509 che è aggiungere a Key Vault durante la distribuzione di Service Fabric. 
    - Il **CN** su questo certificato deve corrispondere il nome di dominio completo (FQDN) del cluster di Service Fabric si crea. 
    - Il formato del certificato deve essere PFX, come le chiavi pubbliche e private sono necessarie. 
-   Visualizzare [requisiti](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) per la creazione di questo certificato sul lato server.
+     Visualizzare [requisiti](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) per la creazione di questo certificato sul lato server.
 
-    > [!NOTE]  
-    > È possibile usare un certificato autofirmato inplace del certificato server x.509 per scopi di test. I certificati autofirmati non sono necessario corrispondere al nome FQDN del cluster.
+     > [!NOTE]  
+     > È possibile usare un certificato autofirmato inplace del certificato server x.509 per scopi di test. I certificati autofirmati non sono necessario corrispondere al nome FQDN del cluster.
 
-1.  **Certificato Client amministratore** si tratta del certificato che il client userà per l'autenticazione a del cluster di Service Fabric, che può essere auto-firmato. Visualizzare [requisiti](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) per la creazione di questo certificato client.
+1. **Certificato Client amministratore** si tratta del certificato che il client userà per l'autenticazione a del cluster di Service Fabric, che può essere auto-firmato. Visualizzare [requisiti](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) per la creazione di questo certificato client.
 
-1.  **Gli elementi seguenti devono essere disponibili in Azure Stack Marketplace:**
-     - **Windows Server 2016** : il modello Usa l'immagine di Windows Server 2016 per creare il cluster.  
-     - **Estensione Script cliente** -estensione della macchina virtuale di Microsoft.  
-     - **Configurazione fase desiderato tramite PowerShell** -estensione della macchina virtuale di Microsoft.
+1. **Gli elementi seguenti devono essere disponibili in Azure Stack Marketplace:**
+    - **Windows Server 2016** : il modello Usa l'immagine di Windows Server 2016 per creare il cluster.  
+    - **Estensione Script cliente** -estensione della macchina virtuale di Microsoft.  
+    - **Configurazione fase desiderato tramite PowerShell** -estensione della macchina virtuale di Microsoft.
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Aggiungere un segreto all'istanza di Key Vault

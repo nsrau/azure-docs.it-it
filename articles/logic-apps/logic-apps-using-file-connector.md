@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: b58059727a383e978691bfbbee77a1f6b04692ce
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264327"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57870995"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -34,9 +34,9 @@ Per seguire questo esempio, è necessario disporre degli elementi seguenti:
 
 * Prima di poter connettere le app per la logica a sistemi locali, ad esempio il server del file system, è necessario [installare e configurare un gateway dati locale](../logic-apps/logic-apps-gateway-install.md). In questo modo, è possibile specificare di usare l'installazione del gateway quando si crea la connessione al file system dall'app per la logica.
 
-* Un [account Dropbox](https://www.dropbox.com/) e le credenziali dell'account utente. Le credenziali di DropBox sono necessarie per creare una connessione tra l'app per la logica e l'account Drobox. 
+* Oggetto [account Dropbox](https://www.dropbox.com/), che è possibile iscriversi gratuitamente. Le credenziali dell'account sono necessarie per la creazione di una connessione tra l'app per la logica e all'account Dropbox. 
 
-* Le credenziali dell'account per il computer con il file system a cui si desidera accedere. Ad esempio, se si installa il gateway dati nello stesso computer come file system, saranno necessarie le credenziali dell'account per quel computer. 
+* Accesso al computer con file system da usare. Ad esempio, se si installa il gateway dati nello stesso computer come file system, le credenziali dell'account è necessario per il computer. 
 
 * Un account di posta elettronica da un provider supportato da App per la logica, ad esempio Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](https://docs.microsoft.com/connectors/). Questa app per la logica usa un account Office 365 Outlook. Se si usa un altro account di posta elettronica, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa. 
 
@@ -68,14 +68,14 @@ Per seguire questo esempio, è necessario disporre degli elementi seguenti:
 
    ![Creare la connessione](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | Proprietà | Obbligatoria | Valore | DESCRIZIONE | 
+   | Proprietà | Obbligatorio | Value | DESCRIZIONE | 
    | -------- | -------- | ----- | ----------- | 
-   | **Connection Name** (Nome connessione) | Yes | <*nome connessione*> | Il nome da assegnare alla connessione | 
-   | **Cartella radice** | Yes | <*root-folder-name*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. | 
+   | **Connection Name** (Nome connessione) | Sì | <*nome connessione*> | Il nome da assegnare alla connessione | 
+   | **Cartella radice** | Sì | <*root-folder-name*> | La cartella radice del file system, ad esempio se installato un gateway dati locale, una cartella locale nel computer in cui è installato il gateway dati locale o la cartella per una condivisione di rete a cui il computer possa accedere. <p>Ad esempio: `\\PublicShare\\DropboxFiles` <p>La cartella radice è la cartella principale che verrà usata per i percorsi relativi di tutte le azioni correlate ai file. | 
    | **Tipo di autenticazione** | No  | <*auth-type*> | Il tipo di autenticazione usato dal file system, ad esempio **Windows** | 
-   | **Nome utente** | Yes | <*domain*>\\<*username*> | Il nome utente per il computer in cui è presente il file system | 
-   | **Password** | Yes | <*your-password*> | La password per il computer in cui è presente il file system | 
-   | **gateway** | Yes | <*installed-gateway-name*> | Il nome del gateway installato in precedenza | 
+   | **Nome utente** | Sì | <*domain*>\\<*username*> | Il nome utente per il computer in cui è presente il file system | 
+   | **Password** | Sì | <*your-password*> | La password per il computer in cui è presente il file system | 
+   | **gateway** | Sì | <*installed-gateway-name*> | Il nome del gateway installato in precedenza | 
    ||| 
 
 1. Al termine dell'operazione, scegliere **Crea**. 

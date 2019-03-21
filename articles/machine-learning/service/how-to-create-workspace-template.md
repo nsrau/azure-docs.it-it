@@ -4,18 +4,17 @@ titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare un modello di Azure Resource Manager per creare una nuova area di lavoro del servizio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.component: core
+ms.subservice: core
 ms.topic: conceptual
-ms.reviewer: larryfr
-ms.author: haining
-author: hning86
+ms.author: larryfr
+author: Blackmist
 ms.date: 02/11/2019
-ms.openlocfilehash: b9d05e8de01178fd8731e492d2aeefd28f3ef4cf
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57850078"
 ---
 # <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Creare un'area di lavoro del servizio Azure Machine Learning usando un modello
 
@@ -25,7 +24,7 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+* Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -193,12 +192,12 @@ Per altre informazioni sui modelli, vedere gli articoli indicati di seguito:
 1. Seguire i passaggi in [Distribuire risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando si arriva alla schermata __Modifica modello__, incollare il modello da questo documento.
 1. Selezionare __Salva__ per usare il modello. Fornire le informazioni seguenti e accettare le condizioni elencate:
 
-    * Sottoscrizione: Selezionare la sottoscrizione Azure da usare per queste risorse.
-    * Gruppo di risorse: Selezionare o creare un gruppo di risorse per contenere i servizi.
-    * Nome dell'area di lavoro: Il nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creato. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
-    * Percorso: Selezionare la posizione in cui verranno create le risorse.
+   * Sottoscrizione: Selezionare la sottoscrizione Azure da usare per queste risorse.
+   * Gruppo di risorse: Selezionare o creare un gruppo di risorse per contenere i servizi.
+   * Nome dell'area di lavoro: Il nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creato. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
+   * Percorso: Selezionare la posizione in cui verranno create le risorse.
 
-    ![Parametri del modello nel portale di Azure](media/how-to-create-workspace-template/template-parameters.png)
+     ![Parametri del modello nel portale di Azure](media/how-to-create-workspace-template/template-parameters.png)
 
 Per altre informazioni, vedere [Distribuire risorse da un modello personalizzato](../../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 
