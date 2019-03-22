@@ -1,21 +1,21 @@
 ---
-title: Connettersi a Dynamics 365 - App per la logica di Azure | Microsoft Docs
+title: Connettersi a Dynamics 365 - App per la logica di Azure
 description: Creare e gestire i record con le API REST di Dynamics 365 (online) e App per la logica di Azure
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: Mattp123
 ms.author: matp
-ms.service: logic-apps
-services: logic-apps
 ms.reviewer: estfan, LADocs
-ms.suite: integration
 ms.topic: article
 ms.date: 08/18/2018
 tags: connectors
-ms.openlocfilehash: 9fe41cf2946525948897635a4e30213d161431ef
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: b81efba0ce860bea5fd68dd99ce52980e6816b7e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295301"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310575"
 ---
 # <a name="manage-dynamics-365-records-with-azure-logic-apps"></a>Gestire i record di Dynamics 365 con App per la logica di Azure
 
@@ -26,13 +26,13 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
 * Un [account Dynamics 365](https://dynamics.microsoft.com)
 
 * Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
-* L'app per la logica a cui si vuole accedere con l'account Dynamics 365. Per avviare l'app per la logica con un trigger di Dynamics 365, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
+* L'app per la logica a cui si vuole accedere con l'account Dynamics 365. Per avviare l'app per la logica con un trigger di Dynamics 365, è necessario un'[app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="add-dynamics-365-trigger"></a>Aggiungere il trigger di Dynamics 365
 
@@ -50,8 +50,8 @@ Aggiungere prima di tutto un trigger di Dynamics 365 che viene attivato quando v
 
 1. Specificare i dettagli del trigger:
 
-   | Proprietà | Obbligatorio | DESCRIZIONE | 
-   |----------|----------|-------------| 
+   | Proprietà | Obbligatorio | DESCRIZIONE |
+   |----------|----------|-------------|
    | **Nome organizzazione** | Sì | Nome dell'istanza di Dynamics 365 dell'organizzazione da monitorare, ad esempio "Contoso" |
    | **Nome entità** | Sì | Nome dell'entità da monitorare, ad esempio "Clienti potenziali" | 
    | **Frequenza** | Sì | Unità di tempo da usare con intervalli durante il controllo degli aggiornamenti correlati al trigger |
@@ -72,21 +72,21 @@ Aggiungere a questo punto l'azione di Dynamics 365 che crea un record di attivit
 
 1. Specificare i dettagli dell'azione:
 
-   | Proprietà | Obbligatorio | DESCRIZIONE | 
-   |----------|----------|-------------| 
+   | Proprietà | Obbligatorio | DESCRIZIONE |
+   |----------|----------|-------------|
    | **Nome organizzazione** | Sì | Istanza di Dynamics 365 in cui si desidera creare il record, che non deve essere la stessa istanza del trigger. In questo esempio è "Contoso". |
-   | **Nome entità** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" | 
+   | **Nome entità** | Sì | Entità in cui si desidera creare il record, ad esempio "Attività" |
    | | |
 
    ![Informazioni dettagliate sulle azioni](./media/connectors-create-api-crmonline/action-details.png)
 
 1. Quando nell'azione viene visualizzata la casella **Oggetto**, fare clic nella casella **Oggetto** per visualizzare il riquadro di contenuto dinamico. In questo elenco selezionare i valori dei campi da includere nel record attività associato al nuovo record di cliente potenziale:
 
-   | Campo | DESCRIZIONE | 
-   |-------|-------------| 
+   | Campo | DESCRIZIONE |
+   |-------|-------------|
    | **Cognome** | Cognome del cliente potenziale come contatto principale nel record |
-   | **Argomento** | Nome descrittivo per il cliente potenziale nel record | 
-   | | | 
+   | **Argomento** | Nome descrittivo per il cliente potenziale nel record |
+   | | |
 
    ![Dettagli sul record attività](./media/connectors-create-api-crmonline/create-record-details.png)
 
@@ -109,7 +109,7 @@ Per specificare come filtrare i dati in un'azione di Dynamics 365, scegliere **M
 
    ![Specificare il filtro e l'ordine](./media/connectors-create-api-crmonline/advanced-options.png)
 
-Per altre informazioni, vedere queste opzioni di query di sistema di API Web di Dynamics 365 Customer Engagement: 
+Per altre informazioni, vedere queste opzioni di query di sistema di API Web di Dynamics 365 Customer Engagement:
 
 * [$filter](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#filter-results)
 * [$orderby](https://docs.microsoft.com/dynamics365/customer-engagement/developer/webapi/query-data-web-api#order-results)
@@ -128,19 +128,19 @@ Questa tabella descrive alcuni dei tipi di campi e i tipi di dati necessari per 
 | Campi che richiedono sia un ID record che il tipo di ricerca | Chiave primaria | Alcuni campi che fanno riferimento a un altro record di entità richiedono sia l'ID record che il tipo di ricerca. | 
 ||||
 
-Espandendo questi tipi di campi, ecco alcuni campi di esempio nei trigger e nelle azioni di Dynamics 365 che richiedono sia un ID record e il tipo di ricerca. Questo requisito significa che i valori selezionati dall'elenco dinamico non funzioneranno. 
+Espandendo questi tipi di campi, ecco alcuni campi di esempio nei trigger e nelle azioni di Dynamics 365 che richiedono sia un ID record e il tipo di ricerca. Questo requisito significa che i valori selezionati dall'elenco dinamico non funzioneranno.
 
-| Campo | DESCRIZIONE | 
+| Campo | DESCRIZIONE |
 |-------|-------------|
-| **Proprietario** | Deve essere un ID utente valido o un ID di record team valido. | 
-| **Tipo di proprietario** | Deve contenere **systemusers** o **teams**. | 
-| **Tema** | Deve contenere un ID record valido, ad esempio un ID account o un ID record contatto. | 
-| **Tipo relativo** | Deve essere un tipo di ricerca, ad esempio **accounts** o **contacts**. | 
-| **Cliente** | Deve contenere un ID record valido, ad esempio un ID account o un ID record contatto. | 
-| **Tipo di cliente** | Deve essere un tipo di ricerca, ad esempio **accounts** o **contacts**. | 
+| **Proprietario** | Deve essere un ID utente valido o un ID di record team valido. |
+| **Tipo di proprietario** | Deve contenere **systemusers** o **teams**. |
+| **Tema** | Deve contenere un ID record valido, ad esempio un ID account o un ID record contatto. |
+| **Tipo relativo** | Deve essere un tipo di ricerca, ad esempio **accounts** o **contacts**. |
+| **Cliente** | Deve contenere un ID record valido, ad esempio un ID account o un ID record contatto. |
+| **Tipo di cliente** | Deve essere un tipo di ricerca, ad esempio **accounts** o **contacts**. |
 |||
 
-In questo esempio l'azione denominata **Crea un nuovo record** crea un nuovo record di attività: 
+In questo esempio l'azione denominata **Crea un nuovo record** crea un nuovo record di attività:
 
 ![Creare record di attività con gli ID record e i tipi di ricerca](./media/connectors-create-api-crmonline/create-record-advanced.png)
 
@@ -148,13 +148,13 @@ Questa azione assegna il record dell'attività a un ID utente specifico o a un I
 
 ![ID record di proprietario e tipo di ricerca](./media/connectors-create-api-crmonline/owner-record-id-and-lookup-type.png)
 
-Questa azione aggiunge anche un record di account che è associato all'ID record aggiunto nel campo **Tema** e al tipo di ricerca indicato nel campo **Tipo relativo**: 
+Questa azione aggiunge anche un record di account che è associato all'ID record aggiunto nel campo **Tema** e al tipo di ricerca indicato nel campo **Tipo relativo**:
 
 ![ID record di tema e tipo di ricerca](./media/connectors-create-api-crmonline/regarding-record-id-lookup-type-account.png)
 
 ## <a name="find-record-id"></a>Trovare l'ID record
 
-Per trovare un ID record, seguire questa procedura: 
+Per trovare un ID record, seguire questa procedura:
 
 1. In Dynamics 365 aprire un record, ad esempio un record di account.
 
@@ -175,7 +175,7 @@ Per individuare ed esaminare i passaggi non riusciti nell'app per la logica, è 
 
    ![Stato di esecuzione dell'app per la logica](./media/connectors-create-api-crmonline/run-history.png)
 
-1. Espandere un passaggio non riuscito per visualizzare altri dettagli. 
+1. Espandere un passaggio non riuscito per visualizzare altri dettagli.
 
    ![Espandere un passaggio non riuscito](./media/connectors-create-api-crmonline/expand-failed-step.png)
 
@@ -187,7 +187,7 @@ Per altre informazioni sulla risoluzione dei problemi delle app per la logica, v
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio su trigger, azioni e limiti indicati nel file Swagger del connettore, vedere la [pagina di riferimento del connettore](/connectors/dynamicscrmonline/). 
+Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto dalla definizione OpenAPI del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore](/connectors/dynamicscrmonline/).
 
 ## <a name="get-support"></a>Supporto
 

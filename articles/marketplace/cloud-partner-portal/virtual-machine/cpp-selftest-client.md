@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: aa46fbce9d11a8fd380a5ee1990c0e7924079a9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078687"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309419"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale di Azure
 
@@ -54,7 +54,7 @@ Il diagramma seguente mostra il funzionamento dell'autorizzazione per le chiamat
 L'API di verifica automatica include un unico endpoint in grado di supportare solo il metodo POST.  Presenta la struttura seguente.
 
 ```
-Uri:             https://isvapp.azurewebsites.net/selftest-vm
+Uri:             https:\//isvapp.azurewebsites.net/selftest-vm
 Method:          Post
 Request Header:  Content-Type: “application/json”
 Authorization:   “Bearer xxxx-xxxx-xxxx-xxxxx”
@@ -260,7 +260,7 @@ Seguire questa procedura per registrare l'app client.
 
    - **Nome**: immettere un nome descrittivo per l'app. Ad esempio, "SelfTestClient".
    - **Tipo di applicazione**: selezionare **App Web/API**
-   - **URL di accesso**: digitare "https://isvapp.azurewebsites.net/selftest-vm"
+   - **URL Sign-on** – tipo di "https:\//isvapp.azurewebsites.net/selftest-vm"
 
 4. Selezionare **Create**.
 5. In **Registrazioni app** oppure **App registrata** copiare l'**ID applicazione**.

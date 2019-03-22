@@ -1,25 +1,25 @@
 ---
-title: Connettersi a Excel Online - App per la logica di Azure | Microsoft Docs
+title: Connettersi a Excel Online - App per la logica di Azure
 description: Gestire i dati con le API REST di Excel Online e App per la logica di Azure
-ms.service: logic-apps
 services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 917b9abd4a32b7951313c5555f4111dff990078c
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 28739ad65462acc9f2d2ed7db1e9ed14d19f032c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230952"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314520"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Gestire i dati di Excel Online con App per la logica di Azure
 
-Con App per la logica di Azure e il connettore Excel Online, è possibile creare attività e flussi di lavoro automatizzati basati sui dati in Excel Online (Business o OneDrive). Questo connettore offre azioni che consentono di eseguire attività sui dati e gestire i fogli di calcolo, ad esempio: 
+Con App per la logica di Azure e il connettore Excel Online, è possibile creare attività e flussi di lavoro automatizzati basati sui dati in Excel Online (Business o OneDrive). Questo connettore offre azioni che consentono di eseguire attività sui dati e gestire i fogli di calcolo, ad esempio:
 
 * Creare nuovi fogli di lavoro e tabelle.
 * Ottenere e gestire fogli di lavoro, tabelle e righe.
@@ -34,9 +34,9 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>. 
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
-* Un [account di Office 365](https://www.office.com/) per l'account aziendale o l'account Microsoft personale. 
+* Un [account di Office 365](https://www.office.com/) per l'account aziendale o l'account Microsoft personale.
 
   I dati di Excel possono essere presenti come file con valori delimitati da virgole (CSV) in una cartella di archiviazione, ad esempio OneDrive. 
   Lo stesso file con estensione csv può essere usato anche con il [connettore File flat](../logic-apps/logic-apps-enterprise-integration-flatfile.md).
@@ -53,7 +53,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 1. Nella casella di ricerca digitare "excel" come filtro. Nell'elenco delle azioni selezionare l'azione desiderata.
 
-1. Se viene chiesto di accedere all'account di Office 365, scegliere **Accedi**. 
+1. Se viene chiesto di accedere all'account di Office 365, scegliere **Accedi**.
 
    Le credenziali autorizzano l'app per la logica alla creazione di una connessione a Excel Online e all'accesso ai dati.
 
@@ -61,10 +61,10 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Per informazioni tecniche, ad esempio su azioni e limiti, indicati nei file Swagger dei connettori, vedere le pagine di riferimento dei connettori:
+Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto dalla definizione OpenAPI del connettore (in precedenza Swagger) i file, vedere le pagine di riferimento del connettore:
 
-* [Excel Online (Business)](/connectors/excelonlinebusiness/) 
-* [Excel Online (OneDrive)](/connectors/excelonline/) 
+* [Excel Online (Business)](/connectors/excelonlinebusiness/)
+* [Excel Online (OneDrive)](/connectors/excelonline/)
 
 ## <a name="get-support"></a>Supporto
 

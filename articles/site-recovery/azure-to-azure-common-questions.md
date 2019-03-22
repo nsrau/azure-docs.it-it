@@ -4,30 +4,19 @@ description: Questo articolo presenta un riepilogo delle domande frequenti relat
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 12/12/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: bf7a8ea00fe94e6896c097b8e27c22c0831f71da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008645"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312054"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Domande frequenti: Replica da Azure ad Azure
 
 Questo articolo fornisce le risposte alle domande frequenti relative all'implementazione del ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure tramite Azure Site Recovery. Eventuali domande successive alla lettura di questo articolo possono essere pubblicate nel [forum di Servizi di ripristino di Azure](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
-
-## <a name="in-this-article"></a>Contenuto dell'articolo 
-1.  **[Domande generali su Azure ad Azure](#general)** 
-1.  **[Replica](#replication)** 
-1.  **[Criteri di replica](#replication-policy)** 
-1.  **[Coerenza tra più macchine virtuali](#multi-vm-consistency)** 
-1.  **[Piano di ripristino](#recovery-plan)** 
-1.  **[Riprotezione e failback](#reprotection-and-failback)** 
-2.  **[capacità](#capacity)**
-1.  **[Sicurezza](#security)** 
 
 
 ## <a name="general"></a>Generale
@@ -186,7 +175,7 @@ Dopo l'interruzione è possibile attivare un failover. Per eseguire il failover,
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>Che cos'è un RTO di un failover della macchina virtuale?
 Site Recovery ha un [RTO SLA di 2 ore](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Tuttavia, nella maggior parte dei casi, Site Recovery esegue il failover delle macchine virtuali in pochi minuti. È possibile calcolare l'RTO visitando il failover dei processi che mostra il tempo impiegato per far apparire la macchina virtuale. Per pianificare l'RTO del piano di ripristino, fare riferimento alla sezione seguente. 
 
-## <a name="recovery-plan"></a>Piano di ripristino
+## <a name="recovery-plans"></a>Piani di ripristino
 
 ### <a name="what-is-a-recovery-plan"></a>Che cos'è un piano di ripristino?
 I piani di ripristino in Site Recovery gestiscono il ripristino del failover delle macchine virtuali. Consentono anche di ottenere un ripristino costantemente accurato, ripetibile e automatizzato. Un piano di ripristino soddisfa le esigenze seguenti per l'utente:
@@ -221,12 +210,12 @@ Dipende dalla situazione. Se ad esempio la macchina virtuale dell'area di origin
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo richiede l'esecuzione di un failback?
 Dopo la riprotezione, la quantità di tempo per il failback è in genere simile al tempo per il failover dall'area primaria a un'area secondaria. 
 
-## <a name="capacity"></a>capacità
+## <a name="capacity"></a>Capacity
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>Site Recovery funziona con istanza riservata?
 Sì, puoi acquistare [riservare le istanze](https://azure.microsoft.com/pricing/reserved-vm-instances/) nel ripristino di emergenza area e le operazioni di failover di Azure Site Recovery verranno usati. </br> È richiesta dai clienti alcuna configurazione aggiuntiva.
 
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>I dati di replica vengono inviati al servizio Site Recovery?
 No, Site Recovery non intercetta i dati replicati né raccoglie informazioni su ciò che è in esecuzione sulle macchine virtuali. Al servizio Site Recovery vengono inviati solo i metadati necessari per gestire la replica e il failover.  
 Site Recovery è certificato ISO 27001:2013, 27018, HIPAA e DPA e le valutazioni SOC2 e FedRAMP JAB sono in fase di completamento.

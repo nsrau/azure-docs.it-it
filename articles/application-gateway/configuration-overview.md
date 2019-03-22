@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 61b3a9e066a3ee20effa97f1c6c7a0bd1ae90ac0
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285839"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319449"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -33,9 +33,9 @@ Il gateway applicazione è una distribuzione dedicata nella rete virtuale. All'i
 
 #### <a name="size-of-the-subnet"></a>Dimensioni della subnet
 
-Il gateway applicazione utilizza un indirizzo IP privato per ogni istanza, oltre a un altro indirizzo IP privato in presenza di una configurazione degli indirizzi IP front-end privati. Inoltre, Azure riserva i primi quattro e l'ultimo indirizzo IP in ogni subnet per uso interno. Ad esempio, se un gateway applicazione è impostato su tre istanze e senza indirizzo IP privato front-end, quindi composta da almeno otto indirizzi IP saranno necessario nella subnet - cinque indirizzi IP per uso interno e tre gli indirizzi IP per le tre istanze del gateway applicazione. Pertanto, in questo caso/29 serve una subnet di dimensioni pari o superiore. Se si dispone di tre istanze e di indirizzi IP per la configurazione IP front-end privato, nove gli indirizzi IP sarà richiesto - tre indirizzi IP per le tre istanze del gateway applicazione, un indirizzo IP privato front-end IP e indirizzo IP cinque indirizzi per uso interno. Pertanto, in questo caso/28 serve una subnet di dimensioni pari o superiore.
+Il gateway applicazione utilizza un indirizzo IP privato per ogni istanza, oltre a un altro indirizzo IP privato in presenza di una configurazione degli indirizzi IP front-end privati. Inoltre, Azure riserva 5 indirizzi IP - ultimo e i primi quattro indirizzi IP - in ogni subnet per uso interno. Ad esempio, se un gateway applicazione è impostato su 15 istanze e senza indirizzo IP privato front-end, quindi almeno 20 indirizzi IP saranno necessario nella subnet - cinque indirizzi IP per uso interno e 15 indirizzi IP per le 15 istanze del gateway applicazione. Pertanto, in questo caso, / 27 serve una subnet di dimensioni pari o superiore. Se sono presenti 27 istanze e di indirizzi IP front-end privato per la configurazione IP, 33 gli indirizzi IP sarà richiesto - 27 indirizzi IP per le istanze del gateway applicazione, 27 un indirizzo IP per IP privato front-end e cinque indirizzi per uso interno. Pertanto, in questo caso un /26 serve una subnet di dimensioni pari o superiore.
 
-Come procedura consigliata, usare almeno/28 le dimensioni della subnet. In questo modo si 11 indirizzi utilizzabili. Se il carico dell'applicazione richiede più di 10 istanze, è necessario considerare/27 o/26 le dimensioni della subnet.
+È consigliabile usare almeno/28 le dimensioni della subnet. In questo modo si 11 indirizzi utilizzabili. Se il carico dell'applicazione richiede più di 10 istanze, è necessario considerare/27 o/26 le dimensioni della subnet.
 
 #### <a name="network-security-groups-supported-on-the-application-gateway-subnet"></a>Gruppi di sicurezza di rete supportati nella subnet del Gateway applicazione
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: bfaa738b0f99594a3bd11541d519701ff5eb98f5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896161"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339687"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -25,7 +25,7 @@ Per gestire in modo efficace queste applicazioni, è necessario monitorarle atti
 
 > [!NOTE]
 > File di Azure attualmente non supporta la registrazione.
-> 
+>
 
 Per una guida interattiva alla risoluzione dei problemi end-to-end in applicazioni di Archiviazione di Azure, vedere la pagina relativa alla [risoluzione dei problemi end-to-end usando Metriche e Registrazione di Archiviazione di Azure, AzCopy e Analizzatore messaggi](../storage-e2e-troubleshooting.md).
 
@@ -100,7 +100,7 @@ La sezione "[Appendici]" include informazioni sull'utilizzo di altri strumenti q
 ## <a name="monitoring-your-storage-service"></a>Monitoraggio del servizio di archiviazione
 Per chi ha familiarità con il monitoraggio delle prestazioni di Windows, le metriche di archiviazione di Azure corrispondono ai contatori di Windows Performance Monitor. Metriche di archiviazione comprende un set completo di metriche (contatori nella terminologia di Performance Monitor di Windows), tra cui la disponibilità del servizio, il numero totale di richieste al servizio e la percentuale di richieste eseguite correttamente. Per l'elenco completo delle metriche disponibili, vedere [Schema di tabella della metrica di Analisi di archiviazione](https://msdn.microsoft.com/library/azure/hh343264.aspx). È possibile specificare se si vuole che il servizio di archiviazione raccolga e aggreghi le metriche ogni ora o ogni minuto. Per altre informazioni sulle modalità di abilitazione delle metriche e sul monitoraggio degli account di archiviazione, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](https://go.microsoft.com/fwlink/?LinkId=510865).
 
-È possibile scegliere quali metriche orarie visualizzare nel [portale di Azure](https://portal.azure.com) e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere [Ricevere notifiche di avviso](/azure/monitoring-and-diagnostics/monitoring-overview-alerts). 
+È possibile scegliere quali metriche orarie visualizzare nel [portale di Azure](https://portal.azure.com) e configurare le regole che inviano una notifica agli amministratori ogni volta che una metrica oraria supera una soglia particolare. Per altre informazioni, vedere [Ricevere notifiche di avviso](/azure/monitoring-and-diagnostics/monitoring-overview-alerts).
 
 Il servizio di archiviazione raccoglie le metriche usando la procedura migliore, ma potrebbe non registrare tutte le operazioni di archiviazione.
 
@@ -132,8 +132,8 @@ Lo strumento Metriche di archiviazione memorizza solo le metriche di capacità p
 
 > [!NOTE]
 > È necessario monitorare questi valori per essere avvisati tempestivamente quando si stanno raggiungendo i limiti di capacità dell'account di archiviazione. Nel portale di Azure è possibile aggiungere regole di avviso per ricevere una notifica nel caso in cui l'archiviazione degli aggregati superi o sia inferiore alle soglie specificate.
-> 
-> 
+>
+>
 
 Per sapere come stimare le dimensioni dei vari oggetti di archiviazione, ad esempio gli oggetti BLOB, vedere il post del blog [Informazioni sulla fatturazione di Archiviazione di Azure - Larghezza di banda, transazioni e capacità](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
@@ -191,8 +191,8 @@ Gli utenti dell'applicazione possono notificare gli errori segnalati dall'applic
 
 > [!NOTE]
 > Tenere presente che si possono verificare alcuni errori intermittenti: ad esempio, errori dovuti a condizioni temporanee della rete o a errori dell'applicazione.
-> 
-> 
+>
+>
 
 Le seguenti risorse sono utili per l'interpretazione dei codici di errore e di stato correlati all'archiviazione:
 
@@ -214,8 +214,8 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 
 > [!NOTE]
 > In alcune circostanze, ad esempio in caso di mancata autorizzazione della firma di accesso condiviso, un utente può segnalare un errore per il quale non sono reperibili i dati della richiesta nei file di log dell'archiviazione lato server. È possibile utilizzare le funzionalità di registrazione di Storage Client Library per verificare se la causa del problema è sul client o utilizzare gli strumenti di monitoraggio della rete per esaminare la rete.
-> 
-> 
+>
+>
 
 ### <a name="using-network-logging-tools"></a>Uso degli strumenti di registrazione in rete
 È possibile acquisire il traffico tra client e server per fornire informazioni dettagliate sui dati scambiati da client e server e sulle condizione della rete sottostante. Sono disponibili alcuni strumenti utili per la registrazione in rete:
@@ -242,8 +242,8 @@ La libreria client di archiviazione genera automaticamente un ID richiesta clien
 
 > [!NOTE]
 > È possibile che più richieste condividano lo stesso ID richiesta client poiché il client può assegnare questo valore. Ciononostante, la libreria client di archiviazione assegna automaticamente un nuovo valore. Quando il client esegue ulteriori tentativi, tutti i tentativi condividono lo stesso ID richiesta client. Nel caso di un batch inviato dal client, il batch ha un singolo ID richiesta client.
-> 
-> 
+>
+>
 
 ### <a name="server-request-id"></a>ID richiesta server
 Il servizio di archiviazione genera automaticamente gli ID richiesta server.
@@ -254,8 +254,8 @@ Il servizio di archiviazione genera automaticamente gli ID richiesta server.
 
 > [!NOTE]
 > Il servizio di archiviazione assegna sempre un ID richiesta server univoco a ogni richiesta che riceve, quindi ogni nuovo tentativo del client e ogni operazione inclusa in un batch hanno un ID richiesta server univoco.
-> 
-> 
+>
+>
 
 Se la libreria client di archiviazione genera un'eccezione **StorageException** nel client, la proprietà **RequestInformation** contiene un oggetto **RequestResult** che include una proprietà **ServiceRequestID**. È anche possibile accedere a un oggetto **RequestResult** da un'istanza **OperationContext**.
 
@@ -351,8 +351,8 @@ Il servizio di archiviazione calcola solo la metrica **AverageE2ELatency** per l
 
 > [!NOTE]
 > È anche possibile visualizzare i valori **E2ELatency** e **ServerLatency** per le singole operazioni di archiviazione nei dati del log della registrazione dell'archiviazione.
-> 
-> 
+>
+>
 
 #### <a name="investigating-client-performance-issues"></a>Analisi dei problemi di prestazioni del client
 I motivi possibili per cui il client risponde lentamente includono la quantità limitata di connessioni o thread disponibili oppure la limitata disponibilità di risorse quali CPU, memoria o larghezza di banda della rete. Il problema può essere risolto modificando il codice del client in modo che sia più efficiente (ad esempio usando chiamate asincrone al servizio di archiviazione) o usando una macchina virtuale più grande (con più core e più memoria).
@@ -402,8 +402,8 @@ I valori elevati di **AverageServerLatency** possono essere anche sintomo della 
 
 > [!NOTE]
 > In questo articolo, è possibile trovare un elenco di controllo completo delle prestazioni: [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](storage-performance-checklist.md).
-> 
-> 
+>
+>
 
 ### <a name="you-are-experiencing-unexpected-delays-in-message-delivery"></a>Si stanno verificando ritardi imprevisti nel recapito dei messaggi di una coda
 Se si riscontra un ritardo tra l'orario in cui un'applicazione aggiunge un messaggio a una coda e l'orario in cui il messaggio diventa disponibile per la lettura dalla coda, è necessario prendere in considerazione la procedura che segue per diagnosticare il problema.
@@ -429,8 +429,8 @@ Se si notano picchi del valore di **PercentThrottlingError** che coincidono con 
 
 > [!NOTE]
 > Si possono verificare anche picchi del valore di **PercentThrottlingError** che non coincidono con periodi di attività intensa dell'applicazione: la causa più probabile è che il servizio di archiviazione sposti le partizioni in modo da migliorare il bilanciamento del carico.
-> 
-> 
+>
+>
 
 #### <a name="permanent-increase-in-PercentThrottlingError"></a>Aumento permanente di PercentThrottlingError
 Se si nota un valore costantemente elevato di **PercentThrottlingError** seguito da un aumento permanente dei volumi delle transazioni oppure se si eseguono i test iniziali del carico per l'applicazione, è necessario valutare in che modo l'applicazione usa le partizioni di archiviazione e se sta raggiungendo gli obiettivi di scalabilità per un account di archiviazione. Ad esempio, se si riscontrano errori di limitazione su una coda (che viene considerata come singola partizione), è opportuno prendere in considerazione l'utilizzo di code aggiuntive per suddividere le transazioni in più partizioni. Se gli errori di limitazione si verificano su una tabella, può essere utile usare uno schema di partizionamento diverso per suddividere le transazioni in più partizioni, usando una gamma più ampia di valori delle chiavi di partizione. Una causa comune di questo problema è l'antipattern prepend/append in cui la data viene selezionata come chiave di partizione e quindi tutti i dati relativi a un determinato giorno vengono scritti su una sola partizione: Prendere in considerazione una progettazione diversa della partizione o valutare se l'utilizzo dell'archiviazione BLOB non sia una soluzione migliore. Controllare anche se la limitazione avviene come risultato di picchi del traffico e in che modo adeguare il modello di richiesta in uso.
@@ -441,16 +441,16 @@ Anche una progettazione insufficiente delle query può causare il raggiungimento
 
 > [!NOTE]
 > I test delle prestazioni dovrebbero rivelare eventuali progettazioni inefficaci delle query nell'applicazione.
-> 
-> 
+>
+>
 
 ### <a name="metrics-show-an-increase-in-PercentTimeoutError"></a>Le metriche indicano un aumento di PercentTimeoutError
 Le metriche indicano un aumento di **PercentTimeoutError** per uno dei servizi di archiviazione. Allo stesso tempo, il client riceve una grande quantità di messaggi di stato HTTP "500 Operation Timeout" dalle operazioni di archiviazione.
 
 > [!NOTE]
 > È possibile che vengano temporaneamente visualizzati errori di timeout perché il servizio di archiviazione bilancia il carico delle richieste spostando una partizione su un nuovo server.
-> 
-> 
+>
+>
 
 La metrica **PercentTimeoutError** è un'aggregazione delle metriche seguenti: **ClientTimeoutError**, **AnonymousClientTimeoutError**, **SASClientTimeoutError**, **ServerTimeoutError**, **AnonymousServerTimeoutError** e **SASServerTimeoutError**.
 
@@ -586,8 +586,8 @@ SCRIPT7002: XMLHttpRequest: Network Error 0x80070005, Access is denied.
 
 > [!NOTE]
 > È possibile usare gli strumenti di sviluppo F-12 in Internet Explorer per tracciare i messaggi scambiati dal browser e dal servizio di archiviazione quando si individuano e risolvono i problemi di JavaScript sul lato client.
-> 
-> 
+>
+>
 
 Tali errori si verificano poiché il Web browser implementa come restrizione di sicurezza il [criterio della stessa origine](https://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce che una pagina Web esegua una chiamata a un'API in un dominio diverso da quello da cui proviene la pagina.
 
@@ -712,8 +712,8 @@ Le appendici descrivono alcuni strumenti che possono risultare utili per la diag
 
 > [!NOTE]
 > Fiddler è in grado di decodificare il traffico HTTPS. È consigliabile leggere attentamente la documentazione di Fiddler per capire in che modo esegue questa operazione e quali sono le implicazioni in termini di sicurezza.
-> 
-> 
+>
+>
 
 Questa appendice descrive brevemente la procedura di configurazione di Fiddler per l'acquisizione del traffico tra il computer locale in cui è installato Fiddler e i servizi di archiviazione Azure.
 
@@ -735,7 +735,7 @@ La procedura che segue indica come acquisire informazioni dettagliate sui pacche
 2. Nella sezione **Start** , selezionare l'interfaccia (o le interfacce) di rete locale connessa a Internet.
 3. Fare clic su **Capture Options**.
 4. Aggiungere un filtro nella casella di testo **Capture Filter** . Ad esempio, **host contosoemaildist.table.core.windows.net** configura Wireshark per acquisire solo i pacchetti inviati o ricevuti dall'endpoint del servizio tabelle nell'account di archiviazione **contosoemaildist**. Vedere l' [elenco completo dei filtri di acquisizione](https://wiki.wireshark.org/CaptureFilters).
-   
+
    ![][6]
 5. Fare clic su **Avvia**. Wireshark acquisirà tutti i pacchetti inviati a o dall'endpoint del servizio tabelle non appena l'applicazione client viene utilizzata sul computer locale.
 6. Al termine, fare clic su **Capture** nel menu principale e su **Stop**.
@@ -751,8 +751,8 @@ WireShark evidenzia tutti gli errori presenti nella finestra **packetlist** . È
 
 > [!NOTE]
 > Per ulteriori informazioni sull'uso di Wireshark, vedere la [guida dell'utente di Wireshark](https://www.wireshark.org/docs/wsug_html_chunked).
-> 
-> 
+>
+>
 
 ### <a name="appendix-3"></a>Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete
 Microsoft Message Analyzer può essere usato per l'acquisizione del traffico HTTP e HTTPS in modo analogo a Fiddler e per l'acquisizione del traffico di rete in modo analogo a Wireshark.
@@ -766,8 +766,8 @@ contosodata.blob.core.windows.net contosodata.table.core.windows.net contosodata
 
 > [!NOTE]
 > I nomi host sono separati da uno spazio.
-> 
-> 
+>
+>
 
 Quando si è pronti a iniziare a raccogliere i dati di traccia, fare clic sul pulsante **Start With** .
 
@@ -806,6 +806,17 @@ Nel passaggio 1 dell'**Importazione guidata testo**, selezionare **Punto e virgo
 * Diagnosticare rapidamente eventuali problemi di prestazioni o eccezioni del servizio Web. Sapere se la CPU o altre risorse vengono estese, ricavare analisi dello stack dalle eccezioni ed eseguire facilmente la ricerca delle tracce nei log. Se le prestazioni dell'app scendono al di sotto di limiti accettabili, Microsoft può inviare un messaggio di posta elettronica. L'utente può monitorare i servizi Web sia .NET che Java.
 
 Per altre informazioni, vedere [Informazioni su Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per ulteriori informazioni su analitica in archiviazione di Azure, vedere queste risorse:
+
+* [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
+* [Analitica di archiviazione](storage-analytics.md)
+* [Metriche di archiviazione analitica](storage-analytics-metrics.md)
+* [Schema della tabella di metriche di archiviazione analitica](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Log di archiviazione analitica](storage-analytics-logging.md)
+* [Formato di log di archiviazione analitica](/rest/api/storageservices/storage-analytics-log-format.md)
 
 <!--Anchors-->
 [Introduzione]: #introduction

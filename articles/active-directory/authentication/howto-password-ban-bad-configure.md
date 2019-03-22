@@ -1,5 +1,5 @@
 ---
-title: Come escludere password in Azure AD
+title: Come escludere password vulnerabili in Azure AD - Azure Active Directory
 description: Escludere password non appropriate dall'ambiente con le password escluse dinamicamente di Azure AD
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef8f66cda7e80ffdafefbbac5de24d45f01401af
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: a7f6dbc869db4a0a444d09a2dc234e171758c706
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286931"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316491"
 ---
 # <a name="configuring-the-custom-banned-password-list"></a>Configurazione dell'elenco personalizzato di password escluse
 

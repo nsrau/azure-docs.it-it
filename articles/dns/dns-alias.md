@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 2/20/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1f6d6b2ae5fd3a0c08d37b93c73656ac6bb71d67
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 87ca7cae8e9170c8c437d0961cb1acb2e0dd0eb1
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295641"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337647"
 ---
 # <a name="azure-dns-alias-records-overview"></a>Panoramica dei record di alias DNS di Azure
 
@@ -20,9 +20,9 @@ I record di alias DNS di Azure sono qualifiche su un set di record DNS. Possono 
 
 Un set di record alias è supportato per i tipi di record seguenti in una zona DNS di Azure: 
 
-- Una  
-- AAAA 
-- CNAME 
+- Una 
+- AAAA
+- CNAME
 
 > [!NOTE]
 > Se si prevede di usare un record alias per i tipi di record A o AAAA per puntare a un [profilo di Gestione traffico di Azure](../traffic-manager/quickstart-create-traffic-manager-profile.md) è necessario assicurarsi che il profilo di Gestione traffico disponga solo di [endpoint esterni](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints). È necessario specificare gli indirizzi IPv4 o IPv6 per gli endpoint esterni in Gestione traffico. Idealmente, usare indirizzi IP statici.
@@ -32,7 +32,7 @@ Un set di record alias è supportato per i tipi di record seguenti in una zona D
 - **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias impostato per puntare a una risorsa IP pubblica. Se l'indirizzo IP pubblico viene modificato o viene eliminato, il set di record DNS è automatico. Vengono evitati i record DNS inesatti che puntano a indirizzi IP non corretti.
 
 - **Puntare a un profilo di Gestione traffico da un set di record DNS A/AAAA/CNAME**. È possibile creare un set di record A/AAAA o CNAME e usare i record alias per associarlo a un profilo di Gestione traffico. È particolarmente utile quando è necessario instradare il traffico in un dominio radice, poiché i record CNAME tradizionali non sono supportati per un dominio radice. Ad esempio, il profilo di Gestione traffico è myprofile.trafficmanager.net e la zona DNS aziendale è contoso.com. È possibile creare un set di record alias del tipo A/AAAA per contoso.com (vertice di zona) e scegliere myprofile.trafficmanager.net.
-
+- **Scegliere un endpoint Content Delivery Network (rete CDN di Azure)**. Ciò è utile quando si creano siti Web statici con archiviazione di Azure e rete CDN di Azure.
 - **Puntare a un altro set di record DNS all'interno della stessa zona**. I record alias possono fare riferimento ad altri set di record dello stesso tipo. Un set di record CNAME DNS ad esempio può essere un alias per un altro set di record CNAME. Questo approccio è utile se si vuole che solo alcuni set di record siano alias.
 
 ## <a name="scenarios"></a>Scenari
@@ -61,6 +61,7 @@ Questo problema può essere risolto tramite i record alias. A differenza dei rec
 Ad esempio, contoso.com e www\.contoso.com può puntare allo stesso profilo di Traffic Manager. Per altre informazioni sull'uso di record alias con i profili di Gestione traffico di Azure, vedere la sezione Passaggi successivi.
 
 ### <a name="point-zone-apex-to-azure-cdn-endpoints"></a>Vertice della zona di punto di endpoint rete CDN di Azure
+
 Proprio come un profilo di Traffic Manager, è possibile usare anche i record di alias in modo da puntare il vertice della zona DNS agli endpoint rete CDN di Azure. Ciò è utile quando si creano siti Web statici con archiviazione di Azure e rete CDN di Azure. È quindi possibile accedere al sito Web senza anteporre "www" per il nome DNS.
 
 Ad esempio, se il sito Web statico è denominato www.contoso.com, gli utenti possono accedere al sito usando contoso.com senza che sia necessario anteporre al nome DNS di www.

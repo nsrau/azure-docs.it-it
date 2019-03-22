@@ -1,5 +1,5 @@
 ---
-title: Quando e come usare un provider di Azure Multi-Factor Authentication?
+title: Quando e come usare un provider di Azure Multi-Factor Authentication? - Azure Active Directory
 description: Quando è necessario usare un provider di autenticazione con Azure MFA?
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67f6cca8158cdb0bd2eec99e6e23e285b976db96
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dfababeae15ee18a140042d9a6ca10be40e41339
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56205410"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310643"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Quando usare un provider di Azure Multi-Factor Authentication
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: dc0e326cf3b188a51708115e5496cfbb52a95611
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 46da7c7931eaf163c24f057bac5de35f3c727519
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836964"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311867"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalizzare le impostazioni di un cluster di Service Fabric
 Questo articolo illustra le varie impostazioni dell'infrastruttura per il cluster di Service Fabric che è possibile personalizzare. Per i cluster ospitati in Azure, è possibile personalizzare le impostazioni tramite il [portale di Azure](https://portal.azure.com) o con un modello di Azure Resource Manager. Per altre informazioni, vedere [Upgrade the configuration of an Azure cluster](service-fabric-cluster-config-upgrade-azure.md) (Aggiornare la configurazione di un cluster Azure). Per i cluster autonomi è possibile personalizzare le impostazioni aggiornando il file *ClusterConfig.json* ed eseguendo un aggiornamento della configurazione nel cluster. Per altre informazioni, vedere [Aggiornare la configurazione di un cluster autonomo](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -614,13 +614,13 @@ Di seguito è riportato un elenco di impostazioni dell'infrastruttura che è pos
 ## <a name="security"></a>Security
 | **Parametro** | **Valori consentiti** |**Criteri di aggiornamento**| **Indicazioni o breve descrizione** |
 | --- | --- | --- | --- |
-|AADCertEndpointFormat|stringa, il valore predefinito è ""|statico|Formato dell'endpoint dei certificati di AAD, Azure Commercial per impostazione predefinita, specificato per un ambiente non predefinito, ad esempio Azure per enti pubblici "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
+|AADCertEndpointFormat|stringa, il valore predefinito è ""|statico|AAD Cert Endpoint formato, Azure Commercial predefinito specificato per l'ambiente non predefinito, ad esempio Azure per enti pubblici "https:\//login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|stringa, il valore predefinito è ""|statico|Nome dell'applicazione client nativa o ID che rappresenta i client dell'infrastruttura. |
 |AADClusterApplication|stringa, il valore predefinito è ""|statico|Nome dell'applicazione API Web o ID che rappresenta il cluster. |
-|AADLoginEndpoint|stringa, il valore predefinito è ""|statico|Endpoint di accesso di AAD, Azure Commercial per impostazione predefinita, specificato per un ambiente non predefinito, ad esempio Azure per enti pubblici "https://login.microsoftonline.us" |
+|AADLoginEndpoint|stringa, il valore predefinito è ""|statico|AAD Endpoint accesso, Azure Commercial predefinito specificato per l'ambiente non predefinito, ad esempio Azure per enti pubblici "https:\//login.microsoftonline.us" |
 |AADTenantId|stringa, il valore predefinito è ""|statico|ID del tenant (GUID) |
 |AdminClientCertThumbprints|stringa, il valore predefinito è ""|Dinamico|Identificazioni personali dei certificati usati dai client nel ruolo di amministratore. Elenco di nomi delimitati da virgole. |
-|AADTokenEndpointFormat|stringa, il valore predefinito è ""|statico|Formato dell'endpoint dei token di AAD, Azure Commercial per impostazione predefinita, specificato per un ambiente non predefinito, ad esempio Azure per enti pubblici "https://login.microsoftonline.us/{0}" |
+|AADTokenEndpointFormat|stringa, il valore predefinito è ""|statico|AAD Endpoint di Token, Azure Commercial predefinito specificato per l'ambiente non predefinito, ad esempio Azure per enti pubblici "https:\//login.microsoftonline.us/{0}" |
 |AdminClientClaims|stringa, il valore predefinito è ""|Dinamico|Tutte le attestazioni possibili previste dai client di amministrazione. Stesso formato di ClientClaims. Questo elenco viene aggiunto internamente a ClientClaims, pertanto non occorre aggiungere le stesse voci a ClientClaims. |
 |AdminClientIdentities|stringa, il valore predefinito è ""|Dinamico|Identità di Windows dei client dell'infrastruttura nel ruolo di amministratore. Questo parametro viene usato per autorizzare operazioni sull'infrastruttura con privilegi. Si tratta di un elenco delimitato da virgole, in cui ogni voce è un nome di account di dominio o un nome di gruppo. Per motivi di praticità, all'account che esegue fabric.exe viene assegnato automaticamente il ruolo di amministratore, così come al gruppo ServiceFabricAdministrators. |
 |AppRunAsAccountGroupX509Folder|String, valore predefinito: /home/sfuser/sfusercerts |statico|Cartella in cui vengono posizionati i certificati AppRunAsAccountGroup X509 e le chiavi private |

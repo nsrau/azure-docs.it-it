@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 5e65965678ed042081e4a406d3a207fb7ede299f
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002962"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313652"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
 A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione risorse tra le origini (CORS) per i servizi BLOB, tabelle, code e file. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](https://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per altri dettagli su CORS, vedere la [specifica CORS](https://www.w3.org/TR/cors/).
@@ -67,7 +67,7 @@ Di seguito è riportato un esempio di una regola CORS singola, specificata trami
 
 Ciascun elemento incluso nella regola CORS è descritto di seguito:
 
-* **AllowedOrigins**: i domini di origine ai quali è consentito effettuare una richiesta al servizio di archiviazione tramite la condivisione CORS. Il dominio di origine è quello da cui proviene la richiesta. L'origine deve corrispondere esattamente, anche con distinzione tra maiuscole e minuscole, all'origine inviata al servizio dall'agente utente. È inoltre possibile utilizzare il carattere jolly '*' per consentire a tutti i domini di origine di effettuare richieste tramite condivisione CORS. Nell'esempio precedente, ai domini [http://www.contoso.com](http://www.contoso.com) e [http://www.fabrikam.com](http://www.fabrikam.com) è consentito eseguire richieste al servizio tramite la condivisione CORS.
+* **AllowedOrigins**: i domini di origine ai quali è consentito effettuare una richiesta al servizio di archiviazione tramite la condivisione CORS. Il dominio di origine è quello da cui proviene la richiesta. L'origine deve corrispondere esattamente, anche con distinzione tra maiuscole e minuscole, all'origine inviata al servizio dall'agente utente. È inoltre possibile utilizzare il carattere jolly '*' per consentire a tutti i domini di origine di effettuare richieste tramite condivisione CORS. Nell'esempio precedente, il protocollo http domini:\//www.contoso.com e http: \/ /www.fabrikam.com può effettuare richieste nei confronti di servizio tramite condivisione CORS.
 * **AllowedMethods**: i metodi (verbi di richiesta HTTP) che possono essere usati dal dominio di origine per una richiesta CORS. Nell'esempio precedente, sono consentite solo le richieste PUT e GET.
 * **AllowedHeaders**: le intestazioni di richiesta che possono essere specificate dal dominio di origine nella richiesta CORS. Nell'esempio precedente, sono consentite tutte le intestazioni di metadati che iniziano con x-ms-meta-data, x-ms-meta-target e x-ms-meta-abc. Il carattere jolly "*" indica che è consentita qualsiasi intestazione che inizi col prefisso specificato.
 * **ExposedHeaders**: le intestazioni di risposta che possono essere inviate in risposta alla richiesta CORS ed esposte all'emittente della richiesta dal browser. Nell'esempio precedente, al browser viene indicato di esporre qualsiasi intestazione che inizi con x-ms-meta.
@@ -130,9 +130,9 @@ Successivamente, considerare le seguenti richieste CORS:
 | Richiesta |  |  | Risposta |  |
 | --- | --- | --- | --- | --- |
 | **Metodo** |**Origine** |**Intestazioni della richiesta** |**Corrispondenza regola** |**Risultato** |
-| **PUT** |http://www.contoso.com |x-ms-blob-content-type |Prima regola |Success |
-| **GET** |http://www.contoso.com |x-ms-blob-content-type |Seconda regola |Success |
-| **GET** |http://www.contoso.com |x-ms-client-request-id |Seconda regola |Esito negativo |
+| **PUT** |http:\//www.contoso.com |x-ms-blob-content-type |Prima regola |Success |
+| **GET** |http:\//www.contoso.com |x-ms-blob-content-type |Seconda regola |Success |
+| **GET** |http:\//www.contoso.com |x-ms-client-request-id |Seconda regola |Esito negativo |
 
 La prima richiesta corrisponde alla prima regola (il dominio di origine corrisponde alle origini consentite, il metodo corrisponde ai metodi consentiti e l'intestazione corrisponde alle intestazioni consentite), pertanto ha esito positivo.
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 11b1b46e29ac9a4147c4dc319753edd0fadce8bc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 338c4a97bced7d9e524f96fcd82f19e5230ff143
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088911"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317341"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
@@ -149,7 +149,7 @@ ProxyPassword="Password"
 È possibile modificare le impostazioni proxy per il server di configurazione come segue:
 
 1. Accedere al server di configurazione.
-2. Avviare il file cspsconfigtool.exe usando il relativo collegamento.
+2. Avviare il file cspsconfigtool.exe usando il relativo collegamento sul desktop.
 3. Fare clic sulla scheda **Vault Registration** (Registrazione dell'insieme di credenziali).
 4. Scaricare un nuovo file di registrazione dell'insieme di credenziali dal portale e fornirlo come input allo strumento.
 

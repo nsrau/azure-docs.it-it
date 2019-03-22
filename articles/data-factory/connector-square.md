@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 68ac03a8aba4042a842b5e740d67ab4198236275
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f22311af277f860c1501287b5be0f5dc149880b9
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54013163"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317724"
 ---
 # <a name="copy-data-from-square-using-azure-data-factory-preview"></a>Copiare dati da Square tramite Azure Data Factory (anteprima)
 
@@ -42,13 +42,13 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Square sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Square** | Yes |
-| host | URL dell'istanza di Square, ad esempio mystore.mysquare.com.  | Yes |
-| clientId | ID client associato all'applicazione Square.  | Yes |
-| clientSecret | Segreto client associato all'applicazione Square. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
-| redirectUri | URL di reindirizzamento assegnato nel dashboard dell'applicazione Square, ovvero http://localhost:2500)  | Yes |
+| type | La proprietà type deve essere impostata su: **Square** | Sì |
+| host | URL dell'istanza di Square, ad esempio mystore.mysquare.com.  | Sì |
+| clientId | ID client associato all'applicazione Square.  | Sì |
+| clientSecret | Segreto client associato all'applicazione Square. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| redirectUri | URL di reindirizzamento assegnato nel dashboard dell'applicazione Square, (ad esempio http:\//localhost:2500)  | Sì |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No  |
 | useHostVerification | Specifica se è necessario che il nome host nel certificato del server corrisponda al nome host del server per la connessione tramite SSL. Il valore predefinito è true.  | No  |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite SSL. Il valore predefinito è true.  | No  |
@@ -73,15 +73,15 @@ Per il servizio collegato di Square sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Square.
 
 Per copiare dati da Square, impostare la proprietà type del set di dati su **SquareObject**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **SquareObject** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **SquareObject** | Sì |
 | tableName | Nome della tabella. | No (se nell'origine dell'attività è specificato "query") |
 
 **Esempio**
@@ -108,9 +108,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Square, impostare il tipo di origine nell'attività di copia su **SquareSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SquareSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **SquareSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM Business"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**

@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication - Come funziona
+title: 'Azure multi-Factor Authentication - come funziona: Azure Active Directory'
 description: Azure multi-Factor Authentication contribuisce a salvaguardare l'accesso a dati e applicazioni rispondendo alla richiesta degli utenti di poter usare un processo di accesso semplice.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7c05c9a7db7f8e8c6e84232009780988d77aa14
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7328fb958774b5e17511d046e914cc5612e8a96d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58088333"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310932"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Come funziona: Azure Multi-Factor Authentication
 

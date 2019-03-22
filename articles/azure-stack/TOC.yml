@@ -298,6 +298,10 @@ items:
       href: azure-stack-app-service-add-worker-roles.md
     - name: Configurare le origini di distribuzione
       href: azure-stack-app-service-configure-deployment-sources.md
+    - name: Eseguire il backup del servizio App
+      href: app-service-back-up.md
+    - name: Ripristinare il servizio App
+      href: app-service-recover.md
     - name: Servizio App in note sulla versione di Azure Stack
       items:
       - name: Servizio App in Azure Stack update note sulla versione 1
@@ -399,9 +403,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Formazione e certificazione
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 4875ccf5b74151809788e024ae659756cf769e10
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: f2ea6b4ae7ff49d3263805460a30e5d407f7c0e6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223326"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338361"

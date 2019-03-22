@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.author: cephalin;dariagrigoriu
 ms.custom: seodec18
-ms.openlocfilehash: 1313616818686c7a03269fc1cc837958665732d8
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: fcb2c270b36d5efbe7b799787cf2a123b51bea5c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725236"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337545"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 Questo articolo illustra come configurare la distribuzione continua per il [servizio app di Azure](overview.md). Il servizio app consente la distribuzione continua da BitBucket, GitHub e [Azure DevOps Services](https://www.visualstudio.com/team-services/) effettuando il pull degli aggiornamenti più recenti dal repository esistente in uno di questi servizi.
@@ -47,6 +47,16 @@ Nella pagina **Provider compilazione** scegliere il provider di compilazione e f
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Opzione 1: usare il server di compilazione Kudu del servizio app
 
 Nella pagina **Configura** selezionare l'organizzazione, il repository e il ramo da cui si vuole eseguire la distribuzione continua. Al termine dell'operazione, fare clic su **Continua**.
+
+Per distribuire da un repository in un'organizzazione di GitHub, passare a GitHub e andare al **le impostazioni** > **applicazioni** > **autorizzate OAuth app**. Quindi fare clic su "Servizio App di Azure".
+
+![Impostazioni > applicazioni > OAuth le app autorizzate > servizio App di Azure](media/app-service-continuous-deployment/github-settings-navigation.png)
+
+Nella pagina successiva, concedere l'accesso di servizio App per i repository dell'organizzazione facendo clic sul pulsante "Concedi" sul lato destro.
+
+![Fare clic su "Concessione" per concedere l'accesso al servizio App per i repository dell'organizzazione](media/app-service-continuous-deployment/grant-access.png)
+
+L'organizzazione ora dovrebbe essere visualizzato nell'elenco "Organizzazione" i **configura** pagina del centro di distribuzione.
 
 ### <a name="option-2-use-azure-pipelines-preview"></a>Opzione 2: usare Azure Pipelines (anteprima)
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef5679ba2a6a62955f5402e8bfaa4f1884df722d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 415b33dce42945c40aedd996d4dcfa5c6b987b44
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840597"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336219"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>Single sign-on SAML per applicazioni locali con il Proxy di applicazione (anteprima)
 
@@ -54,8 +54,8 @@ Quando si sta l'esercitazione, tenere presente quanto segue:
 
      ![Immettere i dati di configurazione di base SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
-     > [!NOTE]
-     > Se l'applicazione back-end prevede che il **URL di risposta** per essere l'URL interno, è necessario installare le app personali protetta estensione di accesso nei dispositivi degli utenti. Questa estensione verrà reindirizzata automaticamente al servizio Proxy di applicazione appropriato. Per installare l'estensione, vedere [estensione accesso sicuro alle App personali](../user-help/active-directory-saas-access-panel-introduction.md#my-apps-secure-sign-in-extension).
+    > [!NOTE]
+    > Se l'applicazione back-end prevede che il **URL di risposta** per essere l'URL interno, è necessario installare le app personali protetta estensione di accesso nei dispositivi degli utenti. Questa estensione verrà reindirizzata automaticamente al servizio Proxy di applicazione appropriato. Per installare l'estensione, vedere [estensione accesso sicuro alle App personali](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension).
 
 ## <a name="test-your-app"></a>Test dell'app
 

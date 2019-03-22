@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 79440cf69f921e5933ed410e276cdf304e94fa4f
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 64cfac0d689df88c4d432e772bcd0a0cc7ab4ade
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55817275"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317681"
 ---
 # <a name="monitor-a-storage-account-in-the-azure-portal"></a>Monitorare un account di archiviazione nel portale di Azure
 
-[Analisi archiviazione di Azure](../storage-analytics.md) offre metriche per tutti i servizi di archiviazione e log per BLOB, code e tabelle. È possibile usare il [portale di Azure](https://portal.azure.com) per configurare quali metriche e log verranno registrati per l'account e i grafici che offriranno una rappresentazione visiva dei dati di metrica.
+[Analisi archiviazione di Azure](storage-analytics.md) offre metriche per tutti i servizi di archiviazione e log per BLOB, code e tabelle. È possibile usare il [portale di Azure](https://portal.azure.com) per configurare quali metriche e log verranno registrati per l'account e i grafici che offriranno una rappresentazione visiva dei dati di metrica.
 
 > [!NOTE]
-> All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione e fatturazione](/rest/api/storageservices/Storage-Analytics-and-Billing).
+> All'esame dei dati di monitoraggio nel portale di Azure sono associati costi. Per altre informazioni, vedere [Analisi archiviazione](storage-analytics.md).
 >
 > File di Azure attualmente supporta la metrica di Analisi archiviazione, ma non supporta ancora la registrazione.
-> 
-> Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](../storage-monitoring-diagnosing-troubleshooting.md).
+>
+> Per una guida dettagliata sull'utilizzo di Analisi archiviazione e di altri strumenti per identificare, diagnosticare e risolvere i problemi relativi ad Archiviazione di Azure, vedere [Monitoraggio, diagnosi e risoluzione dei problemi del servizio di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md).
 >
 
 ## <a name="configure-monitoring-for-a-storage-account"></a>Configurare il monitoraggio per un account di archiviazione
@@ -41,7 +41,7 @@ ms.locfileid: "55817275"
    Per impostare i criteri di conservazione dei dati, spostare il dispositivo di scorrimento **Conservazione (in giorni)** oppure immettere il numero desiderato di giorni, da 1 a 365. L'impostazione predefinita per i nuovi account di archiviazione è sette giorni. Se non si desidera impostare criteri di conservazione, immettere zero. Se non vengono impostati criteri di conservazione, i dati di monitoraggio dovranno essere eliminati manualmente.
 
    > [!WARNING]
-   > Quando si eliminano manualmente i dati di metrica, viene applicato un addebito. I dati di analisi obsoleti, che hanno superato l'intervallo di tempo dei criteri di conservazione, vengono eliminati dal sistema gratuitamente. È consigliabile impostare i criteri di conservazione in base al periodo di tempo per il quale si vogliono conservare i dati di analisi dell'archiviazione per l'account. Per altre informazioni, vedere [Quali addebiti è necessario sostenere quando si abilitano le metriche di archiviazione?](../common/storage-enable-and-view-metrics.md#what-charges-do-you-incur-when-you-enable-storage-metrics)
+   > Quando si eliminano manualmente i dati di metrica, viene applicato un addebito. I dati di analisi obsoleti, che hanno superato l'intervallo di tempo dei criteri di conservazione, vengono eliminati dal sistema gratuitamente. È consigliabile impostare i criteri di conservazione in base al periodo di tempo per il quale si vogliono conservare i dati di analisi dell'archiviazione per l'account. Visualizzare [fatturazione per le metriche di archiviazione](storage-analytics-metrics.md#billing-on-storage-metrics) per altre informazioni.
    >
 
 1. Al termine della configurazione del monitoraggio, selezionare **Salva**.
@@ -51,12 +51,12 @@ Un set predefinito di metriche verrà visualizzato in grafici nel pannello dell'
 È possibile disabilitare la raccolta e la registrazione delle metriche impostando **Stato** su **Disattivato**.
 
 > [!NOTE]
-> Archiviazione di Azure usa l'[archivio tabelle](../common/storage-introduction.md#table-storage) per archiviare le metriche per l'account di archiviazione e archivia le metriche in tabelle dell'account. Per altre informazioni, vedere [Come vengono archiviate le metriche](../common/storage-analytics.md#how-metrics-are-stored).
+> Archiviazione di Azure usa l'[archivio tabelle](storage-introduction.md#table-storage) per archiviare le metriche per l'account di archiviazione e archivia le metriche in tabelle dell'account. Per altre informazioni, vedere [Come vengono archiviate le metriche](storage-analytics-metrics.md#how-metrics-are-stored).
 >
 
 ## <a name="customize-metrics-charts"></a>Personalizzare i grafici delle metriche
 
-Per scegliere le metriche di archiviazione da visualizzare in un grafico, seguire questa procedura. 
+Per scegliere le metriche di archiviazione da visualizzare in un grafico, seguire questa procedura.
 
 1. Per iniziare, visualizzare un grafico delle metriche di archiviazione nel portale di Azure. I grafici sono riportati nel **pannello dell'account di archiviazione** e nel pannello **Metriche** di un singolo servizio (BLOB, accodamento, tabelle o file).
 
@@ -130,17 +130,16 @@ Dopo che sono stati aggiunti al dashboard, i grafici possono essere ulteriorment
 1. Selezionare **Diagnostica** nella sezione **Monitoraggio** del pannello del menu.
 
     ![Voce di menu Diagnostica in Monitoraggio nel portale di Azure.](./media/storage-monitor-storage-account/storage-enable-metrics-00.png)
-    
+
 1. Verificare che l'opzione **Stato** sia impostata su **Attivato** e selezionare i **servizi** per cui si vuole abilitare la registrazione.
 
     ![Configurare la registrazione nel portale di Azure.](./media/storage-monitor-storage-account/enable-diagnostics.png)
 1. Fare clic su **Save**.
 
-I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](http://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
+I log di diagnostica sono salvati in un contenitore blob denominato *$logs* nell'account di archiviazione. È possibile visualizzare i dati dei log con uno strumento di esplorazione di archiviazione come [Microsoft Azure Storage Explorer](https://storageexplorer.com) oppure a livello di codice usando la libreria client di archiviazione o PowerShell.
 
-Per informazioni sull'accesso al contenitore $logs, vedere [Enabling Storage Logging and Accessing Log Data](/rest/api/storageservices/enabling-storage-logging-and-accessing-log-data) (Abilitazione della registrazione di archiviazione e accesso ai dati dei log).
+Per informazioni sull'accesso al contenitore $logs, vedere [la registrazione analitica dell'archiviazione](storage-analytics-logging.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altri dettagli su [metriche, registrazione e fatturazione](../storage-analytics.md) per Analisi archiviazione.
-* [Abilitazione delle metriche di Archiviazione di Azure e visualizzazione dei dati delle metriche](../storage-enable-and-view-metrics.md) con PowerShell e a livello di codice con C#.
+* Altri dettagli su [metriche, registrazione e fatturazione](storage-analytics.md) per Analisi archiviazione.

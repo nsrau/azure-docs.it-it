@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: babanisa
-ms.openlocfilehash: ea41f09269e3ad46db1f254965fd7d7df25232be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: d66db88dd1e962acc63c960270bb5685218aa391
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095603"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316062"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -88,7 +88,7 @@ Per un esempio di gestione dell'handshake di convalida della sottoscrizione, ved
 
 ### <a name="checklist"></a>Elenco di controllo
 
-Durante la creazione di una sottoscrizione di eventi, se viene visualizzato un messaggio di errore analogo a "Il tentativo di convalida dell'endpoint specificato https://your-endpoint-here non è riuscito. Per altri dettagli, vedere https://aka.ms/esvalidation", si è verificato un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
+Durante la creazione della sottoscrizione di evento, se viene visualizzato un messaggio di errore, ad esempio "il tentativo di convalidare il protocollo https endpoint fornito:\//your-endpoint-here non è riuscita. Per altre informazioni, visitare https:\//aka.ms/esvalidation ", indica che si verifica un errore nell'handshake di convalida. Per risolvere questo errore, verificare gli aspetti seguenti:
 
 * È possibile controllare il codice dell'applicazione nell'endpoint di destinazione? Se, ad esempio, si scrive una funzione di Azure basata su un trigger HTTP, si è autorizzati ad accedere al codice dell'applicazione per modificarlo?
 * Se si è autorizzati ad accedere al codice dell'applicazione, implementare il meccanismo di handshake basato su ValidationCode, come illustrato nell'esempio precedente.

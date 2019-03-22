@@ -2,19 +2,19 @@
 title: Output di Analisi di flusso di Azure in Database SQL di Azure
 description: Maggiori informazioni sull'output dei dati in SQL Azure da Analisi di flusso di Azure e su come ottenere una elevata velocità effettiva di scrittura.
 services: stream-analytics
-author: chetang
-ms.author: chetang
-manager: katicad
+author: chetanmsft
+ms.author: chetanmsft
+manager: katiiceva
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.openlocfilehash: 794e2f3db44c29707400f96970159578d9e83f2d
-ms.sourcegitcommit: 70471c4febc7835e643207420e515b6436235d29
-ms.translationtype: HT
+ms.date: 3/18/2019
+ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54303276"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338429"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
 
@@ -33,7 +33,7 @@ Ecco alcune configurazioni all'interno di ogni servizio che consentono di miglio
 
 - **Dimensione batch** - la configurazione di output SQL consente di specificare le dimensioni massime del batch in un output Analisi di flusso SQL di Azure, in base alla natura del carico di lavoro/tabella di destinazione. La dimensione del batch indica il numero massimo di record inviati con ogni transazione di inserimento di massa. Negli indici columnstore cluster, le dimensioni del batch intorno ai [100K](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) consentono una maggiore parallelizzazione, una registrazione minima e le ottimizzazioni dei blocchi. Nelle tabelle basate su disco, uguale o inferiore a 10K (impostazione predefinita), può essere ottimale per la soluzione, in quanto le dimensioni di batch maggiori possono attivare l'escalation blocchi durante gli inserimenti di massa.
 
-- **Sintonizzazione del messaggio di Input** – se è stato ottimizzato tramite l'ereditare il partizionamento e la dimensione del batch, l'aumento del numero di eventi di input per ogni messaggio e partizione consente di aumentare ulteriormente la velocità effettiva di scrittura. La sintonizzazione del messaggio di input consente alle dimensioni del batch all'interno delle Analisi di flusso di Azure di arrivare alla dimensione del batch specificata, migliorando così la velocità effettiva. Ciò può essere ottenuto usando la [compressione](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) oppure dimensioni maggiori del messaggio disponibili nello SKU Premium EventHub.
+- **Sintonizzazione del messaggio di Input** – se è stato ottimizzato tramite l'ereditare il partizionamento e la dimensione del batch, l'aumento del numero di eventi di input per ogni messaggio e partizione consente di aumentare ulteriormente la velocità effettiva di scrittura. La sintonizzazione del messaggio di input consente alle dimensioni del batch all'interno delle Analisi di flusso di Azure di arrivare alla dimensione del batch specificata, migliorando così la velocità effettiva. Ciò può essere ottenuta usando [compressione](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs) o ad aumentare le dimensioni dei messaggi di input nel Blob o EventHub.
 
 ## <a name="sql-azure"></a>SQL Azure
 
@@ -43,7 +43,16 @@ Ecco alcune configurazioni all'interno di ogni servizio che consentono di miglio
 
 ## <a name="azure-data-factory-and-in-memory-tables"></a>Data Factory di Azure e tabelle in memoria
 
-- **Tabella in memoria come tabelle temporanee** – Le [tabelle in memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) consentono caricamenti di dati ad alta velocità, ma i dati devono essere inseriti in memoria. I benchmark mostrano che il caricamento di massa da una tabella in memoria in una tabella basata su disco è circa 10 volte più veloce rispetto all'inserimento di massa diretto tramite un unico scrittore nella tabella basata su disco con una colonna identity e un indice cluster. Per sfruttare queste prestazioni di inserimento di massa, configurare un [processo di copia usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) che copia i dati dalla tabella in memoria alla tabella basata su disco.
+- **Tabella in memoria come tabelle temporanee** – [tabelle In memoria](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/in-memory-oltp-in-memory-optimization) Consenti per i caricamenti di dati molto ad alta velocità, ma i dati devono rientrare nella memoria. I benchmark mostrano che il caricamento di massa da una tabella in memoria in una tabella basata su disco è circa 10 volte più veloce rispetto all'inserimento di massa diretto tramite un unico scrittore nella tabella basata su disco con una colonna identity e un indice cluster. Per sfruttare queste prestazioni di inserimento di massa, configurare un [processo di copia usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-database) che copia i dati dalla tabella in memoria alla tabella basata su disco.
+
+## <a name="avoiding-performance-pitfalls"></a>Evitare i problemi di prestazioni
+Inserimento bulk dei dati è molto più veloce rispetto a caricamento dei dati con singoli inserimenti in quanto le ripetute si evita il sovraccarico di trasferimento dei dati, l'analisi dell'istruzione insert, che esegue l'istruzione e il rilascio di un record di transazione. Al contrario, un percorso più efficiente viene utilizzato nel motore di archiviazione per trasmettere i dati. Il costo di programma di installazione di questo percorso è tuttavia molto maggiore rispetto a un'unica istruzione insert in una tabella basata su disco. Il punto di pareggio è in genere circa 100 righe, oltre che in blocco durante il caricamento è quasi sempre più efficiente. 
+
+Se la frequenza di eventi in ingresso è bassa, è possibile creare facilmente i batch di dimensioni inferiori a 100 righe, che consente di bulk insert inefficiente e utilizza troppo spazio su disco. Per aggirare questa limitazione, è possibile eseguire una di queste azioni:
+* Creare INSTEAD OF [trigger](https://docs.microsoft.com/en-us/sql/t-sql/statements/create-trigger-transact-sql) usare insert semplici per ogni riga.
+* Usare una tabella temporanea In memoria come descritto nella sezione precedente.
+
+Un altro scenario di questo tipo si verifica durante la scrittura in un indice columnstore non cluster (NCCI), in cui gli inserimenti bulk più piccoli possono creare troppi segmenti, che possono arrestarsi in modo anomalo l'indice. In questo caso, la raccomandazione è in alternativa, usare un indice Columnstore cluster.
 
 ## <a name="summary"></a>Summary
 

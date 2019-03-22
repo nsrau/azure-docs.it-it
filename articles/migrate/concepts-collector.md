@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 228d7b6994c67f9e14424624d264061634d80f27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080066"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315301"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -82,7 +82,7 @@ Agente di raccolta deve superare alcuni controlli dei prerequisiti per verificar
 ### <a name="connect-to-the-internet-via-a-proxy"></a>Connettersi a Internet tramite un proxy
 
 - Se il server proxy richiede l'autenticazione, è possibile specificare il nome utente e password quando si configura Agente di raccolta.
-- L'indirizzo IP o il nome FQDN del server proxy deve essere specificato come *http://IPaddress* o *http://FQDN*.
+- L'IP indirizzo/FQDN del server Proxy deve specificato come *http:\//IPaddress* oppure *http:\//FQDN*.
 - È supportato solo il proxy HTTP. I server proxy basati su HTTPS non sono supportati da Agente di raccolta.
 - Se il server proxy è un proxy di intercettazione, è necessario importare il certificato proxy nella macchina virtuale di Agente di raccolta.
   1. Nella macchina virtuale di Agente di raccolta andare al **menu Start** > **Gestisci i certificati computer**.

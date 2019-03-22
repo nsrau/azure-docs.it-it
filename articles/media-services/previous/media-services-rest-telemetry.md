@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: b1eb6e1458fab6de3472d68352ba7764b71007c8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
-ms.translationtype: HT
+ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58292582"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317647"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>Configurare la telemetria di Servizi multimediali di Azure con REST
 
@@ -34,7 +34,7 @@ Questo argomento descrive come:
 - Acquisire gli endpoint di notifica
 - Creare un endpoint di notifica per il monitoraggio. 
 
-    Per creare un endpoint di notifica, impostare la proprietà EndPointType su AzureTable (2) e endPointAddress sulla tabella di archiviazione (ad esempio, https://telemetryvalidationstore.table.core.windows.net/).
+    Per creare un Endpoint di notifica, impostare la proprietà EndPointType su AzureTable (2) ed EndpointAddress sulla tabella di archiviazione (ad esempio, https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - Ottenere le configurazioni di monitoraggio
 
@@ -121,12 +121,12 @@ Questo argomento descrive come:
     
     {  
         "Name":"monitoring",
-        "EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/",
+        "EndPointAddress":"https:\//telemetryvalidationstore.table.core.windows.net/",
         "EndPointType":2
     }
 
 > [!NOTE]
-> Non dimenticare di modificare il valore "https://telemetryvalidationstore.table.core.windows.net" sostituendolo con l'account di archiviazione.
+> Non dimenticare di modificare il "https:\//telemetryvalidationstore.table.core.windows.net" valore all'account di archiviazione.
 
 ### <a name="response"></a>Risposta
 

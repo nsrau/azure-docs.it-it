@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: a1b60bdf27e1a5f5cb6b9cfba72d78f8afa068eb
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: e7f292db06d4da9206aabd14a68e6acde867f92d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768597"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337001"
 ---
 # <a name="features-and-terminology-in-azure-event-hubs"></a>Funzionalità e terminologia di Hub eventi di Azure
 
@@ -33,7 +33,7 @@ Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, id
 
 [Questa funzionalità](event-hubs-for-kafka-ecosystem-overview.md) offre un endpoint che consente ai clienti di parlare con gli Hub eventi usando il protocollo Kafka. Questa integrazione offre ai clienti un endpoint Kafka. Ciò consente ai clienti di configurare le proprie applicazioni Kafka esistenti per parlare con gli Hub eventi offrendo un'alternativa all'esecuzione dei propri cluster Kafka. Hub eventi per Apache Kafka supporta il protocollo Kafka 1.0 e versioni successive. 
 
-Con questa integrazione non è necessario eseguire i cluster Kafka o gestirli con Zookeeper. In questo modo è possibile usare alcune delle funzionalità più complesse di Hub eventi, ad esempio acquisizione, aumento automatico e ripristino di emergenza geografico.
+Con questa integrazione, non è necessario eseguire i cluster Kafka o gestirli con Zookeeper. In questo modo è possibile usare alcune delle funzionalità più complesse di Hub eventi, ad esempio acquisizione, aumento automatico e ripristino di emergenza geografico.
 
 Questa integrazione consente inoltre alle applicazioni come Mirror Maker o ai framework come Kafka Connect di lavorare senza cluster solo con le modifiche alla configurazione. 
 
@@ -43,7 +43,7 @@ Qualsiasi entità che invia dati a un hub eventi è un produttore di eventi o *a
 
 ### <a name="publishing-an-event"></a>Pubblicazione di un evento
 
-È possibile pubblicare un evento tramite AMQP 1.0, Kafka 1.0 (e versioni successive) o HTTPS. Hub eventi offre [classi e librerie client](event-hubs-dotnet-framework-api-overview.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](http://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 1 MB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che gli autori non rilevino le partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (illustrata nella sezione successiva) o la propria identità tramite il token di firma di accesso condiviso.
+È possibile pubblicare un evento tramite AMQP 1.0, Kafka 1.0 (e versioni successive) o HTTPS. Hub eventi offre [classi e librerie client](event-hubs-dotnet-framework-api-overview.md) per la pubblicazione di eventi in un hub eventi dai client .NET. Per altre piattaforme e runtime, è possibile utilizzare qualsiasi client AMQP 1.0, ad esempio [Apache Qpid](https://qpid.apache.org/). È possibile pubblicare eventi singolarmente o in batch. Una singola pubblicazione (istanza dei dati dell'evento) ha un limite di 1 MB, indipendentemente dal fatto che si tratti di un singolo evento o di un batch. La pubblicazione di eventi di dimensioni superiori alla soglia determina un errore. È consigliabile che gli autori non rilevino le partizioni all'interno dell'hub eventi e specifichino solo una *chiave di partizione* (illustrata nella sezione successiva) o la propria identità tramite il token di firma di accesso condiviso.
 
 La scelta di utilizzare AMQP o HTTPS dipende dallo scenario di utilizzo. AMQP richiede di stabilire un socket bidirezionale persistente oltre alla sicurezza a livello di trasporto (TLS) o SSL/TLS. AMQP comporta costi di rete superiori in fase di inizializzazione della sessione, ma HTTPS richiede un costo generale SSL aggiuntivo per ogni richiesta. AMQP offre prestazioni più elevate per i server di pubblicazione più attivi.
 
@@ -79,7 +79,7 @@ Hub eventi mantiene i dati per un periodo di conservazione configurato che viene
 
 Il numero di partizioni viene specificato in fase di creazione e deve essere compreso tra 2 e 32. Il numero di partizioni non può essere modificato. È quindi consigliabile valutare le dimensioni a lungo termine in fase di impostazione del numero di partizioni. Le partizioni sono un meccanismo di organizzazione dei dati correlato al parallelismo downstream necessario per utilizzare le applicazioni. Il numero di partizioni in un hub eventi è direttamente correlato al numero di lettori simultanei previsti. Per impostare un numero di partizioni superiore a 32, contattare il team di Hub eventi.
 
-Anche se le partizioni sono identificabili e consentono l'invio diretto, questa operazione non è consigliata per una partizione. È invece possibile usare i costrutti più generici introdotti nelle sezioni [Autore di eventi](#event-publishers) e [Capacità](#capacity). 
+Anche se le partizioni sono identificabili e consentono l'invio diretto, questa operazione non è consigliata per una partizione. In alternativa, è possibile utilizzare costrutti più generici introdotti nel [autore di eventi](#event-publishers) e sezioni di capacità. 
 
 Nelle partizioni viene inserita una sequenza di dati evento, che include il corpo dell'evento, un contenitore delle proprietà definito dall'utente e metadati quali l'offset nella partizione e il numero nella sequenza di flusso.
 
@@ -152,13 +152,15 @@ Dati evento:
 
 L'utente è responsabile della gestione dell'offset.
 
-## <a name="capacity"></a>Capacity
+## <a name="scaling-with-event-hubs"></a>Scalabilità con l'hub eventi
 
-Hub eventi è un'architettura parallela a scalabilità elevata ed è necessario valutare alcuni fattori chiave durante il ridimensionamento.
+Esistono due fattori che influenzano la scalabilità con l'hub eventi.
+*   Unità elaborate
+*   Partitions
 
 ### <a name="throughput-units"></a>Unità elaborate
 
-La capacità di velocità effettiva di Hub eventi è controllata dalle *unità elaborate*. Le unità elaborate sono unità di capacità pre-acquistate. Una singola unità elaborata include la capacità seguente:
+La capacità di velocità effettiva di Hub eventi è controllata dalle *unità elaborate*. Le unità elaborate sono unità di capacità pre-acquistate. Una velocità effettiva single consente di:
 
 * Dati in ingresso: fino a 1 MB al secondo o 1000 eventi al secondo, in base al valore raggiunto per primo.
 * Dati in uscita: fino a 2 MB al secondo o 4096 eventi al secondo.
@@ -167,9 +169,13 @@ Oltre la capacità delle unità elaborate acquistate, i dati in ingresso vengono
 
 Le unità sono pre-acquistate e vengono fatturate su base oraria. Una volta acquistate, le unità elaborate vengono fatturate per un minimo di un'ora. È possibile acquistare fino a 20 unità elaborate per uno spazio dei nomi di Hub eventi, che vengono condivise in tutti gli hub eventi nello spazio dei nomi.
 
-È possibile acquistare altre unità elaborate in blocchi di 20, fino a un massimo di 100 unità elaborate, contattando il supporto tecnico di Azure. Oltre questo limite, è possibile acquistare blocchi di 100 unità elaborate.
+### <a name="partitions"></a>Partitions
 
-È consigliabile bilanciare unità elaborate e partizioni per ottenere una scalabilità ottimale. Una singola partizione ha una scalabilità minima di unità elaborate. Il numero di unità elaborate deve essere minore o uguale al numero di partizioni in un hub eventi.
+Le partizioni consentono scalabilità all'elaborazione downstream. A causa di modello consumer partizionato che offre un hub eventi con le partizioni, è possibile scalare orizzontalmente durante l'elaborazione di eventi simultaneamente. Un Hub eventi può avere un massimo di 32 partizioni.
+
+È consigliabile bilanciare unità elaborate di 1:1 e partizioni per ottenere una scalabilità ottimale. Una singola partizione ha un ingresso e uscita di fino a un'unità di velocità effettiva garantite. Benché sia possibile essere in grado di raggiungere una velocità effettiva in una partizione, le prestazioni non sono garantita. Ecco perché è fortemente consigliabile che il numero di partizioni in un hub eventi sia maggiore o uguale al numero di unità di velocità effettiva.
+
+Data la velocità effettiva totale che si prevede di dover, si conosce il numero di unità di velocità effettiva desiderata e il numero minimo di partizioni, ma il numero di partizioni è opportuno avere? Selezionare numero di partizioni in base al parallelismo downstream che si desidera ottenere, nonché esigenze di velocità effettiva futura. Non sono previsti addebiti per il numero di partizioni all'interno di un Hub eventi.
 
 Per informazioni dettagliate sui prezzi di Hub eventi, vedere [Prezzi di Hub eventi ](https://azure.microsoft.com/pricing/details/event-hubs/).
 

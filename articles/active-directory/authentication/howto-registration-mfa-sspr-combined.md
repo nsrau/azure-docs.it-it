@@ -1,5 +1,5 @@
 ---
-title: Introduzione a registrazione combinata per Azure AD SSPR e MFA (anteprima)
+title: Introduzione a registrazione combinata per MFA (anteprima) - Azure Active Directory e Azure AD SSPR
 description: Abilita combinati multi-Factor Authentication di Azure AD e di registrazione (anteprima) di reimpostazione della password self-service
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a6896e2b9633b8de679e8d14a7957dc0e3229e7
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226726"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317443"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registrazione di informazioni sicurezza Abilita combinata (anteprima)
 

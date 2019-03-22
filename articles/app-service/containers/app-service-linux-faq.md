@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: yili
 ms.custom: seodec18
-ms.openlocfilehash: 4c2ed5fa65528a690d618e45c118d2433820ddc6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 223486ec2dc184e6bbe02e1f6862b9d79d773a2c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57871494"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339549"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -42,10 +42,10 @@ In caso di domande, inviare commenti su questo articolo.
 | Stack     | Valore previsto                                                                |
 |-----------|-------------------------------------------------------------------------------|
 | Java SE   | un comando per avviare il `.jar` applicazione                                    |
-| Tomcat    | il percorso di uno script per eseguire qualsiasi configruations necessari per l'app |
-| Node.js   | il file di configurazione PM2 o il file script                                |          
+| Tomcat    | il percorso di uno script per eseguire eventuali configurazioni per l'app          |
+| Node.js   | il file di configurazione PM2 o il file script                                |
 | .Net Core | il nome della DLL compilato come `dotnet <myapp>.dll`                                 |
-| Ruby      | lo script Ruby che si desidera inizializzazione dell'app                     
+| Ruby      | lo script Ruby che si desidera inizializzazione dell'app                     |
 
 ## <a name="management"></a>Gestione
 

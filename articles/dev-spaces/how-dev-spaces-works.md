@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Vengono descritti i processi che spazi di sviluppo di Azure power e come vengono configurate nel file di configurazione azds.yaml
 keywords: azds.yaml, Azure Dev spazi Dev, Docker, Kubernetes, Azure, AKS, contenitori di Azure Kubernetes Service
-ms.openlocfilehash: 4d0b2d24335b03fb1afc729e4cb8f7fc07f8a77e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8d17be31acc6868399e8f785255d28fa2314d48c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457336"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316117"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Il funzionamento degli spazi di sviluppo di Azure e viene configurato
 
@@ -59,7 +59,7 @@ Gli strumenti lato client consentono all'utente:
 
 Mentre l'applicazione è in esecuzione, del lato client, anche gli strumenti:
 * Riceve e Visualizza stdout e stderr dall'applicazione in esecuzione nel servizio contenitore di AZURE.
-* Viene utilizzato [porta-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) per consentire l'accesso web all'applicazione usando http://locahost.
+* Viene utilizzato [porta-forward](https://kubernetes.io/docs/tasks/access-application-cluster/port-forward-access-application-cluster/) per consentire l'accesso web all'applicazione tramite http:\//localhost.
 * Collega un debugger all'applicazione in esecuzione nel servizio contenitore di AZURE.
 * Esegue la sincronizzazione nel codice sorgente per lo spazio di sviluppo quando viene rilevata una modifica per le compilazioni incrementali, consentendo una rapida iterazione.
 

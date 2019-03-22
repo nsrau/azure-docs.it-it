@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 60623ab4b41c343cab0f9be1abd8ab45051b3f9e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889359"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309538"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definire filtri account e filtri asset  
 
@@ -88,7 +88,11 @@ Le condizioni delle proprietà di filtro indicano i tipi di brano, i valori (des
 |**Nome**|Usare il nome del brano come filtro.|
 |**Tipo**|Usare il tipo di brano come filtro.<br/><br/>Sono consentiti i seguenti valori: "video", "audio" o "text".|
 
-## <a name="example"></a>Esempio
+## <a name="associate-filters-with-streaming-locator"></a>Associare i filtri localizzatore di Streaming
+
+È possibile specificare un elenco di filtri di asset o account, si applica anche per il localizzatore di Streaming. Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [dyanamic manifesto](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+
+## <a name="definition-example"></a>Esempio di definizione
 
 ```json
 {

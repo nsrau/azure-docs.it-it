@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 197010271518347025157968012be31c71b3b667
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: c31f3ec503f22ab0d272ff96b85cf0f76a837d11
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121027"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316060"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric per Visual Studio Code
 
@@ -107,7 +107,7 @@ Il **di Service Fabric: Pubblicare applicazioni** comando distribuisce l'applica
 Il **di Service Fabric: Distribuire applicazione** comando distribuisce l'applicazione di Service Fabric nel cluster locale. Assicurarsi che il cluster locale sia in esecuzione prima di usare il comando. 
 
 1. Selezionare il **di Service Fabric: Distribuire applicazione** comando
-2. Consente di visualizzare il cluster locale con Service Fabric Explorer (http://localhost:19080/Explorer) per verificare che sia stata installata l'applicazione. Questa operazione potrebbe richiedere tempo.
+2. Visualizzare il cluster locale con Service Fabric Explorer (http:\//localhost:19080 / Explorer) per confermare che l'applicazione è stata installata. Questa operazione potrebbe richiedere tempo.
 3. È anche possibile usare **Service Fabric: Pubblicare applicazioni** comando senza parametri impostato nel file cloud. JSON per distribuire un cluster locale.
 
 > [!NOTE]

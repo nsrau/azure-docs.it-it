@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'autenticazione basata su certificati di Azure Active Directory
+title: Introduzione all'autenticazione basata su certificato - Azure Active Directory
 description: Informazioni su come configurare l'autenticazione basata su certificati nel proprio ambiente
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2e6d66993658e7f0531a43a9b9e0f93183f91d9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f57d4615fc80df6c5df9ba295288ad71ae12fa23
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165145"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310830"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Introduzione all'autenticazione basata su certificati di Azure Active Directory
 

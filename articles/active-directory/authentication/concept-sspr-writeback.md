@@ -1,5 +1,5 @@
 ---
-title: Integrazione del writeback delle password locali con la reimpostazione password self-service di Azure AD
+title: Integrazione di writeback delle password con Azure AD SSPR - Azure Active Directory locale
 description: Writeback delle password del cloud nell'infrastruttura AD locale
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3772f42b1216cfb26d66b1d68fcb9e59fd8652d8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2fcf2ef10cbc8f6f54a65e596ea003a98f410a7b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107543"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313295"
 ---
 # <a name="what-is-password-writeback"></a>Che cos'è il writeback delle password?
 

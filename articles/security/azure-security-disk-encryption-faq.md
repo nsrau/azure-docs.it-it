@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 9323db9faff162488f5f56c03ac976aa47bb6f97
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892762"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339494"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -152,7 +152,7 @@ In Windows, Crittografia dischi di Azure usa il metodo di crittografia BitLocker
 No, i dati non verranno cancellati da unità dati che sono già crittografate usando Crittografia dischi di Azure. Analogamente al modo in cui EncryptFormatAll non crittografa nuovamente l'unità del sistema operativo, non riapplica la crittografia all'unità dati già crittografata. Per altre informazioni, vedere [Criteri EncryptFormatAll ](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
 
 ## <a name="is-xfs-filesystem-supported"></a>File System XFS è supportata?
-I volumi XFS sono supportati per crittografia dischi di dati. Per crittografare un volume attualmente errato tramite XFS, specificare l'opzione EncryptFormatAll. Questo verrà riformattato il volume. Per altre informazioni, vedere [Criteri EncryptFormatAll ](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+I volumi XFS sono supportati per crittografia dischi di dati solo con il EncryptFormalAll. Questo verrà riformattare il volume, cancellando tutti i dati in precedenza. Per altre informazioni, vedere [Criteri EncryptFormatAll ](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
 
 ## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>È possibile eseguire il backup e ripristinare una macchina virtuale crittografata? 
 

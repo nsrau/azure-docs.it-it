@@ -9,12 +9,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, LADocs
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: c5128e904e540deeb3293fb687da4e8cafcfa1e0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a933824e9553ee7f638da495b46ebed19e04169d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870995"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316967"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -48,7 +48,7 @@ Per seguire questo esempio, è necessario disporre degli elementi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'app per la logica in Progettazione app per la logica, se non è già aperta.
 
-1. Nella casella di ricerca immettere "dropbox" come filtro. Nell'elenco di trigger selezionare questo trigger: **Quando viene creato un file** 
+1. Nella casella di ricerca immettere "dropbox" come filtro. Nell'elenco di trigger selezionare questo trigger: **Quando viene creato un file**
 
    ![Selezionare un trigger Dropbox](media/logic-apps-using-file-connector/select-dropbox-trigger.png)
 
@@ -78,7 +78,7 @@ Per seguire questo esempio, è necessario disporre degli elementi seguenti:
    | **gateway** | Sì | <*installed-gateway-name*> | Il nome del gateway installato in precedenza | 
    ||| 
 
-1. Al termine dell'operazione, scegliere **Crea**. 
+1. Al termine dell'operazione, scegliere **Crea**.
 
    Le app per la logica configurano ed eseguono il test della connessione, assicurandosi che funzioni correttamente. 
    Se la connessione è configurata correttamente, vengono visualizzate le opzioni per l'azione selezionata in precedenza. 

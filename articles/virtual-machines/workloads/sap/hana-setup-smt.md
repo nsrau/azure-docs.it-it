@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d9fe644b7cc7d1a13cb9ed2f7016f25b3e346dfb
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: 690f41e941f2d1db8fc92d225a54d07570299222
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233175"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313136"
 ---
 # <a name="set-up-smt-server-for-suse-linux"></a>Configurare il server SMT per SUSE Linux
 Le istanze Large di SAP HANA non hanno connettività diretta a Internet. La registrazione di un'unità di questo tipo nel provider del sistema operativo e il download e l'applicazione di aggiornamenti non sono processi semplici. Per SUSE Linux una soluzione può essere configurare un server SMT in una macchina virtuale di Azure. Ospitare la macchina virtuale in una rete virtuale di Azure, che è connessa all'istanza Large di HANA. Con un server SMT, l'unità di istanze Large di HANA può eseguire la registrazione e scaricare aggiornamenti. 
@@ -84,7 +84,7 @@ Resolving package dependencies...
 ![Screenshot di SMT in YAST](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-Accettare la selezione per l'installazione su smtserver. Al termine dell'installazione, passare alla configurazione del server SMT. Immettere le credenziali dell'organizzazione recuperate in precedenza da SUSE Customer Center. Immettere anche il nome host della macchina virtuale di Azure come URL del server SMT. In questa dimostrazione viene usato https://smtserver.
+Accettare la selezione per l'installazione su smtserver. Al termine dell'installazione, passare alla configurazione del server SMT. Immettere le credenziali dell'organizzazione recuperate in precedenza da SUSE Customer Center. Immettere anche il nome host della macchina virtuale di Azure come URL del server SMT. In questa dimostrazione, le https:\//smtserver.
 
 ![Screenshot della configurazione del server SMT](./media/hana-installation/image6_configuration_of_smtserver1.png)
 

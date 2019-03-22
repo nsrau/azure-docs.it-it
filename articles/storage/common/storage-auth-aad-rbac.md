@@ -1,19 +1,19 @@
 ---
-title: 'Usare il portale di Azure per gestire i diritti di accesso di Azure AD a contenitori e le code con RBAC (anteprima): archiviazione di Azure | Microsoft Docs'
+title: 'Usare il portale di Azure per gestire i diritti di accesso di Azure AD a contenitori e le code con RBAC (anteprima): archiviazione di Azure'
 description: Usare il controllo di accesso basato sui ruoli (RBAC) dal portale di Azure per assegnare l'accesso a contenitori e le code per entità di sicurezza. Archiviazione di Azure supporta i ruoli RBAC predefiniti e personalizzati per l'autenticazione tramite Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8050027bac3d2f13ac457edcdad9275c040305da
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: a38cce7d15b4796bb66803d06f3589569985cb37
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431857"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319500"
 ---
 # <a name="grant-access-to-azure-containers-and-queues-with-rbac-in-the-azure-portal-preview"></a>Concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure (anteprima)
 
@@ -101,14 +101,6 @@ Seguire questi passaggi per assegnare il **lettore** ruolo in modo che un utente
 
 > [!NOTE]
 > Assegnazione del ruolo di lettore è necessaria solo per gli utenti che devono accedere ai BLOB o code usando il portale di Azure. 
-
-## <a name="use-azure-ad-credentials-with-the-portal"></a>Usare credenziali di Azure AD con il portale
-
-Per accedere ai BLOB o code nel portale di Azure usando le credenziali di Azure AD, usare i collegamenti di anteprima illustrati nell'immagine seguente:
-
-![Accedere ai BLOB o code con credenziali di Azure AD nel portale](media/storage-auth-aad-rbac/access-data-azure-ad.png)
-
-Se si accede a dati blob o una coda usando i collegamenti di produzione piuttosto che i collegamenti di anteprima, il portale di Azure Usa la chiave dell'account per autorizzare l'accesso, anziché tramite Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

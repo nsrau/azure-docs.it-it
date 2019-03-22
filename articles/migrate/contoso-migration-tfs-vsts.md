@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 8098196abc415dedba392737fc17a4de5739339d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 21396a10543d388b6ac360f426272f1841b2f510
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100241"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314111"
 ---
 # <a name="contoso-migration--refactor-a-team-foundation-server-deployment-to-azure-devops-services"></a>Migrazione di Contoso:  Effettuare il refactoring di una distribuzione di Team Foundation Server per Azure DevOps Services
 
@@ -156,7 +156,7 @@ Gli amministratori di Contoso avviano lo strumento di migrazione TFS sul databas
 
 2. Esecuzione dello strumento per eseguire la convalida, specificando l'URL della raccolta di progetti:
 
-        **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev**
+   **TfsMigrator convalidare /Collection: http:\//contosotfs:8080/tfs/ContosoDev**
 
 
 3. Lo strumento indica un errore.
@@ -175,7 +175,7 @@ Gli amministratori di Contoso avviano lo strumento di migrazione TFS sul databas
 
      ![TFS](./media/contoso-migration-tfs-vsts/collection5.png)
 
-6. Viene eseguito nuovamente il comando di convalida e viene incluso questo valore, insieme al nome di Azure AD: **TfsMigrator validate /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
+6. Viene eseguito nuovamente il comando di convalida e viene incluso questo valore, insieme al nome di Azure AD: **TfsMigrator convalidare /Collection: http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com**.
 
     ![TFS](./media/contoso-migration-tfs-vsts/collection7.png)
 
@@ -195,7 +195,7 @@ Una volta completata la convalida, Contoso può usare l'utilità di migrazione T
 
 1. Nello strumento viene eseguita la procedura di preparazione.
 
-    **TfsMigrator prepare /collection:http://contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
+    **TfsMigrator preparare /Collection: http:\//contosotfs:8080/tfs/ContosoDev /tenantDomainName:contosomigration.onmicrosoft.com /accountRegion:cus**
 
      ![Preparazione](./media/contoso-migration-tfs-vsts/prep1.png)
 

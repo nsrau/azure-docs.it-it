@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 5580d67f796efc809ef536818419ab91e8ee54a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: edaa0cdcd98ce529ccbf9bf6aafaacf57a3ea383
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540012"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337528"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Ordinare gli eventi di connessione dei dispositivi dall'hub IoT di Azure tramite Azure Cosmos DB
 
@@ -24,9 +24,9 @@ Il numero di sequenza è una rappresentazione in formato stringa di un numero es
 
 * Un account Azure attivo. Se non si ha un account, è possibile [crearne uno gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
-* Un account API SQL di Azure Cosmos DB attivo. Se non ne è ancora stato creato un', vedere la procedura dettagliata [Creare un account di database](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account).
+* Un account API SQL di Azure Cosmos DB attivo. Se non ne è ancora stato creato un', vedere la procedura dettagliata [Creare un account di database](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-an-account).
 
-* Una raccolta nel database. Vedere la procedura dettagliata [Aggiungere una raccolta](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-collection).
+* Una raccolta nel database. Vedere la procedura dettagliata [Aggiungere una raccolta](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#add-a-database-and-a-collection).
 
 * Un hub IoT in Azure. Se l'hub non è stato ancora creato, vedere [Introduzione all'hub IoT](../iot-hub/iot-hub-csharp-csharp-getstarted.md) per la procedura dettagliata. 
 
@@ -350,5 +350,3 @@ Per rimuovere un account Azure Cosmos DB dal portale di Azure, fare clic con il 
 * [Try the IoT Hub events tutorial (Provare l'esercitazione sugli eventi dell'hub IoT)](../event-grid/publish-iot-hub-events-to-logic-apps.md)
 
 * Informazioni sulle altre operazioni che è possibile eseguire con [Griglia di eventi](../event-grid/overview.md)
-
-

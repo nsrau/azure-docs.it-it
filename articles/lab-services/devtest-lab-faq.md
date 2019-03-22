@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 03/21/2019
 ms.author: spelluru
-ms.openlocfilehash: 8b5c5f316ff2c3ada035736755c7898270c49dee
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3752e9c227e4db0f583b2f6b21d6c0aa3106d248
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551824"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337698"
 ---
 # <a name="azure-devtest-labs-faq"></a>Domande frequenti su Azure DevTest Labs
 Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTest Labs.
@@ -27,8 +27,27 @@ Ottenere le risposte ad alcune delle domande più comuni relative ad Azure DevTe
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 **Generale**
+
+## <a name="blog-post"></a>Post di blog
+Blog del Team di DevTest Labs è stato ritirato a partire da 20 marzo 2019. 
+
+### <a name="where-can-i-track-feature-updates-going-forward"></a>In cui è possibile tenere traccia degli aggiornamenti delle funzionalità in futuro?
+In futuro, pubblicheremo gli aggiornamenti delle funzionalità e/o post di blog informativo sul blog di Azure e gli aggiornamenti di Azure. Questi post di blog contiene collegamenti alla documentazione laddove necessario.
+
+Sottoscrivere il [Blog di Azure DevTest Labs](https://azure.microsoft.com/blog/tag/azure-devtest-labs/) e [DevTest Labs Azure Aggiorna](https://azure.microsoft.com/updates/?product=devtest-lab) per rimanere informati sulle nuove funzionalità in DevTest Labs.
+
+### <a name="what-happens-to-the-existing-blog-posts"></a>Cosa accade ai post di blog esistente?
+Si sta attualmente lavorando migrazione post di blog esistente (ad eccezione degli aggiornamenti di interruzione) al nostro [documentazione di DevTest Labs](devtest-lab-overview.md). Quando nel blog di MSDN è deprecato, si verrà reindirizzato alla panoramica della documentazione di DevTest Labs. Dopo aver reindirizzato, è possibile cercare l'articolo che si sta cercando il titolo 'Filtro da'. Si noti che è non hanno ancora eseguito la migrazione tutti i post, ma deve essere eseguite dalla fine di questo mese. 
+
+
+### <a name="where-do-i-see-outage-updates"></a>In cui vengono visualizzati gli aggiornamenti di interruzione di servizio?
+Pubblicheremo gli aggiornamenti di interruzione di servizio usando l'handle di Twitter in futuro. Seguici su Twitter per ottenere gli aggiornamenti più recenti su interruzioni ed errori noti.
+
+### <a name="twitter"></a>Twitter 
+L'handle di Twitter: azlabservices
+
 ## <a name="what-if-my-question-isnt-answered-here"></a>Cosa fare se non è disponibile una risposta alla domanda?
-Se la domanda non è presente qui, comunicarla a Microsoft per ottenere aiuto.
+Se la domanda non è elencata qui, informare Microsoft e possiamo aiutarti a trovare una risposta.
 
 * Pubblicare una domanda alla fine di questo articolo di domande frequenti. Interagire con il team di Cache di Azure e altri membri della community in merito a questo articolo.
 * Per raggiungere un gruppo di destinatari più ampio, pubblicare una domanda nel [forum MSDN di Azure DevTest Labs](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureDevTestLabs). Interagire con il team di Azure DevTest Labs e altri membri della community.
@@ -41,7 +60,7 @@ Azure DevTest Labs può far risparmiare tempo e denaro al team. Gli sviluppatori
 Self-service senza preoccupazioni significa che gli sviluppatori e i tester creano i propri ambienti in base alle esigenze. Gli amministratori hanno la sicurezza di sapere che DevTest Labs aiuta a ridurre gli sprechi e controllare i costi. Gli amministratori possono specificare quali sono le dimensioni consentite per le VM e il numero massimo di VM e quando le VM vengono avviate e arrestate. DevTest Labs consente anche di monitorare facilmente i costi e di impostare avvisi per sapere come vengono usate le risorse del lab.
 
 ## <a name="how-can-i-use-devtest-labs"></a>Come si usa DevTest Labs?
-DevTest Labs è utile quando sono necessari ambienti di sviluppo o di test e si vuole riprodurli rapidamente e/o gestirli con criteri di risparmio sui costi.
+DevTest Labs è utile quando si richiedono dev o ambienti di test e vuole riprodurli rapidamente o gestirli con criteri di riduzione dei costi.
 
 Ecco alcuni scenari per cui i clienti usano DevTest Labs:
 
@@ -106,8 +125,8 @@ Per altre toolchain di integrazione continua/recapito continuo è possibile otte
 
 
 **Macchine virtuali**
-## <a name="why-cant-i-see-vms-on-the-virtual-machines-blade-that-i-see-in-devtest-labs"></a>Perché nel pannello Macchine virtuali di Azure non è possibile visualizzare le macchine virtuali presenti in DevTest Labs?
-Quando si crea una macchina virtuale in DevTest Labs, si ottiene l'autorizzazione ad accedervi. È possibile visualizzare la macchina virtuale sia nel pannello dei lab che nel pannello **Macchine virtuali**. Gli utenti con ruolo utente lab di DevTest Labs possono visualizzare tutte le macchine virtuali create nel lab tramite il pannello **Tutte le macchine virtuali** del lab. Agli utenti con ruolo utente lab di DevTest Labs non viene tuttavia concesso automaticamente l'accesso in lettura alle risorse macchine virtuali create da altri. Tali macchine virtuali non vengono quindi visualizzate nel pannello **Macchine virtuali**.
+## <a name="why-cant-i-see-vms-on-the-virtual-machines-page-that-i-see-in-devtest-labs"></a>Perché non riesco a visualizzare VM nella pagina macchine virtuali che vengono visualizzate in DevTest Labs?
+Quando si crea una macchina virtuale in DevTest Labs, si ottiene l'autorizzazione ad accedervi. È possibile visualizzare la macchina virtuale sia nella pagina di laboratori e scegliere il **macchine virtuali** pagina. Gli utenti assegnati al ruolo utente lab di DevTest Labs possono visualizzare tutte le macchine virtuali che sono state create nel lab del lab **tutte le macchine virtuali** pagina. Agli utenti con ruolo utente lab di DevTest Labs non viene tuttavia concesso automaticamente l'accesso in lettura alle risorse macchine virtuali create da altri. Pertanto, tali macchine virtuali non vengono visualizzati nei **macchine virtuali** pagina.
 
 ## <a name="what-is-the-difference-between-a-custom-image-and-a-formula"></a>Qual è la differenza tra un'immagine personalizzata e una formula?
 Un'immagine personalizzata è un disco rigido virtuale. Una formula è un'immagine che è possibile configurare con impostazioni aggiuntive e quindi salvare e riprodurre. Un'immagine personalizzata può essere più adatta per creare rapidamente più ambienti usando la stessa immagine di base non modificabile. Una formula può essere migliore se si vuole riprodurre la configurazione della macchina virtuale con i bit più recenti, come parte di una rete virtuale o di una subnet o come macchina virtuale con dimensioni specifiche. Per una spiegazione più approfondita, vedere [Confronto tra immagini personalizzate e formule in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md).
@@ -184,7 +203,7 @@ Per trovare l'account di archiviazione di destinazione associato al lab:
 
 **Elementi**
 ## <a name="what-are-artifacts"></a>Cosa sono gli elementi?
-Gli elementi sono componenti personalizzabili che è possibile usare per distribuire i bit più recenti o gli strumenti di sviluppo in una macchina virtuale. Collegare gli elementi alla macchina virtuale quando si crea la macchina virtuale. Dopo il provisioning della macchina virtuale, gli elementi vengono usati per distribuire e configurare la macchina virtuale. Nel [repository GitHub pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) sono disponibili diversi elementi già pronti. È anche possibile [creare elementi personalizzati](devtest-lab-artifact-author.md).
+Gli elementi sono componenti personalizzabili che è possibile usare per distribuire i bit più recenti o gli strumenti di sviluppo in una macchina virtuale. Collegare gli elementi alla macchina virtuale quando si crea la macchina virtuale. Dopo il provisioning della macchina virtuale, gli elementi vengono usati per distribuire e configurare la macchina virtuale. Svariati elementi preesistenti sono disponibili nel nostro [repository GitHub pubblico](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts). È anche possibile [creare elementi personalizzati](devtest-lab-artifact-author.md).
 
 
 **Configurazione del lab**
@@ -232,7 +251,7 @@ Quando una risorsa è l'elemento padre di un'altra risorsa, deve essere già pre
 Le macchine virtuali sono risorse figlio di un lab in un gruppo di risorse. Quando si usano modelli di Resource Manager per distribuire macchine virtuali tramite PowerShell, il nome del gruppo di risorse specificato nello script di PowerShell deve coincidere con quello del gruppo di risorse del lab. Per altre informazioni, vedere [Risolvere errori comuni durante la distribuzione di risorse in Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors).
 
 ## <a name="where-can-i-find-more-error-information-if-a-vm-deployment-fails"></a>Se la distribuzione di una macchina virtuale ha esito negativo, dove è possibile trovare maggiori informazioni sul tipo di errore?
-Gli errori di distribuzione delle macchine virtuali vengono acquisiti nei log attività. È possibile trovare i log attività delle macchine virtuali del lab in **Log di controllo** o **Diagnostica delle macchine virtuali** nel menu delle risorse nel pannello della macchina virtuale del lab (il pannello viene visualizzato dopo aver selezionato la macchina virtuale nell'elenco **Macchine virtuali personali**).
+Gli errori di distribuzione delle macchine virtuali vengono acquisiti nei log attività. È possibile trovare i log attività delle VM nel lab **log di controllo** o **diagnostica della macchina virtuale** nel menu delle risorse nella pagina macchine Virtuali del lab (la pagina viene visualizzata dopo aver selezionato la macchina virtuale dal **personali virtuali le macchine** elenco).
 
 In alcuni casi, l'errore di distribuzione si verifica prima dell'inizio della distribuzione della macchina virtuale. Questo succede, ad esempio, quando viene superato il limite della sottoscrizione per una risorsa creata con la macchina virtuale. In questo caso, i dettagli dell'errore vengono acquisiti nei log attività a livello di lab. Tali log attività si trovano nella parte inferiore delle impostazioni **Configurazione e criteri**. Per altre informazioni sull'utilizzo dei log attività in Azure, vedere [Visualizzare i log attività per controllare le azioni sulle risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit).
 

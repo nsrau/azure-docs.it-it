@@ -1,7 +1,7 @@
 ---
-title: Tenere traccia degli esperimenti e delle metriche di training
+title: Registrare le metriche durante le esecuzioni di training
 titleSuffix: Azure Machine Learning service
-description: Con il servizio Azure Machine Learning, è possibile tenere traccia degli esperimenti e monitorare le metriche per migliorare il processo di creazione dei modelli. Informazioni su come aggiungere la registrazione allo script di training, inviare l'esperimento, controllare lo stato di avanzamento di un processo in esecuzione e visualizzare i risultati di un'esecuzione.
+description: È possibile registrare i propri esperimenti e monitorare le metriche per migliorare il processo di creazione del modello. Informazioni su come aggiungere la registrazione allo script di training, inviare l'esperimento, controllare lo stato di avanzamento di un processo in esecuzione e visualizzare i risultati di un'esecuzione.
 services: machine-learning
 author: heatherbshapiro
 ms.author: hshapiro
@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 79247c4c1f26fadcd5f0291b55c9dd8d4d9aa2af
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 835d1f41ffe940422554a8ca59d0a91ac8e98607
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008827"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336595"
 ---
-# <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Tenere traccia di esperimenti e metriche di training in Azure Machine Learning
+# <a name="log-metrics-during-training-runs-in-azure-machine-learning"></a>Registrare le metriche durante il training viene eseguito in Azure Machine Learning
 
 Nel servizio Azure Machine Learning è possibile tenere traccia degli esperimenti e monitorare le metriche per migliorare il processo di creazione dei modelli. In questo articolo, informazioni su come aggiungere la registrazione per lo script di training, invia un'esecuzione dell'esperimento, monitorare l'esecuzione e visualizzare i risultati di un'esecuzione.
 
@@ -218,7 +218,7 @@ Questo esempio si espande a partire dal modello sklearn Ridge di base dell'esemp
    ```
 
 ## <a name="cancel-a-run"></a>Annullare un'esecuzione
-Dopo che viene inviata un'esecuzione, è possibile annullarla anche se è stato perso il riferimento all'oggetto, purché si conosca il nome dell'esperimento e l'ID esecuzione. 
+Dopo l'invio di un'esecuzione, è possibile annullare anche se si è perso il riferimento all'oggetto, purché si conosce il nome dell'esperimento e id di esecuzione. 
 
 ```python
 from azureml.core import Experiment

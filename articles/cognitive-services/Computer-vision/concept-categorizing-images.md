@@ -1,5 +1,5 @@
 ---
-title: Categorizzazione delle immagini - Visione artificiale
+title: Classificazione delle immagini - Visione artificiale
 titleSuffix: Azure Cognitive Services
 description: Informazioni sui concetti relativi alla funzione di classificazione delle immagini dell'API Visione artificiale.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: a85fb65ad971bfc70bdab0689e99921e616b56ac
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308860"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337135"
 ---
 # <a name="categorize-images"></a>Categorizzare le immagini
 
@@ -24,7 +24,7 @@ Oltre ai tag e a una descrizione, Visione artificiale restituisce le categorie b
 
 ## <a name="the-86-category-concept"></a>Categoria basata su 86 concetti
 
-Visione artificiale può categorizzare un'immagine in modo generale o più specifico, usando l'elenco di 86 categorie nel diagramma seguente. Per la classificazione completa in formato testo, vedere [Category Taxonomy](category-taxonomy.md) (Tassonomia delle categorie).
+Visione artificiale può classificare un'immagine su vasta scala o in modo specifico, usando l'elenco di 86 categorie nel diagramma seguente. Per la classificazione completa in formato testo, vedere [Category Taxonomy](category-taxonomy.md) (Tassonomia delle categorie).
 
 ![Elenchi raggruppati di tutte le categorie nella tassonomia delle categorie](./Images/analyze_categories-v2.png)
 

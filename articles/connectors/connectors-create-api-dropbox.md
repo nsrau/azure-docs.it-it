@@ -1,65 +1,79 @@
 ---
-title: Connettersi a Dropbox - App per la logica di Azure | Microsoft Docs
+title: Connettersi a Dropbox - App per la logica di Azure
 description: Caricare e gestire i file con le API REST di Dropbox e App per la logica di Azure
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
-ms.date: 07/15/2016
-ms.topic: article
-ms.service: logic-apps
 services: logic-apps
-ms.reviewer: klam, LADocs
+ms.service: logic-apps
 ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.topic: article
+ms.date: 03/01/2019
 tags: connectors
-ms.openlocfilehash: 77203788a6329ed4c5b58419fbcf48a48da91b30
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 5a1bfe8ca38fc23f09b13195fb8ca5bd443a4afd
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295048"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314417"
 ---
-# <a name="get-started-with-the-dropbox-connector"></a>Introduzione al connettore Dropbox
-Connettersi a Dropbox per gestire i file. In Dropbox è possibile eseguire diverse azioni, ad esempio caricare, aggiornare, ottenere ed eliminare file.
+# <a name="upload-and-manage-files-in-dropbox-by-using-azure-logic-apps"></a>Caricare e gestire i file in Dropbox usando le App per la logica di Azure
 
-Per usare [qualsiasi connettore](apis-list.md), è necessario innanzitutto creare un'app per la logica. Come prima operazione [creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Con il connettore Dropbox e App per la logica di Azure, è possibile creare flussi di lavoro automatizzati che carica e gestire i file nell'account Dropbox. 
 
-## <a name="connect-to-dropbox"></a>Connettersi a Dropbox
-Perché l'app per la logica possa accedere a qualsiasi servizio, è necessario creare una *connessione* al servizio. Una connessione fornisce la connettività tra un'app per la logica e un altro servizio. Ad esempio, per connettersi a Dropbox creare prima di tutto una *connessione* a Dropbox. Per creare una connessione, è necessario fornire le credenziali che si usano normalmente per accedere al servizio a cui si vuole connettersi. Nell'esempio relativo a Dropbox saranno quindi necessarie le credenziali dell'account di Dropbox per creare la connessione a Dropbox. [Altre informazioni sulle connessioni]()
+Questo articolo illustra come connettersi a Dropbox dall'app per la logica e quindi aggiungere Dropbox **quando viene creato un file** trigger e Dropbox **Ottieni contenuto file tramite percorso** azione.
 
-### <a name="create-a-connection-to-dropbox"></a>Creare una connessione a Dropbox
-> [!INCLUDE [Steps to create a connection to Dropbox](../../includes/connectors-create-api-dropbox.md)]
-> 
-> 
+## <a name="prerequisites"></a>Prerequisiti
 
-## <a name="use-a-dropbox-trigger"></a>Usare un trigger Dropbox
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, <a href="https://azure.microsoft.com/free/" target="_blank">iscriversi per creare un account Azure gratuito</a>.
 
-In questo esempio si userà il trigger **Quando viene creato un file**. Con questo trigger viene chiamata l'azione **Ottenere contenuto di file in base al percorso** di Dropbox. 
+* Oggetto [account Dropbox](https://www.dropbox.com/), che è possibile iscriversi gratuitamente. Le credenziali dell'account sono necessarie per la creazione di una connessione tra l'app per la logica e all'account Dropbox.
 
-1. Immettere *dropbox* nella casella di ricerca della finestra di progettazione di app per la logica, quindi selezionare il trigger **Dropbox - Quando viene creato un file**.      
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger.PNG)  
-2. Selezionare la cartella in cui tenere traccia della creazione di file. Selezionare... (identificato nella casella rossa) e passare alla cartella che si vuole selezionare per l'input del trigger.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-trigger-2.PNG)  
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per questo esempio, è necessaria un'app per la logica vuota.
 
-## <a name="use-a-dropbox-action"></a>Usare un'azione Dropbox
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+## <a name="add-trigger"></a>Aggiunta di trigger
 
-Ora che il trigger è stato aggiunto, seguire questi passaggi per aggiungere un'azione che ottiene il contenuto del nuovo file.
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. Selezionare **+ Nuovo passaggio** per aggiungere l'azione da eseguire quando viene creato un nuovo file.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action.PNG)
-2. Selezionare **Aggiungi un'azione**. Viene aperta la casella di ricerca per cercare qualsiasi azione si desideri eseguire.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-2.PNG)
-3. Immettere *dropbox* per cercare le azioni correlate a Dropbox.  
-4. Selezionare **Dropbox - Ottenere contenuto di file in base al percorso** come azione da eseguire quando viene creato un nuovo file nella cartella di Dropbox selezionata. Si apre il blocco di controllo azione. Verrà richiesto di autorizzare l'app per la logica ad accedere all'account di Dropbox, se non è stato fatto in precedenza.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-3.PNG)  
-5. Selezionare... sul lato destro del controllo **Percorso file** e passare al percorso file che si vuole usare. In alternativa, usare il token **file path** per rendere più rapida la creazione di app per la logica.  
-   ![](../../includes/media/connectors-create-api-dropbox/using-dropbox-action-4.PNG)  
-6. Salvare il lavoro e creare un nuovo file in Dropbox per attivare il flusso di lavoro.  
+1. Nella casella di ricerca scegliere **Tutti**. Nella casella di ricerca immettere "dropbox" come filtro.
+Nell'elenco di trigger selezionare questo trigger: **Quando viene creato un file**
 
-## <a name="connector-specific-details"></a>Dettagli specifici del connettore
+   ![Selezionare un trigger Dropbox](media/connectors-create-api-dropbox/select-dropbox-trigger.png)
 
-Per visualizzare eventuali azioni e trigger definiti in Swagger ed eventuali limiti, vedere i [dettagli del connettore](/connectors/dropbox/).
+1. Accedere con le credenziali dell'account Dropbox e autorizzare l'accesso ai dati di Dropbox delle App per la logica di Azure.
 
-## <a name="more-connectors"></a>Altri connettori
-Tornare all' [elenco di API](apis-list.md).
+1. Specificare le informazioni richieste per il trigger. 
+
+   In questo esempio, selezionare la cartella in cui si desidera tenere traccia di creazione dei file. Per esplorare le cartelle, scegliere l'icona della cartella accanto al **cartella** casella.
+
+## <a name="add-action"></a>Aggiungere un'azione
+
+Aggiungere ora un'azione che ottiene il contenuto da qualsiasi file nuovo.
+
+1. Nel trigger scegliere **Passaggio successivo**. 
+
+1. Nella casella di ricerca scegliere **Tutti**. Nella casella di ricerca immettere "dropbox" come filtro.
+Nell'elenco di azioni selezionare questa azione: **Ottieni contenuto file in base al percorso**
+
+1. Se già non sono autorizzate le App per la logica di Azure per accedere a Dropbox, autorizzare l'accesso a questo punto.
+
+1. Per passare al percorso del file da usare, accanto al **percorso File** scegliere i puntini di sospensione (**...** ) pulsante. 
+
+   È anche possibile fare clic all'interno di **percorso File** e dall'elenco del contenuto dinamico, selezionare **percorso File**, il cui valore è disponibile come output del trigger è stato aggiunto nella sezione precedente.
+
+1. Al termine, salvare l'app per la logica.
+
+1. Per attivare app per la logica, creare un nuovo file in Dropbox.
+
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per informazioni tecniche, ad esempio trigger, azioni e i limiti, come descritto dalla definizione OpenAPI del connettore (in precedenza Swagger), vedere la [pagina di riferimento del connettore](/connectors/dropbox/).
+
+## <a name="get-support"></a>Supporto
+
+* In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
+* Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)

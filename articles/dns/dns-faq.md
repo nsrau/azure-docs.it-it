@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 3/11/2019
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: d0c5260fcc2e7ac2acbeec308c6a0cba7d6a81be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098094"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337108"
 ---
 # <a name="azure-dns-faq"></a>Domande frequenti su DNS di Azure
 
@@ -103,9 +103,11 @@ Questa possibilità non è attualmente supportata per i record TXT creati nel po
 ## <a name="alias-records"></a>Record alias
 
 ### <a name="what-are-some-scenarios-where-alias-records-are-useful"></a>Quali sono alcuni scenari in cui i record alias sono utili?
+
 Vedere la sezione sugli scenari in [Panoramica dei record alias DNS di Azure](dns-alias.md).
 
 ### <a name="what-record-types-are-supported-for-alias-record-sets"></a>Quali tipi di record sono supportati per i set di record alias?
+
 I set di record alias sono supportati per i tipi di record seguenti in una zona DNS di Azure:
  
 - Una  
@@ -116,30 +118,36 @@ I set di record alias sono supportati per i tipi di record seguenti in una zona 
 
 - **Puntare a una risorsa IP pubblica da un set di record DNS A/AAAA**. È possibile creare un set di record A/AAAA e renderlo un set di record alias impostato per puntare a una risorsa IP pubblica.
 - **Puntare a un profilo di Gestione traffico da un set di record DNS A/AAAA/CNAME**. È possibile puntare al CNAME di un profilo di Gestione traffico da un set di record CNAME DNS, ad esempio contoso.trafficmanager.net. A questo punto è anche possibile puntare a un profilo di Gestione traffico con endpoint esterni da un set di record A/AAAA nella zona DNS in uso.
+- **Scegliere un endpoint Content Delivery Network (rete CDN di Azure)**. Ciò è utile quando si creano siti Web statici con archiviazione di Azure e rete CDN di Azure.
 - **Puntare a un altro set di record DNS all'interno della stessa zona**. I record alias possono fare riferimento ad altri set di record dello stesso tipo. È ad esempio possibile avere un set di record CNAME DNS come alias per un altro set di record CNAME dello stesso tipo. Questo approccio è utile se si vuole che solo alcuni set di record siano alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>È possibile creare e aggiornare i record alias dal portale di Azure?
+
 Sì. I record alias possono essere creati o gestiti nel portale di Azure oltre che con le API REST di Azure, Azure PowerShell, l'interfaccia della riga di comando e gli SDK.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-deleted-when-the-underlying-public-ip-is-deleted"></a>I record alias garantiscono che il set di record DNS in uso venga eliminato quando viene eliminato l'indirizzo IP pubblico sottostante?
+
 Sì. Questa è una delle funzionalità principali dei record alias e consente di evitare potenziali interruzioni agli utenti finali dell'applicazione.
 
 ### <a name="will-alias-records-help-to-make-sure-my-dns-record-set-is-updated-to-the-correct-ip-address-when-the-underlying-public-ip-address-changes"></a>I record alias garantiscono che il set di record DNS in uso venga aggiornato all'indirizzo IP corretto quando viene modificato l'indirizzo IP pubblico sottostante?
+
 Sì. Questa è una delle funzionalità principali dei record alias e consente di evitare potenziali interruzioni o rischi per la sicurezza a livello di applicazione.
 
 ### <a name="are-there-any-restrictions-when-using-alias-record-sets-for-a-or-aaaa-records-to-point-to-traffic-manager"></a>Sono previste restrizioni quando si usano i set di record alias per fare in modo che i record A/AAAA puntino a Gestione traffico?
+
 Sì. Per puntare a un profilo di Gestione traffico come alias da un set di record A/AAAA, è necessario verificare che il profilo di Gestione traffico usi solo endpoint esterni. Quando si creano gli endpoint esterni in Gestione traffico, assicurarsi di indicare gli indirizzi IP effettivi degli endpoint.
 
 ### <a name="is-there-an-additional-charge-to-use-alias-records"></a>L'uso di record alias prevede un addebito aggiuntivo?
+
 I record alias sono una qualifica in un set di record DNS valido e non prevedono alcun addebito aggiuntivo.
 
 ## <a name="use-azure-dns"></a>Uso di DNS di Azure
 
-### <a name="can-i-cohost-a-domain-by-using-azure-dns-and-another-dns-provider"></a>È possibile ospitare un dominio in modalità condivisa usando DNS di Azure e un altro provider DNS?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>È possibile ospitare un dominio usando DNS di Azure e un altro provider DNS?
 
 Sì. DNS di Azure supporta i domini di hosting condiviso con altri servizi DNS.
 
-Per configurare l'hosting condiviso, è necessario modificare i record dei server dei nomi in modo che il dominio punti ai server dei nomi di entrambi i provider. I record dei server dei nomi controllano quali provider ricevono le query DNS per il dominio. È possibile modificare tali record in DNS di Azure, nell'altro provider e nella zona padre, configurata in genere tramite il registrar di nomi di dominio. Per altre informazioni sulla delega DNS, vedere [Delega del dominio DNS](dns-domain-delegation.md).
+Per configurare l'hosting condiviso, modificare i record NS per il dominio in modo che punti al server dei nomi di entrambi i provider. I record dei server dei nomi controllano quali provider ricevono le query DNS per il dominio. È possibile modificare tali record in DNS di Azure, nell'altro provider e nella zona padre, configurata in genere tramite il registrar di nomi di dominio. Per altre informazioni sulla delega DNS, vedere [Delega del dominio DNS](dns-domain-delegation.md).
 
 È anche necessario verificare che i record DNS per il dominio siano sincronizzati tra i due provider DNS. DNS di Azure attualmente non supporta i trasferimenti di zona DNS e i record DNS devono essere sincronizzati tramite il [portale di gestione di DNS di Azure](dns-operations-recordsets-portal.md), l'[API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), l'[SDK](dns-sdk.md), i [cmdlet di PowerShell](dns-operations-recordsets.md) o lo [strumento di interfaccia della riga di comando](dns-operations-recordsets-cli.md).
 
@@ -271,10 +279,9 @@ Le zone private già create tramite API, PowerShell, l'interfaccia della riga di
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Che cos'è DNS di Azure?](dns-overview.md)
-<br>
-- [Usare DNS di Azure per i domini privati](private-dns-overview.md)
-<br>
-- [Panoramica delle zone e dei record DNS](dns-zones-records.md)
-<br>
-- [Introduzione a DNS di Azure](dns-getstarted-portal.md)
 
+- [Usare DNS di Azure per i domini privati](private-dns-overview.md)
+
+- [Panoramica delle zone e dei record DNS](dns-zones-records.md)
+
+- [Introduzione a DNS di Azure](dns-getstarted-portal.md)
