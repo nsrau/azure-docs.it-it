@@ -1,45 +1,50 @@
 ---
-title: Configurare la home page dell'applicazione Azure IoT Central | Microsoft Docs
-description: Informazioni su come configurare la home page dell'applicazione Azure IoT Central in qualità di costruttore.
+title: Configurare il dashboard dell'applicazione Azure IoT Central | Microsoft Docs
+description: Un generatore di informazioni su come configurare il dashboard dell'applicazione Azure IoT Central predefinito.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/10/2018
+ms.date: 02/13/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: a03ac0ef66f4ffdce53d0bd2a35839bbe1615d0b
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 3168bbbf70c1ffeb3827482459febbcea256eda6
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54199086"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773147"
 ---
-# <a name="configuring-homepage"></a>Configurazione della home page
+# <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
-La home page è la pagina che viene caricata quando gli utenti che dispongono dell'accesso all'applicazione aprono l'URL dell'applicazione. Se durante la creazione dell'applicazione sono stati selezionati i modelli di applicazione "Sample Contoso" o "Sample Devkits", l'applicazione conterrà home page predefinite. Se invece è stato selezionato il modello di applicazione "Custom Application", la home page sarà vuota.
+Il **Dashboard** è la pagina viene caricata quando gli utenti autorizzati ad accedere all'applicazione passano all'URL dell'applicazione. Se è stato selezionato il **esempio Contoso** o **esempio Devkits** modello di applicazione per creare l'applicazione, l'applicazione dispone di una dashboard predefinita. Se si sceglie la **dell'applicazione personalizzata** modello di applicazione, il dashboard è vuoto.
 
-Ad esempio, ecco la home page delle applicazioni basate sul modello "Sample Contoso". Per personalizzare la home page dell'applicazione, selezionare prima **Modifica** in alto a destra. 
+> [!NOTE]
+> Gli utenti possono anche [creare i propri Dashboard personali](howto-personalize-dashboard.md) da usare al posto del dashboard dell'applicazione predefinito.
 
-![Home page delle applicazioni basate sul modello "Sample Contoso"](media/howto-configure-homepage/image1.png)
+## <a name="add-tiles"></a>Aggiunta di riquadri
 
-Selezionando **Modifica** verrà aperta la libreria dashboard in un pannello a sinistra. Esistono molti tipi di primitive di riquadri e dashboard che possono essere aggiunte per personalizzare la home page.
+Lo screenshot seguente mostra il dashboard in un'applicazione creata mediante il **Contoso di esempio** modello. Per personalizzare il dashboard predefinito per l'applicazione, selezionare **modifica** nella parte superiore destra della pagina.
+
+![Dashboard per le applicazioni basate sul modello di "Contoso di esempio"](media/howto-configure-homepage/image1.png)
+
+Selezionando **modifica**, apre il pannello di libreria dashboard. La libreria contiene i riquadri e le primitive di dashboard che è possibile usare per personalizzare il dashboard.
 
 ![Libreria dashboard](media/howto-configure-homepage/image2.png)
 
-Ad esempio, è possibile aggiungere un riquadro **Settings and Properties** (Impostazioni e proprietà) per mostrare una selezione dei valori correnti di impostazioni e proprietà. A tale scopo, selezionare prima di tutto un **Device Template** (Modello di dispositivo) quindi selezionare una **Device Instance** (Istanza del dispositivo). Quindi, assegnare un titolo al riquadro e selezionare un'**impostazione** o una **proprietà** da visualizzare. In questo caso è stato selezionato **Set Temperature** (Imposta temperatura). Fare clic su **Fine** per visualizzare questo riquadro nella home page.
+Ad esempio, è possibile aggiungere un **le impostazioni del dispositivo e proprietà** riquadro per mostrare la selezione dei valori correnti delle impostazioni e le proprietà per un dispositivo. A tale scopo, selezionare prima di tutto un **Device Template** (Modello di dispositivo) quindi selezionare una **Device Instance** (Istanza del dispositivo). Quindi, assegnare un titolo al riquadro e selezionare un'**impostazione** o una **proprietà** da visualizzare. Lo screenshot seguente mostra le impostazioni e le proprietà selezionate da aggiungere al riquadro. Selezionare **** per salvare la modifica al dashboard.
 
 ![Modulo "Configure Device Details" (Configura dettagli dispositivo) con i dettagli per impostazioni e proprietà](media/howto-configure-homepage/image3.png)
 
-Quando un operatore visualizza la home page, ora potrà vedere questo riquadro con le proprietà o le impostazioni del dispositivo:
+A questo punto quando un operatore Visualizza il dashboard dell'applicazione predefinito, viene visualizzato il nuovo riquadro con il **temperatura impostare** impostazione per il dispositivo:
 
 ![Scheda "Dashboard" con visualizzate le impostazioni e le proprietà per il riquadro](media/howto-configure-homepage/image4.png)
 
-Sperimentare con i vari altri tipi di riquadro della libreria per scoprire come è possibile personalizzare ulteriormente la home page dell'applicazione.
+È possibile esplorare altri tipi di riquadro nella libreria per informazioni su come personalizzare ulteriormente il dashboard dell'applicazione predefinito.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che si è appreso come configurare la home page di Azure IoT Central, è possibile:
+Ora che si è appreso come configurare il dashboard dell'applicazione predefinito Azure IoT Central, è possibile:
 
 > [!div class="nextstepaction"]
 > [Preparare e caricare immagini](howto-prepare-images.md)

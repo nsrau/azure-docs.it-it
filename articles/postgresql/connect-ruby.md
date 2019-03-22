@@ -7,13 +7,13 @@ ms.service: postgresql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 6748f168624a20e17491a2f84b63b966ce5ad4c6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 03/12/2019
+ms.openlocfilehash: cdb53685e744401f9d2d229a5deaffa72502e26b
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53539294"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730200"
 ---
 # <a name="azure-database-for-postgresql-use-ruby-to-connect-and-query-data"></a>Database di Azure per PostgreSQL: Usare Ruby per connettersi ai dati ed eseguire query
 Questa guida introduttiva illustra come connettersi a un database di Azure per PostgreSQL usando un'applicazione [Ruby](https://www.ruby-lang.org). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Le procedure descritte in questo articolo presuppongono che si abbia familiarità con lo sviluppo con Ruby, ma non con Database di Azure per PostgreSQL.
@@ -23,36 +23,9 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Creare un database: portale](quickstart-create-server-database-portal.md)
 - [Creare un database: interfaccia della riga di comando di Azure](quickstart-create-server-database-azure-cli.md)
 
-## <a name="install-ruby"></a>Installare Ruby
-Installare Ruby nel computer. 
-
-### <a name="windows"></a> Windows
-- Scaricare e installare la versione più recente di [Ruby](https://rubyinstaller.org/downloads/).
-- Nella schermata finale del programma di installazione MSI selezionare la casella "Run 'ridk install' to install MSYS2 and development toolchain" (Esegui 'ridk install' per installare MSYS2 e la toolchain di sviluppo). Fare quindi clic su **Finish** (Fine) per avviare il programma di installazione successivo.
-- Viene avviato il programma di installazione di RubyInstaller2 per Windows. Digitare 2 per installare l'aggiornamento del repository MSYS2. Dopo avere terminato ed essere tornati alla richiesta di installazione, chiudere la finestra di comando.
-- Avviare un nuovo prompt dei comandi (cmd) dal menu Start.
-- Testare l'installazione di Ruby `ruby -v` per visualizzare la versione installata.
-- Testare l'installazione di Gem `gem -v` per visualizzare la versione installata.
-- Eseguire il comando `gem install pg` per compilare il modulo PostgreSQL per Ruby usando Gem.
-
-### <a name="macos"></a>MacOS
-- Eseguire il comando `brew install ruby` per installare Ruby usando Homebrew. Per altre opzioni di installazione, vedere la [documentazione sull'installazione](https://www.ruby-lang.org/en/documentation/installation/#homebrew) di Ruby.
-- Testare l'installazione di Ruby `ruby -v` per visualizzare la versione installata.
-- Testare l'installazione di Gem `gem -v` per visualizzare la versione installata.
-- Eseguire il comando `gem install pg` per compilare il modulo PostgreSQL per Ruby usando Gem.
-
-### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Installare Ruby eseguendo il comando `sudo apt-get install ruby-full`. Per altre opzioni di installazione, vedere la [documentazione sull'installazione](https://www.ruby-lang.org/en/documentation/installation/) di Ruby.
-- Testare l'installazione di Ruby `ruby -v` per visualizzare la versione installata.
-- Installare gli aggiornamenti più recenti per Gem eseguendo il comando `sudo gem update --system`.
-- Testare l'installazione di Gem `gem -v` per visualizzare la versione installata.
-- Installare gcc, make e altri strumenti di compilazione eseguendo il comando `sudo apt-get install build-essential`.
-- Installare le librerie PostgreSQL eseguendo il comando `sudo apt-get install libpq-dev`.
-- Eseguire il comando `sudo gem install pg` per compilare il modulo pg di Ruby usando Gem.
-
-## <a name="run-ruby-code"></a>Eseguire il codice Ruby 
-- Salvare il codice in un file di testo con estensione rb e salvare il file in una cartella di progetto, ad esempio `C:\rubypostgres\read.rb` o `/home/username/rubypostgres/read.rb`
-- Per eseguire il codice, avviare il prompt dei comandi o la shell Bash. Sostituire la directory con la cartella del progetto `cd rubypostgres`, quindi digitare il comando `ruby read.rb` per eseguire l'applicazione.
+È anche necessario che sia installato:
+- [Ruby](https://www.ruby-lang.org/en/downloads/)
+- Ruby pg, il modulo PostgreSQL per Ruby
 
 ## <a name="get-connection-information"></a>Ottenere informazioni di connessione
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per PostgreSQL. Sono necessari il nome del server completo e le credenziali di accesso.
@@ -63,12 +36,17 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
  ![Nome del server Database di Azure per PostgreSQL](./media/connect-ruby/1-connection-string.png)
 
+> [!NOTE]
+> Il simbolo `@` nel nome utente di Postgres in Azure è stato codificato tramite URL (`%40`) in tutte le stringhe di connessione. 
+
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
 Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
 Il codice usa un oggetto [PG::Connection](https://www.rubydoc.info/gems/pg/PG/Connection) con il costruttore [new()](https://www.rubydoc.info/gems/pg/PG%2FConnection:initialize) per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo [exec()](https://www.rubydoc.info/gems/pg/PG/Connection#exec-instance_method) per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Il codice cerca gli errori usando la classe [PG::Error](https://www.rubydoc.info/gems/pg/PG/Error). Chiama infine il metodo [close()](https://www.rubydoc.info/gems/pg/PG/Connection#lo_close-instance_method) per chiudere la connessione prima di terminare.
 
 Sostituire le stringhe `host`, `database`, `user` e `password` con valori personalizzati. 
+
+
 ```ruby
 require 'pg'
 
@@ -76,7 +54,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -119,7 +97,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -153,7 +131,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.
@@ -187,7 +165,7 @@ begin
     # Initialize connection variables.
     host = String('mydemoserver.postgres.database.azure.com')
     database = String('postgres')
-    user = String('mylogin@mydemoserver')
+    user = String('mylogin%40mydemoserver')
     password = String('<server_admin_password>')
 
     # Initialize connection object.

@@ -13,30 +13,29 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 233ce5623195a9a661f67b5c3ded40e68c8eb33a
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54843515"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244367"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
 [Application Insights di Azure][start] può informare di eventuali cambiamenti nelle prestazioni e nelle metriche di utilizzo dell'app Web in uso. 
 
 Application Insights esegue il monitoraggio dell'app attiva in un'[ampia varietà di piattaforme][platforms] per consentire di diagnosticare i problemi di prestazioni e acquisire informazioni sui modelli di utilizzo.
 
-Esistono tre tipologie di avvisi:
+Sono disponibili più tipi di avvisi:
 
-* Gli **avvisi delle metriche** indicano quando una qualsiasi metrica supera un valore di soglia per un determinato periodo, ad esempio i tempi di risposta, il numero di eccezioni, l'uso della CPU o il numero di visualizzazioni della pagina. 
+* [**Gli avvisi delle metriche** ](../../azure-monitor/platform/alerts-metric-overview.md) indicano quando una metrica supera un valore di soglia per un determinato periodo, ad esempio tempi di risposta, conteggio delle eccezioni, utilizzo della CPU o visualizzazioni pagina.
+* [**Gli avvisi del log** ](../../azure-monitor/platform/alerts-unified-log.md) viene usato per descrivere gli avvisi in cui il segnale di avviso si basa su una query Kusto personalizzata.
 * I [**test Web**][availability] indicano quando il sito non è disponibile in Internet o risponde lentamente. [Altre informazioni][availability].
 * Gli avvisi della [**diagnostica proattiva**](../../azure-monitor/app/proactive-diagnostics.md) vengono configurati automaticamente per informare su schemi di prestazioni insoliti.
 
-L'articolo è incentrato sugli avvisi delle metriche.
-
 ## <a name="set-a-metric-alert"></a>Impostare un avviso metrica
-Aprire il pannello Regole di avviso e usare il pulsante Aggiungi. 
+Aprire la scheda regole di avviso e quindi usare il pulsante Aggiungi.
 
-![Nel pannello Regole di avviso scegliere Aggiungi avviso. Impostare l'app come la risorsa da misurare, specificare un nome per l'avviso e scegliere una metrica.](./media/alerts/01-set-metric.png)
+![Nella scheda regole di avviso, scegliere Aggiungi avviso. Impostare l'app come la risorsa da misurare, specificare un nome per l'avviso e scegliere una metrica.](./media/alerts/01-set-metric.png)
 
 * Impostare la risorsa prima delle altre proprietà. **Scegliere la risorsa "(components)"** per impostare avvisi sulle metriche relative a prestazioni e utilizzo.
 * Il nome assegnato all'avviso deve essere univoco all'interno del gruppo di risorse (non solo dell'applicazione).
@@ -44,21 +43,21 @@ Aprire il pannello Regole di avviso e usare il pulsante Aggiungi.
 * Se si seleziona la casella "Invia messaggio di posta elettronica a proprietari...", vengono inviati avvisi tramite posta elettronica a chiunque abbia accesso a questo gruppo di risorse. Per espandere il set di utenti, aggiungerli al [gruppo di risorse o a una sottoscrizione](../../azure-monitor/app/resources-roles-access-control.md) (non la risorsa).
 * Se si specifica "Indirizzi di posta elettronica aggiuntivi", gli avvisi vengono inviati agli utenti o gruppi corrispondenti (indipendentemente dalla selezione della casella "Invia messaggio di posta elettronica a proprietari..."). 
 * Impostare un [indirizzo di webhook](../../azure-monitor/platform/alerts-webhooks.md) se è stata impostata un'app Web che risponde agli avvisi. L'app viene chiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
-* È possibile disabilitare o abilitare l'avviso usando i pulsanti nella parte superiore del pannello.
+* È possibile disabilitare o abilitare l'avviso: usando i pulsanti nella parte superiore.
 
-*Il pulsante Aggiungi avviso non è visibile.* 
+*Il pulsante Aggiungi avviso non è visibile.*
 
-* Si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Dare un'occhiata al pannello Controllo di accesso. [Informazioni sul controllo di accesso][roles].
+* Si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Esaminare la scheda di controllo di accesso. [Informazioni sul controllo di accesso][roles].
 
 > [!NOTE]
-> Nel pannello degli avvisi si nota che è già presente un avviso configurato: [Diagnostica proattiva](../../azure-monitor/app/proactive-failure-diagnostics.md). L'avviso automatico monitora una particolare metrica, la frequenza di errori delle richieste. A meno che non si decida di disabilitare l'avviso proattivo, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste. 
+> Nel pannello degli avvisi si nota che è già presente un avviso configurato: [Diagnostica proattiva](../../azure-monitor/app/proactive-failure-diagnostics.md). L'avviso automatico monitora una particolare metrica, la frequenza di errori delle richieste. A meno che non si decida di disabilitare l'avviso proattivo, non è necessario impostare un proprio avviso relativo alla frequenza di errori delle richieste.
 > 
 > 
 
 ## <a name="see-your-alerts"></a>Visualizzare gli avvisi
 Si riceve un messaggio di posta elettronica quando lo stato dell'avviso passa da inattivo ad attivo e viceversa. 
 
-Lo stato corrente di ogni avviso viene visualizzato nel pannello delle regole di avviso.
+Lo stato corrente di ogni avviso viene visualizzato nella scheda regole di avviso.
 
 Nell'elenco a discesa Avvisi è disponibile un riepilogo delle attività recenti:
 
@@ -66,7 +65,7 @@ Nell'elenco a discesa Avvisi è disponibile un riepilogo delle attività recenti
 
 La cronologia delle modifiche di stato si trova nel Log attività:
 
-![Nel pannello Panoramica fare clic su Impostazioni, Log di controllo](./media/alerts/09-alerts.png)
+![Nella scheda Panoramica, fare clic su impostazioni, log di controllo](./media/alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Funzionamento degli avvisi
 * Un avviso può avere tre stati: "Mai attivato", "Attivato" e "Risolto". Lo stato Attivato indica che la condizione specificata aveva valore true al momento dell'ultima valutazione.
@@ -91,26 +90,77 @@ Gli avvisi più diffusi includono:
 
 Non dimenticare che la [diagnostica proattiva sulla frequenza errori](../../azure-monitor/app/proactive-failure-diagnostics.md) monitora automaticamente la frequenza con cui l'applicazione risponde alle richieste con codici di errore.
 
+## <a name="how-to-set-an-exception-alert-using-custom-log-search"></a>Come impostare un avviso di eccezione tramite ricerca log personalizzata
+
+In questa sezione verranno esaminate come impostare un avviso di eccezione basati su query. Per questo esempio, si supponga di che volere un avviso quando la frequenza non riuscita è superiore al 10% nelle ultime 24 ore.
+
+1. Passare alla risorsa di Application Insights nel portale di Azure.
+2. A sinistra, configurare in fare clic su **avviso**.
+
+    ![A sinistra sotto Configura fare clic su avviso](./media/alerts/1appinsightalert.png)
+
+3. Nella parte superiore della scheda avvisi selezionare **nuova regola di avviso**.
+
+     ![Nella parte superiore della scheda avviso fare clic su nuova regola di avviso](./media/alerts/2createalert.png)
+
+4. La risorsa deve essere selezionata automaticamente. Per impostare una condizione, fare clic su **Aggiungi condizione**.
+
+    ![Fare clic su Aggiungi condizione](./media/alerts/3addcondition.png)
+
+5. Nella scheda Configura del segnale per la logica selezionare **ricerca log personalizzata**
+
+    ![Fare clic su ricerca di log personalizzato](./media/alerts/4customlogsearch.png)
+
+6. Nella scheda Ricerca log personalizzata, immettere la query nella casella "ricerca". In questo esempio si userà la sotto query Kusto.
+    ```kusto
+    let percentthreshold = 10;
+    let period = 24h;
+    requests
+    | where timestamp >ago(period)
+    | summarize requestsCount = sum(itemCount)
+    | project requestsCount, exceptionsCount = toscalar(exceptions | where timestamp >ago(period) | summarize sum(itemCount))
+    | extend exceptionsRate = toreal(exceptionsCount)/toreal(requestsCount) * 100
+    | where exceptionsRate > percentthreshold
+
+    ```
+
+    ![Nella finestra di query di ricerca digitare query](./media/alerts/5searchquery.png)
+    
+    > [!NOTE]
+    > È anche possibile applicare questi passaggi per altri tipi di avvisi basati su query. Altre informazioni sul linguaggio di query Kusto da questo [Kusto introduttiva doc](https://docs.microsoft.com/azure/kusto/concepts/) oppure [foglio informativo sulle query SQL per Kusto](https://docs.microsoft.com/azure/kusto/query/sqlcheatsheet)
+
+7. "Avviso per la logica", scegliere se si basa sul numero di risultati o la misurazione delle metriche. Selezionare la condizione (maggiore di, uguale a, minore di) e una soglia. Mentre si stanno modificando questi valori, è possibile notare le modifiche di frase di anteprima di condizione. In questo esempio viene usato "uguale a".
+
+    ![In Alert logic scegliere tra le opzioni fornite per in base e una condizione, quindi digitare una soglia](./media/alerts/6alertlogic.png)
+
+8. In "Evaluated basata", impostare il periodo e frequenza. Il periodo di qui deve corrispondere al valore che si inseriscono per periodo nella query precedente. Quindi fare clic su ****.
+
+    ![Impostare periodo e frequenza nella parte inferiore e quindi fare clic su Fine](./media/alerts/7evaluate.png)
+
+9. È ora possibile visualizzare la condizione che è stata creata con il costo mensile stimato. Di seguito sotto ["Gruppi di azioni"](../platform/action-groups.md) è possibile creare un nuovo gruppo o selezionarne uno esistente. Se si desidera, è possibile personalizzare le azioni.
+
+    ![Fare clic su di selezionare o creare pulsanti nel gruppo di azione](./media/alerts/8actiongroup.png)
+
+10. Infine aggiungere i dettagli dell'avviso (nome della regola, la descrizione, livello di gravità avviso). Al termine, fare clic su **Crea regola di avviso** nella parte inferiore.
+
+    ![In dettaglio avviso digitare il nome della regola di avviso, scrivere una descrizione e scegliere un livello di gravità ](./media/alerts/9alertdetails.png)
+
 ## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
 
-Questa sezione si applica esclusivamente agli avvisi classici e facilita l'ottimizzazione delle notifiche di avviso per garantire che solo i destinatari desiderati ricevano le notifiche. Per comprendere meglio la differenza tra [avvisi classici](../platform/alerts-classic.overview.md) e la nuova esperienza di avvisi, fare riferimento all'[articolo di panoramica sugli avvisi](../platform/alerts-overview.md). Per controllare l'avviso di notifica nella nuova esperienza di avvisi, utilizzare [gruppi di azione](../platform/action-groups.md).
+Questa sezione si applica solo agli avvisi classici e aiuterà a ottimizzare le notifiche di avviso assicurando che siano ricevute solo dai destinatari desiderati. Per comprendere meglio la differenza tra [avvisi classici](../platform/alerts-classic.overview.md) e i nuovi avvisi esperienza, vedere la [articolo di panoramica avvisi](../platform/alerts-overview.md). Per controllare le notifiche di avviso nella nuova esperienza avvisi, utilizzare [gruppi di azioni](../platform/action-groups.md).
 
-* È consigliabile l'uso di destinatari specifici per le notifiche di avviso classiche.
+* Consigliamo di usare destinatari specifici per le notifiche di avviso classiche.
 
-* Per gli avvisi nelle metriche Application Insights, incluse le metriche di disponibilità, l'opzione **in blocco/gruppo** della casella di controllo, se abilitata, invia notifiche agli utenti con i ruoli proprietario, collaboratore o lettore nella sottoscrizione. _Tutti_ gli utenti con accesso alla sottoscrizione della risorsa di Application Insights si trovano nell'ambito e riceveranno le notifiche. 
+* Per gli avvisi nelle metriche Application Insights, incluse le metriche di disponibilità, l'opzione **in blocco/gruppo** della casella di controllo, se abilitata, invia notifiche agli utenti con i ruoli proprietario, collaboratore o lettore nella sottoscrizione. _Tutti_ gli utenti con accesso alla sottoscrizione della risorsa di Application Insights si trovano nell'ambito e riceveranno le notifiche.
 
 > [!NOTE]
 > Se attualmente si usa l'opzione **in blocco/gruppo** della casella di controllo e la si disabilita, sarà impossibile annullare le modifiche.
 
-Usare il nuova esperienza/quasi in tempo reale di avvisi se si desidera inviare notifiche agli utenti in base ai ruoli. Con [gruppi di azione](../platform/action-groups.md), è possibile configurare notifiche tramite posta elettronica agli utenti con ruolo proprietario/collaboratore o lettore (non combinati insieme come una singola opzione).
+Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera inviare notifiche agli utenti in base ai ruoli. Con [gruppi di azione](../platform/action-groups.md), è possibile configurare notifiche tramite posta elettronica agli utenti con ruolo proprietario/collaboratore o lettore (non combinati insieme come una singola opzione).
 
 ## <a name="automation"></a>Automazione
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
 * [Usare webhook per automatizzare la risposta agli avvisi](../../azure-monitor/platform/alerts-webhooks.md)
-
-## <a name="video"></a>Video
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="see-also"></a>Vedere anche 
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)

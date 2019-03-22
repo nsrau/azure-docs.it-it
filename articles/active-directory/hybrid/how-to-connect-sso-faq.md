@@ -16,12 +16,12 @@ ms.date: 11/14/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8de47aab231c66f3539c2d2f0f0e4c535a04038a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 4822de6f6470547b47ecaa3874bed0df4ad20cf6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085372"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309589"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -45,16 +45,16 @@ Di seguito è riportato un elenco non completo delle applicazioni che possono in
 
 | Nome dell'applicazione | URL applicazione da usare |
 | -- | -- |
-| Pannello di accesso | https://myapps.microsoft.com/contoso.com |
-| Outlook nel Web | https://outlook.office365.com/contoso.com |
-| Portali di Office 365 | <https://portal.office.com?domain_hint=contoso.com>, <https://www.office.com?domain_hint=contoso.com> |
+| Pannello di accesso | https:\//myapps.microsoft.com/contoso.com |
+| Outlook nel Web | https:\//outlook.office365.com/contoso.com |
+| Portali di Office 365 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-Inoltre, gli utenti ottengono un'esperienza di accesso non interattiva se un'applicazione invia le richieste di accesso agli endpoint di Azure AD impostato come tenant, vale a dire https://login.microsoftonline.com/contoso.com/<..> oppure https://login.microsoftonline.com/<tenant_ID>/<..> , anziché l'endpoint Azure AD comune, vale a dire https://login.microsoftonline.com/common/<...>. Di seguito viene fornito un elenco, non completo, di applicazioni che generano questi tipi di richieste di accesso.
+Inoltre, gli utenti ottengono un'esperienza di accesso invisibile all'utente se un'applicazione invia le richieste di accesso agli endpoint di Azure AD impostato come tenant -, ovvero https:\//login.microsoftonline.com/contoso.com/ <... > o https:\//login.microsoftonline.com/ < tenant_ID > / <... >, anziché l'endpoint comune di Azure AD -, ovvero https:\//login.microsoftonline.com/common/ <... >. Di seguito viene fornito un elenco, non completo, di applicazioni che generano questi tipi di richieste di accesso.
 
 | Nome dell'applicazione | URL applicazione da usare |
 | -- | -- |
-| SharePoint Online | https://contoso.sharepoint.com |
-| Portale di Azure | https://portal.azure.com/contoso.com |
+| SharePoint Online | https:\//contoso.sharepoint.com |
+| Portale di Azure | https:\//portal.azure.com/contoso.com |
 
 Nelle tabelle precedenti sostituire "contoso.com" con il nome di dominio per ottenere gli URL dell'applicazione corretti per il tenant.
 

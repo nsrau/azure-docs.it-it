@@ -2,19 +2,19 @@
 title: Informazioni su Istanze di Azure Container
 description: Il servizio Istanze di Azure Container rappresenta il modo più semplice e rapido per eseguire contenitori isolati in Azure, senza dover gestire macchine virtuali né adottare un agente di orchestrazione di livello superiore.
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: overview
 ms.date: 11/30/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ba454965ff2bb78ebe526e71d9280200b1f4b08b
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187195"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863322"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -48,9 +48,14 @@ Per recuperare e rendere persistente lo stato con Istanze di Azure Container, è
 
 Istanze di Azure Container consente di pianificare contenitori sia Windows che Linux con la stessa API. È sufficiente specificare il tipo di sistema operativo quando si creano i [gruppi di contenitori](container-instances-container-groups.md).
 
-Alcune funzionalità attualmente sono limitate ai contenitori Linux. Microsoft si sta impegnando per garantire parità di funzionalità rispetto ai contenitori Windows. Nel frattempo, per informazioni sulle attuali differenze tra le piattaforme vedere [Quote e aree disponibili per Istanze di Azure Container](container-instances-quotas.md).
+Alcune funzionalità attualmente sono limitate ai contenitori Linux:
 
-Istanze di Azure Container supporta le immagini di Windows che si basano sulle versioni Long-Term Servicing Channel (LTSC). Le versioni Canale semestrale di Windows, come ad esempio 1709 e 1803, non sono supportate.
+* Più contenitori per gruppo di contenitori
+* Montaggio di volumi ([File di Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segreto](container-instances-volume-secret.md))
+* [Distribuzione in una rete virtuale](container-instances-vnet.md) (anteprima)
+* [Risorse GPU](container-instances-gpu.md) (anteprima)
+
+Istanze di Azure Container supporta le immagini di Windows Server 2016 che si basano sulle versioni Long-Term Servicing Channel (LTSC). Le versioni Canale semestrale di Windows, come ad esempio 1709 e 1803, non sono supportate.
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 
@@ -68,7 +73,7 @@ Questa funzionalità di Istanze di Azure Container, attualmente in anteprima, co
 Provare a distribuire un contenitore in Azure con un comando singolo, seguendo le indicazioni della guida introduttiva:
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva di Istanze di contenitore di Azure](container-instances-quickstart.md)
+> [Guida introduttiva di Istanze di Azure Container](container-instances-quickstart.md)
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/

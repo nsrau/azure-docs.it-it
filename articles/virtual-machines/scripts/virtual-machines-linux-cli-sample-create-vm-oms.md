@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 70eb7ef93d4802f30bb1343c442c414cda48464b
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 6aed5f40d689fc84c82f37760e78fc7c3fe94dd1
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55732788"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535622"
 ---
-# <a name="monitor-a-vm-with-azure-monitoring"></a>Monitorare una macchina virtuale con Monitoraggio di Azure
+# <a name="monitor-a-vm-with-azure-monitor"></a>Monitorare una macchina virtuale con Monitoraggio di Azure
 
 Questo script consente di creare una macchina virtuale di Azure, installare l'agente Log Analytics e registrare il sistema in un'area di lavoro di Log Analytics. Dopo l'esecuzione dello script, la macchina virtuale sarà visibile nella console.
 
@@ -51,7 +51,7 @@ Questo script usa i comandi seguenti per creare un gruppo di risorse, la macchin
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Consente di creare un gruppo di risorse in cui sono archiviate tutte le risorse. |
 | [az vm create](https://docs.microsoft.com/cli/azure/vm) | Consente di creare la macchina virtuale e la connette alla scheda di rete, alla rete virtuale, alla subnet e al gruppo di sicurezza di rete. Questo comando specifica anche l'immagine della macchina virtuale da usare e le credenziali di amministrazione.  |
-| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Consente di eseguire un'estensione di VM in una macchina virtuale. In questo caso, l'estensione dell'agente Log Analytics viene usata per installare l'agente Log Analytics e registrare la VM in un'area di lavoro di Log Analytics. |
+| [azure vm extension set](https://docs.microsoft.com/cli/azure/vm/extension) | Consente di eseguire un'estensione di VM in una macchina virtuale. In questo caso, l'estensione dell'agente di Monitoraggio di Azure viene usata per installare l'agente Log Analytics e registrare la VM in un'area di lavoro di Log Analytics. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 5a0d02768b0fbd23e33d13c5e5c3fe84a41cdc52
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 4ae17249903f317e7a75a3e6bc7c03292021c96a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243655"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57534634"
 ---
 # <a name="monitor-azure-file-sync"></a>Monitorare Sincronizzazione file di Azure
 
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
 
-Questo articolo descrive come monitorare la distribuzione di Sincronizzazione file di Azure usando il portale di Azure e Windows Server.
+Questo articolo descrive come monitorare la distribuzione di sincronizzazione File di Azure usando il portale di Azure e Windows Server.
 
-Attualmente sono disponibili le opzioni di monitoraggio seguenti:
+Le opzioni di monitoraggio seguenti sono attualmente disponibili.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -29,20 +29,23 @@ Nel portale di Azure, è possibile visualizzare lo stato di integrità dei serve
 
 ### <a name="storage-sync-service"></a>Servizio di sincronizzazione archiviazione
 
-Per visualizzare lo stato di integrità del server registrato, lo stato di integrità dell'endpoint server e le metriche, passare a Servizi di sincronizzazione archiviazione nel portale di Azure. L'integrità del server registrato è visualizzabile nel pannello del server registrato. Lo stato di integrità dell'endpoint server è visualizzabile nel pannello dei gruppi di sincronizzazione.
+Per visualizzare lo stato dei server registrati, integrità dell'endpoint server e le metriche, passare al servizio di sincronizzazione archiviazione nel portale di Azure. È possibile visualizzare l'integrità del server registrato nel **server registrati** integrità dell'endpoint server e pannello nel **gruppi di sincronizzazione** pannello.
 
-Integrità del server registrato
-- Se lo stato del server registrato è online, il server comunica correttamente con il servizio.
-- Se lo stato del server registrato risulta offline, verificare che il processo di monitoraggio della sincronizzazione archiviazione (AzureStorageSyncMonitor.exe) nel server sia in esecuzione. Se il server è protetto da un firewall o un proxy, configurare il firewall e il proxy secondo la [documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy).
+Integrità del server registrato:
 
-Integrità dell'endpoint server
-- L'integrità dell'endpoint server nel portale si basa sugli eventi di sincronizzazione che vengono registrati nel registro eventi di telemetria nel server (ID 9102 e 9302). Se una sessione di sincronizzazione non riesce a causa di un errore temporaneo (ad esempio, errore annullato), la sincronizzazione potrebbe risultare ancora integra nel portale, purché la sessione di sincronizzazione corrente sia in stato di avanzamento (l'evento ID 9302 viene usato per determinare se vengono applicati file). Per altre informazioni, vedere la documentazione seguente: [Integrità di sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Stato sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
-- Se il portale mostra un errore di sincronizzazione a causa del mancato stato di avanzamento della sincronizzazione, consultare la [Documentazione sulla risoluzione dei problemi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) per informazioni.
+- Se il **server registrati** lo stato è **Online**, il server è stata comunicando con il servizio.
+- Se il **server registrati** lo stato è **viene visualizzata Offline**, verificare che il processo di monitoraggio di sincronizzazione archiviazione (AzureStorageSyncMonitor.exe) nel server sia in esecuzione. Se il server si trova dietro un firewall o proxy, vedere [questo articolo](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy) per configurare il firewall e proxy.
 
-Metriche
+Integrità dell'endpoint server:
+
+- L'integrità dell'endpoint server nel portale si basa sugli eventi di sincronizzazione che vengono registrati nel registro eventi di telemetria nel server (ID 9102 e 9302). Se una sessione di sincronizzazione non riesce a causa di un errore temporaneo, ad esempio errore annullata, sincronizzazione potrebbe continuare ad apparire integra nel portale, purché la sessione di sincronizzazione corrente è sta facendo progressi. ID evento 9302 consente di determinare se i file devono essere applicati. Per altre informazioni, vedere [integrità di sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [sincronizzare lo stato di avanzamento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
+- Se il portale Visualizza un errore di sincronizzazione perché sincronizzazione mancato avanzamento, vedere la [risoluzione dei problemi documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) per materiale sussidiario.
+
+Metriche:
+
 - Nel portale di Servizi di sincronizzazione archiviazione possono essere visualizzate le metriche seguenti:
 
-  | Nome metrica | DESCRIZIONE | Pannello/i portale | 
+  | Nome metrica | DESCRIZIONE | Nome del pannello |
   |-|-|-|
   | Byte sincronizzati | Dimensioni dei dati trasferiti (caricamento e scaricamento) | Gruppo di sincronizzazione, Endpoint server |
   | Richiamo cloud a livelli | Dimensione dei dati richiamati | Server registrati |
@@ -50,17 +53,16 @@ Metriche
   | File sincronizzati | Numero di file trasferiti (caricamento e scaricamento) | Gruppo di sincronizzazione, Endpoint server |
   | Stato online del server | Numero di heartbeat ricevuti dal server | Server registrati |
 
-- Per altre informazioni, vedere la sezione [Monitoraggio di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor). 
+- Per altre informazioni, vedere [monitoraggio di Azure](https://docs.microsoft.com/azure/storage/files/storage-sync-files-monitoring#azure-monitor).
 
   > [!Note]  
   > I grafici nel portale di Servizi di sincronizzazione archiviazione sono basati su un intervallo di tempo di 24 ore. Per visualizzare dimensioni o intervalli di tempo diversi, usare Monitoraggio di Azure.
-
 
 ### <a name="azure-monitor"></a>Monitoraggio di Azure
 
 Usare [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per monitorare la sincronizzazione, il cloud a livelli e la connettività del server. Le metriche per Sincronizzazione file di Azure sono abilitate per impostazione predefinita e vengono inviate al Monitoraggio di Azure ogni 15 minuti.
 
-Per visualizzare le metriche di Sincronizzazione file di Azure in Monitoraggio di Azure, selezionare il tipo di risorsa di servizi di sincronizzazione archiviazione.
+Per visualizzare le metriche di sincronizzazione File di Azure in Monitoraggio di Azure, selezionare la **servizi di sincronizzazione archiviazione** il tipo di risorsa.
 
 Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in Monitoraggio di Azure:
 
@@ -75,42 +77,45 @@ Le metriche seguenti per la Sincronizzazione file di Azure sono disponibili in M
 
 ## <a name="windows-server"></a>Windows Server
 
-In Server di Windows, è possibile visualizzare il cloud a livelli, il server registrato e l'integrità della sincronizzazione.
+In Windows Server, è possibile visualizzare i cloud a livelli, il server registrato e dell'integrità di sincronizzazione.
 
 ### <a name="event-logs"></a>Log eventi
 
-Usare il registro eventi di telemetria nel server per monitorare l'integrità del server registrato, della sincronizzazione e del cloud a livelli. Il registro eventi di telemetria si trova in Applicazioni e servizi\Microsoft\FileSync\Agente, nel Visualizzatore eventi.
+Usare il registro eventi di telemetria nel server per monitorare l'integrità del server registrato, della sincronizzazione e del cloud a livelli. Nel Visualizzatore eventi in cui si trova nel registro eventi di telemetria *Applications e services\microsoft\filesync\agent.*.
 
-Integrità di sincronizzazione
-- L'ID evento 9102 viene registrato una volta completata una sessione di sincronizzazione. Questo evento deve essere usato per determinare se le sessioni di sincronizzazione vengono completate correttamente (HResult = 0) e se sono presenti errori di sincronizzazione per ogni elemento. Per altre informazioni, vedere la documentazione seguente: [Integrità di sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) & [Errori per ogni elemento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing).
+Integrità di sincronizzazione:
+
+- ID evento 9102 viene registrato dopo il completamento di una sessione di sincronizzazione. Utilizzare questo evento per determinare se sessioni di sincronizzazione hanno esito positivo (**HResult = 0**) errori di sincronizzazione e se sono disponibili per ogni elemento. Per altre informazioni, vedere la [integrità di sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) e [errori per ogni elemento](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing) documentazione.
 
   > [!Note]  
-  > In alcuni casi le sessioni di sincronizzazione hanno un esito completamente negativo o hanno un PerItemErrorCount diverso da zero, ma compiono ancora progressi, ovvero alcuni file eseguono correttamente la sincronizzazione. Si può notare nei campi Applied (AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes), che indicano quanti file della sessione vengono completati. Se vengono visualizzate più sessioni di sincronizzazione in una riga con esito negativo, ma con un numero crescente di Applied, è necessario assegnare l'ora della sincronizzazione per tentare nuovamente l'operazione prima di aprire un ticket di supporto.
+  > In alcuni casi, complessivo di sincronizzazione hanno esito negativo le sessioni o hanno un PerItemErrorCount diverso da zero. Tuttavia, sono ancora fare progressi e alcuni file di sincronizzazione completata. È possibile verificarlo i campi applicati ad esempio AppliedFileCount, AppliedDirCount, AppliedTombstoneCount e AppliedSizeBytes. Questi campi indicano in che misura la sessione ha avuto esito positivo. Se viene visualizzato più sessioni di sincronizzazione non riuscire in una riga, e hanno un conteggio applicato crescente, a tempo di sincronizzazione per ripetere l'operazione prima di aprire un ticket di supporto.
 
-- L'ID evento 9302 viene registrato ogni 5-10 minuti se è presente una sessione di sincronizzazione attiva. Questo evento deve essere usato per determinare se la sessione di sincronizzazione corrente è in stato di avanzamento (AppliedItemCount > 0). Se la sincronizzazione non è in stato di avanzamento, la sessione di sincronizzazione deve avere esito negativo e l'ID evento 9102 verrà registrati con l'errore. Per altre informazioni, vedere la documentazione seguente: [Stato sincronizzazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session)
+- L'ID evento 9302 viene registrato ogni 5-10 minuti se è presente una sessione di sincronizzazione attiva. Utilizzare questo evento per determinare se la sessione di sincronizzazione corrente sta avanzando (**AppliedItemCount > 0**). Se non sta avanzando sincronizzazione, la sessione di sincronizzazione deve avere esito negativo e 9102 un ID evento verranno registrati con l'errore. Per altre informazioni, vedere la [sincronizzazione documentazione continua](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#how-do-i-monitor-the-progress-of-a-current-sync-session).
 
-Integrità del server registrato
-- L'ID evento 9301 viene registrato ogni 30 secondi quando un server esegue query sul servizio per i processi. Se GetNextJob viene completata con stato = 0, il server è in grado di comunicare con il servizio. Se GetNextJob viene completata con un errore, verificare la [Documentazione sulla risoluzione dei problemi](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) per indicazioni.
+Integrità del server registrato:
 
-Integrità del cloud a livelli
-- Per monitorare l'attività di suddivisione in livelli in un server, usare l'ID evento 9003, 9016 e 9029 nel registro eventi di telemetria (che si trova in Applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi).
+- L'ID evento 9301 viene registrato ogni 30 secondi quando un server esegue query sul servizio per i processi. Se GetNextJob termina con **stato = 0**, il server è in grado di comunicare con il servizio. Se GetNextJob termina con un errore, verificare i [risoluzione dei problemi documentazione](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#common-sync-errors) per materiale sussidiario.
 
-  - L'ID evento 9003 fornisce inoltre la distribuzione di un errore per un endpoint server. Ad esempio, Total Error Count, ErrorCode e così via. Si noti che per ogni codice di errore viene registrato un evento.
-  - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio, percentuale di spazio disponibile, numero di file fantasma nella sessione, numero di file in cui non è stato possibile eseguire il ghosting e così via.
-  - L'ID evento 9029 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio, numero di file che hanno eseguito un tentativo nella sessione, numero di file archiviati a livelli nella sessione, numero di file già archiviati a livelli e così via.
+Cloud di suddivisione in livelli di integrità:
+
+- Per monitorare l'attività di suddivisione in livelli in un server, usare 9003 ID evento, evento 9016 e 9029 nel registro eventi, dati di telemetria che si trova nel Visualizzatore eventi *Applications e services\microsoft\filesync\agent.*.
+
+  - L'ID evento 9003 fornisce inoltre la distribuzione di un errore per un endpoint server. Ad esempio:  Numero totale errori e codice di errore. Per ogni codice di errore viene registrato un evento.
+  - L'ID evento 9016 fornisce inoltre risultati di ghosting per un volume. Ad esempio:  Percentuale di spazio libero è, numero di file fantasma nella sessione e numero di file non è stato possibile fantasma.
+  - L'ID evento 9029 fornisce informazioni sulla sessione di ghosting per un endpoint server. Ad esempio:  Numero di file ha tentato nella sessione, numero di file a livelli nella sessione e numero di file già archiviato a livelli.
   
-- Per monitorare l'attività di richiamo in un server, usare l'ID evento 9005, 9006 e 9009 e 9059 nel registro eventi di telemetria (che si trova in Registri applicazioni e servizi\Microsoft\FileSync\Agente in Visualizzatore eventi).
+- Per monitorare l'attività di richiamo su un server, usare 9005 ID evento, 9006, 9009 e nel registro eventi, dati di telemetria che si trova nel Visualizzatore eventi in 9059 *Applications e services\microsoft\filesync\agent.*.
 
-  - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio, numero totale di file univoci a cui si ha avuto accesso, numero totale di file univoci con accessi non riusciti e così via.
-  - L'ID evento 9006 fornisce inoltre la distribuzione di un errore di richiamo per un endpoint server. Ad esempio, Totale richieste non riuscite, ErrorCode e così via. Si noti che per ogni codice di errore viene registrato un evento.
-  - L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio, DurationSeconds, CountFilesRecallSucceeded, CountFilesRecallFailed e così via.
-  - L'ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio, ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
+  - L'ID evento 9005 offre affidabilità di richiamo per un endpoint server. Ad esempio:  Numero totale di file univoco a cui si accede e totale file univoci con accessi non riusciti.
+  - L'ID evento 9006 fornisce inoltre la distribuzione di un errore di richiamo per un endpoint server. Ad esempio:  Totale richieste non riuscite e codice di errore. Per ogni codice di errore viene registrato un evento.
+  - L'ID evento 9009 fornisce informazioni sulla sessione di richiamo per un endpoint server. Ad esempio:  DurationSeconds CountFilesRecallSucceeded e CountFilesRecallFailed.
+  - L'ID evento 9059 fornisce la distribuzione di richiamo delle applicazioni per un endpoint server. Ad esempio:  ShareId, nome dell'applicazione e TotalEgressNetworkBytes.
 
 ### <a name="performance-counters"></a>Contatori delle prestazioni
 
 Usare i contatori delle prestazioni di Sincronizzazione file di Azure nel server per monitorare l'attività di sincronizzazione.
 
-Per visualizzare i contatori delle prestazioni di Sincronizzazione file di Azure nel server, avviare Monitoraggio delle prestazioni (Perfmon.exe) e i contatori sono disponibili in oggetti AFS byte trasferiti e operazioni di sincronizzazione AFS.
+Per visualizzare i contatori delle prestazioni di sincronizzazione File di Azure nel server, aprire Performance Monitor (Perfmon.exe). È possibile trovare i contatori nel **AFS byte trasferiti** e **operazioni di sincronizzazione AFS** oggetti.
 
 I contatori delle prestazioni seguenti per Sincronizzazione file di Azure sono disponibili in Monitoraggio delle prestazioni:
 

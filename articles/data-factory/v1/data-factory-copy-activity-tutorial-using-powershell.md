@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 12c4241da2f4a65205d128d72f86ce2bc91a853c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 7031e003ad05d647ccfaebf9239f26ef0af00a7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54435584"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110716"
 ---
 # <a name="tutorial-create-a-data-factory-pipeline-that-moves-data-by-using-azure-powershell"></a>Esercitazione: Creare una pipeline di Data Factory per lo spostamento di dati con Azure PowerShell
 > [!div class="op_single_selector"]
@@ -42,13 +42,16 @@ In questa esercitazione si crea una pipeline contenente una sola attività: un'a
 Una pipeline può includere più attività ed è possibile concatenarne due, ovvero eseguire un'attività dopo l'altra, impostando il set di dati di output di un'attività come set di dati di input dell'altra. Per altre informazioni, vedere [Attività multiple in una pipeline](data-factory-scheduling-and-execution.md#multiple-activities-in-a-pipeline).
 
 > [!NOTE]
-> Questo articolo non illustra tutti i cmdlet di Data factory. Per la documentazione completa su questi cmdlet, vedere [Data Factory Cmdlet Reference](/powershell/module/azurerm.datafactories) (Informazioni di riferimento sui cmdlet di Data Factory).
+> Questo articolo non illustra tutti i cmdlet di Data factory. Per la documentazione completa su questi cmdlet, vedere [Data Factory Cmdlet Reference](/powershell/module/az.datafactory) (Informazioni di riferimento sui cmdlet di Data Factory).
 > 
 > La pipeline di dati in questa esercitazione copia i dati da un archivio dati di origine a un archivio dati di destinazione. Per un'esercitazione su come trasformare dati usando Azure Data Factory, vedere [Esercitazione: Creare una pipeline per trasformare i dati usando il cluster Hadoop](data-factory-build-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 - Completare i prerequisiti indicati nell'articolo sui [prerequisiti dell'esercitazione](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-- Installare **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+- Installare **Azure PowerShell**. Seguire le istruzioni in [Come installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="steps"></a>Passaggi
 Di seguito sono elencati i passaggi da eseguire in questa esercitazione:
@@ -80,31 +83,31 @@ Una data factory può comprendere una o più pipeline. Una pipeline può compren
     Eseguire questo comando e immettere il nome utente e la password usati per accedere al portale di Azure:
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```   
    
     Eseguire questo comando per visualizzare tutte le sottoscrizioni per l'account:
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
     Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire **&lt;NameOfAzureSubscription**&gt; con il nome della sottoscrizione di Azure:
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 1. Creare un gruppo di risorse di Azure denominato **ADFTutorialResourceGroup** eseguendo questo comando:
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
     
     Per alcuni dei passaggi in questa esercitazione si presuppone l'uso del gruppo di risorse denominato **ADFTutorialResourceGroup**. Se si usa un gruppo di risorse diverso, è necessario usarlo al posto di ADFTutorialResourceGroup in questa esercitazione.
-1. Eseguire il cmdlet **New-AzureRmDataFactory** per creare una data factory denominata **ADFTutorialDataFactoryPSH**:  
+1. Eseguire il cmdlet **New-AzDataFactory** per creare una data factory denominata **ADFTutorialDataFactoryPSH**:  
 
     ```PowerShell
-    $df=New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
+    $df=New-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH –Location "West US"
     ```
     È possibile che questo nome sia già in uso. Rendere quindi univoco il nome della data factory aggiungendo un prefisso o suffisso, ad esempio ADFTutorialDataFactoryPSH05152017, ed eseguire nuovamente il comando.  
 
@@ -122,13 +125,13 @@ Tenere presente quanto segue:
   * In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory:
 
     ```PowerShell
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
     Eseguire questo comando per verificare che il provider di Data Factory sia registrato:
 
     ```PowerShell
-    Get-AzureRmResourceProvider
+    Get-AzResourceProvider
     ```
   * Accedere al [portale di Azure](https://portal.azure.com) usando la sottoscrizione di Azure. Passare a un pannello di Data Factory o creare una data factory nel portale di Azure. Questa azione registra automaticamente il provider.
 
@@ -161,10 +164,10 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
      }
     ``` 
 1. In **Azure PowerShell** passare alla cartella **ADFGetStartedPSH**.
-1. Eseguire il cmdlet **New-AzureRmDataFactoryLinkedService** per creare il servizio collegato **AzureStorageLinkedService**. Questo cmdlet e altri cmdlet di Data factory usati in questa esercitazione richiedono il passaggio di valori per i parametri **ResourceGroupName** e **DataFactoryName**. In alternativa, è possibile passare l'oggetto DataFactory restituito dal cmdlet New-AzureRmDataFactory senza digitare ResourceGroupName e DataFactoryName ogni volta che si esegue un cmdlet. 
+1. Eseguire il cmdlet **New-AzDataFactoryLinkedService** per creare il servizio collegato: **AzureStorageLinkedService**. Questo cmdlet e altri cmdlet di Data factory usati in questa esercitazione richiedono il passaggio di valori per i parametri **ResourceGroupName** e **DataFactoryName**. In alternativa, è possibile passare l'oggetto DataFactory restituito dal cmdlet New-AzDataFactory senza digitare ResourceGroupName e DataFactoryName ogni volta che si esegue un cmdlet. 
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
+    New-AzDataFactoryLinkedService $df -File .\AzureStorageLinkedService.json
     ```
     Di seguito è riportato l'output di esempio:
 
@@ -179,7 +182,7 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
     Un altro modo per creare questo servizio collegato è specificare il nome del gruppo di risorse e il nome della data factory invece di specificare l'oggetto DataFactory.  
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
+    New-AzDataFactoryLinkedService -ResourceGroupName ADFTutorialResourceGroup -DataFactoryName <Name of your data factory> -File .\AzureStorageLinkedService.json
     ```
 
 ### <a name="create-a-linked-service-for-an-azure-sql-database"></a>Creare un servizio collegato per un database SQL di Azure
@@ -204,7 +207,7 @@ In questo passaggio il database SQL di Azure viene collegato alla data factory.
 1. Eseguire questo comando per creare un servizio collegato:
 
     ```PowerShell
-    New-AzureRmDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
+    New-AzDataFactoryLinkedService $df -File .\AzureSqlLinkedService.json
     ```
     
     Di seguito è riportato l'output di esempio:
@@ -288,7 +291,7 @@ In questo passaggio viene creato un set di dati denominato InputDataset che punt
 1. Eseguire il comando seguente per creare il set di dati di Data factory.
 
     ```PowerShell  
-    New-AzureRmDataFactoryDataset $df -File .\InputDataset.json
+    New-AzDataFactoryDataset $df -File .\InputDataset.json
     ```
     Di seguito è riportato l'output di esempio:
 
@@ -351,7 +354,7 @@ In questa parte del passaggio si crea un set di dati di output denominato **Outp
 1. Eseguire il comando seguente per creare il set di dati di Data Factory.
 
     ```PowerShell   
-    New-AzureRmDataFactoryDataset $df -File .\OutputDataset.json
+    New-AzDataFactoryDataset $df -File .\OutputDataset.json
     ```
 
     Di seguito è riportato l'output di esempio:
@@ -420,23 +423,23 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
     ```
     Tenere presente quanto segue:
    
-    - Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Nelle soluzioni Data Factory è anche possibile usare le [attività di trasformazione dei dati](data-factory-data-transformation-activities.md).
-    - L'input per l'attività è impostato su **InputDataset** e l'output è impostato su **OutputDataset**. 
-    - Nella sezione **typeProperties** vengono specificati **BlobSource** come tipo di origine e **SqlSink** come tipo di sink. Per un elenco completo degli archivi dati supportati dall'attività di copia come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Per informazioni su come usare uno specifico archivio dati supportato come origine/sink, fare clic sul collegamento nella tabella.  
+   - Nella sezione delle attività esiste una sola attività con l'oggetto **type** impostato su **Copy**. Per altre informazioni sull'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Nelle soluzioni Data Factory è anche possibile usare le [attività di trasformazione dei dati](data-factory-data-transformation-activities.md).
+   - L'input per l'attività è impostato su **InputDataset** e l'output è impostato su **OutputDataset**. 
+   - Nella sezione **typeProperties** vengono specificati **BlobSource** come tipo di origine e **SqlSink** come tipo di sink. Per un elenco completo degli archivi dati supportati dall'attività di copia come origini e sink, vedere gli [archivi dati supportati](data-factory-data-movement-activities.md#supported-data-stores-and-formats). Per informazioni su come usare uno specifico archivio dati supportato come origine/sink, fare clic sul collegamento nella tabella.  
      
-    Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2016-02-03", che equivale a "2016-02-03T00:00:00Z".
+     Sostituire il valore della proprietà **start** con il giorno corrente e il valore di **end** con il giorno successivo. È possibile specificare solo la parte relativa alla data e ignorare la parte relativa all'ora, ad esempio "2016-02-03", che equivale a "2016-02-03T00:00:00Z".
      
-    Per la data e ora di inizio è necessario usare il [formato ISO](http://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
+     Per la data e ora di inizio è necessario usare il [formato ISO](https://en.wikipedia.org/wiki/ISO_8601), Ad esempio:  2016-10-14T16:32:41Z. Il valore di **end** è facoltativo, ma in questa esercitazione viene usato. 
      
-    Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
+     Se non si specifica alcun valore per la proprietà **end**, il valore verrà calcolato come "**start + 48 hours**". Per eseguire la pipeline illimitatamente, specificare **9999-09-09** come valore per la proprietà **end**.
      
-    Nell'esempio precedente sono visualizzate 24 sezioni di dati, perché viene generata una sezione di dati ogni ora.
+     Nell'esempio precedente sono visualizzate 24 sezioni di dati, perché viene generata una sezione di dati ogni ora.
 
-    Per le descrizioni delle proprietà JSON nella definizione di una pipeline, vedere l'articolo su come [creare pipeline](data-factory-create-pipelines.md). Per le descrizioni delle proprietà JSON nella definizione di un'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Per le descrizioni delle proprietà JSON supportate da BlobSource, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md). Per le descrizioni delle proprietà JSON supportate da SqlSink, vedere l'articolo relativo al [connettore del database SQL di Azure](data-factory-azure-sql-connector.md).
+     Per le descrizioni delle proprietà JSON nella definizione di una pipeline, vedere l'articolo su come [creare pipeline](data-factory-create-pipelines.md). Per le descrizioni delle proprietà JSON nella definizione di un'attività di copia, vedere le [attività di spostamento dei dati](data-factory-data-movement-activities.md). Per le descrizioni delle proprietà JSON supportate da BlobSource, vedere l'articolo relativo al [connettore BLOB di Azure](data-factory-azure-blob-connector.md). Per le descrizioni delle proprietà JSON supportate da SqlSink, vedere l'articolo relativo al [connettore del database SQL di Azure](data-factory-azure-sql-connector.md).
 1. Eseguire il comando seguente per creare la tabella di Data Factory.
 
     ```PowerShell   
-    New-AzureRmDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
+    New-AzDataFactoryPipeline $df -File .\ADFTutorialPipeline.json
     ```
 
     Di seguito è riportato l'output di esempio: 
@@ -454,15 +457,15 @@ Attualmente, è il set di dati di output a determinare la pianificazione. In que
 ## <a name="monitor-the-pipeline"></a>Monitorare la pipeline
 In questo passaggio viene usato Azure PowerShell per monitorare le attività in un'istanza di Azure Data Factory.
 
-1. Sostituire &lt;DataFactoryName&gt; con il nome della data factory ed eseguire **Get-AzureRmDataFactory**, quindi assegnare l'output a una variabile $df.
+1. Sostituire &lt;DataFactoryName&gt; con il nome della data factory ed eseguire **Get-AzDataFactory**, quindi assegnare l'output a una variabile $df.
 
     ```PowerShell  
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
+    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name <DataFactoryName>
     ```
 
     Ad esempio: 
     ```PowerShell
-    $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
+    $df=Get-AzDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name ADFTutorialDataFactoryPSH0516
     ```
     
     Stampare quindi il contenuto di $df per visualizzare l'output seguente: 
@@ -478,10 +481,10 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
     Properties        : Microsoft.Azure.Management.DataFactories.Models.DataFactoryProperties
     ProvisioningState : Succeeded
     ```
-1. Eseguire **Get-AzureRmDataFactorySlice** per ottenere dettagli su tutte le sezioni di **OutputDataset**, ovvero il set di dati di output della pipeline.  
+1. Eseguire **Get-AzDataFactorySlice** per ottenere dettagli su tutte le sezioni di **OutputDataset**, ovvero il set di dati di output della pipeline.  
 
     ```PowerShell   
-    Get-AzureRmDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
+    Get-AzDataFactorySlice $df -DatasetName OutputDataset -StartDateTime 2017-05-11T00:00:00Z
     ```
 
    Questa impostazione deve corrispondere al valore **Start** nel file JSON della pipeline. Dovrebbero essere visualizzate 24 sezioni, una per ogni ora a partire dalle 00.00 del giorno corrente alle 00.00 del giorno successivo.
@@ -522,10 +525,10 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
     LatencyStatus     :
     LongRetryCount    : 0
     ```
-1. Eseguire **Get-AzureRmDataFactoryRun** per ottenere i dettagli delle esecuzioni di attività per una sezione **specifica**. Copiare il valore di data e ora dall'output del comando precedente per specificare il valore per il parametro StartDateTime. 
+1. Eseguire **Get-AzDataFactoryRun** per ottenere i dettagli delle esecuzioni di attività per una sezione **specifica**. Copiare il valore di data e ora dall'output del comando precedente per specificare il valore per il parametro StartDateTime. 
 
     ```PowerShell  
-    Get-AzureRmDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
+    Get-AzDataFactoryRun $df -DatasetName OutputDataset -StartDateTime "5/11/2017 09:00:00 PM"
     ```
 
    Di seguito è riportato l'output di esempio: 
@@ -550,7 +553,7 @@ In questo passaggio viene usato Azure PowerShell per monitorare le attività in 
     Type                : Copy  
     ```
 
-Vedere le [informazioni di riferimento per i cmdlet di Data factory](/powershell/module/azurerm.datafactories) per la documentazione completa sui cmdlet di Data factory.
+Vedere le [informazioni di riferimento per i cmdlet di Data factory](/powershell/module/az.datafactory) per la documentazione completa sui cmdlet di Data factory.
 
 ## <a name="summary"></a>Summary
 In questa esercitazione è stata creata una data factory di Azure per copiare dati da un BLOB di Azure a un database SQL Azure. È stato usato PowerShell per creare la data factory, i servizi collegati, i set di dati e una pipeline. Ecco i passaggi generali eseguiti in questa esercitazione:  

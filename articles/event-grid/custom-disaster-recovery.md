@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: tutorial
 ms.date: 01/16/2018
 ms.author: babanisa
-ms.openlocfilehash: a77c208c208ef7e0df170733dbe89963fc5cb846
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fa0ffa9ad913f0dc3afe8dc31aeaa0254fa2d241
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727180"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863169"
 ---
 # <a name="build-your-own-disaster-recovery-for-custom-topics-in-event-grid"></a>Creare soluzioni personalizzate di ripristino di emergenza per gli Argomenti personalizzati nella Griglia di eventi
 
@@ -28,7 +28,7 @@ Per semplificare il test, distribuire un'[app Web preesistente](https://github.c
 
 1. Selezionare **Distribuisci in Azure** per distribuire la soluzione nella sottoscrizione. Nel portale di Azure specificare i valori per i parametri.
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="http://azuredeploy.net/deploybutton.png"/></a>
+   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure-Samples%2Fazure-event-grid-viewer%2Fmaster%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
 1. Per il completamento della distribuzione possono essere necessari alcuni minuti. Dopo il completamento della distribuzione, visualizzare l'app Web per assicurarsi che sia in esecuzione. In un Web browser passare a: `https://<your-site-name>.azurewebsites.net`
 Annotare questo URL perché sarà necessario in un secondo momento.
@@ -54,10 +54,10 @@ Prima di tutto, creare due argomenti di Griglia di eventi. Questi fungeranno da 
 
 1. Nel menu Argomenti di Griglia di eventi, selezionare **+AGGIUNGI** per creare l'argomento primario.
 
-    * Assegnare un nome logico all'argomento e aggiungere "-primario" come suffisso per tenerne traccia in modo più semplice.
-    * Quest'area dell'argomento sarà quella primaria.
+   * Assegnare un nome logico all'argomento e aggiungere "-primario" come suffisso per tenerne traccia in modo più semplice.
+   * Quest'area dell'argomento sarà quella primaria.
 
-    ![Finestra di dialogo primaria di creazione Argomento di Griglia di eventi](./media/custom-disaster-recovery/create-primary-topic.png)
+     ![Finestra di dialogo primaria di creazione Argomento di Griglia di eventi](./media/custom-disaster-recovery/create-primary-topic.png)
 
 1. Dopo aver creato l'argomento, passare a esso e copiare l'**Endpoint argomento**. L'URI sarà necessario in seguito.
 
@@ -69,11 +69,11 @@ Prima di tutto, creare due argomenti di Griglia di eventi. Questi fungeranno da 
 
 1. Nel pannello dell'argomento, fare clic su **+ Sottoscrizione di eventi** per creare una sottoscrizione per la connessione alla sottoscrizione del sito Web del ricevitore di eventi creata nei prerequisiti dell'esercitazione.
 
-    * Assegnare un nome logico alla sottoscrizione di eventi e aggiungere "-primario" come suffisso per tenerne traccia in modo più semplice.
-    * Selezionare il webhook come tipo di endpoint.
-    * Impostare l'endpoint sull'URL evento del ricevitore di eventi, che dovrebbe essere simile a: `https://<your-event-reciever>.azurewebsites.net/api/updates`
+   * Assegnare un nome logico alla sottoscrizione di eventi e aggiungere "-primario" come suffisso per tenerne traccia in modo più semplice.
+   * Selezionare il webhook come tipo di endpoint.
+   * Impostare l'endpoint sull'URL evento del ricevitore di eventi, che dovrebbe essere simile a: `https://<your-event-reciever>.azurewebsites.net/api/updates`
 
-    ![Sottoscrizione di eventi primaria di Griglia di eventi](./media/custom-disaster-recovery/create-primary-es.png)
+     ![Sottoscrizione di eventi primaria di Griglia di eventi](./media/custom-disaster-recovery/create-primary-es.png)
 
 1. Ripetere lo stesso flusso per creare l'argomento e la sottoscrizione secondari. Questa volta, sostituire il suffisso "-primario" con "-secondario" per tenerne traccia più facilmente. Infine, verificare di inserirlo in un'altra area di Azure. Anche se è possibile inserirlo in qualsiasi area desiderata, è consigliabile usare le [aree abbinate di Azure](../best-practices-availability-paired-regions.md). Inserire l'argomento e la sottoscrizione secondari in un'area diversa garantisce la trasmissione dei nuovi eventi anche se l'area primaria smette di funzionare.
 
@@ -91,7 +91,7 @@ Ora che è stata configurata una coppia di argomenti e sottoscrizioni ridondante
 
 ### <a name="basic-client-side-implementation"></a>Implementazione di base lato client
 
-L'esempio di codice seguente è un semplice server di pubblicazione .Net che prova sempre a pubblicare prima di tutto nell'argomento principale. Se non ci riesce, eseguirà il failover nell'argomento secondario. In entrambi i casi, verifica anche l'API Integrità dell'altro argomento eseguendo un'operazione GET su `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Un argomento integro deve sempre rispondere con **200 OK** quando viene effettuata un'operazione GET sull'endpoint **/api/integrità**.
+Il codice di esempio seguente è un semplice server di pubblicazione con estensione net che prima prova sempre a pubblicare nell'argomento primario. Se non ci riesce, eseguirà il failover nell'argomento secondario. In entrambi i casi, verifica anche l'API Integrità dell'altro argomento eseguendo un'operazione GET su `https://<topic-name>.<topic-region>.eventgrid.azure.net/api/health`. Un argomento integro deve sempre rispondere con **200 OK** quando viene effettuata un'operazione GET sull'endpoint **/api/integrità**.
 
 ```csharp
 using System;

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 08/16/2018
+ms.date: 03/12/2019
 ms.author: aahi
-ms.openlocfilehash: 848f319836e492e486bfdcb3c9080860144a7e68
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 3424137b36e4e277a8914ab04cdf7097660930e3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55869399"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860755"
 ---
 # <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Guida introduttiva: Usare l'SDK di Ricerca Web Bing per C#
 
@@ -32,14 +32,14 @@ Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare
 * [Visual Studio Code 2017](https://code.visualstudio.com/download)
   * [C# per Visual Studio Code](https://visualstudio.microsoft.com/downloads/)
   * [Gestione pacchetti NuGet](https://github.com/jmrog/vscode-nuget-package-manager)
-* [.NET Core SDK](https://www.microsoft.com/net/download)
+* [ASP.NET Core SDK](https://www.microsoft.com/net/download)
 
 ## <a name="create-a-project-and-install-dependencies"></a>Creare un progetto e installare le dipendenze
 
 > [!TIP]
 > Ottenere la versione più recente del codice come soluzione di Visual Studio da [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/).
 
-Il primo passaggio consiste nel creare un nuovo progetto console. Per informazioni sulla configurazione di un progetto console, vedere [Hello World - Il primo programma (Guida per programmatori C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Per usare l'SDK di Ricerca Web Bing nell'applicazione, è necessario installare `Microsoft.Azure.CognitiveServices.Search.WebSearch` tramite Gestione pacchetti NuGet.
+Il primo passaggio consiste nel creare un nuovo progetto console. Per assistenza sulla configurazione di un progetto console, vedere [Hello World - Il primo programma (Guida per programmatori C#)](https://docs.microsoft.com/dotnet/csharp/programming-guide/inside-a-program/hello-world-your-first-program). Per usare l'SDK di Ricerca Web Bing nell'applicazione, è necessario installare `Microsoft.Azure.CognitiveServices.Search.WebSearch` tramite Gestione pacchetti NuGet.
 
 Con il [pacchetto SDK di Ricerca Web](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) vengono installati anche i componenti seguenti:
 
@@ -61,7 +61,7 @@ using System.Linq;
 
 ## <a name="create-project-scaffolding"></a>Creare lo scaffolding di progetto
 
-Quando si è creato il nuovo progetto console, devono essere stati creati anche uno spazio dei nomi e una classe per l'applicazione. Il programma dovrebbe risultare simile al seguente:
+Quando si è creato il nuovo progetto console, devono essere stati creati anche uno spazio dei nomi e una classe per l'applicazione. Il programma dovrebbe risultare simile all'esempio seguente:
 
 ```csharp
 namespace WebSearchSDK
@@ -101,7 +101,7 @@ public static void WebResults(WebSearchAPI client)
 
 ## <a name="handle-the-response"></a>Gestire la risposta
 
-A questo punto è possibile aggiungere codice per analizzare la risposta e stampare i risultati. `name` e `url` della prima pagina Web, della prima immagine, del primo articolo e del primo video vengono stampati se sono presenti nell'oggetto risposta.
+A questo punto è possibile aggiungere codice per analizzare la risposta e stampare i risultati. `Name` e `Url` della prima pagina Web, della prima immagine, del primo articolo e del primo video vengono stampati se sono presenti nell'oggetto risposta.
 
 ```csharp
 if (webData?.WebPages?.Value?.Count > 0)
@@ -234,9 +234,10 @@ Dopo aver eseguito la prima chiamata all'API Ricerca Web Bing, esaminare ora alc
 
 ### <a name="limit-the-number-of-results-returned-by-bing"></a>Limitare il numero di risultati restituiti da Bing
 
-In questo esempio vengono usati i parametri `count` e `offset` per limitare il numero di risultati restituiti per "Best restaurants in Seattle". Vengono stampati `name` e `URL` per il primo risultato.
+In questo esempio vengono usati i parametri `count` e `offset` per limitare il numero di risultati restituiti per "Best restaurants in Seattle". Vengono stampati `Name` e `Url` per il primo risultato.
 
 1. Aggiungere il codice seguente al progetto console:
+
     ```csharp
     public static void WebResultsWithCountAndOffset(WebSearchAPI client)
     {
@@ -271,7 +272,9 @@ In questo esempio vengono usati i parametri `count` e `offset` per limitare il n
         }
     }
     ```
+
 2. Aggiungere `WebResultsWithCountAndOffset` a `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -285,13 +288,15 @@ In questo esempio vengono usati i parametri `count` e `offset` per limitare il n
         Console.ReadKey();
     }
     ```
+
 3. Eseguire l'applicazione.
 
 ### <a name="filter-for-news"></a>Filtrare in base alle notizie
 
-In questo esempio viene usato il parametro `response_filter` per filtrare i risultati della ricerca. I risultati della ricerca restituiti si limitano agli articoli relativi a "Microsoft". Vengono stampati `name` e `URL` per il primo risultato.
+In questo esempio viene usato il parametro `response_filter` per filtrare i risultati della ricerca. I risultati della ricerca restituiti si limitano agli articoli relativi a "Microsoft". Vengono stampati `Name` e `Url` per il primo risultato.
 
 1. Aggiungere il codice seguente al progetto console:
+
     ```csharp
     public static void WebSearchWithResponseFilter(WebSearchAPI client)
     {
@@ -328,7 +333,9 @@ In questo esempio viene usato il parametro `response_filter` per filtrare i risu
         }
     }
     ```
+
 2. Aggiungere `WebResultsWithCountAndOffset` a `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -344,13 +351,15 @@ In questo esempio viene usato il parametro `response_filter` per filtrare i risu
         Console.ReadKey();
     }
     ```
+
 3. Eseguire l'applicazione.
 
 ### <a name="use-safe-search-answer-count-and-the-promote-filter"></a>Usare i filtri safe search, answer count e promote
 
-In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_search` per filtrare i risultati della ricerca di "Music Videos". Vengono visualizzati `name` e `URL` per il primo risultato.
+In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_search` per filtrare i risultati della ricerca di "Music Videos". Vengono visualizzati `Name` e `ContentUrl` per il primo risultato.
 
 1. Aggiungere il codice seguente al progetto console:
+
     ```csharp
     public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
     {
@@ -386,7 +395,9 @@ In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_se
         }
     }
     ```
+
 2. Aggiungere `WebResultsWithCountAndOffset` a `main`:
+
     ```csharp
     static void Main(string[] args)
     {
@@ -404,6 +415,7 @@ In questo esempio vengono usati i parametri `answer_count`, `promote` e `safe_se
         Console.ReadKey();
     }
     ```
+
 3. Eseguire l'applicazione.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

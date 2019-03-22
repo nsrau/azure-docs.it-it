@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: b30ef7d0b373f0d9a440b6649f819e429e28328c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891104"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314927"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Progetto di sicurezza e conformità di Azure: Hosting di applicazioni Web PaaS per i carichi di lavoro UK OFFICIAL
 
@@ -119,7 +119,7 @@ Questo modello distribuisce le funzionalità seguenti del servizio app:
 
 #### <a name="azure-sql-database"></a>Database SQL di Azure
 
-Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre database SQL singoli gestiti, database SQL gestiti in un [pool elastico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) e [istanze gestite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) di SQL (in anteprima pubblica). Questo servizio offre [prestazioni con scalabilità dinamica])https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante.
+Il database SQL è un servizio gestito di database relazionale per utilizzo generico in Microsoft Azure che supporta strutture come dati relazionali, JSON, dati spaziali e XML. Il database SQL offre database SQL singoli gestiti, database SQL gestiti in un [pool elastico](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool) e [istanze gestite](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) di SQL (in anteprima pubblica). Questo servizio offre [prestazioni con scalabilità dinamica](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers) e opzioni come gli [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) per funzionalità di analisi e report avanzatissime e [OLTP in memoria](https://docs.microsoft.com/azure/sql-database/sql-database-in-memory) per l'elaborazione XTP (Extreme Transaction Processing). Microsoft gestisce agevolmente tutte le operazioni di applicazione di patch e aggiornamento della base di codice SQL, rimuovendo tutte le attività di gestione dell'infrastruttura sottostante.
 
 Database SQL di Azure in questo progetto
 

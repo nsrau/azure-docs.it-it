@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: hdinsightactive, seodec18
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: 4dc50de7a97055e336627e34f747a17fcedc7e58
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37a8882653ffede121d2e2cd3f3357741d8d641a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091546"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336426"
 ---
 # <a name="troubleshoot-apache-hbase-by-using-azure-hdinsight"></a>Risolvere i problemi di Apache HBase tramite Azure HDInsight
 
@@ -344,7 +344,7 @@ Si tratta di un problema noto relativo al servizio HMaster. Le attività di avvi
 
 ### <a name="issue"></a>Problema
 
-È possibile prevenire un errore di avvio in un server di area seguendo le procedure consigliate. Quando si pianifica il riavvio di server di area di HBase, è consigliabile sospendere le attività con carichi di lavoro elevati. Se l'applicazione continua a connettersi ai server di area mentre è in corso l'arresto, l'operazione di riavvio dei server di area verrà rallentata di diversi minuti. È anche opportuno scaricare prima tutte le tabelle. Per informazioni di riferimento su come scaricare le tabelle, vedere [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HBase di HDInsight: come migliorare il tempo di riavvio dei cluster Apache HBase scaricando le tabelle).
+È possibile prevenire un errore di avvio in un server di area seguendo le procedure consigliate. Quando si pianifica il riavvio di server di area di HBase, è consigliabile sospendere le attività con carichi di lavoro elevati. Se l'applicazione continua a connettersi ai server di area mentre è in corso l'arresto, l'operazione di riavvio dei server di area verrà rallentata di diversi minuti. È anche opportuno scaricare prima tutte le tabelle. Per informazioni di riferimento su come scaricare le tabelle, vedere [HDInsight HBase: How to improve the Apache HBase cluster restart time by flushing tables](https://web.archive.org/web/20190112153155/ https://blogs.msdn.microsoft.com/azuredatalake/2016/09/19/hdinsight-hbase-how-to-improve-hbase-cluster-restart-time-by-flushing-tables/) (HBase di HDInsight: come migliorare il tempo di riavvio dei cluster Apache HBase scaricando le tabelle).
 
 Se l'operazione di riavvio sui server di area di HBase viene avviata dall'interfaccia utente di Apache Ambari, viene visualizzato immediatamente che i server di area sono stati arrestati, ma non vengono riavviati subito. 
 

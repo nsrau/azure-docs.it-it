@@ -11,22 +11,23 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 74f89778ffa1715c5434b6bfe8191b3373a311ca
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 03/12/2019
+ms.openlocfilehash: 5b18d6d8a7a60ad8b5de961a407da40a17ddfd96
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452346"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895550"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>Usare PowerShell per la sincronizzazione tra un database SQL e un database SQL Server locale
 
 Questo esempio di PowerShell permette di configurare la sincronizzazione dei dati per sincronizzare un database SQL di Azure e un database locale di SQL Server. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.7.0 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario AZ PowerShell 1.4.0 o successiva. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati tra più database cloud e locali con la sincronizzazione dati SQL di Azure](../sql-database-sync-data.md).
 
@@ -101,8 +102,8 @@ $IncludedColumnsAndTables =  "[SalesLT].[Address].[AddressID]",
 $MetadataList = [System.Collections.ArrayList]::new($IncludedColumnsAndTables)
 
 
-Connect-AzureRmAccount 
-select-azurermsubscription -SubscriptionId $SubscriptionId
+Connect-AzAccount 
+select-Azsubscription -SubscriptionId $SubscriptionId
 
 # Use this section if it is safe to show password in the script.
 # Otherwise, use the PromptForCredential
@@ -117,7 +118,7 @@ $Credential = $Host.ui.PromptForCredential("Need credential",
 
  #Create a new Sync Agent
  Write-Host "Creating new Sync Agent "
- New-AzureRmSqlSyncAgent -ResourceGroupName $ResourceGroupName  `
+ New-AzSqlSyncAgent -ResourceGroupName $ResourceGroupName  `
                                -ServerName  $ServerName  `
                                -SyncDatabaseName $SyncDatabaseName `
                               -SyncAgentName $SyncAgentName
@@ -125,7 +126,7 @@ $Credential = $Host.ui.PromptForCredential("Need credential",
 
 #Generate Agent Key
 Write-Host "Generating Agent Key"
-$AgentKey = New-AzureRmSqlSyncAgentKey -ResourceGroupName $ResourceGroupName   `
+$AgentKey = New-AzSqlSyncAgentKey -ResourceGroupName $ResourceGroupName   `
                               -ServerName  $ServerName  `
                               -SyncAgentName $SyncAgentName
  Write-Host "Use your agent key to configure the sync agent. Do this before proceeding"
@@ -138,7 +139,7 @@ $agentkey
 
 # Create a new sync group
 Write-Host "Creating Sync Group"$SyncGroupName
-New-AzureRmSqlSyncGroup   -ResourceGroupName $ResourceGroupName `
+New-AzSqlSyncGroup   -ResourceGroupName $ResourceGroupName `
                             -ServerName $ServerName `
                             -DatabaseName $DatabaseName `
                             -Name $SyncGroupName `
@@ -161,7 +162,7 @@ $Credential = $Host.ui.PromptForCredential("Need credential",
 #Get Information from sync Agent 
 #Confirm that your SQL Server was configured
 #Note the Database ID, you will use this as SqlServerDatabaseID for the next step.
-$SyncAgentInfo = Get-AzureRmSqlSyncAgentLinkedDatabase -ResourceGroupName $ResourceGroupName   `
+$SyncAgentInfo = Get-AzSqlSyncAgentLinkedDatabase -ResourceGroupName $ResourceGroupName   `
                               -ServerName  $ServerName  `
                               -SyncAgentName $SyncAgentName
 
@@ -170,13 +171,13 @@ Write-Host "Adding member"$SyncMemberName" to the sync group"
 
 
 
-New-AzureRmSqlSyncMember -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName -Name $SyncMemberName -MemberDatabaseType $MemberDatabaseType -SyncAgentResourceGroupName SyncAgentResourceGroupName -SyncAgentServerName $SyncAgentServerName -SyncAgentName $SyncAgentName  -SyncDirection $SyncDirection -SqlServerDatabaseID  $SyncAgentInfo.DatabaseId
+New-AzSqlSyncMember -ResourceGroupName $ResourceGroupName -ServerName $ServerName -DatabaseName $DatabaseName -SyncGroupName $SyncGroupName -Name $SyncMemberName -MemberDatabaseType $MemberDatabaseType -SyncAgentResourceGroupName SyncAgentResourceGroupName -SyncAgentServerName $SyncAgentServerName -SyncAgentName $SyncAgentName  -SyncDirection $SyncDirection -SqlServerDatabaseID  $SyncAgentInfo.DatabaseId
 
 # Refresh database schema from hub database
 # Specify the -SyncMemberName parameter if you want to refresh schema from the member database
 Write-Host "Refreshing database schema from hub database"
 $StartTime= Get-Date
-Update-AzureRmSqlSyncSchema   -ResourceGroupName $ResourceGroupName `
+Update-AzSqlSyncSchema   -ResourceGroupName $ResourceGroupName `
                               -ServerName $ServerName `
                               -DatabaseName $DatabaseName `
                               -SyncGroupName $SyncGroupName
@@ -194,7 +195,7 @@ While ($IsSucceeded -eq $false)
 {
     Start-Sleep -s 10
     $timer=$timer+10
-    $Details = Get-AzureRmSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
+    $Details = Get-AzSqlSyncSchema -SyncGroupName $SyncGroupName -ServerName $ServerName -DatabaseName $DatabaseName -ResourceGroupName $ResourceGroupName
     if ($Details.LastUpdateTime -gt $StartTime)
       {
         Write-Host "Refresh was successful"
@@ -210,7 +211,7 @@ While ($IsSucceeded -eq $false)
 
 # Get the database schema 
 Write-Host "Adding tables and columns to the sync schema"
-$databaseSchema = Get-AzureRmSqlSyncSchema   -ResourceGroupName $ResourceGroupName `
+$databaseSchema = Get-AzSqlSyncSchema   -ResourceGroupName $ResourceGroupName `
                                              -ServerName $ServerName `
                                              -DatabaseName $DatabaseName `
                                              -SyncGroupName $SyncGroupName `
@@ -283,7 +284,7 @@ $schemaString | Out-File $TempFile
 
 # Update sync schema
 Write-Host "Updating the sync schema"
-Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
+Update-AzSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                             -ServerName $ServerName `
                             -DatabaseName $DatabaseName `
                             -Name $SyncGroupName `
@@ -293,7 +294,7 @@ $SyncLogStartTime = Get-Date
 
 # Trigger sync manually
 Write-Host "Trigger sync manually"
-Start-AzureRmSqlSyncGroupSync  -ResourceGroupName $ResourceGroupName `
+Start-AzSqlSyncGroupSync  -ResourceGroupName $ResourceGroupName `
                                -ServerName $ServerName `
                                -DatabaseName $DatabaseName `
                                -SyncGroupName $SyncGroupName
@@ -305,7 +306,7 @@ For ($i = 0; ($i -lt 300) -and (-not $IsSucceeded); $i = $i + 10)
 {
     Start-Sleep -s 10
     $SyncLogEndTime = Get-Date
-    $SyncLogList = Get-AzureRmSqlSyncGroupLog  -ResourceGroupName $ResourceGroupName `
+    $SyncLogList = Get-AzSqlSyncGroupLog  -ResourceGroupName $ResourceGroupName `
                                            -ServerName $ServerName `
                                            -DatabaseName $DatabaseName `
                                            -SyncGroupName $SyncGroupName `
@@ -328,7 +329,7 @@ if ($IsSucceeded)
 {
     # Enable scheduled sync
     Write-Host "Enable the scheduled sync with 300 seconds interval"
-    Update-AzureRmSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
+    Update-AzSqlSyncGroup  -ResourceGroupName $ResourceGroupName `
                                 -ServerName $ServerName `
                                 -DatabaseName $DatabaseName `
                                 -Name $SyncGroupName `
@@ -338,7 +339,7 @@ else
 {
     # Output all log if sync doesn't succeed in 300 seconds
     $SyncLogEndTime = Get-Date
-    $SyncLogList = Get-AzureRmSqlSyncGroupLog  -ResourceGroupName $ResourceGroupName `
+    $SyncLogList = Get-AzSqlSyncGroupLog  -ResourceGroupName $ResourceGroupName `
                                            -ServerName $ServerName `
                                            -DatabaseName $DatabaseName `
                                            -SyncGroupName $SyncGroupName `
@@ -353,8 +354,8 @@ else
     }
 }
 # Clean up deployment 
-# Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
-# Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
+# Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
+# Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 
 ```
 
@@ -363,8 +364,8 @@ else
 Dopo aver eseguito lo script di esempio, è possibile usare il comando seguente per rimuovere il gruppo di risorse e tutte le risorse a esso associate.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $ResourceGroupName
-Remove-AzureRmResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $ResourceGroupName
+Remove-AzResourceGroup -ResourceGroupName $SyncDatabaseResourceGroupName
 ```
 
 ## <a name="script-explanation"></a>Spiegazione dello script
@@ -373,15 +374,15 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 
 | Comando | Note |
 |---|---|
-| [New-AzureRmSqlSyncAgent](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgent) |  Crea un nuovo agente di sincronizzazione |
-| [New-AzureRmSqlSyncAgentKey](/powershell/module/azurerm.sql/New-AzureRmSqlSyncAgentKey) |  Genera la chiave dell'agente associata all'agente di sincronizzazione |
-| [Get-AzureRmSqlSyncAgentLinkedDatabase](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncAgentLinkedDatabase) |  Ottiene tutte le informazioni per l'agente di sincronizzazione |
-| [New-AzureRmSqlSyncMember](/powershell/module/azurerm.sql/New-AzureRmSqlSyncMember) |  Aggiunge un nuovo membro al gruppo di sincronizzazione |
-| [Update-AzureRmSqlSyncSchema](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncSchema) |  Aggiorna le informazioni dello schema del database |
-| [Get-AzureRmSqlSyncSchema](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlSyncSchema?view=azurermps-6.8.1) |  Ottiene le informazioni dello schema del database |
-| [Update-AzureRmSqlSyncGroup](/powershell/module/azurerm.sql/Update-AzureRmSqlSyncGroup) |  Aggiorna il gruppo di sincronizzazione |
-| [Start-AzureRmSqlSyncGroupSync](/powershell/module/azurerm.sql/Start-AzureRmSqlSyncGroupSync) | Attiva una sincronizzazione |
-| [Get-AzureRmSqlSyncGroupLog](/powershell/module/azurerm.sql/Get-AzureRmSqlSyncGroupLog) |  Controlla il registro di sincronizzazione |
+| [New-AzSqlSyncAgent](/powershell/module/az.sql/New-azSqlSyncAgent) |  Crea un nuovo agente di sincronizzazione |
+| [New-AzSqlSyncAgentKey](/powershell/module/az.sql/New-azSqlSyncAgentKey) |  Genera la chiave dell'agente associata all'agente di sincronizzazione |
+| [Get-AzSqlSyncAgentLinkedDatabase](/powershell/module/az.sql/Get-azSqlSyncAgentLinkedDatabase) |  Ottiene tutte le informazioni per l'agente di sincronizzazione |
+| [New-AzSqlSyncMember](/powershell/module/az.sql/New-azSqlSyncMember) |  Aggiunge un nuovo membro al gruppo di sincronizzazione |
+| [Update-AzSqlSyncSchema](/powershell/module/az.sql/Update-azSqlSyncSchema) |  Aggiorna le informazioni dello schema del database |
+| [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/Get-azSqlSyncSchema) |  Ottiene le informazioni dello schema del database |
+| [Update-AzSqlSyncGroup](/powershell/module/az.sql/Update-azSqlSyncGroup) |  Aggiorna il gruppo di sincronizzazione |
+| [Start-AzSqlSyncGroupSync](/powershell/module/az.sql/Start-azSqlSyncGroupSync) | Attiva una sincronizzazione |
+| [Get-AzSqlSyncGroupLog](/powershell/module/az.sql/Get-azSqlSyncGroupLog) |  Controlla il registro di sincronizzazione |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -399,7 +400,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
         -  [Usare PowerShell per sincronizzare più database SQL di Azure](sql-database-sync-data-between-sql-databases.md)
 -   Agente di sincronizzazione dei dati: [Agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure](../sql-database-data-sync-agent.md)
 -   Procedure consigliate: [Procedure consigliate per la sincronizzazione dati SQL di Azure](../sql-database-best-practices-data-sync.md)
--   Monitoraggio: [Monitorare la sincronizzazione dati SQL con Log Analytics](../sql-database-sync-monitor-oms.md)
+-   Monitoraggio: [Monitorare la sincronizzazione dati SQL con i log di Monitoraggio di Azure](../sql-database-sync-monitor-oms.md)
 -   Risoluzione dei problemi: [Risolvere i problemi della sincronizzazione dati SQL di Azure](../sql-database-troubleshoot-data-sync.md)
 -   Aggiornare lo schema di sincronizzazione
     -   Con Transact-SQL: [Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure](../sql-database-update-sync-schema.md)

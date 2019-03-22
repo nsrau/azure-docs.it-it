@@ -1,6 +1,6 @@
 ---
-title: Vendita SaaS tramite Azure - API | Microsoft Docs
-description: Viene illustrato come creare un'offerta SaaS tramite le API marketplace.
+title: SaaS evasione API V1 - Azure Marketplace | Microsoft Docs
+description: Viene illustrato come creare un'offerta SaaS in Azure Marketplace con l'API V1 di evasione degli ordini associati.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: v-miclar
@@ -12,18 +12,24 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 09/17/2018
+ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 432120c324aa81107946fc30548e6e49acce6575
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: d9443349ea7ce91a3b8ab01510917bc82ae9b8ad
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002325"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316134"
 ---
-# <a name="saas-sell-through-azure---apis"></a>Vendita SaaS tramite Azure - API
+# <a name="saas-fulfillment-apis-version-1"></a>Versione di API SaaS evasione 1
 
-Questo articolo illustra come creare un'offerta SaaS con le API. Le API sono necessarie per garantire le sottoscrizioni all'offerta SaaS se è stato selezionato Vendita tramite Azure.  Questo articolo è diviso in due sezioni:
+Questo articolo illustra come creare un'offerta SaaS con le API. Le API sono necessarie per garantire le sottoscrizioni all'offerta SaaS se è stato selezionato Vendita tramite Azure.  
+
+> [!WARNING]
+> Questa versione iniziale dell'API SaaS evasione degli ordini è deprecata. Usare invece [SaaS evasione API V2](./cpp-saas-fulfillment-api-v2.md).
+
+
+Questo articolo è diviso in due sezioni:
 
 -   Autenticazione da servizio a servizio tra un servizio SaaS e Azure Marketplace
 -   Gli endpoint e i metodi dell'API
@@ -37,7 +43,7 @@ Le API seguenti sono fornite per semplificare l'integrazione del servizio SaaS c
 
 Il diagramma seguente mostra il flusso di sottoscrizione di un nuovo cliente e quando vengono usate queste API:
 
-![Flusso di API dell'offerta SaaS](./media/saas-offer-publish-api-flow.png)
+![Flusso di API dell'offerta SaaS](./media/saas-offer-publish-api-flow-v1.png)
 
 
 ## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Autenticazione da servizio a servizio tra un servizio SaaS e Azure Marketplace
@@ -57,7 +63,7 @@ Per registrare una nuova applicazione nel portale di Azure, seguire i passaggi s
 2. Se l'account consente di accedere a più tenant, fare clic sull'account in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
 3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** e fare clic su **Registrazione nuova applicazione**.
 
-   ![Registrazioni di App SaaS AD](./media/saas-offer-app-registration.png)
+   ![Registrazioni di App SaaS AD](./media/saas-offer-app-registration-v1.png)
 
 4. Nella pagina Crea, immettere le informazioni di registrazione\' dell'applicazione:
    - **Nome**: immettere un nome significativo per l'applicazione.
@@ -65,14 +71,17 @@ Per registrare una nuova applicazione nel portale di Azure, seguire i passaggi s
      - Selezionare **Nativa** per le [applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) che sono installate localmente in un dispositivo. Questa impostazione viene usata per i [client nativi](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) OAuth pubblici.
      - Selezionare **App Web/API** per le [applicazioni client](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) e le [applicazioni della risorsa/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) installate su un server protetto. Questa impostazione viene utilizzata per i [client Web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) OAuth riservati e i [client basati su agente utente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) pubblici.
      La stessa applicazione può anche esporre sia un'API client che un'API di risorse.
-   - **URL di accesso**: Per le applicazioni API o le app Web, specificare l'URL di base dell'app. Ad esempio, **http://localhost:31544** potrebbe essere l'URL per un'app Web in esecuzione sul computer locale. Gli utenti possono quindi usare questo URL per accedere a un'applicazione client Web.
-   - **URI di reindirizzamento**: per le applicazione native, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio **http://MyFirstAADApp**.
+   - **URL di accesso**: Per le applicazioni API o le app Web, specificare l'URL di base dell'app. Ad esempio, **http:\//localhost:31544** potrebbe essere l'URL per un'app web in esecuzione nel computer locale. Gli utenti possono quindi usare questo URL per accedere a un'applicazione client Web.
+   - **URI di reindirizzamento**: per le applicazione native, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico per l'applicazione, ad esempio **http:\//MyFirstAADApp**.
 
-     ![Registrazioni per l'App AD SaaS](./media/saas-offer-app-registration-2.png) per esempi specifici relativi alle applicazioni Web o native, controllare le impostazioni guidate dell'avvio rapido, disponibili nella sezione Introduzione della [Guida per sviluppatori Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
+     ![Registrazioni di App SaaS AD](./media/saas-offer-app-registration-v1-2.png)
+
+     Per esempi specifici per le applicazioni web o native, vedere la Guida introduttiva interattiva installazioni che sono disponibili nella sezione Guida introduttiva del [Guida per sviluppatori Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
 
 5. Al termine, fare clic su **Crea**. Azure AD assegna un ID applicazione univoco all'applicazione e l'utente viene reindirizzato alla pagina di registrazione principale dell'applicazione. A seconda che si tratti di un'applicazione Web o nativa, sono fornite opzioni diverse per l'aggiunta di altre funzionalità all'applicazione.
 
-   **Notare:** per impostazione predefinita, l'applicazione appena registrata viene configurata per consentire solo agli utenti dello stesso tenant di accedere all'applicazione.
+>[!Note]
+>Per impostazione predefinita, l'applicazione appena registrata viene configurata per consentire solo agli utenti dello stesso tenant di accedere all'applicazione.
 
 <a name="api-methods-and-endpoints"></a>Endpoint e metodi API
 -------------------------
@@ -638,3 +647,8 @@ Un webhook SaaS viene usato per notificare le modifiche in modo proattivo al ser
 | action                 | string        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
 | Timestamp                 | string        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
 |  |  |  |
+
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Gli sviluppatori possono recuperare anche a livello di codice e la manipolazione dei carichi di lavoro, offerte e server di pubblicazione dei profili utilizzando il [API REST di Cloud Partner Portal](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-api-overview).

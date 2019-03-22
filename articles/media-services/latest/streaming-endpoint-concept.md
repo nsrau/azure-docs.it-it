@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 02/25/2019
 ms.author: juliako
-ms.openlocfilehash: 18c5e48b5f7dbf664b607b8b83473a914256590b
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104556"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845604"
 ---
 # <a name="streaming-endpoints"></a>Endpoint di streaming
 
@@ -33,13 +33,13 @@ Per qualsiasi altro endpoint: `{EndpointName}-{AccountName}-{DatacenterAbbreviat
 
 ## <a name="types"></a>Tipi  
 
-Sono disponibili due tipi di entità **StreamingEndpoint**: **Standard** e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming. 
+Esistono due **Endpoint di Streaming** tipi: Standard e **Premium**. Il tipo è definito in base al numero di unità di scala (`scaleUnits`) allocate per l'endpoint di streaming. 
 
 La tabella seguente descrive i tipi:  
 
 |Type|Unità di scala|DESCRIZIONE|
 |--------|--------|--------|  
-|**Endpoint di streaming Standard** (scelta consigliata)|0|Il tipo **Standard** rappresenta la scelta consigliata per tutti gli scenari di streaming e per qualsiasi numero di destinatari. Il tipo **Standard** consente la scalabilità automatica della larghezza di banda in uscita. <br/>Per i clienti con requisiti più complessi, Servizi multimediali mette a disposizione endpoint di streaming di tipo **Premium**, scalabili orizzontalmente qualora il numero dei destinatari Internet sia più ampio. Se si prevedono un vasto pubblico e utenti simultanei, contattare Microsoft all'indirizzo amsstreaming@microsoft.com per valutare la necessità di passare al tipo **Premium**. |
+|**Endpoint di streaming Standard** (scelta consigliata)|0|Il tipo **Standard** rappresenta la scelta consigliata per tutti gli scenari di streaming e per qualsiasi numero di destinatari. Il tipo **Standard** consente la scalabilità automatica della larghezza di banda in uscita. <br/>Per i clienti con estremamente impegnativi requisiti di servizi multimediali offre **Premium** endpoint di streaming, che può essere usato per aumentare le capacità per i destinatari internet più grande. Se si prevede che un vasto pubblico e utenti simultanei è elevato, contattaci in amsstreaming al\@microsoft.com, per indicazioni sulla necessità di spostare il **Premium** tipo. |
 |**Endpoint di streaming Premium**|>0|Gli endpoint di streaming **Premium** sono ideali per i carichi di lavoro avanzati, in quanto offrono una capacità di larghezza di banda dedicata e scalabile. Per passare al tipo **Premium** è necessario regolare il valore `scaleUnits`. Il valore `scaleUnits` rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Quando si usa il tipo **Premium**, ogni unità abilitata fornisce all'applicazione una capacità di larghezza di banda aggiuntiva. |
 
 ## <a name="working-with-cdn"></a>Uso della rete CDN
@@ -57,19 +57,58 @@ Quando si aggiunge una rete CDN non è presente alcun valore specifico relativo 
  
 ## <a name="properties"></a>Properties 
 
-Questa sezione fornisce informazioni dettagliate su alcune proprietà dell'entità StreamingEndpoint. Per esempi di come creare un nuovo endpoint di streaming e per le descrizioni di tutte le proprietà, vedere [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Endpoint di streaming). 
+Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell'Endpoint di Streaming. Per esempi di come creare un nuovo endpoint di streaming e per le descrizioni di tutte le proprietà, vedere [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Endpoint di streaming). 
 
-|Proprietà|DESCRIZIONE|  
-|--------------|----------|
-|`accessControl`|Consente di configurare le impostazioni di sicurezza seguenti per questo endpoint di streaming: Chiavi di autenticazione intestazione firma Akamai e indirizzi IP che sono autorizzati a connettersi a questo endpoint.<br />È possibile impostare questa proprietà quando `cdnEnabled` è impostata su false.|  
-|`cdnEnabled`|Indica se è attivata l'integrazione della rete CDN di Azure per questo endpoint di streaming. L'opzione è disabilitata per impostazione predefinita.<br /><br /> Se `cdnEnabled` è impostata su true, vengono disabilitate le configurazioni seguenti: `customHostNames` e `accessControl`.<br /><br />Non tutti i data center supportano l'integrazione della rete CDN di Azure. Per verificare se per il data center in questione supporta l'integrazione della rete CDN di Azure, eseguire le operazioni seguenti:<br /><br /> - Provare a impostare `cdnEnabled` su true.<br /><br /> - Verificare il risultato restituito per un `HTTP Error Code 412` (PreconditionFailed) con un messaggio simile a "La proprietà CdnEnabled dell'endpoint di streaming non può essere impostata su true perché la funzionalità CDN non è disponibile nell'area corrente."<br /><br /> Se viene restituito questo errore, il data center non supporta l'integrazione ed è necessario provare con un altro data center.|  
-|`cdnProfile`|Se `cdnEnabled` è impostata su true, è anche possibile passare valori `cdnProfile`. `cdnProfile` è il nome del profilo della rete CDN in cui verrà creato il punto di endpoint della rete CDN. È possibile fornire un cdnProfile esistente o usarne uno nuovo. Se il valore è NULL e `cdnEnabled` è impostata su true, viene usato il valore predefinito "AzureMediaStreamingPlatformCdnProfile". Se il `cdnProfile` fornito è già esistente, nel profilo viene creato un endpoint. Se il profilo non esiste, ne viene creato automaticamente uno nuovo.|
-|`cdnProvider`|Quando la rete CDN è abilitata, è anche possibile passare valori `cdnProvider`. `cdnProvider` consente di controllare il provider usato. Attualmente sono supportati tre valori: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". Se non viene specificato alcun valore e `cdnEnabled` è impostata su true, viene usato "StandardVerizon", il valore predefinito.|
-|`crossSiteAccessPolicies`|Viene usata per specificare i criteri di accesso intersito per vari client. Per altre informazioni, vedere [Cross-domain policy file specification](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Specifica dei file di criteri tra domini) e [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)(Disponibilità di un servizio tra confini di dominio).|  
-|`customHostNames`|Viene usata per configurare un endpoint di streaming in modo che accetti il traffico indirizzato a un nome host personalizzato. Semplifica la configurazione della gestione del traffico tramite uno strumento di gestione del traffico globale e l'uso di nomi di dominio personalizzati come nome dell'endpoint di streaming.<br /><br /> La proprietà del nome di dominio deve essere confermata da Servizi multimediali di Azure, che la verifica richiedendo un record `CName` contenente l'ID dell'account di Servizi multimediali come un componente da aggiungere al dominio in uso. Ad esempio, per usare "sports.contoso.com" come nome host personalizzato per l'endpoint di streaming, è necessario configurare un record per `<accountId>.contoso.com` che punti a uno dei nomi dell'host di verifica di Servizi multimediali. Il nome dell'host di verifica è composto da verifydns.\<mediaservices-dns-zone >. La tabella seguente contiene le zone DNS da usare nel record di verifica per le diverse aree di Azure.<br /><br /> America del Nord, Europa, Singapore, Hong Kong, Giappone:<br /><br /> - mediaservices.windows.net<br /><br /> - verifydns.mediaservices.windows.net<br /><br /> Cina:<br /><br /> - mediaservices.chinacloudapi.cn<br /><br /> - verifydns.mediaservices.chinacloudapi.cn<br /><br /> Ad esempio, un record `CName` che esegue il mapping di "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" a "verifydns.mediaservices.windows.net" dimostra che l'ID di Servizi multimediali 945a4c4e-28ea-45cd-8ccb-a519f6b700ad è proprietario del dominio contoso.com, consentendo di usare qualsiasi nome in contoso.com come nome host personalizzato per un endpoint di streaming di tale account.<br /><br /> Per individuare il valore dell'ID di Servizi multimediali, passare al [portale di Azure](https://portal.azure.com/) e selezionare l'account di Servizi multimediali. L'ID di Servizi multimediali viene visualizzato a destra della pagina DASHBOARD.<br /><br /> **Avviso**: se si tenta di impostare un nome host personalizzato senza l'adeguata verifica del record `CName`, la risposta DNS avrà esito negativo e verrà memorizzata nella cache per un certo tempo. Una volta definito il record corretto, potrebbe essere necessario del tempo prima che la risposta memorizzata nella cache venga nuovamente convalidata. A seconda del provider DNS del dominio personalizzato, la nuova convalida potrebbe richiedere da alcuni minuti a un'ora.<br /><br /> Oltre al `CName` che esegue il mapping di `<accountId>.<parent domain>` a `verifydns.<mediaservices-dns-zone>`, è necessario creare un altro `CName` che esegue il mapping del nome host personalizzato (ad esempio `sports.contoso.com`) al nome host StreamingEndpoint di Servizi multimediali (ad esempio `amstest.streaming.mediaservices.windows.net`).<br /><br /> **Nota**: gli endpoint di streaming che si trovano nello stesso data center non possono condividere lo stesso nome host personalizzato.<br /> Questa proprietà è valida per gli endpoint di streaming di tipo Standard e Premium e può essere impostata quando "cdnEnabled" è false.<br/><br/> Attualmente AMS non supporta SSL con domini personalizzati.  |  
-|`maxCacheAge`|Esegue l'override della validità massima predefinita dell'intestazione della cache di controllo HTTP impostata dall'endpoint di streaming per i frammenti multimediali e i manifesti su richiesta. Il valore è impostato in secondi.|
-|`resourceState`|I valori della proprietà includono:<br /><br /> - Arrestato. Lo stato iniziale di un endpoint di streaming dopo la creazione.<br /><br /> - Avvio in corso. L'endpoint di streaming esegue la transizione allo stato di esecuzione.<br /><br /> - In esecuzione. L'endpoint di streaming è in grado di trasmettere il contenuto ai client.<br /><br /> - Ridimensionamento. Le unità di scala vengono aumentate o diminuite.<br /><br /> - Arresto in corso. L'endpoint di streaming esegue la transizione allo stato di arresto.<br/><br/> - Eliminazione in corso. L'endpoint di streaming viene eliminato.|
-|`scaleUnits `|Il valore di scaleUnits rappresenta la capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Se è necessario passare al tipo **Premium**, regolare `scaleUnits`. |
+- `accessControl` -Viene usato per configurare le impostazioni di sicurezza seguenti per questo endpoint di streaming: Chiavi di autenticazione intestazione firma Akamai e indirizzi IP che sono autorizzati a connettersi a questo endpoint.<br />Questa proprietà può essere impostata quando `cdnEnabled` è impostata su false.
+- `cdnEnabled` -Indica se l'integrazione della rete CDN di Azure per questo endpoint di streaming è abilitata (disabilitato per impostazione predefinita). Se `cdnEnabled` è impostata su true, vengono disabilitate le configurazioni seguenti: `customHostNames` e `accessControl`.
+  
+    Non tutti i data center supportano l'integrazione della rete CDN di Azure. Per controllare se nel data center con l'integrazione della rete CDN di Azure disponibile, eseguire le operazioni seguenti:
+ 
+  - Tenta di impostare il `cdnEnabled` su true.
+  - Controllare il risultato restituito per un `HTTP Error Code 412` (PreconditionFailed) con un messaggio di "Proprietà CdnEnabled dell'endpoint di Streaming non può essere impostato su true, come funzionalità della rete CDN non è disponibile nell'area corrente." 
+
+    Se viene restituito questo errore, il data center non supporta l'integrazione ed è necessario provare con un altro data center.
+- `cdnProfile` -Quando `cdnEnabled` è impostata su true, è anche possibile passare `cdnProfile` valori. `cdnProfile` è il nome del profilo della rete CDN in cui verrà creato il punto di endpoint della rete CDN. È possibile fornire un cdnProfile esistente o usarne uno nuovo. Se il valore è NULL e `cdnEnabled` è impostata su true, viene usato il valore predefinito "AzureMediaStreamingPlatformCdnProfile". Se il `cdnProfile` fornito è già esistente, nel profilo viene creato un endpoint. Se il profilo non esiste, viene creato automaticamente un nuovo profilo.
+- `cdnProvider` -Quando della rete CDN è abilitata, è anche possibile passare `cdnProvider` valori. `cdnProvider` consente di controllare il provider usato. Attualmente sono supportati tre valori: "StandardVerizon", "PremiumVerizon" and "StandardAkamai". Se viene specificato alcun valore e `cdnEnabled` è true, viene usato "StandardVerizon" (ovvero il valore predefinito).
+- `crossSiteAccessPolicies` -Viene usato per specificare i criteri di accesso intersito per vari client. Per altre informazioni, vedere [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Specifica dei file di criteri tra domini) e [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx)(Disponibilità di un servizio tra confini di dominio).
+- `customHostNames` -Viene usato per configurare un Endpoint di Streaming affinché accetti il traffico indirizzato a un nome host personalizzato.  Questa proprietà è valida per gli endpoint di Streaming Premium e Standard e può essere impostata quando `cdnEnabled`: false.
+    
+    La proprietà del nome di dominio deve essere confermata da servizi multimediali. Servizi multimediali consente di verificare le proprietà del nome di dominio richiedendo un `CName` record che contiene l'ID dell'account servizi multimediali come un componente da aggiungere al dominio in uso. Ad esempio, per usare "sports.contoso.com" come nome host personalizzato per l'endpoint di streaming, è necessario configurare un record per `<accountId>.contoso.com` che punti a uno dei nomi dell'host di verifica di Servizi multimediali. Il nome dell'host di verifica è composto da verifydns.\<mediaservices-dns-zone >. 
+
+    Di seguito sono le zone DNS previste da usare nel record di verifica per diverse aree di Azure.
+  
+  - America del Nord, Europa, Singapore, Hong Kong, Giappone:
+      
+    - `media.azure.net`
+    - `verifydns.media.azure.net`
+      
+  - Cina:
+        
+    - `mediaservices.chinacloudapi.cn`
+    - `verifydns.mediaservices.chinacloudapi.cn`
+        
+    Ad esempio, un `CName` record che viene eseguito il mapping "945a4c4e-28ea-45cd-8ccb-a519f6b700ad.contoso.com" a "verifydns.media.azure.net" dimostra che l'ID di servizi multimediali 945a4c4e-28ea-45cd-8ccb-a519f6b700ad ha la proprietà del dominio contoso.com, pertanto uso di qualsiasi nome in contoso.com da utilizzare come nome host personalizzato per un endpoint di streaming con tale account. Per individuare il valore dell'ID di Servizi multimediali, passare al [portale di Azure](https://portal.azure.com/) e selezionare l'account di Servizi multimediali. Il **Account ID** viene visualizzato nella parte superiore destra della pagina.
+        
+    se si tenta di impostare un nome host personalizzato senza l'adeguata verifica del record `CName`, la risposta DNS avrà esito negativo e verrà memorizzata nella cache per un certo tempo. Una volta definito il record corretto, potrebbe essere necessario del tempo prima che la risposta memorizzata nella cache venga nuovamente convalidata. A seconda del provider DNS del dominio personalizzato, la nuova convalida potrebbe richiedere da alcuni minuti a un'ora.
+        
+    Oltre al `CName` che esegue il mapping `<accountId>.<parent domain>` a `verifydns.<mediaservices-dns-zone>`, è necessario creare un altro `CName` che mappa il nome host personalizzato (ad esempio, `sports.contoso.com`) al nome host di servizi Endpoint di Streaming multimediali (ad esempio, `amstest-usea.streaming.media.azure.net`).
+ 
+    > [!NOTE]
+    > Che si trova nello stesso data center, gli endpoint di streaming non possono condividere lo stesso nome host personalizzato.
+
+    Attualmente, servizi multimediali non supporta SSL con domini personalizzati. 
+    
+- `maxCacheAge` -Esegue la cache HTTP max-age predefinita controllo intestazione impostata dall'endpoint di streaming nei frammenti multimediali e i manifesti su richiesta. Il valore è impostato in secondi.
+- `resourceState` -
+
+    - Arrestato - lo stato iniziale di un Endpoint di Streaming dopo la creazione
+    - A partire - viene effettuata la transizione allo stato di esecuzione
+    - È in grado di trasmettere il contenuto ai client in esecuzione:
+    - Scalabilità: l'unità sono in corso di scalabilità aumenta o diminuisce
+    - -Arresto viene effettuata la transizione allo stato arrestato
+    - L'eliminazione - eliminazione
+    
+- `scaleUnits ` -Fornire capacità di uscita dedicata acquistabile in incrementi di 200 Mbps. Se è necessario passare al tipo **Premium**, regolare `scaleUnits`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

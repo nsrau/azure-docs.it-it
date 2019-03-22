@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
-ms.openlocfilehash: bd7254a9ec1ce5671aa5271ca26c678b20ef48cb
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: e64490517603687684617ce915e0d3f3e35298e9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978069"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58093389"
 ---
 # <a name="use-apache-kafka-on-hdinsight-with-azure-iot-hub"></a>Usare Apache Kafka in HDInsight con l'hub IoT
 
@@ -168,32 +168,32 @@ Per recuperare informazioni sull'hub IoT usato dal connettore, attenersi alla pr
 
 1. Ottenere l'endpoint compatibile con hub eventi e il nome dell'endpoint compatibile con hub eventi per l'hub IoT. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
-    * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
+   * __Dal [portale di Azure](https://portal.azure.com/)__, attenersi alla procedura seguente:
 
-        1. Passare all'hub IoT e selezionare __Endpoint__.
-        2. Da __Endpoint predefiniti__, selezionare __Eventi__.
-        3. Da __Proprietà__, copiare il valore dei campi seguenti:
+     1. Passare all'hub IoT e selezionare __Endpoint__.
+     2. Da __Endpoint predefiniti__, selezionare __Eventi__.
+     3. Da __Proprietà__, copiare il valore dei campi seguenti:
 
-            * __Nome compatibile con l'hub eventi__
-            * __Endpoint compatibile con l'hub eventi__
-            * __Partitions__
+         * __Nome compatibile con l'hub eventi__
+         * __Endpoint compatibile con l'hub eventi__
+         * __Partitions__
 
         > [!IMPORTANT]  
         > Il valore dell'endpoint del portale può contenere testo aggiuntivo che non è necessario in questo esempio. Estrarre il testo che corrisponde al criterio `sb://<randomnamespace>.servicebus.windows.net/`.
 
-    * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
+   * __Dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)__, usare il comando seguente:
 
-        ```azure-cli
-        az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
-        ```
+       ```azure-cli
+       az iot hub show --name myhubname --query "{EventHubCompatibleName:properties.eventHubEndpoints.events.path,EventHubCompatibleEndpoint:properties.eventHubEndpoints.events.endpoint,Partitions:properties.eventHubEndpoints.events.partitionCount}"
+       ```
 
-        Sostituire `myhubname` con il nome dell'hub IoT. La risposta restituita è simile al testo seguente:
+       Sostituire `myhubname` con il nome dell'hub IoT. La risposta restituita è simile al testo seguente:
 
-        ```json
-        "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
-        "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
-        "Partitions": 2
-        ```
+       ```json
+       "EventHubCompatibleEndpoint": "sb://ihsuprodbnres006dednamespace.servicebus.windows.net/",
+       "EventHubCompatibleName": "iothub-ehub-myhub08-207673-d44b2a856e",
+       "Partitions": 2
+       ```
 
 2. Ottenere i __criteri di accesso condiviso__ e la __chiave__. Per questo esempio, usare la chiave __service__. Per ottenere tali informazioni, usare uno dei metodi seguenti:
 
@@ -239,16 +239,16 @@ Per configurare l'origine per l'hub IoT, eseguire le azioni seguenti da una conn
 
     Nell'editor individuare e modificare le voci seguenti:
 
-    * `Kafka.Topic=PLACEHOLDER`: Sostituire  con `iotin`. I messaggi ricevuti dall'hub IoT vengono salvati nell'argomento `iotin`.
-    * `IotHub.EventHubCompatibleName=PLACEHOLDER`: sostituire `PLACEHOLDER` con il nome compatibile con l'hub eventi.
-    * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: sostituire `PLACEHOLDER` con l'endpoint compatibile con l'hub eventi.
-    * `IotHub.Partitions=PLACEHOLDER`: sostituire `PLACEHOLDER` con il numero di partizioni dei passaggi precedenti.
-    * `IotHub.AccessKeyName=PLACEHOLDER`: Sostituire  con `service`.
-    * `IotHub.AccessKeyValue=PLACEHOLDER`: sostituire `PLACEHOLDER` con la chiave primaria dei criteri `service`.
-    * `IotHub.StartType=PLACEHOLDER`: sostituire `PLACEHOLDER` con una data UTC. Tale data indica il momento in cui il connettore inizia a controllare i messaggi. Il formato della data è `yyyy-mm-ddThh:mm:ssZ`.
-    * `BatchSize=100`: Sostituire  con `5`. Questa modifica fa sì che il connettore legga i messaggi in Kafka quando sono presenti cinque nuovi messaggi nell'hub IoT.
+   * `Kafka.Topic=PLACEHOLDER`: Sostituire  con `iotin`. I messaggi ricevuti dall'hub IoT vengono salvati nell'argomento `iotin`.
+   * `IotHub.EventHubCompatibleName=PLACEHOLDER`: sostituire `PLACEHOLDER` con il nome compatibile con l'hub eventi.
+   * `IotHub.EventHubCompatibleEndpoint=PLACEHOLDER`: sostituire `PLACEHOLDER` con l'endpoint compatibile con l'hub eventi.
+   * `IotHub.Partitions=PLACEHOLDER`: sostituire `PLACEHOLDER` con il numero di partizioni dei passaggi precedenti.
+   * `IotHub.AccessKeyName=PLACEHOLDER`: Sostituire  con `service`.
+   * `IotHub.AccessKeyValue=PLACEHOLDER`: sostituire `PLACEHOLDER` con la chiave primaria dei criteri `service`.
+   * `IotHub.StartType=PLACEHOLDER`: sostituire `PLACEHOLDER` con una data UTC. Tale data indica il momento in cui il connettore inizia a controllare i messaggi. Il formato della data è `yyyy-mm-ddThh:mm:ssZ`.
+   * `BatchSize=100`: Sostituire  con `5`. Questa modifica fa sì che il connettore legga i messaggi in Kafka quando sono presenti cinque nuovi messaggi nell'hub IoT.
 
-    Per una configurazione di esempio, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
+     Per una configurazione di esempio, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Source.md).
 
 3. Per salvare le modifiche, usare __CTRL + X__, __Y__ e quindi __INVIO__.
 
@@ -272,10 +272,10 @@ Per configurare la connessione sink per l'hub IoT, eseguire le azioni seguenti d
 
     Nell'editor individuare e modificare le voci seguenti:
 
-    * `topics=PLACEHOLDER`: Sostituire  con `iotout`. I messaggi scritti nell'argomento `iotout` vengono inoltrati all'hub IoT.
-    * `IotHub.ConnectionString=PLACEHOLDER`: sostituire `PLACEHOLDER` con la stringa di connessione per i criteri `service`.
+   * `topics=PLACEHOLDER`: Sostituire  con `iotout`. I messaggi scritti nell'argomento `iotout` vengono inoltrati all'hub IoT.
+   * `IotHub.ConnectionString=PLACEHOLDER`: sostituire `PLACEHOLDER` con la stringa di connessione per i criteri `service`.
 
-    Per una configurazione di esempio, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
+     Per una configurazione di esempio, vedere [https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md](https://github.com/Azure/toketi-kafka-connect-iothub/blob/master/README_Sink.md).
 
 3. Per salvare le modifiche, usare __CTRL + X__, __Y__ e quindi __INVIO__.
 

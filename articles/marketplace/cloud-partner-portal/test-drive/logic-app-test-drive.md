@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d784941c43da13a2c1bd120599aa02fe14e5a5b4
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 4fd946b53956509844ad0a9396575f1ee2450414
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457266"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338599"
 ---
 <a name="logic-app-test-drive"></a>Test drive di app per la logica
 ====================
@@ -137,6 +137,10 @@ Poiché l'applicazione da distribuire nella sottoscrizione è in uso, è necessa
 **Chiave dell'app Azure AD**  *[Campo obbligatorio]* L'ultimo campo genera una chiave di autenticazione. In Chiavi, aggiungere una descrizione di chiave, impostare la scadenza come Non scade, quindi selezionare Salva. È **importante** evitare di avere una chiave scaduta, che interrompe il test drive in corso. Copiare questo valore e incollarlo nel campo corrispondente del test drive.
 
 ![Sezione delle chiavi di Azure Active Directory](./media/azure-resource-manager-test-drive/subdetails8.png)
+
+> [!CAUTION]
+> È possibile usare l'anteprima di registrazione App di Azure perché non attualmente genera una chiave con codificata base64.
+
 
 <a name="next-steps"></a>Passaggi successivi
 ----------
