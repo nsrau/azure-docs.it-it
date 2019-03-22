@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 01db1de5c6b533c346ce35c8474d996213873d10
-ms.sourcegitcommit: da69285e86d23c471838b5242d4bdca512e73853
-ms.translationtype: HT
+ms.openlocfilehash: fd2614c258aff146397e24e688eae18d84d3cfa6
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "54002196"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201161"
 ---
 # <a name="streaming-at-scale-in-hdinsight"></a>Streaming su larga scala in HDInsight
 
-Le soluzioni per Big Data in tempo reale agiscono su dati in movimento. In genere, questi dati hanno il maggior valore al momento dell'arrivo. Se il flusso di dati in ingresso diventa più grande delle dimensioni gestibili in quel momento, potrebbe risultare necessario limitare le risorse. Un cluster HDInsight offre in alternativa funzioni di scalabilità verticale, consentendo di soddisfare le esigenze della soluzione con l'aggiunta di nodi su richiesta.
+Soluzioni per big data in tempo reale agiscono su dati in movimento. In genere, questi dati hanno il maggior valore al momento dell'arrivo. Se il flusso di dati in ingresso diventa più grande delle dimensioni gestibili in quel momento, potrebbe risultare necessario limitare le risorse. Un cluster HDInsight offre in alternativa funzioni di scalabilità verticale, consentendo di soddisfare le esigenze della soluzione con l'aggiunta di nodi su richiesta.
 
 
 In un'applicazione per l'uso dei flussi, una o più origini dati generano eventi (talvolta milioni al secondo) che devono essere elaborati rapidamente senza eliminare le informazioni utili. Gli eventi in entrata vengono gestiti tramite la *memorizzazione nel buffer del flusso*, tecnica nota anche come *accodamento degli eventi*, eseguita da un servizio come [Apache Kafka](kafka/apache-kafka-introduction.md) o [Hub eventi](https://azure.microsoft.com/services/event-hubs/). Dopo aver raccolto gli eventi, è quindi possibile analizzare i dati tramite un sistema di analisi in tempo reale all'interno del livello di *elaborazione dei flussi*, come [Apache Storm](storm/apache-storm-overview.md) o [Apache Spark Streaming](spark/apache-spark-streaming-overview.md). I dati elaborati possono essere archiviati in sistemi di archiviazione a lungo termine, come [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/) e visualizzati in tempo reale in un dashboard di business intelligence, come [Power BI](https://powerbi.microsoft.com), Tableau o una pagina Web personalizzata.
@@ -45,7 +45,7 @@ Per altre informazioni, vedere [Informazioni su Apache Spark Streaming](hdinsigh
 
 ## <a name="scaling-a-cluster"></a>Scalabilità di un cluster
 
-Anche se è possibile specificare il numero di nodi del cluster durante la fase di creazione, in seguito può essere necessario aumentare o ridurre il cluster sulla base del carico di lavoro. Tutti i cluster HDInsight consentono di [modificare il numero di nodi del cluster](hdinsight-administer-use-management-portal.md#scale-clusters). È possibile eliminare i cluster Spark senza alcuna perdita di dati, perché tutti i dati sono archiviati in Archiviazione di Azure o Data Lake Storage.
+Anche se è possibile specificare il numero di nodi del cluster durante la fase di creazione, in seguito può essere necessario aumentare o ridurre il cluster sulla base del carico di lavoro. Tutti i cluster HDInsight consentono di [modificare il numero di nodi del cluster](hdinsight-administer-use-portal-linux.md#scale-clusters). È possibile eliminare i cluster Spark senza alcuna perdita di dati, perché tutti i dati sono archiviati in Archiviazione di Azure o Data Lake Storage.
 
 Esistono dei vantaggi rispetto alle tecnologie di separazione. Ad esempio, Kafka è una tecnologia per la memorizzazione nel buffer di eventi, quindi prevede un uso molto elevato delle risorse di I/O e non necessita di molta potenza di elaborazione. In confronto, gli elaboratori di flussi come Spark Streaming, richiedono grandi quantità di risorse di calcolo e quindi macchine virtuali più potenti. Separando queste tecnologie in cluster diversi è possibile gestirne la scalabilità in modo indipendente e usare al tempo stesso in modo ottimale le macchine virtuali.
 

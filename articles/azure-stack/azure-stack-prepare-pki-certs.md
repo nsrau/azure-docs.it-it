@@ -15,12 +15,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: fab7ead59ce8d7e12d145095c64cedf4234e6233
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 6e11df8bedb88d3e505b7fa3c55ade13282911a2
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55656720"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58106484"
 ---
 # <a name="prepare-azure-stack-pki-certificates-for-use-in-deployment-or-rotation"></a>Preparare i certificati di infrastruttura a chiave pubblica di Azure Stack per l'uso nella distribuzione o la rotazione
 
@@ -32,23 +32,23 @@ Usare questi passaggi per preparare e convalidare i certificati di infrastruttur
 
 ### <a name="import-the-certificate"></a>Importare il certificato
 
-1.  Copiare le versioni certificato originale [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) in una directory nell'host di distribuzione. 
-  > [!WARNING]
-  > Non copiare i file che sono già stati importati, esportati o modificati in alcun modo dai file forniti direttamente dalla CA.
+1. Copiare le versioni certificato originale [ottenuto dalla CA di scelta](azure-stack-get-pki-certs.md) in una directory nell'host di distribuzione. 
+   > [!WARNING]
+   > Non copiare i file che sono già stati importati, esportati o modificati in alcun modo dai file forniti direttamente dalla CA.
 
-1.  Pulsante destro del mouse sul certificato e selezionare **Installa certificato** oppure **Installa PFX** a seconda del modo in cui il certificato è stato recapitato da un'autorità di certificazione.
+1. Pulsante destro del mouse sul certificato e selezionare **Installa certificato** oppure **Installa PFX** a seconda del modo in cui il certificato è stato recapitato da un'autorità di certificazione.
 
 1. Nel **importazione guidata certificati**, selezionare **computer locale** come percorso di importazione. Selezionare **Avanti**. Nella schermata seguente fare clic su Avanti nuovamente.
 
     ![Percorso del computer locale importare](./media/prepare-pki-certs/1.png)
 
-1.  Scegli **colloca tutti i certificati nel seguente archivio** e quindi selezionare **attendibilità per l'organizzazione** come posizione. Fare clic su **OK** per chiudere la finestra di dialogo Selezione archivio certificati e quindi **successivo**.
+1. Scegli **colloca tutti i certificati nel seguente archivio** e quindi selezionare **attendibilità per l'organizzazione** come posizione. Fare clic su **OK** per chiudere la finestra di dialogo Selezione archivio certificati e quindi **successivo**.
 
-    ![Configurare l'archivio certificati](./media/prepare-pki-certs/3.png)
+   ![Configurare l'archivio certificati](./media/prepare-pki-certs/3.png)
 
-    a. Se si sta importando un file PFX, verrà visualizzato con una finestra di dialogo aggiuntiva. Nel **protezione con chiave privata** pagina, immettere la password per i file di certificato e quindi abilitare il **contrassegna questa chiave come esportabile. In questo modo è possibile eseguire il backup o trasferire le chiavi in un secondo momento** opzione. Selezionare **Avanti**.
+   a. Se si sta importando un file PFX, verrà visualizzato con una finestra di dialogo aggiuntiva. Nel **protezione con chiave privata** pagina, immettere la password per i file di certificato e quindi abilitare il **contrassegna questa chiave come esportabile. In questo modo è possibile eseguire il backup o trasferire le chiavi in un secondo momento** opzione. Selezionare **Avanti**.
 
-    ![Contrassegna le chiavi come esportabili](./media/prepare-pki-certs/2.png)
+   ![Contrassegna le chiavi come esportabili](./media/prepare-pki-certs/2.png)
 
 1. Fare clic su Fine per completare l'importazione.
 
@@ -70,19 +70,19 @@ Aprire la console di gestione certificati MMC e connettersi all'archivio certifi
 
 1. Dalla console di gestione di attività sulla barra del certificato, selezionare **azioni** > **tutte le attività** > **Esporta**. Selezionare **Avanti**.
 
-  > [!NOTE]
-  > A seconda di quanti Azure Stack i certificati che disponibili, è potrebbe essere necessario completare questo processo più volte.
+   > [!NOTE]
+   > A seconda di quanti Azure Stack i certificati che disponibili, è potrebbe essere necessario completare questo processo più volte.
 
 1. Selezionare **Sì, Esporta la chiave privata**, quindi fare clic su **successivo**.
 
 1. Nella sezione formato File di esportazione:
     
-    - Selezionare **se possibile, Includi tutti i certificati nel certificato**.  
-    - Selezionare **Esporta tutte le proprietà estese**.  
-    - Selezionare **Abilita privacy del certificato**.  
-    - Fare clic su **Avanti**.  
+   - Selezionare **se possibile, Includi tutti i certificati nel certificato**.  
+   - Selezionare **Esporta tutte le proprietà estese**.  
+   - Selezionare **Abilita privacy del certificato**.  
+   - Fare clic su **Avanti**.  
     
-    ![Esportazione guidata certificati con opzioni selezionate](./media/prepare-pki-certs\azure-stack-save-cert.png)
+     ![Esportazione guidata certificati con opzioni selezionate](./media/prepare-pki-certs/azure-stack-save-cert.png)
 
 1. Selezionare **Password** e fornire una password per i certificati. Creare una password che soddisfi i seguenti requisiti di complessità delle password. Una lunghezza minima di otto caratteri. La password contenga almeno tre dei seguenti: lettere maiuscole di lettere, lettera minuscola, i numeri da 0 a 9, caratteri speciali, un carattere alfabetico che non maiuscoli né minuscoli. Prendere nota della password. Si utilizzerà come parametro di distribuzione.
 

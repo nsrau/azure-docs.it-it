@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5fb263819a5bb96175f636f53a16c28649a3f39
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: b006a4fbb8d1059f5096f5c1585853953b69042f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56339550"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58082144"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -94,18 +94,18 @@ In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per
 Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è una parte essenziale del processo di pianificazione. Per creare il piano di emergenza, determinare innanzitutto i seguenti requisiti aziendali dell'organizzazione:
 
 1. Determinare in anticipo le app di importanza strategica: Quali sono le app a cui è necessario garantire l'accesso, anche con un livello di rischio/sicurezza inferiore? Compilare un elenco di queste app e assicurarsi che gli altri stakeholder (business, sicurezza, legali, leadership) concordino sul fatto che se tutto il controllo di accesso è indisponibile, l'esecuzione di queste app deve comunque continuare. È probabile che si vadano a formare le seguenti categorie:
-  * **Categoria 1: app di importanza strategica fondamentale** che non possono essere indisponibili per più di pochi minuti, ad esempio le app che hanno un effetto diretto sui ricavi dell'organizzazione.
-  * **Categoria 2: app importanti** che devono tornare accessibili per l'azienda entro poche ore.
-  * **Categoria 3: app di priorità bassa** che possono sopportare un'interruzione di alcuni giorni.
+   * **Categoria 1: app di importanza strategica fondamentale** che non possono essere indisponibili per più di pochi minuti, ad esempio le app che hanno un effetto diretto sui ricavi dell'organizzazione.
+   * **Categoria 2: app importanti** che devono tornare accessibili per l'azienda entro poche ore.
+   * **Categoria 3: app di priorità bassa** che possono sopportare un'interruzione di alcuni giorni.
 2. Per le app nella categoria 1 e 2, Microsoft consiglia di pianificare in anticipo quale tipo di livello di accesso si desidera consentire:
-  * Si desidera consentire l'accesso completo o una sessione con restrizioni, come la limitazione dei download?
-  * Si desidera consentire l'accesso a parte dell'app, ma non all'intera app?
-  * Si desidera consentire l'accesso all'information worker e bloccare l'accesso dell'amministratore fino al ripristino del controllo di accesso?
+   * Si desidera consentire l'accesso completo o una sessione con restrizioni, come la limitazione dei download?
+   * Si desidera consentire l'accesso a parte dell'app, ma non all'intera app?
+   * Si desidera consentire l'accesso all'information worker e bloccare l'accesso dell'amministratore fino al ripristino del controllo di accesso?
 3. Per tali app, è consigliato inoltre pianificare quali vie di accesso saranno aperte deliberatamente e quali invece saranno chiuse:
-  * Si desidera consentire esclusivamente l'accesso dal browser e bloccare i rich client in grado di salvare i dati offline?
-  * Si desidera consentire l'accesso solo agli utenti all'interno della rete aziendale e mantenere il blocco degli utenti esterni?
-  * Si desidera consentire l'accesso esclusivamente da determinati paesi o aree geografiche durante l'interruzione?
-  * Si desidera che i criteri di emergenza, in particolare nel casi di app di importanza strategica fondamentale, abbiano esito positivo o negativo se un controllo di accesso alternativo non è disponibile?
+   * Si desidera consentire esclusivamente l'accesso dal browser e bloccare i rich client in grado di salvare i dati offline?
+   * Si desidera consentire l'accesso solo agli utenti all'interno della rete aziendale e mantenere il blocco degli utenti esterni?
+   * Si desidera consentire l'accesso esclusivamente da determinati paesi o aree geografiche durante l'interruzione?
+   * Si desidera che i criteri di emergenza, in particolare nel casi di app di importanza strategica fondamentale, abbiano esito positivo o negativo se un controllo di accesso alternativo non è disponibile?
 
 #### <a name="microsoft-recommendations"></a>Elementi consigliati di Microsoft
 
@@ -251,7 +251,7 @@ Annullare le modifiche apportate nell'ambito del piano di emergenza attivato una
 Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'utente, è possibile prendere in considerazione l'alternativa seguente:
 
 1. Se si dispone dell'indirizzo IP in uscita della rete aziendale, è possibile aggiungerli come indirizzi IP attendibili per abilitare l'autenticazione esclusivamente sulla rete aziendale.
- 2. Se non si ha l'inventario degli indirizzi IP in uscita, o se è necessario abilitare l'accesso all'interno e all'esterno della rete aziendale, è possibile aggiungere l'intero spazio indirizzi IPv4 come indirizzi IP attendibili specificando 0.0.0.0/1 e 128.0.0.0/1.
+   1. Se non si ha l'inventario degli indirizzi IP in uscita, o se è necessario abilitare l'accesso all'interno e all'esterno della rete aziendale, è possibile aggiungere l'intero spazio indirizzi IPv4 come indirizzi IP attendibili specificando 0.0.0.0/1 e 128.0.0.0/1.
 
 >[!IMPORTANT]
  > Se si estendono gli indirizzi IP attendibili per sbloccare l'accesso, non verranno generati gli eventi di rischio associati con gli indirizzi IP (ad esempio, comunicazione impossibile o posizioni non note).
@@ -264,9 +264,9 @@ Se l'organizzazione usa criteri di autenticazione a più fattori obsoleti per l'
 * [Documentazione di Autenticazione di Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Gestire gli account amministrativi di accesso di emergenza in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
 * [Configurare località denominate in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
- * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
+  * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
 * [Come configurare dispositivi aggiunti all'identità ibrida di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [Windows Hello for Business Deployment Guide](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide) (Guida alla distribuzione di Windows Hello fo Business)
- * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+  * [Materiale sussidiario sulle password - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
 * [Quali sono le condizioni dell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

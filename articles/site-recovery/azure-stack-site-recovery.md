@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: site-recovery
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: c353c40cc838dc4082d3d4b843a48a5fedb6e1f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a84cbba968baf50563a2c2b0e2843d64f17bb34a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54039470"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002374"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Replicare le macchine virtuali di Azure Stack in Azure
 
@@ -190,7 +190,7 @@ Installare il server di configurazione:
 
 > [!NOTE]
 > Il server di configurazione può essere installato anche dalla riga di comando. [Altre informazioni](physical-manage-configuration-server.md#install-from-the-command-line)
-
+> 
 > Possono trascorrere 15 minuti o più prima che il nome dell'account venga visualizzato nel portale. Per aggiornarlo immediatamente, selezionare **Server di configurazione** > ***nome del server*** > **Aggiorna server**.
 
 ## <a name="step-4-set-up-the-target-environment"></a>Passaggio 4: Configurare l'ambiente di destinazione
@@ -214,7 +214,7 @@ Selezionare e verificare le risorse di destinazione.
 4. In **Conservazione del punto di ripristino** specificare il tempo di conservazione di ogni punto di ripristino. Le macchine virtuali replicate possono essere ripristinate in qualsiasi punto dell'intervallo di tempo specificato.
 5. In **Frequenza snapshot coerenti con l'app** specificare la frequenza di snapshot coerenti con l'applicazione.
 
-    - Uno snapshot coerente con l'app è uno snapshot temporizzato dei dati dell'app nella della macchina virtuale.
+    - Uno snapshot coerente con l'app è uno snapshot del punto nel tempo dei dati dell'app all'interno della VM.
     - Il servizio Copia Shadow del volume (VSS) assicura che lo stato delle app nella macchina virtuale sia coerente quando viene creato lo snapshot.
 6. Fare clic su **OK** per creare i criteri.
 
@@ -249,9 +249,9 @@ Verificare di aver completato tutte le attività nel [Passaggio 1: Preparare la 
 
 > [!NOTE]
 > Quando viene abilitata la replica per una macchina virtuale, Site Recovery installa il servizio Mobility.
-
+> 
 > Le modifiche diventeranno effettive e verranno visualizzate nel portale dopo 15 minuti o più.
-
+> 
 > Per eseguire il monitoraggio delle macchine virtuali aggiunte, è possibile controllare l'ora dell'ultima individuazione di macchine virtuali in **Server di configurazione** > **Ora ultimo contatto**. Per aggiungere macchine virtuali senza attendere l'individuazione pianificata, evidenziare il server di configurazione senza selezionarlo e quindi selezionare **Aggiorna**.
 
 

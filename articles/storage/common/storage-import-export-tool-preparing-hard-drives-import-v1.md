@@ -8,25 +8,25 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 185e243838d2ccdc920fa5b5714995801567a24f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454675"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58086718"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 Per preparare uno o più dischi rigidi per il processo di importazione, seguire questi passaggi:
 
--   identificare i dati da importare nel servizio BLOB
+- identificare i dati da importare nel servizio BLOB
 
--   identificare le directory virtuali di destinazione e i BLOB nel servizio BLOB
+- identificare le directory virtuali di destinazione e i BLOB nel servizio BLOB
 
--   determinare il numero di unità necessarie
+- determinare il numero di unità necessarie
 
--   copiare i dati su ogni disco rigido
+- copiare i dati su ogni disco rigido
 
- Per un flusso di lavoro di esempio vedere [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md) (Flusso di lavoro di esempio per preparare i dischi rigidi al processo di importazione).
+  Per un flusso di lavoro di esempio vedere [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md) (Flusso di lavoro di esempio per preparare i dischi rigidi al processo di importazione).
 
 ## <a name="identify-the-data-to-be-imported"></a>Identificare i dati da importare
  Il primo passaggio per la creazione di un processo di importazione è determinare le directory e i file da importare. Può trattarsi di un elenco di directory, di un elenco di file univoci o di una combinazione di entrambi gli elementi. Quando viene inclusa una directory, tutti i file nella directory e nelle relative sottodirectory faranno parte del processo di importazione.
@@ -51,11 +51,11 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 ## <a name="determine-how-many-drives-are-needed"></a>Determinare il numero di unità necessarie
  Successivamente, è necessario determinare:
 
--   Il numero di unità disco rigido necessarie per archiviare i dati.
+- Il numero di unità disco rigido necessarie per archiviare i dati.
 
--   Le directory e/o i file autonomi che verranno copiati in ciascun disco rigido.
+- Le directory e/o i file autonomi che verranno copiati in ciascun disco rigido.
 
- Assicurarsi di avere il numero di dischi rigidi necessari per archiviare i dati da trasferire.
+  Assicurarsi di avere il numero di dischi rigidi necessari per archiviare i dati da trasferire.
 
 ## <a name="copy-data-to-your-hard-drive"></a>Copiare i dati sul disco rigido
  Questa sezione descrive come chiamare lo strumento Importazione/Esportazione di Azure per copiare i dati su uno o più dischi rigidi. Ogni volta che si chiama lo strumento di importazione/esportazione di Azure, si crea una nuova *sessione di copia*. Creare almeno una sessione di copia per ogni unità su cui si copiano dati; in alcuni casi, potrebbe essere necessaria più di una sessione di copia per copiare tutti i dati su una sola unità. Ecco alcuni motivi per cui potrebbero essere necessarie più sessioni di copia:
@@ -108,7 +108,7 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 |**/csas:**<ContainerSas\>|`Optional`. La firma di accesso condiviso del contenitore da usare per importare i dati sull'account di archiviazione. È necessario includere **/sk:**<StorageAccountKey\> oppure **/csas:**<ContainerSas\> in the command.<br /><br /> Il valore per questo parametro deve iniziare con il nome del contenitore, seguito da un punto interrogativo (?) e dal token della firma di accesso condiviso. Ad esempio: <br /><br /> `mycontainer?sv=2014-02-14&sr=c&si=abcde&sig=LiqEmV%2Fs1LF4loC%2FJs9ZM91%2FkqfqHKhnz0JM6bqIqN0%3D&se=2014-11-20T23%3A54%3A14Z&sp=rwdl`<br /><br /> Le autorizzazioni, laddove specificato nell'URL o in un criterio di accesso archiviato, devono includere Lettura, Scrittura ed Eliminazione per i processi di importazione e Lettura, Scrittura ed Elenco per i processi di esportazione.<br /><br /> Quando viene specificato questo parametro, tutti i BLOB da importare o esportare devono trovarsi all'interno del contenitore specificato nella firma di accesso condiviso.|
 |**/t:**<TargetDriveLetter\>|`Required.` Lettera di unità del disco rigido di destinazione per la sessione di copia corrente, senza i due punti finali.|
 |**/format**|`Optional.` Specificare questo parametro se è necessario formattare l'unità. In caso contrario, ometterlo. Prima di formattare l'unità, verrà chiesta una conferma dalla console. Per evitare questa richiesta di conferma, specificare il parametro /silentmode.|
-|**/silentmode**|`Optional.` Specificare questo parametro per eliminare la richiesta di conferma per la formattazione dell'unità.|
+|**/silentmode**|`Optional.` Specificare questo parametro per eliminare la conferma per la formattazione del disco di destinazione.|
 |**/encrypt**|`Optional.` Specificare questo parametro se l'unità non è ancora stata crittografata con BitLocker e deve essere crittografata tramite lo strumento. Se l'unità è già stata crittografata con BitLocker, omettere questo parametro e specificare il parametro `/bk`, fornendo la chiave BitLocker esistente.<br /><br /> Se si specifica il parametro `/format`, sarà necessario specificare anche il parametro `/encrypt`.|
 |**/bk:**<BitLockerKey\>|`Optional.`Se `/encrypt` viene specificato, omettere questo parametro. Se `/encrypt` viene omesso, è necessario aver già crittografato l'unità con BitLocker. Usare questo parametro per specificare la chiave di BitLocker. La crittografia di BitLocker è necessaria per tutti i dischi rigidi destinati ai processi di importazione.|
 |**/logdir:**&lt;LogDirectory\>|`Optional.` La directory log specifica la directory da usare per archiviare i log dettagliati, nonché i file manifesti temporanei. Se non è specificata, come directory dei log viene usata la directory corrente.|

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6b3f3217f90c2c5a72ba9576b5e0cc89e6133cd8
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079027"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete con Power BI
 
@@ -56,10 +56,10 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
 1. Scaricare e aprire il [modello di log dei flussi Power BI di Network Watcher](https://aka.ms/networkwatcherpowerbiflowlogstemplate) nell'applicazione Power BI Desktop.
 1. Immettere i parametri di query obbligatori.
-    1. **StorageAccountName**: specifica il nome dell'account di archiviazione contenente i log dei flussi dei gruppi di sicurezza di rete da caricare e visualizzare.
-    1. **NumberOfLogFiles**: specifica il numero di file di log da scaricare e visualizzare in Power BI. Ad esempio, se si specifica 50, vengono scaricati e visualizzati i 50 file di log più recenti. Se vengono abilitati e configurati due gruppi di sicurezza di rete per l'invio di log dei flussi dei gruppi di sicurezza di rete a questo account, è possibile visualizzare i log corrispondenti alle ultime 25 ore.
+   1. **StorageAccountName**: specifica il nome dell'account di archiviazione contenente i log dei flussi dei gruppi di sicurezza di rete da caricare e visualizzare.
+   1. **NumberOfLogFiles**: specifica il numero di file di log da scaricare e visualizzare in Power BI. Ad esempio, se si specifica 50, vengono scaricati e visualizzati i 50 file di log più recenti. Se vengono abilitati e configurati due gruppi di sicurezza di rete per l'invio di log dei flussi dei gruppi di sicurezza di rete a questo account, è possibile visualizzare i log corrispondenti alle ultime 25 ore.
 
-    ![schermata principale di Power BI][2]
+      ![schermata principale di Power BI][2]
 
 1. Immettere la chiave di accesso per l'account di archiviazione. Per trovare le chiavi di accesso valide, accedere all'account di archiviazione nel portale di Azure e selezionare **Chiavi di accesso** dal menu Impostazioni. Fare clic su **Connetti** e quindi applicare le modifiche.
 
@@ -67,7 +67,7 @@ Prima di iniziare, è necessario abilitare la registrazione dei flussi dei grupp
 
     ![chiave di accesso 2][4]
 
-4.  I log vengono scaricati e analizzati ed è quindi possibile usare gli oggetti visivi creati in precedenza.
+4. I log vengono scaricati e analizzati ed è quindi possibile usare gli oggetti visivi creati in precedenza.
 
 ## <a name="understanding-the-visuals"></a>Informazioni sugli oggetti visivi
 
@@ -121,7 +121,7 @@ Questo scenario ha permesso di dimostrare come l'uso dei registri dei flussi dei
 
 * In presenza di una grande quantità di log, è consigliabile prendere in considerazione una soluzione con un altro archivio dati, come Data Lake o SQL Server.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Per informazioni su come visualizzare i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack, vedere [Visualize Azure Network Watcher NSG flow logs using open source tools](network-watcher-visualize-nsg-flow-logs-open-source-tools.md) (Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher tramite gli strumenti open source).
 

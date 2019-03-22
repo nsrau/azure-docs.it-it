@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 385e0065123b86f8f8b7c8503fe6de6daa7c6562
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874125"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099832"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Estrazione dei dati da finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -195,7 +195,7 @@ I dati restituiti dall'endpoint includono il nome dell'entità e il nome dell'el
 ```
 
 |Oggetto dati|Padre|Figlio|Valore|
-|--|--|--|--|--|
+|--|--|--|--|
 |Entità gerarchica|Località|ToLocation|"paris"|
 
 ## <a name="composite-entity-data"></a>Dati entità composita

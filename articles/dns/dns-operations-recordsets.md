@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: 6907382fccaa463fe305ac5049b3858e59b8631b
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: fa1f90cf0236a589d1df96658c672a555195be6b
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991396"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56888815"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
@@ -238,7 +238,7 @@ Questa sequenza di operazioni può anche essere *inviata tramite pipe*, vale a d
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Gli esempi precedenti mostrano come aggiungere un record "A" a un set di record esistente di tipo A. Una sequenza di operazioni simile permette di aggiungere record a set di record di altri tipi, sostituendo il parametro `-Ipv4Address` di `Add-AzDnsRecordConfig` con altri parametri specifici per ogni tipo di record. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzDnsRecordConfig`, come illustrato nella sezione [Altri esempi di tipi di record](#additional-record-type-examples).
+Gli esempi precedenti mostrano come aggiungere un record "A" a un set di record esistente di tipo A. Una sequenza di operazioni simile permette di aggiungere record a set di record di altri tipi, sostituendo il parametro `-Ipv4Address` di `Add-AzDnsRecordConfig` con altri parametri specifici per ogni tipo di record. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzDnsRecordConfig`, come illustrato nella sezione Altri esempi di tipi di record.
 
 I set di record di tipo "CNAME" o "SOA" non possono contenere più di un record. Questo vincolo è dato dagli standard DNS, non è una limitazione del servizio DNS di Azure.
 
@@ -272,7 +272,7 @@ Come per l'aggiunta di record a un set di record, anche la sequenza di operazion
 Get-AzDnsRecordSet -Name www –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Remove-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-Perché vengano supportati tipi di record diversi, occorre passare i parametri specifici del tipo appropriati a `Remove-AzDnsRecordSet`. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzDnsRecordConfig`, come illustrato nella sezione [Altri esempi di tipi di record](#additional-record-type-examples).
+Perché vengano supportati tipi di record diversi, occorre passare i parametri specifici del tipo appropriati a `Remove-AzDnsRecordSet`. I parametri per ogni tipo di record sono gli stessi usati per il cmdlet `New-AzDnsRecordConfig`, come illustrato nella sezione Altri esempi di tipi di record.
 
 
 ## <a name="modify-an-existing-record-set"></a>Modificare un set di record esistente

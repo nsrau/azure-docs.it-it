@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 02/26/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 6f36000eb5a17e58d1450a064897dd9caef89bad
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: fe15cafceea8128735f7241fa5e4187d4d9c47a9
+ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859352"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56960055"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>Limiti della knowledge base di QnA Maker
 Elenco completo dei limiti di QnA Maker.
@@ -52,7 +52,7 @@ Limiti complessivi sul contenuto nella knowledge base:
 * Lunghezza del nome file: 200
 * Formati di file supportati: ".tsv", ".pdf", ".txt", ".docx", ".xlsx".
 * Numero massimo di domande alternative: 100
-* Numero massimo di coppie di risposta alla domanda: dipende dal [livello di Ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) scelto 
+* Numero massimo di coppie di risposta alla domanda: Dipende i [livello ricerca di Azure](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#document-limits) scelto. Una coppia di domanda e la risposta viene eseguito il mapping a un documento nell'indice di ricerca di Azure. 
 
 ## <a name="create-knowledge-base-call-limits"></a>Creare i limiti di chiamata per la Knowledge base:
 Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ovvero, fare clic su *Crea KB* o richiamare l'API di Crea Knowledge Base.
@@ -71,6 +71,6 @@ Questi rappresentano i limiti per ogni azione di creazione di knowledge base; ov
 
 Informazioni su quando e come modificare i livelli di servizio:
 
-* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): quando è necessario inserire altre domande e risposte nella knowledge base, oltre il livello corrente, aggiornare il piano tariffario del servizio QnA Maker.
-* [Ricerca](how-to/upgrade-qnamaker-service.md#upgrade-app-service): quando la knowledge base deve gestire più richieste dall'applicazione client, aggiornare il piano tariffario del servizio app.
-* [Servizio app](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): quando si prevede di avere molte knowledge base, aggiornare il piano tariffario del servizio Ricerca di Azure.
+* [QnA Maker](how-to/upgrade-qnamaker-service.md#upgrade-qna-maker-management-sku): Quando è necessario disporre di più file di origine o documenti più grandi nella tua knowledge base, oltre il livello corrente, aggiornare il servizio QnA Maker piano tariffario.
+* [Servizio app](how-to/upgrade-qnamaker-service.md#upgrade-app-service): Quando la knowledge base deve servire più richieste dall'applicazione client, aggiornare il piano tariffario del servizio app.
+* [Ricerca di Azure](how-to/upgrade-qnamaker-service.md#upgrade-azure-search-service): Quando si prevede di avere molte knowledge base, aggiornare il piano tariffario del servizio di Ricerca di Azure.

@@ -10,22 +10,22 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8544d63f38f88a0e623dff343bf8b5133931b70b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 07550ed9c78aa584e55403d225eef4bcff33b057
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55228305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58167423"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Come usare le entità multivalore con un modello di Conversation Learner
 Questa esercitazione illustra la proprietà "multivalore" dell'entità.
 
 ## <a name="video"></a>Video
 
-[![Anteprima dell'esercitazione sulle entità multivalore](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
+[![Anteprima Tutorial con più valori entità](https://aka.ms/cl_Tutorial_v3_MultiValued_Preview)](https://aka.ms/cl_Tutorial_v3_MultiValued)
 
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
 
     npm run tutorial-general
 
@@ -36,65 +36,65 @@ Per le entità contrassegnate come multivalore ogni istanza riconosciuta dell'en
 
 ## <a name="steps"></a>Passaggi
 
+Per iniziare, passare alla home page nell'interfaccia utente Web.
+
 ### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su "New Model" (Nuovo modello).
-2. Nel campo "Name" (Nome) digitare "MultiValueEntities" e premere INVIO.
-3. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **nuovo modello**.
+2. Immettere **MultiValueEntities** per **nome**.
+3. Selezionare **Create**.
 
 ### <a name="entity-creation"></a>Creazione di entità
 
-1. Nel riquadro a sinistra fare clic su "Entities" (Entità), quindi sul pulsante "New Entity" (Nuova entità).
-2. Selezionare "Custom Trained" (Con training personalizzato) per "Entity Type" (Tipo di entità).
-3. Digitare "toppings" per "Entity Name" (Nome dell'entità).
-4. Selezionare la casella di controllo "Multi-valued" (Multivalore).
-    - Le entità multivalore accumulano uno o più valori nell'entità.
-5. Selezionare la casella di controllo "Negatable" (Negabile).
-    - La proprietà "Negatable" è stata analizzata in un'altra esercitazione.
-6. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **Entities** nel riquadro sinistro, quindi **nuova entità**.
+2. Selezionare **Custom sottoposto a training** per **tipo di entità**.
+3. Immettere **condimenti** per **nome entità**.
+4. Controllare **multivalore** per abilitare l'entità si accumulano uno o più valori.
+5. Controllare **negabile**.
+6. Selezionare **Create**.
 
-![](../media/tutorial6_entities.PNG)
+![](../media/T07_entity_create.png)
 
 ### <a name="create-the-first-action"></a>Creare la prima azione
 
-1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. Nel campo "Bot's response..." (Risposta del bot...) digitare "Here are your toppings: $toppings"
-    - Il segno di dollaro iniziale indica un riferimento a un'entità
-3. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
+2. Immettere **di seguito sono i condimenti: $toppings** per **risposta del Bot...** . Il segno di dollaro iniziale indica un riferimento all'entità.
+3. Selezionare **Create**.
+
+![](../media/T07_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Creare la seconda azione
 
-1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. Nel campo "Bot's Response..." (Risposta del bot...) digitare "What toppings would you like?"
-3. Nel campo "Disqualifying Entities" (Entità non qualificanti) digitare "toppings".
-4. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
+2. Immettere **quali condimenti preferisci?** per **risposta del Bot...** .
+3. Immettere **condimenti** per **qualificato dà diritto**.
+4. Selezionare **Create**.
 
 Sono ora disponibili due azioni.
 
-![](../media/tutorial6_actions.PNG)
+![](../media/T07_action_create_2.png)
 
 ### <a name="train-the-model"></a>Eseguire il training del modello
 
-1. Nel riquadro a sinistra fare clic su "Train Dialogs" (Dialoghi di training), quindi sul pulsante "New Train Dialog" (Nuovo dialogo di training).
-2. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "hi".
-3. Fare clic su "Score Actions" (Punteggio azioni).
-4. Selezionare la risposta "What pizza would you like?" (Che condimenti vuoi?)
-    - Il percentile è 100%, in quanto unica azione valida in base ai vincoli.
-5. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "cheese and mushrooms"
-6. Fare clic su "cheese" (formaggio) e scegliere l'etichetta "+toppings"
-7. Fare clic su "mushrooms" (funghi) e scegliere l'etichetta "+toppings"
-8. Fare clic su "Score Actions" (Punteggio azioni).
-9. Selezionare la risposta "Here are your toppings: $toppings" (Ecco i tuoi condimenti: $toppings)
-10. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "add pepper"
-11. Fare clic su "pepper" (peperoni) e scegliere l'etichetta "+toppings"
-12. Fare clic su "Score Actions" (Punteggio azioni).
-13. Selezionare la risposta "Here are your toppings: $toppings" (Ecco i tuoi condimenti: $toppings)
-14. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "remove cheese"
-15. Fare clic su "cheese" e scegliere l'etichetta "-toppings"
-16. Fare clic su "Score Actions" (Punteggio azioni).
-17. Selezionare la risposta "Here are your toppings: $toppings" (Ecco i tuoi condimenti: $toppings)
+1. Selezionare **Train Dialogs** nel riquadro sinistro, quindi **nuova finestra di dialogo Train**.
+2. Immettere **Ciao** per utterance dell'utente nel Pannello di chat a sinistra.
+3. Selezionare **assegnare un punteggio azioni**.
+4. Selezionare **quali condimenti preferisci?** nell'elenco di azioni. Il percentile è 100% come l'unica azione valida in base ai vincoli.
+5. Immettere **formaggio e funghi** per utterance dell'utente nel Pannello di chat a sinistra.
+6. Evidenziare **formaggio** quindi selezionare **+ condimenti**.
+7. Evidenziare **funghi** quindi selezionare **+ condimenti**.
+8. Selezionare **assegnare un punteggio azioni**.
+9. Selezionare **di seguito sono i condimenti: $toppings** nell'elenco di azioni.
+10. Immettere **aggiungere pepper** per utterance successivo dell'utente nel Pannello di chat a sinistra.
+11. Evidenziare **pepper** quindi selezionare **+ condimenti**.
+12. Selezionare **assegnare un punteggio azioni**.
+13. Selezionare **di seguito sono i condimenti: $toppings** nell'elenco di azioni.
+14. Immettere **rimuovere formaggio** per utterance terza dell'utente nel Pannello di chat a sinistra.
+15. Evidenziare **formaggio** quindi selezionare **-condimenti**.
+16. Selezionare **assegnare un punteggio azioni**.
+17. Selezionare **di seguito sono i condimenti: $toppings** nell'elenco di azioni.
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T07_training.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: f3138a9d0fe201a9486c34c08b8cdb3cca47e1d7
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 0da6b6b0fef0f998e20789253b2a65c54121532c
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207548"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260010"
 ---
 # <a name="manage-content-moderator-service-credentials"></a>Gestire le credenziali del servizio Content Moderator
 
@@ -61,7 +61,7 @@ La sezione seguente esamina l'immagine precedente in modo più dettagliato:
 
 Nella prima parte sono elencati i valori di **endpoint dell'API di revisione**, **ID del team** e **Ocp-Apim-Subscription-Key (chiave della versione di valutazione gratuita di Content Moderator)** generati nell'ambito della creazione del team di revisione. Usarli per chiamare tutte le API di Content Moderator, inclusa l'API di revisione.
 
-Si noti inoltre l'identificatore di area per l'endpoint API. Ad esempio **westus** è l'area in "https://westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
+Si noti inoltre l'identificatore di area per l'endpoint API. Ad esempio, **Stati Uniti occidentali** è l'area in "https:\//westus.api.cognitive.microsoft.com/contentmoderator/review/v1.0"
 
 ![Chiave di Content Moderator nello strumento di revisione](images/credentials-trialkey.PNG)
 

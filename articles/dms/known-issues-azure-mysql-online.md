@@ -3,20 +3,20 @@ title: Problemi noti e limitazioni per le migrazioni online a Database di Azure 
 description: Informazioni su problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL.
 services: database-migration
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: ebe2af858aafaff62a7e3b629c0a8c84bbf49584
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53721649"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58175100"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL
 
@@ -64,23 +64,23 @@ Le sezioni seguenti illustrano i problemi noti e le limitazioni associati alle m
 
     **Soluzione alternativa**: modificare il tipo di dati JSON impostando Medium text o Longtext nel database MySQL di origine.
 
-- **Limitazione**: se non è presente alcuna chiave primaria nelle tabelle, la sincronizzazione continua ha esito negativo.
+- **Limitazione**: Se non è presente alcuna chiave primaria nelle tabelle, la sincronizzazione continua ha esito negativo.
  
     **Soluzione alternativa**: impostare temporaneamente una chiave primaria per la tabella per consentire alla migrazione di continuare. Al termine della migrazione dei dati, è possibile rimuovere la chiave primaria.
 
 ## <a name="lob-limitations"></a>Limitazioni relative ai tipi di dati LOB
 Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni elevate. Per MySQL, Medium text, Longtext, Blob, Mediumblob, Longblob e così via sono alcuni dei tipi di dati LOB.
 
-- **Limitazione**: se come chiavi primarie vengono usati tipi di dati LOB, la migrazione ha esito negativo.
+- **Limitazione**: Se come chiavi primarie vengono usati tipi di dati LOB, la migrazione ha esito negativo.
 
     **Soluzione alternativa**: sostituire la chiave primaria con altri tipi di dati o colonne non LOB.
 
-- **Limitazione**: se la lunghezza della colonna LOB (Large Object) è maggiore a 32 kB, è possibile che i dati vengano troncati nella destinazione. È possibile controllare la lunghezza della colonna LOB usando questa query:
+- **Limitazione**: Se la lunghezza della colonna LOB (Large Object) è maggiore a 32 kB, è possibile che i dati vengano troncati nella destinazione. È possibile controllare la lunghezza della colonna LOB usando questa query:
     ```
     SELECT max(length(description)) as LEN from catalog;
     ```
 
-    **Soluzione alternativa**: se si ha un oggetto LOB maggiore a 32 kB, contattare il team tecnico all'indirizzo [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com). 
+    **Soluzione alternativa**: Se si dispone di oggetti LOB che sono maggiori di 32 KB, contattare il team tecnico al [porre le migrazioni del Database Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com). 
 
 ## <a name="other-limitations"></a>Altre limitazioni
 - Le stringhe di password con parentesi graffe di apertura e chiusura {} all'inizio e alla fine non sono supportate. Questa limitazione si applica a entrambe le connessioni, sia al server MySQL di origine sia all'istanza di Database di Azure per MySQL.

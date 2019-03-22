@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/20/2018
+ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 751f582e2cfc39b62194ec55efa5cd8580c001e3
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 8e75a6344e517fb0343343f557cb7211f49cfed8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341717"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57838317"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-cli"></a>Gestire l'accesso alle risorse di Azure usando il controllo degli accessi in base al ruolo e l'interfaccia della riga di comando di Azure
 
@@ -89,9 +89,9 @@ az role definition list --custom-role-only false --output json | jq '.[] | {"rol
 ...
 ```
 
-### <a name="list-actions-of-a-role"></a>Elencare le azioni di un ruolo
+## <a name="list-a-role-definition"></a>Elenco di una definizione di ruolo
 
-Per elencare le azioni di una definizione di ruolo, usare [az role definition list](/cli/azure/role/definition#az-role-definition-list):
+Per elencare una definizione di ruolo, usare [elenco di definizioni di ruolo az](/cli/azure/role/definition#az-role-definition-list):
 
 ```azurecli
 az role definition list --name <role_name>
@@ -104,6 +104,7 @@ az role definition list --name "Contributor"
 ```
 
 ```Output
+[
   {
     "additionalProperties": {},
     "assignableScopes": [
@@ -134,7 +135,9 @@ az role definition list --name "Contributor"
 ]
 ```
 
-Nell'elenco seguente sono elencate le *azioni consentite* e *non consentite* del ruolo *Collaboratore*:
+### <a name="list-actions-of-a-role"></a>Elencare le azioni di un ruolo
+
+Nell'esempio seguente vengono elencate solo le *azioni* e *notActions* del *collaboratore* ruolo:
 
 ```azurecli
 az role definition list --name "Contributor" --output json | jq '.[] | {"actions":.permissions[0].actions, "notActions":.permissions[0].notActions}'
@@ -153,7 +156,7 @@ az role definition list --name "Contributor" --output json | jq '.[] | {"actions
 }
 ```
 
-Nell'elenco seguente sono elencate le azioni consentite del ruolo *Collaboratore Macchina virtuale*:
+Nell'esempio seguente vengono elencate solo le azioni del *collaboratore macchina virtuale* ruolo:
 
 ```azurecli
 az role definition list --name "Virtual Machine Contributor" --output json | jq '.[] | .permissions[0].actions'
@@ -191,7 +194,7 @@ az role assignment list --assignee <assignee>
 
 Per impostazione predefinita, verranno visualizzate solo le assegnazioni che rientrano nell'ambito della sottoscrizione. Per visualizzare le assegnazioni che rientrano nell'ambito della risorsa o del gruppo, usare `--all`.
 
-Nell'esempio seguente sono elencate le assegnazioni di ruolo che vengono assegnate direttamente all'utente *patlong@contoso.com*:
+L'esempio seguente elenca le assegnazioni di ruolo che vengono assegnate direttamente al *patlong\@contoso.com* utente:
 
 ```azurecli
 az role assignment list --all --assignee patlong@contoso.com --output json | jq '.[] | {"principalName":.principalName, "roleDefinitionName":.roleDefinitionName, "scope":.scope}'
@@ -249,7 +252,7 @@ Per creare un'assegnazione di ruolo per un utente nell'ambito di un gruppo di ri
 az role assignment create --role <role> --assignee <assignee> --resource-group <resource_group>
 ```
 
-Nell'esempio seguente viene assegnato il ruolo *Collaboratore Macchina virtuale* all'utente *patlong@contoso.com* nell'ambito del gruppo di risorse *pharma-sales-projectforecast*:
+L'esempio seguente assegna il *collaboratore macchina virtuale* ruolo *patlong\@contoso.com* utenti e il *pharma-sales-projectforecast* ambito di gruppo di risorse:
 
 ```azurecli
 az role assignment create --role "Virtual Machine Contributor" --assignee patlong@contoso.com --resource-group pharma-sales-projectforecast
@@ -297,7 +300,7 @@ Per rimuovere l'accesso nel controllo degli accessi in base al ruolo, è possibi
 az role assignment delete --assignee <assignee> --role <role> --resource-group <resource_group>
 ```
 
-Nell'esempio seguente l'assegnazione di ruolo *Collaboratore Macchina virtuale* viene rimossa dall'utente *patlong@contoso.com* nel gruppo di risorse *pharma-sales-projectforecast*:
+L'esempio seguente rimuove il *collaboratore macchina virtuale* assegnazione di ruolo dalle *patlong\@contoso.com* utente sul *pharma-sales-projectforecast* gruppo di risorse:
 
 ```azurecli
 az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine Contributor" --resource-group pharma-sales-projectforecast

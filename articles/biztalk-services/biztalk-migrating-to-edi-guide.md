@@ -10,22 +10,22 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 38fe0e4901977637be22670d09dccffdfa274304
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5543fd5ee2b86a57414a384df9d808e87b297a5e
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51253823"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56983031"
 ---
-# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Eseguire la migrazione delle soluzioni EDI BizTalk Server in Servizi BizTalk: guida tecnica
+# <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Eseguire la migrazione di soluzioni EDI di BizTalk Server a servizi BizTalk: Guida tecnica
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
-Autori: Tim Wieman e Nitin Mehrotra
+Author (Autore): TIM Wieman e Nitin Mehrotra
 
-Revisore: Karthik Bharthy
+Revisori: Karthik Bharthy
 
-Scritto con: Servizi BizTalk di Microsoft Azure, versione di febbraio 2014.
+Scritto utilizzando:  Servizi BizTalk di Microsoft Azure-versione di febbraio 2014.
 
 ## <a name="introduction"></a>Introduzione
 Electronic Data Interchange (EDI) è uno dei metodi più diffusi per lo scambio elettronico di dati aziendali, noto anche come transazioni business-to-business o B2B. BizTalk Server offre il supporto EDI da più di dieci anni, dalla versione iniziale di BizTalk Sever. Con i servizi BizTalk, Microsoft continua a supportare le soluzioni EDI nella piattaforma Microsoft Azure. Le transazioni B2B sono in genere esterne a un'organizzazione e pertanto è più facile implementarle se sono state implementate in una piattaforma cloud. Microsoft Azure fornisce questa funzionalità tramite i servizi BizTalk.
@@ -102,7 +102,7 @@ Se è necessario eseguire la migrazione a Microsoft Azure dell’elaborazione di
 
 * [*Come integrare un servizio del flusso di lavoro WCF con code e argomenti del bus di servizio*](https://blogs.msdn.microsoft.com/paolos/2013/04/09/how-to-integrate-a-wcf-workflow-service-with-service-bus-queues-and-topics/) di Paolo Salvatori. 
 * [Sessione *Building apps with Windows Workflow Foundation and Azure*](https://go.microsoft.com/fwlink/p/?LinkId=237314) (Compilazione di app con Windows Workflow Foundation e Azure) estratta dalla conferenza Build 2011.
-* [*Centro per sviluppatori Windows Workflow Foundation*](https://go.microsoft.com/fwlink/p/?LinkId=237315) in MSDN.
+* [*Windows Workflow Foundation Developer Center*](https://docs.microsoft.com/previous-versions/dotnet/articles/ee342461(v=msdn.10)).
 * [*Documentazione di Windows Workflow Foundation 4 (WF4)*](https://msdn.microsoft.com/library/dd489441.aspx) in MSDN.
 
 ## <a name="other-considerations"></a>Altre considerazioni

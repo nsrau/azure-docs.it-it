@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 56c5846c-5d8c-4ad4-9652-60b07aa8fc3b
 ms.date: 02/06/2019
-ms.openlocfilehash: 03ac2e0f42ff05165aa2313d823710a71c7dffec
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 3cca995b353b88cc481cbda68df4211a724f7f09
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768308"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727315"
 ---
 # <a name="validate-xml-with-schemas-in-azure-logic-apps-with-enterprise-integration-pack"></a>Convalida XML con gli schemi in App per la logica di Azure con Enterprise Integration Pack
 
@@ -89,7 +89,7 @@ In base alle dimensioni del file di schema (con estensione xsd), seguire i passa
 
 ### <a name="add-schemas-more-than-2-mb"></a>Aggiungere schemi con dimensioni maggiori di 2 MB
 
-Per aggiungere schemi più grandi, è possibile caricare lo schema in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per aggiungere gli schemi sono diversi a seconda che il contenitore BLOB abbia l'accesso in lettura pubblico o meno. Prima di tutto, controllare quindi se il contenitore BLOB abbia l'accesso in lettura pubblico o meno seguendo questa procedura: [Impostare il livello di accesso pubblico per un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
+Per aggiungere schemi più grandi, è possibile caricare lo schema in un contenitore BLOB di Azure nell'account di archiviazione di Azure. I passaggi per l'aggiunta di schemi variano a seconda se il contenitore blob ha accesso in lettura pubblico. Prima di tutto, controllare quindi se il contenitore BLOB abbia l'accesso in lettura pubblico o meno seguendo questa procedura: [Impostare il livello di accesso pubblico per un contenitore BLOB](../vs-azure-tools-storage-explorer-blobs.md#set-the-public-access-level-for-a-blob-container)
 
 #### <a name="check-container-access-level"></a>Controllare il livello di accesso del contenitore
 

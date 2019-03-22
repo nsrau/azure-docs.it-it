@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: 680b47fd65cfde1fe01dfff9b74ddd42d1a73c1f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 68655ea03f53fe7100f67d111fcd3c8595bdf4c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54052394"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109393"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Esempio 1: Creare una rete perimetrale semplice usando gruppi di sicurezza di rete con un modello di Azure Resource Manager
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -97,14 +97,14 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
     ``` 
 
 2. La prima regola in questo esempio consente il traffico DNS fra tutte le reti interne al server DNS nella subnet back-end. Nella regola sono inclusi alcuni parametri importanti:
-  * "destinationAddressPrefix": il prefisso dell'indirizzo di destinazione è impostato su "10.0.2.4" in modo da consentire al traffico DNS di raggiungere il server DNS.
-  * "Direction" indica la direzione del flusso di traffico a cui verrà applicata questa regola dal punto di vista della subnet o della macchina virtuale, a seconda della posizione a cui è associato il gruppo di sicurezza di rete. Se Direction è impostato su "Inbound", la regola verrà applicata al traffico in ingresso nella subnet, ma non al traffico in uscita da essa.
-  * "Priority" consente di impostare l'ordine in base al quale viene valutato un flusso di traffico. Più è basso il numero, maggiore sarà la priorità. Quando un flusso di traffico specifico è applicabile a una determinata regola, non vengono elaborate altre regole. Se quindi una regola con priorità 1 consente il traffico e una regola con priorità 2 lo blocca ed entrambe le regole sono applicabili, il passaggio del traffico viene consentito perché viene applicata la regola 1 con priorità più alta e non vengono considerate altre regole.
-  * "Access" indica se il traffico a cui si applica la regola viene bloccato ("Deny") o consentito ("Allow").
+   * "destinationAddressPrefix": il prefisso dell'indirizzo di destinazione è impostato su "10.0.2.4" in modo da consentire al traffico DNS di raggiungere il server DNS.
+   * "Direction" indica la direzione del flusso di traffico a cui verrà applicata questa regola dal punto di vista della subnet o della macchina virtuale, a seconda della posizione a cui è associato il gruppo di sicurezza di rete. Se Direction è impostato su "Inbound", la regola verrà applicata al traffico in ingresso nella subnet, ma non al traffico in uscita da essa.
+   * "Priority" consente di impostare l'ordine in base al quale viene valutato un flusso di traffico. Più è basso il numero, maggiore sarà la priorità. Quando un flusso di traffico specifico è applicabile a una determinata regola, non vengono elaborate altre regole. Se quindi una regola con priorità 1 consente il traffico e una regola con priorità 2 lo blocca ed entrambe le regole sono applicabili, il passaggio del traffico viene consentito perché viene applicata la regola 1 con priorità più alta e non vengono considerate altre regole.
+   * "Access" indica se il traffico a cui si applica la regola viene bloccato ("Deny") o consentito ("Allow").
 
-    ```JSON
-    "properties": {
-    "securityRules": [
+     ```JSON
+     "properties": {
+     "securityRules": [
       {
         "name": "enable_dns_rule",
         "properties": {
@@ -119,7 +119,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
           "direction": "Inbound"
         }
       },
-    ```
+     ```
 
 3. Questa regola consente il flusso del traffico RDP da Internet alla porta RDP su qualsiasi server sulla subnet associata. 
 
@@ -221,23 +221,23 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
 1. Un utente su Internet richiede una pagina HTTP dall'indirizzo IP pubblico della scheda di interfaccia di rete associata alla scheda di interfaccia di rete di IIS01
 2. L'indirizzo IP pubblico passa il traffico alla rete virtuale verso IIS01 (il server Web)
 3. La subnet front-end inizia l'elaborazione delle regole in ingresso:
-  1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
-  2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
-  3. Regola gruppo di sicurezza di rete 3 (da Internet a IIS01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
+   1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
+   2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
+   3. Regola gruppo di sicurezza di rete 3 (da Internet a IIS01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 4. Il traffico raggiunge l'indirizzo IP interno del server Web IIS01 (10.0.1.5).
 5. IIS01 è in ascolto del traffico Web, riceve la richiesta e ne avvia l'elaborazione.
 6. IIS01 chiede informazioni a SQL Server in AppVM01.
 7. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 8. La subnet back-end inizia l'elaborazione delle regole in ingresso:
-  1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
-  2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
-  3. Regola gruppo di sicurezza di rete 3 (da Internet a firewall), non applicabile, passa alla regola successiva.
-  4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
+   1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
+   2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
+   3. Regola gruppo di sicurezza di rete 3 (da Internet a firewall), non applicabile, passa alla regola successiva.
+   4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 9. AppVM01 riceve la query SQL e risponde.
 10. Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita
 11. La subnet front-end inizia l'elaborazione delle regole in ingresso:
-  1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
-  2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
+    1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
+    2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 12. Il server IIS riceve la risposta SQL, completa la risposta HTTP e la invia al richiedente.
 13. Non essendoci regole in uscita sulla subnet front-end, la risposta è consentita e l'utente su Internet riceve la pagina Web richiesta.
 
@@ -245,8 +245,8 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
 1. L'amministratore del server su Internet richiede una sessione RDP a IIS01 sull'indirizzo IP pubblico della scheda di interfaccia di rete associata alla scheda di interfaccia di rete di IIS01; questo indirizzo IP pubblico è disponibile tramite il portale o PowerShell.
 2. L'indirizzo IP pubblico passa il traffico alla rete virtuale verso IIS01 (il server Web)
 3. La subnet front-end inizia l'elaborazione delle regole in ingresso:
-  1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
-  2. Regola gruppo di sicurezza di rete 2 (RDP) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
+   1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
+   2. Regola gruppo di sicurezza di rete 2 (RDP) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 4. Senza regole in uscita, sono applicabili le regole predefinite e il traffico restituito è consentito.
 5. La sessione RDP è abilitata.
 6. IIS01 richiede il nome utente e la password
@@ -261,7 +261,7 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
 2. La configurazione di rete per la rete virtuale elenca DNS01 (10.0.2.4 nella subnet back-end) come server DNS primario, IIS01 invia la richiesta DNS a DNS01.
 3. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 4. La subnet back-end inizia l'elaborazione delle regole in ingresso:
-  * Regola gruppo di sicurezza di rete 1 (DNS) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
+   * Regola gruppo di sicurezza di rete 1 (DNS) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 5. Il server DNS riceve la richiesta.
 6. Il server DNS non ha l'indirizzo memorizzato nella cache e invia la richiesta a un server DNS radice su Internet.
 7. Non sono impostate regole in uscita sulla subnet back-end, il traffico è consentito.
@@ -269,23 +269,23 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
 9. Il server DNS memorizza la risposta nella cache e restituisce a IIS01 la risposta alla richiesta iniziale.
 10. Non sono impostate regole in uscita sulla subnet back-end, il traffico è consentito.
 11. La subnet front-end inizia l'elaborazione delle regole in ingresso:
-  1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
-  2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
+    1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
+    2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 12. IIS01 riceve la risposta da DNS01.
 
 #### <a name="allowed-web-server-access-file-on-appvm01"></a>(*Consentito*) Il server Web richiede l'accesso a un file in AppVM01
 1. IIS01 richiede un file in AppVM01.
 2. Non sono impostate regole in uscita sulla subnet front-end, il traffico è consentito.
 3. La subnet back-end inizia l'elaborazione delle regole in ingresso:
-  1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
-  2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
-  3. Regola gruppo di sicurezza di rete 3 (da Internet a IIS01) non applicabile, passa alla regola successiva.
-  4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
+   1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
+   2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
+   3. Regola gruppo di sicurezza di rete 3 (da Internet a IIS01) non applicabile, passa alla regola successiva.
+   4. Regola gruppo di sicurezza di rete 4 (da IIS01 ad AppVM01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 4. AppVM01 riceve la richiesta e risponde con il file (presupponendo che l'accesso sia autorizzato).
 5. Non essendoci regole in uscita sulla subnet back-end, la risposta è consentita
 6. La subnet front-end inizia l'elaborazione delle regole in ingresso:
-  1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
-  2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
+   1. Non sono presenti regole del gruppo di sicurezza di rete applicabili al traffico in ingresso dalla subnet back-end alla subnet front-end, quindi nessuna regola del gruppo di sicurezza di rete è applicabile.
+   2. La regola di sistema predefinita che consente il traffico tra le subnet consentirebbe questo tipo di traffico, perciò è consentito.
 7. Il server IIS riceve il file.
 
 #### <a name="denied-rdp-to-backend"></a>(*Negato*) Traffico RDP al back-end
@@ -312,9 +312,9 @@ Ogni regola viene illustrata in dettaglio nel modo seguente:
 1. Un utente su Internet richiede dati SQL da IIS01
 2. Non essendoci indirizzi IP pubblici associati alla scheda di interfaccia di rete dei server, il traffico non entra nella rete virtuale e non raggiunge il server.
 3. Se per qualunque motivo è stato abilitato un indirizzo IP pubblico, la subnet front-end inizia l'elaborazione delle regole in ingresso:
-  1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
-  2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
-  3. Regola gruppo di sicurezza di rete 3 (da Internet a IIS01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
+   1. Regola gruppo di sicurezza di rete 1 (DNS) non applicabile, passa alla regola successiva.
+   2. Regola gruppo di sicurezza di rete 2 (RDP) non applicabile, passa alla regola successiva.
+   3. Regola gruppo di sicurezza di rete 3 (da Internet a IIS01) applicabile, il traffico è consentito, l'elaborazione delle regole si arresta.
 4. Il traffico raggiunge l'indirizzo IP interno di IIS01 (10.0.1.5).
 5. IIS01 non è in ascolto sulla porta 1433, pertanto la richiesta non ottiene risposta.
 

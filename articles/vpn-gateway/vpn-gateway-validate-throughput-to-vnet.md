@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 7e6b3e7496c4a063156ff3b8feae1f5096efe55f
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
-ms.translationtype: HT
+ms.openlocfilehash: 819415712d8e605825957aa602fc99dcf6902d82
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035619"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56821662"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
@@ -49,7 +49,7 @@ Il diagramma seguente mostra la connettività logica di una rete locale a una re
 ## <a name="calculate-the-maximum-expected-ingressegress"></a>Calcolare il traffico in ingresso/in uscita massimo previsto
 
 1.  Determinare i requisiti di velocità effettiva di base dell'applicazione.
-2.  Determinare i limiti di velocità effettiva del gateway VPN di Azure. Per altre informazioni, vedere la sezione "Velocità effettiva aggregata stimata per tipo di VPN e SKU" in [Pianificazione e progettazione per il gateway VPN](vpn-gateway-plan-design.md).
+2.  Determinare i limiti di velocità effettiva del gateway VPN di Azure. Per altre informazioni, vedere la sezione "SKU del Gateway" del [informazioni sul Gateway VPN](vpn-gateway-about-vpngateways.md#gwsku).
 3.  Determinare le [informazioni aggiuntive relative alla velocità effettiva della macchina virtuale di Azure](../virtual-machines/virtual-machines-windows-sizes.md) in base alle dimensioni della macchina virtuale.
 4.  Determinare la larghezza di banda del provider di servizi Internet (ISP).
 5.  Eseguire il calcolo di velocità effettiva prevista - larghezza di banda minima di (macchina virtuale, gateway, ISP) * 0,8.
@@ -77,7 +77,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
 
 2. In entrambi i nodi abilitare un'eccezione firewall per la porta 5001.
 
-    **Windows:** eseguire questo comando come amministratore.
+    **Windows:** Eseguire il comando seguente come amministratore:
 
     ```CMD
     netsh advfirewall firewall add rule name="Open Port 5001" dir=in action=allow protocol=TCP localport=5001
@@ -89,7 +89,7 @@ Eseguire il download di [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-
     netsh advfirewall firewall delete rule name="Open Port 5001" protocol=TCP localport=5001
     ```
      
-    **Linux di Azure**: le immagini Linux di Azure dispongono di firewall permissivi. Se un'applicazione è in ascolto su una porta, è consentito il passaggio del traffico. Per le immagini personalizzate protette potrebbero essere necessarie porte aperte in modo esplicito. Firewall a livello di sistema operativo Linux comuni includono `iptables`, `ufw` o `firewalld`.
+    **Linux in Azure:**  Le immagini Linux di Azure dispongono di firewall permissivi. Se un'applicazione è in ascolto su una porta, è consentito il passaggio del traffico. Per le immagini personalizzate protette potrebbero essere necessarie porte aperte in modo esplicito. Firewall a livello di sistema operativo Linux comuni includono `iptables`, `ufw` o `firewalld`.
 
 3. Sul nodo del server passare alla directory in cui è stato estratto iperf3.exe. Eseguire quindi iPerf in modalità server e impostarlo per l'ascolto sulla porta 5001, come nei comandi seguenti:
 

@@ -3,7 +3,7 @@ title: L'avvio di una macchina virtuale di Azure si blocca in Windows Update | M
 description: Informazioni su come risolvere il problema per cui l'avvio di una macchina virtuale di Azure si blocca in Windows Update.
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: d56e96ca1fbc96261f6f526c792b0a53c74718ef
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 7c516781f7d0c80dc7185585a29278820ab9a46e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54063661"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777567"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>L'avvio della macchina virtuale di Azure si blocca in Windows Update
 
@@ -27,7 +27,7 @@ Questo articolo consente di risolvere il problema per cui una macchina virtuale 
 > [!NOTE] 
 > Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l’utilizzo del modello di distribuzione Gestione risorse. Invece del modello di distribuzione classica, per le nuove distribuzioni è consigliabile usare questo modello.
 
- ## <a name="symptom"></a>Sintomo
+## <a name="symptom"></a>Sintomo
 
  La macchina virtuale Windows non si avvia. Quando si controllano gli screenshot nella finestra [Diagnostica di avvio](../troubleshooting/boot-diagnostics.md), si nota che l'avvio si è bloccato durante il processo di aggiornamento. Di seguito sono riportati esempi di messaggi che è possibile ricevere:
 

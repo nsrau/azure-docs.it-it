@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 33f79569a2478c7e234b04ba2dee4e9b8883abae
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 16899c833d996902cf7a0a3f7ab57479869fbdd9
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895891"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737791"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Binding dell'archiviazione BLOB di Azure per Funzioni di Azure
 
@@ -95,7 +95,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
+La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](./functions-bindings-expressions-patterns.md) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
 
 Per altre informazioni sull'attributo `BlobTrigger`, vedere [Trigger - attributi](#trigger---attributes).
 
@@ -120,7 +120,7 @@ Ecco i dati di associazione nel file *function.json*:
 }
 ```
 
-La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
+La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](./functions-bindings-expressions-patterns.md) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
 
 Per altre informazioni sulle proprietà del file *function.json*, vedere la sezione [Configurazione](#trigger---configuration) che spiega queste proprietà.
 
@@ -167,7 +167,7 @@ Ecco il file *function.json*:
 }
 ```
 
-La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
+La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](./functions-bindings-expressions-patterns.md) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
 
 Per altre informazioni sulle proprietà del file *function.json*, vedere la sezione [Configurazione](#trigger---configuration) che spiega queste proprietà.
 
@@ -202,7 +202,7 @@ Ecco il file *function.json*:
 }
 ```
 
-La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
+La stringa `{name}` nel percorso del trigger di BLOB `samples-workitems/{name}` crea un'[espressione di associazione](./functions-bindings-expressions-patterns.md) che può essere usata nel codice della funzione per accedere al nome file del BLOB di attivazione. Per altre informazioni, vedere [Modelli di nome dei BLOB](#trigger---blob-name-patterns) più avanti in questo articolo.
 
 Per altre informazioni sulle proprietà del file *function.json*, vedere la sezione [Configurazione](#trigger---configuration) che spiega queste proprietà.
 
@@ -348,7 +348,7 @@ In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name 
 
 ## <a name="trigger---blob-name-patterns"></a>Trigger - modelli di nome dei BLOB
 
-È possibile specificare un modello di nome di BLOB nella proprietà `path` in *function.json* o nel costruttore dell'attributo `BlobTrigger`. Il modello di nome può essere un'[espressione di filtro o di associazione](functions-triggers-bindings.md#binding-expressions-and-patterns). Per esempi, vedere le sezioni seguenti.
+È possibile specificare un modello di nome di BLOB nella proprietà `path` in *function.json* o nel costruttore dell'attributo `BlobTrigger`. Il modello di nome può essere un'[espressione di filtro o di associazione](./functions-bindings-expressions-patterns.md). Per esempi, vedere le sezioni seguenti.
 
 ### <a name="get-file-name-and-extension"></a>Ottenere l'estensione e il nome del file
 
@@ -1099,7 +1099,7 @@ In JavaScript si accede a dati del BLOB di input usando `context.bindings.<name 
 
 ## <a name="exceptions-and-return-codes"></a>Eccezioni e codici restituiti
 
-| Associazione |  riferimento |
+| Associazione |  Riferimenti |
 |---|---|
 | BLOB | [Codici di errore BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
 | Blob, Table, Queue |  [Codici di errore di archiviazione](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |

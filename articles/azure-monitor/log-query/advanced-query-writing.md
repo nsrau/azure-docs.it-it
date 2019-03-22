@@ -1,5 +1,5 @@
 ---
-title: Query avanzate in Monitoraggio di Azure | Microsoft Docs
+title: Advanced query in Monitoraggio di Azure | Microsoft Docs
 description: Questa esercitazione illustra l'uso del portale di analisi per la scrittura di query in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: bwren
-ms.openlocfilehash: 401a8d527fc3a8d0430e7eff965b6f5e20db8dc0
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 65713ed9c2d0635e776a7a7e5f205b6d55438ed4
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268017"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57451621"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Scrittura di query avanzate in Monitoraggio di Azure
 
 > [!NOTE]
-> Prima di seguire questa lezione, è consigliabile completare [Introduzione a Log Analytics in Monitoraggio di Azure](get-started-portal.md) e [Introduzione alle query](get-started-queries.md).
+> È consigliabile completare [Introduzione a Azure Monitor Log Analitica](get-started-portal.md) e [Introduzione alle query](get-started-queries.md) prima di completare questa lezione.
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
@@ -76,7 +76,7 @@ Event
 ```
 
 ## <a name="print"></a>Print
-`print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Questa funzione viene spesso usata nei casi in cui è necessario eseguire un calcolo semplice. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
+`print` restituisce una tabella con una sola colonna e una sola riga, che mostra il risultato di un calcolo. Viene spesso utilizzato nei casi in cui è necessario un semplice calcolo. Ad esempio, per trovare l'ora corrente in PST e aggiungere una colonna con EST:
 
 ```Kusto
 print nowPst = now()-8h

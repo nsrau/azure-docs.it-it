@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 539a7fc5b9d3038424059f1ee599c6966a968781
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: a9e8d2cbc067fd92208fac778ba17c58bdc7a5e4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53629597"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58079146"
 ---
 # <a name="filters-in-azure-search"></a>Filtri in Ricerca di Azure 
 
@@ -32,17 +32,17 @@ Ecco alcuni scenari di esempio:
 
 1. Usare un filtro per sezionare l'indice in base ai valori di dati nell'indice. Se si ha uno schema con città, tipo di abitazione e attrattive, è possibile creare un filtro per selezionare in modo esplicito i documenti che soddisfano i criteri (Seattle, condomini, lungomare). 
 
-  La ricerca full-text con gli stessi input produce spesso risultati simili, ma un filtro è più preciso, perché richiede una corrispondenza esatta delle condizioni di filtro nel contenuto nell'indice. 
+   La ricerca full-text con gli stessi input produce spesso risultati simili, ma un filtro è più preciso, perché richiede una corrispondenza esatta delle condizioni di filtro nel contenuto nell'indice. 
 
 2. Usare un filtro se l'esperienza di ricerca prevede un requisito di filtro:
 
- * L'[esplorazione in base a facet](search-faceted-navigation.md) usa un filtro per passare la categoria di facet selezionata dall'utente.
- * La ricerca geografica usa un filtro per passare le coordinate della posizione corrente alle app che eseguono ricerche di elementi nelle vicinanze. 
- * I filtri di sicurezza passano gli identificatori di sicurezza come criteri di filtro, in cui una corrispondenza nell'indice funge da proxy per i diritti di accesso al documento.
+   * L'[esplorazione in base a facet](search-faceted-navigation.md) usa un filtro per passare la categoria di facet selezionata dall'utente.
+   * La ricerca geografica usa un filtro per passare le coordinate della posizione corrente alle app che eseguono ricerche di elementi nelle vicinanze. 
+   * I filtri di sicurezza passano gli identificatori di sicurezza come criteri di filtro, in cui una corrispondenza nell'indice funge da proxy per i diritti di accesso al documento.
 
 3. Usare un filtro per applicare criteri di ricerca in un campo numerico. 
 
-  I campi numerici possono essere recuperati nel documento e visualizzati nei risultati della ricerca, ma non sono disponibili per la ricerca (soggetti a ricerca full-text) individualmente. Se sono necessari criteri di selezione basati su dati numerici, usare un filtro.
+   I campi numerici possono essere recuperati nel documento e visualizzati nei risultati della ricerca, ma non sono disponibili per la ricerca (soggetti a ricerca full-text) individualmente. Se sono necessari criteri di selezione basati su dati numerici, usare un filtro.
 
 ### <a name="alternative-methods-for-reducing-scope"></a>Metodi alternativi per ridurre l'ambito
 
@@ -141,10 +141,8 @@ In .NET SDK la proprietà filterable è *disattivata* per impostazione predefini
 
 Se un campo non è filtrabile e lo si vuole rendere filtrabile, è necessario aggiungere un nuovo campo oppure ricompilare il campo esistente. La modifica di una definizione di campo comporta la modifica della struttura fisica dell'indice. In Ricerca di Azure tutti i percorsi di accesso consentiti vengono indicizzati per offrire alta velocità di query e ciò richiede la ricompilazione delle strutture di dati quando le definizioni di campo cambiano. 
 
-La ricompilazione di singoli campi può essere un'operazione di basso impatto, che richiede solo un'operazione di merge che invia la chiave del documento esistente e i valori associati all'indice, lasciando intatto il resto di ogni documento. Se è necessaria la ricompilazione, vedere i collegamenti seguenti per istruzioni:
+La ricompilazione di singoli campi può essere un'operazione di basso impatto, che richiede solo un'operazione di merge che invia la chiave del documento esistente e i valori associati all'indice, lasciando intatto il resto di ogni documento. Se si verifica necessaria la ricompilazione, vedere [azioni di indicizzazione (upload, merge, mergeOrUpload, delete)](search-what-is-data-import.md#indexing-actions) per un elenco di opzioni.
 
- + [Azioni di indicizzazione con .NET SDK](https://docs.microsoft.com/azure/search/search-import-data-dotnet#decide-which-indexing-action-to-use)
- + [Azioni di indicizzazione con l'API REST](https://docs.microsoft.com/azure/search/search-import-data-rest-api#decide-which-indexing-action-to-use)
 
 ## <a name="text-filter-fundamentals"></a>Concetti fondamentali sui filtri di testo
 

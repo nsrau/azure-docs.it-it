@@ -9,12 +9,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: 86fa7fab6897802fd4f18936f2d7bb0700829837
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57994936"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Analisi del sentiment su Twitter in tempo reale in Analisi di flusso di Azure
 
@@ -58,7 +58,7 @@ In questa procedura si creerà uno spazio dei nomi dell'hub eventi e quindi si a
 
 5. Scegliere il nuovo spazio dei nomi e, nel relativo pannello, fare clic su  **+&nbsp;Hub eventi**. 
 
-    ![Pulsante Aggiungi hub eventi per creare un nuovo hub eventi ](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
+    ![Pulsante Aggiungi hub eventi per creare un nuovo hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-eventhub-button.png)    
  
 6. Assegnare il nome `socialtwitter-eh` al nuovo hub eventi. È possibile usare un nome diverso. In questo caso, tenerne traccia, poiché sarà necessario in un secondo momento. Non sono richieste altre impostazioni per l'hub eventi.
 
@@ -119,10 +119,10 @@ Se si ha già un'applicazione Twitter utilizzabile per questa esercitazione, è 
 
 2. Creare una nuova applicazione. 
 
-    * Per l'URL del sito Web, specificare un URL valido. Non è necessario che corrisponda a un sito live, ma non è possibile specificare semplicemente `localhost`.
-    * Lasciare vuoto il campo relativo al callback. L'applicazione client usata per questa esercitazione non richiede callback.
+   * Per l'URL del sito Web, specificare un URL valido. Non è necessario che corrisponda a un sito live, ma non è possibile specificare semplicemente `localhost`.
+   * Lasciare vuoto il campo relativo al callback. L'applicazione client usata per questa esercitazione non richiede callback.
 
-    ![Creazione di un'applicazione in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
+     ![Creazione di un'applicazione in Twitter](./media/stream-analytics-twitter-sentiment-analysis-trends/create-twitter-application.png)
 
 3. Facoltativamente, modificare le autorizzazioni dell'applicazione impostandole in sola lettura.
 
@@ -167,19 +167,19 @@ La procedura seguente illustra entrambi gli approcci.
 
 3. Per impostare i valori in modo permanente, usare un editor di testo per aprire il file TwitterWpfClient.exe.config. Nell'elemento `<appSettings>` definire le impostazioni seguenti:
 
-    * Per `oauth_consumer_key` impostare la chiave utente di Twitter (chiave API). 
-    * Per `oauth_consumer_secret` impostare il segreto utente di Twitter (segreto API).
-    * Per `oauth_token` impostare il token di accesso di Twitter.
-    * Per `oauth_token_secret` impostare il segreto del token di accesso di Twitter.
+   * Per `oauth_consumer_key` impostare la chiave utente di Twitter (chiave API). 
+   * Per `oauth_consumer_secret` impostare il segreto utente di Twitter (segreto API).
+   * Per `oauth_token` impostare il token di accesso di Twitter.
+   * Per `oauth_token_secret` impostare il segreto del token di accesso di Twitter.
 
-    Più avanti, nell'elemento `<appSettings>`, apportare queste modifiche:
+     Più avanti, nell'elemento `<appSettings>`, apportare queste modifiche:
 
-    * Per `EventHubName` impostare il nome dell'hub eventi, ovvero il valore del percorso dell'entità.
-    * Per `EventHubNameConnectionString` impostare la stringa di connessione. Verificare di usare la stringa di connessione da cui è stata rimossa la coppia chiave-valore `EntityPath`.
+   * Per `EventHubName` impostare il nome dell'hub eventi, ovvero il valore del percorso dell'entità.
+   * Per `EventHubNameConnectionString` impostare la stringa di connessione. Verificare di usare la stringa di connessione da cui è stata rimossa la coppia chiave-valore `EntityPath`.
 
-    La sezione `<appSettings>` ha un aspetto simile all'esempio seguente. Per motivi di chiarezza e sicurezza, è stato applicato il ritorno a capo automatico ad alcune righe e sono stati rimossi alcuni caratteri.
+     La sezione `<appSettings>` ha un aspetto simile all'esempio seguente. Per motivi di chiarezza e sicurezza, è stato applicato il ritorno a capo automatico ad alcune righe e sono stati rimossi alcuni caratteri.
 
-    ![File di configurazione dell'applicazione TwitterWpfClient in un editor di testo che mostra i segreti e le chiavi di Twitter e le informazioni della stringa di connessione all'hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
+     ![File di configurazione dell'applicazione TwitterWpfClient in un editor di testo che mostra i segreti e le chiavi di Twitter e le informazioni della stringa di connessione all'hub eventi](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-tiwtter-app-config.png)
  
 4. Se non si è già avviata l'applicazione, eseguire ora TwitterWpfClient.exe. 
 
@@ -214,15 +214,15 @@ Ora che gli eventi tweet vengono trasmessi in flusso in tempo reale da Twitter, 
 
 2. Nel pannello **Input** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
 
-    * **Alias di input**: Usare il nome `TwitterStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
-    * **Tipo di origine**: selezionare **Flusso dati**.
-    * **Origine**: selezionare **Hub eventi**.
-    * **Opzione di importazione**: selezionare **Usa l'hub eventi della sottoscrizione corrente**. 
-    * **Spazio dei nomi del bus di servizio**: selezionare lo spazio dei nomi dell'hub eventi creato in precedenza (`<yourname>-socialtwitter-eh-ns`).
-    * **Hub eventi**: selezionare l'hub eventi creato in precedenza (`socialtwitter-eh`).
-    * **Nome criteri hub eventi**: selezionare i criteri di accesso creati in precedenza (`socialtwitter-access`).
+   * **Alias di input**: Usare il nome `TwitterStream`. Se si usa un nome diverso, tenerne traccia, poiché sarà necessario in un secondo momento.
+   * **Tipo di origine**: selezionare **Flusso dati**.
+   * **Origine**: selezionare **Hub eventi**.
+   * **Opzione di importazione**: selezionare **Usa l'hub eventi della sottoscrizione corrente**. 
+   * **Spazio dei nomi del bus di servizio**: selezionare lo spazio dei nomi dell'hub eventi creato in precedenza (`<yourname>-socialtwitter-eh-ns`).
+   * **Hub eventi**: selezionare l'hub eventi creato in precedenza (`socialtwitter-eh`).
+   * **Nome criteri hub eventi**: selezionare i criteri di accesso creati in precedenza (`socialtwitter-access`).
 
-    ![Creare un nuovo input per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
+     ![Creare un nuovo input per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-twitter-new-input.png)
 
 3. Fare clic su **Create**(Crea).
 
@@ -297,17 +297,17 @@ In questa esercitazione gli eventi tweet aggregati ottenuti dalla query del proc
 
 2. Nel pannello **Output** fare clic su **+&nbsp;Aggiungi** e quindi compilare il pannello con questi valori:
 
-    * **Alias di output**: Usare il nome `TwitterStream-Output`. 
-    * **Sink**: Selezionare **Archivio BLOB**.
-    * **Opzioni di importazione**: selezionare **Usa l'archiviazione BLOB della sottoscrizione corrente**.
-    * **Account di archiviazione**. Selezionare **Crea un nuovo account di archiviazione**.
-    * **Account di archiviazione** (seconda casella). Immettere `YOURNAMEsa`, dove `YOURNAME` rappresenta il nome o un'altra stringa univoca. Il nome può contenere solo lettere minuscole e numeri e deve essere univoco in Azure. 
-    * **Contenitore**. Immettere `socialtwitter`.
-    Il nome dell'account di archiviazione e il nome del contenitore vengono usati insieme per fornire un URI per l'archiviazione BLOB, in modo simile al seguente: 
+   * **Alias di output**: Usare il nome `TwitterStream-Output`. 
+   * **Sink**: Selezionare **Archivio BLOB**.
+   * **Opzioni di importazione**: selezionare **Usa l'archiviazione BLOB della sottoscrizione corrente**.
+   * **Account di archiviazione**. Selezionare **Crea un nuovo account di archiviazione**.
+   * **Account di archiviazione** (seconda casella). Immettere `YOURNAMEsa`, dove `YOURNAME` rappresenta il nome o un'altra stringa univoca. Il nome può contenere solo lettere minuscole e numeri e deve essere univoco in Azure. 
+   * **Contenitore**. Immettere `socialtwitter`.
+     Il nome dell'account di archiviazione e il nome del contenitore vengono usati insieme per fornire un URI per l'archiviazione BLOB, in modo simile al seguente: 
 
-    `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
+     `http://YOURNAMEsa.blob.core.windows.net/socialtwitter/...`
     
-    ![Pannello "Nuovo output" per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
+     ![Pannello "Nuovo output" per il processo di Analisi di flusso](./media/stream-analytics-twitter-sentiment-analysis-trends/stream-analytics-create-output-blob-storage.png)
     
 4. Fare clic su **Create**(Crea). 
 
@@ -338,7 +338,7 @@ Sono stati specificati l'input del processo, la query e l'output. A questo punto
 
 Quando il processo è in esecuzione ed elabora il flusso di Twitter in tempo reale, è possibile visualizzare l'output per l'analisi del sentiment.
 
-Per visualizzare l'output del processo in tempo reale, usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com/) o [Azure Explorer](http://www.cerebrata.com/products/azure-explorer/introduction). A questo punto è possibile usare [Power BI](https://powerbi.com/) per estendere l'applicazione in modo da includere un dashboard personalizzato come quello riportato nello screenshot seguente:
+Per visualizzare l'output del processo in tempo reale, usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com/) o [Azure Explorer](https://www.cerebrata.com/products/azure-explorer/introduction). A questo punto è possibile usare [Power BI](https://powerbi.com/) per estendere l'applicazione in modo da includere un dashboard personalizzato come quello riportato nello screenshot seguente:
 
 ![Power BI](./media/stream-analytics-twitter-sentiment-analysis-trends/power-bi.png)
 

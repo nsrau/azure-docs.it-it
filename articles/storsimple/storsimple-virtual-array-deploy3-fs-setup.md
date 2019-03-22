@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 04/17/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f699e40a4a31b6d57b12a43ae307806d3f010015
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: a931b303e40e41bc23e8b586e1d37e600625b1a8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54267182"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57881062"
 ---
 # <a name="deploy-storsimple-virtual-array---set-up-as-file-server-via-azure-portal"></a>Distribuire l'array virtuale StorSimple: configurare come file server tramite il portale di Azure
 ![](./media/storsimple-virtual-array-deploy3-fs-setup/fileserver4.png)
@@ -129,15 +129,15 @@ Eseguire la procedura seguente nel [portale di Azure](https://portal.azure.com/)
     ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Fare clic su **Configura** sulla barra dei comandi. Verrà visualizzato il pannello **Configura**. Nel pannello **Configura** eseguire le operazioni seguenti:
    
-    1. Il nome del file server viene inserito automaticamente.
+   1. Il nome del file server viene inserito automaticamente.
     
-    2. Assicurarsi che la crittografia per l'archiviazione cloud sia impostata su **Abilitata**. In questo modo verranno crittografati tutti i dati inviati al cloud. 
+   2. Assicurarsi che la crittografia per l'archiviazione cloud sia impostata su **Abilitata**. In questo modo verranno crittografati tutti i dati inviati al cloud. 
     
-    3. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia. Specificare una chiave di 32 caratteri e quindi immetterla nuovamente per confermarla. Registrare la chiave in un'app di gestione delle chiavi per riferimento futuro.
+   3. Una chiave AES a 256 bit viene usata con la chiave definita dall'utente per la crittografia. Specificare una chiave di 32 caratteri e quindi immetterla nuovamente per confermarla. Registrare la chiave in un'app di gestione delle chiavi per riferimento futuro.
     
-    4. Fare clic su **Configura le impostazioni necessarie** per specificare le credenziali dell'account di archiviazione da usare con il dispositivo. Se non è configurata alcuna credenziale, fare clic su **Aggiungi nuova**. **Verificare che l'account di archiviazione in uso supporti i BLOB in blocchi. I BLOB di pagine non sono supportati.** Altre informazioni sui [BLOB in blocchi e i BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
+   4. Fare clic su **Configura le impostazioni necessarie** per specificare le credenziali dell'account di archiviazione da usare con il dispositivo. Se non è configurata alcuna credenziale, fare clic su **Aggiungi nuova**. **Verificare che l'account di archiviazione in uso supporti i BLOB in blocchi. I BLOB di pagine non sono supportati.** Altre informazioni sui [BLOB in blocchi e i BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).
    
-    ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
+      ![Configurare un file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. Nel pannello **Aggiungi credenziali dell'account di archiviazione** eseguire le operazioni seguenti: 
 
     1. Scegliere la sottoscrizione corrente se l'account di archiviazione è nella stessa sottoscrizione del servizio. Specificare altro se l'account di archiviazione è esterno alla sottoscrizione del servizio. 
@@ -175,26 +175,26 @@ Eseguire i passaggi seguenti nel [portale di Azure](https://portal.azure.com/) p
    ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Specificare le impostazioni di condivisione seguenti:
 
-    1. Un nome univoco per la condivisione. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
+   1. Un nome univoco per la condivisione. Il nome deve essere una stringa contenente da 3 a 127 caratteri.
     
-    2. Una **Descrizione** facoltativa per la condivisione. La descrizione consente di identificare i proprietari della condivisione.
+   2. Una **Descrizione** facoltativa per la condivisione. La descrizione consente di identificare i proprietari della condivisione.
     
-    3. Un **Tipo** per la condivisione. Il tipo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale** . Per tutti gli altri dati, selezionare una **Condivisione a livelli** .
-    Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
+   3. Un **Tipo** per la condivisione. Il tipo è disponibile come **Condivisione a livelli** o **Aggiunto in locale** dove quella a livelli è l'impostazione predefinita. Per carichi di lavoro che richiedono garanzie locali, latenze basse e prestazioni di livello superiore, selezionare la condivisione **Aggiunto in locale** . Per tutti gli altri dati, selezionare una **Condivisione a livelli** .
+      Una condivisione aggiunta in locale viene sottoposta a thick provisioning per garantire che i dati primari nella condivisione rimangano a livello locale nel dispositivo e non a livello cloud. D'altra parte, una condivisione a livelli viene sottoposta a thin provisioning. Quando si crea una condivisione a livelli, viene eseguito il provisioning del 10% dello spazio a livello locale e del 90% dello spazio nel cloud. Ad esempio, se si esegue il provisioning di un volume di 1 TB, 100 GB si trovano nello spazio locale e 900 GB vengono usati nel cloud quando i dati sono suddivisi in livelli. Questo implica che, se si esaurisce tutto lo spazio locale nel dispositivo, non è possibile eseguire il provisioning di una condivisione a livelli.
    
-    4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o del gruppo di utenti nel formato *john@contoso.com*. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
+   4. Nel campo **Set default full permissions to** (Imposta le autorizzazioni complete predefinite su) assegnare le autorizzazioni all'utente o al gruppo che avrà accesso a questa condivisione. Specificare il nome dell'utente o il gruppo di nel *john\@contoso.com* formato. Si consiglia di usare un gruppo di utenti (anziché un singolo utente) per consentire ai privilegi amministratore di accedere a queste condivisioni. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.
    
-    5. Fare clic su **Aggiungi** per creare la condivisione. 
+   5. Fare clic su **Aggiungi** per creare la condivisione. 
     
-        ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
+       ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-        Viene ricevuta una notifica che indica che la creazione della condivisione è in corso.
+       Viene ricevuta una notifica che indica che la creazione della condivisione è in corso.
    
-        ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+       ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
-    Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** verrà aggiornato per riflettere la nuova condivisione. Per impostazione predefinita, il monitoraggio e il backup vengono abilitati per la condivisione.
+      Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** verrà aggiornato per riflettere la nuova condivisione. Per impostazione predefinita, il monitoraggio e il backup vengono abilitati per la condivisione.
    
-    ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
+      ![Aggiungere una condivisione](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs22m.png)
 
 ## <a name="step-4-connect-to-the-share"></a>Passaggio 4: Connettersi alla condivisione
 A questo punto, è necessario connettersi a una o più condivisioni create nel passaggio precedente. Eseguire questi passaggi nell'host di Windows Server connesso all'array virtuale StorSimple.

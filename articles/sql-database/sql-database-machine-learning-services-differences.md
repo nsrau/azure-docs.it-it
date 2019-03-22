@@ -1,9 +1,8 @@
 ---
-title: Anteprima delle differenze principali di Machine Learning Services (con R) nel database SQL di Azure (anteprima)
+title: Differenze principali per Azure SQL Database servizi Machine Learning (anteprima)
 description: Questo argomento descrive le differenze principali tra Machine Learning Services nel database SQL di Azure (con R) ed SQL Server Machine Learning Services.
 services: sql-database
 ms.service: sql-database
-ms.subservice: machine-learning-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,17 +10,22 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: carlrab
 manager: cgronlun
-ms.date: 01/31/2019
-ms.openlocfilehash: 4350fb0e75f140e120ba6cd2f074ffa1816a8fce
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: 57ea52c179376e8378680f436d396ffaf9357f68
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237485"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771851"
 ---
-# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-and-sql-server"></a>Differenze principali tra Machine Learning Services nel database SQL di Azure ed SQL Server
+# <a name="key-differences-between-machine-learning-services-in-azure-sql-database-preview-and-sql-server"></a>Differenze principali tra SQL Server e servizi di Machine Learning nel Database SQL di Azure (anteprima)
 
-Le funzionalità di Machine Learning Services (con R) nel database SQL di Azure sono simili a quelle di [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Di seguito sono riportate alcune differenze principali tra questi servizi.
+La funzionalità di Azure SQL Database Machine Learning Services (con R) (anteprima) è simile a [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). Di seguito sono riportate alcune differenze fondamentali.
+
+> [!IMPORTANT]
+> Servizi di Azure SQL Database Machine Learning è attualmente in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate.
+> Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="language-support"></a>Supporto per le lingue
 
@@ -36,16 +40,24 @@ SQL Server include il supporto per R e Python tramite il [framework di estendibi
 L'installazione e la gestione dei pacchetti R funziona in modo diverso nel database SQL e in SQL Server. Le differenze sono le seguenti:
 
 - I pacchetti R vengono installati tramite [sqlmlutils](https://github.com/Microsoft/sqlmlutils) o [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
-- I pacchetti non possono eseguire chiamate di rete in uscita. Questa limitazione è simile alle [regole predefinite del firewall per Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, ma non può essere modificata nel database SQL.
+- I pacchetti non possono eseguire chiamate di rete in uscita. Questa limitazione è simile al [predefinito le regole del firewall per servizi di Machine Learning](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) in SQL Server, ma non può essere modificato nel Database SQL.
 - Non è disponibile il supporto per i pacchetti che dipendono da runtime esterni, ad esempio Java, o richiedono l'accesso alle API del sistema operativo per l'installazione o l'utilizzo.
 
 ## <a name="resource-governance"></a>Governance delle risorse
 
-Non è possibile limitare le risorse R mediante [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) e pool di risorse esterni. Le risorse R rappresentano una percentuale delle risorse del database SQL e dipendono dal livello di servizio scelto. Per altre informazioni, vedere [Modelli di acquisto del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
+Non è possibile limitare le risorse R mediante [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) e pool di risorse esterni.
 
-## <a name="security-isolation"></a>Isolamento di sicurezza
+Durante l'anteprima pubblica, vengono impostate su un massimo di 20% delle risorse del Database SQL, risorse R e dipendono dal quale livello di servizio scelto. Per altre informazioni, vedere [Modelli di acquisto del database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers).
 
-Nel database SQL di Azure, Platform Abstraction Layer di SQL fornisce l'isolamento per i processi esterni. L'isolamento offre un livello aggiuntivo di sicurezza per l'esecuzione di script R.
+### <a name="insufficient-memory-error"></a>Errore di memoria insufficiente
+
+Se la memoria insufficiente è disponibile per R, si otterrà un messaggio di errore. Messaggi di errore comuni sono:
+
+- Impossibile comunicare con il runtime per lo script 'R' per l'id richiesta: * * *. Verificare i requisiti del runtime di 'R'
+- Errore di script 'R' si è verificato durante l'esecuzione di 'sp_execute_external_script' con HRESULT 0x80004004. ... si è verificato un errore dello script esterno: ".. Impossibile allocare memoria (0 Mb) nella funzione C 'R_AllocStringBuffer' "
+- Si è verificato un errore dello script esterno: Errore: Impossibile allocare vettore di dimensioni.
+
+Utilizzo dipende dalla quantità di memoria viene utilizzata negli script R e il numero di query parallele in esecuzione. Se si ricevano gli errori sopra indicati, è possibile scalare il database a un livello di servizio superiore per risolvere il problema.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

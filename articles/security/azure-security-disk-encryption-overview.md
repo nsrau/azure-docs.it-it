@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/12/2019
+ms.date: 03/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7dd061d84167b172aff52e8a62ed6d43fddc108
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66d788aec83e3e57a49b063f2ca80484360f639d
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862013"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295284"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -81,6 +81,7 @@ La soluzione non supporta gli scenari, le funzionalità e la tecnologia seguenti
 * Macchine virtuali IaaS del piano Basic.
 * Disabilitare la crittografia in un'unità del sistema operativo per le macchine virtuali IaaS Linux.
 * Disabilitare la crittografia in un'unità di dati quando l'unità del sistema operativo è crittografata per le macchine virtuali Iaas di Linux.
+* Imposta crittografia di unità del sistema operativo per la scalabilità di macchine virtuali Linux.
 * Macchine virtuali IaaS create usando il metodo di creazione classico per le macchine virtuali.
 * Abilitare la crittografia delle immagini personalizzate nelle macchine virtuali IaaS Linux.
 * Integrazione con il sistema di gestione delle chiavi locale.

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: 267919900fe68271365a73c3cbea7b1f0befc8a7
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 24a77561d08cc3db5356dd0e931f62bf2d16406d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766819"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014185"
 ---
 # <a name="assign-access-to-cost-management-data"></a>Assegnare l’accesso ai dati di Gestione costi
 
@@ -136,7 +136,7 @@ Per l'accesso all'ambito Gruppo di gestione è richiesta almeno l'autorizzazione
 7. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 8. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 9. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-10. Fare clic su **Salva**.  
+10. Fare clic su **Save**.  
     ![Informazioni di esempio nella casella Aggiungi autorizzazioni per un gruppo di gestione](./media/assign-access-acm-data/add-permissions.png)
 
 ## <a name="assign-subscription-scope-access"></a>Assegnare l'accesso all'ambito di sottoscrizione
@@ -151,7 +151,7 @@ Per accedere a una sottoscrizione è richiesta almeno l'autorizzazione Lettore G
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Salva**.
+9. Fare clic su **Save**.
 
 ## <a name="assign-resource-group-scope-access"></a>Assegnare l'accesso all’ambito Gruppo di risorse
 
@@ -165,7 +165,7 @@ Per accedere a un gruppo di risorse è richiesta almeno l'autorizzazione Lettore
 6. Sotto **Ruolo**, selezionare **Lettore Gestione costi**.
 7. Per **Assegna l’accesso a**, selezionare **Applicazione, gruppo o utente di Azure AD**.
 8. Per assegnare l'accesso, cercare e quindi selezionare l'utente.
-9. Fare clic su **Salva**.
+9. Fare clic su **Save**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

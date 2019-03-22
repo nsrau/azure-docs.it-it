@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: 8941ec26cef5e3dc2f17faf0d7eb843b76f8926f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: 107687c785433f81870449d1445136b5148a4d2c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36331840"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101755"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Strumento Copia dati di Azure Data Factory
 Lo strumento Copia dati di Azure Data Factory semplifica e ottimizza l'inserimento di dati in un data lake, che è in genere il primo passaggio in uno scenario di integrazione dei dati end-to-end.  In questo modo è possibile risparmiare tempo, soprattutto quando si usa Azure Data Factory per inserire per la prima volta i dati da un'origine. Questi sono alcuni dei vantaggi offerti dallo strumento:
@@ -48,7 +48,7 @@ Questo strumento consente di spostare i dati da un'ampia gamma di origini alle d
 5. Esaminare il **riepilogo** delle entità di Data Factory da creare. 
 6. **Modificare** la pipeline per aggiornare le impostazioni per l'attività di copia in base alle esigenze. 
 
- Lo strumento è stato concepito fin da subito per l'uso con i Big Data e offre il supporto per svariati tipi di oggetti e dati. È possibile usarlo per spostare una quantità notevole di cartelle, file o tabelle. Lo strumento supporta inoltre l'anteprima automatica dei dati, l'acquisizione e il mapping automatico dello schema, nonché l'applicazione di filtri ai dati.
+   Lo strumento è stato concepito fin da subito per l'uso con i Big Data e offre il supporto per svariati tipi di oggetti e dati. È possibile usarlo per spostare una quantità notevole di cartelle, file o tabelle. Lo strumento supporta inoltre l'anteprima automatica dei dati, l'acquisizione e il mapping automatico dello schema, nonché l'applicazione di filtri ai dati.
 
 ![Strumento Copia dati](./media/copy-data-tool/copy-data-tool.png)
 

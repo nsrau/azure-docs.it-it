@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 086ef9030451632ee4defa39a402e4d62c897f20
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342117"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816567"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -131,6 +131,8 @@ Per aggiungere un ruolo all'identità gestita dell'assegnazione, seguire questa 
 
 ## <a name="create-a-remediation-task"></a>Creare un'attività di correzione
 
+### <a name="create-a-remediation-task-through-portal"></a>Creare un'attività di monitoraggio e aggiornamento mediante il portale
+
 Durante la valutazione l'assegnazione dei criteri con effetto **deployIfNotExists** determina se sono presenti risorse non conformi. Quando vengono rilevate risorse non conformi, vengono visualizzati i dettagli nella pagina **Correzione**. Insieme all'elenco di criteri con risorse non conformi è disponibile l'opzione per attivare un'**attività di correzione**. Questa opzione crea una distribuzione dal modello **deployIfNotExists**.
 
 Per creare un'**attività di correzione**, seguire questa procedura:
@@ -163,6 +165,32 @@ Per creare un'**attività di correzione**, seguire questa procedura:
    ![Correggere - menu di scelta rapida delle attività della risorsa](../media/remediate-resources/resource-task-context-menu.png)
 
 Le risorse distribuite tramite un'**attività di correzione** vengono aggiunte nella scheda **Risorse distribuite** della pagina di conformità dei criteri.
+
+### <a name="create-a-remediation-task-through-azure-cli"></a>Creare un'attività di monitoraggio e aggiornamento tramite la CLI di Azure
+
+Per creare un **attività di correzione** con il comando di Azure, usare il `az policy remediation` comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** ID di assegnazione dei criteri.
+
+```azurecli-interactive
+# Login first with az login if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+az policy remediation create --name myRemediation --policy-assignment '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Per altri comandi di monitoraggio e aggiornamento e gli esempi, vedere la [monitoraggio e aggiornamento dei criteri di az](/cli/azure/policy/remediation) comandi.
+
+### <a name="create-a-remediation-task-through-azure-powershell"></a>Creare un'attività di monitoraggio e aggiornamento tramite Azure PowerShell
+
+Per creare un **attività di correzione** con Azure PowerShell, usare il `Start-AzPolicyRemediation` comandi. Sostituire `{subscriptionId}` con l'ID sottoscrizione e `{myAssignmentId}` con il **deployIfNotExists** ID di assegnazione dei criteri.
+
+```azurepowershell-interactive
+# Login first with Connect-AzAccount if not using Cloud Shell
+
+# Create a remediation for a specific assignment
+Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments/{myAssignmentId}'
+```
+
+Per altri cmdlet di correzione ed esempi, vedere la [Az.PolicyInsights](/powershell/module/az.policyinsights/#policy_insights) modulo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
-title: 'API REST: Operazioni di gestione di account in Azure Data Lake Store | Microsoft Docs'
-description: Usare Azure Data Lake Store e l'API REST WebHDFS per eseguire operazioni di gestione di account in Data Lake Store
+title: 'API REST: Operazioni di gestione in Azure Data Lake archiviazione Gen1 account | Microsoft Docs'
+description: Usare Azure Data Lake Storage Gen1 e l'API REST WebHDFS per eseguire operazioni di gestione di account nell'account Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 5b31188eb5618d0ec5ac1f89c590913e4e284d9f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: HT
+ms.openlocfilehash: b2c4d38462cf617d8417b269d47a8c1bb0c266c3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "36337149"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530119"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-rest-api"></a>Operazioni di gestione di account in Azure Data Lake Store con l'API REST
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operazioni di gestione di account in Azure Data Lake Storage Gen1 con API REST
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [API REST](data-lake-store-get-started-rest-api.md)
@@ -27,26 +27,26 @@ ms.locfileid: "36337149"
 >
 >
 
-Questo articolo fornisce informazioni per l'esecuzione di operazioni di gestione di account in Data Lake Store con l'API REST. Le operazioni di gestione di account includono la creazione di un account Data Lake Store, l'eliminazione di un account Data Lake Store e così via. Per istruzioni su come eseguire le operazioni del file system in Data Lake Store con l'API REST, vedere [Operazioni del file system in Data Lake Store con l'API REST](data-lake-store-data-operations-rest-api.md).
+Questo articolo descrive come eseguire operazioni di gestione di account in Azure Data Lake Storage Gen1 con l'API REST. Le operazioni di gestione di account includono la creazione di un account Data Lake Storage Gen1, l'eliminazione di un account Data Lake Storage Gen1 e così via. Per istruzioni su come eseguire le operazioni del file system in Data Lake Storage Gen1 con l'API REST, vedere [Operazioni del file system in Data Lake Storage Gen1 con l'API REST](data-lake-store-data-operations-rest-api.md).
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **[cURL](http://curl.haxx.se/)**. Questo articolo usa cURL per illustrare come effettuare chiamate API REST con un account Archivio Data Lake.
+* **[cURL](https://curl.haxx.se/)**. In questo articolo viene usato cURL per illustrare come effettuare chiamate API REST con un account Data Lake Storage Gen1.
 
 ## <a name="how-do-i-authenticate-using-azure-active-directory"></a>Come si esegue l'autenticazione tramite Azure Active Directory?
 È possibile adottare due approcci per l'autenticazione tramite Azure Active Directory.
 
-* Per l'autenticazione dell'utente finale per l'applicazione (interattiva), vedere [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-rest-api.md) (Autenticazione dell'utente finale con Data Lake Store tramite .NET SDK).
-* Per l'autenticazione da servizio a servizio per l'applicazione (non interattiva), vedere [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md) (Autenticazione da servizio a servizio con Data Lake Store tramite .NET SDK).
+* Per l'autenticazione dell'utente finale per l'applicazione (interattiva), consultare [Autenticazione dell'utente finale con Data Lake Storage Gen1 tramite .NET SDK](data-lake-store-end-user-authenticate-rest-api.md).
+* Per l'autenticazione da servizio a servizio per l'applicazione (non interattiva), vedere [Autenticazione da servizio a servizio con Data Lake Storage Gen1 tramite .NET SDK](data-lake-store-service-to-service-authenticate-rest-api.md).
 
 
-## <a name="create-a-data-lake-store-account"></a>Creare un account Archivio Data Lake
-Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/create).
+## <a name="create-a-data-lake-storage-gen1-account"></a>Creare un account Data Lake Storage Gen1
+Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/rest/api/datalakestore/accounts/create).
 
-Usare il comando cURL seguente. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
+Usare il comando cURL seguente. Sostituire **\<nomestoragegen1>** con il nome Data Lake Storage Gen1.
 
-    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
+    curl -i -X PUT -H "Authorization: Bearer <REDACTED>" -H "Content-Type: application/json" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview -d@"C:\temp\input.json"
 
 Nel comando sopra sostituire \<`REDACTED`\> con il token di autorizzazione recuperato in precedenza. Il payload della richiesta per questo comando è contenuto nel file **input.json** fornito per il parametro `-d` precedente. Il contenuto del file input.json è simile al frammento di codice seguente:
 
@@ -58,12 +58,12 @@ Nel comando sopra sostituire \<`REDACTED`\> con il token di autorizzazione recup
     "properties": {}
     }    
 
-## <a name="delete-a-data-lake-store-account"></a>Eliminare un account Archivio Data Lake
-Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/en-us/rest/api/datalakestore/accounts/delete).
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Eliminare un account Data Lake Storage Gen1
+Questa operazione si basa sulla chiamata API REST definita [qui](https://docs.microsoft.com/rest/api/datalakestore/accounts/delete).
 
-Usare il comando cURL seguente per eliminare un account Archivio Data Lake. Sostituire **\<yourstorename>** con il nome di Data Lake Store.
+Usare il comando cURL seguente per eliminare un account Data Lake Storage Gen1. Sostituire **\<nomestoragegen1>** con il nome dell'account Data Lake Storage Gen1.
 
-    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstorename>?api-version=2015-10-01-preview
+    curl -i -X DELETE -H "Authorization: Bearer <REDACTED>" https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.DataLakeStore/accounts/<yourstoragegen1name>?api-version=2015-10-01-preview
 
 Dovrebbe venire visualizzato un output simile al frammento di codice seguente:
 
@@ -72,9 +72,9 @@ Dovrebbe venire visualizzato un output simile al frammento di codice seguente:
     ...
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Operazioni del file system in Data Lake Store con l'API REST](data-lake-store-data-operations-rest-api.md).
+* [Operazioni del file system in Data Lake Storage Gen1 con l'API REST](data-lake-store-data-operations-rest-api.md).
 
 ## <a name="see-also"></a>Vedere anche 
-* [Azure Data Lake Store REST API Reference (Informazioni di riferimento sull'API REST di Data Lake Store)](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Aprire le applicazioni Big Data di origine che funzionano con Archivio Azure Data Lake](data-lake-store-compatible-oss-other-applications.md)
+* [Riferimento all'API REST di Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
+* [Aprire le applicazioni Big Data di origine compatibili con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 4f2b094604f486d283574f4669fcad6f72bd4431
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30245738"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078143"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurare Multipath I/O per il dispositivo StorSimple
 
@@ -35,14 +35,14 @@ MPIO è una funzionalità facoltativa in Windows Server, e non è installata per
 
 Attenersi alla procedura seguente per configurare MPIO nel dispositivo StorSimple:
 
-* Passaggio 1: Installare MPIO nell'host Windows Server
+* Passaggio 1: Installazione della funzionalità MPIO nell'host Windows Server
 * Passaggio 2: Configurare MPIO per volumi StorSimple
-* Passaggio 3: Montare i volumi StorSimple nell'host
-* Passaggio 4: Configurare MPIO per la disponibilità elevata e il bilanciamento del carico
+* Passaggio 3: Montare i volumi StorSimple sull'host
+* Passaggio 4: Configurare MPIO per la disponibilità elevata e bilanciamento del carico
 
 Ognuno dei passaggi precedenti viene illustrato nelle sezioni seguenti.
 
-## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Passaggio 1: Installare MPIO nell'host Windows Server
+## <a name="step-1-install-mpio-on-the-windows-server-host"></a>Passaggio 1: Installazione della funzionalità MPIO nell'host Windows Server
 
 Per installare questa funzionalità nell'host Windows Server, completare la procedura seguente.
 
@@ -91,7 +91,7 @@ Per identificare i volumi StorSimple è necessario configurare MPIO. Per configu
     ![Aggiungi supporto MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)
 7. Riavviare il server quando richiesto.
 
-## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>Passaggio 3: Montare i volumi StorSimple nell'host
+## <a name="step-3-mount-storsimple-volumes-on-the-host"></a>Passaggio 3: Montare i volumi StorSimple sull'host
 
 Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositivo StorSimple possono essere montati ed è quindi possibile sfruttare MPIO per garantire la ridondanza. Per montare un volume, attenersi alla seguente procedura.
 
@@ -104,8 +104,8 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
    1. Immettere l'indirizzo IP della porta DATA del dispositivo StorSimple (ad esempio, immettere DATA 0).
    2. Fare clic su **OK** per tornare alla finestra di dialogo **iSCSI Initiator Properties** (Proprietà iniziatore iSCSI).
      
-     > [!IMPORTANT]
-     > **Se si utilizza una rete privata per le connessioni iSCSI, immettere l'indirizzo IP della porta DATA connessa alla rete privata.**
+      > [!IMPORTANT]
+      > **Se si utilizza una rete privata per le connessioni iSCSI, immettere l'indirizzo IP della porta DATA connessa alla rete privata.**
     
 4. Ripetere i passaggi 2-3 per una seconda interfaccia di rete (ad esempio, DATA 1) sul dispositivo. Tenere presente che queste interfacce devono essere abilitate per iSCSI. Per altre informazioni, leggere [Modificare le interfacce di rete](storsimple-8000-modify-device-config.md#modify-network-interfaces).
 5. Selezionare la scheda **Destinazioni** nella finestra di dialogo **iSCSI Initiator Properties** (Proprietà iniziatore iSCSI). Dovrebbe essere visualizzato l'IQN destinazione del dispositivo StorSimple in **Destinazioni individuate**.
@@ -148,7 +148,7 @@ Dopo la configurazione di MPIO in Windows Server, i volumi creati nel dispositiv
 > **Non modificare i parametri predefiniti.**
 
 
-## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Passaggio 4: Configurare MPIO per la disponibilità elevata e il bilanciamento del carico
+## <a name="step-4-configure-mpio-for-high-availability-and-load-balancing"></a>Passaggio 4: Configurare MPIO per la disponibilità elevata e bilanciamento del carico
 
 Per la disponibilità elevata e il bilanciamento del carico basato su percorsi multipli, è necessario aggiungere manualmente più sessioni per dichiarare i diversi percorsi disponibili. Ad esempio, se l'host dispone di due interfacce connesse alla rete iSCSI e il dispositivo dispone di due interfacce connesse alla rete iSCSI, è necessario configurare quattro sessioni con permutazioni percorso corrette (se ciascuna interfaccia DATA e ciascuna interfaccia host si trova in una subnet IP diversa e non è instradabile saranno necessarie solo due sessioni).
 

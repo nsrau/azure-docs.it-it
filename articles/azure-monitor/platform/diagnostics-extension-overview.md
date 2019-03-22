@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6c59b97a8deec78149775a147d6476e67f405d3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 8a287f118c126967d2cf8cad77a434cfecc098eb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310458"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58078540"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Cos'è l'estensione Diagnostica di Azure
 L'estensione Diagnostica di Azure è un agente di Azure che consente la raccolta di dati di diagnostica in un'applicazione distribuita. È possibile usare l'estensione di diagnostica da numerose origini diverse. Sono attualmente supportati ruoli Web e di lavoro (classici) del servizio cloud di Azure, macchine virtuali, set di scalabilità di macchine virtuali e Service Fabric. Altri servizi di Azure hanno altri metodi di diagnostica. Vedere la [panoramica sul monitoraggio in Azure](../../azure-monitor/overview.md).
@@ -50,6 +50,9 @@ Oppure è possibile trasmetterli all'[hub eventi](../../event-hubs/event-hubs-ab
 * La considerazione dell'operatore carattere jolly nei contatori delle prestazioni come la dimensione "Istanza" per la metrica.  Ad esempio se è stato raccolto il contatore "LogicalDisk(\*)/DiskWrites/sec" sarà possibile filtrare e suddividere la dimensione "Istanza" del tracciato o avviso su Disk Writes/sec per ogni disco logico nella macchina virtuale (ad esempio, C:)
 
 Per altre informazioni su come configurare questo sink, consultare la [documentazione dello schema di diagnostica di Azure.](diagnostics-extension-schema-1dot3.md)
+
+## <a name="costs"></a>Costi
+Ognuna delle opzioni elencate in precedenza potrebbe incorrere in costi. Assicurarsi di cercare in modo da evitare effetti imprevisti.  Application Insights, hub eventi, e archiviazione di Azure sono separati costi associati all'inserimento e l'ora archiviati. In particolare, archiviazione di Azure manterrà tutti i dati per sempre in modo che è possibile eliminare i dati meno recenti dopo un certo periodo di tempo per tenere i costi del controllo.    
 
 ## <a name="versioning-and-configuration-schema"></a>Controllo delle versioni e schema di configurazione
 Vedere [Versioni e cronologia degli schemi di configurazione dell'estensione di Diagnostica di Azure](diagnostics-extension-schema.md).

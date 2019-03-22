@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
-ms.openlocfilehash: dcfe744cc8ca6f3b3cd201898a79fcce3f24f8d5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: c21fa3cf819f48dcda46f2d444ed52bc2eb9ae3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639108"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113521"
 ---
 # <a name="get-shared-access-signature-uri-for-your-vm-image"></a>Ottenere l'URI di firma di accesso condiviso per l'immagine di macchina virtuale
 
@@ -44,33 +44,33 @@ L'URL di firma di accesso condiviso può essere generato in due modi comuni con 
 
 Per generare un URI di firma di accesso condiviso con l'interfaccia della riga di comando di Azure, seguire questa procedura.
 
-1.  Scaricare e installare l'[interfaccia della riga di comando di Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Le versioni sono disponibili per Windows, macOS e diverse distribuzioni di Linux. 
-2.  Creare un file PowerShell (con estensione `.ps1`), copiarlo nel codice seguente e quindi salvarlo in locale.
+1. Scaricare e installare l'[interfaccia della riga di comando di Microsoft Azure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/).  Le versioni sono disponibili per Windows, macOS e diverse distribuzioni di Linux. 
+2. Creare un file PowerShell (con estensione `.ps1`), copiarlo nel codice seguente e quindi salvarlo in locale.
 
-    ``` powershell
-    az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
-    ```
+   ``` powershell
+   az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=<account-name>;AccountKey=<account-key>;EndpointSuffix=core.windows.net' --name <vhd-name> --permissions rl --start '<start-date>' --expiry '<expiry-date>'
+   ```
     
-3.  Modificare il file per specificare i valori dei parametri seguenti.  Le date devono essere specificate nel formato di data/ora UTC, ad esempio `10-25-2016T00:00:00Z`.
-    - `<account-name>`: nome dell'account di archiviazione di Azure
-    - `<account-key>`: chiave dell'account di archiviazione di Azure
-    - `<vhd-name>`: nome del disco rigido virtuale
-    - `<start-date>`: data e ora di inizio dell'autorizzazione per l'accesso al disco rigido virtuale. Specificare la data del giorno precedente rispetto alla data corrente. 
-    - `<expiry-date>`: data e ora di scadenza dell'autorizzazione per l'accesso al disco rigido virtuale.  Specificare una data successiva di almeno tre settimane alla data corrente. 
+3. Modificare il file per specificare i valori dei parametri seguenti.  Le date devono essere specificate nel formato di data/ora UTC, ad esempio `10-25-2016T00:00:00Z`.
+   - `<account-name>`: nome dell'account di archiviazione di Azure
+   - `<account-key>`: chiave dell'account di archiviazione di Azure
+   - `<vhd-name>`: nome del disco rigido virtuale
+   - `<start-date>`: data e ora di inizio dell'autorizzazione per l'accesso al disco rigido virtuale. Specificare la data del giorno precedente rispetto alla data corrente. 
+   - `<expiry-date>`: data e ora di scadenza dell'autorizzazione per l'accesso al disco rigido virtuale.  Specificare una data successiva di almeno tre settimane alla data corrente. 
  
-    L'esempio seguente mostra i valori dei parametri appropriati (al momento della stesura di questo articolo).
+   L'esempio seguente mostra i valori dei parametri appropriati (al momento della stesura di questo articolo).
 
-    ``` powershell
-        az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
-    ```
+   ``` powershell
+       az storage container generate-sas --connection-string 'DefaultEndpointsProtocol=https;AccountName=st00009;AccountKey=6L7OWFrlabs7Jn23OaR3rvY5RykpLCNHJhxsbn9ONc+bkCq9z/VNUPNYZRKoEV1FXSrvhqq3aMIDI7N3bSSvPg==;EndpointSuffix=core.windows.net' --name vhds --permissions rl --start '2017-11-06T00:00:00Z' --expiry '2018-08-20T00:00:00Z'
+   ```
  
 4. Salvare le modifiche a questo script di PowerShell.
 5. Eseguire lo script con privilegi amministrativi per generare una *stringa di connessione della firma di accesso condiviso* per l'accesso a livello di contenitore.  È possibile usare due approcci di base:
-    - Eseguire lo script dalla console.  In Windows, ad esempio, fare clic con il pulsante destro del mouse sullo script e quindi scegliere **Esegui come amministratore**.
-    - Eseguire lo script in un editor di PowerShell, ad esempio [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), con privilegi amministrativi. 
-  Di seguito viene illustrata una stringa di connessione della firma di accesso condiviso generata nell'editor. 
+   - Eseguire lo script dalla console.  In Windows, ad esempio, fare clic con il pulsante destro del mouse sullo script e quindi scegliere **Esegui come amministratore**.
+   - Eseguire lo script in un editor di PowerShell, ad esempio [Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/core-powershell/ise/introducing-the-windows-powershell-ise), con privilegi amministrativi. 
+     Di seguito viene illustrata una stringa di connessione della firma di accesso condiviso generata nell'editor. 
 
-    ![Generazione di URI di firma di accesso condiviso in PowerShell ISE](./media/publishvm_032.png)
+     ![Generazione di URI di firma di accesso condiviso in PowerShell ISE](./media/publishvm_032.png)
 
 6. Copiare la stringa di connessione della firma di accesso condiviso risultante e salvarla in un file di testo in un percorso sicuro.  La stringa verrà modificata in seguito per aggiungere le informazioni sul percorso del disco rigido virtuale associato per creare l'URI di firma di accesso condiviso finale. 
 7. Nel portale di Azure passare all'archiviazione BLOB che contiene il disco rigido virtuale associato all'URI generato.
@@ -102,11 +102,11 @@ Usare la procedura seguente per generare un URI di firma di accesso condiviso co
     ![Recupero della firma di accesso condiviso in Microsoft Azure Storage Explorer](./media/publishvm_034.png)
 
 6. Viene visualizzata la finestra di dialogo **Firma di accesso condiviso**. Immettere i valori per i campi seguenti:
-    - **Ora di inizio**: data e ora di inizio autorizzazione per l'accesso al disco rigido virtuale. Specificare una data precedente di un giorno rispetto alla data corrente.
-    - **Ora di scadenza**: data e ora di scadenza per l'accesso al disco rigido virtuale.  Specificare una data successiva di almeno tre settimane alla data corrente.
-    - **Autorizzazioni**: selezionare le autorizzazioni `Read` e `List`. 
+   - **Ora di inizio**: data e ora di inizio autorizzazione per l'accesso al disco rigido virtuale. Specificare una data precedente di un giorno rispetto alla data corrente.
+   - **Ora di scadenza**: data e ora di scadenza per l'accesso al disco rigido virtuale.  Specificare una data successiva di almeno tre settimane alla data corrente.
+   - **Autorizzazioni**: selezionare le autorizzazioni `Read` e `List`. 
 
-    ![Finestra di dialogo per la firma di accesso condiviso in Microsoft Azure Storage Explorer](./media/publishvm_035.png)
+     ![Finestra di dialogo per la firma di accesso condiviso in Microsoft Azure Storage Explorer](./media/publishvm_035.png)
 
 7. Fare clic su **Crea** per creare l'URI di firma di accesso condiviso associato al disco rigido virtuale.  La finestra di dialogo visualizza i dettagli sull'operazione. 
 8. Copiare il valore del campo **URL** e salvarlo in un file di testo in un percorso sicuro. 

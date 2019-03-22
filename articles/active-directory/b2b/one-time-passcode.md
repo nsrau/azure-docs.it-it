@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9493f7ee3278bb42dc21574cd008fbe2f4376a1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8f5234674bc41e1f5bfa260dfc32042a3345d9f7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185146"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294826"
 ---
 # <a name="email-one-time-passcode-authentication-preview"></a>Autenticazione con passcode monouso tramite indirizzo di posta elettronica (anteprima)
 
@@ -35,11 +36,11 @@ Questa funzionalità è attualmente disponibile in anteprima (consultare la sezi
 ## <a name="user-experience-for-one-time-passcode-guest-users"></a>Esperienza utente per gli utenti guest con passcode monouso
 Grazie all'autenticazione con passcode monouso, l'utente guest può riscattare l'invito facendo clic su un collegamento diretto o tramite l'indirizzo di posta elettronica di invito. In entrambi i casi, un messaggio nel browser indica che verrà inviato un codice all'indirizzo di posta elettronica dell'utente guest. L'utente guest seleziona **Send code** (Invia codice):
  
-   ![Gestisci app nel pannello di accesso](media/one-time-passcode/otp-send-code.png)
+   ![Screenshot che mostra il pulsante di code di trasmissione](media/one-time-passcode/otp-send-code.png)
  
 Un passcode viene inviato all'indirizzo di posta elettronica dell'utente. L'utente recupera il passcode dal messaggio di posta elettronica e lo immette nella finestra del browser:
  
-   ![Gestisci app nel pannello di accesso](media/one-time-passcode/otp-enter-code.png)
+   ![Screenshot che mostra la tabella codici invio](media/one-time-passcode/otp-enter-code.png)
  
 L'utente guest viene autenticato e può quindi visualizzare la risorsa condivisa o continuare ad accedere. 
 
@@ -57,7 +58,7 @@ Al momento dell'invito non è presente alcuna indicazione del fatto che l'utente
 
 È possibile visualizzare gli utenti guest che eseguono l'autenticazione con i passcode monouso nel portale di Azure passando ad **Azure Active Directory** > **Relazioni aziendali**  >  **Utenti da altre organizzazioni**.
 
-![Visualizzare gli utenti con passcode monouso nel portale di Azure in cui origine è uguale a OTP (one-time passcode)](media/one-time-passcode/otp-users.png)
+![Screenshot che illustra un utente di passcode monouso con valore di origine di OTP](media/one-time-passcode/otp-users.png)
 
 > [!NOTE]
 > Quando un utente riscatta un passcode monouso e in un secondo momento ottiene un account Microsoft, un account di Azure AD o un altro account federato, continuerà a essere autenticato con un passcode monouso. Se si vuole aggiornare il metodo di autenticazione di tale utente, è possibile eliminare l'account utente guest e invitarlo nuovamente.

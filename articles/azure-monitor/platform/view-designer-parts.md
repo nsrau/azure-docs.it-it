@@ -1,6 +1,6 @@
 ---
-title: Guida di riferimento per le parti di Progettazione viste in Azure Log Analytics | Microsoft Docs
-description: Progettazione viste di Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
+title: Guida di riferimento per le parti di Progettazione viste in Monitoraggio di Azure | Microsoft Docs
+description: Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare viste personalizzate che vengono visualizzate nel portale di Azure e contengono numerose visualizzazioni sui dati nell'area di lavoro di Log Analitica. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
-ms.openlocfilehash: 61118520e84b53a7669e482694f48d60fd8e67ad
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 53323e70884e61b4643f7950a1a6333f08dbbb6f
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53193876"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56889903"
 ---
-# <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guida di riferimento per le parti di visualizzazione di Progettazione viste in Log Analytics
-Progettazione viste di Azure Log Analytics consente di creare nel portale di Azure viste personalizzate che contengono visualizzazioni diverse dei dati nell'area di lavoro di Log Analytics. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
+# <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guida di riferimento sulle parti della visualizzazione Progettazione viste in Monitoraggio di Azure
+Utilizzando Progettazione vista in Monitoraggio di Azure, è possibile creare un'ampia gamma di visualizzazioni personalizzate nel portale di Azure che consentono di visualizzare i dati nell'area di lavoro di Log Analitica. Questo articolo è una guida di riferimento per le impostazioni delle parti di visualizzazione disponibili nelle viste personalizzate.
 
 Per altre informazioni su Progettazione visualizzazioni, vedere:
 
@@ -33,9 +33,9 @@ I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabel
 
 | Tipo di vista | DESCRIZIONE |
 |:--- |:--- |
-| [Elenco di query](#list-of-queries-part) |Visualizza l'elenco delle query di ricerca log. È possibile selezionare ogni query per visualizzarne i risultati. |
-| [Numero ed elenco](#number-and-list-part) |L'intestazione presenta un singolo numero che mostra il conteggio dei record risultanti da una query di ricerca log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
-| [Due numeri ed elenco](#two-numbers-and-list-part) |L'intestazione presenta due numeri che mostrano il conteggio dei record risultanti da query di ricerca log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Elenco di query](#list-of-queries-part) |Visualizza un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. |
+| [Numero ed elenco](#number-and-list-part) |L'intestazione presenta un singolo numero che visualizza il numero di record restituiti da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
+| [Due numeri ed elenco](#two-numbers-and-list-part) |L'intestazione presenta due numeri che mostrano il conteggio dei record risultanti da query di log separato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Grafico ad anello ed elenco](#donut-and-list-part) |L'intestazione presenta un singolo numero che riepiloga una colonna di valori in una query di log. L'anello visualizza graficamente i risultati dei tre record principali. |
 | [Due sequenze temporali ed elenco](#two-timelines-and-list-part) |L'intestazione presenta i risultati di due query di log nel corso del tempo sotto forma di istogrammi, con un callout in cui viene visualizzato un singolo numero che riepiloga una colonna di valori in una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo. |
 | [Informazioni](#information-part) |L'intestazione presenta testo statico e un collegamento opzionale. L'elenco visualizza uno o più elementi con titolo e testo statici. |
@@ -46,7 +46,7 @@ I tipi di riquadro di Progettazione viste disponibili sono descritti nella tabel
 Le sezioni successive descrivono nei dettagli i tipi di riquadro e le relative proprietà.
 
 ## <a name="list-of-queries-part"></a>Parte relativa all'elenco delle query
-La parte relativa all'elenco delle query visualizza un elenco di query di ricerca log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
+L'elenco di parte della query visualizza un elenco di query di log. È possibile selezionare ogni query per visualizzarne i risultati. Per impostazione predefinita, la vista include una singola query ed è possibile aggiungerne altre facendo clic su **+ Query**.
 
 ![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-list-queries.png)
 
@@ -62,7 +62,7 @@ La parte relativa all'elenco delle query visualizza un elenco di query di ricerc
 | Nome descrittivo | Nome descrittivo che viene visualizzato. |
 
 ## <a name="number-and-list-part"></a>Parte relativa a Numero ed elenco
-L'intestazione presenta un singolo numero che mostra il conteggio dei record risultanti da una query di ricerca log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
+L'intestazione presenta un singolo numero che visualizza il numero di record restituiti da una query di log. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
 ![Visualizzazione dell'elenco delle query](media/view-designer-parts/view-number-list.png)
 
@@ -91,7 +91,7 @@ L'intestazione presenta un singolo numero che mostra il conteggio dei record ris
 | Abilitare le soglie |Selezionare questo collegamento per abilitare le soglie. Per altre informazioni, vedere [Impostazioni comuni](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Parte relativa a Due numeri ed elenco
-L'intestazione presenta due numeri che mostrano il conteggio dei record risultanti da query di ricerca log separate. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
+L'intestazione presenta due numeri che mostrano il conteggio dei record risultanti da query di log separato. L'elenco visualizza i primi dieci risultati di una query, con un grafico indicante il valore relativo di una colonna numerica o il suo variare nel tempo.
 
 ![Visualizzazione Due numeri ed elenco](media/view-designer-parts/view-two-numbers-list.png)
 
@@ -322,14 +322,14 @@ Il separatore di nome e valore è il delimitatore dei singoli caratteri da usare
 Si consideri, ad esempio, una proprietà denominata *Sede* nella quale vengono inclusi valori come *Redmond-Building 41* e *Bellevue-Building12*. È possibile specificare un trattino (-) come separatore di nome e valore e *City-Building* come nome. Ciò comporta l'analisi di ciascun valore in due proprietà chiamate *City* e *Building*.
 
 ### <a name="click-through-navigation"></a>Navigazione click-through
-Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Si aprirà una query nel [portale per la ricerca log](../../azure-monitor/log-query/portals.md) o verrà avviata un'altra visualizzazione.
+Navigazione click-through definisce l'azione che verrà intrapresa quando si fa clic su un'intestazione o un elemento elenco in una visualizzazione.  Si aprirà una query nella [Analyticsl Log](../../azure-monitor/log-query/portals.md) o avviare un'altra visualizzazione.
 
 La tabella seguente illustra le impostazioni relative alla navigazione click-through.
 
 | Impostazione           | DESCRIZIONE |
 |:--|:--|
-| Ricerca log (automatica) | Ricerca log da eseguire quando si seleziona un elemento intestazione.  Si tratta della stessa ricerca log su cui si basa l'elemento.
-| Ricerca log        | Ricerca log da eseguire quando si seleziona un elemento in un elenco.  Digitare la query nella casella **Query di spostamento**.   Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.  Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*. |
+| Ricerca log (automatica) | Query di log da eseguire quando si seleziona un elemento di intestazione.  Si tratta della stessa query log si basa l'elemento.
+| Ricerca log        | Query di log da eseguire quando si seleziona un elemento in un elenco.  Digitare la query nella casella **Query di spostamento**.   Usare *{selected item}* per includere la sintassi per l'elemento selezionato dall'utente.  Se, ad esempio, la query include una colonna denominata *Computer* e la query di navigazione è *{selected item}*, viene eseguita una query del tipo *Computer="MyComputer"* quando si seleziona un computer. Se la query di navigazione è *Type=Event {selected item}* viene eseguita la query *Type=Event Computer="MyComputer"*. |
 | Visualizza              | Visualizzazione da aprire quando si seleziona un elemento intestazione o un elemento in un elenco.  Selezionare il nome di una visualizzazione nell'area di lavoro nella casella **Nome visualizzazione**. |
 
 
@@ -361,4 +361,4 @@ La tabella seguente illustra le impostazioni relative alle soglie:
 | Colore |Colore che indica il valore di soglia. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Informazioni sulle [ricerche log](../../azure-monitor/log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.
+* Scopri [registrare query](../log-query/log-query-overview.md) per supportare le query nelle parti di visualizzazione.

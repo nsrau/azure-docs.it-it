@@ -12,12 +12,12 @@ ms.date: 11/15/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907511b7f20311479e7b11a30f3d5719daea3f87
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: 4f96a67fecead65af28a975267590ebb08c715d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301469"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853010"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Comprendere i connettori del proxy applicazione Azure AD
 
@@ -93,7 +93,8 @@ Per altre informazioni sui gruppi di connettori, vedere [Pubblicare applicazioni
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Questo computer ha usato un'impostazione personalizzata per aumentare alcuni limiti di connessione predefiniti rispetto alle impostazioni consigliate .NET. È consigliabile eseguire un test con le impostazioni predefinite prima di contattare il supporto per ottenere la modifica di questo limite per il tenant specifico.
+
+\* Il computer usato un'impostazione personalizzata per la generazione di alcuni dei limiti di connessione predefinita di là .NET impostazioni consigliate. È consigliabile eseguire un test con le impostazioni predefinite prima di contattare il supporto per ottenere la modifica di questo limite per il tenant specifico.
  
 >[!NOTE]
 >Non c'è molta differenza nel numero massimo di TPS tra computer Core 4, 8 e 16. La differenza principale è la latenza prevista.  

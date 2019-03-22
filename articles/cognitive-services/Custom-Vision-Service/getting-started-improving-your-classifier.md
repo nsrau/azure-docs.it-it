@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
-ms.openlocfilehash: 54faf8b37afa953aac7d411df2f539188dc5b451
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: f96b4bb75a22e51586820a2e7be08c09cf7b26dd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310215"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104421"
 ---
 # <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
 
@@ -39,7 +39,7 @@ Per risolvere il problema, usare il materiale sussidiario seguente sul training 
 
 ## <a name="data-quantity"></a>Quantità di dati
 
-Il numero di immagini di training è il fattore più importante. È consigliabile usare come punto di partenza almeno 50 immagini per etichetta. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
+Il numero di immagini di training è il fattore più importante. È consigliabile usare almeno 50 immagini per ogni etichetta come punto di partenza. Con un numero inferiore di immagini, c'è un rischio maggiore di overfitting e, sebbene i numeri di prestazione possano suggerire una buona qualità, il modello potrebbe avere difficoltà con i dati del mondo reale. 
 
 ## <a name="data-balance"></a>Bilanciamento dei dati
 
@@ -102,4 +102,4 @@ A volte un'ispezione visiva può identificare modelli che è possibile corregger
 In questa guida, si sono apprese varie tecniche per rendere più preciso il modello di classificazione di immagini personalizzate. Successivamente, altre informazioni su come eseguire il test delle immagini a livello di codice inviandole all'API delle stime.
 
 > [!div class="nextstepaction"]
-[Usare l'API delle stime](use-prediction-api.md)
+> [Usare l'API delle stime](use-prediction-api.md)

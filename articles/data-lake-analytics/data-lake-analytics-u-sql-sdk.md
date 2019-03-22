@@ -8,12 +8,12 @@ ms.author: yanacai
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 03/01/2017
-ms.openlocfilehash: 6a73ef058a76152678099eca3f1bd15590b0b03d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 14908225e78b79cb748e712ae23643ddde4a4242
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238795"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58089965"
 ---
 # <a name="run-and-test-u-sql-with-azure-data-lake-u-sql-sdk"></a>Esecuzione e test di U-SQL con Azure Data Lake U-SQL SDK
 
@@ -32,11 +32,11 @@ L'SDK U-SQL di Data Lake richiede le dipendenze seguenti:
 - [Microsoft .NET Framework 4.6 o versione successiva](https://www.microsoft.com/download/details.aspx?id=17851).
 - Microsoft Visual C++ 14 e Windows SDK 10.0.10240.0 o versione successiva (CppSDK in questo articolo). Esistono due modi per ottenerlo:
 
-    - Installare [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Sarà presente la cartella \Windows Kits\10 sotto la cartella Programmi, ad esempio C:\Programmi (x86)\Windows Kits\10. Sarà disponibile anche la versione Windows 10 SDK in \Windows Kits\10\Lib. Se queste cartelle non sono presenti, reinstallare Visual Studio e selezionare Windows 10 SDK durante l'installazione. Se è installato con Visual Studio, verrà trovato automaticamente dal compilatore locale U-SQL.
+  - Installare [Visual Studio Community Edition](https://developer.microsoft.com/downloads/vs-thankyou). Sarà presente la cartella \Windows Kits\10 sotto la cartella Programmi, ad esempio C:\Programmi (x86)\Windows Kits\10. Sarà disponibile anche la versione Windows 10 SDK in \Windows Kits\10\Lib. Se queste cartelle non sono presenti, reinstallare Visual Studio e selezionare Windows 10 SDK durante l'installazione. Se è installato con Visual Studio, verrà trovato automaticamente dal compilatore locale U-SQL.
 
     ![Windows 10 SDK ad esecuzione locale degli strumenti di Data Lake per Visual Studio](./media/data-lake-analytics-data-lake-tools-local-run/data-lake-tools-for-visual-studio-local-run-windows-10-sdk.png)
 
-    - Installare [Strumenti Data Lake per Visual Studio](https://aka.ms/adltoolsvs). I file di Windows SDK e Visual C++ preassemblati sono disponibili in C:\Programmi (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In questo caso il compilazione locale di U-SQL non è in grado di trovare le dipendenze automaticamente. È necessario specificare il relativo percorso CppSDK. È possibile copiare i file in un altro percorso o usarli così come sono.
+  - Installare [Strumenti Data Lake per Visual Studio](https://aka.ms/adltoolsvs). I file di Windows SDK e Visual C++ preassemblati sono disponibili in C:\Programmi (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\ADL Tools\X.X.XXXX.X\CppSDK. In questo caso il compilazione locale di U-SQL non è in grado di trovare le dipendenze automaticamente. È necessario specificare il relativo percorso CppSDK. È possibile copiare i file in un altro percorso o usarli così come sono.
 
 ## <a name="understand-basic-concepts"></a>Comprendere i concetti di base
 
@@ -223,7 +223,7 @@ Ecco un esempio d'uso:
 
 Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possibile usarle per integrare le funzionalità dell'SDK U-SQL e il framework di test di C# per scalare il test locale dello script U-SQL. In questo articolo verrà usato il progetto di unit test C# standard per mostrare come usare queste interfacce per testare lo script U-SQL.
 
-### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare configurazione e progetto per unit test C#
+### <a name="step-1-create-c-unit-test-project-and-configuration"></a>Passaggio 1: Creare C# configurazione e progetto di unit test
 
 - Creare un progetto per unit test C# tramite File > Nuovo > Progetto > Visual C# > Test > Progetto unit test.
 - Aggiungere LocalRunHelper.exe come riferimento per il progetto. LocalRunHelper.exe si trova in \build\runtime\LocalRunHelper.exe nel pacchetto NuGet.
@@ -240,7 +240,7 @@ Le interfacce di programmazione si trovano tutte in LocalRunHelper.exe. È possi
 
 - Assicurarsi di copiare tutti i file di dipendenza in NugetPackage\build\runtime\ nella directory di lavoro del progetto che generalmente si trova in ProjectFolder\bin\x64\Debug.
 
-### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Creare test case per lo script U-SQL
+### <a name="step-2-create-u-sql-script-test-case"></a>Passaggio 2: Creare test case di script U-SQL
 
 Di seguito è riportato il codice di esempio per il test dello script U-SQL. Per i test, è necessario preparare script, file di input e file di output previsti.
 
@@ -332,13 +332,13 @@ LocalRunHelper.exe offre le interfacce di programmazione per la compilazione e l
 
 public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 
-|Parametro|type|DESCRIZIONE|
+|Parametro|Type|DESCRIZIONE|
 |---------|----|-----------|
 |messageOutput|System.IO.TextWriter|per i messaggi di output, impostato su null per usare Console|
 
 **Proprietà**
 
-|Proprietà|type|DESCRIZIONE|
+|Proprietà|Type|DESCRIZIONE|
 |--------|----|-----------|
 |AlgebraPath|stringa|Il percorso al file algebra (il file algebra è uno dei risultati della compilazione)|
 |CodeBehindReferences|stringa|Se lo script contiene riferimenti code-behind aggiuntivi, specificare i percorsi separati da ';'|
@@ -375,11 +375,11 @@ public LocalRunHelper([System.IO.TextWriter messageOutput = null])
 ## <a name="faq-about-common-issue"></a>Domande frequenti sui problemi comuni
 
 ### <a name="error-1"></a>Errore 1:
-E_CSC_SYSTEM_INTERNAL: Internal error! Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found. (E_CSC_SYSTEM_INTERNAL: errore interno. Impossibile caricare il file o l'assembly 'ScopeEngineManaged.dll' o una delle sue dipendenze. Impossibile trovare il modulo specificato.)
+E_CSC_SYSTEM_INTERNAL: Errore interno. Could not load file or assembly 'ScopeEngineManaged.dll' or one of its dependencies. The specified module could not be found. (E_CSC_SYSTEM_INTERNAL: errore interno. Impossibile caricare il file o l'assembly 'ScopeEngineManaged.dll' o una delle sue dipendenze. Impossibile trovare il modulo specificato.)
 
 Verificare quanto segue:
 
-- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di testing devono essere x64; fare riferimento alla sezione **Passaggio 1: Creare configurazione e progetto per unit test C#** sopra.
+- Assicurarsi di avere un ambiente x64. La piattaforma di destinazione di compilazione e l'ambiente di test deve essere x64; fare riferimento a **passaggio 1: Creare C# configurazione e progetto di unit test** sopra.
 - Assicurarsi di aver copiato nella directory di lavoro tutti i file di dipendenza presenti in NugetPackage\build\runtime\.
 
 

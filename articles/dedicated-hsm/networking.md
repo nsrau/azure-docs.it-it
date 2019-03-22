@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: d872c4eff3d55ddf5d98243055e831a7a223a8ef
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56115454"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58083131"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
 
@@ -51,8 +51,8 @@ Un requisito dell'architettura corrente è la configurazione di un gateway Expre
 Quando si creano risorse basate su cloud, un'esigenza tipica è mantenere una connessione privata a risorse IT locali. Nel caso di HSM dedicato, ciò sarà necessario soprattutto per consentire al software client HSM di configurare i dispositivi HSM e anche per attività quali il backup e il recupero dei log dai moduli di protezione hardware a scopo di analisi. Una decisione fondamentale da prendere a questo proposito riguarda la natura della connessione, per la quale esistono varie opzioni.  L'opzione più flessibile è VPN da sito a sito dato che probabilmente ci saranno più risorse locali che richiedono la comunicazione sicura con le risorse, inclusi i moduli di protezione hardware, nel cloud di Azure. Questo richiederà che l'organizzazione del cliente abbia un dispositivo VPN per facilitare la connessione. È possibile usare una connessione VPN da punto a sito se è presente un solo endpoint locale, ad esempio una sola workstation amministrativa.
 Per altre informazioni sulle opzioni di connettività, vedere le [opzioni di pianificazione di Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#planningtable).
 
->[!NOTE]
-Al momento ExpressRoute non può essere usato per la connessione a risorse locali. Si noti anche che il gateway ExpressRoute non può essere usato come descritto in precedenza per le connessioni all'infrastruttura locale.
+> [!NOTE]
+> Al momento ExpressRoute non può essere usato per la connessione a risorse locali. Si noti anche che il gateway ExpressRoute non può essere usato come descritto in precedenza per le connessioni all'infrastruttura locale.
 
 ### <a name="point-to-site-vpn"></a>VPN da punto a sito
 
@@ -80,8 +80,8 @@ I dispositivi HSM hanno la capacità, tramite le librerie di software, di reindi
 
 Per le applicazioni distribuite a livello globale o per gli scenari di failover a livello di area con disponibilità elevata è necessario connettere reti virtuali di aree diverse. Con HSM dedicato di Azure è possibile ottenere la disponibilità elevata usando un Gateway VPN che fornisce un tunnel sicuro tra le due reti virtuali. Per altre informazioni sulle connessioni da rete virtuale a rete virtuale mediante un Gateway VPN, vedere l'articolo intitolato [Che cos'è un Gateway VPN?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
 
->[!NOTE]
-Al momento il peering di rete virtuale globale in scenari di connettività fra aree non è disponibile con HSM dedicato e al suo posto si deve usare un gateway VPN. 
+> [!NOTE]
+> Al momento il peering di rete virtuale globale in scenari di connettività fra aree non è disponibile con HSM dedicato e al suo posto si deve usare un gateway VPN. 
 
 ![rete virtuale globale](media/networking/global-vnet.png)
 

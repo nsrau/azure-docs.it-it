@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
-ms.service: notebooks
+ms.service: azure
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 96eb6a823299521a071edc87b5bce95409405ffb
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 3f03202d0f4416b3bf08a33e5d997d7149eda9f0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53096274"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104404"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Avvio rapido: Creare e condividere un notebook
 
@@ -34,12 +34,12 @@ ms.locfileid: "53096274"
 
 1. Nella finestra popup **Create New Project** (Crea nuovo progetto) visualizzata immettere o impostare i dettagli seguenti e quindi selezionare **Create** (Crea):
 
-    - **Nome progetto**: Hello World in Python
-    - **ID progetto**: hello-world-python
-    - **Public project** (Progetto pubblico): (disattivata)
-    - **Create a README.md** (Crea un file README.md): (disattivata)
+   - **Nome progetto**: Hello World in Python
+   - **ID progetto**: hello-world-python
+   - **Public project** (Progetto pubblico): (disattivata)
+   - **Create a README.md** (Crea un file README.md): (disattivata)
 
-    ![Finestra popup New Project (Nuovo progetto) con i dettagli inseriti](media/quickstarts/new-project-popup.png)
+     ![Finestra popup New Project (Nuovo progetto) con i dettagli inseriti](media/quickstarts/new-project-popup.png)
 
 1. Dopo qualche istante, Azure Notebooks passa al nuovo progetto. Per aggiungere un notebook al progetto, selezionare l'elenco a discesa **+ New** (+ Nuovo) (che potrebbe essere visualizzato solo come **+**) e quindi selezionare **Notebook**:
 
@@ -93,7 +93,7 @@ ms.locfileid: "53096274"
 
     ![Icona di salvataggio nella barra degli strumenti del notebook di Jupyter](media/quickstarts/hello-results-save-icon.png)
 
-1. Selezionare il comando di menu **File** > **Halt and close** (File > Interrompi e chiudi) per arrestare il server e chiudere la finestra del browser.
+1. Selezionare il **File** > **Chiudi e Interrompi** comando di menu per arrestare il server e chiudere la finestra del browser.
 
 ## <a name="share-the-notebook"></a>Condividere il notebook
 
@@ -106,4 +106,4 @@ Nella pagina del progetto è anche possibile usare il menu **Share** (Condividi)
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)
+> [Esercitazione: Creare ed eseguire un notebook di Jupyter per la regressione lineare](tutorial-create-run-jupyter-notebook.md)

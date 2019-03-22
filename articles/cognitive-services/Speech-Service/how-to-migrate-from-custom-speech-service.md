@@ -1,7 +1,7 @@
 ---
 title: Eseguire la migrazione dal servizio Riconoscimento vocale personalizzato ai servizi Voce
 titlesuffix: Azure Cognitive Services
-description: Il servizio Riconoscimento vocale personalizzato fa ora parte del servizio Voce. Passare al servizio Voce per trarre vantaggio dagli ultimi aggiornamenti in termini di qualità e funzionalità.
+description: Il servizio di riconoscimento vocale personalizzato è ora parte dei servizi di riconoscimento vocale. Passare ai servizi di riconoscimento vocale per beneficiare gli aggiornamenti di qualità e delle funzionalità più recenti.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 698962aa0e3d72b204c4e990aa1384b44bf3896f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 501555c68b7b5922bbf5a74d2a7ed5e548b900c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856894"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57833538"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Eseguire la migrazione dal Servizio di riconoscimento vocale personalizzato al servizio Voce
 
 Usare le informazioni in questo articolo per eseguire la migrazione dal Servizio di riconoscimento vocale personalizzato al servizio Voce.
 
-Il servizio Riconoscimento vocale personalizzato fa ora parte del servizio Voce. Passare al servizio Voce per trarre vantaggio dagli ultimi aggiornamenti in termini di qualità e funzionalità.
+Il servizio Riconoscimento vocale personalizzato fa ora parte del servizio Voce. Passare ai servizi di riconoscimento vocale per beneficiare gli aggiornamenti di qualità e delle funzionalità più recenti.
 
 ## <a name="migration-for-new-customers"></a>Migrazione per i nuovi clienti
 
@@ -39,16 +39,16 @@ Il modello di determinazione dei prezzi del servizio Voce è più semplice e def
 
 3. Seguire le guide introduttive e gli esempi di SDK per usare le API corrette. Se si usano le API REST, è necessario anche usare le chiavi di risorsa e gli endpoint corretti.
 
-4. Aggiornare l'applicazione client per usare le API e il servizio Voce.
+4. Aggiornare l'applicazione client per usare le API e servizi di riconoscimento vocale.
 
 ## <a name="migration-for-existing-customers"></a>Migrazione per i clienti esistenti
 
-Eseguire la migrazione delle chiavi di risorsa esistenti al servizio Voce usando il relativo portale. Seguire questa procedura:
+Eseguire la migrazione di chiavi di risorsa esistente ai servizi di riconoscimento vocale nel portale di servizi di riconoscimento vocale. Seguire questa procedura:
 
 > [!NOTE]
 > La migrazione delle chiavi di risorsa può essere eseguita solo all'interno della stessa area.
 
-1. Accedere al portale [cris.ai](http://www.cris.ai) e selezionare la sottoscrizione nel menu in alto a destra.
+1. Accedere al portale [cris.ai](https://www.cris.ai) e selezionare la sottoscrizione nel menu in alto a destra.
 
 2. Selezionare **Migrate selected subscription** (Migrazione sottoscrizione selezionata).
 
@@ -56,10 +56,10 @@ Eseguire la migrazione delle chiavi di risorsa esistenti al servizio Voce usando
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Provare gratuitamente il servizio Voce](get-started.md).
+* [Prova gratuitamente i servizi di riconoscimento vocale](get-started.md).
 * Apprendere i concetti del [riconoscimento vocale](./speech-to-text.md).
 
 ## <a name="see-also"></a>Vedere anche 
 
 * [Informazioni sul servizio Voce](overview.md)
-* [Documentazione sul Servizio di riconoscimento vocale e Speech SDK](speech-sdk.md#get-the-sdk)
+* [Documentazione di servizi di riconoscimento vocale e Speech SDK](speech-sdk.md#get-the-sdk)

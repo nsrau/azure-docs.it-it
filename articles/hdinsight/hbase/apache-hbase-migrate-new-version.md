@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: ashishth
-ms.openlocfilehash: 1e62495de35c8df4f446d371a0bbbcdc80c7118d
-ms.sourcegitcommit: e68df5b9c04b11c8f24d616f4e687fe4e773253c
-ms.translationtype: HT
+ms.openlocfilehash: 3b27fe0bec4ec23739e3cff02d6aed667f1d3e1d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/20/2018
-ms.locfileid: "53650104"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226828"
 ---
 # <a name="migrate-an-apache-hbase-cluster-to-a-new-version"></a>Eseguire la migrazione di cluster Apache HBase a una nuova versione
 
@@ -199,15 +199,21 @@ Lo scenario seguente si riferisce all'aggiornamento da HDInsight 3.4 a 3.6 (entr
 
     ![In Ambari modificare il nome del contenitore](./media/apache-hbase-migrate-new-version/change-container-name.png)
 
-8. Salvare le modifiche.
-9. Riavviare tutti i servizi richiesti, come indicato da Ambari.
-10. Impostare l'applicazione in modo che punti al nuovo cluster.
+8. **Se non si usa HBase cluster con la funzionalità avanzata scrive, ignorare questo passaggio. È necessaria solo per i cluster HBase con funzionalità migliorata scrive.**
+   
+   Modificare il percorso hbase.rootdir in modo che punti al contenitore del cluster originale.
+
+    ![In Ambari modificare il nome del contenitore per rootdir hbase](./media/apache-hbase-migrate-new-version/change-container-name-for-hbase-rootdir.png)
+    
+9. Salvare le modifiche.
+10. Riavviare tutti i servizi richiesti, come indicato da Ambari.
+11. Impostare l'applicazione in modo che punti al nuovo cluster.
 
     > [!NOTE]  
     > Il DNS statico per l'applicazione cambia quando si esegue l'aggiornamento. Invece di impostare come hardcoded il DNS, è possibile configurare un record CNAME nelle impostazioni DNS del nome di dominio che punta al nome del cluster. Un'altra opzione consiste nell'usare un file di configurazione per l'applicazione che è possibile aggiornare senza eseguire di nuovo la distribuzione.
 
-11. Avviare l'operazione di inserimento per verificare se tutto funziona come previsto.
-12. Se il nuovo cluster è soddisfacente, eliminare il cluster originale.
+12. Avviare l'operazione di inserimento per verificare se tutto funziona come previsto.
+13. Se il nuovo cluster è soddisfacente, eliminare il cluster originale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
