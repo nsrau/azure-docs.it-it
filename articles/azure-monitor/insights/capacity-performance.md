@@ -1,6 +1,6 @@
 ---
-title: Soluzione Capacity and Performance in Azure Log Analytics | Microsoft Docs
-description: Usare la soluzione Capacity and Performance di Log Analytics per determinare la capacità dei server Hyper-V.
+title: Soluzione Capacity and Performance in Monitoraggio di Azure | Microsoft Docs
+description: Usare la soluzione Capacity and Performance Monitor che aiutano a comprendere le capacità dei server Hyper-V.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 41508a1d99ed243d377cc72c0accc005c5ca737d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: fcf71bf144b559c4867303988d4c1f08b7aa5605
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189201"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57008628"
 ---
-# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Pianificare la capacità delle macchine virtuali Hyper-V con la soluzione Capacity and Performance (anteprima)
+# <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-deprecated"></a>Pianificare la capacità di macchina virtuale Hyper-V con la soluzione Capacity and Performance (deprecata)
 
 ![Simbolo di Capacità e prestazioni](./media/capacity-performance/capacity-solution.png)
 
 > [!NOTE]
 > La Soluzione Capacity and Performance è stata deprecata.  I clienti che hanno già installato la soluzione possono continuare a usarla, anche se Capacità e prestazioni non può essere aggiunta ad alcuna nuova area di lavoro.
 
-È possibile usare la soluzione Capacity and Performance di Log Analytics per determinare la capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
+È possibile utilizzare la soluzione Capacity and Performance Monitor che aiutano a comprendere le capacità dei server Hyper-V. La soluzione fornisce informazioni approfondite sull'ambiente Hyper-V illustrando l'utilizzo generale (CPU, memoria e disco) dell'host e delle macchine virtuali in esecuzione negli host Hyper-V. Vengono acquisite le metriche relative a CPU, memoria e dischi di tutti gli host e delle macchine virtuali in esecuzione su tali server.
 
 La soluzione:
 
@@ -48,9 +48,9 @@ La tabella seguente descrive le origini connesse che sono supportate da questa s
 
 | Origine connessa | Supporto | DESCRIZIONE |
 |---|---|---|
-| [Agenti Windows](../../azure-monitor/platform/agent-windows.md) | Yes | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
+| [Agenti Windows](../../azure-monitor/platform/agent-windows.md) | Sì | La soluzione raccoglie informazioni su capacità e prestazioni dagli agenti Windows. |
 | [Agenti Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | No     | La soluzione non raccoglie informazioni su capacità e prestazioni dagli agenti Linux diretti.|
-| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | Yes |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
+| [Gruppo di gestione SCOM](../../azure-monitor/platform/om-agents.md) | Sì |La soluzione raccoglie dati su capacità e prestazioni dagli agenti in un gruppo di gestione SCOM connesso. Non è necessaria una connessione diretta dall'agente SCOM a Log Analytics.|
 | [Account di archiviazione di Azure](../../azure-monitor/platform/collect-azure-metrics-logs.md) | No  | Archiviazione di Azure non include dati di capacità e prestazioni.|
 
 ## <a name="prerequisites"></a>Prerequisiti

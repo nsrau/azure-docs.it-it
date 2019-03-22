@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: 91cabd6601ca8d0c0eabfdb5726d4bd6b37492a6
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: dc84d5850656a0898fba328b652d86f3d8995bef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54216083"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118375"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Usare Azure Data Box per inviare dati al livello BLOB di Archiviazione di Azure appropriato
 
@@ -109,8 +109,8 @@ I passaggi seguenti descrivono come è possibile impostare il livello BLOB su Ar
     >> }
     PS C:\WINDOWS\system32>
     ```
-> [!TIP]
-> Per fare in modo che i dati vengano archiviati al momento dell'inserimento, impostare il livello di account predefinito su Hot. Se il livello predefinito è Cool, è prevista una penalità per l'eliminazione anticipata di 30 giorni se i dati passano immediatamente ad Archive.
+   > [!TIP]
+   > Per fare in modo che i dati vengano archiviati al momento dell'inserimento, impostare il livello di account predefinito su Hot. Se il livello predefinito è Cool, è prevista una penalità per l'eliminazione anticipata di 30 giorni se i dati passano immediatamente ad Archive.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

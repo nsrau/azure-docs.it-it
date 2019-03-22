@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/17/2019
 ms.author: avneet723
 ms.custom: include file
-ms.openlocfilehash: 1f31189a83b6659371fcd0b34423f2fb681526c2
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: ec382217bfa32da19c0b98e656f3782739b26cc6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55148012"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58114027"
 ---
 ## <a name="download-the-source-code"></a>Scaricare il codice sorgente
 
@@ -53,16 +53,16 @@ Se non sono ancora state create le risorse di Azure necessarie, seguire questa p
     ```
 
 1. Eseguire lo script **start.cmd**. Lo script richiede le informazioni seguenti:
-    * Nome della soluzione.
-    * Sottoscrizione di Azure da usare.
-    * Località del data center di Azure da usare.
+   * Nome della soluzione.
+   * Sottoscrizione di Azure da usare.
+   * Località del data center di Azure da usare.
 
-    Lo script crea un gruppo di risorse in Azure con il nome della soluzione. Questo gruppo di risorse contiene le risorse di Azure usate dall'acceleratore di soluzione. È possibile eliminare il gruppo di risorse nel momento in cui le risorse corrispondenti non sono più necessarie.
+     Lo script crea un gruppo di risorse in Azure con il nome della soluzione. Questo gruppo di risorse contiene le risorse di Azure usate dall'acceleratore di soluzione. È possibile eliminare il gruppo di risorse nel momento in cui le risorse corrispondenti non sono più necessarie.
 
-    Lo script aggiunge anche un set di variabili di ambiente con un prefisso **PCS** nel computer locale. All'avvio in locale, i contenitori Docker o i progetti di microservizi leggono i propri valori di configurazione da queste variabili di ambiente.
+     Lo script aggiunge anche un set di variabili di ambiente con un prefisso **PCS** nel computer locale. All'avvio in locale, i contenitori Docker o i progetti di microservizi leggono i propri valori di configurazione da queste variabili di ambiente.
 
-    > [!TIP]
-    > Al completamento dello script, le variabili di ambiente vengono salvate in un file denominato **\<home directory\>\\.pcs\\\<nome soluzione\>.env**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
+     > [!TIP]
+     > Al completamento dello script, le variabili di ambiente vengono salvate in un file denominato **\<home directory\>\\.pcs\\\<nome soluzione\>.env**. Sarà possibile usarle per distribuzioni future di acceleratori di soluzione. Tutte le variabili di ambiente impostate nel computer locale ignorano i valori nel file **services\\scripts\\local\\.env** quando si esegue **docker-compose**.
 
 1. Uscire dall'ambiente della riga di comando.
 

@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75570cb289af7c7b718414974e5770f692233758
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210867"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444285"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problemi di installazione del connettore dell'agente proxy dell'applicazione
 
@@ -64,7 +64,7 @@ Quando l'installazione di un connettore non riesce, la causa principale riguarda
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Verificare che il connettore venga installato da un utente con il ruolo di amministratore
 
-**Obiettivo:** verificare che l'utente che tenta di installare il connettore sia un amministratore con le credenziali corrette. Attualmente per completare l'installazione è necessario che l'utente sia un amministratore globale o un amministratore di applicazioni.
+**Obiettivo:** verificare che l'utente che tenta di installare il connettore sia un amministratore con le credenziali corrette. Attualmente, l'utente deve essere un amministratore dell'applicazione o un amministratore globale per l'installazione abbia esito positivo.
 
 **Per verificare che le credenziali siano corrette:**
 

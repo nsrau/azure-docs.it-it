@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
 ms.author: danlep
-ms.openlocfilehash: 394cd1d7f6b806a49c2de471647fd16ba4451d5c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ebf4b413ecfbdf850f0d9e6ebc50f166e27bee0a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978506"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081849"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Trovare immagini di macchine virtuali Windows in Azure Marketplace con Azure PowerShell
 
@@ -37,7 +37,7 @@ Questo articolo descrive come usare Azure PowerShell per trovare immagini di VM 
 Questa tabella illustra un subset degli SKU disponibili per le offerte e i server di pubblicazione indicati.
 
 | Editore | Offerta | Sku |
-|:--- |:--- |:--- |:--- |
+|:--- |:--- |:--- |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-Core |
 | MicrosoftWindowsServer |WindowsServer |2019-Datacenter-with-Containers |
@@ -173,7 +173,7 @@ Skus
 Per lo SKU *2019-Datacenter*, quindi:
 
 ```powershell
-$skuName="2016-Datacenter"
+$skuName="2019-Datacenter"
 Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
@@ -287,7 +287,7 @@ Signdate          : 2/23/2018 7:49:31 PM
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Distribuire usando i parametri di piano di acquisto
 
-Dopo aver accettato le condizioni per l'immagine, è possibile distribuire una macchina virtuale nella sottoscrizione. Per impostare le informazioni sul piano del Marketplace per l'oggetto macchina virtuale, usare il cmdlet [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan), come illustrato nel frammento di codice seguente. Per uno script completo per creare le impostazioni di rete per la macchina virtuale e completare la distribuzione, vedere gli [esempi di script di PowerShell](powershell-samples.md).
+Dopo avere accettato le condizioni per l'immagine, è possibile distribuire una macchina virtuale nella sottoscrizione. Per impostare le informazioni sul piano del Marketplace per l'oggetto macchina virtuale, usare il cmdlet [Set-AzVMPlan](https://docs.microsoft.com/powershell/module/az.compute/set-azvmplan), come illustrato nel frammento di codice seguente. Per uno script completo per creare le impostazioni di rete per la macchina virtuale e completare la distribuzione, vedere gli [esempi di script di PowerShell](powershell-samples.md).
 
 ```powershell
 ...

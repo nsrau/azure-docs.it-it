@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 6f55491ba7d422b19b3ee9db8b9ee804b920e422
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 2126ed2624d735d88d52ddc1ee97bfb970cc8a74
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55983842"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119769"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>Usare gli strumenti remoti per risolvere i problemi delle macchine virtuali di Azure
 
@@ -172,14 +172,14 @@ Eseguire il comando seguente, in bade alla posizione del computer client:
 
 * All'esterno della rete virtuale o della distribuzione
 
-    * Per una macchina virtuale classica eseguire il comando seguente:
+  * Per una macchina virtuale classica eseguire il comando seguente:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-    * Per una macchina virtuale ARM aggiungere prima un nome DNS all'indirizzo IP pubblico. Per i passaggi dettagliati, vedere [Creare un nome di dominio completo nel portale di Azure per una macchina virtuale Windows](../windows/portal-create-fqdn.md). Quindi, eseguire il comando seguente:
+  * Per una macchina virtuale ARM aggiungere prima un nome DNS all'indirizzo IP pubblico. Per i passaggi dettagliati, vedere [Creare un nome di dominio completo nel portale di Azure per una macchina virtuale Windows](../windows/portal-create-fqdn.md). Quindi, eseguire il comando seguente:
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -248,7 +248,7 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
 5. Apportare le modifiche necessarie ai servizi.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx)
 

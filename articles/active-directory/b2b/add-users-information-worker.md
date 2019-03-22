@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16caf8b6fd48b5dca676b1c8ee046ad01264ca03
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 561d7f5b28775e5f431d35d956cff6f800cc11b2
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211428"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58294512"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>Informazioni sul modo in cui utenti nell'organizzazione possono invitare utenti guest a un'app
 
@@ -36,15 +37,15 @@ Dopo che un'app è stata configurata per la gestione self-service, i proprietari
 1. Aprire il pannello di accesso dall'indirizzo `https://myapps.microsoft.com`.
 2. Passare all'app, selezionare i puntini di sospensione (**...**) e quindi selezionare **Gestisci app**.
  
-   ![Gestisci app nel pannello di accesso](media/add-users-iw/access-panel-manage-app.png)
+   ![Screenshot che Mostra menu Gestisci app secondarie per l'app Salesforce](media/add-users-iw/access-panel-manage-app.png)
  
 3. Nella parte superiore dell'elenco degli utenti selezionare **+**.
    
-   ![Aggiunta di un utente nel pannello di accesso](media/add-users-iw/access-panel-manage-app-add-user.png)
+   ![Screenshot che mostra il simbolo di segno più per aggiungere membri all'app](media/add-users-iw/access-panel-manage-app-add-user.png)
    
 4. Nella casella di ricerca **Aggiungi membri** digitare l'indirizzo di posta elettronica per l'utente guest. Se si vuole, includere un messaggio di benvenuto.
    
-   ![Invito nel pannello di accesso](media/add-users-iw/access-panel-invitation.png)
+   ![Screenshot che mostra Aggiungi finestra dei membri per l'aggiunta di un utente guest](media/add-users-iw/access-panel-invitation.png)
    
 5. Selezionare **Aggiungi** per inviare un invito all'utente guest. Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla directory come guest.
 
@@ -55,19 +56,19 @@ Dopo che un'app è stata configurata per la gestione self-service, i proprietari
 2. Aprire il pannello di accesso dall'indirizzo `https://myapps.microsoft.com`.
 3. Selezionare l'app **Gruppi**.
    
-   ![App Gruppi nel pannello di accesso](media/add-users-iw/access-panel-groups.png)
+   ![Screenshot che mostra l'app a gruppi nel Pannello di accesso](media/add-users-iw/access-panel-groups.png)
    
 4. In **Gruppi di cui si è proprietari** selezionare il gruppo che ha accesso all'app che si vuole condividere.
    
-   ![Opzione Gruppi di cui si è proprietari nel pannello di accesso](media/add-users-iw/access-panel-groups-i-own.png)
+   ![Screenshot che illustra come selezionare un gruppo in gruppi di proprietà dell'utente](media/add-users-iw/access-panel-groups-i-own.png)
    
 5. Nella parte superiore dell'elenco dei membri del gruppo selezionare **+**.
    
-   ![Aggiunta di un membro nel pannello di accesso](media/add-users-iw/access-panel-groups-add-member.png)
+   ![Screenshot che mostra il simbolo di segno più per aggiungere membri al gruppo](media/add-users-iw/access-panel-groups-add-member.png)
    
 6. Nella casella di ricerca **Aggiungi membri** digitare l'indirizzo di posta elettronica per l'utente guest. Se si vuole, includere un messaggio di benvenuto.
    
-   ![Invito a un gruppo nel pannello di accesso](media/add-users-iw/access-panel-invitation.png)
+   ![Screenshot che mostra Aggiungi finestra dei membri per l'aggiunta di un utente guest](media/add-users-iw/access-panel-invitation.png)
    
 7. Selezionare **Aggiungi** per inviare automaticamente l'invito all'utente guest. Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla directory come guest.
 

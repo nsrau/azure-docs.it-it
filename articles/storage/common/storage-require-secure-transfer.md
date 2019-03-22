@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/20/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: ec5949438ef179ecef17c65e91138ed4dcde9906
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e75cd873b780f514b24ee254dd491b6aa779c420
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55467085"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58101925"
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Richiedere il trasferimento sicuro in Archiviazione di Azure
 
@@ -35,7 +35,7 @@ Per impostazione predefinita, l'opzione "Trasferimento sicuro obbligatorio" è d
 1. Aprire il riquadro **Crea account di archiviazione** nel portale di Azure.
 1. In **Trasferimento sicuro obbligatorio** selezionare **Abilitato**.
 
-  ![Riquadro Crea account di archiviazione](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
+   ![Riquadro Crea account di archiviazione](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_1.png)
 
 ### <a name="require-secure-transfer-for-an-existing-storage-account"></a>Richiedere il trasferimento sicuro per un account di archiviazione esistente
 
@@ -43,7 +43,7 @@ Per impostazione predefinita, l'opzione "Trasferimento sicuro obbligatorio" è d
 1. Selezionare **Configurazione** in **IMPOSTAZIONI** nel riquadro del menu dell'account di archiviazione.
 1. In **Trasferimento sicuro obbligatorio** selezionare **Abilitato**.
 
-  ![Riquadro del menu Account di archiviazione](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
+   ![Riquadro del menu Account di archiviazione](./media/storage-require-secure-transfer/secure_transfer_field_in_portal_en_2.png)
 
 ## <a name="enable-secure-transfer-required-programmatically"></a>Abilitare "Trasferimento sicuro obbligatorio" a livello di codice
 

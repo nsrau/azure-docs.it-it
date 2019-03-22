@@ -11,19 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 96e2c3cfd509c9b0b77d0db00add31b58a07ce6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b7dcac665dadef7f3f192e7f0e359b6b7c244bde
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206549"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287027"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
-
-|     |
-| --- |
-| La protezione password e l'elenco personalizzato di password escluse di Azure AD sono funzionalità in anteprima pubblica di Azure Active Directory. Per altre informazioni sulle funzionalità in anteprima, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
-|     |
 
 Leader del settore suggeriscono di non usare la stessa password in più posizioni e di usare password complesse e non semplici come Password123. In che modo le organizzazioni possono garantire che gli utenti seguano queste linee guida? Come possono assicurarsi che gli utenti non usino password comuni o password coinvolte in violazioni dei dati avvenute di recente?
 
@@ -31,7 +26,7 @@ Leader del settore suggeriscono di non usare la stessa password in più posizion
 
 Microsoft cerca sempre di anticipare le mosse dei criminali informatici. Il team di Azure AD Identity Protection è pertanto continuamente alla ricerca di password usate comunemente e compromesse. Queste password ritenute troppo comuni vengono quindi bloccate attraverso un elenco globale di password escluse. I criminali informatici usano strategie simili negli attacchi, quindi Microsoft non rende disponibile il contenuto di questo elenco pubblicamente. Queste password vulnerabili vengono bloccate prima di diventare una minaccia reale per i clienti Microsoft. Per altre informazioni sulle attività volte a garantire la sicurezza, vedere il [Microsoft Security Intelligence Report](https://www.microsoft.com/security/operations/security-intelligence-report).
 
-## <a name="preview-custom-banned-password-list"></a>Anteprima: Elenco password personalizzate escluse
+## <a name="custom-banned-password-list"></a>Elenco password personalizzate escluse
 
 Alcune organizzazioni potrebbero voler aumentare ulteriormente la sicurezza personalizzando l'elenco globale di password escluse tramite l'aggiunta di voci all'elenco personalizzato di password escluse Microsoft. Clienti aziendali come Contoso possono quindi scegliere di bloccare le varianti del nome dell'organizzazione, termini aziendali specifici o altre voci.
 
@@ -41,7 +36,7 @@ L'elenco personalizzato di password escluse e la possibilità di abilitare l'int
 
 ## <a name="on-premises-hybrid-scenarios"></a>Scenari ibridi locali
 
-La protezione degli account solo cloud è utile, ma molte organizzazioni gestiscono scenari ibridi, incluso Windows Server Active Directory locale. È possibile installare gli agenti di protezione password di Azure AD per Windows Server Active Directory (anteprima) in locale per estendere gli elenchi di password escluse all'infrastruttura esistente. In questo caso, utenti e amministratori che modificano, impostano o reimpostano le password in locale devono rispettare gli stessi criteri password degli utenti solo cloud.
+La protezione degli account solo cloud è utile, ma molte organizzazioni gestiscono scenari ibridi, incluso Windows Server Active Directory locale. È possibile installare Azure AD password di protezione per Windows Server Active Directory gli agenti in locale estendere gli elenchi delle password vietate nell'infrastruttura esistente. In questo caso, utenti e amministratori che modificano, impostano o reimpostano le password in locale devono rispettare gli stessi criteri password degli utenti solo cloud.
 
 ## <a name="how-are-passwords-evaluated"></a>Come vengono valutate le password
 
@@ -60,7 +55,7 @@ La normalizzazione si articola in due parti.  Nella prima fase, tutte le lettere
 | '0'  | 'o' |
 | '1'  | 'l' |
 | '$'  | 's' |
-| '@'  | 'a' |
+| '\@'  | 'a' |
 
 Esempio: si supponga che la password "blank" sia compresa tra le password escluse e che un utente tenti di modificarla in "Bl@nK". Anche se "Bl@nk" non è espressamente vietata, il processo di normalizzazione converte questa password in "blank", ovvero in una password esclusa.
 
@@ -96,7 +91,7 @@ Esempio: un utente modifica la password in "C0ntos0Blank12"
 
 Dopo la normalizzazione, la password diventa "contosoblank12". Il processo di corrispondenza rileva che la password contiene due password escluse: contoso e blank. Alla password viene quindi assegnato un punteggio:
 
-[contoso] + [blank] = [1] + [2] = 4 punti. Il punteggio della password è inferiore a 5 punti e la password viene quindi rifiutata.
+[contoso] + [vuota] + [1] + [2] = 4 punti poiché questa password è in 5 punti, verranno rifiutata.
 
 Esempio: un utente modifica la password in "ContoS0Bl@nkf9!".
 

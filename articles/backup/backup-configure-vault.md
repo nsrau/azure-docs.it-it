@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4aff7c486762d9ea7bd38ae152d169968432307e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 7a1bd6da68b49481429709c7e4fd37dd5c07ae2c
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898959"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200787"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Eseguire il backup delle macchine Windows con l'agente Azure Backup MARS
 
@@ -51,13 +51,21 @@ Gli elementi di cui è possibile eseguire il backup dipendono dalla posizione in
 
 ### <a name="verify-internet-access"></a>Verificare l'accesso a Internet
 
-Se il computer ha limitato l'accesso a internet, assicurarsi che le impostazioni del firewall nel computer o nel proxy di consentiranno tali URL:
+Se il computer ha limitato l'accesso a internet, assicurarsi che le impostazioni del firewall nel computer o nel proxy di consentiranno tali URL e l'indirizzo IP:
+
+**URL**
 
 - www\.msftncsi.com
 - *.Microsoft.com
 - *.windowsazure.com
 - *.microsoftonline.com
 - *.windows.net
+
+**Indirizzo IP**
+
+- 20.190.128.0/18
+- 40.126.0.0/18
+
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 

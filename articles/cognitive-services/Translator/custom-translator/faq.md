@@ -5,16 +5,16 @@ description: Contiene le risposte alle domande frequenti relative a Custom Trans
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 4d63eb817f7dc1ff957223cb5e9181fbc441fe29
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: d3e3d12e572c939fb2ddd5bc671aede434ca7d8a
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227489"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760325"
 ---
 # <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -25,7 +25,6 @@ Questo articolo contiene le risposte alle domande frequenti su [Custom Translato
 Sono previsti limiti e restrizioni relativamente alle dimensioni dei file, al training dei modelli e alla distribuzione dei modelli. Tenere presenti queste restrizioni quando si configura il training per la creazione di un modello in Custom Translator.
 
 - I file inviati devono avere dimensioni inferiori a 100 MB.
-
 - Non sono supportati dati monolingue.
 
 ## <a name="when-should-i-request-deployment-for-a-translation-system-that-has-been-trained"></a>Quando è consigliabile richiedere la distribuzione di un sistema di traduzione sottoposto a training?

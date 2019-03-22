@@ -10,15 +10,15 @@ ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: spelluru
-ms.openlocfilehash: 2937d1f665dae03795892f9ff0e8a93a894e1992
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 47fbce7ea26bcb7224fe2624d593d85cd178d610
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818040"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57776309"
 ---
 # <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
 Il servizio Inoltro di Azure consente di esporre in modo sicuro nel cloud pubblico i servizi in esecuzione che vengono eseguiti nella rete aziendale. È possibile eseguire questa operazione senza aprire una porta nel firewall o apportare modifiche di notevole impatto all'infrastruttura di rete aziendale. 
@@ -82,7 +82,7 @@ Il diagramma seguente mostra in che modo il servizio Inoltro di Azure gestisce l
 5. Il gateway inoltra la richiesta di connessione al gateway corretto indicato nell'archivio gateway. 
 6. Il gateway invia una richiesta al client in ascolto per creare un canale temporaneo con il nodo del gateway più vicino al client di invio. 
 7. Il client in ascolto crea un canale temporaneo per il gateway più vicino al client di invio. Ora che la connessione tra i client è stata stabilita tramite un gateway, i client possono scambiarsi messaggi. 
-8. Il gateway inoltra i messaggi dal client in ascolto al client di invio. 
+8. Il gateway inoltra i messaggi dal client in ascolto per il client mittente. 
 9. Il gateway inoltra i messaggi dal client di invio al client in ascolto.  
 
 ## <a name="next-steps"></a>Passaggi successivi

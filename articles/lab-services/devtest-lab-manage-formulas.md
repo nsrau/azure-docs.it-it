@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 60790f0f31915a50829df09d039a4f74860a47d7
-ms.sourcegitcommit: 58dc0d48ab4403eb64201ff231af3ddfa8412331
-ms.translationtype: HT
+ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/26/2019
-ms.locfileid: "55076435"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57452658"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Gestire le formule di Azure DevTest Labs
 
@@ -69,7 +69,7 @@ Nella procedura seguente sono descritti i passaggi per creare una formula da un'
     - **Configurazione indirizzi IP** - Specificare se si desidera l'indirizzo IP pubblico, privato o condiviso. Per altre informazioni sugli indirizzi IP condivisi, vedere [Understand shared IP addresses in Azure DevTest Labs](./devtest-lab-shared-ip.md) (Informazioni sugli indirizzi IP condivisi in Azure Devtest Labs).
     - **Data e ora scadenza**: specificare la data e l'ora di scadenza della macchina virtuale in modo che venga eliminata automaticamente. 
     - **Make this machine claimable** (Rendi attestabile questa macchina) - Rendere "attestabile" una macchina significa che non le sarà assegnata la proprietà al momento della creazione. Gli utenti del lab saranno invece in grado di assumere la proprietà ("attestazione") della macchina nella pagina del lab.     
-    - **Number of claimable instances** (Numero di istanze richiedibili): specificare il numero di istanze richiedibili che si intende creare. 
+    - **Numero di istanze a disposizione degli utenti** -specificare il numero di istanze a disposizione degli utenti che si desidera creare. 
 8. Selezionare **Invia** per creare la formula.
 
 9. Dopo essere stata creata, la formula viene visualizzata nell'elenco della pagina **Formule**.

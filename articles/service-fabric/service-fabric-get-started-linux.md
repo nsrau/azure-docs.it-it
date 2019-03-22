@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 3454f9eecf1f06391b21bc7a3dcd89b7f8e78853
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 13746779d37f6faa6d25f73d6c78523f174b658c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54105356"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835242"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -74,7 +74,7 @@ Per installare l'SDK e il pacchetto di runtime associato tramite lo strumento da
 2. Aggiungere il repository di Service Fabric all'elenco di origini.
 
     ```bash
-    sudo sh -c 'echo "deb [arch=amd64] http://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
+    sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/servicefabric/ xenial main" > /etc/apt/sources.list.d/servicefabric.list'
     ```
 
 3. Aggiungere il repository `dotnet` all'elenco di origini.
@@ -162,7 +162,7 @@ Dopo aver aggiornato le origini, è possibile installare l'SDK. Installare il pa
 sudo apt-get install servicefabricsdkcommon
 ```
 
->   [!TIP]
+> [!TIP]
 >   I comandi seguenti permettono di automatizzare l'accettazione della licenza per i pacchetti di Service Fabric:
 >   ```bash
 >   echo "servicefabric servicefabric/accepted-eula-ga select true" | sudo debconf-set-selections
@@ -219,7 +219,7 @@ Service Fabric offre gli strumenti di scaffolding che consentono di creare appli
     curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash
     nvm install node
     ```
-2. Installare il generatore di modelli [Yeoman](http://yeoman.io/) nel computer da npm.
+2. Installare il generatore di modelli [Yeoman](https://yeoman.io/) nel computer da npm.
 
     ```bash
     npm install -g yo
@@ -276,7 +276,7 @@ Per compilare servizi di Service Fabric con Java, installare Gradle per eseguire
 
 2. Per installare il plug-in Service Fabric, selezionare **Help** > **Install New Software** (? > Installa nuovo software).
 
-3. Nella casella **Work with** (Lavora con) immettere **http://dl.microsoft.com/eclipse**.
+3. Nella casella **Work with** (Lavora con) immettere **https://dl.microsoft.com/eclipse**.
 
 4. Selezionare **Aggiungi**.
 

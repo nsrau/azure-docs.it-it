@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.openlocfilehash: de9261548ec79e206b0db87caabc1fa4c9ad6771
+ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024814"
+ms.lasthandoff: 02/21/2019
+ms.locfileid: "56591551"
 ---
 <a name="retrieve-offers"></a>Recuperare le offerte
 ===============
@@ -32,7 +32,7 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 <a name="uri-parameters"></a>Parametri URI
 --------------
 
-| **Nome**        |  **Descrizione**                         |  **Tipo di dati** |
+| **Nome**         |  **Descrizione**                         |  **Tipo di dati** |
 | -------------    |  ------------------------------------    |  -----------   |
 |  publisherId     | Identificatore dell'editore, per esempio `contoso` |   string    |
 |  api-version     | Ultima versione dell'API                    |    Data        |
@@ -105,6 +105,6 @@ L'API recupera un elenco riepilogativo delle offerte, in uno spazio dei nomi del
 |  WaitingForPublisherReview   | L'offerta è in attesa di approvazione da parte dell'editore.         |
 |  In esecuzione                     | Invio dell'offerta in corso.             |
 |  Succeeded                   | Invio dell'offerta completato.       |
-|  Canceled                    | Invio dell'offerta annullato.                   |
+|  Cancellati                    | Invio dell'offerta annullato.                   |
 |  Operazione non riuscita                      | Invio dell'offerta non riuscito.                         |
 |  |  |

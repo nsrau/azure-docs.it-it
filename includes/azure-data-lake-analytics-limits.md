@@ -4,18 +4,18 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e3059b5a76a6a9188f79b683bb997bbcf8185ced
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.openlocfilehash: 7f89dc33c105a82646c8f12422f88a06efdca18b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52279725"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553625"
 ---
-Analisi Data Lake semplifica l'impegnativa attività di gestione di infrastruttura distribuita e codice complesso. Il servizio effettua il provisioning dinamico delle risorse e permette di svolgere analisi su exabyte di dati. Al termine del processo, il servizio riduce automaticamente le risorse, permettendo di pagare solo per la potenza di elaborazione effettivamente usata. Se si aumenta o riduce le dimensioni dei dati archiviati o la quantità di calcolo usata, non è necessario riscrivere il codice. Molti dei limiti predefiniti possono essere facilmente aumentati per la sottoscrizione contattando il supporto tecnico. 
+Azure Data Lake Analitica semplifica l'impegnativa attività di gestione dell'infrastruttura distribuita e codice complesso. In modo dinamico il provisioning di risorse e usarlo per eseguire operazioni su più exabyte di dati analitica. Al termine del processo, lo concludersi risorse automaticamente. Si paga solo per la potenza di elaborazione che è stata usata. Se si aumenta o riduce le dimensioni dei dati archiviati o la quantità di calcolo usata, non è necessario riscrivere il codice. Per aumentare i limiti predefiniti per la sottoscrizione, contattare il supporto tecnico.
 
 | **Risorsa** | **Limite predefinito** | **Commenti** |
 | --- | --- | --- |
 | Numero massimo di processi simultanei |20 | |
-| Numero massimo di unità di analisi per account |250 | Usare qualsiasi combinazione fino a un massimo di 250 unità di analisi in 20 processi.  Per aumentare questo limite, contattare il supporto tecnico Microsoft. |
+| Numero massimo di analitica di unità per ogni account |250 | Usare qualsiasi combinazione fino a un massimo di 250 unità di analisi in 20 processi. Per aumentare questo limite, contattare il supporto tecnico Microsoft. |
 | Dimensioni massime degli script per l'invio di processi | 3 MB | |
-| Numero massimo di account di ADLA per area per sottoscrizione | 5 | Per aumentare questo limite, contattare il supporto tecnico Microsoft. |
+| Numero massimo di account Data Lake Analitica per area per sottoscrizione | 5 | Per aumentare questo limite, contattare il supporto tecnico Microsoft. |

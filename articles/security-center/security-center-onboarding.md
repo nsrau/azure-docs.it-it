@@ -3,7 +3,7 @@ title: Caricamento del livello Standard di Centro sicurezza di Azure per la sicu
 description: " Informazioni su come caricare il livello Standard del Centro sicurezza di Azure per la sicurezza avanzata. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2018
-ms.author: rkarlin
-ms.openlocfilehash: 9d95503e4b17124d1d027a90a21869ef65831654
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 19/02/2019
+ms.author: monhaber
+ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114417"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58100071"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
 Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi.  È possibile provare gratuitamente il livello Standard. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -33,7 +33,7 @@ Il livello Standard del Centro sicurezza include:
 ## <a name="detecting-unprotected-resources"></a>Rilevamento delle risorse non protette     
 Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro di Azure non abilitate per il livello Standard del Centro sicurezza di Azure. Sono incluse le sottoscrizioni Azure che usano il livello Gratuito del Centro di sicurezza e le aree di lavoro che non dispongono della soluzione di sicurezza abilitata.
 
-È possibile aggiornare una sottoscrizione completa di Azure al piano Standard, che viene ereditata da tutte le risorse all'interno della sottoscrizione oppure definire un criterio univoco per l'aggiornamento di un solo gruppo specifico di risorse. Se le impostazioni dei criteri del gruppo di risorse sono univoche, il Centro sicurezza di Azure non eseguirà l'override dei criteri di prezzi quando si aggiorna la sottoscrizione al livello Standard. L'applicazione del livello Standard a una sottoscrizione vale solo alle macchine virtuali nella sottoscrizione che inviano dati alle aree di lavoro create dal Centro sicurezza di Azure. L'applicazione del livello Standard all'area di lavoro vale per tutte le risorse che generano report all'area di lavoro.
+È possibile aggiornare una sottoscrizione completa di Azure al piano Standard, che viene ereditata da tutte le risorse all'interno della sottoscrizione oppure definire un criterio univoco per l'aggiornamento di un solo gruppo specifico di risorse. Se le impostazioni dei criteri del gruppo di risorse sono univoche, il Centro sicurezza di Azure non eseguirà l'override dei criteri di prezzi quando si aggiorna la sottoscrizione al livello Standard. Applicazione dello Standard a una sottoscrizione di livello si applica a tutte le risorse supportate nella sottoscrizione. Applicazione dello Standard a livelli a un'area di lavoro si applica a tutte le risorse di creazione di report all'area di lavoro.
 
 > [!NOTE]
 > Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) consente di applicare un ambito alla soluzione e avere come target un sottoinsieme di computer nell'area di lavoro.  Se si usa una soluzione di targeting, il Centro sicurezza di Azure elenca l'area di lavoro come priva di una soluzione.
@@ -53,7 +53,7 @@ Per aggiornare una sottoscrizione o area di lavoro al livello Standard:
 
 
    > [!NOTE]
-   > Le funzionalità gratuite del Centro di sicurezza vengono applicate solo alle macchine virtuali di Azure. Non vengono applicate ai computer non Azure. Se si seleziona Standard, le funzionalità Standard vengono applicate a tutte le macchine virtuali di Azure e ai computer non Azure che inviano dati all'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
+   > Funzionalità gratuite del Centro sicurezza vengono applicate solo alle macchine virtuali di Azure e VMSS. Non vengono applicate ai computer non Azure. Se si seleziona Standard, le funzionalità Standard vengono applicate a tutte le macchine virtuali di Azure, set di scalabilità di macchine Virtuali e computer non Azure che creano report all'area di lavoro. Si consiglia di applicare il piano Standard per fornire la sicurezza avanzata per le risorse Azure e non Azure.
    >
    >
 
@@ -65,11 +65,11 @@ Il Centro di sicurezza di Azure consente di monitorare le condizioni di sicurezz
 1. Tornare a **Introduzione**.   
 2. Selezionare la scheda **Introduzione**.
 
-  ![Non Azure](./media/security-center-onboarding/non-azure.png)
+   ![Non Azure](./media/security-center-onboarding/non-azure.png)
 
 3. Fare clic su **Configura** in **Aggiungi nuovi computer non Azure**. Viene visualizzato un elenco delle aree di lavoro di Log Analytics. L'elenco include, se applicabile, l'area di lavoro predefinita creata dal Centro sicurezza quando è stato abilitato il provisioning automatico. Selezionare l'area di lavoro che si desidera usare.
 
-  ![Aggiungere computer non Azure][7]
+   ![Aggiungere computer non Azure][7]
 
 Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add new Non-Azure computers** (Aggiungi nuovi computer non Azure). È possibile aggiungere computer a un'area di lavoro esistente o creare una nuova area di lavoro. Per creare una nuova area di lavoro, selezionare il collegamento per **aggiungere una nuova area di lavoro**.
 
@@ -82,8 +82,8 @@ Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add ne
    ![Aggiungere una nuova area di lavoro][4]
 
 2. In **Sicurezza e controllo** selezionare **Area di lavoro OMS** per creare una nuova area di lavoro.
-> [!NOTE]
-> Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
+   > [!NOTE]
+   > Le aree di lavoro OMS sono ora denominate aree di lavoro di Log Analytics.
 3. In **Area di lavoro OMS** immettere le informazioni per l'area di lavoro.
 4. Nell'**area di lavoro di OMS**selezionare **OK**.  Dopo avere selezionato OK, verrà visualizzato un collegamento per scaricare un agente Windows o Linux e le chiavi per l'ID dell'area di lavoro da usare nella configurazione dell'agente.
 5. In **Sicurezza e controllo** selezionare **OK**.
@@ -105,7 +105,7 @@ Se sono disponibili, le aree di lavoro esistenti vengono elencate sotto **Add ne
 
    ![Aggiungere computer][7]
 
- Il pannello **Agente diretto** fornisce un collegamento per scaricare un agente Windows o Linux, nonché l'ID dell'area di lavoro e le chiavi da usare nella configurazione dell'agente.   
+   Il pannello **Agente diretto** fornisce un collegamento per scaricare un agente Windows o Linux, nonché l'ID dell'area di lavoro e le chiavi da usare nella configurazione dell'agente.   
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questo articolo illustra come caricare risorse Azure e non Azure per trarre vantaggio dalla sicurezza avanzata del Centro sicurezza di Azure.  Per eseguire altre operazioni con le risorse caricate, vedere

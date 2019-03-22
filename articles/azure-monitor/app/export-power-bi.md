@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 13156b3419d961850c8e4e408a9cf565a5f957ad
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a57393918992019844e2ff4ccc13d671f0b90ed5
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086395"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58260061"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md).
@@ -105,8 +105,8 @@ Se la riduzione del set di dati risultante dalla query di Analisi non è una sol
 
 1. Creare una [chiave API](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 2. Aggiornare lo script M di Power BI esportato da Analisi sostituendo l'URL di Azure Resource Manager con l'API di Application Insights.
-   * Sostituire **https://management.azure.com/subscriptions/...**
-   * con **https://api.applicationinsights.io/beta/apps/...**
+   * Sostituire **https:\//management.azure.com/subscriptions/...**
+   * with, **https:\//api.applicationinsights.io/beta/apps/...**
 3. Aggiornare infine le credenziali in credenziali di base e usare la chiave API.
 
 **Script esistente**

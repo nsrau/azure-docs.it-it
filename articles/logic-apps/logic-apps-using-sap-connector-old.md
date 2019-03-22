@@ -2,7 +2,6 @@
 title: Connettersi a sistemi SAP con le App per la logica di Azure | Microsoft Docs
 description: Come accedere e gestire le risorse SAP grazie all'automazione dei flussi di lavoro con le App per la logica di Azure
 author: ecfan
-manager: jeconnoc
 ms.author: estfan
 ms.date: 05/31/2018
 ms.topic: article
@@ -11,18 +10,17 @@ services: logic-apps
 ms.reviewer: klam, divswa, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 77d1e11c1400f9a3d6bb6bda8e935cd4d24a195e
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
-ms.translationtype: HT
+ms.openlocfilehash: d677c0eae9c92f90783ed4ebd95a528b34c872ec
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230897"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58170837"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
 > [!NOTE]
-> Questo connettore SAP verrà deprecato a breve. Microsoft ha rilasciato un connettore SAP nuovo e più avanzato e consiglia di scegliere o passare al [nuovo connettore SAP](./logic-apps-using-sap-connector.md).
->  
+> Questo connettore SAP è pianificato per la deprecazione. Usare o eseguire la migrazione per la [connettore SAP più recente e più avanzato](./logic-apps-using-sap-connector.md). 
 
 Questo articolo illustra come è possibile accedere alle risorse SAP all'interno di un'app per la logica mediante i connettori del server applicazioni SAP e del server di messaggistica SAP. In questo modo, è possibile automatizzare le attività, i processi e i flussi di lavoro che gestiscono i dati e le risorse SAP mediante la creazione di app per la logica.
 
@@ -38,7 +36,7 @@ Se non si dispone ancora di una sottoscrizione di Azure, <a href="https://azure.
 
 Per proseguire con questo articolo, sono necessari questi elementi:
 
-* l'app per la logica da cui si desidera accedere al sistema SAP e un trigger che avvia il flusso di lavoro dell'app per la logica. I connettori SAP attualmente consentono solo di eseguire azioni. Se non si ha familiarità con le app per la logica, leggere [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Guida introduttiva: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+* l'app per la logica da cui si desidera accedere al sistema SAP e un trigger che avvia il flusso di lavoro dell'app per la logica. I connettori SAP attualmente consentono solo di eseguire azioni. Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md) e [Avvio rapido: Creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 * Il <a href="https://wiki.scn.sap.com/wiki/display/ABAP/ABAP+Application+Server" target="_blank">server applicazioni SAP</a> o il <a href="https://help.sap.com/saphelp_nw70/helpdata/en/40/c235c15ab7468bb31599cc759179ef/frameset.htm" target="_blank">server di messaggistica SAP</a>
 
@@ -67,7 +65,7 @@ In questo esempio, viene creata un'app per la logica con un endpoint in Azure in
 
 1. Nel portale di Azure creare un'app per la logica vuota, che apre la Progettazione app per la logica. 
 
-2. Nella casella di ricerca, digitare "richiesta http" come filtro. Nell'elenco di trigger, selezionare il trigger: **Richiesta - Alla ricezione di una richiesta HTTP**
+2. Nella casella di ricerca, digitare "richiesta http" come filtro. Nell'elenco di trigger selezionare questo trigger: **Richiesta - Alla ricezione di una richiesta HTTP**
 
    ![Aggiungere un trigger della richiesta HTTP](./media/logic-apps-using-sap-connector-old/add-trigger.png)
 
@@ -93,7 +91,7 @@ In App per la logica di Azure, un'[azione](../logic-apps/logic-apps-overview.md#
    * **Server applicazioni SAP - Send to SAP**(Invia a SAP)
    * **Server di messaggistica SAP - Send to SAP**(Invia a SAP)
 
-   In questo esempio viene usata questa azione: **Server applicazioni SAP - trasmissione a SAP**
+   Questo esempio Usa questa azione: **Server applicazioni SAP - Send to SAP**(Invia a SAP)
 
    ![Selezionare il "Server applicazioni SAP" o "Server di messaggistica SAP"](media/logic-apps-using-sap-connector-old/select-sap-action.png)
 
@@ -154,7 +152,7 @@ Ora aggiungere un'azione di risposta al flusso di lavoro dell'app logica e inclu
 
 1. In Progettazione app per la logica, sotto l'azione SAP, scegliere **Nuovo passaggio** > **Aggiungi un'azione**.
 
-2. Nella casella di ricerca digitare "risposta" come filtro. Nell'elenco di azioni, selezionare l'azione: **Richiesta - Risposta**
+2. Nella casella di ricerca digitare "risposta" come filtro. Nell'elenco di azioni selezionare questa azione: **Richiesta - Risposta**
 
 3. Fare clic all'interno della casella **Corpo** casella in modo che venga visualizzato l'elenco di contenuto dinamico. In tale elenco, sotto **Send to SAP** (Invia a SAP), selezionare il campo **Corpo**. 
 

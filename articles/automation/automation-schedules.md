@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c1c36736e9d023ab1bd2ed607638b600bc468f2c
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: d6677733339babf45e7351e10d6de1c002a6ea93
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54437217"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436504"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Pianificazione di un runbook in Automazione di Azure
 
@@ -52,7 +52,7 @@ I cmdlet della tabella seguente vengono usati per creare e gestire pianificazion
 1. Nel riquadro **Nuova pianificazione** digitare un **Nome** e facoltativamente una **Descrizione** per la nuova pianificazione.
 1. Specificare se la pianificazione verrà eseguita una volta o in modo ricorrente, selezionando **Una sola volta** o **Ricorrente**. Se si seleziona **Una sola volta** specificare un'**Ora di inizio** e quindi fare clic su **Crea**. Se si seleziona **Ricorrente**, specificare un valore per **Ora di inizio** ed **Esegui ogni**, selezionare la frequenza di ripetizione del runbook, ad esempio **Ora**, **Giorno**, **Settimana** o **Mese**.
     1. Se si seleziona **Settimana** viene visualizzato un elenco dei giorni della settimana tra cui scegliere. Selezionare tutti i giorni necessari. La prima esecuzione della pianificazione avverrà il primo giorno selezionato all'ora di inizio.
-    2. Se si seleziona **Mese**, saranno disponibili opzioni diverse. In **Occorrenze mensili** selezionare **Giorni del mese** oppure **Giorni della settimana**. Se si sceglie **Giorni del mese** viene visualizzato un calendario che consente di scegliere tutti i giorni necessari. Se si sceglie una data, ad esempio il 31, che non è contemplata nel mese corrente, la pianificazione non verrà eseguita. Se si vuole che la pianificazione venga eseguita l'ultimo giorno, scegliere **Sì** sotto **Esegui nell'ultimo giorno del mese**. Se si sceglie **Giorni della settimana**, viene visualizzata l'opzione **Esegui ogni**. Selezionare **Primo**, **Secondo**, **Terzo**, **Quarto** o **Ultimo**. Scegliere il giorno della ripetizione.
+    2. Se si seleziona **Mese**, saranno disponibili opzioni diverse. Per il **le occorrenze mensili** , quindi uno **giorni del mese** oppure **giorni della settimana**. Se si sceglie **Giorni del mese** viene visualizzato un calendario che consente di scegliere tutti i giorni necessari. Se si sceglie una data, ad esempio il 31, che non è contemplata nel mese corrente, la pianificazione non verrà eseguita. Se si vuole che la pianificazione venga eseguita l'ultimo giorno, scegliere **Sì** sotto **Esegui nell'ultimo giorno del mese**. Se si sceglie **Giorni della settimana**, viene visualizzata l'opzione **Esegui ogni**. Selezionare **Primo**, **Secondo**, **Terzo**, **Quarto** o **Ultimo**. Scegliere il giorno della ripetizione.
 1. Al termine, fare clic su **Crea**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Per creare una nuova pianificazione con Windows PowerShell

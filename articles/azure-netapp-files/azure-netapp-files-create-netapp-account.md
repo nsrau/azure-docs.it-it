@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: b-juche
-ms.openlocfilehash: 47b9d25f8db2241bb578528780e28f43d56371e5
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: bb43a75b6a221c15c8724302797d04c22e04c8d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963081"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58113640"
 ---
 # <a name="create-a-netapp-account"></a>Creare un account di NetApp
 La creazione di un account di NetApp consente di configurare un pool di capacità e successivamente di creare un volume. Usare il pannello di Azure NetApp Files per creare un nuovo account di NetApp.
@@ -33,29 +33,29 @@ La creazione di un account di NetApp consente di configurare un pool di capacit�
 
 1. Accedere al portale di Azure. 
 2. Accedere al pannello di Azure NetApp Files tramite uno dei metodi seguenti:  
-  * Cercare **Azure NetApp Files** nella casella di ricerca del portale di Azure.  
-  * Fare clic su **Tutti i servizi** nel riquadro di spostamento e quindi filtrare per Azure NetApp Files.  
+   * Cercare **Azure NetApp Files** nella casella di ricerca del portale di Azure.  
+   * Fare clic su **Tutti i servizi** nel riquadro di spostamento e quindi filtrare per Azure NetApp Files.  
 
-  È possibile impostare il pannello di Azure NetApp Files come "preferito" facendo clic sull'icona a forma di stella. 
+   È possibile impostare il pannello di Azure NetApp Files come "preferito" facendo clic sull'icona a forma di stella. 
 
 3. Fare clic su **+ Aggiungi** per creare un nuovo account di NetApp.  
-  Verrà visualizzata la finestra Nuovo account NetApp.  
+   Verrà visualizzata la finestra Nuovo account NetApp.  
 
 4. Specificare le informazioni seguenti per l'account di NetApp: 
-  * **Nome account**  
-    Specificare un nome univoco per la sottoscrizione.
-  *  **Sottoscrizione**  
-    Selezionare una sottoscrizione tra le sottoscrizioni esistenti.
-  * **Gruppo di risorse**   
-    Usare un gruppo di risorse esistente oppure crearne uno nuovo.
-  * **Posizione**  
-    Selezionare l'area in cui si vogliono posizionare l'account e le relative risorse figlio.  
+   * **Nome account**  
+     Specificare un nome univoco per la sottoscrizione.
+   * **Sottoscrizione**  
+     Selezionare una sottoscrizione tra le sottoscrizioni esistenti.
+   * **Gruppo di risorse**   
+     Usare un gruppo di risorse esistente oppure crearne uno nuovo.
+   * **Posizione**  
+     Selezionare l'area in cui si vogliono posizionare l'account e le relative risorse figlio.  
 
-    ![Nuovo account di NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
+     ![Nuovo account di NetApp](../media/azure-netapp-files/azure-netapp-files-new-netapp-account.png)
 
 
 5. Fare clic su **Create**(Crea).     
-  L'account di NetApp creato verrà ora visualizzato nel pannello di Azure NetApp Files. 
+   L'account di NetApp creato verrà ora visualizzato nel pannello di Azure NetApp Files. 
 
 ## <a name="next-steps"></a>Passaggi successivi  
 

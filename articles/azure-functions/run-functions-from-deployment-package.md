@@ -8,19 +8,19 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 02/26/2019
 ms.author: glenga
-ms.openlocfilehash: a0e643397372e5b132119a7c23f251ecec876916
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 292b25987f183df2091667312d4e6730b7f40dda
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346578"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56990901"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>Eseguire Funzioni di Azure da un file di pacchetto
 
 > [!NOTE]
-> La funzionalità descritta in questo articolo non è disponibile per Funzioni di Linux.
+> Le funzionalità descritte in questo articolo non sono disponibile per App per le funzioni in esecuzione su Linux in un [piano di servizio App](functions-scale.md#app-service-plan).
 
 In Azure, è possibile eseguire le funzioni direttamente da un file di pacchetto di distribuzione nell'app per le funzioni. L'altra opzione consiste nel distribuire i file nella directory `d:\home\site\wwwroot` dell'app per le funzioni.
 
@@ -44,8 +44,11 @@ Per abilitare l'esecuzione dell'app per le funzioni da un pacchetto, è sufficie
 
 | Valore  | DESCRIZIONE  |
 |---------|---------|
+| **`1`**  | Consigliato per App per le funzioni in esecuzione su Windows. Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. In caso contrario [distribuzione con file zip distribuire] (#integration-con--distribuzione zip], questa opzione richiede la cartella deve avere anche un file denominato `packagename.txt`. Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
 |**`<url>`**  | Percorso di un file di pacchetto specifico da eseguire. Quando si usa l'archiviazione BLOB, è consigliabile usare un contenitore privato con una [firma di accesso condiviso (SAS)](../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-a-storage-account-by-using-a-shared-access-signature-sas) per abilitare il runtime di Funzioni per l'accesso al pacchetto. È possibile usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per caricare i file di pacchetto nell'account di archiviazione BLOB.         |
-| **`1`**  | Esecuzione da un file di pacchetto nella cartella `d:\home\data\SitePackages` dell'app per le funzioni. Questa opzione richiede che la cartella abbia anche un file denominato `packagename.txt`. Questo file contiene solo il nome del file di pacchetto nella cartella, senza spazi vuoti. |
+
+> [!CAUTION]
+> Quando si esegue un'app per Windows, l'opzione URL esterno produce peggiorando le prestazioni di avvio a freddo. Quando si distribuisce l'app per le funzioni di Windows, è necessario impostare `WEBSITE_RUN_FROM_PACKAGE` a `1` e pubblicare con la distribuzione con estensione zip.
 
 Di seguito viene illustrata un'app per le funzioni configurata per l'esecuzione da un file con estensione zip ospitato in archiviazione BLOB di Azure:
 

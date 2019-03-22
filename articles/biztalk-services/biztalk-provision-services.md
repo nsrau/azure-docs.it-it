@@ -11,22 +11,22 @@ ms.service: biztalk-services
 ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: fe56b84b881b2afce9da9a7f7dfe4637c3494aa8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261962"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097441"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Creazione di servizi BizTalk tramite il portale di Azure
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
-
+> 
 > [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
-
+> 
 > [!TIP]
 > Per accedere al portale di Azure, è necessario un account Azure e una sottoscrizione di Azure. Se non si dispone di un account, è possibile creare un account di valutazione gratuita in pochi minuti. Vedere [Versione di valutazione gratuita di Azure](https://go.microsoft.com/fwlink/p/?LinkID=239738).
 
@@ -88,7 +88,7 @@ L'account Azure può avere più sottoscrizioni e può essere gestito da qualsias
 </td>
 </tr>
 <tr>
-<td>database SQL di Azure</td>
+<td>Database SQL di Azure</td>
 <td>Archivia le tabelle, le visualizzazioni e le stored procedure usate dal servizio BizTalk, inclusi i dati di rilevamento.
 <br/><br/>
 Quando si crea un servizio BizTalk, è possibile usare un server di Azure SQL o un database SQL di Azure esistente oppure creare automaticamente un nuovo server o database.
@@ -143,8 +143,8 @@ Quando si crea un servizio BizTalk di Azure, viene creato anche un URL HTTPS che
 <br/>
 
 <ul>
-<li><strong>Utilizzo chiavi avanzato</strong>. Servizi BizTalk di Azure richiede almeno l'autenticazione server.</li>
-<li><strong>Nome comune</strong>. Immettere il nome di dominio completo (FQDN) dell'URL del servizio BizTalk di Azure. Vedere <a HREF="#CreateService">Creare un servizio BizTalk</a> in questo articolo.</li>
+<li><strong>Utilizzo chiavi avanzato</strong>: Come minimo, servizi BizTalk di Azure richiede l'autenticazione Server.</li>
+<li><strong>Nome comune</strong>: Immettere il nome di dominio completo (FQDN) dell'URL del servizio BizTalk di Azure. Vedere <a HREF="#CreateService">Creare un servizio BizTalk</a> in questo articolo.</li>
 </ul>
 <br/>
 È possibile aggiungere un nuovo certificato o un certificato diverso al termine della creazione del servizio BizTalk.
@@ -165,14 +165,14 @@ Le connessioni ibride consentono la connessione di un sito Web o di un servizio 
  Per altre informazioni, inclusa la creazione e la gestione di connessioni ibride, vedere [Connessioni ibride](integration-hybrid-connection-overview.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo la creazione del servizio BizTalk, è possibile acquisire familiarità con le diverse [schede Dashboard, Monitoraggio e Scalabilità di Servizi BizTalk](biztalk-dashboard-monitor-scale-tabs.md). Il servizio BizTalk è pronto per le applicazioni. Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+Ora che viene creato un BizTalk Service, acquisire familiarità con le diverse [servizi BizTalk: Schede dashboard, monitoraggio e scalabilità](biztalk-dashboard-monitor-scale-tabs.md). Il servizio BizTalk è pronto per le applicazioni. Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Vedere anche 
-* [Servizi BizTalk: tabella delle edizioni](biztalk-editions-feature-chart.md)<br/>
-* [Servizi BizTalk: Tabella degli stati del servizio](biztalk-service-state-chart.md)<br/>
-* [Servizi BizTalk: backup e ripristino](biztalk-backup-restore.md)<br/>
-* [Servizi BizTalk: limitazione](biztalk-throttling-thresholds.md)<br/>
-* [Servizi BizTalk: nome e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
+* [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md)<br/>
+* [Servizi BizTalk: Grafico dello stato](biztalk-service-state-chart.md)<br/>
+* [Servizi BizTalk: Backup e ripristino](biztalk-backup-restore.md)<br/>
+* [Servizi BizTalk: Throttling](biztalk-throttling-thresholds.md)<br/>
+* [Servizi BizTalk: Nome dell'autorità emittente e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
 * [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 * [Connessioni ibride](integration-hybrid-connection-overview.md)
 

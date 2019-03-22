@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 7b6a5a46e311fa54d6957c45d35ef20d94cf7632
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: c032961bf89ba470a38ebccfd846659b080f9fab
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200497"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013231"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -132,6 +132,7 @@ Per visualizzare i risultati in CSV:
 - Un volume collegato al computer locale formattato con il file system NTFS.
 
 ### <a name="file-system-features"></a>Funzionalità del file system
+
 | Funzionalità | Stato del supporto | Note |
 |---------|----------------|-------|
 | Elenchi di controllo di accesso (ACL) | Supporto completo | Gli elenchi di controllo di accesso di Windows vengono mantenuti da Sincronizzazione file di Azure e vengono applicati da Windows Server negli endpoint server. Gli ACL di Windows non sono ancora supportati da File di Azure se si accede ai file direttamente nel cloud. |
@@ -148,6 +149,7 @@ Per visualizzare i risultati in CSV:
 > Sono supportati solo i volumi NTFS. Non sono supportati ReFS, FAT, FAT32 e altri file system.
 
 ### <a name="files-skipped"></a>File ignorati
+
 | File/cartella | Note |
 |-|-|
 | Desktop.ini | File specifico del sistema |
@@ -235,6 +237,7 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 |--------|---------------------|
 | Australia orientale | New South Wales |
 | Australia sud-orientale | Victoria |
+| Brasile meridionale | Lo stato di San Paolo |
 | Canada centrale | Toronto |
 | Canada orientale | Quebec City |
 | India centrale | Pune |
@@ -242,6 +245,8 @@ Sincronizzazione file di Azure è disponibile solo nelle aree seguenti:
 | Asia orientale | RAS di Hong Kong |
 | Stati Uniti orientali | Virginia |
 | Stati Uniti Orientali 2 | Virginia |
+| Giappone orientale | Tokyo, Saitama |
+| Giappone occidentale | Osaka |
 | Stati Uniti centro-settentrionali | Illinois |
 | Europa settentrionale | Irlanda |
 | Stati Uniti centro-meridionali | Texas |

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/30/2019
+ms.date: 02/15/2019
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 855b9db645721c63abae34422ae6461cea3daab2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4cda09a6b407621e595b0cb8ed9103b1fbbd5cc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189821"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58097958"
 ---
 # <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Procedura: Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -47,6 +47,9 @@ ms.locfileid: "56189821"
 - Per l'accesso SSO con password, assicurarsi che l'applicazione supporti l'autenticazione basata su modulo in modo che sia possibile eseguire l'insieme di credenziali delle password affinché l'accesso SSO funzioni come previsto.
 
 - Per le richieste di provisioning utenti automatico, l'applicazione deve essere presente nella raccolta con la funzionalità Single Sign-On abilitata per usare SAML 2.0/WS-Fed. È possibile richiedere sia l'accesso SSO che il provisioning utenti nel portale, se non sono già elencati.
+
+>[!NOTE]
+>Viene eseguito con un numero elevato di richieste di connettore SCIM, pertanto è stata interrotta la accettando nuove richieste nel nostro portale. Tenere premuto su richieste fino a ulteriore avviso. Abbiamo scuse per questo ritardo e inconveniente causato.
 
 ## <a name="submit-the-request-in-the-portal"></a>Inviare la richiesta nel portale
 
@@ -80,12 +83,12 @@ Per inserire un'applicazione nella raccolta di app di Azure AD, è innanzitutto 
     * Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, selezionare **OpenID Connect & OAuth 2.0** (OpenID Connect e OAuth 2.0) come indicato in precedenza.
     * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** o **WS-Fed**: Se l'app supporta SAML 2.0, può essere integrata direttamente con un tenant di Azure AD usando le [istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md).
+- **SAML 2.0** o **WS-Fed**: Se l'app supporta SAML 2.0, può essere integrata direttamente con un tenant di Azure AD usando le [istruzioni per l'aggiunta di un'applicazione personalizzata](../active-directory-saas-custom-apps.md).
 
-    ![Sequenza temporale per l'inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
+  ![Sequenza temporale per l'inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 
-    * Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando **SAML 2.0** o **WS-Fed**, selezionare **SAMl 2.0/WS-Fed** come indicato in precedenza.
-    * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Se si desidera aggiungere l'applicazione all'elenco nella raccolta usando **SAML 2.0** o **WS-Fed**, selezionare **SAMl 2.0/WS-Fed** come indicato in precedenza.
+  * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ## <a name="implementing-sso-using-password-sso"></a>Implementazione dell'SSO con l'accesso SSO con password
 
@@ -108,6 +111,16 @@ Per aggiornare o rimuovere un'applicazione esistente nella raccolta di app di Az
     * Se si vuole rimuovere un'applicazione esistente dalla raccolta di Azure AD, selezionare **Remove existing application listing** (Rimuovi elenco applicazioni esistente).
     * In caso di problemi di accesso, contattare il [team di integrazione SSO di Azure AD](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
+## <a name="listing-requests-by-customers"></a>Elenco di richieste da parte dei clienti
+
+I clienti possono inviare la richiesta di inserire un'applicazione facendo clic **App richiede da parte dei clienti** -> **Invia nuova richiesta**.
+
+![Riquadro App richieste dei clienti](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Di seguito è riportato che il flusso del cliente ha richiesto le applicazioni-
+
+![Flusso di App richieste dal cliente](./media/howto-app-gallery-listing/customer-request.png)
+
 ## <a name="timelines"></a>Tempistica
 
 La tempistica del processo di inserimento di un'applicazione SAML 2.0 o WS-Fed nella raccolta è di 7-10 giorni lavorativi.
@@ -117,10 +130,6 @@ La tempistica del processo di inserimento di un'applicazione SAML 2.0 o WS-Fed n
 La tempistica del processo di inserimento di un'applicazione OpenID Connect nella raccolta è di 2-5 giorni lavorativi.
 
    ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/timeline2.png)
-
-La sequenza temporale del processo di inserimento di un'applicazione nella raccolta con il supporto provisioning utenti è di 40-45 giorni lavorativi.
-
-   ![Tempistica per la presentazione di un'applicazione SAML nella raccolta](./media/howto-app-gallery-listing/provisioningtimeline.png)
 
 ## <a name="escalations"></a>Escalation
 

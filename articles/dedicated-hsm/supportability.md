@@ -2,7 +2,7 @@
 title: Supporto - Modulo HSM dedicato di Azure | Microsoft Docs
 description: Opzioni di supporto e aree di responsabilità per il modulo HSM dedicato di Azure in diversi scenari
 services: dedicated-hsm
-author: barclayn
+author: johndaw
 manager: barbkess
 ms.service: key-vault
 ms.workload: identity
@@ -10,24 +10,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.author: barclayn
-ms.openlocfilehash: 23c509f6f219b708fc259ee123d73948ebe50773
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114485"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225553"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Supporto di HSM dedicato di Azure
 
 Il servizio HSM dedicato di Azure offre un dispositivo fisico ad uso esclusivo del cliente, con controllo amministrativo completo e piena responsabilità di gestione. Il dispositivo reso disponibile è un [Gemalto SafeNet Luna Network HSM 7 modello A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Dopo il provisioning al cliente, Microsoft non avrà alcun accesso amministrativo, oltre a una connessione alla porta seriale come ruolo di monitoraggio.  In mancanza di accesso, Microsoft non può avere alcuna responsabilità a livello di manutenzione del software o amministrazione di sistema. Di conseguenza, i clienti sono responsabili delle attività operative più comuni.
 I clienti sono interamente responsabili per le applicazioni che usano i moduli di protezione hardware e dovrebbero collaborare con Gemalto per ottenere supporto o assistenza basata su consulenza. Vista la portata della proprietà del cliente in termini di igiene operativa, Microsoft non può offrire alcun tipo di garanzia di disponibilità elevata per questo servizio. È responsabilità del cliente assicurarsi che le proprie applicazioni siano configurate correttamente per ottenere la disponibilità elevata. Microsoft monitorerà e gestirà l'integrità del dispositivo e la connettività di rete.
 
+## <a name="getting-support"></a>Ottenere supporto
+
+Supporto tecnico per moduli di protezione hardware dedicato è frutto della collaborazione tra Microsoft e Gemalto. Eventuali problemi hardware o problemi di percorso di rete verranno risolto da Microsoft e nulla a che fare con il modulo di protezione effettivo, ad esempio configurazione, software, lo sviluppo dell'applicazione e del firmware, verrà risolti da Gemalto. Questo modello di supporto garantisce la strada al supporto più efficace. In caso di dubbio con un problema specifico, generare una richiesta di supporto con Microsoft e si garantirà che si viene indirizzati in modo appropriato. Mantenere il coinvolgimento in tutti gli scenari di supporto tecnico Microsoft e cercano di ottenere la migliore esperienza di supporto per i clienti.
+
 ## <a name="gemalto-support"></a>Supporto Gemalto
 
-I clienti che usano il servizio HSM dedicato devono avere un contratto di supporto con Gemalto. Come parte del contratto di supporto, i clienti ricevono materiale sussidiario, assistenza e servizi direttamente dal Gemalto. Il meccanismo per ottenere supporto da Gemalto è tramite il [portale di assistenza clienti](https://supportportal.gemalto.com/csm/).
-Gemalto fornirà i componenti software necessari per usare il modulo di protezione hardware, ad esempio software di accesso client e SDK. Supporterà inoltre la configurazione e offrirà servizi di consulenza per la progettazione, lo sviluppo e la distribuzione di applicazioni usando il modulo di protezione hardware SafeNet Luna 7.
+I clienti che usano il servizio modulo di protezione hardware dedicati qualificarsi per il supporto da Gemalto in base alla loro Plus piano di supporto. Ciò richiede un processo di registrazione usando il portale di supporto Gemalto. Verranno fornite un ID cliente e le istruzioni per questo elemento come parte di engagement iniziale con Microsoft per ottenere l'accesso al servizio modulo di protezione hardware dedicati. Il meccanismo per ottenere supporto da Gemalto è tramite il [portale di assistenza clienti](https://supportportal.gemalto.com/csm/).
+Un aspetto essenziale di nota è che Gemalto fornirà tutti i software e la documentazione necessari per usare il modulo di protezione hardware (ad esempio, il software di accesso client e gli SDK) tramite download nel portale di supporto del cliente.
 
 ### <a name="software-components"></a>Componenti software
 
@@ -51,7 +55,7 @@ Per assistenza nella progettazione, lo sviluppo e la distribuzione di applicazio
 
 ## <a name="microsoft-support"></a>Supporto tecnico Microsoft
 
-Microsoft è responsabile di garantire che i dispositivi HSM fisici siano raggiungibili e in stato operativo per l'uso esclusivo da parte di un singolo cliente. I clienti sono responsabili per l'amministrazione e la gestione del dispositivo. Le responsabilità di Microsoft includono:
+Microsoft garantisce dispositivi fisici di modulo di protezione hardware rete accessibile e lo stato operativo per l'utilizzo esclusivo di un singolo cliente. I clienti sono responsabili di configurazione, amministrazione e gestione del dispositivo. Le responsabilità di Microsoft includono:
 
 * Assicurarsi che il dispositivo disponga di alimentazione e raffreddamento
 * Mantenere lo stato operativo del modulo di protezione hardware (ad esempio, scenari di risoluzione dei problemi)
@@ -72,7 +76,7 @@ Dopo aver ottenuto una registrazione approvata per il servizio HSM dedicato, il 
 
 ### <a name="hardware-issues"></a>Problemi hardware
 
-Il dispositivo HSM ha alimentatori e ventole ridondanti e sostituibili. La rimozione delle ventole causerà un evento di manomissione se l'operazione viene eseguita quando il dispositivo è acceso. Se si verifica il guasto di un componente, Microsoft seguirà il processo più appropriato per risolvere il problema a livello di componente in modo da causare un'interruzione minima e il minimo rischio per la disponibilità del servizio ai clienti.
+Il dispositivo HSM ha alimentatori e ventole ridondanti e sostituibili.  Tuttavia, la rimozione di unità della ventola causerà sempre un evento di manomissione. Se si verifica il guasto di un componente, Microsoft seguirà il processo più appropriato per risolvere il problema a livello di componente in modo da causare un'interruzione minima e il minimo rischio per la disponibilità del servizio ai clienti.
 Qualsiasi guasto più grave comporterà la sostituzione con un nuovo dispositivo dal pool libero. Il cliente include semplicemente il nuovo dispositivo nella coppia a disponibilità elevata esistente in modo da sincronizzarlo e tornare allo stato operativo completo. I dispositivi contenenti dati del modulo di protezione hardware verranno rimossi e distrutti all'interno del data center. Solo lo chassis verrà restituito a Gemalto per il riciclo.
 
 

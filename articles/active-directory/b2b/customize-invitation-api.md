@@ -1,5 +1,5 @@
 ---
-title: API e personalizzazione per Collaborazione B2B di Azure Active Directory | Microsoft Docs
+title: B2B API e personalizzazione per collaborazione - Azure Active Directory | Microsoft Docs
 description: La collaborazione B2B di Azure Active Directory supporta le relazioni tra società abilitando i partner commerciali ad accedere in modo selettivo alle applicazioni aziendali
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a475c9032d2c4062b506c1e6ebcadd1901c946b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177428"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111311"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
 
@@ -44,7 +44,7 @@ L'API offre le funzionalità seguenti:
     "sendInvitationMessage": true
     ```
 
-  con un messaggio personalizzabile per il destinatario
+   con un messaggio personalizzabile per il destinatario
 
     ```
     "customizedMessageBody": "Hello Sam, let's collaborate!"
@@ -58,7 +58,7 @@ L'API offre le funzionalità seguenti:
     "sendInvitationMessage": false
     ```
 
-  In questo caso, si ottiene un URL di riscatto dall'API, che è possibile incorporare in un modello di messaggio di posta elettronica, in un messaggio istantaneo o in un altro metodo di distribuzione.
+   In questo caso, si ottiene un URL di riscatto dall'API, che è possibile incorporare in un modello di messaggio di posta elettronica, in un messaggio istantaneo o in un altro metodo di distribuzione.
 
 6. Gli amministratori infine possono scegliere di invitare l'utente come membro.
 

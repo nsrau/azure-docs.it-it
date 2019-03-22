@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: c3b7695b7a67a33df93b0216cfd02f762e412158
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 7ddf37a2973196f458efb8ecc8e20761006996ef
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53635715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199512"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-azure-powershell-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop tramite Azure PowerShell per Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -166,7 +166,6 @@ HDInsight basato su Linux prevede le limitazioni seguenti:
 In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, vedere:
 
 * [Usare Apache Oozie con HDInsight](../hdinsight-use-oozie.md): Usare l'azione Sqoop in un flusso di lavoro Oozie.
-* [Analizzare i dati sui ritardi dei voli con HDInsight](../hdinsight-analyze-flight-delay-data.md): usare Apache Hive nell'analisi dei dati sui ritardi dei voli e quindi usare Sqoop per esportare i dati nel database SQL di Azure.
 * [Caricare dati in HDInsight](../hdinsight-upload-data.md): trovare altri metodi per il caricamento di dati in HDInsight o nell'archiviazione BLOB di Azure.
 
 [sqoop-user-guide-1.4.4]: https://sqoop.apache.org/docs/1.4.4/SqoopUserGuide.html

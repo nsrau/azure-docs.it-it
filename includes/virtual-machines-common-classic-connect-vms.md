@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 2e72d669abcc784fe8159fd4c54bd074dc60299c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 55e46e058bddca717929df61b2bc766b89e0f885
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226595"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122758"
 ---
 ![Macchine virtuali in un servizio cloud autonomo](./media/virtual-machines-common-classic-connect-vms/CloudServiceExample.png)
 
@@ -25,19 +25,19 @@ Per connettere le macchine virtuali in una rete virtuale:
 1. Creare la rete virtuale nel [portale di Azure](../articles/virtual-network/virtual-networks-create-vnet-classic-pportal.md) e specificare "distribuzione classica".
 2. Creare il set di servizi cloud per la tua distribuzione al fine di mostrare il tuo design per i set di disponibilità e il bilanciamento del carico. Nel portale di Azure fare clic su **Crea una risorsa > Calcolo > Servizio cloud** per ogni servizio cloud.
 
-  Durante la compilazione dei dettagli del servizio cloud, scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
+   Durante la compilazione dei dettagli del servizio cloud, scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
 
 3. Per creare ogni nuova macchina virtuale, fare clic su **Crea una risorsa > Calcolo** e quindi selezionare l'immagine di VM appropriata in **App in primo piano**.
 
-  Nel pannello **Nozioni di base** della macchina virtuale scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
+   Nel pannello **Nozioni di base** della macchina virtuale scegliere lo stesso _gruppo di risorse_ usato con la rete virtuale.
 
-  ![Pannello Nozioni di base della macchina virtuale quando si usa una rete virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
+   ![Pannello Nozioni di base della macchina virtuale quando si usa una rete virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_VN.png)
 
 4. Durante la compilazione delle **impostazioni** della macchina virtuale, scegliere il _servizio cloud_ o la _rete virtuale_ corretta per la macchina virtuale.
 
-  Azure selezionerà l'altro elemento in base a quello selezionato.
+   Azure selezionerà l'altro elemento in base a quello selezionato.
 
-  ![Pannello Impostazioni della macchina virtuale quando si usa una rete virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
+   ![Pannello Impostazioni della macchina virtuale quando si usa una rete virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_VN.png)
 
 
 ## <a name="connect-vms-in-a-standalone-cloud-service"></a>Connettere le macchine virtuali in un servizio cloud autonomo
@@ -46,8 +46,8 @@ Per connettere le macchine virtuali in un servizio cloud autonomo:
 1. Creare il servizio cloud nel [portale di Azure](http://portal.azure.com). Fare clic su **Nuovo > Calcolo > Servizio cloud**. In alternativa, è possibile creare il servizio cloud per la distribuzione quando si crea la prima macchina virtuale.
 2. Durante la creazione delle macchine virtuali, scegliere lo stesso gruppo di risorse usato con il servizio cloud.
 
-  ![Aggiungere una macchina virtuale a un servizio cloud esistente](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
+   ![Aggiungere una macchina virtuale a un servizio cloud esistente](./media/virtual-machines-common-classic-connect-vms/CreateVM_Basics_SA.png)
 
-3.  Durante la compilazione dei dettagli della macchina virtuale, scegliere il nome del servizio cloud creato nel primo passaggio.
+3. Durante la compilazione dei dettagli della macchina virtuale, scegliere il nome del servizio cloud creato nel primo passaggio.
 
-  ![Selezione di un servizio cloud per una macchina virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)
+   ![Selezione di un servizio cloud per una macchina virtuale](./media/virtual-machines-common-classic-connect-vms/CreateVM_Settings_SA.png)

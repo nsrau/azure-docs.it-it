@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6521dc8db663df5e19fb97c495b4a5bcb6d3c1d1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0c0d0fdf4e7df0401692eb026d55fe1a7c9322f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208474"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106479"
 ---
 # <a name="reset-your-work-or-school-password"></a>Reimpostare la password aziendale o dell’istituto di istruzione
 
@@ -93,15 +93,15 @@ Se risulta impossibile accedere all'account Azure Active Directory (Azure AD), l
 
 - **Reimpostare la password usando un codice dall'app di autenticazione.** Accetta un codice casuale fornito dall'app di autenticazione. Se l'amministratore ha attivato l'esperienza per le informazioni di sicurezza, è possibile trovare altre informazioni sulla configurazione di un'app di autenticazione per l'invio di un codice nell'articolo [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione (anteprima)](security-info-setup-auth-app.md). Se non si usano ancora le informazioni di sicurezza, è possibile trovare altre informazioni sulla configurazione di un'app di autenticazione per l'invio di un codice nell'articolo [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
 
-    1. Selezionare **Immetti un codice dall'app di autenticazione**, quindi selezionare **Invia notifica**.
+  1. Selezionare **Immetti un codice dall'app di autenticazione**, quindi selezionare **Invia notifica**.
 
-    2. Aprire l'app di autenticazione, digitare nella casella il codice di verifica per l'account e quindi selezionare **Avanti**.
+  2. Aprire l'app di autenticazione, digitare nella casella il codice di verifica per l'account e quindi selezionare **Avanti**.
 
-    3. Digitare e confermare la nuova password e quindi selezionare **Fine**.
+  3. Digitare e confermare la nuova password e quindi selezionare **Fine**.
 
-    4. Una volta visualizzato il messaggio che indica che la password è stata reimpostata, è possibile accedere all'account con la nuova password.
+  4. Una volta visualizzato il messaggio che indica che la password è stata reimpostata, è possibile accedere all'account con la nuova password.
         
-    Se non è comunque possibile accedere all'account, contattare l'amministratore dell'organizzazione per ricevere assistenza.
+     Se non è comunque possibile accedere all'account, contattare l'amministratore dell'organizzazione per ricevere assistenza.
 
 Dopo aver reimpostato la password, è possibile che si riceva un messaggio di posta elettronica di conferma proveniente da un account come "Microsoft per conto di \<*organizzazione*>." Se si riceve un messaggio di questo tipo ma non è stata reimpostata la password di recente, è necessario contattare immediatamente l'amministratore dell'organizzazione.
 
@@ -113,7 +113,7 @@ Se si vuole semplicemente modificare la password, è possibile eseguire questa o
 
 Usare questo metodo se in genere si accede alle app tramite il portale di Office:
 
-1. Accedere al proprio [account Office 365](https://www.office.com) con la password esistente.
+1. Accedere al proprio [account Office 365](https://portal.office.com) con la password esistente.
 
 2. Selezionare il profilo in alto a destra e quindi selezionare **Visualizza account**.
 
@@ -163,9 +163,6 @@ Di seguito sono riportati alcuni degli errori più comuni e le relative soluzion
 |Dopo aver immesso l'ID utente, viene visualizzato l'errore "Impossibile verificare l'account".|Durante il processo di accesso non è stato possibile verificare le informazioni dell'account.|Questo messaggio potrebbe essere visualizzato per due motivi.<br><br>1. L'amministratore ha attivato la reimpostazione della password per l'organizzazione, ma l'utente non ha ancora eseguito la registrazione per l'uso del servizio. Per registrare la reimpostazione della password, vedere uno degli articoli seguenti, basati sul proprio metodo di verifica: [Configurare le informazioni di sicurezza per l'uso di un'app di autenticazione (anteprima)](security-info-setup-auth-app.md), [Configurare le informazioni di sicurezza per l'uso di chiamate telefoniche (anteprima)](security-info-setup-phone-number.md), [Configurare le informazioni di sicurezza per l'uso di SMS (anteprima)](security-info-setup-text-msg.md), [Configurare le informazioni di sicurezza per l'uso della posta elettronica (anteprima)](security-info-setup-email.md) o [Configurare le informazioni di sicurezza per l'uso di domande di sicurezza (anteprima)](security-info-setup-questions.md).<br><br>2. L'amministratore non ha ancora attivato la reimpostazione della password per l'organizzazione. In questa situazione, è necessario selezionare il collegamento "Contattare l'amministratore" per inviare un messaggio di posta elettronica all'amministratore e richiedere la reimpostazione della password.|
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-- Per modificare le informazioni di sicurezza in modo da aggiungere o modificare i metodi di verifica, vedere l'articolo [Gestire le informazioni di sicurezza (anteprima)](security-info-manage-settings.md). 
-
 - Altre informazioni sulle informazioni di sicurezza sono disponibili nell'articolo [Panoramica delle informazioni di sicurezza (anteprima)](user-help-security-info-overview.md).
 
 - Informazioni sulla verifica in due passaggi sono disponibili nell'articolo [Panoramica della verifica in due passaggi](user-help-two-step-verification-overview.md). 

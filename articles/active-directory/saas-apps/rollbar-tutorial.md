@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 1/04/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a850b42f23a94366ec73949556b4af9a90f5015e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4ebedddf5e62e41bd0ef2d4c426df448a81a1e2d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195227"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837219"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rollbar"></a>Esercitazione: Integrazione di Azure Active Directory con Rollbar
 
@@ -218,7 +218,7 @@ Per consentire agli utenti di Azure AD di accedere a Rollbar, è necessario eseg
 
     ![Invita persone](./media/rollbar-tutorial/user2.png)
 
-1. Nella casella di testo immettere il nome dell'utente, ad esempio **brittasimon@contoso.com** e fare clic su **Add/Invite** (Aggiungi/Invita).
+1. Nella casella di testo, immettere il nome dell'utente, ad esempio **brittasimon\@contoso.com** e quindi scegliere **Add/Invite**.
 
     ![Invita persone](./media/rollbar-tutorial/user3.png)
 

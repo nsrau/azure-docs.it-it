@@ -9,17 +9,17 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 802be1ad5b1029add249430ee7760002407c4641
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.openlocfilehash: ce2cf6ebdfd74549114e94e4c7356e387576d3c8
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021626"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56731192"
 ---
 # <a name="process-configurable-threshold-based-rules-in-azure-stream-analytics"></a>Elaborare regole basate su soglie configurabili in Analisi di flusso di Azure
 Questo articolo descrive come usare i dati di riferimento per ottenere una soluzione per la creazione di avvisi che usi regole basate su soglie configurabili in Analisi di flusso di Azure.
 
-## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenario: Creazione di avvisi basati su soglie delle regole modificabili
+## <a name="scenario-alerting-based-on-adjustable-rule-thresholds"></a>Scenario: Avvisi basati su valori di soglia regolabile regola
 Potrebbe essere necessario generare un avviso come output quando gli eventi trasmessi in ingresso hanno raggiunto un valore specifico oppure quando un valore aggregato basato sugli eventi trasmessi in ingresso supera una determinata soglia. È possibile configurare facilmente una query di Analisi di flusso per mettere a confronto un valore con una soglia statica fissa e predeterminata. Una soglia fissa può essere impostata come hardcoded nella sintassi della query di streaming usando confronti numerici semplici (maggiore di, minore di e uguale a).
 
 In alcuni casi, i valori soglia devono poter essere più facilmente configurabili senza modificare la sintassi della query ogni volta che si modifica un valore soglia. In altri casi, potrebbe essere necessario che la stessa query elabori numerosi dispositivi o utenti, ognuno con valori soglia differenti per ciascun tipo di dispositivo. 

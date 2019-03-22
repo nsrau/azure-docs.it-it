@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 207d1f7f5eb4db4203f2595a06f943e8ae69881e
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: e69158a6ee4d8415f52cf458c028cab56f481d8b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54432031"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121129"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Come attivare azioni complesse con avvisi di Monitoraggio di Azure
 
@@ -275,19 +275,19 @@ Il processo di creazione di un avviso per la metrica è simile alla [creazione d
 - I passaggi 9 e 10 sono gli stessi.
 - Per i passaggi da 11 a 14, eseguire le operazioni seguenti:
 
-   1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti. Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("2.0") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa. 
-       - `schemaId == AzureMonitorMetricAlert`
-       - `version == "2.0"`
+  1. Selezionare **+** **Nuovo passaggio** e quindi scegliere **Aggiungi una condizione**. Impostare le condizioni seguenti in modo che l'app per la logica venga eseguita solo quando i dati di input corrispondono ai valori seguenti. Quando si immette il valore di versione nella casella di testo, racchiuderlo tra virgolette ("2.0") per assicurarsi che venga valutato come stringa e non come tipo numerico.  Il sistema non visualizza le virgolette se si torna alla pagina ma il codice sottostante mantiene il tipo di stringa. 
+     - `schemaId == AzureMonitorMetricAlert`
+     - `version == "2.0"`
        
        !["Condizione di payload dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-payload-condition.png "Condizione di payload dell'avviso per la metrica")
 
-   1. Nella condizione **È true** aggiungere un ciclo **For each** e l'azione Microsoft Teams. Definire il messaggio usando una combinazione di HTML e contenuto dinamico.
+  1. Nella condizione **È true** aggiungere un ciclo **For each** e l'azione Microsoft Teams. Definire il messaggio usando una combinazione di HTML e contenuto dinamico.
 
-       !["Azione pubblicazione con condizione true dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Azione pubblicazione con condizione true dell'avviso per la metrica")
+      !["Azione pubblicazione con condizione true dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "Azione pubblicazione con condizione true dell'avviso per la metrica")
 
-   1. Nella condizione **È false** definire un'azione Microsoft Teams per comunicare che l'avviso per la metrica non corrisponde alle aspettative dell'app per la logica. Includere il payload JSON. Si noti come fare riferimento al contenuto dinamico `triggerBody` nell'espressione `json()`.
+  1. Nella condizione **È false** definire un'azione Microsoft Teams per comunicare che l'avviso per la metrica non corrisponde alle aspettative dell'app per la logica. Includere il payload JSON. Si noti come fare riferimento al contenuto dinamico `triggerBody` nell'espressione `json()`.
 
-       !["Azione pubblicazione con condizione false dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Azione pubblicazione con condizione false dell'avviso per la metrica")
+      !["Azione pubblicazione con condizione false dell'avviso per la metrica"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "Azione pubblicazione con condizione false dell'avviso per la metrica")
 
 - Il passaggio 15 è lo stesso. Seguire le istruzioni per salvare l'app per la logica e aggiornare il gruppo di azioni.
 

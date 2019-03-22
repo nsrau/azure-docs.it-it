@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: ac8e214df6b6990e2b27b5897350c85e0a944e0c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997958"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57540046"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Raccogliere avvisi da Nagios e Zabbix in Monitoraggio di Azure tramite l'agente di Log Analytics per Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
-[Nagios](https://www.nagios.org/) e [Zabbix](http://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Monitoraggio di Azure per analizzarli insieme ai dati di log provenienti da altre origini.  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
+[Nagios](https://www.nagios.org/) e [Zabbix](https://www.zabbix.com/) sono strumenti di monitoraggio open source. È possibile raccogliere avvisi da questi strumenti in Monitoraggio di Azure per analizzarli insieme ai dati di log provenienti da altre origini.  Questo articolo descrive come configurare l'agente di Log Analytics per Linux per raccogliere avvisi da questi sistemi.
 
 
 > [!NOTE]

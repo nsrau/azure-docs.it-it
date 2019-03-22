@@ -19,12 +19,12 @@ ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bf7919a2dc69bc834a5834d10a5a297a2ad6949
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9e2b99871cc1da2b1e8e136fc4d689e90dfad77a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170304"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081237"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory
 
@@ -47,7 +47,7 @@ Se non è possibile risolvere il problema con le indicazioni fornite di seguito,
 * **Utenti interessati**: la sincronizzazione sta funzionando o non sta funzionando per uno o più utenti? Quanti sono i dispositivi interessati per utente? Nessuno viene sincronizzato o ne vengono sincronizzati alcuni e non altri?
 * **Informazioni sull'utente**. Quale identità sta usando l'utente per accedere al dispositivo? In che modo l'utente esegue l'accesso al dispositivo? Fa parte di un gruppo di sicurezza selezionato a cui è consentita la sincronizzazione? 
 * **Informazioni sul dispositivo**. Questo dispositivo è aggiunto ad Azure AD o a un dominio? Qual è la build del dispositivo? Quali sono gli aggiornamenti più recenti?
-- **Data/ora/fuso orario**. Quali sono la data e ora precise in cui è stato visualizzato l'errore (includere il fuso orario)?
+* **Data/ora/fuso orario**. Quali sono la data e ora precise in cui è stato visualizzato l'errore (includere il fuso orario)?
 
 Queste informazioni consentiranno di risolvere il problema nel più breve tempo possibile.
 
@@ -59,8 +59,8 @@ Questa sezione offre suggerimenti su come risolvere e diagnosticare i problemi r
 1. Dopo l'aggiunta del PC Windows 10 a un dominio che sia configurato per consentire Enterprise State Roaming, effettuare l'accesso con l'account aziendale. Passare a **Impostazioni** > **Account** > **Sincronizza le impostazioni** e verificare che la sincronizzazione e le singole impostazioni siano attivate e che la parte superiore della pagina delle impostazioni indichi che si sta eseguendo la sincronizzazione con l'account aziendale. Verificare che lo stesso account sia utilizzato anche come account di accesso in **Impostazioni** > **Account** > **Le tue info**. 
 1. Verificare che la sincronizzazione possa operare tra più macchine apportando alcune modifiche nel computer originale, ad esempio spostando la barra delle applicazioni sul lato destro o superiore della schermata. Osservare la modifica che viene propagata al secondo computer entro 5 minuti. 
 
-  * A volte bloccare e sbloccare lo schermo (WIN + L) può aiutare ad avviare la sincronizzazione.
-  * Perché la sincronizzazione funzioni, è necessario usare lo stesso account di accesso su entrambi i computer, in quanto Enterprise State Roaming è associato all'account utente e non all'account del computer.
+   * A volte bloccare e sbloccare lo schermo (WIN + L) può aiutare ad avviare la sincronizzazione.
+   * Perché la sincronizzazione funzioni, è necessario usare lo stesso account di accesso su entrambi i computer, in quanto Enterprise State Roaming è associato all'account utente e non all'account del computer.
 
 **Potenziale problema**: nella pagina **Impostazioni** i controlli non sono disponibili e si vede il messaggio "Alcune funzionalità di Windows sono disponibili solo se si utilizza un account Microsoft o un account aziendale". Questo problema può verificarsi per i dispositivi che sono configurati per essere aggiunti a un dominio e registrati in Azure AD, ma la loro autenticato in Azure AD non riesce. Una possibile causa è data dal fatto che i devono essere applicati i criteri del dispositivo, ma questa applicazione viene eseguita in modo asincrono e potrebbe avere un ritardo di alcune ore. 
 

@@ -3,7 +3,7 @@ title: Prezzi di Azure Cloud Shell | Microsoft Docs
 description: Panoramica dei prezzi di Azure Cloud Shell
 services: ''
 documentationcenter: ''
-author: jluk
+author: maertendMSFT
 manager: timlt
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
-ms.author: juluk
-ms.openlocfilehash: 8c418a3681fa9d8ac70974ac2c0bcf1c826209aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
-ms.translationtype: HT
+ms.author: damaerte
+ms.openlocfilehash: 2834bc7d9456c1177bdd2c235b8211a1edde6e42
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24809867"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57244979"
 ---
 # <a name="pricing"></a>Prezzi
-Bash in Cloud Shell e PowerShell in Cloud Shell (anteprima) sono soggetti alle informazioni riportate di seguito.
+Bash in Cloud Shell e PowerShell in Cloud Shell sono soggetti alle informazioni riportate di seguito.
 
 ## <a name="compute-cost"></a>Costi di calcolo
 Azure Cloud Shell viene eseguito in un computer fornito gratuitamente da Azure, ma è necessaria una condivisione file di Azure per usarlo. 

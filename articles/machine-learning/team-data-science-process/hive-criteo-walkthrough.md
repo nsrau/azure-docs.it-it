@@ -11,21 +11,21 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 55b6e6db14f3847eb659f9bee05b12585a613693
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: ac627907e3f595ef59edc606f34fd27353e4c577
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477217"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57850044"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB
 
-Questa procedura dettagliata descrive come usare in uno scenario end-to-end il Processo di analisi scientifica dei dati per i team con un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare un modello di classificazione binaria in questi dati. Viene illustrato anche come pubblicare uno di questi modelli come servizio Web.
+Questa procedura dettagliata descrive come usare in uno scenario end-to-end il Processo di analisi scientifica dei dati per i team con un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviare, esplorare e sottocampionare i dati, nonché progettare caratteristiche, da uno dei set di dati [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) disponibili pubblicamente. Viene usato Azure Machine Learning per creare un modello di classificazione binaria in questi dati. Viene illustrato anche come pubblicare uno di questi modelli come servizio Web.
 
 Per eseguire le attività presentate in questa procedura dettagliata, è anche possibile usare IPython Notebook. Se si vuole provare questo approccio, vedere l'argomento [Criteo walkthrough using a Hive ODBC connection](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) (Procedura dettagliata su Criteo con una connessione Hive ODBC).
 
 ## <a name="dataset"></a>Descrizione del set di dati Criteo
-I dati Criteo sono un set di dati di stima dei clic raccolti in file TSV compressi nel formato gzip con dimensioni di circa 370 GB (circa 1,3 TB non compressi) e includono più di 4,3 miliardi di record. I valori sono ottenuti da 24 giorni di dati sui clic resi disponibili da [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Per semplificare il lavoro dei data scientist, i dati disponibili per eseguire gli esperimenti sono stati decompressi.
+I dati Criteo sono un set di dati di stima dei clic raccolti in file TSV compressi nel formato gzip con dimensioni di circa 370 GB (circa 1,3 TB non compressi) e includono più di 4,3 miliardi di record. I valori sono ottenuti da 24 giorni di dati sui clic resi disponibili da [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/). Per semplificare il lavoro dei data scientist, i dati disponibili per eseguire gli esperimenti sono stati decompressi.
 
 Ogni record nel set di dati contiene 40 colonne:
 
@@ -68,7 +68,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 3. [Creare un'area di lavoro di Azure Machine Learning Studio](../studio/create-workspace.md): l'area di lavoro di Azure Machine Learning viene usata per la creazione di modelli di Machine Learning dopo l'esplorazione iniziale dei dati e il loro sottocampionamento nel cluster HDInsight.
 
 ## <a name="getdata"></a>Ottenere e utilizzare i dati da un'origine pubblica
-È possibile accedere al set di dati [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) facendo clic sul collegamento, accettando le condizioni per l'utilizzo e specificando un nome. Ecco uno snapshot di come appare:
+È possibile accedere al set di dati [Criteo](https://labs.criteo.com/downloads/download-terabyte-click-logs/) facendo clic sul collegamento, accettando le condizioni per l'utilizzo e specificando un nome. Ecco uno snapshot di come appare:
 
 ![Accettazione delle condizioni Criteo](./media/hive-criteo-walkthrough/hLxfI2E.png)
 
@@ -306,7 +306,7 @@ Il risultato è il seguente:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Osservare come Col15 abbia 19 milioni di valori univoci. Non è possibile usare tecniche di base come la "codifica one-hot" per codificare variabili categoriche con dimensionalità così elevata. In particolare, viene spiegata e illustrata una tecnica avanzata e affidabile di [apprendimento in base ai conteggi](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) per affrontare il problema in modo efficiente.
+Osservare come Col15 abbia 19 milioni di valori univoci. Non è possibile usare tecniche di base come la "codifica one-hot" per codificare variabili categoriche con dimensionalità così elevata. In particolare, viene spiegata e illustrata una tecnica avanzata e affidabile di [apprendimento in base ai conteggi](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) per affrontare il problema in modo efficiente.
 
 Come ultima operazione, viene esaminato il numero di valori univoci per altre colonne categoriche. Il contenuto di [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) è il seguente:
 
@@ -405,10 +405,10 @@ A questo punto, è possibile usare i set di dati di training e di test sottocamp
 Prima di passare ad Azure Machine Learning, è importante considerare un ultimo componente importante, costituito dalla tabella di conteggio. Questo aspetto verrà analizzato in modo più dettagliato nella sottosezione successiva.
 
 ## <a name="count"></a> Breve discussione sulla tabella di conteggio
-Come illustrato in precedenza, diverse variabili categoriche hanno una dimensionalità molto elevata. Nella procedura dettagliata viene presentata una tecnica avanzata, denominata tecnica di [apprendimento in base ai conteggi](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx), che consente di codificare queste variabili in modo affidabile ed efficiente. Altre informazioni su questa tecnica sono disponibili facendo clic sul relativo collegamento.
+Come illustrato in precedenza, diverse variabili categoriche hanno una dimensionalità molto elevata. Nella procedura dettagliata viene presentata una tecnica avanzata, denominata tecnica di [apprendimento in base ai conteggi](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx), che consente di codificare queste variabili in modo affidabile ed efficiente. Altre informazioni su questa tecnica sono disponibili facendo clic sul relativo collegamento.
 
 [!NOTE]
->In questa procedura dettagliata viene esaminato l'uso di tabelle di conteggio per produrre rappresentazioni compatte di funzionalità di tipo categorico con dimensionalità elevata. Questa tecnica non è l'unico modo disponibile per codificare le funzionalità categoriche. Per altre informazioni su tecniche diverse, è possibile vedere gli argomenti relativi alla [codifica one-hot](http://en.wikipedia.org/wiki/One-hot) e all'[hashing delle funzioni](http://en.wikipedia.org/wiki/Feature_hashing).
+>In questa procedura dettagliata viene esaminato l'uso di tabelle di conteggio per produrre rappresentazioni compatte di funzionalità di tipo categorico con dimensionalità elevata. Questa tecnica non è l'unico modo disponibile per codificare le funzionalità categoriche. Per altre informazioni su tecniche diverse, è possibile vedere gli argomenti relativi alla [codifica one-hot](https://en.wikipedia.org/wiki/One-hot) e all'[hashing delle funzioni](https://en.wikipedia.org/wiki/Feature_hashing).
 >
 
 Per creare tabelle di conteggio sui dati di conteggio, vengono usati i dati nella cartella raw/count. Nella sezione relativa alla modellazione viene illustrato come creare da zero queste tabelle di conteggio per le caratteristiche categoriche oppure, in alternativa, come usare una tabella di conteggio preesistente per le analisi. Con "tabelle di conteggio preesistenti" si intendono le tabelle fornite da Microsoft. Istruzioni dettagliate su come accedere a queste tabelle sono disponibili nella sezione successiva.
@@ -417,7 +417,7 @@ Per creare tabelle di conteggio sui dati di conteggio, vengono usati i dati nell
 Il processo di creazione di un modello in Azure Machine Learning prevede i passaggi seguenti:
 
 1. [Ottenere i dati dalle tabelle Hive in Azure Machine Learning](#step1)
-2. [Creare l'esperimento: pulire i dati e definire le caratteristiche con le tabelle di conteggio](#step2)
+2. [Creare l'esperimento: pulire i dati e impostarlo come una funzionalità con le tabelle di conteggio](#step2)
 3. [Compilare, eseguire il training e assegnare un punteggio al modello](#step3)
 4. [Valutare il modello](#step4)
 5. [Pubblicare il modello come servizio Web](#step5)
@@ -451,7 +451,7 @@ Fare clic con il pulsante destro del mouse sulla porta di output del modulo **Im
 
 Per selezionare il set di dati salvato per l'uso in un esperimento di Machine Learning, individuare il set di dati usando la casella **Search** (Ricerca) illustrata nella figura seguente. Digitare quindi una parte del nome assegnato al set di dati per accedervi e trascinare il set di dati nel pannello principale. Rilasciando il set di dati sul pannello principale, questo viene selezionato per la modellazione in Machine Learning.
 
-![Trascinare il set di dati nel pannello principale](./media/hive-criteo-walkthrough/cl5tpGw.png)
+![Trascinare i set di dati nel pannello principale](./media/hive-criteo-walkthrough/cl5tpGw.png)
 
 > [!NOTE]
 > Eseguire questa operazione per entrambi i set di dati, di training e di test. Ricordare anche di usare il nome database e i nomi delle tabelle assegnati a questo scopo. I valori usati nella figura hanno puramente scopo illustrativo.**

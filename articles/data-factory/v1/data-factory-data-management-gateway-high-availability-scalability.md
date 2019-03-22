@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bc8cacd6d52de0367a0ea14748e548b9d32f47ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 08e7341bfd1c384e41e6d3f1bd7810552899849a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016768"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58092192"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway di gestione dati: disponibilità elevata e scalabilità (anteprima)
 > [!NOTE]
@@ -29,8 +29,8 @@ Questo articolo consente di configurare una soluzione di disponibilità elevata 
 
 > [!NOTE]
 > Questo articolo presuppone che l'utente abbia già familiarità con i concetti di base relativi a Integration Runtime (in precedenza, Gateway di gestione dati). In caso contrario, vedere [Gateway di gestione dati](data-factory-data-management-gateway.md).
-
->**Questa funzionalità di anteprima è ufficialmente supportata in Gateway di gestione dati versione 2.12.xxxx.x e successive**. Assicurarsi quindi che sia in uso la versione 2.12.xxxx.x o successiva. Scaricare la versione più recente di Gateway di gestione dati [qui](https://www.microsoft.com/download/details.aspx?id=39717).
+> 
+> **Questa funzionalità di anteprima è ufficialmente supportata in Gateway di gestione dati versione 2.12.xxxx.x e successive**. Assicurarsi quindi che sia in uso la versione 2.12.xxxx.x o successiva. Scaricare la versione più recente di Gateway di gestione dati [qui](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## <a name="overview"></a>Panoramica
 È possibile associare gateway di gestione dati installati in più computer locali a un solo gateway logico nel portale. Questi computer sono chiamati **nodi**. È possibile avere fino a **quattro nodi** associati a un gateway logico. I vantaggi di avere più nodi (computer locali con un gateway installato) per un gateway logico sono:  
@@ -163,8 +163,8 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere le comunicazion
 
 - Deve essere un certificato X509 v3 pubblicamente attendibile. È consigliabile usare certificati rilasciati da un'autorità di certificazione (CA) pubblica (terza parte).
 - Ogni nodo di Integration Runtime deve considerare attendibile questo certificato, nonché il computer client che esegue l'applicazione di gestione delle credenziali. 
-> [!NOTE]
-> L'applicazione di gestione delle credenziali viene usata durante l'impostazione sicura delle credenziali tramite Copia guidata nel portale di Azure. Può inoltre essere attivata da qualsiasi computer all'interno della stessa rete dell'archivio dati locale/privato.
+  > [!NOTE]
+  > L'applicazione di gestione delle credenziali viene usata durante l'impostazione sicura delle credenziali tramite Copia guidata nel portale di Azure. Può inoltre essere attivata da qualsiasi computer all'interno della stessa rete dell'archivio dati locale/privato.
 - I certificati con caratteri jolly sono supportati. Se il nome FQDN è **node1.domain.contoso.com**, è possibile usare ***.domain.contoso.com** come nome del soggetto del certificato.
 - I certificati SAN non sono consigliati poiché verrà usato solo l'ultimo elemento dei nomi alternativi dei soggetti, mentre tutti gli altri verranno ignorati a causa della limitazione attuale. ad esempio se si dispone di un certificato SAN i cui nomi alternativi dei soggetti sono **node1.domain.contoso.com** e **node2.domain.contoso.com**, è possibile usare solo questo certificato nel computer il cui nome di dominio completo è **node2.domain.contoso.com**.
 - Deve supportare tutte le dimensioni chiave supportate da Windows Server 2012 R2 per i certificati SSL.
@@ -187,8 +187,8 @@ Nel portale di Azure è possibile visualizzare lo snapshot in tempo quasi reale 
 Proprietà monitoraggio | DESCRIZIONE
 :------------------ | :---------- 
 NOME | Nome del gateway logico e nodi associati al gateway.  
-Status | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione [Stato del gateway](#gateway-status). 
-Version | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
+Stato | Stato del gateway logico e dei nodi del gateway. Esempio: Online/Offline/Limitato e così via. Per informazioni su questi stati, vedere la sezione [Stato del gateway](#gateway-status). 
+Versione | Indica la versione del gateway logico e di ogni nodo del gateway. La versione del gateway logico viene determinata in base alla versione della maggior parte dei nodi del gruppo. Se nella configurazione del gateway logico sono presenti nodi con versioni diverse, solo i nodi con lo stesso numero di versione del gateway logico funzionano correttamente. Gli altri sono in modalità limitata e devono essere aggiornati manualmente (solo se l'aggiornamento automatico non riesce). 
 Memoria disponibile | Memoria disponibile in un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Uso della CPU | Utilizzo della CPU di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
 Rete (in/out) | Utilizzo della rete da parte di un nodo del gateway. Questo valore è uno snapshot in tempo quasi reale. 
@@ -201,7 +201,7 @@ Ruolo | Esistono due tipi di ruoli: dispatcher e ruolo di lavoro. Tutti i nodi s
 
 La tabella seguente indica i possibili stati di un **nodo del gateway**: 
 
-Status  | Commenti/Scenari
+Stato  | Commenti/Scenari
 :------- | :------------------
 Online | Nodo connesso al servizio Data Factory.
 Offline | Il nodo è offline.
@@ -212,7 +212,7 @@ Inactive | Il nodo è in una configurazione diversa da quella della maggior part
 
 La tabella seguente indica i possibili stati di un **gateway logico**. Lo stato del gateway dipende dagli stati dei nodi del gateway. 
 
-Status | Commenti
+Stato | Commenti
 :----- | :-------
 Needs Registration (Registrazione necessaria) | Nessun nodo è ancora registrato per questo gateway logico
 Online | I nodi del gateway sono online

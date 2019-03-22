@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
-ms.date: 01/04/2019
-ms.openlocfilehash: 12b0690c7653b03c8099253bee509a79a2ae2600
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.date: 02/22/2019
+ms.openlocfilehash: 05440698d40a2175fd47384fa2db94ad80d79aa4
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55561859"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57773597"
 ---
 # <a name="determine-vnet-subnet-size-for-azure-sql-database-managed-instance"></a>Determinare le dimensioni di una subnet della rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -27,10 +27,10 @@ Il numero di istanze gestite che possono essere distribuite nella subnet della r
 
 Quando si crea un'istanza gestita, Azure alloca un determinato numero di macchine virtuali in base al livello selezionato durante il provisioning. Poiché queste macchine virtuali sono associate alla subnet, richiedono indirizzi IP. Per assicurare una disponibilità elevata durante le normali operazioni e la manutenzione del servizio, Azure può allocare ulteriori macchine virtuali. Di conseguenza, il numero di indirizzi IP necessari in una subnet è maggiore del numero di istanze gestite nella subnet stessa.
 
-Come da progettazione, un'istanza gestita necessita di un minimo di 16 indirizzi IP in una subnet e può usare fino a 256 indirizzi IP. Di conseguenza, è possibile usare le subnet mask da /28 a /24 per definire gli intervalli IP della subnet.
+Come da progettazione, un'istanza gestita necessita di un minimo di 16 indirizzi IP in una subnet e può usare fino a 256 indirizzi IP. Di conseguenza, è possibile usare una subnet mask tra /28 e da/24 quando si definisce gli intervalli IP di subnet. Un bit di maschera di rete/28 (14 host per ogni rete) è una dimensione valida per un unico scopo generale o la distribuzione aziendali cruciali. Un maschera di bit di/27 (30 host per ogni rete) è ideale per una più distribuzioni a istanza gestita all'interno della stessa rete virtuale. Le impostazioni di bit di maschera di /26 (62 host) e da/24 (254 host) consente un'ulteriore aumento delle istanze della rete virtuale per supportare ulteriori istanze gestite.
 
 > [!IMPORTANT]
-> 16 indirizzi IP sono le dimensioni minime necessarie per la subnet, con un potenziale limitato per l'ulteriore aumento del numero di istanze di Istanza gestita. È consigliabile scegliere una subnet con un prefisso /27 o inferiore.
+> Una dimensione di subnet con 16 indirizzi IP è il minimo con conseguente rischio limitato per le altre istanza gestita di scalabilità. È consigliabile scegliere una subnet con un prefisso /27 o inferiore.
 
 ## <a name="determine-subnet-size"></a>Determinare le dimensioni della subnet
 

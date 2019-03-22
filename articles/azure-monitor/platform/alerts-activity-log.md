@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
-ms.openlocfilehash: c88fe7051519440056fe85e7ff9172ae0239bd41
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 2b069e55d98da824363dc480c211cde0fcc2518c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234238"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58090815"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log attività in Monitoraggio di Azure  
 
@@ -27,13 +27,13 @@ Si tratta di avvisi per le risorse di Azure e possono essere creati usando un mo
 ## <a name="azure-portal"></a>Portale di Azure
 
 > [!NOTE]
-
+> 
 >  Quando si creano le regole di avviso, verificare quanto segue:
-
+> 
 > - La sottoscrizione nell'ambito non deve essere diversa dalla sottoscrizione in cui viene creato l'avviso.
-- I criteri devono essere livello/stato/chiamante/gruppo di risorse/id risorsa/tipo di risorsa o categoria di eventi in cui è stato configurato l'avviso.
-- Non sono presenti condizioni "anyOf" o condizioni nidificate nella configurazione degli avvisi JSON (in pratica, è consentito un solo allOf senza ulteriori allOf/anyOf).
-- Quando la categoria è "administrative" (amministrativa). È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
+> - I criteri devono essere livello/stato/chiamante/gruppo di risorse/id risorsa/tipo di risorsa o categoria di eventi in cui è stato configurato l'avviso.
+> - Non sono presenti condizioni "anyOf" o condizioni nidificate nella configurazione degli avvisi JSON (in pratica, è consentito un solo allOf senza ulteriori allOf/anyOf).
+> - Quando la categoria è "administrative" (amministrativa). È necessario specificare nell'avviso almeno uno dei criteri precedenti. Non è possibile creare un avviso che viene attivato ogni volta che si crea un evento nei log attività.
 
 ### <a name="create-with-azure-portal"></a>Creare con il portale di Azure
 
@@ -50,35 +50,36 @@ Utilizzare la procedura seguente:
 
 3. Nella condizione **Definisci avviso** fornire le informazioni seguenti e fare clic su **Fatto**.
 
-    - **Destinazione avviso**: per visualizzare e selezionare la destinazione per il nuovo avviso, usare **Filtra per sottoscrizione** / **Filtra per tipo di risorsa** e selezionare la risorsa o un gruppo di risorse nell'elenco visualizzato.
+   - **Destinazione avviso**: per visualizzare e selezionare la destinazione per il nuovo avviso, usare **Filtra per sottoscrizione** / **Filtra per tipo di risorsa** e selezionare la risorsa o un gruppo di risorse nell'elenco visualizzato.
 
-    > [!NOTE]
+     > [!NOTE]
+     > 
+     > Per il segnale del log attività è possibile selezionare una risorsa, un gruppo di risorse o un'intera sottoscrizione.
 
-    > Per il segnale del log attività è possibile selezionare una risorsa, un gruppo di risorse o un'intera sottoscrizione.
+     **Visualizzazione di esempio di destinazione di avviso**
+     ![Seleziona destinazione](media/alerts-activity-log/select-target.png)
 
-    **Visualizzazione di esempio di destinazione di avviso** ![Selezionare la destinazione](media/alerts-activity-log/select-target.png)
+   - In **Criteri di destinazione** fare clic su **Aggiungi criteri**. Verranno visualizzati tutti i segnali disponibili per la destinazione, inclusi quelli appartenenti alle varie categorie di **Log attività** con il nome della categoria accodato al nome del **Servizio di monitoraggio**.
 
-    - In **Criteri di destinazione** fare clic su **Aggiungi criteri**. Verranno visualizzati tutti i segnali disponibili per la destinazione, inclusi quelli appartenenti alle varie categorie di **Log attività** con il nome della categoria accodato al nome del **Servizio di monitoraggio**.
+   - Selezionare il segnale nell'elenco visualizzato delle varie operazioni possibili per il tipo di **Log attività**.
 
-    - Selezionare il segnale nell'elenco visualizzato delle varie operazioni possibili per il tipo di **Log attività**.
+     È possibile selezionare la sequenza temporale della cronologia di log e la logica degli avvisi corrispondente per il segnale di destinazione:
 
-    È possibile selezionare la sequenza temporale della cronologia di log e la logica degli avvisi corrispondente per il segnale di destinazione:
+     **Schermata Aggiungi criteri**
 
-    **Schermata Aggiungi criteri**
+     ![aggiungi criteri](media/alerts-activity-log/add-criteria.png)
 
-    ![aggiungi criteri](media/alerts-activity-log/add-criteria.png)
+     **Periodo cronologia**: è possibile tracciare gli eventi disponibili per l'operazione selezionata nelle ultime 6/12/24 ore oppure nell'ultima settimana.
 
-    **Periodo cronologia**: è possibile tracciare gli eventi disponibili per l'operazione selezionata nelle ultime 6/12/24 ore oppure nell'ultima settimana.
-
-    **Logica avvisi**:
+     **Logica avvisi**:
 
      - **Livello evento**: il livello di gravità dell'evento. _Dettagliato_, _Informativo_ _Avviso_, _Errore_ o _Critico_.
      - **Stato**: Lo stato dell'evento. _Avviato_, _Operazione non riuscita_ o _Operazione completata_.
      - **Evento avviato da**: noto anche come il chiamante. L'indirizzo di posta elettronica o un identificatore di Azure Active Directory dell'utente che ha eseguito l'operazione.
 
-        Grafico del segnale di esempio con logica avvisi applicata:
+       Grafico del segnale di esempio con logica avvisi applicata:
 
-        ![ criteri selezionati](media/alerts-activity-log/criteria-selected.png)
+       ![ criteri selezionati](media/alerts-activity-log/criteria-selected.png)
 
 4. In **Definire i dettagli dell'avviso** fornire i dettagli seguenti:
 
@@ -115,15 +116,15 @@ In alternativa, una semplice analogia per comprendere le condizioni in cui è po
 
     È possibile usare i filtri disponibili: _Sottoscrizione_, _Gruppo di risorse_, _Risorsa_, _Tipo di segnale_ o _Stato_ per trovare la regola dell'attività che si vuole modificare.
 
-    > [!NOTE]
+   > [!NOTE]
+   > 
+   > È possibile modificare solo la **Descrizione**, i **Criteri di destinazione** e i **Gruppi di azioni**.
 
-    > È possibile modificare solo la **Descrizione**, i **Criteri di destinazione** e i **Gruppi di azioni**.
+3. Selezionare la regola e fare doppio clic per modificare le opzioni della regola. Apportare le modifiche necessarie e quindi fare clic su **Salva**.
 
-3.  Selezionare la regola e fare doppio clic per modificare le opzioni della regola. Apportare le modifiche necessarie e quindi fare clic su **Salva**.
+   ![ gestione delle regole di avviso](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
-    ![ gestione delle regole di avviso](media/alerts-activity-log/activity-log-rule-edit-page.png)
-
-4.  È possibile disabilitare, abilitare o eliminare una regola. Selezionare l'opzione appropriata nella parte superiore della finestra, dopo aver selezionato la regola come descritto nel passaggio 2.
+4. È possibile disabilitare, abilitare o eliminare una regola. Selezionare l'opzione appropriata nella parte superiore della finestra, dopo aver selezionato la regola come descritto nel passaggio 2.
 
 
 ## <a name="azure-resource-template"></a>Modello di risorsa di Azure
@@ -204,13 +205,26 @@ L'[API degli avvisi dei log attività di Monitoraggio di Azure](https://docs.mic
 
 ## <a name="powershell"></a>PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+### <a name="deploy-resource-manager-template-with-powershell"></a>Distribuire un modello di Resource Manager con PowerShell
+Usare PowerShell per distribuire l'esempio di modello di risorsa un [modello di risorsa sezione] precedente (#--modello di resource manager, usare il comando seguente:
+
+```powershell
+New-AzResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
+```
+
+in cui il sampleActivityLogAlert.parameters.json contiene i valori specificati per i parametri necessari per la creazione della regola di avviso.
+
+### <a name="use-activity-log-powershell-cmdlets"></a>Usare i cmdlet di PowerShell per Log attività
+
 Per gli avvisi del log attività sono disponibili cmdlet di PowerShell dedicati:
 
-- [Set-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/set-azurermactivitylogalert): per creare una nuova risorsa di regola di avviso del log attività o aggiornarne una esistente
-- [Get-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermactivitylogalert): per recuperare una o più risorse di regola di avviso del log attività
-- [Remove-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/remove-azurermactivitylogalert): per eliminare una risorsa di regola di avviso del log attività con conferma dell'utente
-- [Enable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/enable-azurermactivitylogalert): per abilitare una risorsa di regola di avviso del log attività esistente
-- [Disable-AzureRmActivityLogAlert](https://docs.microsoft.com/powershell/module/azurerm.insights/disable-azurermactivitylogalert): per disabilitare una risorsa di regola di avviso del log attività esistente
+- [Set-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Set-AzActivityLogAlert?view=azps-1.3.0) : Crea un nuovo o aggiornare un avviso esistente del log attività.
+- [Get-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Get-AzActivityLogAlert?view=azps-1.3.0) : Ottiene uno o più attività risorse degli avvisi del log.
+- [Enable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Enable-AzActivityLogAlert?view=azps-1.3.0) : Abilita un avviso del log attività esistenti e imposta i tag.
+- [Disable-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Disable-AzActivityLogAlert?view=azps-1.3.0) : Disabilita un avviso del log attività esistenti e imposta i tag.
+- [Remove-AzActivityLogAlert](https://docs.microsoft.com/powershell/module/az.monitor/Remove-AzActivityLogAlert?view=azps-1.3.0)    : Rimuove un avviso del log attività.
 
 ## <a name="cli"></a>CLI
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 781a897c99a28fbd1b695876f477b140521068e3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 25a088686c739c53feadd6354baf75f3147bdc33
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244880"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57431192"
 ---
 # <a name="scale-up-your-azure-devtest-labs-infrastructure"></a>Aumentare l'infrastruttura di Azure DevTestLabs
 Prima di implementare DevTest Labs su scala aziendale, esistono diversi punti fondamentali da decidere. La comprensione di questi punti a livello generale aiuta un'organizzazione a progettare le decisioni per il futuro. Questi punti non devono tuttavia trattenere un'organizzazione dall'avviare un modello di verifica. Di seguito sono elencate le tre aree principali che interessano la pianificazione iniziale della scalabilità verticale:
@@ -46,7 +46,7 @@ Di seguito vengono esposti i vantaggi di ogni approccio.
 L'approccio con un'unica sottoscrizione spesso non è gestibile in un'azienda di grandi dimensioni. La scelta di limitare il numero di sottoscrizioni offre tuttavia i benefici seguenti:
 
 - **Previsione** dei costi per l'azienda.  La determinazione del budget diventa molto più semplice con una singola sottoscrizione perché tutte le risorse sono riunite in un unico pool. Questo approccio consente di prendere le decisioni con più facilità in merito a quando esercitare misure di controllo dei costi in una fase specifica del ciclo di fatturazione.
-- La **gestibilità** di macchine virtuali, artefatti, formule, configurazione di rete, autorizzazioni, criteri e altro risulta più facile poiché tutti gli aggiornamenti vengono applicati a un'unica sottoscrizione anziché a più sottoscrizioni.
+- **Gestibilità** di macchine virtuali, gli elementi, le formule, configurazione di rete, autorizzazioni, i criteri, e così via è più semplice poiché tutti gli aggiornamenti sono necessari solo in una sottoscrizione invece di effettuare gli aggiornamenti tra più sottoscrizioni.
 - Il lavoro richiesto per le **reti** risulta enormemente semplificato in una singola sottoscrizione per le aziende per cui la connettività locale è un requisito. La connessione di reti virtuali tra le sottoscrizioni (modello hub-spoke) è necessaria con sottoscrizioni aggiuntive e richiede configurazione, gestione, spazi di indirizzi IP aggiuntivi e altro ancora.
 - La **collaborazione nei team** è più facile se tutti lavorano nella stessa sottoscrizione. È ad esempio più facile riassegnare una VM a un collega, condividere le risorse con il team e così via.
 

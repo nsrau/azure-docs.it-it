@@ -15,22 +15,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2018
 ms.author: njray
-ms.openlocfilehash: 104730d94134d935f56fb95fd55d05b515e9f501
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: fba6b5308b380b374611c09747302dbf8305dd9b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245566"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014983"
 ---
 # <a name="deploy-ibm-db2-purescale-on-azure"></a>Distribuire IBM DB2 pureScale in Azure
 
 Questo articolo illustra come distribuire un'[architettura di esempio](ibm-db2-purescale-azure.md) usata di recente per eseguire la migrazione dall'ambiente IBM DB2 in esecuzione su z/OS a IBM DB2 pureScale in Azure.
 
-Per seguire le procedure di migrazione, vedere gli script di installazione nel repository [DB2onAzure](http://aka.ms/db2onazure) su GitHub. Questi script sono basati sull'architettura per un tipico carico di lavoro OLTP (Online Transaction Processing) di medie dimensioni.
+Per seguire le procedure di migrazione, vedere gli script di installazione nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Questi script sono basati sull'architettura per un tipico carico di lavoro OLTP (Online Transaction Processing) di medie dimensioni.
 
 ## <a name="get-started"></a>Attività iniziali
 
-Per distribuire questa architettura, scaricare ed eseguire lo script deploy.sh disponibile nel repository [DB2onAzure](http://aka.ms/db2onazure) su GitHub.
+Per distribuire questa architettura, scaricare ed eseguire lo script deploy.sh disponibile nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub.
 
 Il repository contiene anche script da usare per configurare un dashboard Grafana che può essere usato per eseguire query su Prometheus, il sistema open-source di monitoraggio e invio di avvisi incluso in DB2.
 
@@ -76,7 +76,7 @@ Dopo che gli script creano il dispositivo iSCSI, il passaggio finale consiste ne
 Il repository GitHub include il file di risposta DB2server.rsp, che consente di generare uno script automatizzato per l'installazione di DB2 pureScale. La tabella seguente contiene un elenco delle opzioni di DB2 pureScale usate dal file di risposta per l'installazione. È possibile personalizzare il file di risposta in base alle esigenze dell'ambiente.
 
 > [!NOTE]
-> Un file di risposta di esempio, DB2server.rsp, è incluso nel repository [DB2onAzure](http://aka.ms/db2onazure) su GitHub. Se si usa questo file, è necessario modificarlo in modo che sia compatibile con l'ambiente in uso.
+> Un file di risposta di esempio, DB2server.rsp, è incluso nel repository [DB2onAzure](https://aka.ms/db2onazure) su GitHub. Se si usa questo file, è necessario modificarlo in modo che sia compatibile con l'ambiente in uso.
 
 | Nome schermata               | Campo                                        | Valore                                                                                                 |
 |---------------------------|----------------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -138,7 +138,7 @@ Il repository GitHub include una knowledge base gestita dagli autori in cui sono
 
 -   DB2 pureScale e IBM Spectrum Scale vengono rimossi.
 
-Per altre informazioni su questi e altri problemi noti, vedere il file kb.md nel repository [DB2onAzure](http://aka.ms/DB2onAzure).
+Per altre informazioni su questi e altri problemi noti, vedere il file kb.md nel repository [DB2onAzure](https://aka.ms/DB2onAzure).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -148,7 +148,7 @@ Per altre informazioni su questi e altri problemi noti, vedere il file kb.md nel
 
 -   [DB2icrt - Create instance command](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html) (DB2icrt - Comando Crea istanza)
 
--   [DB2 pureScale Clusters Data Solution](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1) (Soluzione dati cluster DB2 pureScale)
+-   [DB2 pureScale Clusters Data Solution](https://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1) (Soluzione dati cluster DB2 pureScale)
 
 -   [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: gokuma
-ms.openlocfilehash: 8ee424412c9c54dadef7391084e3ab976da9ad7f
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 0b8349c6c59ac64be15c75b28c083a4483f2f68a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417449"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57896263"
 ---
 # <a name="provision-a-windows-data-science-virtual-machine-on-azure"></a>Effettuare un provisioning di una macchina virtuale di Data Science Windows di Azure
 
@@ -44,7 +44,7 @@ In una DSVM sono inclusi gli strumenti seguenti:
   * [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit): un sistema di apprendimento automatico rapido che supporta tecniche come hash online, allreduce, reduction, learning2search e apprendimento attivo e interattivo
   * [XGBoost](https://xgboost.readthedocs.org/en/latest/): uno strumento che consente un'implementazione di albero con boosting rapida e accurata
   * [Rattle](https://togaware.com/rattle/): lo strumento analitico R che consente di iniziare a usare l'analisi dei dati e l'apprendimento automatico in R. Include funzionalità di esplorazione e modellazione dei dati basate su GUI con generazione automatica di codice R.
-  * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): software di apprendimento automatico e data mining visivo in Java
+  * [Weka](https://www.cs.waikato.ac.nz/ml/weka/): software di apprendimento automatico e data mining visivo in Java
   * [Apache Drill](https://drill.apache.org/): motore di query SQL senza schema per Apache Hadoop, NoSQL e Cloud Storage. Supporta le interfacce ODBC e JDBC per l'esecuzione di query in NoSQL e in file di strumenti di Business Intelligence standard come Power BI, Microsoft Excel e Tableau.
 * Librerie in R e Python da usare in Azure Machine Learning e altri servizi di Azure
 * Git, che comprende Git Bash, per lavorare con i repository di codice sorgente che includono GitHub e Azure DevOps. Git fornisce diverse comuni utilità della riga di comando di Linux accessibili sia da Git Bash che da un prompt dei comandi, ad esempio awk, sed, perl, grep, find, wget e curl.
@@ -71,7 +71,7 @@ Per questa immagine di VM per l'analisi scientifica dei dati non sono previsti c
 
 ## <a name="prerequisite"></a>Prerequisito
 
-Per creare una Microsoft Data Science Virtual Machine, è necessaria una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](http://azure.com/free).
+Per creare una Microsoft Data Science Virtual Machine, è necessaria una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.com/free).
 
 ## <a name="create-your-dsvm"></a>Creare la propria DSVM
 
@@ -229,4 +229,4 @@ Python SDK è preinstallato nella macchina virtuale di data science di Microsoft
 * In Esplora File, passare a **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** per esempi che usano la libreria RevoScaleR in R che supporta l'analisi dei dati a livello aziendale.  
 * Leggere l'articolo [Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati](https://aka.ms/dsvmtenthings).
 * Informazioni su come creare sistematicamente soluzioni analitiche end-to-end usando il [Processo di analisi scientifica dei dati per i team](../team-data-science-process/index.yml).
-* Per esempi di apprendimento automatico e di analisi dei dati che usano Azure Machine Learning e i servizi dati correlati in Azure, visitare [Azure AI Gallery](http://gallery.cortanaintelligence.com). Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.
+* Per esempi di apprendimento automatico e di analisi dei dati che usano Azure Machine Learning e i servizi dati correlati in Azure, visitare [Azure AI Gallery](https://gallery.cortanaintelligence.com). Per questa raccolta è disponibile anche un'icona nel menu **Start** e sul desktop della macchina virtuale.

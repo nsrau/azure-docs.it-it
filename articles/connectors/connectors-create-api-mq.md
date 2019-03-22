@@ -1,8 +1,7 @@
 ---
 title: Connettersi a un server MQ - App per la logica di Azure | Microsoft Docs
 description: Inviare e recuperare messaggi con un server MQ di Azure o locale e App per la logica di Azure
-author: valthom
-manager: jeconnoc
+author: valrobb
 ms.author: valthom
 ms.date: 06/01/2017
 ms.topic: article
@@ -11,52 +10,52 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 6b34bd7b286ca3b206c611343217c90e0d57fbfb
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 9e6ae5cb0afd75a1e87fe4d4d0cf307abab5a02a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295911"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58167882"
 ---
-# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Connettersi a un server IBM MQ da app per la logica usando il connettore MQ 
+# <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Connettersi a un server IBM MQ da app per la logica usando il connettore MQ
 
-Microsoft Connector per MQ consente di inviare e recuperare i messaggi archiviati in un server MQ locale o in Azure. Il connettore include un client MQ Microsoft che comunica con un server IBM MQ remoto tramite una rete TCP/IP. Questo documento è una guida introduttiva all'uso del connettore MQ. Si consiglia di iniziare con la visualizzazione di un singolo messaggio in una coda, per poi provare altre azioni.    
+Microsoft Connector per MQ consente di inviare e recuperare i messaggi archiviati in un server MQ locale o in Azure. Il connettore include un client MQ Microsoft che comunica con un server IBM MQ remoto tramite una rete TCP/IP. Questo documento è una guida introduttiva all'uso del connettore MQ. Si consiglia di iniziare con la visualizzazione di un singolo messaggio in una coda, per poi provare altre azioni.
 
 Il connettore MQ include le azioni seguenti. Non sono disponibili trigger.
 
--   Visualizzare un singolo messaggio senza eliminare il messaggio dal server IBM MQ
--   Visualizzare un gruppo di messaggi senza eliminarli dal server IBM MQ
--   Ricevere un singolo messaggio ed eliminarlo dal server IBM MQ
--   Ricevere un gruppo di messaggi ed eliminarli dal server IBM MQ
--   Inviare un singolo messaggio al server IBM MQ 
+- Visualizzare un singolo messaggio senza eliminare il messaggio dal server IBM MQ
+- Visualizzare un gruppo di messaggi senza eliminarli dal server IBM MQ
+- Ricevere un singolo messaggio ed eliminarlo dal server IBM MQ
+- Ricevere un gruppo di messaggi ed eliminarli dal server IBM MQ
+- Inviare un singolo messaggio al server IBM MQ
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 * Se si usa un server MQ locale, [installare il gateway dati locale](../logic-apps/logic-apps-gateway-install.md) in un server all'interno della rete. Se il server MQ è disponibile pubblicamente o all'interno di Azure, il gateway dati non viene usato o non è necessario.
 
     > [!NOTE]
-    > Per il corretto funzionamento del connettore MQ, nel server in cui è installato il gateway dati locale deve essere installato anche .NET Framework 4.6.
+    > Il server in cui è installato On-Premises Data Gateway è necessario anche .NET Framework 4.6 installato per il connettore MQ alla funzione.
 
 * Creare una risorsa di Azure per il gateway dati locale - [Configurare la connessione al gateway dati](../logic-apps/logic-apps-gateway-connection.md).
 
 * Versioni supportate ufficialmente di IBM WebSphere MQ:
-   * MQ 7.5
-   * MQ 8.0
+    * MQ 7.5
+    * MQ 8.0
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica
 
-1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**. 
+1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
 2. Immettere **Nome**, ad esempio, MQTestApp **Sottoscrizione**, **Gruppo di risorse** e **Percorso** (usare il percorso in cui è configurata la connessione al gateway dati locale). Selezionare **Aggiungi al dashboard** e selezionare **Crea**.  
 ![Creare un'app per la logica](media/connectors-create-api-mq/Create_Logic_App.png)
 
 ## <a name="add-a-trigger"></a>Aggiungere un trigger
 
 > [!NOTE]
-> Il connettore MQ non include trigger. Usare quindi un altro trigger per avviare l'app per la logica, ad esempio il trigger **Ricorrenza**. 
+> Il connettore MQ non include trigger. Usare quindi un altro trigger per avviare l'app per la logica, ad esempio il trigger **Ricorrenza**.
 
 1. Verrà aperta **Progettazione app per la logica**. Selezionare **Ricorrenza** nell'elenco dei trigger comuni.
-2. Selezionare **Modifica** all'interno del trigger Ricorrenza. 
-3. Impostare **Frequenza** su **Giorno** e **Intervallo** su **7**. 
+2. Selezionare **Modifica** all'interno del trigger Ricorrenza.
+3. Impostare **Frequenza** su **Giorno** e **Intervallo** su **7**.
 
 ## <a name="browse-a-single-message"></a>Visualizzare un singolo messaggio
 1. Selezionare **+ Nuovo passaggio** e quindi **Aggiungi un'azione**.
@@ -66,9 +65,9 @@ Il connettore MQ include le azioni seguenti. Non sono disponibili trigger.
 3. Se non è disponibile una connessione MQ esistente, creare la connessione:  
 
     1. Selezionare **Connect via on-premises data gateway** (Connetti tramite gateway dati locale) e immettere le proprietà del server MQ.  
-    In **Server** è possibile immettere il nome del server MQ o immettere l'indirizzo IP seguito da due punti e dal numero di porta. 
+    In **Server** è possibile immettere il nome del server MQ o immettere l'indirizzo IP seguito da due punti e dal numero di porta.
     2. Nell'elenco a discesa **Gateway** sono elencate le eventuali connessioni gateway esistenti configurate. Selezionare il gateway.
-    3. Selezionare **Create** (Crea) al termine. La connessione sarà simile alla seguente:   
+    3. Selezionare **Create** (Crea) al termine. La connessione sarà simile alla seguente:  
     ![Proprietà connessione](media/connectors-create-api-mq/Connection_Properties.png)
 
 4. Nelle proprietà dell'azione è possibile:  

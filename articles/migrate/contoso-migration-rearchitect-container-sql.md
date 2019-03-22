@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 243b19d19fbce11d77f60bc2eccc4d1c58c85b80
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: cb984bcbe79b69c0614579d66a3b853cd38a7e12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892185"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099087"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migrazione di Contoso: Riprogettazione di un'app in locale in un contenitore di Azure e nel database SQL di Azure
 
@@ -402,10 +402,10 @@ Gli amministratori Contoso convertiranno l'app in un contenitore mediante Visual
 4. Ripetono il processo per l'app SmartHotel.Registration.WCF.
 5. A questo punto controllano come è stata modificata la soluzione.
 
-    - La nuova app è **SmartHotel.RegistrationApplication/**
-    - Contiene due servizi: **SmartHotel.Registration.WCF** e **SmartHotel.Registration.Web**.
+   - La nuova app è **SmartHotel.RegistrationApplication/**
+   - Contiene due servizi: **SmartHotel.Registration.WCF** e **SmartHotel.Registration.Web**.
 
-    ![Contenitore](./media/contoso-migration-rearchitect-container-sql/container4.png)
+     ![Contenitore](./media/contoso-migration-rearchitect-container-sql/container4.png)
 
 6. In Visual Studio è stato creato il file di Docker e sono state scaricate in locale le immagini necessarie per il computer dello sviluppatore.
 
@@ -488,7 +488,7 @@ Gli amministratori di Contoso configurano ora Azure DevOps Services per eseguire
 
 16. Si noti che è anche abilitato il trigger di distribuzione continua.
 
-   ![Distribuzione continua abilitata](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
+    ![Distribuzione continua abilitata](./media/contoso-migration-rearchitect-container-sql/pipeline14.png) 
 
 17. Fanno clic su **Salva** > **Crea una versione**.
 

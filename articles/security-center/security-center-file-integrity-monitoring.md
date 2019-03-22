@@ -3,23 +3,23 @@ title: Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure | Mic
 description: " Informazioni su come abilitare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure. "
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
-editor: ''
+editor: monhaber
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
-ms.author: rkarlin
-ms.openlocfilehash: c32dcbac8ebab5fb71839a4525163c0e6cf028ed
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.date: 03/13/2019
+ms.author: monhaber
+ms.openlocfilehash: f8bc10edcdc31dd2ae3995dcb8321a5523e1e51c
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310733"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57901585"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Monitoraggio dell'integrità dei file nel Centro sicurezza di Azure
 Questa procedura dettagliata fornisce informazioni su come configurare il monitoraggio dell'integrità dei file nel Centro sicurezza di Azure.
@@ -36,15 +36,12 @@ Il monitoraggio dell'integrità dei file del Centro sicurezza convalida l'integr
 Il Centro sicurezza consiglia le entità da monitorare, in cui è possibile abilitare facilmente il monitoraggio dell'integrità dei file. È inoltre possibile definire i criteri di monitoraggio dell'integrità dei file o le entità da monitorare. Questa procedura dettagliata illustra come fare.
 
 > [!NOTE]
-> La funzionalità di monitoraggio dell'integrità dei file viene eseguita nelle macchine virtuali e nei computer Windows e Linux ed è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md).
-Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro di Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
->
->
+> La funzionalità di monitoraggio dell'integrità dei file viene eseguita nelle macchine virtuali e nei computer Windows e Linux ed è disponibile nel livello Standard del Centro sicurezza. Per altre informazioni sui piani tariffari di Centro sicurezza, vedere [Prezzi](security-center-pricing.md). Il monitoraggio dell'integrità dei file carica i dati nell'area di lavoro di Log Analytics. Si applicano costi in base alla quantità di dati caricati. Per altre informazioni, vedere [Prezzi di Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+
+Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando è abilitato il monitoraggio dell'integrità dei File, è necessario un **Change Tracking** risorsa di tipo **soluzione**. Per dettagli sulla frequenza di raccolta dati, vedere [Change Tracking informazioni dettagliate sulla raccolta dati](https://docs.microsoft.com/azure/automation/automation-change-tracking#change-tracking-data-collection-details) per rilevamento modifiche di Azure.
 
 > [!NOTE]
-> Il monitoraggio dell'integrità dei file usa la soluzione Rilevamento modifiche di Azure per tenere traccia delle modifiche nell'ambiente e identificarle. Quando il monitoraggio dell'integrità dei file è abilitato, si ha una risorsa **Rilevamento modifiche** di tipo Soluzione. Se si rimuove la risorsa **Rilevamento modifiche**, si disabilita l'integrità la funzionalità di monitoraggio dell'integrità dei file nel Centro sicurezza.
->
->
+> Se si rimuove il **Change Tracking** risorsa, è anche disabiliterà l'integrità del File di funzionalità nel Centro sicurezza di monitoraggio.
 
 ## <a name="which-files-should-i-monitor"></a>Quali file è necessario monitorare?
 Quando si scelgono i file da monitorare, è necessario considerare quali sono critici per il sistema e le applicazioni. Prendere in considerazione di scegliere i file che non si prevede di modificare senza pianificazione. Scegliendo i file che vengono modificati di frequente dalle applicazioni o dal sistema operativo (ad esempio file di log e file di testo) si crea molto disturbo, che rende difficile identificare un attacco.
@@ -134,15 +131,15 @@ La scheda **Modifiche** (mostrata sotto) elenca tutte le modifiche per l'area di
 
 1. Tornare al **dashboard Monitoraggio dell'integrità dei file** e selezionare **Impostazioni**.
 
-  ![Impostazioni][11]
+   ![Impostazioni][11]
 
-  **Configurazione dell'area di lavoro** si apre visualizzando tre schede: **Registro di sistema di Windows**, **File Windows** e **File Linux**. Ogni scheda elenca le entità che è possibile modificare nella categoria. Per ogni entità elencata, il Centro sicurezza identifica se il monitoraggio dell'integrità dei file è abilitato (true) o non abilitato (false).  La modifica dell'entità consente di abilitare o disabilitare il monitoraggio dell'integrità dei file.
+   **Configurazione dell'area di lavoro** si apre visualizzando tre schede: **Registro di sistema di Windows**, **File Windows** e **File Linux**. Ogni scheda elenca le entità che è possibile modificare nella categoria. Per ogni entità elencata, il Centro sicurezza identifica se il monitoraggio dell'integrità dei file è abilitato (true) o non abilitato (false).  La modifica dell'entità consente di abilitare o disabilitare il monitoraggio dell'integrità dei file.
 
-  ![Configurazione dell'area di lavoro][12]
+   ![Configurazione dell'area di lavoro][12]
 
-2. Selezionare una protezione dell'identità. In questo esempio è stato selezionato un elemento in Registro di sistema di Windows. Si apre **Modifica Registro di sistema di Windows per Rilevamento modifiche**.
+2. Selezionare la protezione di un'identità. In questo esempio è stato selezionato un elemento in Registro di sistema di Windows. Si apre **Modifica Registro di sistema di Windows per Rilevamento modifiche**.
 
-  ![Rilevamento delle modifiche][13]
+   ![Rilevamento delle modifiche][13]
 
 In **Modifica Registro di sistema di Windows per Rilevamento modifiche** è possibile:
 
@@ -155,11 +152,11 @@ In **Modifica Registro di sistema di Windows per Rilevamento modifiche** è poss
 1. Tornare al **dashboard Monitoraggio dell'integrità dei file** e selezionare **Impostazioni** nella parte superiore. Si apre **Configurazione dell'area di lavoro**.
 2. In **Configurazione dell'area di lavoro** selezionare la scheda per il tipo di entità che si desidera aggiungere: Registro di sistema di Windows, File Windows o File Linux. In questo esempio è stato selezionato **File Linux**.
 
-  ![Aggiungere una nuova entità da monitorare][14]
+   ![Aggiungere una nuova entità da monitorare][14]
 
 3. Selezionare **Aggiungi**. Si apre **Aggiungi file Linux per Rilevamento modifiche**.
 
-  ![Immettere le informazioni richieste][15]
+   ![Immettere le informazioni richieste][15]
 
 4. Nella pagina **Aggiungi** digitare le informazioni richieste e selezionare **Salva**.
 
@@ -167,19 +164,19 @@ In **Modifica Registro di sistema di Windows per Rilevamento modifiche** è poss
 1. Tornare al dashboard **Monitoraggio dell'integrità dei file**.
 2. Selezionare un'area di lavoro in cui la funzionalità è attualmente abilitata. Un'area di lavoro è abilitata per il monitoraggio dell'integrità dei file se manca il pulsante Abilita o Piano di aggiornamento.
 
-  ![Selezionare un'area di lavoro in cui la funzionalità è abilitata][16]
+   ![Selezionare un'area di lavoro in cui la funzionalità è abilitata][16]
 
 3. In Monitoraggio dell'integrità dei file selezionare **Impostazioni**.
 
-  ![Selezionare Impostazioni][17]
+   ![Selezionare Impostazioni][17]
 
 4. In **Configurazione dell'area di lavoro** selezionare un gruppo in cui **Abilitato** sia impostato su true.
 
-  ![Configurazione dell'area di lavoro][18]
+   ![Configurazione dell'area di lavoro][18]
 
 5. Nella finestra **Modifica Registro di sistema di Windows per Rilevamento modifiche** impostare **Abilitato** su False.
 
-  ![Impostare Abilitato su False][19]
+   ![Impostare Abilitato su False][19]
 
 6. Selezionare **Salva**.
 
@@ -198,7 +195,7 @@ Usare i caratteri jolly per semplificare le attività di rilevamento nelle direc
 2. Selezionare un'area di lavoro.
 3. In **Monitoraggio dell'integrità dei file** selezionare **Disabilita**.
 
-  ![Disabilitare il monitoraggio dell'integrità dei file][20]
+   ![Disabilitare il monitoraggio dell'integrità dei file][20]
 
 4. Selezionare **Rimuovi** per disabilitare.
 

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ad011d778ab575c146c202a7940e03a4451979fb
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: dae0ea3e564a3dfafcd7f072f9b0d8854df17ed7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58074744"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>Visualizza i contenuti di un file verificati con Rilevamento modifiche
 
@@ -62,11 +62,11 @@ I passaggi seguenti consentono di eseguire l'attivazione per il rilevamento dell
 
 1. Nella pagina **Dettagli modifiche**, è possibile visualizzare le informazioni standard sul contenuto di un file prima e dopo le modifiche; in alto a sinistra, fare clic su **Visualizzare le modifiche al contenuto del file**.
 
-  ![dettagli modifiche](./media/change-tracking-file-contents/change-details.png)
+   ![dettagli modifiche](./media/change-tracking-file-contents/change-details.png)
 
 1. La nuova pagina mostra il contenuto del file in una visualizzazione side-by-side. È anche possibile selezionare **Inline** per visualizzare una visualizzazione in linea delle modifiche.
 
-  ![visualizzare modifiche dei file](./media/change-tracking-file-contents/view-file-changes.png)
+   ![visualizzare modifiche dei file](./media/change-tracking-file-contents/view-file-changes.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -75,5 +75,5 @@ Vedere l'esercitazione su Rilevamento modifiche per altre informazioni sull'uso 
 > [!div class="nextstepaction"]
 > [Risolvere i problemi delle modifiche nell'ambiente](automation-tutorial-troubleshoot-changes.md)
 
-* Per visualizzare dati dettagliati di monitoraggio delle modifiche, usare [Ricerche nei log in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+* Uso [ricerche nei Log in Monitoraggio di Azure log](../log-analytics/log-analytics-log-searches.md) per visualizzare i dati di rilevamento delle modifiche dettagliato.
 

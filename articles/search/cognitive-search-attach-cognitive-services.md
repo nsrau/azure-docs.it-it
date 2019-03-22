@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: bfa9bbb9816148182b79a8231f2ddb3e46433804
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
-ms.translationtype: HT
+ms.openlocfilehash: d5fdae09055f922fe9783f6eb074457af12c60df
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54413244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880416"
 ---
 # <a name="attach-a-cognitive-services-resource-with-a-skillset-in-azure-search"></a>Allegare la risorsa Servizi cognitivi a un set di competenze - Ricerca di Azure 
 
@@ -60,21 +60,7 @@ Vengono addebitate solo le competenze che chiamano le API Servizi cognitivi. Le 
 
 1. Selezionando **Crea nuova risorsa Servizi cognitivi** viene aperta una nuova scheda in cui è possibile creare la risorsa. Assegnare alla risorsa un nome univoco.
 
-1. Scegliere la stessa località di Ricerca di Azure. Attualmente l'indicizzazione con competenze cognitive è supportata nelle aree seguenti:
-
-  * Stati Uniti centro-occidentali
-  * Stati Uniti centro-meridionali
-  * Stati Uniti orientali
-  * Stati Uniti orientali 2
-  * Stati Uniti occidentali 2
-  * Canada centrale
-  * Europa occidentale
-  * Regno Unito meridionale
-  * Europa settentrionale
-  * Brasile meridionale
-  * Asia sud-orientale
-  * India centrale
-  * Australia orientale
+1. Se si crea una nuova risorsa, servizi cognitivi **scegliere la stessa regione** come risorsa di ricerca di Azure.
 
 1. Scegliere il piano tariffario tutto in uno, **S0**. Questo piano offre le funzionalità di Visione artificiale e Lingua che supportano le competenze predefinite nella ricerca cognitiva.
 
@@ -146,22 +132,22 @@ Content-Type: application/json
 
 Per stimare i costi associati all'indicizzazione di ricerca cognitiva, iniziare basandosi su un documento medio, in modo da poter inserire qualche cifra. Ad esempio, a scopo di stima, si potrebbero inserire i valori approssimativi:
 
-+ 1000 file PDF
++ 1.000 file PDF
 + Sei pagine ognuno
-+ Un'immagine per pagina (6000 immagini)
-+ 3000 caratteri per pagina
++ Un'immagine per pagina (6.000 immagini)
++ 3.000 caratteri per pagina
 
 Si supponga di avere una pipeline costituita dall'individuazione del documento di ogni file PDF con estrazione di testo e immagini, riconoscimento ottico dei caratteri (OCR) delle immagini e riconoscimento di entità denominate delle organizzazioni. 
 
 In questo esercizio viene usato il prezzo più alto per ogni transazione. I costi effettivi possono essere inferiori vista l'applicazione di prezzi progressivi. Vedere [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services).
 
-1. Per l'individuazione di documenti con contenuto di testo e immagini, attualmente l'estrazione di testo è gratuita. Per 6000 immagini, si supponga un costo di 1 dollaro per ogni 1000 immagini estratte, con un costo di 6 dollari per questo passaggio.
+1. Per l'individuazione di documenti con contenuto di testo e immagini, attualmente l'estrazione di testo è gratuita. Per 6.000 immagini, si supponga un costo di 1 dollaro per ogni 1.000 immagini estratte, con un costo di 6 dollari per questo passaggio.
 
-2. Per il riconoscimento ottico dei caratteri di 6000 immagini in inglese, la competenza cognitiva OCR usa l'algoritmo migliore (DescribeText). Supponendo un costo di 2,50 dollari per l’analisi di 1000 immagini, il costo raggiunto in questo passaggio sarebbe di 15 dollari.
+2. Per il riconoscimento ottico dei caratteri di 6.000 immagini in inglese, la competenza cognitiva OCR usa l'algoritmo migliore (DescribeText). Supponendo un costo di 2,50 dollari per l’analisi di 1.000 immagini, il costo raggiunto in questo passaggio sarebbe di 15 dollari.
 
-3. Per l'estrazione delle entità, abbiamo un totale di 3 record di testo per ogni pagina (ogni record è composto da 1000 caratteri). Tre record di testo per pagina * 6000 pagine = 18.000 record di testo. Supponendo un prezzo di 2 dollari ogni 1000 record di testo, in questo passaggio si raggiungerebbe un costo di 36 dollari.
+3. Per l'estrazione delle entità, abbiamo un totale di 3 record di testo per ogni pagina (ogni record è composto da 1.000 caratteri). Tre record di testo per pagina * 6.000 pagine = 18.000 record di testo. Supponendo un prezzo di 2 dollari ogni 1.000 record di testo, in questo passaggio si raggiungerebbe un costo di 36 dollari.
 
-Unendo i due passaggi, si arriverebbe a pagare circa 57 dollari per inserire 1000 documenti PDF di questo tipo con il set di competenze descritto. 
+Unendo i due passaggi, si arriverebbe a pagare circa 57 dollari per inserire 1.000 documenti PDF di questo tipo con il set di competenze descritto. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 + [Pagina Prezzi di Ricerca di Azure](https://azure.microsoft.com/pricing/details/search/)

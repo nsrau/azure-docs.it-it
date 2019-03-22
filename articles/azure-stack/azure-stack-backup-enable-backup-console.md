@@ -15,13 +15,13 @@ ms.topic: article
 ms.date: 02/08/2019
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.lastreviewed: 02/08/2019
-ms.openlocfilehash: 1585eb460cc5f8ae437ee59a596dc7a854a108e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.lastreviewed: 03/14/2019
+ms.openlocfilehash: 98f793b7d94cd554d426a0eec30d8bb4553d3d81
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55995731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105404"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Abilitare il backup per Azure Stack dal portale di amministrazione
 Abilitare il servizio di infrastruttura di Backup tramite il portale di amministrazione in modo che Azure Stack può generare backup dell'infrastruttura. I partner hardware possono usare questi backup per ripristinare l'ambiente cloud di ripristino in caso di utilizzo [un errore irreversibile](./azure-stack-backup-recover-data.md). Lo scopo di ripristino di cloud è garantire che gli operatori e gli utenti possono accedere di nuovo il portale al termine del ripristino completo. Gli utenti avranno gli abbonamenti ripristinati tra cui le autorizzazioni di accesso basato sui ruoli e i ruoli, originali piani, offerte e definita in precedenza calcolo, archiviazione, le quote di rete e i segreti di Key Vault.
@@ -44,7 +44,7 @@ Gli amministratori e gli utenti sono tenuti a backup e ripristino delle risorse 
     > [!Note]  
     > Se l'ambiente supporta la risoluzione dei nomi dalla rete dell'infrastruttura di Azure Stack per l'ambiente dell'organizzazione, è possibile usare un nome di dominio completo anziché l'indirizzo IP.
 
-4. Tipo di **Username** usando il nome utente e il dominio con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio `Contoso\backupshareuser`.
+4. Tipo di **Username** usando il nome utente e il dominio con diritti di accesso sufficienti per leggere e scrivere file. Ad esempio: `Contoso\backupshareuser`.
 5. Tipo di **Password** per l'utente.
 6. Digitare di nuovo la password **Conferma Password**.
 7. Il **frequenza nelle ore** determina ogni quanto vengono creati i backup. Il valore predefinito è 12. Utilità di pianificazione supporta un massimo di 12 e almeno 4. 
@@ -67,12 +67,15 @@ Gli amministratori e gli utenti sono tenuti a backup e ripristino delle risorse 
             -FilePath c:\certs\AzSIBCCert.cer 
     ```
 
-    > [!Note]  
-    > **1901 e versioni successive**: Azure Stack accetta un certificato per crittografare i dati di backup dell'infrastruttura. Assicurarsi di archiviare il certificato con la chiave pubblica e privata in un luogo sicuro. Per motivi di sicurezza, non è consigliabile usare il certificato con le chiavi pubbliche e private per configurare le impostazioni di backup. Per altre informazioni su come gestire il ciclo di vita del certificato, vedere [consigliate per il servizio di Backup Infrastructure](azure-stack-backup-best-practices.md).
+   > [!Note]
+   > **1901 e versioni successive**: Azure Stack accetta un certificato per crittografare i dati di backup dell'infrastruttura. Assicurarsi di archiviare il certificato con la chiave pubblica e privata in un luogo sicuro. Per motivi di sicurezza, non è consigliabile usare il certificato con le chiavi pubbliche e private per configurare le impostazioni di backup. Per altre informazioni su come gestire il ciclo di vita del certificato, vedere [consigliate per il servizio di Backup Infrastructure](azure-stack-backup-best-practices.md).
+   > 
+   > **1811 o versioni precedenti**: Azure Stack accetta una chiave simmetrica per crittografare i dati di backup dell'infrastruttura. Usare la [cmdlet New-AzsEncryptionKey64 per creare una chiave](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64). Dopo l'aggiornamento da 1811 a 1901, le impostazioni di backup verranno mantenute la chiave di crittografia. È consigliabile aggiornare le impostazioni di backup per utilizzare un certificato. Supporto di chiavi di crittografia è ora deprecato. È necessario almeno 3 versioni per aggiornare le impostazioni per usare un certificato. 
 
 10. Selezionare **OK** per salvare le impostazioni di backup controller.
 
 ![Azure Stack - impostazioni Backup del controller](media/azure-stack-backup/backup-controller-settings-certificate.png)
+
 
 ## <a name="start-backup"></a>Avviare il backup
 Per avviare un backup, fare clic su **Esegui Backup ora** per avviare un backup su richiesta. Un backup su richiesta non modificherà il tempo per il successivo backup pianificato. Al termine dell'attività, è possibile confermare le impostazioni in **Essentials**:
@@ -115,7 +118,7 @@ I nuovi backup inizieranno a usare la chiave pubblica del nuovo certificato. Non
 ![Azure Stack - identificazione personale del certificato di visualizzazione](media/azure-stack-backup/encryption-settings-thumbprint.png)
 
 ### <a name="backwards-compatibility-mode"></a>Con le versioni precedenti la modalità di compatibilità
-Se è stato configurato il backup prima dell'aggiornamento al 1901, le impostazioni vengono trasferite senza apportare alcuna modifica nel comportamento. In questo caso, chiave di crittografia è supportata per la compatibilità. È possibile aggiornare la chiave di crittografia o il passaggio per usare un certificato. Si avranno tre versioni per continuare ad aggiornare la chiave di crittografia. Utilizzare questa volta per la transizione a un certificato. 
+Se è stato configurato il backup prima dell'aggiornamento al 1901, le impostazioni vengono trasferite senza apportare alcuna modifica nel comportamento. In questo caso, chiave di crittografia è supportata per la compatibilità. È possibile aggiornare la chiave di crittografia o il passaggio per usare un certificato. È necessario almeno tre versioni per continuare ad aggiornare la chiave di crittografia. Utilizzare questa volta per la transizione a un certificato. Per creare una nuova crittografia chiave, usare il [cmdlet New-AzsEncryptionKeyBase64](https://docs.microsoft.com/en-us/powershell/module/azs.backup.admin/new-azsencryptionkeybase64).
 
 ![Azure Stack - utilizzo chiave di crittografia in modalità di compatibilità con le versioni precedenti](media/azure-stack-backup/encryption-settings-backcompat-encryption-key.png)
 

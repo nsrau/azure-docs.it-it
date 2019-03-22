@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: c16d584f17aa2c209c9c0ec94d35f6fe78ba1907
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
-ms.translationtype: HT
+ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494085"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56816904"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
 
-Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per altre informazioni sulla gestione delle risorse, vedere [Gestire le risorse di Azure mediante il portale](resource-group-portal.md).
+Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) con [Azure Resource Manager](resource-group-overview.md) per distribuire le risorse di Azure. Per altre informazioni sulla gestione delle risorse, vedere [la gestione di Azure Resource Manager usando il portale di Azure](manage-resources-portal.md).
 
 ## <a name="create-resource-group"></a>Creare un gruppo di risorse
 
@@ -134,7 +134,7 @@ Il portale consente di salvare un modello nel proprio account Azure e di ridistr
    ![Distribuire il modello salvato](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](resource-group-audit.md).
-* Per risolvere gli errori di distribuzione, vedere [View deployment operations](resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
-* Per recuperare un modello da un gruppo di risorse o di distribuzione, vedere [Esportare un modello di Azure Resource Manager da risorse esistenti](resource-manager-export-template.md).
-* Per indicazioni su come le aziende possono usare Resource Manager per gestire efficacemente le sottoscrizioni, vedere [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance) (Scaffolding aziendale Azure - Governance prescrittiva per le sottoscrizioni).
+* Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](./resource-group-audit.md).
+* Per risolvere gli errori di distribuzione, vedere [View deployment operations](./resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
+* Per esportare un modello da un gruppo di risorse o di distribuzione, vedere [esportazione di Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+* Per implementare in modo sicuro il servizio in più aree, vedere [Azure Deployment Manager](./deployment-manager-overview.md).

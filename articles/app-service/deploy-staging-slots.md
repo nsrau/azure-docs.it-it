@@ -1,5 +1,5 @@
 ---
-title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Microsoft Docs
+title: Configurare ambienti di staging per le app Web nel Servizio app di Azure | Documentazione Microsoft
 description: Informazioni su come utilizzare la pubblicazione per fasi per le app Web in Azure App Service."
 services: app-service
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 7c12b34f6d735579326d4ccdd95e7831fbb777d6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d9530d35bbaf608ae25e2a753685ee90e9e13501
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181423"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56823298"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -42,7 +42,7 @@ Ogni piano del servizio app supporta un numero diverso di slot di distribuzione.
 ## <a name="add-slot"></a>Aggiungere slot
 Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione con il piano **Standard**, **Premium** o **Isolato**.
 
-1. Nel [portale di Azure](https://portal.azure.com/) aprire la [pagina delle risorse](../azure-resource-manager/resource-group-portal.md#manage-resources) dell'app.
+1. Nel [portale di Azure](https://portal.azure.com/) aprire la [pagina delle risorse](../azure-resource-manager/manage-resources-portal.md#manage-resources) dell'app.
 
 2. Nel riquadro di spostamento a sinistra, scegliere l'opzione **Slot di distribuzione (anteprima)** e quindi fare clic su **Aggiungi slot**.
    
@@ -205,7 +205,9 @@ Quando si usa [Scambio automatico](#Auto-Swap), alcune app potrebbero richiedere
         </applicationInitialization>
     </system.webServer>
 
-È anche possibile personalizzare il comportamento di riscaldamento con una o più [impostazioni dell'app](https://github.com/MicrosoftDocs/azure-docs-pr/pull/web-sites-configure.md) seguenti:
+Per altre informazioni sulla personalizzazione il `applicationInitialization` elemento, vedere [più comuni errori scambio dello slot di distribuzione e come risolverli](https://ruslany.net/2017/11/most-common-deployment-slot-swap-failures-and-how-to-fix-them/).
+
+È anche possibile personalizzare il comportamento di riscaldamento con una o più [impostazioni dell'app](web-sites-configure.md) seguenti:
 
 - `WEBSITE_SWAP_WARMUP_PING_PATH`: percorso di cui effettuare il ping per il riscaldamento del sito. Aggiungere questa impostazione dell'app specificando un percorso personalizzato che inizi con una barra come valore. Ad esempio: `/statuscheck`. Il valore predefinito è `/`. 
 - `WEBSITE_SWAP_WARMUP_PING_STATUSES`: codici di risposta HTTP validi per l'operazione di riscaldamento. Aggiungere questa impostazione dell'app con un elenco di codici HTTP separati da virgole. Ad esempio: `200,202`. Se il codice di stato restituito non è presente nell'elenco, le operazioni di riscaldamento e scambio vengono arrestate. Per impostazione predefinita, sono validi tutti i codici di risposta.

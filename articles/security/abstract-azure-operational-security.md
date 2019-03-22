@@ -6,17 +6,17 @@ ms.author: TomSh
 ms.date: 09/05/2018
 ms.topic: article
 ms.service: security
-ms.openlocfilehash: ec0040887d22ee4089de0b9cf107e9910404e267
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
-ms.translationtype: HT
+ms.openlocfilehash: 834210e3416d30c4001214c0d3108709e910513e
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842865"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57242871"
 ---
 # <a name="azure-operational-security"></a>Sicurezza operativa di Azure
 ## <a name="abstract"></a>Sunto
 La sicurezza operativa di Microsoft Azure include i servizi, i controlli e le funzionalità offerti agli utenti per proteggere i dati, le applicazioni e gli altri asset di Microsoft Azure. Questa soluzione si basa su un framework che incorpora le conoscenze acquisite tramite varie funzionalità univoche di Microsoft, tra cui Microsoft Security Development Lifecycle (SDL), il programma Microsoft Security Response Center e una profonda consapevolezza del panorama delle minacce per la sicurezza informatica. Questo white paper illustra quale approccio alla sicurezza usare con Azure. Contiene diversi servizi di Azure, tra cui:
-* Azure Log Analytics
+* Log di Monitoraggio di Azure
 * Backup di Azure
 * Centro sicurezza di Azure
 * Monitoraggio di Azure

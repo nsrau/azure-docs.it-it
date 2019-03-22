@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 68c5d6e68562d4027c102e1bde42c775648e58c4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: f919e9a7cca210fa5920bcc6bed05a9a41fba8bf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124844"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192385"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Creare schemi di rilevamento personalizzati che consentono di monitorare i flussi di lavoro end-to-end in App per la logica di Azure
 
@@ -56,10 +56,10 @@ Questo articolo fornisce un codice personalizzato che è possibile usare nei liv
 }
 ```
 
-| Proprietà | type | DESCRIZIONE |
+| Proprietà | Type | DESCRIZIONE |
 | --- | --- | --- |
 | sourceType |   | Tipo dell'origine dell'esecuzione. I valori consentiti sono **Microsoft.Logic/workflows** e **custom**. Obbligatoria |
-| Sorgente |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. Obbligatoria |
+| Source (Sorgente) |   | Se il tipo di origine è **Microsoft.Logic/workflows**, le informazioni dell'origine devono seguire questo schema. Se il tipo di origine è **custom**, lo schema è JToken. Obbligatoria |
 | systemId | string | ID di sistema dell'app per la logica. Obbligatoria |
 | runId | string | ID di esecuzione dell'app per la logica. Obbligatoria |
 | operationName | string | Nome dell'operazione, ad esempio azione o trigger. Obbligatoria |
@@ -84,4 +84,4 @@ Per informazioni sugli schemi di rilevamento per il protocollo B2B, vedere:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sul [monitoraggio dei messaggi B2B](logic-apps-monitor-b2b-message.md)
-* Altre informazioni sul [rilevamento dei messaggi B2B in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* Informazioni su [rilevamento dei messaggi B2B in log di monitoraggio di Azure](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

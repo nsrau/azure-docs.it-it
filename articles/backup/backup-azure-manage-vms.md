@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: sogup
-ms.openlocfilehash: 01c3e8072db81620764ccdd3ea99258de4649807
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: aa953440f03137f3359276bc9e06cb0c73f0ab4a
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858941"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295777"
 ---
 # <a name="manage-azure-vm-backups"></a>Gestire i backup delle macchine virtuali di Azure
 
@@ -85,7 +85,7 @@ Per gestire un criterio di backup:
 
 Per attivare un backup su richiesta:
 
-1. Nel [dashboard dell'elemento dell'insieme di credenziali](#view-vms-in-the-dashboard), in **elemento protetto**, selezionare **Backup elemento**.
+1. Nel [dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), in **elemento protetto**, selezionare **Backup elemento**.
 
     ![L'opzione di Backup now](./media/backup-azure-manage-vms/backup-now-button.png)
 
@@ -112,7 +112,7 @@ Esistono due modi per interrompere la protezione di una macchina virtuale:
 
 Arrestare la protezione per una macchina virtuale:
 
-1. Nel [del dashboard dell'elemento dell'insieme di credenziali](#view-vms-in-the-dashboard), selezionare **Interrompi backup**.
+1. Nel [del dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), selezionare **Interrompi backup**.
 2. Scegliere se conservare o eliminare i dati di backup e confermare la selezione in base alle esigenze. Se si desidera, aggiungere un commento. Se non si è certi del nome dell'elemento, passare il puntatore sul punto esclamativo per visualizzare il nome.
 
     ![Arresta protezione](./media/backup-azure-manage-vms/retain-or-delete-option.png)
@@ -125,9 +125,9 @@ Se si mantengono i dati di backup quando si arresta la macchina virtuale, è pos
 
 Per riprendere la protezione per una macchina virtuale:
 
-1. Nel [del dashboard dell'elemento dell'insieme di credenziali](#view-vms-in-the-dashboard), selezionare **Riprendi backup**.
+1. Nel [del dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), selezionare **Riprendi backup**.
 
-2. Seguire i passaggi descritti in [gestire i criteri di backup](#manage-backup-policies) per assegnare i criteri per la macchina virtuale. Non è necessario scegliere i criteri di protezione iniziale della macchina virtuale.
+2. Seguire i passaggi descritti in [gestire i criteri di backup](#manage-backup-policy-for-a-vm) per assegnare i criteri per la macchina virtuale. Non è necessario scegliere i criteri di protezione iniziale della macchina virtuale.
 3. Dopo aver applicato il criterio di backup nella macchina virtuale, viene visualizzato il messaggio seguente:
 
     ![Messaggio che indica che una macchina virtuale è stata protetta](./media/backup-azure-manage-vms/success-message.png)
@@ -142,7 +142,7 @@ Per riprendere la protezione per una macchina virtuale:
 Dopo che si arresta o disabilita il processo di backup della macchina virtuale, è possibile eliminare i dati di backup:
 
 
-1. Nel [dashboard dell'elemento dell'insieme di credenziali](#view-vms-in-the-dashboard), selezionare **Elimina dati di backup**.
+1. Nel [dashboard dell'elemento dell'insieme di credenziali](#view-vms-on-the-dashboard), selezionare **Elimina dati di backup**.
 
     ![Selezionare Elimina dati di backup](./media/backup-azure-manage-vms/delete-backup-buttom.png)
 

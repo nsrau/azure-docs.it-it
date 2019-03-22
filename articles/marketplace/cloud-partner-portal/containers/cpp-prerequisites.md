@@ -3,7 +3,7 @@ title: Prerequisiti dell'offerta di contenitori di Azure | Microsoft Docs
 description: Prerequisiti per la pubblicazione di un contenitore di Azure.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
-author: dan-wesley
+author: v-miclar
 manager: Patrick.Butler
 editor: ''
 ms.assetid: ''
@@ -12,18 +12,18 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 03/13/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd308c645593a401736a0a1ab1d336d63d900217
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
-ms.translationtype: HT
+ms.openlocfilehash: 09c9afcf3126f7f84c20f5514bc038a65b2ea1b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990715"
 ---
 # <a name="container-publishing-prerequisites"></a>Prerequisiti per la pubblicazione di un contenitore
 
-Questo articolo descrive i prerequisiti per la pubblicazione dell'offerta di un contenitore in Azure Marketplace.
+Questo articolo descrive i prerequisiti per la pubblicazione dell'offerta di un contenitore in Azure Marketplace.  Se non è già stato fatto, è necessario rivedere le [Guida alla pubblicazione dell'offerta contenitori](../../marketplace-containers.md).
 
 ## <a name="publishing-prerequisites"></a>Prerequisiti per la pubblicazione
 
@@ -35,12 +35,11 @@ Per pubblicare una nuova immagine contenitore, è necessario soddisfare i prereq
 - Disporre dei metadati del contenitore pronti per l'uso. Verificare, ad esempio, il seguente elenco non esaustivo:
   - Un titolo
   - Una descrizione (in formato HTML)
-  - Un'immagine del logo (in formato png) e in queste dimensioni delle immagini fisse: 40x40 px, 90x90 px, 115x 115 px e 255x115 px.
-- Le condizioni di utilizzo e un'informativa sulla privacy
-- Documentazione
+  - Un'immagine del logo (in formato PNG), con queste dimensioni fisse dell'immagine: 40 x 40 pixel, 90 x 90 px, 115 x 115 pixel e 255 x 115 pixel.
+- Oggetto *condizioni per l'utilizzo* e una *informativa sulla Privacy* istruzioni
+- Documentazione sulla soluzione contenitore
 - Contatti del supporto tecnico
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Prepare your container technical assets](./cpp-create-technical-assets.md) (Preparare gli asset tecnici del contenitore)
-- [Creare l'offerta del contenitore](./cpp-create-offer.md) 
+Se non è già stato fatto, è necessario [preparare il contenitore di asset tecnici](./cpp-create-technical-assets.md) prima [creare l'offerta contenitore](./cpp-create-offer.md).  

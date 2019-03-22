@@ -1,19 +1,18 @@
 ---
 title: Domande frequenti - Crittografia dischi di Azure per le macchine virtuali IaaS | Microsoft Docs
 description: Questo articolo fornisce le risposte alle domande frequenti su Crittografia dischi di Microsoft Azure per le macchine virtuali IaaS Windows e Linux.
-author: mestew
+author: msmbaldwin
 ms.service: security
-ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.author: mstewart
-ms.date: 01/25/2019
+ms.author: mbaldwin
+ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: fda7d6d3fddf2f4529a983ce2d4991797a5c8448
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: b98b9653aee395ebdf797c50c313c322727480c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661837"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892762"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Domande frequenti su Crittografia dischi di Azure per macchine virtuali IaaS
 
@@ -44,12 +43,14 @@ Crittografia dischi di Azure è supportata nelle distribuzioni e versioni del se
 | --- | --- |--- |
 | Ubuntu | 16.04| Disco del sistema operativo e dati |
 | Ubuntu | 14.04.5</br>[con il kernel ottimizzato per Azure aggiornato alla versione 4.15 o successiva](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Disco del sistema operativo e dati |
+| RHEL | 7.6 | Disco del sistema operativo e dati* |
 | RHEL | 7.5 | Disco del sistema operativo e dati* |
 | RHEL | 7.4 | Disco del sistema operativo e dati* |
 | RHEL | 7.3 | Disco del sistema operativo e dati* |
 | RHEL | 7,2 | Disco del sistema operativo e dati* |
 | RHEL | 6.8 | Disco dati* |
 | RHEL | 6.7 | Disco dati* |
+| CentOS | 7.5 | Disco del sistema operativo e dati |
 | CentOS | 7.4 | Disco del sistema operativo e dati |
 | CentOS | 7.3 | Disco del sistema operativo e dati |
 | CentOS | 7.2n | Disco del sistema operativo e dati |
@@ -72,6 +73,18 @@ Per iniziare, leggere l'articolo [Azure Disk Encryption overview](azure-security
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>È possibile crittografare sia i volumi di avvio che i volumi di dati con Crittografia dischi di Azure?
 
 Sì, è possibile crittografare volumi di avvio e volumi di dati per le macchine virtuali IaaS Windows e Linux. Per le macchine virtuali Windows, non è possibile crittografare i dati senza prima crittografare il volume del sistema operativo. Per le macchine virtuali Linux, è possibile crittografare il volume dei dati senza dover prima crittografare il volume del sistema operativo. Dopo che è stato crittografato il volume del sistema operativo per Linux, la disabilitazione della crittografia su un volume del sistema operativo per le macchine virtuali IaaS Linux non è supportata.
+
+## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>È possibile crittografare un volume smontato con crittografia dischi di Azure?
+
+No, crittografia dischi di Azure consente di crittografare solo i volumi montati.
+
+## <a name="how-do-i-rotate-secrets-or-encryption-keys"></a>Come ruotare i segreti o chiavi di crittografia?
+
+Per ruotare i segreti, è sufficiente chiamare lo stesso comando usato originariamente per abilitare la crittografia del disco, che specifica un insieme di credenziali chiave diverso. Per ruotare la chiave di crittografia della chiave, chiamare lo stesso comando usato originariamente per abilitare la crittografia del disco, specificando la nuova chiave di crittografia. 
+
+## <a name="how-do-i-add-or-remove-a-key-encryption-key-if-i-didnt-originally-use-one"></a>Come aggiungere o rimuovere una chiave di crittografia della chiave se non è stata originariamente usarli?
+
+Per aggiungere una chiave di crittografia della chiave, chiamare il comando abilita nuovamente passando il parametro di chiave di crittografia della chiave. Per rimuovere una chiave di crittografia della chiave, chiamare il comando abilita nuovamente senza parametro della chiave di crittografia della chiave.
 
 ## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Con Crittografia dischi di Azure sono disponibili BYOK (Bring Your Own Key)?
 
@@ -133,10 +146,17 @@ Il disco "volume BEK" per Windows o "/mnt/azure_bek_disk" per Linux è un volume
 
 ## <a name="what-encryption-method-does-azure-disk-encryption-use"></a>Qual è il metodo di crittografia usato da Crittografia dischi di Azure?
 
-In Windows, Crittografia dischi di Azure usa il metodo di crittografia BitLocker AES256 (AES256WithDiffuser nelle versioni precedenti a Windows Server 2012). In Linux, Crittografia dischi di Azure usa il valore predefinito dmcrypt di aes-xts-plain64 con una chiave master del volume a 256 bit.
+In Windows, Crittografia dischi di Azure usa il metodo di crittografia BitLocker AES256 (AES256WithDiffuser nelle versioni precedenti a Windows Server 2012). In Linux, ADE Usa il valore predefinito di decrittografia di xts-aes-plain64 con una chiave master del volume di 256 bit.
 
 ## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Se si utilizzano EncryptFormatAll e vengono specificati tutti i tipi di volume, verranno cancellati i dati sulle unità dati già crittografati?
 No, i dati non verranno cancellati da unità dati che sono già crittografate usando Crittografia dischi di Azure. Analogamente al modo in cui EncryptFormatAll non crittografa nuovamente l'unità del sistema operativo, non riapplica la crittografia all'unità dati già crittografata. Per altre informazioni, vedere [Criteri EncryptFormatAll ](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
+## <a name="is-xfs-filesystem-supported"></a>File System XFS è supportata?
+I volumi XFS sono supportati per crittografia dischi di dati. Per crittografare un volume attualmente errato tramite XFS, specificare l'opzione EncryptFormatAll. Questo verrà riformattato il volume. Per altre informazioni, vedere [Criteri EncryptFormatAll ](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).
+
+## <a name="can-i-backup-and-restore-an-encrypted-vm"></a>È possibile eseguire il backup e ripristinare una macchina virtuale crittografata? 
+
+Backup di Azure fornisce un meccanismo per eseguire il backup e ripristinare VM crittografate all'interno della stessa sottoscrizione e area.  Per istruzioni, vedi [backup e ripristino delle macchine virtuali crittografate con Backup di Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).  Il ripristino di una macchina virtuale crittografata in un'area diversa non è attualmente supportato.  
 
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Quali risorse sono disponibili per porre domande o inviare commenti?
 

@@ -3,21 +3,21 @@ title: Creazione di oggetti visivi in Azure Data Factory | Microsoft Docs
 description: Informazioni su come usare la creazione di oggetti visivi in Azure Data Factory
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: craigg
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/09/2019
+author: sharonlo101
 ms.author: shlo
-ms.openlocfilehash: 323d22363ee52ff6ccf7575b00c6b8b31a0fa156
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.reviewer: ''
+manager: craigg
+ms.openlocfilehash: 77eb109b8826bcb6136e91ac610235f74551cecb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188495"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57853087"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creazione di oggetti visivi in Azure Data Factory
 L'interfaccia utente di Azure Data Factory consente di creare e distribuire con strumenti visivi le risorse della data factory senza dover scrivere il codice. È possibile trascinare le attività in un'area di disegno della pipeline, eseguire test, eseguire il debug in modo iterativo, nonché distribuire e monitorare le esecuzioni della pipeline. Sono disponibili due approcci per usare l'esperienza utente per la creazione di oggetti visivi:
@@ -31,7 +31,7 @@ La creazione di oggetti visivi con il servizio Data Factory presenta due differe
 - Il servizio Data Factory non include un repository in cui archiviare le entità JSON per le modifiche.
 - Il servizio Data Factory non è ottimizzato per la collaborazione o il controllo della versione.
 
-![Configurare il servizio Data Factory ](media/author-visually/configure-data-factory.png)
+![Configurare il servizio Data Factory](media/author-visually/configure-data-factory.png)
 
 Quando si usa l'**area di disegno di creazione** dell'esperienza utente per creare direttamente con il servizio Data Factory, è disponibile solo la modalità **Pubblica tutti**. Le modifiche apportate vengono pubblicate direttamente nel servizio Data Factory.
 
@@ -204,7 +204,7 @@ Il riquadro visualizza le impostazioni del repository di codice Azure Repos segu
 | **Impostazione**                                              | **Descrizione**                                                                                                                                                                                                                                                                                                                                                                                                                   | **Valore**          |
 |----------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------|
 | **Tipo di repository**                                      | Tipo del repository di codice Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
-| **Account GitHub**                                       | Nome dell'account GitHub. Questo nome è disponibile nella pagina https://github.com/{account name}/{repository name}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub.                                                                                                                                                                                                                                               |                    |
+| **Account GitHub**                                       | Nome dell'account GitHub. Questo nome è reperibile da https:\//github.com/{account nome} / {nome del repository}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub.                                                                                                                                                                                                                                               |                    |
 | **Nome repository**                                       | Nome del repository del codice GitHub. Gli account GitHub contengono repository Git per la gestione del codice sorgente. È possibile creare un nuovo repository o usarne uno esistente già presente nell'account.                                                                                                                                                                                                                              |                    |
 | **Ramo di collaborazione**                                 | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, si tratta del ramo master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Cartella radice**                                          | Cartella radice nel ramo di collaborazione di GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |
@@ -221,7 +221,7 @@ Viene visualizzato un riquadro di configurazione. Per informazioni dettagliate s
 
 È possibile configurare un repository GitHub Enterprise con una data factory attraverso due metodi diversi.
 
- #### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Metodo di configurazione 1 (repository Enterprise): Pagina Attività iniziali
+#### <a name="configuration-method-1-enterprise-repo-lets-get-started-page"></a>Metodo di configurazione 1 (repository Enterprise): Pagina Attività iniziali
 
 In Azure Data Factory andare alla pagina  **Attività iniziali** . Selezionare  **Configurare il repository di codice**:
 
@@ -238,7 +238,7 @@ Il riquadro visualizza le impostazioni del repository di codice Azure Repos segu
 | **Tipo di repository**                                      | Tipo del repository di codice Azure Repos.                                                                                                                                                                                                                                                                                                                                                                                             | GitHub             |
 | **Use GitHub Enterprise** (Usa GitHub Enterprise)                                | Casella di controllo per selezionare GitHub Enterprise                                                                                                                                                                                                                                                                                                                                                                                              |                    |
 | **GitHub Enterprise URL** (URL GitHub Enterprise)                                | URL radice di GitHub Enterprise. Ad esempio: https://github.mydomain.com                                                                                                                                                                                                                                                                                                                                                          |                    |
-| **Account GitHub**                                       | Nome dell'account GitHub. Questo nome è disponibile nella pagina https://github.com/{account name}/{repository name}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub.                                                                                                                                                                                                                                               |                    |
+| **Account GitHub**                                       | Nome dell'account GitHub. Questo nome è reperibile da https:\//github.com/{account nome} / {nome del repository}. Se si passa a questa pagina, viene chiesto di immettere le credenziali OAuth di GitHub per l'account GitHub.                                                                                                                                                                                                                                               |                    |
 | **Nome repository**                                       | Nome del repository del codice GitHub. Gli account GitHub contengono repository Git per la gestione del codice sorgente. È possibile creare un nuovo repository o usarne uno esistente già presente nell'account.                                                                                                                                                                                                                              |                    |
 | **Ramo di collaborazione**                                 | Ramo di collaborazione di GitHub usato per la pubblicazione. Per impostazione predefinita, si tratta del ramo master. Modificare questa impostazione se si vuole pubblicare risorse da un altro ramo.                                                                                                                                                                                                                                                               |                    |
 | **Cartella radice**                                          | Cartella radice nel ramo di collaborazione di GitHub.                                                                                                                                                                                                                                                                                                                                                                             |                    |

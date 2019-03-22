@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: Ankit.Sud
-ms.openlocfilehash: b48910b74d90072a360bad504e2b826402dceea5
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 254215389d129874f7ac3fc855b26819d41a095c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639065"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852475"
 ---
 # <a name="update-an-existing-vm-offer-on-azure-marketplace"></a>Aggiornare un'offerta di macchina virtuale esistente in Azure Marketplace
 
@@ -33,8 +33,10 @@ I motivi più comuni dell'aggiornamento dell'offerta sono svariati, ad esempio:
 -  L'aggiornamento dei metadati del marketplace per l'offerta o per singoli SKU
 -  L'aggiornamento dei prezzi per le offerte con pagamento in base al consumo
 
-Per rendere più semplici queste modifiche, il portale offre le funzionalità **Confronta** e **Cronologia**.  
+Per semplificare queste modifiche, il portale offre le funzionalità **Confronta** e **Cronologia**.  
 
+>[!Note]
+>Cloud Solution Provider (CSP) partner canale acconsentire esplicitamente a questo punto è disponibile.  Vedi [Cloud Solution Provider](../../cloud-solution-providers.md) per altre informazioni sul marketing dell'offerta tramite Microsoft CSP partner canali.
 
 ## <a name="unpermitted-changes-to-vm-offer-or-sku"></a>Modifiche all'offerta di macchina virtuale o allo SKU non consentite
 
@@ -63,7 +65,7 @@ Le caratteristiche di un'offerta di macchina virtuale che è possibile modificar
 
 4.  In **Disk version** (Versione disco) fare clic su **+New Disk Version** (+Nuova versione disco) per aggiungere una nuova immagine di macchina virtuale.
 
-5.  Specificare la **versione del disco** delle immagini di macchina virtuale. La versione del disco deve seguire il formato della [versione semantica](http://semver.org/). Le versioni devono essere nel formato X.Y.Z, dove X, Y e Z sono numeri interi. Verificare che la nuova versione specificata sia successiva a tutte le versioni precedenti. In caso contrario, dopo la nuova pubblicazione la nuova versione non verrà visualizzata né nel portale né in Azure Marketplace.
+5.  Specificare la **versione del disco** delle immagini di macchina virtuale. La versione del disco deve seguire il formato della [versione semantica](https://semver.org/). Le versioni devono essere nel formato X.Y.Z, dove X, Y e Z sono numeri interi. Verificare che la nuova versione specificata sia successiva a tutte le versioni precedenti. In caso contrario, dopo la nuova pubblicazione la nuova versione non verrà visualizzata né nel portale né in Azure Marketplace.
 
 6.  Per **OS VHD URL** (URL disco rigido virtuale sistema operativo) immettere l'[URI della firma di accesso condiviso](./cpp-get-sas-uri.md) creato per il disco rigido virtuale del sistema operativo. 
 
@@ -149,12 +151,12 @@ Se hanno già ricevuto fatture per il ciclo durante il quale si è verificata un
 
 A partire dal 1° settembre 2018, nel portale verrà aggiunta una nuova sezione denominata **Simplified Currency Pricing** (Prezzi in valuta semplificati). Microsoft sta semplificando il business di Azure Marketplace, consentendo prezzi più prevedibili e modalità di riscossione più semplici dai clienti internazionali. Questa semplificazione prevede anche la riduzione del numero delle valute in cui verranno emesse le fatture ai clienti.
 
-La nuova sezione avrà i prezzi espressi nelle nuove valute. Dopo la migrazione di tutti i clienti verso queste nuove valute di pagamento, la sezione originale relativa ai prezzi verrà ritirata e rimarrà solo la sezione con i prezzi in valuta semplificati.
+La nuova sezione avrà i prezzi espressi nelle nuove valute. Dopo la migrazione di tutti i clienti verso queste nuove valute di pagamento, la sezione originale relativa ai prezzi verrà ritirata e rimarrà solo la sezione con i prezzi in valuta semplificati.
 
 Per le aree in cui è in corso la modifica della valuta di pagamento sarà possibile impostare nuovi prezzi fino al 1 novembre 2018. Non sarà possibile aumentare il prezzo per le aree in cui non è prevista la modifica della valuta di pagamento.
 
 > [!NOTE] 
-> Se si usano API per pubblicare l'offerta, è possibile visualizzare una nuova sezione all'interno del JSON dell'offerta, contrassegnata da `virtualMachinePricingV2` o `monthlyPricingV2`, in base al tipo di offerta. 
+> Se si usano API per pubblicare l'offerta, è possibile visualizzare una nuova sezione all'interno del JSON dell'offerta, contrassegnata da `virtualMachinePricingV2` o `monthlyPricingV2`, in base al tipo di offerta. 
 
 Per domande in merito a questa modifica, contattare l'[assistenza di Azure Marketplace](../../support-azure-marketplace.md).
 

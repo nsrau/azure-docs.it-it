@@ -16,12 +16,12 @@ ms.date: 01/14/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 564c4b011b26f2bc6b034233d014542172a4a739
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 665f8ac9a8b0738ed23649673c548bc6b1774d2d
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885301"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259959"
 ---
 # <a name="overview-of-identity-for-azure-stack"></a>Panoramica dell'identità per Azure Stack
 
@@ -65,7 +65,7 @@ In Azure Stack, gli account utente:
 - Sono limitate alla directory in cui prima di tutto registrare, ovvero directory della propria organizzazione.
 - Possono essere importati dalla directory locale. Per altre informazioni, vedere [integrare le directory locali con Azure Active Directory](/azure/active-directory/connect/active-directory-aadconnect).
 
-Quando si accede al portale tenant dell'organizzazione, usare il *https://portal.local.azurestack.external* URL. Quando si accede al portale di Azure Stack da domini diversi da quello usato per registrare Azure Stack, il nome di dominio usato per registrare Azure Stack deve essere aggiunto al portale di url. Ad esempio, se Azure Stack è stato registrato con fabrikam.onmicrosoft.com e l'account utente di accesso viene admin@contoso.com, l'url da usare per accedere al portale per gli utenti sarà: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Quando si accede al portale tenant dell'organizzazione, usare il *https:\//portal.local.azurestack.external* URL. Quando si accede al portale di Azure Stack da domini diversi da quello usato per registrare Azure Stack, il nome di dominio usato per registrare Azure Stack deve essere aggiunto al portale di url. Ad esempio, se Azure Stack è stato registrato con fabrikam.onmicrosoft.com e l'account utente di accesso viene admin@contoso.com, l'url da utilizzare per accedere al portale utenti è: https:\//portal.local.azurestack.external/ Fabrikam.onmicrosoft.com.
 
 ### <a name="guest-users"></a>Utenti guest
 
@@ -73,7 +73,7 @@ Gli utenti guest sono account utente dagli altri tenant di directory che hanno o
 
 Per invitare utenti guest, è possono usare gli operatori cloud e gli utenti [collaborazione B2B di Azure AD](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b). Utenti invitati ottengono l'accesso a documenti, risorse e le applicazioni dalla directory e Mantieni il controllo sulle risorse e dati. 
 
-Come utente guest, è possibile accedere al tenant di directory dell'organizzazione. A tale scopo, si accodare il nome di directory dell'organizzazione nel portale di URL. Ad esempio, se si appartenenti all'organizzazione di Contoso e si vuole accedere alla directory di Fabrikam, utilizzare https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
+Come utente guest, è possibile accedere al tenant di directory dell'organizzazione. A tale scopo, si accodare il nome di directory dell'organizzazione nel portale di URL. Ad esempio, se si appartenenti all'organizzazione di Contoso e si vuole accedere alla directory di Fabrikam, si usa https:\//portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ### <a name="applications"></a>APPLICAZIONI
 
@@ -156,10 +156,10 @@ Per le applicazioni e gli utenti, l'architettura di Azure Stack è descritta da 
 
 Per eseguire l'autenticazione con il provider di identità e ricevere un Token Web JSON, è necessario disporre le informazioni seguenti:
 
-1. **URL per il sistema di identità (autorità)**: L'URL in cui il provider di identità può essere raggiunto. Ad esempio, *https://login.windows.net*.
+1. **URL per il sistema di identità (autorità)**: L'URL in cui il provider di identità può essere raggiunto. Ad esempio, *https:\//login.windows.net*.
 2. **URI ID App per Azure Resource Manager**: Identificatore univoco per Azure Resource Manager che viene registrato con il provider di identità. Inoltre è univoco per ogni installazione di Azure Stack.
 3. **Credenziali**: Le credenziali che utilizzare per eseguire l'autenticazione con il provider di identità.
-4. **URL per Azure Resource Manager**: L'URL è il percorso del servizio di Azure Resource Manager. Ad esempio, *https://management.azure.com* oppure *https://management.local.azurestack.external*.
+4. **URL per Azure Resource Manager**: L'URL è il percorso del servizio di Azure Resource Manager. Ad esempio, *https:\//management.azure.com* oppure *https:\//management.local.azurestack.external*.
 
 Quando un'entità (un client, applicazione o utente) effettua una richiesta di autenticazione per accedere a una risorsa, la richiesta deve includere:
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 67a093068df30460a1b2cf17c04164bf8b1dc6a0
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
+ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234901"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56817763"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -359,7 +359,7 @@ Fare clic su **Regole di avviso** per configurare gli avvisi in base alle metric
 Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../azure-monitor/platform/data-collection.md#metrics) e quindi vengono eliminate. Per rendere permanenti le metriche relative alla cache per più di 30 giorni, fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#export-cache-metrics) usato per archiviare la diagnostica della cache.
 
 >[!NOTE]
->Oltre ad archiviare le metriche della cache, è possibile [eseguirne lo streaming a un hub eventi o inviarle a Log Analytics](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+>Oltre ad archiviare le metriche della cache di archiviazione, è anche possibile [eseguirne lo streaming a un hub eventi o inviarle a log di monitoraggio di Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 >
 >
 

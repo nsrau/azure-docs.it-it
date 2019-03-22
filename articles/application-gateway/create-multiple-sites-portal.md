@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/20/2019
 ms.author: victorh
-ms.openlocfilehash: 09bb81b0382f18c9cb94e5e4d0932dc6597ae73c
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.openlocfilehash: 86be94404e7ab492beeebd6a467d23e68e7bce6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454298"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58080168"
 ---
 # <a name="create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>Creare e configurare un gateway applicazione per ospitare più siti Web usando il portale di Azure
 
@@ -44,20 +44,20 @@ Per le comunicazioni tra le risorse create è necessaria una rete virtuale. In q
 2. Selezionare **Rete** e quindi **Gateway applicazione** nell'elenco In primo piano.
 3. Immettere i valori seguenti per il gateway applicazione:
 
-    - *myAppGateway* come nome del gateway applicazione.
-    - *myResourceGroupAG* come nuovo gruppo di risorse.
+   - *myAppGateway* come nome del gateway applicazione.
+   - *myResourceGroupAG* come nuovo gruppo di risorse.
 
-    ![Creare il nuovo gateway applicazione](./media/create-multiple-sites-portal/application-gateway-create.png)
+     ![Creare il nuovo gateway applicazione](./media/create-multiple-sites-portal/application-gateway-create.png)
 
 4. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
 5. Fare clic su **Scegliere una rete virtuale**, **Crea nuova** e quindi immettere i valori seguenti per la rete virtuale:
 
-    - *myVNet* come nome della rete virtuale.
-    - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
-    - *myAGSubnet* come nome della subnet.
-    - *10.0.0.0/24* come spazio indirizzi della subnet.
+   - *myVNet* come nome della rete virtuale.
+   - *10.0.0.0/16* come spazio indirizzi della rete virtuale.
+   - *myAGSubnet* come nome della subnet.
+   - *10.0.0.0/24* come spazio indirizzi della subnet.
 
-    ![Creare una rete virtuale](./media/create-multiple-sites-portal/application-gateway-vnet.png)
+     ![Creare una rete virtuale](./media/create-multiple-sites-portal/application-gateway-vnet.png)
 
 6. Fare clic su **OK** per creare la rete virtuale e la subnet.
 7. Fare clic su **Scegliere un indirizzo IP pubblico**, **Crea nuovo** e quindi immettere il nome dell'indirizzo IP pubblico. In questo esempio il nome dell'indirizzo IP pubblico è *myAGPublicIPAddress*. Accettare i valori predefiniti per le altre impostazioni e quindi fare clic su **OK**.
@@ -94,6 +94,8 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 
 ### <a name="install-iis"></a>Installare IIS
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 1. Aprire la shell interattiva e assicurarsi che sia impostata su **PowerShell**.
 
     ![Installare l'estensione personalizzata](./media/create-multiple-sites-portal/application-gateway-extension.png)
@@ -102,7 +104,7 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 
     ```azurepowershell-interactive
     $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1");  "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
-    Set-AzureRmVMExtension `
+    Set-AzVMExtension `
       -ResourceGroupName myResourceGroupAG `
       -Location eastus `
       -ExtensionName IIS `
@@ -113,7 +115,7 @@ In questo esempio vengono create due macchine virtuali da usare come server back
       -Settings $publicSettings
     ```
 
-3. Creare la seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere *fabrikamVM* come nome e valore di VMName in Set-AzureRmVMExtension.
+3. Creare la seconda macchina virtuale e installare IIS seguendo la procedura appena completata. Immettere i nomi dei *fabrikamVM* per il nome e per il valore di VMName in Set-AzVMExtension.
 
 ## <a name="create-backend-pools-with-the-virtual-machines"></a>Creare pool back-end con le macchine virtuali
 
@@ -132,8 +134,8 @@ In questo esempio vengono create due macchine virtuali da usare come server back
 1. Fare clic su **Listener** e quindi su **Multisito**.
 2. Immettere i valori seguenti per il listener:
     
-    - *contosoListener*: per il nome del listener.
-    - *www.contoso.com*: sostituire questo esempio di nome host con il proprio nome di dominio.
+   - *contosoListener*: per il nome del listener.
+   - *www.contoso.com*: sostituire questo esempio di nome host con il proprio nome di dominio.
 
 3. Fare clic su **OK**.
 4. Creare un secondo listener usando il nome *fabrikamListener* e usare il secondo nome di dominio. In questo esempio viene usato *www.fabrikam.com*.
@@ -169,7 +171,7 @@ Dopo aver creato il gateway applicazione con l'indirizzo IP pubblico, è possibi
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-1. Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com.
+1. Immettere il nome di dominio nella barra degli indirizzi del browser. Ad esempio, http://www.contoso.com .
 
     ![Testare il sito contoso nel gateway applicazione](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

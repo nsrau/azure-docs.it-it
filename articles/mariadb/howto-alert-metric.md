@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/07/2019
-ms.openlocfilehash: 15f280b16e362a4b39cb9fc0e4baaf67d0e31942
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: ce9804a4ecad4cd0f2e797038dc10c71b50de9bf
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55661701"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58122717"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mariadb"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MariaDB
 
@@ -60,21 +60,21 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
 10. Configurare un tipo di azione **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce).
     
-   Scegliere "Invia un messaggio di posta elettronica al ruolo di Azure Resource Manager" per consentire a proprietari di sottoscrizioni, collaboratori e lettori di ricevere le notifiche.
+    Scegliere "Invia un messaggio di posta elettronica al ruolo di Azure Resource Manager" per consentire a proprietari di sottoscrizioni, collaboratori e lettori di ricevere le notifiche.
    
-   Facoltativamente, specificare un URI valido nel campo **Webhook** se lo si vuole chiamare quando viene attivato l'avviso.
+    Facoltativamente, specificare un URI valido nel campo **Webhook** se lo si vuole chiamare quando viene attivato l'avviso.
 
-   Al termine, fare clic su **OK**.
+    Al termine, fare clic su **OK**.
 
-   ![Gruppo di azioni](./media/howto-alert-metric/10-action-group-type.png)
+    ![Gruppo di azioni](./media/howto-alert-metric/10-action-group-type.png)
 
 11. Specificare un nome per la regola di avviso, una descrizione e il livello di gravità.
 
-   ![Gruppo di azioni](./media/howto-alert-metric/11-name-description-severity.png) 
+    ![Gruppo di azioni](./media/howto-alert-metric/11-name-description-severity.png) 
 
 12. Selezionare **Crea regola di avviso** per creare l'avviso.
 
-   Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
+    Dopo pochi minuti l'avviso è funzionante e si attiva come descritto in precedenza.
 
 ## <a name="manage-your-alerts"></a>Gestire gli avvisi
 Dopo aver creato un avviso, è possibile selezionarlo ed eseguire queste azioni:

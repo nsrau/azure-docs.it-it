@@ -1,6 +1,6 @@
 ---
-title: Completare una verifica di accesso dei membri di un gruppo o degli utenti con accesso a un'applicazione con Azure AD| Microsoft Docs
-description: Informazioni su come completare una verifica di accesso per i membri di un gruppo o gli utenti con accesso a un'applicazione in Azure Active Directory.
+title: Completare una verifica di accesso di gruppi o applicazioni in verifiche di accesso AD Azure | Microsoft Docs
+description: Informazioni su come completare una verifica di accesso dei membri del gruppo o l'accesso alle applicazioni nelle verifiche di accesso di Azure AD.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2da3b7f8b7ed60344978fb255696980ec620fd2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192269"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56729611"
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Completare una verifica di accesso dei membri di un gruppo o degli utenti che accedono a un'applicazione in Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso di gruppi o applicazioni nelle verifiche di accesso di Azure AD
 
-Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione. Azure AD invia automaticamente ai revisori un messaggio di posta elettronica in cui viene chiesto di verificare l'accesso. Se un utente non ha ricevuto il messaggio di posta elettronica, è possibile inviargli le istruzioni su [come eseguire una verifica di accesso](perform-access-review.md). Tenere presente che i guest a cui è stato assegnato il ruolo di revisore ma che non hanno accettato l'invito non riceveranno un messaggio di posta elettronica dalle verifiche di accesso, poiché dovranno accettare l'invito prima di poter eseguire la verifica. Al termine del periodo della verifica di accesso o se l'amministratore interrompe la verifica, seguire la procedura descritta in questo articolo per esaminare e applicare i risultati.
+Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione. Azure AD invia automaticamente ai revisori un messaggio di posta elettronica in cui viene chiesto di verificare l'accesso. Se un utente non ha ricevuto un messaggio di posta elettronica, è possibile inviargli le istruzioni [verificare l'accesso a gruppi o applicazioni](perform-access-review.md). Tenere presente che i guest a cui è stato assegnato il ruolo di revisore ma che non hanno accettato l'invito non riceveranno un messaggio di posta elettronica dalle verifiche di accesso, poiché dovranno accettare l'invito prima di poter eseguire la verifica. Al termine del periodo della verifica di accesso o se l'amministratore interrompe la verifica, seguire la procedura descritta in questo articolo per esaminare e applicare i risultati.
 
 ## <a name="view-an-access-review-in-the-azure-portal"></a>Visualizzare una verifica di accesso nel portale di Azure
 
@@ -62,5 +62,5 @@ Per recuperare i risultati della verifica, selezionare **Approvazioni** e quindi
 - [Gestire l'accesso utente con le verifiche di accesso di Azure AD](manage-user-access-with-access-reviews.md)
 - [Gestire l'accesso guest con le verifiche di accesso di Azure AD](manage-guest-access-with-access-reviews.md)
 - [Gestire i programmi e i controlli per le verifiche di accesso di Azure AD](manage-programs-controls.md)
-- [Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](create-access-review.md)
+- [Creare una verifica di accesso di gruppi o applicazioni](create-access-review.md)
 - [Creare una verifica di accesso degli utenti in un ruolo amministrativo Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)

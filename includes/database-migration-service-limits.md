@@ -4,15 +4,15 @@ ms.service: sql-database
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: douglasl
-ms.openlocfilehash: a08ba8c3800b2c68ee72baaab2835a9bee17ec19
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: f76ad3f91c2d05508d700e6ef40c9d342b87b5e3
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331147"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553665"
 ---
-Il Servizio Migrazione del database di Azure è un servizio completamente gestito progettato per abilitare le migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi.  
+Servizio migrazione del Database di Azure è un servizio completamente gestito progettato per consentire migrazioni senza interruzioni da più origini di database alle piattaforme di dati di Azure con tempi di inattività minimi.
 
 | **Risorsa** | **Limite predefinito** | **Commenti** |
 | --- | --- | --- |
-| Numero massimo di servizi per sottoscrizione per area |2 | Contattare il supporto per richiedere un aumento del limite |
+| Numero massimo di servizi per sottoscrizione per area |2 | Per richiedere un aumento del limite, contattare il supporto tecnico. |

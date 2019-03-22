@@ -6,29 +6,27 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: a618482b73e8e423bc00b7c9010c9282da69cd3d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844713"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285548"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
 > [!NOTE]
 > In base al feedback degli utenti lo **stack di backup di macchine virtuali V2** viene rinominato **Ripristino istantaneo** per evitare confusione con la funzionalità Azure Stack.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzionalità seguenti:
 
 * Possibilità di usare snapshot acquisiti durante il processo di backup disponibili per il ripristino senza attendere il completamento del trasferimento dei dati all'insieme di credenziali. Riduce il tempo di attesa per la copia degli snapshot nell'insieme di credenziali prima di attivare il ripristino.
 * Riduce i tempi di backup e ripristino conservando gli snapshot in locale per due giorni per impostazione predefinita. Questo valore predefinito può essere configurato su qualsiasi valore compreso tra 1 e 5 giorni.
 * Supporto di dischi con dimensioni fino a 4 TB.
-* Supporto di dischi SSD Standard.
-*   Possibilità di usare gli account di archiviazione originali (per ogni disco) di una macchina virtuale non gestita quando si esegue il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali sono più veloci.
+* Supporta i dischi SSD Standard insieme ai dischi Standard HDD e SSD Premium.
+*   Possibilità di usare gli account di archiviazione originali (per ogni disco) di una macchina virtuale non gestita quando si esegue il ripristino. Questa possibilità vale anche quando i dischi della macchina virtuale sono distribuiti negli account di archiviazione. Le operazioni di ripristino per un'ampia gamma di configurazioni di macchine virtuali vengono velocizzate.
 
 
 ## <a name="whats-new-in-this-feature"></a>Novità di questa funzionalità
@@ -42,121 +40,44 @@ Un punto di ripristino si considera creato solo dopo il completamento delle fasi
 
 ![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: archiviazione e insieme di credenziali](./media/backup-azure-vms/instant-rp-flow.png)
 
-Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Questa funzionalità consente l'operazione di ripristino da questi snapshot con conseguente riduzione dei tempi di ripristino. Riduce il tempo necessario per trasformare e copiare i dati dall'insieme di credenziali all'account di archiviazione dell'utente per gli scenari di disco non gestito mentre per gli utenti di disco gestito, ma crea dischi gestiti i dati di servizi di ripristino.
+Per impostazione predefinita, gli snapshot vengono conservati per due giorni. Questa funzionalità consente l'operazione di ripristino da questi snapshot sono riducendo i tempi di ripristino. Riduce il tempo necessario per trasformare e copiare i dati dall'insieme di credenziali.
 
 ## <a name="feature-considerations"></a>Considerazioni sulle funzionalità
 
 * Gli snapshot vengono archiviati insieme ai dischi per ottimizzare la creazione del punto di ripristino e velocizzare le operazioni di ripristino. Verranno pertanto addebitati costi di archiviazione corrispondenti agli snapshot creati durante questo periodo.
 * Gli snapshot incrementali vengono archiviati come BLOB di pagine. A tutti i clienti che usano dischi non gestiti vengono addebitati i costi per gli snapshot archiviati nell'account di archiviazione locale. Poiché le raccolte di punti di ripristino usate dai backup delle macchine virtuali gestite usano snapshot BLOB a livello di archiviazione sottostante, per i dischi gestiti verranno addebitati i costi corrispondenti ai prezzi degli snapshot BLOB, che sono incrementali.
-* Per gli account di archiviazione Premium, gli snapshot creati per i punti di ripristino istantaneo vengono inclusi nel conteggio relativo al limite di 10 TB di spazio allocato.
+* Per gli account di archiviazione premium, gli snapshot creati per il numero di punti di ripristino istantaneo ai fini del limite di 10 TB di spazio allocato.
 * Si ottiene la possibilità di configurare la conservazione degli snapshot in base alle esigenze di ripristino. A seconda delle esigenze, è possibile impostare il periodo di conservazione degli snapshot su un minimo di un giorno nel pannello dei criteri di backup, come spiegato di seguito. Questa impostazione consente di risparmiare sul costo della conservazione degli snapshot, se non vengono eseguite operazioni di ripristino con frequenza.
 * Si tratta di un aggiornamento direzionale uno, una volta aggiornato per il ripristino immediato, è possibile tornare indietro.
 
-
 >[!NOTE]
 >Con questo aggiornamento immediato del ripristino la durata della conservazione degli snapshot di tutti i clienti (**sia nuovi che esistenti**) verrà impostata su un valore predefinito di due giorni. È tuttavia possibile impostare la durata su un qualsiasi valore compreso tra 1 e 5 giorni, in base alle esigenze.
-
 
 ## <a name="cost-impact"></a>Impatto sui costi
 
 Gli snapshot incrementali vengono archiviati nell'account di archiviazione della macchina virtuale e vengono usati per il ripristino istantaneo. Snapshot incrementale significa che lo spazio occupato da uno snapshot è uguale allo spazio occupato dalle pagine scritte dopo la creazione dello snapshot. La fatturazione è ancora basata sullo spazio usato in GB occupato dallo snapshot e il prezzo per GB è quello indicato nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/managed-disks/).
 
+>[!NOTE]
+> La conservazione degli snapshot è stato risolto per 5 giorni per i criteri ogni settimana.
 
-## <a name="upgrading-to-instant-restore"></a>Aggiornamento a Ripristino istantaneo
+## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Configurare la conservazione degli snapshot tramite il portale di Azure
 
-Se si usa il portale di Azure, verrà visualizzata una notifica nel dashboard dell'insieme di credenziali. Questa notifica si riferisce al supporto di dischi di grandi dimensioni e ai miglioramenti della velocità di backup e ripristino.
-Per aprire una schermata per l'aggiornamento a Ripristino istantaneo, selezionare il banner.
+**Tutti i backup gli utenti di Azure a questo punto sono stati aggiornati per il ripristino immediato**.
 
-![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: notifica relativa al supporto](./media/backup-azure-vms/instant-rp-banner.png)
-
-Fare clic su **Aggiorna** come mostrato nello screenshot seguente:
-
-![Processo di backup in uno stack di backup di macchine virtuali, modello di distribuzione Resource Manager: aggiornamento](./media/backup-azure-vms/instant-rp.png)
-
-In alternativa, è possibile passare alla pagina **Proprietà** dell'insieme di credenziali per accedere all'opzione **Aggiorna** in **Stack di backup di macchine virtuali**.
-
-![Processo di backup nello stack di backup di macchine virtuali - Pagina Proprietà](./media/backup-azure-vms/instant-restore-capability-properties.png)
-
-
-## <a name="configure-snapshot-retention-using-azure-portal"></a>Configurare la conservazione degli snapshot usando il portale di Azure
-Tutti gli utenti in tutti **aree geografiche pubbliche** sono stati aggiornati per il ripristino immediato.
-
-Per gli utenti aggiornati, nel portale di Azure viene aggiunto un campo nel pannello **Criteri di backup di macchine virtuali**, nella sezione **Ripristino istantaneo**. È possibile cambiare la durata della conservazione degli snapshot nel pannello **Criteri di backup di macchine virtuali** per tutte le macchine virtuali associate al criterio di backup specifico.
+Nel portale di Azure, è possibile visualizzare un campo aggiunto nel **criteri di Backup di macchine Virtuali** pannello sotto il **ripristino istantaneo** sezione. È possibile cambiare la durata della conservazione degli snapshot nel pannello **Criteri di backup di macchine virtuali** per tutte le macchine virtuali associate al criterio di backup specifico.
 
 ![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
-
-## <a name="upgrade-to-instant-restore-using-powershell"></a>Eseguire l'aggiornamento a Ripristino istantaneo con PowerShell
-
-Se si vuole procedere in autonomia ed eseguire l'aggiornamento a Ripristino istantaneo, eseguire i cmdlet seguenti da un terminale di PowerShell con privilegi elevati:
-
-1.  Accedere all'account Azure:
-
-    ```
-    PS C:> Connect-AzAccount
-    ```
-
-2.  Selezionare la sottoscrizione da registrare:
-
-    ```
-    PS C:>  Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
-    ```
-
-3.  Registrare questa sottoscrizione:
-
-    ```
-    PS C:>  Register-AzProviderFeature -FeatureName "InstantBackupandRecovery" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-
-## <a name="upgrade-to-instant-restore-using-cli"></a>Eseguire l'aggiornamento a Ripristino istantaneo tramite l'interfaccia della riga di comando
-
-Eseguire i comandi seguenti da una shell:
-
-1.  Accedere all'account Azure:
-
-    ```
-    az login
-    ```
-
-2.  Selezionare la sottoscrizione da registrare:
-
-    ```
-    az account set --subscription "Subscription Name"
-    ```
-
-3.  Registrare questa sottoscrizione:
-
-    ```
-    az feature register --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-    ```
-
-## <a name="verify-that-the-upgrade-is-successful"></a>Verificare se l'aggiornamento è stato completato
-
-### <a name="powershell"></a>PowerShell
-Da un terminale di PowerShell con privilegi elevati eseguire il cmdlet seguente:
-
-```
-Get-AzProviderFeature -FeatureName "InstantBackupandRecovery" -ProviderNamespace Microsoft.RecoveryServices
-```
-
-### <a name="cli"></a>CLI
-Eseguire il comando seguente da una shell:
-
-```
-az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
-```
-
-Se viene visualizzato "Registered", la sottoscrizione è aggiornata a Ripristino istantaneo.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="what-are-the-cost-implications-of-instant-restore"></a>Quali sono le implicazioni a livello di costi di Ripristino istantaneo?
 Gli snapshot vengono archiviati insieme ai dischi per velocizzare la creazione del punto di ripristino e le operazioni di ripristino. Di conseguenza, si noteranno costi di archiviazione corrispondenti al periodo di conservazione degli snapshot selezionato come parte dei criteri di backup della macchina virtuale.
 
-### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Negli account di archiviazione Premium gli snapshot creati per un punto di ripristino istantaneo contribuiscono al limite per gli snapshot di 10 TB?
-Sì, per gli account di archiviazione Premium gli snapshot creati per il punto di ripristino istantaneo occupano i 10 TB dello spazio allocato per gli snapshot.
+### <a name="in-premium-storage-accounts-do-the-snapshots-taken-for-instant-recovery-point-occupy-the-10-tb-snapshot-limit"></a>Negli account di archiviazione Premium, gli snapshot creati per un punto di ripristino istantaneo occupano il limite di snapshot di 10 TB?
+Sì, per gli account di archiviazione premium degli snapshot creati per un punto di ripristino istantaneo occupano 10 TB di spazio allocato dello snapshot.
 
 ### <a name="how-does-the-snapshot-retention-work-during-the-five-day-period"></a>Come funziona la conservazione degli snapshot durante il periodo di cinque giorni?
-Ogni giorno viene creato un nuovo snapshot, quindi esistono cinque singoli snapshot incrementali. Le dimensioni dello snapshot dipendono dalla varianza dei dati, nella maggior parte dei casi compresa tra il 2% e il 7%.
+Ogni giorno viene creato un nuovo snapshot, quindi esistono cinque singoli snapshot incrementali. Le dimensioni dello snapshot dipendono alla varianza dei dati, che sono in genere circa 2-7%.
 
 ### <a name="is-an-instant-restore-snapshot-an-incremental-snapshot-or-full-snapshot"></a>Uno snapshot di ripristino istantaneo è uno snapshot incrementale o completo?
 Gli snapshot creati come parte della funzionalità di ripristino istantaneo sono snapshot incrementali.

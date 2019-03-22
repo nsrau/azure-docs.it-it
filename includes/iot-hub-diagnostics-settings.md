@@ -5,15 +5,15 @@ services: iot-hub
 author: dominicbetts
 ms.service: iot-hub
 ms.topic: include
-ms.date: 05/17/2018
+ms.date: 02/20/2019
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 150b800bfa6bfa20f10dbba7e8d55981ecb9df34
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 6f7772eb7f2c500bbb58c391b1bc4b7a73141699
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56422801"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56675756"
 ---
 ### <a name="enable-logging-with-diagnostics-settings"></a>Abilitare la registrazione con le impostazioni di diagnostica
 
@@ -47,6 +47,9 @@ ms.locfileid: "56422801"
    * Operazioni di processo
    * Metodi diretti  
    * Traccia distribuita (anteprima)
+   * Configurazioni
+   * Flussi di dispositivo
+   * Metriche del dispositivo
 
 6. Salvare le nuove impostazioni. 
 

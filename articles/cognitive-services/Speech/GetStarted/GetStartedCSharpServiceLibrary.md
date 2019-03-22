@@ -10,12 +10,13 @@ ms.subservice: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 79ed6f1d2dc5495994d2522abf5af391cc79b705
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 0f445d1fff48ee7a04c0b1c1d64c808f87d824b7
+ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55226044"
+ms.lasthandoff: 02/22/2019
+ms.locfileid: "56673165"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-service-library-in-c35-for-net-windows"></a>Avvio rapido: Usare la libreria di servizi di Riconoscimento vocale Bing in C&#35; per .NET per dispositivi Windows
 
@@ -119,7 +120,7 @@ Al termine della richiesta, l'attività restituita da RecognizeAsync termina. L'
 
 Questi eventi vengono chiamati ogni volta che il Servizio di riconoscimento vocale formula un'ipotesi su ciò che l'utente potrebbe dire, ancora prima che finisca di parlare (se si usa `MicrophoneRecognitionClient`) o completi l'invio dei dati (se si usa `DataRecognitionClient`). È possibile eseguire la sottoscrizione all'evento usando `SpeechClient.SubscribeToPartialResult()`. In alternativa è possibile usare il metodo di sottoscrizione a eventi generici `SpeechClient.SubscribeTo<RecognitionPartialResult>()`.
 
-**Formato restituito** | Descrizione |
+**Formato restituito** | DESCRIZIONE |
 ------|------
 **LexicalForm** | Questo modulo è ottimale per l'uso da parte di applicazioni che richiedono risultati di riconoscimento vocale non elaborati.
 **DisplayText** | Frase riconosciuta con applicazione di normalizzazione di testo inverso, maiuscole/minuscole, punteggiatura e mascheramento di contenuto volgare. Il contenuto volgare viene nascosto con asterischi dopo il carattere iniziale, ad esempio "c***". Questo modulo è ottimale per l'uso da parte di applicazioni che visualizzano i risultati di riconoscimento vocale a un utente.
@@ -130,7 +131,7 @@ Questi eventi vengono chiamati ogni volta che il Servizio di riconoscimento voca
 #### <a name="result-event"></a>Evento con risultato
 Questo evento viene chiamato quando l'utente finisce di parlare (nella modalità `ShortPhrase`). Vengono fornite N scelte migliori per il risultato. Nella modalità `LongDictation` l'evento può essere chiamato più volte, in base alle posizioni di pausa della frase indicate dal server. È possibile eseguire la sottoscrizione all'evento usando `SpeechClient.SubscribeToRecognitionResult()`. In alternativa è possibile usare il metodo di sottoscrizione a eventi generici `SpeechClient.SubscribeTo<RecognitionResult>()`.
 
-**Formato restituito** | Descrizione |
+**Formato restituito** | DESCRIZIONE |
 ------|------|
 **RecognitionStatus** | Stato relativo alla modalità di produzione del riconoscimento. Ad esempio, è stato generato come risultato di un riconoscimento con esito positivo o come risultato dell'annullamento della connessione e così via.
 **Phrases** | Set delle N migliori frasi riconosciute con il livello di attendibilità del riconoscimento.
@@ -151,7 +152,7 @@ Esempio di risposta di riconoscimento vocale:
 ---what's the weather like  
 ---***** Phrase Recognition Status = [Success]   
 ***What's the weather like? (Confidence:High)  
-What's the weather like? (Confidence:High) 
+What's the weather like? (Confidence:High)
 ```
 
 ## <a name="connection-management"></a>Gestione delle connessioni

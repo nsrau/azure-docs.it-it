@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f742f6923b7d9f40a8752d77c7702e9b2ea2a4cf
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: 7932d057a348957d369ba325044055ac8dfe3428
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53185868"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170191"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Monitoraggio dei runbook con avvisi di metrica
 
@@ -36,6 +36,9 @@ Nel portale di Azure passare all'account di Automazione. In **Monitoraggio** sel
 2. La pagina **Configurare la logica dei segnali** viene usata per definire la logica che attiva l'avviso. Nel grafico della cronologia vengono visualizzate due dimensioni, **Nome del Runbook** e **Stato**. Le dimensioni sono proprietà diverse per una metrica che può essere usata per filtrare i risultati. Per il **Nome del Runbook**, selezionare il runbook che si desidera avvisare o lasciare vuoto per avvisare tutti i runbook. Per lo **Stato**, selezionare uno stato che si desidera monitorare dall'elenco a discesa. I valori del nome e dello stato del runbook che vengono visualizzati nell'elenco a discesa sono solo per i processi che sono stati eseguiti nella settimana precedente.
 
    Se si vuole attivare un avviso su uno stato o un runbook che non è visualizzato nell'elenco a discesa, fare clic su **\+** accanto alla dimensione. Verrà visualizzata una finestra di dialogo che consente di immettere un valore personalizzato, che non è stato generato di recente per la specifica dimensione. Se si immette un valore che non esiste per una proprietà, l'avviso non verrà attivato.
+
+   > [!NOTE]
+   > Se non si applica un nome per il **RunbookName** della dimensione, se sono presenti tutti i runbook che soddisfano i criteri di stato, che include runbook di sistema nascosta, si riceverà un avviso.
 
 3. In **Logica avvisi**, definire la condizione e la soglia per l'avviso. Viene visualizzata un'anteprima della condizione definita sotto.
 

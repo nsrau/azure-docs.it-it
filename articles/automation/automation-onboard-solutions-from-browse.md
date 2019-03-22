@@ -9,12 +9,12 @@ ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 9a5e75b762c2ab0591212ce0bc3d7fac42132f8a
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 3cffd09a54b09a425f3b7f3519b4ceb7a04a6d08
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116916"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855351"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Abilitare le soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario in più VM
 
@@ -28,7 +28,7 @@ Accedere ad Azure all'indirizzo https://portal.azure.com
 
 Nel portale di Azure passare a **Macchine virtuali**.
 
-Usando le caselle di controllo, selezionare le macchine virtuali che si vuole caricare con Rilevamento modifiche e Inventario o Gestione aggiornamenti. L'onboarding è disponibile per un massimo di tre diversi gruppi di risorse alla volta.
+Usando le caselle di controllo, selezionare le macchine virtuali che si vuole caricare con Rilevamento modifiche e Inventario o Gestione aggiornamenti. L'onboarding è disponibile per un massimo di tre diversi gruppi di risorse alla volta. In qualsiasi area, indipendentemente dal percorso dell'Account di automazione possono esistere macchine virtuali di Azure.
 
 ![Elenco di VM](media/automation-onboard-solutions-from-browse/vmlist.png)
 > [!TIP]
@@ -51,7 +51,7 @@ Usare i controlli dei filtri per selezionare macchine virtuali da sottoscrizioni
 
 ![Caricare la soluzione Gestione aggiornamenti](media/automation-onboard-solutions-from-browse/onboardsolutions.png)
 
-Rivedere le scelte per l'area di lavoro di Log Analytics e l'account di Automazione. Un'area di lavoro e un account di Automazione esistenti sono selezionati per impostazione predefinita. Per usare un'area di lavoro di Log Analytics e un account di Automazione diversi, fare clic su **PERSONALIZZATO** per selezionarli dalla pagina **Configurazione personalizzata**. Quando si sceglie un'area di lavoro di Log Analytics, viene effettuato un controllo per determinare se è collegata a un account di Automazione. Se viene trovato un account di Automazione collegato, verrà visualizzata la schermata seguente. Al termine, fare clic su **OK**.
+Rivedere le scelte per l'area di lavoro di Log Analitica e l'account di automazione. Un'area di lavoro e un account di Automazione esistenti sono selezionati per impostazione predefinita. Per usare un'area di lavoro di Log Analytics e un account di Automazione diversi, fare clic su **PERSONALIZZATO** per selezionarli dalla pagina **Configurazione personalizzata**. Quando si sceglie un'area di lavoro di Log Analytics, viene effettuato un controllo per determinare se è collegata a un account di Automazione. Se viene trovato un account di Automazione collegato, verrà visualizzata la schermata seguente. Al termine, fare clic su **OK**.
 
 ![Selezionare un'area di lavoro e un account](media/automation-onboard-solutions-from-browse/selectworkspaceandaccount.png)
 
@@ -59,7 +59,7 @@ Se l'area di lavoro selezionata non è collegata a un account di Automazione, ve
 
 ![Nessuna area di lavoro](media/automation-onboard-solutions-from-browse/no-workspace.png)
 
-Quando si abilitano soluzioni, sono supportate solo determinate aree per il collegamento a un'area di lavoro di Log Analytics e un account di Automazione.
+Quando si abilitano soluzioni, sono supportati solo determinate aree geografiche per il collegamento a un'area di lavoro di Log Analitica e un Account di automazione.
 
 La tabella seguente mostra i mapping supportati:
 
@@ -68,14 +68,19 @@ La tabella seguente mostra i mapping supportati:
 |AustraliaSoutheast|AustraliaSoutheast|
 |CanadaCentral|CanadaCentral|
 |CentralIndia|CentralIndia|
-|EastUS|EastUS2|
+|EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
 |WestCentralUS|WestCentralUS|
 |Europa occidentale|Europa occidentale|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
-|EastUS2EUAP|CentralUSEUAP|
+|EastUS2EUAP<sup>1</sup>|CentralUSEUAP|
+
+<sup>1</sup> mapping EastUS2EUAP e Stati Uniti orientali per aree di lavoro di Log Analitica per gli account di automazione non sono un mapping di un'area a un'altra esatto, ma è il mapping corretto.
+
+> [!NOTE]
+> A causa della domanda, un'area non siano disponibile quando si crea l'area di lavoro di Log Analitica o Account di automazione.  In tal caso, assicurarsi di usare un'area nella tabella precedente che è possibile creare le risorse.
 
 Deselezionare la casella di controllo accanto alle macchine virtuali che non si vuole abilitare. Le macchine virtuali che non è possibile abilitare sono già deselezionate.
 
@@ -89,7 +94,7 @@ Le soluzioni seguenti sono dipendenti da un'area di lavoro di Log Analytics:
 * [Rilevamento delle modifiche](automation-change-tracking.md)
 * [Avviare/arrestare le VM durante gli orari di minore attività](automation-solution-vm-management.md)
 
-Se si decide che non si vuole più integrare l'account di Automazione con Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure. Prima di procedere, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
+Se si decide di che non si desidera più integrare l'account di automazione con un'area di lavoro di Log Analitica, è possibile scollegare l'account direttamente dal portale di Azure. Prima di procedere, è necessario rimuovere le soluzioni menzionate in precedenza; in caso contrario non sarà possibile continuare con il processo. Vedere l'articolo relativo alla soluzione specifica importata per comprendere i passaggi necessari per la rimozione.
 
 Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti per scollegare l'account di automazione.
 

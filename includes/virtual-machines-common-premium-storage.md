@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 125f1a2a041c8c05289c95bd12c10618bfc622a8
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 40ff2339ad34a72079109317bf0a89dfbc6458e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56246965"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115074"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Archiviazione Premium a prestazioni elevate e dischi gestiti per le VM
 
@@ -63,11 +63,11 @@ Di seguito sono illustrate alcune delle funzionalità di Archiviazione Premium:
 
     Per iniziare a usare Archiviazione Premium, creare un account di archiviazione Premium per dischi non gestiti. Nel [portale di Azure](https://portal.azure.com), per creare un account di Archiviazione Premium, scegliere il livello di prestazioni **Premium**. Selezionare l'opzione di replica **Archiviazione con ridondanza locale**. È anche possibile creare un account di Archiviazione Premium impostando il livello di prestazioni su **Archiviazione con ridondanza locale Premium**. Per modificare il livello di prestazioni, usare uno degli approcci seguenti:
      
-    - [PowerShell per Archiviazione di Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
-    - [Interfaccia della riga di comando di Azure per Archiviazione di Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
-    - [API REST del provider delle risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp) (per le distribuzioni di Azure Resource Manager) o una delle librerie client dei provider di risorse di Archiviazione di Azure
+  - [PowerShell per Archiviazione di Azure](../articles/storage/common/storage-powershell-guide-full.md#manage-the-storage-account)
+  - [Interfaccia della riga di comando di Azure per Archiviazione di Azure](../articles/storage/common/storage-azure-cli.md#manage-storage-accounts)
+  - [API REST del provider delle risorse di archiviazione di Azure](https://docs.microsoft.com/rest/api/storagerp) (per le distribuzioni di Azure Resource Manager) o una delle librerie client dei provider di risorse di Archiviazione di Azure
 
-    Per informazioni sui limiti dell'account di Archiviazione Premium, vedere la sezione Obiettivi di scalabilità e prestazioni di Archiviazione Premium.
+    Per altre informazioni sui limiti dell'account di archiviazione premium, vedere [obiettivi di scalabilità e prestazioni](#scalability-and-performance-targets).
 
 * **Archiviazione Premium con ridondanza locale**
 
@@ -98,8 +98,6 @@ Queste sono alcune delle funzionalità supportate nelle macchine virtuali con Ar
 
     > [!NOTE]
     > Se si esegue lo striping dei dischi dati di Archiviazione Premium mediante [Spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx), è consigliabile configurare gli spazi di archiviazione con 1 colonna per ogni disco utilizzato. In caso contrario, le prestazioni complessive del volume in cui è stato eseguito lo striping possono essere inferiori al previsto a causa di una distribuzione non uniforme del traffico di dati da un disco a un altro. Per impostazione predefinita, in Server Manager è possibile impostare le colonne per un massimo di 8 dischi. Quando si collegano più di 8 dischi, usare PowerShell per creare il volume. Specificare il numero di colonne manualmente. In caso contrario, l'interfaccia utente di Server Manager continuerà a usare 8 colonne anche se il numero di dischi è maggiore. Ad esempio, se si desidera gestire 32 dischi in un unico striping, è necessario specificare 32 colonne. Per specificare il numero di colonne utilizzate dal disco virtuale è possibile usare il parametro [NumberOfColumns](https://technet.microsoft.com/library/hh848643.aspx) del cmdlet di PowerShell *New-VirtualDisk*. Per altre informazioni, vedere [Panoramica sugli spazi di archiviazione](https://technet.microsoft.com/library/hh831739.aspx) e [Domande frequenti sugli spazi di archiviazione](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
-    >
-    > 
 
 * **Cache**
 
@@ -160,7 +158,7 @@ Le dimensioni indicate con un asterisco sono attualmente in anteprima.
 | Velocità effettiva per disco | 25 MB al secondo | 50 MB al secondo | 100 MB al secondo | 125 MB al secondo | 150 MB al secondo | 200 MB al secondo | 250 MB al secondo | 250 MB al secondo | 480 MB al secondo | 750 MB al secondo | 750 MB al secondo |
 
 > [!NOTE]
-> Assicurarsi che nella VM sia disponibile una larghezza di banda sufficiente per il traffico dell'unità disco, come descritto in [Macchine virtuali supportate da Archiviazione Premium](). In caso contrario, la velocità effettiva del disco e IOPS sarà limitata a valori più bassi. IOPS e velocità effettiva massima si basano sui limiti della VM, non sui limiti del disco descritti nella tabella precedente.  
+> Assicurarsi che la larghezza di banda sufficiente è disponibile nella macchina virtuale per incentivare il traffico del disco, come descritto in [macchine virtuali supportate da](#supported-vms). In caso contrario, la velocità effettiva del disco e IOPS sarà limitata a valori più bassi. IOPS e velocità effettiva massima si basano sui limiti della VM, non sui limiti del disco descritti nella tabella precedente.  
 > Azure ha progettato la piattaforma di Archiviazione Premium in modo che sia notevolmente parallela. Le applicazioni multithread consentono di raggiungere gli elevati obiettivi in termini di prestazioni offerti da dimensioni di disco maggiori.
 
 Ecco alcuni aspetti importanti da conoscere sulla scalabilità e le prestazioni di Archiviazione Premium:
@@ -294,7 +292,7 @@ Quando si usa Archiviazione Premium, tenere conto delle considerazioni seguenti 
 
 * **Dimensione del BLOB e del disco di Archiviazione Premium**
 
-    La fatturazione per un BLOB o un disco di Archiviazione Premium dipende dalla dimensione del BLOB o del disco di cui è stato effettuato il provisioning. Azure associa le dimensioni di provisioning (arrotondate per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina. Per informazioni dettagliate, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione Premium](). Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning dei dischi supportate e viene eseguita la relativa fatturazione. La fatturazione per qualsiasi disco di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Ad esempio, se è stato effettuato il provisioning di un disco P10 e lo si è eliminato dopo 20 ore verranno fatturate 20 ore per l'offerta P10, indipendentemente dalla quantità di dati effettivamente scritti sul disco, dalle operazioni IOPS eseguite e dalla velocità effettiva usata.
+    La fatturazione per un BLOB o un disco di Archiviazione Premium dipende dalla dimensione del BLOB o del disco di cui è stato effettuato il provisioning. Azure associa le dimensioni di provisioning (arrotondate per eccesso) all'opzione relativa al disco di Archiviazione Premium più vicina. Per informazioni dettagliate, vedere la tabella in [obiettivi di scalabilità e prestazioni](#scalability-and-performance-targets). Viene eseguito il mapping di ogni disco gestito a una delle dimensioni di provisioning dei dischi supportate e viene eseguita la relativa fatturazione. La fatturazione per qualsiasi disco di cui sia stato effettuato il provisioning viene ripartita in modo proporzionale in base alle ore usando il prezzo mensile dell'offerta di Archiviazione Premium. Ad esempio, se è stato effettuato il provisioning di un disco P10 e lo si è eliminato dopo 20 ore verranno fatturate 20 ore per l'offerta P10, indipendentemente dalla quantità di dati effettivamente scritti sul disco, dalle operazioni IOPS eseguite e dalla velocità effettiva usata.
 
 * **Snapshot dei dischi non gestiti Premium**
 

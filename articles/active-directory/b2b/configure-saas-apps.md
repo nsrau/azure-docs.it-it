@@ -9,14 +9,15 @@ ms.date: 05/23/2017
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03652329acaeb737cb7cb4010ef48938caa17acc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c7a652ab4283321c5934b32fdc5478bb5d79e4a7
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096912"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293131"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 
@@ -53,7 +54,7 @@ Per consentire agli utenti di accedere con il proprio account aziendale, è nece
 
 5. Accedere a Dropbox con l'URL di accesso della pagina **Single Sign-On**.
 
-   ![Pagina di accesso di Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
+   ![Screenshot che mostra la pagina di accesso di Dropbox](media/configure-saas-apps/sign-in-to-dropbox.png)
 
 6. Nel menu selezionare **Admin Console** (Console di amministrazione).
 
@@ -78,7 +79,7 @@ Al termine della configurazione nell'app Dropbox, gli utenti guest o membro rice
 
 2. Configurare l'accesso Single Sign-On nell'ordine seguente:
 
-   ![Configurare Single Sign-On per Box](media/configure-saas-apps/configure-box-sso.png)
+   ![Screenshot che mostra le impostazioni di configurazione dell'accesso single sign-on](media/configure-saas-apps/configure-box-sso.png)
 
    a. Nella casella **URL di accesso** assicurarsi che l'URL di accesso sia impostato correttamente per Box nel portale di Azure. Si tratta dell'URL del tenant di Box.com e deve seguire la convenzione di denominazione *https://.box.com*.  
    Il campo **Identificatore** non si applica a questa app, ma viene comunque visualizzato come obbligatorio.

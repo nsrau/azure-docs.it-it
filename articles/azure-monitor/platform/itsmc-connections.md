@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: a07512c801d8e6c0f0ff3242fe1b94eeab5b2534
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 64a4e7a181f7bd24e305ef5ee8d3d6657c3f394b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54104999"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081288"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](../../azure-monitor/platform/itsmc-overview.md).
@@ -30,7 +30,7 @@ Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per vi
 - [Cherwell](#connect-cherwell-to-it-service-management-connector-in-azure)
 
 > [!NOTE]
-
+> 
 > Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Connettere System Center Service Manager a Connettore di Gestione dei servizi IT in Azure
@@ -62,7 +62,7 @@ Usare la procedura seguente per connettere l'istanza di System Center Service Ma
 4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
 
 > [!NOTE]
-
+> 
 > Tutti questi parametri sono obbligatori.
 
 | **Campo** | **Descrizione** |
@@ -137,14 +137,14 @@ Usare la procedura seguente per configurare la connessione ibrida tra l'istanza 
 
 6. Digitare i valori seguenti:
 
-    - **Nome endpoint**: specificare un nome per la nuova connessione ibrida.
-    -  **Host EndPoint**: nome di dominio completo del server di gestione di Service Manager.
-    - **Porta EndPoint**: digitare 5724
-    - **Spazio dei nomi del bus di servizio**: usare uno spazio dei nomi del bus di servizio esistente o crearne uno nuovo.
-    - **Località**: selezionare la località.
-    -  **Nome**: specificare un nome per il bus di servizio, se lo si sta creando.
+   - **Nome endpoint**: specificare un nome per la nuova connessione ibrida.
+   - **Host EndPoint**: nome di dominio completo del server di gestione di Service Manager.
+   - **Porta EndPoint**: digitare 5724
+   - **Spazio dei nomi del bus di servizio**: usare uno spazio dei nomi del bus di servizio esistente o crearne uno nuovo.
+   - **Località**: selezionare la località.
+   - **Nome**: specificare un nome per il bus di servizio, se lo si sta creando.
 
-    ![Valori della connessione ibrida](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
+     ![Valori della connessione ibrida](media/itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Fare clic su **OK** per chiudere il pannello **Crea connessione ibrida** e iniziare a creare la connessione ibrida.
 
     Al termine della creazione, la connessione ibrida viene visualizzata sotto il pannello.
@@ -171,7 +171,7 @@ La connessione ibrida è stata completata.
 
 ![Connessione ibrida completata](media/itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
-
+> 
 > Al termine della creazione della connessione ibrida, verificare e testare la connessione passando all'app Web di Service Manager distribuita. Assicurarsi che la connessione funzioni prima di provare a connettersi a Connettore di Gestione dei servizi IT in Azure.
 
 L'esempio seguente mostra i dettagli di una connessione riuscita:
@@ -244,20 +244,20 @@ Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei ser
 
 Seguire questa procedura:
 
-1.  Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e installare l'**app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
+1. Passare a [ServiceNow Store](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1) e installare l'**app utente per ServiceNow e per l'integrazione con Microsoft OMS** nell'istanza di ServiceNow.
    
    >[!NOTE]
    >In base alla transizione in corso da Microsoft Operations Management Suite (OMS) a Monitoraggio di Azure, OMS è ora denominato Log Analytics.     
-2.  Dopo l'installazione, passare alla barra di spostamento sinistra dell'istanza di ServiceNow, eseguire una ricerca e selezionare Microsoft OMS Integrator.  
-3.  Fare clic su **Installation Checklist** (Elenco di controllo installazione).
+2. Dopo l'installazione, passare alla barra di spostamento sinistra dell'istanza di ServiceNow, eseguire una ricerca e selezionare Microsoft OMS Integrator.  
+3. Fare clic su **Installation Checklist** (Elenco di controllo installazione).
 
-    Lo stato visualizzato è **Not complete** (Non completato) se il ruolo utente deve essere ancora creato.
+   Lo stato visualizzato è **Not complete** (Non completato) se il ruolo utente deve essere ancora creato.
 
-4.  Nelle caselle di testo accanto a **Create integration user** (Crea utente di integrazione) immettere il nome dell'utente che può connettersi a Connettore di Gestione dei servizi IT in Azure.
-5.  Immettere la password per questo utente e fare clic su **OK**.  
+4. Nelle caselle di testo accanto a **Create integration user** (Crea utente di integrazione) immettere il nome dell'utente che può connettersi a Connettore di Gestione dei servizi IT in Azure.
+5. Immettere la password per questo utente e fare clic su **OK**.  
 
->[!NOTE]
-
+> [!NOTE]
+> 
 > Queste credenziali vengono usate per creare la connessione di ServiceNow in Azure.
 
 L'utente appena creato viene visualizzato con i ruoli predefiniti assegnati.
@@ -273,9 +273,9 @@ L'utente appena creato viene visualizzato con i ruoli predefiniti assegnati.
 Al termine della creazione dell'utente, lo stato di **Check Installation Checklist** (Controllo elenco di controllo installazione) viene impostato su Completed (Completato) e vengono elencati i dettagli del ruolo utente creato per l'app.
 
 > [!NOTE]
-
+> 
 > Il connettore di Gestione dei servizi IT può inviare eventi imprevisti a ServiceNow senza che altri moduli siano installati nell'istanza di ServiceNow. Se si usa il modulo EventManagement nell'istanza di ServiceNow e si vuole creare gli eventi o avvisi in ServiceNow tramite il connettore, aggiungere i ruoli seguenti all'utente di integrazione:
-
+> 
 >    - evt_mgmt_integration
 >    - evt_mgmt_operator  
 
@@ -309,7 +309,7 @@ Seguire questa procedura per creare una connessione Provance:
 4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
 
 > [!NOTE]
-
+> 
 > Tutti questi parametri sono obbligatori.
 
 | **Campo** | **Descrizione** |
@@ -360,7 +360,7 @@ Seguire questa procedura per creare una connessione Provance:
 4. Specificare le informazioni come illustrato nella tabella seguente e quindi fare clic su **OK** per creare la connessione.
 
 > [!NOTE]
-
+> 
 > Tutti questi parametri sono obbligatori.
 
 | **Campo** | **Descrizione** |

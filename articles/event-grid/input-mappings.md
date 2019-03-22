@@ -8,16 +8,18 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 2c768790421ac74fa483877f09e66b1b4b5d5f35
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: a0e054be3ab7d4818ac323eb5fb93968f57eca4f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54476615"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181317"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Eseguire il mapping di campi personalizzati allo schema di Griglia di eventi
 
 Se i dati dell'evento non corrispondono allo [schema di Griglia di eventi](event-schema.md) previsto, è comunque possibile usare Griglia di eventi per instradare l'evento ai sottoscrittori. Questo articolo descrive come eseguire il mapping di uno schema personalizzato allo schema di Griglia di eventi.
+
+[!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
 ## <a name="install-preview-feature"></a>Installare la funzionalità di anteprima
 

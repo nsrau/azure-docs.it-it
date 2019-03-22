@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 564a0948d09e4726800d19858b4c23924fc56973
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187339"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839169"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributi shadow del servizio di sincronizzazione Azure AD Connect
 La maggior parte degli attributi viene rappresentata allo stesso modo in Azure AD e nel servizio Active Directory locale. Tuttavia, alcuni attributi sono caratterizzati da una gestione speciale e il valore dell'attributo in Azure AD potrebbe essere diverso da quello sincronizzato in Azure AD Connect.
@@ -58,7 +58,7 @@ Per un utente della cassetta postale, in locale o in Exchange Online, vengono vi
 | proxyAddresses locale | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses in Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
 
-In questo caso **smtp:abbie.spencer@fabrikam.com** è stato rimosso poiché tale dominio non è stato verificato. Ma Exchange ha aggiunto anche **SIP:abbie.spencer@fabrikamonline.com**. Fabrikam non ha usato Lync/Skype in locale, ma Azure AD ed Exchange Online sono in fase di preparazione.
+In questo caso **smtp:abbie.spencer\@fabrikam.com** è stato rimosso poiché tale dominio non è stato verificato. Ma Exchange ha aggiunto anche **SIP:abbie.spencer\@fabrikamonline.com**. Fabrikam non ha usato Lync/Skype in locale, ma Azure AD ed Exchange Online sono in fase di preparazione.
 
 Questa logica per proxyAddresses è detta **ProxyCalc**. ProxyCalc viene richiamato con ogni modifica a un utente quando:
 

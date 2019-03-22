@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/10/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 8770aaeff3e0d7b2d6a39f596aafebf15ed48b23
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 91889971e1ab8a9ea8341f6bc57735d973ea0e89
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55985006"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58115830"
 ---
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -74,8 +74,8 @@ $galleryImage = New-AzGalleryImageDefinition `
    -Offer 'myOffer' `
    -Sku 'mySKU'
 ```
-
-In una versione futura, sarà possibile usare i propri valori definiti **-Editore**, **-Offerta** e **-Sku** per individuare e specificare una definizione dell'immagine, quindi creare una macchina virtuale usando la versione più recente dell'immagine dalla definizione dell'immagine corrispondente. Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
+### <a name="using-publisher-offer-and-sku"></a>Con server di pubblicazione, offerta e SKU 
+Per i clienti che prevedono sull'implementazione di immagini condivise, **in una versione futura**, sarà possibile usare il personale definito **-server di pubblicazione**, **-offrono** e **- Sku** i valori per trovare e specificare una definizione dell'immagine, quindi creare una VM usando l'ultima versione dell'immagine dal corrispondente definizione di immagine. Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
 |Definizione delle immagini|Editore|Offerta|Sku|
 |---|---|---|---|
@@ -83,10 +83,9 @@ In una versione futura, sarà possibile usare i propri valori definiti **-Editor
 |myImage2|myPublisher|standardOffer|mySku|
 |myImage3|Test|standardOffer|testSku|
 
-Questi tre presentano set univoci di valori. In una versione futura, sarà possibile combinare questi valori per richiedere la versione più recente di un'immagine specifica. 
+Questi tre presentano set univoci di valori. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori. **In una versione futura**, sarà possibile combinare questi valori per richiedere la versione più recente di un'immagine specifica. **Il server non funziona nella versione corrente**, ma saranno disponibili in futuro. Al rilascio, usando la sintassi seguente deve essere utilizzato per impostare l'immagine di origine come *myImage1* nella tabella precedente.
 
 ```powershell
-# The following should set the source image as myImage1 from the table above
 $vmConfig = Set-AzVMSourceImage `
    -VM $vmConfig `
    -PublisherName myPublisher `
@@ -94,9 +93,9 @@ $vmConfig = Set-AzVMSourceImage `
    -Skus mySku 
 ```
 
-Quest'operazione è simile al modo in cui è attualmente possibile specificare tali valori nelle [immagini di Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) per creare una macchina virtuale. A tal fine,ogni definizione di immagine deve possedere un set univoco di questi valori. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori. 
+Ciò è simile al modo in cui è possibile attualmente specificare utilizzo editore, offerta e lo SKU per [immagini di Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) per ottenere la versione più recente di un'immagine del Marketplace. A tal fine,ogni definizione di immagine deve possedere un set univoco di questi valori.  
 
-##<a name="create-an-image-version"></a>Creare una versione di immagine
+## <a name="create-an-image-version"></a>Creare una versione di immagine
 
 Creare una versione di immagine da un'immagine gestita usando [New-AzGalleryImageVersion](https://docs.microsoft.com/powershell/module/az.compute/new-azgalleryimageversion). In questo esempio la versione dell'immagine è *1.0.0* e viene replicata nei datacenter degli *Stati Uniti centrali* e degli *Stati Uniti centro-meridionali*.
 

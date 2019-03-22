@@ -4,14 +4,14 @@ description: Questo articolo descrive come aggiungere e gestire server VMware vC
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 6c00ed6f3bec1e16b2a3cb8588335c1741a92883
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: efbcc0143570b3d379cf392c170f599fcc0176d4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52849038"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57855130"
 ---
 # <a name="manage-vmware-vcenter-server"></a>Gestire i server VMware vCenter
 
@@ -26,7 +26,7 @@ Site Recovery deve avere accesso a VMware per l'individuazione automatica delle 
 2. Aprire il file cspsconfigtool.exe usando il relativo collegamento sul desktop.
 3. Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
 
-  ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 1. Fornire i dettagli dell'account e fare clic su **OK** per aggiungere l'account.  L'account deve disporre dei privilegi riepilogati nella tabella seguente. 
 
 Sono necessari circa 15 minuti per completare la sincronizzazione delle informazioni dell'account con il servizio Site Recovery.
@@ -54,14 +54,14 @@ Modificare le credenziali usate per connettersi al server vCenter o all'host ESX
 1. Accedere al server di configurazione e avviare cspsconfigtool.exe dal desktop.
 2. Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
 
-  ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
+   ![add-account](./media/vmware-azure-manage-vcenter/addaccount.png)
 3. Fornire i dettagli del nuovo account e fare clic su **OK** per aggiungere l'account. L'account deve avere i privilegi elencati [sopra](#account-permissions).
 4. Nel portale di Azure aprire l'insieme di credenziali > **Infrastruttura di Site Recovery** > **Server di configurazione** e aprire il server di configurazione.
 5. Nella pagina **Dettagli** fare clic su **Aggiorna server**.
 6. Dopo aver completato il processo di aggiornamento del server, selezionare il server vCenter per aprire la pagina di **riepilogo** di vCenter.
 7. Selezionare l'account appena aggiunto nel campo del **server vCenter/account host vSphere** e fare clic sul pulsante **Salva**.
 
-    ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
+   ![modify-account](./media/vmware-azure-manage-vcenter/modify-vcente-creds.png)
 
 ## <a name="delete-a-vcenter-server"></a>Eliminare un server vCenter
 
@@ -69,7 +69,53 @@ Modificare le credenziali usate per connettersi al server vCenter o all'host ESX
 2. Nella pagina **Dettagli** selezionare il server vCenter.
 3. Fare clic sul pulsante **Elimina**.
 
-  ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+   ![delete-account](./media/vmware-azure-manage-vcenter/delete-vcenter.png)
+
+## <a name="modify-the-vcenter-ip-address-and-port"></a>Modificare l'indirizzo IP di vCenter e la porta
+
+1. Accedere al portale di Azure.
+2. Passare a **insieme di credenziali dei servizi di ripristino** > **infrastruttura di Site Recovery** > **Configuration server**.
+3. Fare clic sul server di configurazione il server vCenter è assegnato a.
+4. Nel **vCenter server** fare clic su in vCenter che si desidera modificare.
+5. Nella pagina di riepilogo vCenter, aggiornare l'indirizzo IP e la porta di vCenter nei rispettivi campi e quindi salvare le modifiche.
+
+   ![add_ip_new_vcenter](media/vmware-azure-manage-vcenter/add-ip.png)
+
+6. Per le modifiche diventano effettive, attendere 15 minuti o [aggiornare il server di configurazione](vmware-azure-manage-configuration-server.md#refresh-configuration-server).
+
+## <a name="migrate-all-protected-virtual-machines-to-a-new-vcenter"></a>Eseguire la migrazione delle macchine virtuali protette tutto a un nuovo vCenter
+
+Per eseguire la migrazione di tutte le macchine virtuali per il nuovo vCenter, non aggiungere un altro account vCenter. Questo può causare la duplicazione delle voci. Aggiornare solo l'indirizzo IP del nuovo vCenter:
+
+1. Accedere al portale di Azure.
+2. Passare a **insieme di credenziali dei servizi di ripristino** > **infrastruttura di Site Recovery** > **Configuration server**.
+3. Fare clic sul server di configurazione il server vCenter precedente viene assegnato a.
+4. Nel **vCenter server** sezione, fare clic su si prevede di eseguire la migrazione da vCenter.
+5. Nella pagina di riepilogo vCenter, aggiornare l'indirizzo IP del nuovo vCenter nel campo **vCenter server/vSphere nome host o indirizzo IP**. Salvare le modifiche.
+
+Non appena viene aggiornato l'indirizzo IP, i componenti di Site Recovery inizieranno a ricevere le informazioni di individuazione delle macchine virtuali dal nuovo vCenter. Ciò non avrà impatto sulle attività di replica in corso.
+
+## <a name="migrate-few-protected-virtual-machines-to-a-new-vcenter"></a>Eseguire la migrazione di alcune macchine virtuali protette per un nuovo vCenter
 
 > [!NOTE]
-Se è necessario modificare l'indirizzo IP, il nome di dominio completo (FQDN) o la porta del server vCenter, è necessario eliminare il server vCenter e aggiungerlo di nuovo al portale.
+> In questa sezione è applicabile solo quando si esegue la migrazione alcune delle macchine virtuali protette per un nuovo vCenter. Se si desidera proteggere un nuovo set di macchine virtuali da un nuovo vCenter [aggiungere i dettagli del nuovo vCenter al server di configurazione](#add-vmware-server-to-the-vault) e che iniziano con  **[Abilita protezione](vmware-azure-tutorial.md#enable-replication)**.
+
+Per spostare alcune macchine virtuali in un nuovo vCenter:
+
+1. [Aggiungere i dettagli del nuovo vCenter al server di configurazione](#add-vmware-server-to-the-vault).
+2. [Disabilitare la replica delle macchine virtuali](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure) si prevede di eseguire la migrazione.
+3. Completare la migrazione di macchine virtuali selezionate per il nuovo vCenter.
+4. A questo punto, proteggere le macchine virtuali migrate da [selezionando il nuovo vCenter quando si abilita la protezione](vmware-azure-tutorial.md#enable-replication).
+
+> [!TIP]
+> Se il numero di macchine virtuali in fase di migrazione **superiore** che il numero del numero di macchine virtuali conservati in vCenter precedente, aggiornare l'indirizzo IP del nuovo vCenter usando le istruzioni fornite [qui](#modify-vcenter-ip-address-port). Per alcune macchine virtuali che vengono mantenute in vCenter precedente, [disabilitare la replica](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure); [aggiungere i dettagli del nuovo vCenter al server di configurazione](#add-vmware-server-to-the-vault)e avviare  **[Abilita protezione](vmware-azure-tutorial.md#enable-replication)**.
+
+## <a name="frequently-asked-questions"></a>Domande frequenti
+
+1. Se le macchine virtuali protette vengono spostate da un host ESXi a altro, sarà interessato dal cambiamento replica?
+
+    No, ciò non influirà sulla replica in corso. Tuttavia, [assicurarsi di distribuire il server di destinazione master con privilegi sufficienti](vmware-azure-reprotect.md#deploy-a-separate-master-target-server)
+
+2. Quali sono i numeri di porta utilizzato per la comunicazione tra vCenter e altri Site Recovery componenti?
+
+    La porta predefinita è 443. Server di configurazione accederanno informazioni host vCenter/vSphere tramite questa porta. Se si vuole aggiornare queste informazioni, fare clic su [qui](#modify-the-vcenter-ip-address-and-port).

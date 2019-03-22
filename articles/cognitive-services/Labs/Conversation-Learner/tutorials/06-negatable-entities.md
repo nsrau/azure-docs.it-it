@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fea950e2c13d9b5ce0c3619990961e611edd6626
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 78dc759632c4fc3116a59ea1e5bc0b93200bca45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55207378"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58168188"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Informazioni su come usare le entità negabili con un modello di Conversation Learner
 
@@ -26,74 +26,73 @@ Questa esercitazione illustra la proprietà "Negatable" (Negabile) delle entità
 [![ Anteprima dell'esercitazione sulle entità negabili](https://aka.ms/cl_Tutorial_v3_NegatableEntities_Preview)](https://aka.ms/cl_Tutorial_v3_NegatableEntities)
 
 ## <a name="requirements"></a>Requisiti
-Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione
+Per questa esercitazione è necessario che il bot di esercitazione generale sia in esecuzione.
 
     npm run tutorial-general
 
 ## <a name="details"></a>Dettagli
-La proprietà "Negatable" di un'entità consente di etichettare le istanze normali (positive) e negative dell'entità, eseguire il training in base ai modelli positivi e negativi e cancellare il valore di un'entità esistente. Le entità con il proprio set di proprietà "Negatable" sono chiamate entità negabili in Conversation Learner.
+La proprietà "Negatable" di un'entità consente di etichettare entrambi normale (positivo) e negativi istanze dell'entità, insegnare basate sui modelli positivi e negativi e cancellare il valore di un'entità esistente. Le entità con il proprio set di proprietà "Negatable" sono chiamate entità negabili in Conversation Learner.
 
 ## <a name="steps"></a>Passaggi
 
+Per iniziare, passare alla home page nell'interfaccia utente Web.
+
 ### <a name="create-the-model"></a>Creare il modello
 
-1. Nell'interfaccia utente Web fare clic su "New Model" (Nuovo modello).
-2. Nel campo "Name" (Nome), digitare "NegatableEntity" e premere INVIO.
-3. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **nuovo modello**.
+2. Immettere **NegatableEntity** per **nome**.
+3. Selezionare **Create**.
 
 ### <a name="entity-creation"></a>Creazione di entità
 
-1. Nel riquadro a sinistra fare clic su "Entities" (Entità), quindi sul pulsante "New Entity" (Nuova entità).
-2. Selezionare "Custom" (Personalizzata) per "Entity Type" (Tipo di entità).
-3. Digitare "name" per "Entity Name" (Nome entità).
-4. Selezionare la casella di controllo "Negatable" (Negabile).
-    - Selezionando questa proprietà l'utente può specificare un valore di entità o dire qualcosa che *non* rappresenta un valore di entità. In questo ultimo caso, il risultato è l'eliminazione del valore di entità corrispondente.
-5. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **Entities** nel riquadro sinistro, quindi **nuova entità**.
+2. Selezionare **Custom sottoposto a training** per **tipo di entità**.
+3. Immettere **name** per **nome entità**.
+4. Controllare **Negatable** per consentire agli utenti di fornire un valore di entità, o si supponga che un elemento sia *non* un'entità valore eliminando il valore di entità corrispondente.
+5. Selezionare **Create**.
 
-![](../media/tutorial5_entities.PNG)
+![](../media/T06_entity_create.png)
 
 ### <a name="create-the-first-action"></a>Creare la prima azione
 
-1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. Nel campo "Bot's response..." (Risposta del bot), digitare "I don't know your name".
-3. Nel campo "Disqualifying Entities" (Entità non qualificanti) digitare "nome".
-4. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
+2. Immettere **non si è certi del nome.** per **risposta del Bot...** .
+3. Immettere **name** per **qualificato dà diritto**.
+4. Selezionare **Create**.
+
+![](../media/T06_action_create_1.png)
 
 ### <a name="create-the-second-action"></a>Creare la seconda azione
 
-1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. Nel campo "Bot's response..." (Risposta del bot), digitare "I know your name". It is $name".
-3. Fare clic sul pulsante "Create" (Crea).
+1. Selezionare **azioni** nel riquadro sinistro, quindi **nuova azione**.
+2. Immettere **conosce il nome. È $name.** per **risposta del Bot...** .
+3. Selezionare **Create**.
 
 > [!NOTE]
-> L'entità "name" (nome) è stata aggiunta automaticamente come entità obbligatoria dal riferimento nella risposta.
+> Il **name** entità è stato automaticamente aggiunto come una **entità necessarie** per riferimento in utterance la risposta.
 
 Sono ora disponibili due azioni.
 
-![](../media/tutorial5_actions.PNG)
+![](../media/T06_action_create_2.png)
 
 ### <a name="train-the-model"></a>Eseguire il training del modello
 
-1. Nel riquadro a sinistra fare clic su "Train Dialogs" (Dialoghi di training), quindi sul pulsante "New Train Dialog" (Nuovo dialogo di training).
-2. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "hello".
-3. Fare clic su "Score Actions" (Punteggio azioni).
-4. Selezionare la risposta "I don't know your name".
-    - Il percentile è 100%, in quanto unica azione valida in base ai vincoli.
-5. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "My name is Frank".
-6. Selezionare "Frank" e scegliere l'etichetta "+name".
-    - Sono presenti due istanze dell'entità "name": "+name" e "-name".  Il segno Più (+) a aggiunge o sovrascrive il valore. Il segno Meno (-) rimuove il valore.
-7. Fare clic su "Score Actions" (Punteggio azioni).
-    - L'entità "name" è ora definita come "Frank" nella memoria del modello, pertanto l'azione "I know your name. It is $name" è disponibile.
-8. Selezionare la risposta "I know your name". It is $name".
-9. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "My name is not Frank".
-10. Selezionare "Frank" e scegliere l'etichetta "-name".
-    - "-name" viene selezionato per cancellare il valore corrente dell'entità.
-11. Fare clic su "Score Actions" (Punteggio azioni).
-12. Selezionare la risposta "I don't know your name".
-13. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "My name is Susan".
-14. Selezionare "Susan" e scegliere l'etichetta "+name".
+1. Selezionare **Train Dialogs** nel riquadro sinistro, quindi **nuova finestra di dialogo Train**.
+2. Immettere **hello** per utterance dell'utente nel Pannello di chat a sinistra.
+3. Selezionare **assegnare un punteggio azioni**.
+4. Selezionare **non si è certi del nome.** Nell'elenco di azioni. Il percentile è 100% come l'unica azione valida in base ai vincoli.
+5. Immettere **il mio nome è Frank** per utterance dell'utente nel Pannello di chat a sinistra.
+6. Evidenziare **Frank** quindi selezionare **+ nome**. Le entità negabile dispongono di due istanze: (+) e aggiunge o sovrascrive il valore. (-) meno rimuove il valore.
+7. Selezionare **assegnare un punteggio azioni**. Il **name** entità viene definita come **Frank** nella memoria del modello, pertanto la **conosce il nome. Si tratta $name** azione è disponibile.
+8. Selezionare **conosce il nome. È $name.** Nell'elenco di azioni.
+9. Immettere **il mio nome non è Frank.** per utterance dell'utente nel Pannello di chat a sinistra.
+10. Evidenziare **Frank** quindi selezionare **-name** per cancellare il valore dal **nome** entità.
+11. Selezionare **assegnare un punteggio azioni**.
+12. Selezionare **non si è certi del nome.** Nell'elenco di azioni.
+13. Immettere **il mio nome è Susan.** per utterance terza dell'utente nel Pannello di chat a sinistra.
+14. Evidenziare **Susan** quindi **+ nome** 
 
-![](../media/tutorial5_dialogs.PNG)
+![](../media/T06_training.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

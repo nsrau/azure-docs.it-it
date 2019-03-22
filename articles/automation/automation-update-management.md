@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 77f18a80c094fbaf58cfb09df38e5fa1c924329a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 85b920767cbdc5ba60c2046563c32e87f6ad7ef8
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856193"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259398"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -567,7 +567,7 @@ Update
 
 ## <a name="using-dynamic-groups"></a>Uso di gruppi dinamici (anteprima)
 
-Gestione aggiornamenti consente di specificare come destinazione un gruppo dinamico di macchine virtuali di Azure per le distribuzioni degli aggiornamenti. Questi gruppi vengono definiti da una query. Quando inizia una distribuzione di aggiornamenti, i membri di tale gruppo vengono valutati. Quando si definisce la query, gli elementi seguenti possono essere usati per popolare il gruppo dinamico
+Gestione aggiornamenti consente di specificare come destinazione un gruppo dinamico di macchine virtuali di Azure per le distribuzioni degli aggiornamenti. Questi gruppi vengono definiti da una query. Quando inizia una distribuzione di aggiornamenti, i membri di tale gruppo vengono valutati. I gruppi dinamici non funzionano con le macchine virtuali classiche. Quando si definisce la query, gli elementi seguenti possono essere usati per popolare il gruppo dinamico
 
 * Sottoscrizione
 * Gruppi di risorse

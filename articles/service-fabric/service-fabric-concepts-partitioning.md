@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 0012304412b343918ab69abf6eababc033cddc6f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 82b95080a9c93d8c02d4129ef93b1a6c9deba7aa
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198215"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852751"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partizionare Reliable Services di Service Fabric
 Questo articolo offre un'introduzione ai concetti di base del partizionamento di Reliable Services di Azure Service Fabric. Il codice sorgente usato nell'articolo è disponibile anche in [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -59,7 +59,7 @@ Prima di implementare un servizio, è sempre consigliabile considerare la strate
 
 Un valido approccio consiste nel considerare la struttura dello stato che deve essere partizionato come primo passaggio.
 
-Un semplice esempio viene riportato di seguito. Per compilare un servizio per un sondaggio a livello di stato, è possibile creare una partizione per ogni città dello stato e quindi archiviare i voti per ogni persona della città nella partizione corrispondente a tale città. La figura 3 illustra un gruppo di persone e la città in cui risiedono.
+Un semplice esempio viene riportato di seguito. Se si intende creare un servizio per un sondaggio a livello di regione, è possibile creare una partizione per ogni città della regione. e quindi archiviare i voti per ogni persona della città nella partizione corrispondente a tale città. La figura 3 illustra un gruppo di persone e la città in cui risiedono.
 
 ![Partizione semplice](./media/service-fabric-concepts-partitioning/cities.png)
 
@@ -113,7 +113,7 @@ Una parte importante della generazione di un hash è rappresentata dalla selezio
 
 Un valido algoritmo di hash di distribuzione si distingue perché è facile da elaborare, presenta pochi conflitti e distribuisce le chiavi in modo uniforme. [FNV-1](https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function) è un valido esempio di algoritmo di hash efficiente.
 
-Un'ottima risorsa per le scelte di algoritmi di codice di hash generali è rappresentata dalla [pagina Wikipedia sulle funzioni hash](http://en.wikipedia.org/wiki/Hash_function).
+Un'ottima risorsa per le scelte di algoritmi di codice di hash generali è rappresentata dalla [pagina Wikipedia sulle funzioni hash](https://en.wikipedia.org/wiki/Hash_function).
 
 ## <a name="build-a-stateful-service-with-multiple-partitions"></a>Compilare un servizio con stato con più partizioni
 Ora verrà creato il primo servizio con stato affidabile con più partizioni. In questo esempio si compilerà un'applicazione molto semplice in cui archiviare tutti i cognomi che iniziano con la stessa lettera nella stessa partizione.

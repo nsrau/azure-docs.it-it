@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: b-juche
-ms.openlocfilehash: 169638fed9a513b8ed835076c049ee21979085fe
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 56667b9a47411b2abae30ff159fa6bc555fec070
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966673"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58104625"
 ---
 # <a name="develop-for-azure-netapp-files-with-rest-api"></a>Sviluppare per Azure NetApp Files con API REST 
 
@@ -29,23 +29,23 @@ L'API REST per il servizio Azure NetApp Files definisce le operazioni HTTP sulle
 
 1. [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) se non lo si è già fatto.
 2. Creare un'entità servizio in Azure Active Directory (Azure AD):
-    1. Verificare di avere [autorizzazioni sufficienti](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
+   1. Verificare di avere [autorizzazioni sufficienti](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions).
 
-    1. Immettere il comando seguente nell'interfaccia della riga di comando di Azure:  
+   1. Immettere il comando seguente nell'interfaccia della riga di comando di Azure:  
 
-            az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
+           az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE--password $YOURGENERATEDPASSWORDGOESHERE
 
-    L'output del comando è simile a quello dell'esempio seguente:  
+      L'output del comando è simile a quello dell'esempio seguente:  
 
-            { 
-                "appId": "appIDgoeshere", 
-                "displayName": "APPNAME", 
-                "name": "http://APPNAME", 
-                "password": "supersecretpassword", 
-                "tenant": "tenantIDgoeshere" 
-            } 
+           { 
+               "appId": "appIDgoeshere", 
+               "displayName": "APPNAME", 
+               "name": "http://APPNAME", 
+               "password": "supersecretpassword", 
+               "tenant": "tenantIDgoeshere" 
+           } 
 
-    Mantenere l'output del comando.  Sono necessari i valori `appId`, `password`, e `tenant`. 
+      Mantenere l'output del comando.  Sono necessari i valori `appId`, `password`, e `tenant`. 
 
 3. Richiedere un token di accesso OAuth:
 

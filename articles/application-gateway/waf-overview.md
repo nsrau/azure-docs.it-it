@@ -4,14 +4,15 @@ description: Questo articolo offre una panoramica di Web application firewall (W
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 11/16/2018
+ms.date: 2/22/2019
 ms.author: amsriva
-ms.openlocfilehash: 9bccc9258a6bd9a6fef4956d0f32cb00dd3c542d
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 914583747d4e0e045d5023d9072451983037e57f
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454260"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57790358"
 ---
 # <a name="web-application-firewall-waf"></a>Web application firewall (WAF)
 
@@ -58,19 +59,8 @@ Di seguito sono indicati i vantaggi principali del gateway applicazione e del We
 - Protezione contro eventuali anomalie del protocollo HTTP, ad esempio agente utente host e intestazioni accept mancanti
 - Prevenzione contro robot, crawler e scanner
 - Rilevamento di errori di configurazione comuni dell'applicazione, ad esempio Apache, IIS e così via
-
-### <a name="public-preview-features"></a>Funzionalità di anteprima pubblica
-
-Lo SKU in anteprima pubblica di WAF corrente include le funzionalità seguenti:
-
-- **Limiti di dimensioni richiesta**: Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori.
-- **Elenchi di esclusione**: gli elenchi di esclusione di Web Application firewall consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di WAF. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password.
-
-Per altre informazioni sull'anteprima pubblica di WAF, vedere [Limiti delle dimensioni di richiesta di Web application firewall ed elenchi di esclusione (Anteprima pubblica)](application-gateway-waf-configuration.md).
-
-
-
-
+- Limiti di dimensioni - richiesta Web Application Firewall consente agli utenti di configurare i limiti alle dimensioni richieste entro limiti inferiore e superiore.
+- Gli elenchi di esclusione, gli elenchi di esclusione WAF consentono agli utenti di omettere determinati attributi di richiesta da una valutazione di Web Application firewall. Un esempio comune è rappresentato dai token inseriti in Active Directory che vengono usati per l'autenticazione o per i campi password.
 
 ### <a name="core-rule-sets"></a>Set di regole principali
 
@@ -87,7 +77,6 @@ Web application firewall è preconfigurato con CRS 3.0 per impostazione predefin
 - Rilevamento di errori di configurazione comuni dell'applicazione, ad esempio Apache, IIS e così via
 
 Per un elenco dettagliato delle regole e delle relative funzionalità di protezione, vedere i [set di regole principali](#core-rule-sets).
-
 
 #### <a name="owasp30"></a>OWASP_3.0
 
@@ -130,6 +119,16 @@ Il WAF del gateway applicazione può essere configurato per l'esecuzione nelle d
 
 * **Modalità di rilevamento**: quando configurato per l'esecuzione in modalità di rilevamento, il WAF del gateway applicazione monitora e registra tutti gli avvisi sulle minacce in un file di log. È necessario abilitare la registrazione diagnostica per il gateway applicazione usando la sezione **Diagnostica**. Verificare anche che il log del WAF sia selezionato e attivato. Quando viene eseguito in modalità di rilevamento, Web application firewall non blocca le richieste in ingresso.
 * **Modalità di prevenzione** : quando configurato per l'esecuzione in modalità di prevenzione, il gateway applicazione blocca attivamente le intrusioni e gli attacchi rilevati tramite le regole. L'autore dell'attacco riceve un'eccezione di accesso non autorizzato 403 e la connessione viene terminata. La modalità di prevenzione continua a registrare gli attacchi nei registri del WAF.
+
+### <a name="anomaly-scoring-mode"></a>Modalità di assegnazione dei punteggi delle anomalie 
+ 
+OWASP più diffuse è disponibili due modalità per decidere se il traffico di blocco o meno. Non vi è una modalità tradizionale e una modalità di assegnazione dei punteggi delle anomalie. Nella modalità tradizionale, qualsiasi regola il traffico corrispondente viene considerata indipendentemente dal fatto che altre regole di corrispondenza sono trovata troppo. Mentre la comprensione, la mancanza di informazioni su quante regole sono attivate da una richiesta specifica è una delle limitazioni di questa modalità. Di conseguenza è stata introdotta la modalità di assegnazione dei punteggi delle anomalie, che è diventato l'impostazione predefinita con OWASP 3.x. 
+
+In modalità di assegnazione dei punteggi delle anomalie, il fatto che una delle regole descritte nella sezione precedente corrisponde il traffico non immediatamente significa che il traffico sta per essere bloccate, supponendo che il firewall è in modalità di prevenzione. Le regole hanno una determinata gravità (critico, errore, avviso e preavviso) e in base alla gravità che verrà aumentano un valore numerico per la richiesta di chiamata il punteggio dell'anomalia. Ad esempio, una regola di avviso corrispondente fornirà un valore pari a 3, ma una regola fondamentale corrisponda fornirà un valore pari a 5. 
+
+È una soglia per il punteggio dell'anomalia in cui il traffico non viene eliminato, tale soglia è impostata su 5. Ovvero, una singola regola fondamentale corrisponda è sufficiente, in modo che Azure WAF blocca una richiesta in modalità di prevenzione (dal momento che la regola essenziale aumenta il punteggio dell'anomalia di 5, in base al paragrafo precedente). Tuttavia, una regola corrispondente con un livello di avviso verranno solo aumento dell'anomalia punteggio per 3. Poiché 3 è ancora inferiore alla soglia 5, nessun traffico verrà bloccato, anche se il firewall WAF è in modalità di prevenzione. 
+
+Si noti che il messaggio registrato quando un traffico di corrispondenze di regole WAF includerà action_s il campo come "Bloccato", ma che non significa necessariamente che il traffico in realtà è stato bloccato. Per bloccare il traffico, è necessario un punteggio di anomalia di 5 o versione successiva.  
 
 ### <a name="application-gateway-waf-reports"></a>Monitoraggio WAF
 

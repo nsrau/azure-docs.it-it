@@ -1,6 +1,6 @@
 ---
 title: Trasmettere i dati di monitoraggio di Azure a Hub eventi
-description: Informazioni su come trasmettere tutti i dati di monitoraggio di Azure a un hub eventi per inserire i dati in uno strumento di analisi o nelle informazioni di sicurezza e gestione degli eventi di partner.
+description: Informazioni su come trasmettere i dati di monitoraggio di Azure a un hub eventi per ottenere i dati in un partner SIEM o lo strumento di analitica.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424dc1611622a1dfc37419fd443d860698020524
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468234"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56870687"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
-Monitoraggio di Azure offre un'unica pipeline per l'accesso a tutti i dati di monitoraggio dall'ambiente Azure, consentendo di configurare facilmente gli strumenti di monitoraggio e le informazioni di sicurezza e gestione degli eventi di partner per il consumo di questi dati. Questo articolo illustra come configurare diversi livelli di dati dell'ambiente Azure da inviare a un unico spazio dei nomi di Hub eventi o a un unico hub eventi in cui questi dati possono essere raccolti da uno strumento esterno.
+Questo articolo illustra come configurare diversi livelli di dati dell'ambiente Azure da inviare a un unico spazio dei nomi di Hub eventi o a un unico hub eventi in cui questi dati possono essere raccolti da uno strumento esterno.
 
 > [!VIDEO https://www.youtube.com/embed/SPHxCgbcvSw]
 
@@ -33,7 +33,7 @@ All'interno dell'ambiente Azure esistono vari livelli di dati di monitoraggio a 
 - **Dati di monitoraggio della sottoscrizione di Azure:** dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. Il [log attività](./../../azure-monitor/platform/activity-logs-overview.md) contiene la maggior parte dei dati di monitoraggio della sottoscrizione, ad esempio eventi imprevisti relativi all'integrità del servizio e controlli di Azure Resource Manager. È possibile raccogliere questi dati tramite un profilo di log.
 - **Dati di monitoraggio del tenant di Azure:** i dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory. I controlli di Azure Active Directory e gli accessi sono esempi di dati di monitoraggio del tenant. Questi dati possono essere raccolti tramite le impostazioni di diagnostica del tenant.
 
-I dati di qualsiasi livello possono essere inviati a un hub eventi in cui è possibile effettuarne il pull in uno strumento di partner. Le sezioni seguenti spiegano come configurare i dati di ogni livello per poterli trasmettere a un hub eventi. I passaggi descritti presuppongono che siano già presenti asset da monitorare nel livello considerato.
+I dati di qualsiasi livello possono essere inviati a un hub eventi in cui è possibile effettuarne il pull in uno strumento di partner. Alcune origini possono essere configurati per inviare dati direttamente a un hub eventi, mentre un altro processo, ad esempio un'App per la logica potrebbe essere necessaria recuperare i dati necessari. Le sezioni seguenti spiegano come configurare i dati di ogni livello per poterli trasmettere a un hub eventi. I passaggi descritti presuppongono che siano già presenti asset da monitorare nel livello considerato.
 
 ## <a name="set-up-an-event-hubs-namespace"></a>Configurare uno spazio dei nomi di Hub eventi
 
@@ -116,7 +116,7 @@ Il routing dei dati di monitoraggio a un hub eventi con Monitoraggio di Azure co
 * **ArcSight**: il connettore intelligente dell'hub eventi di Azure per ArcSight è disponibile nella [raccolta di connettori intelligenti ArcSight qui](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
 * **Server Syslog** - Se si vuole trasmettere i dati di Monitoraggio di Azure direttamente a un server syslog, è possibile estrarre [questo repository GitHub](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Archive the Activity Log to a storage account](../../azure-monitor/platform/archive-activity-log.md) (Archiviare il log attività in un account di archiviazione)
 * Leggere la [panoramica sul log attività di Azure](../../azure-monitor/platform/activity-logs-overview.md)
 * [Set up an alert based on an Activity Log event](../../azure-monitor/platform/alerts-log-webhook.md) (Configurare un avviso in base a un evento del log attività)

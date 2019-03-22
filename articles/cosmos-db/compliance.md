@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: f1be314db7bfc4cbdfcc809eb3b1d985583739a4
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c8a74df19c012613807d39fb3ee529173e82d5ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470145"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093263"
 ---
 # <a name="compliance-in-azure-cosmos-db"></a>Conformità in Azure Cosmos DB 
 
@@ -35,7 +35,7 @@ Per aiutare i clienti a soddisfare i propri obblighi di conformità in settori e
 La copertura di certificazione per Azure Cosmos DB è in continua espansione. Attualmente, Azure Cosmos DB dispone dei certificati seguenti:
 
 | **Applicabile a livello globale** | **US Government** | **Specifici del settore** | **Specifici di area o paese** |
-| --- | --- | --- | --- | --- |
+| --- | --- | --- | --- |
 | Certificazione CSA STAR<br/><br/>Attestazione CSA STAR<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG livello 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR parte 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germania C5<br/><br/>Singapore MTCS livello 3<br/><br/>Spagna ENS High|
 
 Per altre informazioni su ognuna di queste offerte di conformità e sui vantaggi offerti, vedere la pagina [Panoramica della conformità di Microsoft Azure](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).

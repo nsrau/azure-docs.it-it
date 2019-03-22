@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: e964e00cd326d924a77a53348942f91ebbdbdea4
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 9d29608ded920b14af1be6d4d68ab1d77c3c8cb5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630161"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099155"
 ---
 # <a name="use-apache-spark-structured-streaming-with-apache-kafka-and-azure-cosmos-db"></a>Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB
 
@@ -52,19 +52,19 @@ Anche se è possibile creare manualmente cluster Spark e Kafka e una rete virtua
 
     Questo modello crea le risorse seguenti:
 
-    * Kafka nel cluster HDInsight 3.6.
+   * Kafka nel cluster HDInsight 3.6.
 
-    * Spark nel cluster HDInsight 3.6.
+   * Spark nel cluster HDInsight 3.6.
 
-    * Una rete virtuale Azure contenente i cluster HDInsight.
+   * Una rete virtuale Azure contenente i cluster HDInsight.
 
-        > [!NOTE]  
-        > La rete virtuale creata dal modello usa lo spazio degli indirizzi 10.0.0.0/16.
+       > [!NOTE]  
+       > La rete virtuale creata dal modello usa lo spazio degli indirizzi 10.0.0.0/16.
 
-    * Un database dell'API SQL di Azure Cosmos DB.
+   * Un database dell'API SQL di Azure Cosmos DB.
 
-    > [!IMPORTANT]  
-    > Il notebook di streaming strutturato che è stato usato in questo esempio richiede Spark in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
+     > [!IMPORTANT]  
+     > Il notebook di streaming strutturato che è stato usato in questo esempio richiede Spark in HDInsight 3.6. Se si usa una versione precedente di Spark in HDInsight, si ricevono errori durante l'uso del notebook.
 
 2. Usare le informazioni seguenti per popolare le voci nel pannello **Distribuzione personalizzata**:
    

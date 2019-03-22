@@ -1,6 +1,6 @@
 ---
-title: Codificare una trasformazione personalizzata usando Servizi multimediali v3 - Azure | Microsoft Docs
-description: Questo argomento illustrato come usare Servizi multimediali di Azure v3 per codificare una trasformazione personalizzata.
+title: Codifica di trasformazione personalizzato con servizi multimediali v3 .NET - Azure | Microsoft Docs
+description: Questo argomento illustra come usare servizi multimediali di Azure v3 per codificare un file di trasformazione personalizzato con .NET.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -10,21 +10,29 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 12/08/2018
+ms.date: 03/11/2019
 ms.author: juliako
-ms.openlocfilehash: c62d9132cdd7eb2ebcbecc3c417ad30d368a278a
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 848da2996b71b137c6112225c9bef7e93b457c7d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53138705"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57837236"
 ---
-# <a name="how-to-encode-with-a-custom-transform"></a>Come codificare con una trasformazione personalizzata
+# <a name="how-to-encode-with-a-custom-transform-by-using-net"></a>Come codificare con una trasformazione personalizzata tramite .NET
 
-Quando si esegue la codifica con Servizi multimediali di Azure, è possibile iniziare rapidamente con uno dei set di impostazioni predefiniti basati sulle procedure consigliate del settore, come illustrato nell'esercitazione [Streaming di file](stream-files-tutorial-with-api.md). In alternativa, si può compilare un set di impostazioni personalizzato per i requisiti di uno specifico scenario o dispositivo. 
+Durante la codifica con servizi multimediali di Azure, è possibile iniziare a usare rapidamente uno dei set di impostazioni predefinite consigliate basati sulle procedure consigliate del settore, come illustrato nel [Streaming i file](stream-files-tutorial-with-api.md) esercitazione. È anche possibile creare un set di impostazioni per i requisiti specifici di uno scenario o un dispositivo di destinazione personalizzato.
 
-> [!Note]
-> In Servizi multimediali v3, tutte le velocità in bit di codifica sono in bit al secondo. Questo comportamento è diverso dalle impostazioni predefinite di Media Encoder Standard v2 REST. Ad esempio, una velocità in bit che in v2 viene specificata come 128, nella versione v3 sarà 128000.
+## <a name="considerations"></a>Considerazioni
+
+Durante la creazione di set di impostazioni personalizzati, si applicano le considerazioni seguenti:
+
+* Tutti i valori per l'altezza e larghezza su contenuto AVC devono essere un multiplo di 4.
+* In servizi multimediali di Azure v3, tutte le velocità in bit di codifica sono in bit al secondo. Ciò è diverso dal set di impostazioni con le nostre API v2, che usato kilobit al secondo come unità. Ad esempio, se la velocità in bit nella versione 2 è stato specificato come 128 (kilobit/sec), in v3 valore potrebbe essere impostato su 128000 (bit/sec).
+
+## <a name="prerequisites"></a>Prerequisiti 
+
+[Creare un account di Servizi multimediali di Azure](create-account-cli-how-to.md). <br/>Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di Servizi multimediali. 
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
@@ -38,9 +46,13 @@ L'esempio di set di impostazioni personalizzato si trova nella cartella [EncodeC
 
 ## <a name="create-a-transform-with-a-custom-preset"></a>Creare una trasformazione con un set di impostazioni personalizzato 
 
-Quando si crea un nuovo oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è costituito da un oggetto **TransformOutput**, come illustrato nel codice seguente. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. L'oggetto **TransformOutput** seguente crea impostazioni di output personalizzate per codec e livello.
+Quando si crea un nuovo oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario specificare ciò che dovrà generare come output. Il parametro obbligatorio è costituito da un oggetto [TransformOutput](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#transformoutput), come illustrato nel codice seguente. Ogni **TransformOutput** contiene un parametro **Preset**. In **Preset** sono descritte le istruzioni dettagliate delle operazioni di elaborazione di contenuti video e/o audio che devono essere usate per generare l'oggetto **TransformOutput** desiderato. L'oggetto **TransformOutput** seguente crea impostazioni di output personalizzate per codec e livello.
 
-Quando si crea un oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario verificare se ne esiste già uno tramite il metodo **Get**, come illustrato nel codice seguente.  In Servizi multimediali v3 i metodi **Get** eseguiti su entità restituiscono **null** se determinano che l'entità non esiste, effettuando un controllo del nome senza distinzione tra maiuscole e minuscole.
+Quando si crea un oggetto [Transform](https://docs.microsoft.com/rest/api/media/transforms), è necessario verificare se ne esiste già uno tramite il metodo **Get**, come illustrato nel codice seguente. In Servizi multimediali v3 i metodi **Get** eseguiti su entità restituiscono **null** se determinano che l'entità non esiste, effettuando un controllo del nome senza distinzione tra maiuscole e minuscole.
+
+### <a name="example"></a>Esempio
+
+L'esempio seguente definisce un set di output che si vuole essere generato quando viene utilizzata questa trasformazione. È prima di tutto aggiungere un livello AacAudio per la codifica audio e due livelli di H264Video per la codifica video. Nei livelli video, abbiamo assegnare etichette in modo che possono essere utilizzati nei nomi dei file di output. Successivamente, si desidera l'output includono anche le anteprime. Nell'esempio seguente viene specificato di immagini in formato PNG, generato al 50% della risoluzione del video di input e tre i timestamp - {25%, 50%, 75} della lunghezza del video di input. Infine, specifichiamo il formato per i file di output: uno per video e audio e l'altro per le anteprime. Poiché sono presenti più H264Layers, è necessario usare le macro che generano nomi univoci per ogni livello. È possibile usare una `{Label}` o `{Bitrate}` (macro), nell'esempio viene illustrato il primo.
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-core-tutorials/NETCore/EncodeCustomTransform/MediaV3ConsoleApp/Program.cs#EnsureTransformExists)]
 

@@ -3,20 +3,20 @@ title: Problemi noti e limitazioni per le migrazioni online a Database di Azure 
 description: Informazioni su problemi noti e limitazioni per le migrazioni online a Database di Azure per MySQL.
 services: database-migration
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 09/22/2018
-ms.openlocfilehash: ec91eec9baba1f337f18e1927a87971bf1499040
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: f52eb1699b980e84195ec34eb543c4523328c893
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724141"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181997"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Problemi noti e limitazioni per le migrazioni online a Database di Azure per PostgreSQL
 
@@ -97,7 +97,7 @@ Le colonne LOB (Large Object) sono colonne che possono raggiungere dimensioni el
     SELECT max(length(cast(body as text))) as body FROM customer_mail
     ```
 
-    **Soluzione alternativa**: Se si ha un oggetto LOB maggiore a 32 kB, contattare il team tecnico all'indirizzo [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com).
+    **Soluzione alternativa**: Se si dispone di oggetti LOB che sono maggiori di 32 KB, contattare il team tecnico al [porre le migrazioni del Database Azure](mailto:AskAzureDatabaseMigrations@service.microsoft.com).
 
 - **Limitazione**: Se nella tabella sono presenti colonne LOB e non viene impostata una chiave primaria per la tabella, è possibile che la migrazione dei dati non venga eseguita per questa tabella.
 

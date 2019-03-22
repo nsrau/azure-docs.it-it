@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 11/03/2016
 ms.author: patricka
 ms.openlocfilehash: fcd71f74e0b00934958828024094773e42496b66
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
-ms.translationtype: HT
+ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51017271"
+ms.lasthandoff: 12/27/2018
+ms.locfileid: "58114646"
 ---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
@@ -20,8 +20,8 @@ Per registrare l'API Web, usare le impostazioni specificate nella tabella.
 | Impostazione      | Valore di esempio  | DESCRIZIONE                                        |
 | ------------ | ------- | -------------------------------------------------- |
 | **Nome** | API Contoso B2C | Immettere un **Nome** per l'applicazione che illustra l'API ai clienti. | 
-| **Includi app Web/API Web** | Yes | Selezionare **Sì** per un'API Web. |
-| **Consenti il flusso implicito** | Yes | Selezionare **Sì** se l'applicazione usa l'[accesso con OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
+| **Includi app Web/API Web** | Sì | Selezionare **Sì** per un'API Web. |
+| **Consenti il flusso implicito** | Sì | Selezionare **Sì** se l'applicazione usa l'[accesso con OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
 | **URL di risposta** | `https://localhost:44316/` | Gli URL di risposta sono gli endpoint a cui Azure AD B2C restituisce eventuali token richiesti dall'applicazione. In questo esempio l'API Web è locale ed è in ascolto sulla porta 44316. |
 | **URI ID app** | api | L'URI ID app è l'identificatore usato per l'API Web. L'URI completo dell'identificatore, incluso il dominio, viene generato automaticamente. |
 

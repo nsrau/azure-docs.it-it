@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: article
-ms.date: 02/08/2019
+ms.date: 3/19/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 2a786d383d103f9b45ea7b13de24b8de9c9e9f5e
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 665e6651db37cc04693d68bd2de2ede6e595eab4
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56445373"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293394"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Installare ed eseguire contenitori di riconoscimento del testo
 
@@ -30,7 +30,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori Riconoscimento del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Obbligatorio|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti per la configurazione dell'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
@@ -50,14 +50,14 @@ Prima di usare i contenitori Riconoscimento del testo, è necessario soddisfare 
 
 La tabella seguente indica i core CPU minimi e consigliati e la memoria da allocare per ogni contenitore di Riconoscimento del testo.
 
-| Contenitore | Minima | Consigliato |
-|-----------|---------|-------------|
-|Riconoscimento del testo|1 core, 8 GB di memoria, 0,5 TPS|2 core, 8 GB di memoria, 1 TPS|
+| Contenitore | Minima | Consigliato |TPS<br>(Minimum, Maximum)|
+|-----------|---------|-------------|--|
+|Riconoscimento del testo|1 core, 8 GB di memoria, 0,5 TPS|2 core, 8 GB di memoria, 1 TPS|0.5, 1|
 
-Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
+* Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
+* Programmi di transazione - transazioni al secondo
 
 Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono usate come parte del comando `docker run`.
-
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
@@ -116,11 +116,14 @@ Sono disponibili altri [esempi](./computer-vision-resource-container-config.md#e
 > [!IMPORTANT]
 > È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 
+[!INCLUDE [Running multiple containers on the same host](../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
+
+
 ## <a name="query-the-containers-prediction-endpoint"></a>Eseguire query sull'endpoint di stima del contenitore
 
 Il contenitore fornisce API dell'endpoint di stima di query basate su REST. 
 
-Usare l'host, https://localhost:5000, per le API del contenitore.
+Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 ### <a name="asynchronous-text-recognition"></a>Riconoscimento del testo asincrono
 

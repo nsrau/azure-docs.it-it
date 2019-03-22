@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/21/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb991de113b13666eeaab3f283b9eccd75fbd39
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e59e00b0be7b7694d03961b19fadfa92c5db98b6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166030"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58171075"
 ---
 # <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Qual è la condizione della posizione nell'accesso condizionale di Azure Active Directory? 
 
@@ -59,7 +59,7 @@ Una posizione specifica ha le caratteristiche seguenti:
 
 - **Nome**: nome visualizzato di una posizione specifica.
 
-- **Intervalli IP**: uno o più intervalli di indirizzi IPv4 in formato CIDR. L'immissione di un intervallo di indirizzi Ipv6 non è supportata.
+- **Intervalli IP**: uno o più intervalli di indirizzi IPv4 in formato CIDR. Specifica un intervallo di indirizzi IPv6 non è supportata.
 
 - **Contrassegna come posizione attendibile**: flag che è possibile impostare per una posizione specifica per indicare un percorso attendibile. In genere, i percorsi attendibili sono aree della rete controllate dal reparto IT. Oltre che per l'accesso condizionale, le posizioni specifiche attendibili vengono usate anche da Azure AD Identity Protection e dai report di sicurezza di Azure AD per ridurre il numero di [falsi positivi](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
 
@@ -67,7 +67,7 @@ Una posizione specifica ha le caratteristiche seguenti:
 
 - **Includi aree sconosciute**: alcuni indirizzi IP non sono associati a un paese specifico. Questa opzione consente di scegliere se questi indirizzi IP devono essere inclusi nella posizione specifica. Usare questa impostazione quando i criteri che usano la posizione specifica devono essere applicati a posizioni sconosciute.
 
-Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare:
+Il numero di località denominate che è possibile configurare è limitato dalle dimensioni dell'oggetto correlato in Azure AD. È possibile configurare uno dei seguenti:
 
 - Una posizione specifica con un massimo di 1200 intervalli IP.
 
@@ -142,7 +142,7 @@ Per impostazione predefinita, Azure AD rilascia un token su base oraria. Se si e
 
 ### <a name="user-ip-address"></a>Indirizzo IP utente
 
-L'indirizzo IP usato nella valutazione dei criteri è l'indirizzo IP pubblico dell'utente. Per i dispositivi su una rete privata, non si tratta dell'indirizzo IP del client del dispositivo dell'utente sulla Intranet, ma dell'indirizzo usato dalla rete per connettersi a Internet. 
+L'indirizzo IP usato nella valutazione dei criteri è l'indirizzo IP pubblico dell'utente. Per i dispositivi su una rete privata, non si tratta dell'indirizzo IP del client del dispositivo dell'utente sulla Intranet, ma dell'indirizzo usato dalla rete per connettersi a Internet. Se il dispositivo ha solo un indirizzo IPv6, configurare la condizione di percorso non è supportata.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>Caricamento e download in blocco delle posizioni specifiche
 

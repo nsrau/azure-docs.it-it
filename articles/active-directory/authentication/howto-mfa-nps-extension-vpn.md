@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe77602d138224c848cc915bbba5a7084c29650
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c22b035b325582cf4a12ff10a9abbedb8837229b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58117881"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrare l'infrastruttura VPN con Azure MFA usando l'estensione Server dei criteri di rete per Azure
 
@@ -30,20 +30,20 @@ Servizi di accesso e criteri di rete consente alle organizzazioni di:
 
 * Assegnare una posizione centrale per la gestione e il controllo delle richieste di rete per specificare:
 
-    * quali utenti possono connettersi 
+  * quali utenti possono connettersi 
     
-    * in quali ore del giorno è consentito connettersi 
+  * in quali ore del giorno è consentito connettersi 
     
-    * la durata delle connessioni
+  * la durata delle connessioni
     
-    * il livello di sicurezza che i client devono usare per la connessione
+  * il livello di sicurezza che i client devono usare per la connessione
 
     Invece di specificare subito i criteri in ogni VPN o server Gateway Desktop remoto, è possibile farlo dopo averli collocati in una posizione centrale. Il protocollo RADIUS viene usato per offrire servizi centralizzati di autenticazione, autorizzazione e accounting. 
 
 * Stabilire e applicare criteri di integrità client di Protezione accesso alla rete che determinano se ai dispositivi viene concesso l'accesso alle risorse di rete con o senza restrizioni.
 
 * Indicare un modo per imporre l'autenticazione e l'autorizzazione per l'accesso a commutatori Ethernet e punti di accesso wireless che supportano 802.1x.   
-Per altre informazioni, vedere [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) (Server dei criteri di rete). 
+  Per altre informazioni, vedere [Network Policy Server](https://docs.microsoft.com/windows-server/networking/technologies/nps/nps-top) (Server dei criteri di rete). 
 
 Per migliorare la sicurezza e offrire un elevato livello di conformità, le organizzazioni possono integrare Server dei criteri di rete con Azure Multi-Factor Authentication per garantire che gli utenti usino la verifica in due passaggi per connettersi alla porta virtuale sul server VPN. Affinché venga concesso loro l'accesso, gli utenti devono specificare la combinazione di nome utente e password con informazioni sotto il controllo dell'utente. Queste informazioni devono essere attendibili e non facilmente duplicabili. Possono includere un numero di cellulare, un numero di rete fissa o un'applicazione su un dispositivo mobile.
 

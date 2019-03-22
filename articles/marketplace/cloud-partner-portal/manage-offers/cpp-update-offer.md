@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 690ce08aa15a9677b04931ed1965ef819614ee84
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: 76b607502324c3ca25b3536d5197a97dbb80399d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355244"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58102146"
 ---
 # <a name="update-azure-marketplace-and-appsource-offers"></a>Aggiornare le offerte di Azure Marketplace e AppSource
 
@@ -68,19 +68,19 @@ Per implementare queste modifiche, seguire questa procedura.
 
 Per le offerte di Azure Marketplace:
 
-2. Selezionare la scheda **SKU**.  Selezionare lo SKU da modificare.
-3. Fare clic sul pulsante **Selezionare paesi** che si trova sotto il campo **Disponibilità paese**.
-4. Nella finestra di dialogo della disponibilità in base all'area geografica aggiungere o rimuovere aree per lo SKU selezionato.
+1. Selezionare la scheda **SKU**.  Selezionare lo SKU da modificare.
+1. Fare clic sul pulsante **Selezionare paesi** che si trova sotto il campo **Disponibilità paese**.
+1. Nella finestra di dialogo della disponibilità in base all'area geografica aggiungere o rimuovere aree per lo SKU selezionato.
 
 Per le offerte di AppSource:
 
-2. Selezionare la scheda **Dettagli vetrina**.
-3. Accanto all'etichetta **Paesi supportati** fare clic su **Paesi supportati**. 
-4. Nella finestra di dialogo dei paesi supportati aggiungere o rimuovere le aree per questa offerta.
+1. Selezionare la scheda **Dettagli vetrina**.
+1. Accanto all'etichetta **Paesi supportati** fare clic su **Paesi supportati**. 
+1. Nella finestra di dialogo dei paesi supportati aggiungere o rimuovere le aree per questa offerta.
 
 Per entrambi i marketplace:
 
-5. Fare clic su **Pubblica** per avviare il processo di pubblicazione. 
+1. Fare clic su **Pubblica** per avviare il processo di pubblicazione. 
 
 Se uno SKU è stato reso disponibile in una nuova area, è possibile specificare i prezzi per tale area specifica tramite la funzionalità di **esportazione dei dati sui prezzi**. Se si aggiunge nuovamente un'area disponibile in precedenza, non è possibile aggiornarne i prezzi perché le modifiche ai prezzi non sono consentite.
 

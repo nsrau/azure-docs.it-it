@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/13/2018
 ms.author: barclayn
-ms.openlocfilehash: 09e8ee05017c47c5b01bc529135004eff19b846f
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: ee5ed8871ea5c021ad8c87e35f45e42ad641a324
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118463"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124169"
 ---
 # <a name="windows-defender-advanced-threat-protection-with-azure-security-center"></a>Windows Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -64,11 +64,11 @@ Per eseguire l'onboarding dei server al Centro sicurezza, fare clic su **Go to A
 1. Nel pannello **Onboarding** selezionare o creare un'area di lavoro in cui archiviare i dati. <br>
 2. Se non è possibile visualizzare tutte le aree di lavoro, ciò potrebbe dipendere dalla mancanza di autorizzazioni. Verificare che l'area di lavoro sia impostata sul livello Standard del Centro sicurezza di Azure. Per altre informazioni vedere [Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata](security-center-pricing.md).
     
-3.  Selezionare **Aggiungi server** per visualizzare le istruzioni su come installare Microsoft Monitoring Agent. 
+3. Selezionare **Aggiungi server** per visualizzare le istruzioni su come installare Microsoft Monitoring Agent. 
 
-4.  Dopo l'onboarding, è possibile monitorare i computer in **Compute and apps** (Servizi di calcolo e app).
+4. Dopo l'onboarding, è possibile monitorare i computer in **Compute and apps** (Servizi di calcolo e app).
 
-  ![Onboarding di computer](media/security-center-wdatp/onboard-computers.png)
+   ![Onboarding di computer](media/security-center-wdatp/onboard-computers.png)
 
 
 ## <a name="enable-windows-defender-atp-integration"></a>Abilitare l'integrazione di Windows Defender ATP

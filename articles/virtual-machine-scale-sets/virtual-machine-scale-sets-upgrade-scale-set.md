@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: manayar
-ms.openlocfilehash: 4e6186310f63fde8648ded03a62b207b5f81a8e2
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 71899a9d6782c4700c287458c85ec83bd1516a4b
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984801"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56873628"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modificare un set di scalabilità di macchine virtuali
 
@@ -316,7 +316,7 @@ Per aggiornare le macchine virtuali esistenti, è necessario eseguire un "aggior
 - È anche possibile usare gli [SDK di Azure](https://azure.microsoft.com/downloads/) specifici del linguaggio.
 
 >[!NOTE]
-> I cluster di Service Fabric possono usare solo la modalità *automatica*, ma l'aggiornamento viene gestito in modo diverso. Per altre informazioni, vedere [Aggiornamenti delle applicazioni di Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
+> I cluster di Service Fabric possono usare solo la modalità *automatica*, ma l'aggiornamento viene gestito in modo diverso. Per altre informazioni, vedere [gli aggiornamenti dell'applicazione di Service Fabric](../service-fabric/service-fabric-application-upgrade.md).
 
 Esiste un tipo di modifica alle proprietà globali del set di scalabilità che non segue il criterio di aggiornamento. Le modifiche al profilo del sistema operativo del set di scalabilità (ad esempio, il nome utente amministratore e la password) possono essere apportate solo nella versione dell'API *2017-12-01* o successiva. Queste modifiche si applicano solo alle macchine virtuali create dopo la modifica nel modello del set di scalabilità. Per aggiornare le macchine virtuali esistenti, è necessario ricreare l'immagine di ogni singola macchina virtuale. È possibile farlo tramite:
 

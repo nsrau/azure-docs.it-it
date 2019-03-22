@@ -1,72 +1,80 @@
 ---
-title: Informazioni su Sintesi vocale - Servizio Voce
+title: Sintesi vocale con servizi di riconoscimento vocale di Azure
 titleSuffix: Azure Cognitive Services
-description: L'API Sintesi vocale offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare caratteri voce standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama il servizio Voce.
+description: Sintesi vocale da servizi di Azure sono un servizio basato su REST che consente le applicazioni, strumenti o i dispositivi di convertire testo in naturale simile a umane sintesi vocale. Scegliere tra standard e neurale voices oppure creare la tua voce personalizzato univoco per un prodotto o un marchio. 75 voices standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voices neurale sono disponibili in 4 lingue e impostazioni locali.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/13/2018
+ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 0836ae4a9041db27cfed35dd0f1fc0df6e541aff
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859335"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226913"
 ---
-# <a name="about-the-text-to-speech-api"></a>Informazioni sull'API Sintesi vocale
+# <a name="what-is-text-to-speech"></a>Che cos'è sintesi vocale?
 
-L'API **Sintesi vocale** converte il testo di input in parlato dal *suono naturale*.
+Sintesi vocale da servizi di Azure sono un servizio basato su REST che consente le applicazioni, strumenti o i dispositivi di convertire testo in naturale simile a umane sintesi vocale. Scegliere tra standard e neurale voices o creane di nuove [vocali personalizzati](#custom-voice-fonts) univoco per un prodotto o un marchio. 75 voices standard sono disponibili in più di 45 lingue e impostazioni locali e 5 voices neurale sono disponibili in 4 lingue e impostazioni locali. Per un elenco completo, vedere [lingue supportate](language-support.md#text-to-speech).
 
-Per generare il parlato, l'applicazione invia richieste HTTP POST all'API Sintesi vocale, dove il testo viene sintetizzato in una voce dal suono umano e restituita come file audio. Sono supportate numerosi lingue e voci.
-
-Gli scenari in cui viene adottata la sintesi vocale includono:
-
-* *Miglioramento dell'accessibilità:* la tecnologia di **sintesi vocale** consente ai proprietari e agli autori di contenuto di rispondere ai diversi modi in cui le persone interagiscono con il contenuto. Gli utenti con disturbi della vista o difficoltà di lettura o leggibilità apprezzano di poter utilizzare il contenuto oralmente. L'output vocale permette alle persone anche di fruire con maggiore facilità del contenuto testuale, ad esempio giornali o blog, sui dispositivi mobili mentre viaggiano o si allenano.
-
-* *Risposta in scenari multitasking:* la **sintesi vocale** consente alle persone di acquisire informazioni importanti in modo rapido e comodo, mentre sono alla guida o in altre situazioni in cui non sarebbe pratico leggere. Un'applicazione comune in quest'ambito è la navigazione.
-
-* *Miglioramento dell'apprendimento in più modi:* le persone apprendono in modi diversi. Gli esperti di apprendimento online hanno dimostrato che, fornendo voce e testo insieme, diventa più semplice assimilare e memorizzare le informazioni.
-
-* *Distribuzione di bot o assistenti intuitivi:* la capacità di parlare può essere un aspetto fondamentale per un chat bot intelligente o un assistente virtuale. Sempre più aziende stanno sviluppando chat bot per offrire ai clienti esperienze di supporto coinvolgenti. La voce crea un'altra dimensione perché consente di ascoltare le risposte del bot (ad esempio, al telefono).
-
-## <a name="voice-support"></a>Supporto vocale
-
-Il servizio di **sintesi vocale** di Microsoft offre più di 75 voci in più di 45 lingue e impostazioni locali. Per usare questi "caratteri voce" standard, è sufficiente specificare il nome della voce con pochi altri parametri quando si chiama l'API REST del servizio. Per altre informazioni sulle lingue, le impostazioni locali e le voci supportate, vedere [Supporto per le lingue](language-support.md#text-to-speech).
-
-> [!IMPORTANT]
-> I costi variano per voci standard, personalizzate e neurali. Per altre informazioni, vedere [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+Tecnologia di riconoscimento vocale consente ai creatori di contenuti interagire con i propri utenti in modi diversi. Sintesi vocale può migliorare l'accessibilità, fornendo agli utenti con un'opzione per interagire con il contenuto acustico. Se l'utente ha problemi di vista, una formazione disabilità, o richiede informazioni sulla navigazione mentre si Guida, sintesi vocale può migliorare un'esperienza esistente. Sintesi vocale è anche un componente aggiuntivo prezioso per i robot vocali e assistenti virtuali.
 
 ### <a name="neural-voices"></a>Voci neurali
 
-La funzionalità di sintesi vocale neurale può essere usata per rendere più naturali e coinvolgenti le interazioni con chat bot e assistenti virtuali, per convertire testo digitale (come gli e-book) in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Con la prosodia naturale simile al linguaggio umano e l'articolazione chiara delle parole, la sintesi vocale neurale ha ridotto in modo significativo le difficoltà di ascolto durante l'interazione con i sistemi di intelligenza artificiale. Per altre informazioni sulle voci neurali, vedere [Supporto per le lingue](language-support.md#text-to-speech).
+Le voci neurali possono essere usate per rendere più naturali e coinvolgenti le interazioni con chatbot e assistenti virtuali, per convertire testo digitale, come gli e-book, in audiolibri e per migliorare i sistemi dei navigatori per le automobili. Prosodia naturale human-like e la chiaro tempestiva delle parole, voices neurale ridurre notevolmente la fatica di ascolto quando si interagisce con i sistemi di intelligenza artificiale. Per altre informazioni sulle voci neurali, vedere [Supporto per le lingue](language-support.md#text-to-speech).
 
 ### <a name="custom-voices"></a>Voci personalizzate
 
-La personalizzazione della voce del servizio Sintesi vocale consente di creare una voce distintiva e unica per il proprio marchio, ovvero un *carattere voce*. Per creare un carattere voce, effettuare una registrazione in studio e caricare gli script associati come dati di training. Il servizio crea quindi un modello vocale univoco ottimizzato per la registrazione. È possibile usare questo carattere voce per la sintesi vocale. Per altre informazioni, vedere [Caratteri voce personalizzati](how-to-customize-voice-font.md).
+Personalizzazione casella vocale consente di creare una voce riconoscibile, uno di tipo per il tuo marchio. Per creare il carattere voce personalizzato, si apportano una registrazione in studio e caricare gli script associati come dati di training. Il servizio crea quindi un modello vocale univoco ottimizzato per la registrazione. È possibile utilizzare questo carattere voce personalizzato per sintesi vocale. Per altre informazioni, vedere [voci personalizzate](how-to-customize-voice-font.md).
 
-## <a name="api-capabilities"></a>Funzionalità API
+## <a name="core-features"></a>Funzionalità di base
 
-Molte delle funzionalità dell'API **Sintesi vocale**, soprattutto per quanto riguarda la personalizzazione, sono disponibili tramite REST. La tabella seguente riepiloga le funzionalità di ogni metodo di accesso all'API. Per un elenco completo di funzionalità e i dettagli dell'API, vedere le [informazioni di riferimento su Swagger](https://westus.cris.ai/swagger/ui/index).
+Questa tabella elenca le funzionalità di base per la sintesi vocale:
 
-| Caso d'uso | REST | SDK |
-|-----|-----|-----|----|
-| Caricare set di dati per l'adattamento vocale | Sì | No  |
-| Creare e gestire i modelli di caratteri voce | Sì | No  |
-| Creare e gestire distribuzioni di caratteri voce | Sì | No  |
-| Creare e gestire test di caratteri voce| Sì | No  |
-| Gestisci sottoscrizioni | Sì | No  |
+| Caso d'uso | SDK | REST |
+|----------|-----|------|
+| Convertire sintesi vocale. | No  | Sì |
+| Caricare i set di dati per l'adattamento del vocali. | No  | Sì\* |
+| Creare e gestire i modelli del tipo di carattere vocali. | No  | Sì\* |
+| Creare e gestire le distribuzioni di tipo di carattere vocali. | No  | Sì\* |
+| Creare e gestire i test del tipo di carattere vocali. | No  | Sì\* |
+| Gestire le sottoscrizioni. | No  | Sì\* |
+
+\* *Questi servizi sono disponibili tramite l'endpoint cris.ai. Visualizzare [Swagger riferimento](https://westus.cris.ai/swagger/ui/index).*
 
 > [!NOTE]
-> L'API implementa la limitazione delle richieste dell'API a 25 ogni 5 secondi. Le intestazioni dei messaggi informeranno dei limiti.
+> L'endpoint di sintesi vocale viene implementata la limitazione delle richieste che limita le richieste a 25 per ogni 5 secondi. Quando si verifica una limitazione, verrà segnalato tramite le intestazioni del messaggio.
+
+## <a name="get-started-with-text-to-speech"></a>Introduzione a sintesi vocale
+
+Sono disponibili guide introduttive progettato per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco delle guide introduttive di sintesi vocale organizzati per linguaggio.
+
+| Guida introduttiva | Piattaforma | Informazioni di riferimento sulle API |
+|------------|----------|---------------|
+| [C#, .NET core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [Python](quickstart-python-text-to-speech.md) | Finestra, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+
+## <a name="sample-code"></a>Codice di esempio
+
+Codice di esempio per la sintesi vocale è disponibile in GitHub. Questi esempi coprono sintesi vocale nei linguaggi di programmazione più diffusi.
+
+* [Esempi di sintesi vocale (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+
+## <a name="reference-docs"></a>Documentazione di riferimento
+
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [API REST: Per il riconoscimento vocale](rest-speech-to-text.md)
+* [API REST: Sintesi vocale](rest-text-to-speech.md)
+* [API REST: Personalizzazione e la trascrizione di batch](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Ottenere una sottoscrizione di valutazione gratuita per i servizi Voce](https://azure.microsoft.com/try/cognitive-services/)
-* [Avvio rapido: Sintesi vocale, Python](quickstart-python-text-to-speech.md)
-* [Avvio rapido: Sintesi vocale, .NET Core](quickstart-dotnet-text-to-speech.md)
-* [Informazioni di riferimento sulle API REST](rest-apis.md)
+* [Ottenere una sottoscrizione di valutazione gratuita per i servizi Voce](get-started.md)
+* [Creare caratteri voce personalizzati](how-to-customize-voice-font.md)

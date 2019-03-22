@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9116dd8a27b268b656f688083032a127177d2d51
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: 2628cafada47b2602b195c44d4b6f2e6b16012ef
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53754561"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092770"
 ---
 # <a name="connecting-azure-vms-to-hana-large-instances"></a>Connessione di macchine virtuali di Azure a istanze Large di HANA
 
@@ -85,7 +85,7 @@ Nelle sezioni precedenti sono già stati illustrati alcuni intervalli di indiriz
 
 - **Spazio indirizzo rete virtuale**: Lo **spazio degli indirizzi della rete virtuale** è costituito dagli intervalli di indirizzi IP assegnati al parametro dello spazio degli indirizzi nelle reti virtuali di Azure. Queste reti si connettono all'ambiente dell'istanza Large di SAP HANA.
 
- Per questo parametro dello spazio degli indirizzi è consigliabile usare un valore multiriga. Deve essere costituito dall'intervallo di subnet della macchina virtuale di Azure e da uno o più intervalli di subnet del gateway di Azure. Questo intervallo di subnet è stato illustrato nelle figure precedenti. NON deve sovrapporsi all'intervallo di indirizzi locale, di indirizzi ER-P2P e del pool di indirizzi IP del server. 
+  Per questo parametro dello spazio degli indirizzi è consigliabile usare un valore multiriga. Deve essere costituito dall'intervallo di subnet della macchina virtuale di Azure e da uno o più intervalli di subnet del gateway di Azure. Questo intervallo di subnet è stato illustrato nelle figure precedenti. NON deve sovrapporsi all'intervallo di indirizzi locale, di indirizzi ER-P2P e del pool di indirizzi IP del server. 
  
 Come si ottengono questi intervalli di indirizzi IP? 
 
@@ -108,7 +108,7 @@ Il team o il provider del servizio di rete aziendale deve indicare uno o più in
   
 - **Intervallo di indirizzi del pool di indirizzi IP del server:** questo intervallo di indirizzi IP viene usato per assegnare singoli indirizzi IP ai server delle istanze Large di HANA. Le dimensioni della subnet consigliate sono un blocco CIDR da /24, ma se necessario posso essere inferiori, fino a un minimo di 64 indirizzi IP. In questo intervallo i primi 30 indirizzi IP sono riservati per l'uso da parte di Microsoft. Assicurarsi di tenerne conto nella scelta delle dimensioni dell'intervallo. Questo intervallo NON deve sovrapporsi con l'indirizzo IP locale o altri indirizzi IP di Azure. Come si ottiene questo intervallo di indirizzi IP? Il team o il provider del servizio di rete aziendale deve indicare un intervallo di indirizzi IP che non sia già in uso nella rete. 
 
- **Questo intervallo di indirizzi IP deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
+  **Questo intervallo di indirizzi IP deve essere inviato a Microsoft quando si richiede una distribuzione iniziale**.
  
 È necessario definire e pianificare gli intervalli di indirizzi IP descritti in precedenza. Tuttavia, non occorre trasmetterli tutti a Microsoft. Gli intervalli di indirizzi IP per cui è necessario assegnare un nome da trasmettere a Microsoft sono i seguenti:
 

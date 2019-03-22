@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: ellacroi
-ms.openlocfilehash: 0e324ae82a0223cf48f00b186f46e26840d4d655
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 3fa4fb9fb7accfbe4517e2bf917a3df31ea10fa7
+ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747527"
+ms.lasthandoff: 02/27/2019
+ms.locfileid: "56887251"
 ---
 # <a name="your-marketplace-benefits"></a>Vantaggi del Marketplace
 
@@ -63,9 +63,9 @@ Per accedere a questi vantaggi, sarà necessario:
 1. Pubblicare un'offerta in Azure Marketplace o in AppSource.
 2. Assicurarsi di aver immesso un contatto commerciale nella parte dell'offerta riservata alle **informazioni sul contatto**. Deve trattarsi di una risorsa dedicata al marketing e non di un alias generale. Evitare ad esempio di usare "support\@", "info\@", "marketing\@" e così via.
 
-In base allo stato della soluzione, si riceverà un messaggio di posta elettronica con risorse self-help oppure un invito a una chiamata di consulenza per parlare con un engagement manager dedicato. Non è richiesta alcuna operazione per avviare la chiamata. Si verrà contattati dal team che gestisce l'onboarding nel marketplace in base alle informazioni fornite nel [portale Cloud Partner](https://cloudpartner.azure.com/).
+Base dello stato della soluzione offerta da elenco, versione di valutazione o Transact, si riceverà un messaggio di posta elettronica con risorse di supporto oppure un invito a una chiamata per parlare con un coinvolgimento Manager dedicato. Non è richiesta alcuna operazione per avviare la chiamata. Si verrà contattati dal team che gestisce l'onboarding nel marketplace in base alle informazioni fornite nel [portale Cloud Partner](https://cloudpartner.azure.com/).
 
-L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Tutte le inserzioni ricevono un livello base di raccomandazioni per l'ottimizzazione e di promozione.  Queste inserzioni sono idonee anche per altri vantaggi di marketing in base allo stato della soluzione, al marketplace scelto e all'obiettivo di competenza Microsoft Partner. 
+L'ambito delle attività disponibili si espande in base alla crescita delle offerte nel marketplace. Tutte le inserzioni ricevono un livello base di raccomandazioni per l'ottimizzazione e di promozione.  Questi elenchi sono inoltre usufruire di vantaggi aggiuntivi di marketing basati sullo stato di soluzione (elenco, versione di valutazione o Transact), scelto marketplace e il conseguimento di competenza di Microsoft Partner.
 
 La tabella seguente riepiloga i requisiti di idoneità:
 

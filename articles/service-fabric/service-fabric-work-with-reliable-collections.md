@@ -1,25 +1,25 @@
 ---
-title: Usare le raccolte Reliable Collections | Microsoft Docs
+title: Usare le raccolte Reliable Collections | Documentazione Microsoft
 description: Procedure consigliate per lavorare con le raccolte Reliable Collections.
 services: service-fabric
 documentationcenter: .net
-author: tylermsft
-manager: jeanpaul.connock
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 39e0cd6b-32c4-4b97-bbcf-33dad93dcad1
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/12/2019
-ms.author: twhitney
-ms.openlocfilehash: e7f0219919fe0569633cc85b89a1a91b1704b269
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 02/22/2019
+ms.author: aljo
+ms.openlocfilehash: bb99e5984f91edb0cf40f3bdc485624b9ec59833
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114825"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57872688"
 ---
 # <a name="working-with-reliable-collections"></a>Lavorare con le raccolte Reliable Collections
 Service Fabric offre un modello di programmazione con stato disponibile per gli sviluppatori .NET tramite Reliable Collections. In particolare, Service Fabric offre classi ReliableDictionary e ReliableQueue. Quando si usano queste classi, lo stato è partizionato (per la scalabilità), replicato (per la disponibilità) e le transazioni vengono eseguite all'interno di una partizione (per la semantica ACID). Di seguito viene descritto l'uso tipico di un oggetto ReliableDictionary per osservarne le azioni.
@@ -143,7 +143,7 @@ using (ITransaction tx = StateManager.CreateTransaction())
 ```
 
 ## <a name="define-immutable-data-types-to-prevent-programmer-error"></a>Definire tipi di dati non modificabili per evitare errori del programmatore
-Idealmente, il compilatore dovrebbe segnalare gli errori quando si crea inavvertitamente codice che modifica lo stato di un oggetto considerato non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si intende usare le proprietà della raccolta, è consigliabile l'uso di libreria di raccolte .NET non modificabili ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile per il download all'indirizzo http://nuget.org. Si consiglia anche di sigillare le classi e rendere i campi di sola lettura quando possibile.
+Idealmente, il compilatore dovrebbe segnalare gli errori quando si crea inavvertitamente codice che modifica lo stato di un oggetto considerato non modificabile. Tuttavia, il compilatore C# non è in grado di farlo. Pertanto, per evitare potenziali errori del programmatore, si consiglia di definire i tipi da usare con le raccolte Reliable Collections come tipi non modificabili. In particolare, questo significa che è opportuno fermarsi ai principali tipi di valore (ad esempio numeri [Int32, UInt64, etc.], DateTime, Guid, TimeSpan e simili). È anche possibile usare le stringhe. È preferibile evitare proprietà della raccolta poiché la serializzazione e la deserializzazione possono spesso influire negativamente sulle prestazioni. Tuttavia, se si intende usare le proprietà della raccolta, è consigliabile l'uso di libreria di raccolte .NET non modificabili ([System.Collections.Immutable](https://www.nuget.org/packages/System.Collections.Immutable/)). Questa libreria è disponibile per il download all'indirizzo https://nuget.org. Si consiglia anche di sigillare le classi e rendere i campi di sola lettura quando possibile.
 
 Il tipo UserInfo riportato di seguito mostra come definire un tipo non modificabile sfruttando i consigli indicati in precedenza.
 
@@ -207,12 +207,11 @@ Il codice del servizio viene aggiornato un dominio di aggiornamento alla volta. 
 
 > [!WARNING]
 > Sebbene sia possibile modificare lo schema di una chiave, è necessario assicurarsi che il codice hash e l'algoritmo di uguaglianza della chiave siano stabili. Se si modifica il funzionamento di questi algoritmi, non sarà più possibile cercare la chiave all'interno del ReliableDictionary.
->
->
+> Le stringhe di .NET è utilizzabile come una chiave, ma usare la stringa come chiave, non usare il risultato di String.GetHashCode come chiave.
 
-In alternativa, è possibile eseguire un aggiornamento noto come aggiornamento a due fasi. Con un aggiornamento di questo tipo, viene effettuato l'aggiornamento del servizio da V1 a V2: V2 contiene il codice in grado di gestire la nuova modifica dello schema, che non può essere eseguito. Quando il codice V2 legge i dati V1, opera su di esso e scrive i dati V1. Quindi, al termine dell'aggiornamento di tutti i domini di aggiornamento, è possibile in qualche modo segnalare alle istanze V2 in esecuzione che l'aggiornamento è stato completato (una soluzione consiste nell'implementare un aggiornamento della configurazione, ovvero un aggiornamento a due fasi). A questo punto, le istanze V2 possono leggere i dati V1, convertirli in dati V2, operare su di essi e scriverli nella forma di dati V2. Quando altre istanze leggono i dati V2, non è necessario convertirli: possono operano su di essi e scrivere dati V2.
+In alternativa, è possibile eseguire un aggiornamento noto come aggiornamento a due fasi. Con un aggiornamento di questo tipo, viene effettuato l'aggiornamento del servizio da V1 a V2: V2 contiene il codice in grado di gestire la nuova modifica dello schema, che non può essere eseguito. Quando il codice V2 legge i dati V1, opera su di esso e scrive i dati V1. Quindi, al termine dell'aggiornamento di tutti i domini di aggiornamento, è possibile in qualche modo segnalare alle istanze V2 in esecuzione che l'aggiornamento è stato completato. (una soluzione consiste nell'implementare un aggiornamento della configurazione, ovvero un aggiornamento a due fasi). A questo punto, le istanze V2 possono leggere i dati V1, convertirli in dati V2, operare su di essi e scriverli nella forma di dati V2. Quando altre istanze leggono i dati V2, non è necessario convertirli: possono operano su di essi e scrivere dati V2.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Per informazioni sulla creazione di contratti di dati compatibili con versioni successive, vedere [Contratti di dati compatibili con versioni successive](https://msdn.microsoft.com/library/ms731083.aspx)
 
 Per informazioni sulle procedure consigliate per il controllo delle versioni dei contratti di dati, vedere [Controllo delle versioni dei contratti di dati](https://msdn.microsoft.com/library/ms731138.aspx)

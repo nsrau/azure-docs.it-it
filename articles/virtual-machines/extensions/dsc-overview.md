@@ -16,20 +16,24 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: e5e134fa7dd08bad4220866dd4f5bd9b788e624e
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: ba5baa928e60729aa128ca5097646768cf5656e8
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980602"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57441919"
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introduzione al gestore dell'estensione DSC (Desired State Configuration) di Azure
 
 L'agente di macchine virtuali di Azure e le relative estensioni associate fanno parte dei servizi di infrastruttura di Microsoft Azure. Le estensioni di VM sono componenti software che estendono la funzionalità delle macchine virtuali e ne semplificano varie operazioni di gestione.
 
-Il caso d'uso principale per l'estensione DSC (Desired State Configuration) di Azure è il bootstrap di una macchina virtuale nel [servizio Automation DSC per Azure](../../automation/automation-dsc-overview.md). Il bootstrap di una macchina virtuale offre [vantaggi](/powershell/dsc/metaconfig#pull-service) che includono la gestione continuativa della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio Monitoraggio di Azure.
+L'uso primario per l'estensione Azure Desired State Configuration (DSC) è possibile avviare una macchina virtuale per il [servizio Azure Automation State Configuration (DSC)](../../automation/automation-dsc-overview.md).
+Il servizio offre [vantaggi](/powershell/dsc/metaconfig#pull-service) che includono la gestione continuativa della configurazione della macchina virtuale e l'integrazione con altri strumenti operativi, ad esempio il monitoraggio di Azure.
+Uso dell'estensione per eseguire la registrazione della macchina virtuale per il servizio offre una soluzione flessibile che funziona anche sulle sottoscrizioni di Azure.
 
-È possibile usare l'estensione DSC in modo indipendente dal servizio Automation DSC. Tuttavia, si tratta di un'operazione singola che si verifica durante la distribuzione. Non sono disponibili attività continuative di gestione della configurazione o report tranne che a livello locale all'interno della macchina virtuale.
+È possibile usare l'estensione DSC in modo indipendente dal servizio Automation DSC.
+Tuttavia, questo invierà push solo una configurazione alla macchina virtuale.
+Nessun report continuative è disponibile, diverso da in locale nella macchina virtuale.
 
 Questo articolo fornisce informazioni relative a entrambi gli scenari: uso dell'estensione DSC per l'onboarding in Automazione e uso dell'estensione DSC come strumento per l'assegnazione di configurazioni a VM tramite Azure SDK.
 
@@ -61,6 +65,25 @@ L'installazione di WMF richiede un riavvio. Dopo il riavvio, l'estensione scaric
 ### <a name="default-configuration-script"></a>Script di configurazione predefinito
 
 L'estensione DSC di Azure include uno script di configurazione predefinito da usare per l'onboarding di una macchina virtuale nel servizio Automation DSC per Azure. I parametri dello script sono allineati con le proprietà configurabili di [Gestione configurazione locale](/powershell/dsc/metaconfig). Per i parametri dello script, vedere [Script di configurazione predefinito](dsc-template.md#default-configuration-script) in [Estensione Desired State Configuration (DSC) con modelli di Azure Resource Manager](dsc-template.md). Per lo script completo, vedere il [modello di avvio rapido di Azure in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+
+## <a name="information-for-registering-with-azure-automation-state-configuration-dsc-service"></a>Informazioni per la registrazione con il servizio Azure Automation State Configuration (DSC)
+
+Quando si usa l'estensione DSC per registrare un nodo con il servizio di configurazione dello stato, saranno necessario specificare tre valori.
+
+- RegistrationUrl - l'indirizzo https dell'account di automazione di Azure
+- RegistrationKey - segreto condiviso usato per registrare i nodi con il servizio
+- NodeConfigurationName - il nome di nodo di configurazione (MOF) per eseguire il pull dal servizio per configurare il ruolo del server
+
+Queste informazioni possono essere visualizzate nei [portale di Azure](../../automation/automation-dsc-onboarding.md#azure-portal) oppure è possibile usare PowerShell.
+
+```PowerShell
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).Endpoint
+(Get-AzAutomationRegistrationInfo -ResourceGroupName <resourcegroupname> -AutomationAccountName <accountname>).PrimaryKey
+```
+
+Per il nome di configurazione del nodo, verificare che si usa il nome del *configurazione del nodo* e non la configurazione.
+Una configurazione è definita in uno script che viene usato [per compilare la configurazione di nodo (file MOF)](https://docs.microsoft.com/en-us/azure/automation/automation-dsc-compile).
+Il nome sarà sempre la configurazione seguita da un punto `.` e il valore `localhost` o un nome di computer specifico.
 
 ## <a name="dsc-extension-in-resource-manager-templates"></a>Estensione DSC nei modelli di Resource Manager
 
@@ -122,6 +145,34 @@ Publish-AzVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceGroupN
 Set-AzVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
+## <a name="azure-cli-deployment"></a>Distribuzione dell'interfaccia della riga di comando di Azure
+
+Il comando di Azure è utilizzabile per distribuire l'estensione DSC in una macchina virtuale esistente.
+
+Per una macchina virtuale che esegue Windows:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name Microsoft.Powershell.DSC \
+  --publisher Microsoft.Powershell \
+  --version 2.77 --protected-settings '{}' \
+  --settings '{}'
+```
+
+Per una macchina virtuale che esegue Linux:
+
+```azurecli
+az vm extension set \
+  --resource-group myResourceGroup \
+  --vm-name myVM \
+  --name DSCForLinux \
+  --publisher Microsoft.OSTCExtensions \
+  --version 2.7 --protected-settings '{}' \
+  --settings '{}'
+```
+
 ## <a name="azure-portal-functionality"></a>Funzionalità del portale di Azure
 
 Per configurare DSC nel portale:
@@ -139,7 +190,7 @@ Il portale consente di raccogliere l'input seguente:
 
 - **Configuration Arguments** (Argomenti di configurazione): se la funzione di configurazione accetta argomenti, immetterli qui nel formato **argumentName1=value1,argumentName2=value2**. Questo è un formato diverso in cui vengono accettati gli argomenti di configurazione nei cmdlet di PowerShell o nei modelli di Resource Manager.
 
-- **Configuration Data PSD1 File** (File psd1 dati di configurazione): questo campo è facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
+- **Configuration Data PSD1 File** (File psd1 dati di configurazione): Questo campo è facoltativo. Se la configurazione richiede un file di dati della configurazione con estensione psd1, usare questo campo per selezionare il file di dati e quindi caricarlo nell'archiviazione BLOB dell'utente. Il file di dati della configurazione è protetto da un token di firma di accesso condiviso nell'archiviazione BLOB.
 
 - **WMF Version** (Versione WMF): Specifica la versione di Windows Management Framework (WMF) da installare nella macchina virtuale. Impostando questa proprietà su latest (più recente) verrà installata la versione più recente di WMF. Attualmente, gli unici valori possibili per questa proprietà sono 4.0, 5.0, 5.1 e latest. Questi valori possibili sono soggetti ad aggiornamenti. Il valore predefinito è **latest**.
 

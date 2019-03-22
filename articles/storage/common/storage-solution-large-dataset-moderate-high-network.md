@@ -4,16 +4,16 @@ description: Informazioni su come scegliere una soluzione di Azure per il trasfe
 services: storage
 author: alkohli
 ms.service: storage
-ms.subservice: blob
+ms.subservice: blobs
 ms.topic: article
 ms.date: 12/07/2018
 ms.author: alkohli
-ms.openlocfilehash: bc5668d826395fb71ee70907f095303a43f1ec7f
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 4a8a014b365974bb8c138c74197d3d89cc63e42e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214318"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57771981"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Trasferimento dei dati per set di dati di grandi dimensioni con larghezza di banda da rete da moderata a elevata
  
@@ -68,8 +68,8 @@ Se si usa il trasferimento dei dati offline, usare la tabella seguente per conos
 |    Tipo di dati                        |    BLOB di Azure                  |    BLOB di Azure<br>File di Azure                    |    BLOB di Azure<br>File di Azure            |    BLOB di Azure<br>File di Azure          |
 |    Fattore di forma                      |    5 unità SSD per ordine             |    1 dispositivo desktop da 23 kg per ordine    |    1 dispositivo di grandi dimensioni da circa 230 kg per ordine    |    Fino a 10 HDD/unità SSD per ordine        |
 |    Tempo di configurazione iniziale               |    Basso <br>(15 min)            |    Da basso a moderato <br> (<30 min)               |    Moderata<br>(1-2 ore)               |    Da moderato a elevato<br>(variabile) |
-|    Inviare dati ad Azure               |    Yes                          |    Sì                                           |    Sì                                   |    Yes                                 |
-|    Esportare dati da Azure           |    No                            |    No                                             |    No                                     |    Yes                                 |
+|    Inviare dati ad Azure               |    Sì                          |    Sì                                           |    Sì                                   |    Sì                                 |
+|    Esportare dati da Azure           |    No                            |    No                                             |    No                                     |    Sì                                 |
 |    Crittografia                       |    AES a 128 bit                  |    AES a 256 bit                                   |    AES a 256 bit                           |    AES a 128 bit                         |
 |    Hardware                         |     Fornito da Microsoft          |    Fornito da Microsoft                            |    Fornito da Microsoft                    |    Fornito dal cliente                   |
 |    interfaccia di rete                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
@@ -88,8 +88,8 @@ Se si usa il trasferimento dei dati online, usare la tabella nella sezione segue
 |    Tipo di dati                  |    BLOB di Azure, file di Azure, tabelle di Azure    |    BLOB di Azure, file di Azure, tabelle di Azure    |    BLOB di Azure, file di Azure                           |   Supporta più di 70 connettori dati per archivi e formati dati    |
 |    Fattore di forma                |    Strumenti da riga di comando                        |    Interfaccia programmatica                    |    Microsoft fornisce un dispositivo <br>fisico o virtuale     |    Servizio nel portale di Azure                                            |
 |    Configurazione singola iniziale     |    Semplice               |    Moderata                       |    Da semplice (<30 minuti) a moderata (1-2 ore)            |    Estesa                                                          |
-|    Pre-elaborazione dei dati              |    No                                         |    No                                         |    Sì (con calcolo Edge)                               |    Yes                                                                |
-|    Trasferimento da altri cloud       |    No                                         |    No                                         |    No                                                     |    Yes                                                                |
+|    Pre-elaborazione dei dati              |    No                                         |    No                                         |    Sì (con calcolo Edge)                               |    Sì                                                                |
+|    Trasferimento da altri cloud       |    No                                         |    No                                         |    No                                                     |    Sì                                                                |
 |    Tipo di utente                        |    Professionisti IT o sviluppatori                                       |    Sviluppo                                       |    Professionisti IT                                                |    Professionisti IT                                                             |
 |    Prezzi                          |    Gratuiti, si applicano le tariffe per dati in uscita         |    Gratuiti, si applicano le tariffe per dati in uscita         |    [Prezzi](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Prezzi](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 

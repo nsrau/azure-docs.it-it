@@ -14,16 +14,18 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/23/2018
 ms.author: srrengar
-ms.openlocfilehash: 30b064e3c20b184023cb6ada25d673f5cab6597c
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: 25452d3d65518511c47087d1cb712d0a512416fc
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55297668"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57245557"
 ---
 # <a name="service-fabric-linux-cluster-events-in-syslog"></a>Eventi cluster Linux di Service Fabric in Syslog
 
 Service Fabric espone una serie di eventi della piattaforma per informare l'utente delle attività principali nel cluster. L'elenco completo degli eventi esposti è disponibile [qui](service-fabric-diagnostics-event-generation-operational.md). Esistono diversi modi attraverso cui questi eventi possono essere utilizzati. In questo articolo verrà illustrato come configurare Service Fabric per la scrittura di questi eventi in Syslog.
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="introduction"></a>Introduzione
 
@@ -93,8 +95,8 @@ Qui ci sono le modifiche da richiamare
     }
 ```
 
-## <a name="log-analytics-integration"></a>Integrazione di Log Analytics
-È possibile leggere questi eventi Syslog in uno strumento di monitoraggio come Log Analytics. È possibile creare un’area di lavoro di Log Analytics utilizzando Azure Marketplace tramite queste [istruzioni]. (../azure-monitor/learn/quick-create-workspace.md). È inoltre necessario aggiungere l'agente Log Analytics al cluster per raccogliere e inviare questi dati allo spazio di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
+## <a name="azure-monitor-logs-integration"></a>Monitoraggio di Azure log integration
+È possibile leggere questi eventi Syslog in uno strumento di monitoraggio, ad esempio i log di monitoraggio di Azure. È possibile creare un’area di lavoro di Log Analytics utilizzando Azure Marketplace tramite queste [istruzioni]. (../azure-monitor/learn/quick-create-workspace.md). È inoltre necessario aggiungere l'agente Log Analytics al cluster per raccogliere e inviare questi dati allo spazio di lavoro. Questo è lo stesso agente usato per raccogliere i contatori delle prestazioni. 
 
 1. Passare al pannello `Advanced Settings`
 
@@ -120,6 +122,6 @@ L'esempio precedente è di un evento NodeDown. L'elenco completo degli eventi è
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Distribuire l'agente di Log Analytics](service-fabric-diagnostics-oms-agent.md) sui nodi per raccogliere contatori delle prestazioni, statistiche Docker e registri per i contenitori
-* Acquisire familiarità con le funzionalità di [ricerca log e query](../log-analytics/log-analytics-log-searches.md) incluse in Log Analytics
-* [Usare Progettazione viste per creare viste personalizzate in Log Analytics](../log-analytics/log-analytics-view-designer.md)
-* Informazioni di riferimento per l’[integrazione di Log Analytics con Syslog](../log-analytics/log-analytics-data-sources-syslog.md).
+* Acquisire familiarità con le [ricerca log e l'esecuzione di query](../log-analytics/log-analytics-log-searches.md) funzionalità fornite come parte dei log di monitoraggio di Azure
+* [Utilizzare Progettazione vista per creare visualizzazioni personalizzate nel log di monitoraggio di Azure](../log-analytics/log-analytics-view-designer.md)
+* Informazioni di riferimento per saper [monitoraggio di Azure esegue l'integrazione con Syslog](../log-analytics/log-analytics-data-sources-syslog.md).

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b3b011d9789cbb3dcd8557eda1473b7fd2609075
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454284"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013568"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Usare l'emulatore di archiviazione di Azure per sviluppo e test
 
@@ -54,7 +54,7 @@ La prima volta che si esegue l'emulatore di archiviazione, l'ambiente di archivi
 Per impostazione predefinita, l'emulatore di archiviazione viene installato in `C:\Program Files (x86)\Microsoft SDKs\Azure\Storage Emulator`.
 
 > [!TIP]
-> È possibile usare [Microsoft Azure Storage Explorer](http://storageexplorer.com) per usare risorse dell'emulatore di archiviazione locale. Cercare "(Sviluppo)" in "Account di archiviazione" nell'albero delle risorse di Storage Explorer dopo aver installato e avviato l'emulatore di archiviazione.
+> È possibile usare [Microsoft Azure Storage Explorer](https://storageexplorer.com) per usare risorse dell'emulatore di archiviazione locale. Cercare "(Sviluppo)" in "Account di archiviazione" nell'albero delle risorse di Storage Explorer dopo aver installato e avviato l'emulatore di archiviazione.
 >
 
 ### <a name="initialize-the-storage-emulator-to-use-a-different-sql-database"></a>Inizializzare l'emulatore di archiviazione per l'uso di un database SQL diverso
@@ -64,15 +64,15 @@ Per impostazione predefinita, l'emulatore di archiviazione viene installato in `
 1. Aprire la finestra della console dell'emulatore di archiviazione come descritto nella sezione [Avviare e inizializzare l'emulatore di archiviazione](#start-and-initialize-the-storage-emulator).
 1. Nella finestra della console digitare il comando seguente, dove `<SQLServerInstance>` è il nome dell'istanza di SQL Server. Per usare LocalDB, specificare `(localdb)\MSSQLLocalDb` come istanza di SQL Server.
 
-  `AzureStorageEmulator.exe init /server <SQLServerInstance>`
+   `AzureStorageEmulator.exe init /server <SQLServerInstance>`
 
-  Per indicare all'emulatore di usare l'istanza di SQL Server predefinita, digitare il comando seguente:
+   Per indicare all'emulatore di usare l'istanza di SQL Server predefinita, digitare il comando seguente:
 
-  `AzureStorageEmulator.exe init /server .`
+   `AzureStorageEmulator.exe init /server .`
 
-  In alternativa, è possibile usare il comando seguente, che consente di inizializzare nuovamente l'istanza predefinita LocalDB:
+   In alternativa, è possibile usare il comando seguente, che consente di inizializzare nuovamente l'istanza predefinita LocalDB:
 
-  `AzureStorageEmulator.exe init /forceCreate`
+   `AzureStorageEmulator.exe init /forceCreate`
 
 Per altre informazioni su questi comandi, vedere [Informazioni di riferimento sullo strumento da riga di comando dell'emulatore di archiviazione](#storage-emulator-command-line-tool-reference).
 
@@ -91,7 +91,7 @@ Per altre informazioni sulle stringhe di connessione, vedere [Configurare le str
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamarin, supportano solo l'autenticazione con un token di firma di accesso condiviso. È possibile creare il token di firma di accesso condiviso usando uno strumento come [Esplora soluzioni](http://storageexplorer.com/) o un'altra applicazione che supporta l'autenticazione con chiave condivisa.
+Alcune librerie client dell'archiviazione di Azure, ad esempio la libreria Xamarin, supportano solo l'autenticazione con un token di firma di accesso condiviso. È possibile creare il token di firma di accesso condiviso usando uno strumento come [Esplora soluzioni](https://storageexplorer.com/) o un'altra applicazione che supporta l'autenticazione con chiave condivisa.
 
 È anche possibile generare un token di firma di accesso condiviso usando Azure PowerShell. L'esempio seguente genera un token di firma di accesso condiviso con autorizzazioni complete per un contenitore BLOB:
 
@@ -281,4 +281,4 @@ L'emulatore di archiviazione supporta ora la versione 2017-07-29 dei servizi di 
 
 * Valutare l'emulatore di archiviazione open source multipiattaforma gestito dalla community [Azurite](https://github.com/arafato/azurite). 
 * L'articolo [Esempi di Archiviazione di Azure che usano .NET](../storage-samples-dotnet.md) contiene collegamenti a diversi esempi di codice che è possibile usare durante lo sviluppo dell'applicazione.
-* È possibile usare [Microsoft Azure Storage Explorer](http://storageexplorer.com) per usare risorse nell'account di archiviazione cloud e nell'emulatore di archiviazione.
+* È possibile usare [Microsoft Azure Storage Explorer](https://storageexplorer.com) per usare risorse nell'account di archiviazione cloud e nell'emulatore di archiviazione.

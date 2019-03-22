@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 01/09/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 887c1d554cd5bd2b935178a77a2de19e687ca3f2
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 26b560434e6305689781b8c39c7cf814af9bf8aa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54450405"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58112297"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway-preview"></a>Esercitazione: Connettersi ad Azure Data Box Gateway (anteprima), configurarlo e attivarlo 
 
@@ -43,25 +43,24 @@ Prima di configurare Data Box Gateway, assicurarsi di:
 * Aver eseguito il provisioning di un dispositivo virtuale e di aver ottenuto un URL connesso a esso, come descritto in [Eseguire il provisioning di un dispositivo Data Box Gateway in Hyper-V](data-box-gateway-deploy-provision-hyperv.md) o [Eseguire il provisioning di un dispositivo Data Box Gateway in VMware](data-box-gateway-deploy-provision-vmware.md).
 * Disporre della chiave di attivazione dal servizio Data Box Gateway creato per gestire i dispositivi Data Box Gateway. Per ulteriori informazioni, andare all'articolo sulle [operazioni preliminari alla distribuzione di Azure Data Box Gateway](data-box-gateway-deploy-prep.md).
 
-<!--* If this is the second or subsequent virtual device that you are registering with an existing StorSimple Device Manager service, you should have the service data encryption key. This key was generated when the first device was successfully registered with this service. If you have lost this key, see [Get the service data encryption key](storsimple-ova-web-ui-admin.md#get-the-service-data-encryption-key) for your Data Box Gateway.-->
 
 ## <a name="connect-to-the-local-web-ui-setup"></a>Connettersi all'installazione dell'interfaccia utente Web locale 
 
-1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare:
+1. Aprire una finestra del browser e connettersi all'interfaccia utente Web locale. Digitare: 
    
    [https://ip-address-of-network-interface](https://ip-address-of-network-interface)
    
    Usare l'URL di connessione annotato nell'esercitazione precedente. Viene visualizzato un errore in cui si indica che si è verificato un problema con il certificato di sicurezza del sito Web. Fare clic su **Passa a questa pagina Web**. (Questi passaggi variano in base al browser in uso.)
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
+    ![Errore durante la connessione](./media/data-box-gateway-deploy-connect-setup-activate/image2.png)
 
 2. Accedere all'interfaccia utente Web del dispositivo virtuale. La password predefinita è *Password1*. 
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
+    ![Accedere all'interfaccia utente web locale](./media/data-box-gateway-deploy-connect-setup-activate/image3.png)
 
 3. Viene richiesto di modificare la password dell'amministratore del dispositivo. Digitare una nuova password che contenga minimo 8 caratteri e massimo 16. La password deve contenere 3 dei seguenti tipi di caratteri: maiuscolo, minuscolo, numerico e speciale.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
+    ![Password amministratore del dispositivo cambia](./media/data-box-gateway-deploy-connect-setup-activate/image4.png)
 
 Viene aperto il **Dashboard** del dispositivo.
 
@@ -69,28 +68,28 @@ Viene aperto il **Dashboard** del dispositivo.
  
 1. Dal dashboard è possibile accedere a diverse impostazioni necessarie per configurare e registrare il dispositivo virtuale con il servizio Data Box Gateway. Le **Impostazioni di rete**, le **Impostazioni proxy Web** e le **Impostazioni ora** sono facoltative. Le sole impostazioni obbligatorie sono **Nome dispositivo** e **Impostazioni cloud**.
    
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
+    !["Dashboard" interfaccia utente web locale pagina](./media/data-box-gateway-deploy-connect-setup-activate/image5.png)
 
 2. Nella pagina **Nome dispositivo** configurare un nome descrittivo per il dispositivo. Questo nome può includere da 1 a 15 caratteri e può contenere lettere, numeri e trattini.
 
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
+    ![Pagina "Nome del dispositivo" dell'interfaccia utente web locale](./media/data-box-gateway-deploy-connect-setup-activate/image6.png)
 
 3. Facoltativamente configurare le **impostazioni di rete**. Sarà presente almeno un'interfaccia di rete o più a seconda di quante ne sono state configurate nella macchina virtuale sottostante. Di seguito è illustrata la pagina **Impostazioni di rete** di un dispositivo virtuale con un'interfaccia di rete abilitata.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
+    ![Pagina "Impostazioni di rete" dell'interfaccia utente web locale](./media/data-box-gateway-deploy-connect-setup-activate/image7.png)
    
     Quando si configurano le impostazioni di rete, tenere presente quanto segue:
 
-    - Se nell'ambiente è abilitato DHCP, le interfacce di rete vengono configurate automaticamente. Di conseguenza, indirizzo IP, subnet, gateway e DNS vengono assegnati automaticamente.
-    - Se DHCP non è abilitato, è possibile assegnare indirizzi IP statici se necessario.
-    - È possibile configurare l'interfaccia di rete come IPv4.
+   - Se nell'ambiente è abilitato DHCP, le interfacce di rete vengono configurate automaticamente. Di conseguenza, indirizzo IP, subnet, gateway e DNS vengono assegnati automaticamente.
+   - Se DHCP non è abilitato, è possibile assegnare indirizzi IP statici se necessario.
+   - È possibile configurare l'interfaccia di rete come IPv4.
 
-    >[!NOTE] 
-    > È consigliabile non cambiare l'indirizzo IP locale dell'interfaccia di rete da statico a DHCP, a meno che non si abbia un altro indirizzo IP per la connessione al dispositivo. Se si usa un'interfaccia di rete e si passa a DHCP, non sarà possibile determinare l'indirizzo DHCP. Se si vuole passare a un indirizzo DHCP, attendere fino al termine della registrazione del dispositivo con il servizio e quindi eseguire il passaggio. È possibile visualizzare gli indirizzi IP di tutti gli adattatori in **Proprietà dispositivo** nel portale di Azure per il proprio servizio.
+     >[!NOTE] 
+     > È consigliabile non cambiare l'indirizzo IP locale dell'interfaccia di rete da statico a DHCP, a meno che non si abbia un altro indirizzo IP per la connessione al dispositivo. Se si usa un'interfaccia di rete e si passa a DHCP, non sarà possibile determinare l'indirizzo DHCP. Se si vuole passare a un indirizzo DHCP, attendere fino al termine della registrazione del dispositivo con il servizio e quindi eseguire il passaggio. È possibile visualizzare gli indirizzi IP di tutti gli adattatori in **Proprietà dispositivo** nel portale di Azure per il proprio servizio.
 
 4. Configurare il server proxy Web (facoltativo). Sebbene la configurazione del proxy Web sia facoltativa, tenere presente che se si utilizza un proxy Web, è possibile configurarlo solo qui.
    
-   ![](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
+   ![Pagina "Impostazioni del proxy Web" dell'interfaccia utente web locale](./media/data-box-gateway-deploy-connect-setup-activate/image8.png)
    
    Nella pagina **Proxy Web** :
    
@@ -101,7 +100,7 @@ Viene aperto il **Dashboard** del dispositivo.
 
 5. Configurare le impostazioni ora per il dispositivo, ad esempio il fuso orario e i server NTP primari e secondari (facoltativo). I server NTP sono obbligatori in quanto il dispositivo deve sincronizzare l'ora e consentire l'autenticazione con i provider del servizio cloud.
     
-    ![](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
+    ![Pagina "Impostazioni di tempo" dell'interfaccia utente web locale](./media/data-box-gateway-deploy-connect-setup-activate/image9.png)
     
     Nella pagina **Impostazioni ora** :
     
@@ -116,10 +115,17 @@ Viene aperto il **Dashboard** del dispositivo.
 
     2. Fare clic su **Attiva**. 
        
-         ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
+         ![Pagina "Impostazioni di Cloud" dell'interfaccia utente web locale](./media/data-box-gateway-deploy-connect-setup-activate/image10a.png)
     
-    3. Potrebbe essere necessario attendere un minuto per l'attivazione del dispositivo. Dopo l'attivazione, la pagina si aggiorna per indicare che il dispositivo è stato attivato correttamente.
+    3. Prima di tutto il dispositivo verrà attivato. Il dispositivo viene quindi analizzato per gli aggiornamenti critici e se disponibile, gli aggiornamenti vengono applicati automaticamente. Viene visualizzata una notifica in tal senso. 
 
+        La finestra di dialogo ha anche una chiave di ripristino che è necessario copiare e salvarlo in un luogo sicuro. Questa chiave viene usata per recuperare i dati nel caso in cui il dispositivo non può avviarsi.
+
+        ![Pagina "Impostazioni di Cloud" dell'interfaccia utente web locale](./media/data-box-gateway-deploy-connect-setup-activate/image12.png)    
+
+    4. Potrebbe essere necessario attendere alcuni minuti dopo l'aggiornamento viene completato correttamente. La pagina viene aggiornata per indicare che il dispositivo viene attivato correttamente.
+
+        ![Pagina "Impostazioni di Cloud" dell'interfaccia utente web locale aggiornato](./media/data-box-gateway-deploy-connect-setup-activate/image13.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

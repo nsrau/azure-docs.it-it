@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: d0008c19ed96f731f7b57c5d8aa41cd9f128bc20
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 6004c02f190bbfcf374b3b5d2a5c478f0e52c961
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296037"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58165901"
 ---
 # <a name="get-started-with-the-informix-connector"></a>Introduzione al connettore Informix
 Microsoft Connector for Informix connette le app per la logica alle risorse archiviate in un database IBM Informix. Il connettore Informix include un client Microsoft per comunicare con computer server Informix remoti su una rete TCP/IP, tra cui: database cloud, ad esempio IBM Informix per Windows in esecuzione nella virtualizzazione Azure, e database locali tramite il gateway dati locale. Vedere l'[elenco](connectors-create-api-informix.md#supported-informix-platforms-and-versions) delle piattaforme e delle versioni di IBM Informix supportate (in questo argomento).
@@ -47,7 +47,7 @@ Il connettore supporta le azioni delle app per la logica seguenti:
 ## <a name="list-tables"></a>Visualizzazione di un elenco di tabelle
 La creazione di un'app per la logica per qualsiasi operazione prevede numerosi passaggi eseguiti tramite il portale di Microsoft Azure.
 
-All'interno dell'app per la logica è possibile aggiungere un'azione per elencare le tabelle in un database di Informix. Questa azione indica al connettore di elaborare un'istruzione schematica di Informix, ad esempio `CALL SYSIBM.SQLTABLES`.
+All'interno dell'app per la logica, è possibile aggiungere un'azione per elencare le tabelle in un database di Informix. Questa azione indica al connettore di elaborare un'istruzione schematica di Informix, ad esempio `CALL SYSIBM.SQLTABLES`.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
@@ -154,7 +154,7 @@ Il connettore può accedere a un database Informix cloud.
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowsOutputs.png)
 
 ## <a name="add-one-row-using-insert"></a>Aggiunta di una riga con INSERT
-È possibile creare un'azione di app per la logica per aggiungere una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione INSERT di Informix, ad esempio `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
+È possibile creare un'azione dell'app per la logica per aggiungere una riga in una tabella Informix. Questa azione indica al connettore di elaborare un'istruzione INSERT di Informix, ad esempio `INSERT INTO AREA (AREAID, AREADESC, REGIONID) VALUES ('99999', 'Area 99999', 102)`.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
@@ -181,7 +181,7 @@ Il connettore può accedere a un database Informix cloud.
     ![](./media/connectors-create-api-informix/InformixconnectorInsertRowOutputs.png)
 
 ## <a name="fetch-one-row-using-select"></a>Recuperare una riga con SELECT
-È possibile creare un'azione di app per la logica per recuperare una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione SELECT WHERE di Informix, ad esempio `SELECT FROM AREA WHERE AREAID = '99999'`.
+È possibile creare un'azione dell'app per la logica per recuperare una riga in una tabella Informix. Questa azione indica al connettore di elaborare un'istruzione SELECT WHERE di Informix, ad esempio `SELECT FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
@@ -209,7 +209,7 @@ Il connettore può accedere a un database Informix cloud.
     ![](./media/connectors-create-api-informix/InformixconnectorGetRowOutputs.png)
 
 ## <a name="change-one-row-using-update"></a>Modificare una riga con UPDATE
-È possibile creare un'azione di app per la logica per modificare una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione UPDATE di Informix, ad esempio `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
+È possibile creare un'azione dell'app per la logica per modificare una riga in una tabella Informix. Questa azione indica al connettore di elaborare un'istruzione UPDATE di Informix, ad esempio `UPDATE AREA SET AREAID = '99999', AREADESC = 'Area 99999', REGIONID = 102)`.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.
@@ -236,7 +236,7 @@ Il connettore può accedere a un database Informix cloud.
     ![](./media/connectors-create-api-informix/InformixconnectorUpdateRowOutputs.png)
 
 ## <a name="remove-one-row-using-delete"></a>Rimozione di una riga con DELETE
-È possibile creare un'azione di app per la logica per rimuovere una riga nella tabella di Informix. Questa azione indica al connettore di elaborare un'istruzione DELETE di Informix, ad esempio `DELETE FROM AREA WHERE AREAID = '99999'`.
+È possibile creare un'azione dell'app per la logica per rimuovere una riga in una tabella Informix. Questa azione indica al connettore di elaborare un'istruzione DELETE di Informix, ad esempio `DELETE FROM AREA WHERE AREAID = '99999'`.
 
 ### <a name="create-a-logic-app"></a>Creare un'app per la logica
 1. Nella **schermata iniziale di Azure** selezionare **+** (segno più), **Web e dispositivi mobili** e quindi **App per la logica**.

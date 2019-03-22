@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
 ms.custom: seodec18
-ms.openlocfilehash: d65ce83465f54a30b96bc1ee6644319e1b4fb020
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 301326f4ba858c7aef6c8bdec8f2cae3ed926847
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53556595"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121044"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 In questo articolo vengono descritte le funzionalità e le opzioni disponibili nell'app Web dello strumento di esplorazione di Time Series Insights. Usare lo strumento di esplorazione di Time Series Insights nel Web browser per creare visualizzazioni di dati.
@@ -91,27 +91,27 @@ Dopo aver connesso l'origine evento all'ambiente Time Series Insights, è possib
 
 10. Lo strumento **Chart** (Grafico) consente di esplorare visivamente i dati. Lo strumento Chart (Grafico) include le funzionalità seguenti:
 
-   - Selezione/clic: è possibile eseguire la selezione di un intervallo di tempo specifico o di una singola serie di dati.  
-   - Selezione all'interno di un intervallo di tempo: è possibile eseguire lo zoom o esplorare gli eventi.  
-   - Selezione all'interno di una serie di dati: è possibile suddividere la serie in base a una colonna diversa, aggiungere la serie sotto forma di nuovo termine, visualizzare solo la serie selezionata, escludere la serie selezionata, bloccare tale serie o esplorare gli eventi nella serie selezionata.
-   - Nell'area dei filtri a sinistra del grafico è possibile visualizzare tutte le serie di dati disponibili e riordinarle in base al valore o al nome, nonché visualizzare tutte le serie di dati o serie di dati bloccate o sbloccate.  È anche possibile selezionare una singola serie di dati e suddividerla in base a una colonna diversa, aggiungere la serie sotto forma di nuovo termine, visualizzare solo la serie selezionata, escludere la serie selezionata, bloccare tale serie o esplorare gli eventi nella serie selezionata.
-   - In caso di visualizzazione contemporanea di più termini, è possibile impilare, rimuovere la pila, visualizzare dati aggiuntivi su una serie di dati specifica e usare lo stesso asse Y in tutti i termini grazie ai pulsanti disponibili nell'angolo superiore destro del grafico.
+    - Selezione/clic: è possibile eseguire la selezione di un intervallo di tempo specifico o di una singola serie di dati.  
+    - Selezione all'interno di un intervallo di tempo: è possibile eseguire lo zoom o esplorare gli eventi.  
+    - Selezione all'interno di una serie di dati: è possibile suddividere la serie in base a una colonna diversa, aggiungere la serie sotto forma di nuovo termine, visualizzare solo la serie selezionata, escludere la serie selezionata, bloccare tale serie o esplorare gli eventi nella serie selezionata.
+    - Nell'area dei filtri a sinistra del grafico è possibile visualizzare tutte le serie di dati disponibili e riordinarle in base al valore o al nome, nonché visualizzare tutte le serie di dati o serie di dati bloccate o sbloccate.  È anche possibile selezionare una singola serie di dati e suddividerla in base a una colonna diversa, aggiungere la serie sotto forma di nuovo termine, visualizzare solo la serie selezionata, escludere la serie selezionata, bloccare tale serie o esplorare gli eventi nella serie selezionata.
+    - In caso di visualizzazione contemporanea di più termini, è possibile impilare, rimuovere la pila, visualizzare dati aggiuntivi su una serie di dati specifica e usare lo stesso asse Y in tutti i termini grazie ai pulsanti disponibili nell'angolo superiore destro del grafico.
  
-   ![Strumento Chart (Grafico)](media/time-series-insights-explorer/explorer5.png) 
+    ![Strumento Chart (Grafico)](media/time-series-insights-explorer/explorer5.png) 
 
 11. Lo strumento **Heatmap** (Mappa termina) può essere usato per individuare rapidamente serie di dati univoci o anomali in una query specifica. È possibile visualizzare come mappa termica solo un termine di ricerca.    
 
-   ![Strumento Heatmap (Mappa termica)](media/time-series-insights-explorer/explorer6.png)
+    ![Strumento Heatmap (Mappa termica)](media/time-series-insights-explorer/explorer6.png)
 
 12. **Eventi**:  quando si sceglie di esplorare gli eventi mediante una selezione o un clic con il pulsante destro del mouse nell'area soprastante, viene visualizzato il riquadro degli eventi.  In questa area è possibile visualizzare tutti gli eventi non elaborati ed esportare gli eventi come file con estensione json o csv. In Time Series Insights vengono archiviati tutti i dati non elaborati.
 
-   ![Eventi](media/time-series-insights-explorer/explorer7.png)
+    ![Eventi](media/time-series-insights-explorer/explorer7.png)
 
 13. Fare clic sulla scheda **STATS** (Statistiche) dopo aver esplorato gli eventi per visualizzare i modelli e le statistiche di colonna.  
 
-   - **Patterns** (Motivi): questa funzionalità evidenzia in modo proattivo i modelli statisticamente più significativi all'interno di un'area dati selezionata. Ciò consente di evitare di dover analizzare migliaia di eventi per individuare i modelli che maggiormente richiedono tempo ed energia. Time Series Insights consente inoltre di passare direttamente ai modelli statisticamente più significativi individuati e continuare ad analizzare i dati. Questa funzionalità risulta utile anche per le analisi retrospettive di dati storici. 
+    - **Patterns** (Motivi): questa funzionalità evidenzia in modo proattivo i modelli statisticamente più significativi all'interno di un'area dati selezionata. Ciò consente di evitare di dover analizzare migliaia di eventi per individuare i modelli che maggiormente richiedono tempo ed energia. Time Series Insights consente inoltre di passare direttamente ai modelli statisticamente più significativi individuati e continuare ad analizzare i dati. Questa funzionalità risulta utile anche per le analisi retrospettive di dati storici. 
 
-   - **Statistiche di colonna**:  in questa area sono visualizzati grafici e tabelle che suddividono i dati per ciascuna colonna della serie di dati selezionata nell'intervallo di tempo selezionato.  
+    - **Statistiche di colonna**:  in questa area sono visualizzati grafici e tabelle che suddividono i dati per ciascuna colonna della serie di dati selezionata nell'intervallo di tempo selezionato.  
  
       ![STATS (Statistiche)](media/time-series-insights-explorer/explorer8.png) 
 

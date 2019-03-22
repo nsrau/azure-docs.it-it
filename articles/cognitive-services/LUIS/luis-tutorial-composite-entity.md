@@ -1,5 +1,5 @@
 ---
-title: Entità composita"
+title: Esercitazione di entità composta
 titleSuffix: Azure Cognitive Services
 description: Aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
 services: cognitive-services
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 02/19/2019
 ms.author: diberry
-ms.openlocfilehash: 0d78c365b171ea80d208c447f4746fe80b965ef2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c49090a5563a6d63c90b29cc7442c1e4ed9886e0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883305"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58091580"
 ---
 # <a name="tutorial-group-and-extract-related-data"></a>Esercitazione: Raggruppare ed estrarre dati correlati
 Questa esercitazione illusta come aggiungere un'entità composita per aggregare i dati estratti di vario tipo in una singola entità contenitore. Aggregando i dati, l'applicazione client può estrarre facilmente i dati correlati in diversi tipi di dati.
@@ -85,18 +85,19 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
 
 1. Selezionare **TransferEmployeeToDepartment** nell'elenco di finalità.
 
-1. Nella prima espressione selezionare l'entità personName, `John Jackson`, quindi selezionare **Start wrapping composite entity** (Avvia wrapping entità composita) nell'elenco del menu di scelta rapida per l'espressione seguente:
+1. Nel utterance `place John Jackson in engineering`, selezionare l'entità, personName `John Jackson`, quindi selezionare **eseguire il wrapping in entità composta** nell'elenco a menu di scelta rapida per il seguente utterance. 
 
-    `place John Jackson in engineering`
+    ![Screenshot della selezione di incapsulamento composito nell'elenco a discesa della finestra](./media/luis-tutorial-composite-entity/hr-create-composite-entity-1.png)
 
 1. Quindi selezionare immediatamente l'ultima entità, `engineering`, nell'espressione. Sotto le parole selezionate viene disegnata una barra verde che indica un'entità composita. Nel menu a comparsa, immettere il nome composto `TransferEmployeeInfo` quindi premere INVIO. 
 
-1. In **What type of entity do you want to create** (Che tipo di entità si vuole creare?) tutti i campi necessari sono nell'elenco: `personName` e `Department`. Selezionare **Operazione completata**. 
+    ![Screenshot relativo all'immissione di nome composito nell'elenco a discesa della finestra](./media/luis-tutorial-composite-entity/hr-create-composite-entity-2.png)
 
-    Si noti che l'entità predefinita personName è stata aggiunta all'entità composita. Se si può disporre di un'entità predefinita che viene visualizzata tra il token di apertura e il token di chiusura di un'entità composta, l'entità composta deve contenere tali entità predefinite. Se le entità predefinite non sono incluse, l'entità composta non sarà stimata correttamente e la stima sarà eseguita per ogni singolo elemento.
+1. In **What type of entity do you want to create** (Che tipo di entità si vuole creare?) tutti i campi necessari sono nell'elenco: `personName` e `Department`. Selezionare **Operazione completata**. Si noti che l'entità predefinita personName è stata aggiunta all'entità composita. Se si può disporre di un'entità predefinita che viene visualizzata tra il token di apertura e il token di chiusura di un'entità composta, l'entità composta deve contenere tali entità predefinite. Se le entità predefinite non sono incluse, l'entità composta non sarà stimata correttamente e la stima sarà eseguita per ogni singolo elemento.
+
+    ![Screenshot relativo all'immissione di nome composito nell'elenco a discesa della finestra](./media/luis-tutorial-composite-entity/hr-create-composite-entity-3.png)
 
 ## <a name="label-example-utterances-with-composite-entity"></a>Etichettare le espressioni di esempio con l'entità composita
-
 
 1. In ogni espressione di esempio, selezionare l'entità più a sinistra nel composito. Selezionare quindi **Wrap in composite entity** (Esegui il wrapping in entità composita).
 
@@ -182,7 +183,7 @@ LUIS fornisce varie entità predefinite per l'estrazione di dati comuni.
     }
     ```
 
-  Questa espressione restituisce una matrice di entità composite. A ogni entità viene assegnato un tipo e un valore. Per individuare con maggiore precisione ogni entità figlio, usare la combinazione di tipo e valore dell'elemento di matrice composita per trovare l'elemento corrispondente nella matrice delle entità.  
+   Questa espressione restituisce una matrice di entità composite. A ogni entità viene assegnato un tipo e un valore. Per individuare con maggiore precisione ogni entità figlio, usare la combinazione di tipo e valore dell'elemento di matrice composita per trovare l'elemento corrispondente nella matrice delle entità.  
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

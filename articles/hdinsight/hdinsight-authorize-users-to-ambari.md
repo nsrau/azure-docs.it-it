@@ -9,18 +9,18 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 976bb44ae81a6c002d2503407a4d74d513a76042
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.openlocfilehash: cf001d86356f4dd5fd3735803f0e329aa1e0940d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53725270"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224023"
 ---
 # <a name="authorize-users-for-apache-ambari-views"></a>Autorizzare gli utenti per le visualizzazioni di Apache Ambari
 
 I [cluster HDInsight con Enterprise Security Package (ESP) abilitato](./domain-joined/apache-domain-joined-introduction.md) offrono funzionalità di livello aziendale, ad esempio l'autenticazione basata su Azure Active Directory. È possibile [sincronizzare i nuovi utenti](hdinsight-sync-aad-users-to-cluster.md) aggiunti a gruppi di Azure AD a cui è stato concesso l'accesso al cluster, consentendo loro di eseguire determinate azioni. L'utilizzo di utenti, gruppi e autorizzazioni in [Apache Ambari](https://ambari.apache.org/) è supportato sia per cluster HDInsight con ESP sia per cluster HDInsight standard.
 
-Gli utenti di Active Directory possono accedere ai nodi del cluster tramite le proprie credenziali di dominio che consentono anche di autenticare le interazioni tra cluster con antri endpoint approvati, ad esempio [Hue](https://gethue.com/), viste di Ambari, ODBC, JDBC, PowerShell e API REST.
+Utenti di Active Directory possono accedere ai nodi del cluster usando le proprie credenziali di dominio. che consentono anche di autenticare le interazioni tra cluster con antri endpoint approvati, ad esempio [Hue](https://gethue.com/), viste di Ambari, ODBC, JDBC, PowerShell e API REST.
 
 > [!WARNING]  
 > Non modificare la password del watchdog Ambari (hdinsightwatchdog) nel cluster HDInsight basato su Linux. Se si modifica la password, non sarà più possibile usare azioni script o eseguire operazioni di ridimensionamento con il cluster.
@@ -51,24 +51,24 @@ Ambari è disponibile con le istanze di viste per [Apache Hive](https://hive.apa
 
 **Grant permission to these groups** ![Grant permission to these groups](./media/hdinsight-authorize-users-to-ambari/add-group-to-view.png) (Concedi autorizzazione a questi gruppi)
 
-4. Per aggiungere un utente, selezionare il pulsante **Add User** (Aggiungi utente).
+1. Per aggiungere un utente, selezionare il pulsante **Add User** (Aggiungi utente).
 
-    * Iniziare a digitare il nome utente. Verrà visualizzato un elenco a discesa dei nomi definiti in precedenza.
+   * Iniziare a digitare il nome utente. Verrà visualizzato un elenco a discesa dei nomi definiti in precedenza.
 
-    ![Completamento automatico utente](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
+     ![Completamento automatico utente](./media/hdinsight-authorize-users-to-ambari/user-autocomplete.png)
 
-    * Selezionare il nome utente o terminarne la digitazione. Per aggiungere il nome utente come un nuovo utente, selezionare il pulsante **New** (Nuovo).
+   * Selezionare il nome utente o terminarne la digitazione. Per aggiungere il nome utente come un nuovo utente, selezionare il pulsante **New** (Nuovo).
 
-    * Per salvare le modifiche, selezionare la **casella di controllo blu**.
+   * Per salvare le modifiche, selezionare la **casella di controllo blu**.
 
-    ![Utente immesso](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
+     ![Utente immesso](./media/hdinsight-authorize-users-to-ambari/user-entered.png)
 
-5. Per aggiungere un gruppo, selezionare il pulsante **Add Group** (Aggiungi gruppo).
+1. Per aggiungere un gruppo, selezionare il pulsante **Add Group** (Aggiungi gruppo).
 
-    * Iniziare a digitare il nome del gruppo. Il processo di selezione di un nome di gruppo esistente o di aggiunta di un nuovo gruppo è analogo a quello per l'aggiunta di utenti.
-    * Per salvare le modifiche, selezionare la **casella di controllo blu**.
+   * Iniziare a digitare il nome del gruppo. Il processo di selezione di un nome di gruppo esistente o di aggiunta di un nuovo gruppo è analogo a quello per l'aggiunta di utenti.
+   * Per salvare le modifiche, selezionare la **casella di controllo blu**.
 
-    ![Gruppo immesso](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
+     ![Gruppo immesso](./media/hdinsight-authorize-users-to-ambari/group-entered.png)
 
 L'aggiunta di nuovi utenti direttamente a una vista è utile quando si desidera assegnare autorizzazioni a un utente a usare tale vista, ma non si desidera che l'utente sia un membro di un gruppo che dispone di autorizzazioni aggiuntive. Per ridurre la quantità di sovraccarico amministrativo, può risultare più semplice assegnare autorizzazioni ai gruppi.
 

@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54aab6e9718b5a4a55cf2a3f9c472e9e02a53ea7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 67ae5d2661371c256f753d05eb496d2cd53a0017
+ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191079"
+ms.lasthandoff: 02/26/2019
+ms.locfileid: "56869548"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federazione
 Azure Active Directory (Azure AD) consente di configurare la federazione con Active Directory Federation Services (ADFS) locale e Azure AD. Grazie all'accesso federato, gli utenti possono accedere ai servizi basati su Azure AD con le proprie password locali e, se usano la rete aziendale, senza dover immettere di nuovo le password. Usando l'opzione di federazione con ADFS, è possibile distribuire una nuova installazione di ADFS oppure specificare un'installazione esistente in una farm di Windows Server 2012 R2.
@@ -36,7 +36,7 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 | **Installare ADFS con Azure AD Connect** | |
 | [Prerequisiti](how-to-connect-install-custom.md#ad-fs-configuration-pre-requisites) |Vedere i prerequisiti per una corretta installazione di ADFS con Azure AD Connect. |
 | [Configurare una farm ADFS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installare una nuova farm ADFS tramite Azure AD Connect. |
-| [Eseguire la federazione con Azure AD usando un ID di accesso alternativo](how-to-connect-fed-management.md#alternateid) | Configurare la federazione usando un ID di accesso alternativo.  |
+| [Attuare la federazione con Azure AD usando l'ID di accesso alternativo](how-to-connect-fed-management.md#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
 | **Modifica della configurazione di ADFS** | |
 | [Ripristinare il trust](how-to-connect-fed-management.md#repairthetrust) |Ripristinare il trust corrente tra l'istanza di ADFS locale e Office 365/Azure. |
 | [Aggiungere un nuovo server ADFS](how-to-connect-fed-management.md#addadfsserver) |Espandere la farm ADFS con un server ADFS aggiuntivo dopo l'installazione iniziale. |

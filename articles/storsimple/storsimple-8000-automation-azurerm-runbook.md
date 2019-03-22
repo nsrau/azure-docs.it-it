@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: cfd0e4dbb6a4f24df5ba42cd45f9c16fbe5b493c
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
-ms.translationtype: HT
+ms.openlocfilehash: 93c77b5f678c4e6b3170d2c7612bef3f104f0b6b
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2017
-ms.locfileid: "23493131"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002606"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Usare i runbook di automazione di Azure per gestire i dispositivi StorSimple
 
@@ -30,7 +30,7 @@ Questo articolo descrive come usare i runbook di automazione di Azure per gestir
 
 In questa sezione viene usato un esempio di script di Windows PowerShell per StorSimple e vengono descritti in dettaglio i vari passaggi necessari per importare lo script in un runbook e quindi pubblicare ed eseguire il runbook.
 
-### <a name="prerequisites"></a>prerequisiti
+### <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, assicurarsi di disporre di:
 
@@ -50,7 +50,7 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
     ```    
-2. [Scaricare l'interfaccia della riga di comando NuGet](http://www.nuget.org/downloads) nella cartella creata nel passaggio precedente. Esistono varie versioni di _nuget.exe_. Scegliere la versione corrispondente all'SDK in uso. Ogni collegamento per il download punta direttamente a un file con estensione _exe_. Assicurarsi di fare clic con il pulsante destro del mouse e di salvare il file nel computer anziché eseguirlo dal browser.
+2. [Scaricare l'interfaccia della riga di comando NuGet](https://www.nuget.org/downloads) nella cartella creata nel passaggio precedente. Esistono varie versioni di _nuget.exe_. Scegliere la versione corrispondente all'SDK in uso. Ogni collegamento per il download punta direttamente a un file con estensione _exe_. Assicurarsi di fare clic con il pulsante destro del mouse e di salvare il file nel computer anziché eseguirlo dal browser.
 
     È anche possibile eseguire il comando seguente per scaricare e archiviare lo script nella stessa cartella creata in precedenza.
     
@@ -187,16 +187,16 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
 
 2. Nel pannello **Aggiungi account di Automazione**:
 
-    1. Specificare il nome dell'account di automazione in **Nome**.
-    2. Selezionare la **Sottoscrizione** collegata al servizio Gestione dispositivi StorSimple.
-    3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
-    4. Selezionare un **Percorso** (se possibile lo stesso in cui è in esecuzione il servizio).
-    5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
-    5. Selezionare facoltativamente **Aggiungi al dashboard**. Fare clic su **Crea**.
+   1. Specificare il nome dell'account di automazione in **Nome**.
+   2. Selezionare la **Sottoscrizione** collegata al servizio Gestione dispositivi StorSimple.
+   3. Creare un nuovo gruppo di risorse o selezionarne uno esistente.
+   4. Selezionare un **Percorso** (se possibile lo stesso in cui è in esecuzione il servizio).
+   5. Lasciare selezionata l'opzione predefinita **Crea account RunAs**.
+   5. Selezionare facoltativamente **Aggiungi al dashboard**. Fare clic su **Create**(Crea).
 
-        ![Creare un account di automazione](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
+       ![Creare un account di automazione](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
-    Quando la creazione dell'account di automazione è completata, si riceve una notifica. Per altre informazioni su come creare un account di automazione, vedere [Creare un account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
+      Quando la creazione dell'account di automazione è completata, si riceve una notifica. Per altre informazioni su come creare un account di automazione, vedere [Creare un account RunAs](https://docs.microsoft.com/azure/automation/automation-create-runas-account).
 
 3. Per assicurarsi che l'account di automazione creato possa accedere al servizio Gestione dispositivi StorSimple, è necessario assegnare le autorizzazioni appropriate all'account di automazione. Passare a **Controllo di accesso** nel servizio Gestione dispositivi StorSimple. Fare clic su **+ Aggiungi** e specificare il nome dell'account di automazione di Azure. Fare clic su **Save** (Salva) per salvare le impostazioni.
 
@@ -208,7 +208,7 @@ Per creare un modulo di automazione per la gestione dei dispositivi StorSimple s
 
     ![Aggiungere il modulo](./media/storsimple-8000-automation-azurerm-runbook/add-module.png)
 
-6. Passare ad **Automazione processi > Runbook e fare clic su + Aggiungi runbook**. Nel pannello **Aggiungi runbook** fare clic su **Importa un runbook esistente**. Selezionare il file di script di Windows PowerShell in **File di runbook**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Fare clic su **Crea**.
+6. Passare ad **Automazione processi > Runbook e fare clic su + Aggiungi runbook**. Nel pannello **Aggiungi runbook** fare clic su **Importa un runbook esistente**. Selezionare il file di script di Windows PowerShell in **File di runbook**. Il tipo di runbook viene selezionato automaticamente. Specificare un nome e una descrizione facoltativa per il runbook. Fare clic su **Create**(Crea).
 
     ![Aggiungere il modulo](./media/storsimple-8000-automation-azurerm-runbook/import-runbook.png)
 

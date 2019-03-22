@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 170f20ae65a8ba58291a630dc76496cbdcdb36de
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138117"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286381"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestazioni e scalabilità in Funzioni permanenti (Funzioni di Azure)
 
@@ -60,7 +60,7 @@ L'intervallo di polling massimo è configurabile tramite il `maxQueuePollingInte
 
 ## <a name="storage-account-selection"></a>Selezione dell'account di archiviazione
 
-Code, tabelle e BLOB usati dalle funzioni durevoli vengono creati in un account di Archiviazione di Azure configurato. L'account da usare può essere specificato tramite l'impostazione `durableTask/azureStorageConnectionStringName` nel file **host.json**.
+Le code, tabelle e i BLOB usati da funzioni permanenti vengono creati in un account di archiviazione di Azure configurato. L'account da usare può essere specificato tramite l'impostazione `durableTask/azureStorageConnectionStringName` nel file **host.json**.
 
 ### <a name="functions-1x"></a>Funzioni 1.x
 

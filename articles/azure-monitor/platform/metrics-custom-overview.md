@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: cb1d08bb7b4c64d8dbcf39a667cb037ff30c38e7
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 8602027431fdf2c1378834419977606bab5c6921
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467897"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287265"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Metriche personalizzate in Monitoraggio di Azure
 
@@ -55,7 +55,7 @@ Questa proprietà consente di acquisire l'area di Azure in cui è distribuita la
 >
 
 ### <a name="timestamp"></a>Timestamp
-Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con un timestamp. Il timestamp consente di acquisire il valore DateTime in corrispondenza del quale il valore della metrica viene misurato o raccolto. Monitoraggio di Azure accetta i dati di metrica con valori di timestamp non superiori a 20 minuti precedenti e 5 minuti successivi.
+Ogni punto dati inviato a Monitoraggio di Azure deve essere contrassegnato con un timestamp. Il timestamp consente di acquisire il valore DateTime in corrispondenza del quale il valore della metrica viene misurato o raccolto. Monitoraggio di Azure accetta i dati di metrica con valori di timestamp non superiori a 20 minuti precedenti e 5 minuti successivi. Il timestamp deve essere nel formato ISO 8601.
 
 ### <a name="namespace"></a>Spazio dei nomi
 Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usando gli spazi dei nomi, è possibile isolare i gruppi di metriche per cui possono essere raccolte informazioni dettagliate o indicatori di prestazioni diversi. Ad esempio, si potrebbe disporre di uno spazio dei nomi denominato **ContosoMemoryMetrics** che tiene traccia delle metriche di utilizzo della memoria che profilano l'applicazione. Un altro spazio dei nomi denominato **ContosoAppTransaction** può tenere traccia di tutte le metriche relative alle transazioni utente nell'applicazione.
@@ -65,7 +65,7 @@ Gli spazi dei nomi consentono di classificare o raggruppare metriche simili. Usa
 
 ### <a name="dimension-keys"></a>Chiavi di dimensione
 Una dimensione è una coppia chiave o valore che consente di descrivere caratteristiche aggiuntive sulla metrica raccolta. Usando le caratteristiche aggiuntive, è possibile raccogliere altri dati sulla metrica, così da ottenere informazioni più dettagliate. Alla metrica **Byte di memoria in uso**, ad esempio, può essere associata una chiave di dimensione denominata **Processo** che acquisisce il numero di byte di memoria usati da ogni processo in una macchina virtuale. Usando tale chiave, è possibile filtrare la metrica per visualizzare la quantità di memoria usata da processi specifici o per identificare i primi 5 processi per uso della memoria.
-A ogni metrica personalizzata possono essere associate fino a 10 dimensioni.
+Le dimensioni sono facoltative, non tutte le metriche possono avere dimensioni. Una metrica personalizzata può avere dimensioni fino a 10.
 
 ### <a name="dimension-values"></a>Valori di dimensione
 Quando si segnala un punto dati delle metriche, per ogni chiave di dimensione per la metrica indicata è presente un valore di dimensione corrispondente. Se ad esempio si vuole indicare la memoria usata da ContosoApp nella macchina virtuale, lo scenario è il seguente:
@@ -75,6 +75,7 @@ Quando si segnala un punto dati delle metriche, per ogni chiave di dimensione pe
 * Il valore di dimensione è **ContosoApp.exe**.
 
 Quando si pubblica un valore della metrica, è possibile specificare solo un unico valore di dimensione per chiave di dimensione. Se si raccoglie la stessa metrica di uso della memoria per più processi nella macchina virtuale, è possibile indicare più valori di metrica per tale timestamp. Ogni valore della metrica specifica un valore di dimensione diverso per la chiave di dimensione **Processo**.
+Le dimensioni sono facoltative, non tutte le metriche possono avere dimensioni. Se un metrica post definisce le chiavi di dimensione, i valori di dimensione corrispondenti sono obbligatori.
 
 ### <a name="metric-values"></a>Valori della metrica
 Monitoraggio di Azure archivia tutte le metriche a intervalli di granularità di un minuto. Siamo consapevoli che durante un minuto specificato, potrebbe essere necessario campionare più volte una metrica. Un esempio è l'utilizzo della CPU. Oppure potrebbe essere necessario misurarla per diversi eventi discreti. Un esempio sono le latenze delle transazioni di accesso. Per limitare il numero di valori non elaborati che è necessario generare e pagare in Monitoraggio di Azure, è possibile pre-aggregare in locale e generare i valori in locale, come indicato di seguito.
@@ -169,13 +170,13 @@ Nella versione di anteprima pubblica la possibilità di pubblicare metriche pers
 
 |Area di Azure|Prefisso di endpoint a livello di area|
 |---|---|
-|Stati Uniti orientali|https://eastus.monitoring.azure.com/|
-|Stati Uniti centro-meridionali|https://southcentralus.monitoring.azure.com/|
-|Stati Uniti centro-occidentali|https://westcentralus.monitoring.azure.com/|
-|Stati Uniti occidentali 2|https://westus2.monitoring.azure.com/|
-|Asia sud-orientale|https://southeastasia.monitoring.azure.com/|
-|Europa settentrionale|https://northeurope.monitoring.azure.com/|
-|Europa occidentale|https://westeurope.monitoring.azure.com/|
+|Stati Uniti orientali| https:\//eastus.monitoring.azure.com/ |
+|Stati Uniti centro-meridionali| https:\//southcentralus.monitoring.azure.com/ |
+|Stati Uniti centro-occidentali| https:\//westcentralus.monitoring.azure.com/ |
+|Stati Uniti occidentali 2| https:\//westus2.monitoring.azure.com/ |
+|Asia sud-orientale| https:\//southeastasia.monitoring.azure.com/ |
+|Europa settentrionale| https:\//northeurope.monitoring.azure.com/ |
+|Europa occidentale| https:\//westeurope.monitoring.azure.com/ |
 
 ## <a name="quotas-and-limits"></a>Quote e limiti
 Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle metriche personalizzate:
@@ -185,6 +186,7 @@ Monitoraggio di Azure impone le seguenti limitazioni d'uso in relazione alle met
 |Serie temporale attiva/sottoscrizioni/area|50.000|
 |Chiavi di dimensione per metrica|10|
 |Lunghezza della stringa per gli spazi dei nomi delle metriche, i nomi delle metriche e le chiavi e i valori di dimensione|256 caratteri|
+
 Una serie temporale attiva è definita come una combinazione univoca di metrica, chiave di dimensione o valore di dimensione con valori della metrica pubblicati nelle 12 ore precedenti.
 
 ## <a name="next-steps"></a>Passaggi successivi

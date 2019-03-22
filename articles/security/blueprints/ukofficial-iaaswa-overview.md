@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 02/08/2018
 ms.author: jomolesk
-ms.openlocfilehash: a7461f6160c4c848106b16b1a9eaacb96ddf7499
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 13ea2b68027c81bca7b43cef62cf7039aa0ea8dd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55699143"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57443471"
 ---
 # <a name="azure-security-and-compliance-blueprint---three-tier-iaas-web-application-for-uk-official"></a>Progetto per la sicurezza e la conformità di Azure: Automazione di applicazioni Web IaaS su tre livelli per UK OFFICIAL
 
@@ -25,7 +25,7 @@ ms.locfileid: "55699143"
 
  NCSC consiglia l'adozione dei principi per la sicurezza cloud da parte dei clienti per valutare le proprietà di sicurezza del servizio e per contribuire alla comprensione della suddivisione delle responsabilità tra cliente e fornitore. Sono disponibili informazioni relative a ogni principio per semplificare la comprensione della suddivisione delle responsabilità.
 
- Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controlli di sicurezza del cloud per il cloud del Regno Unito con Microsoft Azure). Questo documento illustra il modo in cui i servizi di Azure rispettano i principi per la sicurezza cloud di UK NCSC 14, consentendo quindi alle organizzazioni ottenere rapidamente l'idoneità ai requisiti di conformità tramite servizi basati sul cloud a livello globale e nel Regno Unito sul cloud Microsoft Azure.
+ Questa architettura e i modelli corrispondenti di Azure Resource Manager sono supportati dal white paper Microsoft, [14 Cloud Security Controls for UK cloud Using Microsoft Azure](https://gallery.technet.microsoft.com/14-Cloud-Security-Controls-670292c1) (14 controlli di sicurezza del cloud per il cloud del Regno Unito con Microsoft Azure). In questo documento illustra come Azure services allinearsi di UK NCSC 14 principi di sicurezza Cloud, consentendo alle organizzazioni rapido la capacità di soddisfare gli obblighi di conformità usando i servizi basati sul cloud a livello globale e nel Regno Unito in Microsoft Azure cloud.
 
  Questo modello distribuisce l'infrastruttura per il carico di lavoro. Il codice dell'applicazione e il software per il livello aziendale di supporto e per il livello dati devono essere installati e configurati. Per istruzioni dettagliate sulla distribuzione, vedere [qui](https://aka.ms/ukwebappblueprintrepo).
 
@@ -129,7 +129,7 @@ Archiviazione
 
 ### <a name="deployment-architecture"></a>Architettura di distribuzione:
 
-**Rete locale**: una rete LAN privata implementata all'interno di un'organizzazione.
+**Rete locale**: Una rete LAN privata implementata all'interno di un'organizzazione.
 
 **Rete virtuale di produzione**: la [rete virtuale](https://docs.microsoft.com/azure/Virtual-Network/virtual-networks-overview) di produzione ospita l'applicazione e altre risorse operative in esecuzione in Azure. Ogni rete virtuale può contenere alcune subnet, che vengono usate per l'isolamento e la gestione del traffico di rete.
 
@@ -176,7 +176,7 @@ Queste reti virtuali vengono gestite comunque come risorse separate, ma vengono 
 
 **Log del firewall**: il gateway applicazione fornisce log completi relativi a diagnostica e accesso. I registri firewall sono disponibili per le risorse del gateway applicazione con WAF abilitato.
 
-**Archiviazione di log**: l'archiviazione dei dati dei log può essere configurata per la scrittura in un account di archiviazione di Azure centralizzato per l'archiviazione e per un periodo di conservazione specifico. I log possono essere elaborati tramite Azure Log Analytics o tramite sistemi SIEM di terze parti.
+**Archiviazione di log**: Archiviazione dei dati di log può essere configurato per la scrittura in un account di archiviazione di Azure centralizzato per archiviazione e per un periodo di memorizzazione definito. I log possono essere elaborati tramite i log di monitoraggio di Azure o dai sistemi SIEM di terze parti.
 
 ### <a name="identity"></a>Identità
 
@@ -208,7 +208,7 @@ I clienti possono prendere in considerazione l'uso di un [modello amministrativo
 
 **Restrizioni di controllo di accesso**: usare il [controllo degli accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) per gestire le risorse nell'applicazione tramite [ruoli personalizzati](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). È possibile usare il controllo degli accessi in base al ruolo per limitare le operazioni consentite a DevOps su ogni livello. Quando si concedono autorizzazioni, usare il [principio dei privilegi minimi necessari](https://msdn.microsoft.com/library/hdb58b2f(v=vs.110).aspx#Anchor_1). Registrare tutte le operazioni amministrative ed eseguire controlli regolari per assicurare che eventuali modifiche alla configurazione siano state pianificate.
 
-**Accesso a Internet**: questa architettura di riferimento usa il [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) come gateway Internet e servizio di bilanciamento del carico. È consigliabile che alcuni clienti prendano in considerazione anche l'uso di appliance di rete virtuali di terze parti per livelli aggiuntivi di sicurezza di rete come alternativa al [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
+**Accesso a Internet**: Questa architettura di riferimento, viene utilizzato [Gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction) come bilanciamento del carico e gateway con connessione internet. È consigliabile che alcuni clienti prendano in considerazione anche l'uso di appliance di rete virtuali di terze parti per livelli aggiuntivi di sicurezza di rete come alternativa al [gateway applicazione di Azure](https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction).
 
 **Centro sicurezza di Azure**: Il [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro) fornisce un punto di vista centralizzato dello stato della sicurezza delle risorse nella sottoscrizione e indicazioni che aiutano a evitare di compromettere le risorse. Può essere usato anche per abilitare criteri più granulari. È ad esempio possibile applicare i criteri a gruppi di risorse specifici, consentendo all'azienda di personalizzare il proprio approccio al rischio. È consigliabile che i clienti abilitino il Centro sicurezza di Azure nella propria sottoscrizione di Azure.
 
@@ -226,7 +226,7 @@ Cloud Security Alliance (CSA) ha inoltre pubblicato la matrice di controllo clou
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione
 
-Sono disponibili due metodi che gli utenti della distribuzione possono usare per distribuire questa automazione del progetto. Il primo metodo usa uno script di PowerShell, mentre il secondo metodo usa il portale di Azure per distribuire l'architettura di riferimento. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/ukofficial-iaaswa-repo).
+Sono disponibili due metodi che gli utenti della distribuzione possono usare per distribuire questa automazione del progetto. Il primo metodo usa uno script di PowerShell, mentre il secondo metodo Usa il portale di Azure per distribuire l'architettura di riferimento. Istruzioni di distribuzione dettagliate sono disponibili [qui](https://aka.ms/ukofficial-iaaswa-repo).
 
 ## <a name="disclaimer"></a>Dichiarazione di non responsabilità
 

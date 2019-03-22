@@ -14,12 +14,12 @@ ms.date: 12/12/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: 9f0ccb85fa4b42ef3ca90c6d4ca2d80113b93a0c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3a6fa631fdf3436dc3a76817d2c0043b0407b2ce
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733700"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58121554"
 ---
 # <a name="give-applications-access-to-azure-stack-resources-by-creating-service-principals"></a>Concedere alle applicazioni di accedere alle risorse di Azure Stack tramite la creazione di entità servizio
 
@@ -56,8 +56,8 @@ I passaggi per l'assegnazione di un'entità servizio a un ruolo corrispondente p
 
 Se lo Stack di Azure Usa Azure AD come archivio di identità, è possibile creare un'entità servizio usando la stessa procedura come in Azure, usando il portale di Azure.
 
->[!NOTE]
-Verificare di avere il [autorizzazioni di Azure AD necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) prima di iniziare la creazione di un'entità servizio.
+> [!NOTE]
+> Verificare di avere il [autorizzazioni di Azure AD necessarie](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) prima di iniziare la creazione di un'entità servizio.
 
 ### <a name="create-service-principal"></a>Creare un'entità servizio
 
@@ -80,8 +80,8 @@ Durante l'accesso a livello di codice, usare l'ID per l'applicazione e una chiav
 
 4. Specificare una descrizione e una durata per la chiave. Al termine scegliere **Salva**.
 
->[!IMPORTANT]
-Dopo aver salvato la chiave, il tasto **valore** viene visualizzato. Annotare questo valore perché non è possibile recuperare la chiave in un secondo momento. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
+> [!IMPORTANT]
+> Dopo aver salvato la chiave, il tasto **valore** viene visualizzato. Annotare questo valore perché non è possibile recuperare la chiave in un secondo momento. Salvare il valore della chiave in una posizione in cui l'applicazione possa recuperarlo.
 
 ![Avviso di valore della chiave per la chiave salvata.](./media/azure-stack-create-service-principals/image15.png)
 
@@ -101,8 +101,8 @@ Per informazioni dettagliate su come creare l'entità servizio, vedere [creare u
 
 Per accedere alle risorse della propria sottoscrizione è necessario assegnare l'applicazione a un ruolo. Decidere quale ruolo rappresenti le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [RBAC: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
 
->[!NOTE]
-È possibile impostare l'ambito del ruolo a livello di una sottoscrizione, un gruppo di risorse o una risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Un'app con il ruolo lettore per un gruppo di risorse, ad esempio, significa che l'app può leggere tutte le risorse nel gruppo di risorse.
+> [!NOTE]
+> È possibile impostare l'ambito del ruolo a livello di una sottoscrizione, un gruppo di risorse o una risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Un'app con il ruolo lettore per un gruppo di risorse, ad esempio, significa che l'app può leggere tutte le risorse nel gruppo di risorse.
 
 Usare la procedura seguente come guida per l'assegnazione di un ruolo a un'entità servizio.
 

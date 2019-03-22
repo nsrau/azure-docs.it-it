@@ -3,16 +3,15 @@ title: Trasformazione sink del Flusso di dati di mapping di Azure Data Factory
 description: Trasformazione sink del Flusso di dati di mapping di Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 381dc2f9f6d3a074af00ba047472719c086f5811
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408409"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852441"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Trasformazione sink del Flusso di dati di mapping
 
@@ -35,27 +34,17 @@ Per i tipi di sink BLOB del servizio di archiviazione di Azure o Data Lake, si p
 
 ![Opzioni di sink](media/data-flow/opt001.png "opzioni di sink")
 
-### <a name="output-settings"></a>Impostazioni di output
-
-L'azione di sovrascrivere troncherà la tabella se esistente, per poi ricrearla e caricare i dati. L'azione di accodare consentirà di inserire nuove righe. Se la tabella dal nome della tabella di set di dati non esiste nell'ADW di destinazione, il Flusso di dati creerà la tabella e successivamente caricherà i dati.
-
-Se si deseleziona "Mapping automatico", è possibile eseguire manualmente il mapping dei campi nella tabella di destinazione.
-
-![Opzioni di ADW sink](media/data-flow/adw2.png "adw sink")
-
-#### <a name="field-mapping"></a>Mapping dei campi
+## <a name="field-mapping"></a>Mapping campi
 
 Nella scheda Mapping della Trasformazione sink, è possibile eseguire il mapping delle colonne in ingresso (lato sinistro) nella destinazione (lato destro). Quando si esegue il sink dei flussi di dati nei file, Azure Data Factory scriverà sempre nuovi file in una cartella. Quando si esegue il mapping in un set di dati del database, è possibile scegliere di generare una nuova tabella con questo schema (impostare Salva criteri di Azure per "sovrascrivere") o inserire nuove righe in una tabella esistente ed eseguire il mapping di campi in uno schema esistente.
 
-È possibile usare una selezione multipla nella tabella di mapping per collegare più colonne con un solo clic, scollegare più colonne o eseguire il mapping di più righe per lo stesso nome della colonna.
+È possibile usare una selezione multipla nella tabella di mapping per collegare le colonne di più con un solo clic, vengono scollegate le più colonne o eseguire il mapping di più righe per lo stesso nome di colonna.
+
+Quando si vuole eseguire sempre richiedere il set di campi in ingresso ed eseguirne il mapping a una destinazione come-, impostare l'impostazione "Consenti deviazioni dello Schema".
 
 ![Mapping dei campi](media/data-flow/multi1.png "più opzioni")
 
 Se si vuole reimpostare il mapping delle colonne, fare clic sul pulsante "Nuovo mapping" per reimpostare il mapping.
-
-![Connessioni](media/data-flow/maxcon.png "Connessioni")
-
-### <a name="updates-to-sink-transformation-for-adf-v2-ga-version"></a>Aggiornamenti per la Trasformazione sink per la versione V2 GA di Azure Data Factory
 
 ![Opzioni di sink](media/data-flow/sink1.png "Sink 1")
 
@@ -65,7 +54,7 @@ Se si vuole reimpostare il mapping delle colonne, fare clic sul pulsante "Nuovo 
 
 * Cancellare la cartella. Azure Data Factory troncherà il contenuto della cartella sink, prima di scrivere i file di destinazione nella cartella di destinazione.
 
-* Opzioni di nomi di file
+## <a name="file-name-options"></a>Opzioni di nomi di file
 
    * Predefinito: consentire a Spark di denominare i file basati sulle impostazioni predefinite di PART
    * Criterio: immettere un nome per i file di output
@@ -75,14 +64,19 @@ Se si vuole reimpostare il mapping delle colonne, fare clic sul pulsante "Nuovo 
 > [!NOTE]
 > Le operazioni sui file verranno eseguite solo quando l'attività di esecuzione del Flusso di dati è in corso, non in modalità Debug del Flusso di dati
 
-Con i tipi di sink SQL, è possibile impostare:
+## <a name="database-options"></a>Opzioni di database
 
-* Tronca tabella
-* Ricrea tabella (esegue rilascia/crea)
-* Dimensione batch per i caricamenti di dati di grandi dimensioni. Immettere un numero di scritture di bucket in blocchi.
+* Consenti insert, update, delete, esegue l'Upsert. Il valore predefinito è per consentire gli inserimenti. Se si desidera righe insert, upsert o aggiornamento, è necessario aggiungere innanzitutto una trasformazione di riga alter alle righe di tag per le azioni specifiche.
+* Istruzione TRUNCATE table (rimuove tutte le righe dalla tabella di destinazione prima di completare il flusso di dati)
+* Ricreare la tabella (eseguita creano/eliminano della tabella di destinazione prima di completare il flusso di dati)
+* Dimensione batch per i caricamenti di dati di grandi dimensioni. Immettere un numero di scritture di bucket in blocchi
+* Abilitare la gestione temporanea: Ciò indicherà a Azure Data factory per usare Polybase durante il caricamento di Azure Data Warehouse come set di dati sink
 
-![Mapping dei campi](media/data-flow/sql001.png "Opzioni SQL")
+![Opzioni di SQL Sink](media/data-flow/alter-row2.png "opzioni SQL")
+
+> [!NOTE]
+> Durante l'aggiornamento o eliminazione di righe nel sink di database, è necessario impostare la colonna chiave. In questo modo, Alter riga è in grado di determinare la riga univoca nel DML.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è stato creato il flusso di dati, aggiungere un'[attività di esecuzione del Flusso di dati alla pipeline](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-overview).
+Ora che è stato creato il flusso di dati, aggiungere un'[attività di esecuzione del Flusso di dati alla pipeline](concepts-data-flow-overview.md).

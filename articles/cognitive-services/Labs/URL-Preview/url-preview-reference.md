@@ -10,12 +10,12 @@ ms.subservice: url-preview
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: rosh
-ms.openlocfilehash: a871048c9d75fc6ea958cfacaa3a47b11765fb0d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 69db722295c9c81d45913bd078fe9cc5ab74c512
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104710"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informazioni di riferimento su Project URL Preview v7
 
@@ -56,7 +56,7 @@ Per informazioni sull'utilizzo consentito e la visualizzazione dei risultati, ve
 > Alcune intestazioni della richiesta che sono significative per le altre API di ricerca non incidono su Anteprima URL
 > - Pragma: il chiamante non ha il controllo sull'eventualità che Anteprima URL usi la cache
 > - Agente utente: al momento, l'API URL Preview non fornisce risposte diverse per le chiamate provenienti da PC, computer portatili o dispositivi mobili.
-
+> 
 > Inoltre, alcuni parametri non sono attualmente significativi per l'API Anteprima URL, ma potranno essere usati in futuro per un processo migliore di globalizzazione.
 
 ## <a name="headers"></a>Headers
@@ -73,11 +73,11 @@ Di seguito sono riportate le intestazioni che una richiesta e una risposta posso
 ## <a name="query-parameters"></a>Parametri della query
 La richiesta può includere i parametri di query seguenti. Vedere i parametri obbligatori nella colonna corrispondente. È necessario eseguire la codifica URL dei parametri della query. La query deve essere un URL assoluto con schema http o https; non sono supportati URL relativi o altri schemi, ad esempio ftp://
 
-|NOME|Valore|Type|Obbligatoria|
+|NOME|Valore|Type|Obbligatorio|
 |----------|-----------|----------|--------------|
 |<a name="mkt" />mkt|Mercato dal quale provengono i risultati. <br /><br />Per un elenco di possibili valori di mercato, consultare Market Codes (Codici di mercato).<br /><br /> **NOTA:** l'API URL Preview supporta attualmente solo aree geografiche degli Stati Uniti e la lingua inglese.<br /><br />|string|Sì|
 |<a name="query" />q|URL per l'anteprima|string|Sì|
-|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](http://json-ld.org/).|string|No |
+|<a name="responseformat" />responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|string|No |
 |<a name="safesearch"/>safeSearch|Il contenuto per adulti illegale o il contenuto pirata viene bloccato con il codice di errore 400 e il flag *isFamilyFriendly* non viene restituito. <p>Per il contenuto per adulti legale, il comportamento è riportato di seguito. Il codice di stato restituisce 200 e il flag *isFamilyFriendly* è impostato su false.<ul><li>safeSearch=strict: titolo, descrizione, URL e immagine non verranno restituiti.</li><li>safeSearch=moderate: si ottengono il titolo, l'URL e la descrizione ma non l'immagine descrittiva.</li><li>safeSearch=off: si ottengono tutti gli oggetti/elementi della risposta, ovvero titolo, URL, descrizione e immagine.</li></ul> |string|Non obbligatorio. </br> L'impostazione predefinita è safeSearch=strict.|
 
 ## <a name="response-objects"></a>Oggetti della risposta

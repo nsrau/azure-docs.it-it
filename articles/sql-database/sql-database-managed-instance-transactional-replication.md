@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d0f9ea15b692d9aba2fde217805ea5e0ecfb4dfd
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 409c1abd7e9f532bb243ecab00228b402215c77e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993810"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57852760"
 ---
 # <a name="transactional-replication-with-single-pooled-and-instance-databases-in-azure-sql-database"></a>Replica transazionale con database singoli, in pool e di istanza nel database SQL di Azure
 
@@ -26,7 +26,6 @@ La replica transazionale è una funzionalità del database SQL di Azure e di SQL
 ## <a name="when-to-use-transactional-replication"></a>Quando usare la replica transazionale
 
 La replica transazionale è utile negli scenari seguenti:
-
 - Pubblicare le modifiche apportate in una o più tabelle in un database e distribuirle in uno o più SQL Server o database SQL di Azure che hanno sottoscritto le modifiche.
 - Mantenere più database distribuiti in stato sincronizzato.
 - Eseguire la migrazione di database da SQL Server o da Istanza gestita a un altro database pubblicando continuamente le modifiche.
@@ -59,7 +58,10 @@ Il **sottoscrittore** è un'istanza o un server che riceve le modifiche apportat
 | **Sottoscrittore push**| Sì | Sì|
 | &nbsp; | &nbsp; | &nbsp; |
 
-Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication?view=sql-server-2017):
+  >[!NOTE]
+  > Una sottoscrizione pull non è supportata quando il server di distribuzione è un database dell'istanza e non nel Sottoscrittore. 
+
+Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication):
 
 
 | Replica | Database singoli e in pool | Database in istanza|
@@ -75,14 +77,37 @@ Esistono diversi [tipi di replica](https://docs.microsoft.com/sql/relational-dat
 
   >[!NOTE]
   > - Se si cerca di configurare la replica usando una versione meno recente, potrebbero essere generati gli errori MSSQL_REPL20084. (Il processo non è riuscito a connettersi al sottoscrittore) e MSSQ_REPL40532 (Impossibile aprire il server \<nome> richiesto dall'account di accesso. Accesso non riuscito).
-  > - Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017).
+  > - Per usare tutte le funzionalità del database SQL di Azure, è necessario usare le versioni più recenti di [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools (SSDT)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).
+  
+  ### <a name="supportabilty-matrix-for-instance-databases-and-on-premises-systems"></a>Matrice di Supportabilty per i sistemi di database di istanza e in locale
+  La matrice di supporto della replica ad esempio i database è identico a quello per SQL Server locale. 
+  
+  | **Autore**   | **Database di distribuzione** | **Sottoscrittore** |
+| :------------   | :-------------- | :------------- |
+| SQL Server 2017 | SQL Server 2017 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 |
+| SQL Server 2016 | SQL Server 2017 <br/> SQL Server 2016 | SQL Server 2017 <br/>SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 |
+| SQL Server 2014 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>| SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 |
+| SQL Server 2012 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> | SQL Server 2016 <br/> SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | 
+| SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2017 <br/> SQL Server 2016 <br/> SQL Server 2014 <br/>SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 | SQL Server 2014 <br/> SQL Server 2012 <br/> SQL Server 2008 R2 <br/> SQL Server 2008 <br/>  |
+| &nbsp; | &nbsp; | &nbsp; |
 
 ## <a name="requirements"></a>Requisiti
 
 - Per la connettività viene usata l'autenticazione SQL tra i partecipanti alla replica. 
 - Una condivisione di account di archiviazione di Azure per la directory di lavoro usata dalla replica. 
-- La porta 445 (porta in uscita TCP) deve essere aperta nelle regole di sicurezza della subnet dell'istanza gestita per poter accedere alla condivisione file di Azure. 
-- La porta 1433 (TCP in uscita) deve essere aperta se il server di pubblicazione/database di distribuzione si trovano in un'istanza gestita e il sottoscrittore è locale. 
+- La porta 445 (TCP in uscita) deve essere aperta nelle regole di sicurezza di subnet dell'istanza gestita per accedere alla condivisione file di Azure. 
+- La porta 1433 (TCP in uscita) deve essere aperta se il server di pubblicazione/database di distribuzione si trovano in un'istanza gestita e il sottoscrittore è locale.
+
+  >[!NOTE]
+  > È possibile riscontrare l'errore 53 durante la connessione a un File di archiviazione di Azure se la porta di gruppo (NSG) di sicurezza di rete in uscita 445 è bloccata quando il server di distribuzione è un database dell'istanza e il sottoscrittore è in locale. [Aggiornare la rete virtuale NSG](/azure/storage/files/storage-troubleshoot-windows-file-connection-problems) per risolvere il problema. 
+
+### <a name="compare-data-sync-with-transactional-replication"></a>Confrontare la sincronizzazione dati con la replica transazionale
+
+| | Sincronizzazione dei dati | Replica transazionale |
+|---|---|---|
+| Vantaggi | - Supporto attivo/attivo<br/>- Bidirezionale tra database locali e database SQL di Azure | - Latenza inferiore<br/>- Coerenza delle transazioni<br/>- Riutilizzo topologia esistente dopo la migrazione |
+| Svantaggi: | - Latenza 5 min o superiore<br/>- Nessuna coerenza delle transazioni<br/>- Maggiore impatto sulle prestazioni | - Impossibilità di pubblicare da database SQL singolo o in pool di Microsoft Azure<br/>- Alti costi di manutenzione |
+| | | |
 
 ## <a name="common-configurations"></a>Configurazioni comuni
 
@@ -90,7 +115,7 @@ In generale, il server di pubblicazione e il database di pubblicazione devono en
 
 ### <a name="publisher-with-local-distributor-on-a-managed-instance"></a>Server di pubblicazione con server di distribuzione locale in un'istanza gestita
 
-![Singola istanza come server di pubblicazione e database di distribuzione ](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
+![Singola istanza come server di pubblicazione e database di distribuzione](media/replication-with-sql-database-managed-instance/01-single-instance-asdbmi-pubdist.png)
 
 Server di pubblicazione e database di distribuzione sono configurati all'interno di una singola istanza gestita e distribuiscono le modifiche a un'altra istanza gestita, a un database singolo o in pool oppure a SQL Server locale. In questa configurazione, l'istanza gestita di server di pubblicazione/database di distribuzione non può essere configurata con [replica geografica e gruppi di failover automatico](sql-database-auto-failover-group.md).
 
@@ -112,11 +137,13 @@ Il server di pubblicazione e il database di pubblicazione sono configurati in du
  
 In questa configurazione, un database SQL di Azure (database singolo, in pool e di istanza) è un sottoscrittore. Questa configurazione supporta la migrazione dal database locale al database di Azure. Se un sottoscrittore si trova in un database in pool o singolo, deve essere in modalità push.  
 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 1. [Configurare la replica transazionale per un'istanza gestita](replication-with-sql-database-managed-instance.md#configure-publishing-and-distribution-example). 
 1. [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication).
 1. [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription) usando il nome del server del database SQL di Azure come sottoscrittore (ad esempio `N'azuresqldbdns.database.windows.net`) e il nome del database SQL di Azure come database di destinazione (ad esempio **AdventureWorks**). )
+
 
 
 ## <a name="see-also"></a>Vedere anche  

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: abshamsft
-ms.openlocfilehash: 2dcbe170a69c0c285cb6425427f94b5efced8712
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: d0819b57307fc037b3be6ab04ed9ec6c8720a618
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55747459"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58103588"
 ---
 # <a name="expressroute-monitor"></a>Monitoraggio di ExpressRoute
 
@@ -55,7 +55,7 @@ Per altre informazioni sui gruppi di sicurezza di rete, vedere  [Gruppi di sic
 
     ![Configurazione del monitoraggio di ExpressRoute](media/network-performance-monitor-expressroute/expressroute-configure.png)
  
- Al termine dell'individuazione, le connessioni peering private individuate sono elencate in una tabella. Il monitoraggio di questi peering è inizialmente disabilitato. 
+   Al termine dell'individuazione, le connessioni peering private individuate sono elencate in una tabella. Il monitoraggio di questi peering è inizialmente disabilitato. 
 
 ### <a name="enable-monitoring-of-the-expressroute-peering-connections"></a>Abilitare il monitoraggio delle connessioni peering ExpressRoute 
 

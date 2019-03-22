@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: ec66066fe51af97f6355b78dd7af3480a39a5a03
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: 0bd9f5ed00193aa9f872287b6afaf9e2b28c24dc
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50215090"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188340"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>Risoluzione dei problemi: Errore durante la creazione o l'eliminazione di un database o di una tabella in Esplora dati di Azure
 
@@ -37,7 +37,7 @@ Verificare di disporre delle autorizzazioni appropriate. Per eliminare o ridenom
 
     Per altre informazioni sulle autorizzazioni, vedere [Gestire le autorizzazioni per i database](manage-database-permissions.md).
 
-1. Verificare che non esista già una tabella con lo stesso nome. Nel caso in cui esista, è possibile: creare una tabella con un nome diverso; ridenominare la tabella esistente (è necessario il ruolo *Amministratore tabella*); eliminare la tabella esistente (è necessario il ruolo *Amministratore database*). Usare i comandi seguenti.
+1. Verificare che non esista già una tabella con lo stesso nome. Se esiste, quindi è possibile: Creare una tabella con un nome diverso. rinominare la tabella esistente (richiede *tabella admin* ruolo); o eliminare la tabella esistente (richiede *amministratore database* ruolo). Usare i comandi seguenti.
 
     ```Kusto
     .drop table <TableName>
@@ -53,7 +53,7 @@ Per altre informazioni sulle autorizzazioni, vedere [Gestire le autorizzazioni p
 
 ## <a name="general-guidance"></a>Indicazioni generali
 
-1. Controllare il [dashboard di integrità dei servizi di Azure](https://azure.microsoft.com/status/>). Individuare lo stato di Esplora dati di Azure nell'area in cui si sta cercando di lavorare con il database o la tabella.
+1. Controllare il [dashboard di integrità dei servizi di Azure](https://azure.microsoft.com/status/). Individuare lo stato di Esplora dati di Azure nell'area in cui si sta cercando di lavorare con il database o la tabella.
 
     Se lo stato non è **Buono** (segno di spunta verde), provare di nuovo non appena lo stato migliora.
 

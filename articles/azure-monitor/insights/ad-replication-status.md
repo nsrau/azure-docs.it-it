@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
-ms.openlocfilehash: 3b7aa932d24b7879ee3f46419afa2327ee48b403
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 100d33bbd888d00ed33a38680df5a777e12fd63e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000994"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120806"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Monitorare lo stato della replica di Active Directory con Monitoraggio di Azure
 
@@ -45,8 +45,8 @@ Se non si intende connettere i controller di dominio direttamente a Monitoraggio
 
    > [!NOTE]
    > Queste modifiche non sono effettive fino al riavvio del servizio Microsoft Monitoring Agent (HealthService.exe).
-### <a name="install-solution"></a>Installare soluzione
-Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro di Log Analytics. Non è richiesta alcuna ulteriore configurazione.
+   > ### <a name="install-solution"></a>Installare soluzione
+   > Seguire il processo descritto in [Installare una soluzione di monitoraggio](solutions.md#install-a-monitoring-solution) per aggiungere la soluzione **Stato replica di Active Directory** all'area di lavoro di Log Analytics. Non è richiesta alcuna ulteriore configurazione.
 
 
 ## <a name="ad-replication-status-data-collection-details"></a>Dettagli sulla raccolta dati di Stato replica di Active Directory
@@ -54,7 +54,7 @@ La tabella seguente descrive i metodi di raccolta dati e altri dettagli sul modo
 
 | Piattaforma | Agente diretto | Agente SCOM | Archiviazione di Azure | SCOM obbligatorio? | Dati dell'agente SCOM inviati con il gruppo di gestione | Frequenza della raccolta |
 | --- | --- | --- | --- | --- | --- | --- |
-|  Windows |&#8226; |&#8226; |  |  |&#8226; |ogni cinque giorni |
+| Windows |&#8226; |&#8226; |  |  |&#8226; |ogni cinque giorni |
 
 
 

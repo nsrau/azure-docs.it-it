@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: 3c3d534392431e79feabe37fe940ea87f586c660
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 3974be886b57fbf685b211369094edf844d96ab6
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54051697"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57975560"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Usare istanze GPU o RDMA nei pool di Batch
 
@@ -48,6 +48,7 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 | [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS o<br/>HPC basato su CentOS<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Driver Linux RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
 | [Serie NC, NCv2, NCv3 e NDv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Ubuntu 16.04 LTS o<br/>CentOS 7.3 o 7.4<br/>(Azure Marketplace) | Driver NVIDIA CUDA o CUDA Toolkit | N/D | 
 | [Serie NV e NVv2](../virtual-machines/linux/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS o<br/>CentOS 7.3<br/>(Azure Marketplace) | Driver NVIDIA GRID | N/D |
+
 <sup>*</sup>Le dimensioni della serie N idonee per RDMA includono anche GPU NVIDIA Tesla
 
 ### <a name="windows-pools---virtual-machine-configuration"></a>Pool Windows - Configurazione della macchina virtuale
@@ -57,6 +58,7 @@ Le funzionalità RDMA o GPU delle dimensioni a elevato utilizzo di calcolo in Ba
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3 e ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 o<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 o versioni successive oppure<br/> Intel MPI 5<br/><br/>Driver Windows RDMA | Abilitare la comunicazione tra i nodi, disabilitare l'esecuzione di attività simultanee |
 | [Serie NC, NCv2, NCv3, ND e NDv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla (varia in base alla serie) | Windows Server 2016 oppure <br/>2012 R2 (Azure Marketplace) | Driver NVIDIA CUDA o CUDA Toolkit| N/D | 
 | [Serie NV e NVv2](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 oppure<br/>2012 R2 (Azure Marketplace) | Driver NVIDIA GRID | N/D |
+
 <sup>*</sup>Le dimensioni della serie N idonee per RDMA includono anche GPU NVIDIA Tesla
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pool Windows - Configurazione servizi cloud
@@ -100,7 +102,7 @@ Per configurare una dimensione di macchina virtuale specializzata per il pool di
 
 Per eseguire applicazioni CUDA in un pool di nodi NC di Windows, è necessario installare i driver NVDIA GPU. La procedura di esempio seguente usa un pacchetto dell'applicazione per installare i driver NVIDIA GPU. È possibile scegliere questa opzione se il carico di lavoro dipende da una versione specifica dei driver GPU.
 
-1. Scaricare un pacchetto di installazione per i driver GPU in Windows Server 2016 dal [sito Web di NVIDIA](https://www.nvidia.com/Download/index.aspx), ad esempio la [versione 411.82](http://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Salvare il file in locale usando un nome breve, ad esempio *GPUDriverSetup.exe*.
+1. Scaricare un pacchetto di installazione per i driver GPU in Windows Server 2016 dal [sito Web di NVIDIA](https://www.nvidia.com/Download/index.aspx), ad esempio la [versione 411.82](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe). Salvare il file in locale usando un nome breve, ad esempio *GPUDriverSetup.exe*.
 2. Creare un file zip del pacchetto.
 3. Caricare il pacchetto nell'account Batch. Per istruzioni, vedere il materiale sussidiario sui [pacchetti di applicazioni](batch-application-packages.md). Specificare un ID applicazione, ad esempio *GPUDriver*, e una versione, ad esempio *411.82*.
 1. Usando l'API Batch o il portale di Azure, creare un pool nella configurazione della macchina virtuale con il numero di nodi e la scalabilità desiderati. La tabella seguente illustra le impostazioni di esempio per installare i driver NVIDIA GPU automaticamente usando un'attività di avvio:

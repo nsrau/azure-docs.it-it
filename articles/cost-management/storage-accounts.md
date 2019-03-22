@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 25a8057a1c547e29b209d87d9124a3e019957dd8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f03193253bd8d8a7530d65a552a07d3901887cf5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53100855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104302"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Configurare gli account di archiviazione per Cloudyn
 
@@ -39,13 +39,13 @@ La configurazione dell'archiviazione di Azure per l'uso di Cloudyn è semplice. 
 2. Fare clic su **Tutti i servizi**, selezionare **Account di archiviazione**, scorrere fino all'account di archiviazione da usare e quindi selezionarlo.
 3. Nella pagina dell'account di archiviazione in **Impostazioni** fare clic su **Chiavi di accesso**.
 4. Copiare il **Nome account di archiviazione** e la **Stringa di connessione** in key1.  
-![Copiare il nome dell'account di archiviazione e la stringa di connessione](./media/storage-accounts/azure-storage-access-keys.png)  
+   ![Copiare il nome dell'account di archiviazione e la stringa di connessione](./media/storage-accounts/azure-storage-access-keys.png)  
 5. Aprire il portale di Cloudyn dal portale di Azure oppure passare a https://azure.cloudyn.com ed eseguire l'accesso.
 6. Fare clic sul simbolo con ruota dentata e quindi selezionare **Reports Storage Management** (Gestione archiviazione rapporti).
 7. Fare clic su **Add new +** (Aggiungi nuovo +) e verificare che sia selezionato Microsoft Azure. Incollare il nome dell'account di archiviazione di Azure nell'area **Nome**. Incollare la **stringa di connessione** nell'area corrispondente. Immettere un nome di contenitore e quindi fare clic su **Salva**.  
-![Incollare il nome dell'account di archiviazione di Azure e la stringa di connessione nella casella per aggiungere una nuova archiviazione per i report](./media/storage-accounts/azure-cloudyn-storage.png)
+   ![Incollare il nome dell'account di archiviazione di Azure e la stringa di connessione nella casella per aggiungere una nuova archiviazione per i report](./media/storage-accounts/azure-cloudyn-storage.png)
 
-  La nuova voce di archiviazione dei report di Azure viene visualizzata nell'elenco degli account di archiviazione.  
+   La nuova voce di archiviazione dei report di Azure viene visualizzata nell'elenco degli account di archiviazione.  
     ![Nuova voce di archiviazione dei report di Azure nell'elenco](./media/storage-accounts/azure-storage-entry.png)
 
 
@@ -67,8 +67,8 @@ Quando si crea un nuovo criterio, specificare le autorizzazioni esatte necessari
 4. Fare clic sulla scheda **JSON**.
 5. Il criterio seguente consente di salvare un report in un bucket di S3. Copiare e incollare l'esempio di criterio seguente nella scheda **JSON**. Sostituire &lt;bucketname&gt; con il nome del bucket.
 
-  ```json
-{
+   ```json
+   {
     "Version": "2012-10-17",
     "Statement": [
       {
@@ -82,8 +82,8 @@ Quando si crea un nuovo criterio, specificare le autorizzazioni esatte necessari
         ]
       }
     ]
-}
-```
+   }
+   ```
 
 6. Fare clic su **Review policy** (Rivedi criterio).  
     ![Criterio JSON AWS con informazioni di esempio](./media/storage-accounts/aws-policy.png)  
@@ -122,11 +122,11 @@ Per collegare il nuovo criterio, aprire la console di AWS e modificare il ruolo 
 2. Selezionare la scheda **Permissions** (Autorizzazioni) e quindi fare clic su **Bucket policy** (Criterio di bucket).
 3. Copiare e incollare l'esempio di criterio seguente. Sostituire &lt;bucket\_name&gt; e &lt;Cloudyn\_principle&gt; con l'ARN del bucket. Sostituire l'ARN del ruolo o dell'utente usato da Cloudyn.
 
-  ```
-{
-  "Id": "Policy1485775646248",
-  "Version": "2012-10-17",
-  "Statement": [
+   ```
+   {
+   "Id": "Policy1485775646248",
+   "Version": "2012-10-17",
+   "Statement": [
     {
       "Sid": "SaveReport2S3",
       "Action": [
@@ -140,9 +140,9 @@ Per collegare il nuovo criterio, aprire la console di AWS e modificare il ruolo 
         ]
       }
     }
-  ]
-}
-```
+   ]
+   }
+   ```
 
 4. Nell'editor del criterio di bucket fare clic su **Save** (Salva).
 

@@ -3,7 +3,7 @@ title: Risoluzione dei problemi di avvio di BitLocker in una VM di Azure | Micro
 description: Informazioni su come risolvere i problemi di avvio di BitLocker in una VM di Azure
 services: virtual-machines-windows
 documentationCenter: ''
-authors: genli
+author: genlin
 manager: cshepard
 editor: v-jesits
 ms.service: virtual-machines-windows
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/31/2018
 ms.author: genli
-ms.openlocfilehash: 3a615beeec45871aab1e98ad338ffa053ddbec92
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a7bd812d3aadfd3c358c8d0aeccf0e92ed474a05
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984767"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993197"
 ---
 # <a name="bitlocker-boot-errors-on-an-azure-vm"></a>Problemi di avvio di BitLocker in una macchina virtuale di Azure
 
@@ -26,13 +26,13 @@ ms.locfileid: "55984767"
 
 [!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
 
- ## <a name="symptom"></a>Sintomo
+## <a name="symptom"></a>Sintomo
 
  La macchina virtuale Windows non si avvia. Quando si controllano gli screenshot nella finestra [Diagnostica di avvio](../windows/boot-diagnostics.md), viene visualizzato uno dei messaggi di errore seguenti:
 
 - Collegare l'unità USB contenente la chiave BitLocker
 
-- Il tuo account è bloccato. Immettere la chiave di ripristino per continuare (layout tastiera: US) Troppi tentativi di accesso con informazioni errate. Il PC è stato bloccato per proteggere la privacy dell'utente. Per recuperare la chiave di ripristino, visitare http://windows.microsoft.com/recoverykeyfaq da un altro PC o dispositivo mobile. Nel caso sia necessario, l'ID della chiave è XXXXXXX. In alternativa, è possibile ripristinare le impostazioni di fabbrica del PC.
+- Il tuo account è bloccato. Immettere la chiave di ripristino per continuare (layout tastiera: US) Troppi tentativi di accesso con informazioni errate. Il PC è stato bloccato per proteggere la privacy dell'utente. Per recuperare la chiave di ripristino, visitare https://windows.microsoft.com/recoverykeyfaq da un altro PC o dispositivo mobile. Nel caso sia necessario, l'ID della chiave è XXXXXXX. In alternativa, è possibile ripristinare le impostazioni di fabbrica del PC.
 
 - Digitare la password per sbloccare l'unità [ ] Premere INS per visualizzare la password durante la digitazione.
 - Immetti la chiave di ripristino Carica la chiave di ripristino da un dispositivo USB.

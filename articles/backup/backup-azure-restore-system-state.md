@@ -8,20 +8,20 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: ab307548853a545c4aa8ee5a573ca5b1ca67c91d
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 031b3096d919eb3faadf907f0d30e15d8d8fb5e5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56310258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122961"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
 Questo articolo illustra come ripristinare i backup dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure. Per ripristinare lo stato del sistema, è necessario avere un backup dello stato del sistema, creato usando le istruzioni disponibili in [Eseguire il backup dello stato del sistema](backup-azure-system-state.md#back-up-windows-server-system-state), e assicurarsi di avere installato la [versione più recente dell'agente dei Servizi di ripristino di Microsoft Azure](https://aka.ms/azurebackup_agent). Il ripristino dei dati dello stato del sistema di Windows Server da un insieme di credenziali di Servizi di ripristino di Azure è un processo in due passaggi:
 
 1. Ripristinare lo stato del sistema sotto forma di file da Backup di Azure. Quando si ripristina lo stato del sistema sotto forma di file da Backup di Azure, è possibile eseguire una di queste operazioni:
-  * Ripristinare lo stato del sistema nello stesso server in cui è stato creato il backup.
-  * Ripristinare il file dello stato del sistema in un server alternativo.
+   * Ripristinare lo stato del sistema nello stesso server in cui è stato creato il backup.
+   * Ripristinare il file dello stato del sistema in un server alternativo.
 
 2. Applicare i file dello stato del sistema ripristinato in un'istanza di Windows Server.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/03/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1eac8f79ea53643659f8780ee03f8ced13c7dcd
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 411b43ec631c77246da1ee55f2532486f8b55ffc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452227"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006635"
 ---
 # <a name="azure-storage-samples"></a>Esempi di archiviazione di Azure
 
@@ -63,8 +63,8 @@ Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione 
 |----------|---------------|-------------|
 | .NET | [Informazioni di riferimento sulla libreria client .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx) | [Codice sorgente per la libreria client di archiviazione .NET](https://github.com/Azure/azure-storage-net) |
 | Java | [Informazioni di riferimento sulla libreria client Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Codice sorgente per la libreria client di archiviazione Java](https://github.com/azure/azure-storage-java) |
-| Node.js | [Informazioni di riferimento sulla libreria client Node.js](http://azure.github.io/azure-storage-node) | [Codice sorgente per la libreria client di archiviazione Node. js](https://github.com/Azure/azure-storage-node) |
-| C++ | [Informazioni di riferimento sulla libreria client C++](http://azure.github.io/azure-storage-cpp/) | [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)|
+| Node.js | [Informazioni di riferimento sulla libreria client Node.js](https://azure.github.io/azure-storage-node) | [Codice sorgente per la libreria client di archiviazione Node. js](https://github.com/Azure/azure-storage-node) |
+| C++ | [Informazioni di riferimento sulla libreria client C++](https://azure.github.io/azure-storage-cpp/) | [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -15,35 +15,35 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/08/2018
 ms.author: kumud
-ms.openlocfilehash: ce3e8f31c7fee6afdeabf931485a49934e98f81b
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ec252c1f45e5c27f17b725f6ab68cc94f67897c4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391352"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58120738"
 ---
 # <a name="disaster-recovery-using-azure-dns-and-traffic-manager"></a>Ripristino di emergenza con DNS di Azure e Gestione traffico
 
 Il ripristino di emergenza consiste nel recupero da una grave perdita di funzionalità delle applicazioni. Per scegliere una soluzione di ripristino di emergenza, i proprietari di aziende e tecnologia devono prima di tutto determinare il livello di funzionalità richiesto durante un'emergenza, ad esempio mancanza totale di disponibilità, disponibilità parziale con funzionalità ridotta, disponibilità ritardata o disponibilità completa.
 La maggior parte dei clienti aziendali sceglie un'architettura distribuita su più aree per garantire resilienza in caso di failover a livello di applicazione o infrastruttura. I clienti possono adottare diversi approcci per ottenere failover e disponibilità elevata tramite un'architettura ridondante. Ecco alcuni degli approcci più diffusi:
 
-- **Attivo-Passivo con cold standby**: in questa soluzione di failover le VM e le altre appliance eseguite nell'area di standby non sono attive finché non c'è necessità di failover. Tuttavia, l'ambiente di produzione è replicato sotto forma di backup, immagini di VM o modelli di Resource Manager, in un'altra area. Questo meccanismo di failover è economico, ma richiede più tempo nel caso di un failover completo.
+- **Attivo-passivo con cold standby**: In questa soluzione di failover, le macchine virtuali e altre Appliance in esecuzione nell'area in standby non sono attivi fino a quando non è necessario per il failover. Tuttavia, l'ambiente di produzione è replicato sotto forma di backup, immagini di VM o modelli di Resource Manager, in un'altra area. Questo meccanismo di failover è economico, ma richiede più tempo nel caso di un failover completo.
  
     ![Approccio Attivo-Passivo con cold standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-cold-standby.png)
     
     *Figura: Configurazione di ripristino di emergenza di tipo Attivo-Passivo con cold standby*
 
-- **Attivo-Passivo con luce pilota**: in questa soluzione di failover l'ambiente di standby è impostato con una configurazione minima che prevede solo l'esecuzione dei servizi necessari per supportare un set minimo critico di applicazioni. Nel formato nativo questo scenario può solo eseguire funzionalità minime, ma può essere ridimensionato con l'aggiunta di altri servizi in modo da gestire gran parte del carico di produzione in caso di failover.
+- **Attiva/passiva con light pilota**: In questa soluzione di failover, l'ambiente standby è configurato con una configurazione minima. che prevede solo l'esecuzione dei servizi necessari per supportare un set minimo critico di applicazioni. Nel formato nativo questo scenario può solo eseguire funzionalità minime, ma può essere ridimensionato con l'aggiunta di altri servizi in modo da gestire gran parte del carico di produzione in caso di failover.
     
     ![Approccio Attivo-Passivo con luce pilota](./media/disaster-recovery-dns-traffic-manager/active-passive-with-pilot-light.png)
     
-    *Figura: Configurazione di ripristino di emergenza di tipo Attivo-Passivo con luce pilota*
+    *Figura: Attiva/passiva con configurazione di ripristino di emergenza pilota light*
 
-- **Attivo-Passivo con warm standby**: in questa soluzione di failover l'area di standby è preconfigurata in modalità warm ed è pronta ad accettare il carico di base, la scalabilità automatica è attivata e tutte le istanze sono in esecuzione. Questo scenario non può essere ridimensionato in modo da gestire il carico di produzione completo, ma offre una soluzione funzionale, in cui tutti i servizi sono in esecuzione. SI tratta di una versione più estesa dell'approccio con luce pilota.
+- **Attiva/passiva con standby a caldo**: In questa soluzione di failover, l'area in standby viene pre-warmed e pronto accettare il caricamento di base, la scalabilità automatica è attivata e tutte le istanze sono in esecuzione. Questo scenario non può essere ridimensionato in modo da gestire il carico di produzione completo, ma offre una soluzione funzionale, in cui tutti i servizi sono in esecuzione. SI tratta di una versione più estesa dell'approccio con luce pilota.
     
     ![Approccio Attivo-Passivo con warm standby](./media/disaster-recovery-dns-traffic-manager/active-passive-with-warm-standby.png)
     
-    *Figura: Configurazione di ripristino di emergenza di tipo Attivo-Passivo con warm standby*
+    *Figura: Attiva/passiva con la configurazione di ripristino di emergenza di standby a caldo*
     
 Per altre informazioni sul failover e sulla disponibilità elevata, vedere [Ripristino di emergenza per le applicazioni basate su Microsoft Azure](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications).
 
@@ -58,7 +58,7 @@ Questo articolo si limita a illustrare gli approcci basati sul reindirizzamento 
 DNS è uno dei meccanismi più efficienti per deviare il traffico di rete poiché è spesso un servizio globale ed esterno al data center ed è quindi isolato da eventuali errori a livello di area o di zona di disponibilità. Se si sceglie di adottare un meccanismo di failover basato su DNS, in Azure sono disponibili due servizi DNS che consentono di raggiungere lo stesso risultato: DNS di Azure (DNS autorevole) e Gestione traffico di Azure (routing intelligente del traffico basato su DNS). 
 
 È importante comprendere alcuni concetti relativi a DNS che vengono ampiamente usati in questo articolo per illustrare le soluzioni disponibili:
-- **Record A DNS**: i record A sono puntatori che consentono di configurare un dominio in modo che punti a un indirizzo IPv4. 
+- **Record A DNS** – record sono disponibili informazioni utili che fanno riferimento a un dominio a un indirizzo IPv4. 
 - **CNAME o nome canonico**: questo tipo di record viene usato per puntare a un altro record DNS. CNAME non risponde con un indirizzo IP ma con il puntatore al record che contiene l'indirizzo IP. 
 - **Routing di tipo Ponderato**: è possibile scegliere di associare un peso agli endpoint del servizio e quindi distribuire il traffico in base ai pesi assegnati. Questo metodo di routing è uno dei quattro meccanismi di routing del traffico disponibili in Gestione traffico. Per altre informazioni, vedere [Metodo di routing del traffico Ponderato](../traffic-manager/traffic-manager-routing-methods.md#weighted).
 - **Routing di tipo Priorità**: questo metodo è basato sui controlli di integrità degli endpoint. Per impostazione predefinita, Gestione traffico di Azure invia tutto il traffico all'endpoint con priorità più elevata e, in caso di errore o di emergenza, indirizza il traffico all'endpoint secondario. Per altre informazioni, vedere [Metodo di routing del traffico Priorità](../traffic-manager/traffic-manager-routing-methods.md#priority).
@@ -71,15 +71,16 @@ La soluzione di failover manuale con DNS di Azure per il ripristino di emergenza
 *Figura: Failover manuale con DNS di Azure*
 
 La soluzione si basa sui presupposti seguenti:
--   L'endpoint primario e quello secondario hanno indirizzi IP statici che non cambiano di frequente. Ad esempio, per il sito primario l'indirizzo IP è 100.168.124.44 e per quello secondario l'indirizzo IP è 100.168.124.43.
--   È presente una zona DNS di Azure per entrambi i siti, primario e secondario. Ad esempio, per il sito primario l'endpoint è prod.contoso.com e per il sito di backup l'endpoint è dr.contoso.com. È inoltre presente un record DNS per l'applicazione principale noto come www.contoso.com.   
--   Il valore TTL è pari o inferiore al valore RTO (Recovery Time Objective, obiettivo del tempo di ripristino) del contratto di servizio impostato nell'organizzazione. Se, ad esempio, un'azienda imposta 60 minuti come RTO della risposta di emergenza dell'applicazione, la durata TTL deve essere inferiore a 60 minuti, preferibilmente il più possibile inferiore a questo valore. È possibile configurare il servizio DNS di Azure per il failover manuale nel modo seguente:
-1. Creare una zona DNS
-2. Creare record di zona DNS
-3. Aggiornare il record CNAME
+- L'endpoint primario e quello secondario hanno indirizzi IP statici che non cambiano di frequente. Ad esempio, per il sito primario l'indirizzo IP è 100.168.124.44 e per quello secondario l'indirizzo IP è 100.168.124.43.
+- È presente una zona DNS di Azure per entrambi i siti, primario e secondario. Ad esempio, per il sito primario l'endpoint è prod.contoso.com e per il sito di backup l'endpoint è dr.contoso.com. Un record DNS per l'applicazione principale, noto come www\.esiste anche contoso.com.   
+- Il valore TTL è pari o inferiore al valore RTO (Recovery Time Objective, obiettivo del tempo di ripristino) del contratto di servizio impostato nell'organizzazione. Se, ad esempio, un'azienda imposta 60 minuti come RTO della risposta di emergenza dell'applicazione, la durata TTL deve essere inferiore a 60 minuti, preferibilmente il più possibile inferiore a questo valore. 
+  È possibile configurare il servizio DNS di Azure per il failover manuale nel modo seguente:
+- Creare una zona DNS
+- Creare record di zona DNS
+- Aggiornare il record CNAME
 
-### <a name="step-1-create-a-dns"></a>Passaggio 1: Creare una zona DNS
-Creare una zona DNS, ad esempio www.contoso.com, come illustrato di seguito:
+### <a name="step-1-create-a-dns"></a>Passaggio 1: Creare un DNS
+Creare una zona DNS (ad esempio, www\.contoso.com) come illustrato di seguito:
 
 ![Creare una zona DNS in Azure](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -87,13 +88,13 @@ Creare una zona DNS, ad esempio www.contoso.com, come illustrato di seguito:
 
 ### <a name="step-2-create-dns-zone-records"></a>Passaggio 2: Creare record di zona DNS
 
-All'interno della zona creare tre record, ad esempio www.contoso.com, prod.contoso.com e dr.contoso.com, come illustrato di seguito:
+Creare tre record all'interno di quest'area (ad esempio: www\.contoso.com, prod.contoso.com e dr.consoto.com) come illustrato di seguito.
 
 ![Creare record di zona DNS](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 *Figura: Creare record di zona DNS in Azure*
 
-In questo scenario, il sito www.contoso.com ha una durata TTL pari a 30 minuti, molto inferiore al valore RTO, e punta al sito di produzione prod.contoso.com. Questa è la configurazione durante le normali attività aziendali. La durata TTL di prod.contoso.com e dr.contoso.com è stata impostata su 300 secondi, ovvero 5 minuti. È possibile usare un servizio di monitoraggio di Azure, come Monitoraggio di Azure o Azure App Insights, oppure qualsiasi soluzione di monitoraggio di partner, come Dynatrace, o anche soluzioni proprietarie in grado di monitorare o rilevare gli errori a livello di applicazione o di infrastruttura virtuale.
+In questo scenario, sito, www\.contoso.com ha una durata (TTL) di 30 minuti, ovvero ben di sotto l'obiettivo RTO dichiarato e fa riferimento a prod.contoso.com di sito di produzione. Questa è la configurazione durante le normali attività aziendali. La durata TTL di prod.contoso.com e dr.contoso.com è stata impostata su 300 secondi, ovvero 5 minuti. È possibile usare un servizio di monitoraggio di Azure, come Monitoraggio di Azure o Azure App Insights, oppure qualsiasi soluzione di monitoraggio di partner, come Dynatrace, o anche soluzioni proprietarie in grado di monitorare o rilevare gli errori a livello di applicazione o di infrastruttura virtuale.
 
 ### <a name="step-3-update-the-cname-record"></a>Passaggio 3: Aggiornare il record CNAME
 
@@ -103,7 +104,7 @@ Dopo aver rilevato un errore, modificare il valore del record in modo che punti 
 
 *Figura: Aggiornare il record CNAME in Azure*
 
-Per un intervallo di 30 minuti, durante il quale quasi tutti i resolver aggiorneranno il file di zona memorizzato nella cache, le query inviate a www.contoso.com saranno reindirizzate a dr.contoso.com.
+Entro 30 minuti, durante il quale la maggior parte dei sistemi di risoluzione aggiornerà il file di zona memorizzato nella cache, una query a www\.verrà reindirizzato a dr.contoso.com contoso.com.
 Per modificare il valore di CNAME è anche possibile usare il seguente comando dell'interfaccia della riga di comando di Azure:
  ```azurecli
    az network dns record-set cname set-record \
@@ -153,7 +154,7 @@ Con una procedura analoga, creare l'endpoint di ripristino di emergenza anche al
 
 ### <a name="step-3-set-up-health-check-and-failover-configuration"></a>Passaggio 3: Definire la configurazione per il controllo di integrità e il failover
 
-In questo passaggio si imposta la durata TTL di DNS su 10 secondi, un valore che viene rispettato dalla maggior parte dei resolver ricorsivi con connessione Internet. Questa configurazione indica che nessun resolver DNS memorizzerà le informazioni nella cache per più di 10 secondi. Per le impostazioni di monitoraggio degli endpoint, il percorso è impostato sulla radice (o /), ma è possibile personalizzare le impostazioni degli endpoint in modo da valutare un percorso, ad esempio prod.contoso.com/index. Come protocollo di sondaggio nell'esempio seguente è impostato **HTTPS**, ma è possibile scegliere anche **HTTP** o **TCP**. La scelta del protocollo dipende dall'applicazione finale. L'intervallo di sondaggio è impostato su 10 secondi, in modo da consentire un'individuazione rapida tramite probe, e come valore di retry è impostato 3. Di conseguenza, Gestione traffico eseguirà il failover nel secondo endpoint se verrà registrato un errore in tre intervalli consecutivi. La formula seguente definisce il tempo totale per un failover automatico: Tempo per il failover = Durata TTL + Retry * Intervallo di sondaggio. In questo caso, il valore è 10 + 3 * 10 = 40 secondi (max).
+In questo passaggio si imposta la durata TTL di DNS su 10 secondi, un valore che viene rispettato dalla maggior parte dei resolver ricorsivi con connessione Internet. Questa configurazione indica che nessun resolver DNS memorizzerà le informazioni nella cache per più di 10 secondi. Per le impostazioni di monitoraggio degli endpoint, il percorso è impostato sulla radice (o /), ma è possibile personalizzare le impostazioni degli endpoint in modo da valutare un percorso, ad esempio prod.contoso.com/index. Come protocollo di sondaggio nell'esempio seguente è impostato **HTTPS**, ma è possibile scegliere anche **HTTP** o **TCP**. La scelta del protocollo dipende dall'applicazione finale. L'intervallo di sondaggio è impostato su 10 secondi, in modo da consentire un'individuazione rapida tramite probe, e come valore di retry è impostato 3. Di conseguenza, Gestione traffico eseguirà il failover nel secondo endpoint se verrà registrato un errore in tre intervalli consecutivi. La formula seguente definisce il tempo totale per un failover automatico: Tempo per il failover di durata (TTL) = + ripetere * Probing intervallo e in questo caso, il valore è 10 + 3 * 10 = 40 secondi (Max).
 Se il valore di retry è impostato su 1 e la durata TTL su 10 secondi, il tempo per il failover sarà 10 + 1 * 10 = 20 secondi. Impostare il valore di retry su un valore maggiore di **1** per evitare l'esecuzione del failover a causa di falsi positivi o problemi di rete irrilevanti. 
 
 

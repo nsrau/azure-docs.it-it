@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: 937e261405634e88ab234d2fe43ee660a3acc417
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: b6c5df1ef0c93508595e27cbda315281aa3461b5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233660"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58124287"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Come configurare una pipeline di CI/CD per Azure Data Lake Analytics  
 
@@ -328,17 +328,17 @@ Oltre alla riga di comando, è possibile usare un'attività di MSBuild o Visual 
    ![Attività di CI/CD di MSBuild per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
 
-1.  Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione, che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Avanzate** > **Directory di destinazione** su `$(Build.SourcesDirectory)/packages`, se si vuole usare gli argomenti di esempio di MSBuild direttamente nel passaggio 2.
+1. Aggiungere un'attività di ripristino di NuGet per ottenere il pacchetto NuGet a cui fa riferimento la soluzione, che include `Azure.DataLake.USQL.SDK`, in modo che MSBuild sia in grado di trovare le destinazioni del linguaggio U-SQL. Impostare **Avanzate** > **Directory di destinazione** su `$(Build.SourcesDirectory)/packages`, se si vuole usare gli argomenti di esempio di MSBuild direttamente nel passaggio 2.
 
-    ![Attività di CI/CD di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
+   ![Attività di CI/CD di NuGet per un progetto U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  Impostare gli argomenti di MSBuild in Visual Studio Build Tools o in un'attività di MSBuild, come illustrato nell'esempio seguente. In alternativa, è possibile definire variabili per questi argomenti nella pipeline di compilazione di Azure Pipelines.
+2. Impostare gli argomenti di MSBuild in Visual Studio Build Tools o in un'attività di MSBuild, come illustrato nell'esempio seguente. In alternativa, è possibile definire variabili per questi argomenti nella pipeline di compilazione di Azure Pipelines.
 
    ![Definire variabili di CI/CD di MSBuild per un progetto di database U-SQL](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
-    ```
-    /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
-    ```
+   ```
+   /p:USQLSDKPath=$(Build.SourcesDirectory)/packages/Microsoft.Azure.DataLake.USQL.SDK.1.3.180615/build/runtime
+   ```
  
 ### <a name="u-sql-database-project-build-output"></a>Output della compilazione del progetto del database U-SQL
 

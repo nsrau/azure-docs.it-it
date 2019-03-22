@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 1ce1faa13c541939335d188866e15c683b6ffc28
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 6d9c5b080c491d3a6f35f591c69d4c39989b22a8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110269"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099798"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gestire i problemi di protezione degli endpoint con il Centro sicurezza di Azure
 Il Centro sicurezza di Azure monitora lo stato della protezione antimalware e lo segnala nel pannello dei problemi di protezione endpoint. Il Centro sicurezza evidenzia i problemi, quali minacce rilevate e protezione insufficiente, che può rendere i computer e le macchine virtuali vulnerabili ai rischi antimalware. Usando le informazioni in **Problemi di protezione degli endpoint**, è possibile sviluppare un piano per risolvere eventuali problemi identificati.
@@ -30,15 +30,15 @@ Il Centro sicurezza segnala i problemi di protezione endpoint seguenti:
 - Protezione endpoint non installata sui computer che non hanno Azure: una soluzione antimalware supportata non è stata installata sui computer diverso da Azure.
 - Integrità della protezione endpoint:
 
-   - Firma non aggiornata: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non dispone delle firme antimalware più recenti.
-   - Protezione non in tempo reale: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non è configurata per la protezione in tempo reale.   È possibile che il servizio sia disattivato o che il Centro sicurezza non riesca a ottenere lo stato perché la soluzione non è supportata. Vedere l'[integrazione dei partner](security-center-partner-integration.md) per un elenco delle soluzioni supportate.
-   - Segnalazioni non inviate: è installata una soluzione antimalware che non invia le segnalazioni dei dati.
-   - Sconosciuto: è installata una soluzione antimalware il cui stato è stato è sconosciuto o segnala un errore sconosciuto.
+  - Firma non aggiornata: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non dispone delle firme antimalware più recenti.
+  - Protezione non in tempo reale: sulle macchine virtuali e sui computer è installata una soluzione antimalware che non è configurata per la protezione in tempo reale.   È possibile che il servizio sia disattivato o che il Centro sicurezza non riesca a ottenere lo stato perché la soluzione non è supportata. Vedere l'[integrazione dei partner](security-center-partner-integration.md) per un elenco delle soluzioni supportate.
+  - Segnalazioni non inviate: è installata una soluzione antimalware che non invia le segnalazioni dei dati.
+  - Sconosciuto: è installata una soluzione antimalware il cui stato è stato è sconosciuto o segnala un errore sconosciuto.
 
-   > [!NOTE]
-   > Vedere [Integrare soluzioni di sicurezza](security-center-partner-integration.md#integrated-azure-security-solutions) per un elenco delle soluzioni di sicurezza di Endpoint Protection integrate nel Centro sicurezza.
-   >
-   >
+    > [!NOTE]
+    > Vedere [Integrare soluzioni di sicurezza](security-center-partner-integration.md#integrated-azure-security-solutions) per un elenco delle soluzioni di sicurezza di Endpoint Protection integrate nel Centro sicurezza.
+    >
+    >
 
 ## <a name="implement-the-recommendation"></a>Implementare la raccomandazione
 I problemi di protezione dell'endpoint vengono presentati sotto forma di suggerimento nel Centro sicurezza.  Se l'ambiente è esposto a minacce antimalware, la raccomandazione verrà visualizzata in **Raccomandazioni** e **Calcolo**. Per vedere il **dashboard dei problemi di protezione endpoint**, è necessario seguire il flusso di lavoro di Calcolo.
@@ -60,7 +60,7 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
    - Installed endpoint protection providers (Provider di protezione endpoint installata): elenca i diversi provider identificati dal Centro sicurezza.
    - Installed endpoint protection health state (Stato di integrità della protezione endpoint installata), mostra lo stato di integrità delle macchine virtuali e dei computer su cui è installata una soluzione di protezione endpoint. Il grafico mostra il numero di macchine virtuali e computer integri e quelli con protezione insufficiente.
    - Malware rilevato: mostra il numero di macchine virtuali e computer in cui il Centro sicurezza segnala il malware rilevato.
-   - Attacked computers (Computer attaccati): mostra il numero di macchine virtuali e computer in cui il Centro sicurezza segnala gli attacchi dei malware.
+   - Computer attaccati: Mostra il numero di macchine virtuali e computer in cui il Centro sicurezza segnala gli attacchi da malware.
 
    Nella parte inferiore del dashboard è presente un elenco di problemi di protezione endpoint che include le informazioni seguenti:  
 
@@ -84,13 +84,13 @@ In questo esempio si userà **Calcolo**.  Verrà illustrato come installare l'an
 
    ![Selezionare Endpoint protection not installed on non-Azure computers (Protezione endpoint non installata sui computer che non hanno Azure)][4]
 
-2. In **Endpoint protection not installed on non-Azure computers** (Protezione endpoint non installata sui computer che non hanno Azure) selezionare un'area di lavoro. Si apre una query di ricerca di Log Analytics filtrata in base all'area di lavoro che elenca i computer privi di antimalware. Selezionare un computer dall'elenco per avere maggiori informazioni.
+2. In **Endpoint protection not installed on non-Azure computers** (Protezione endpoint non installata sui computer che non hanno Azure) selezionare un'area di lavoro. Una query di ricerca log di monitoraggio di Azure filtrata nell'area di lavoro si apre ed elenca i computer privi di antimalware. Selezionare un computer dall'elenco per avere maggiori informazioni.
 
-   ![Ricerca di Log Analytics][5]
+   ![Ricerca di log di monitoraggio di Azure][5]
 
 Verrà visualizzata un'altra finestra di risultati della ricerca contenente le informazioni filtrate solo per quel computer.
 
-  ![Ricerca di Log Analytics][6]
+  ![Ricerca di log di monitoraggio di Azure][6]
 
 > [!NOTE]
 > Si consiglia si eseguire il provisioning di protezione endpoint per tutte le macchine virtuali e i computer, per identificare e rimuovere virus, spyware e altro software dannoso.

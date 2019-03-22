@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: e62a792e7503e65ebe008a52430f86f1f3a00006
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 388a0419d5de87c3eb7faff9b556f888e52ac12e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55456018"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58117371"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Raggruppare i computer usando il mapping delle dipendenze dei computer
 
@@ -21,7 +21,7 @@ Questo articolo descrive come creare un gruppo di computer per eseguire la valut
 > La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
 
 ## <a name="prepare-for-dependency-visualization"></a>Prepararsi per la visualizzazione delle dipendenze
-Per abilitare la visualizzazione delle dipendenze dei computer, Azure Migrate usa la soluzione Mapping dei servizi in Log Analytics.
+Azure Migrate Usa mapping dei servizi nei log di monitoraggio di Azure per abilitare la visualizzazione delle dipendenze delle macchine.
 
 ### <a name="associate-a-log-analytics-workspace"></a>Associare un'area di lavoro di Log Analytics
 Per sfruttare i vantaggi della visualizzazione delle dipendenze è possibile associare un'area di lavoro di Log Analytics, nuova o esistente, a un progetto di Azure Migrate. È possibile creare o collegare solo un'area di lavoro nella stessa sottoscrizione in cui viene creato il progetto di migrazione.
@@ -105,8 +105,8 @@ Altre informazioni sul supporto di Dependency Agent per sistemi operativi [Windo
 
 4. È possibile esaminare le dipendenze per intervalli di tempo diversi facendo clic sulla durata nell'etichetta dell'intervallo di tempo. Per impostazione predefinita, l'intervallo è un'ora. È possibile modificare l'intervallo di tempo oppure specificare le date di inizio e fine e la durata.
 
-    > [!NOTE]
-      Attualmente, l'interfaccia utente di visualizzazione delle dipendenze non supporta la selezione di un intervallo di tempo più lungo di un'ora. Usare Log Analytics per [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies#query-dependency-data-from-log-analytics) per periodi di tempo più lunghi.
+   > [!NOTE]
+   >    Attualmente, l'interfaccia utente di visualizzazione delle dipendenze non supporta la selezione di un intervallo di tempo più lungo di un'ora. Usare monitoraggio di Azure registra [eseguire query sui dati delle dipendenze](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) su periodi di tempo.
 
 5. Dopo aver identificato i computer dipendenti da raggruppare, fare clic tenendo premuto CTRL per selezionare più computer nella mappa e quindi fare clic su **Raggruppa macchine virtuali**.
 6. Specificare un nome di gruppo. Verificare che i computer dipendenti siano stati individuati da Azure Migrate.
@@ -119,19 +119,19 @@ Altre informazioni sul supporto di Dependency Agent per sistemi operativi [Windo
 
 Una volta creato il gruppo, è consigliabile installare gli agenti in tutti i computer del gruppo e perfezionare il gruppo visualizzandone tutte le dipendenze.
 
-## <a name="query-dependency-data-from-log-analytics"></a>Eseguire query sui dati delle dipendenze da Log Analytics
+## <a name="query-dependency-data-from-azure-monitor-logs"></a>Eseguire query sui dati delle dipendenze dai log di monitoraggio di Azure
 
-I dati sulle dipendenze acquisiti da Mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analytics associata al progetto di Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle dei dati di Mapping dei servizi per eseguire query in Log Analytics. 
+I dati sulle dipendenze acquisiti da Mapping dei servizi sono disponibili per l'esecuzione di query nell'area di lavoro di Log Analytics associata al progetto di Azure Migrate. [Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) sulle tabelle di dati di mapping dei servizi per eseguire una query in Monitoraggio di Azure Registra. 
 
-Per eseguire le query di Log Analytics:
+Per eseguire la query Kusto:
 
-1. Dopo aver installato gli agenti, andare al portale e fare clic su **Panoramica**.
-2. In **Panoramica** passare alla sezione **Essentials** del progetto e fare clic sul nome dell'area di lavoro fornito accanto ad **Area di lavoro OMS**.
+1. Dopo aver installato gli agenti, accedere al portale e fare clic su **Panoramica**.
+2. In **Panoramica** , andare alla sezione **Elementi fondamentali** del progetto e fare clic sul nome dell'area di lavoro accanto a **Spazio di lavoro OMS** .
 3. Nella pagina dell'area di lavoro di Log Analytics, fare clic su **Generale** > **Log**.
-4. Scrivere la query per raccogliere dati sulle dipendenze usando Log Analytics. Query di esempio per la raccolta di dati sulle dipendenze sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Scrivere la query per raccogliere dati sulle dipendenze mediante i log di monitoraggio di Azure. Query di esempio per la raccolta di dati sulle dipendenze sono disponibili [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 5. Eseguire la query facendo clic su Esegui. 
 
-[Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) su come scrivere query di Log Analytics. 
+[Altre informazioni](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) sulla scrittura di query Kusto. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

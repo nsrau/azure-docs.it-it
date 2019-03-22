@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee6c6559b5dd6c6a6e357ff2f258bad79d57205c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9809993d47141b70484892103e318a6f55381a2e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192643"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856261"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -64,7 +64,7 @@ Usare la funzionalità per _bloccare/sbloccare utenti_ per evitare che gli utent
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore.
 2. Passare a **Azure Active Directory** > **MFA** > **Blocca/Sblocca utenti**.
 3. Selezionare **Aggiungi** per bloccare un utente.
-4. Selezionare il **Gruppo di replica**. Immettere il nome utente per l'utente bloccato come **username@domain.com**. Immettere un commento nel campo**Motivo**.
+4. Selezionare il **Gruppo di replica**. Immettere il nome utente per l'utente bloccato come **nomeutente\@dominio.com**. Immettere un commento nel campo**Motivo**.
 5. Selezionare **Aggiungi** per completare il blocco dell'utente.
 
 ### <a name="unblock-a-user"></a>Sbloccare un utente
@@ -154,7 +154,7 @@ La funzionalità _bypass monouso_ consente a un utente di eseguire l'autenticazi
 2. Passare a **Azure Active Directory** > **MFA** > **Bypass monouso**.
 3. Selezionare **Aggiungi**.
 4. Se necessario, selezionare il gruppo di replica per il bypass.
-5. Immettere il nome utente come **username@domain.com**. Immettere il numero di secondi che indica la durata del bypass. Immettere il motivo del bypass.
+5. Immettere il nome utente **nomeutente\@dominio.com**. Immettere il numero di secondi che indica la durata del bypass. Immettere il motivo del bypass.
 6. Selezionare **Aggiungi**. Il limite di tempo diventa immediatamente effettivo. L'utente deve accedere prima della scadenza del bypass monouso.
 
 ### <a name="view-the-one-time-bypass-report"></a>Visualizzare il report del bypass monouso
@@ -252,7 +252,7 @@ Per impostazione predefinita, gli utenti non possono creare password dell'app. L
 
 Gli utenti possono creare password dell'app durante la registrazione iniziale. Alla fine del processo di registrazione l'utente può creare le password dell'app.
 
-Gli utenti possono creare password delle app anche dopo la registrazione. Le password dell'app possono essere modificate tramite le impostazioni nel portale di Azure o nel portale di Office 365. Per altre informazioni e procedure dettagliate per gli utenti, vedere [Che cosa sono le password per le app in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
+Gli utenti possono creare password delle app anche dopo la registrazione. Per altre informazioni e procedure dettagliate per gli utenti, vedere [Che cosa sono le password per le app in Azure Multi-Factor Authentication?](../user-help/multi-factor-authentication-end-user-app-passwords.md)
 
 ## <a name="trusted-ips"></a>Indirizzi IP attendibili
 

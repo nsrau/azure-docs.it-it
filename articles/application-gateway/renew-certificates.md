@@ -6,14 +6,14 @@ author: vhorne
 manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
-ms.date: 05/18/2018
+ms.date: 8/15/2018
 ms.author: victorh
-ms.openlocfilehash: b44a57fe8ebcc985d3ab66ea04936a1558d00863
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 90200f7be6c71346441922365fc4439111dd8701
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598267"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57314518"
 ---
 # <a name="renew-application-gateway-certificates"></a>Rinnovare i certificati del gateway applicazione
 
@@ -31,10 +31,12 @@ Caricare il nuovo certificato PFX, assegnargli un nome, digitare la password e q
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
-Per rinnovare il certificato tramite Azure PowerShell, usare il cmdlet seguente:
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Per rinnovare il certificato tramite Azure PowerShell, usare lo script seguente:
 
 ```azurepowershell-interactive
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -ResourceGroupName <ResourceGroup> `
   -Name <AppGatewayName>
 
@@ -43,8 +45,10 @@ $password = ConvertTo-SecureString `
   -Force `
   -AsPlainText
 
-set-azureRmApplicationGatewaySSLCertificate -Name <oldcertname> `
+set-AzApplicationGatewaySSLCertificate -Name <oldcertname> `
 -ApplicationGateway $appgw -CertificateFile <newcertPath> -Password $password
+
+Set-AzApplicationGateway -ApplicationGateway $appgw
 ```
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

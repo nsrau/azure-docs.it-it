@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 7c47e6df1e8b92d122dcc6bed55506f2fccf9e89
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: ba6a352d965f3f90a122f5277ad23ec5f92907eb
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877508"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258463"
 ---
 # <a name="use-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Usare la libreria .NET dell'executor bulk per eseguire operazioni in blocco in Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Attualmente la libreria dell'executor bulk è supportata solo dagli account dell
 
 * È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa è possibile usare l'[emulatore di Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l'endpoint `https://localhost:8081`. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).
 
-* Creare un account API SQL di Azure Cosmos DB tramite la procedura descritta nella sezione [Creare un account di database](create-sql-api-dotnet.md#create-a-database-account) dell'articolo sulla guida introduttiva per .NET. 
+* Creare un account API SQL di Azure Cosmos DB tramite la procedura descritta nella sezione [Creare un account di database](create-sql-api-dotnet.md#create-account) dell'articolo sulla guida introduttiva per .NET. 
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
@@ -72,7 +72,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
    connectionPolicy)
    ```
 
-4. L'oggetto BulkExecutor viene inizializzato con valori di ripetizione elevati per il tempo di attesa e le richieste con limitazione. Questi vengono quindi impostati su 0 per passare il controllo della congestione a BulkExecutor per la relativa durata.  
+4. L'oggetto di BulkExecutor viene inizializzata con un valore elevato di ripetizione dei tentativi per tempo di attesa e le richieste limitate. Questi vengono quindi impostati su 0 per passare il controllo della congestione a BulkExecutor per la relativa durata.  
 
    ```csharp
    // Set retry options high during initialization (default values).
@@ -102,7 +102,7 @@ L'applicazione "BulkImportSample" genera documenti casuali e li importa in blocc
    
    |**Parametro**  |**Descrizione** |
    |---------|---------|
-   |enableUpsert    |   Flag per consentire l'upsert dei documenti. Se esiste già un documento con l'ID specificato, questo viene aggiornato. Per impostazione predefinita, il valore è impostato su false.      |
+   |enableUpsert    |   Flag per abilitare esegue l'Upsert dei documenti. Se esiste già un documento con l'ID specificato, questo viene aggiornato. Per impostazione predefinita, il valore è impostato su false.      |
    |disableAutomaticIdGeneration    |    Flag per disabilitare la generazione automatica dell'ID. Per impostazione predefinita, è impostato su true.     |
    |maxConcurrencyPerPartitionKeyRange    | Il grado massimo di concorrenza per ogni intervallo di chiavi di partizione; impostando il valore null la libreria userà il valore predefinito 20. |
    |maxInMemorySortingBatchSize     |  Il numero massimo di documenti di cui è stato eseguito il pull dall'enumeratore di documenti che viene passato alla chiamata API in ogni fase.  Per la fase di ordinamento di pre-elaborazione in memoria che precede l'importazione in blocco, impostando il valore null la libreria userà il valore predefinito min(documents.count, 1000000).       |
@@ -173,7 +173,7 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
 
 * Si consiglia di creare un'istanza di un singolo oggetto BulkExecutor per l'intera applicazione all'interno di una singola macchina virtuale corrispondente a uno specifico contenitore di Cosmos DB.  
 
-* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una singola chiamata API di un'operazione in blocco in esecuzione su una singola macchina virtuale non è in grado di usare la velocità effettiva dell'intero contenitore (se la velocità effettiva del contenitore > 1 milione di UR/s), è preferibile creare macchine virtuali separate per eseguire simultaneamente le chiamate API di operazione in blocco.  
+* Dato che l'esecuzione di una singola API con un'operazione in blocco usa un blocco di grandi dimensioni della CPU e dell'I/O di rete del computer client generando internamente più attività, evitare di generare più attività simultanee all'interno del processo dell'applicazione, di cui ognuna esegue chiamate API di operazioni in blocco. Se una chiamata di operazione API bulk singolo in esecuzione in una singola macchina virtuale è in grado di utilizzare la velocità effettiva del contenitore intero (se. la velocità effettiva > 1 del contenitore milioni di UR/s), è preferibile per creare macchine virtuali separate da eseguire simultaneamente chiamate API di operazioni bulk.  
 
 * Verificare che InitializeAsync() venga richiamato dopo la creazione dell'istanza di un oggetto BulkExecutor per recuperare la mappa di partizioni del contenitore di Cosmos DB di destinazione.  
 
@@ -194,7 +194,7 @@ Per ottenere prestazioni migliori, quando si usa la libreria dell'executor bulk 
       </listeners>
     </trace>
   </system.diagnostics>
-```
+  ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per i dettagli del pacchetto Nuget e le note sulla versione della libreria .NET dell'executor bulk, vedere i [dettagli sull'SDK dell'executor bulk](sql-api-sdk-bulk-executor-dot-net.md). 
+* Per ulteriori informazioni sui dettagli del pacchetto Nuget e note della libreria .NET di executor bulk, vedere[bulk dettagli SDK executor](sql-api-sdk-bulk-executor-dot-net.md). 

@@ -11,16 +11,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2019
+ms.date: 03/18/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: c993322bdf4266939eab854e217cae6e90326d29
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/18/2019
+ms.openlocfilehash: 1ea079373edc9b9f1dde6038f1e02e3d7036e052
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991564"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57890492"
 ---
 # <a name="update-azure-app-service-on-azure-stack"></a>Aggiorna servizio App di Azure in Azure Stack
 
@@ -52,7 +52,7 @@ Durante questo processo, l'aggiornamento sarà:
 
 Per aggiornare la distribuzione del servizio App in Azure Stack, seguire questa procedura:
 
-1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate4installer)
+1. Scaricare il [programma di installazione del servizio App](https://aka.ms/appsvcupdate5installer)
 
 2. Eseguire appservice.exe come amministratore
 
@@ -72,13 +72,13 @@ Per aggiornare la distribuzione del servizio App in Azure Stack, seguire questa 
 
    1. Fare clic sui **Connect** accanto alle **sottoscrizioni di Azure Stack** casella.
         * Se si usa Azure Active Directory (Azure AD), immettere l'account amministratore di Azure AD e la password specificata quando è stato distribuito Azure Stack. Fare clic su **Accedi**.
-        * Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, *cloudadmin@azurestack.local*. Immettere la password e fare clic su **Accedi**.
+        * Se si usa Active Directory Federation Services (ADFS), specificare l'account di amministratore. Ad esempio, *cloudadmin\@azurestack*. Immettere la password e fare clic su **Accedi**.
    2. Nel **delle sottoscrizioni di Azure Stack** , quindi selezionare la **sottoscrizione del Provider predefinito**.
    3. Nel **località di Azure Stack** selezionare il percorso che corrisponde all'area di cui si esegue la distribuzione. Ad esempio, selezionare **locale** se la distribuzione in Azure Stack Development Kit.
    4. Se viene rilevata una distribuzione di servizio App esistente, quindi l'account di archiviazione e del gruppo di risorse verrà popolata e in grigio.
    5. Fare clic su **successivo** per esaminare il riepilogo dell'aggiornamento.
 
-    ![Installazione del servizio App rilevate][3]
+      ![Installazione del servizio App rilevate][3]
 
 8. Nella pagina di riepilogo:
    1. Verificare le selezioni effettuate. Per apportare modifiche, usare il **Previous** pulsanti visitare le pagine precedenti.

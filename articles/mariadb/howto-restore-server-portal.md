@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: cf6d0399c790a42eaf74b3ec339bf8cf67495fb3
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 1dc7930649a4e90c3b1c69a4f109f545f74a79f4
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53548760"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58081118"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mariadb-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MariaDB tramite il portale di Azure
 
@@ -63,11 +63,11 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
-   ![Database di Azure per MariaDB - Informazioni di ripristino ](./media/howto-restore-server-portal/3-restore.png)
-  - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
-  - **Server di destinazione**: Specificare un nome per il nuovo server.
-  - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
-  - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
+   ![Database di Azure per MariaDB - Informazioni di ripristino](./media/howto-restore-server-portal/3-restore.png)
+   - **Punto di ripristino**: selezionare il punto di ripristino temporizzato desiderato.
+   - **Server di destinazione**: Specificare un nome per il nuovo server.
+   - **Posizione**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.
+   - **Piano tariffario**: non è possibile modificare questi parametri quando si esegue un ripristino temporizzato. È uguale al server di origine. 
 
 4. Fare clic su **OK** per ripristinare il server a un momento specifico. 
 

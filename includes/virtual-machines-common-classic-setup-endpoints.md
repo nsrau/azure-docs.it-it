@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/23/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: e7dfd7d2a0363a95acb76a5dc214dbd4036de11d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
-ms.translationtype: HT
+ms.openlocfilehash: ee5faedd4f59aa791424a1f178f0462922f21d28
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50973839"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58115290"
 ---
 Ogni endpoint ha una *porta pubblica* e una *porta privata*:
 
@@ -37,7 +37,7 @@ Dopo aver creato un endpoint, è possibile usare un elenco di controllo di acces
 3. Nella gruppo **Impostazioni** selezionare **Endpoint**. Viene visualizzata la pagina **Endpoint**, in cui sono elencati tutti gli endpoint correnti per la macchina virtuale. Questo esempio è relativo a una macchina virtuale Windows. Una macchina virtuale Linux mostrerà per impostazione predefinita un endpoint per SSH.
 
    <!-- ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointswindows.png) -->
-   ![Endpoint](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
+   ![Endpoints](./media/virtual-machines-common-classic-setup-endpoints/endpointsblade.png)
 
 
 4. Nella barra dei comandi sopra le voci di endpoint selezionare **Aggiungi**. Verrà visualizzata la pagina **Aggiungi endpoint**.
@@ -76,7 +76,7 @@ Se la macchina virtuale si trova in una rete virtuale di Azure, usare i gruppi d
 
 4. Usare le righe nell'elenco per aggiungere, eliminare o modificare le regole per un elenco di controllo di accesso e modificarne l'ordine. Il valore **SUBNET REMOTA** è un intervallo di indirizzi IP per il traffico in ingresso da Internet usato dal servizio di bilanciamento del carico di Azure per autorizzare o rifiutare il traffico in base all'indirizzo IP di origine. Assicurarsi di specificare l'intervallo di indirizzi IP nel formato CIDR (Classless Inter-Domain Routing), noto anche come formato di prefisso di indirizzo. Ad esempio: `10.1.0.0/8`.
 
- ![Nuova voce ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
+   ![Nuova voce ACL](./media/virtual-machines-common-classic-setup-endpoints/newaclentry.png)
 
 
 È possibile usare regole per consentire solo il traffico da computer specifici corrispondenti ai computer su Internet oppure rifiutare il traffico da intervalli di indirizzi specifici e noti.

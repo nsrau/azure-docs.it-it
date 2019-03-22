@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: fd4c1220d0652139c247ffed80e995a90a93c5b1
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 469213ae67f1f2bcece6afa5d9b7873bfdfe8d6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780840"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58095739"
 ---
 # <a name="azure-monitor-on-azure-stack"></a>Monitoraggio di Azure in Azure Stack
 
@@ -33,8 +33,8 @@ Per un'introduzione, panoramica e su come iniziare a usare monitoraggio di Azure
 
 Monitoraggio di Azure è il servizio di piattaforma che mette a disposizione un'unica origine per il monitoraggio delle risorse di Azure. Con Monitoraggio di Azure è possibile visualizzare, fare query, indirizzare, archiviare ed effettuare operazioni sulle metriche e sui log provenienti dalle risorse di Azure. Per lavorare con i dati usando il portale di amministrazione di Azure Stack, i cmdlet di PowerShell di monitoraggio, Cross-Platform della riga di comando o le API REST di monitoraggio di Azure. Per la connettività specifica supportata da Azure Stack, vedere [come utilizzare i dati di monitoraggio di Azure Stack](azure-stack-metrics-monitor.md)
 
-> [!Note]  
-Le metriche e log di diagnostica non sono disponibili per Azure Stack Development Kit.
+> [!Note]
+> Le metriche e log di diagnostica non sono disponibili per Azure Stack Development Kit.
 
 ## <a name="prerequisites-for-azure-monitor-on-azure-stack"></a>Prerequisiti per il monitoraggio di Azure in Azure Stack
 

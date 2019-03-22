@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b20b1506dfcd32ea7d5bfca0847393d1652afb78
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: cdee17185b7051220f66ede3b9da50a333409e6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639180"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58119268"
 ---
 # <a name="common-sas-url-issues-and-fixes"></a>Problemi comuni degli URL di firma di accesso condiviso e relative correzioni
 
@@ -27,7 +27,7 @@ Nella tabella seguente sono elencati alcuni dei problemi più comuni riscontrati
 
 | **Problema** | **Messaggio di errore** | **Correzione** | 
 | --------- | ------------------- | ------- | 
-| &emsp; *Errore durante la copia di immagini* |  |  |  |
+| &emsp; *Errore durante la copia di immagini* |  |  |
 | "?" non trovato nell'URL di firma di accesso condiviso | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Aggiornare l'URL di firma di accesso condiviso con gli strumenti consigliati. |
 | Parametri "st" e "se" non presenti nell'URL di firma di accesso condiviso | `Failure: Copying Images. Not able to download blob using provided SAS Uri.` | Aggiornare l'URL di firma di accesso condiviso con i valori **Data di inizio** e **Data di fine** corretti. | 
 | "sp = rl" non presente nell'URL di firma di accesso condiviso | `Failure: Copying Images. Not able to download blob using provided SAS Uri` | Aggiornare l'URL di firma di accesso condiviso con autorizzazioni `Read` e `List`. | 

@@ -11,15 +11,15 @@ ms.topic: article
 ms.date: 11/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a0b4c41d347ba556e737d422af22fb5a47c7c4ff
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a7aa5401cbba9fafda9f995a882934ef0edfa481
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56108722"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57881147"
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>Processo di analisi scientifica dei dati per i team in azione: Usare cluster Hadoop di Azure HDInsight
-In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
+In questa procedura dettagliata viene usato [Team Data Science Process (TDSP)](overview.md) in uno scenario end-to-end. Verrà usato un [cluster Hadoop di Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) per archiviazione, esplorazione e sviluppo delle funzionalità dei dati del set di dati delle [corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/), disponibile a livello pubblico, e per sottocampionare i dati. Per gestire attività predittive di regressione e classificazione binaria e multiclasse, verranno creati modelli dei dati con Azure Machine Learning. 
 
 Per una procedura dettagliata che mostra come gestire set di dati di dimensioni più grandi, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Hadoop di Azure HDInsight su un set di dati da 1 TB](hive-criteo-walkthrough.md).
 
@@ -84,7 +84,7 @@ Per impostare un ambiente Azure per l'analisi avanzata basato su un cluster HDIn
 > 
 > 
 
-Per copiare il set di dati delle [corse dei taxi di New York](http://www.andresmh.com/nyctaxitrips/) nel computer dal percorso pubblico, usare uno dei metodi descritti in [Spostamento dei dati da e verso l'archivio BLOB di Azure](move-azure-blob.md).
+Per copiare il set di dati delle [corse dei taxi di New York](https://www.andresmh.com/nyctaxitrips/) nel computer dal percorso pubblico, usare uno dei metodi descritti in [Spostamento dei dati da e verso l'archivio BLOB di Azure](move-azure-blob.md).
 
 Qui viene descritto come usare AzCopy per trasferire i file contenenti i dati. Per scaricare e installare AzCopy, seguire le istruzioni incluse in [Introduzione all'utilità della riga di comando AzCopy](../../storage/common/storage-use-azcopy.md).
 
@@ -516,7 +516,7 @@ Eseguire il comando seguente dalla console della riga di comando di Hadoop:
 
 Potrebbe essere necessario determinare se esiste una differenza tra la distanza diretta tra due posizioni e la distanza effettiva della corsa del taxi. Un passeggero potrebbe essere meno propenso a lasciare la mancia se ritiene che l'autista abbia intenzionalmente scelto un itinerario più lungo.
 
-Per visualizzare il confronto tra la distanza effettiva della corsa e la [distanza in base alla formula dell'emisenoverso](http://en.wikipedia.org/wiki/Haversine_formula) tra due punti di latitudine/longitudine (distanza di cerchio massimo), è possibile usare le funzioni trigonometriche disponibili in Hive:
+Per visualizzare il confronto tra la distanza effettiva della corsa e la [distanza in base alla formula dell'emisenoverso](https://en.wikipedia.org/wiki/Haversine_formula) tra due punti di latitudine/longitudine (distanza di cerchio massimo), è possibile usare le funzioni trigonometriche disponibili in Hive:
 
     set R=3959;
     set pi=radians(180);
@@ -822,8 +822,8 @@ Poiché i dati sottocampionati si trovano nel contenitore predefinito, la query 
 Questa procedura di esempio e gli script contenuti sono forniti da Microsoft con licenza MIT. Per altre informazioni, vedere il file **LICENSE.txt** nella directory del codice di esempio in GitHub.
 
 ## <a name="references"></a>Riferimenti
-•    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](http://www.andresmh.com/nyctaxitrips/)  
-•    [Complemento dai dati sulle corse dei taxi di NYC di Chris Whong](http://chriswhong.com/open-data/foil_nyc_taxi/)   
+•    [Pagina di Andrés Monroy per scaricare i dati sulle corse dei taxi di NYC](https://www.andresmh.com/nyctaxitrips/)  
+•    [Complemento dai dati sulle corse dei taxi di NYC di Chris Whong](https://chriswhong.com/open-data/foil_nyc_taxi/)   
 •    [Ricerche e statistiche su NYC Taxi and Limousine Commission](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [2]: ./media/hive-walkthrough/output-hive-results-3.png

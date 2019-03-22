@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2c547eba931e23b6ffc7cae176e19959d43bcf5e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: b879036dcd79901cb634fa197932e833cb22d12a
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53602495"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57405029"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Distribuzione dell'archivio Git locale nel servizio app di Azure
 
@@ -44,7 +44,7 @@ git clone https://github.com/Azure-Samples/nodejs-docs-hello-world.git
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="deploy-from-local-git-with-kudu-builds"></a>Distribuire dall'archivio Git locale con le compilazioni Kudu
+## <a name="deploy-with-kudu-builds"></a>Distribuire con le compilazioni di Kudu
 
 Il modo più semplice per abilitare la distribuzione dell'archivio Git locale per l'app con il server di compilazione Kudu è usare Cloud Shell.
 
@@ -102,7 +102,7 @@ Nell'output potrebbe essere visualizzata l'automazione specifica di runtime, ad 
 
 Passare all'app per verificare che il contenuto sia stato distribuito.
 
-## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Distribuire dall'archivio Git locale con le compilazioni di Azure DevOps Services
+## <a name="deploy-with-azure-devops-builds"></a>Distribuire con le build di Azure DevOps
 
 > [!NOTE]
 > Per il servizio App per creare le Azure Pipelines necessarie nell'organizzazione di servizi di Azure DevOps, l'account di Azure deve avere il ruolo di **Proprietario** nella sottoscrizione di Azure.
@@ -110,20 +110,18 @@ Passare all'app per verificare che il contenuto sia stato distribuito.
 
 Per abilitare la distribuzione dell'archivio Git locale per l'app con il server di compilazione Kudu, accedere all'app dal [portale di Azure](https://portal.azure.com).
 
-Nel riquadro di spostamento a sinistra della pagina dell'app fare clic su **Centro distribuzione** > **Archivio Git locale** > **Continua**. 
+Nel riquadro di spostamento a sinistra della pagina dell'app fare clic su **Centro distribuzione** > **Archivio Git locale** > **Continua**.
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Fare clic su **Recapito continuo di servizi di Azure DevOps Services** > **Continua**.
+Fare clic su **pipeline di Azure (anteprima)** > **continuare**.
 
-![](media/app-service-deploy-local-git/vsts-build-server.png)
+![](media/app-service-deploy-local-git/pipeline-builds.png)
 
-Nella pagina **Configura**, configurare una nuova organizzazione di Azure DevOps Services o specificare un'organizzazione esistente. Al termine dell'operazione, fare clic su **Continua**.
+Nel **configura** pagina, configurare una nuova organizzazione DevOps di Azure oppure specificare un'organizzazione esistente. Al termine dell'operazione, fare clic su **Continua**.
 
 > [!NOTE]
-> Se si desidera usare un'organizzazione di Azure DevOps Services esistente non presente in elenco, è necessario [collegare l'organizzazione di Azure DevOps Services alla sottoscrizione di Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
-
-Nella pagina **Test** scegliere se abilitare i test di carico e fare clic su **Continua**.
+> Se si desidera utilizzare un'organizzazione di Azure DevOps esistente che non è elencata, è necessario [collegare la sottoscrizione di Azure dell'organizzazione di servizi di Azure DevOps](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 In base al [piano tariffario](https://azure.microsoft.com/pricing/details/app-service/plans/) del piano di servizio app, è anche possibile visualizzare la pagina **Distribuisci nell'ambiente di staging**. Scegliere se abilitare gli slot di distribuzione e fare clic su **Continua**.
 

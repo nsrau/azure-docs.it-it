@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 02/07/2019
 ms.author: lahugh
-ms.openlocfilehash: 734c16111ab859b55d87525cdc8a644c8114f6d2
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 9902f38ddfd3035adcce697c2eb5b77bdc1d8c9c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429042"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57874762"
 ---
 # <a name="azure-batch-compute-node-environment-variables"></a>Variabili di ambiente per i nodi di calcolo di Azure Batch
 
@@ -62,7 +62,6 @@ Le righe di comando eseguite dalle attività sui nodi di calcolo non vengono ese
 | AZ_BATCH_TASK_DIR               | Percorso completo della [directory delle attività][files_dirs] nel nodo. Questa directory contiene `stdout.txt` e `stderr.txt` per l'attività e AZ_BATCH_TASK_WORKING_DIR. | Tutte le attività. | C:\user\tasks\workitems\batchjob001\job-1\task001 |
 | AZ_BATCH_TASK_ID                | ID dell'attività corrente. | Tutte le attività tranne l'attività di avvio. | task001 |
 | AZ_BATCH_TASK_SHARED_DIR | Un percorso di directory identico per l'attività principale e tutte le sottoattività di un'[attività multi-istanza][multi_instance]. Il percorso esiste in ogni nodo in cui viene eseguita l'attività multi-istanza ed è accessibile in lettura/scrittura per i comandi di attività in esecuzione su tale nodo (sia il [comando di coordinamento][coord_cmd] che [il comando di applicazione][app_cmd]). Le sottoattività o un'attività principale eseguite su altri nodi non dispongono dell'accesso remoto per questa directory (non è una directory di rete "condivisa"). | Principale multi-istanza e sottoattività. | C:\user\tasks\workitems\multiinstancesamplejob\job-1\multiinstancesampletask |
-| AZ_BATCH_TASK_SHARED_DIR        | Directory comune per l'archiviazione dei dati che deve essere condivisa fra le attività nel nodo. | Tutte le attività. | C:\user\tasks\shared |
 | AZ_BATCH_TASK_WORKING_DIR       | Percorso completo della [directory di lavoro delle attività][files_dirs] nel nodo. L'attività attualmente in esecuzione ha accesso in lettura/scrittura per questa directory. | Tutte le attività. | C:\user\tasks\workitems\batchjob001\job-1\task001\wd |
 | CCP_NODES                       | L'elenco dei nodi e il numero di core per nodo allocati per un'[attività multi-istanza][multi_instance]. I nodi e i core sono elencati nel formato`numNodes<space>node1IP<space>node1Cores<space>`<br/>`node2IP<space>node2Cores<space> ...`, dove il numero di nodi è seguito da uno o più indirizzi IP di nodo e dal numero di core per ognuno. |  Principale multi-istanza e sottoattività. |`2 10.0.0.4 1 10.0.0.5 1` |
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 10/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 9779885869666ffd1198afcda944823b99d52e5b
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: bf7d80bbbe63204cda47719a7d7c019013ad800b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417974"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58099172"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connettere reti virtuali da modelli di distribuzione diversi usando il portale
 
@@ -114,7 +114,7 @@ Se si dispone già di una rete virtuale con un gateway VPN, verificare che il ga
 1. Nella pagina **Nuova connessione VPN** selezionare la casella di controllo **Crea gateway immediatamente**.
 2. Fare clic su **Configurazione gateway facoltativa** per aprire la pagina **Configurazione gateway**.
 
-  ![Aprire la pagina Configurazione gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Aprire la pagina Configurazione gateway")
+   ![Aprire la pagina Configurazione gateway](./media/vpn-gateway-connect-different-deployment-models-portal/optionalgatewayconfiguration.png "Aprire la pagina Configurazione gateway")
 3. Fare clic su **Subnet - Configurare le impostazioni necessarie** per aprire la pagina **Aggiungi subnet**. Il **Nome** è già configurato con il valore richiesto: **GatewaySubnet**.
 4. **Intervallo indirizzi** si riferisce all'intervallo per la subnet del gateway. Sebbene sia possibile creare una subnet del gateway con un intervallo di indirizzi /29 (3 indirizzi), è consigliabile creare una subnet del gateway che contiene più indirizzi IP. Questo la rende compatibile con configurazioni future che potrebbero richiedere più indirizzi IP disponibili. Se possibile, usare /27 o /28. Se si segue questa procedura come esercizio, è possibile usare i valori dell'[Esempio](#values). In questo esempio viene usato il nome "10.0.0.32/28". Fare clic su **OK** per creare la subnet del gateway.
 5. Nella pagina **Configurazione gateway**, **Dimensioni** si riferisce allo SKU del gateway. Selezionare lo SKU del gateway per il gateway VPN.
@@ -192,16 +192,16 @@ In questa sezione si sostituisce l'indirizzo IP segnaposto usato nella specifica
 2. Nella pagina della rete virtuale fare clic su **Panoramica**.
 3. Nella sezione **Connessioni VPN** fare clic sul nome del sito locale nell'elemento grafico.
 
-  ![Connessioni VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connessioni VPN")
+   ![Connessioni VPN](./media/vpn-gateway-connect-different-deployment-models-portal/vpnconnections.png "Connessioni VPN")
 4. Nella pagina **Connessioni VPN da sito a sito** fare clic sul nome del sito.
 
-  ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nome del sito locale")
+   ![Site-name](./media/vpn-gateway-connect-different-deployment-models-portal/sitetosite3.png "Nome del sito locale")
 5. Nella pagina della connessione per il sito locale fare clic sul nome del sito locale per aprire la pagina **Sito locale**.
 
-  ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Aprire il sito locale")
+   ![Open-local-site](./media/vpn-gateway-connect-different-deployment-models-portal/openlocal.png "Aprire il sito locale")
 6. Nella pagina **Sito locale** sostituire l'**indirizzo IP del gateway VPN** con l'indirizzo IP del gateway di Resource Manager.
 
-  ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Indirizzo IP del gateway")
+   ![Gateway-ip-address](./media/vpn-gateway-connect-different-deployment-models-portal/gwipaddress.png "Indirizzo IP del gateway")
 7. Fare clic su **OK** per aggiornare l'indirizzo IP.
 
 ## <a name="RMtoclassic"></a>Sezione 4: Creare una connessione da Resource Manager alla rete classica

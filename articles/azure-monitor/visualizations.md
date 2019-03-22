@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2018
 ms.author: bwren
-ms.openlocfilehash: 1daae81f0f642275e1ded20eb29f1e3145463db8
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 55aed5d1133756789c3ed8979f0a9599f465e5d9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990173"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315096"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -32,9 +32,9 @@ I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecno
 ![dashboard](media/visualizations/dashboard.png)
 
 ### <a name="advantages"></a>Vantaggi
-- Integrazione avanzata in Azure. Le visualizzazioni possono essere aggiunte ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analytics e Application Insights.
+- Integrazione avanzata in Azure. Visualizzazioni possono essere aggiunti ai dashboard da più pagine di Azure, tra cui Esplora metriche, Log Analitica e Application Insights.
 - Supporto sia per le metriche sia per i log.
-- Combinazione dei dati provenienti da più origini, tra cui l'output da [Esplora metriche](platform/metrics-charts.md), [query di Log](log-query/log-query-overview.md), [mappe](app/app-map.md) e [disponibilità]() in Application Insights.
+- Combinare dati provenienti da più origini, tra cui output dal [Esplora metriche](platform/metrics-charts.md), [registrare query](log-query/log-query-overview.md), e [viene eseguito il mapping](app/app-map.md) e disponibilità in Application Insights.
 - Opzione per dashboard personali o condivisi, integrati con l'[autenticazione basata su ruoli (RBAC)](../role-based-access-control/overview.md) di Azure.
 - Aggiornamento automatico delle metriche in base a un intervallo di tempo con un valore minimo di cinque minuti e dei log con intervallo di un minuto.
 - Dashboard delle metriche con parametri con timestamp e parametri personalizzati.
@@ -71,9 +71,8 @@ Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consent
 - Le dimensioni della risposta delle query sono limitate a 8 MB e il tempo di esecuzione è 110 secondi.
 
 
-
-## <a name="application-insights-workbooks"></a>Cartelle di lavoro di Application Insights
-Le [cartelle di lavoro](../application-insights/app-insights-usage-workbooks.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
+## <a name="workbooks"></a>Workbooks
+Le [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
 
 ![Cartella di lavoro](media/visualizations/workbook.png)
 
@@ -122,7 +121,6 @@ Le [cartelle di lavoro](../application-insights/app-insights-usage-workbooks.md)
 - Supporto dei parametri.
 
 ### <a name="limitations"></a>Limitazioni
-- Supporto per le metriche, ma non per i log.
 - Nessuna integrazione in Azure. Gestione dei dashboard e dei modelli tramite Azure Resource Manager non consentita.
 - Costi per supportare l'infrastruttura aggiuntiva di Grafana o costi aggiuntivi per Grafana Cloud.
 
@@ -142,6 +140,7 @@ Le [cartelle di lavoro](../application-insights/app-insights-usage-workbooks.md)
 - Informazioni sui [dati raccolti da Monitoraggio di Azure](platform/data-collection.md).
 - Informazioni sui [dashboard di Azure](../azure-portal/azure-portal-dashboards.md).
 - Informazioni sulle [visualizzazioni in Monitoraggio di Azure](platform/view-designer.md).
-- Informazioni sulle [cartelle di lavoro di Application Insights](app/usage-workbooks.md).
-- Informazioni sull'[importazione dei dati di log in Power BI](platform/powerbi.md).
-- Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](platform/grafana-plugin.md).
+- Scopri [cartelle di lavoro](../azure-monitor/app/usage-workbooks.md).
+- Informazioni sull'[importazione dei dati di log in Power BI](../azure-monitor/platform/powerbi.md).
+- Informazioni sul [plug-in Grafana dell'origine dati Monitoraggio di Azure](../azure-monitor/platform/grafana-plugin.md).
+

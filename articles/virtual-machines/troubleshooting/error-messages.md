@@ -12,12 +12,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure
 ms.date: 5/22/2017
 ms.author: xujing
-ms.openlocfilehash: 80b99880362c3979ae5ead6d1cdff4091d23d065
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5945be210812a6cbc24c9a3bb12414be5212be17
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118976"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437599"
 ---
 # <a name="understand-common-error-messages-when-you-manage-virtual-machines-in-azure"></a>Informazioni sui messaggi di errore comuni quando si gestiscono le macchine virtuali in Azure
 
@@ -99,8 +99,8 @@ Questa sezione contiene un elenco dei messaggi di errore comuni che possono esse
 |  InvalidParameter  |  La password fornita deve avere una lunghezza compresa tra {0} e3{1} caratteri e deve soddisfare almeno {2} dei seguenti requisiti di complessità delle password: <ol><li> Contiene un carattere maiuscolo</li><li>Contiene un carattere minuscolo</li><li>Contiene una cifra numerica</li><li>Contiene un carattere speciale.</li></ol>  |
 |  InvalidParameter  |  Il nome utente amministratore specificato non è consentito.  |
 |  InvalidParameter  |  Non è possibile collegare un disco del sistema operativo esistente se la macchina virtuale è stata creata da una piattaforma o da un'immagine utente.  |
-|  InvalidParameter  |  Il nome del contenitore {0} non è valido. I nomi dei contenitori devono avere una lunghezza compresa tra 3 e 63 caratteri e possono contenere solo caratteri alfanumerici minuscoli e trattini. Il trattino deve essere preceduto e seguito da un carattere alfanumerico.  |
-|  InvalidParameter  |  Il nome del contenitore {0} nell'URL {1} non è valido. I nomi dei contenitori devono avere una lunghezza compresa tra 3 e 63 caratteri e possono contenere solo caratteri alfanumerici minuscoli e trattini. Il trattino deve essere preceduto e seguito da un carattere alfanumerico.  |
+|  InvalidParameter  |  Il nome del contenitore {0} non è valido. I nomi dei contenitori devono avere una lunghezza compresa tra 3 e 63 caratteri e possono contenere solo caratteri alfanumerici minuscoli e trattini. Trattino deve essere preceduto e seguito da un carattere alfanumerico.  |
+|  InvalidParameter  |  Il nome del contenitore {0} nell'URL {1} non è valido. I nomi dei contenitori devono avere una lunghezza compresa tra 3 e 63 caratteri e possono contenere solo caratteri alfanumerici minuscoli e trattini. Trattino deve essere preceduto e seguito da un carattere alfanumerico.  |
 |  InvalidParameter  |  Il nome del BLOB nell'URL {0} contiene una barra. Questo carattere non è attualmente supportato per i dischi.  |
 |  InvalidParameter  |  L'URI {0} non sembra essere un URI BLOB corretto.  |
 |  InvalidParameter  |  Un disco denominato '{0}' usa già lo stesso LUN: {1}.  |

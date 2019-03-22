@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 11/05/2018
-ms.openlocfilehash: de339fbab3d360507a77708816b5fccdca80a7d1
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 9dcb79e7f4ebd43da3f6c6fd35fa0707898d7ec8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53544754"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58111005"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoraggio in Database di Azure per MySQL
 Il monitoraggio dei dati relativi ai server facilita la risoluzione dei problemi e l'ottimizzazione in relazione al carico di lavoro. Database di Azure per MySQL offre varie metriche che consentono di ottenere informazioni approfondite sul comportamento del server.
@@ -23,7 +23,7 @@ Tutte le metriche di Azure hanno una frequenza di un minuto e offrono una cronol
 Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 
 |Metrica|Nome visualizzato per la metrica|Unità|DESCRIZIONE|
-|---|---|---|---|---|
+|---|---|---|---|
 |cpu_percent|Percentuale CPU|Percentuale|Percentuale di CPU in uso.|
 |memory_percent|Percentuale memoria|Percentuale|Percentuale di memoria in uso.|
 |io_consumption_percent|IO percent (Percentuale IO)|Percentuale|Percentuale di I/O in uso.|
@@ -41,7 +41,7 @@ Per Database di Azure per MySQL sono disponibili le metriche seguenti:
 |backup_storage_used|Risorse di backup in uso|Byte|Quantità di risorse dell'archivio di backup usate.|
 
 ## <a name="server-logs"></a>Log del server
-È possibile abilitare la registrazione delle query lente nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure in Log Analytics OMS, Hub eventi e nell'account di archiviazione. Per altre informazioni sull'accesso, visitare la pagina dei  [log del server](concepts-server-logs.md).
+È possibile abilitare la registrazione delle query lente nel server. Questi log sono disponibili anche tramite i log di diagnostica di Azure nell'Account di archiviazione, hub eventi e log monitoraggio di Azure. Per altre informazioni sull'accesso, visitare la pagina dei  [log del server](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per informazioni sulla creazione di un avviso per una metrica, vedere [Come configurare gli avvisi](howto-alert-on-metric.md).

@@ -10,12 +10,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 000f8de4d40fda39f183b0824bea6a09605e6e9d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: a47a30995f651204782325a9f984086fdf382a03
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977610"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202198"
 ---
 # <a name="use-time-based-apache-oozie-coordinator-with-apache-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Usare il coordinatore di Apache Oozie basato sul tempo con Apache Hadoop in HDInsight per definire flussi di lavoro e coordinare processi
 Questo articolo descrive come definire flussi di lavoro e coordinatori e come attivare i processi del coordinatore in base al tempo. Prima di procedere può essere utile vedere [Usare Apache Oozie con HDInsight][hdinsight-use-oozie]. Oltre a Oozie, è possibile pianificare processi anche con Azure Data Factory. Per informazioni su Azure Data Factory, vedere le informazioni relative all'[uso di Apache Pig e di Apache Hive in Azure Data Factory](../data-factory/transform-data.md).
@@ -32,7 +32,7 @@ L'immagine seguente illustra il flusso di lavoro che verrà implementato:
 
 Il flusso di lavoro contiene due azioni:
 
-1. Un'azione di Hive esegue uno script HiveQL per contare le occorrenze di ogni tipo di livello di log in un file log4j Apache. Ogni log log4j è costituito da una riga di campi che contiene un campo [LOG LEVEL] per visualizzare il tipo e la gravità. Ad esempio:
+1. Un'azione di Hive esegue uno script HiveQL per contare le occorrenze di ogni tipo di livello di log in Apache file di log log4j. Ogni log log4j è costituito da una riga di campi che contiene un campo [LOG LEVEL] per visualizzare il tipo e la gravità. Ad esempio:
 
         2012-02-03 18:35:34 SampleClass6 [INFO] everything normal for id 577725851
         2012-02-03 18:35:34 SampleClass4 [FATAL] system problem at id 1991281254
@@ -87,7 +87,7 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
     |Nome del database SQL|$sqlDatabaseName||Il database SQL di Azure in cui Sqoop esporterà i dati. |
 
   > [!NOTE]   
-  > Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, sarà necessario abilitarla nel portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Creare e configurare un database SQL][sqldatabase-get-started].
+  > Per impostazione predefinita, un database SQL di Azure consente connessioni da servizi di Azure, ad esempio Azure HDinsight. Se questa impostazione del firewall è disabilitata, è necessario abilitarla dal portale di Azure. Per istruzioni sulla creazione di un database SQL e sulla configurazione di regole del firewall, vedere [Creare e configurare un database SQL][sqldatabase-get-started].
 
 > [!NOTE]  
 > L'inserimento dei valori nelle tabelle potrà essere utile per completare questa esercitazione.
@@ -192,7 +192,7 @@ L'azione di Hive nel flusso di lavoro chiama un file di script HiveQL che contie
     |Variabili del flusso di lavoro|DESCRIZIONE|
     |---|---|
     |${jobTracker}|Specifica l'URL dell'utilità di analisi dei processi Hadoop. Usare **jobtrackerhost:9010** nel cluster HDInsight versione 3.0 e 2.0.|
-    |${nameNode}|Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo wasb:// del file system predefinito, ad esempio *wasb://&lt;nomecontenitore&gt;@&lt;nomeaccountarchiviazione&gt;.blob.core.windows.net*.|
+    |${nameNode}|Specifica l'URL del nodo dei nomi di Hadoop. Usare l'indirizzo wasb:// del file system predefinito, ad esempio *wasb://&lt;nomecontenitore&gt;\@&lt;nomeaccountarchiviazione&gt;.blob.core.windows.net*.|
     |${queueName}|Consente di specificare il nome della coda alla quale verrà inviato il processo. Usare l'**impostazione predefinita**.|
 
     Variabili dell'azione Hive
@@ -655,15 +655,15 @@ Attualmente Azure PowerShell non fornisce alcun cmdlet per la definizione dei pr
 
 Rimuovere i segni # se si desidera eseguire le funzioni aggiuntive.
 
-9. Se si usa la versione 2.1 del cluster HDinsight, sostituire "https://$clusterName.azurehdinsight.net:443/oozie/v2/" con "https://$clusterName.azurehdinsight.net:443/oozie/v1/". La versione 2.1 del cluster HDInsight non supporta la versione 2 dei servizi Web.
-10. Fare clic su **Esegui script** o premere **F5** per eseguire lo script. L'output sarà analogo al seguente:
+1. Se il cluster HDInsight versione 2.1, sostituire "https://$clusterName.azurehdinsight.net:443/oozie/v2/" con "https://$clusterName.azurehdinsight.net:443/oozie/v1/". La versione 2.1 del cluster HDInsight non supporta la versione 2 dei servizi Web.
+1. Fare clic su **Esegui script** o premere **F5** per eseguire lo script. L'output sarà analogo al seguente:
 
-     ![Output dell'esecuzione del flusso di lavoro nell'esercitazione][img-runworkflow-output]
-11. Connettersi al database SQL per visualizzare i dati esportati.
+    ![Output dell'esecuzione del flusso di lavoro nell'esercitazione][img-runworkflow-output]
+1. Connettersi al database SQL per visualizzare i dati esportati.
 
 **Per verificare il log degli errori del processo**
 
-Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log dal nodo head del cluster. Per informazioni su RDP vedere l'articolo su come [amministrare cluster HDInsight con il portale di Azure][hdinsight-admin-portal].
+Per risolvere i problemi relativi a un flusso di lavoro, consultare il file di log di Oozie in C:\apps\dist\oozie-3.3.2.1.3.2.0-05\oozie-win-distro\logs\Oozie.log dal nodo head del cluster. Per informazioni su RDP, vedere [gestire Apache cluster Hadoop in HDInsight tramite il portale di Azure](hdinsight-administer-use-portal-linux.md).
 
 **Per ripetere l'esecuzione dell'esercitazione**
 
@@ -719,7 +719,6 @@ In questa esercitazione si è appreso come definire un flusso di lavoro di Oozie
 [hdinsight-versions]:  hdinsight-component-versioning.md
 [hdinsight-storage]: hdinsight-hadoop-use-blob-storage.md
 [hdinsight-get-started]:hadoop/apache-hadoop-linux-tutorial-get-started.md
-[hdinsight-admin-portal]: hdinsight-administer-use-management-portal.md
 
 [hdinsight-use-sqoop]:hadoop/hdinsight-use-sqoop.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md

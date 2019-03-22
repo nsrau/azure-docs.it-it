@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: juliako;anilmur
-ms.openlocfilehash: ecdb6d7a225d3a2f2c5bbf90a36b91367faf04b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c168182f0b34329ed3e72e90ce86456dfbe210ca
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003347"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189853"
 ---
 # <a name="live-streaming-using-azure-media-services-to-create-multi-bitrate-streams"></a>Streaming live con Servizi multimediali di Azure per creare flussi a più bitrate
 
@@ -31,7 +31,7 @@ In Servizi multimediali di Azure (AMS) un **canale** rappresenta una pipeline pe
 
 * Un codificatore live locale invia un flusso a bitrate singolo al canale abilitato per l'esecuzione della codifica live con Servizi multimediali in uno dei seguenti formati: RTMP o Smooth Streaming (MP4 frammentato). Il canale esegue quindi la codifica live del flusso in ingresso a velocità in bit singola in un flusso video a più velocità in bit (adattivo). Quando richiesto, Servizi multimediali invia il flusso ai clienti.
 * Un codificatore live locale invia un flusso **RTMP** o **Smooth Streaming** (MP4 frammentato) a bitrate multipli a un canale non abilitato per eseguire la codifica live con AMS. I flussi inseriti passano attraverso il **canale**senza altre elaborazioni. Questo metodo viene chiamato **pass-through**. È possibile usare i codificatori live seguenti che generano output in formato Smooth Streaming a bitrate multipli: MediaExcel, Ateme, Imagine Communications, Envivio, Cisco ed Elemental. I codificatori live seguenti generano output in formato RTMP: Adobe Flash Media Live Encoder (FMLE), Telestream Wirecast, Haivision, Teradek e codificatori Tricaster.  Un codificatore live può anche inviare un flusso a bitrate singolo a un canale non abilitato per la codifica live, ma questa operazione non è consigliata. Quando richiesto, Servizi multimediali invia il flusso ai clienti.
-  
+
   > [!NOTE]
   > L'uso del metodo pass-through è il modo più economico per eseguire uno streaming live.
   > 
@@ -50,7 +50,7 @@ A partire dalla versione 2.10 di Servizi multimediali, quando si crea un canale 
 > 
 
 ## <a name="billing-implications"></a>Implicazioni relative alla fatturazione
-Un canale di codifica live avvia la fatturazione non appena il suo stato viene impostato su "In esecuzione" tramite l'API.   È possibile visualizzare lo stato del canale nel portale di Azure o nello strumento Explorer di Servizi multimediali di Azure (http://aka.ms/amse).
+Un canale di codifica live avvia la fatturazione non appena il suo stato viene impostato su "In esecuzione" tramite l'API.   È possibile visualizzare lo stato del canale nel portale di Azure o nello strumento Explorer di Servizi multimediali di Azure (https://aka.ms/amse).
 
 La tabella seguente illustra il mapping degli stati del canale agli stati di fatturazione nell'API e nel portale di Azure. Gli stati sono leggermente diversi tra l'API e il portale. Non appena un canale viene impostato sullo stato "In esecuzione" tramite l'API o sullo stato "Pronto" o "Streaming" nel portale di Azure, viene attivata la fatturazione.
 Per sospendere l'attività di fatturazione del canale, è necessario interrompere il canale tramite l'API o nel portale di Azure.
@@ -70,7 +70,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturazione? |
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
-| In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
 | Stopping |Stopping |No (stato temporaneo) |
 | Arrestato |Arrestato |No  |
 
@@ -89,29 +89,27 @@ Di seguito sono descritti i passaggi generali relativi alla creazione di applica
 
 > [!NOTE]
 > Attualmente, la durata massima consigliata per un evento live è 8 ore. Se è necessario eseguire un canale per una durata superiore, contattare amslived@microsoft.com. La codifica live è soggetta a un costo e se si lascia un canale di codifica live impostato sullo stato "In esecuzione", vengono aggiunti nuovi costi alla fatturazione.  Per evitare costi orari aggiuntivi, quindi, è consigliabile arrestare immediatamente i canali in esecuzione al termine dell'evento in streaming live. 
-> 
-> 
 
 1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che può restituire un flusso a bitrate **singolo** in uno dei protocolli seguenti: RTMP o Smooth Streaming. 
-   
+
     Questa operazione può essere eseguita anche dopo la creazione del canale.
 2. Creare e avviare un canale. 
 3. Recuperare l'URL di inserimento del canale. 
-   
+
     L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
 4. Recuperare l'URL di anteprima del canale. 
-   
+
     Usare questo URL per verificare che il canale riceva correttamente il flusso live.
 5. Creare un programma. 
-   
+
     Se si crea un programma tramite il portale di Azure classico, viene creato anche un asset. 
-   
+
     Se si usa .NET SDK o REST, è necessario creare un asset e specificarne l'uso quando si crea un programma. 
 6. Pubblicare l'asset associato al programma.   
-   
+
     >[!NOTE]
     >Quando l'account AMS viene creato, un endpoint di streaming **predefinito** viene aggiunto all'account con stato **Arrestato**. L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**. 
-    
+
 7. Avviare il programma quando si è pronti a iniziare lo streaming e l'archiviazione.
 8. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
 9. Arrestare il programma ogni volta che si vuole interrompere lo streaming e l'archiviazione dell'evento.
@@ -217,6 +215,7 @@ Se sono necessari set di impostazioni personalizzati, contattare amslived@micros
 Con **Default720p** il video sarà codificato nei 6 livelli seguenti.
 
 #### <a name="output-video-stream"></a>Flusso video di output
+
 | Velocità in bit | Larghezza | Altezza: | MaxFPS | Profilo | Nome del flusso di output |
 | --- | --- | --- | --- | --- | --- |
 | 3500 |1280 |720 |30 |Alto |Video_1280x720_3500kbps |
@@ -304,7 +303,7 @@ Quando è abilitata la codifica live, ora è possibile ottenere un'anteprima del
 Si tratta dello stato attuale del canale. I valori possibili sono:
 
 * **Arrestato**. Lo stato iniziale del canale dopo la creazione. In questo stato le proprietà del canale possono essere aggiornate ma lo streaming non è consentito.
-* **Avvio in corso**. È in corso l'avvio del canale. In questo stato non è consentito alcun aggiornamento o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
+* **Avvio in corso**. È in corso l'avvio del canale. Durante questo stato non sono consentiti aggiornamenti o streaming. Se si verifica un errore, il canale torna allo stato Interrotto.
 * **In esecuzione**. Il canale è in grado di elaborare flussi live.
 * **Arresto in corso**. È in corso l'interruzione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
 * **Eliminazione in corso**. È in corso l'eliminazione del canale. In questo stato non è consentito alcun aggiornamento o streaming.
@@ -314,7 +313,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- |
 | Avvio in corso |Avvio in corso |No (stato temporaneo) |
-| In esecuzione |Pronto (nessun programma in esecuzione)<br/>oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
+| In esecuzione |Pronto (nessun programma in esecuzione)<br/>Oppure<br/>Streaming (almeno un programma in esecuzione) |SÌ |
 | Stopping |Stopping |No (stato temporaneo) |
 | Arrestato |Arrestato |No  |
 
@@ -357,7 +356,7 @@ Analizzare i percorsi di apprendimento di Servizi multimediali.
 [Creare canali che eseguono la codifica live da flusso a bitrate singolo a flusso a bitrate adattivo con .NET SDK](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 
 [Gestire i canali con l'API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
- 
+
 [Concetti su Servizi multimediali di Azure](media-services-concepts.md)
 
 [Specifica per l'inserimento live di un flusso MP4 frammentato con Servizi multimediali di Azure](media-services-fmp4-live-ingest-overview.md)
