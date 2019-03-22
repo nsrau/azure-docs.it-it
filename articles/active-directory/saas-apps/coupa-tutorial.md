@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 47f27746-9057-4b9c-991e-3abf77710f73
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d1bac1e9fee9b06fb88237ddc3a7374eed32e40
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4156ef264069b5f926f28f766a201dceb29a512b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879639"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834796"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-coupa"></a>Esercitazione: Integrazione di Azure Active Directory con Coupa
 
@@ -111,6 +111,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Coupa, seguire questa p
     > Poiché il valore dell'URL di accesso non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare [il team di supporto client Coupa](https://success.coupa.com/Support/Contact_Us?).
 
     b. Nella casella **Identificatore** digitare un URL:
+
     | Environment  | URL |
     |:-------------|----|
     | Sandbox | `devsso35.coupahost.com`|
@@ -118,6 +119,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Coupa, seguire questa p
     | | |
 
     c. Nella casella di testo **URL di risposta** digitare un URL:
+
     | Environment | URL |
     |------------- |----|
     | Sandbox | `https://devsso35.coupahost.com/sp/ACS.saml2`|
@@ -174,7 +176,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

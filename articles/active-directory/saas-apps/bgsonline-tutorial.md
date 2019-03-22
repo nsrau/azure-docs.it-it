@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 4fd6b29b-1b46-4fd1-9f5e-16b1c9d892cd
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66cbcc563750f4fb45aaf92c01b5c6de015600e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3da6277d2e816960f3db8964fd8b849c7d2a497c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875736"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876936"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bgs-online"></a>Esercitazione: Integrazione di Azure Active Directory con BGS Online
 
@@ -156,7 +156,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

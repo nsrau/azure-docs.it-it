@@ -4,16 +4,16 @@ description: Informazioni su come usare una condivisione file di Azure con Windo
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 4361ec72f5f9cff924900ddd712aa1aa029c5ef4
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 93ba17c58dfcb5955bafbcc63655778903f60c18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55509021"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076344"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Usare una condivisione file di Azure con Windows
 [File di Azure](storage-files-introduction.md) è il file system cloud facile da usare di Microsoft. Le condivisioni file di Azure possono essere usate facilmente in Windows e Windows Server. Questo articolo illustra le considerazioni relative all'uso di una condivisione file di Azure con Windows e Windows Server.
@@ -45,7 +45,9 @@ Per usare una condivisione file di Azure al di fuori dell'area di Azure in cui �
 
 * **Chiave dell'account di archiviazione**: per montare una condivisione file di Azure, sarà necessaria la chiave di archiviazione primaria (o secondaria). Le chiavi di firma di accesso condiviso non sono attualmente supportate per il montaggio.
 
-* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Il codice PowerShell seguente presuppone che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
+* **Assicurarsi che la porta 445 sia aperta**: il protocollo SMB richiede che la porta TCP 445 sia aperta. Se la porta 445 è bloccata, le connessioni non riusciranno. È possibile verificare se la porta 445 è bloccata dal firewall con il cmdlet `Test-NetConnection`. Sono disponibili informazioni [vari modi per risolvere il problema bloccata la porta 445 qui](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
+
+    Il codice PowerShell seguente presuppone che sia installato il modulo AzureRM di PowerShell. Per altre informazioni, vedere l'articolo su come [installare il modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Ricordarsi di sostituire `<your-storage-account-name>` e `<your-resource-group-name>` con i nomi pertinenti per il proprio account di archiviazione.
 
     ```PowerShell
     $resourceGroupName = "<your-resource-group-name>"
@@ -301,5 +303,5 @@ Dopo aver creato questa chiave del Registro di sistema, è necessario riavviare 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su File di Azure, vedere i collegamenti seguenti:
 - [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
-* [Domande frequenti](../storage-files-faq.md)
-* [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      
+- [Domande frequenti](../storage-files-faq.md)
+- [Risoluzione dei problemi in Windows](storage-troubleshoot-windows-file-connection-problems.md)      

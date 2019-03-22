@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e1f49ee4-d2d4-4a82-9baf-0587ca1f20f6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef76cf9cfa97d7d3ecc6c511c269b52ce6a2dec0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 27028a4e95abd2f190dd1f37bb877ed28fe8aade
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876841"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838121"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-unifi"></a>Esercitazione: Integrazione di Azure Active Directory con UNIFI
 
@@ -170,7 +170,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

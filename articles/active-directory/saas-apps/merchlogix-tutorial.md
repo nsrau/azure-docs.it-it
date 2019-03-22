@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a1f49bb8-6b17-433d-8f25-9d26fb390e77
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: cadd97ba4d5b3bda035dd47d3d07bf60b689c760
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 2dd08ca77af14b0646fbff7b461c2703ddb0b992
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983906"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897565"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-merchlogix"></a>Esercitazione: Integrazione di Azure Active Directory con Merchlogix
 
@@ -147,7 +147,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

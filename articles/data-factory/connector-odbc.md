@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/19/2018
 ms.author: jingwang
-ms.openlocfilehash: c51804748e4313d79cc3a369b659974d2d32e2e2
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: f14c8f8ef9f0e59ac35dd7346bf37cc07f2cfb19
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58163855"
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiare i dati da e verso archivi dati ODBC con Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -49,15 +49,15 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato ODBC sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type deve essere impostata su: **Odbc** | Yes |
-| connectionString | Stringa di connessione ad esclusione della parte relativa alle credenziali. È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, configurato nel computer Integration Runtime con `"DSN=<name of the DSN on IR machine>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze.<br>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).| Yes |
-| authenticationType | Tipo di autenticazione usato per connettersi all'archivio dati ODBC.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Yes |
+| type | La proprietà type deve essere impostata su: **Odbc** | Sì |
+| connectionString | Stringa di connessione ad esclusione della parte relativa alle credenziali. È possibile specificare la stringa di connessione con un modello come `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"`, o usare il sistema DSN, ovvero il nome dell'origine dati, configurato nel computer Integration Runtime con `"DSN=<name of the DSN on IR machine>;"`. È necessario comunque specificare la parte delle credenziali nel servizio collegato in base alle esigenze.<br>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md).| Sì |
+| authenticationType | Tipo di autenticazione usato per connettersi all'archivio dati ODBC.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. | Sì |
 | userName | Specificare il nome utente se si usa l'autenticazione di base. | No  |
 | password | Specificare la password per l'account utente specificato per userName. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | No  |
 | credential | La parte delle credenziali di accesso della stringa di connessione specificata nel formato di valore della proprietà specifico del driver. Esempio: `"RefreshToken=<secret refresh token>;"`. Contrassegnare questo campo come SecureString. | No  |
-| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Yes |
+| connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È necessario un runtime di integrazione self-hosted come indicato in [Prerequisiti](#prerequisites). |Sì |
 
 **Esempio 1: uso dell'autenticazione di base**
 
@@ -112,15 +112,15 @@ Per il servizio collegato ODBC sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati ODBC.
 
 Per copiare dati da e verso un archivio dati compatibile con ODBC, impostare la proprietà type del set di dati su **RelationalTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **RelationalTable** | Sì |
 | tableName | Nome della tabella nell'archivio dati ODBC. | No per l'origine (se nell'origine dell'attività è specificato "query");<br/>sì per il sink |
 
 **Esempio**
@@ -149,9 +149,9 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati dall'archivio dati compatibile con ODBC, impostare il tipo di origine nell'attività di copia su **RelationalSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Yes |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **RelationalSource** | Sì |
 | query | Usare la query SQL personalizzata per leggere i dati. Ad esempio: `"SELECT * FROM MyTable"`. | No (se nel set di dati è specificato "tableName") |
 
 **Esempio:**
@@ -190,9 +190,9 @@ Per copiare dati dall'archivio dati compatibile con ODBC, impostare il tipo di o
 
 Per copiare i dati nell'archivio dati compatibile con ODBC, impostare il tipo di sink nell'attività di copia su **OdbcSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **OdbcSink** | Yes |
+| type | La proprietà type del sink dell'attività di copia deve essere impostata su: **OdbcSink** | Sì |
 | writeBatchTimeout |Tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono: intervallo di tempo. Esempio: "00:30:00" (30 minuti). |No  |
 | writeBatchSize |Inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize.<br/>I valori consentiti sono integer, ovvero il numero di righe. |No (l'impostazione predefinita è 0 - rilevamento automatico) |
 | preCopyScript |Specificare una query SQL per l'attività di copia da eseguire prima di scrivere i dati nell'archivio dati in ogni esecuzione. È possibile usare questa proprietà per pulire i dati precaricati. |No  |
@@ -240,7 +240,7 @@ Configurare un runtime di integrazione self-hosted in un computer con accesso al
 
 Prima di usare l'origine Informix in una soluzione Data Factory, verificare che Integration Runtime sia in grado di connettersi all'archivio dati usando le istruzioni nella sezione [Risoluzione dei problemi di connettività](#troubleshoot-connectivity-issues).
 
-Creare un servizio collegato ODBC per collegare un archivio dati IBM Informix a una data factory di Azure come illustrato nell'esempio seguente:
+Creare un servizio collegato ODBC per collegare un archivio dati IBM Informix a una data factory di Azure, come illustrato nell'esempio seguente:
 
 ```json
 {

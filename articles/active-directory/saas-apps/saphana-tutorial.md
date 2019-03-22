@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 017d693f0d71692abfb432216ca0645dee80d7df
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865230"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899827"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Esercitazione: Integrazione di Azure Active Directory con SAP HANA
 
@@ -195,7 +195,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -248,8 +248,8 @@ Per creare un utente manualmente, seguire questa procedura:
 
 4. Aggiungere un valore nel campo **External Identity** (Identità esterna), in questo caso BrittaSimon, oppure scegliere **Any** (Qualsiasi). Selezionare **OK**.
 
-    >[!Note]
-    >Se la casella di controllo **Any** (Qualsiasi) non è selezionata, il nome utente in HANA deve corrispondere esattamente al nome dell'utente nell'UPN prima del suffisso di dominio (ad esempio BrittaSimon@contoso.com diventerebbe BrittaSimon in HANA).
+   > [!Note]
+   > Se la casella di controllo **Any** (Qualsiasi) non è selezionata, il nome utente in HANA deve corrispondere esattamente al nome dell'utente nell'UPN prima del suffisso di dominio (ad esempio BrittaSimon@contoso.com diventerebbe BrittaSimon in HANA).
 
 5. A scopo di test, assegnare tutti i ruoli **XS** all'utente.
 

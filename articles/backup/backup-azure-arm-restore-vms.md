@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: geg
-ms.openlocfilehash: 44b8d57af83f53c73868a84104da7a7f72cb1e81
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202589"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315386"
 ---
 # <a name="restore-azure-vms"></a>Ripristinare VM di Azure
 
@@ -23,7 +23,7 @@ Questo articolo descrive come ripristinare i dati delle macchine virtuali di Azu
 Per ripristinare una macchina virtuale assicurarsi di avere la necessaria [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) l'autorizzazione.
 
 > [!NOTE]
-> Se non si dispone [RABAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) è possibile eseguire l'autorizzazione [ripristinare il disco](backup-azure-arm-restore-vms.md#create-new-restore-disks) e creare la macchina virtuale Usa [distribuire il modello](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) funzionalità.
+> Se non si dispone [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) è possibile eseguire l'autorizzazione [ripristinare il disco](backup-azure-arm-restore-vms.md#create-new-restore-disks) e creare la macchina virtuale Usa [distribuire il modello](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) funzionalità.
 
 ### <a name="restore-options"></a>Opzioni di ripristino
 

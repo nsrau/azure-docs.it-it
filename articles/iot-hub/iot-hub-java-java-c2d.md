@@ -1,19 +1,20 @@
 ---
 title: Messaggi da cloud a dispositivo con l'hub IoT di Azure (Java) | Microsoft Docs
 description: Come inviare messaggi da cloud a dispositivo a un dispositivo da un hub IoT di Azure usando Azure IoT SDK per Java. Modificare un'app per dispositivo simulato per ricevere messaggi da cloud a dispositivo e modificare un'app back-end per inviare i messaggi da cloud a dispositivo.
-author: dominicbetts
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
-ms.author: dobett
-ms.openlocfilehash: cb2b3d02cdeadbe45b93b0185a8c0064b9d61e93
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9032a6903833ba819e09fd1ca11cd6b43d5485cb
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227706"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57541690"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-java"></a>Inviare messaggi da cloud a dispositivo con l'hub IoT (Java)
 
@@ -112,7 +113,7 @@ In questa sezione si crea un'app console Java che invia messaggi da cloud a disp
     ```
 
     > [!NOTE]
-    > È possibile cercare la versione più recente di **iot-service-client** usando la [ricerca di Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
+    > È possibile cercare la versione più recente di **iot-service-client** usando la [ricerca di Maven](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
 4. Salvare e chiudere il file pom.xml.
 

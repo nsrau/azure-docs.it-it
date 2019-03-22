@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 69c6efc3-54c7-49ec-b827-33177c09aa13
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0a005753b7d17464bfbe7aec8cac8672ce61d26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: e5330d398a75105b78cb2caa0373b78fa2e32a99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876535"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57878058"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-compliance-elf"></a>Esercitazione: Integrazione di Azure Active Directory con Compliance ELF
 
@@ -142,7 +142,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

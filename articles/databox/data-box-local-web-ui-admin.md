@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: overview
-ms.date: 12/27/2018
+ms.date: 02/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6df44afee26570dbdc5d64b449c4e33d6a0956ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: d5b6949930161f78c6edf4213df98471e96b1d42
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885711"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404043"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box"></a>Usare l'interfaccia utente Web locale per amministrare Data Box
 
@@ -25,6 +25,7 @@ L'articolo include le esercitazioni seguenti:
 
 - Creare un pacchetto di supporto
 - Arrestare o riavviare il dispositivo
+- Scaricare la distinta base o i file manifesto
 - Visualizzare la capacità disponibile del dispositivo
 - Ignorare la convalida di checksum 
 
@@ -104,6 +105,8 @@ Prima di iniziare assicurarsi che il Data Box abbia completato il passaggio **Pr
     |databoxe2etest_AzFile-BOM.txt    |File di Azure         |SMB/NFS         |
     |databoxe2etest_PageBlock_Rest-BOM.txt     |BLOB di pagine         |REST        |
     |databoxe2etest_BlockBlock_Rest-BOM.txt    |BLOB in blocchi         |REST         |
+    |mydbmdrg1_MDisk-BOM.txt    |Managed Disks         |SMB/NFS         |
+    |mydbmdrg2_MDisk-BOM.txt     |Managed Disks         |SMB/NFS         |
 
 Usare questo elenco per verificare i file caricati nell'account di archiviazione di Azure dopo la restituzione del Data Box al data center di Azure. Di seguito è riportato un esempio di file manifesto.
 

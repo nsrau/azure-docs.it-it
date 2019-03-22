@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4a9ffdd9f81a7d46d3476f3395a4456dea6c0341
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: ef874e5d773e87963b6de8371986ac2196fc38f3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156732"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901390"
 ---
 # <a name="create-a-new-azure-api-management-service-instance"></a>Creare una nuova istanza del servizio Gestione API di Azure
 
@@ -52,7 +52,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 | **Gruppo di risorse**      | *apimResourceGroup*                           | È possibile selezionare un gruppo di risorse nuovo o esistente. Un gruppo di risorse è una raccolta di risorse che condividono il ciclo di vita, le autorizzazioni e i criteri. Fare clic [qui](../azure-resource-manager/resource-group-overview.md#resource-groups) per altre informazioni.                                                                                                  |
 | **Posizione**            | *Stati Uniti occidentali*                                    | Selezionare l'area geografica più vicina. Nell'elenco a discesa vengono visualizzate solo le aree dei servizi di Gestione API disponibili.                                                                                                                                                                                                          |
 | **Nome organizzazione**   | Il nome dell'organizzazione                 | Questo nome viene usato in numerose posizioni, ad esempio il titolo del portale per sviluppatori e il mittente delle notifiche tramite posta elettronica.                                                                                                                                                                                                             |
-| **Indirizzo di posta elettronica dell'amministratore** | *admin@org.com*                               | Impostare l'indirizzo di posta elettronica a cui inviare tutte le notifiche da **Gestione API**.                                                                                                                                                                                                                                              |
+| **Indirizzo di posta elettronica dell'amministratore** | *admin\@org.com*                               | Impostare l'indirizzo di posta elettronica a cui inviare tutte le notifiche da **Gestione API**.                                                                                                                                                                                                                                              |
 | **Piano tariffario**        | *Developer*                                   | Impostare il livello **Sviluppatore** per valutare il servizio. Questo livello non è disponibile per la produzione. Per altre informazioni sulla scalabilità dei livelli di Gestione API, vedere [upgrade and scale](upgrade-and-scale.md) (Aggiornare e ridimensionare).                                                                                                                                    |
 
 3. Scegliere **Create**.

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 58773dded162ea51ccc6e502bbbdd4e13965c1d6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: c312433832f7402eaff8b40c4e0a2a61397f6f87
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55203489"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58123505"
 ---
 # <a name="stringcollection-claims-transformations"></a>Trasformazioni delle attestazioni StringCollection
 
@@ -52,10 +52,10 @@ La trasformazione delle attestazioni seguente aggiunge il ClaimType del **messag
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **collection**: ["someone@outlook.com"]
-    - **item**: "admin@contoso.com"
+  - **collection**: ["someone@outlook.com"]
+  - **item**: "admin@contoso.com"
 - Attestazioni di output: 
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
@@ -86,11 +86,11 @@ Usare questa trasformazione delle attestazioni per aggiungere un valore di strin
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **collection**: ["someone@outlook.com"]
+  - **collection**: ["someone@outlook.com"]
 - Parametri di input 
-    - **item**: "admin@contoso.com"
+  - **item**: "admin@contoso.com"
 - Attestazioni di output:
-    - **collection**: ["someone@outlook.com", "admin@contoso.com"]
+  - **collection**: ["someone@outlook.com", "admin@contoso.com"]
 
 ## <a name="getsingleitemfromstringcollection"></a>GetSingleItemFromStringCollection
 
@@ -117,7 +117,7 @@ L'esempio seguente legge l'attestazione **otherMails** e restituisce il primo el
 ### <a name="example"></a>Esempio
 
 - Attestazioni di input:
-    - **collection**: ["someone@outlook.com", "someone@contoso.com"]
+  - **collection**: ["someone@outlook.com", "someone@contoso.com"]
 - Attestazioni di output: 
-    - **extractedItem**: "someone@outlook.com"
+  - **extractedItem**: "someone@outlook.com"
 

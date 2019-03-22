@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae010825e16178cdfb8544c7bd1c6fd0e9c57b90
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874648"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864406"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Esercitazione: Integrazione di Azure Active Directory con GoodPractice Toolkit
 
@@ -69,7 +69,7 @@ Per configurare l'integrazione di GoodPractice Toolkit in Azure AD, è necessari
 4. Nella casella di ricerca digitare **GoodPractice Toolkit**, selezionare **GoodPractice Toolkit** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![GoodPractice Toolkit nell'elenco risultati](common/search-new-app.png)
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con GoodPractice Toolkit usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in GoodPractice Toolkit.
@@ -146,7 +146,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

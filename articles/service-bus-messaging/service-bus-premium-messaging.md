@@ -11,15 +11,15 @@ ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.topic: conceptual
+ms.date: 03/05/2019
 ms.author: aschhab
-ms.openlocfilehash: ae35f73e601cfa83fc960c5331f9956863677941
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 9e9c8918556b7ff003bcfed062ea1e15233b2845
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855296"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57761957"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Livelli di messaggistica Standard e Premium del bus di servizio
 
@@ -54,6 +54,21 @@ Code e argomenti partizionati non sono supportati nella messaggistica Premium. P
 Dato che la messaggistica Premium viene eseguita in un ambiente di runtime completamente isolato, le entità Express non sono supportate negli spazi dei nomi Premium. Per altre informazioni sulla funzionalità Express, vedere la proprietà [QueueDescription.EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress).
 
 Se è presente codice in esecuzione nella messaggistica Standard e si vuole trasferirlo al livello Premium, assicurarsi che la proprietà [EnableExpress](/dotnet/api/microsoft.servicebus.messaging.queuedescription.enableexpress#Microsoft_ServiceBus_Messaging_QueueDescription_EnableExpress) sia impostata su **false** (valore predefinito).
+
+## <a name="premium-messaging-resource-usage"></a>Utilizzo delle risorse di messaggistica Premium
+In generale, qualsiasi operazione su un'entità può causare l'utilizzo della CPU e memoria. Ecco alcune di queste operazioni: 
+
+- Operazioni di gestione, ad esempio CRUD operations (Create, Retrieve, Update e Delete) su code, argomenti e sottoscrizioni.
+- Operazioni di runtime (inviare e ricevere messaggi)
+- Operazioni di monitoraggio e avvisi
+
+L'utilizzo di memoria aggiuntivo della CPU e non i prezzi dipendono inoltre tuttavia. Per il livello di messaggistica Premium, è disponibile un unico prezzo per unità di messaggi.
+
+L'utilizzo della CPU e memoria vengono rilevate e visualizzato per l'oggetto per i motivi seguenti: 
+
+- Trasparenza degli elementi interni del sistema
+- Comprendere la capacità delle risorse acquistate.
+- Capacità di pianificazione che consente di decidere aumentare/ridurre le dimensioni.
 
 ## <a name="get-started-with-premium-messaging"></a>Introduzione alla messaggistica Premium
 

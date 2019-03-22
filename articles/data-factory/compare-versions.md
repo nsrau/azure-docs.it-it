@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: f898b21e84cc57327991c97d2694e9e44e608417
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 976724a40b604bcdc3c83ef1b3d2e95268f75304
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014897"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432703"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Confrontare Azure Data Factory con Data Factory versione 1
 Questo articolo mette a confronto Data Factory e Data Factory versione 1. Per un'introduzione a Data Factory, vedere [Introduzione a Data Factory](introduction.md). Per un'introduzione a Data Factory versione 1, vedere [Introduzione ad Azure Data Factory](v1/data-factory-introduction.md). 
@@ -24,7 +24,7 @@ Questo articolo mette a confronto Data Factory e Data Factory versione 1. Per un
 ## <a name="feature-comparison"></a>Confronto tra le funzionalità
 La tabella seguente mette a confronto le funzionalità di Data Factory con quelle di Data Factory versione 1. 
 
-| Funzionalità | versione 1 | Versione corrente | 
+| Funzionalità | Versione 1 | Versione corrente | 
 | ------- | --------- | --------- | 
 | Set di dati | Vista denominata di dati che fa riferimento ai dati da usare nelle attività come input e output. I set di dati identificano i dati all'interno dei diversi archivi dati, come tabelle, file, cartelle e documenti. Un set di dati BLOB di Azure, ad esempio, specifica il contenitore BLOB e la cartella nell'archivio BLOB di Azure da cui l'attività dovrà leggere i dati.<br/><br/>La **disponibilità** definisce il modello di sezionamento dell'intervallo di elaborazione del set di dati (ad esempio ogni ora, ogni giorno e così via). | I set di dati sono gli stessi nella versione corrente. Non è tuttavia necessario definire pianificazioni della **disponibilità** per i set di dati. È possibile definire una risorsa trigger che può pianificare le pipeline da un paradigma di utilità di pianificazione basata sul tempo. Per altre informazioni, vedere [Trigger](concepts-pipeline-execution-triggers.md#triggers) e [Set di dati](concepts-datasets-linked-services.md). | 
 | Servizi collegati | I servizi collegati sono simili a stringhe di connessione e definiscono le informazioni necessarie per la connessione di Data Factory a risorse esterne. | I servizi collegati sono gli stessi di Data Factory versione 1, ma con una nuova proprietà **connectVia** per l'utilizzo dell'ambiente di calcolo del runtime di integrazione della versione corrente di Data Factory. Per altre informazioni, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md) e le [proprietà del servizio collegato per l'archivio BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties). |
@@ -118,7 +118,7 @@ Per altre informazioni, vedere [Differenza tra l'attività personalizzata in Dat
 
 - **.NET SDK**: .NET SDK è aggiornato nella versione corrente.
 
-- **PowerShell**: i cmdlet di PowerShell sono aggiornati nella versione corrente. Il nome dei cmdlet della versione corrente contiene **DataFactoryV2**, ad esempio Get-AzureRmDataFactoryV2. 
+- **PowerShell**: i cmdlet di PowerShell sono aggiornati nella versione corrente. Il nome dei cmdlet della versione corrente contiene **DataFactoryV2**, ad esempio Get-AzDataFactoryV2. 
 
 - **Python SDK**: questo SDK è una novità nella versione corrente.
 

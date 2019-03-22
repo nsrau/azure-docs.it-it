@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8cb31a4c-9309-469b-93ac-daf0d3c7a3e6
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ededde4f8458051fafd09c388ce556dedaea3efc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2e50cdd19510f0bf160c075c763e645120622674
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835697"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ethicspoint-incident-management-epim"></a>Esercitazione: Integrazione di Azure Active Directory con EthicsPoint Incident Management (EPIM)
 
@@ -106,6 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con EthicsPoint Incident Ma
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di EthicsPoint Incident Management (EPIM)](common/sp-identifier-reply.png)
 
     a. Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
+    
     | |
     |--|
     | `https://<companyname>.navexglobal.com`|
@@ -154,7 +155,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

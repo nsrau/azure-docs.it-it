@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5e4a2528-04ff-4e8f-9bd0-1ecd62d68ebb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 191f90b390210bdf17a9b5bc2d5158d323527ec4
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 8e72661bcb0e90be9b127d54cb3ddf6bb73ca7c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890589"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877463"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-smartvidio"></a>Esercitazione: Integrazione di Azure Active Directory con smartvid.io
 
@@ -78,7 +78,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con smartvid.io, 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per smartvid.io](#configure-smartvidio-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di smartvid.io](#create-smartvidio-test-user)**: per avere una controparte di Britta Simon in smartvid.io collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -116,15 +116,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con smartvid.io, seguire qu
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-smartvidio-single-sign-on"></a>Configurare l'accesso Single Sign-On per smartvid.io
 
 Per configurare l'accesso Single Sign-On sul lato **smartvid.io** è necessario inviare il file **Certificato (base)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di smartvid.io](mailto:vgorsky@smartvid.io). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -140,20 +140,20 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a smartvid.io.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **smartvid.io**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **smartvid.io**.
 

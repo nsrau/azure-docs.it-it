@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 72dbd649-e4b1-4d72-ad76-636d84922596
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfeb5669b6af231577b71b52c17027614f776604
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b0966fe01c90d5bf0bdaefba893b678f877805c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869310"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57835164"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-icims"></a>Esercitazione: Integrazione di Azure Active Directory con ICIMS
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-icims-from-the-gallery"></a>Aggiunta di ICIMS dalla raccolta
 
-Per configurare l'integrazione di ICIMS in Azure AD, è necessario aggiungere ICIMS dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di ICIMS in Azure AD, è necessario aggiungere ICIMS dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere ICIMS dalla raccolta, seguire questa procedura:**
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di ICIMS in Azure AD, è necessario aggiungere IC
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ICIMS usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ICIMS.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ICIMS, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con ICIMS, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per ICIMS](#configure-icims-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di ICIMS](#create-icims-test-user)**: per avere una controparte di Britta Simon in ICIMS collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -103,11 +103,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con ICIMS, seguire questa p
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di ICIMS](common/sp-identifier.png)
+    ![Informazioni sul Single Sign-On di URL e dominio di ICIMS](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<tenant name>.icims.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<tenant name>.icims.com`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<tenant name>.icims.com`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<tenant name>.icims.com`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ICIMS](https://www.icims.com/contact-us). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -124,15 +124,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con ICIMS, seguire questa p
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-icims-single-sign-on"></a>Configurare l'accesso Single Sign-On per ICIMS
 
 Per configurare l'accesso Single Sign-On sul lato **ICIMS**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di ICIMS](https://www.icims.com/contact-us). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -148,24 +148,24 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ICIMS.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ICIMS.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ICIMS**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **ICIMS**.
 
-    ![Collegamento ICIMS nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento ICIMS nell'elenco Applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

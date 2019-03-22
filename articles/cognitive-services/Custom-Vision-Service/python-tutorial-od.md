@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python"
+title: "Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python"
 titlesuffix: Azure Cognitive Services
 description: Creare un progetto, aggiungere i tag, caricare le immagini, eseguire il training del progetto e rilevare oggetti usando Python SDK.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 11/5/2018
 ms.author: areddish
-ms.openlocfilehash: 691e95c666edf290dcfd79a6007e7b29d168a605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
+ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881194"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57727026"
 ---
-# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Guida introduttiva: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python
+# <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Avvio rapido: Creare un progetto di rilevamento degli oggetti con l'SDK Visione personalizzata per Python
 
 Questo articolo fornisce informazioni e codice di esempio utili per iniziare a usare Custom Vision SDK con Python per compilare un modello di rilevamento degli oggetti. Dopo la creazione, è possibile aggiungere aree con tag, caricare immagini, eseguire il training del progetto, ottenere l'URL dell'endpoint predefinito per la stima del progetto e usare l'endpoint per un test a livello di codice dell'immagine. Usare questo esempio come modello per la creazione di un'applicazione Python personalizzata.
 
@@ -70,7 +70,7 @@ project = trainer.create_project("My Detection Project", domain_id=obj_detection
 
 ### <a name="create-tags-in-the-project"></a>Creare tag nel progetto
 
-Per creare i tag di classificazione per il progetto, aggiungere il codice seguente alla fine del file *sample.py*:
+Per creare i tag degli oggetti nel progetto, aggiungere il codice seguente alla fine del file *sample.py*:
 
 ```Python
 # Make two tags in the new project

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 677183b1-5348-4302-88cc-5c8ab63a3c6c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 636331c5ad39887ec8d8c92720cfa4fb3b3b3663
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 632ae913214794a114bc12019d92b6902172fca7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883386"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57887901"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-birst-agile-business-analytics"></a>Esercitazione: Integrazione di Azure Active Directory con Birst Agile Business Analytics
 
@@ -109,12 +109,12 @@ Per configurare l'accesso Single Sign-On di Azure AD con Birst Agile Business An
 
     L'URL dipende dal data center in cui si trova l'account Birst:
 
-    * Se il data center si trova negli Stati Uniti, usare il modello seguente: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+   * Se il data center si trova negli Stati Uniti, usare il modello seguente: `https://login.bws.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
-    * Se il data center si trova in Europa, usare il modello seguente: `https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
+   * Se il data center si trova in Europa, usare il modello seguente: `https://login.eu1.birst.com/SAMLSSO/Services.aspx?birst.idpid=TENANTIDPID`
 
-    > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Birst Agile Business Analytics](mailto:info@birst.com).
+     > [!NOTE]
+     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere questo valore, contattare il [team di supporto clienti di Birst Agile Business Analytics](mailto:info@birst.com).
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
@@ -155,7 +155,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 321dfaa1a58cc806394f4807c38cbdc599cfd7a0
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: ac0a84aa3121c6ebb91860c96c0f6692827c8a3f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56311564"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336525"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Come usare identità gestite con Istanze di Azure Container
 
@@ -33,7 +33,7 @@ Adattare gli esempi per abilitare e usare le identità in Istanze di Azure Conta
 
 ## <a name="why-use-a-managed-identity"></a>Perché usare un'identità gestita?
 
-Con un'identità gestita in un contenitore in esecuzione è possibile eseguire l'autenticazione a qualsiasi [servizio che supporti l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-msi.md#azure-services-that-support-azure-ad-authentication) senza dover gestire le credenziali nel codice del contenitore. Per i servizi che non supportano l'autenticazione di AD, è possibile archiviare i segreti in Azure Key Vault e usare l'identità gestita per accedere a Key Vault e recuperare le credenziali. Per altre informazioni sull'uso di un'identità gestita, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
+Con un'identità gestita in un contenitore in esecuzione è possibile eseguire l'autenticazione a qualsiasi [servizio che supporti l'autenticazione di Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) senza dover gestire le credenziali nel codice del contenitore. Per i servizi che non supportano l'autenticazione di AD, è possibile archiviare i segreti in Azure Key Vault e usare l'identità gestita per accedere a Key Vault e recuperare le credenziali. Per altre informazioni sull'uso di un'identità gestita, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!IMPORTANT]
 > Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale. Attualmente, le identità gestite sono supportate solo nelle istanze di contenitore Linux.
@@ -252,7 +252,7 @@ token=$(curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=
 
 ```
 
-A questo punto è possibile usare il token di accesso per autenticarsi all'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https://mykeyvault.vault.azure.net/...*):
+A questo punto è possibile usare il token di accesso per autenticarsi all'insieme di credenziali delle chiavi e leggere un segreto. Assicurarsi di sostituire il nome dell'insieme di credenziali delle chiavi nell'URL (*https:\//mykeyvault.vault.azure.net/...* ):
 
 ```bash
 curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-10-01 -H "Authorization: Bearer $token"
