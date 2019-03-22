@@ -14,12 +14,12 @@ ms.devlang: R
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: jepeach
-ms.openlocfilehash: 0e5db2c08749a59a03e384c6048e67f7570f6750
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 70fc78fb515c56f0b3102bb006eb6491a664babd
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211433"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886672"
 ---
 # <a name="r-developers-guide-to-azure"></a>Guida di Azure per sviluppatori di R
 <img src="media/r-developers-guide/logo_r.svg" alt="R logo" align="right" width="200" />
@@ -125,7 +125,7 @@ Anche se Machine Learning Services fa parte del SQL Server locale dal 2016, è r
 
 
 ### <a name="next-steps"></a>Passaggi successivi
-* [Esecuzione del codice R in Azure con mrsdeploy](http://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
+* [Esecuzione del codice R in Azure con mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)
 * [Machine Learning Server nel Cloud](https://docs.microsoft.com/machine-learning-server/install/machine-learning-server-in-the-cloud)
 * [Risorse aggiuntive per Machine Learning Server e Microsoft R](https://docs.microsoft.com/machine-learning-server/resources-more)
 * [R in Azure](https://github.com/yueguoguo/r-on-azure): una panoramica dei pacchetti, strumenti e case study per l'uso di R con Azure

@@ -1,7 +1,7 @@
 ---
 title: 'Esercitazione: Creare un modello acustico con il servizio Voce'
 titlesuffix: Azure Cognitive Services
-description: Informazioni su come creare un modello acustico con il servizio Voce in Servizi cognitivi di Azure.
+description: Informazioni su come creare un modello acustico con il servizio Voce in Azure.
 services: cognitive-services
 author: PanosPeriorellis
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: b644d1d227b5dbd69af38cc32defffb8152b0cde
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f2a111558fa3f515b797745dc51e32f625bbd91f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878120"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57844025"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Esercitazione: Creare un modello acustico personalizzato
 
@@ -69,7 +69,7 @@ Un set di dati acustici per la personalizzazione del modello acustico si compone
 | Frequenza di campionamento | 8.000 Hertz (Hz) o 16.000 Hz |
 | Canali | 1 (mono) |
 | Formato del campione | PCM, interi a 16 bit |
-| Durata del file | 0,1 secondi < durata < 12 secondi | 
+| Durata del file | 0,1 secondi < durata < 12 secondi |
 | Intervallo di silenzio | > 0,1 secondi |
 | Formato di archiviazione | zip |
 | Dimensione massima del file | 2 GB |
@@ -102,13 +102,13 @@ Per eseguire i passaggi delle sezioni successive, usare il [portale del servizio
 
 Dopo la preparazione, i file audio e le trascrizioni sono pronti per l'importazione nel portale Web del servizio.
 
-Per importarli, assicurarsi prima di aver eseguito l'accesso al [portale del servizio Voce](https://cris.ai). Nell'elenco a discesa **Riconoscimento vocale personalizzato** della barra multifunzione selezionare **Adaptation Data** (Dati di adattamento). Se è la prima volta che si caricano dati nel servizio Riconoscimento vocale personalizzato, viene visualizzata una tabella vuota denominata **Datasets** (Set di dati). 
+Per importarli, assicurarsi prima di aver eseguito l'accesso al [portale del servizio Voce](https://cris.ai). Nell'elenco a discesa **Riconoscimento vocale personalizzato** della barra multifunzione selezionare **Adaptation Data** (Dati di adattamento). Se è la prima volta che si caricano dati nel servizio Riconoscimento vocale personalizzato, viene visualizzata una tabella vuota denominata **Datasets** (Set di dati).
 
 Nella riga **Acoustic Datasets** (Set di dati acustici) selezionare il pulsante **Import** (Importa). Il sito visualizza una pagina per il caricamento di un nuovo set di dati.
 
 ![Pagina Import Acoustic Data (Importa dati acustici)](media/stt/speech-acoustic-datasets-import.png)
 
-Nelle caselle **Name** (Nome) e **Description** (Descrizione) immettere le informazioni appropriate. Per tenere traccia dei diversi set di dati caricati, è utile aggiungere brevi descrizioni. 
+Nelle caselle **Name** (Nome) e **Description** (Descrizione) immettere le informazioni appropriate. Per tenere traccia dei diversi set di dati caricati, è utile aggiungere brevi descrizioni.
 
 Nelle caselle **Transcriptions file (.txt)** (File di trascrizioni (.txt)) e **Audio files (.zip)** (File audio (.zip)) selezionare **Sfoglia** e quindi il file di trascrizione in formato testo normale e l'archivio ZIP dei file WAV. Al termine della preparazione, fare clic su **Import** (Importa) per caricare i dati. I dati verranno caricati. Per i set di dati di grandi dimensioni, il processo di importazione può richiedere alcuni minuti.
 
@@ -126,11 +126,11 @@ Se si vuole modificare il nome o la descrizione del set di dati, è possibile se
 
 Quando lo stato del set di dati è *Complete* (Completato), è possibile usare il set di dati per creare un modello acustico personalizzato. A questo scopo, selezionare **Acoustic Models** (Modelli acustici) nell'elenco a discesa **Custom Speech** (Riconoscimento vocale personalizzato). Tutti i modelli acustici personalizzati sono elencati in una tabella denominata **Your models** (Modelli). Al primo utilizzo questa tabella è vuota. Nel titolo della tabella sono indicate le impostazioni locali correnti. Attualmente, è possibile creare modelli acustici solo per la lingua inglese (Stati Uniti).
 
-Per creare un nuovo modello, selezionare **Create New** (Crea nuovo) sotto il titolo della tabella. Come prima, immettere un nome e una descrizione per identificare il modello. Ad esempio, è possibile usare il campo **Description** (Descrizione) per registrare il modello e il set di dati acustici iniziali usati per creare il modello. 
+Per creare un nuovo modello, selezionare **Create New** (Crea nuovo) sotto il titolo della tabella. Come prima, immettere un nome e una descrizione per identificare il modello. Ad esempio, è possibile usare il campo **Description** (Descrizione) per registrare il modello e il set di dati acustici iniziali usati per creare il modello.
 
 Selezionare quindi un modello di base nell'elenco a discesa **Base Acoustic Model** (Modello acustico di base). Questo modello di base sarà il punto di partenza per la personalizzazione. Esistono due modelli acustici di base tra cui scegliere:
-* Il modello **Microsoft Search and Dictation AM** (Modello acustico Microsoft per ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura. 
-* Il modello **Microsoft Conversational Model** (Modello acustico colloquiale Microsoft) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e viene usato nei call center o nelle riunioni. 
+* Il modello **Microsoft Search and Dictation AM** (Modello acustico Microsoft per ricerca e dettatura) è appropriato per un parlato diretto a un'applicazione, ad esempio comandi, query di ricerca o dettatura.
+* Il modello **Microsoft Conversational Model** (Modello acustico colloquiale Microsoft) è adatto per il riconoscimento vocale di una conversazione. Questo tipo di parlato è solitamente diretto a un'altra persona e viene usato nei call center o nelle riunioni.
 
 La latenza per i risultati parziali nei modelli colloquiali è maggiore rispetto a quella nei modelli di ricerca e dettatura.
 
@@ -153,6 +153,6 @@ Nella tabella dei modelli acustici viene visualizzata una nuova voce che corrisp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere una sottoscrizione di prova al servizio Voce](https://azure.microsoft.com/try/cognitive-services/)
+- [Ottenere una sottoscrizione di prova gratuita al Servizio di riconoscimento vocale](https://azure.microsoft.com/try/cognitive-services/)
 - [Riconoscimento vocale in C#](quickstart-csharp-dotnet-windows.md)
 - [Dati di esempio in Git](https://github.com/Microsoft/Cognitive-Custom-Speech-Service)
