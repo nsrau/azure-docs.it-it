@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: c82717be3791a1bc397bbbdb369c55cd2ba04439
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dfba8db87dab12f856fbd97d578321477e9f92b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56213088"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57553655"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
@@ -25,8 +25,8 @@ ms.locfileid: "56213088"
 | Endpoint server per server | 30 endpoint server | Sì |
 | Dimensioni endpoint | 4 TiB | No  |
 | Oggetti file system (directory e file) per gruppo di sincronizzazione | 25 milioni di oggetti | No  |
-| Numero massimo di oggetti file system (directory e file) in una directory | 1.000.000 di oggetti | Sì |
+| Numero massimo di oggetti file system (directory e file) in una directory | 1 milione di oggetti | Sì |
 | Dimensioni massime del descrittore di protezione (directory e file) dell'oggetto | 4 KiB | Sì |
 | Dimensioni complete | 100 GiB | No  |
 | Dimensioni minime per un file da rendere a livelli | 64 KiB | Sì |
-| Sessioni di sincronizzazione simultanee | Agente versione 4 e successive: il limite dipende dalle risorse di sistema disponibili. <BR> Agente V3: 2 sessioni di sincronizzazione attive per ogni processore o fino a 8 sessioni di sincronizzazione attive per ogni server | Sì
+| Sessioni di sincronizzazione simultanee | Agente versione 4 e successive: Il limite varia in base alle risorse di sistema disponibili. <BR> Agente V3: Due sessioni di sincronizzazione attivi per ogni processore o un massimo di otto sessioni di sincronizzazione attivi per ogni server. | Sì

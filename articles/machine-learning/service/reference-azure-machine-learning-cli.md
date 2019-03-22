@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: c860aca538fcb2fbcff65aebecf062c4c428c84c
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 4b7cd15b1746bac6f61ef46108ade6cf1fb3b7ff
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415788"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894649"
 ---
 # <a name="use-the-cli-extension-for-azure-machine-learning-service"></a>Usare l'estensione dell'interfaccia della riga di comando per il servizio Azure Machine Learning
 
@@ -43,7 +43,7 @@ L'interfaccia della riga di comando non sostituisce Azure Machine Learning SDK. 
 ## <a name="prerequisites"></a>Prerequisiti
 
 
-* Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+* Per usare l'interfaccia della riga di comando, è necessario avere una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
@@ -91,7 +91,7 @@ I comandi seguenti illustrano come usare l'interfaccia della riga di comando per
     az configure --defaults aml_workspace=myworkspace group=myresourcegroup
     ```
     
-* Allegare un cluster del servizio Azure Kubernetes
++ Allegare un cluster del servizio Azure Kubernetes
 
     ```azurecli-interactive
     az ml computetarget attach aks -n myaks -i myaksresourceid -g myrg -w myworkspace

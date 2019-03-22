@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 6a7f7943e9d567a953c0e21697dfe4fdedd6e8f0
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55744790"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880450"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limiti di Azure Data Box Disk
 
 
-Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Disk, tenere presenti i limiti seguenti. 
+Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Disk, tenere presenti i limiti seguenti.
 
 ## <a name="data-box-service-limits"></a>Limiti di servizio Data Box
 
- - Il servizio Data Box è disponibile solo negli Stati Uniti, nell'Unione Europea, in Canada e in Australia in tutte le aree di Azure per il cloud pubblico di Azure.
+ - Il servizio Data Box è disponibile nelle aree di Azure elencate nelle [aree di disponibilità](data-box-disk-overview.md#region-availability).
  - Con Data Box Disk è supportato un unico account di archiviazione.
 
 ## <a name="data-box-disk-performance"></a>Prestazioni di Data Box Disk
@@ -44,12 +44,17 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
 
 ## <a name="data-upload-caveats"></a>Avvertenze sul caricamento dei dati
 
-- Non copiare i dati direttamente nei dischi. Copiare i dati in cartelle *BlockBlob* e *PageBlob* create in precedenza.
+- Non copiare i dati direttamente nei dischi. Copiare i dati creati in precedenza *BlockBlob*,*PageBlob*, e *AzureFile* cartelle.
 - Una cartella in *BlockBlob* e *PageBlob* è un contenitore. I contenitori, ad esempio, vengono creati come *BlockBlob/container* e *PageBlob/container*.
-- Se si dispone di un oggetto di Azure esistente (ad esempio un oggetto BLOB) nel cloud con lo stesso nome dell'oggetto copiato, Data Box Disk sovrascriverà il file nel cloud.
+- Se si dispone di un oggetto di Azure esistente (ad esempio, un blob) nel cloud con lo stesso nome dell'oggetto in fase di copia, Data Box Disk verranno rinominare il file come file(1) nel cloud.
 - Ogni file scritto nelle condivisioni *BlockBlob* e *PageBlob* viene caricato come BLOB in blocchi e BLOB di pagine rispettivamente.
 - Una gerarchia di directory vuota (senza alcun file) creata nelle cartelle *BlockBlob* e *PageBlob* non viene caricata.
 - Se si verificano errori durante il caricamento dei dati in Azure, viene creato un log degli errori nell'account di archiviazione di destinazione. Il percorso del log degli errori è disponibile nel portale quando il caricamento è completo ed è possibile esaminare il log per eseguire azioni correttive. Non eliminare i dati dall'origine senza verificare i dati caricati.
+- Se i dischi gestiti è stato specificato nell'ordine, esaminare le considerazioni aggiuntive seguenti:
+
+    - Si può avere solo un disco gestito con un nome specificato in un gruppo di risorse tra tutte le cartelle creati in precedenza e tra tutti i Data Box Disk. Ciò implica che i dischi rigidi virtuali caricati nelle cartelle creati in precedenza devono avere nomi univoci. Assicurarsi che il nome specificato non corrisponde un disco gestito esistente già in un gruppo di risorse. Se i dischi rigidi virtuali hanno nomi stesso, solo un disco rigido virtuale viene convertito in un disco gestito con lo stesso nome. I dischi rigidi virtuali vengono caricati come BLOB di pagine nell'account di archiviazione di staging.
+    - Copiare sempre i dischi rigidi virtuali in una delle cartelle creati in precedenza. Se si copiano i dischi rigidi virtuali di fuori di queste cartelle o in una cartella che è stato creato, i dischi rigidi virtuali vengono caricati in account di archiviazione di Azure come BLOB di pagine e dischi non gestiti.
+    - È possibile caricare solo i dischi rigidi virtuali fissi per creare dischi gestiti. Dinamica dischi rigidi virtuali differenze VHD o VHDX file non sono supportati.
 
 ## <a name="azure-storage-account-size-limits"></a>Limiti delle dimensioni dell'account di archiviazione di Azure
 
@@ -67,16 +72,25 @@ Di seguito vengono indicate le dimensioni degli oggetti Azure che possono essere
 | Tipo di oggetto di Azure | Limite predefinito                                             |
 |-------------------|-----------------------------------------------------------|
 | BLOB in blocchi        | Circa 4,75 TiB                                                 |
-| BLOB di pagine         | 8 TiB <br> Le dimensioni di tutti i file caricati nel formato BLOB di pagine devono essere multipli integrali di 512 byte per garantire che il caricamento venga completato in modo corretto. <br> I file VHD e VHDX sono allineati a 512 byte. |
+| BLOB di pagine         | 8 TiB <br> (Tutti i file caricati nel formato Blob di pagine deve essere allineati a 512 byte, altrimenti il caricamento ha esito negativo. <br> Il VHD e VHDX sono allineati a 512 byte.) |
+|File di Azure        | 1 TiB <br> Max. dimensioni della condivisione sono 5 TiB     |
+| Dischi gestiti     |4 TiB <br> Per altre informazioni sulle dimensioni e limiti, vedere: <li>[Obiettivi di scalabilità per i dischi gestiti](../virtual-machines/windows/disk-scalability-targets.md#managed-virtual-machine-disks)</li>|
 
 
-## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Convenzioni di denominazione BLOB di pagine e BLOB in blocchi di Azure
+## <a name="azure-block-blob-page-blob-and-file-naming-conventions"></a>Convenzioni di denominazione per BLOB in blocchi, BLOB di pagine e file
 
 | Entità                                       | Convenzioni                                                                                                                                                                                                                                                                                                               |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nomi di contenitori BLOB in blocchi e BLOB di pagine | Deve essere un nome DNS valido compreso tra 3 e 63 caratteri. <br>  Deve iniziare con una lettera o un numero. <br> Può contenere solo lettere minuscole, numeri e trattini (-). <br> Ogni trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. <br> I trattini consecutivi non sono consentiti nei nomi. |
+| Nomi di contenitori BLOB in blocchi e BLOB di pagine <br> Nomi di condivisione file per file di Azure | Deve essere un nome DNS valido compreso tra 3 e 63 caratteri. <br>  Deve iniziare con una lettera o un numero. <br> Può contenere solo lettere minuscole, numeri e trattini (-). <br> Ogni trattino (-) deve essere immediatamente preceduto e seguito da una lettera o un numero. <br> I trattini consecutivi non sono consentiti nei nomi. |
+| Nomi dei file e delle directory per i file di Azure     |<li> Mantengono le maiuscole/minuscole, non fanno distinzione tra maiuscole e minuscole e non devono superare i 255 caratteri. </li><li> Non possono terminare con la barra (/). </li><li>Se inserita, verrà automaticamente rimossa. </li><li> Non sono consentiti i caratteri seguenti: <code>" \\ / : \| < > * ?</code></li><li> I caratteri URL riservati devono essere preceduti da una sequenza di escape. </li><li> Non sono ammessi i caratteri di percorsi URL non validi. Elementi di codice come \\uE000 non sono caratteri Unicode validi. Alcuni caratteri ASCII o Unicode, come caratteri di controllo (da 0x00 a 0x1F, \\u0081, e così via), non sono consentiti. Per le regole che controllano le stringhe Unicode in HTTP/1.1, vedere RFC 2616, sezione 2.2: Basic Rules e RFC 3987. </li><li> I nomi file seguenti non sono consentiti: LPT1, LPT2, LPT3, LPT4, LPT5, LPT6, LPT7, LPT8, LPT9, COM1, COM2, COM3, COM4, COM5, COM6, COM7, COM8, COM9, PRN, AUX, NUL, CON, CLOCK$, punto (.) e due punti (..).</li>|
 | Nomi di BLOB per BLOB in blocchi e BLOB di pagine      | I nomi di BLOB fanno distinzione tra maiuscole e minuscole e possono contenere una qualsiasi combinazione di caratteri. <br> La lunghezza di un nome di BLOB deve essere compresa tra 1 e 1.024 caratteri. <br> I caratteri URL riservati devono essere preceduti da una sequenza di escape. <br>Il numero di segmenti del percorso che includono il nome BLOB non può essere superiore a 254. Un segmento di percorso è la stringa tra caratteri di delimitatore consecutivi, ad esempio, la barra rovesciata '/', che corrisponde al nome di una directory virtuale. |
 
+## <a name="managed-disk-naming-conventions"></a>Convenzioni di denominazione del disco gestito
+
+| Entità | Convenzioni                                             |
+|-------------------|-----------------------------------------------------------|
+| Nomi dei dischi gestiti       | <li> Il nome deve essere 1 e 80 caratteri. </li><li> Il nome deve iniziare con una lettera o un numero, terminare con una lettera, numero o un carattere di sottolineatura. </li><li> Il nome può contenere solo lettere, numeri, caratteri di sottolineatura, punti o trattini. </li><li>   Il nome non deve contenere spazi o `/`.                                              |
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Rivedere i [requisiti di sistema di Data Box](data-box-system-requirements.md)
+
+- Rivedere i [requisiti di sistema di Data Box](data-box-system-requirements.md)

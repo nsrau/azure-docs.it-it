@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: 97207b722b65ccf98c57304cd559b0927aacd5a4
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
-ms.translationtype: HT
+ms.openlocfilehash: 0a2d964d60d13f0e71de5776112a4edbe3cdcc45
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595296"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993916"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Aggiungere l'autenticazione all'app per Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -57,7 +57,7 @@ L'applicazione viene aggiornata per richiedere agli utenti di toccare il pulsant
 
 1. Aggiungere il codice seguente alla classe **TodoActivity** :
    
-        // Define a authenticated user.
+        // Define an authenticated user.
         private MobileServiceUser user;
         private async Task<bool> Authenticate()
         {
@@ -96,7 +96,7 @@ L'applicazione viene aggiornata per richiedere agli utenti di toccare il pulsant
     Verrà creato un nuovo metodo per autenticare un utente e un gestore del metodo per un nuovo pulsante **Accedi** . Nell'esempio di codice precedente, l'utente viene autenticato tramite un account di accesso di Facebook. Viene usata una finestra di dialogo per visualizzare l'ID utente una volta completata l'autenticazione.
    
    > [!NOTE]
-   > Se si usa un provider di identità diverso da Google, sostituire il valore passato a **LoginAsync** riportato in precedenza con uno dei seguenti: *MicrosoftAccount*, *Twitter*, *Google* o *WindowsAzureActiveDirectory*.
+   > Se si usa un provider di identità diverso da Facebook, sostituire il valore passato a **LoginAsync** in precedenza a uno dei seguenti: *MicrosoftAccount*, *Twitter*, *Google* o *WindowsAzureActiveDirectory*.
    > 
    > 
 2. Nel metodo **OnCreate** , eliminare o impostare come commento la riga di codice seguente:
@@ -125,6 +125,12 @@ L'applicazione viene aggiornata per richiedere agli utenti di toccare il pulsant
         </activity>
 
 6. In Visual Studio o Xamarin Studio eseguire il progetto client in un dispositivo o un emulatore ed eseguire l'accesso tramite il provider di identità scelto. Dopo aver eseguito l'accesso, verranno visualizzati l'ID di accesso l'elenco di elementi ToDo e sarà possibile aggiornare i dati nell'app.
+
+## <a name="troubleshooting"></a>risoluzione dei problemi
+
+**Si è verificato l'arresto anomalo dell'applicazione `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+In alcuni casi, i conflitti nei pacchetti di supporto vengono visualizzati semplicemente con un avviso in Visual Studio, ma si verifica un arresto anomalo dell'applicazione con questa eccezione in fase di esecuzione. In questo caso è necessario verificare che tutti i pacchetti di supporto referenziati nel progetto abbiano la stessa versione. Il [pacchetto NuGet di App per dispositivi mobili di Azure](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) presenta la dipendenza `Xamarin.Android.Support.CustomTabs` per la piattaforma Android, perciò se il progetto usa pacchetti di supporto più recenti è necessario installare questo pacchetto direttamente con la versione richiesta per evitare conflitti.
 
 <!-- URLs. -->
 [Creare un'app per Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md

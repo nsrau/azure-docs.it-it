@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 02/20/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d57e3d647acfe9400d7b575f5635e2ab5254352
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 09f61f60a3885fbc58cddc4b46df11014057f54e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162221"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999499"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
@@ -149,6 +149,8 @@ L'app Microsoft Authenticator (o altre app di terze parti) può essere usata com
 > Allo scopo di reimpostare la password in modalità self-service quando viene richiesto un solo metodo di ripristino, il codice di verifica rappresenta l'unica opzione disponibile per gli utenti **per garantire il livello più elevato di sicurezza**.
 >
 
+Gli utenti possono avere una combinazione di fino a 5 token hardware OATH o applicazioni di autenticazione, come l'app Microsoft Authenticator, configurate per l'uso in qualsiasi momento.
+
 ## <a name="oath-hardware-tokens-public-preview"></a>Token hardware OATH (anteprima pubblica)
 
 OATH è uno standard aperto che specifica come vengono generati i codici per password monouso (OTP, One-Time Password). Azure AD supporterà l'uso di token OATH TOTP SHA-1 del tipo da 30 secondi o 60 secondi. I clienti possono procurarsi questi token dal fornitore preferito. Si noti che le chiavi private sono limitate a 128 caratteri e ciò potrebbe non essere compatibile con tutti i token.
@@ -196,6 +198,9 @@ Viene inviato un SMS contenente un codice di verifica al numero di telefono cell
 
 Viene inviata una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico
 
+> [!IMPORTANT]
+> A partire da marzo del 2019 le opzioni telefonata non sarà disponibile per gli utenti MFA e SSPR nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Chiamata telefonica continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD. Questa modifica interessa solo i tenant gratuiti/versione di valutazione AD Azure.
+
 ## <a name="office-phone"></a>Telefono ufficio
 
 Viene inviata una chiamata vocale automatizzata al numero di telefono fornito. Per l'autenticazione, rispondere alla chiamata e premere # sul tastierino telefonico.
@@ -203,6 +208,9 @@ Viene inviata una chiamata vocale automatizzata al numero di telefono fornito. P
 Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel formato *+PrefissoInternazionale NumeroTelefonico*, ad esempio +1 4255551234.
 
 L'attributo del telefono ufficio viene gestito dall'amministratore.
+
+> [!IMPORTANT]
+> A partire da marzo del 2019 le opzioni telefonata non sarà disponibile per gli utenti MFA e SSPR nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Chiamata telefonica continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD. Questa modifica interessa solo i tenant gratuiti/versione di valutazione AD Azure.
 
 > [!NOTE]
 > È necessario uno spazio tra il prefisso internazionale e il numero di telefono.
@@ -229,6 +237,6 @@ Se l'organizzazione è federata e usa SSO con Azure AD e si prevede di usare Azu
 
 [Abilitare Azure Multi-Factor Authentication per l'organizzazione](howto-mfa-getstarted.md)
 
-[Abilitare la registrazione convergente per Azure Multi-Factor Authentication e la reimpostazione della password self-service di Azure AD](concept-registration-mfa-sspr-converged.md)
+[Abilitare la registrazione combinata nel tenant](howto-registration-mfa-sspr-combined.md)
 
 [Documentazione sulla configurazione di un metodo di autenticazione per l'utente finale](https://aka.ms/securityinfoguide)

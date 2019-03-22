@@ -1,6 +1,6 @@
 ---
-title: Assegnare ruoli della directory di Azure AD in PIM | Microsoft Docs
-description: Informazioni su come assegnare i ruoli della directory di Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Assegnare i ruoli di amministratore - Azure AD Privileged Identity Management | Microsoft Docs
+description: Informazioni su come assegnare ruoli di amministratore di Azure Active Directory in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,22 +13,22 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4acabd4b583766ac730558fd07c424ce97a1299a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192512"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58000638"
 ---
-# <a name="assign-azure-ad-directory-roles-in-pim"></a>Assegnare ruoli della directory di Azure AD in PIM
+# <a name="assign-azure-ad-administrator-roles-in-pim"></a>Assegnare ruoli di amministratore di Azure AD in PIM
 
-Con Azure Active Directory (Azure AD) un amministratore globale può rendere le assegnazioni di ruoli di directory **permanenti**. Queste assegnazioni di ruoli possono essere create usando il [portale di Azure](../users-groups-roles/directory-assign-admin-roles.md) o i [ comandi di PowerShell](/powershell/module/azuread#directory_roles).
+Con Azure Active Directory (Azure AD), un amministratore globale può rendere **permanente** le assegnazioni di ruolo di amministratore di Azure AD. Queste assegnazioni di ruoli possono essere create usando il [portale di Azure](../users-groups-roles/directory-assign-admin-roles.md) o i [ comandi di PowerShell](/powershell/module/azuread#directory_roles).
 
-Il servizio Azure AD Privileged Identity Management (PIM) consente anche agli amministratori di ruoli con privilegi di effettuare assegnazioni di ruoli di directory permanenti. Gli amministratori di ruoli con privilegi possono inoltre rendere gli utenti **idonei** ai ruoli di directory. Un amministratore idoneo può attivare il ruolo quando serve, con autorizzazioni che scadono al termine delle operazioni.
+Il servizio di Azure AD Privileged Identity Management (PIM) consente anche gli amministratori dei ruoli con privilegi rendere le assegnazioni di ruolo di amministratore permanente. Inoltre, gli amministratori dei ruoli con privilegi possono rendere gli utenti **idonei** per i ruoli di amministratore di Azure AD. Un amministratore idoneo può attivare il ruolo quando serve, con autorizzazioni che scadono al termine delle operazioni.
 
 ## <a name="make-a-user-eligible-for-a-role"></a>Rendere un utente idoneo per un ruolo
 
-Per rendere un utente idoneo per un ruolo di directory di Azure AD, eseguire la procedura seguente:
+Seguire questi passaggi per rendere un utente idoneo per un ruolo di amministratore di Azure AD.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un utente membro del ruolo [Amministratore dei ruoli con privilegi](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator).
 
@@ -68,7 +68,7 @@ Per rendere un utente idoneo per un ruolo di directory di Azure AD, eseguire la 
 
 ## <a name="make-a-role-assignment-permanent"></a>Rendere permanente un'assegnazione di ruolo
 
-Per impostazione predefinita, i nuovi utenti sono idonei solo per un ruolo della directory. Per rendere permanente un'assegnazione di ruolo, eseguire la procedura seguente:
+Per impostazione predefinita, i nuovi utenti sono idonei solo per un ruolo di amministratore di Azure AD. Per rendere permanente un'assegnazione di ruolo, eseguire la procedura seguente:
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
@@ -92,7 +92,7 @@ Per impostazione predefinita, i nuovi utenti sono idonei solo per un ruolo della
 
 È possibile rimuovere gli utenti dalle assegnazioni di ruoli, ma è necessario assicurarsi che sia sempre presente almeno un utente con ruolo di amministratore globale permanente. Se non si è certi se gli utenti necessitano ancora di assegnazioni di ruoli, è possibile [avviare una verifica di accesso per il ruolo](pim-how-to-start-security-review.md).
 
-Per rimuovere un utente specifico da un ruolo della directory, eseguire la procedura seguente:
+Seguire questi passaggi per rimuovere un utente specifico da un ruolo di amministratore di Azure AD.
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
@@ -116,7 +116,7 @@ Per rimuovere un utente specifico da un ruolo della directory, eseguire la proce
 
 ## <a name="authorization-error-when-assigning-roles"></a>Errore di autorizzazione durante l'assegnazione di ruoli
 
-Se PIM è stato abilitato di recente per una sottoscrizione e viene visualizzato un errore di autorizzazione quando si prova a rendere idoneo un utente per un ruolo della directory, è possibile che l'entità servizio MS-PIM non disponga ancora delle autorizzazioni appropriate. Per assegnare ruoli ad altri utenti, l'entità servizio MS-PIM deve avere il ruolo [Amministratore Accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator). Anziché attendere l'assegnazione automatica di questo ruolo a MS-PIM, è possibile assegnarlo manualmente.
+Se è stato abilitato di recente PIM per una sottoscrizione e viene visualizzato un errore di autorizzazione quando si tenta di rendere un utente idoneo per un ruolo di amministratore di Azure AD, è possibile che all'entità servizio di MS-PIM non dispone ancora delle autorizzazioni appropriate. Per assegnare ruoli ad altri utenti, l'entità servizio MS-PIM deve avere il ruolo [Amministratore Accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator). Anziché attendere l'assegnazione automatica di questo ruolo a MS-PIM, è possibile assegnarlo manualmente.
 
 Per assegnare il ruolo Amministratore Accesso utenti all'entità servizio MS-PIM per una sottoscrizione, seguire questa procedura.
 
@@ -151,5 +151,5 @@ Per assegnare il ruolo Amministratore Accesso utenti all'entità servizio MS-PIM
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare le impostazioni dei ruoli della directory di Azure AD in PIM](pim-how-to-change-default-settings.md)
+- [Configurare le impostazioni di ruolo amministratore di Azure AD in PIM](pim-how-to-change-default-settings.md)
 - [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)

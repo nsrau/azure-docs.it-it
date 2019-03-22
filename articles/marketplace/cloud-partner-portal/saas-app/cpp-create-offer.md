@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 03920bc3ed17eac9d76cea78877f1f008e83f4dd
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: bcaf470fae34056fe932cf8b5fd3076899f895ae
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53195973"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57880280"
 ---
 # <a name="create-a-new-saas-application-offer"></a>Creare una nuova offerta per un'applicazione SaaS
 
@@ -34,6 +34,7 @@ Il diagramma seguente illustra il processo per la creazione di un'offerta per un
 ## <a name="offer-components"></a>Componenti dell'offerta
 
 L'offerta di app SaaS è costituita da cinque sezioni, descritte nella tabella seguente:
+
 |  **Gruppo di risorse**   |  **Descrizione**  |
 |  ---------------   |  ---------------  |
 |    Impostazioni dell'offerta  |  Da usare per configurare un'identità univoca per l'app SaaS.                 |
@@ -45,7 +46,7 @@ L'offerta di app SaaS è costituita da cinque sezioni, descritte nella tabella s
 
 ## <a name="new-offer-form"></a>Modulo Nuova offerta
 
-Accedere al [portale Cloud Partner](http://cloudpartner.azure.com/) e quindi selezionare **+ Nuova offerta** nella barra dei menu a sinistra. Dal menu Nuova offerta scegliere **App SaaS** per visualizzare il modulo Nuova offerta e avviare il processo di definizione delle risorse per la nuova offerta di un'applicazione SaaS.
+Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/) e quindi selezionare **+ Nuova offerta** nella barra dei menu a sinistra. Dal menu Nuova offerta scegliere **App SaaS** per visualizzare il modulo Nuova offerta e avviare il processo di definizione delle risorse per la nuova offerta di un'applicazione SaaS.
 
 ![Menu Nuova offerta per le app SaaS](./media/azure-new-saas-offer.png)
 

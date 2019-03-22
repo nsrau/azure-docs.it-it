@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
 ms.date: 11/07/2018
-ms.openlocfilehash: 7609f3b0c04bdf74c87123f1125973219e6dda17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 4dbf53df4d3f34e80757f9575981b4b053587d97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567214"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012687"
 ---
 # <a name="deploy-and-explore-a-standalone-single-tenant-application-that-uses-azure-sql-database"></a>Distribuire ed esplorare un'applicazione autonoma a singolo tenant che usa il database SQL di Azure
 
@@ -76,11 +76,11 @@ L'app illustra le sedi che ospitano gli eventi.  Le sedi sono i tenant dell'appl
 
 1. Aprire la pagina degli eventi per ognuno dei tre tenant in schede separate del browser:
 
-    - http://events.contosoconcerthall.&lt;utente&gt;.trafficmanager.net
-    - http://events.dogwooddojo.&lt;utente&gt;.trafficmanager.net
-    - http://events.fabrikamjazzclub.&lt;utente&gt;.trafficmanager.net
+   - http://events.contosoconcerthall.&lt;utente&gt;.trafficmanager.net
+   - http://events.dogwooddojo.&lt;utente&gt;.trafficmanager.net
+   - http://events.fabrikamjazzclub.&lt;utente&gt;.trafficmanager.net
 
-    In ogni URL sostituire &lt;user&gt; con il valore relativo all'utente della distribuzione specifica.
+     In ogni URL sostituire &lt;user&gt; con il valore relativo all'utente della distribuzione specifica.
 
    ![Eventi](./media/saas-standaloneapp-get-started-deploy/fabrikam.png)
 
@@ -96,7 +96,7 @@ In un ambiente di produzione si crea in genere un record CNAME DNS per [*configu
 
 È possibile esaminare alcune risorse distribuite:
 
-1. Nel [portale di Azure](http://portal.azure.com) passare all'elenco dei gruppi di risorse.
+1. Nel [portale di Azure](https://portal.azure.com) passare all'elenco dei gruppi di risorse.
 2. Dovrebbero essere visualizzati i tre gruppi di risorse del tenant.
 3. Aprire il gruppo di risorse **wingtip-sa-fabrikam-&lt;user&gt;**, che contiene le risorse per la distribuzione di Fabrikam Jazz Club.  Il server **fabrikamjazzclub-&lt;user&gt;** contiene il database **fabrikamjazzclub**.
 

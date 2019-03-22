@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e334795a63ff298ff8f0695340f35fdff1ad03e0
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d42c86ec262cd9d3d3db3035d252429e44c1208f
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166522"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884881"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adaptive-insights"></a>Esercitazione: integrazione di Azure Active Directory con Adaptive Insights
 
@@ -191,7 +191,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** tipo di campo **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

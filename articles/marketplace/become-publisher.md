@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 33edfdc58d82530bc1a5d0245b5e18e94b0a6dc1
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077556"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842450"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Diventare un editore del Marketplace cloud
 
@@ -28,9 +28,9 @@ L'articolo include informazioni sulla registrazione come editore del Marketplace
 
 |  | Passaggio di registrazione | Duration | Dettagli |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Eseguire la registrazione a Microsoft Partner Network | 15 minuti | [Eseguire la registrazione a Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Creare un account Microsoft <ul>(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre)</ul> | 15 minuti | [Creare un ID Microsoft](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Inviare il modulo di registrazione a Marketplace | 15 minuti | [Inviare il modulo di candidatura a Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 1 | Eseguire la registrazione a Microsoft Partner Network | 15 min | [Eseguire la registrazione a Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Creare un account Microsoft <ul>(obbligatorio per le offerte di transazione di Azure Marketplace, consigliato per le altre)</ul> | 15 min | [Creare un ID Microsoft](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Inviare il modulo di registrazione a Marketplace | 15 min | [Inviare il modulo di candidatura a Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
 | 4 |  Accedere al portale Cloud Partner | 1-3 giorni | [Accedere al portale Cloud Partner](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
 | 5 | Effettuare la registrazione in Microsoft Developer Center (Dev Center) (per le offerte di transazione di Azure Marketplace) | 5-10 giorni | [Eseguire la registrazione nel Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
@@ -45,23 +45,23 @@ Dopo la registrazione, prendere nota dell'ID Microsoft Partner Network dell'orga
 *   Informazioni sui vantaggi offerti da [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Se l'organizzazione è già membro, l'utente potrà unirsi all'organizzazione nel corso della registrazione. Se si usa il [Centro per i partner](https://partnercenter.microsoft.com/partner/home), è possibile visualizzare l'ID nel proprio account del Centro per i partner. Se si usa il [centro di gestione della partnership (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), è possibile visualizzare l'ID nel proprio account di Partner Membership Center. 
 
----  
+---
 
 ## <a name="2-create-a-microsoft-account"></a>2. Creare un account Microsoft  
 | 15 min |  
-Un account Microsoft, ad esempio *@outlook.com o @live.com*, si usa per accedere a molti dispositivi e servizi Microsoft. È obbligatorio per le offerte di transazioni di Azure Marketplace e se ne consiglia l'uso a tutti gli editori del cloud. Per altre informazioni sui vantaggi e gli usi di un account Microsoft, [visitare questa pagina](https://account.microsoft.com/account/). Si userà un account Microsoft personale per accedere al portale Cloud Partner, la piattaforma di pubblicazione che consente di creare e gestire le offerte nel marketplace. 
+Account Microsoft, ad esempio  *\@outlook.com o \@live.com*, viene usato per accedere a molti servizi e dispositivi di Microsoft. È obbligatorio per le offerte di transazioni di Azure Marketplace e se ne consiglia l'uso a tutti gli editori del cloud. Per altre informazioni sui vantaggi e gli usi di un account Microsoft, [visitare questa pagina](https://account.microsoft.com/account/). Si userà un account Microsoft personale per accedere al portale Cloud Partner, la piattaforma di pubblicazione che consente di creare e gestire le offerte nel marketplace. 
 
 [! IMPORTANTE] Si noti che un account Microsoft associato un indirizzo di posta elettronica aziendale non consente di accedere al portale.
 
->[!Note]
->Se l'utente ha già un account Microsoft, può consultare le [Indicazioni per la creazione di un ID Microsoft per gestire un account Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) per determinare se l'account può essere usato per la pubblicazione nel marketplace. 
-
->Gli utenti con un account aziendale federato di Azure Active Directory sono invitati a leggere [questo articolo](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) prima di tentare di creare o usare l'account Microsoft esistente.
+> [!Note]
+> Se l'utente ha già un account Microsoft, può consultare le [Indicazioni per la creazione di un ID Microsoft per gestire un account Marketplace](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) per determinare se l'account può essere usato per la pubblicazione nel marketplace. 
+> 
+> Gli utenti con un account aziendale federato di Azure Active Directory sono invitati a leggere [questo articolo](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) prima di tentare di creare o usare l'account Microsoft esistente.
 
 *   Per informazioni sulla creazione o la gestione dell'account Microsoft, visitare le [pagine di supporto della Guida per l'accesso all'account Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
----  
+---
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Inviare il modulo di registrazione a Marketplace  
 | 15 min |  
@@ -72,7 +72,7 @@ Verrà richiesto di includere le informazioni seguenti:
 *   Una breve descrizione dell'offerta iniziale di app o servizi di consulenza che si intende pubblicare, tra cui il prodotto o servizio Microsoft più pertinente alla propria offerta
 *   I gruppi di destinatari dell'app o del servizio 
 
----  
+---
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Accedere al portale Cloud Partner
 | 1-3 giorni | <br>
 Il team che gestisce l'onboarding in Marketplace convalida i dettagli di registrazione al marketplace specificati nel passaggio 3. Dopo l'approvazione, si riceverà un messaggio di benvenuto con le credenziali dell'account e informazioni aggiuntive sull'accesso al [portale Cloud Partner](https://cloudpartner.azure.com).
@@ -108,4 +108,4 @@ Dopo aver completato la registrazione a [Dev Center](https://developer.microsoft
 *   [Determinare il tipo di inserzione per la propria soluzione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type).
 
  
----  
+---

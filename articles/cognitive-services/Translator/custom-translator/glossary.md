@@ -5,16 +5,16 @@ description: Glossario di Custom Translator
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
-ms.date: 11/13/2018
+ms.subservice: translator-text
+ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: reference
-ms.openlocfilehash: 28f9ca2cdb622e54bf4938863e4dd826c28d92de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: b257a8d15eeed5989db2b69f64bf6e756a73a1fd
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55206426"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57767516"
 ---
 # <a name="glossary"></a>Glossario
 

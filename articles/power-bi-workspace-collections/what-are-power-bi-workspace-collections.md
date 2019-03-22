@@ -2,26 +2,20 @@
 title: Informazioni sulle raccolte di aree di lavoro di Power BI
 description: Power BI Embedded consente di integrare report di Power BI in applicazioni Web o applicazioni mobili ed elimina la necessità di compilare soluzioni personalizzate.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: 03649b72-b7d7-40ca-b077-12356d72d4f3
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 0bd6ba74d176ed1db1e8f1f1b38646182da2c379
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: 6650eed6bf2559e9fb76b573189179a7f5df81ca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31412578"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57896705"
 ---
 # <a name="what-are-power-bi-workspace-collections"></a>Informazioni sulle raccolte di aree di lavoro di Power BI
 
@@ -93,4 +87,4 @@ Questi token vengono usati nelle varie fasi di interazione con le **raccolte di 
 [Repository Git PowerBI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
 [Repository Git PowerBI-Node](https://github.com/Microsoft/PowerBI-Node)  
 
-Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
+Altre domande? [Contattare la community di Power BI](https://community.powerbi.com/)

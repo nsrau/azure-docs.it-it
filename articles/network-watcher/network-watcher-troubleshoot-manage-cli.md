@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
-ms.openlocfilehash: 5a8ac32f43ecadb8908582fa853fc3f2bec7ac55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 8910b4963c7f40b5b6ecdde06c7c7a0c9b86e97a
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970992"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57899112"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure tramite l'interfaccia della riga di comando di Azure in Network Watcher di Azure
 
 > [!div class="op_single_selector"]
-> - [di Microsoft Azure](diagnose-communication-problem-between-networks.md)
+> - [Portale](diagnose-communication-problem-between-networks.md)
 > - [PowerShell](network-watcher-troubleshoot-manage-powershell.md)
 > - [Interfaccia della riga di comando di Azure](network-watcher-troubleshoot-manage-cli.md)
 > - [API REST](network-watcher-troubleshoot-manage-rest.md)
@@ -93,7 +93,7 @@ Dopo aver eseguito il cmdlet, Network Watcher esamina la risorsa per verificarne
 
 Il testo dell'azione offre indicazioni generiche su come risolvere il problema. Se è possibile eseguire un'azione per il problema, viene fornito un collegamento con altre informazioni. Nel caso in cui non siano presenti altre indicazioni, la risposta include l'URL per aprire una richiesta di assistenza.  Per altre informazioni sulle proprietà della risposta e ciò che vie è incluso, consultare la [panoramica sulla risoluzione dei problemi in Network Watcher](network-watcher-troubleshoot-overview.md).
 
-Per istruzioni sul download di file dall'account di archiviazione di Azure, consultare [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](http://storageexplorer.com/).
+Per istruzioni sul download di file dall'account di archiviazione di Azure, consultare [Introduzione all'archiviazione BLOB di Azure con .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md). Un altro strumento che può essere usato è Storage Explorer. Altre informazioni su Storage Explorer sono reperibili facendo clic sul collegamento seguente: [Storage Explorer](https://storageexplorer.com/)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

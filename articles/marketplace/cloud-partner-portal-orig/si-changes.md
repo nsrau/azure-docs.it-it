@@ -12,24 +12,36 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 3/3/2019
 ms.author: pbutlerm
-ms.openlocfilehash: ec3784a91f8aeb7f0fedd13c9ab86a844832a578
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.openlocfilehash: 7df96d53b02e80283f263901dc7e26ed4edb947d
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48807178"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342378"
 ---
-<a name="seller-insights-release-notes"></a>Note sulla versione di Seller Insights 
-===============================
-Data di rilascio: 28 luglio 2018
+# <a name="seller-insights-release-notes"></a>Note sulla versione di Seller Insights 
+
+(Data di rilascio: Il 1 marzo 2019)
 
 Questo articolo contiene informazioni sulle modifiche apportate alle funzionalità Seller Insights nel [portale Cloud Partner](https://cloudpartner.azure.com/#insights).
 
+## <a name="release-highlights-for-march-1-2019"></a>Elementi salienti della versione per il 1 marzo 2019
 
-<a name="release-highlights"></a>Principali caratteristiche della versione
-------------------
+* *Tendenza dei clienti* aggiunti al riepilogo
+* *Primi cinque clienti* riepilogo riflettono tutte le sottoscrizioni di Azure dispone di un cliente
+* *Normalizzata delle tendenze di utilizzo e tendenza ordini attivi* spostato di sotto di riepilogo *gli ordini mensili in modo immediato*
+* *Report di riconciliazione dei proventi* aggiornato
+* *Primi cinque clienti* sui proventi riflettono tutte le sottoscrizioni di Azure dispone di un cliente
+* *Report utilizzo* aggiornato con ID cliente
+* *Permanenza dei clienti* riflette tutte le sottoscrizioni di Azure dispone di un cliente su ordini e utilizzo
+
+
+(Data di rilascio: 28 luglio 2018)
+
+## <a name="release-highlights-for-july-28-2018"></a>Elementi salienti della versione per 28 luglio 2018
+
 
 -   I *prezzi stimati* forniscono una visualizzazione degli addebiti applicati ai clienti con implicazioni a livello di conversione della valuta.
 -   I *proventi previsti* forniscono una visualizzazione preventiva dei potenziali proventi.
@@ -37,8 +49,7 @@ Questo articolo contiene informazioni sulle modifiche apportate alle funzionalit
 -   L'*utilizzo con granularità giornaliera* consente maggiore granularità e informazioni dettagliate più accurate sull'utilizzo da parte dei clienti.
 
 
-<a name="changes-to-data-structure-and-taxonomy"></a>Modifiche alla struttura e alla tassonomia dei dati
---------------------------------------
+### <a name="changes-to-data-structure-and-taxonomy"></a>Modifiche alla struttura e alla tassonomia dei dati
 
 La tabella seguente elenca le metriche aggiunte o modificate in modo sostanziale in questa versione. 
 

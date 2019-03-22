@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: b41d086c092f3b18715d8fb70cd1a487a97c6869
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814045"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013048"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -39,7 +39,7 @@ Sono supportati i budget per un'ampia gamma di tipi di account Azure. Per visual
 
  Per le sottoscrizioni Azure EA è necessario avere accesso in lettura per visualizzare i budget. Per creare e gestire i budget, è necessario disporre dell'autorizzazione di collaboratore. È possibile creare singoli budget per le sottoscrizioni EA e gruppi di risorse. È tuttavia possibile creare budget per gli account di fatturazione EA.
 
-Le seguenti autorizzazioni di Azure sono supportate per ogni sottoscrizione per i budget, in base a utente e gruppo:
+Le seguenti autorizzazioni di Azure o gli ambiti, sono supportati per ogni sottoscrizione per i budget per utente e gruppo. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
 
 - Proprietario - Può creare, modificare o eliminare budget per una sottoscrizione.
 - Collaboratore e collaboratore Gestione costi: può creare, modificare o eliminare i propri budget. Può modificare l'importo di budget per budget creati da altri utenti.
@@ -53,7 +53,9 @@ Per altre informazioni sull'assegnazione dell'autorizzazione ai dati di Gestione
 
 ## <a name="create-a-budget-in-the-azure-portal"></a>Creare un budget nel portale di Azure
 
-È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto per la navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di risorse. Ad esempio, nel portale di Azure passare a **Sottoscrizioni** &gt; selezionare una sottoscrizione &gt; **Budget**. In questo esempio, il budget creato è per la sottoscrizione selezionata. Se si vuole creare un budget per un gruppo di risorse, passare a **Gruppi di risorse** > selezionare un gruppo di risorse > **Budget**.
+È possibile creare un budget per una sottoscrizione di Azure per un periodo mensile, trimestrale o annuale. Il contenuto per la navigazione nel portale di Azure determina se si crea un budget per una sottoscrizione o per un gruppo di gestione.
+
+Per creare o visualizzare un budget, aprire l'ambito desiderato nel portale di Azure e seleziona **budget** nel menu di scelta. Ad esempio, passare a **abbonamenti**, selezionare una sottoscrizione dall'elenco e quindi selezionare **budget** nel menu di scelta. Usare la **ambito** partite per passare a un ambito diverso, ad esempio un gruppo di gestione nel budget. Per altre informazioni sugli ambiti, vedere [comprendere e usare gli ambiti](understand-work-scopes.md).
 
 Dopo aver creato i budget, viene mostrata una semplice visualizzazione della spesa corrente corrispondente.
 
@@ -85,6 +87,28 @@ A seconda del livello di accesso disponibile, è possibile modificare un budget 
 
 ![Esempio di modifica di un budget per modificare le varie proprietà](./media/tutorial-acm-create-budgets/edit-budget.png)
 
+## <a name="trigger-an-action-group"></a>Attivare un gruppo di azioni
+
+Quando si crea o si modifica un budget per una sottoscrizione o un ambito di gruppo di risorse, è possibile configurarlo per chiamare un gruppo di azioni. Il gruppo di azioni può eseguire una serie di azioni diverse quando viene raggiunta la soglia di budget. Per altre informazioni sui gruppi di azioni, vedere [creare e gestire gruppi di azione nel portale di Azure](../azure-monitor/platform/action-groups.md). Per altre informazioni sull'uso di automazione in base al budget con gruppi di azioni, vedere [gestire i costi con i budget di Azure](../billing/billing-cost-management-budget-scenario.md).
+
+Per creare o aggiornare i gruppi di azioni, fare clic su **gestire i gruppi di azioni** mentre si sta creando o modificando un budget definito.
+
+![Esempio di creazione di un budget per visualizzare i gruppi di azioni di gestione](./media/tutorial-acm-create-budgets/manage-action-groups01.png)
+
+Fare quindi clic **Aggiungi gruppo di azione** e creare il gruppo di azione.
+
+
+![Immagine della casella di gruppo di azione Aggiungi](./media/tutorial-acm-create-budgets/manage-action-groups02.png)
+
+Dopo l'azione di creazione del gruppo, chiudere la finestra per tornare al proprio budget.
+
+Configurare il tuo budget per usare il gruppo di azioni quando viene raggiunta una soglia singoli. Sono supportati fino a cinque diverse soglie.
+
+![Esempio di selezione del gruppo di azione per una condizione di avviso](./media/tutorial-acm-create-budgets/manage-action-groups03.png)
+
+Nell'esempio seguente vengono illustrate le soglie di budget impostate su 50%, 75% e 100%. Ognuno è configurato per attivare le azioni specificate all'interno del gruppo di azione designato.
+
+![Esempio che illustra le condizioni di avviso configurate con diversi gruppi di azioni e il tipo di azioni](./media/tutorial-acm-create-budgets/manage-action-groups04.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

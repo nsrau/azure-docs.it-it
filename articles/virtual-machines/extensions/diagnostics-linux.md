@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: agaiha
-ms.openlocfilehash: 434971e707cdca62c76ede9f295e7af20aa4cc3f
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: af5d4e21bb5b41df4bcb88dc2f9eb7901fcaa597
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313535"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57997958"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i registri
 
@@ -386,7 +386,7 @@ Questa sezione facoltativa consente di controllare l'esecuzione delle query arbi
 
 Elemento | Valore
 ------- | -----
-namespace | (facoltativo) Lo spazio dei nomi OMI entro il quale deve essere eseguita la query. Se non viene specificato, il valore predefinito è "root/scx", implementato dai [provider multipiattaforma dei System Center](http://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namespace | (facoltativo) Lo spazio dei nomi OMI entro il quale deve essere eseguita la query. Se non viene specificato, il valore predefinito è "root/scx", implementato dai [provider multipiattaforma dei System Center](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
 query | La query OMI da eseguire.
 tabella | (facoltativo) La tabella di archiviazione di Azure, nell'account di archiviazione designato. Vedere [Impostazioni protette](#protected-settings).
 frequency | (facoltativo) Il numero di secondi tra le esecuzioni della query. Il valore predefinito è 300, ovvero 5 minuti; il valore minimo è 15 secondi.

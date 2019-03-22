@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/18/2019
 ms.author: cenkd;juliako
-ms.openlocfilehash: c982707b24f18e840e866b1dcc858fe2aceb686e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 4f72738d0ca9b8c6dc170892a985d821923a4405
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000010"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57894020"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtri e manifesti dinamici
 
@@ -34,7 +34,7 @@ Questo argomento illustra alcuni scenari comuni in cui l'uso dei filtri può ess
 ## <a name="overview"></a>Panoramica
 Quando si distribuiscono contenuti ai clienti (eventi in live streaming o video on demand), l'obiettivo è riuscire a trasmettere video di alta qualità a vari tipi di dispositivi in diverse condizioni di rete. Per raggiungere questo obiettivo, eseguire queste operazioni:
 
-* Codificare il flusso video a più velocità in bit ([velocità in bit adattiva](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)), garantendo in questo modo la qualità e le condizioni di rete 
+* Codificare il flusso video a più velocità in bit ([velocità in bit adattiva](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)), garantendo in questo modo la qualità e le condizioni di rete 
 * Usare la funzione di [creazione dinamica dei pacchetti](media-services-dynamic-packaging-overview.md) di Servizi multimediali per riorganizzare dinamicamente il flusso in nuovi pacchetti creati con protocolli diversi, garantendo in questo modo la trasmissione a diversi tipi di dispositivi. Servizi multimediali supporta la distribuzione delle tecnologie di streaming a bitrate adattivo seguenti: HTTP Live Streaming (HLS), Smooth Streaming e MPEG DASH. 
 
 ### <a name="manifest-files"></a>File manifesto

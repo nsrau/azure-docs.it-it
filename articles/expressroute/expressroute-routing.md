@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 72489ea48aef9317d97e4d6f19b465db6a9a039d
-ms.sourcegitcommit: f4b78e2c9962d3139a910a4d222d02cda1474440
-ms.translationtype: HT
+ms.openlocfilehash: d3d4bbb0b9007ef61c96f980b9f3c3ee19dd11b5
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/12/2019
-ms.locfileid: "54245668"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57539123"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -91,10 +91,10 @@ Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utent
 * [ARIN](https://www.arin.net/)
 * [APNIC](https://www.apnic.net/)
 * [AFRINIC](https://www.afrinic.net/)
-* [LACNIC](http://www.lacnic.net/)
+* [LACNIC](https://www.lacnic.net/)
 * [RIPENCC](https://www.ripe.net/)
-* [RADB](http://www.radb.net/)
-* [ALTDB](http://altdb.net/)
+* [RADB](https://www.radb.net/)
+* [ALTDB](https://altdb.net/)
 
 Se i prefissi e il numero AS non sono assegnati all'utente specifico nei registri precedenti, è necessario aprire un caso di supporto per la convalida manuale di prefissi e ASN. Il supporto richiede documentazione, ad esempio una lettera di autorizzazione, che dimostri che l'utente è autorizzato a usare le risorse.
 

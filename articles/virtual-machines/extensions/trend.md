@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: roiyz
-ms.openlocfilehash: ddb999c252f0802ef57942de694340ae29f2d8ba
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 0bb49d3d75b88f197a42e02f03f89480563537ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240359"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005471"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Come installare e configurare Trend Micro Deep Security come servizio in una macchina virtuale di Windows
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
@@ -34,7 +34,7 @@ Se si dispone di una sottoscrizione Trend Micro per una soluzione locale, è pos
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>Installare Deep Security Agent in una nuova VM
 
-Il [portale di Azure classico](http://portal.azure.com) consente di installare l'estensione per la sicurezza di Trend Micro quando si usa un'immagine da **Marketplace** per creare la macchina virtuale. Quando si crea un'unica macchina virtuale, l'uso del portale è un metodo semplice per aggiungere la protezione di Trend Micro.
+Il [portale di Azure classico](https://portal.azure.com) consente di installare l'estensione per la sicurezza di Trend Micro quando si usa un'immagine da **Marketplace** per creare la macchina virtuale. Quando si crea un'unica macchina virtuale, l'uso del portale è un metodo semplice per aggiungere la protezione di Trend Micro.
 
 L'uso di una voce di **Marketplace** determina l'avvio di una procedura guidata che consente di configurare la macchina virtuale. Usare il terzo pannello della procedura guidata, **Impostazioni**, per installare l'estensione per la sicurezza di Trend Micro.  Per istruzioni generali, vedere [Creare una macchina virtuale con Windows nel portale di Azure](../windows/classic/tutorial.md).
 
@@ -94,4 +94,4 @@ Per l'avvio dell'agente sono necessari alcuni minuti dopo l'installazione. In se
 
 <!-- Link references -->
 [Come accedere a una macchina virtuale che esegue Windows Server]:../windows/classic/connect-logon.md
-[Estensioni VM e funzionalità di Azure]: http://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409
+[Estensioni VM e funzionalità di Azure]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

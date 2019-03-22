@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: anroth
-ms.openlocfilehash: 8e96447f2a1b5b68ebf99ab4006fe43937f4c75f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 58109e17ed33e6af8dedf3ed8c1cc9ddf546a05e
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884427"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588670"
 ---
 # <a name="pricing-and-limits"></a>Prezzi e limiti
 
 Esistono tre livelli di chiavi per il Servizio visione artificiale personalizzato. Le risorse per il progetto delle versioni di valutazione limitate sono associate all'account di accesso del Servizio visione artificiale personalizzato, ovvero un account Azure Active Directory o un account Microsoft. Sono destinate all'uso per brevi versioni di valutazione del servizio. È possibile registrarsi per una sottoscrizione F0 (gratuita) o S0 (standard) tramite il portale di Azure. Per informazioni dettagliate su prezzi e transazioni, vedere la pagina corrispondente di [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/).
 
-Gli account creati durante l'anteprima gratuita, prima dell'introduzione delle anteprime di Azure (1° marzo 2018), manterranno le rispettive quote precedenti per le versioni di valutazione limitate. 
+Gli account creati durante l'anteprima gratuita, prima dell'introduzione delle anteprime di Azure (1° marzo 2018), manterranno le rispettive quote precedenti per le versioni di valutazione limitate.
 
 Si prevede che nel tempo il numero di immagini di training per progetto di tag per progetto aumenterà per i progetti S0.
 

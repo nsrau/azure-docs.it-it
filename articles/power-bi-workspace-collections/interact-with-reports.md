@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: bfc80318eb43992e292159a0cd99a9b2f4a3c041
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: d5a411e227704eb80b0020f68fad072491576f18
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233103"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883798"
 ---
 # <a name="interact-with-power-bi-reports-using-the-javascript-api"></a>Interagire con i report di Power BI usando l'API JavaScript
 
@@ -43,29 +43,29 @@ Con l'API JavaScript è possibile gestire i report, accedere alle pagine di un r
 ### <a name="manage-reports"></a>Gestire i report
 L'API Javascript consente di gestire il comportamento a livello di pagina e di report:
 
-* Incorporare un report di Power BI specifico in modo sicuro nell'applicazione: provare l' [applicazione demo di incorporamento](http://azure-samples.github.io/powerbi-angular-client/#/scenario1)
+* Incorporare un report di Power BI specifico in modo sicuro nell'applicazione: provare l' [applicazione demo di incorporamento](https://azure-samples.github.io/powerbi-angular-client/#/scenario1)
   * Impostare il token di accesso
 * Configurare il report
-  * Abilitare e disabilitare il riquadro del filtro e il riquadro di spostamento della pagina: provare l' [applicazione demo di aggiornamento delle impostazioni](http://azure-samples.github.io/powerbi-angular-client/#/scenario6)
-  * Impostare i valori predefiniti per le pagine e i filtri: provare la [demo di impostazione dei valori predefiniti](http://azure-samples.github.io/powerbi-angular-client/#/scenario5)
+  * Abilitare e disabilitare il riquadro del filtro e il riquadro di spostamento della pagina: provare l' [applicazione demo di aggiornamento delle impostazioni](https://azure-samples.github.io/powerbi-angular-client/#/scenario6)
+  * Impostare i valori predefiniti per le pagine e i filtri: provare la [demo di impostazione dei valori predefiniti](https://azure-samples.github.io/powerbi-angular-client/#/scenario5)
 * Entrare e uscire dalla modalità schermo intero
 
 [Altre informazioni sull'incorporamento di un report](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Embedding-Basics)
 
 ### <a name="navigate-to-pages-in-a-report"></a>Passare alle pagine in un report
-L'API JavaScript consente di trovare tutte le pagine di un report e di impostare la pagina corrente. Provare l' [applicazione demo di spostamento](http://azure-samples.github.io/powerbi-angular-client/#/scenario3).
+L'API JavaScript consente di trovare tutte le pagine di un report e di impostare la pagina corrente. Provare l' [applicazione demo di spostamento](https://azure-samples.github.io/powerbi-angular-client/#/scenario3).
 
 [Altre informazioni sullo spostamento tra le pagine](https://github.com/Microsoft/PowerBI-JavaScript/wiki/Page-Navigation)
 
 ### <a name="filter-a-report"></a>Filtrare un report
-L'API JavaScript fornisce funzionalità di filtro di base e avanzate per le pagine di report e i report incorporati. Provare l' [applicazione demo di filtro](http://azure-samples.github.io/powerbi-angular-client/#/scenario4)ed esaminare un codice introduttivo qui.
+L'API JavaScript fornisce funzionalità di filtro di base e avanzate per le pagine di report e i report incorporati. Provare l' [applicazione demo di filtro](https://azure-samples.github.io/powerbi-angular-client/#/scenario4)ed esaminare un codice introduttivo qui.
 
 #### <a name="basic-filters"></a>Filtri di base
 Un filtro di base viene applicato a livello di colonna o di gerarchia e contiene un elenco di valori da includere o escludere.
 
 ```typescript
 const basicFilter: pbi.models.IBasicFilter = {
-  $schema: "http://powerbi.com/product/schema#basic",
+  $schema: "https://powerbi.com/product/schema#basic",
   target: {
     table: "Store",
     column: "Count"
@@ -94,7 +94,7 @@ I filtri avanzati usano l'operatore logico AND o OR e accettano una o due condiz
 
 ```typescript
 const advancedFilter: pbi.models.IAdvancedFilter = {
-  $schema: "http://powerbi.com/product/schema#advanced",
+  $schema: "https://powerbi.com/product/schema#advanced",
   target: {
     table: "Store",
     column: "Name"

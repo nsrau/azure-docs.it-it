@@ -12,18 +12,18 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2018
 ms.author: mbullwin
-ms.openlocfilehash: e32d3fe30796015c8189eee819a0cc3dd4581e22
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 11d63889555d6899df07e83168813994907476af
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55700911"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860330"
 ---
 # <a name="troubleshooting-no-data---application-insights-for-net"></a>Risoluzione dei problemi relativi a dati non disponibili in Application Insights per .NET
 ## <a name="some-of-my-telemetry-is-missing"></a>Alcuni dati di telemetria sono mancanti
 *In Application Insights, è visibile solo una frazione degli eventi generati dall'applicazione.*
 
-* Se si visualizza in modo costante la stessa frazione, il problema è probabilmente causato dal [campionamento](../../azure-monitor/app/sampling.md)adattivo. Per verificarlo, aprire Ricerca dal pannello della panoramica ed esaminare l'istanza di una Richiesta o di un altro evento. Nella parte inferiore della sezione Proprietà fare clic su "..." per visualizzare i dettagli completi della proprietà. Se il Conteggio richieste è inferiore a 1, il campionamento è in esecuzione. 
+* Se si visualizza in modo costante la stessa frazione, il problema è probabilmente causato dal [campionamento](../../azure-monitor/app/sampling.md)adattivo. Per verificarlo, aprire Ricerca dal pannello della panoramica ed esaminare l'istanza di una Richiesta o di un altro evento. Nella parte inferiore della sezione Proprietà fare clic su "..." per visualizzare i dettagli completi della proprietà. Se il Conteggio richieste è inferiore a 1, il campionamento è in esecuzione.
 * In caso contrario, è possibile che sia stato raggiunto il [limite di velocità dati](../../azure-monitor/app/pricing.md#limits-summary) per il piano tariffario. Questi limiti vengono applicati per minuto.
 
 ## <a name="no-data-from-my-server"></a>Non sono disponibili dati dal server
@@ -34,7 +34,7 @@ ms.locfileid: "55700911"
 
 *È stato [installato Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md) nel server Web per monitorare le app esistenti, ma non è presente alcun risultato.*
 
-* Vedere [Risoluzione dei problemi relativi a Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot). 
+* Vedere [Risoluzione dei problemi relativi a Status Monitor](../../azure-monitor/app/monitor-performance-live-website-now.md#troubleshoot).
 
 ## <a name="q01"></a>Nessuna opzione "Aggiungi Application Insights" in Visual Studio
 *Quando si fa clic con il pulsante destro del mouse su un progetto esistente in Esplora soluzioni, non è presente alcuna opzione di Application Insights.*
@@ -55,10 +55,10 @@ Cause possibili:
 
 Correzione:
 
-* Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato. 
+* Verificare di avere specificato le credenziali di accesso per l'account Azure appropriato.
 * Nel browser, verificare di avere accesso al [portale di Azure](https://portal.azure.com). Aprire le impostazioni e vedere se sono presenti restrizioni.
 * [Aggiungere Application Insights al progetto esistente](../../azure-monitor/app/asp-net.md): In Esplora soluzioni fare clic con il pulsante destro del mouse e scegliere "Aggiungi Application Insights".
-* Se il problema continua a verificarsi, seguire la [procedura manuale](../../azure-monitor/app/windows-services.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto. 
+* Se il problema continua a verificarsi, seguire la [procedura manuale](../../azure-monitor/app/windows-services.md) per aggiungere una risorsa al portale e quindi aggiungere l'SDK al progetto.
 
 ## <a name="emptykey"></a>Viene visualizzato l'errore: "La chiave di strumentazione non può essere vuota"
 Sembra che si sia verificato un problema durante l'installazione di Application Insights o forse di un adattatore di registrazione.
@@ -76,7 +76,7 @@ Vedere [NuGet Package Restore](https://docs.nuget.org/Consume/Package-Restore) (
 Cause possibili:
 
 * la risorsa di Application Insights è stata creata manualmente oppure il progetto è di un tipo non supportato dagli Strumenti Application Insights;
-* L'estensione Developer Analytics Tools è disabilitata nella propria istanza di Visual Studio. 
+* L'estensione Developer Analytics Tools è disabilitata nella propria istanza di Visual Studio.
 * la versione di Visual Studio è precedente alla 2013 Update 3.
 
 Correzione:
@@ -90,13 +90,11 @@ In caso contrario, il tipo di progetto non è supportato direttamente dagli Stru
 ## <a name="access-denied-on-opening-application-insights-from-visual-studio"></a>"Accesso negato" all'apertura di Application Insights da Visual Studio
 *Il comando di menu "Apri Application Insights" apre il portale di Azure, ma si verifica un errore di accesso negato.*
 
-Le ultime informazioni di accesso Microsoft usate nel browser predefinito non hanno accesso alla [risorsa creata quando Application Insights è stato aggiunto all'app](../../azure-monitor/app/asp-net.md). Le cause possibili sono due: 
+Le ultime informazioni di accesso Microsoft usate nel browser predefinito non hanno accesso alla [risorsa creata quando Application Insights è stato aggiunto all'app](../../azure-monitor/app/asp-net.md). Le cause possibili sono due:
 
-* L'utente ha più di un account Microsoft, ad esempio un account Microsoft di lavoro e uno personale. Le ultime informazioni di accesso usate nel browser predefinito sono relative a un account diverso da quello che ha accesso per [Application Insights al progetto](../../azure-monitor/app/asp-net.md). 
-  
+* L'utente ha più di un account Microsoft, ad esempio un account Microsoft di lavoro e uno personale. Le ultime informazioni di accesso usate nel browser predefinito sono relative a un account diverso da quello che ha accesso per [Application Insights al progetto](../../azure-monitor/app/asp-net.md).
   * Correzione: fare clic sul nome nell'angolo superiore destro della finestra del browser e disconnettersi. Quindi accedere con l'account corretto. Nella barra di spostamento a sinistra fare quindi clic su Application Insights e selezionare l'app.
-* Un altro utente ha aggiunto Application Insights al progetto e ha dimenticato di concedere l' [accesso al gruppo di risorse](../../azure-monitor/app/resources-roles-access-control.md) in cui è stato creato. 
-  
+* Un altro utente ha aggiunto Application Insights al progetto e ha dimenticato di concedere l' [accesso al gruppo di risorse](../../azure-monitor/app/resources-roles-access-control.md) in cui è stato creato.
   * Correzione: se è stato usato un account aziendale, è possibile chiedere di essere aggiunti al team o che venga concesso l'accesso individuale al gruppo di risorse.
 
 ## <a name="asset-not-found-on-opening-application-insights-from-visual-studio"></a>L'asset non viene trovato all'apertura di Application Insights da Visual Studio
@@ -105,9 +103,9 @@ Le ultime informazioni di accesso Microsoft usate nel browser predefinito non ha
 Cause possibili:
 
 * la risorsa di Application Insights per l'applicazione è stata eliminata;
-* la chiave di strumentazione è stata impostata o modificata in ApplicationInsights.config modificandola direttamente, senza aggiornare il file di progetto. 
+* la chiave di strumentazione è stata impostata o modificata in ApplicationInsights.config modificandola direttamente, senza aggiornare il file di progetto.
 
-La chiave di strumentazione in ApplicationInsights.config determina dove vengono inviati i dati di telemetria. Una riga nel file di progetto determina quale risorsa viene aperta quando si usa il comando in Visual Studio. 
+La chiave di strumentazione in ApplicationInsights.config determina dove vengono inviati i dati di telemetria. Una riga nel file di progetto determina quale risorsa viene aperta quando si usa il comando in Visual Studio.
 
 Correzione:
 
@@ -117,25 +115,21 @@ Correzione:
 ## <a name="where-do-i-find-my-telemetry"></a>Dove è possibile trovare i dati di telemetria?
 *Dopo aver eseguito l'accesso al [portale di Microsoft Azure](https://portal.azure.com) e aver visualizzato il dashboard della schermata iniziale di Azure, dove è possibile trovare i dati di Application Insights?*
 
-* Nella barra di spostamento a sinistra fare clic su Application Insights e selezionare l'app. Se non è presente alcun progetto, è necessario [aggiungere o configurare Application Insights nel progetto Web](../../azure-monitor/app/asp-net.md).
-  
-    Verranno visualizzati alcuni grafici di riepilogo. Fare clic su qualsiasi grafico per visualizzare altri dettagli.
+* Nella barra di spostamento a sinistra fare clic su Application Insights e selezionare l'app. Se non è presente alcun progetto, è necessario [aggiungere o configurare Application Insights nel progetto Web](../../azure-monitor/app/asp-net.md).  
+  Verranno visualizzati alcuni grafici di riepilogo. Fare clic su qualsiasi grafico per visualizzare altri dettagli.
 * In Visual Studio fare clic sul pulsante Application Insights durante il debug.
 
 ## <a name="q03"></a> Dati assenti o dati del server non presenti
 *Dopo aver eseguito l'app e aver aperto il servizio Application Insights in Microsoft Azure, i grafici mostrano solo messaggi di informazioni su come raccogliere i dati o di mancata configurazione.* Oppure *mostrano solo la visualizzazione pagina e i dati utente, ma non i dati del server.*
 
-* Eseguire l'applicazione in modalità di debug in Visual Studio (F5). Usare l'applicazione per generare alcuni dati di telemetria. Verificare che gli eventi registrati vengano visualizzati nella finestra di output di Visual Studio. 
-  
-    ![](./media/asp-net-troubleshoot-no-data/output-window.png)
+* Eseguire l'applicazione in modalità di debug in Visual Studio (F5). Usare l'applicazione per generare alcuni dati di telemetria. Verificare che gli eventi registrati vengano visualizzati nella finestra di output di Visual Studio.  
+  ![](./media/asp-net-troubleshoot-no-data/output-window.png)
 * Nel portale di Application Insights aprire [Diagnostic Search](../../azure-monitor/app/diagnostic-search.md)(Ricerca diagnostica). I dati vengono in genere visualizzati prima qui.
 * Fare clic sul pulsante Aggiorna. Il pannello viene automaticamente aggiornato periodicamente, ma è anche possibile farlo manualmente. L'intervallo di aggiornamento è più lungo per intervalli di tempo maggiori.
-* Verificare che le chiavi di strumentazione corrispondano. Nel pannello principale per l'app nel portale di Application Insights esaminare **Chiave di strumentazione** nell'elenco a discesa **Informazioni di base**. Nel progetto in Visual Studio aprire quindi ApplicationInsights.config e trovare `<instrumentationkey>`. Verificare che le due chiavi siano identiche. In caso contrario:
-  
+* Verificare che le chiavi di strumentazione corrispondano. Nel pannello principale per l'app nel portale di Application Insights esaminare **Chiave di strumentazione** nell'elenco a discesa **Informazioni di base**. Nel progetto in Visual Studio aprire quindi ApplicationInsights.config e trovare `<instrumentationkey>`. Verificare che le due chiavi siano identiche. In caso contrario:  
   * Nel portale fare clic su Application Insights e cercare la risorsa dell'app con la chiave corretta.
   * In Esplora soluzioni di Visual Studio fare clic con il pulsante destro del mouse e scegliere Application Insights, Configura. Reimpostare l'app per l'invio di dati di telemetria alla risorsa corretta.
   * Se le chiavi non corrispondono, assicurarsi di aver usato le stesse credenziali di accesso in Visual Studio e nel portale.
-    
 * Nel [dashboard della schermata iniziale di Microsoft Azure](https://portal.azure.com)esaminare la mappa relativa all'integrità del servizio. Se ci sono indicazioni di avviso, attendere che tornino alla normalità, quindi chiudere e riaprire il pannello dell'applicazione di Application Insights.
 * Controllare anche il [blog sullo stato](https://blogs.msdn.microsoft.com/servicemap-status/).
 * Potrebbe essere stato scritto un codice per l'[SDK lato server](../../azure-monitor/app/api-custom-events-metrics.md) che trasforma la chiave di strumentazione in istanze di `TelemetryClient` o in `TelemetryContext`. Potrebbe anche essere stata scritta una [configurazione del filtro o di campionamento](../../azure-monitor/app/api-filtering-sampling.md) che esclude troppi dati.
@@ -167,9 +161,9 @@ I dati sulle prestazioni (CPU, velocità di IO e così via) sono disponibili per
 * È stata raggiunta la quota mensile relativa ai punti dati? Per saperlo, aprire Impostazioni/Quota e Prezzi. Se la quota è stata raggiunta, è possibile aggiornare il piano oppure pagare per disporre di ulteriore capacità. Vedere lo [schema dei prezzi](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## <a name="i-dont-see-all-the-data-im-expecting"></a>Non sono presenti tutti i dati previsti
-Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versione successiva, la funzionalità di [campionamento adattivo](../../azure-monitor/app/sampling.md) può funzionare e inviare solo una percentuale dei dati di telemetria. 
+Se l'applicazione invia una grande quantità di dati ed è in uso Application Insights SDK per ASP.NET 2.0.0 Beta3 o versione successiva, la funzionalità di [campionamento adattivo](../../azure-monitor/app/sampling.md) può funzionare e inviare solo una percentuale dei dati di telemetria.
 
-È possibile disabilitarla, ma non è consigliabile. Il campionamento è progettato in modo che i dati di telemetria correlati vengano trasmessi correttamente per scopi diagnostici. 
+È possibile disabilitarla, ma non è consigliabile. Il campionamento è progettato in modo che i dati di telemetria correlati vengano trasmessi correttamente per scopi diagnostici.
 
 ## <a name="client-ip-address-is-0000"></a>L'indirizzo IP del client è 0.0.0.0
 
@@ -178,7 +172,6 @@ Il 5 febbraio 2018 è stata annunciata la rimozione della registrazione dell'ind
 > [!NOTE]
 > Se si ha bisogno dei primi 3 ottetti dell'indirizzo IP è possibile usare un [inizializzatore di telemetria](https://docs.microsoft.com/azure/application-insights/app-insights-api-filtering-sampling#add-properties-itelemetryinitializer) per aggiungere un attributo personalizzato.
 > Questa operazione non influisce sui dati raccolti prima del 5 febbraio 2018.
-
 
 ## <a name="wrong-geographical-data-in-user-telemetry"></a>Dati geografici errati nella telemetria utente
 Le dimensioni relative alla città, all'area, al paese e alla regione vengono derivate dagli indirizzi IP e non sono sempre accurate. Questi indirizzi IP vengono elaborati prima di tutto per la posizione e quindi modificati su 0.0.0.0 per essere archiviati.
@@ -190,30 +183,30 @@ Le dimensioni relative alla città, all'area, al paese e alla regione vengono de
 
 Seguire queste istruzioni per acquisire i log di risoluzione dei problemi per il framework.
 
-### <a name="net-framework"></a>.Net Framework
+### <a name="net-framework"></a>.NET Framework
 
 1. Installare il pacchetto [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsighs`
 
 2. Modificare il file applicationinsights.config in modo che includa quanto segue:
 
-   ```xml
-   <TelemetryModules>
+    ```xml
+    <TelemetryModules>
       <Add Type="Microsoft.ApplicationInsights.Extensibility.HostingStartup.FileDiagnosticsTelemetryModule, Microsoft.AspNet.ApplicationInsights.HostingStartup">
         <Severity>Verbose</Severity>
         <LogFileName>mylog.txt</LogFileName>
         <LogFilePath>C:\\SDKLOGS</LogFilePath>
       </Add>
-   </TelemetryModules>
-   ```
-   L'applicazione deve disporre delle autorizzazioni di scrittura per il percorso configurato
- 
- 3. Riavviare il processo in modo che le nuove impostazioni vengano prelevate dall'SDK
- 
- 4. Al termine, ripristinare queste modifiche.
-  
-### <a name="net-core"></a>.Net Core
+    </TelemetryModules>
+    ```
+    L'applicazione deve disporre delle autorizzazioni di scrittura per il percorso configurato
 
-1. Installare il pacchetto [Microsoft.AspNet.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNet.ApplicationInsights.HostingStartup) da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsighs`
+3. Riavviare il processo in modo che le nuove impostazioni vengano prelevate dall'SDK
+
+4. Al termine, ripristinare queste modifiche.
+
+### <a name="net-core"></a>.NET Core
+
+1. Installare il [Microsoft.AspNetCore.ApplicationInsights.HostingStartup](https://www.nuget.org/packages/Microsoft.AspNetCore.ApplicationInsights.HostingStartup) pacchetto da NuGet. La versione installata deve corrispondere alla versione attualmente installata di `Microsoft.ApplicationInsights`
 
 2. Modificare il metodo `ConfigureServices` nella classe `Startup.cs`:
 
@@ -225,13 +218,11 @@ Seguire queste istruzioni per acquisire i log di risoluzione dei problemi per il
         module.Severity = "Verbose";
     } );
     ```
-   L'applicazione deve disporre delle autorizzazioni di scrittura per il percorso configurato
- 
- 3. Riavviare il processo in modo che le nuove impostazioni vengano prelevate dall'SDK
- 
- 4. Al termine, ripristinare queste modifiche.
-  
+    L'applicazione deve disporre delle autorizzazioni di scrittura per il percorso configurato
+
+3. Riavviare il processo in modo che le nuove impostazioni vengano prelevate dall'SDK
+
+4. Al termine, ripristinare queste modifiche.
 
 ## <a name="still-not-working"></a>Non funzionante...
 * [Forum di Application Insights](https://social.msdn.microsoft.com/Forums/vstudio/en-US/home?forum=ApplicationInsights)
-

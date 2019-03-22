@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: 3cac893fcaafd4fe8d35aab2a10da92019d3ed42
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
-ms.translationtype: HT
+ms.openlocfilehash: 114f4ccccaa861928263eb59b4e43379989abcca
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55698965"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077854"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms-and-azure-mysql"></a>Migrazione di Contoso: eseguire il rehosting di un'app Linux in locale in macchine virtuali di Azure e Azure MySQL
 
@@ -127,7 +127,7 @@ Ecco come gli amministratori di Contoso eseguiranno la migrazione:
 > [!div class="checklist"]
 > * **Passaggio 1: Preparare Azure per Site Recovery**: viene creato un account di archiviazione di Azure per i dati replicati e un insieme di credenziali di Servizi di ripristino.
 > * **Passaggio 2: Preparare l'ambiente VMware locale per Site Recovery**: vengono preparati gli account per l'individuazione delle macchine virtuali e l'installazione dell'agente, in preparazione alla connessione alle macchine virtuali di Azure dopo il failover.
- * **Passaggio 3: Effettuare il provisioning del database]**: In Azure, eseguire il provisioning di un'istanza del database MySQL di Azure.
+>   * **Passaggio 3: Effettuare il provisioning del database]**: In Azure, eseguire il provisioning di un'istanza del database MySQL di Azure.
 > * **Passaggio 4: Replicare le macchine virtuali**: configurare l'ambiente di origine e di destinazione di Site Recovery, impostare i criteri di replica e avviare la replica delle macchine virtuali nell'archiviazione di Azure.
 > * **Passaggio 5: eseguire la migrazione del database**. Viene configurata la migrazione con gli strumenti di MySQL.
 > * **Passaggio 6: Eseguire la migrazione delle macchine virtuali con Site Recovery**: infine, vengono effettuati un failover di test per verificare che tutto funzioni come previsto e un failover completo per eseguire la migrazione delle macchine virtuali ad Azure.
@@ -147,10 +147,10 @@ Gli amministratori di Contoso creano un account di archiviazione e l'insieme di 
 
 1. Creano un account di archiviazione (**contosovmsacc20180528**) nell'area Stati Uniti orientali 2.
 
-    - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
-    - Usano un account per utilizzo generico con archiviazione standard e la replica dell'archiviazione con ridondanza locale.
+   - L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino.
+   - Usano un account per utilizzo generico con archiviazione standard e la replica dell'archiviazione con ridondanza locale.
 
-    ![Archiviazione di Site Recovery](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
+     ![Archiviazione di Site Recovery](./media/contoso-migration-rehost-linux-vm-mysql/asr-storage.png)
 
 3. Dopo avere configurato la rete e l'account di archiviazione, gli amministratori creano un insieme di credenziali (ContosoMigrationVault) e lo inseriscono nel gruppo di risorse **ContosoFailoverRG** nell'area primaria Stati Uniti orientali 2.
 

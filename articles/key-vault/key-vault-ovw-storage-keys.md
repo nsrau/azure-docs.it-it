@@ -8,13 +8,13 @@ ms.service: key-vault
 author: prashanthyv
 ms.author: pryerram
 manager: barbkess
-ms.date: 10/03/2018
-ms.openlocfilehash: 9b1a4e23ed0da0637b44ac52dd4d1baeb22cd6ce
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 03/01/2019
+ms.openlocfilehash: c2107e501affd5e3dd22e0fbc83d078b51d414a5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118055"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57841141"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Account di archiviazione gestita di Azure Key Vault - Interfaccia della riga di comando
 
@@ -24,12 +24,26 @@ ms.locfileid: "56118055"
 > - Usare un'[identità gestita di Azure AD](/azure/active-directory/managed-identities-azure-resources/) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione di tutti i client e di archiviare le credenziali nell'applicazione.
 > - Usare il controllo degli accessi in base al ruolo per la gestione delle autorizzazioni, che è supportato anche da Key Vault.
 
-- Azure Key Vault gestisce le chiavi di un account di archiviazione di Azure.
-    - Internamente Key Vault consente di elencare (sincronizzazione) le chiavi con un account di archiviazione di Azure.    
-    - Key Vault rigenera (ruota) le chiavi periodicamente.
-    - I valori di chiave non vengono mai restituiti in risposta al chiamante.
-    - Key Vault gestisce le chiavi sia degli account di archiviazione che degli account di archiviazione classici.
-    
+Un'[account di Archiviazione Azure](/azure/storage/storage-create-storage-account) usa credenziali costituite da un nome account e una chiave. La chiave viene generata automaticamente e, contrariamente a una chiave di crittografia, svolge la funzione di "password". Per gestire queste chiavi degli account di archiviazione, Key Vault può archiviarle come [segreti di Key Vault](/azure/key-vault/about-keys-secrets-and-certificates#key-vault-secrets). 
+
+## <a name="overview"></a>Panoramica
+
+Gli account di archiviazione gestiti di Key Vault eseguono diverse funzioni di gestione per conto dell'utente:
+
+- Elencano le chiavi (sincronizzazioni) con un account di Archiviazione di Azure.
+- Rigenerano (ruotano) le chiavi con cadenza periodica.
+- Gestiscono le chiavi sia degli account di archiviazione sia degli account di archiviazione classici.
+- I valori di chiave non vengono mai restituiti in risposta al chiamante.
+
+Quando si usano le chiavi di un account di archiviazione gestito:
+
+- **Consentire solo a Key Vault di gestire le chiavi dell'account di archiviazione.** Non tentare di gestirle manualmente per evitare di interferire con i processi di Key Vault.
+- **Non consentire alle chiavi degli account di archiviazione di essere gestite da più di un oggetto di Key Vault**.
+- **Non rigenerare manualmente le chiavi dell'account di archiviazione**. È opportuno rigenerarle tramite Key Vault.
+- Che chiede di Key Vault per gestire l'account di archiviazione può essere eseguita da un'entità utente per il momento e non un'entità servizio
+
+Gli esempi seguenti illustrano come consentire a Key Vault di gestire le chiavi degli account di archiviazione.
+
 > [!IMPORTANT]
 > Un tenant Azure AD assegna ad ogni applicazione registrata un'**[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object)**, che svolge la funzione di identità dell'applicazione. Viene usato l'ID di applicazione dell'entità servizio per concedere a tale entità l'autorizzazione ad accedere ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo. Key Vault è un'applicazione Microsoft pre-registrata in tutti i tenant di Azure AD con lo stesso ID di applicazione all'interno di ogni cloud di Azure:
 > - I tenant di Azure AD nel cloud di Azure per enti pubblici usano l'ID di applicazione `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
@@ -55,42 +69,36 @@ Nelle istruzioni seguenti si assegna Key Vault come servizio per avere autorizza
 > [!NOTE]
 > Si noti che dopo aver configurato le chiavi dell'account di archiviazione gestita di Azure Key Vault, tali chiavi possono essere modificate **SOLO** tramite Key Vault. Le chiavi dell'account di archiviazione gestita consentono a Key Vault di gestire la rotazione della chiave dell'account di archiviazione.
 
+> [!IMPORTANT]
+> Un tenant Azure AD assegna ad ogni applicazione registrata un'**[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object)**, che svolge la funzione di identità dell'applicazione. Viene usato l'ID di applicazione dell'entità servizio per concedere a tale entità l'autorizzazione ad accedere ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo. Key Vault è un'applicazione Microsoft pre-registrata in tutti i tenant di Azure AD con lo stesso ID di applicazione all'interno di ogni cloud di Azure:
+> - I tenant di Azure AD nel cloud di Azure per enti pubblici usano l'ID di applicazione `7e7c393b-45d0-48b1-a35e-2905ddf8183c`.
+> - I tenant di Azure AD nel cloud pubblico di Azure e in tutti gli altri usano l'ID di applicazione `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`.
+
+
 1. Dopo aver creato un account di archiviazione, eseguire il comando seguente per ottenere l'ID risorsa dell'account di archiviazione da gestire
 
     ```
     az storage account show -n storageaccountname 
     ```
-    Copiare il campo ID dal risultato del comando precedente
-    
-2. Ottenere l'ID oggetto dell'entità servizio di Azure Key Vault eseguendo il comando seguente
-
+    Campo ID copia dal risultato del comando precedente che l'aspetto seguente
     ```
-    az ad sp show --id cfa8b339-82a2-471a-a3c9-0fc0be7a4093
+    /subscriptions/0xxxxxx-4310-48d9-b5ca-0xxxxxxxxxx/resourceGroups/ResourceGroup/providers/Microsoft.Storage/storageAccounts/StorageAccountName
     ```
-    
-    Al termine di questo comando trovare l'ID oggetto nel risultato:
-    ```console
-        {
-            ...
             "objectId": "93c27d83-f79b-4cb2-8dd4-4aa716542e74"
-            ...
-        }
+    
+2. Assegnare ruoli RBAC "Ruolo servizio operatore della chiave Account di archiviazione" in Key Vault, limitando l'ambito di accesso all'account di archiviazione. Per un account di archiviazione classici, usare "Distribuzione classica Storage Account chiave servizio ruolo di operatore."
+    ```
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope 93c27d83-f79b-4cb2-8dd4-4aa716542e74
     ```
     
-3. Assegnare il ruolo Operatore chiave di archiviazione all'identità di Azure Key Vault.
-
-    ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ObjectIdOfKeyVault> --scope <IdOfStorageAccount>
-    ```
+    '93c27d83-f79b-4cb2-8dd4-4aa716542e74' è l'ID oggetto per Key Vault nel Cloud pubblico. Per ottenere l'ID oggetto per Key Vault nei cloud nazionali vedere la sezione importante precedente
     
-4. Creare un account di archiviazione gestito da Key Vault.     <br /><br />
+3. Creare un account di archiviazione gestito da Key Vault.     <br /><br />
    Il periodo di rigenerazione impostato di seguito è di 90 giorni. Dopo 90 giorni, Key Vault rigenera 'key1' e passa l'impostazione di chiave attiva da 'key2' a 'key1'. A questo punto contrassegnerà Key1 come chiave attiva. 
    
     ```
     az keyvault storage add --vault-name <YourVaultName> -n <StorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id <Id-of-storage-account>
     ```
-    Nel caso in cui l'utente non abbia creato l'account di archiviazione e non abbia le autorizzazioni per tale account, la procedura seguente consente di impostare le autorizzazioni per l'account, in modo da garantire la possibilità di gestire tutte le autorizzazioni di archiviazione in Key Vault.
-    
 
 <a name="step-by-step-instructions-on-how-to-use-key-vault-to-create-and-generate-sas-tokens"></a>Istruzioni dettagliate su come usare Key Vault per creare e gestire i token di firma di accesso condiviso
 --------------------------------------------------------------------------------
@@ -117,7 +125,7 @@ Quando questa operazione viene eseguita correttamente, si dovrebbe visualizzare 
    "se=2020-01-01&sp=***"
 ```
 
-2. In questo passaggio si userà l'output ($sasToken) generato in precedenza per creare una definizione di firma di accesso condiviso. Per altre informazioni, leggere [qui](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
+1. In questo passaggio si userà l'output ($sasToken) generato in precedenza per creare una definizione di firma di accesso condiviso. Per altre informazioni, leggere [qui](https://docs.microsoft.com/cli/azure/keyvault/storage/sas-definition?view=azure-cli-latest#required-parameters)   
 
 ```
 az keyvault storage sas-definition create --vault-name <YourVaultName> --account-name <YourStorageAccountName> -n <NameOfSasDefinitionYouWantToGive> --validity-period P2D --sas-type account --template-uri $sastoken
@@ -127,12 +135,11 @@ az keyvault storage sas-definition create --vault-name <YourVaultName> --account
  > [!NOTE] 
  > Nel caso in cui l'utente non abbia le autorizzazioni per l'account di archiviazione, prima si ottiene l'ID oggetto dell'utente
 
-    ```
-    az ad user show --upn-or-object-id "developer@contoso.com"
+ ```
+ az ad user show --upn-or-object-id "developer@contoso.com"
 
-    az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
-    
-    ```
+ az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
+ ```
     
 ## <a name="fetch-sas-tokens-in-code"></a>Recuperare i token di firma di accesso condiviso nel codice
 
@@ -140,8 +147,8 @@ In questa sezione verrà illustrato come poter eseguire operazioni sull'account 
 
 Nella sezione seguente si illustra come recuperare i token di firma di accesso condiviso dopo aver creato una definizione di firma di accesso condiviso, come illustrato in precedenza.
 
-> [!NOTE] 
-  Come descritto nell'articolo [Concetti di base](key-vault-whatis.md#basic-concepts), esistono tre modi per eseguire l'autenticazione in Key Vault:
+> [!NOTE]
+>   Come descritto nell'articolo [Concetti di base](key-vault-whatis.md#basic-concepts), esistono tre modi per eseguire l'autenticazione in Key Vault:
 > - Usando l'identità del servizio gestita (altamente consigliato)
 > - Usando l'entità servizio e il certificato 
 > - Usando l'entità servizio e la password (NON consigliato)

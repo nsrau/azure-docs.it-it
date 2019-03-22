@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 2257d2c8-1929-4390-b22c-f96ca8b291bc
 ms.date: 07/26/2016
-ms.openlocfilehash: 2da672e1f55af1e38ae0a3fa90b7ecb10d2f17c7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: bbcdad7c5496cd08994a613b07e1bc7c611e4572
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128378"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57876851"
 ---
 # <a name="exchange-edifact-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>Scambiare messaggi EDIFACT per l'integrazione aziendale B2B in App per la logica di Azure con Enterprise Integration Pack
 
@@ -38,7 +38,7 @@ Dopo aver [creato un account di integrazione](../logic-apps/logic-apps-enterpris
 
 ## <a name="create-an-edifact-agreement"></a>Creare un contratto EDIFACT 
 
-1. Accedere al [Portale di Azure](http://portal.azure.com "Portale di Azure"). 
+1. Accedere al [Portale di Azure](https://portal.azure.com "Portale di Azure"). 
 
 2. Nel menu principale di Azure selezionare **Tutti i servizi**. Nella casella di ricerca immettere "integrazione" e quindi selezionare **Account di integrazione**.
 
@@ -82,7 +82,7 @@ Dopo aver impostato le proprietà del contratto, è possibile configurare il mod
 1. In **Aggiungi**, selezionare **Impostazioni di ricezione**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere le tabelle in questa sezione.
 
-   Il controllo **Impostazioni di ricezione** è suddiviso nelle sezioni seguenti: Identificatori, Riconoscimento, Schemi, Numeri di controllo, Convalide e Impostazioni interne.
+   **Impostazioni di ricezione** è suddiviso nelle sezioni seguenti: Gli identificatori, Acknowledgment, schemi, numeri di controllo, convalida e impostazioni interne.
 
    ![Configurare "Impostazioni di ricezione"](./media/logic-apps-enterprise-integration-edifact/edifact-2.png)  
 
@@ -155,7 +155,7 @@ Dopo aver completato ogni riga di convalida, ne viene aggiunta automaticamente u
 1.  In **Aggiungi**, selezionare **Impostazioni di avvio**.
 Configurare queste proprietà in base al contratto con il partner con cui si scambiano i messaggi. Per le descrizioni delle proprietà, vedere le tabelle in questa sezione.
 
-    Il controllo **Impostazioni di invio** è suddiviso nelle sezioni seguenti: Identificatori, Riconoscimento, Schemi, Buste, Set di caratteri e separatori, Numeri di controllo e Convalida.
+    **Impostazioni di invio** è suddiviso nelle sezioni seguenti: Gli identificatori, Acknowledgment, schemi, buste, set di caratteri e separatori, numeri di controllo e le convalide.
 
     ![Configurare "Impostazioni di invio"](./media/logic-apps-enterprise-integration-edifact/edifact-3.png)    
 

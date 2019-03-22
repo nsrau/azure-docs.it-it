@@ -12,16 +12,16 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/11/2019
-ms.author: jeffgilb
+ms.date: 03/13/2019
+ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 10/15/2018
-ms.openlocfilehash: 2c726675d799a8bb5f9ed1d1dd595aa7f4700036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.lastreviewed: 03/13/2019
+ms.openlocfilehash: 06bafbcf3e668ba17b1245b9352e942e02569997
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774594"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852366"
 ---
 # <a name="capacity-planning-for-azure-app-service-server-roles-in-azure-stack"></a>Pianificazione della capacità per i ruoli server di servizio App di Azure in Azure Stack
 
@@ -93,9 +93,17 @@ Quando si decide il numero di ruoli di lavoro web condiviso da usare, esaminare 
 
    Per informazioni sull'aggiunta di altre istanze del ruolo di lavoro, vedere [aggiunta di altri ruoli di lavoro](azure-stack-app-service-add-worker-roles.md).
 
+### <a name="additional-considerations-for-dedicated-workers-during-upgrade-and-maintenance"></a>Considerazioni aggiuntive per i ruoli di lavoro dedicati durante l'aggiornamento e manutenzione
+
+Durante l'aggiornamento e manutenzione di ruoli di lavoro, il servizio App di Azure in Azure Stack eseguirà la manutenzione sul 20% di ogni livello di ruolo di lavoro in qualsiasi momento.  Pertanto gli amministratori del cloud devono sempre mantenere un pool di 20% dei lavoratori non allocati per ogni livello di ruolo di lavoro per assicurarsi che i tenant non si verificano alcuna perdita di servizio durante l'aggiornamento e manutenzione.  Ad esempio, se si dispone di 10 ruoli di lavoro in un livello di ruolo di lavoro, è necessario assicurarsi che siano non allocato per consentire l'aggiornamento 2 e manutenzione, se tutte e 10 ruoli di lavoro diventano allocati è necessario aumentare il livello di ruolo di lavoro per gestire un pool di thread di lavoro non allocato. Durante l'aggiornamento e manutenzione Azure App Service sposterà i carichi di lavoro per i ruoli di lavoro non allocati per assicurarsi che i carichi di lavoro continuerà a funzionare, tuttavia se sono presenti nessun thread di lavoro non allocato disponibile durante l'aggiornamento quindi vi sarà il rischio di carico di lavoro tenant tempo di inattività.  Per quanto riguarda i ruoli di lavoro condivise, i clienti non sono necessario eseguire il provisioning di ruoli di lavoro aggiuntivi, come il servizio allocherà applicazioni tenant all'interno di ruoli di lavoro disponibili automaticamente, per la disponibilità elevata, tuttavia è presente un requisito minimo per i due ruoli di lavoro in questo livello.
+
+Gli amministratori cloud è possono monitorare l'allocazione di livello del ruolo di lavoro nell'area di amministrazione del servizio App nel portale di amministrazione di Azure Stack.  Passare al servizio App e quindi selezionare i piani di lavoro nel riquadro sinistro.  La tabella di piani di lavoro Mostra nome del livello di ruolo di lavoro, dimensioni, immagine usata, numero di thread di lavoro disponibili (non allocato), il numero totale di thread di lavoro in ogni livello e lo stato complessivo del livello del ruolo di lavoro.
+
+![Amministrazione del servizio App - piani di lavoro][1]
+
 ## <a name="file-server-role"></a>Ruolo file server
 
-Per il ruolo file server, è possibile usare un file server autonomo per lo sviluppo e il testing. ad esempio, quando si distribuisce il servizio App di Azure in Azure Stack Development Kit (ASDK) è possibile usare questo modello: https://aka.ms/appsvconmasdkfstemplate. Per scopi di produzione, è consigliabile usare file server Windows preconfigurato o un server di file non Windows preconfigurato.
+Per il ruolo file server, è possibile usare un file server autonomo per lo sviluppo e il testing. ad esempio, quando si distribuisce il servizio App di Azure in Azure Stack Development Kit (ASDK) è possibile usare ciò [modello](https://aka.ms/appsvconmasdkfstemplate).  Per scopi di produzione, è consigliabile usare file server Windows preconfigurato o un server di file non Windows preconfigurato.
 
 Negli ambienti di produzione, il ruolo file server si verifica nel disco con utilizzo intensivo dei / o. Poiché esso vengono ospitati tutti i file di contenuto e dell'applicazioni per siti web dell'utente, è necessario preconfigurare una delle seguenti risorse per questo ruolo:
 
@@ -105,10 +113,13 @@ Negli ambienti di produzione, il ruolo file server si verifica nel disco con uti
 - Cluster di file non-Windows server
 - Dispositivo NAS (Network Attached Storage)
 
-Per altre informazioni, vedere [effettuare il provisioning di un file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
+L'articolo seguente per altre informazioni, vedere [effettuare il provisioning di un file server](azure-stack-app-service-before-you-get-started.md#prepare-the-file-server).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere l'articolo seguente per altre informazioni:
 
 [Prima di iniziare con il servizio App in Azure Stack](azure-stack-app-service-before-you-get-started.md)
+
+<!--Image references-->
+[1]: ./media/azure-stack-app-service-capacity-planning/worker-tier-allocation.png

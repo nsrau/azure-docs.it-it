@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: bwren
-ms.openlocfilehash: fe1f08b7b597a2e521f2b13af1d0a4a4d7d4b7a2
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e14b5f2c5f84c4f1f21454f733987df6933f0c7
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54214002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57886627"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Portale di che si sposta in Azure
 
@@ -26,7 +26,7 @@ ms.locfileid: "54214002"
 
 Il portale di Azure è l'hub per tutti i servizi di Azure e offre un'avanzata esperienza di gestione con funzionalità come ad esempio i dashboard per il blocco delle risorse, la ricerca intelligente per le risorse di individuazione e assegnazione di tag per la gestione delle risorse. Per consolidare e semplificare il flusso di lavoro di monitoraggio e gestione, l'azienda ha iniziato ad aggiungere le funzionalità del portale di OMS al portale di Azure. Tutte le funzionalità del portale di OMS fanno ora parte del portale di Azure. In realtà, alcune delle nuove funzionalità, ad esempio Analisi del traffico, sono disponibili solo nel portale di Azure. L'utente sarà in grado di eseguire tutto ciò che era nel portale di OMS con il portale di Azure e molto altro. È consigliabile iniziare a usare il portale di Azure oggi stesso!
 
-**Il portale di OMS verrà ritirato ufficialmente il 15 gennaio 2019** per il cloud commerciale di Azure e per il cloud Azure Governo degli Stati Uniti il portale di OMS **verrà ritirato ufficialmente il 30 marzo 2019.** L'azienda è entusiasta di passare al portale di Azure e prevede che la transizione sarà semplice. Ma è comprensibile che le modifiche siano complesse e che possano rivelarsi dannose. Inviare eventuali domande, feedback o preoccupazioni a **LAUpgradeFeedback@microsoft.com**. Il resto di questo articolo tratterà degli scenari chiave e della Guida di orientamento per questa transizione.
+**Il portale di OMS verrà ritirato ufficialmente il 15 gennaio 2019** per il cloud commerciale di Azure e per il cloud Azure Governo degli Stati Uniti il portale di OMS **verrà ritirato ufficialmente il 30 marzo 2019.** L'azienda è entusiasta di passare al portale di Azure e prevede che la transizione sarà semplice. Ma è comprensibile che le modifiche siano complesse e che possano rivelarsi dannose. Inviare eventuali domande, commenti e suggerimenti o sottoporre problemi al **LAUpgradeFeedback\@microsoft.com**. Il resto di questo articolo tratterà degli scenari chiave e della Guida di orientamento per questa transizione.
 
 ## <a name="what-is-changing"></a>Cosa cambierà 
 Vengono annunciate le seguenti modifiche con la deprecazione del portale di OMS. Ognuna di queste modifiche viene descritta più nei dettagli nelle sezioni seguenti.
@@ -47,7 +47,7 @@ Mentre la maggior parte delle funzionalità continuerà a funzionare senza esegu
 - È necessario [eseguire la migrazione delle autorizzazioni utente](#user-access-and-role-migration) al portale di Azure.
 - Vedere [Eseguire la migrazione delle distribuzioni di aggiornamenti di OMS in Azure](../../automation/migrate-oms-update-deployments.md) per informazioni dettagliate sulla transizione della soluzione Gestione aggiornamenti.
 
-Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](oms-portal-faq.md) per informazioni su come effettuare la transizione al portale di Azure. Inviare eventuali commenti e suggerimenti, domande o problemi a **LAUpgradeFeedback@microsoft.com**.
+Consultare [Domande frequenti per la transizione dal portale di OMS al portale di Azure per gli utenti di Log Analytics](oms-portal-faq.md) per informazioni su come effettuare la transizione al portale di Azure. Inviare commenti e suggerimenti, domande o dubbi al **LAUpgradeFeedback\@microsoft.com**.
 
 ## <a name="user-access-and-role-migration"></a>Migrazione del ruolo e dell'accesso utente
 La gestione di accesso al portale Azure è più completa e più potente rispetto alla gestione di accesso nel portale di OMS. Vedere [Gestire le aree di lavoro](manage-access.md#manage-accounts-and-users) per informazioni dettagliate sulla gestione dell'accesso in Log Analytics.

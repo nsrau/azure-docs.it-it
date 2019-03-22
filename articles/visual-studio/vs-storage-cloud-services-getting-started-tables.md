@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 44056ae1bca2595965abd3a47b4a2aa29d221623
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: cec8ab9d678ff559176580fa8eccc261f449f4c5
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255234"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58012889"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Introduzione all’archiviazione di tabella di Azure e ai servizi connessi di Visual Studio (progetti servizi cloud)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -29,12 +29,12 @@ Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quan
 
 Per iniziare, è innanzitutto necessario creare una tabella nell'account di archiviazione. Infine verrà mostrato come eseguire operazioni relative alle tabelle e all'entità di base, come l'aggiunta, la modifica, la lettura e la lettura delle entità delle tabelle. Negli esempi, scritti in codice C\#, viene usata la [libreria client di Archiviazione di Microsoft Azure per .NET](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**NOTA:** alcune API che eseguono chiamate ad Archiviazione di Azure sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) . Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
+**NOTA:** Alcune API che eseguono chiamate ad archiviazione di Azure sono asincrone. Per ulteriori informazioni, vedere [Programmazione asincrona con Async e Await](https://msdn.microsoft.com/library/hh191443.aspx) . Nel codice riportato di seguito si presuppone vengano utilizzati i metodi di programmazione asincrona.
 
 * Per altre informazioni sulla modifica delle tabelle a livello di codice, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](../storage/storage-dotnet-how-to-use-tables.md) .
 * Vedere la [documentazione di archiviazione](https://azure.microsoft.com/documentation/services/storage/) per informazioni generali sull'archiviazione di Azure.
 * Vedere la [documentazione dei servizi Cloud](https://azure.microsoft.com/documentation/services/cloud-services/) per informazioni generali sui servizi cloud di Azure.
-* Vedere [ASP.NET](http://www.asp.net) per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
+* Vedere [ASP.NET](https://www.asp.net) per ulteriori informazioni sulle applicazioni di programmazione di ASP.NET.
 
 ## <a name="access-tables-in-code"></a>Accesso alle tabelle nel codice
 Per accedere alle tabelle nei progetti di servizio cloud, è necessario includere gli elementi seguenti ai file di origine C# che consentono di accedere all'archiviazione delle tabelle di Azure.

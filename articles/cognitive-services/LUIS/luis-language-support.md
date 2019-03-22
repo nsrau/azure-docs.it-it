@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/02/2019
+ms.date: 03/04/2019
 ms.author: diberry
-ms.openlocfilehash: 81684031ddaa1ca8fa63a6c7e512f3fe6769a639
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 98df1d9612d18e4ab5044bd92822b2df76286b12
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859811"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57340857"
 ---
 # <a name="language-and-region-support-for-luis"></a>Supporto di lingua e area geografica per LUIS
 
@@ -30,7 +30,7 @@ Se occorre un'applicazione client LUIS multilingue come una chatbot, sono dispon
 
 LUIS riconosce espressioni nelle lingue seguenti:
 
-| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Suggerimenti di siti | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
+| Linguaggio |Impostazioni locali  |  Dominio predefinito | Entità predefinita | Raccomandazioni di elenco di frase | \**[Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(Valutazione e<br>parole chiave)|
 |--|--|:--:|:--:|:--:|:--:|
 | Inglese americano |`en-US` | ✔ | ✔  |✔|✔|
 | *[Cinese](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -53,7 +53,7 @@ Le lingue supportate variano per [entità predefinite](luis-reference-prebuilt-e
 
  - Nella cultura `zh-cn`, LUIS prevede il set di caratteri semplificato cinese al posto del set di caratteri tradizionale.
  - I nomi di finalità, entità, funzioni ed espressioni regolari possono essere in caratteri cinesi o romani.
- - Per informazioni sui domini predefiniti supportati nella cultura `zh-cn`, vedere il [riferimento ai domini predefiniti ](luis-reference-prebuilt-domains.md).
+ - Vedere la [riferimento i domini predefiniti](luis-reference-prebuilt-domains.md) per informazioni su cui sono supportati i domini predefiniti in di `zh-cn` delle impostazioni cultura.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>*Note sul supporto giapponese

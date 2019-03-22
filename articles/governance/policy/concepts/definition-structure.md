@@ -4,17 +4,17 @@ description: Descrizione di come la definizione dei criteri delle risorse viene 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/19/2019
+ms.date: 03/13/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 1c65ea47f7dd091ea326d9300a8ef09208a03951
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447787"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894428"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -80,7 +80,7 @@ Il parametro **mode** (modalità) determina quali tipi di risorse verranno valut
 
 Nella maggior parte dei casi, è consigliabile impostare il parametro **mode** su `all`. Tutte le definizioni di criteri create tramite il portale usano la modalità `all`. Se si usa PowerShell o l'interfaccia della riga di comando di Azure è necessario specificare il parametro **mode** manualmente. Se la definizione dei criteri non include un valore **mode**, assume il valore predefinito `all` in Azure PowerShell e `null` nell'interfaccia della riga di comando di Azure. Un valore mode `null` equivale all'utilizzo di `indexed` per supportare la compatibilità con le versioni precedenti.
 
-`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md).
+`indexed` deve essere usato durante la creazione di criteri che applicano tag o percorsi. Sebbene non sia necessario, evita che le risorse che non supportano tag e percorsi vengano visualizzate come non conformi nei risultati sulla conformità. L'eccezione è rappresentata dai **gruppi di risorse**. Per i criteri che applicano percorsi o tag a un gruppo di risorse, impostare il parametro **mode** su `all` e specificare una destinazione specifica per il tipo `Microsoft.Resources/subscriptions/resourceGroups`. Per un esempio, vedere [Applicare tag di gruppi di risorse](../samples/enforce-tag-rg.md). Per un elenco di risorse che supportano i tag, vedere [supporto per le risorse di Azure Tag](../../../azure-resource-manager/tag-support.md).
 
 ## <a name="parameters"></a>Parametri
 
@@ -101,7 +101,7 @@ Un parametro presenta le proprietà seguenti, usate nella definizione di criteri
   - `displayName`: il nome descrittivo visualizzato per il parametro nel portale.
   - `strongType`: (facoltativa) usata quando si assegna la definizione di criteri tramite portale. Fornisce un elenco con riconoscimento del contesto. Per altre informazioni, vedere [strongType](#strongtype).
 - `defaultValue`: (facoltativa) imposta il valore del parametro in un'assegnazione se non viene specificato alcun valore. Obbligatoria quando si aggiorna una definizione di criteri esistente già assegnata.
-- `allowedValues`: (facoltativa) fornisce l'elenco di valori accettati dal parametro durante l'assegnazione.
+- `allowedValues`: (Facoltativo) Fornisce una matrice di valori che accetta il parametro durante l'assegnazione.
 
 Ad esempio, è possibile definire una definizione di criteri per limitare i percorsi in cui le risorse possono essere distribuite. Un parametro per questa definizione di criteri potrebbe essere **allowedLocations**. Questo parametro è stato usato da ogni assegnazione della definizione di criteri per limitare i valori accettati. L'uso di **strongType** offre un'esperienza migliorata nel completamento dell'assegnazione tramite portale:
 
@@ -289,6 +289,9 @@ Nell'esempio seguente, `concat` viene usato per creare una ricerca nei campi di 
 Le condizioni possono essere formate anche usando **value**. **value** controlla le condizioni rispetto a [parametri](#parameters), [funzioni di modello supportate](#policy-functions) o valori letterali.
 **value** è associato a qualsiasi [condizione](#conditions) supportata.
 
+> [!WARNING]
+> Se il risultato di una _funzione di modello_ è un errore, si verifica un errore di valutazione dei criteri. Una versione di valutazione non riuscita è implicita **negare**. Per altre informazioni, vedere [evitare gli errori di modello](#avoiding-template-failures).
+
 #### <a name="value-examples"></a>Esempi d'uso di value
 
 Questa regola dei criteri usa **value** per confrontare il risultato della funzione `resourceGroup()` e la proprietà restituita **name** rispetto a una condizione **like** di `*netrg`. La regola respinge qualsiasi risorsa che non faccia parte di **type** `Microsoft.Network/*` in qualsiasi gruppo di risorse il cui nome termina con `*netrg`.
@@ -328,6 +331,44 @@ Questa regola dei criteri usa **value** per verificare se il risultato di più f
     }
 }
 ```
+
+#### <a name="avoiding-template-failures"></a>Evitare gli errori di modello
+
+L'uso di _funzioni del modello_ nelle **valore** consente tante funzioni annidate complesse. Se il risultato di una _funzione di modello_ è un errore, si verifica un errore di valutazione dei criteri. Una versione di valutazione non riuscita è implicita **negare**. Un esempio di un **valore** che ha esito negativo in determinati scenari:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[substring(field('name'), 0, 3)]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+La regola di criterio di esempio precedente Usa [substring](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) per confrontare i primi tre caratteri del **name** al **abc**. Se **name** lunghezza inferiore a tre caratteri, di `substring()` funzione genera un errore. Questo errore provoca il criterio diventare un **negare** effetto.
+
+Usare invece i [if()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) per verificare se i primi tre caratteri del **nome** uguale **abc** non sono consentite un **nome** più breve tre caratteri per provocare un errore:
+
+```json
+{
+    "policyRule": {
+        "if": {
+            "value": "[if(greaterOrEquals(length(field('name')), 3), substring(field('name'), 0, 3), 'not starting with abc')]",
+            "equals": "abc"
+        },
+        "then": {
+            "effect": "audit"
+        }
+    }
+}
+```
+
+Con la regola di criterio rivisto `if()` verifica la lunghezza del **nome** prima di tentare di ottenere un `substring()` su un valore con meno di tre caratteri. Se **name** è troppo breve, viene invece restituito e confrontato con il valore "non inizia con abc" **abc**. Una risorsa con un nome breve che non inizia con **abc** regola dei criteri non riesce, ma non causa un errore durante la valutazione.
 
 ### <a name="effect"></a>Effetto
 
@@ -443,70 +484,60 @@ Molti degli alias disponibili hanno una versione che viene visualizzata come un 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-Il primo esempio viene usato per valutare l'intera matrice in cui l'alias **[\*]** valuta ciascun elemento della matrice.
-
-Come esempio, si esaminerà una regola dei criteri. Questo criterio applica l'effetto **Deny** a un account di archiviazione con la matrice ipRules configurata e se **nessuna** delle matrici ipRules ha un valore pari a "127.0.0.1".
+L'alias 'normal' rappresenta il campo come valore singolo. Questo campo è per gli scenari di confronto di corrispondenza esatta quando l'intero set di valori deve essere esattamente come è definito, non è più e non minore. Usando **ipRules**, per la convalida un esempio è necessario che esista un set esatto di regole inclusi il numero di regole e composizione di ogni regola. Questa regola di esempio controlla sia esattamente **192.168.1.1** e **10.0.4.1** con _azione_ del **Consenti** in **ipRules** per applicare la **effectType**:
 
 ```json
 "policyRule": {
     "if": {
-        "allOf": [{
+        "allOf": [
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "exists": "true"
+            },
+            {
+                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
+                "Equals": [
+                    {
+                        "action": "Allow",
+                        "value": "192.168.1.1"
+                    },
+                    {
+                        "action": "Allow",
+                        "value": "10.0.4.1"
+                    }
+                ]
+            }
+        ]
+    },
+    "then": {
+        "effect": "[parameters('effectType')]"
+    }
+}
+```
+
+Il **[\*]** alias consente di confrontare il valore di ogni elemento della matrice e proprietà specifiche di ogni elemento. Questo approccio consente di confrontare le proprietà di elemento per 'Se nessuna delle', 'eventuale di' o ' se tutti gli oggetti di ' scenari. Usando **ipRules [\*]**, ad esempio potrebbe essere la convalida che ogni _azione_ viene _Deny_, ma non doversi preoccupare esistono regole quanti o quali l'indirizzo IP _valore_ è. Questa regola di esempio controlla la presenza di corrispondenze dei **ipRules [\*]. Value** al **10.0.4.1** e applica la **effectType** solo se non viene trovata almeno una corrispondenza:
+
+```json
+"policyRule": {
+    "if": {
+        "allOf": [
+            {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
                 "exists": "true"
             },
             {
                 "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-                "notEquals": "127.0.0.1"
+                "notEquals": "10.0.4.1"
             }
         ]
     },
     "then": {
-        "effect": "deny",
+        "effect": "[parameters('effectType')]"
     }
 }
 ```
 
-La matrice **ipRules** per l'esempio è la seguente:
-
-```json
-"ipRules": [{
-        "value": "127.0.0.1",
-        "action": "Allow"
-    },
-    {
-        "value": "192.168.1.1",
-        "action": "Allow"
-    }
-]
-```
-
-Ecco come viene elaborato l'esempio:
-
-- `networkAcls.ipRules`: verifica che il valore della matrice sia diverso da Null. Viene restituito un valore true, quindi la valutazione continua.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-    "exists": "true"
-  }
-  ```
-
-- `networkAcls.ipRules[*].value`: verifica ciascuna proprietà _value_ nella matrice **ipRules**.
-
-  ```json
-  {
-    "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value",
-    "notEquals": "127.0.0.1"
-  }
-  ```
-
-  - Ogni elemento della matrice verrà elaborato.
-
-    - "127.0.0.1" != "127.0.0.1" restituisce un valore false.
-    - "127.0.0.1" != "192.168.1.1" restituisce un valore true.
-    - Almeno una proprietà _value_ della matrice **ipRules** ha restituito il valore false e quindi la valutazione viene interrotta.
-
-Dato che una condizione ha restituito il valore false, l'effetto **Deny** non viene attivato.
+Per altre informazioni, vedere [la valutazione di [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Iniziative
 

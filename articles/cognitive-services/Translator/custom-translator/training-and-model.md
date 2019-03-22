@@ -5,16 +5,16 @@ description: 'Un modello è il sistema, che fornisce una traduzione per una copp
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
-ms.subservice: custom-translator
+ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 02/21/2019
 ms.author: v-rada
-ms.openlocfilehash: bd4921cb959e3ea2e893c6837fb47792d3585ca9
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: adc78b176afb0a43a7e1e3a7bb882282a914761d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55220128"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57783075"
 ---
 # <a name="what-are-trainings-and-models"></a>Cosa sono i training e i modelli?
 

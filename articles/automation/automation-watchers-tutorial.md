@@ -8,12 +8,12 @@ author: eamonoreilly
 ms.author: eamono
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 7870aca696ec61e707c5c774fd43e6d64c0cab82
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: 7d7ebc7493ff8e272e35abafeedd8fbc52b986ab
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54436757"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002149"
 ---
 # <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Creare un'attività watcher di Automazione di Azure per tenere traccia delle modifiche dei file in un computer locale
 
@@ -89,8 +89,8 @@ L'attività watcher contiene due parti. Il watcher e l'azione. Il watcher viene 
 1. Selezionare **Configura azione** e selezionare il runbook "Process-NewFile".
 1. Per i parametri inserire i valori seguenti:
 
-   ***EVENTDATA** - Lasciare vuoto. I dati vengono passati dal runbook watcher.  
-   ***Run Settings** (Impostazioni di esecuzione) - Lasciare questo campo impostato su Azure in quanto questo runbook viene eseguito nel servizio Automazione.
+   * **EVENTDATA** - Lasciare vuoto. I dati vengono passati dal runbook watcher.  
+   * **Run Settings** (Impostazioni di esecuzione) - Lasciare questo campo impostato su Azure in quanto questo runbook viene eseguito nel servizio Automazione.
 
 1. Fare clic su **OK** e quindi su Seleziona per tornare alla pagina del watcher.
 1. Fare clic su **OK** per creare l'attività watcher.

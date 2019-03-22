@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/07/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: fce7beeda352b9add3603fb74c558ad1b64fac2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895517"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58008203"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guida alla sicurezza di Azure Data Lake Storage Gen2
 
@@ -88,7 +88,7 @@ Ecco i punti principali che occorre conoscere sull'uso del controllo degli acces
 
 Le chiavi dell'account di archiviazione sono stringhe a 512 bit create da Azure che, insieme al nome dell'account di archiviazione, possono essere usate per accedere agli oggetti dati archiviati nell'account di archiviazione, ad esempio BLOB, entità all'interno di una tabella, messaggi nella coda e file in una condivisione file di Azure. Il controllo dell'accesso alle chiavi dell'account di archiviazione consente di controllare l'accesso al piano dati di tale account di archiviazione.
 
-Per ogni account di archiviazione sono disponibili due chiavi, dette "Chiave 1" e "Chiave 2" nel [portale di Azure](http://portal.azure.com/) e nei cmdlet di PowerShell. Queste possono essere rigenerate manualmente usando uno dei diversi metodi disponibili, inclusi ad esempio il [portale di Azure](https://portal.azure.com/), PowerShell, l'interfaccia della riga di comando di Azure, oppure a livello di codice con la libreria del client di archiviazione per .NET o l'API REST dei servizi di archiviazione di Azure.
+Per ogni account di archiviazione sono disponibili due chiavi, dette "Chiave 1" e "Chiave 2" nel [portale di Azure](https://portal.azure.com/) e nei cmdlet di PowerShell. Queste possono essere rigenerate manualmente usando uno dei diversi metodi disponibili, inclusi ad esempio il [portale di Azure](https://portal.azure.com/), PowerShell, l'interfaccia della riga di comando di Azure, oppure a livello di codice con la libreria del client di archiviazione per .NET o l'API REST dei servizi di archiviazione di Azure.
 
 Esistono diversi motivi per rigenerare le chiavi dell'account di archiviazione.
 

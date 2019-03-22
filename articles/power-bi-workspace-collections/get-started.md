@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: c736a9b4962de26f43dc79773149e834c37cbe85
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 944f008d0243d974a5d439438a5a645b7f3ca248
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51233406"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856791"
 ---
 # <a name="get-started-with-microsoft-power-bi-workspace-collections"></a>Introduzione alle raccolte di aree di lavoro di Microsoft Power BI
 
@@ -37,7 +37,7 @@ Una **Raccolta di aree di lavoro** è la risorsa di primo livello di Azure e un 
 
 Di seguito è descritta la procedura per compilare una **Raccolta di aree di lavoro** tramite il portale di Azure.
 
-1. Aprire e accedere al **portale di Azure**: [http://portal.azure.com](http://portal.azure.com).
+1. Aprire e accedere al **portale di Azure**: [https://portal.azure.com](https://portal.azure.com).
 2. Selezionare **+ Nuovo** nel pannello in alto.
    
    ![+ Nuovo nel portale di Azure](media/get-started/create-workspace-1.png)
@@ -119,5 +119,5 @@ Dopo aver salvato il lavoro in **Power BI Desktop**viene creato un file PBIX. Qu
 [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)  
 [Esempio di incorporamento con JavaScript](https://microsoft.github.io/PowerBI-JavaScript/demo/)  
 
-Altre domande? [Contattare la community di Power BI](http://community.powerbi.com/)
+Altre domande? [Contattare la community di Power BI](https://community.powerbi.com/)
 

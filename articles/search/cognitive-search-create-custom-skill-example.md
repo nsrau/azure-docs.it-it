@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 06/29/2018
+ms.date: 03/12/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c49a6320b7ba37297a7c1c0775aef2c2d8c6c868
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: f3b4e6cd18a362775443bb296560a076aaa1497d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55104358"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57883628"
 ---
 # <a name="example-create-a-custom-skill-using-the-text-translate-api"></a>Esempio: creare una competenza personalizzata usando l'API Traduzione testuale
 
@@ -39,7 +39,7 @@ Questo esempio usa una funzione di Azure per ospitare un'API Web, tuttavia non s
 
 1. Nella finestra di dialogo Nuovo progetto selezionare **Installato**, espandere **Visual C#** > **Cloud**, selezionare **Funzioni di Azure**, digitare un nome per il progetto e selezionare **OK**. Il nome dell'app per le funzioni deve essere valido come spazio dei nomi C#, quindi non usare caratteri di sottolineatura, trattini o altri caratteri non alfanumerici.
 
-1. Selezionare **Funzioni di Azure v2 (.Net Core)**. È anche possibile usare la versione 1, ma il codice riportato più avanti si basa sul modello della versione 2.
+1. Selezionare **funzioni di Azure v2 (.NET Core)**. È anche possibile usare la versione 1, ma il codice riportato più avanti si basa sul modello della versione 2.
 
 1. Selezionare il tipo **Trigger HTTP**
 

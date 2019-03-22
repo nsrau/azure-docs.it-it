@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 145a1d24e877cc4083706310694005c01c8c8fbf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: e275411f9fd9dfb672bb0815e83e37bcd5d1dda9
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54020150"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077021"
 ---
 # <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
 > [!NOTE]
@@ -109,7 +109,7 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
         CLUSTERED COLUMNSTORE INDEX
     )
     ```
-Dopo aver completato i passaggi preliminari necessari, è ora possibile configurare l'attività di copia mediante la Copia guidata.
+  Dopo aver completato i passaggi preliminari necessari, è ora possibile configurare l'attività di copia mediante la Copia guidata.
 
 ## <a name="launch-copy-wizard"></a>Avviare la Copia guidata
 1. Accedere al [Portale di Azure](https://portal.azure.com).
@@ -199,7 +199,7 @@ L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione
 
     È possibile visualizzare i dettagli relativi all'esecuzione della copia in **Activity Window Explorer** (Esplora attività) nel riquadro di destra, inclusi il volume dei dati letti dall'origine e scritti nella destinazione, la durata e la velocità effettiva media dell'esecuzione.
 
-    Come si può notare dalla schermata seguente, la copia di 1 TB dall'archivio BLOB di Azure a SQL Data Warehouse ha richiesto 14 minuti, raggiungendo di fatto la velocità effettiva di 1,22 Gbps.
+    Come può osservare nella schermata seguente, la copia di 1 TB dall'archivio Blob di Azure in SQL Data Warehouse ha richiesto 14 minuti, raggiungendo di velocità effettiva di 1,22 GBps.
 
     ![Copia guidata: finestra di dialogo operazione completata](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 

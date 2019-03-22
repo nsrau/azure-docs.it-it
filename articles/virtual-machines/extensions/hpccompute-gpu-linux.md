@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: d8b2b10f9a12fb32a522a9c87c67bb24d6d4475e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100262"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57991851"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Estensione di driver GPU NVIDIA per Linux
 
 ## <a name="overview"></a>Panoramica
 
-Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Linux serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
+Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Linux serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
 È anche disponibile un'estensione per installare i driver GPU NVIDIA nelle [macchine virtuali serie N di Windows](hpccompute-gpu-windows.md).
 

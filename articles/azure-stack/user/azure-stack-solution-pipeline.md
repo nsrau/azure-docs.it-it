@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: 13c5d194ca5e6a606b319a42fdba7a597a8d4852
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781205"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57902213"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Esercitazione: Distribuire app in Azure Stack e Azure
 
@@ -78,17 +78,17 @@ Questa esercitazione si presuppone una conoscenza di base di Azure e Azure Stack
 ### <a name="azure-stack-requirements"></a>Requisiti per Azure Stack
 
 * Usare un sistema integrato Azure Stack o distribuire Azure Stack Development Kit (ASDK). Per distribuire il ASDK:
-    * Il [esercitazione: distribuire il ASDK usando il programma di installazione](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) offre istruzioni dettagliate sulla distribuzione.
-    * Usare la [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) script di PowerShell per automatizzare i passaggi di post-distribuzione ASDK.
+  * Il [esercitazione: distribuire il ASDK usando il programma di installazione](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) offre istruzioni dettagliate sulla distribuzione.
+  * Usare la [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) script di PowerShell per automatizzare i passaggi di post-distribuzione ASDK.
 
     > [!Note]
     > L'installazione ASDK richiede circa sette ore per il completamento, pertanto, pianificare di conseguenza.
 
- * Distribuire [servizio App](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) servizi PaaS per Azure Stack.
- * Creare [piano/offerte](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) nello Stack di Azure.
- * Creare un [sottoscrizione tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
- * Creare un'App Web nella sottoscrizione del tenant. Prendere nota del nuovo URL di App Web per usare in un secondo momento.
- * Distribuire una macchina virtuale di Windows Server 2012 nella sottoscrizione del tenant. Si userà questo server come server di compilazione e per eseguire i servizi di Azure DevOps.
+  * Distribuire [servizio App](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) servizi PaaS per Azure Stack.
+  * Creare [piano/offerte](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) nello Stack di Azure.
+  * Creare un [sottoscrizione tenant](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
+  * Creare un'App Web nella sottoscrizione del tenant. Prendere nota del nuovo URL di App Web per usare in un secondo momento.
+  * Distribuire una macchina virtuale di Windows Server 2012 nella sottoscrizione del tenant. Si userà questo server come server di compilazione e per eseguire i servizi di Azure DevOps.
 * Fornire un'immagine di Windows Server 2016 con .NET 3.5 per una macchina virtuale (VM). Questa macchina virtuale verrà compilata in Azure Stack come agente di compilazione privata.
 
 ### <a name="developer-tool-requirements"></a>Requisiti dello strumento per sviluppatori
@@ -97,8 +97,8 @@ Questa esercitazione si presuppone una conoscenza di base di Azure e Azure Stack
 * [Installare Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [Accedi a servizi di Azure DevOps](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Connettersi al progetto e [clonarlo localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > L'ambiente Azure Stack richiede le immagini corrette diffuso per l'esecuzione di Windows Server e SQL Server. È necessario che abbia distribuite del servizio App.
+  > [!Note]
+  > L'ambiente Azure Stack richiede le immagini corrette diffuso per l'esecuzione di Windows Server e SQL Server. È necessario che abbia distribuite del servizio App.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Preparare l'agente Azure pipeline privata per l'integrazione con servizi di Azure DevOps
 
@@ -363,7 +363,7 @@ Integrazione continua/distribuzione ibrida è possibile applicare al codice dell
 
 2. Passare il **compilazione dell'applicazione Web** pagina per il progetto.
 
-3. Nelle **argomenti**, aggiungere **- r win10-x64** codice. Questa operazione è necessaria per attivare una distribuzione autonoma con.NET Core.
+3. Nelle **argomenti**, aggiungere **- r win10-x64** codice. Ciò è necessario per attivare una distribuzione autonoma con .NET Core.
 
     ![Aggiungere la pipeline di compilazione argomento](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

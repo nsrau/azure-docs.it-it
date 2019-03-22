@@ -7,16 +7,17 @@ manager: douge
 ms.assetid: c3c451d1-71ff-4222-a348-c41c98a02b85
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
-ms.workload: azure
+ms.custom: vs-azure
+ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: 0cb2e04d788bce2d3a5f6bc46632b9ae18b6467f
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
-ms.translationtype: HT
+ms.openlocfilehash: 1f90ce71084ba3acbf5a0aec5c7b8e9683323766
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112917"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58011612"
 ---
 # <a name="how-to-get-started-with-azure-table-storage-and-visual-studio-connected-services"></a>Introduzione all'archiviazione tabelle di Azure e ai servizi relativi a Visual Studio
 
@@ -26,7 +27,7 @@ Questo articolo descrive come iniziare a usare Archiviazione tabelle di Azure in
 
 Il servizio di archiviazione tabelle di Azure consente di archiviare grandi quantità di dati strutturati. Il servizio è un datastore NoSQL che accetta chiamate autenticate dall'interno e dall'esterno del cloud di Azure. Le tabelle di Azure sono ideali per l'archiviazione di dati strutturati non relazionali. Per ulteriori informazioni generali sull'utilizzo dell'archiviazione tabelle di Azure, vedere [Introduzione all'archiviazione tabelle di Azure con .NET](../storage/storage-dotnet-how-to-use-tables.md).
 
-Per iniziare, creare una tabella nell'account di archiviazione. Questo articolo illustrerà come creare una tabella in C# e come eseguire le operazioni di base relative alle tabelle, ad esempio l'aggiunta, la modifica, la lettura e la rimozione di voci nelle tabelle.  Il codice usa la Libreria client di archiviazione di Azure per .NET. Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](http://www.asp.net).
+Per iniziare, creare una tabella nell'account di archiviazione. Questo articolo illustrerà come creare una tabella in C# e come eseguire le operazioni di base relative alle tabelle, ad esempio l'aggiunta, la modifica, la lettura e la rimozione di voci nelle tabelle.  Il codice usa la Libreria client di archiviazione di Azure per .NET. Per ulteriori informazioni su ASP.NET, vedere [ASP.NET](https://www.asp.net).
 
 Alcune API di Archiviazione di Azure sono asincrone e il codice riportato in questo articolo presuppone che vengano usati metodi asincroni. Per altre informazioni, vedere [Programmazione asincrona](https://docs.microsoft.com/dotnet/csharp/async).
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: 3ce385149de58b185f296191bbed0f16b5331c1f
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: b3eb7995dac1adf3053d28b40cf322e78c69c55f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54469815"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001323"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
 
@@ -58,6 +58,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
     |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
     |Località| Selezionare **Stati Uniti orientali**.|
     |||
+
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
 5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
     
@@ -67,6 +68,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
     |Gruppo di sicurezza di rete|Selezionare **Base** e dall'elenco a discesa **Selezionare le porte in ingresso pubbliche** selezionare **HTTP** e **RDP**. |
     |Diagnostica di avvio|Selezionare **Disabilitata**.|
     |||
+
 6. In **Crea** in **Riepilogo** selezionare **Crea** per avviare la distribuzione della macchina virtuale.
 
 7. Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
@@ -78,6 +80,7 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
     |Nome macchina virtuale | myIISVMWEurope|
     |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
     |||
+
 8. La creazione delle macchine virtuali può richiedere alcuni minuti. Non procedere con i passaggi rimanenti finché non sono state create entrambe le macchine virtuali.
 
    ![Creare una macchina virtuale](./media/tutorial-traffic-manager-improve-website-response/createVM.png)
@@ -143,6 +146,7 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
 5. Selezionare i valori seguenti in **Impostazioni**, quindi scegliere **OK**:
+
     |Impostazione|Valore|
     |---|---|
     |Rete virtuale| Selezionare **Rete virtuale**, nella sezione **Creare rete virtuale**, per il **Nome** immettere *myVNet3*, per la subnet immettere *mySubnet3*.|
@@ -168,6 +172,7 @@ Creare un profilo di Gestione traffico che consente di restituire specifici endp
 
 1. In alto a sinistra nello schermo selezionare **Crea una risorsa** > **Rete** > **Profilo di Gestione traffico** > **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
+
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | NOME                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
@@ -189,7 +194,7 @@ Aggiungere le due macchine virtuali in esecuzione sui server IIS, *myIISVMEastUS
 
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
-    | type                    | Endpoint di Azure                                   |
+    | Type                    | Endpoint di Azure                                   |
     | NOME           | myTestWebSiteEndpoint                                        |
     | Tipo di risorsa di destinazione           | Indirizzo IP pubblico                          |
     | Risorsa di destinazione          | **Scegliere un indirizzo IP pubblico** per visualizzare l'elenco delle risorse con gli indirizzi IP pubblici inclusi nella stessa sottoscrizione. In **Risorsa** selezionare l'indirizzo IP pubblico denominato *myIISVMEastUS-ip*. Questo è l'indirizzo IP pubblico della VM del server IIS nell'area Stati Uniti orientali.|

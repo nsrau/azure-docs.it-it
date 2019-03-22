@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
 ms.subservice: disks
-ms.openlocfilehash: 3a4304301b99369426aa985508d6cabd26ba2c9f
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: ffcc2f46a30569979879ff302cde1e3b146d3b50
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326960"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992034"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrazione ad Archiviazione Premium con Azure Site Recovery
 
@@ -83,7 +83,7 @@ Questi sono i requisiti di Azure per questo scenario di migrazione:
 ### <a name="step-2-choose-your-protection-goals"></a>Passaggio 2: Scegliere gli obiettivi della protezione 
 
 1. Nella VM in cui si vuole installare il server di configurazione aprire il [portale di Azure](https://portal.azure.com).
-2. Andare su **Insieme di credenziali di Servizi di ripristino** > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura**** > Obiettivo di protezione**.
+2. Andare su **Insieme di credenziali di Servizi di ripristino** > **Impostazioni** > **Site Recovery** > **Passaggio 1: Preparare l'infrastruttura** > **Obiettivo di protezione**.
 
    ![Passare al riquadro Obiettivo di protezione][2]
 
@@ -214,7 +214,7 @@ Per scenari specifici per la migrazione di macchine virtuali, controllare le ris
 
 * [Eseguire la migrazione di macchine virtuali di Azure tra account di archiviazione](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
 * [Caricare un disco rigido virtuale Linux](upload-vhd.md)
-* [Migrazione di macchine virtuali da Amazon AWS a Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
+* [Migrazione di macchine virtuali da Amazon AWS a Microsoft Azure](https://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Inoltre, controllare le seguenti risorse per altre informazioni su Archiviazione di Azure e sulle macchine virtuali di Azure:
 

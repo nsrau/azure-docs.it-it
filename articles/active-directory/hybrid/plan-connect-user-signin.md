@@ -16,12 +16,12 @@ ms.date: 05/31/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3b503c7f0693a90d438fcec3ecae335fd349b3d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: cb44c64540cc461bca4e305f7783f7c6b612591b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188002"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996332"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opzioni di accesso utente di Azure AD Connect
 Azure Active Directory (Azure AD) Connect consente agli utenti di accedere alle risorse cloud e locali usando le stesse password. Questo articolo descrive i concetti chiave di ciascun modello di identità per facilitare la scelta dell'identità da usare per l'accesso ad Azure AD.
@@ -75,7 +75,9 @@ Per altre informazioni, vedere:
 ### <a name="federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2"></a>Federazione che usa una farm nuova o esistente con AD FS in Windows Server 2012 R2
 Con l'accesso federato, gli utenti possono accedere ai servizi basati su Azure AD con le proprie password locali. Inoltre, fino a quando si trovano nella rete aziendale, non hanno bisogno di immetterle. Usando l'opzione di federazione con AD FS è possibile distribuire una farm nuova o esistente con AD FS in Windows Server 2012 R2. Se si sceglie di specificare una farm esistente, Azure AD Connect configurerà l’attendibilità tra la farm e Azure AD in modo che gli utenti possano effettuare l’accesso.
 
-<center>![Federazione con AD FS in Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
+<center>
+
+![Federazione con AD FS in Windows Server 2012 R2](./media/plan-connect-user-signin/federatedsignin.png)</center>
 
 #### <a name="deploy-federation-with-ad-fs-in-windows-server-2012-r2"></a>Distribuire la federazione con AD FS in Windows Server 2012 R2
 
@@ -152,6 +154,7 @@ Si consiglia di mantenere l'attributo userPrincipalName predefinito. Se questo a
 Per le informazioni seguenti, si supponga di usare il suffisso UPN contoso.com nella directory locale come parte dell'UPN, ad esempio user@contoso.com.
 
 ###### <a name="express-settingspassword-hash-synchronization"></a>Impostazioni rapide/Sincronizzazione dell'hash delle password
+
 | Stato | Effetto sull'esperienza di accesso degli utenti in Azure |
 |:---:|:--- |
 | Non aggiunto |In questo caso non è stato aggiunto alcun dominio personalizzato per contoso.com nella directory di Azure AD. Gli utenti che usano UPN locali con suffisso @contoso.com non potranno usare il proprio UPN locale per effettuare l'accesso ad Azure. Dovranno invece usare un nuovo UPN disponibile in Azure AD aggiungendo il suffisso per la directory predefinita di Azure AD. Ad esempio, se si sincronizzano gli utenti con la directory di Azure AD azurecontoso.onmicrosoft.com, all'utente locale user@contoso.com verrà assegnato l'UPN user@azurecontoso.onmicrosoft.com. |

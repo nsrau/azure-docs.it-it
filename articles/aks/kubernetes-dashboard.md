@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
-ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
-ms.translationtype: HT
+ms.openlocfilehash: e831979e0a9f9c8b4d812f682403ecf466abbd13
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51299130"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993880"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accesso al dashboard di Kubernetes con il servizio Azure Kubernetes
 
@@ -34,7 +34,7 @@ Usare il comando [az servizio Azure Kubernetes browse][az-aks-browse] per avviar
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
 
-Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apre il dashboard di Kubernetes in un Web browser. Se nel dashboard Kubernetes non si apre un Web browser, copiare e incollare l'indirizzo URL indicato nell'interfaccia della riga di comando di Azure, in genere *http://127.0.0.1:8001*.
+Questo comando crea un proxy tra il sistema di sviluppo e l'API Kubernetes e apre il dashboard di Kubernetes in un Web browser. Se non si apre un browser web al dashboard di Kubernetes, copiare e incollare l'indirizzo URL indicato nel comando di Azure, in genere `http://127.0.0.1:8001`.
 
 ![Pagina Panoramica del dashboard Web di Kubernetes](./media/kubernetes-dashboard/dashboard-overview.png)
 

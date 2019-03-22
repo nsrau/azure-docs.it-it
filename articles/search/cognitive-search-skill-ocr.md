@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/17/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 6fa316452b5b9f56c33de00b96c2cf57c40edfcc
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: fb7fe0689ce54031880565c0c6409afeab2ff523
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429656"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57777892"
 ---
 # <a name="ocr-cognitive-skill"></a>Competenza cognitiva OCR
 
@@ -33,6 +33,7 @@ La competenza **OCR** estrae il testo dai file di immagine. I formati di file su
 + .PNG
 + .BMP
 + .GIF
++ .TIFF
 
 > [!NOTE]
 > Dal 21 dicembre 2018 è possibile [collegare una risorsa di Servizi cognitivi](cognitive-search-attach-cognitive-services.md) a un set di competenze di Ricerca di Azure. Ciò consente anche di addebitare l'esecuzione del set di competenze. In questa data è iniziato anche l'addebito dell'estrazione delle immagini come parte della fase di individuazione dei documenti. L'estrazione di testo dai documenti continua a essere offerta gratuitamente.
@@ -67,32 +68,32 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ```json
 {
-    "skills": [
-      {
-        "description": "Extracts text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": null,
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text",
-            "targetName": "myText"
-          },
-          {
-            "name": "layoutText",
-            "targetName": "myLayoutText"
-          }
-        ]
-      }
-    ]
- }
+  "skills": [
+    {
+      "description": "Extracts text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": null,
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text",
+          "targetName": "myText"
+        },
+        {
+          "name": "layoutText",
+          "targetName": "myLayoutText"
+        }
+      ]
+    }
+  ]
+}
 ```
 <a name="sample-output"></a>
 
@@ -136,9 +137,9 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 ## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Esempio: unione del testo estratto da immagini incorporate con il contenuto del documento.
 
-Un caso d'uso comune per unione testi è la capacità di unire la rappresentazione testuale di immagini (testo di una competenza OCR o la didascalia di un'immagine) nel campo del contenuto di un documento. 
+Un caso d'uso comune per unione testi è la capacità di unire la rappresentazione testuale di immagini (testo di una competenza OCR o la didascalia di un'immagine) nel campo del contenuto di un documento.
 
-Il set di competenze di esempio seguente crea un campo *merged_text*. Questo campo contiene il contenuto testuale del documento e il testo sottoposto a riconoscimento dei caratteri da ognuna delle immagini incorporate in tale documento. 
+Il set di competenze di esempio seguente crea un campo *merged_text*. Questo campo contiene il contenuto testuale del documento e il testo sottoposto a riconoscimento dei caratteri da ognuna delle immagini incorporate in tale documento.
 
 #### <a name="request-body-syntax"></a>Sintassi del corpo della richiesta
 ```json
@@ -147,22 +148,22 @@ Il set di competenze di esempio seguente crea un campo *merged_text*. Questo cam
   "skills":
   [
     {
-        "description": "Extract text (plain and structured) from image.",
-        "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-        "context": "/document/normalized_images/*",
-        "defaultLanguageCode": "en",
-        "detectOrientation": true,
-        "inputs": [
-          {
-            "name": "image",
-            "source": "/document/normalized_images/*"
-          }
-        ],
-        "outputs": [
-          {
-            "name": "text"
-          }
-        ]
+      "description": "Extract text (plain and structured) from image.",
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "defaultLanguageCode": "en",
+      "detectOrientation": true,
+      "inputs": [
+        {
+          "name": "image",
+          "source": "/document/normalized_images/*"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "text"
+        }
+      ]
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
@@ -178,7 +179,7 @@ Il set di competenze di esempio seguente crea un campo *merged_text*. Questo cam
           "name": "itemsToInsert", "source": "/document/normalized_images/*/text"
         },
         {
-          "name":"offsets", "source": "/document/normalized_images/*/contentOffset" 
+          "name":"offsets", "source": "/document/normalized_images/*/contentOffset"
         }
       ],
       "outputs": [
@@ -193,14 +194,14 @@ Il set di competenze di esempio seguente crea un campo *merged_text*. Questo cam
 Nell'esempio dell'insieme di competenze precedente si suppone l'esistenza di un campo di immagini normalizzate. Per generare questo campo, impostare la configurazione *imageAction* nella definizione di indicizzatore su *generateNormalizedImages* come illustrato di seguito:
 
 ```json
-{  
-   //...rest of your indexer definition goes here ... 
-  "parameters":{  
-      "configuration":{  
-         "dataToExtract":"contentAndMetadata",
-         "imageAction":"generateNormalizedImages"
-      }
-   }
+{
+  //...rest of your indexer definition goes here ...
+  "parameters": {
+    "configuration": {
+      "dataToExtract":"contentAndMetadata",
+      "imageAction":"generateNormalizedImages"
+    }
+  }
 }
 ```
 

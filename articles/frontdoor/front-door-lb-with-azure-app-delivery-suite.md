@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 5403b5506a3758ede5ad06640335b873b6b9aa96
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54820823"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57439027"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Bilanciamento del carico con la suite per il recapito di applicazioni di Azure
 
@@ -59,7 +59,7 @@ Quando si sceglie un servizio di bilanciamento del carico a livello globale tra 
 | Gestione traffico | Servizio Frontdoor di Azure |
 | --------------- | ------------------------ |
 |**Qualsiasi protocollo:** poiché Gestione traffico funziona a livello DNS, è possibile instradare qualsiasi tipo di traffico di rete: HTTP, TCP, UDP e così via. | **Accelerazione HTTP:** con Frontdoor il traffico viene trasmesso nella parte perimetrale della rete Microsoft.  Per questo motivo, per le richieste HTTP(S) migliorano la latenza e la velocità effettiva, riducendo la latenza per la negoziazione SSL e usando connessioni ad accesso frequente da AFD all'applicazione.|
-|**Routing locale:** con il routing a livello DNS, il traffico passa sempre da punto a punto.  Il routing dalla filiale al data center locale può seguire un percorso diretto, anche nella rete locale con Gestione traffico. | **Scalabilità indipendente:** poiché Frontdoor funziona con la richiesta HTTP, le richieste a percorsi URL diversi possono essere instradate a pool di servizi back-end/locali (microservizi) diversi, in base alle regole e all'integrità di ogni microservizio dell'applicazione.|
+|**Routing locale:** con il routing a livello DNS, il traffico passa sempre da punto a punto.  Il routing dalla filiale per il data center locale può richiedere un percorso diretto. anche in rete con gestione traffico. | **Scalabilità indipendente:** poiché Frontdoor funziona con la richiesta HTTP, le richieste a percorsi URL diversi possono essere instradate a pool di servizi back-end/locali (microservizi) diversi, in base alle regole e all'integrità di ogni microservizio dell'applicazione.|
 |**Formato di fatturazione:** la fatturazione basata su DNS consente la scalabilità in base agli utenti e per i servizi con più utenti, con la possibilità di ridurre i costi per i casi di maggiore utilizzo. |**Sicurezza inline:** Frontdoor consente l'uso di regole, ad esempio per la limitazione della frequenza, e di elenchi di controllo di accesso in base agli IP per proteggere i back-end prima che il traffico raggiunga l'applicazione. 
 
 </br>Considerando i vantaggi in termini di prestazioni, funzionalità e sicurezza per i carichi di lavoro HTTP offerti da Frontdoor, è consigliabile usare questo servizio per i carichi di lavoro HTTP.    È possibile usare Gestione traffico e Frontdoor in parallelo per soddisfare le esigenze di tutto il traffico per l'applicazione. 
@@ -81,7 +81,7 @@ Il diagramma seguente illustra l'architettura di questi scenario:
 > Questo esempio è solo una delle numerose configurazioni possibili dei servizi di bilanciamento del carico offerti da Azure. È possibile combinare Gestione traffico, Frontdoor, il gateway applicazione e Load Balancer per soddisfare al meglio le specifiche esigenze di bilanciamento del carico. Se, ad esempio, l'offload SSL o l'elaborazione di livello 7 non sono necessari, è possibile usare Load Balancer al posto del gateway applicazione.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 - Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
 - Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).

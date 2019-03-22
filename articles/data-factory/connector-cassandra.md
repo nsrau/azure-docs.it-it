@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 1347012971d53728d978f378e30684311c88828b
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 743dad6032547f8f535543413adff416efb56ac0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54022281"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57998387"
 ---
 # <a name="copy-data-from-cassandra-using-azure-data-factory"></a>Copiare dati da Cassandra usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,12 +52,12 @@ Le sezioni seguenti riportano informazioni dettagliate sulle proprietà che veng
 
 Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type |La proprietà type deve essere impostata su: **Cassandra** |Yes |
-| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Yes |
+| type |La proprietà type deve essere impostata su: **Cassandra** |Sì |
+| host |Uno o più indirizzi IP o nomi host di server Cassandra.<br/>Specificare un elenco delimitato da virgole degli indirizzi IP o nomi host per la connessione a tutti i server contemporaneamente. |Sì |
 | port |La porta TCP che il server Cassandra usa per ascoltare le connessioni client. |No (il valore predefinito è 9042) |
-| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. |Yes |
+| authenticationType | Tipo di autenticazione usato per la connessione al database Cassandra.<br/>I valori consentiti sono i seguenti: **Basic** e **Anonymous**. |Sì |
 | username |Specificare il nome utente per l'account utente. |Sì, se authenticationType è impostato su Basic. |
 | password |Specifica la password per l'account utente. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). |Sì, se authenticationType è impostato su Basic. |
 | connectVia | Il [runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione self-hosted o il runtime di integrazione di Azure (se l'archivio dati è accessibile pubblicamente). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No  |
@@ -89,15 +89,15 @@ Per il servizio collegato di Cassandra sono supportate le proprietà seguenti:
 }
 ```
 
-## <a name="dataset-properties"></a>Proprietà dei set di dati
+## <a name="dataset-properties"></a>Proprietà del set di dati
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui set di dati. Questa sezione presenta un elenco delle proprietà supportate dal set di dati Cassandra.
 
 Per copiare dati da Cassandra, impostare la proprietà type del set di dati su **CassandraTable**. Sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type del set di dati deve essere impostata su: **CassandraTable** | Yes |
+| type | La proprietà type del set di dati deve essere impostata su: **CassandraTable** | Sì |
 | keyspace |Nome del keyspace o schema nel database Cassandra. |No (se per "CassandraSource" è specificato "query") |
 | tableName |Nome della tabella in un database Cassandra. |No (se per "CassandraSource" è specificato "query") |
 
@@ -129,10 +129,10 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 Per copiare dati da Cassandra, impostare il tipo di origine nell'attività di copia su **CassandraSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Obbligatoria |
+| Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **CassandraSource** | Yes |
-| query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. |No (se nel set di dati sono specificati "tableName" e "keyspace"). |
+| type | La proprietà type dell'origine di attività di copia deve essere impostata su: **CassandraSource** | Sì |
+| query |Usare la query personalizzata per leggere i dati. Query SQL-92 o query CQL. Vedere il [riferimento a CQL](https://docs.datastax.com/en/cql/3.1/cql/cql_reference/cqlReferenceTOC.html). <br/><br/>Quando si usa una query SQL, specificare **nome keyspace.nome tabella** per indicare la tabella su cui eseguire la query. |No (se nel set di dati sono specificati "tableName" e "keyspace"). |
 | consistencyLevel |Il livello di coerenza specifica quante repliche devono rispondere a una richiesta di lettura prima della restituzione dei dati all'applicazione client. Cassandra controlla il numero di repliche specificato perché i dati soddisfino la richiesta di lettura. Per informazioni dettagliate, vedere [Configuring data consistency](https://docs.datastax.com/en/cassandra/2.1/cassandra/dml/dml_config_consistency_c.html) (Configurazione della coerenza dei dati).<br/><br/>I valori consentiti sono i seguenti: **ONE**, **TWO**, **THREE**, **QUORUM**, **ALL**, **LOCAL_QUORUM**, **EACH_QUORUM** e **LOCAL_ONE**. |No (il valore predefinito è `ONE`) |
 
 **Esempio:**
@@ -183,7 +183,7 @@ Quando si copiano dati da Cassandra, vengono usati i mapping seguenti tra i tipi
 | INET |string |
 | INT |Int32 |
 | TEXT |string |
-| TIMESTAMP |Datetime |
+| TIMESTAMP |DateTime |
 | TIMEUUID |Guid |
 | UUID |Guid |
 | VARCHAR |string |

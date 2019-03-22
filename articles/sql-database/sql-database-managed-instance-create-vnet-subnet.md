@@ -6,18 +6,18 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
-ms.topic: howto
+ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: df8581f572ded3268b0dc1b9243476b76fb5c688
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d2a9c29733c42cf9753ce48b2a37a83fb8dda30d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55568516"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57993075"
 ---
 # <a name="create-a-virtual-network-for-azure-sql-database-managed-instance"></a>Creare una rete virtuale per Istanza gestita di database SQL di Azure
 
@@ -43,7 +43,7 @@ Il modo più semplice per creare e configurare una rete virtuale è quello di us
 
 2. Selezionare il pulsante **Distribuisci in Azure**:
 
-   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="http://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
+   <a target="_blank" href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-sql-managed-instance-azure-environment%2Fazuredeploy.json" rel="noopener" data-linktype="external"> <img src="https://azuredeploy.net/deploybutton.png" data-linktype="external"> </a>
 
    Questo pulsante apre un modulo che è possibile usare per configurare l'ambiente di rete in cui distribuire Istanza gestita.
 

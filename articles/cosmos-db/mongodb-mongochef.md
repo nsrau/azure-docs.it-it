@@ -9,12 +9,12 @@ ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: f2ba1a6fef944911c0706ca4e71be6a55bc4b16a
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: 9b0a6393d2372c831fdc964dee18acbccfd39a77
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55961840"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57449377"
 ---
 # <a name="connect-to-cosmos-account-using-studio-3t"></a>Connettersi a un account Cosmos usando Studio 3T
 
@@ -31,35 +31,35 @@ Per aggiungere l'account Cosmos alla gestione connessione di Studio 3T, seguire 
     ![Screenshot della pagina della stringa di connessione](./media/mongodb-mongochef/ConnectionStringBlade.png)
 2. Fare clic su **Connect** (Connetti) per aprire la gestione connessioni, quindi fare clic su **New Connection** (Nuova connessione)
 
-    ![Screenshot di gestione connessione di Studio 3T](./media/mongodb-mongochef/ConnectionManager.png)
+    ![Screenshot della gestione connessione di Studio 3T](./media/mongodb-mongochef/ConnectionManager.png)
 3. Nella finestra **New Connection** (Nuova connessione) della scheda **Server**, specificare l'host, ovvero l'FQDN, dell'account Azure Cosmos DB e la porta.
 
-    ![Screenshot della scheda relativa al server della gestione connessione di Studio 3T](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
+    ![Schermata della scheda server Studio 3T connection manager](./media/mongodb-mongochef/ConnectionManagerServerTab.png)
 4. Nella finestra **New Connection** (Nuova connessione) della scheda **Authentication** (Autenticazione) scegliere la modalità di autenticazione **Basic (MONGODB-CR or SCARM-SHA-1)** (Base - MONGODB-CR o SCARM-SHA-1) e immettere il nome utente e la password.  Accettare il database di autenticazione predefinito (admin) o specificare un valore personalizzato.
 
-    ![Screenshot della scheda relativa all'autenticazione della gestione connessione di Studio 3T](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
+    ![Schermata della scheda autenticazione Studio 3T connection manager](./media/mongodb-mongochef/ConnectionManagerAuthenticationTab.png)
 5. Nella finestra **New Connection** (Nuova connessione) nella scheda **SSL** selezionare la casella di controllo **Use SSL protocol to connect** (Usa protocollo SSL per la connessione) e quindi selezionare il pulsante di opzione **Accept server self-signed SSL certificates** (Accetta certificati SSL autofirmati server).
 
-    ![Screenshot della scheda relativa all'SSL della gestione connessione di Studio 3T](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
+    ![Schermata della scheda SSL Studio 3T connection manager](./media/mongodb-mongochef/ConnectionManagerSSLTab.png)
 6. Fare clic sul pulsante **Test Connection** (Test connessione) per convalidare le informazioni di connessione, quindi fare clic su **OK** per tornare alla finestra New Connection (Nuova connessione) e infine su **Save** (Salva).
 
-    ![Screenshot della finestra di test della connessione di Studio 3T](./media/mongodb-mongochef/TestConnectionResults.png)
+    ![Finestra di connessione di test di screenshot di Studio 3T](./media/mongodb-mongochef/TestConnectionResults.png)
 
 ## <a name="use-studio-3t-to-create-a-database-collection-and-documents"></a>Usare Studio 3T per creare un database, una raccolta e documenti
 Per creare un database, una raccolta e documenti usando Studio 3T, seguire la procedura seguente:
 
 1. In **Connection Manager** (Gestione connessioni) evidenziare la connessione e fare clic su **Connect** (Connetti).
 
-    ![Screenshot di gestione connessione di Studio 3T](./media/mongodb-mongochef/ConnectToAccount.png)
+    ![Screenshot della gestione connessione di Studio 3T](./media/mongodb-mongochef/ConnectToAccount.png)
 2. Fare clic con il pulsante destro del mouse sull'host, quindi scegliere **Add Database** (Aggiungi database).  Specificare un nome per il database e fare clic su **OK**.
 
-    ![Screenshot dell'opzione Add Database (Aggiungi database) di Studio 3T](./media/mongodb-mongochef/AddDatabase1.png)
+    ![Screenshot dell'opzione di Database di aggiunta di Studio 3T](./media/mongodb-mongochef/AddDatabase1.png)
 3. Fare clic con il pulsante destro del mouse sul database, quindi scegliere **Add Collection** (Aggiungi raccolta).  Specificare un nome per la raccolta, quindi fare clic su **Create**(Crea).
 
-    ![Screenshot dell'opzione Add Collection (Aggiungi raccolta) di Studio 3T](./media/mongodb-mongochef/AddCollection.png)
+    ![Screenshot dell'opzione di Studio 3T Aggiungi raccolta](./media/mongodb-mongochef/AddCollection.png)
 4. Selezionare la voce di menu **Collection** (Raccolta), quindi fare clic su **Add Document** (Aggiungi documento).
 
-    ![Screenshot della voce di menu Add Document (Aggiungi documento) di Studio 3T](./media/mongodb-mongochef/AddDocument1.png)
+    ![Screenshot della voce di menu Aggiungi documento Studio 3T](./media/mongodb-mongochef/AddDocument1.png)
 5. Nella finestra di dialogo Add Document (Aggiungi documento) incollare quanto segue, quindi fare clic su **Add Document**(Aggiungi documento).
 
         {
@@ -107,7 +107,7 @@ Per creare un database, una raccolta e documenti usando Studio 3T, seguire la pr
         }
 7. Eseguire una query di esempio. Cercare ad esempio famiglie con cognome 'Andersen' e restituire i campi relativi a genitori e stato.
 
-    ![Screenshot dei risultati della query di MongoChef](./media/mongodb-mongochef/QueryDocument1.png)
+    ![Risultati della query di schermata di Mongochef](./media/mongodb-mongochef/QueryDocument1.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

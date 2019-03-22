@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: cdcf7f466e65cffd36bdcc816a9808ecac2ae242
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991294"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005429"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Risoluzione dei problemi relativi ai runbook
 
@@ -38,7 +38,7 @@ Questo errore si verifica se il nome dell'asset delle credenziali non è valido 
 
 Per determinare la causa del problema, seguire questa procedura:  
 
-1. Verificare che non siano presenti caratteri speciali, ad esempio il carattere **@** nel nome dell'asset delle credenziali di automazione usato per connettersi ad Azure.  
+1. Verificare che non siano presenti caratteri speciali, ad esempio il carattere **\@** nel nome dell'asset delle credenziali di automazione usato per connettersi ad Azure.  
 2. Verificare che sia possibile usare il nome utente e la password archiviati nelle credenziali di Automazione di Azure nell'editor di PowerShell ISE locale. È possibile verificare se il nome utente e la password sono corretti eseguendo i cmdlet seguenti in PowerShell ISE:  
 
    ```powershell
@@ -133,7 +133,7 @@ Per usare un certificato con i cmdlet del modello di distribuzione classica di A
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Errori comuni durante l'utilizzo di runbook
 
-###<a name="child-runbook-object"></a>Il runbook figlio restituisce un errore quando il flusso di output contiene oggetti diversi da semplici tipi di dati
+### <a name="child-runbook-object"></a>Il runbook figlio restituisce un errore quando il flusso di output contiene oggetti diversi da semplici tipi di dati
 
 #### <a name="issue"></a>Problema
 
@@ -303,7 +303,7 @@ Questo errore è causato da uno dei problemi seguenti:
 
 3. Modulo incompatibile. Questo errore può verificarsi se le dipendenze del modulo non sono corrette; se non lo sono il runbook restituisce in genere il messaggio "Comando non trovato" o "Non è possibile associare il parametro".
 
-4. Il runbook ha tentato di chiamare un eseguibile o un sottoprocesso in un runbook in esecuzione in una sandbox di Azure. Questo scenario non è supportato nelle sandbox di Azure.
+4. Il runbook ha tentato di chiamare un file eseguibile o subprocess in un runbook che viene eseguito in una sandbox di Azure. Questo scenario non è supportato nelle sandbox di Azure.
 
 #### <a name="resolution"></a>Risoluzione
 

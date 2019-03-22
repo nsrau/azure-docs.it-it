@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0576941c803dfed6359fe34b67370eaf3f99c7e7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 4b83917a76cb4b3e24ca4f5961d3a00c4d2c9cb0
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538260"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077259"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Questo articolo illustra come configurare i parametri di server del Database di Azure per MariaDB usando il portale di Azure
 
@@ -38,7 +38,7 @@ L'elenco di parametri del server supportati è in continua crescita. Usare la sc
 Pool di buffer InnoDB e Numero max. connessioni non sono configurabili e collegati al [piano tariffario](concepts-pricing-tiers.md).
 
 |**Piano tariffario**| **vCore**|**Pool di buffer InnoDB (MB)**| **Numero massimo di connessioni**|
-|---|---|---|---|--|
+|---|---|---|---|
 |Basic| 1| 1024| 50|
 |Basic| 2| 2560| 100|
 |Utilizzo generico| 2| 3584| 300|

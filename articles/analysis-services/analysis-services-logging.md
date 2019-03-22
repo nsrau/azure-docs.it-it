@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9f9a6511d63e57c6cbfa5ee2453f8038bb259047
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 2303d385d3d688050a8d82c07e78a68588f41e88
+ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428993"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "57010923"
 ---
 # <a name="setup-diagnostic-logging"></a>Configurare la registrazione diagnostica
 
@@ -21,6 +21,7 @@ Un aspetto importante di qualsiasi soluzione di Analysis Services è costituito 
 
 ![Registrazione diagnostica in Archiviazione, Hub eventi o log di Monitoraggio di Azure](./media/analysis-services-logging/aas-logging-overview.png)
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-logged"></a>Informazioni registrate
 
@@ -82,7 +83,7 @@ Se si seleziona la categoria Metriche, vengono registrate nel log le stesse [met
 
     * **Archivia in un account di archiviazione**. Per usare questa opzione, è necessario un account di archiviazione esistente a cui connettersi. Vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md). Seguire le istruzioni per creare un account di Resource Manager di uso generale, quindi selezionare l'account di archiviazione ritornando in questa pagina del portale. Potrebbero essere necessari alcuni minuti per visualizzare gli account di archiviazione appena creati nel menu a discesa.
     * **Streaming in un hub eventi**. Per usare questa opzione, sono necessari uno spazio dei nomi esistente e un hub eventi a cui connettersi. Per altre informazioni, vedere [Creare uno spazio dei nomi di Hub eventi e un hub eventi usando il Portale di Azure](../event-hubs/event-hubs-create.md). Tornare a questa pagina del portale per selezionare lo spazio dei nomi dell'hub eventi e il nome dei criteri.
-    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - Area di lavoro di Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro di Log Analytics](#view-logs-in-log-analytics) in questo articolo.
+    * **Send to Azure Monitor (Log Analytics workspace)** (Invia a Monitoraggio di Azure - Area di lavoro di Log Analytics). Per usare questa opzione, usare un'area di lavoro esistente o [creare una nuova area di lavoro](../azure-monitor/learn/quick-create-workspace.md) nel portale. Per altre informazioni sulla visualizzazione dei log, vedere [Visualizzare i log nell'area di lavoro di Log Analytics](#view-logs-in-log-analytics-workspace) in questo articolo.
 
     * **Engine** (Motore). Selezionare questa opzione per registrare gli eventi estesi. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
     * **Servizio**. Selezionare questa opzione per registrare gli eventi a livello di servizio. Se si esegue l'archiviazione in un account di archiviazione, è possibile selezionare il periodo di conservazione per i log di diagnostica. Alla scadenza del periodo, i log verranno automaticamente eliminati.
@@ -103,7 +104,7 @@ Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i
 - Per abilitare la memorizzazione dei log di diagnostica in un account di archiviazione, usare questo comando:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -StorageAccountId [your storage account id] -Enabled $true
    ```
 
    L'ID account di archiviazione è l'ID risorsa per l'account di archiviazione a cui devono essere inviati i log.
@@ -111,7 +112,7 @@ Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i
 - Per abilitare lo streaming dei log di diagnostica in un Hub eventi, usare questo comando:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -ServiceBusRuleId [your service bus rule id] -Enabled $true
    ```
 
    L'ID regola del bus di servizio di Azure è una stringa nel formato seguente:
@@ -123,13 +124,13 @@ Per abilitare le metriche e la registrazione diagnostica con PowerShell, usare i
 - Per consentire l'invio dei log di diagnostica a un'area di lavoro di Log Analytics, usare questo comando:
 
    ```powershell
-   Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
+   Set-AzDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
    ```
 
 - È possibile ottenere l'ID risorsa dell'area di lavoro di Log Analytics usando il comando seguente:
 
    ```powershell
-   (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+   (Get-AzOperationalInsightsWorkspace).ResourceId
    ```
 
 È possibile combinare questi parametri per abilitare più opzioni di output.
@@ -187,7 +188,7 @@ Sono disponibili centinaia di query. Per altre informazioni sulle query, vedere 
 
 ## <a name="turn-on-logging-by-using-powershell"></a>Abilitare la registrazione tramite PowerShell
 
-In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. Viene poi usato il cmdlet Set-AzureRmDiagnosticSetting per attivare la registrazione diagnostica e inviare i risultati al nuovo account di archiviazione.
+In questa esercitazione rapida vengono creati un account di archiviazione nella stessa sottoscrizione e un gruppo di risorse come server di Analysis Services. È quindi possibile usare Set-AzDiagnosticSetting per attivare la registrazione diagnostica e l'invio di output per il nuovo account di archiviazione.
 
 ### <a name="prerequisites"></a>Prerequisiti
 Per completare l'esercitazione, sono necessarie le risorse seguenti:
@@ -199,7 +200,7 @@ Per completare l'esercitazione, sono necessarie le risorse seguenti:
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
@@ -207,13 +208,13 @@ Nella finestra del browser a comparsa, immettere il nome utente e la password de
 Se sono disponibili più sottoscrizioni, potrebbe essere necessario indicarne una specifica usata per creare l'insieme di credenziali delle chiavi di Azure. Digitare il comando seguente per visualizzare le sottoscrizioni relative all'account:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Per specificare quindi la sottoscrizione associata all'account di Azure Analysis Services per la registrazione, digitare:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -228,7 +229,7 @@ Set-AzureRmContext -SubscriptionId <subscription ID>
 Viene usato anche lo stesso gruppo di risorse che contiene il server Analysis Services. Sostituire i valori di `awsales_resgroup`, `awsaleslogs` e `West Central US` con valori di propria scelta:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
+$sa = New-AzStorageAccount -ResourceGroupName awsales_resgroup `
 -Name awsaleslogs -Type Standard_LRS -Location 'West Central US'
 ```
 
@@ -237,16 +238,16 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName awsales_resgroup `
 Impostare il nome dell'account su una variabile denominata **account**, dove ResourceName è il nome dell'account.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName awsales_resgroup `
+$account = Get-AzResource -ResourceGroupName awsales_resgroup `
 -ResourceName awsales -ResourceType "Microsoft.AnalysisServices/servers"
 ```
 
 ### <a name="enable-logging"></a>Abilitazione della registrazione
 
-Per abilitare la registrazione, usare il cmdlet Set-AzureRmDiagnosticSetting con le variabili create per il nuovo account di archiviazione, l'account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
+Per abilitare la registrazione, usare il cmdlet Set-AzDiagnosticSetting insieme alle variabili per il nuovo account di archiviazione, account del server e la categoria. Eseguire questo comando, impostando il flag **-Enabled** su **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories Engine
 ```
 
 L'output dovrebbe essere simile all'esempio seguente:
@@ -293,7 +294,7 @@ Questo output conferma che la registrazione è abilitata per il server. Le infor
 È possibile anche impostare criteri di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente. È, ad esempio, possibile impostare i criteri di conservazione usando il flag **-RetentionEnabled** impostato su **$true** e impostare il parametro **-RetentionInDays** su **90**. I log antecedenti a 90 giorni vengono eliminati automaticamente.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories Engine`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -302,4 +303,4 @@ Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
 
 Altre informazioni sulla [Registrazione diagnostica delle risorse di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-Vedere [Set-AzureRmDiagnosticSetting](https://docs.microsoft.com/powershell/module/azurerm.insights/Set-AzureRmDiagnosticSetting) nella Guida di PowerShell.
+Visualizzare [Set-AzDiagnosticSetting](https://docs.microsoft.com/powershell/module/az.monitor/set-azdiagnosticsetting) nella Guida di PowerShell.

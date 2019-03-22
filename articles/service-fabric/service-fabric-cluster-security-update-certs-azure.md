@@ -4,7 +4,7 @@ description: Questo articolo descrive come aggiungere nuovi certificati, eseguir
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chakdan
 editor: ''
 ms.assetid: 91adc3d3-a4ca-46cf-ac5f-368fb6458d74
 ms.service: service-fabric
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
-ms.author: aljo-microsoft
-ms.openlocfilehash: aa5096b84f9bfe97784d6f80e4c203a1d8384404
-ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
-ms.translationtype: HT
+ms.author: aljo
+ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51687419"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315274"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Aggiungere o rimuovere certificati per un cluster Service Fabric in Azure
 È consigliabile acquisire familiarità con l'uso dei certificati X.509 da parte di Service Fabric e con gli [scenari di sicurezza di un cluster di Service Fabric](service-fabric-cluster-security.md). È necessario comprendere cos'è un certificato del cluster e a cosa serve prima di procedere.
 
-Il certificato predefinito del comportamento di carico di Azure Service Fabric SDK, consiste nel distribuire e usare un certificato definito con una data di scadenza futura; indipendentemente dalla relativa definizione di configurazione primaria o secondaria. Il comportamento classico è un’azione avanzata non consigliata ed è necessario impostare il valore del parametro "UseSecondaryIfNever" su false nella configurazione Fabric.Code.
+Il certificato predefinito del comportamento di carico di Azure Service Fabric SDK, consiste nel distribuire e usare un certificato definito con una data di scadenza futura; indipendentemente dalla relativa definizione di configurazione primaria o secondaria. Eseguire il fallback per il comportamento classico è non avanzata azione consigliata e, è necessario impostare il valore del parametro "UseSecondaryIfNewer" impostazione su false nella configurazione Fabric.Code.
 
 Service Fabric consente di specificare due certificati cluster, uno primario e uno secondario, durante la configurazione della sicurezza basata su certificati al momento della creazione del cluster, oltre ai certificati client. Per informazioni dettagliate sulla loro configurazione in fase di creazione, vedere l'argomento relativo alla [creazione di un di cluster Azure tramite il portale](service-fabric-cluster-creation-via-portal.md) o alla [creazione di un cluster di Azure tramite Azure Resource Manager](service-fabric-cluster-creation-via-arm.md). Se si specifica un solo certificato cluster in fase di creazione, questo viene usato come certificato primario. Dopo la creazione del cluster è possibile aggiungere un nuovo certificato come secondario.
 
@@ -114,7 +114,7 @@ Il file 5-VM-1-NodeTypes-Secure_Step2.JSON contiene tutte le modifiche illustrat
          }
     ``` 
 
-4. Apportare modifiche a **tutte** le definizioni di risorse **Microsoft.Compute/virtualMachineScaleSets**. Trovare la definizione della risorsa Microsoft.Compute/virtualMachineScaleSets. Scorrere fino alla sezione "publisher": "Microsoft.Azure.ServiceFabric" in "virtualMachineProfile".
+4. Apportare modifiche a **tutte** le definizioni di risorse **Microsoft.Compute/virtualMachineScaleSets**. Trovare la definizione della risorsa Microsoft.Compute/virtualMachineScaleSets. Scorrere fino a "publisher": "Sezione", in "virtualMachineProfile".
 
     Nelle impostazioni di pubblicazione di Service Fabric dovrebbe essere presente una sezione simile alla seguente.
     
@@ -259,7 +259,7 @@ Per riferimento rapido ecco il comando per ottenere l'integrità del cluster
 Get-ServiceFabricClusterHealth 
 ```
 
-## <a name="deploying-application-certificates-to-the-cluster"></a>Distribuzione di certificati dell'applicazione nel cluster
+## <a name="deploying-client-certificates-to-the-cluster"></a>Distribuzione dei certificati client per il cluster.
 
 Per fare in modo che i certificati vengano distribuiti da un insieme di credenziali delle chiavi ai nodi, è possibile usare la stessa procedura descritta nel passaggio 5 precedente. È sufficiente definire e usare parametri diversi.
 

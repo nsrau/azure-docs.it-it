@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: a6bd0097bacaa988c9c9f03c2ce827c42769aa99
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: e0f45de51c191f532340179f2477844dfe0b491d
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447379"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57535231"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creare Azure-SSIS Integration Runtime in Azure Data Factory
 Questo articolo illustra la procedura per il provisioning di Azure-SSIS Integration Runtime (IR) in Azure Data Factory (ADF). È quindi possibile usare SQL Server Data Tools (SSDT) o SQL Server Management Studio (SSMS) per distribuire ed eseguire pacchetti SQL Server Integration Services (SSIS) in questo runtime di integrazione in Azure.
@@ -40,6 +40,9 @@ Quando si crea Azure-SSIS IR, il servizio ADF si connette al server di database 
 Quando si effettua il provisioning di Azure-SSIS IR, vengono installati anche il Feature Pack di Azure per SSIS e Access Redistributable. Questi componenti forniscono la connettività ai file di Excel e di Access e a diverse origini dati di Azure, oltre che alle origini dati supportate dai componenti predefiniti. È anche possibile installare componenti aggiuntivi. Per altre informazioni, vedere [Installazione personalizzata per il runtime di integrazione Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - **Sottoscrizione di Azure**. Se non si ha ancora una sottoscrizione, è possibile creare un account di [valutazione gratuito](https://azure.microsoft.com/pricing/free-trial/).
 
 - **Server di database SQL di Azure o Istanza gestita**. Se non si ha ancora un server di database, è possibile crearne uno nel portale di Azure prima di iniziare. Questo server ospiterà il database SSISDB. È consigliabile creare il server di database nella stessa area di Azure in cui si trova il runtime di integrazione. Questa configurazione consente al runtime di integrazione di scrivere i log di esecuzione in SSISDB senza attraversare aree di Azure. In base al server di database selezionato, il database SSISDB può essere creato per conto dell'utente come database singolo, come parte di un pool elastico o nell'istanza gestita e può essere reso accessibile in una rete pubblica o tramite l'aggiunta a una rete virtuale. Per un elenco di piani tariffari supportati per il database SQL di Azure, vedere [Limiti delle risorse del database SQL](../sql-database/sql-database-resource-limits.md).
@@ -50,7 +53,7 @@ Quando si effettua il provisioning di Azure-SSIS IR, vengono installati anche il
     - Si ospita il database SSISDB nel server di database SQL di Azure con endpoint di servizio di rete virtuale o in Istanza gestita all'interno di una rete virtuale.
     - Si vuole connettersi ad archivi dati locali da pacchetti SSIS in esecuzione su Azure-SSIS IR.
 
-- **Azure PowerShell**. Seguire le istruzioni riportate in [Come installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps) se si vuole eseguire uno script di PowerShell per effettuare il provisioning di Azure-SSIS IR.
+- **Azure PowerShell**. Seguire le istruzioni riportate in [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps) se si vuole eseguire uno script di PowerShell per effettuare il provisioning di Azure-SSIS IR.
 
 ### <a name="region-support"></a>Supporto di area
 Per un elenco delle aree di Azure in cui sono attualmente disponibili ADF e Azure-SSIS IR, vedere [Disponibilità di ADF + SSIS IR per area](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory&regions=all).
@@ -255,8 +258,8 @@ $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…
 Aggiungere il codice seguente allo script per eseguire l'accesso e selezionare la sottoscrizione di Azure:
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $SubscriptionName
 ```
 
 ### <a name="validate-the-connection-to-database"></a>Convalidare la connessione al database
@@ -297,32 +300,32 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
     Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign the VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 ```
 
 ### <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) con il comando [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
+Creare un [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usando la [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) comando. Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
 ```powershell
-New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
+New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
 ```
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
 Eseguire questo comando per creare una data factory.
 
 ```powershell
-Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Location $DataFactoryLocation `
                          -Name $DataFactoryName
 ```
@@ -337,7 +340,7 @@ Se si usa Istanza gestita per ospitare SSISDB, è possibile omettere il parametr
 Se si usa l'autenticazione di Azure Active Directory (AAD) con l'identità gestita per consentire ad Azure Data Factory di connettersi al server di database, è possibile omettere il parametro CatalogAdminCredential, ma è necessario aggiungere l'identità gestita di ADF in un gruppo AAD con autorizzazioni di accesso al server di database. Vedere [Abilitare l'autenticazione AAD per Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/enable-aad-authentication-azure-ssis-ir). In caso contrario, non sarà possibile ometterlo e si dovrà passare un oggetto valido formato dal nome utente e dalla password dell'amministratore server per l'autenticazione SQL.
 
 ```powershell
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
@@ -356,7 +359,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 # Add SetupScriptContainerSasUri parameter when you use custom setup
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -SetupScriptContainerSasUri $SetupScriptContainerSasUri
@@ -368,7 +371,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNull
     $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
     $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
 
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -CatalogAdminCredential $serverCreds
@@ -380,7 +383,7 @@ Eseguire questo comando per avviare il runtime di integrazione SSIS di Azure:
 
 ```powershell
 write-host("##### Starting #####")
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force
@@ -432,8 +435,8 @@ $SSISDBServerAdminPassword = "[your server admin password for SQL authentication
 $SSISDBPricingTier = "[Basic|S0|S1|S2|S3|S4|S6|S7|S9|S12|P1|P2|P4|P6|P11|P15|…|ELASTIC_POOL(name = <elastic_pool_name>) for Azure SQL Database or leave it empty for Managed Instance]"
 
 ### Log in and select subscription
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionName $SubscriptionName
+Connect-AzAccount
+Select-AzSubscription -SubscriptionName $SubscriptionName
 
 ### Validate the connection to database
 # Validate only when you do not use VNet nor AAD authentication
@@ -466,26 +469,26 @@ if(![string]::IsNullOrEmpty($VnetId) -and ![string]::IsNullOrEmpty($SubnetName))
 {
     # Register to the Azure Batch resource provider
     $BatchApplicationId = "ddbf3205-c6bd-46ae-8127-60eb93363864"
-    $BatchObjectId = (Get-AzureRmADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
-    while(!(Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
+    $BatchObjectId = (Get-AzADServicePrincipal -ServicePrincipalName $BatchApplicationId).Id
+    Register-AzResourceProvider -ProviderNamespace Microsoft.Batch
+    while(!(Get-AzResourceProvider -ProviderNamespace "Microsoft.Batch").RegistrationState.Contains("Registered"))
     {
     Start-Sleep -s 10
     }
     if($VnetId -match "/providers/Microsoft.ClassicNetwork/")
     {
         # Assign the VM contributor role to Microsoft.Batch
-        New-AzureRmRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
+        New-AzRoleAssignment -ObjectId $BatchObjectId -RoleDefinitionName "Classic Virtual Machine Contributor" -Scope $VnetId
     }
 }
 
 ### Create a data factory
-Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2 -ResourceGroupName $ResourceGroupName `
                          -Location $DataFactoryLocation `
                          -Name $DataFactoryName
 
 ### Create an integration runtime
-Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                            -DataFactoryName $DataFactoryName `
                                            -Name $AzureSSISName `
                                            -Description $AzureSSISDescription `
@@ -504,7 +507,7 @@ Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName
 # Add SetupScriptContainerSasUri parameter when you use custom setup
 if(![string]::IsNullOrEmpty($SetupScriptContainerSasUri))
 {
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -SetupScriptContainerSasUri $SetupScriptContainerSasUri
@@ -516,7 +519,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNull
     $secpasswd = ConvertTo-SecureString $SSISDBServerAdminPassword -AsPlainText -Force
     $serverCreds = New-Object System.Management.Automation.PSCredential($SSISDBServerAdminUserName, $secpasswd)
 
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                                -DataFactoryName $DataFactoryName `
                                                -Name $AzureSSISName `
                                                -CatalogAdminCredential $serverCreds
@@ -524,7 +527,7 @@ if(![string]::IsNullOrEmpty($SSISDBServerAdminUserName) –and ![string]::IsNull
 
 ### Start integration runtime
 write-host("##### Starting your Azure-SSIS integration runtime. This command takes 20 to 30 minutes to complete. #####")
-Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
                                              -DataFactoryName $DataFactoryName `
                                              -Name $AzureSSISName `
                                              -Force
@@ -541,7 +544,7 @@ In questa sezione si userà il modello di Azure Resource Manager per creare un r
     ```json
     {
         "contentVersion": "1.0.0.0",
-        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "parameters": {},
         "variables": {},
         "resources": [{
@@ -582,18 +585,18 @@ In questa sezione si userà il modello di Azure Resource Manager per creare un r
     }
     ```
     
-1. Per distribuire il modello di Azure Resource Manager, eseguire il comando New-AzureRmResourceGroupDeployment come illustrato nell'esempio seguente, dove ADFTutorialResourceGroup è il nome del gruppo di risorse e ADFTutorialARM.json è il file che contiene la definizione JSON per la data factory e il runtime di integrazione SSIS di Azure.
+1. Per distribuire il modello di Azure Resource Manager, eseguire comando New-AzResourceGroupDeployment come illustrato nell'esempio seguente, dove ADFTutorialResourceGroup è il nome del gruppo di risorse e adftutorialarm. JSON è il file che contiene la definizione JSON per data factory e del runtime di integrazione SSIS di Azure.
 
     ```powershell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json
     ```
 
     Questo comando crea la data factory e, al suo interno, un runtime di integrazione Azure-SSIS, senza avviarlo.
 
-1. Per avviare il runtime di integrazione Azure-SSIS, eseguire il comando Start-AzureRmDataFactoryV2IntegrationRuntime:
+1. Per avviare il runtime di integrazione Azure-SSIS, eseguire il comando Start-AzDataFactoryV2IntegrationRuntime:
 
     ```powershell
-    Start-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name>" `
+    Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "<Resource Group Name>" `
                                                  -DataFactoryName "<Data Factory Name>" `
                                                  -Name "<Azure SSIS IR Name>" `
                                                  -Force

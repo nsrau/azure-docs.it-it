@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 701c5c175e22556aefa95d1ac3836d52cd19b845
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 85693ec6aa67dc69cd65aae8e66e66e2118672ef
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342305"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57898483"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Servizio di controllo di Azure SQL Data Warehouse
 
@@ -131,11 +131,11 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 
     4. Il file unito verrà aperto in SSMS, dove potrà essere visualizzato, analizzato ed esportato in un file XEL o CSV o in una tabella.
 
-* Usare l'[applicazione di sincronizzazione](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) che è stata creata. L'applicazione, eseguita in Azure, utilizza le API pubbliche di Log Analytics per effettuare il push dei log di controllo SQL in Log Analytics, per l'utilizzo tramite il dashboard di Log Analytics.
+* Usare l'[applicazione di sincronizzazione](https://github.com/Microsoft/Azure-SQL-DB-auditing-OMS-integration) che è stata creata. È in esecuzione in Azure e prevede il log analitica i log di controllo API pubbliche per effettuare il push SQL nei log di monitoraggio di Azure. L'applicazione di sincronizzazione invia i log di controllo SQL nei log di monitoraggio di Azure per l'utilizzo tramite il dashboard di log analitica.
 
-* Usare Power BI. È possibile visualizzare e analizzare i dati dei log di controllo in Power BI. Per altre informazioni, vedere il post di blog su [Power BI e l'accesso a un modello scaricabile](https://blogs.msdn.microsoft.com/azuresqldbsupport/2017/05/26/sql-azure-blob-auditing-basic-power-bi-dashboard/).
+* Usare Power BI. È possibile visualizzare e analizzare i dati dei log di controllo in Power BI. Per altre informazioni, vedere il post di blog su [Power BI e l'accesso a un modello scaricabile](https://blogs.msdn.microsoft.com/azuresqldbsupport/20../../sql-azure-blob-auditing-basic-power-bi-dashboard/).
 
-* Scaricare i file di log dal contenitore BLOB del servizio di archiviazione di Azure tramite il portale o con uno strumento come [Azure Storage Explorer](http://storageexplorer.com/).
+* Scaricare i file di log dal contenitore BLOB del servizio di archiviazione di Azure tramite il portale o con uno strumento come [Azure Storage Explorer](https://storageexplorer.com/).
     * Dopo aver scaricato un file di log in locale, è possibile fare doppio clic sul file per aprire, visualizzare e analizzare i log in SSMS.
     * È anche possibile scaricare più file contemporaneamente tramite Azure Storage Explorer. Fare clic con il pulsante destro del mouse su una sottocartella specifica e scegliere **Salva con nome** per salvarla in una cartella locale.
 
@@ -144,14 +144,15 @@ Per visualizzare i log del controllo BLOB sono disponibili diversi metodi:
 
    * Visualizzare i log del controllo BLOB a livello di codice:
 
-     * Usare la libreria C# del [lettore di eventi estesi](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/).
-     * [Eseguire query sui file di eventi estesi](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) con PowerShell.
+     * Usare la libreria C# del [lettore di eventi estesi](https://blogs.msdn.microsoft.com/extended_events/20../../introducing-the-extended-events-reader/).
+     * [Eseguire query sui file di eventi estesi](https://sqlscope.wordpress.com/20../../reading-extended-event-files-using-client-side-tools-only/) con PowerShell.
 
 
 
 <br>
+
 ### <a name="database-level-policy-audit-logs"></a>Log di controllo dei criteri a livello di database
-I log di controllo a livello di database vengono aggregati in una raccolta di tabelle di archiviazione con il prefisso **SQLDBAuditLogs** nell'account di archiviazione di Azure scelto durante l'installazione. È possibile visualizzare i file di log con uno strumento come [Esplora archivi di Azure](http://azurestorageexplorer.codeplex.com).
+I log di controllo a livello di database vengono aggregati in una raccolta di tabelle di archiviazione con il prefisso **SQLDBAuditLogs** nell'account di archiviazione di Azure scelto durante l'installazione. È possibile visualizzare i file di log con uno strumento come [Esplora archivi di Azure](https://azurestorageexplorer.codeplex.com).
 
 È possibile scaricare un modello di report dashboard preconfigurato in formato [foglio di calcolo di Excel](https://go.microsoft.com/fwlink/?LinkId=403540), che consente di analizzare rapidamente i dati di log. Per usare il modello nei log di controllo sono necessari Excel 2013 o versione successiva e Power Query, disponibile per il download [qui](https://www.microsoft.com/download/details.aspx?id=39379).
 
@@ -169,18 +170,26 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 4. Tornare all'interfaccia utente di archiviazione e **rigenerare** la *Chiave di accesso secondaria* (in preparazione al successivo ciclo di aggiornamento delle chiavi).
 
 ## <a id="subheading-5"></a>Automazione (API REST/PowerShell)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 È possibile configurare il controllo in Azure SQL Data Warehouse anche con gli strumenti di automazione seguenti:
 
 * **Cmdlet di PowerShell**:
 
-   * [Get-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/get-azurermsqldatabaseauditingpolicy)
-   * [Get-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Get-AzureRMSqlServerAuditingPolicy)
-   * [Remove-AzureRMSqlDatabaseAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlDatabaseAuditing)
-   * [Remove-AzureRMSqlServerAuditing](/powershell/module/azurerm.sql/Remove-AzureRMSqlServerAuditing)
-   * [Set-AzureRMSqlDatabaseAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlDatabaseAuditingPolicy)
-   * [Set-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Set-AzureRMSqlServerAuditingPolicy)
-   * [Use-AzureRMSqlServerAuditingPolicy](/powershell/module/azurerm.sql/Use-AzureRMSqlServerAuditingPolicy)
+<!-- None of the following links exist anymore 3-12-2019
+   * [Get-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/get-azsqldatabaseauditingpolicy)
+   * [Get-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Get-azSqlServerAuditingPolicy)
+   * [Remove-AzSqlDatabaseAuditing](/powershell/module/az.sql/Remove-azSqlDatabaseAuditing)
+   * [Remove-AzSqlServerAuditing](/powershell/module/az.sql/Remove-azSqlServerAuditing)
+   * [Set-AzSqlDatabaseAuditingPolicy](/powershell/module/az.sql/Set-azSqlDatabaseAuditingPolicy)
+   * [Set-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Set-azSqlServerAuditingPolicy)
+   * [Use-AzSqlServerAuditingPolicy](/powershell/module/az.sql/Use-azSqlServerAuditingPolicy) -->
 
+   * [Get-AzSqlDatabaseAuditing](/powershell/module/az.sql/get-azsqldatabaseauditing)
+   * [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing)
+   * [Get-AzSqlServerAuditing](/powershell/module/az.sql/get-azsqlserverauditing)
+   * [Set-AzSqlServerAuditing](/powershell/module/az.sql/set-azsqlserverauditing)
 
 ## <a name="downlevel-clients-support-for-auditing-and-dynamic-data-masking"></a>Supporto client di livello inferiore per controllo e maschera dati dinamica
 Il servizio di controllo funziona con i client SQL che supportano il reindirizzamento TDS.

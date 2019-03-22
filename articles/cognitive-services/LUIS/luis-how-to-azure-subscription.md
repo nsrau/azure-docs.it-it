@@ -9,43 +9,29 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/29/2019
+ms.date: 03/01/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd05e2dd5b55dd590af24f0757229bead041b6d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7315c80ad74eae07e41577fb2ac13742002e729e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55859114"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57781698"
 ---
 # <a name="using-subscription-keys-with-your-luis-app"></a>Uso delle chiavi della sottoscrizione con l'app LUIS
 
-Non è necessario creare chiavi di sottoscrizione per usare le prime 1000 query di endpoint gratuite. Dopo averle usate tutte, creare una risorsa di Azure nel [portale di Azure](http://portal.azure.com), quindi assegnarla a un'app LUIS nel [portale LUIS](https://www.luis.ai).
+Non è necessario creare chiavi di sottoscrizione per usare le prime 1000 query di endpoint gratuite. Dopo averle usate tutte, creare una risorsa di Azure nel [portale di Azure](https://portal.azure.com), quindi assegnarla a un'app LUIS nel [portale LUIS](https://www.luis.ai).
 
 Se si riceve un errore di _superamento della quota_ in forma di messaggio HTTP 403 o 429, è necessario creare una chiave e assegnarla all'app. 
 
 Solo in caso di test o come prototipo, usa il livello (F0) gratuito. Per i sistemi di produzione, usa un livello [a pagamento](https://aka.ms/luis-price-tier). Non usare la [chiave di creazione](luis-concept-keys.md#authoring-key) per le query di endpoint nell'ambiente di produzione.
 
 <a name="create-luis-service"></a>
+<a name="create-language-understanding-endpoint-key-in-the-azure-portal"/>
 
-## <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>Creare una chiave endpoint Language Understanding nel portale di Azure
+## <a name="create-prediction-endpoint-runtime-resource-in-the-azure-portal"></a>Crea risorsa di runtime di stima endpoint nel portale di Azure
 
-Questa procedura crea una risorsa **Language Understanding**. Se si vuole una risorsa che possa essere usata nei Servizi cognitivi, creare la chiave completa **[Servizio cognitivo](../cognitive-services-apis-create-account.md)** invece della risorsa Language Understanding. 
-
-Questa chiave deve essere usata solo per le query di stima dell'endpoint. Non usarla per modificare il modello o l'app. 
-
-1. Accedere al **[portale di Azure](https://ms.portal.azure.com/)**. 
-1. Selezionare il **+** verde, accedere al riquadro superiore sinistro e cercare `Language Understanding` nel marketplace, quindi selezionare **Language Understanding** e seguire la **Creazione dell'esperienza** per generare un account di sottoscrizione a LUIS. 
-
-    ![Ricerca di Azure](./media/luis-azure-subscription/azure-search.png) 
-
-1. Configura la sottoscrizione con impostazioni quali nome dell'account, piani tariffari e così via. 
-
-    ![Scelta di API di Azure](./media/luis-azure-subscription/azure-api-choice.png) 
-
-1. Dopo aver creato la risorsa Language Understanding, è possibile visualizzare le chiavi di accesso generate in **Gestione delle risorse -> Chiavi**. La sezione successiva illustrerà come connettere questa nuova risorsa a un'app LUIS nel portale LUIS. Occorre usare il nome della risorsa LUIS creato nel passaggio 3.
-
-    ![Chiavi di Azure](./media/luis-azure-subscription/azure-keys.png)
+Scopri di più con il [creare un'app](get-started-portal-build-app.md) Guida introduttiva.
 
 <a name="programmatic-key" ></a>
 <a name="authoring-key" ></a>
@@ -63,23 +49,7 @@ Questa chiave deve essere usata solo per le query di stima dell'endpoint. Non us
 
 ## <a name="assign-resource-key-to-luis-app-in-luis-portal"></a>Assegnare la chiave di risorsa all'app LUIS nel portale LUIS
 
-1. Accedere al portale LUIS, scegliere un'app in cui aggiungere la nuova chiave, selezionare **Gestisci** nel menu in alto a destra e quindi selezionare **Keys and endpoints** (Chiavi ed endpoint).
-
-    [ ![Pagina chiavi ed endpoint](./media/luis-manage-keys/keys-and-endpoints.png) ](./media/luis-manage-keys/keys-and-endpoints.png#lightbox)
-
-1. Per aggiungere il servizio LUIS, selezionare **Assegnare una risorsa +**.
-
-    ![Assegnare una risorsa all'app](./media/luis-manage-keys/assign-key.png)
-
-1. Selezionare un tenant nella finestra di dialogo associata all'indirizzo di posta elettronica usato per accedere al sito Web di LUIS.  
-
-1. Scegliere il **Nome sottoscrizione** associato alla risorsa di Azure che si vuole aggiungere.
-
-1. Selezionare il **Nome della risorsa LUIS**. 
-
-1. Selezionare **Assign resource** (Assegnare una risorsa). 
-
-1. Trovare la nuova riga nella tabella e copiare l'URL endpoint. Per ottenere una stima, è consigliabile inoltrare una richiesta HTTP GET all'endpoint del servizio LUIS. 
+Scopri di più con il [distribuzione](get-started-portal-deploy-app.md) Guida introduttiva.
 
 <!-- content moved to luis-reference-regions.md, need replacement links-->
 <a name="regions-and-keys"></a>

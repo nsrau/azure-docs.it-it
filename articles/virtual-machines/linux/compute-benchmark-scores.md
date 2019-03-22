@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn;davberg
-ms.openlocfilehash: 1d7f11b7d9db87ebea5cb31b2918dba3fe8a56b2
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 2a558f2cf91907e85bb8b14c7214a63afd1faca0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51262353"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001389"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Calcolare i punteggi di benchmark per le VM Linux
 I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni di calcolo per la linea di VM ad alte prestazioni di Azure con Ubuntu. I punteggi di benchmark sul calcolo sono disponibili anche per le [VM Windows](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -369,7 +369,7 @@ I punteggi del benchmark CoreMark riportati di seguito mostrano le prestazioni d
 | Standard_M128s | Intel(R) Xeon(R) CPU E7-8890 v3 \@ 2,50GHz | 128 | 4 | 2.064,3 | 1.275.445 | 19.510 | 1,53% | 42 |
 
 ## <a name="about-coremark"></a>Informazioni su CoreMark
-I numeri di Linux sono stati calcolati eseguendo [CoreMark](http://www.eembc.org/coremark/faq.php) su Ubuntu. CoreMark è stato configurato con il numero di thread impostato sul numero di CPU virtuali e la concorrenza impostata su PThreads. Il numero di iterazioni è stato rettificato in base alle prestazioni previste per fornire un runtime di almeno 20 secondi (ma in genere molto di più). Il punteggio finale rappresentava il numero di iterazioni completate, diviso per la durata del test espressa in secondi. Ogni test è stato eseguito almeno sette volte per ogni VM. Le date di esecuzione dei test sono indicate sopra. Test eseguiti su più macchine virtuali in più aree di Azure pubbliche: le macchine virtuali erano supportate alla data di esecuzione. Le serie di base A e B (con possibilità di burst) non sono indicate perché le prestazioni sono variabili. La serie N non è indicata perché è incentrata su GPU e Coremark non misura le prestazioni della GPU.
+I numeri di Linux sono stati calcolati eseguendo [CoreMark](https://www.eembc.org/coremark/faq.php) su Ubuntu. CoreMark è stato configurato con il numero di thread impostato sul numero di CPU virtuali e la concorrenza impostata su PThreads. Il numero di iterazioni è stato rettificato in base alle prestazioni previste per fornire un runtime di almeno 20 secondi (ma in genere molto di più). Il punteggio finale rappresentava il numero di iterazioni completate, diviso per la durata del test espressa in secondi. Ogni test è stato eseguito almeno sette volte per ogni VM. Le date di esecuzione dei test sono indicate sopra. Test eseguiti su più macchine virtuali in più aree di Azure pubbliche: le macchine virtuali erano supportate alla data di esecuzione. Le serie di base A e B (con possibilità di burst) non sono indicate perché le prestazioni sono variabili. La serie N non è indicata perché è incentrata su GPU e Coremark non misura le prestazioni della GPU.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per conoscere le capacità di archiviazione, i dettagli sul disco e per considerazioni aggiuntive sulla scelta delle dimensioni delle macchine virtuali, vedere [Dimensioni delle macchine virtuali in Azure](sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 9c307bbbef7b9eecc980dc6013c317f1ee231a0c
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: a12e0f567747b67c67f7bc825df1079d852e2f16
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54034302"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448239"
 ---
 # <a name="monitor-performance-and-storage-metrics-in-azure-cosmos-db"></a>Monitorare le metriche delle prestazioni e di archiviazione in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ ms.locfileid: "54034302"
 
    Il portale di Azure visualizza l'insieme delle metriche di raccolta disponibili. Si noti che velocità effettiva, archiviazione, disponibilità, latenza e coerenza delle metriche vengono fornite in schede separate. Per ottenere altre informazioni sulle metriche fornite, fare clic sulla doppia freccia nella parte superiore destra del riquadro di ogni metrica.
 
-   ![Schermata della sezione Monitoraggio che mostra la suite di metriche disponibili](./media/monitor-accounts/metrics-suite.png)
+   ![Screenshot della sezione monitoraggio che mostra la suite di metriche](./media/monitor-accounts/metrics-suite.png)
 
 ## <a name="view-performance-metrics-by-using-azure-monitoring"></a>Visualizzare le metriche delle prestazioni utilizzando Monitoraggio di Azure
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Monitoraggio** nella barra degli strumenti a sinistra.
@@ -43,14 +43,14 @@ ms.locfileid: "54034302"
    * Richieste totali per il giorno corrente.
    * Spazio di archiviazione usato.
    
-   ![Schermata della sezione Monitoraggio che mostra le richieste e l'uso delle risorse di archiviazione](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
+   ![Screenshot della sezione monitoraggio che mostra le richieste e l'utilizzo dell'archiviazione](./media/monitor-accounts/documentdb-total-requests-and-usage.png)
 3. Fare clic sulla doppia freccia in alto a destra del riquadro **Richieste**  per aprire una pagina **Metrica** dettagliata.
 4. La pagina **Metrica** mostra i dettagli relativi alle richieste totali. 
 
 ## <a name="set-up-alerts-in-the-portal"></a>Configurare gli avvisi nel portale
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Tutti i servizi**, **Azure Cosmos DB** e infine sul nome dell'account Azure Cosmos DB per cui si vogliono configurare gli avvisi relativi alle metriche delle prestazioni.
 2. Nel menu delle risorse fare clic su **Regole di avviso** per aprire la relativa pagina.  
-   ![Screenshot della parte di regole di avviso selezionata](./media/monitor-accounts/madocdb10.5.png)
+   ![Screenshot della parte delle regole di avviso selezionate](./media/monitor-accounts/madocdb10.5.png)
 3. Nella pagina **Regole di avviso** fare clic su **Aggiungi avviso**.  
    ![Schermata della pagina Regole di avviso, con il pulsante Aggiungi avviso evidenziato](./media/monitor-accounts/madocdb11.png)
 4. Nella pagina **Aggiungi una regola di avviso** specificare:
@@ -61,7 +61,7 @@ ms.locfileid: "54034302"
    * Condizione, soglia e periodo per l'attivazione della regola. Ad esempio, un numero di errori del server maggiore di 5 negli ultimi 15 minuti.
    * Se deve essere inviato un messaggio di posta elettronica all'amministratore del servizio e ai coamministratori quando viene attivata la regola.
    * Indirizzi di posta elettronica aggiuntivi per le notifiche degli avvisi.  
-     ![Schermata della pagina Aggiungi una regola di avviso](./media/monitor-accounts/madocdb12.png)
+     ![Screenshot di Aggiungi una pagina regola di avviso](./media/monitor-accounts/madocdb12.png)
 
 ## <a name="monitor-azure-cosmos-db-programmatically"></a>Monitorare Azure Cosmos DB a livello di codice
 Le metriche a livello di account disponibili nel portale, ad esempio l'uso delle risorse di archiviazione dell'account e il numero totale di richieste, non sono disponibili tramite le API SQL. È tuttavia possibile recuperare dati di utilizzo a livello di raccolta tramite le API SQL. Per recuperare i dati a livello di raccolta, eseguire le operazioni seguenti:

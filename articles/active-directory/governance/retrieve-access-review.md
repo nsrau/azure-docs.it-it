@@ -1,6 +1,6 @@
 ---
-title: Recuperare i risultati della verifica di accesso di Azure AD| Microsoft Docs
-description: Come recuperare i risultati delle verifiche di accesso di Azure Active Directory.
+title: Recuperare i risultati della verifica di accesso per gruppi o applicazioni in verifiche di accesso AD Azure | Microsoft Docs
+description: Informazioni su come recuperare i risultati della verifica di accesso per l'accesso dell'applicazione nelle verifiche di accesso AD Azure o i membri del gruppo.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2dccacb82b34e7e257fcee9632045f12839b5425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210799"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839645"
 ---
-# <a name="retrieve-access-review-results"></a>Recuperare i risultati della verifica di accesso
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Recuperare i risultati della verifica di accesso per gruppi o applicazioni nelle verifiche di accesso di Azure AD
 
-Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione.  Un utente che dispone del ruolo di **amministratore globale**, **amministratore account utente**, **amministratore della sicurezza** o del **ruolo con autorizzazioni di lettura per la sicurezza** può anche leggere i risultati di una verifica di accesso.  Al fine di assegnare utenti a uno di questi ruoli, un Amministratore dei ruoli con privilegi può usare Azure AD PIM per rendere idoneo un utente ad attivare il ruolo oppure un Amministratore globale può [assegnare un utente al ruolo](../fundamentals/active-directory-users-assign-role-azure-portal.md) definitivamente.
+Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione.  Un utente con il **amministratore globale**, **Amministratore utenti**, **amministratore della sicurezza** o **lettura per la sicurezza** ruolo può inoltre leggere i risultati di una verifica di accesso.  Per assegnare gli utenti a uno di questi ruoli, un amministratore dei ruoli con privilegi possa usare Azure AD Privileged Identity Management per rendere un utente idoneo ad attivare il ruolo o un amministratore globale può definitivamente [assegnare un utente al ruolo](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
@@ -55,7 +55,7 @@ Per impostazione predefinita, un utente eliminato rimarrà comunque in Azure AD 
 - [Gestire l'accesso utente con le verifiche di accesso di Azure AD](manage-user-access-with-access-reviews.md)
 - [Gestire l'accesso guest con le verifiche di accesso di Azure AD](manage-guest-access-with-access-reviews.md)
 - [Gestire i programmi e i controlli per le verifiche di accesso di Azure AD](manage-programs-controls.md)
-- [Creare una verifica di accesso per i membri di un gruppo o per l'accesso a un'applicazione](create-access-review.md)
+- [Creare una verifica di accesso di gruppi o applicazioni](create-access-review.md)
 - [Creare una verifica di accesso degli utenti in un ruolo amministrativo Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 

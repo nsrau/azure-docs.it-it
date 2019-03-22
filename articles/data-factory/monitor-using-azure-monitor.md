@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/11/2018
 ms.author: shlo
-ms.openlocfilehash: 6645463f2172a6f201f4d2f840e03d1797367752
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: e96e462709ab0c715c831bd10c628869d5c617fe
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55512354"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013307"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Avvisi e monitoraggio delle data factory con Monitoraggio di Azure
 Le applicazioni cloud sono complesse e hanno molte parti mobili. Il monitoraggio offre la possibilità di garantire il funzionamento e l'integrità dell'applicazione. Consente anche di prevenire i problemi potenziali o di risolvere quelli precedenti. Inoltre, è possibile usare i dati di monitoraggio per ottenere informazioni approfondite sull'applicazione, utili per migliorarne le prestazioni o la manutenibilità oppure per automatizzare azioni che altrimenti richiederebbero un intervento manuale.
@@ -40,11 +40,11 @@ Data Factory memorizza i dati di esecuzione della pipeline solo per 45 giorni. S
 ### <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 I log di diagnostica per le risorse non di calcolo vengono configurati usando le impostazioni di diagnostica. Le impostazioni di diagnostica per una risorsa controllano:
 
-* Destinazione dei log di diagnostica, ad esempio un account di archiviazione, Hub eventi o Log Analytics.
+* In cui vengono inviati i log di diagnostica (Account di archiviazione, hub eventi o log di monitoraggio di Azure).
 * Categorie di log da inviare.
 * Periodo di tempo durante il quale ogni categoria di log deve essere mantenuta nell'account di archiviazione.
 * Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
-* Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o Log Analytics, i criteri di conservazione non hanno alcun effetto.
+* Se i criteri di conservazione sono impostati, ma l'archiviazione dei log in un account di archiviazione è disabilitata (ad esempio, solo gli hub eventi o monitoraggio di Azure sono selezionate le opzioni di log), i criteri di conservazione non hanno alcun effetto.
 * I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente.
 
 ### <a name="enable-diagnostic-logs-via-rest-apis"></a>Abilitare i log di diagnostica tramite le API REST
@@ -59,7 +59,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 
 **Intestazioni**
 * Sostituire `{api-version}` con `2016-09-01`.
-* Sostituire `{resource-id}` con l'ID della risorsa per cui si vogliono modificare le impostazioni di diagnostica. Per altre informazioni, vedere [Uso di gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/resource-group-portal.md).
+* Sostituire `{resource-id}` con l'ID della risorsa per cui si vogliono modificare le impostazioni di diagnostica. Per altre informazioni, vedere [Uso di gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/manage-resource-groups-portal.md).
 * Impostare l'intestazione `Content-Type` su `application/json`.
 * Impostare l'intestazione dell'autorizzazione su un token JSON Web ottenuto da Azure Active Directory. Per altre informazioni, vedere [Autenticazione delle richieste](../active-directory/develop/authentication-scenarios.md).
 
@@ -277,7 +277,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è sempre valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | string | Ora dell'evento nell'intervallo di tempo, in formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |activityRunId| string| ID dell'esecuzione attività | `3a171e1f-b36e-4b80-8a54-5625394f4354` |
 |pipelineRunId| string| ID dell'esecuzione pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
@@ -288,7 +288,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |activityName| string | Nome dell'attività | `MyActivity` |
 |start| string | Inizio dell'esecuzione attività nell'intervallo di tempo, in formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| string | Fine dell'esecuzione attività nell'intervallo di tempo, in formato UTC. Se l'attività non è ancora terminata (log di diagnostica per l'avvio di un'attività), viene impostato il valore predefinito `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
-
 
 ### <a name="pipeline-run-logs-attributes"></a>Attributi dei log di esecuzione pipeline
 
@@ -324,7 +323,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Il livello 4 è valido per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | string | Ora dell'evento nell'intervallo di tempo, in formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |runId| string| ID dell'esecuzione pipeline | `9f6069d6-e522-4608-9f99-21807bfc3c70` |
 |resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| string | Categoria dei log di diagnostica. Impostare questa proprietà su "PipelineRuns" | `PipelineRuns` |
@@ -334,7 +333,6 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 |start| string | Inizio dell'esecuzione attività nell'intervallo di tempo, in formato UTC | `2017-06-26T20:55:29.5007959Z`|
 |end| string | Fine delle esecuzioni attività nell'intervallo di tempo, in formato UTC. Se l'attività non è ancora terminata (log di diagnostica per l'avvio di un'attività), viene impostato il valore predefinito `1601-01-01T00:00:00Z`.  | `2017-06-26T20:55:29.5007959Z` |
 |status| string | Stato finale dell'esecuzione pipeline (Succeeded o Failed) | `Succeeded`|
-
 
 ### <a name="trigger-run-logs-attributes"></a>Attributi dei log di esecuzione trigger
 
@@ -369,7 +367,7 @@ https://management.azure.com/{resource-id}/providers/microsoft.insights/diagnost
 | --- | --- | --- | --- |
 | Level |string | Livello dei log di diagnostica. Impostare sul livello 4 per i log di esecuzione attività. | `4`  |
 | correlationId |string | ID univoco per tenere traccia di una particolare richiesta end-to-end | `319dc6b4-f348-405e-b8d7-aafc77b73e77` |
-| time | string | Ora dell'evento nell'intervallo di tempo, in formato UTC | `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
+| time | string | Ora dell'evento nell'intervallo di tempo, formato UTC `YYYY-MM-DDTHH:MM:SS.00000Z` | `2017-06-28T21:00:27.3534352Z` |
 |triggerId| string| ID dell'esecuzione del trigger | `08587023010602533858661257311` |
 |resourceId| string | ID della risorsa associata di Data Factory | `/SUBSCRIPTIONS/<subID>/RESOURCEGROUPS/<resourceGroupName>/PROVIDERS/MICROSOFT.DATAFACTORY/FACTORIES/<dataFactoryName>` |
 |category| string | Categoria dei log di diagnostica. Impostare questa proprietà su "PipelineRuns" | `PipelineRuns` |

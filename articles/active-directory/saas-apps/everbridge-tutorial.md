@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95465fdc17131c996fa242d028addbab4191628c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d1bb62c9a11971f72a6c96c4652b136c19812cb3
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191113"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57839322"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-everbridge"></a>Esercitazione: Integrazione di Azure Active Directory con EverBridge
 
@@ -127,22 +127,22 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 5. Per configurare l'applicazione **EverBridge** come **portale membri di EverBridge** nella sezione **Configurazione SAML di base** eseguire la procedura seguente:
 
-    * Se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+   * Se si vuole configurare l'applicazione in modalità avviata da **IDP**:
 
-        ![Informazioni sull'accesso Single Sign-On per URL e dominio di EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
+       ![Informazioni sull'accesso Single Sign-On per URL e dominio di EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url1.png)
 
-        * Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
+       * Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://sso.everbridge.net/<API_Name>/<Organization_ID>`
 
-        * Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
+       * Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://member.everbridge.net/saml/SSO/<API_Name>/<Organization_ID>/alias/defaultAlias`
 
-    * Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+   * Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
-        ![Informazioni sull'accesso Single Sign-On per URL e dominio di EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
+       ![Informazioni sull'accesso Single Sign-On per URL e dominio di EverBridge](./media/everbridge-tutorial/tutorial_everbridge_url2.png)
 
-        * Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
+       * Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://member.everbridge.net/saml/login/<API_Name>/<Organization_ID>/alias/defaultAlias?disco=true`
 
-    > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto di EverBridge](mailto:support@everbridge.com).
+     > [!NOTE]
+     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto di EverBridge](mailto:support@everbridge.com).
 
 6. Nella pagina **Certificato di firma SAML**, nella sezione **Certificato di firma SAML** fare clic su **Scarica** per scaricare **Metadati federativi XML** e salvare il file di metadati nel computer in uso.
 
@@ -164,21 +164,21 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 9. Nel menu in alto fare clic sulla scheda **Settings** (Impostazioni) e selezionare **Single Sign-On** sotto **Security** (Sicurezza).
    
-    ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
+     ![Configure Single Sign-On](./media/everbridge-tutorial/tutorial_everbridge_002.png)
    
-    a. Nella casella di testo **Nome** digitare il nome del provider di identità (ad esempio, il nome della propria società).
+     a. Nella casella di testo **Nome** digitare il nome del provider di identità (ad esempio, il nome della propria società).
    
-    b. Nella casella di testo **API Name** (Nome API) digitare il nome dell'API.
+     b. Nella casella di testo **API Name** (Nome API) digitare il nome dell'API.
    
-    c. Fare clic sul pulsante **Choose File** (Scegli file) per caricare il file di metadati scaricato dal portale di Azure.
+     c. Fare clic sul pulsante **Choose File** (Scegli file) per caricare il file di metadati scaricato dal portale di Azure.
    
-    d. In SAML Identity Location (Percorso identità SAML) selezionare **Identity is in the NameIdentifier element of the Subject statement** (L'identità è nell'elemento NameIdentifier dell'istruzione Subject).
+     d. In SAML Identity Location (Percorso identità SAML) selezionare **Identity is in the NameIdentifier element of the Subject statement** (L'identità è nell'elemento NameIdentifier dell'istruzione Subject).
    
-    e. Nella casella di testo **URL di accesso del provider di identità** incollare il valore di **URL di accesso** copiato dal portale di Azure.
+     e. Nella casella di testo **URL di accesso del provider di identità** incollare il valore di **URL di accesso** copiato dal portale di Azure.
    
-    f. Per Service Provider Initiated Request Binding (Binding richiesta avviato dal provider di servizi), selezionare **HTTP Redirect** (Reindirizzamento HTTP).
+     f. Per Service Provider Initiated Request Binding (Binding richiesta avviato dal provider di servizi), selezionare **HTTP Redirect** (Reindirizzamento HTTP).
 
-    g. Fare clic su **Save**
+     g. Fare clic su **Save** (Salva).
 
 10. Per configurare l'accesso single sign-on nelle applicazioni **EverBridge** come **portale membri EverBridge**, è necessario inviare il file **XML dei metadati di federazione** al [ team di supporto di Everbridge](mailto:support@everbridge.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
@@ -200,7 +200,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel **nome utente** , digitare **brittasimon\@yourcompanydomain.extension**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

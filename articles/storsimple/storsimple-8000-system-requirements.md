@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 1a9cdf31c5924d22d968cd99383417ba371cd1c3
-ms.sourcegitcommit: 9cc3d9b9c36e4c973dd9c9028361af1ec5d29910
-ms.translationtype: HT
+ms.openlocfilehash: f05e3e85d36ffc23a193a6771a0271c71b2f8544
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "28011062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013627"
 ---
 # <a name="storsimple-8000-series-software-high-availability-and-networking-requirements"></a>Software, disponibilità elevata e requisiti di rete di StorSimple serie 8000
 
@@ -61,7 +61,7 @@ I requisiti software seguenti riguardano i componenti facoltativi di StorSimple,
 
 Il dispositivo StorSimple è un dispositivo bloccato. È tuttavia necessario aprire le porte nel firewall per consentire il traffico iSCSI, cloud e di gestione. La tabella seguente mostra l'elenco delle porte che devono essere aperte nel firewall. In questa tabella, *in* o *in ingresso* fa riferimento alla direzione da cui le richieste client in ingresso accedono al dispositivo. *Fuori* o *in uscita* fa riferimento alla direzione in cui il dispositivo StorSimple invia i dati all'esterno, oltre la distribuzione: ad esempio, in uscita verso Internet.
 
-| Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatoria | Note |
+| Numero porta<sup>1, 2</sup> | In ingresso/In uscita | Ambito porta | Obbligatorio | Note |
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP)<sup>3</sup> |In uscita |WAN |No  |<ul><li>La porta in uscita viene usata per consentire all'accesso Internet di recuperare gli aggiornamenti.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li></ul> |
 | TCP 443 (HTTPS)<sup>3</sup> |In uscita |WAN |Sì |<ul><li>La porta in uscita viene usata per accedere ai dati nel cloud.</li><li>Il proxy Web in uscita è configurabile dall'utente.</li><li>Per consentire gli aggiornamenti di sistema, questa porta deve anche essere aperta per gli IP fissi del controller.</li><li>Questa porta viene usata anche su entrambi i controller per operazioni di garbage collection.</li></ul> |
@@ -98,9 +98,9 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | --- | --- | --- |
 | `https://*.storsimple.windowsazure.com/*`<br>`https://*.accesscontrol.windows.net/*`<br>`https://*.servicebus.windows.net/*`<br>`https://login.windows.net` |Servizio Gestione dispositivi StorSimple<br>Servizio di controllo di accesso<br>Bus di servizio di Azure<br>Servizio di autenticazione |Interfacce di rete abilitate per il cloud |
 | `https://*.backup.windowsazure.com` |Registrazione del dispositivo |Solo DATA 0 |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revoca del certificato |Interfacce di rete abilitate per il cloud |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revoca del certificato |Interfacce di rete abilitate per il cloud |
 | `https://*.core.windows.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Account di archiviazione di Azure e monitoraggio |Interfacce di rete abilitate per il cloud |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |Solo indirizzi IP fissi del controller |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |Solo indirizzi IP fissi del controller |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacchetto di supporto |Interfacce di rete abilitate per il cloud |
 
@@ -110,9 +110,9 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 | --- | --- | --- |
 | `https://*.storsimple.windowsazure.us/*`<br>`https://*.accesscontrol.usgovcloudapi.net/*`<br>`https://*.servicebus.usgovcloudapi.net/*`<br>`https://login.microsoftonline.us` |Servizio Gestione dispositivi StorSimple<br>Servizio di controllo di accesso<br>Bus di servizio di Azure<br>Servizio di autenticazione |Interfacce di rete abilitate per il cloud |
 | `https://*.backup.windowsazure.us` |Registrazione del dispositivo |Solo DATA 0 |
-| `http://crl.microsoft.com/pki/*`<br>`http://www.microsoft.com/pki/*` |Revoca del certificato |Interfacce di rete abilitate per il cloud |
+| `https://crl.microsoft.com/pki/*`<br>`https://www.microsoft.com/pki/*` |Revoca del certificato |Interfacce di rete abilitate per il cloud |
 | `https://*.core.usgovcloudapi.net/*` <br>`https://*.data.microsoft.com`<br>`http://*.msftncsi.com` |Account di archiviazione di Azure e monitoraggio |Interfacce di rete abilitate per il cloud |
-| `http://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`http://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`http://download.microsoft.com`<br>`http://wustat.windows.com`<br>`http://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |Solo indirizzi IP fissi del controller |
+| `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Server di Microsoft Update<br> |Solo indirizzi IP fissi del controller |
 | `http://*.deploy.akamaitechnologies.com` |Rete CDN di Akamai |Solo indirizzi IP fissi del controller |
 | `https://*.partners.extranet.microsoft.com/*`<br>`https://dcupload.microsoft.com/`<br>`https://*.support.microsoft.com/` |Pacchetto di supporto |Interfacce di rete abilitate per il cloud |
 
@@ -155,7 +155,7 @@ L'algoritmo delle metriche di routing usato per l'aggiornamento 2 e versioni suc
 * Viene anche generato un avviso sul dispositivo StorSimple quando si verifica un errore VIP. Per altre informazioni, vedere l'articolo [Avviso riferimento rapido](storsimple-8000-manage-alerts.md).
 * Per quanto riguarda i tentativi, iSCSI avrà la precedenza sul cloud.
   
-    Si consideri l'esempio seguente: un dispositivo StorSimple ha due interfacce di rete abilitate, Data 0 e Data 1. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
+    Si consideri l'esempio seguente: Un dispositivo StorSimple ha due interfacce di rete abilitate, Data 0 e 1 i dati. Data 0 è abilitata per il cloud, mentre Data 1 è abilitata sia per il cloud che per iSCSI. Nessun'altra interfaccia di rete su questo dispositivo è abilitata per il cloud o iSCSI.
   
     Se Data 1 restituisce un errore, poiché è l'ultima interfaccia di rete iSCSI si verificherà un failover del controller a Data 1 sull'altro controller.
 
@@ -240,7 +240,7 @@ Il modello 8600 del dispositivo StorSimple include uno chassis EBOD (Extended Bu
 Esaminare attentamente le procedure consigliate seguenti per assicurare la disponibilità elevata degli host connessi al dispositivo StorSimple.
 
 * Configurare StorSimple con [configurazioni cluster di file server a due nodi][1]. Se si rimuovono singoli punti di errore e si crea ridondanza sul lato host, l'intera soluzione diventa altamente disponibile.
-* Usare condivisioni disponibili in modo continuo con Windows Server 2012 (SMB 3.0) per la disponibilità elevata durante il failover dei controller di archiviazione. Per altre informazioni sulla configurazione di cluster di file server e sulle condivisioni disponibili in modo continuo con Windows Server 2012, vedere questo [video dimostrativo](http://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
+* Usare condivisioni disponibili in modo continuo con Windows Server 2012 (SMB 3.0) per la disponibilità elevata durante il failover dei controller di archiviazione. Per altre informazioni sulla configurazione di cluster di file server e sulle condivisioni disponibili in modo continuo con Windows Server 2012, vedere questo [video dimostrativo](https://channel9.msdn.com/Events/IT-Camps/IT-Camps-On-Demand-Windows-Server-2012/DEMO-Continuously-Available-File-Shares).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

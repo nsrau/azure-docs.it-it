@@ -3,7 +3,7 @@ title: 'Gruppi di disponibilità di SQL Server: Macchine virtuali di Azure: eser
 description: Questa esercitazione illustra come creare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure.
 services: virtual-machines
 documentationCenter: na
-authors: MikeRayMSFT
+author: MikeRayMSFT
 manager: craigg
 editor: monicar
 tags: azure-service-management
@@ -16,14 +16,14 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 65ccf45ea8ea1f8f553be0b2c599f5c1433fc3e8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: d86538fca907f7181bf58ff236bba8de186641fb
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359715"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58003444"
 ---
-# <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
+# <a name="tutorial-configure-always-on-availability-group-in-azure-vm-manually"></a>Esercitazione: Configurare manualmente un gruppo di disponibilità AlwaysOn in VM di Azure
 
 Questa esercitazione illustra come creare un gruppo di disponibilità SQL Server AlwaysOn in Macchine virtuali di Azure. L'esercitazione completa crea un gruppo di disponibilità con una replica di database in due istanze di SQL Server.
 
@@ -53,7 +53,7 @@ La tabella seguente elenca i prerequisiti da completare prima di iniziare l'eser
 Prima di iniziare l'esercitazione, è necessario [completare i prerequisiti per la creazione di gruppi di disponibilità AlwaysOn in Macchine virtuali di Azure](virtual-machines-windows-portal-sql-availability-group-prereq.md). Se questi prerequisiti sono già stati completati, è possibile passare a [Creare il cluster](#CreateCluster).
 
   >[!NOTE]
-  > Molti dei passaggi in questa esercitazione possono essere automatizzati mediante un modello di avvio rapido di Azure. Per altre informazioni, consultare [Creare WSFC, il listener e configurare il servizio di bilanciamento del carico interno per un gruppo di disponibilità Always On in una VM di SQL Server con il modello di avvio rapido di Azure](virtual-machines-windows-sql-availability-group-quickstart-template.md).
+  > Molti dei passaggi forniti in questa esercitazione è ora possibile automatizzare con [macchina virtuale di SQL Azure CLI](virtual-machines-windows-sql-availability-group-cli.md) e [Azure Quickstart Templates](virtual-machines-windows-sql-availability-group-quickstart-template.md).
 
 
 <!--**Procedure**: *This is the first “step”. Make titles H2’s and short and clear – H2’s appear in the right pane on the web page and are important for navigation.*-->
@@ -415,6 +415,7 @@ Per configurare il servizio di bilanciamento del carico, è necessario creare un
 1. Fare clic sul servizio di bilanciamento del carico, quindi su **Regole di bilanciamento del carico** e infine su **+Aggiungi**.
 
 1. Impostare le regole di bilanciamento del carico del listener come segue.
+
    | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | SQLAlwaysOnEndPointListener |
@@ -455,6 +456,7 @@ L'indirizzo IP del servizio WSFC deve anche essere presente per il bilanciamento
 1. Impostare le regole di bilanciamento del carico. Fare clic su **Regole di bilanciamento del carico** e quindi fare clic su **+Aggiungi**.
 
 1. Impostare le regole di bilanciamento del carico dell'indirizzo IP principale del cluster come indicato di seguito.
+
    | Impostazione | DESCRIZIONE | Esempio
    | --- | --- |---
    | **Nome** | Text | WSFCEndPoint |
@@ -505,15 +507,15 @@ Per testare la connessione:
 
 1. Usare l'utilità **sqlcmd** per testare la connessione. Lo script seguente, ad esempio, stabilisce una connessione **sqlcmd** alla replica primaria tramite il listener con l'autenticazione di Windows:
 
-  ```cmd
-  sqlcmd -S <listenerName> -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName> -E
+   ```
 
-  Se il listener usa una porta diversa da quella predefinita (1433), specificare la porta nella stringa di connessione. Il seguente comando sqlcmd, ad esempio, si connette a un listener nella porta 1435:
+   Se il listener usa una porta diversa da quella predefinita (1433), specificare la porta nella stringa di connessione. Il seguente comando sqlcmd, ad esempio, si connette a un listener nella porta 1435:
 
-  ```cmd
-  sqlcmd -S <listenerName>,1435 -E
-  ```
+   ```cmd
+   sqlcmd -S <listenerName>,1435 -E
+   ```
 
 La connessione SQLCMD si connette automaticamente a qualsiasi istanza di SQL Server ospiti la replica primaria.
 

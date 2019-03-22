@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2018
+ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: a7aace89ad4323d6fad6942fe03c4240fb53c8fd
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: e5713af737a6d9d190814b4155a8e772deea06bc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811199"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58013902"
 ---
 # <a name="introduction-to-the-storsimple-virtual-array"></a>Introduzione a StorSimple Virtual Array
 
@@ -74,8 +74,8 @@ La tabella seguente illustra alcuni dei vantaggi principali forniti dalla soluzi
 
 Di seguito è riportato un riepilogo dei carichi di lavoro StorSimple supportati.
 
-|Scenario     |Carico di lavoro     |Supportato      |Restrizioni               |
-|-------------|-------------|---------------|---------------------------|
+|Scenario     |Carico di lavoro     |Supportato      |Restrizioni               | Versioni applicabili|
+|-------------|-------------|---------------|---------------------------|--------------------|
 |Sedi remote/succursali  |Condivisione di file     |Sì      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
 |Archiviazione nel cloud  |Condivisione file di archiviazione     |Sì      |Vedere [limiti massimi per file server](storsimple-ova-limits.md).<br></br>Vedere [requisiti di sistema per le versioni supportate di SMB](storsimple-ova-system-requirements.md).| Tutte le versioni     |
 
@@ -101,7 +101,7 @@ StorSimple Virtual Array è particolarmente adatto per i flussi di lavoro seguen
 ![Gestione dell'archiviazione basata su cloud](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
 ### <a name="location-independent-backup"></a>Backup indipendente dalla posizione
-Con l'array virtuale, gli snapshot cloud forniscono una copia indipendente dalla posizione e temporizzata di un volume o di una condivisione. Gli snapshot cloud sono abilitati per impostazione predefinita e non possono essere disabilitati. Tutti i volumi e tutte le condivisioni vengono sottoposti a backup contemporaneamente tramite un singolo criterio di backup giornaliero ed è possibile eseguire sempre dei backup ad hoc aggiuntivi.
+Con l'array virtuale, gli snapshot cloud forniscono una copia indipendente dalla posizione e temporizzata di un volume o di una condivisione. Gli snapshot cloud sono abilitati per impostazione predefinita e non possono essere disabilitati. Tutti i volumi e condivisioni vengono backup contemporaneamente tramite un singolo criterio di backup giornaliero, ed è possibile eseguire backup ad hoc aggiuntivi quando necessario.
 
 ### <a name="data-protection-and-disaster-recovery"></a>Protezione dati e ripristino di emergenza
 L'array virtuale supporta i seguenti scenari di protezione dei dati e ripristino di emergenza:

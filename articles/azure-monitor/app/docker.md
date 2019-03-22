@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3ea7d6562965debda2c146fedab2ea9ab19f6cc8
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
-ms.translationtype: HT
+ms.openlocfilehash: 115e2d6b041ecc3f38a2a6438d90777da9660221
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077454"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57996464"
 ---
-# <a name="monitor-docker-applications-in-application-insights"></a>Monitoraggio di applicazioni Docker in Application Insights
+# <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorare le applicazioni Docker in Application Insights (deprecata)
+
+> [!NOTE]
+> Questa soluzione è stata deprecata. Per altre informazioni sugli investimenti attuali di Microsoft per il monitoraggio dei contenitori, è consigliabile vedere [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
 
 I contatori delle prestazioni e degli eventi del ciclo di vita da contenitori [Docker](https://www.docker.com/) possono essere disegnati in Application Insights. Installare l'immagine di [Application Insights](https://hub.docker.com/r/microsoft/applicationinsights/) in un contenitore dell'host. Verranno visualizzati i contatori delle prestazioni per l'host e per le altre immagini.
 
@@ -29,10 +32,7 @@ Quando si esegue l'[immagine di Application Insights](https://hub.docker.com/r/m
 
 * I dati di telemetria del ciclo di vita su tutti i contenitori che sono in esecuzione nell'host - avvio, arresto e così via.
 * I contatori delle prestazioni per tutti i contenitori. CPU, memoria, utilizzo della rete e altro ancora.
-* Se si [è installato Application Insights SDK per Java](../../azure-monitor/app/java-live.md) nelle app in esecuzione nei contenitori, tutti i dati di telemetria di tali app avranno proprietà aggiuntive che identificano il contenitore e il computer host. Ad esempio, se si dispone di istanze di un'app in esecuzione in più host, è possibile filtrare facilmente dall'host i dati di telemetria dell'app.
-
-> [!NOTE]
-> Questa soluzione è stata deprecata. Per altre informazioni sugli investimenti attuali di Microsoft per il monitoraggio dei contenitori, è consigliabile vedere [Monitoraggio di Azure per i contenitori](https://docs.microsoft.com/azure/azure-monitor/insights/container-insights-overview).
+* Se si [è installato Application Insights SDK per Java](../../azure-monitor/app/java-get-started.md) nelle app in esecuzione nei contenitori, tutti i dati di telemetria di tali app avranno proprietà aggiuntive che identificano il contenitore e il computer host. Ad esempio, se si dispone di istanze di un'app in esecuzione in più host, è possibile filtrare facilmente dall'host i dati di telemetria dell'app.
 
 ## <a name="set-up-your-application-insights-resource"></a>Configurare la risorsa di Application Insights
 
@@ -40,7 +40,7 @@ Quando si esegue l'[immagine di Application Insights](https://hub.docker.com/r/m
    
     *Quale risorsa si deve usare?* Se le app in esecuzione nell'host sono state sviluppate da un altro utente, è necessario [creare una nuova risorsa di Application Insights](../../azure-monitor/app/create-new-resource.md ). Da questo punto vengono visualizzati e analizzati i dati di telemetria. Selezionare "Generale" per il tipo di app.
    
-    Ma se si è lo sviluppatore delle App, l’augurio è quello di aver [aggiunto SDK di Application Insights](../../azure-monitor/app/java-live.md) a ciascuna di esse. Se sono tutti effettivamente componenti di una singola applicazione business, è possibile configurare tutti gli elementi per inviare i dati di telemetria a una risorsa e si utilizzerà la stessa risorsa per visualizzare i dati delle prestazioni e del ciclo di vita di Docker. 
+    Ma se si è lo sviluppatore delle App, l’augurio è quello di aver [aggiunto SDK di Application Insights](../../azure-monitor/app/java-get-started.md) a ciascuna di esse. Se sono tutti effettivamente componenti di una singola applicazione business, è possibile configurare tutti gli elementi per inviare i dati di telemetria a una risorsa e si utilizzerà la stessa risorsa per visualizzare i dati delle prestazioni e del ciclo di vita di Docker. 
    
     Un terzo scenario è che l’utente abbia sviluppato la maggior parte delle app, ma utilizzi risorse separate per visualizzare i dati di telemetria. In tal caso, probabilmente si intende anche creare una risorsa separata per i dati di Docker.
 

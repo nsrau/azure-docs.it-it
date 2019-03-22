@@ -2,24 +2,18 @@
 title: Sicurezza per Azure Data Box | Microsoft Docs
 description: Vengono descritte considerazioni, linee guida e convenzioni di sicurezza e viene spiegato come installare e utilizzare Azure Data Box in modo sicuro.
 services: databox
-documentationcenter: ''
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: na
+ms.subservice: pod
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: f933da6d534d13a989b21b9cac6b47b41a81d79c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: d0ef3e407fd256b4db351f86b51964cbcb16e819
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961808"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57905138"
 ---
 # <a name="safely-install-and-operate-your-azure-data-box"></a>Installazione sicura e funzionamento di Azure Data Box
 ![Icona di avviso](./media/data-box-safety/warning_icon.png)
@@ -36,11 +30,11 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 | ![Icona di avviso](./media/data-box-safety/warning_icon.png)**AVVISO!** |Indica una situazione di pericolo che, se non viene evitata, può comportare morte o gravi ferite. |
 | ![Icona di avviso](./media/data-box-safety/warning_icon.png)**ATTENZIONE:** |Indica una situazione di pericolo che, se non viene evitato, comporterà ferite lievi o limitate. |
 | ![Icona di notifica](./media/data-box-safety/notice_icon.png)**NOTIFICA:** |Indica le informazioni considerate importanti, ma non correlate al rischio. |
-| ![Icona di scossa elettrica](./media/data-box-safety/electrical_shock_hazard_icon.png) **pericolo di scosse elettriche** |Alta tensione. |
+| ![Icona di scossa elettrica](./media/data-box-safety/electrical_shock_hazard_icon.png)**pericolo di scosse elettriche** |Alta tensione. |
 | ![Icona peso elevato](./media/data-box-safety/heavy_weight_hazard_icon.png) **Pesante** | |
 | ![Nessuna icona di parti riparabili dall'utente](./media/data-box-safety/no_user_serviceable_parts_icon.png) **Nessuna parte riparabile dall'utente** |Non accedere a meno che non si sia stati adeguatamente formati. |
 | ![Icona di avviso di sicurezza lettura](./media/data-box-safety/read_safety_and_health_information_icon.png) **Leggere prima tutte le istruzioni** | |
-| ![Suggerimento di pericolo icona](./media/data-box-safety/tip_hazard_icon.png) **Suggerimento di pericolo** | |
+| ![Suggerimento di pericolo icona](./media/data-box-safety/tip_hazard_icon.png)**Suggerimento di pericolo** | |
 
 ## <a name="handling-precautions"></a>Precauzioni relative alla gestione
 
@@ -69,7 +63,7 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 
 ## <a name="electrical-precautions"></a>Precauzioni elettriche
 
-![Icona di avviso](./media/data-box-safety/warning_icon.png)![Icona di scossa elettrica](./media/data-box-safety/electrical_shock_hazard_icon.png)**AVVISO!**
+![Warning Icon](./media/data-box-safety/warning_icon.png)![Electrical Shock Icon](./media/data-box-safety/electrical_shock_hazard_icon.png)**AVVISO!**
 
 * Fornire una connessione di terra elettrica sicura per i cavi di alimentazione. Il cavo CA ha una spina a tre fili con messa a terra (spina con pin di messa a terra). Questa spina può essere inserita solo in una presa CA con messa a terra. Non annullare lo scopo del pin di messa a terra.
 * Dato che la spina del cavo di alimentazione è il principale dispositivo di disconnessione, accertarsi che si trovino prese vicine al dispositivo e che siano facilmente accessibili.
@@ -83,14 +77,14 @@ Ecco le icone che vengono visualizzate quando si esaminano le precauzioni di sic
 * Scollegare definitivamente l'unità prima di spostare o se si ritiene che sia stata danneggiata in alcun modo.
 * Fornire una fonte di alimentazione adatta con protezione da sovraccarichi elettrici per soddisfare le specifiche tecniche seguenti:
 
-    - Tensione: da 100 V CA a 240 V CA
-    - Corrente: 6 A al massimo
-    - Frequenza: da 50 Hz a 60 Hz
+    - Tensione: 100 V CA a CA 240 V
+    - Corrente: 6, massimo
+    - Frequenza: 50 Hz fino a 60 Hz
 
 ![Icona di avviso](./media/data-box-safety/warning_icon.png) **ATTENZIONE:**
 
 * Questo dispositivo contiene batterie a bottone. Non tentare di riparare il dispositivo. Le batterie di questo dispositivo non sono riparabili dall'utente. 
-* **Solo per il personale di assistenza**: rischio di esplosione in caso di sostituzione della batteria con un tipo errato. Smaltire le batterie esauste in base alle istruzioni.
+* **Per il personale di assistenza solo**: Rischio di esplosione della batteria viene sostituita da un tipo non corretto. Smaltire le batterie esauste in base alle istruzioni.
 
 ![Icona di notifica](./media/data-box-safety/notice_icon.png)**NOTIFICA:**
 
@@ -107,10 +101,10 @@ Questo dispositivo è:
 - Valutato come apparecchiatura IT (Information Technology Equipment, ITE), progettata per l'uso in un tipico ambiente di data room. L'idoneità di questo prodotto in altri ambienti può richiedere un'ulteriore valutazione.
 - Progettato per l'uso con apparecchiature IT riconosciute NRTL (UL, CSA, ETL e così via) e compatibili con IEC/EN 60950-1 o IEC/EN 62368-1 (contrassegno CE).
 - Progettato per funzionare nell'ambiente seguente. 
-    - Temperatura operativa: da 10° a 35° C (da 50° a 95° F)
+    - Temperatura operativa: 50° a 95°f (10° a 35° C)
     - Temperatura di magazzino: da -20° a 50° C (da -4° a 122° F)
-    - Umidità relativa: dal 15 all'85% (senza condensa) 
-    - Altitudine operativa: testato fino a 6.500 piedi (da 0 a 2.000 metri)
+    - Umidità relativa: 15-85% (senza condensa) 
+    - Altitudine in: Testare fino a 6500 metri (0 per i contatori di 2000)
 
 Per il valore nominale, fare riferimento all'etichetta del dispositivo fornita con l'unità. 
 
@@ -124,7 +118,7 @@ Qualsiasi modifica apportata al dispositivo non espressamente approvata da Micro
 
 Questo dispositivo è stato testato e valutato come conforme ai limiti di un dispositivo digitale di Classe A, ai sensi della parte 15 delle normative FCC. Questi limiti intendono fornire una protezione ragionevole da interferenze dannose quando l'attrezzatura si utilizzata in un ambiente commerciale. Questo dispositivo genera, usa e può irradiare energia a radiofrequenza e, se non installato e utilizzato in conformità con il manuale di istruzioni, potrebbe causare interferenze dannose alle comunicazioni radio. L'uso del dispositivo in una zona residenziale può causare interferenze dannose nel qual caso l'utente sarà tenuto a porre rimedio all'interferenza a proprie spese.
 
-Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'utilizzo è soggetto alle due condizioni seguenti: (1) il dispositivo non deve causare interferenze dannose e (2) il dispositivo deve accettare eventuali interferenze ricevute, comprese quelle che possono provocare un funzionamento indesiderato del dispositivo.
+Questo dispositivo è conforme alla parte 15 delle normative regole FCC e agli standard RSS esenti da licenza Industry Canada. L'uso è soggetto alle seguenti condizioni: (1) il dispositivo non deve causare radiofrequenza e (2) il dispositivo deve accettare eventuali interferenze ricevuta, comprese quelle che può provocare un funzionamento del dispositivo.
 
 ![Canada](./media/data-box-safety/canada.png)
 
@@ -148,7 +142,7 @@ Si tratta di un prodotto di Classe A. In un ambiente domestico, questo prodotto 
 
 ![Icona di smaltimento della batteria](./media/data-box-safety/battery_disposal_icon.png)
 
-Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Contattare *erecycle@microsoft.com* per ulteriori informazioni sui RAEE.
+Questo simbolo sul prodotto, sulle relative batterie o sull'imballaggio indica che il prodotto ed eventuali batterie incluse non devono essere smaltiti con i rifiuti domestici. È responsabilità dell'utente smaltire il prodotto in un punto di raccolta appositamente adibito al riciclaggio di batterie e apparecchiature elettriche ed elettroniche. La raccolta differenziata e il riciclaggio consentono di tutelare le risorse naturali ed evitare potenziali conseguenze negative per la salute e l'ambiente dovute alla possibile presenza di sostanze pericolose nelle batterie e nelle apparecchiature elettriche ed elettroniche che potrebbero essere rilasciate dallo smaltimento inappropriato. Per ulteriori informazioni su come smaltire le batterie e le apparecchiature elettriche ed elettroniche, contattare l'ufficio preposto del proprio comune, il servizio responsabile della raccolta dei rifiuti domestici o il negozio presso cui è stato acquistato il prodotto. Contattare *erecycle\@microsoft.com* per altre informazioni su manuale.
 
 Questo prodotto contiene batterie a bottone.
 

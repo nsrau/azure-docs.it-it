@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: rimman
-ms.openlocfilehash: 3d05da5f62a076dc168bef029cd0babc3946ee6b
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: d37f373e98835846c2d29130781706c400086c0e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243145"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58077242"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Panoramica sulla sicurezza in Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Dall'elenco precedente risulta che Azure Cosmos DB soddisfa ogni singolo requisi
 La tabella seguente li illustra in dettaglio.
 
 |Requisito di sicurezza|Approccio alla sicurezza di Azure Cosmos DB|
-|---|---|---|
+|---|---|
 |Sicurezza di rete|L'uso di un firewall IP è il primo livello di protezione per il database. Azure Cosmos DB supporta ora controlli di accesso IP basati su criteri per il supporto del firewall in ingresso. I controlli degli accessi in base all'IP sono simili alle regole del firewall usate dai sistemi di database tradizionali, ma vengono espansi in modo che un account di database Azure Cosmos DB sia accessibile solo da un set approvato di computer o di servizi cloud. <br><br>Azure Cosmos DB consente di abilitare un indirizzo IP specifico (168.61.48.0), un intervallo di IP (168.61.48.0/8) e combinazioni di IP e intervalli. <br><br>Tutte le richieste che hanno origine da computer non compresi in questo elenco di elementi consentiti vengono bloccate da Azure Cosmos DB. Le richieste provenienti da computer e servizi cloud approvati devono quindi completare il processo di autenticazione per ottenere il controllo di accesso alle risorse.<br><br>Per altre informazioni, vedere [Azure Cosmos DB firewall support](firewall-support.md) (Supporto del firewall di Azure Cosmos DB).|
 |Authorization|Azure Cosmos DB usa HMAC (Hash Message Authentication Code) per l'autorizzazione. <br><br>Per ogni richiesta viene generato un hash usando la chiave dell'account privata e il successivo hash con codifica Base 64 viene inviato con ogni chiamata ad Azure Cosmos DB. Per convalidare la richiesta, il servizio Azure Cosmos DB usa la chiave privata e le proprietà corrette per generare un hash, quindi confronta il valore con quello della richiesta. Se i due valori corrispondono, l'operazione viene autorizzata e la richiesta viene elaborata. In caso contrario, si verifica un errore di autorizzazione e la richiesta viene rifiutata.<br><br>È possibile usare una [chiave master](secure-access-to-data.md#master-keys) o un [token della risorsa](secure-access-to-data.md#resource-tokens) che consente l'accesso con granularità fine a una risorsa, ad esempio un documento.<br><br>Per altre informazioni, vedere [Protezione dell'accesso alle risorse in Azure Cosmos DB](secure-access-to-data.md).|
 |Utenti e autorizzazioni|Usando la chiave master per l'account, è possibile creare risorse utente e risorse autorizzazione per ogni database. Un token della risorsa viene associato a un'autorizzazione in un database e determina se l'utente ha accesso (lettura/scrittura, sola lettura o nessun accesso) a una risorsa dell'applicazione nel database. Le risorse dell'applicazione includono contenitori, documenti, allegati, stored procedure, trigger e funzioni definite dall'utente. Il token della risorsa viene quindi usato durante l'autenticazione per concedere o negare l'accesso alla risorsa.<br><br>Per altre informazioni, vedere [Protezione dell'accesso alle risorse in Azure Cosmos DB](secure-access-to-data.md).|

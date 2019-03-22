@@ -1,90 +1,57 @@
 ---
-title: Gestire e monitorare i database di SQL Server in una macchina virtuale di Azure con backup eseguito da Backup di Azure | Microsoft Docs
-description: Questo articolo descrive come ripristinare i database SQL Server di cui è stato eseguito il backup con Backup di Azure in esecuzione su una macchina virtuale di Azure
+title: Gestire e monitorare i database di SQL Server in una VM di Azure sottoposti a backup per Backup di Azure | Microsoft Docs
+description: Questo articolo descrive come gestire e monitorare i database di SQL Server in esecuzione in una VM di Azure.
 services: backup
 author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 02/19/2018
+ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: 1c2ce0ba42f0bc3efd1dcc951113b05ab6941b98
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 500986478e554a3a114d11ee4b25ea40b5decd97
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430955"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58004121"
 ---
-# <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup 
+# <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Gestire e monitorare i database SQL Server di cui è stato eseguito il backup
 
 
-Questo articolo descrive le attività principali di gestione e monitoraggio dei database SQL Server di cui è stato eseguito il backup in un insieme di credenziali di Servizi di ripristino di Backup di Azure, in esecuzione su una macchina virtuale di Azure, con il servizio [Backup di Azure](backup-overview.md). Attività, tra cui il monitoraggio di processi e avvisi, l'arresto e la ripresa della protezione dei database, l'esecuzione dei processi di backup e l'annullamento della registrazione di una macchina virtuale dal backup.
+Questo articolo vengono descritte attività comuni per la gestione e monitoraggio dei database di SQL Server in esecuzione in una macchina virtuale di Azure (VM) e che viene eseguito il backup per un servizi di ripristino di Backup di Azure dell'insieme di credenziali per il [Backup di Azure](backup-overview.md) servizio. Si apprenderà come monitorare i processi e avvisi, arrestare e riprendere la protezione dei database, eseguire i processi di backup e annullare la registrazione di una macchina virtuale dal backup.
 
+Se è ancora stato configurato i backup per i database di SQL Server, vedere [backup dei database di SQL Server in macchine virtuali di Azure](backup-azure-sql-database.md)
 
-> [!NOTE]
-> Il backup dei database SQL Server, in esecuzione su una macchina virtuale di Azure con Backup di Azure, è attualmente in anteprima pubblica.
+## <a name="monitor-manual-backup-jobs-in-the-portal"></a>Monitorare i processi di backup manuali nel portale
 
+Backup di Azure Mostra tutti i processi attivati manualmente nel **processi di Backup** portale. I processi possibile visualizzare in questa individuazione database di inclusione del portale e la registrazione e il backup e le operazioni di ripristino.
 
-Se non è stato ancora configurato il backup dei database SQL Server, seguire le istruzioni in [questo articolo](backup-azure-sql-database.md)
-
-## <a name="monitor-backup-jobs"></a>Monitorare i processi di backup
-
-###  <a name="monitor-ad-hoc-jobs-in-the-portal"></a>Monitorare i processi ad hoc nel portale
-
-Backup di Azure mostra tutti i processi attivati manualmente nel portale **processi di Backup**, tra cui l'individuazione e la registrazione di database e le operazioni di backup e ripristino.
-
-![Portale dei processi di backup](./media/backup-azure-sql-database/jobs-list.png)
+![Il portale di processi di Backup](./media/backup-azure-sql-database/jobs-list.png)
 
 > [!NOTE]
-> I processi di backup pianificati non vengono visualizzati nel portale **Processi di Backup**. Usare SQL Server Management Studio per monitorare i processi di backup pianificati, come descritto nella sezione successiva.
+> Il **processi di Backup** portale non visualizza i processi di backup pianificati. Usare SQL Server Management Studio per monitorare i processi di backup pianificati, come descritto nella sezione successiva.
 >
 
-### <a name="monitor-backup-jobs-with-sql-server-management-studio"></a>Monitorare i processi di backup con SQL Server Management Studio 
+Per informazioni dettagliate sugli scenari di monitoraggio, visitare [il monitoraggio nel portale di Azure](backup-azure-monitoring-built-in-monitor.md) e [monitoraggio tramite Monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).  
 
-Backup di Azure usa le API native di SQL per tutte le operazioni di backup.
-
-Con le API native, è possibile recuperare tutte le informazioni sui processi dalla [tabella dei set di backup di SQL](https://docs.microsoft.com/sql/relational-databases/system-tables/backupset-transact-sql?view=sql-server-2017) nel database msdb.
-
-L'esempio seguente è una query per recuperare tutti i processi di backup per un database denominato **DB1**. Personalizzare la query per eseguire un monitoraggio avanzato.
-
-```
-select CAST (
-Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
-server_name,
-machine_name,
-backup_start_date,
-backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
-
-```
 
 ## <a name="view-backup-alerts"></a>Visualizzare gli avvisi di backup
 
-Con i backup del log eseguiti ogni 15 minuti, monitorare i processi di backup può essere faticoso. Backup di Azure semplifica il monitoraggio con avvisi di posta elettronica.
+Con i backup del log eseguiti ogni 15 minuti, monitorare i processi di backup può essere faticoso. Backup di Azure semplifica il monitoraggio mediante l'invio di avvisi tramite posta elettronica. Avvisi di posta elettronica sono:
 
-- Per tutti gli errori di backup vengono inviati avvisi.
-- Gli avvisi vengono consolidati a livello di database in base al codice di errore.
-- Viene inviato un avviso tramite posta elettronica solo per il primo errore di backup di un database. 
+- Attivata per tutti gli errori di backup.
+- Consolidato a livello di database per il codice di errore.
+- Inviati solo per errori di backup prima di un database.
 
-Per monitorare gli avvisi di backup:
+Per monitorare gli avvisi di backup di database:
 
-1. Accedere alla propria sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) per monitorare gli avvisi del database.
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Nel dashboard dell'insieme di credenziali, selezionare **Avvisi ed eventi**.
 
    ![Selezionare Avvisi ed eventi](./media/backup-azure-sql-database/vault-menu-alerts-events.png)
 
-4. In **Avvisi ed eventi**, selezionare **avvisi di Backup**.
+3. In **Avvisi ed eventi**, selezionare **avvisi di Backup**.
 
    ![Selezionare Avvisi di backup](./media/backup-azure-sql-database/backup-alerts-dashboard.png)
 
@@ -93,49 +60,45 @@ Per monitorare gli avvisi di backup:
 È possibile interrompere i backup di un database di SQL Server in due modi:
 
 * Interrompere tutti i processi di backup futuri ed eliminare tutti i punti di recupero.
-* Interrompere tutti i processi di backup futuri mantenendo però i punti di recupero invariati.
+* Arrestare tutti i processi di backup futuri e lasciare invariati i punti di ripristino.
 
-Si noti che:
+Se si sceglie di lasciare i punti di ripristino, tenere presente questi dettagli:
 
-Se si lasciano i punti di recupero, i punti verranno eliminati in base ai criteri di backup. Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione usato, fino a quando non verranno eliminati tutti i punti di recupero. [Altre informazioni](https://azure.microsoft.com/pricing/details/backup/) sui prezzi.
-- Quando si lasciano intatti i punti di recupero, anche se scadono in base ai criteri di conservazione, Backup di Azure mantiene sempre un ultimo punto di recupero finché i dati di backup non vengono eliminati in modo esplicito.
-- Se si elimina un'origine dati senza interrompere il backup, i nuovi backup inizieranno a dare esito negativo. Anche in questo caso, i punti di recupero precedenti scadranno in base ai criteri, ma un ultimo punto di recupero verrà sempre mantenuto fino a quando non si arresta il backup e si eliminano i dati.
-- Non è possibile interrompere i backup per un database abilitato per la protezione automatica, fino a quando non viene disabilitata la protezione automatica.
+* Tutti i punti di ripristino rimane invariati per sempre, l'eliminazione di tutti i deve arrestare all'arresto protezione dati con Mantieni dati.
+* Ti verrà addebitata per istanza protetta e di spazio di archiviazione usato. Per altre informazioni, vedere [prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
+* Se si elimina un'origine dati senza interrompere i backup, i nuovi backup non riuscirà.
 
 Per interrompere la protezione per un database:
 
-1. Nel dashboard dell'insieme di credenziali, in **Uso**, selezionare **Elementi di Backup**.
+1. Nel dashboard dell'insieme di credenziali, selezionare **elementi di Backup**.
 
-    ![Si aprirà l'elenco Elementi di backup](./media/backup-azure-sql-database/restore-sql-vault-dashboard.png).
-
-2. In **Tipo di gestione dei backup** selezionare **SQL nella macchina virtuale di Azure**.
+2. Sotto **tipo di gestione di Backup**, selezionare **SQL nella macchina virtuale di Azure**.
 
     ![Selezionare SQL nella macchina virtuale di Azure](./media/backup-azure-sql-database/sql-restore-backup-items.png)
-
 
 3. Selezionare il database per cui si desidera interrompere la protezione.
 
     ![Selezionare il database per interrompere la protezione](./media/backup-azure-sql-database/sql-restore-sql-in-vm.png)
 
-
-5. Nel menu del database, selezionare **Interrompi backup**.
+4. Nel menu del database, selezionare **Interrompi backup**.
 
     ![Selezionare Interrompi backup](./media/backup-azure-sql-database/stop-db-button.png)
 
 
-6. Nel menu **Interrompi Backup**, scegliere se mantenere o eliminare i dati. L'aggiunta di un motivo e commento è facoltativa.
+5. Nel **Interrompi Backup** menu, scegliere se mantenere o eliminare dati. Se si desidera, specificare un motivo e commento.
 
-    ![Menu Interrompi backup](./media/backup-azure-sql-database/stop-backup-button.png)
+    ![Mantenere o eliminare dati nel menu Interrompi Backup](./media/backup-azure-sql-database/stop-backup-button.png)
 
-7. Fare clic su **Interrompi backup**.
+6. Selezionare **Interrompi backup**.
 
-  
 
-### <a name="resume-protection-for-a-sql-database"></a>Riprendere la protezione per un database SQL
+## <a name="resume-protection-for-a-sql-database"></a>Riprendere la protezione per un database SQL
 
-Se è stata selezionata l'opzione **Conserva i dati di backup** quando è stata interrotta la protezione per il database SQL, è possibile riprendere la protezione. Se i dati di backup non vengono conservati, non sarà possibile riprendere la protezione.
+Quando si arresta la protezione per il database SQL, se si seleziona il **conserva i dati di Backup** opzione, è possibile riprendere la protezione in un secondo momento. Se si non mantengono i dati di backup, è Impossibile riprendere la protezione.
 
-1. Per riprendere la protezione del database SQL, aprire l'elemento di backup e selezionare **Riprendi backup**.
+Per riprendere la protezione per un database SQL:
+
+1. Aprire l'elemento di backup e selezionare **Riprendi backup**.
 
     ![Selezionare Riprendi backup per riprendere la protezione del database](./media/backup-azure-sql-database/resume-backup-button.png)
 
@@ -150,13 +113,13 @@ Se è stata selezionata l'opzione **Conserva i dati di backup** quando è stata 
 * Backup differenziale
 * Backup dei log
 
-[Altre informazioni](backup-architecture.md#sql-server-backup-types) sui tipi backup di SQL Server.
+Per altre informazioni, vedere [tipi di backup di SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Annullare un’istanza SQL &Server
 
-Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la protezione, ma prima di eliminare l'insieme di credenziali:
+Annullare la registrazione di un'istanza di SQL Server dopo aver disattivato la protezione, ma prima di eliminare l'insieme di credenziali:
 
-1. Nel dashboard dell'insieme di credenziali, in **Gestisci**, selezionare **Infrastruttura di backup**.  
+1. Nel dashboard dell'insieme di credenziali, sotto **Manage**, selezionare **infrastruttura di Backup**.  
 
    ![Selezionare Infrastruttura di backup](./media/backup-azure-sql-database/backup-infrastructure-button.png)
 
@@ -164,14 +127,18 @@ Annullare la registrazione di un'istanza di SQL Server dopo aver disabilitato la
 
    ![Selezionare Server protetti](./media/backup-azure-sql-database/protected-servers.png)
 
-
 3. In **Server protetti** selezionare il server di cui si vuole annullare la registrazione. Per eliminare l'insieme di credenziali, è necessario annullare la registrazione di tutti i server.
 
-4. Fare clic sul server protetto > **Elimina**.
+4. Il server protetto e scegliere **Elimina**.
 
    ![Selezionare Elimina](./media/backup-azure-sql-database/delete-protected-server.png)
 
+## <a name="re-register-extension-on-the-sql-server-vm"></a>Ripetere la registrazione di estensione in VM di SQL Server
+
+In alcuni casi, l'estensione del carico di lavoro della macchina virtuale può risultare alterata per un motivo o l'altro. In questi casi, tutte le operazioni attivate nella macchina virtuale inizierà a non riuscire. È quindi potrebbe essere necessario registrare di nuovo l'estensione nella macchina virtuale. **Registrare nuovamente** operazione reinstalla l'estensione di backup del carico di lavoro nella macchina virtuale per le operazioni continuare.  <br>
+
+È consigliabile usare questa opzione con cautela. Quando viene attivato in una macchina virtuale con un'estensione già integra, questa operazione causerà l'estensione ottenere riavviato. Questo può comportare tutti i processi in corso a non riuscire. Controllare per uno o più i [sintomi](backup-sql-server-azure-troubleshoot.md#symptoms) prima di attivare l'operazione di ripetere la registrazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Rivedere](backup-sql-server-azure-troubleshoot.md) la risoluzione dei problemi relativi al backup del database di SQL Server.
+Per altre informazioni, vedere [risolvere i problemi di backup in un database di SQL Server](backup-sql-server-azure-troubleshoot.md).

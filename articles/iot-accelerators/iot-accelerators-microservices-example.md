@@ -7,12 +7,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 95bec451c556ff9f3c5bcccee68f900543639733
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978086"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004117"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizzare e ridistribuire un microservizio
 
@@ -44,7 +44,7 @@ In questa parte si chiama l'API del microservizio di gestione dell'hub IoT prede
 
 1. Verificare che la soluzione di monitoraggio remoto sia in esecuzione in locale nel computer.
 2. Individuare la posizione in cui è stato scaricato Postman e aprirlo.
-3. In Postman immettere quanto segue in GET: http://localhost:8080/iothubmanager/v1/status.
+3. In Postman immettere quanto segue in GET: `http://localhost:8080/iothubmanager/v1/status`.
 4. Visualizzare il valore restituito. Dovrebbe essere indicato "Status": "OK:Alive and Well". (Stato: OK:Attivo e funzionante).
 
     ![Messaggio di Postman Alive and Well (Attivo e funzionante)](./media/iot-accelerators-microservices-example/postman-alive-well.png)
@@ -144,7 +144,7 @@ Completare la ridistribuzione di un'istanza locale della soluzione di monitoragg
     ```
 
 3. Individuare la posizione in cui è stato scaricato Postman e aprirlo.
-4. In Postman immettere la seguente richiesta in GET: http://localhost:8080/iothubmanager/v1/status. Ora dovrebbe essere visualizzato "Status": "OK: New Edits Made Here!" (Stato: OK:Nuove modifiche apportate).
+4. In Postman immettere la seguente richiesta in GET: `http://localhost:8080/iothubmanager/v1/status`. Ora dovrebbe essere visualizzato "Status": "OK: New Edits Made Here!" (Stato: OK:Nuove modifiche apportate).
 
 ![Messaggio Postman New Edits Made Here (Nuove modifiche apportate qui)](./media/iot-accelerators-microservices-example/new-postman-message.png)
 

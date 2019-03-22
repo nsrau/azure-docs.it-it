@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 02/20/2019
 ms.author: juliako
-ms.openlocfilehash: a447c359c38c2173ea42b6d717067fc8b3a88f9a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5b49db8d7e8360837dc209e98123eeccd5542769
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55875492"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57837746"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Domande frequenti su Servizi multimediali di Azure v3
 
@@ -32,7 +32,7 @@ Per informazioni dettagliate, vedere [Ridimensionamento dell'elaborazione di con
 
 ### <a name="what-is-the-recommended-method-to-process-videos"></a>Qual è il metodo consigliato per l'elaborazione dei processi?
 
-È consigliabile inviare i processi tramite un URL HTTP(s) che punta al video. Per altre informazioni, vedere [Inserimento HTTP(s)](job-input-from-http-how-to.md). Per l'elaborazione non è necessario creare un asset con il video di input.
+Usare [Trasformazioni](https://docs.microsoft.com/rest/api/media/transforms) per configurare attività comuni relative alla codifica o all'analisi dei video. Ogni **trasformazione** descrive un recipe o un flusso di lavoro di attività per l'elaborazione dei file video o audio. Oggetto [processo](https://docs.microsoft.com/rest/api/media/jobs) è la richiesta effettiva a servizi multimediali per applicare le **trasformare** in un contenuto video o audio input specificato. Dopo aver creato la trasformazione, è possibile inviare i processi usando le API di Servizi multimediali o uno degli SDK pubblicati. Per altre informazioni, vedere [Trasformazioni e processi](transforms-jobs-concept.md).
 
 ### <a name="how-does-pagination-work"></a>Come funziona la paginazione?
 
@@ -45,6 +45,29 @@ Quando si usa la paginazione, usare sempre il collegamento seguente per enumerar
 La codifica live di Servizi multimediali v3 non supporta ancora l'inserimento di slate immagine o video durante lo streaming live. 
 
 È possibile usare un [codificatore locale live](recommended-on-premises-live-encoders.md) per commutare il video di origine. Molte app offrono la possibilità di commutare le origini, tra cui Telestream Wirecast, Switcher Studio (in iOS), OBS Studio (app gratuita) e molte altre.
+
+## <a name="content-protection"></a>Protezione del contenuto
+
+### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Come e dove si ottiene il token JWT prima di usarlo per richiedere la licenza o la chiave?
+
+1. Per la produzione, è necessario avere un servizio Web del servizio token di sicurezza che emette il token JWT in corrispondenza di una richiesta HTTPS. Per i test, è possibile usare il codice illustrato nel metodo **GetTokenAsync** definito in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
+2. Dopo l'autenticazione di un utente, il lettore dovrà richiedere al servizio token di sicurezza tale token e assegnarlo come valore del token. È possibile usare l'[API di Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/).
+
+* Per un esempio di esecuzione del servizio token di sicurezza, con una chiave di crittografia simmetrica e asimmetrica, vedere [ https://aka.ms/jwt ](https://aka.ms/jwt). 
+* Per un esempio di lettore basato su Azure Media Player con tale token JWT, vedere [ https://aka.ms/amtest ](https://aka.ms/amtest) (espandere il collegamento "player_settings" per visualizzare l'input del token).
+
+### <a name="how-do-you-authorize-requests-to-stream-videos-with-aes-encryption"></a>Come si autorizzano le richieste di streaming di video con la crittografia AES?
+
+L'approccio corretto consiste nell'usare il servizio token di sicurezza:
+
+Nel servizio token di sicurezza, a seconda del profilo dell'utente, aggiungere attestazioni diverse (ad esempio "Utente Premium", "Utente Basic", "Utente di prova gratuita"). Con diverse attestazioni in un token JWT, l'utente può visualizzare diversi tipi di contenuto. Naturalmente, per contenuto/risorse diverse, ContentKeyPolicyRestriction avrà il valore RequiredClaims corrispondente.
+
+Usare API servizi multimediali di Azure per la configurazione di licenza/chiave recapito e crittografare l'asset (come illustrato nella [in questo esempio](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs)).
+
+Per altre informazioni, vedere:
+
+- [Panoramica di protezione del contenuto](content-protection-overview.md)
+- [Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso](design-multi-drm-system-with-access-control.md)
 
 ## <a name="media-services-v2-vs-v3"></a>Servizi multimediali v2 e v3 
 
@@ -64,5 +87,4 @@ Per altre informazioni, vedere [Eseguire la migrazione a Servizi multimediali v3
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-> [!div class="nextstepaction"]
-> [Panoramica di Servizi multimediali v3](media-services-overview.md)
+[Panoramica di Servizi multimediali v3](media-services-overview.md)

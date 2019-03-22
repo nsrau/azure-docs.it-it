@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roiyz
-ms.openlocfilehash: 455ca0ed1de5df3a184d900aeae286dfd5233a60
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
-ms.translationtype: HT
+ms.openlocfilehash: 65b52c88741e618e8048451370918b06db73a651
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716509"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58014416"
 ---
 # <a name="how-to-install-and-configure-symantec-endpoint-protection-on-a-windows-vm"></a>Come installare e configurare Symantec Endpoint Protection in una macchina virtuale di Windows
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 Questo articolo illustra come installare e configurare il client di Symantec Endpoint Protection in una macchina virtuale (VM) esistente in cui si esegue Windows Server. Questo client completo include servizi come protezione da virus e spyware, firewall e prevenzione delle intrusioni. Il client viene installato come estensione di sicurezza usando l'agente di macchine virtuali.
 
@@ -71,14 +71,14 @@ Per verificare che l'estensione di sicurezza Symantec sia stata installata e sia
 [Estensioni e funzionalità delle macchine virtuali di Azure][Ext]
 
 <!--Link references-->
-[Symantec]: http://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
+[Symantec]: https://www.symantec.com/connect/blogs/symantec-endpoint-protection-now-microsoft-azure
 
 [Create]:../windows/classic/tutorial.md
 
 [PS]: /powershell/azureps-cmdlets-docs
 
-[Agent]: http://go.microsoft.com/fwlink/p/?LinkId=403947
+[Agent]: https://go.microsoft.com/fwlink/p/?LinkId=403947
 
 [Logon]:../windows/classic/connect-logon.md
 
-[Ext]: http://go.microsoft.com/fwlink/p/?linkid=390493
+[Ext]: https://go.microsoft.com/fwlink/p/?linkid=390493

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/08/2018
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: 85d8b531f19ac35f091f54c2627f7fe6d3a62a42
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55468139"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57888520"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Usare database, contenitori ed elementi
 
@@ -37,10 +37,10 @@ Dopo aver creato un [account Azure Cosmos DB](account-overview.md) nella sottosc
 
 | **operazione** | **Interfaccia della riga di comando di Azure**|**API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerare tutti i database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
-|Leggere il database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
-|Creare il nuovo database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
-|Aggiornare il database| Yes | Yes | Sì (il database è mappato a un keyspace) | Yes | ND | ND |
+|Enumerare tutti i database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Leggere il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Creare il nuovo database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
+|Aggiornare il database| Sì | Sì | Sì (il database è mappato a un keyspace) | Sì | ND | ND |
 
 
 ## <a name="azure-cosmos-containers"></a>Contenitori Azure Cosmos DB
@@ -77,27 +77,27 @@ Un contenitore Azure Cosmos DB dispone di un set di proprietà definite dal sist
 
 | **Proprietà definita dal sistema** | **Generata dal sistema o impostabile dall'utente** | **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_rid | Generata dal sistema | Identificatore univoco di contenitore | Yes | No  | No  | No  | No  |
-|_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
-|_ts | Generata dal sistema | Ultimo timestamp aggiornato del contenitore | Yes | No  | No  | No  | No  |
-|_self | Generata dal sistema | URI indirizzabile del contenitore | Yes | No  | No  | No  | No  |
-|id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Yes | Sì | Sì | Sì | Yes |
-|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, la precisione e il modello di coerenza. | Yes | No  | No  | No  | Yes |
-|TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare elementi automaticamente da un contenitore dopo un determinato periodo di tempo. Per altri dettagli, vedere l'articolo sulla funzionalità [TTL](time-to-live.md). | Yes | No  | No  | No  | Yes |
-|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per altri dettagli, vedere l'articolo sul [feed di modifiche](change-feed.md). | Yes | No  | No  | No  | Yes |
-|uniqueKeyPolicy | Configurabile dall'utente | Con le chiavi univoche si garantisce l'univocità di uno o più valori all'interno di una partizione logica. Per altre informazioni, vedere l'articolo sulle [chiavi univoche](unique-keys.md). | Yes | No  | No  | No  | Yes |
+|_rid | Generata dal sistema | Identificatore univoco di contenitore | Sì | No  | No  | No  | No  |
+|_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No  | No  | No  | No  |
+|_ts | Generata dal sistema | Ultimo timestamp aggiornato del contenitore | Sì | No  | No  | No  | No  |
+|_self | Generata dal sistema | URI indirizzabile del contenitore | Sì | No  | No  | No  | No  |
+|id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Sì | Sì | Sì | Sì | Sì |
+|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, la precisione e il modello di coerenza. | Sì | No  | No  | No  | Sì |
+|TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare elementi automaticamente da un contenitore dopo un determinato periodo di tempo. Per altri dettagli, vedere l'articolo sulla funzionalità [TTL](time-to-live.md). | Sì | No  | No  | No  | Sì |
+|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per altri dettagli, vedere l'articolo sul [feed di modifiche](change-feed.md). | Sì | No  | No  | No  | Sì |
+|uniqueKeyPolicy | Configurabile dall'utente | Con le chiavi univoche si garantisce l'univocità di uno o più valori all'interno di una partizione logica. Per altre informazioni, vedere l'articolo sulle [chiavi univoche](unique-keys.md). | Sì | No  | No  | No  | Sì |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operazioni su un contenitore Azure Cosmos DB
 
 Un contenitore Azure Cosmos DB supporta le operazioni seguenti che usano una delle API di Azure Cosmos DB.
 
 | **operazione** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Enumerare i contenitori in un database | Sì* | Yes | Sì | Yes | ND | ND |
-| Leggere un contenitore | Yes | Sì | Sì | Yes | ND | ND |
-| Creare un nuovo contenitore | Yes | Sì | Sì | Yes | ND | ND |
-| Aggiornare il contenitore | Yes | Sì | Sì | Yes | ND | ND |
-| Eliminare il contenitore | Yes | Sì | Sì | Yes | ND | ND |
+| --- | --- | --- | --- | --- | --- | --- |
+| Enumerare i contenitori in un database | Sì* | Sì | Sì | Sì | ND | ND |
+| Leggere un contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Creare un nuovo contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Aggiornare il contenitore | Sì | Sì | Sì | Sì | ND | ND |
+| Eliminare il contenitore | Sì | Sì | Sì | Sì | ND | ND |
 
 ## <a name="azure-cosmos-items"></a>Elementi Azure Cosmos DB
 
@@ -113,27 +113,27 @@ Ogni elemento Azure Cosmos DB dispone delle proprietà definite dal sistema segu
 
 |**Proprietà definita dal sistema** | **Generata dal sistema o impostabile dall'utente**| **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|_id | Generata dal sistema | Identificatore univoco di elemento | Yes | No  | No  | No  | No  |
-|_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Yes | No  | No  | No  | No  |
-|_ts | Generata dal sistema | Ultimo timestamp aggiornato dell'elemento | Yes | No  | No  | No  | No  |
-|_self | Generata dal sistema | URI indirizzabile dell'elemento | Yes | No  | No  | No  | No  |
-|id | È possibile usare il | Nome univoco definito dall'utente all'interno di una partizione logica. Se l'utente non specifica l'id, il sistema ne genererà uno automaticamente. | Yes | Sì | Sì | Sì | Yes |
-|Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (JSON, BSON, CQL e così via) | Yes | Sì | Sì | Sì | Yes |
+|_id | Generata dal sistema | Identificatore univoco di elemento | Sì | No  | No  | No  | No  |
+|_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No  | No  | No  | No  |
+|_ts | Generata dal sistema | Ultimo timestamp aggiornato dell'elemento | Sì | No  | No  | No  | No  |
+|_self | Generata dal sistema | URI indirizzabile dell'elemento | Sì | No  | No  | No  | No  |
+|id | È possibile usare il | Nome univoco definito dall'utente all'interno di una partizione logica. Se l'utente non specifica l'id, il sistema ne genererà uno automaticamente. | Sì | Sì | Sì | Sì | Sì |
+|Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (JSON, BSON, CQL e così via) | Sì | Sì | Sì | Sì | Sì |
 
 ### <a name="operations-on-items"></a>Operazioni sugli elementi
 
 Un elemento Azure Cosmos DB supporta le operazioni seguenti che possono essere eseguite usano una delle API di Azure Cosmos DB.
 
 | **operazione** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| Inserire, sostituire, eliminare, eseguire l'upsert, leggere | No  | Yes | Sì | Sì | Sì | Yes |
+| --- | --- | --- | --- | --- | --- | --- |
+| Inserire, sostituire, eliminare, eseguire l'upsert, leggere | No  | Sì | Sì | Sì | Sì | Sì |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile imparare come effettuare il provisioning della velocità effettiva nell'account Azure Cosmos DB o vedere altri concetti:
 
-* [Effettuare il provisioning della velocità effettiva per un database in Azure Cosmos DB](how-to-provision-database-throughput.md).
-* [Effettuare il provisioning della velocità effettiva per un contenitore di Azure Cosmos DB](how-to-provision-container-throughput.md).
+* [Come configurare la velocità effettiva con provisioning in un database di Azure Cosmos](how-to-provision-database-throughput.md)
+* [Come configurare la velocità effettiva con provisioning in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
 * [Partizioni logiche](partition-data.md)
 * [How to configure TTL on Azure Cosmos container](how-to-time-to-live.md) (Come configurare TTL nel contenitore Azure Cosmos DB)
 * [Come creare applicazioni reattive usando il feed di modifiche](change-feed.md)

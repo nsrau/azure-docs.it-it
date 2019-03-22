@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 2/22/2017
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: cf40fd45114659bf1a5da4dbaa6bfa928f34088c
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: bb1f4861f3867c592ecab86e85d3a4dfbab6738e
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55473766"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58002962"
 ---
 # <a name="cross-origin-resource-sharing-cors-support-for-the-azure-storage-services"></a>Supporto di condivisione delle risorse multiorigine (CORS) per i servizi di archiviazione di Azure
-A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione risorse tra le origini (CORS) per i servizi BLOB, tabelle, code e file. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](http://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per altri dettagli su CORS, vedere la [specifica CORS](http://www.w3.org/TR/cors/).
+A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure supportano la condivisione risorse tra le origini (CORS) per i servizi BLOB, tabelle, code e file. CORS è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. Nei browser Web è implementata una restrizione di sicurezza nota come [criterio della stessa origine](https://www.w3.org/Security/wiki/Same_Origin_Policy) che impedisce a una pagina Web di chiamare API in un dominio differente. CORS offre una modalità sicura per consentire a un dominio (quello di origine) di chiamare API in un altro dominio. Per altri dettagli su CORS, vedere la [specifica CORS](https://www.w3.org/TR/cors/).
 
 È possibile impostare regole CORS singolarmente per ogni servizio di archiviazione chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) e [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Una volta impostate le regole CORS per il servizio, una richiesta correttamente autorizzata, eseguita al servizio da un dominio diverso, verrà valutata per determinare se è consentita in base alle regole specificate.
 
@@ -29,7 +29,7 @@ A partire dalla versione del 15 agosto 2013, i servizi di archiviazione di Azure
 ## <a name="understanding-cors-requests"></a>Informazioni sulle richieste CORS
 Una richiesta CORS proveniente da un dominio di origine può essere costituita da due richieste distinte:
 
-* Una richiesta preliminare, che esegue query sulle restrizioni di CORS imposte dal servizio. La richiesta preliminare è obbligatoria, a meno che il metodo di richiesta sia un [metodo semplice](http://www.w3.org/TR/cors/), ovvero GET, HEAD o POST.
+* Una richiesta preliminare, che esegue query sulle restrizioni di CORS imposte dal servizio. La richiesta preliminare è obbligatoria, a meno che il metodo di richiesta sia un [metodo semplice](https://www.w3.org/TR/cors/), ovvero GET, HEAD o POST.
 * La richiesta effettiva, effettuata alla risorsa desiderata.
 
 ### <a name="preflight-request"></a>Richiesta preliminare
@@ -146,7 +146,7 @@ La terza richiesta corrisponde alla seconda regola nel relativo metodo e dominio
 > 
 
 ## <a name="understanding-how-the-vary-header-is-set"></a>Informazioni sulla procedura per impostare l'intestazione Vary
-*Vary* è un'intestazione standard HTTP/1.1 costituita da un set di campi di intestazione della richiesta che indicano al browser o all'agente utente i criteri selezionati dal server per l'elaborazione della richiesta. L'intestazione *Vary* viene utilizzata principalmente per la memorizzazione nella cache da parte di proxy, browser e reti CDN, che la impiegano per determinare in che modo la risposta deve essere memorizzata nella cache. Per informazioni dettagliate, vedere la specifica dell' [intestazione Vary](http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
+*Vary* è un'intestazione standard HTTP/1.1 costituita da un set di campi di intestazione della richiesta che indicano al browser o all'agente utente i criteri selezionati dal server per l'elaborazione della richiesta. L'intestazione *Vary* viene utilizzata principalmente per la memorizzazione nella cache da parte di proxy, browser e reti CDN, che la impiegano per determinare in che modo la risposta deve essere memorizzata nella cache. Per informazioni dettagliate, vedere la specifica dell' [intestazione Vary](https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html).
 
 Quando la risposta a una richiesta CORS viene memorizzata nella cache dal browser o da un altro agente utente, il dominio di origine viene memorizzato nella cache come origine consentita. Se un secondo dominio invia la stessa richiesta per una risorsa di archiviazione mentre la cache è attiva, l'agente utente recupera il dominio di origine presente nella cache. Il secondo dominio non corrisponde al dominio presente nella cache, pertanto l'esito della richiesta è negativo quando avrebbe potuto essere positivo. In alcuni casi, nel servizio di archiviazione Azure l'intestazione Vary viene impostata su **Origin** per indicare all'agente utente di inviare la richiesta CORS successiva al servizio, quando il dominio della richiesta è diverso dall'origine memorizzata nella cache.
 
@@ -162,15 +162,15 @@ Per le richieste che utilizzano metodi diversi da GET/HEAD, nei servizi di archi
 Nella tabella seguente viene indicata la risposta del servizio di archiviazione di Azure alle richieste GET/HEAD in base ai casi riportati in precedenza:
 
 | Richiesta | Impostazione account e risultato della valutazione della regola |  |  | Risposta |  |  |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | **Intestazione di origine presente sulla richiesta** |**Regole CORS specificate per questo servizio** |**Presenza di una regola di corrispondenza che consente tutte le origini(*)** |**Presenza di una regola per l'esatta corrispondenza dell'origine** |**Risposta che include l'intestazione Vary impostata su Origin** |**Risposta che include Access-Control-Allowed-Origin: "*"** |**Risposta che include Access-Control-Exposed-Headers** |
 | No  |No  |No  |No  |No  |No  |No  |
-| No  |Yes |No  |No  |Yes |No  |No  |
-| No  |Yes |Sì |No  |No  |Yes |Sì |
+| No  |Sì |No  |No  |Sì |No  |No  |
+| No  |Sì |Sì |No  |No  |Sì |Sì |
 | Sì |No  |No  |No  |No  |No  |No  |
-| Yes |Sì |No  |Yes |Sì |No  |Yes |
-| Sì |Sì |No  |No  |Yes |No  |No  |
-| Yes |Sì |Sì |No  |No  |Yes |Yes |
+| Sì |Sì |No  |Sì |Sì |No  |Sì |
+| Sì |Sì |No  |No  |Sì |No  |No  |
+| Sì |Sì |Sì |No  |No  |Sì |Sì |
 
 ## <a name="billing-for-cors-requests"></a>Fatturazione per le richieste CORS
 Le richieste preliminari con esito positivo vengono fatturate qualora la condivisione CORS sia stata abilitata per i servizi di archiviazione dell'account, chiamando [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx) o [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx). Per ridurre al minimo le spese, impostare l'elemento **MaxAgeInSeconds** nelle regole CORS su un valore elevato, in modo che la richiesta venga memorizzata nella cache dall'agente utente.
@@ -184,5 +184,5 @@ Le richieste preliminari con esito negativo non verranno fatturate.
 
 [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx)
 
-[Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](http://www.w3.org/TR/cors/)
+[Specifica del W3C relativa alla condivisione delle risorse multiorigine (CORS)](https://www.w3.org/TR/cors/)
 

@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 manager: craigg
 ms.date: 09/24/2018
-ms.openlocfilehash: fd420e29387aedd3f04fdf7437a3ef27c5589fc8
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d29baaad6090cea5eb31f5f50bba444cb3771155
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562896"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57835782"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL partizionato multi-tenant di Azure
 
@@ -237,7 +237,7 @@ L'elenco completo dei tenant e i database corrispondenti a ciascuno è disponibi
 - Il nome del tenant viene archiviato nella tabella Tenants.
 - Il nome del database viene archiviato nelle tabelle di gestione delle partizioni.
 
-1. In SQL Server Management Studio (SSMS) connettersi al server del tenant in **catalog-mt.\<UTENTE\>.database.windows.net**, con l'account di accesso **developer** e la password **P@ssword1**
+1. In SQL Server Management Studio (SSMS), connettersi al server del tenant **catalog-MT.\<utente\>. database.windows.net**, con account di accesso = **developer**e la Password =  **P\@ssword1**
 
     ![Finestra di dialogo di connessione di SQL Server Management Studio](media/saas-multitenantdb-provision-and-catalog/SSMSConnection.png)
 

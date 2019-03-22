@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/10/2018
 ms.author: kumud
-ms.openlocfilehash: 00a5e888961a9712db0cd509a39fb0367895ac3f
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: 0d7c792c5230a5d82e97f4598a5dcfb864cead74
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164127"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57847145"
 ---
-# <a name="log-analytics-for-public-basic-load-balancer"></a>Log Analytics per Load Balancer Basic
+# <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Log di monitoraggio di Azure Load Balancer Basic pubblico
 
 >[!IMPORTANT] 
->Azure Load Balancer supporta due tipi diversi: Basic e Standard. Questo articolo illustra Load Balancer Basic. Per ulteriori informazioni su Load Balancer Standard, vedere [Panoramica di Load Balancer Standard](load-balancer-standard-overview.md) che espone i dati di telemetria tramite le metriche multidimensionali in Monitoraggio di Azure.
+>Azure Load Balancer supporta due tipi diversi: Di base e standard. Questo articolo illustra Load Balancer Basic. Per ulteriori informazioni su Load Balancer Standard, vedere [Panoramica di Load Balancer Standard](load-balancer-standard-overview.md) che espone i dati di telemetria tramite le metriche multidimensionali in Monitoraggio di Azure.
 
 È possibile usare diversi tipi di log in Azure per gestire e risolvere i problemi di Load Balancer Basic. Alcuni di questi log sono accessibili tramite il portale Tutti i log possono essere estratti da Archiviazione BLOB di Azure e visualizzati in strumenti differenti, ad esempio Excel e PowerBI. L'elenco seguente contiene altre informazioni sui diversi tipi di log.
 
@@ -32,13 +32,13 @@ ms.locfileid: "53164127"
 * **Log del probe di integrità:** è possibile usare questo registro per visualizzare i problemi rilevati dal probe di integrità, ad esempio il numero di istanze del pool di back-end che non stanno ricevendo richieste dal servizio di bilanciamento del carico a causa di problemi del probe di integrità. Questo log viene scritto quando si apporta una modifica nello stato del probe di integrità.
 
 > [!IMPORTANT]
-> Attualmente l'analisi di log funziona solo per i servizi di bilanciamento del carico pubblici Basic. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
+> Monitoraggio di Azure registra attualmente funziona solo per i servizi di bilanciamento del carico Basic pubblico. I log sono disponibili solo per le risorse distribuite nel modello di distribuzione di Gestione risorse. Non è possibile usare i log per le risorse nel modello di distribuzione classica. Per altre informazioni su questi modelli di distribuzione, vedere l'articolo relativo alle [informazioni sulla distribuzione di Gestione risorse e sulla distribuzione classica](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## <a name="enable-logging"></a>Abilitazione della registrazione
 
 La registrazione di controllo viene abilitata automaticamente per ogni risorsa di Resource Manager. È necessario abilitare la registrazione di eventi e del probe di integrità per iniziare a raccogliere i dati disponibili in tali log. Eseguire questa procedura per abilitare la registrazione.
 
-Accedere al [portale di Azure](http://portal.azure.com). Prima di procedere, [creare un servizio di bilanciamento del carico](load-balancer-get-started-internet-arm-ps.md) , se non se ne ha già uno.
+Accedere al [portale di Azure](https://portal.azure.com). Prima di procedere, [creare un servizio di bilanciamento del carico](load-balancer-get-started-internet-arm-ps.md) , se non se ne ha già uno.
 
 1. Nel Portale di Azure fare clic su **Esplora**.
 2. Selezionare **Bilanciamento del carico**.

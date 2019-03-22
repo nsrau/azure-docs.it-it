@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cab9750620d6d7c34de1d6e3404b4ea721f330ed
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 3de8422efdbb7802e0532503e2733518e8050f6d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203914"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57842533"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-riskware"></a>Esercitazione: Integrazione di Azure Active Directory con Riskware
 
@@ -110,6 +110,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Riskware](./media/riskware-tutorial/tutorial_riskware_url.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:
+
     | Environment| Modello URL|
     |--|--|
     | Test di accettazione utente|  `https://riskcloud.net/uat?ccode=<COMPANYCODE>` |
@@ -118,6 +119,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     |||
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL:
+    
     | Environment| Modello URL|
     |--|--|
     | Test di accettazione utente| `https://riskcloud.net/uat` |
@@ -247,7 +249,7 @@ Per consentire agli utenti di Azure AD di accedere a Riskware, è necessario eff
 
     a. Nella sezione **Autenticazione**, selezionare la modalità di **Autenticazione**, che è stata predisposta come Configurazione di AZURE per SSO.
 
-    b. Nella sezione **Dettagli di accesso**, nella casella di testo **ID utente** immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    b. Sotto **dettagli di accesso** nella sezione la **ID utente** casella di testo immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
 
     c. Nella casella di testo **Password** digitare la password dell'utente.
 

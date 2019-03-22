@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2364715bfeaea473db292baff2eb1e1cce3203b
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 63fd8f75cb22a4dec888b7765c7515bfb68a4a6a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56233015"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57999016"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Spostare dati da Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,7 @@ Salesforce presenta limiti per le richieste API totali e per le richieste API si
 - Se il numero di richieste simultanee supera il limite, si verifica una limitazione e vengono visualizzati errori casuali.
 - Se il numero totale di richieste supera il limite, l'account di Salesforce verrà bloccato per 24 ore.
 
-In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per i dettagli, vedere la sezione API Request Limits (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce).
+In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQUEST_LIMIT_EXCEEDED" ("LIMITE_RICHIESTE_SUPERATO"). Per i dettagli, vedere la sezione API Request Limits (Limiti delle richieste API) nell'articolo [Salesforce API Request Limits](https://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limiti delle richieste API di Salesforce).
 
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da Salesforce usando diversi strumenti/API.
@@ -80,7 +80,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 La sezione **typeProperties** è diversa per ogni tipo di set di dati e contiene informazioni sulla posizione dei dati nell'archivio dati. La sezione typeProperties per un set di dati di tipo **RelationalTable** presenta le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | tableName |Nome della tabella in Salesforce. |No, se è specificata una **query** di **RelationalSource** |
 
@@ -96,7 +96,7 @@ Le proprietà disponibili nella sezione typeProperties dell'attività variano in
 
 Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che include Salesforce), nella sezione typeProperties sono disponibili le proprietà seguenti:
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | query |Usare la query personalizzata per leggere i dati. |Query SQL-92 o query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) . Ad esempio: `select * from MyTable__c`. |No, se è specificato **tableName** per il **set di dati** |
 
@@ -283,6 +283,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mapping dei tipi per Salesforce
+
 | Tipo Salesforce | Tipo basato su .NET |
 | --- | --- |
 | Numero automatico |string |

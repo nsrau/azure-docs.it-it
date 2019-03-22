@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7783da2e3e5fe2ee79942b246e452ad7998e278
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 4c42b7010a6586e4845d3a58b9a47b01143f5b1d
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193323"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57904832"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sedgwick-cms"></a>Esercitazione: Integrazione di Azure Active Directory con Sedgwick CMS
 
@@ -112,12 +112,14 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Sedgwick CMS](./media/sedgwickcms-tutorial/tutorial_sedgwickcms_url.png)
 
     a. Nella casella di testo **Identificatore** digitare l'URL: 
+
     | |
     |--|
     | `expresspreview.sedgwickcms.net/voe/sso` |
     | `claimlookup.com/Voe/sso` |
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
+    
     | |
     |--|
     | `https://<subdomain>.sedgwickcms.net/voe/sso` |

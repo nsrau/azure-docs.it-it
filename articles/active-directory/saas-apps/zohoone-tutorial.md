@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17a297d3099d51b3a58a6654560a67f9a4192a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aadb3188969e099a709711ac18916b67c83b5da1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208317"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57884439"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho-one"></a>Esercitazione: Integrazione di Azure Active Directory con Zoho One
 
@@ -223,7 +223,7 @@ Per consentire agli utenti di Azure AD di accedere a Zoho One, è necessario ese
     
     a. Nella casella di testo **Nome** digitare il nome dell'utente, ad esempio **Britta Simon**.
     
-    b. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    b. Nelle **indirizzo di posta elettronica** testo immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
 
     >[!Note]
     >Selezionare il dominio verificato dall'elenco di domini.

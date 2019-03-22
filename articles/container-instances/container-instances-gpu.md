@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: danlep
-ms.openlocfilehash: 2cbfb21469df45f29a70b5d10d8c99ecd894c30c
-ms.sourcegitcommit: 7862449050a220133e5316f0030a259b1c6e3004
-ms.translationtype: HT
+ms.openlocfilehash: f35b2cd8d360bd46913eaa34b91e1fd19bc1ba9b
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/22/2018
-ms.locfileid: "53755020"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57533596"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
@@ -28,15 +28,7 @@ Come illustrato in questo articolo, è possibile aggiungere risorse GPU quando s
 
 In fase di anteprima, durante l'uso di risorse della GPU in gruppi di contenitori si applicano le limitazioni seguenti. 
 
-**Aree supportate**:
-
-* Stati Uniti orientali (eastus)
-* Stati Uniti occidentali 2 (westus2)
-* Stati Uniti centro-meridionali (southcentralus)
-* Europa occidentale (westeurope)
-* Europa settentrionale (northeurope)
-* Asia orientale (eastasia)
-* India centrale (centralindia)
+[!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 
 In futuro verrà aggiunto il supporto di ulteriori aree.
 
@@ -59,21 +51,9 @@ Per usare le GPU in un'istanza di contenitore, specificare una *risorsa GPU* con
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### <a name="cpu-and-memory"></a>CPU e memoria
+[!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
 
-Quando si distribuiscono le risorse della GPU, impostare le risorse della CPU e di memoria appropriate per il carico di lavoro, fino ai valori massimi indicati nella tabella seguente. Questi valori sono attualmente superiori ai limiti di CPU e memoria nelle istanze di contenitore senza risorse della GPU.  
-
-| SKU GPU | Conteggio GPU | CPU |  Memoria (GB) |
-| --- | --- | --- | --- |
-| K80 | 1 | 6 | 56 |
-| K80 | 2 | 12 | 112 |
-| K80 | 4 | 24 | 224 |
-| P100 | 1 | 6 | 112 |
-| P100 | 2 | 12 | 224 |
-| P100 | 4 | 24 | 448 |
-| V100 | 1 | 6 | 112 |
-| V100 | 2 | 12 | 224 |
-| V100 | 4 | 24 | 448 |
+Quando si distribuiscono risorse della GPU, impostare le risorse della CPU e memoria appropriata per il carico di lavoro, fino a massimi valori indicati nella tabella precedente. Questi valori sono attualmente dimensioni superiori alle risorse di CPU e memoria disponibile in gruppi di contenitori senza risorse della GPU.  
 
 ### <a name="things-to-know"></a>Informazioni importanti
 
@@ -85,6 +65,10 @@ Quando si distribuiscono le risorse della GPU, impostare le risorse della CPU e 
 
 * **Driver CUDA**: poiché viene effettuato il pre-provisioning delle istanze di contenitore con risorse della GPU con i driver NVIDIA CUDA e i runtime dei contenitori, è possibile usare le immagini dei contenitori sviluppati per carichi di lavoro CUDA.
 
+  Supportiamo 9.0 CUDA in questa fase. Ad esempio, è possibile usare seguendo le immagini di base per il file di Docker:
+  * [nvidia/cuda:9.0-base-ubuntu16.04](https://hub.docker.com/r/nvidia/cuda/)
+  * [tensorflow/tensorflow: 1.12.0-gpu-py3](https://hub.docker.com/r/tensorflow/tensorflow)
+    
 ## <a name="yaml-example"></a>Esempio YAML
 
 Un modo per aggiungere risorse GPU consiste nel distribuire un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md). Copiare il file YAML seguente in un nuovo file denominato *gpu-deploy-aci.yaml*, quindi salvare il file. Il file YAML crea un gruppo di contenitori denominato *gpucontainergroup* specificando un'istanza di contenitore con una GPU K80. L'istanza esegue un'applicazione di aggiunta vettore CUDA di esempio. Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.

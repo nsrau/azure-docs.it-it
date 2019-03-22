@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/24/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 73ba80878615f04e1755a4d12014691c5ae2a077
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9b9e28f18208674609d0842b0e3a54e3fc661c9f
+ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54453121"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56988066"
 ---
 ## <a name="view-device-telemetry"></a>Visualizzare la telemetria dei dispositivi
 
-È possibile visualizzare i dati di telemetria inviati dal dispositivo nella pagina **Dispositivi** della soluzione.
+È possibile visualizzare i dati di telemetria inviati dal dispositivo **Device Explorer** pagina nella soluzione.
 
-1. Selezionare il dispositivo del quale è stato effettuato il provisioning nell'elenco dei dispositivi della pagina **Dispositivi**. Un pannello visualizza le informazioni sul dispositivo, incluso un tracciato dei dati di telemetria del dispositivo:
+1. Selezionare il dispositivo è stato effettuato il provisioning nell'elenco dei dispositivi nel **Device Explorer** pagina. Un pannello visualizza le informazioni sul dispositivo, incluso un tracciato dei dati di telemetria del dispositivo:
 
     ![Vedere i dettagli del dispositivo](media/iot-suite-visualize-connecting/devicesdetail.png)
 
@@ -33,28 +33,24 @@ ms.locfileid: "54453121"
 
 ## <a name="act-on-your-device"></a>Agire sul dispositivo
 
-Per richiamare i metodi nei dispositivi, usare la pagina **Dispositivi** nella soluzione Monitoraggio remoto. Nella soluzione Monitoraggio remoto, i dispositivi **Chiller** implementano ad esempio un metodo **FirmwareUpdate**.
+Per richiamare metodi nei dispositivi, usare il **Device Explorer** pagina nella soluzione di monitoraggio remoto. Ad esempio, nella soluzione monitoraggio remoto **Chiller** dispositivi di implementano un **riavviare** (metodo).
 
-1. Scegliere **Dispositivi** per passare alla pagina **Dispositivi** della soluzione.
+1. Scegliere **dispositivi** a cui passare le **Device Explorer** pagina nella soluzione.
 
-1. Selezionare il dispositivo del quale è stato effettuato il provisioning nell'elenco dei dispositivi della pagina **Dispositivi**:
+1. Selezionare il dispositivo è stato effettuato il provisioning nell'elenco dei dispositivi nel **Device Explorer** pagina:
 
     ![Selezionare il dispositivo reale](media/iot-suite-visualize-connecting/devicesselect.png)
 
-1. Per visualizzare un elenco dei metodi che è possibile chiamare per un dispositivo, scegliere **Jobs** (Processi), quindi **Run method** (Esegui metodo). Per pianificare un processo in modo che venga eseguito su più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Jobs** (Processi) visualizza i tipi di metodi comuni a tutti i dispositivi selezionati.
+1. Per visualizzare un elenco di metodi che è possibile chiamare sul dispositivo, scegliere **processi**, quindi **metodi**. Per pianificare un processo in modo che venga eseguito su più dispositivi, è possibile selezionare più dispositivi nell'elenco. Il pannello **Jobs** (Processi) visualizza i tipi di metodi comuni a tutti i dispositivi selezionati.
 
-1. Scegliere **FirmwareUpdate**, impostare il nome del processo su **UpdatePhysicalChiller**. Impostare **Firmware Version** (Versione firmware) su **2.0.0**, quindi impostare **Firmware URI** (URI firmware) su **http://contoso.com/updates/firmware.bin** e infine scegliere **Apply** (Applica):
+1. Scegliere **riavvio**, impostare il nome del processo **RebootPhysicalChiller** e quindi scegliere **Apply**:
 
     ![Pianificare l'aggiornamento del firmware](media/iot-suite-visualize-connecting/deviceschedule.png)
 
 1. Nella console che esegue il codice del dispositivo mentre il dispositivo simulato gestisce il metodo viene visualizzata una sequenza di messaggi.
 
-1. A termine dell'aggiornamento, nella pagina **Devices** (Dispositivi) viene visualizzata la nuova versione del firmware:
-
-    ![Aggiornamento completato](media/iot-suite-visualize-connecting/complete.png)
-
 > [!NOTE]
-> Per tenere traccia dello stato del processo nella soluzione, scegliere **Visualizza**.
+> Per tenere traccia dello stato del processo nella soluzione, scegliere **lo stato del processo Visualizza**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

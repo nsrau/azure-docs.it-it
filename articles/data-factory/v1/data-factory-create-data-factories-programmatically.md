@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: d05661c131d981538dada988131c39d4fd956ee9
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 8f333b626fa51fa60f80350547ee53f346d6cc3a
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54016739"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436768"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Creazione, monitoraggio e gestione delle istanze di Azure Data Factory mediante Azure Data Factory .NET SDK
 > [!NOTE]
@@ -31,6 +31,9 @@ ms.locfileid: "54016739"
 > Questo articolo non descrive tutte le API .NET di Data Factory. Per la documentazione completa sull'API .NET per Data Factory, vedere [Informazioni di riferimento sull'API NET di Data Factory](/dotnet/api/index?view=azuremgmtdatafactories-4.12.1). 
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 * Visual Studio 2012 o 2013 o 2015
 * Scaricare e installare [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Seguire le istruzioni disponibili nell'articolo [Come installare e configurare Azure PowerShell](/powershell/azure/overview) per installare la versione più recente di Azure PowerShell nel computer. Azure PowerShell verrà usato per creare un'applicazione Azure Active Directory.
@@ -42,17 +45,17 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
 2. Eseguire il comando seguente e immettere il nome utente e la password usati per accedere al portale di Azure.
 
     ```PowerShell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 3. Eseguire il comando seguente per visualizzare tutte le sottoscrizioni per l'account.
 
     ```PowerShell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 4. Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire **&lt;NameOfAzureSubscription**&gt; con il nome della sottoscrizione di Azure.
 
     ```PowerShell
-    Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+    Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
    > [!IMPORTANT]
@@ -61,7 +64,7 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
 5. Creare un gruppo di risorse di Azure denominato **ADFTutorialResourceGroup** eseguendo il comando seguente in PowerShell.
 
     ```PowerShell
-    New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+    New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
     Se il gruppo di risorse esiste già, specificare se deve essere aggiornato (Y) o mantenuto invariato (N).
@@ -70,7 +73,7 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
 6. Creare un'applicazione Azure Active Directory.
 
     ```PowerShell
-    $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
+    $azureAdApplication = New-AzADApplication -DisplayName "ADFDotNetWalkthroughApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfdotnetwalkthroughapp.org/example" -Password "Pass@word1"
     ```
 
     Se viene visualizzato l'errore seguente, specificare un URL diverso ed eseguire di nuovo il comando.
@@ -81,12 +84,12 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
 7. Creare l'entità servizio di AD.
 
     ```PowerShell
-    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+    New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Aggiungere l'entità servizio al ruolo **Collaboratore Data Factory** .
 
     ```PowerShell
-    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+    New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Ottenere l'ID applicazione.
 
@@ -175,7 +178,7 @@ L'attività di copia esegue lo spostamento dei dati in Azure Data Factory e si b
     ```
 
    > [!IMPORTANT]
-   > Sostituire il valore di **resourceGroupName** con il nome del gruppo di risorse di Azure. Per creare un gruppo di risorse, usare il cmdlet [New-AzureResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) .
+   > Sostituire il valore di **resourceGroupName** con il nome del gruppo di risorse di Azure. Per creare un gruppo di risorse, usare il cmdlet [New-AzureResourceGroup](/powershell/module/az.resources/new-azresourcegroup) .
    >
    > Aggiornare il nome della data factory (dataFactoryName) in modo che sia univoco. Il nome della data factory deve essere globalmente univoco. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .
 7. Aggiungere al metodo **Main** il codice seguente che crea una **data factory**.

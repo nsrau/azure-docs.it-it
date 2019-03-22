@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: c9e3a98b1073a2b198a341f31a320bba670b0596
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4ced712b1b2716d85f0366ea892460053db598b8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117902"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58076905"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Crittografia dei dati inattivi di Azure
 
@@ -258,7 +258,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 |                                  |                    | **Modello di crittografia e gestione delle chiavi** |                    |
 |----------------------------------|--------------------|-----------------------------------------|--------------------|
 |                                  | **Lato server con chiave gestita dal servizio**     | **Lato server con chiave gestita dal cliente in Key Vault**             | **Lato client con chiave gestita dal client**      |
-| **Archiviazione e database**        |                    |                    |                    |                    |
+| **Archiviazione e database**        |                    |                    |                    |
 | Disco (IaaS)                      | -                  | Sì, RSA a 2048 bit  | -                  |
 | SQL Server (IaaS)                | Sì                | Sì, RSA a 2048 bit  | Sì                |
 | Azure SQL (database/Data Warehouse) | Sì                | Sì, RSA a 2048 bit  | Sì                |
@@ -268,7 +268,7 @@ La crittografia lato client dei dati di Database SQL di Azure è supportata tram
 | Archiviazione di Azure (tabelle, code)   | Sì                | -                  | Sì                |
 | Cosmos DB (Document DB)          | Sì                | -                  | -                  |
 | StorSimple                       | Sì                | -                  | Sì                |
-| Backup                           | -                  | -                  | Sì                |
+| Backup                           | Sì                | -                  | Sì                |
 | **Intelligence e analisi**   |                    |                    |                    |
 | Data factory di Azure               | Sì                | -                  | -                  |
 | Azure Machine Learning           | -                  | Anteprima, RSA a 2048 bit | -                  |

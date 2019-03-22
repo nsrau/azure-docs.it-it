@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 413e005762ab557e0605f9b4e79a6fe5b45448b7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 79de09631b33f838c1a2f12fdc58b2648548004b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55993912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998422"
 ---
 # <a name="azure-media-services-concepts"></a>Concetti relativi ai Servizi multimediali di Azure 
 
@@ -177,7 +177,7 @@ Per impostazione predefinita, è possibile avere fino a due endpoint di streamin
 Il costo verrà addebitato solo quando StreamingEndpoint è in stato di esecuzione.
 
 ### <a name="asset-delivery-policy"></a>Criteri di distribuzione degli asset
-Uno dei passaggi del flusso di lavoro di distribuzione dei contenuti in Servizi multimediali consiste nella configurazione dei [criteri di distribuzione degli asset ](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)che si desidera trasmettere in streaming. Questi criteri indicano a Servizi multimediali la modalità di distribuzione di un asset, ovvero il protocollo di streaming da usare per la creazione dinamica dei pacchetti (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), se l'asset deve essere crittografato dinamicamente e l'eventuale modalità di crittografia (envelope o common).
+Uno dei passaggi del flusso di lavoro di distribuzione di contenuti di servizi multimediali consiste nella configurazione [criteri di distribuzione degli asset](https://docs.microsoft.com/rest/api/media/operations/assetdeliverypolicy)che si desidera trasmettere in streaming. Questi criteri indicano a Servizi multimediali la modalità di distribuzione di un asset, ovvero il protocollo di streaming da usare per la creazione dinamica dei pacchetti (ad esempio, MPEG DASH, HLS, Smooth Streaming o tutti), se l'asset deve essere crittografato dinamicamente e l'eventuale modalità di crittografia (envelope o common).
 
 Nel caso di un asset crittografato di archiviazione, prima di trasmettere in streaming l'asset in base ai criteri specificati, il server rimuove la crittografia di archiviazione. Ad esempio, per distribuire l'asset crittografato con una chiave di crittografia AES, impostare il tipo di criteri su DynamicEnvelopeEncryption. Per rimuovere la crittografia di archiviazione e trasmettere l'asset in chiaro, impostare il tipo di criteri su NoDynamicEncryption.
 

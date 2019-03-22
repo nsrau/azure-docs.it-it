@@ -11,18 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 073ce3075f6c14230ad76f70feb8d01d17b4e2e0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 055daebb28131268e517845a47d4c39aba90f201
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005472"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "57871212"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creare un'area di lavoro di Log Analytics con Azure PowerShell
 
-Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questo argomento di avvio rapido illustra come usare il modulo Azure PowerShell per distribuire un'area di lavoro di Log Analytics in Monitoraggio di Azure. Un'area di lavoro di Log Analytics è un ambiente univoco per i dati di log di Monitoraggio di Azure. Ogni area di lavoro ha un proprio repository di dati e una propria configurazione e le origini dati e le soluzioni sono configurate per l'archiviazione dei dati in un'area di lavoro specifica. È necessaria un'area di lavoro di Log Analytics se si intende raccogliere dati dalle origini seguenti:
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Il modulo Azure PowerShell viene usato per creare e gestire le risorse di Azure dalla riga di comando di PowerShell o negli script. Questo argomento di avvio rapido illustra come usare il modulo Azure PowerShell per distribuire un'area di lavoro di Log Analytics in Monitoraggio di Azure. Un'area di lavoro di Log Analytics è un ambiente univoco per i dati di log di Monitoraggio di Azure. Ogni area di lavoro ha un proprio repository di dati e una propria configurazione, mentre le origini dati e le soluzioni sono configurate per l'archiviazione dei dati in un'area di lavoro specifica. È necessaria un'area di lavoro di Log Analytics se si intende raccogliere dati dalle origini seguenti:
+
 
 * Risorse di Azure nella sottoscrizione  
 * Computer locali monitorati tramite System Center Operations Manager  
@@ -39,10 +42,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Se si sceglie di installare e usare PowerShell in locale, per questa esercitazione è necessario il modulo Azure PowerShell versione 5.7.0 o successiva. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzureRmAccount` per creare una connessione con Azure.
+Se si sceglie di installare e usare PowerShell in locale, questa esercitazione richiede il modulo Azure PowerShell module AzureRM versione 5.7.0 o Az versione 1.0.0 o versione successiva. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 ## <a name="create-a-workspace"></a>Creare un'area di lavoro
-Creare un'area di lavoro con [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/new-azurermresourcegroupdeployment). L'esempio seguente crea un'area di lavoro denominata *TestWorkspace* nel gruppo di risorse *Lab* in posizione *eastus* usando un modello di Resource Manager dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. 
+Creare un'area di lavoro con [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment). L'esempio seguente crea un'area di lavoro denominata *TestWorkspace* nel gruppo di risorse *Lab* in posizione *eastus* usando un modello di Resource Manager dal computer locale. Il modello JSON è configurato in modo da richiedere solo il nome dell'area di lavoro e specifica un valore predefinito per gli altri parametri che potrebbero essere usati come configurazione standard nell'ambiente in uso. 
+
+Per informazioni sulle aree supportate, vedere [aree è disponibile nel Log Analitica](https://azure.microsoft.com/regions/services/) e cercare il monitoraggio di Azure dalle **ricerca di un prodotto** campo. 
 
 I parametri seguenti impostano un valore predefinito:
 
@@ -96,7 +101,7 @@ I parametri seguenti impostano un valore predefinito:
         {
             "type": "Microsoft.OperationalInsights/workspaces",
             "name": "[parameters('workspaceName')]",
-            "apiVersion": "2017-03-15-preview",
+            "apiVersion": "2015-11-01-preview",
             "location": "[parameters('location')]",
             "properties": {
                 "sku": {
@@ -111,12 +116,12 @@ I parametri seguenti impostano un valore predefinito:
     }
     ```
 
-2. Modificare il modello in base alle esigenze.  Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
+2. Modificare il modello in base alle esigenze. Rivedere il riferimento del [modello Microsoft.OperationalInsights/workspaces](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) per informazioni sulle proprietà e sui valori supportati. 
 3. Salvare questo file come **deploylaworkspacetemplate.json** in una cartella locale.   
 4. A questo punto è possibile distribuire il modello. Usare i comandi seguenti dalla cartella che contiene il modello:
 
     ```powershell
-        New-AzureRmResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
+        New-AzResourceGroupDeployment -Name <deployment-name> -ResourceGroupName <resource-group-name> -TemplateFile deploylaworkspacetemplate.json
     ```
 
 Per il completamento della distribuzione sarà necessario attendere alcuni minuti. Al termine, viene visualizzato un messaggio simile al seguente che include il risultato:

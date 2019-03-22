@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 8b364e2a51db8ee8d97fc981ac3df0d1fa5650ef
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
-ms.translationtype: HT
+ms.openlocfilehash: d49a6f88f3475359a74be74bf528fb5699dce632
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037073"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57860653"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -122,7 +122,7 @@ La versione del runtime di Funzioni da utilizzare in questa app per le funzioni.
 
 ## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
 
-Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzioni.  Corrisponderà al linguaggio usato nell'applicazione (ad esempio, "dotnet"). Per le funzioni in più lingue, sarà necessario pubblicarle in più app, ciascuna con un valore del runtime del ruolo di lavoro corrispondente.  I valori validi sono `dotnet` (C#/F#), `node` (JavaScript) e `java` (Java).
+Il runtime del ruolo di lavoro del linguaggio da caricare nell'app per le funzioni.  Corrisponderà al linguaggio usato nell'applicazione (ad esempio, "dotnet"). Per le funzioni in più lingue, sarà necessario pubblicarle in più app, ciascuna con un valore del runtime del ruolo di lavoro corrispondente.  I valori validi sono `dotnet` (C#/F#), `node` (JavaScript/TypeScript), `java` (Java), e `python` (Python).
 
 |Chiave|Valore di esempio|
 |---|------------|

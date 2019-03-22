@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: af90a946f12e11602d45300a2796787f839dcf02
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 6b16b6c4de8c8d2d7a821dd476f07c8ab1135408
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811087"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433434"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Set di dati in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -79,7 +79,7 @@ Un set di dati in Data Factory viene definito in formato JSON come segue:
 
 La tabella seguente descrive le proprietà nel codice JSON precedente:
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
 | name |Nome del set di dati. Per le regole di denominazione, vedere [Azure Data Factory: regole di denominazione](data-factory-naming-rules.md) . |Sì |ND |
 | type |Tipo del set di dati. Specificare uno dei tipi supportati da Data Factory, ad esempio AzureBlob o AzureSqlTable. <br/><br/>Per informazioni dettagliate, vedere [Tipo di set di dati](#Type). |Sì |ND |
@@ -191,7 +191,7 @@ structure:
 
 Ogni colonna della struttura contiene le proprietà seguenti:
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | name |Nome della colonna. |Sì |
 | type |Tipo di dati della colonna.  |No  |
@@ -233,7 +233,7 @@ Viene prodotto il set di dati di output ogni ora entro gli orari di inizio e fin
 
 La tabella seguente descrive le proprietà che è possibile usare nella sezione availability:
 
-| Proprietà | Descrizione | Obbligatoria | Predefinito |
+| Proprietà | Descrizione | Obbligatorio | Predefinito |
 | --- | --- | --- | --- |
 | frequency |Specifica l'unità di tempo per la produzione di sezioni di set di dati.<br/><br/><b>Frequenza supportata</b>: Minute, Hour, Day, Week, Month (minuto, ora, giorno, settimana, mese). |Sì |ND |
 | interval |Specifica un moltiplicatore per la frequenza.<br/><br/>"Frequency x interval" determina la frequenza con cui viene generata la sezione. Se ad esempio è necessario suddividere il set di dati su base oraria, impostare <b>frequency</b> su <b>Hour</b> e <b>interval</b> su <b>1</b>.<br/><br/>Notare che se si specifica **frequency** come **Minute**, è necessario impostare interval su un valore non inferiore a 15. |Sì |ND |
@@ -280,7 +280,7 @@ Il seguente set di dati è mensile e viene generato il giorno 3 di ogni mese all
 La sezione **policy** nella definizione del set di dati stabilisce i criteri o la condizione che le sezioni del set di dati devono soddisfare.
 
 ### <a name="validation-policies"></a>Criteri di convalida
-| Nome criterio | DESCRIZIONE | Applicato a | Obbligatoria | Predefinito |
+| Nome criterio | DESCRIZIONE | Applicato a | Obbligatorio | Predefinito |
 | --- | --- | --- | --- | --- |
 | minimumSizeMB |Verifica che i dati presenti nell'**archiviazione BLOB di Azure** soddisfino i requisiti relativi alle dimensioni minime (in megabyte). |Archivio BLOB di Azure |No  |ND |
 | minimumRows |Verifica che i dati in un **database SQL di Azure** o in una **tabella di Azure** contengano il numero minimo di righe. |<ul><li>Database SQL di Azure</li><li>Tabella di Azure</li></ul> |No  |ND |
@@ -316,7 +316,7 @@ I set di dati esterni sono quelli non prodotti da una pipeline in esecuzione nel
 
 A meno che non sia generato da Data Factory, il set di dati deve essere contrassegnato come **external**. Questa impostazione si applica in genere agli input della prima attività di una pipeline, a meno che non si usi il concatenamento di attività o di pipeline.
 
-| NOME | DESCRIZIONE | Obbligatoria | Valore predefinito |
+| NOME | DESCRIZIONE | Obbligatorio | Valore predefinito |
 | --- | --- | --- | --- |
 | dataDelay |Tempo di ritardo del controllo della disponibilità dei dati esterni per la sezione specificata. Ad esempio, è possibile ritardare un controllo orario usando questa impostazione.<br/><br/>Si applica solo all'ora corrente. Ad esempio, se in questo momento sono le 13:00 e questo valore è di 10 minuti, la convalida inizia alle 13:10.<br/><br/>Si noti che questa impostazione non influisce sulle sezioni passate. Le sezioni con **Slice End Time** + **dataDelay** < **Now** vengono elaborate senza alcun ritardo.<br/><br/>I valori orari superiori a 23:59 ore devono essere specificati nel formato `day.hours:minutes:seconds`. Per specificare 24 ore, ad esempio, non usare 24:00:00. Usare invece 1.00:00:00. Il valore 24:00:00 viene considerato 24 giorni (24.00:00:00). Per 1 giorno e 4 ore, specificare 1:04:00:00. |No  |0 |
 | retryInterval |Tempo di attesa tra un errore e il tentativo successivo. Questa impostazione si applica all'ora corrente. Se il tentativo precedente ha avuto esito negativo, il tentativo successivo si avvia dopo il periodo **retryInterval**. <br/><br/>Se in questo momento sono le 13:00, viene avviato il primo tentativo. Se la durata per completare il primo controllo di convalida è 1 minuto e l'operazione non è riuscita, il tentativo successivo è alle 13:00 + 1 min (durata) + 1 min (intervallo tentativi) = 13:02. <br/><br/>Per le sezioni passate, non si verifica alcun ritardo. La ripetizione avviene immediatamente. |No  |00:01:00 (1 minute) |

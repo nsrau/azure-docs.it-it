@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: c119869c47547fd5d91f6ee91fcd772ea5941f46
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
-ms.translationtype: HT
+ms.openlocfilehash: 30f44e0e8bae4071403b5c28cd4133970fc4d468
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432706"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010944"
 ---
 # <a name="iot-edge-module-marketplace-tab"></a>Scheda Marketplace del modulo IoT Edge
 
 
-La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa modulo esteso è suddiviso in quattro sezioni: **Overview** (Panoramica), **Marketing Artifacts** (Artefatti di marketing), **Lead Management** (Gestione di clienti potenziali) e **Legal** (Legale).
+La scheda **Marketplace** della pagina **Nuova offerta** consente di offrire ai clienti potenziali informazioni e contratti legali, di vendita e marketing e di gestire i clienti potenziali generati dal marketplace. Questa forma estesa è suddivisa in quattro sezioni: **Cenni preliminari sulla**, **gli elementi di Marketing**, **condurre una gestione**, e **legali**.
 
 ## <a name="overview"></a>Panoramica
 
@@ -39,9 +39,9 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi.
 | **Titolo**                 | Titolo dell'offerta. Verrà visualizzato in posizione prominente nel marketplace.  La lunghezza massima consentita è di 50 caratteri. <!--ADD PICTURE IN ACTION-->|
 | **Summary**               | Breve riepilogo dell'offerta. La lunghezza massima consentita è di 100 caratteri. <!--ADD PICTURE IN ACTION-->|
 | **Long Summary** (Riepilogo lungo)          | Riepilogo più lungo dell'offerta (sebbene possa essere coincidere con il **riepilogo**).  La lunghezza massima consentita è di 256 caratteri. <!--ADD PICTURE IN ACTION-->|
-| **Descrizione**           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> sistema operativo Linux x64 e arm32, 1 GB di RAM, risorsa di archiviazione da 500 MB</p>
+| **Descrizione**           | Descrizione dell'offerta.  La lunghezza massima consentita è di 3000 caratteri. Supporta la formattazione HTML semplice.<br/> Deve includere un paragrafo di *requisiti hardware minimi* nella parte inferiore, ad esempio: <br/> <p><u>Requisiti hardware minimi:</u> Linux x64 e arm32 sistema operativo, 1 GB di RAM, 500 Mb di spazio di archiviazione</p>
 | **Marketing Identifier** (Identificatore di marketing)  | URL univoco da associare a questa offerta. Include in genere il nome dell'organizzazione e della soluzione. La lunghezza massima consentita è di 50 caratteri.  Ad esempio:  <br/> `https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleIoTEdgeModule`  |
-| **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni inserite nell'elenco elementi consentiti avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
+| **Preview Subscription IDs** (ID sottoscrizione di anteprima) | Aggiungere da uno a 100 identificatori di sottoscrizione di visualizzatori anteprima. Queste sottoscrizioni consentite avranno accesso all'offerta dopo la pubblicazione, prima che venga attivata. |
 | **Collegamenti utili**          | Selezione multipla di categorie commerciali e tecniche a cui associare l'offerta in modo ottimale.  È consentita una selezione massima di 10 elementi. Assicurarsi di aggiungere almeno un collegamento alla documentazione e un collegamento ai dispositivi IoT Edge compatibili dal [catalogo di dispositivi Azure IoT](https://catalog.azureiotsolutions.com/). |
 | **Suggested Categories** (Categorie suggerite) | Scegliere fino a cinque categorie. Verranno visualizzati nella pagina dei dettagli del prodotto. Nelle pagine del browser tutti i moduli IoT Edge vengono visualizzati nella categoria *Internet delle cose \> Modulo IoT Edge*.|
 
@@ -76,9 +76,9 @@ La tabella seguente descrive lo scopo e il contenuto di questi campi.
     ![Modalità di visualizzazione del modulo IoT Edge durante l'osservazione dei dettagli del prodotto nel portale](./media/iot-edge-module-portal-pdp.png)
 
 
-## <a name="marketing-artifacts"></a>Marketing Artifacts (Artefatti di marketing)
+## <a name="marketing-artifacts"></a>Artefatti di marketing
 
-Questa sezione include le sottosezioni seguenti: **Logos** (Logo), **Screenshot** e **Video**. 
+Questa sezione include le sottosezioni seguenti: **Logo**, **Screenshot**, e **video**. 
 
 >[!Note]
 >I logo sono gli unici artefatti di marketing obbligatori, ma tutti sono vivamente consigliati per catturare meglio l'attenzione dei clienti.
@@ -92,7 +92,7 @@ Questa sezione include le sottosezioni seguenti: **Logos** (Logo), **Screenshot*
 | **Medium**                | Formato PNG 90x90 pixel                                                     |
 | **Large**                 | Formato PNG 115x115 pixel                                                  |
 | **Wide** (Largo)                  | Formato PNG 255x115 pixel                                                   |
-| **Hero** (Banner)                  | Formato PNG 815x290 pixel  Facoltativo. Tuttavia, una volta caricata, l'icona del banner non può essere eliminata. |
+| **Hero** (Banner)                  | Formato PNG 815x290 pixel  Facoltativo. Una volta caricata, tuttavia, l'icona del banner non può essere eliminata. |
 | *Screenshot*  | Gli screenshot vengono visualizzati nella pagina dei dettagli del prodotto. Si tratta di un ottimo metodo per comunicare in modo visivo ciò che fa il modulo IoT Edge e come funziona. Ad esempio, è possibile mostrare diagrammi di architettura o illustrazioni di casi d'uso. Facoltativi, ma non più di cinque per SKU. |
 | **Nome**                  | Nome o titolo. La lunghezza massima consentita è di 100 caratteri.                             |
 | **Immagine**                 | Acquisizione di schermata. Formato PNG 533x324                                         |
@@ -104,7 +104,7 @@ Questa sezione include le sottosezioni seguenti: **Logos** (Logo), **Screenshot*
 
 ### <a name="logo-guidelines"></a>Linee guida per il logo
 
-<!-- It seems like this section could be better located in some common area, maybe a AMP Marketing/Design section 
+<!-- It seems like this section could be better located in some common area, maybe an AMP Marketing/Design section 
 +1 this should all be in a common area and referenced from here to that location.-->
 
 Ogni logo caricato nel portale Cloud Partner deve rispettare le linee guida seguenti:
@@ -160,11 +160,11 @@ Dopo aver pubblicato l'offerta, verrà verificata la connessione al cliente pote
 
 ## <a name="legal"></a>Note legali
 
-Questa sezione consente di specificare i due documenti legali necessari per ogni offerta: Informativa sulla Privacy e Condizioni per l'utilizzo.
+In questa sezione consente di fornire i due documenti legali necessari per ogni offerta: informativa sulla privacy e condizioni per l'utilizzo.
 
 |  **Campo**                |     **Descrizione**                                                          |
 |  ---------                |     ---------------                                                          |
-| **URL dell'Informativa sulla privacy**    | URL dell'Informativa sulla privacy pubblicata                                            |
+| **URL dell'informativa sulla privacy**    | URL dell'informativa sulla privacy pubblicata                                            |
 | **Condizioni d'uso**          | Condizioni per l'utilizzo in formato HTML semplice inline o come collegamento alle Condizioni per l'utilizzo pubblicate       |
 
 <br/>

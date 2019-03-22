@@ -16,16 +16,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 824793c9897d7d728f621182a02a6092edc69e89
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 92ff5d21fc30d8fcafe97a2b452ff157a2cd5f86
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55452380"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997033"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Strumenti di inserimento dati della macchina virtuale per data science
 
-Una delle prime operazioni tecniche in un progetto di IA o di data science consiste nell'identificare i set di dati da usare e importarli nell'ambiente di analisi. La macchina virtuale per data science offre gli strumenti e librerie per importare dati provenienti da origini diverse in un archivio dati analitico in locale nella macchina virtuale per data science o in una piattaforma dati nel cloud o in locale. 
+Una delle prime operazioni tecniche in un progetto di IA o di data science consiste nell'identificare i set di dati da usare e importarli nell'ambiente di analisi. La macchina virtuale Data Science (DSVM) fornisce strumenti e librerie per importare dati da origini diverse in un archivio dati analitici in locale in DSVM o in una piattaforma dati nel cloud o in locale. 
 
 Ecco alcuni strumenti di spostamento dei dati che sono disponibili nella macchina virtuale per data science. 
 

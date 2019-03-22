@@ -11,24 +11,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/30/2018
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ec5e3daf1d4d799aab043f241548a3b4177f567c
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343239"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005795"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure
 
-Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Sebbene non sia possibile creare le proprie assegnazioni di rifiuto, è comunque necessario essere in grado di visualizzarle perché potrebbero influire sulle autorizzazioni complessive. Per ottenere informazioni su un'assegnazione di rifiuto è necessario avere l'autorizzazione `Microsoft.Authorization/denyAssignments/read`, inclusa nella maggior parte dei [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
-
-Questo articolo descrive come usare il portale di Azure per visualizzare le assegnazioni di rifiuto.
+Le [assegnazioni di rifiuto](deny-assignments.md) impediscono agli utenti di eseguire azioni specifiche sulle risorse di Azure, anche se un'assegnazione di ruolo concede loro l'accesso. Questo articolo descrive come usare il portale di Azure per visualizzare le assegnazioni di rifiuto.
 
 > [!NOTE]
-> A questo punto, le assegnazioni di rifiuto sono di sola lettura e possono essere impostate solo da Azure.
+> A questo punto, l'unico modo è possibile aggiungere il proprio negare assegnazioni consiste nell'usare progetti di architetture di Azure. Per altre informazioni, vedere [proteggere le nuove risorse con i blocchi di risorse di Azure progetti](../governance/blueprints/tutorials/protect-new-resources.md).
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Per ottenere informazioni su un'assegnazione di negazione, è necessario disporre di:
+
+- `Microsoft.Authorization/denyAssignments/read` autorizzazione di accesso, che è incluso nella maggior parte [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
 
 ## <a name="view-deny-assignments"></a>Visualizzare le assegnazioni di rifiuto
 

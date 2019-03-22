@@ -7,19 +7,19 @@ author: masnider
 manager: timlt
 editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
-ms.service: Service-Fabric
+ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 3f93ca94d5aa3e95637a53a4c8fe3d9d264dd58c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a51593753cab8a6b07d99df46560808de5400047
+ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208285"
+ms.lasthandoff: 02/23/2019
+ms.locfileid: "56737927"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integrazione di Cluster Resource Manager con la gestione dei cluster di Service Fabric
 Cluster Resource Manager di Service Fabric non gestisce gli aggiornamenti in Service Fabric ma partecipa al processo. Il primo modo in cui Cluster Resource Manager facilita la gestione è monitorando lo stato desiderato del cluster e i servizi al suo interno. Cluster Resource Manager invia report di integrità quando non riesce ad attivare la configurazione del cluster desiderata. Se ad esempio la capacità è insufficiente, Cluster Resource Manager invia avvisi ed errori relativi all'integrità che indicano il problema. Un altro aspetto dell'integrazione ha a che fare con il funzionamento degli aggiornamenti. Durante gli aggiornamenti Cluster Resource Manager modifica leggermente il suo comportamento.  
@@ -32,7 +32,7 @@ Un altro esempio di avvisi di integrità di Resource Manager riguarda le violazi
 Di seguito è riportato un esempio di rapporto di integrità. In questo caso il report di integrità riguarda una delle partizioni del servizio di sistema. Il messaggio di integrità indica che le repliche di quella partizione sono temporaneamente compresse in un numero troppo basso di domini di aggiornamento.
 
 ```posh
-PS C:\Users\User > Get-WindowsFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
+PS C:\Users\User > Get-ServiceFabricPartitionHealth -PartitionId '00000000-0000-0000-0000-000000000001'
 
 
 PartitionId           : 00000000-0000-0000-0000-000000000001
@@ -73,11 +73,11 @@ HealthEvents          :
 
 Ecco che cosa indica questo messaggio di stato:
 
-1. Le repliche stesse sono integre: ognuna presenta AggregatedHealthState: Ok
+1. Tutte le repliche stesse sono integre: Ognuna presenta AggregatedHealthState: OK
 2. Il vincolo di distribuzione del dominio di aggiornamento è attualmente violato. Ciò significa che un particolare dominio di aggiornamento ha più repliche di questa partizione rispetto a quanto previsto.
 3. Qual è il nodo che contiene la replica che causa la violazione. In questo caso è il nodo denominato "Node.8"
 4. Se è in corso un aggiornamento per questa partizione ("Currently Upgrading -- false")
-5. I criteri di distribuzione per questo servizio: "Distribution Policy -- Packing". Regolato dal [criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) `RequireDomainDistribution`. "Packing" indica che in questo caso DomainDistribution _non_ era necessario e quindi che per questo servizio il criterio di selezione non è stato specificato. 
+5. I criteri di distribuzione per questo servizio: "Criteri di distribuzione, creazione di un pacchetto". Regolato dal [criterio di selezione](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md#requiring-replica-distribution-and-disallowing-packing) `RequireDomainDistribution`. "Packing" indica che in questo caso DomainDistribution _non_ era necessario e quindi che per questo servizio il criterio di selezione non è stato specificato. 
 6. Quando è stato inviato il report 10/8/2015 19:13:02
 
 Informazioni come queste producono avvisi che vengono generati nell'ambiente di produzione per informare l'utente che qualcosa non ha funzionato e per rilevare e arrestare aggiornamenti non validi. In questo caso sarebbe opportuno comprendere perché Resource Manager ha dovuto comprimere le repliche nel dominio di aggiornamento. Di solito la compressione è temporanea ad esempio perché i nodi negli altri domini di aggiornamento erano inattivi.
@@ -92,12 +92,12 @@ In questi casi i report sull'integrità di Cluster Resource Manager consentono d
 ## <a name="constraint-types"></a>Tipi di vincolo
 Esaminiamo ciascuno dei vincoli presenti nei report di integrità. Verranno visualizzati messaggi di integrità relativi a questi vincoli quando non è possibile inserire le repliche.
 
-* **ReplicaExclusionStatic** e **ReplicaExclusionDynamic**: questi vincoli indicano che è stata rifiutata una soluzione perché due oggetti di servizio della stessa partizione dovevano essere posizionati sullo stesso nodo. Ciò non è consentito perché l'errore su quel nodo avrebbe un impatto eccessivo sulla partizione. ReplicaExclusionStatic e ReplicaExclusionDynamic sono regole quasi identiche e le differenze sono irrilevanti. Se si nota una sequenza di eliminazione vincolo contenente ReplicaExclusionStatic o ReplicaExclusionDynamic significa che Cluster Resource Manager ritiene che non vi siano nodi sufficienti. Ciò richiede l'uso di posizionamenti non validi che sono disabilitati. Gli altri vincoli nella sequenza indicheranno perché i nodi vengono eliminati nella prima posizione.
-* **PlacementConstraint**: se viene visualizzato questo messaggio significa che sono stati eliminati alcuni nodi perché non rispettavano i vincoli di posizionamento del servizio. I vincoli di posizionamento attualmente configurati vengono indicati come parte di questo messaggio. Questo è normale se è stato definito un vincolo di posizionamento. Tuttavia se un vincolo di posizionamento causa l'eliminazione non corretta di troppi nodi, lo si noterà qui.
-* **NodeCapacity**: questo vincolo indica che Cluster Resource Manager non è riuscito a inserire le repliche nei nodi indicati perché l'operazione avrebbe fatto superare la capacità del nodo.
-* **Affinity**: questo vincolo indica che non è stato possibile inserire la replica nei nodi interessati perché l'operazione avrebbe generato una violazione del vincolo Affinity. Ulteriori informazioni sull'affinità sono riportate in [questo articolo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-* **FaultDomain** e **UpgradeDomain**: questo vincolo elimina i nodi se il posizionamento della replica nei nodi indicati comporterebbe la compressione in un particolare dominio di aggiornamento o di errore. Alcuni esempi che illustrano questo vincolo sono presentati nell'argomento sui [vincoli dei domini di aggiornamento e di errore e il relativo comportamento](service-fabric-cluster-resource-manager-cluster-description.md)
-* **PreferredLocation**: in genere non si dovrebbe assistere alla rimozione di nodi dalla soluzione da parte di questo vincolo perché per impostazione predefinita funziona come ottimizzazione. Il vincolo di posizione preferita è presente anche durante gli aggiornamenti. Durante l'aggiornamento viene usato per spostare i servizi dove si trovavano quando l'aggiornamento è stato avviato.
+* **ReplicaExclusionStatic** e **ReplicaExclusionDynamic**: Questi vincoli indicano che una soluzione è stata rifiutata perché due oggetti di servizio dalla stessa partizione dovevano essere posizionate sullo stesso nodo. Ciò non è consentito perché l'errore su quel nodo avrebbe un impatto eccessivo sulla partizione. ReplicaExclusionStatic e ReplicaExclusionDynamic sono regole quasi identiche e le differenze sono irrilevanti. Se si nota una sequenza di eliminazione vincolo contenente ReplicaExclusionStatic o ReplicaExclusionDynamic significa che Cluster Resource Manager ritiene che non vi siano nodi sufficienti. Ciò richiede l'uso di posizionamenti non validi che sono disabilitati. Gli altri vincoli nella sequenza indicheranno perché i nodi vengono eliminati nella prima posizione.
+* **PlacementConstraint**: Se viene visualizzato questo messaggio, significa che sono stati eliminati alcuni nodi perché non rispettavano i vincoli di posizionamento del servizio. I vincoli di posizionamento attualmente configurati vengono indicati come parte di questo messaggio. Questo è normale se è stato definito un vincolo di posizionamento. Tuttavia se un vincolo di posizionamento causa l'eliminazione non corretta di troppi nodi, lo si noterà qui.
+* **NodeCapacity**: Questo vincolo significa che Cluster Resource Manager non è stato possibile inserire le repliche nei nodi indicati perché vengono inserite le capacità di failover.
+* **Affinità**: Questo vincolo indica che non è stato possibile inserire la replica nei nodi interessati perché ciò comporterebbe una violazione del vincolo affinity. Ulteriori informazioni sull'affinità sono riportate in [questo articolo](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+* **FaultDomain** e **UpgradeDomain**: Questo vincolo Elimina i nodi se posizionamento della replica nei nodi indicati comporterebbe la compressione in un particolare dominio di errore o aggiornamento. Alcuni esempi che illustrano questo vincolo sono presentati nell'argomento sui [vincoli dei domini di aggiornamento e di errore e il relativo comportamento](service-fabric-cluster-resource-manager-cluster-description.md)
+* **PreferredLocation**: È in genere non deve visualizzare questo vincolo rimozione di nodi dalla soluzione poiché viene eseguito come un'ottimizzazione per impostazione predefinita. Il vincolo di posizione preferita è presente anche durante gli aggiornamenti. Durante l'aggiornamento viene usato per spostare i servizi dove si trovavano quando l'aggiornamento è stato avviato.
 
 ## <a name="blocklisting-nodes"></a>Nodi sottoposti a blocklisting
 Un altro messaggio di integrità notificato da Cluster Resource Manager si verifica quando i nodi sono sottoposti a blocklisting. È possibile considerare il blocklisting come un vincolo temporaneo che viene applicato automaticamente per l'utente. I nodi vengono sottoposti a blocklisting quando si verificano errori ripetuti durante l'avvio di istanze di quel tipo di servizio. I nodi vengono sottoposti a blocklisting in base al tipo di servizio. Un nodo può essere sottoposto a blocklisting per un tipo di servizio ma non per un altro. 

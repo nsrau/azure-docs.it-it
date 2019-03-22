@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: mbullwin
-ms.openlocfilehash: a593e42ed87ab985d4f4584ed6b73109716120bf
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: 10b909fd5239546047aa4696a1f6a68a703778c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54027813"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001218"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>Degradazione del rapporto tra i livelli di gravità delle tracce (anteprima)
 
@@ -26,7 +26,7 @@ Le tracce vengono usate di frequente nelle applicazioni, perché permettono di c
 Questa funzionalità non richiede una configurazione speciale, oltre a quella della registrazione delle tracce per la propria app (vedere come configurare un listener di log di traccia per [.NET](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-trace-logs) o [Java](https://docs.microsoft.com/azure/application-insights/app-insights-java-trace-logs)). È attiva quando l'app genera un numero sufficiente di dati di telemetria per le eccezioni.
 
 ## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Quando si riceve questo tipo di notifica di rilevamento intelligente?
-È possibile ottenere questo tipo di notifica se il rapporto tra le tracce "positive" (tracce registrate con un livello di *Info* (Informazioni) e *Verbose* (Commenti)) e le tracce "negative" (tracce registrate con un livello di *Avviso*, *Errore o *Errore irreversibile*) viene compromesso in un giorno specifico, rispetto a un valore di riferimento calcolato nei sette giorni precedenti.
+È possibile ottenere questo tipo di notifica se il rapporto tra le tracce "positive" (tracce registrate con un livello di *Info* oppure *Verbose*) e le tracce "negative" (tracce registrate con un livello di *avviso*, *Errore*, o *errore irreversibile*) stia diminuendo in un determinato giorno, rispetto a una linea di base calcolata nei sette giorni precedenti.
 
 ## <a name="does-my-app-definitely-have-a-problem"></a>Verifica di eventuali problemi dell'app
 Una notifica non significa che l'app ha sicuramente un problema. Sebbene un deterioramento del rapporto tra le tracce "positive" e "negative" può indicare una problema a livello applicativo, questa modifica nel rapporto potrebbe essere benigna. Ad esempio, l'aumento potrebbe essere dovuto a un nuovo flusso nell'applicazione che emette più tracce "negative" rispetto ai flussi esistenti.

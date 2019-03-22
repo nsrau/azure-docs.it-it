@@ -11,16 +11,16 @@ manager: carmonm
 ms.topic: article
 ms.assetid: 90f5cfc4-46b2-4ef7-8ac4-486bb0e3f289
 ms.date: 02/06/2019
-ms.openlocfilehash: da5b099a5574d34c3676819c930f3e89610cf4ad
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: f6d778ddbce16c223945d4683bd7a950bd2a0cb0
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55767436"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57455803"
 ---
 # <a name="transform-xml-with-maps-in-azure-logic-apps-with-enterprise-integration-pack"></a>Trasformare i dati XML con le mappe in App per la logica di Azure con Enterprise Integration Pack
 
-Per trasferire i dati XML da un formato all'altro per gli scenari di integrazione aziendali in App per la logica di Azure, l'app per la logica può usare le mappe o, più precisamente, le mappe XSLT (Extensible Stylesheet Language Transformations). Una mappa è un documento XML che descrive come convertire i dati da un documento XML in un altro formato. 
+Per trasferire dati XML tra i formati per gli scenari di integrazione aziendali nelle App per la logica di Azure, app per la logica possa usare mappe o, in particolare, i fogli di stile Extensible Language Transformations (XSLT) viene eseguito il mapping. Una mappa è un documento XML che descrive come convertire i dati da un documento XML in un altro formato. 
 
 Si supponga, ad esempio, di ricevere regolarmente fatture o ordini B2B da un cliente che usa il formato AAAMMGG per le date. L'organizzazione usa tuttavia il formato MMGGAAA per le date. È possibile definire e usare una mappa che trasforma il formato di data AAAMMGG nel formato MMGGAAA prima di archiviare i dettagli dell'ordine o della fattura nel database relativo.
 
