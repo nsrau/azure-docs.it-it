@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: raynew
-ms.openlocfilehash: 15d85d30f73a9880a6a68a62ab208bb0bdbf5402
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
+ms.openlocfilehash: 84b1cfd54f5ff9e6a29c975622847e3ae6304bf8
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53788039"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58107152"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -33,7 +33,7 @@ Hyper-V senza Virtual Machine Manager | È possibile eseguire il ripristino di e
 
 **Server** | **Requisiti** | **Dettagli**
 --- | --- | ---
-Hyper-V (in esecuzione senza Virtual Machine Manager) | Windows Server 2016 (tra cui installazione server core), Windows Server 2012 R2 con gli aggiornamenti più recenti | Per le VM situate in un host che esegue Windows Server 2016, non è supportato il ripristino in un percorso alternativo.<br/><br/> Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata. 
+Hyper-V (in esecuzione senza Virtual Machine Manager) | Windows Server 2016 (tra cui installazione server core), Windows Server 2012 R2 con gli aggiornamenti più recenti | Se si è già configurato Windows Server 2012 R2 con/o SCVMM 2012 R2 con Azure Site Recovery e si prevede di aggiornare il sistema operativo, seguire le indicazioni nella [documentazione](upgrade-2012R2-to-2016.md) correlata. 
 Hyper-V (in esecuzione con Virtual Machine Manager) | Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Se si usa Virtual Machine Manager, gli host Windows Server 2016 devono essere gestiti in Virtual Machine Manager 2016.<br/><br/>
 
 
@@ -59,16 +59,16 @@ Aggiungere il disco nella macchina virtuale Hyper-V replicata | Non supportati. 
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Rete host: gruppo NIC | Yes | Yes
-Rete host: VLAN | Yes | Yes
-Rete host: IPv4 | Yes | Yes
+Rete host: gruppo NIC | Sì | Sì
+Rete host: VLAN | Sì | Sì
+Rete host: IPv4 | Sì | Sì
 Rete host: IPv6 | No  | No 
 Rete macchine virtuali guest: gruppo NIC | No  | No 
-Rete macchine virtuali guest: IPv4 | Yes | Yes
-Rete macchine virtuali guest: IPv6 | No  | Yes
-Rete macchine virtuali guest: IP statico (Windows) | Yes | Yes
+Rete macchine virtuali guest: IPv4 | Sì | Sì
+Rete macchine virtuali guest: IPv6 | No  | Sì
+Rete macchine virtuali guest: IP statico (Windows) | Sì | Sì
 Rete macchine virtuali guest: IP statico (Linux) | No  | No 
-Rete macchine virtuali guest: Più NIC | Yes | Yes
+Rete macchine virtuali guest: Più NIC | Sì | Sì
 
 
 
@@ -76,35 +76,35 @@ Rete macchine virtuali guest: Più NIC | Yes | Yes
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Azure ExpressRoute | Yes | Yes
-ILB | Yes | Yes
-ELB | Yes | Yes
-Gestione traffico di Azure | Yes | Yes
-Più NIC | Yes | Yes
-IP riservato | Yes | Yes
-IPv4 | Yes | Yes
-Conservazione indirizzo IP di origine | Yes | Yes
-Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Yes | Yes
+Azure ExpressRoute | Sì | Sì
+ILB | Sì | Sì
+ELB | Sì | Sì
+Gestione traffico di Azure | Sì | Sì
+Più NIC | Sì | Sì
+IP riservato | Sì | Sì
+IPv4 | Sì | Sì
+Conservazione indirizzo IP di origine | Sì | Sì
+Endpoint del servizio Rete virtuale di Azure<br/> (senza firewall di Archiviazione di Azure) | Sì | Sì
 Rete accelerata | No  | No 
 
 
 ## <a name="hyper-v-host-storage"></a>Archiviazione host Hyper-V
 
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
---- | --- | --- | ---
+--- | --- | --- 
 NFS | ND | ND
-SMB 3.0 | Yes | Yes
-SAN (iSCSI) | Yes | Yes
-Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Yes | Yes
+SMB 3.0 | Sì | Sì
+SAN (iSCSI) | Sì | Sì
+Percorsi multipli (MPIO). Testato con:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4<br/><br/> EMC PowerPath DSM for CLARiiON | Sì | Sì
 
 ## <a name="hyper-v-vm-guest-storage"></a>Archiviazione VM guest Hyper-V
 
 **Archiviazione** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
 VMDK | ND | ND
-VHD/VHDX | Yes | Yes
-VM Gen 2 | Yes | Yes
-EFI/UEFI| Yes | Yes
+VHD/VHDX | Sì | Sì
+VM Gen 2 | Sì | Sì
+EFI/UEFI| Sì | Sì
 Disco cluster condiviso | No  | No 
 Disco crittografato | No  | No 
 NFS | ND | ND
@@ -112,26 +112,26 @@ SMB 3.0 | No  | No
 RDM | ND | ND
 Disco superiore a 1 TB | Sì, fino a 4.095 GB | Sì, fino a 4.095 GB
 Disco: dimensioni logiche e fisiche di settore a 4 KB | Non supportato: Gen 1/Gen 2 | Non supportato: Gen 1/Gen 2
-Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Yes |  Yes
-Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Yes | Yes
-Volume con disco con striping superiore a 1 TB | Yes | Yes
-Spazi di archiviazione | Yes | Yes
+Disco: dimensioni logiche di settore a 4 KB e dimensioni fisiche di settore a 512 byte | Sì |  Sì
+Gestione volumi logici (LVM). LVM è supportata solo nei dischi dati. Azure ha un solo disco di sistema operativo. | Sì | Sì
+Volume con disco con striping superiore a 1 TB | Sì | Sì
+Spazi di archiviazione | Sì | Sì
 Aggiunta/rimozione a caldo disco | No  | No 
-Esclusione disco | Yes | Yes
-Percorsi multipli (MPIO) | Yes | Yes
+Esclusione disco | Sì | Sì
+Percorsi multipli (MPIO) | Sì | Sì
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
 
 **Componente** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Archiviazione con ridondanza locale | Yes | Yes
-Archiviazione con ridondanza geografica | Yes | Yes
-Archiviazione con ridondanza geografica e accesso in lettura | Yes | Yes
+Archiviazione con ridondanza locale | Sì | Sì
+Archiviazione con ridondanza geografica | Sì | Sì
+Archiviazione con ridondanza geografica e accesso in lettura | Sì | Sì
 Archiviazione ad accesso sporadico | No  | No 
 Archiviazione ad accesso frequente| No  | No 
 BLOB in blocchi | No  | No 
-Crittografia per dati inattivi (SSE)| Yes | Yes
-Archiviazione Premium | Yes | Yes
+Crittografia per dati inattivi (SSE)| Sì | Sì
+Archiviazione Premium | Sì | Sì
 Servizio di importazione/esportazione | No  | No 
 Firewall di Archiviazione di Azure per reti virtuali configurate in un account di archiviazione di destinazione/archiviazione della cache (usato per l'archiviazione dei dati di replica) | No  | No 
 
@@ -140,8 +140,8 @@ Firewall di Archiviazione di Azure per reti virtuali configurate in un account d
 
 **Funzionalità** | **Hyper-V con Virtual Machine Manager** | **Hyper-V senza Virtual Machine Manager**
 --- | --- | ---
-Set di disponibilità | Yes | Yes
-HUB | Yes | Yes  
+Set di disponibilità | Sì | Sì
+HUB | Sì | Sì  
 Dischi gestiti | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti. | Sì, per il failover.<br/><br/> Non è supportato il failback di dischi gestiti.
 
 ## <a name="azure-vm-requirements"></a>Requisiti per le VM di Azure
@@ -180,7 +180,7 @@ Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risors
 Per assicurarsi che la distribuzione sia compatibile con le impostazioni in questo articolo, accertarsi di eseguire le versioni più recenti del provider e dell'agente.
 
 **Nome** | **Descrizione** | **Dettagli**
---- | --- | --- | --- | ---
+--- | --- | --- 
 Provider di Azure Site Recovery | Coordina le comunicazioni tra server locali e Azure <br/><br/> Hyper-V con Virtual Machine Manager: installato nei server Virtual Machine Manager<br/><br/> Hyper-V senza Virtual Machine Manager: installato negli host Hyper-V| Versione più recente: 5.1.2700.1 (disponibile dal portale di Azure)<br/><br/> [Funzionalità e correzioni più recenti](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery)
 Agente di Servizi di ripristino di Microsoft Azure | Coordina la replica tra le macchine virtuali Hyper-V e Azure<br/><br/> Installato nei server Hyper-V locali (con o senza Virtual Machine Manager) | Agente più recente disponibile dal portale
 

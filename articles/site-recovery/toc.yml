@@ -24,6 +24,12 @@ items:
       href: azure-to-azure-tutorial-failover-failback.md
     - name: Eseguire il failback
       href: azure-to-azure-tutorial-failback.md
+  - name: Spostare macchine virtuali di Azure
+    items:
+    - name: Spostare macchine virtuali di Azure in un'altra area
+      href: azure-to-azure-tutorial-migrate.md
+    - name: Spostare macchine virtuali di Azure nelle zone di disponibilità
+      href: move-Azure-VMs-AVset-Azone.md
   - name: Ripristino di emergenza di VM VMware in Azure
     items:
     - name: Preparare Azure
@@ -60,19 +66,11 @@ items:
       href: migrate-tutorial-windows-server-2008.md
     - name: Eseguire la migrazione di istanze AWS ad Azure
       href: migrate-tutorial-aws-azure.md
-  - name: Spostare macchine virtuali di Azure
-    items:
-    - name: Panoramica
-      href: azure-to-azure-move-overview.md
-    - name: Spostare macchine virtuali di Azure in un'altra area
-      href: azure-to-azure-tutorial-migrate.md
-    - name: Spostare macchine virtuali di Azure nelle zone di disponibilità
-      href: move-Azure-VMs-AVset-Azone.md
 - name: Concetti
   items:
   - name: Domande comuni su Site Recovery
     href: site-recovery-faq.md
-  - name: Informazioni sul ripristino di emergenza di VM di Azure in Azure
+  - name: Informazioni sul ripristino di emergenza per le macchine virtuali di Azure
     items:
     - name: Architettura da Azure ad Azure
       href: azure-to-azure-architecture.md
@@ -80,12 +78,14 @@ items:
       href: azure-to-azure-common-questions.md
     - name: Matrice di supporto da Azure ad Azure
       href: azure-to-azure-support-matrix.md
+    - name: Uso di Site Recovery con Backup di Azure
+      href: site-recovery-backup-interoperability.md
     - name: Rete accelerata per il ripristino di emergenza di VM di Azure
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute con il ripristino di emergenza di VM di Azure
       href: azure-vm-disaster-recovery-with-expressroute.md
-    - name: Ripristino di emergenza delle VM di Azure e interoperabilità con Backup di Azure
-      href: site-recovery-backup-interoperability.md
+  - name: Informazioni sullo spostamento di macchine virtuali di Azure
+    href: azure-to-azure-move-overview.md
   - name: Informazioni sul ripristino di emergenza di VM VMware in Azure
     items:
     - name: Panoramica del ripristino di emergenza di VMware
@@ -468,9 +468,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Aggiornamenti del servizio
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: 5286e3479561e6effd279978e84f045207a0a7a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 66b14ba7100b8bd8e4bb3a100e8fd10d226f555e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835300"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317103"

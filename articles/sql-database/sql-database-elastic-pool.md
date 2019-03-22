@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 4e4de6d487aaad8a0d036928fe59b47f25157bf6
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.date: 02/28/2019
+ms.openlocfilehash: 96160745fa8702fc6f931904098c28d8968de2c1
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55963846"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58010243"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>I pool di database elastici consentono di gestire e ridimensionare più database SQL
 
@@ -200,6 +200,20 @@ Per impostazione predefinita, il grafico nel pannello **Utilizzo risorse databas
 È inoltre possibile selezionare altre metriche da visualizzare in modalità affiancata in questa tabella di database per ottenere una visione più dettagliata delle prestazioni dei database.
 
 Per altre informazioni, vedere [Usare il portale di Azure per creare avvisi per il database SQL di Azure](sql-database-insights-alerts-portal.md).
+
+## <a name="customer-case-studies"></a>Casi di studio sui clienti
+
+- [SnelStart](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-snelstart/)
+
+  SnelStart usati i pool elastici con il Database SQL di Azure per espandere rapidamente i servizi aziendali con una frequenza di 1.000 nuovi database di SQL di Azure al mese.
+
+- [Umbraco](https://azure.microsoft.com/resources/videos/azure-sql-database-case-study-umbraco/)
+
+  Umbraco Usa il pool elastico con Database SQL di Azure per eseguire rapidamente il provisioning e ridimensionare servizi per migliaia di tenant nel cloud.
+
+- [Daxko/CSI](https://customers.microsoft.com/story/csi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services)
+
+  Daxko/CSI Usa i pool elastici con il Database SQL di Azure per accelerare il ciclo di sviluppo e migliorare i servizi al cliente e le prestazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

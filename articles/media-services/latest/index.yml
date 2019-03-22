@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fdda67921db38b912679d27bf5a8c897775ad82b
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53137991"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339182"
 documentType: LandingData
 title: Documentazione di Servizi multimediali di Azure v3
 metadata:
@@ -18,11 +18,27 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10-15-2018
+  ms.date: 03/20/2019
   ms.author: juliako
 abstract:
   description: Informazioni su come eseguire lo streaming di video on demand, la trasmissione live e l'analisi dei video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti. <br/> Gli SDK sono basati sulla <a href="https://aka.ms/ams-v3-rest-sdk">specifica OpenAPI (Swagger) per Servizi multimediali v3</a>.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 2
+    items:
+    - image:
+        src: 
+      html: <p>Informazioni sui concetti fondamentali di Servizi multimediali.</p>
+      href: /azure/media-services/latest/concepts-overview/
+      title: Informazioni sui concetti
+    - image:
+        src: 
+      html: <p>Non è attualmente possibile gestire risorse v3 con il portale di Azure. Usare l'API REST, l'interfaccia della riga di comando o uno degli SDK supportati.</p>
+      href: /azure/media-services/latest/developers-guide/
+      title: Sviluppare con l'API v3
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph

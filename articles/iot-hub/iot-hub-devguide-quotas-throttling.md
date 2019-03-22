@@ -1,19 +1,19 @@
 ---
-title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Microsoft Docs
+title: Informazioni sulle quote e sulle limitazioni dell'hub IoT di Azure | Documentazione Microsoft
 description: "Guida per gli sviluppatori: descrizione delle quote che si applicano all'hub IoT e del comportamento di limitazione previsto."
-author: dominicbetts
-manager: timlt
+author: robinsh
+manager: philmea
+ms.author: robin.shahan
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.author: dobett
-ms.openlocfilehash: d75a2cef96eaafb606c66d469b0e27fed8bb3573
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 20e92317e748ebe19661a7c35d68829229b62378
+ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466813"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57791376"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Riferimento - Quote e limitazioni dell'hub IoT
 
@@ -42,8 +42,8 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Ricezioni dal cloud al dispositivo<sup>1</sup> <br/> (solo quando il dispositivo usa HTTPS)| 16,67/sec/unità (1000/min/unità) | 16,67/sec/unità (1000/min/unità) | 833,33/sec/unità (50000/min/unità) |
 | Caricamento di file | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 1,67 notifice caricamento file/sec/unità (100/min/unità) | 83,33 notifice caricamento file/sec/unità (5000/min/unità) |
 | Metodi diretti<sup>1</sup> | 160 KB/sec/unità<sup>2</sup> | 480 KB/sec/unità<sup>2</sup> | 24 MB/sec/unità<sup>2</sup> | 
-| Letture di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
-| Aggiornamenti di dispositivi e moduli gemelli <sup>1</sup> | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
+| Letture di dispositivi e moduli gemelli <sup>1</sup> | 100/sec | Più di 100/sec o 10/sec/unità | 500/sec/unità |
+| Aggiornamenti di dispositivi e moduli gemelli <sup>1</sup> | 50/sec | Più di 50/sec o 5/sec/unità | 250/sec/unità |
 | Operazioni dei processi<sup>1,3</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 1,67/sec/unità (100/min/unità) | 1,67/sec/unità (100/min/unità) | 83,33/sec/unità (5000/min/unità) |
 | Operazioni dei dispositivi dei processi<sup>1</sup> <br/> (aggiornamento del dispositivo gemello, chiamata del metodo diretto) | 10/sec | Più di 10/sec o 1/sec/unità | 50/sec/unità |
 | Configurazioni e distribuzioni Edge<sup>1</sup> <br/> (creazione, aggiornamento, elenco, eliminazione) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) | 0,33/sec/unità (20/min/unità) |
@@ -52,7 +52,7 @@ La tabella seguente mostra le limitazioni applicate. I valori fanno riferimento 
 | Volume massimo di trasferimento dei dati del flusso dispositivo<sup>4</sup> (volumi aggregati al giorno) | 300 MB | 300 MB | 300 MB |
 
 
-<sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto). <br/><sup>2</sup>La dimensione del contatore delle limitazioni è 8 KB. <br/><sup>3</sup>È possibile avere solo un processo attivo alla volta di importazione/esportazione di dispositivi. <br/><sup>4</sup>I flussi dispositivo dell'hub IoT sono disponibili solo per gli SKU S1, S2, S3 e F1.
+<sup>1</sup>Questa funzionalità non è disponibile nel livello di base dell'hub IoT. Per altre informazioni, vedere [How to choose the right IoT Hub](iot-hub-scaling.md) (Come scegliere il livello dell'hub IoT corretto). <br/><sup>2</sup>la limitazione della dimensione del contatore è di 4 KB. <br/><sup>3</sup>È possibile avere solo un processo attivo alla volta di importazione/esportazione di dispositivi. <br/><sup>4</sup>I flussi dispositivo dell'hub IoT sono disponibili solo per gli SKU S1, S2, S3 e F1.
 
 La limitazione delle *connessioni del dispositivo* determina la frequenza con cui possono essere stabilite nuove connessioni del dispositivo con un hub IoT. La limitazione delle *connessioni del dispositivo* non determina il numero massimo di dispositivi connessi contemporaneamente. La limitazione di frequenza delle *connessioni del dispositivo* dipende dal numero di unità di cui viene effettuato il provisioning per l'hub IoT.
 

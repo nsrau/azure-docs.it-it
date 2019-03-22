@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/06/2019
-ms.openlocfilehash: 16d536ff5bd1f7d9a3427877a93036d9f711564e
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56099778"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58075936"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -45,7 +45,7 @@ I livelli di servizio basati su vCore si differenziano principalmente in base a 
 - Il livello di servizio business critical è adatto per i carichi di lavoro aziendali in cui la latenza di I/O è una priorità.
 
 | | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
-|:---|:---:|:---:|:---:|:---:|:---:|
+|:---|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutti|  La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti. | Applicazioni dati con i requisiti di capacità di dati di grandi dimensioni e possibilità di ridimensionamento automatico delle risorse di archiviazione e facile ridimensionamento delle risorse di calcolo. | Applicazioni OLTP con frequenza di transazioni elevata e livelli minimi di latenza di I/O. Offre massima resilienza agli errori tramite diverse repliche isolate.|
 |  **Tipo di risorsa** ||Database singolo/pool elastico/istanza gestita | Database singolo | Database singolo/pool elastico/istanza gestita |
 | **Dimensione di calcolo**|Database singolo/pool elastico* | Da 1 a 80 vCore | Da 1 a 80 vCore* | Da 1 a 80 vCore |
@@ -73,7 +73,7 @@ Il livello di servizio Hyperscale è destinato principalmente ai clienti che han
 
 ### <a name="what-regions-currently-support-hyperscale"></a>Quali aree supportano attualmente il livello Hyperscale
 
-Il livello Hyperscale è attualmente disponibile per i database singoli nelle aree seguenti:  Stati Uniti occidentali 1, Stati Uniti occidentali 2, Stati Uniti orientali 1, Stati Uniti centrali, Europa occidentale, Europa settentrionale, Regno Unito occidentale, Asia sud-orientale, Giappone orientale, Corea centrale, Australia sud-orientale e Australia orientale.
+Il livello Hyperscale è attualmente disponibile per i database singoli nelle aree seguenti:  US1 occidentali, Stati Uniti occidentali 2, US1 orientali, Stati Uniti centrali, Europa occidentale, Europa settentrionale, Asia sudorientale, Giappone orientale, Corea centrale, Australia sud-orientale e Australia orientale.
 
 ### <a name="can-i-create-multiple-hyperscale-databases-per-sql-database-server"></a>È possibile creare più database Hyperscale per ogni server di database SQL
 

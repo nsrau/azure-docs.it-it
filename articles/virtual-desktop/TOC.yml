@@ -1,0 +1,57 @@
+items:
+- name: Desktop virtuale Windows
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Informazioni su Desktop virtuale Windows
+    href: overview.md
+- name: Esercitazioni
+  items:
+  - name: 1. Creare un tenant in Desktop virtuale Windows
+    href: tenant-setup-azure-active-directory.md
+  - name: 2. Creare un pool di host con Azure Marketplace
+    href: create-host-pools-azure-marketplace.md
+  - name: 3. Gestire i gruppi di app
+    href: manage-app-groups.md
+  - name: 4. Creare entità servizio e assegnazioni di ruolo con PowerShell
+    href: create-service-principal-role-powershell.md
+- name: Procedura
+  items:
+  - name: Connettersi alle risorse di Desktop virtuale Windows
+    items:
+    - name: Connettersi con Windows 7 e Windows 10
+      href: connect-windows-7-and-10.md
+    - name: Connettersi con il client Web
+      href: connect-web.md
+  - name: Creare un pool di host con un modello di Azure Resource Manager
+    href: create-host-pools-arm-template.md
+  - name: Creare un pool di host con PowerShell
+    href: create-host-pools-powershell.md
+  - name: Configurare una condivisione di profilo utente per un pool di host
+    href: create-host-pools-user-profile.md
+  - name: Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
+    href: configure-host-pool-load-balancing.md
+  - name: Identificare i problemi con la funzionalità di diagnostica
+    href: diagnostics-role-service.md
+  - name: Preparare e personalizzare un'immagine master di disco rigido virtuale
+    href: set-up-customize-master-image.md
+  - name: Ridimensionare automaticamente gli host della sessione
+    href: set-up-scaling-script.md
+- name: Concetti
+  items:
+  - name: Ambiente di Desktop virtuale Windows
+    href: environment-setup.md
+  - name: Accesso delegato in Desktop virtuale Windows
+    href: delegated-access-virtual-desktop.md
+  - name: Metodo di bilanciamento del carico per i pool di host
+    href: host-pool-load-balancing.md
+- name: riferimento
+  items:
+  - name: PowerShell
+    href: /powershell/windows-virtual-desktop/overview
+ms.openlocfilehash: 2f321b25d6ba1ad8545bf161dd37e270890efcec
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58318770"

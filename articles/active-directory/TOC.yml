@@ -1,0 +1,614 @@
+items:
+- name: Documentazione di Azure Active Directory
+  href: index.md
+- name: Panoramica
+  items:
+  - name: Informazioni su Azure Active Directory
+    href: fundamentals/active-directory-whatis.md
+  - name: Informazioni sulla Gestione delle identità di Azure
+    href: fundamentals/identity-fundamentals.md
+  - name: Informazioni sulle soluzioni di gestione delle identità di Azure
+    href: fundamentals/understand-azure-identity-solutions.md
+  - name: Associare le sottoscrizioni di Azure
+    href: fundamentals/active-directory-how-subscriptions-associated-directory.md
+  - name: Considerazioni sulla residenza e sui dati
+    href: fundamentals/active-directory-data-storage-eu.md
+  - name: Domande frequenti
+    href: fundamentals/active-directory-faq.md
+  - name: Novità
+    href: fundamentals/whats-new.md
+- name: Attività iniziali
+  items:
+  - name: Iscriversi ad Azure AD Premium
+    href: fundamentals/active-directory-get-started-premium.md
+  - name: Aggiungere un nome di dominio personalizzato
+    href: fundamentals/add-custom-domain.md
+  - name: Configurare la personalizzazione aziendale
+    href: fundamentals/customize-branding.md
+  - name: Aggiungere utenti ad Azure AD
+    href: fundamentals/add-users-azure-active-directory.md
+  - name: Assegnare licenze agli utenti
+    href: fundamentals/license-users-groups.md
+  - name: Configurare la reimpostazione self-service delle password
+    href: authentication/quickstart-sspr.md
+  - name: Aggiungere le informazioni sulla privacy dell'organizzazione in Azure AD
+    href: active-directory-properties-area.md
+  - name: Accedere ad Azure Active Directory per creare un nuovo tenant
+    href: fundamentals/active-directory-access-create-new-tenant.md
+- name: Procedure
+  items:
+  - name: Pianificare e progettare
+    items:
+    - name: Informazioni sull'architettura di Azure AD
+      href: fundamentals/active-directory-architecture.md
+    - name: Mapping di attestazioni in Azure Active Directory
+      href: develop/active-directory-claims-mapping.md
+    - name: Distribuire una soluzione ibrida di gestione delle identità
+      href: hybrid/plan-hybrid-identity-design-considerations-overview.md
+      items:
+      - name: Determinare i requisiti
+        items:
+        - name: Identità
+          href: hybrid/plan-hybrid-identity-design-considerations-business-needs.md
+        - name: Sincronizzazione della directory
+          href: hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+        - name: Autenticazione a più fattori
+          href: hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+        - name: Strategia del ciclo di vita delle identità
+          href: hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+      - name: Pianificare la sicurezza dei dati
+        href: hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md
+        items:
+        - name: Protezione dati
+          href: hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+        - name: Gestione del contenuto
+          href: hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+        - name: Controllo di accesso
+          href: hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+        - name: Risposta agli eventi imprevisti
+          href: hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md
+      - name: Pianificare il ciclo di vita delle identità
+        items:
+        - name: Attività
+          href: hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+        - name: Strategia di adozione
+          href: hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+      - name: Passaggi successivi
+        href: hybrid/plan-hybrid-identity-design-considerations-nextsteps.md
+      - name: Confronto fra strumenti
+        href: hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md
+  - name: Gestire gli utenti
+    items:
+    - name: Aggiungere nuovi utenti ad Azure AD
+      href: fundamentals/add-users-azure-active-directory.md
+    - name: Gestire i profili utente
+      href: fundamentals/active-directory-users-profile-azure-portal.md
+    - name: Reimpostare le password utente
+      href: fundamentals/active-directory-users-reset-password-azure-portal.md
+    - name: Assegnare utenti a ruoli amministrativi
+      href: fundamentals/active-directory-users-assign-role-azure-portal.md
+    - name: Aggiungere utenti guest da un'altra directory (B2B)
+      href: b2b/what-is-b2b.md
+      items:
+      - name: Aggiunta di utenti B2B da parte di amministratori
+        href: b2b/add-users-administrator.md
+      - name: Aggiunta di utenti B2B da parte di information worker
+        href: b2b/add-users-information-worker.md
+      - name: API e personalizzazione
+        href: b2b/customize-invitation-api.md
+      - name: Federazione Google
+        href: b2b/google-federation.md
+      - name: Esempi di Azure PowerShell e di codice
+        href: b2b/code-samples.md
+      - name: Esempio di portale per l'iscrizione self-service
+        href: b2b/self-service-portal.md
+      - name: Messaggio di posta elettronica di invito
+        href: b2b/invitation-email-elements.md
+      - name: Riscatto di un invito
+        href: b2b/redemption-experience.md
+      - name: Aggiungere utenti B2B senza un invito
+        href: b2b/add-user-without-invite.md
+      - name: Consentire o bloccare gli inviti
+        href: b2b/allow-deny-list.md
+      - name: Accesso condizionale per B2B
+        href: b2b/conditional-access.md
+      - name: Criteri di condivisione per B2B
+        href: b2b/delegate-invitations.md
+      - name: Aggiungere un utente B2B a un ruolo
+        href: b2b/add-guest-to-role.md
+      - name: Gruppi dinamici e utenti B2B
+        href: b2b/use-dynamic-groups.md
+      - name: Uscire da un'organizzazione
+        href: b2b/leave-the-organization.md
+      - name: Controllo e report
+        href: b2b/auditing-and-reporting.md
+      - name: B2B per organizzazioni ibride
+        href: b2b/hybrid-organizations.md
+        items:
+        - name: Concedere l'accesso alle app locali agli utenti di B2B
+          href: b2b/hybrid-cloud-to-on-premises.md
+        - name: Concedere l'accesso alle app cloud agli utenti locali
+          href: b2b/hybrid-on-premises-to-cloud.md
+      - name: Condivisione esterna di Office 365 e B2B
+        href: b2b/o365-external-user.md
+      - name: Licenze B2B
+        href: b2b/licensing-guidance.md
+      - name: Limitazioni correnti
+        href: b2b/current-limitations.md
+      - name: Domande frequenti
+        href: b2b/faq.md
+      - name: Risoluzione dei problemi di B2B
+        href: b2b/troubleshoot.md
+      - name: Informazioni sull'utente B2B
+        href: b2b/user-properties.md
+      - name: Token utente B2B
+        href: b2b/user-token.md
+      - name: B2B per app integrate con Azure AD
+        href: b2b/configure-saas-apps.md
+      - name: Mapping delle attestazioni utente B2B
+        href: b2b/claims-mapping.md
+      - name: Confrontare Collaborazione B2B con B2C
+        href: b2b/compare-with-b2c.md
+      - name: Ottenere assistenza per B2B
+        href: b2b/get-support.md
+  - name: Gestire i gruppi e i membri
+    href: fundamentals/active-directory-manage-groups.md
+    items:
+    - name: Gestire i gruppi
+      href: fundamentals/active-directory-groups-create-azure-portal.md
+    - name: Eliminare un gruppo e i relativi membri
+      href: fundamentals/active-directory-groups-delete-group.md
+    - name: Gestire le impostazioni dei gruppi
+      href: fundamentals/active-directory-groups-settings-azure-portal.md
+  - name: Gestire i report
+    href: reports-monitoring/overview-reports.md
+    items:
+    - name: Attività di accesso
+      href: reports-monitoring/concept-sign-ins.md
+    - name: Attività di controllo
+      href: reports-monitoring/concept-audit-logs.md
+    - name: Utenti a rischio.
+      href: reports-monitoring/concept-user-at-risk.md
+    - name: Accessi a rischio
+      href: reports-monitoring/concept-risky-sign-ins.md
+    - name: Eventi di rischio
+      href: reports-monitoring/concept-risk-events.md
+    - name: Monitoraggio dei log con Monitoraggio di Azure
+      href: reports-monitoring/concept-activity-logs-in-azure-monitor.md
+    - name: Domande frequenti
+      href: reports-monitoring/reports-faq.md
+    - name: Attività
+      items:
+      - name: Scaricare un report relativo agli accessi
+        href: reports-monitoring/quickstart-download-sign-in-report.md
+      - name: Scaricare un report di controllo
+        href: reports-monitoring/quickstart-download-audit-report.md
+      - name: Configurare località denominate
+        href: reports-monitoring/quickstart-configure-named-locations.md
+      - name: Trovare report sull'attività
+        href: reports-monitoring/howto-find-activity-reports.md
+      - name: Usare il pacchetto di contenuto Power BI per Azure AD
+        href: reports-monitoring/howto-power-bi-content-pack.md
+      - name: Correggere gli utenti contrassegnati per il rischio
+        href: reports-monitoring/howto-remediate-users-flagged-for-risk.md
+      - name: Instradare i log attività a un hub eventi di Azure
+        href: reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md
+      - name: Archiviare i log attività in un account di archiviazione di Azure
+        href: reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md
+      - name: Integrare i log attività con Splunk usando Monitoraggio di Azure
+        href: reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md
+      - name: Integrare i log attività con SumoLogic usando Monitoraggio di Azure
+        href: reports-monitoring/howto-integrate-activity-logs-with-sumologic.md
+      - name: Integrare i log attività con Log Analytics usando Monitoraggio di Azure
+        href: reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md
+    - name: riferimento
+      items:
+      - name: Conservazione
+        href: reports-monitoring/reference-reports-data-retention.md
+      - name: Latenze
+        href: reports-monitoring/reference-reports-latencies.md
+      - name: Informazioni di riferimento sulle attività di controllo
+        href: reports-monitoring/reference-audit-activities.md
+      - name: Codici errore relativi alle attività di accesso
+        href: reports-monitoring/reference-sign-ins-error-codes.md
+      - name: Interpretare lo schema del log di controllo in Monitoraggio di Azure
+        href: reports-monitoring/reference-azure-monitor-audit-log-schema.md
+      - name: Interpretare lo schema del log di accesso in Monitoraggio di Azure
+        href: reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md
+    - name: Risolvere problemi
+      items:
+      - name: Dati mancanti nei log attività di Azure AD
+        href: reports-monitoring/troubleshoot-missing-audit-data.md
+      - name: Dati mancanti nei download
+        href: reports-monitoring/troubleshoot-missing-data-download.md
+      - name: Errori del pacchetto di contenuto dei log attività di Azure AD
+        href: reports-monitoring/troubleshoot-content-pack.md
+      - name: Errori nell'API di creazione report di Azure AD
+        href: reports-monitoring/troubleshoot-graph-api.md
+    - name: Accesso a livello di codice
+      href: reports-monitoring/concept-reporting-api.md
+      items:
+      - name: Prerequisiti
+        href: reports-monitoring/howto-configure-prerequisites-for-reporting-api.md
+      - name: Uso dei certificati
+        href: reports-monitoring/tutorial-access-api-with-certificates.md
+  - name: Gestire le password
+    href: authentication/concept-sspr-howitworks.md
+  - name: Gestire le app
+    items:
+    - name: Panoramica
+      href: manage-apps/what-is-application-management.md
+    - name: Introduzione
+      href: manage-apps/plan-an-application-integration.md
+    - name: Esercitazioni sull'integrazione di app SaaS
+      href: saas-apps/tutorial-list.md
+    - name: Provisioning e deprovisioning di utenti nelle app SaaS
+      href: manage-apps/user-provisioning.md
+      items:
+      - name: Esercitazioni sull'integrazione di app
+        href: saas-apps/tutorial-list.md
+      - name: Automatizzare il provisioning nelle app abilitate per SCIM
+        href: manage-apps/use-scim-to-provision-users-and-groups.md
+      - name: Personalizzare i mapping degli attributi
+        href: manage-apps/customize-application-attributes.md
+      - name: Scrivere espressioni per il mapping degli attributi
+        href: manage-apps/functions-for-customizing-application-data.md
+      - name: Usare i filtri per la definizione dell'ambito
+        href: manage-apps/define-conditional-rules-for-provisioning-user-accounts.md
+      - name: Creare report sul provisioning utenti automatico
+        href: manage-apps/check-status-user-account-provisioning.md
+      - name: Risolvere i problemi del provisioning utenti
+        href: active-directory-application-provisioning-content-map.md
+    - name: Accedere alle app in remoto con il proxy delle app
+      href: manage-apps/application-proxy.md
+      items:
+      - name: Attività iniziali
+        items:
+        - name: Abilitare il proxy di applicazione
+          href: manage-apps/application-proxy-enable.md
+        - name: Pubblicare le app
+          href: manage-apps/application-proxy-publish-azure-portal.md
+        - name: Domini personalizzati
+          href: manage-apps/application-proxy-configure-custom-domain.md
+      - name: Single sign-on
+        href: manage-apps/application-proxy-single-sign-on.md
+        items:
+        - name: SSO con la delega vincolata Kerberos
+          href: manage-apps/application-proxy-configure-single-sign-on-with-kcd.md
+        - name: SSO con le intestazioni
+          href: manage-apps/application-proxy-configure-single-sign-on-with-ping-access.md
+        - name: SSO con l'insieme di credenziali delle password
+          href: manage-apps/application-proxy-configure-single-sign-on-password-vaulting.md
+      - name: Concetti
+        items:
+        - name: Connettori
+          href: manage-apps/application-proxy-connectors.md
+        - name: Security
+          href: manage-apps/application-proxy-security.md
+        - name: Reti
+          href: manage-apps/application-proxy-network-topology.md
+        - name: Aggiornamento da TMG o UAG
+          href: manage-apps/application-proxy-migration.md
+      - name: Configurazioni avanzate
+        items:
+        - name: Pubblicare su reti distinte
+          href: manage-apps/application-proxy-connector-groups.md
+        - name: Server proxy
+          href: manage-apps/application-proxy-configure-connectors-with-proxy-servers.md
+        - name: App in grado di riconoscere attestazioni
+          href: manage-apps/application-proxy-configure-for-claims-aware-applications.md
+        - name: App client native
+          href: manage-apps/application-proxy-configure-native-client-application.md
+        - name: Installazione invisibile all'utente
+          href: manage-apps/application-proxy-register-connector-powershell.md
+        - name: Home page personalizzata
+          href: manage-apps/application-proxy-configure-custom-home-page.md
+        - name: Tradurre i collegamenti inline
+          href: manage-apps/application-proxy-configure-hard-coded-link-translation.md
+        - name: Caratteri jolly
+          href: manage-apps/application-proxy-wildcard.md
+        - name: Rimuovere i dati personali
+          href: manage-apps/application-proxy-remove-personal-data.md
+      - name: Procedure dettagliate di pubblicazione
+        items:
+        - name: Desktop remoto
+          href: manage-apps/application-proxy-integrate-with-remote-desktop-services.md
+        - name: SharePoint
+          href: manage-apps/application-proxy-integrate-with-sharepoint-server.md
+        - name: Microsoft Teams
+          href: manage-apps/application-proxy-integrate-with-teams.md
+        - name: Tableau
+          href: manage-apps/application-proxy-integrate-with-tableau.md
+        - name: Qlik
+          href: manage-apps/application-proxy-qlik.md
+      - name: PowerShell
+        href: https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management
+      - name: Risolvere problemi
+        href: manage-apps/application-proxy-troubleshoot.md
+    - name: Gestire le app aziendali
+      items:
+      - name: Aggiungere un'applicazione
+        href: manage-apps/add-application-portal.md
+      - name: Visualizzare le app di tenant
+        href: manage-apps/view-applications-portal.md
+      - name: Configura accesso Single Sign-On
+        href: manage-apps/configure-single-sign-on-portal.md
+      - name: Assegna utenti
+        href: manage-apps/assign-user-or-group-access-portal.md
+      - name: Modificare la personalizzazione
+        href: manage-apps/change-name-or-logo-portal.md
+      - name: Disabilitare l'accesso degli utenti
+        href: manage-apps/disable-user-sign-in-portal.md
+      - name: Rimuovere utenti
+        href: manage-apps/remove-user-or-group-access-portal.md
+      - name: Gestire il provisioning degli account utente
+        href: manage-apps/configure-automatic-user-provisioning-portal.md
+      - name: Firma di certificati avanzata per app SAML
+        href: manage-apps/certificate-signing-options.md
+      - name: Nascondere un'applicazione dall'esperienza di un utente
+        href: manage-apps/hide-application-from-user-portal.md
+    - name: Configurare l'accelerazione automatica dell'accesso tramite i criteri HRD
+      href: manage-apps/configure-authentication-for-federated-users-portal.md
+    - name: Eseguire la migrazione di app di AD FS in Azure AD
+      href: manage-apps/migrate-adfs-apps-to-azure.md
+    - name: Gestire l'accesso alle app
+      href: manage-apps/what-is-access-management.md
+      items:
+      - name: Accesso SSO
+        href: manage-apps/what-is-single-sign-on.md
+      - name: Certificati per SSO
+        href: manage-apps/manage-certificates-for-federated-single-sign-on.md
+      - name: Restrizioni relative ai tenant
+        href: manage-apps/tenant-restrictions.md
+      - name: Usare SCIM per il provisioning degli utenti
+        href: manage-apps/use-scim-to-provision-users-and-groups.md
+    - name: Informazioni sulle esperienze di consenso per le applicazioni di Azure AD
+      href: develop/application-consent-experience.md
+    - name: Risolvere problemi
+      items:
+      - name: Pannello di accesso
+        items:
+        - name: App non visualizzate
+          href: manage-apps/access-panel-troubleshoot-application-not-appearing.md
+        - name: Visualizzazione di app impreviste
+          href: manage-apps/access-panel-troubleshoot-unexpected-application.md
+        - name: Accesso non riuscito
+          href: manage-apps/access-panel-troubleshoot-web-sign-in-problem.md
+        - name: Errore durante l'installazione dell'estensione del browser
+          href: manage-apps/access-panel-extension-problem-installing.md
+        - name: Come usare l'accesso alle app self-service
+          href: manage-apps/access-panel-manage-self-service-access.md
+        - name: Errore durante l'uso dell'accesso alle app self-service
+          href: manage-apps/access-panel-troubleshoot-self-service-access.md
+      - name: Aggiunta di un'app
+        items:
+        - name: Scegliere un tipo di app
+          href: manage-apps/choose-application-type.md
+        - name: Problemi comuni - App della raccolta
+          href: manage-apps/adding-gallery-app-common-problems.md
+        - name: Problemi comuni - App non della raccolta
+          href: manage-apps/adding-non-gallery-app-common-problems.md
+      - name: Proxy dell'applicazione
+        items:
+        - name: Problema durante la visualizzazione di una pagina dell'app
+          href: manage-apps/application-proxy-page-appearance-broken-problem.md
+        - name: Il caricamento dell'applicazione richiede troppo tempo
+          href: manage-apps/application-proxy-page-load-speed-problem.md
+        - name: I collegamenti nella pagina dell'applicazione non funzionano
+          href: manage-apps/application-proxy-page-links-broken-problem.md
+        - name: Porte da aprire per l'app
+          href: manage-apps/application-proxy-connectivity-ports-how-to.md
+        - name: Nessun connettore funzionante in un gruppo di connettori per l'app
+          href: manage-apps/application-proxy-connectivity-no-working-connector.md
+        - name: Configurare nel portale di amministrazione
+          href: manage-apps/application-proxy-config-how-to.md
+        - name: Configurare l'accesso Single Sign-On per l'app
+          href: manage-apps/application-proxy-config-sso-how-to.md
+        - name: Problema durante la creazione di un'app nel portale di amministrazione
+          href: manage-apps/application-proxy-config-problem.md
+        - name: Configurare la delega vincolata di Kerberos
+          href: manage-apps/application-proxy-back-end-kerberos-constrained-delegation-how-to.md
+        - name: Configurare con PingAccess
+          href: manage-apps/application-proxy-back-end-ping-access-how-to.md
+        - name: Errore di accesso all'applicazione aziendale
+          href: manage-apps/application-proxy-sign-in-bad-gateway-timeout-error.md
+        - name: Problemi di installazione del connettore dell'agente proxy dell'applicazione
+          href: manage-apps/application-proxy-connector-installation-problem.md
+      - name: Registrazione dell'applicazione
+        items:
+        - name: Immettere i campi per l'oggetto applicazione
+          href: develop/registration-config-specific-application-property-how-to.md
+        - name: Modificare le impostazioni predefinite per la durata del token
+          href: develop/registration-config-change-token-lifetime-how-to.md
+      - name: Authentication
+        items:
+        - name: Configurare gli endpoint
+          href: develop/registration-config-how-to.md
+      - name: Accesso condizionale
+        items:
+        - name: Il cliente non rispetta i prerequisiti per la registrazione del dispositivo
+          href: active-directory-conditional-access.md
+        - name: Come e quando vengono applicate le regole al di fuori della rete aziendale?
+          href: https://aka.ms/calocation
+        - name: Come si aumenta il numero di dispositivi che un utente può registrare in Azure AD?
+          href: active-directory-azureadjoin-setup.md
+        - name: Come si configura l'accesso condizionale per Exchange Online?
+          href: https://aka.ms/csforexchange
+        - name: Come si configura l'accesso condizionale per dispositivi Windows 7?
+          href: active-directory-conditional-access.md#device-based-conditional-access
+        - name: Quali applicazioni sono supportate con l'accesso condizionale?
+          href: active-directory-conditional-access-supported-apps.md
+      - name: Trovare un'API
+        items:
+        - name: Trovare un'API
+          href: develop/api-find-an-api-how-to.md
+      - name: Gestione dell'accesso
+        items:
+        - name: Assegnare utenti e gruppi a un'app
+          href: manage-apps/methods-for-assigning-users-and-groups.md
+        - name: Rimuovere l'accesso di un utente a un'app
+          href: manage-apps/methods-for-removing-user-access.md
+        - name: Configurare l'assegnazione di app self-service
+          href: manage-apps/manage-self-service-access.md
+        - name: Utente imprevisto assegnato
+          href: manage-apps/ways-users-get-assigned-to-applications.md
+        - name: App imprevista nell'elenco di applicazioni
+          href: manage-apps/application-types.md
+      - name: App multi-tenant
+        items:
+        - name: Configurare una nuova app
+          href: develop/setup-multi-tenant-app.md
+        - name: Aggiungere alla raccolta di app
+          href: develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md
+      - name: Autorizzazioni
+        items:
+        - name: Scegliere le autorizzazioni per un'API
+          href: develop/perms-for-given-api.md
+        - name: Confronto tra delegati e autorizzazioni dell'applicazione
+          href: develop/delegated-and-app-perms.md
+        - name: Consenso per applicazioni
+          href: develop/consent-framework.md
+      - name: Provisioning
+        items:
+        - name: Tempo necessario
+          href: manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md
+        - name: Tempo necessario eccessivo - App della raccolta
+          href: manage-apps/application-provisioning-when-will-provisioning-finish.md
+        - name: Configurare il provisioning utenti - App della raccolta
+          href: manage-apps/application-provisioning-config-how-to.md
+        - name: Problema durante la configurazione del provisioning utenti - App della raccolta
+          href: manage-apps/application-provisioning-config-problem.md
+        - name: Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti nell'app della raccolta
+          href: manage-apps/application-provisioning-config-problem-storage-limit.md
+        - name: Utenti senza provisioning - App della raccolta
+          href: manage-apps/application-provisioning-config-problem-no-users-provisioned.md
+        - name: Provisioning di utenti errati - App della raccolta
+          href: manage-apps/application-provisioning-config-problem-wrong-users-provisioned.md
+        - name: Problemi di compatibilità con SCIM - App non della raccolta
+          href: manage-apps/application-provisioning-config-problem-scim-compatibility.md
+      - name: Single sign-on
+        items:
+        - name: Scegliere un metodo
+          href: manage-apps/single-sign-on-modes.md
+        - name: Configurare
+          href: develop/registration-config-sso-how-to.md
+        - name: Configurare l'accesso federato - App della raccolta
+          href: manage-apps/configure-federated-single-sign-on-gallery-applications.md
+        - name: Problemi comuni della configurazione dell'accesso federato - App della raccolta
+          href: manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md
+        - name: Configurare l'accesso federato - App non della raccolta
+          href: manage-apps/configure-federated-single-sign-on-non-gallery-applications.md
+        - name: Problemi comuni della configurazione dell'accesso federato - App non della raccolta
+          href: manage-apps/configure-federated-single-sign-on-non-gallery-applications-problems.md
+        - name: Configurare la password - App della raccolta
+          href: manage-apps/configure-password-single-sign-on-gallery-applications.md
+        - name: Problemi comuni della configurazione delle password - App della raccolta
+          href: manage-apps/configure-password-single-sign-on-gallery-applications-problems.md
+        - name: Configurare la password - App non della raccolta
+          href: manage-apps/configure-password-single-sign-on-non-gallery-applications.md
+        - name: Problemi comuni della configurazione delle password - App non della raccolta
+          href: manage-apps/configure-password-single-sign-on-non-gallery-applications-problems.md
+      - name: Problemi di accesso utente
+        items:
+        - name: Richiesta di consenso imprevista
+          href: manage-apps/application-sign-in-unexpected-user-consent-prompt.md
+        - name: Errore di consenso utente
+          href: manage-apps/application-sign-in-unexpected-user-consent-error.md
+        - name: Problemi durante l'accesso dal portale personalizzato
+          href: manage-apps/application-sign-in-other-problem-deeplink.md
+        - name: Problemi durante l'accesso dal pannello di accesso
+          href: manage-apps/application-sign-in-other-problem-access-panel.md
+        - name: Errore della pagina di accesso dell'applicazione
+          href: manage-apps/application-sign-in-problem-application-error.md
+        - name: Problema con accesso Single Sign-On basato su password - App non della raccolta
+          href: manage-apps/application-sign-in-problem-password-sso-non-gallery.md
+        - name: Problema con accesso Single Sign-On basato su password - App della raccolta
+          href: manage-apps/application-sign-in-problem-password-sso-gallery.md
+        - name: Problema durante l'accesso a un'app Microsoft
+          href: manage-apps/application-sign-in-problem-first-party-microsoft.md
+        - name: Problema con accesso Single Sign-On federato - App non della raccolta
+          href: manage-apps/application-sign-in-problem-federated-sso-non-gallery.md
+        - name: Problema con accesso Single Sign-On federato - App della raccolta
+          href: manage-apps/application-sign-in-problem-federated-sso-gallery.md
+        - name: Problema con app sviluppata in modo personalizzato
+          href: manage-apps/application-sign-in-problem-custom-dev.md
+        - name: Problema dell'app locale - Proxy dell'applicazione
+          href: manage-apps/application-sign-in-problem-on-premises-application-proxy.md
+  - name: Gestire la directory
+    items:
+    - name: Azure AD Connect
+      href: hybrid/whatis-hybrid-identity.md
+    - name: Nomi di dominio personalizzati
+      items:
+      - name: Guida introduttiva
+        href: fundamentals/add-custom-domain.md
+    - name: Amministrare la directory
+      href: fundamentals/active-directory-administer.md
+    - name: Integrare le identità locali usando Azure AD Connect
+      href: hybrid/whatis-hybrid-identity.md
+    - name: Configurare le durate dei token
+      href: develop/active-directory-configurable-token-lifetimes.md
+  - name: Proteggere le identità
+    items:
+    - name: Privileged Identity Management
+      href: privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json
+  - name: Risolvere problemi
+    href: fundamentals/active-directory-troubleshooting-support-howto.md
+  - name: Distribuire il modello di verifica (PoC) di Azure AD
+    items:
+    - name: 'Playbook sul modello di verifica: Introduzione'
+      href: active-directory-playbook-intro.md
+    - name: 'Playbook sul modello di verifica: Ingredienti'
+      href: active-directory-playbook-ingredients.md
+    - name: 'Playbook sul modello di verifica: Implementazione'
+      href: active-directory-playbook-implementation.md
+    - name: 'Playbook sul modello di verifica: Blocchi predefiniti'
+      href: active-directory-playbook-building-blocks.md
+- name: riferimento
+  items:
+  - name: Esempi di codice
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+  - name: Cmdlet di Azure PowerShell
+    href: /powershell/azure/overview
+  - name: Informazioni di riferimento sulle API Java
+    href: /java/api
+  - name: API .NET
+    href: /active-directory/adal/microsoft.identitymodel.clients.activedirectory
+- name: Risorse correlate
+  items:
+  - name: Multi-Factor Authentication
+    href: /azure/multi-factor-authentication/
+  - name: Azure AD Connect
+    href: hybrid/whatis-hybrid-identity.md
+  - name: Azure AD Connect Health
+    href: hybrid/whatis-hybrid-identity-health.md
+  - name: Azure AD per sviluppatori
+    href: ./develop/active-directory-how-to-integrate.md
+  - name: Gestione identità con privilegi di Azure AD
+    href: ./privileged-identity-management/pim-configure.md
+- name: Risorse
+  items:
+  - name: Piani di distribuzione di Azure AD
+    href: ./fundamentals/active-directory-deployment-plans.md
+  - name: Forum di commenti e suggerimenti su Azure
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Forum MSDN
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: Prezzi
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Calcolatore prezzi
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Aggiornamenti del servizio
+    href: https://azure.microsoft.com/updates/?product=active-directory
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Video
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 91b16e11806ca9c7f5fc931110ae337ddc2ecec3
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341561"

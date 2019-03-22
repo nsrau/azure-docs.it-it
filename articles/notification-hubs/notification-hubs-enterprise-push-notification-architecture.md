@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: jowargo
-ms.openlocfilehash: c8e204aef8bea26394c7180a72eb8ed8f62bbdc4
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 369f3ebca0ca2f5862d8300934dee57a73d8bada
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54447259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903403"
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Guida all'architettura push aziendale
 
@@ -284,9 +284,9 @@ Il codice completo è disponibile nella pagina relativa agli [esempi di Hub di n
 
 <!-- Links -->
 [esempi di Hub di notifica]: https://github.com/Azure/azure-notificationhubs-samples
-[Servizio mobile di Azure]: http://azure.microsoft.com/documentation/services/mobile-services/
-[bus di servizio di Azure]: http://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
-[Come usare argomenti/sottoscrizioni del bus di servizio]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
+[Servizio mobile di Azure]: https://azure.microsoft.com/documentation/services/mobile-services/
+[bus di servizio di Azure]: https://azure.microsoft.com/documentation/articles/fundamentals-service-bus-hybrid-solutions/
+[Come usare argomenti/sottoscrizioni del bus di servizio]: https://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Processo Web di Azure]: ../app-service/webjobs-create.md
-[Introduzione ad Hub di notifica]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
+[Introduzione ad Hub di notifica]: https://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
 [Portale di Azure]: https://portal.azure.com/

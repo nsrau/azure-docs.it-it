@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 222957bb79a88ec7b4c6e9afd6d86fe2776dbfd3
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: 7ac210d9b30a05fd5dbfd46c41c3e62a1d610357
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56301793"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891104"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Progetto di sicurezza e conformità di Azure: Hosting di applicazioni Web PaaS per i carichi di lavoro UK OFFICIAL
 
@@ -57,9 +57,8 @@ Questa soluzione usa i servizi di Azure seguenti. Informazioni dettagliate sull'
 - App per le API
 - DNS di Azure
 - Key Vault
-- Monitoraggio di Azure
+- Monitoraggio di Azure (log)
 - Application Insights
-- Log Analytics
 - Azure Resource Manager
 - Centro sicurezza di Azure
 -  database SQL di Azure
@@ -169,11 +168,11 @@ Informazioni dettagliate sulla protezione di Archiviazione di Azure sono disponi
 
 ### <a name="monitoring-logging-and-audit"></a>Monitoraggio, registrazione e controllo
 
-#### <a name="log-analytics"></a>Log Analytics
+#### <a name="azure-monitor-logs"></a>Log di Monitoraggio di Azure
 
-[Log Analytics](https://azure.microsoft.com/services/log-analytics/) è un servizio di Azure che permette di raccogliere e analizzare i dati generati dalle risorse nel cloud e negli ambienti locali.
+[Log di monitoraggio di Azure](https://azure.microsoft.com/services/log-analytics/) è un servizio di Azure che consente di raccogliere e analizzare i dati generati dalle risorse nel cloud e negli ambienti locali.
 
-#### <a name="log-analytics-in-this-blueprint"></a>Log Analytics in questo progetto
+#### <a name="azure-monitor-logs-in-this-blueprint"></a>Monitoraggio di Azure log in questo progetto
 
 - SQL Assessment
 - Diagnostica dell'insieme di credenziali delle chiavi
@@ -220,7 +219,7 @@ Cloud Security Alliance (CSA) ha inoltre pubblicato la matrice di controllo clou
 
 Questo progetto è stato rivisto dal UK National Cyber Security Centre (NCSC) ed è conforme ai principi di sicurezza del cloud NCSC 14
 
-I modelli di automazione sono stati testati dal team UK Customer Success Unit Azure Cloud Solution Architect e dal partner Microsoft [Ampliphae](http://www.ampliphae.com/).
+I modelli di automazione sono stati testati dal team UK Customer Success Unit Azure Cloud Solution Architect e dal partner Microsoft [Ampliphae](https://www.ampliphae.com/).
 
 
 ## <a name="deploy-the-solution"></a>Distribuire la soluzione

@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae428f18a2b927f42716a1c00b55790fe73d81a4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173403"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891138"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Questo articolo illustra anche la configurazione predefinita del servizio di sincronizzazione Azure AD Connect. Scopo dell'articolo è spiegare con un esempio reale il funzionamento del modello di configurazione, detto provisioning dichiarativo. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
@@ -151,7 +151,7 @@ Una regola di sincronizzazione include quattro sezioni di configurazione: descri
 #### <a name="description"></a>DESCRIZIONE
 La prima sezione fornisce informazioni di base, ad esempio il nome e una descrizione.
 
-![Scheda Description (Descrizione) nell'editor delle regole di sincronizzazione ](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
+![Scheda Description (Descrizione) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncruledescription.png)
 
 Sono anche disponibili informazioni sul sistema connesso a cui la regola è correlata, sul tipo di oggetto presente nel sistema connesso a cui si applica la regola e sul tipo di oggetto del metaverse. Il tipo di oggetto del metaverse è sempre una persona, indipendentemente dal fatto che il tipo di oggetto di origine sia un utente, iNetOrgPerson o un contatto. Il tipo di oggetto del metaverse deve rimanere invariato, pertanto, viene creato come tipo generico. Il tipo di collegamento può essere impostato su Join, StickyJoin o Provision. Questa impostazione interagisce con la sezione Join rules (Regole di unione) e verrà discussa più avanti.
 
@@ -160,18 +160,18 @@ Si può anche vedere che questa regola di sincronizzazione viene usata per la si
 #### <a name="scoping-filter"></a>Filtro per la definizione dell'ambito
 La sezione Filtro per la definizione dell'ambito viene usata per configurare i tempi di applicazione di una regola di sincronizzazione. Dal momento che il nome della regola di sincronizzazione in esame indica che deve essere applicata solo per utenti abilitati, l'ambito viene configurato in modo che l'attributo AD **userAccountControl** non abbia il bit 2 impostato. Quando il motore di sincronizzazione trova un utente in AD, applica questa regola di sincronizzazione quando **userAccountControl** è impostato sul valore decimale 512, ovvero utente normale abilitato. Non applica la regola quando l'utente ha **userAccountControl** impostato su 514, ovvero utente normale disabilitato.
 
-![Scheda Scoping filter (Filtro di ambito) nell'editor delle regole di sincronizzazione ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
+![Scheda Scoping filter (Filtro di ambito) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilter.png)
 
 Il filtro per la definizione dell'ambito contiene gruppi e clausole che possono essere annidati. Per essere applicate, tutte le clausole all'interno di un gruppo devono essere soddisfatte per una regola di sincronizzazione. Quando si definiscono più gruppi, affinché la regola venga applicata è necessario che almeno un gruppo venga soddisfatto. In altri termini, un OR logico viene valutato tra gruppi, mentre un AND logico viene valutato all'interno di un gruppo. Un esempio di questa configurazione è costituito dalla regola di sincronizzazione in uscita **Out to AAD – Group Join**. Sono presenti diversi gruppi di filtri di sincronizzazione, ad esempio uno per i gruppi di sicurezza (`securityEnabled EQUAL True`) e uno per i gruppi di distribuzione (`securityEnabled EQUAL False`).
 
-![Scheda Scoping filter (Filtro di ambito) nell'editor delle regole di sincronizzazione ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
+![Scheda Scoping filter (Filtro di ambito) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncrulescopingfilterout.png)
 
 Questa regola viene usata per definire i gruppi di cui deve essere effettuato il provisioning in Azure AD. I gruppi di distribuzione devono essere abilitati per la posta elettronica per essere sincronizzati con Azure AD. La posta elettronica non è invece necessaria per i gruppi di sicurezza.
 
 #### <a name="join-rules"></a>Regole di unione
 La terza sezione viene usata per configurare il modo in cui gli oggetti presenti nello spazio connettore sono correlati a oggetti presenti nel metaverse. La regola esaminata in precedenza non include alcuna configurazione per le regole di unione. Per questo motivo, verrà presa in esame la regola **In from AD – User Join**.
 
-![Scheda Join rules (Regole di unione) nell'editor delle regole di sincronizzazione ](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
+![Scheda Join rules (Regole di unione) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncrulejoinrules.png)
 
 Il contenuto della regola di unione dipende dall'opzione corrispondente selezionata nell'installazione guidata. Per una regola in ingresso, la valutazione inizia con un oggetto presente nello spazio connettore di origine. Ogni gruppo nelle regole di unione viene valutato in sequenza. Se, usando una delle regole di unione, la valutazione di un oggetto di origine indica che questo corrisponde esattamente a un oggetto presente nel metaverse, i due oggetti verranno uniti. Se dopo la valutazione di tutte le regole non risulta alcuna associazione, viene usato il tipo di collegamento indicato nella pagina di descrizione. Se la configurazione è impostata su **Provision** (Provisioning), nella destinazione verrà creato un nuovo oggetto, il metaverse. Il provisioning di un nuovo oggetto nel metaverse viene definito anche **proiezione** di un oggetto nel metaverse.
 
@@ -184,7 +184,7 @@ Se si osserva l'immagine precedente, si noterà che la regola prova a creare un 
 #### <a name="transformations"></a>Trasformazioni
 La sezione Transformations (Trasformazioni) definisce tutti i flussi di attributi applicati all'oggetto di destinazione quando gli oggetti vengono uniti e il filtro dell'ambito è soddisfatto. Prendendo di nuovo in esame la regola di sincronizzazione **In from AD – User AccountEnabled** , si noteranno le trasformazioni seguenti:
 
-![Scheda Transformations (Trasformazioni) nell'editor delle regole di sincronizzazione ](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
+![Scheda Transformations (Trasformazioni) nell'editor delle regole di sincronizzazione](./media/concept-azure-ad-connect-sync-default-configuration/syncruletransformations.png)
 
 Per contestualizzare questa configurazione, in una distribuzione con una foresta di account e una di risorse si prevede di trovare un account abilitato nella foresta di account e un account disabilitato nella foresta di risorse con impostazioni Exchange e Lync. La regola di sincronizzazione presa in esame contiene gli attributi necessari per eseguire l'accesso. Questi attributi devono essere trasmessi dalla foresta in cui è presente un account abilitato. Tutti questi flussi di attributi vengono riuniti in una regola di sincronizzazione.
 
@@ -201,7 +201,7 @@ Il linguaggio delle espressioni è VBA (Visual Basic for Applications), quindi g
 IIF(
 // (The evaluation for IIF) Is the attribute pwdLastSet present in AD?
 IsPresent([pwdLastSet]),
-// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .Net datetime, change it to the time format used by Azure AD, and finally convert it to a string.
+// (The True part of IIF) If it is, then from right to left, convert the AD time format to a .NET datetime, change it to the time format used by Azure AD, and finally convert it to a string.
 CStr(FormatDateTime(DateFromNum([pwdLastSet]),"yyyyMMddHHmmss.0Z")),
 // (The False part of IIF) Nothing to contribute
 NULL

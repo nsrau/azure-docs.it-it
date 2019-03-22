@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 77963377d322a1c70226ceb772273127bec380de
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: 2272414c185388df0ccbc9e21b7d166432fc7a52
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506806"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58110410"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Domande frequenti sulla migrazione di Archiviazione di Azure
 
@@ -282,7 +282,7 @@ Per concedere ad altri utenti l'accesso alle risorse di archiviazione:
 
     - **Token SAS**: usare un token di firma di accesso condiviso (SAS) per accedere ai dati dall'endpoint. Per altre informazioni, vedere [Uso delle firme di accesso condiviso](storage-dotnet-shared-access-signature-part-1.md).
 
-**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come si fa a visualizzare "https://mystorageaccountname.blob.core.windows.net/images/image.gif" come "https://www.contoso.com/images/image.gif"?**
+**Come si usa un dominio personalizzato HTTPS con l'account di archiviazione? Ad esempio, come si fa a visualizzare "<https://mystorageaccountname.blob.core.windows.net/images/image.gif>" come "<https://www.contoso.com/images/image.gif>"?**
 
 Gli account di archiviazione con domini personalizzati attualmente non supportano l'autenticazione SSL.
 È però possibile usare domini personalizzati non HTTPS. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'endpoint di archiviazione BLOB](../blobs/storage-custom-domain-name.md).

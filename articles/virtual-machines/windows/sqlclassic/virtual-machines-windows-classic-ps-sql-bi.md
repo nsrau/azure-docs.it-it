@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 29e851772e665b4130ee58b04c264d55bcd54523
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51242892"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317783"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>SQL Server Business Intelligence in Macchine virtuali di Azure
 > [!IMPORTANT] 
-> Azure offre due diversi modelli di distribuzione per creare e usare le risorse: [Gestione risorse e la distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
+> Azure offre due modelli di distribuzione diversi per creare e usare le risorse: [Resource Manager e distribuzione classica](../../../azure-resource-manager/resource-manager-deployment-model.md). Questo articolo illustra l'uso del modello di distribuzione classica. Microsoft consiglia di usare il modello di Gestione risorse per le distribuzioni più recenti.
 
 La raccolta di macchine virtuali di Microsoft Azure include immagini che contengono installazioni SQL Server. Le edizioni di SQL Server supportate nelle immagini della raccolta sono gli stessi file di installazione che è possibile installare in computer locali e macchine virtuali. Questo argomento riepiloga le funzionalità di SQL Server Business Intelligence (BI) installate nelle immagini e i passaggi di configurazione necessari dopo il provisioning di una macchina virtuale. Questo argomento descrive inoltre le topologie di distribuzione supportate per le funzionalità di Business Intelligence e le procedure consigliate.
 
@@ -40,9 +40,9 @@ Per altre informazioni sulla gestione delle licenze e le tariffe attuali, vedere
 Nella raccolta di macchine virtuali di Microsoft Azure sono disponibili numerose immagini che contengono Microsoft SQL Server. Il software installato in immagini di macchina virtuale varia in base alla versione del sistema operativo e alla versione di SQL Server. L'elenco delle immagini disponibili nella raccolta di macchina virtuale di Azure viene spesso modificato.
 
 <!--![SQL image in azure VM gallery](./media/virtual-machines-windows-classic-ps-sql-bi/IC741367.png)-->
-![Immagine SQL nella raccolta di macchine virtuali di Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
+![Immagine SQL nella raccolta di macchine Virtuali di Azure](./media/virtual-machines-windows-classic-ps-sql-bi/vm-sql-images.png)
 
-![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Lo script PowerShell seguente restituisce l'elenco di immagini di Azure contenenti "SQL Server" in ImageName:
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif)  Lo script PowerShell seguente restituisce l'elenco di immagini di Azure contenenti "SQL Server" in ImageName:
 
     # assumes you have already uploaded a management certificate to your Microsoft Azure Subscription. View the thumbprint value from the "Subscriptions" menu in Azure portal.
 
@@ -78,15 +78,15 @@ La tabella seguente riepiloga le funzionalità di Business Intelligence installa
 
 | Funzionalità SQL Server BI | Installato nell'immagine della raccolta | Note |
 | --- | --- | --- |
-| **Modalità nativa di Reporting Services** |Yes |Installata ma richiede la configurazione, inclusi l'URL di gestione report. Vedere la sezione [Configurare Reporting Services](#configure-reporting-services). |
+| **Modalità nativa di Reporting Services** |Sì |Installata ma richiede la configurazione, inclusi l'URL di gestione report. Vedere la sezione [Configurare Reporting Services](#configure-reporting-services). |
 | **Modalità SharePoint di Reporting Services** |No  |L'immagine della raccolta macchine virtuali di Microsoft Azure non include SharePoint o i suoi file di installazione. <sup>1</sup> |
-| **Modalità multidimensionale e di Data mining di Analysis Services (OLAP)** |Yes |Installata e configurata come istanza di Analysis Services predefinita |
+| **Modalità multidimensionale e di Data mining di Analysis Services (OLAP)** |Sì |Installata e configurata come istanza di Analysis Services predefinita |
 | **Modalità tabulare di Analysis Services** |No  |Supportata nelle immagini di SQL Server 2012, 2014 e 2016 ma non è installata per impostazione predefinita. Installare un'altra istanza di Analysis Services. Vedere la sezione Installare altri servizi e funzionalità di SQL Server in questo argomento. |
 | **Analysis Services Power Pivot per SharePoint** |No  |L'immagine della raccolta macchine virtuali di Microsoft Azure non include SharePoint o i suoi file di installazione. <sup>1</sup> |
 
 <sup>1</sup> Per altre informazioni su SharePoint e le macchine virtuali di Azure, vedere gli articoli [Microsoft Azure Architectures for SharePoint 2013](https://technet.microsoft.com/library/dn635309.aspx) (Architetture di Microsoft Azure per SharePoint 2013) e [SharePoint Deployment on Microsoft Azure Virtual Machines](https://www.microsoft.com/download/details.aspx?id=34598)(Distribuzione di SharePoint in macchine virtuali di Microsoft Azure).
 
-![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif) Eseguire il comando PowerShell seguente per ottenere un elenco dei servizi installati che contengono "SQL" nel nome del servizio.
+![PowerShell](./media/virtual-machines-windows-classic-ps-sql-bi/IC660119.gif)  Eseguire il comando PowerShell seguente per ottenere un elenco dei servizi installati che contengono "SQL" nel nome del servizio.
 
     get-service | Where-Object{ $_.DisplayName -like '*SQL*' } | Select DisplayName, status, servicetype, dependentservices | format-Table -AutoSize
 
@@ -107,7 +107,7 @@ La tabella seguente riepiloga le funzionalità di Business Intelligence installa
   > [!NOTE]
   > Il motore del database di SQL Server è necessario negli scenari BI supportati. Nella topologia di macchina virtuale con un solo server, il motore del database deve essere in esecuzione nella macchina virtuale stessa.
   
-    Per altre informazioni, vedere gli argomenti seguenti: [Disinstallare Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) e [Procedura: Disinstallazione di un'istanza di Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
+    Per altre informazioni, vedere gli argomenti seguenti:  [Disinstallare Reporting Services](https://msdn.microsoft.com/library/hh479745.aspx) e [disinstallare un'istanza di Analysis Services](https://msdn.microsoft.com/library/ms143687.aspx).
 * Controllare se in **Windows Update** sono disponibili nuovi "aggiornamenti importanti". Le immagini di macchina virtuale di Microsoft Azure vengono aggiornate di frequente, tuttavia alcuni aggiornamenti importanti potrebbero diventare disponibili in **Windows Update** dopo l'ultimo aggiornamento dell'immagine di macchina virtuale.
 
 ## <a name="example-deployment-topologies"></a>Topologie di distribuzione di esempio
@@ -217,7 +217,7 @@ Per informazioni sulle autorizzazioni del server di report, vedere [Concessione 
 Per verificare la configurazione, passare a Gestione report sulla macchina virtuale.
 
 1. Nella macchina virtuale, avviare Internet Explorer con privilegi di amministratore.
-2. Passare a http://localhost/reports sulla macchina virtuale.
+2. Passare a http: \/ /localhost/report sulla macchina virtuale.
 
 ### <a name="to-connect-to-remote-web-portal-or-report-manager-for-2014-and-2012"></a>Per connettersi a un portale Web remoto o a Gestione report per le versioni 2014 e 2012
 Se si desidera connettersi al portale Web o a Gestione report per le versioni 2014 e 2012 sulla macchina virtuale da un computer remoto, creare un nuovo endpoint TCP della macchina virtuale. Per impostazione predefinita, il server di report è in ascolto delle richieste HTTP sulla **porta 80**. Se si configurano gli URL del server di report per l'utilizzo di una porta diversa, è necessario specificare il numero della porta nelle istruzioni seguenti.
@@ -226,22 +226,22 @@ Se si desidera connettersi al portale Web o a Gestione report per le versioni 20
 2. Aprire la porta 80 nel firewall della macchina virtuale.
 3. Passare al portale Web o a Gestione report usando il **nome DNS** della macchina virtuale di Azure come nome del server nell'URL. Ad esempio: 
    
-    **Server di report**: http://uebi.cloudapp.net/reportserver **portale Web**: http://uebi.cloudapp.net/reports
+    **Server di report**: http://uebi.cloudapp.net/reportserver  **Portale Web**: http://uebi.cloudapp.net/reports
    
     [Configurare un firewall per l'accesso al server di report](https://msdn.microsoft.com/library/bb934283.aspx)
 
 ### <a name="to-create-and-publish-reports-to-the-azure-virtual-machine"></a>Per creare e pubblicare i report in una macchina virtuale di Azure
 Nella tabella seguente vengono riepilogate alcune delle opzioni disponibili per la pubblicazione di report esistenti da un computer locale nel server di report ospitato nella macchina virtuale di Microsoft Azure:
 
-* **Generatore report**: la macchina virtuale include la versione ClickOnce di Generatore report di Microsoft SQL Server 2014 e 2012. Per avviare il Generatore report per la prima volta sulla macchina virtuale con SQL 2016:
+* **Generatore report**: La macchina virtuale è inclusa la-versione ClickOnce di Generatore Report di Microsoft SQL Server per SQL 2014 e 2012. Per avviare il Generatore report per la prima volta sulla macchina virtuale con SQL 2016:
   
   1. Avviare il browser con privilegi amministrativi.
   2. Accedere al portale Web nella macchina virtuale e selezionare l'icona di **download** in alto a destra.
   3. Selezionare **Generatore report**.
      
      Per altre informazioni, vedere [Start Report Builder](https://msdn.microsoft.com/library/ms159221.aspx)(Avviare il Generatore report).
-* **SQL Server Data Tools - Macchina virtuale**: SQL Server Data Tools è installato nella macchina virtuale e può essere usato per creare **progetti server di report** e report nella macchina virtuale. SQL Server Data Tools è in grado di pubblicare i report nel server di report sulla macchina virtuale.
-* **SQL Server Data Tools - Remoto**: nel computer locale creare un progetto di Reporting Services in SQL Server Data Tools contenente i report di Reporting Services. Configurare il progetto per connettersi all'URL del servizio Web.
+* **SQL Server Data Tools**: VM:  SQL Server Data Tools è installato nella macchina virtuale e può essere utilizzato per creare **progetti Server di Report** e i report nella macchina virtuale. SQL Server Data Tools è in grado di pubblicare i report nel server di report sulla macchina virtuale.
+* **SQL Server Data Tools - Remoto**:  nel computer locale, creare un progetto di Reporting Services in SQL Server Data Tools che contiene i report di Reporting Services. Configurare il progetto per connettersi all'URL del servizio Web.
   
     ![proprietà del progetto ssdt per un progetto SSRS](./media/virtual-machines-windows-classic-ps-sql-bi/IC650114.gif)
 * Creare un disco rigido VHD che contenga i report e quindi caricare e collegare l'unità.
@@ -317,7 +317,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
   * Creare endpoint della macchina virtuale per le porte indicate (*).
 * Se la macchina virtuale è stata aggiunta a un dominio utilizzando un tunnel VPN, ad esempio le funzionalità di rete virtuale di Azure, gli endpoint non sono necessari. Tuttavia è possibile aprire le porte nel firewall della macchina virtuale.
   
-  | Porta | type | DESCRIZIONE |
+  | Porta | Type | DESCRIZIONE |
   | --- | --- | --- |
   | **80** |TCP |Accesso remoto al server di report (*). |
   | **1433** |TCP |SQL Server Management Studio (*). |
@@ -329,7 +329,7 @@ Questa sezione riepiloga gli endpoint della macchina virtuale di Microsoft Azure
 Per altre informazioni sulla creazione di endpoint, vedere:
 
 * Creare endpoint:[Come configurare gli endpoint a una macchina virtuale](../classic/setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
-* SQL Server: vedere la sezione "Completare la procedura di configurazione per connettersi alla macchina virtuale mediante SQL Server Management Studio" in [Provisioning di una macchina virtuale di SQL Server in Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
+* SQL Server: Vedere la sezione "Passaggi di configurazione completi per connettersi alla macchina virtuale mediante SQL Server Management Studio" del [il Provisioning di una macchina virtuale di SQL Server in Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md).
 
 Il diagramma seguente illustra le porte da aprire nel firewall della macchina virtuale per consentire l'accesso remoto alle funzionalità e i componenti nella macchina virtuale.
 

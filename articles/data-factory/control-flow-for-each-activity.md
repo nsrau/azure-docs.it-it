@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: shlo
-ms.openlocfilehash: 68cdabd8d6e5921eabaa200169c0523352461733
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: c5c12a66e8f66195a096588d779648d7486ab47b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54856945"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092005"
 ---
 # <a name="foreach-activity-in-azure-data-factory"></a>Attività ForEach in Azure Data Factory
 L'attività ForEach definisce un flusso di controllo ripetuto nella pipeline. Questa attività viene usata per eseguire l'iterazione di una raccolta e attività specifiche in un ciclo. L'implementazione di cicli di questa attività è simile alla struttura di esecuzione in ciclo Foreach nei linguaggi di programmazione.
@@ -69,14 +69,14 @@ Le proprietà sono descritte più avanti in questo articolo. La proprietà items
 
 ## <a name="type-properties"></a>Proprietà del tipo
 
-Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria
+Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio
 -------- | ----------- | -------------- | --------
-name | Nome dell'attività ForEach. | string | Yes
-type | Deve essere impostato su **ForEach** | string | Yes
+name | Nome dell'attività ForEach. | string | Sì
+type | Deve essere impostato su **ForEach** | string | Sì
 isSequential | Specifica se il ciclo deve essere eseguito in sequenza o in parallelo.  È possibile eseguire un numero massimo di 20 iterazioni del ciclo simultanee in parallelo. Se si dispone ad esempio di un'iterazione di attività ForEach su un'attività di copia con 10 set di dati di origine e sink diversi con **isSequential** impostato su False, tutte le copie vengono eseguite simultaneamente. Il valore predefinito è False. <br/><br/> Se "isSequential" è impostato su False, assicurarsi che sia presente una configurazione corretta per usare più eseguibili. In caso contrario, questa proprietà deve essere usata con attenzione per evitare di incorrere in conflitti di scrittura. Per altre informazioni, vedere la sezione [Esecuzione parallela](#parallel-execution). | Boolean |  No. Il valore predefinito è False.
 batchCount | Numero di batch da usare per controllare il numero di esecuzione parallela (quando isSequential è impostato su Falso). | Valore intero (massimo 50) |  No. Il valore predefinito è 20.
-Items | Un'espressione che restituisce una matrice JSON su cui eseguire un'iterazione. | Espressione (che restituisce una matrice JSON) | Yes
-attività | Le attività da eseguire. | Elenco di attività | Yes
+Items | Un'espressione che restituisce una matrice JSON su cui eseguire un'iterazione. | Espressione (che restituisce una matrice JSON) | Sì
+attività | Le attività da eseguire. | Elenco di attività | Sì
 
 ## <a name="parallel-execution"></a>Esecuzione parallela
 Se **isSequential** è impostato su false, l'attività esegue le iterazioni in parallelo con un massimo di 20 iterazioni simultanee. Questa impostazione deve essere usata con cautela. Se le iterazioni simultanee scrivono nella stessa cartella, ma in file diversi, non ci sono problemi. Se le iterazioni simultanee scrivono contemporaneamente in esattamente lo stesso file, questo approccio causa un errore. 
@@ -474,7 +474,7 @@ Nell'attività ForEach, fornire una matrice di cui eseguire un'iterazione per la
 
 ## <a name="aggregating-outputs"></a>Aggregazione di output
 
-Per aggregare gli output dell'attività __foreach__, usare _Variable_s e l'attività _Aggiungi variabile_.
+Agli output di aggregazione di __foreach__ attività usare _variabili_ e _aggiungere variabili_ attività.
 
 Innanzitutto, dichiarare una `array` _variabile_ nella pipeline. Quindi, richiamare l'attività _Aggiungi variabile_ all'interno di ogni ciclo __foreach__. Successivamente, è possibile recuperare l'aggregazione dall'array.
 

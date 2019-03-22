@@ -134,8 +134,11 @@ Questo contenuto è utile per configurare e usare le informazioni di sicurezza e
                     <div class="cardText">
                         <h3>Guida al portale delle app personali</h3>
                         <p>
-                        <a href="/azure/active-directory/user-help/active-directory-saas-access-panel-introduction">Informazioni sul portale delle app personali</a><br/>
-                        <a href="/azure/active-directory/active-directory-saas-access-panel-user-help">Risolvere i problemi</a>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access">Accedere e usare il portale App personali</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-update-profile">Aggiornare le informazioni su profilo e account</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-groups">Aggiornare le informazioni correlate ai gruppi</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-access-reviews">Eseguire verifiche di accesso personali</a><br/>
+                        <a href="/azure/active-directory/user-help/my-apps-portal-end-user-troubleshoot">Risolvere i problemi</a>
                         </p>
                     </div>
                 </div>

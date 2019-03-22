@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/11/2019
+ms.date: 3/19/2019
 ms.author: barclayn
-ms.openlocfilehash: cd3228b66dbbf19b574c390733340c0ea2fb5a78
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57846889"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259993"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -164,7 +164,7 @@ Sì. È possibile inviare i log dall'appliance HSM a un server syslog
 
 ### <a name="q-is-it-possible-to-configure-high-availability-in-the-same-region-or-across-multiple-regions"></a>D: È possibile configurare la disponibilità elevata nella stessa area o in più aree?
 
-Sì. L'impostazione e la configurazione della disponibilità elevata vengono eseguite nel software client HSM fornito da Gemalto. Moduli di protezione hardware dalla stessa rete virtuale o altre reti virtuali nella stessa area o in aree o in moduli di protezione hardware locale connesso a una rete virtuale usando site-to-site o VPN da punto a punto possono essere aggiunti alla stessa configurazione a disponibilità elevata.
+Sì. L'impostazione e la configurazione della disponibilità elevata vengono eseguite nel software client HSM fornito da Gemalto. Moduli di protezione hardware dalla stessa rete virtuale o altre reti virtuali nella stessa area o in aree o in moduli di protezione hardware locale connesso a una rete virtuale usando site-to-site o VPN da punto a punto possono essere aggiunti alla stessa configurazione a disponibilità elevata. Si noti che ciò consente di sincronizzare solo il materiale della chiave e gli elementi di configurazione non specifiche, ad esempio i ruoli.
 
 ### <a name="q-can-i-add-hsms-from-my-on-premises-network-to-a-high-availability-group-with-azure-dedicated-hsm"></a>D: È possibile aggiungere moduli di protezione hardware dalla rete locale a un gruppo di disponibilità elevata con HSM dedicato di Azure?
 
@@ -176,13 +176,13 @@ Sì. I moduli devono soddisfare i requisiti di disponibilità elevata per SafeNe
 
 ### <a name="q-how-many-hsms-can-i-add-to-the-same-high-availability-configuration-from-one-single-application"></a>D: Quanti moduli di protezione hardware è possibile aggiungere alla stessa configurazione con disponibilità elevata da una singola applicazione?
 
-16\.
+16 membri di un gruppo di disponibilità elevata è sotto gone, full-limitazione test con risultati eccellenti.
 
 ## <a name="support"></a>Supporto
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>D: Qual è il contratto di servizio per il servizio HSM dedicato?
 
-Attualmente non viene fornito alcun contratto di servizio per HSM dedicato. Microsoft garantirà l'accesso a livello di rete al dispositivo e quindi sono applicabili i contratti di servizio standard della rete di Azure.
+Non è disponibile alcun guarentee specifico tempo di attività specificate per il servizio modulo di protezione hardware dedicati. Microsoft garantirà l'accesso a livello di rete al dispositivo e quindi sono applicabili i contratti di servizio standard della rete di Azure.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>D: Come vengono protetti i moduli di protezione hardware in HSM dedicato di Azure?
 
@@ -198,15 +198,19 @@ Il servizio HSM dedicato usa appliance SafeNet Network HSM 7. Queste appliance s
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>D: Come si può ottenere assistenza per HSM dedicato?
 
-Nello stesso modo in cui si ottiene assistenza per tutti gli altri servizi di Azure. Il team di supporto di Azure eseguirà l'escalation al supporto Gemalto in base alle esigenze, a seconda del caso.
+Il supporto è fornito da Microsoft e Gemalto.  Se si verifica un problema con l'hardware o l'accesso alla rete, genera una richiesta di supporto con Microsoft e se si dispone di un problema con lo sviluppo di configurazione, software e applicazioni di moduli di protezione hardware, rasie personale del supporto della richiesta con Gemalto. Se si verifica un problema non determinato, generare un withg di richiesta di supporto tecnico Microsoft e quindi può essere avviato il Gemalto come necessario. 
 
-### <a name="q-how-do-i-get-access-to-dedicated-hsm-client-software-documentation-firmware-images"></a>D: Come si ottiene accesso al software client, alla documentazione e alle immagini del firmware di HSM dedicato?
+### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>D: Come ottenere il client software, documentazione e l'accesso al materiale sussidiario sull'integrazione per il modulo di protezione hardware di SafeNet Luna 7?
 
-Il cliente deve collaborare direttamente con Gemalto per accedere al software client, alla documentazione e alle immagini del sistema operativo o del firmware del modulo di protezione hardware.
+Dopo la registrazione per il servizio, un ID cliente Gemalto sarà a condizione che consente la registrazione nel portale di supporto clienti di Gemalto. Ciò consentirà l'accesso a tutti i software e la documentazione, nonché l'abilitazione di richieste di supporto direttamente con Gemalto.
 
 ### <a name="q-if-there-is-a-security-vulnerability-found-and-a-patch-is-released-by-gemalto-who-is-responsible-for-upgradingpatching-osfirmware"></a>D: Se viene individuata una vulnerabilità di sicurezza e Gemalto rilascia una patch, chi è responsabile dell'aggiornamento e dell'applicazione di patch per il sistema operativo o il firmware?
 
 Microsoft non ha la possibilità di connettersi ai moduli di protezione hardware allocati ai clienti. I clienti devono eseguire l'aggiornamento e applicare le patch ai propri moduli di protezione hardware.
+
+### <a name="q-what-if-i-need-to-reboot-my-hsm"></a>D: Cosa accade se è necessario riavviare il modulo di protezione hardware?
+
+ Il modulo di protezione hardware è un'opzione di riavvio della riga di comando e si noti che è necessario usare l'opzione "riavvio a freddo". Se l'operazione non riesce per qualsiasi motivo, genera una richiesta di supporto con Microsoft e possiamo avere il dispositivo fisicamente riavviato. 
 
 ## <a name="cryptography-and-standards"></a>Crittografia e standard
 
@@ -262,15 +266,13 @@ HSM dedicato effettua il provisioning di appliance SafeNet Network HSM 7 (modell
 
 ### <a name="q-how-many-partitions-can-be-created-in-dedicated-hsm"></a>D: Quante partizioni è possibile creare in HSM dedicato?
 
-In base al modello del modulo di protezione hardware usato, sono disponibili 10 partizioni.
+Il modello di 7 di HSM SafeNet Luna che a790 usato include una licenza per 10 partizioni nel costo del servizio. Il dispositivo ha un limite di 100 partizioni e aggiunta di partizioni fino a questo limite potrebbe incorrere in costi di licenza aggiuntivi e richiedono l'installazione di un nuovo file di licenza nel dispositivo.
 
 ### <a name="q-how-many-keys-can-be-supported-in-dedicated-hsm"></a>D: Quante chiavi possono essere supportate in HSM dedicato?
 
-Il numero massimo di chiavi. Se si usano chiavi asimmetriche, questi numeri sono applicabili anche a coppie di chiavi.
+Il numero massimo di chiavi è una funzione della memoria disponibile. Il modello SafeNet Luna 7 A790 in uso è 32MB di memoria. I numeri seguenti sono applicabili a coppie di chiavi anche se si usa le chiavi asimmetriche.
 
 * RSA-2048 - 19.000
 * ECC-P256 - 91.000
-* AES-256 - 218.000
 
 La capacità varia in base agli specifici attributi delle chiavi impostati nel modello di generazione chiavi e al numero di partizioni.
-

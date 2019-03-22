@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: b35d3d22ce154420c9099143894688389e8af420
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58078041"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259755"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Metriche di analitica di archiviazione Azure (versione classica)
 
@@ -23,10 +23,10 @@ Analisi archiviazione è in grado di archiviare le metriche che includono le sta
 
 > [!NOTE]
 > Metriche di archiviazione Analitica sono disponibili per i servizi Blob, coda, tabella e File.
-> Metriche di archiviazione Analitica sono ora le metriche di distribuzione classica. Microsoft consiglia di usare [metriche di archiviazione in Monitoraggio di Azure](/azure/storage/common/storage-metrics-in-azure-monitor.md) anziché le metriche di archiviazione Analitica.
+> Metriche di archiviazione Analitica sono ora le metriche di distribuzione classica. Microsoft consiglia di usare [metriche di archiviazione in Monitoraggio di Azure](storage-metrics-in-azure-monitor.md) anziché le metriche di archiviazione Analitica.
 
 ## <a name="transaction-metrics"></a>Metriche di transazione  
- A intervalli di ore o minuti viene registrato un set di dati consistente per ciascun servizio di archiviazione e operazione API richiesta, inclusi ingresso/uscita, disponibilità, errori e vengono suddivise in categorie le percentuali di richieste. È possibile vedere un elenco completo dei dettagli delle transazioni nell'argomento [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema.md) .  
+ A intervalli di ore o minuti viene registrato un set di dati consistente per ciascun servizio di archiviazione e operazione API richiesta, inclusi ingresso/uscita, disponibilità, errori e vengono suddivise in categorie le percentuali di richieste. È possibile vedere un elenco completo dei dettagli delle transazioni nell'argomento [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema) .  
 
  I dati delle transazioni vengono registrati a due livelli: a livello di servizio e di operazione API. A livello di servizio, le statistiche che riepilogano tutte le operazioni API richieste vengono scritte in un'entità di tabella ogni ora, persino se non sono state eseguite richieste al servizio. A livello di operazione API, le statistiche vengono scritte in un'entità solo se l'operazione è stata richiesta entro l'ora.  
 
@@ -45,7 +45,7 @@ Analisi archiviazione è in grado di archiviare le metriche che includono le sta
 - **ContainerCount**: Il numero di contenitori blob nel servizio Blob dell'account di archiviazione.  
 - **ObjectCount**: Il numero di commit e BLOB di pagine o blocchi nel servizio Blob dell'account di archiviazione.  
 
-  Per altre informazioni sulle metriche della capacità, vedere [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema.md).  
+  Per altre informazioni sulle metriche della capacità, vedere [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema).  
 
 ## <a name="how-metrics-are-stored"></a>Come vengono archiviate le metriche  
 
@@ -123,7 +123,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
 Per altre informazioni sull'uso di un linguaggio .NET per configurare metriche di archiviazione, vedere [Storage Client Library for .NET](https://msdn.microsoft.com/library/azure/mt347887.aspx).  
 
-Per informazioni generali sulla configurazione delle metriche di archiviazione usando l'API REST, vedere [abilitazione e configurazione di archiviazione Analitica](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics.md).  
+Per informazioni generali sulla configurazione delle metriche di archiviazione usando l'API REST, vedere [abilitazione e configurazione di archiviazione Analitica](/rest/api/storageservices/Enabling-and-Configuring-Storage-Analytics).  
 
 ##  <a name="viewing-storage-metrics"></a>Visualizzazione di Metriche di archiviazione  
 Una volta configurate le metriche dell’analisi di archiviazione per monitorare l'account di archiviazione, l’analisi di archiviazione registra le metriche in un set di tabelle note nell'account di archiviazione. È possibile configurare i grafici per visualizzare le metriche orarie nel [portale di Azure](https://portal.azure.com):
@@ -144,7 +144,7 @@ Se si vogliono scaricare le metriche per archiviazione a lungo termine o per ana
 |Metriche al minuto|$MetricsMinutePrimaryTransactionsBlob<br /><br /> $MetricsMinutePrimaryTransactionsTable<br /><br /> $MetricsMinutePrimaryTransactionsQueue<br /><br /> $MetricsMinutePrimaryTransactionsFile|Può essere abilitata solo tramite PowerShell o a livello di codice.<br /><br /> Le metriche per il servizio File sono disponibili a partire dalla versione 2015-04-05.|  
 |Capacity|$MetricsCapacityBlob|Solo servizio BLOB.|  
 
-È possibile trovare i dettagli completi degli schemi di queste tabelle in [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema.md). Le righe di esempio riportate di seguito mostrano solo un subset delle colonne disponibili, ma illustrano alcune importanti funzionalità relative al modo in cui Metriche di archiviazione salva queste metriche:  
+È possibile trovare i dettagli completi degli schemi di queste tabelle in [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema). Le righe di esempio riportate di seguito mostrano solo un subset delle colonne disponibili, ma illustrano alcune importanti funzionalità relative al modo in cui Metriche di archiviazione salva queste metriche:  
 
 ||||||||||||  
 |-|-|-|-|-|-|-|-|-|-|-|  
@@ -227,6 +227,6 @@ Inoltre, la capacità usata dalle tabelle di metrica è fatturabile. Per stimare
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Come monitorare un Account di archiviazione](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)   
-* [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages.md)   
+* [Schema di tabella della metrica di Analisi di archiviazione](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [Registrazione di Analisi archiviazione](storage-analytics-logging.md)

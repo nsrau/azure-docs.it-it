@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/18/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 7b5f4db51fca97f79f2b43bfcd5ce8dead3ba50b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: e9e78d3226f90ef780a1ed2114ba256c293463dc
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470349"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58001588"
 ---
 # <a name="using-shared-access-signatures-sas"></a>Uso delle firme di accesso condiviso
 
@@ -40,11 +40,11 @@ Uno scenario comune in cui la firma di accesso condiviso risulta utile è costit
 
 1. I client caricano e scaricano dati tramite un servizio proxy front-end che esegue l'autenticazione. Tale servizio presenta il vantaggio di consentire la convalida delle regole di business, tuttavia per grandi quantità di dati o per transazioni con volumi elevati, la creazione di un servizio scalabile in base alla domanda può risultare oneroso o complesso.
 
-  ![Diagramma dello scenario: Servizio proxy front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
+   ![Diagramma dello scenario: Servizio proxy front-end](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-fe-proxy-service.png)   
 
 1. Un servizio semplificato autentica il client in base alle necessità e quindi genera una firma di accesso condiviso. Dopo aver ricevuto la firma di accesso condiviso, il client può quindi accedere alle risorse dell'account di archiviazione direttamente con le autorizzazioni definite dalla firma e per l'intervallo consentito dalla firma. La firma di accesso condiviso consente di ridurre la necessità di instradare tutti i dati tramite il servizio proxy front-end.
 
-  ![Diagramma dello scenario: Servizio provider di firma di accesso condiviso](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
+   ![Diagramma dello scenario: Servizio provider di firma di accesso condiviso](./media/storage-dotnet-shared-access-signature-part-1/sas-storage-provider-service.png)   
 
 Molti servizi reali possono usare una combinazione di questi due approcci. Ad esempio, alcuni dati potrebbero essere elaborati e convalidati tramite il proxy front-end, mentre altri vengono salvati e/o letti direttamente tramite la firma di accesso condiviso.
 
@@ -230,8 +230,8 @@ Di seguito sono riportati alcuni esempi di entrambi i tipi di firma di accesso c
 
 Per eseguire questi esempi in C# è necessario fare riferimento ai seguenti pacchetti NuGet nel progetto:
 
-* [Azure Storage Client Library for .NET](http://www.nuget.org/packages/WindowsAzure.Storage), versione 6.x o versione successiva (per usare l'account SAS).
-* [Gestione configurazione di Azure](http://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
+* [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage), versione 6.x o versione successiva (per usare l'account SAS).
+* [Gestione configurazione di Azure](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager)
 
 Per altri esempi che illustrano come creare e testare una firma di accesso condiviso, vedere [Esempi di codice per Azure per Archiviazione](https://azure.microsoft.com/documentation/samples/?service=storage).
 
@@ -329,7 +329,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
 ```
 
 ### <a name="example-create-a-service-sas-on-a-container"></a>Esempio: Creare una firma di accesso condiviso del servizio su un contenitore
-Il codice seguente crea una firma di accesso condiviso su un contenitore. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se non viene specificato alcun criterio di accesso archiviato, il codice crea una firma di accesso condiviso ad hoc sul contenitore.
+Il codice seguente crea una firma di accesso condiviso su un contenitore. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se viene specificato alcun criterio di accesso archiviati, il codice crea una firma di accesso condiviso ad hoc sul contenitore.
 
 ```csharp
 private static string GetContainerSasUri(CloudBlobContainer container, string storedPolicyName = null)
@@ -339,7 +339,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
@@ -359,7 +359,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     {
         // Generate the shared access signature on the container. In this case, all of the constraints for the
         // shared access signature are specified on the stored access policy, which is provided by name.
-        // It is also possible to specify some constraints on an ad-hoc SAS and others on the stored access policy.
+        // It is also possible to specify some constraints on an ad hoc SAS and others on the stored access policy.
         sasContainerToken = container.GetSharedAccessSignature(null, storedPolicyName);
 
         Console.WriteLine("SAS for blob container (stored access policy): {0}", sasContainerToken);
@@ -372,7 +372,7 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
 ```
 
 ### <a name="example-create-a-service-sas-on-a-blob"></a>Esempio: Creare una firma di accesso condiviso del servizio su un BLOB
-Il codice seguente crea una firma di accesso condiviso su un BLOB. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se non viene specificato alcun criterio di accesso archiviato, il codice crea una firma di accesso condiviso ad hoc sul BLOB.
+Il codice seguente crea una firma di accesso condiviso su un BLOB. Se viene specificato il nome di un criterio di accesso archiviato esistente, tale criterio è associato alla firma di accesso condiviso. Se viene specificato alcun criterio di accesso archiviati, il codice crea una firma di accesso condiviso ad hoc sul blob.
 
 ```csharp
 private static string GetBlobSasUri(CloudBlobContainer container, string blobName, string policyName = null)
@@ -386,7 +386,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad hoc SAS, and
         // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
@@ -420,7 +420,7 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
 ## <a name="conclusion"></a>Conclusioni
 Le firme di accesso condiviso sono utili per offrire autorizzazioni limitate all'account di archiviazione ai client ai quali non si desidera fornire la chiave dell'account. In quanto tali, costituiscono una parte essenziale del modello di sicurezza di qualsiasi applicazione che utilizza il servizio di archiviazione di Azure. Il rispetto delle procedure consigliate sopra elencate consente di usare la firma di accesso condiviso per offrire accesso ancor più flessibile alle risorse dell'account di archiviazione senza compromettere la sicurezza dell'applicazione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Firme di accesso condiviso, parte 2: Creare e usare una firma di accesso condiviso con l'archiviazione BLOB](../blobs/storage-dotnet-shared-access-signature-part-2.md)
 * [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md)
 * [Delega dell'accesso con una firma di accesso condiviso](https://msdn.microsoft.com/library/azure/ee395415.aspx)

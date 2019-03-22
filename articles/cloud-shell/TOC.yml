@@ -1,0 +1,59 @@
+items:
+- name: Panoramica
+  href: overview.md
+- name: Guida introduttiva
+  items:
+  - name: Bash - Guida introduttiva
+    href: quickstart.md
+  - name: PowerShell - Guida introduttiva
+    href: quickstart-powershell.md
+- name: Strumenti e funzionalità
+  items:
+  - name: Strumenti e funzionalità
+    href: features.md
+- name: Esercitazioni
+  items:
+  - name: Ansible
+    items:
+    - name: Eseguire il playbook Ansible
+      href: /azure/ansible/ansible-run-playbook-in-cloudshell?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+    - name: Gestire gli inventari dinamici di Azure
+      href: /azure/ansible/ansible-manage-azure-dynamic-inventories?toc=/azure/cloud-shell/toc.json&bc=/azure/bread/toc.json
+  - name: Terraform
+    items:
+    - name: Creare un piano di esecuzione
+      href: example-terraform-bash.md
+- name: Guide alle procedure
+  items:
+  - name: Cloud Shell di PowerShell per utenti Windows
+    href: cloud-shell-windows-users.md
+  - name: Rendere persistenti i file nella risorsa di archiviazione
+    href: persisting-shell-storage.md
+  - name: Usare la finestra
+    href: using-the-shell-window.md
+  - name: Usare MSI in Cloud Shell
+    href: msi-authorization.md
+  - name: Incorporare Cloud Shell
+    href: embed-cloud-shell.md
+- name: Usare l'editor di Cloud Shell
+  href: using-cloud-shell-editor.md
+- name: Risoluzione dei problemi e limitazioni
+  href: troubleshooting.md
+- name: riferimento
+  items:
+  - name: Interfaccia della riga di comando di Azure
+    href: /cli/azure
+  - name: Azure PowerShell
+    href: /powershell/azure
+- name: Risorse
+  items:
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Calcolatore prezzi
+    href: https://azure.microsoft.com/pricing/calculator/
+ms.openlocfilehash: 873308d775fd7451d89bd05771d3a1c5f5e22995
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58341306"

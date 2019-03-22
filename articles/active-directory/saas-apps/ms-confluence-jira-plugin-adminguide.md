@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b81129ada4710eff58d50bf998802e8ac1b2788
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1a674748e9e95828436df25222f6daad881e0487
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191062"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58109138"
 ---
 # <a name="atlassian-jira-and-confluence-admin-guide-for-azure-active-directory"></a>Guida dell'amministratore per Atlassian Jira e Confluence per Azure Active Directory
 
@@ -110,33 +110,33 @@ L'immagine seguente mostra la schermata di configurazione in Jira e Confluence:
 
 ![Schermata di configurazione del plug-in](./media/ms-confluence-jira-plugin-adminguide/jira.png)
 
-*   **Metadata URL** (URL metadata): URL per ottenere i metadati di federazione da Azure AD.
+* **Metadata URL** (URL metadata): URL per ottenere i metadati di federazione da Azure AD.
 
-*   **Identifiers** (Identificatori): URL usato da Azure AD per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*< dominio: porta >*/.
+* **Identifiers** (Identificatori): URL usato da Azure AD per convalidare l'origine della richiesta. È associato all'elemento **Identificatore** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*< dominio: porta >*/.
 
-*   **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*<dominio:porta>*/plugins/servlet/saml/auth.
+* **Reply URL** (URL di risposta): URL di risposta nel provider di identità che avvia la procedura di accesso a SAML. È associato all'elemento **URL di risposta** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*<dominio:porta>*/plugins/servlet/saml/auth.
 
-*   **Sign On URL** (URL di accesso): URL di accesso nel provider di identità (IdP) che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*<dominio:porta>*/plugins/servlet/saml/auth.
+* **Sign On URL** (URL di accesso): URL di accesso nel provider di identità (IdP) che avvia la procedura di accesso a SAML. È associato all'elemento **Accesso** di Azure Active Directory. Questo valore viene generato automaticamente dal plug-in come https://*<dominio:porta>*/plugins/servlet/saml/auth.
 
-*   **IdP Entity ID** (ID entità IdP): ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
+* **IdP Entity ID** (ID entità IdP): ID entità usato dal provider di identità. Questo campo viene popolato quando viene risolto l'URL dei metadati.
 
-*   **Login URL** (URL di accesso): URL di accesso fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
+* **Login URL** (URL di accesso): URL di accesso fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
 
-*   **Logout URL** (URL di disconnessione): URL di disconnessione fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
+* **Logout URL** (URL di disconnessione): URL di disconnessione fornito dal provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
 
-*   **X.509 Certificate** (Certificato X.509): certificato X.509 del provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
+* **X.509 Certificate** (Certificato X.509): certificato X.509 del provider di identità. Questo campo viene popolato da Azure AD quando viene risolto l'URL dei metadati.
 
-*   **Login Button Name**(Nome pulsante di accesso): testo visualizzato dagli utenti dell'organizzazione sul pulsante di accesso nella schermata di accesso.
+* **Login Button Name**(Nome pulsante di accesso): testo visualizzato dagli utenti dell'organizzazione sul pulsante di accesso nella schermata di accesso.
 
-*   **SAML User ID Locations**(Posizioni ID utente SAML): posizione in cui è previsto l'ID utente di Jira o Confluence nella risposta SAML. Può essere in **NameID** o in un nome di attributo personalizzato.
+* **SAML User ID Locations**(Posizioni ID utente SAML): posizione in cui è previsto l'ID utente di Jira o Confluence nella risposta SAML. Può essere in **NameID** o in un nome di attributo personalizzato.
 
-*   **Attribute Name** (Nome attributo): nome dell'attributo in cui è previsto un ID utente.
+* **Attribute Name** (Nome attributo): nome dell'attributo in cui è previsto un ID utente.
 
-*   **Enable Home Realm Discovery** (Abilita individuazione dell'area di autenticazione principale): selezionare questa opzione se l'azienda usa l'accesso basato su Active Directory Federation Services (AD FS).
+* **Enable Home Realm Discovery** (Abilita individuazione dell'area di autenticazione principale): selezionare questa opzione se l'azienda usa l'accesso basato su Active Directory Federation Services (AD FS).
 
-*   **Domain Name** (Nome dominio): nome di dominio in caso di accesso basato su AD FS.
+* **Domain Name** (Nome dominio): nome di dominio in caso di accesso basato su AD FS.
 
-*   **Enable Single Signout** (Abilita Single Sign-Out): selezionare questa opzione se si vuole eseguire la disconnessione da Azure Active Directory quando un utente si disconnette da Jira o Confluence.
+* **Enable Single Signout** (Abilita Single Sign-Out): selezionare questa opzione se si vuole eseguire la disconnessione da Azure Active Directory quando un utente si disconnette da Jira o Confluence.
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 

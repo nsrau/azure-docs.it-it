@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: 6f263511a7d1df4af82a690c1d6b04fecd2a8a91
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: afc60e933c9fcc154af74c47e382d8b8e7b0df8d
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53634542"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286313"
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Come utilizzare Ricerca di Azure da un'applicazione .NET
 In questo articolo è descritta una procedura dettagliata per eseguire [.NET SDK di Ricerca di Azure](https://aka.ms/search-sdk). È possibile utilizzare .NET SDK per implementare un'esperienza di ricerca completa nell'applicazione tramite Ricerca di Azure.
@@ -59,7 +59,7 @@ Esistono diverse operazioni che è necessario eseguire nell'applicazione di rice
 * Popolamento dell’indice con i documenti
 * Ricerca di documenti mediante filtri e ricerca con testo completo
 
-Il codice di esempio che segue illustra ciascuna di queste operazioni. È possibile utilizzare i frammenti di codice nell'applicazione.
+Esempio di codice seguente illustra ciascuna di queste. È possibile utilizzare i frammenti di codice nell'applicazione.
 
 ### <a name="overview"></a>Panoramica
 L'applicazione di esempio crea un nuovo indice denominato "hotels", vi inserisce alcuni documenti, quindi esegue alcune query di ricerca. Ecco il programma principale che mostra il flusso generale:
@@ -202,7 +202,7 @@ Alla fine di questo articolo viene fornito il codice sorgente completo dell'appl
 Successivamente, verrà esaminato ognuno dei metodi chiamati da `Main`.
 
 ### <a name="creating-an-index"></a>Creazione di un indice
-Dopo aver creato un `SearchServiceClient`, l'operazione successiva `Main` è l’eliminazione dell’indice "hotel" se esiste già. Questa operazione viene eseguita con il metodo seguente:
+Dopo aver creato un `SearchServiceClient`, `Main` Elimina l'indice "hotels", se esiste già. Questa operazione viene eseguita con il metodo seguente:
 
 ```csharp
 private static void DeleteHotelsIndexIfExists(SearchServiceClient serviceClient)
@@ -330,6 +330,8 @@ La terza parte di questo metodo è un blocco catch che gestisce un caso di error
 
 Infine, il metodo `UploadDocuments` ritarda per due secondi. L'indicizzazione avviene in modo asincrono nel servizio Ricerca di Azure, pertanto l'applicazione di esempio deve attendere un breve periodo per garantire che i documenti siano disponibili per la ricerca. Ritardi come questi in genere sono necessari solo in applicazioni di esempio, test e demo.
 
+<a name="how-dotnet-handles-documents"></a>
+
 #### <a name="how-the-net-sdk-handles-documents"></a>Modalità di gestione dei documenti in .NET SDK
 Per capire in che modo .NET SDK di Ricerca di Azure è in grado di caricare le istanze di una classe definita dall'utente come `Hotel` nell'indice, è possibile esaminare la classe `Hotel`:
 
@@ -394,9 +396,9 @@ Il primo aspetto da notare è che ogni proprietà pubblica di `Hotel` corrispond
 > 
 > 
 
-La seconda cosa da notare sono gli attributi, ad esempio `IsFilterable`, `IsSearchable`, `Key` e `Analyzer`, che decorano ogni proprietà pubblica. Questi attributi eseguono il mapping direttamente agli [attributi corrispondenti dell'indice di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La classe `FieldBuilder` li utilizza per creare definizioni di campo per l'indice.
+La seconda cosa da notare è gli attributi che decorano ogni proprietà pubblica (ad esempio `IsFilterable`, `IsSearchable`, `Key`, e `Analyzer`). Questi attributi eseguono il mapping direttamente agli [attributi corrispondenti dell'indice di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/create-index#request). La classe `FieldBuilder` li utilizza per creare definizioni di campo per l'indice.
 
-Il terzo aspetto importante della classe `Hotel` sono i tipi di dati delle proprietà pubbliche. I tipi .NET di queste proprietà eseguono il mapping ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` ecc. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` nella [documentazione di riferimento relativa a .NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). La classe `FieldBuilder` si occupa di questo mapping automaticamente, ma la comprensione può comunque essere utile nel caso in cui sia necessario risolvere eventuali problemi di serializzazione.
+Il terzo aspetto importante di `Hotel` classe corrisponde ai tipi di dati delle proprietà pubbliche. I tipi .NET di queste proprietà eseguono il mapping ai tipi di campi equivalenti nella definizione dell'indice. Ad esempio, viene eseguito il mapping della proprietà stringa `Category` al campo `category`, che è di tipo `Edm.String`. Esistono mapping di tipi simili tra `bool?` e `Edm.Boolean`, `DateTimeOffset?` e `Edm.DateTimeOffset` ecc. Le regole specifiche per il mapping dei tipi sono documentate con il metodo `Documents.Get` nella [documentazione di riferimento relativa a .NET SDK di Ricerca di Azure](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get). La classe `FieldBuilder` si occupa di questo mapping automaticamente, ma la comprensione può comunque essere utile nel caso in cui sia necessario risolvere eventuali problemi di serializzazione.
 
 La possibilità di utilizzare le proprie classi come documenti funziona in entrambe le direzioni; è possibile, inoltre, recuperare i risultati della ricerca e far sì che SDK li deserializzi automaticamente in un tipo di propria scelta, come sarà illustrato nella prossima sezione.
 
@@ -585,7 +587,7 @@ Di seguito sono riportati i risultati, che includono tutti i campi, poiché non 
 
     ID: 2   Base rate: 79.99        Description: Cheapest hotel in town     Description (French): Hôtel le moins cher en ville      Name: Roach Motel       Category: Budget        Tags: [motel, budget]   Parking included: yes   Smoking allowed: yes    Last renovated on: 4/28/1982 12:00:00 AM +00:00 Rating: 1/5     Location: Latitude 49.678581, longitude -122.131577
 
-Questo passaggio completa l'esercitazione. **Passaggi successivi** vengono fornite risorse aggiuntive per ottenere ulteriori informazioni su Ricerca di Azure.
+Questo passaggio completa l'esercitazione. * * Avanti passaggi offrono risorse aggiuntive per altre informazioni su ricerca di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Vedere le guide di riferimento di [SDK di .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).

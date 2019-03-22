@@ -1,19 +1,19 @@
 ---
 title: Domande frequenti - Ripristino di emergenza da VMware ad Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo presenta un riepilogo delle domande frequenti relative alla configurazione del ripristino di emergenza per le macchine virtuali VMware locali in Azure tramite Azure Site Recovery
-author: mayurigupta13
-manager: rochakm
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 03/14/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
-ms.author: mayg
-ms.openlocfilehash: 24682156cf0c50ccf69c39f83f59e9b867bbcf0f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: raynew
+ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901849"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319381"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -165,6 +165,10 @@ No, il passaggio da gestito a codice non gestito non è supportato.
 ### <a name="why-cant-i-replicate-over-vpn"></a>Perché non è possibile eseguire la replica su VPN?
 
 Quando esegue la replica in Azure, il traffico di replica raggiunge gli endpoint pubblici di una risorsa di archiviazione di Azure, in questo modo è possibile solo eseguire la replica sulla rete internet pubblica con ExpressRoute (peering pubblico) e VPN non è supportata.
+
+### <a name="can-i-use-riverbed-steelheads-for-replication"></a>È possibile usare Riverbed SteelHeads per la replica?
+
+Il nostro partner, Riverbed, include indicazioni dettagliate sull'uso di Azure Site Recovery. Vedere le [Guida alla soluzione](https://community.riverbed.com/s/article/DOC-4627).
 
 ### <a name="what-are-the-replicated-vm-requirements"></a>Quali sono i requisiti delle macchine virtuali replicate?
 

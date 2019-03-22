@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/01/2019
-ms.openlocfilehash: a6b31933f7170006046846c458e21efd8c54034c
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.date: 03/12/2019
+ms.openlocfilehash: db62c1ec03ae9005f33a09010486b04ac6976742
+ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660730"
+ms.lasthandoff: 03/18/2019
+ms.locfileid: "58005901"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Monitorare le prestazioni con Query Store
 
@@ -32,12 +32,18 @@ Query Store è una funzionalità con consenso esplicito e non è quindi attivo p
 ### <a name="enable-query-store-using-the-azure-portal"></a>Abilitare Query Store con il portale di Azure
 1. Accedere al portale di Azure e selezionare il server di Database di Azure per PostgreSQL.
 2. Selezionare **Parametri del server** nella sezione **Impostazioni** del menu.
-3. Cercare il parametro **pg_qs.query_capture_mode**.
-4. Aggiornare il valore da NONE a TOP e salvare.
+3. Cercare il `pg_qs.query_capture_mode` parametro.
+4. Impostare il valore su `TOP` e **salvare**.
 
-In alternativa, è possibile impostare questo parametro usando l'interfaccia della riga di comando di Azure.
+Per abilitare le statistiche di attesa in Store la Query: 
+1. Cercare il `pgms_wait_sampling.query_capture_mode` parametro.
+1. Impostare il valore su `ALL` e **salvare**.
+
+
+In alternativa è possibile impostare questi parametri tramite la CLI di Azure.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
+az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
 ```
 
 Per il salvataggio permanente del primo batch di dati nel database azure_sys possono essere necessari fino a 20 minuti.
@@ -81,6 +87,7 @@ Di seguito sono riportati alcuni esempi di come è possibile ottenere informazio
 Quando è abilitato, Query Store salva i dati in intervalli di aggregazione di 15 minuti, con un massimo di 500 query distinte per intervallo. 
 
 Per la configurazione dei parametri di Query Store sono disponibili le opzioni seguenti.
+
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia. | Nessuno | none, top, all |
@@ -89,6 +96,7 @@ Per la configurazione dei parametri di Query Store sono disponibili le opzioni s
 | pg_qs.track_utility | Imposta se deve essere tenuta traccia dei comandi dell'utilità. | in | on, off |
 
 Le opzioni seguenti si applicano specificamente alle statistiche di attesa.
+
 | **Parametro** | **Descrizione** | **Default** | **Range**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | Imposta le istruzioni di cui verrà tenuta traccia per le statistiche di attesa. | Nessuno | none, all|

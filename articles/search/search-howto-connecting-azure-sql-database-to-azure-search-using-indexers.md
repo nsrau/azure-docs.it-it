@@ -1,7 +1,7 @@
 ---
 title: Connettere e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori - Ricerca di Azure
 description: Informazioni su come ricercare per indicizzazione i dati nel database SQL di Azure usando gli indicizzatori di ricerca full-text in Ricerca di Azure. Questo articolo illustra le connessioni, la configurazione dell'indicizzatore e l'inserimento di dati.
-ms.date: 10/17/2018
+ms.date: 03/01/2019
 author: mgottein
 manager: cgronlun
 ms.author: magottei
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 7df785d1493ad2df698ff197d72824ceb15d39ad
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 5453bcdd371c0639cb1d3568f05a1768e6204d3d
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55752893"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57315215"
 ---
 # <a name="connect-to-and-index-azure-sql-database-content-using-azure-search-indexers"></a>Effettuare la connessione a e indicizzare il contenuto del database SQL di Azure usando gli indicizzatori di Ricerca di Azure
 

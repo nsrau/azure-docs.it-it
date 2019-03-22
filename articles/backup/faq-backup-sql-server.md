@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: f9020cd6d35c59e9293e6e8a96b09319f9f8bb00
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: HT
+ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225681"
+ms.locfileid: "58284579"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sul database di SQL Server che eseguono un backup delle macchine Virtuali di Azure
 
@@ -66,7 +66,7 @@ L'insieme di credenziali di servizi di ripristino di Backup di Azure può rileva
 Il **processo di Backup** menu visualizzerà soltanto ad hoc dei processi di backup. Per il processo pianificato, usare [il monitoraggio tramite Monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).
 
 ## <a name="are-future-databases-automatically-added-for-backup"></a>I database futuri vengono aggiunti automaticamente per il backup?
-Sì, è possibile ottenere questa funzionalità con [la protezione automatica](backup-azure-sql-database.md#enable-auto-protection).  
+Sì, è possibile ottenere questa funzionalità con [la protezione automatica](backup-sql-server-database-azure-vms.md#enable-auto-protection).  
 
 ## <a name="if-i-delete-a-database-from-an-autoprotected-instance-what-will-happen-to-the-backups"></a>Se si elimina un database da un'istanza autoprotected, cosa accade ai backup?
 Se viene eliminato un database da un'istanza autoprotected, i backup del database sono comunque tentati. Ciò implica che il database eliminato che inizi venga visualizzata come non integro sotto **elementi di Backup** ed è comunque protetto.
@@ -84,7 +84,7 @@ Un database denominato nuovamente viene considerato come un nuovo database. Di c
 È possibile selezionare il database, che è stato rinominato e configura la protezione su di esso. Nel caso in cui la protezione automatica è abilitata nell'istanza, database rinominato automaticamente rilevato e protette.
 
 ##  <a name="why-cant-i-see-an-added-database-for-an-autoprotected-instance"></a>Il motivo per cui non vengono visualizzati un database aggiunto per un'istanza autoprotected?
-Oggetto di database che si [aggiunta a un'istanza autoprotected](backup-azure-sql-database.md#enable-auto-protection) potrebbe non venga visualizzata immediatamente in elementi protetti. Il motivo è che l'individuazione viene eseguita in genere ogni 8 ore. Tuttavia, è possibile individuare e proteggere immediatamente i nuovi database se si esegue manualmente un'individuazione selezionando **ripristinare i database**, come illustrato nell'immagine seguente.
+Oggetto di database che si [aggiunta a un'istanza autoprotected](backup-sql-server-database-azure-vms.md#enable-auto-protection) potrebbe non venga visualizzata immediatamente in elementi protetti. Il motivo è che l'individuazione viene eseguita in genere ogni 8 ore. Tuttavia, è possibile individuare e proteggere immediatamente i nuovi database se si esegue manualmente un'individuazione selezionando **ripristinare i database**, come illustrato nell'immagine seguente.
 
   ![Individuare manualmente un database appena aggiunto](./media/backup-azure-sql-database/view-newly-added-database.png)
 
