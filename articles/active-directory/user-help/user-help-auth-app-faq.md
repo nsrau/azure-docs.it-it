@@ -13,12 +13,12 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83c071629ba18ab9f40ecec3b2e09290f57ad2fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 996b4df9d8723da3d1df799ea9f8656debb1395b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996560"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311935"
 ---
 # <a name="microsoft-authenticator-app-faq"></a>Domande frequenti sull'app Microsoft Authenticator
 
@@ -50,7 +50,7 @@ L'app Microsoft Authenticator ha sostituito l'app Azure Authenticator ed è cons
 |Perché l'app complementare Microsoft Authenticator per Apple Watch non si sincronizza o non viene visualizzata nell'orologio?|Se l'app non viene visualizzata nell'orologio, provare le soluzioni seguenti: <ol><li>Assicurarsi che l'orologio esegua watchOS 4.0 o versioni successive.</li><li>Sincronizzare di nuovo l'orologio.</li></ol>|
 |Se l'app specifica per Apple Watch si arresta in modo anomalo, è possibile inviare i log di arresto anomalo per l'indagine della causa? |Prima di tutto, è necessario verificare di aver condiviso i dati di analisi con Microsoft. Gli utenti di TestFlight sono già iscritti. In caso contrario, è possibile passare a **Impostazioni > Privacy > Analisi** e selezionare le opzioni **Share iPhone & Watch analytics** (Condividi analisi iPhone e orologio) e **Share with App Developers** (Condividi con sviluppatori app).<br><br>Dopo l'iscrizione, è possibile provare a riprodurre l'arresto anomalo in modo che i log di arresto anomalo vengano inviati automaticamente a Microsoft per le indagini. Tuttavia, se non è possibile riprodurre l'arresto anomalo, è possibile copiare manualmente i file di log e inviarli a Microsoft.<ol><li>Aprire l'app dell'orologio nel telefono, passare a **Impostazioni > Generali** e quindi fare clic su **Copy Watch Analytics** (Copia analisi orologio).</li><li>Individuare l'arresto anomalo corrispondente in **Impostazioni > Privacy > Analisi > Dati di analisi** e quindi copiare manualmente il testo completo.</li><li>Aprire l'app Microsoft Authenticator sul telefono e incollare il testo copiato nella casella di testo **Share with App Developers** (Condividi con sviluppatori app) nella pagina **Invia log**.</li></ol>|
 |Che cos'è la funzionalità Blocco dell'app e in che modo aumenta la sicurezza?|Per rendere più sicuri i passcode monouso, le informazioni sull'app e le impostazioni dell'app, è possibile attivare la funzionalità Blocco dell'app nell'app Microsoft Authenticator. Attivando il blocco dell'app dalla schermata **Impostazioni** dell'app Microsoft Authenticator, verrà chiesto di eseguire l'autenticazione usando il PIN o la biometria ogni volta che si apre l'app Microsoft Authenticator. Questa funzionalità offre protezione aggiuntiva, ma il modo di approvare le notifiche nell'app Microsoft Authenticator non cambierà.<br><br>**Nota**<br>Se si torna all'app Microsoft Authenticator in esecuzione in un dispositivo Android in meno di 30 secondi, non verrà richiesto di autenticarsi nuovamente.|
-|Perché vengono visualizzate notifiche sull'attività dell'account?|Affinché gli utenti siano sempre informati su quanto accade con l'account Microsoft personale, vengono inviate notifiche sull'attività all'app Microsoft Authenticator. Queste notifiche vengono visualizzate immediatamente dopo qualsiasi modifica, in modo da garantire una maggiore sicurezza. In precedenza queste notifiche venivano inviate tramite posta elettronica e SMS e ora è stata inclusa l'app. Per altre informazioni sulle notifiche sull'attività, vedere [Cosa succede se si verifica un accesso anomalo al tuo account](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Per modificare la destinazione delle notifiche, accedere a https://account.live.com/SecurityNotifications/Update.
+|Perché vengono visualizzate notifiche sull'attività dell'account?|Affinché gli utenti siano sempre informati su quanto accade con l'account Microsoft personale, vengono inviate notifiche sull'attività all'app Microsoft Authenticator. Queste notifiche vengono visualizzate immediatamente dopo qualsiasi modifica, in modo da garantire una maggiore sicurezza. In precedenza queste notifiche venivano inviate tramite posta elettronica e SMS e ora è stata inclusa l'app. Per altre informazioni sulle notifiche sull'attività, vedere [Cosa succede se si verifica un accesso anomalo al tuo account](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in). Per modificare in cui si ricevono le notifiche, accedi a https:\//account.live.com/SecurityNotifications/Update.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

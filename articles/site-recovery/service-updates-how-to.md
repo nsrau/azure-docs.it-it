@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/05/2019
 ms.author: rajanaki
-ms.openlocfilehash: 36d0a976b73fe5b6f89755ce790b919468744179
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e27dee213baf8365c3ad4efc69602f66e2081abe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091648"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311153"
 ---
 # <a name="service-updates-in-azure-site-recovery"></a>Aggiornamenti del servizio in Azure Site Recovery
 Un'organizzazione deve sapere come si intende proteggere i dati e preservare l'esecuzione di applicazioni e carichi di lavoro quando si verificano interruzioni pianificate e impreviste. Azure Site Recovery contribuisce al buon esito della strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo le app in esecuzione nelle macchine virtuali e nei server fisici disponibili in caso di arresto di un sito. Site Recovery replica i carichi di lavoro in esecuzione in macchine virtuali e server fisici in modo che rimangano disponibili in una posizione secondaria se il sito primario non è raggiungibile. Ripristina i carichi di lavoro nel sito primario quando è di nuovo attivo.
@@ -118,17 +118,18 @@ Prima di procedere con gli aggiornamenti, vedere la [dichiarazione relativa al s
 
 |Aggiornamento cumulativo  |Provider  |Installazione unificata| OVF  |MARS|
 |---------|---------|---------|---------|--------|
+|[Aggiornamento cumulativo 35](https://support.microsoft.com/en-us/help/4494485/update-rollup-35-for-azure-site-recovery)     |   5.1.4000.0  |  9.23.5163.1   |  5.1.4000.0  | 2.0.9156.0
 |[Aggiornamento cumulativo 34](https://support.microsoft.com/en-us/help/4490016/update-rollup-34-for-azure-site-recovery) - Hotfix     |   5.1.3950.0  |  9.22.5142.1   |  5.1.3950.0  | 2.0.9155.0
 |[Aggiornamento cumulativo 33](https://support.microsoft.com/en-us/help/4489582/update-rollup-33-for-azure-site-recovery)     |   5.1.3900.0  |  9.22.5109.1   |  5.1.3900.0  | 2.0.9155.0
 |[Aggiornamento cumulativo 32](https://support.microsoft.com/en-us/help/4485985/update-rollup-32-for-azure-site-recovery)     |   5.1.3800.0  |  9.21.5091.1   |  5.1.3800.0  |2.0.9144.0
 |[Aggiornamento cumulativo 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery)     |     5.1.3700.0      |   9.20.5051.1      |     5.1.3700.0    |2.0.9144.0
 |[Aggiornamento cumulativo 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30)     |    5.1.3650.0   |   9.19.5007.1    |     5.1.3650.0    |2.0.9139.0
-|[Aggiornamento cumulativo 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)     |   5.1.3650.0      |   9.19.4973.1     |     5.1.3700.0    |2.0.9131.0
-|[Aggiornamento cumulativo 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)     |  5.1.3600 .0      |    9.19.4973.1     |  5.1.3600.0       |2.0.9131.0
-| [Aggiornamento cumulativo 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)       |   5.1.3550.0      |    9.18.4946.1     | 5.1.3550.0         |2.0.9125.0
-
 
 ## <a name="previous-update-rollups"></a>Aggiornamenti cumulativi precedenti
+
+- [Aggiornamento cumulativo 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery)
+- [Aggiornamento cumulativo 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery)
+- [Aggiornamento cumulativo 27](https://support.microsoft.com/help/4055712/update-rollup-27-for-azure-site-recovery)
 - [Aggiornamento cumulativo 26](https://support.microsoft.com/help/4344054/update-rollup-26-for-azure-site-recovery)  
 - [Aggiornamento cumulativo 25](https://support.microsoft.com/help/4278275/update-rollup-25-for-azure-site-recovery) 
 - [Aggiornamento cumulativo 23](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) 

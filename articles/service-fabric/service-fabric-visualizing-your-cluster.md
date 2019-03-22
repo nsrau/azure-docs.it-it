@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: ba6a9a09945f0e822dfe02a74f2cdb8e21a1691c
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 47b5e89164173869d6964e2c5e392bb99e0c8555
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674668"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317392"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -46,7 +46,7 @@ Usare i collegamenti seguenti per scaricare Service Fabric Explorer come applica
 
 ### <a name="running-service-fabric-explorer-from-the-cluster"></a>Esecuzione di Service Fabric Explorer dal cluster
 
-Service Fabric Explorer è inoltre ospitato in un endpoint di gestione HTTP del cluster di Service Fabric. Per avviare SFX in un Web browser, passare all'endpoint di gestione HTTP del cluster da un browser qualsiasi, ad esempio https://clusterFQDN:19080.
+Service Fabric Explorer è inoltre ospitato in un endpoint di gestione HTTP del cluster di Service Fabric. Per avviare SFX in un web browser, passare all'endpoint di gestione HTTP del cluster da qualsiasi browser, ad esempio https:\//clusterFQDN:19080.
 
 Per la configurazione della workstation di sviluppo, è possibile avviare Service Fabric Explorer sul cluster locale passando a https://localhost:19080/Explorer. Vedere l'articolo [Preparare l'ambiente di sviluppo](service-fabric-get-started.md).
 

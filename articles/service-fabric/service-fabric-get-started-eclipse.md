@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/06/2018
 ms.author: rapatchi
-ms.openlocfilehash: 87f608163e20d98179eb6c666158386a99858eeb
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 82cc8b03bb8f6476602307958174f6724076553b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188384"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339619"
 ---
 # <a name="service-fabric-plug-in-for-eclipse-java-application-development"></a>Plug-in Service Fabric per lo sviluppo di applicazioni Java in Eclipse
 Eclipse è uno degli ambienti di sviluppo integrato (IDE) più diffusi per sviluppatori Java. Questo articolo illustra come configurare l'ambiente di sviluppo Eclipse per l'uso con Azure Service Fabric. Spiega come installare il plug-in Service Fabric, creare un'applicazione di Service Fabric e distribuire l'applicazione nel cluster di Service Fabric locale o remoto in Eclipse. 
@@ -54,7 +54,7 @@ Se il plug-in Service Fabric è già installato, installare la versione più rec
 3. Dopo aver aggiornato il plug-in Service Fabric, aggiornare anche il progetto Gradle.  Fare clic con il pulsante destro del mouse su **build.gradle**, quindi scegliere **Aggiorna**.
 
 > [!NOTE]
-> Se l'installazione o l'aggiornamento del plug-in Service Fabric è lento, il problema potrebbe essere dovuto a un'impostazione di Eclipse. Eclipse raccoglie i metadati di tutte le modifiche per aggiornare i siti registrati con l'istanza di Eclipse. Per velocizzare il processo di rilevamento e installazione di un aggiornamento del plug-in Service Fabric, passare a **Available Software Sites** (Siti software disponibili). Deselezionare le caselle di controllo per tutti i siti eccetto quello che punta al percorso del plug-in Service Fabric (https://dl.microsoft.com/eclipse/azure/servicefabric)).
+> Se l'installazione o l'aggiornamento del plug-in Service Fabric è lento, il problema potrebbe essere dovuto a un'impostazione di Eclipse. Eclipse raccoglie i metadati di tutte le modifiche per aggiornare i siti registrati con l'istanza di Eclipse. Per velocizzare il processo di rilevamento e installazione di un aggiornamento del plug-in Service Fabric, passare a **Available Software Sites** (Siti software disponibili). Deselezionare le caselle di controllo per tutti i siti eccetto quello che punta al percorso del plug-in Service Fabric (https:\//dl.microsoft.com/eclipse/azure/servicefabric).
 
 > [!NOTE]
 >Se Eclipse non funziona come previsto nel Mac o deve essere eseguito come utente con privilegi avanzati, passare alla cartella **ECLIPSE_INSTALLATION_PATH** e alla sottocartella **Eclipse.app/Contents/MacOS**. Avviare Eclipse eseguendo `./eclipse`.

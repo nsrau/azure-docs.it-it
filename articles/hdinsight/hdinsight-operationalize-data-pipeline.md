@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 175fdcc1bf8d28c0eeb6eeccaa54c996c837ef81
-ms.sourcegitcommit: 21466e845ceab74aff3ebfd541e020e0313e43d9
-ms.translationtype: HT
+ms.openlocfilehash: b5e7864eae56a6f066590191373d35cb57693f37
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53744446"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311680"
 ---
 # <a name="operationalize-a-data-analytics-pipeline"></a>Rendere operativa una pipeline di analisi dei dati
 
@@ -150,7 +150,7 @@ Per usare Oozie Web Console per visualizzare lo stato delle istanze di coordinat
 
 2. Verificare che il tunnel sia operativo passando ad Ambari sul nodo head all'indirizzo seguente:
 
-    http://headnodehost:8080
+    http:\//headnodehost:8080
 
 3. Per accedere a **Oozie Web Console** da Ambari, selezionare **Oozie**, **Quick Links** (Collegamenti rapidi) e quindi **Oozie Web Console**.
 
@@ -176,7 +176,7 @@ Per usare Oozie Web Console per visualizzare lo stato delle istanze di coordinat
 
 I dati di esempio sono ora disponibili, ma la pipeline richiede due tabelle Hive per l'elaborazione, rispettivamente per i dati in ingresso (`rawFlights`) e per i dati di riepilogo (`flights`). Creare le tabelle in Ambari, come indicato di seguito.
 
-1. Accedere ad Ambari usando l'indirizzo [http://headnodehost:8080](http://headnodehost:8080).
+1. Accedere ad Ambari passando a http:\//headnodehost:8080.
 2. Dall'elenco dei servizi selezionare **Hive**.
 
     ![Selezione di Hive in Ambari](./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive.png)

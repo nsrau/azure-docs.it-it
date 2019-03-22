@@ -4,12 +4,12 @@ ms.author: robin.shahan
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 163b479fdf2d6a4885604c52f36f707e558dc3a0
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
-ms.translationtype: HT
+ms.openlocfilehash: b7d043b15cad23c9c9eca60c9a24096fee12e14a
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011776"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319754"
 ---
 ## <a name="prepare-to-authenticate-azure-resource-manager-requests"></a>Prepararsi all'autenticazione delle richieste di Azure Resource Manager
 Si devono autenticare tutte le attività da eseguire sulle risorse mediante [Gestione risorse di Azure][lnk-authenticate-arm] con Azure Active Directory (AD). Il modo più semplice per configurare questa impostazione è usare PowerShell o l’interfaccia della riga di comando di Azure.
@@ -41,8 +41,8 @@ La procedura seguente illustra come configurare l'autenticazione della password 
 3. Creare una nuova applicazione Azure Active Directory mediante il comando seguente, sostituendo i segnaposto:
    
    * **{Display name}:** un nome visualizzato per l'applicazione, ad esempio **MySampleApp**.
-   * **{Home page URL}:** l'URL della home page dell'app, ad esempio **http://mysampleapp/home**. Non è necessario che questo URL punti a un'applicazione reale.
-   * **{Application identifier}:** Identificatore univoco come **http://mysampleapp**. Non è necessario che questo URL punti a un'applicazione reale.
+   * **{Home page URL}:** l'URL della home page dell'app, ad esempio **http:\/mysampleapp/home**. Non è necessario che questo URL punti a un'applicazione reale.
+   * **{Application identifier}:** Un identificatore univoco, ad esempio **http:\//mysampleapp**. Non è necessario che questo URL punti a un'applicazione reale.
    * **{Password}:** password da usare per l'autenticazione con l'app.
      
      ```powershell

@@ -6,21 +6,21 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/20/2019
+ms.date: 03/21/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5b8ec726c81dfab710d30c37d6fb1aac97c12265
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: c689a8fe35133456c476106e96336420640ebf66
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293976"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335981"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integrazione del controllo del codice sorgente in Automazione di Azure
 
 Controllo del codice sorgente consente di mantenere i runbook in automazione di account vengono aggiornati con gli script nel repository del controllo codice sorgente GitHub o archivi di Azure. Il controllo del codice sorgente fornisce un ambiente in cui è possibile collaborare con il team, tenere traccia delle modifiche ed eseguire il rollback a versioni precedenti dei runbook. Il controllo del codice sorgente, ad esempio, consente di sincronizzare diversi rami nel controllo del codice sorgente per gli account di automazione di sviluppo, test o produzione. Questo rende facile alzare di livello il codice che è stato testato nell'ambiente di sviluppo a produzione di account di automazione. Integrazione del controllo codice sorgente con automazione supporta la sincronizzazione per direzione singola da repository di controllo del codice sorgente.
 
-Automazione di Azure supporta 3 tipi di controllo del codice sorgente:
+Automazione di Azure supporta tre tipi di controllo del codice sorgente:
 
 * GitHub
 * Repository di Azure (Git)
@@ -30,6 +30,7 @@ Automazione di Azure supporta 3 tipi di controllo del codice sorgente:
 
 * Un repository del controllo codice sorgente (GitHub o archivi di Azure)
 * Oggetto [Account runas](manage-runas-account.md)
+* Assicurarsi di aver la [moduli Azure più recenti](automation-update-azure-modules.md) nell'Account di automazione
 
 > [!NOTE]
 > I processi di sincronizzazione del controllo del codice sorgente vengono eseguiti nell'account di automazione dell'utente e vengono fatturati alla stessa tariffa degli altri processi di automazione.
@@ -49,10 +50,10 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 |Nome del controllo del codice sorgente     | Nome descrittivo per il controllo del codice sorgente        |
 |Tipo di controllo del codice sorgente     | Specifica del tipo di controllo del codice sorgente. Le opzioni disponibili sono:</br> GitHub</br>Repository di Azure (Git)</br> Repository di Azure (TFVC)        |
 |Repository     | Nome del repository o del progetto. Vengono restituiti i primi 200 repository. Per cercare un repository, digitare il nome del campo e fare clic su **ricerca su GitHub**.|
-|Ramo     | Ramo da cui eseguire il pull dei file di origine. La selezione della destinazione del ramo non è disponibile per il controllo del codice sorgente di tipo Controllo della versione di Team Foundation.          |
-|Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks </br>*Vengono sincronizzati solo i runbook nella cartella specificata. Ricorsione non è supportata.*        |
+|Ramo     | Ramo da cui eseguire il pull dei file di origine. Destinazione branch non è disponibile per il tipo di controllo sorgente TFVC.          |
+|Percorso della cartella     | Cartella che contiene i runbook da sincronizzare. Esempio: /Runbooks </br>*Vengono sincronizzati solo i runbook nella cartella specificata. Non è supportata la ricorsione.*        |
 |Sincronizzazione automatica     | Attiva o disattiva la sincronizzazione automatica quando viene eseguito un commit nel repository del controllo del codice sorgente         |
-|Pubblica runbook     | Se questa opzione è **attivata**, i runbook vengono pubblicati automaticamente dopo la sincronizzazione dal controllo del codice sorgente.         |
+|Pubblica runbook     | Se impostato su **su**, dopo i runbook vengono sincronizzati dal controllo del codice sorgente verrà vengano pubblicati automaticamente.         |
 |DESCRIZIONE     | Campo di testo in cui fornire altri dettagli        |
 
 ![Riepilogo del Controllo del codice sorgente](./media/source-control-integration/source-control-summary.png)
@@ -62,7 +63,7 @@ Inserire le informazioni nella pagina **Riepilogo del Controllo del codice sorge
 
 ## <a name="configure-source-control---powershell"></a>Configurare controllo del codice sorgente - PowerShell
 
-È anche possibile usare PowerShell per configurare controllo del codice sorgente in automazione di Azure. Configurare controllo del codice sorgente con i cmdlet di PowerShell, un [token di accesso personale (PAT)](#personal-access-token) è necessaria. Si utilizza il [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) per creare la connessione di controllo di origine. Il cmdlet richiede una stringa sicura del Token di accesso personale, per imparare a creare una stringa sicura, vedere [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
+È anche possibile usare PowerShell per configurare controllo del codice sorgente in automazione di Azure. Per configurare controllo del codice sorgente con i cmdlet di PowerShell, è necessario un token di accesso personale (PAT). Si utilizza il [New-AzureRmAutomationSourceControl](/powershell/module/AzureRM.Automation/New-AzureRmAutomationSourceControl) per creare la connessione di controllo di origine. Il cmdlet richiede una stringa sicura del Token di accesso personale, per imparare a creare una stringa sicura, vedere [ConvertTo-SecureString](/powershell/module/microsoft.powershell.security/convertto-securestring?view=powershell-6).
 
 ### <a name="azure-repos-git"></a>Repository di Azure (Git)
 
@@ -113,7 +114,7 @@ Per altre informazioni sulla creazione di un token di accesso personale in archi
 |Elementi di lavoro (lettura)    |
 |Connessioni al servizio (lettura, query e gestione)<sup>1</sup>    |
 
-<sup>1</sup>l'autorizzazione di connessioni del servizio è solo necessario se è abilitato con sincraut.
+<sup>1</sup> l'autorizzazione di connessioni del servizio è solo necessario se è abilitato con sincraut.
 
 ## <a name="syncing"></a>Sincronizzazione
 
@@ -168,7 +169,7 @@ Selezionare il controllo del codice sorgente da rimuovere. Nella pagina **Riepil
 
 ## <a name="encoding"></a>Codifica
 
-Se più persone che sta modificando i runbook nel repository di controllo del codice sorgente con diversi editor vi è possibilità verifichino i problemi di codifica. Ciò può inserire caratteri non validi nel runbook. Per altre informazioni, vedere [cause comuni di problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
+Se più persone stanno modificando i runbook nel repository di controllo del codice sorgente con diversi editor, è probabile incontrare i problemi di codifica. Questa situazione può causare caratteri non validi nel runbook. Per altre informazioni, vedere [cause comuni di problemi di codifica](/powershell/scripting/components/vscode/understanding-file-encoding#common-causes-of-encoding-issues)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

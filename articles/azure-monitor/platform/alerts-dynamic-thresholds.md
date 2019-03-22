@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: c28bf3ac85709fb996cfb067b83530645fdccba1
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 30f853bd65c83b922faf008fbb5279c28f197f68
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008906"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339007"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor-public-preview"></a>Avvisi delle metriche con soglie dinamiche in Monitoraggio di Azure (anteprima pubblica)
 
@@ -83,7 +83,7 @@ Le soglie visualizzati nel grafico, prima che venga creata una regola di avviso 
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>Quanti dati sono necessarie per attivare un avviso?
 
-Soglie dinamiche richiede almeno tre giorni di dati per assicurarsi che le soglie accurate prima di attivare avvisi.
+Se si dispone di una nuova risorsa o i dati di metrica mancanti, soglie dinamiche non attiva gli avvisi prima di tre giorni di dati sono disponibili per verificare che le soglie accurate.
 
 ## <a name="dynamic-thresholds-best-practices"></a>Procedure consigliate per le soglie dinamiche
 

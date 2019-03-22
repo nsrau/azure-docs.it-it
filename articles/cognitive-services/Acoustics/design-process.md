@@ -1,5 +1,5 @@
 ---
-title: Concetti relativi alla progettazione con simulazione acustica
+title: Concetti relativi alla progettazione con simulazione dell'acustica
 titlesuffix: Azure Cognitive Services
 description: Questa panoramica concettuale illustra le modalità progetto acustica incorpora simulazione acustico al processo di progettazione.
 services: cognitive-services
@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: dd27b660dfdd1f4bcec89291b10fd87750ad4c49
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4a1a0b15da091a1c020eb132f6b14b9ee14d334c
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136157"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316069"
 ---
 # <a name="project-acoustics-design-process-concepts"></a>Concetti di progetto acustica progettazione processo
 
@@ -29,7 +29,7 @@ In un titolo interattivo, come i suoni e listener spostarsi nello spazio 3D, com
 
 Titoli 3D usano sistemi di fisica di illuminazione e cinematica motivata fisica ma progettazione regolate per ottenere una combinazione di obiettivi di full immersion e la modalità di gioco. Finestra di progettazione visiva, non imposta i valori dei singoli pixel, ma piuttosto regola modelli 3D, materiali e sistemi di trasporto chiaro che sono tutti fisicamente in base a compromesso visual estetica e i costi della CPU. Che cosa sarebbe il processo equivalente per l'audio? Progetto acustica è un primo passaggio per l'esplorazione di questa domanda. Prima di tutto parleremo in che cosa significa acustici energia tramite uno spazio di trasporto.
 
-![zone riverbero](media/reverb-zones-altspace.png)
+![Schermata di AltSpace scena sovrapposta a zone riverbero](media/reverb-zones-altspace.png)
 
 ## <a name="impulse-responses-acoustically-connecting-two-points-in-space"></a>Risposta all'impulso: Acustica che collega due punti nello spazio
 
@@ -45,7 +45,7 @@ Una risposta all'impulso contiene ogni interessanti (e ogni non interessanti) ef
 
 Ma se la simulazione è connesso direttamente ai parametri DSP audio, in cui è la regolazione della finestra di progettazione? Che cosa abbiamo un guadagno? Bene, abbiamo un guadagno una quantità significativa di memoria indietro di rimuovendo le risposte impulse e mantenendo alcuni parametri DSP. E per offrire la finestra di progettazione energia alcuni sul risultato finale, è solo necessario trovare un modo per inserire la finestra di progettazione tra la simulazione e DSP audio.
 
-![parametri di risposta all'impulso](media/acoustic-parameters.png)
+![Grafico con stilizzato impulse Response, risposta con i parametri da sovrapporre](media/acoustic-parameters.png)
 
 ## <a name="sound-design-by-transforming-audio-dsp-parameters-from-simulation"></a>Progettazione trasformando i parametri DSP audio di simulazione
 

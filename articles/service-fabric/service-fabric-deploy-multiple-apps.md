@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 4d9dfbcfc1dd00209a90386bf75f0c2515a28060
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ed8159f38e2763cb897212ae4f51fecb7343a683
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57854467"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315592"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuire più eseguibili guest
 Questo articolo descrive come creare pacchetti di più eseguibili guest e in che modo distribuirli in Azure Service Fabric. Per la creazione e la distribuzione di un pacchetto di Service Fabric, consultare l'articolo [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md).
@@ -204,7 +204,7 @@ Register-ServiceFabricApplicationType -ApplicationPathInImageStore 'NodeAppType'
 New-ServiceFabricApplication -ApplicationName 'fabric:/NodeApp' -ApplicationTypeName 'NodeAppType' -ApplicationTypeVersion 1.0  
 ```
 
-Dopo avere pubblicato l'applicazione nel cluster locale, è possibile accedere all'applicazione Node.js nella porta specificata nel manifesto del servizio dell'applicazione Node.js, ad esempio http://localhost:3000.
+Una volta completata, l'applicazione viene pubblicata nel cluster locale, è possibile accedere all'applicazione Node. js sulla porta specificata nel manifesto del servizio dell'applicazione Node. js, ad esempio http:\//localhost:3000.
 
 In questa esercitazione si è appreso come distribuire facilmente due applicazioni esistenti come una singola applicazione di Service Fabric e come distribuirle in Service Fabric in modo da sfruttare i vantaggi di alcune delle funzionalità di Service Fabric, come la disponibilità elevata e l'integrazione con il sistema di integrità.
 

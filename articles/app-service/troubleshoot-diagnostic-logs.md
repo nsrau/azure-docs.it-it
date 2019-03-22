@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 7d877f467f06768c31679752d9deff1ca19d0003
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882876"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339636"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -51,7 +51,7 @@ Il servizio app registra anche le informazioni di distribuzione dei log quando s
 Per abilitare la diagnostica nel [portale di Azure](https://portal.azure.com), passare alla pagina dell'app e fare clic su **Impostazioni > Log di diagnostica**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
-![Parte dei log](./media/web-sites-enable-diagnostic-log/logspart.png)
+![Parte del log](./media/web-sites-enable-diagnostic-log/logspart.png)
 
 Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Livello**. La tabella seguente elenca le categorie dei log incluse in ogni livello:
 
@@ -115,7 +115,7 @@ Per scaricare i file di log mediante l'interfaccia della riga di comando di Azur
 
     az webapp log download --resource-group resourcegroupname --name appname
 
-In questo modo i log dell'app denominata "appname" vengono salvati in un file denominato **diagnostics.zip** nella directory corrente.
+Questo comando Salva i log dell'App denominata 'appname' in un file denominato **webapp_logs.zip** nella directory corrente.
 
 > [!NOTE]
 > Se l'interfaccia della riga di comando di Azure non è stata installata o configurata per l'uso della sottoscrizione di Azure, vedere [Come usare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).

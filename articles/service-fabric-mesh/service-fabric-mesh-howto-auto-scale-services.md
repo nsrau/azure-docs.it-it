@@ -3,7 +3,7 @@ title: Scalabilità automatica di un'app in esecuzione in Azure Service Fabric M
 description: Informazioni su come configurare i criteri di scalabilità automatica per i servizi di un'applicazione di Service Fabric Mesh.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2018
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: f34c27addb61ce3dc24406598663d6bfbddf448b
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
-ms.translationtype: HT
+ms.openlocfilehash: 2233dffabd7c76ca55cf215f8bc04e66134f5799
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53969438"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338803"
 ---
 # <a name="create-autoscale-policies-for-a-service-fabric-mesh-application"></a>Creare criteri di scalabilità automatica per un'applicazione di Service Fabric Mesh
 Uno dei principali vantaggi della distribuzione di applicazioni in Service Fabric Mesh è la possibilità di ridurre o aumentare facilmente il numero di istanze dei servizi. Questo consente di gestire diverse quantità di carico nei servizi o migliorare la disponibilità. È possibile ridurre o aumentare manualmente le istanze dei servizi o impostare criteri di scalabilità automatica.

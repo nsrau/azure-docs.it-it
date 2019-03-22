@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: a7f247ba0e13d75c6556508fb432b59c3e4ecdef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 82ed8783444a414d4706f97c8c9b6ea18734561e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881300"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311748"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Confronto delle funzionalità: Database SQL di Azure e SQL Server
 
@@ -97,6 +97,7 @@ La tabella seguente elenca le principali funzionalità di SQL Server. Per ogni f
 | [Master Data Services (MDS)](https://docs.microsoft.com/sql/master-data-services/master-data-services-overview-mds) | No  | No  |
 | [Registrazione minima nell'importazione bulk](https://docs.microsoft.com/sql/relational-databases/import-export/prerequisites-for-minimal-logging-in-bulk-import) | No  | No  |
 | [Modifica dei dati di sistema](https://docs.microsoft.com/sql/relational-databases/databases/system-databases) | No  | Sì |
+| [Automazione OLE](https://docs.microsoft.com/sql/database-engine/configure-windows/ole-automation-procedures-server-configuration-option) | No  | No  |
 | [Operazioni online sugli indici](https://docs.microsoft.com/sql/relational-databases/indexes/perform-index-operations-online) | Sì | Sì |
 | [OPENDATASOURCE](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql)|No |Sì, vedere le [differenze relative a T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [OPENJSON](https://docs.microsoft.com/sql/t-sql/functions/openjson-transact-sql)|Sì|Sì|

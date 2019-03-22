@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 687f99fb6447eddb4ce10ce81bc349181ec5c48c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3772dbdc8582eea1b2eac368784878a8a36d34ad
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094753"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339484"
 ---
 # <a name="sap-workload-configurations-with-azure-availability-zones"></a>Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure
 [Zone di disponibilità di Azure](https://docs.microsoft.com/azure/availability-zones/az-overview) è una delle funzionalità a disponibilità elevata offerte da Azure. L'uso delle zone di disponibilità migliora la disponibilità generale dei carichi di lavoro SAP in Azure. Questa funzionalità è già disponibile in alcune [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). In futuro sarà disponibile in un numero maggiore di aree.
@@ -93,7 +93,7 @@ Nel prendere queste decisioni, tenere presenti anche le raccomandazioni per la l
 > È previsto che le misurazioni indicate in precedenza restituiscano risultati diversi in ogni area di Azure che supporta le [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Anche se i requisiti di latenza di rete non cambiano, può essere necessario adottare strategie di distribuzione diverse in diverse aree di Azure, perché la latenza di rete tra le zone può essere diversa. In alcune aree di Azure la latenza di rete fra le tre zone può essere notevolmente diversa. In altre aree la latenza di rete fra le tre zone può essere più uniforme. Non è corretto affermare che è sempre presente una latenza di rete compresa tra 1 e 2 millisecondi. La latenza di rete tra le zone di disponibilità nelle aree di Azure non può essere generalizzata.
 
 ## <a name="activeactive-deployment"></a>Distribuzione attiva/attiva
-Questa architettura di distribuzione viene chiamata attiva/attiva, perché le istanze di dialogo SAP attive vengono distribuite tra due o tre zone. L'istanza di SAP Central Services che usa la replica di accodamento verrà distribuita tra due zone. Lo stesso vale per il livello DBMS, che verrà distribuito tra le stesse zone di SAP Central Services.
+Questa architettura di distribuzione viene denominata attivo/attivo perché si distribuisce il server applicazioni SAP active tra due o tre zone. L'istanza di SAP Central Services che usa la replica di accodamento verrà distribuita tra due zone. Lo stesso vale per il livello DBMS, che verrà distribuito tra le stesse zone di SAP Central Services.
 
 Quando si considera questa configurazione, è necessario trovare le due zone di disponibilità nell'area di appartenenza che offrono una latenza di rete tra zone accettabile per il carico di lavoro e per la replica DBMS sincrona. È anche opportuno assicurarsi che la differenza tra la latenza di rete all'interno delle zone selezionate e tra le zone non sia eccessiva. Questo perché occorre evitare variazioni troppo estese, a seconda che un processo venga eseguito all'interno della stessa zona del server DBMS o in zone diverse, nei tempi di esecuzione dei processi aziendali o dei processi batch. Alcune variazioni sono accettabili, ma non differenze sostanziali.
 

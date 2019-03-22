@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 432dcf4608d23f269c5005b86d2c58b7f70b3068
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f09f66e81ec4878aedebfee9be4c0c67b75c8ad6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007584"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313601"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Connettore SAP LaMa per Azure
 
@@ -77,7 +77,7 @@ Il connettore di Azure viene fornito a partire da SAP LaMa 3.0 SP05. È consigli
 1. Aprire il pannello Azure Active Directory
 1. Fare clic su Registrazioni per l'app
 1. Fare clic su Aggiungi
-1. Immettere un nome, selezionare il tipo di applicazione "app Web/API", immettere un URL di accesso (ad esempio `http://localhost`) e fare clic su Crea
+1. Immettere un nome, selezionare il tipo di applicazione "app Web/API", immettere un URL di accesso (ad esempio http:\//localhost) e fare clic su Crea
 1. L'URL di accesso non viene usato e può essere qualsiasi URL valido
 1. Selezionare la nuova app e fare clic su Chiavi nella scheda Impostazioni
 1. Immettere una descrizione per una nuova chiave, selezionare "Non scade mai" e fare clic su Salva

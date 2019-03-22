@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 1298e7d7ed9c3760ff5022b5b97e8444eb1bcad1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 72fbdbcfcd94dd41a67bb81314802dd7314ae463
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007052"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316627"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
 
@@ -25,7 +25,7 @@ Quando si crea una macchina virtuale (VM), si riavviano VM arrestate (deallocate
 
 **Codice errore**: AllocationFailed o ZonalAllocationFailed
 
-**Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni su come aumentare la possibilità di eseguire correttamente l'allocazione sono disponibili in `https://aka.ms/allocation-guidance`"
+**Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni su come aumentare la possibilità di eseguire correttamente l'allocazione a https:\//aka.ms/allocation-guidance "
 
 Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce possibili soluzioni alternative.
 

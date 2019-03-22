@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f06446cb6af1fa145e5fcec41cc85a1452af207a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 5202d2775e830264543719cafefb5c48fca822d6
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839254"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316423"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -134,7 +134,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Supporto partner - Livello 2](#partner-tier2-support)**: Non usare. Questo ruolo è deprecato e verrà rimosso da Azure AD in futuro. Il ruolo è riservato a pochi partner Microsoft per la rivendita e non è disponibile per un uso generale.
 
-* **[Amministratore password/Amministratore supporto tecnico](#helpdesk-administrator)**: gli utenti con questo ruolo possono modificare le password, invalidare i token di aggiornamento, gestire le richieste di servizio e monitorare l'integrità dei servizi. Invalidando un token di aggiornamento si impone all'utente di eseguire di nuovo l'accesso. Gli amministratori dell'help desk possono reimpostare le password e invalida i token di aggiornamento di altri utenti non amministratori o assegnati solo i ruoli seguenti:
+* **[Amministratore supporto tecnico (Password)](#helpdesk-administrator)**: gli utenti con questo ruolo possono modificare le password, invalidare i token di aggiornamento, gestire le richieste di servizio e monitorare l'integrità dei servizi. Invalidando un token di aggiornamento si impone all'utente di eseguire di nuovo l'accesso. Gli amministratori dell'help desk possono reimpostare le password e invalida i token di aggiornamento di altri utenti non amministratori o assegnati solo i ruoli seguenti:
   * Ruoli con autorizzazioni di lettura nella directory
   * Mittente dell'invito guest
   * Amministratore del supporto tecnico
@@ -149,7 +149,7 @@ Sono disponibili i ruoli di amministratore seguenti:
   * Non amministratori come dirigenti, addetti degli uffici legali e dipendenti delle risorse umane che possono avere accesso a dati sensibili o informazioni riservate.
 
   > [!NOTE]
-  > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore supporto tecnico". È l'"Amministratore password" nel [portale di Azure](https://portal.azure.com/).
+  > Questo ruolo è stato precedentemente chiamato "amministratore Password" [portale di Azure](https://portal.azure.com/). Si sta modificando il nome di "Amministratore supporto tecnico" in modo che corrisponda il nome in Azure AD PowerShell, API di Azure AD Graph e API Microsoft Graph. Per un breve periodo di tempo, si modificherà il nome di "Amministratore supporto tecnico (Password)" nel portale di Azure prima di cambiare "Amministratore supporto tecnico".
   >
   
 * **[Amministratore di Power BI](#power-bi-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Power BI, quando è presente il servizio, nonché la possibilità di gestire i ticket di supporto e monitorare l'integrità dei servizi. Per altre informazioni, vedere [Informazioni sul ruolo di amministratore di Power BI](https://docs.microsoft.com/power-bi/service-admin-role).
@@ -164,7 +164,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
   <b>Importante</b>: Questo ruolo concede la possibilità di gestire le assegnazioni per tutti i ruoli di Azure AD, incluso il ruolo di amministratore globale. Non prevede altre capacità con privilegi in Azure Active Directory, ad esempio la creazione o l'aggiornamento degli utenti. Tuttavia, gli utenti assegnati a questo ruolo possono concedere a se stessi o ad altri utenti privilegi aggiuntivi, perché possono assegnare ruoli aggiuntivi.
 
-* **[Lettore di report](#reports-reader)**: gli utenti con questo ruolo possono visualizzare i dati dei report sull'utilizzo e il dashboard dei report nell'interfaccia di amministrazione di Office 365 e in Adoption Content Pack in Power BI. Il ruolo consente anche l'accesso ai report e alle attività di accesso in Azure Active Directory e ai dati restituiti dall'API di creazione report di Microsoft Graph. Un utente assegnato al ruolo di lettore di report può accedere solo alle metriche rilevanti per utilizzo e adozione. Questi utenti non hanno le autorizzazioni di amministratore per configurare le impostazioni o accedere alle interfacce di amministrazione specifiche di prodotti come Exchange. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
+* **[Lettore di report](#reports-reader)**: Gli utenti con questo ruolo possono visualizzare i dati dei report di utilizzo e il dashboard dei report nell'interfaccia di amministrazione di Microsoft 365 e in Adoption pack in Power BI. Il ruolo consente anche l'accesso ai report e alle attività di accesso in Azure Active Directory e ai dati restituiti dall'API di creazione report di Microsoft Graph. Un utente assegnato al ruolo di lettore di report può accedere solo alle metriche rilevanti per utilizzo e adozione. Questi utenti non hanno le autorizzazioni di amministratore per configurare le impostazioni o accedere alle interfacce di amministrazione specifiche di prodotti come Exchange. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
 * **[Amministratore della sicurezza](#security-administrator)**: gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla sicurezza nel Centro sicurezza Microsoft 365, in Azure Active Directory Identity Protection, in Azure Information Protection e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
   
@@ -208,9 +208,9 @@ Sono disponibili i ruoli di amministratore seguenti:
   [Centro sicurezza di Azure](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) | è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche
   [Integrità dei servizi di Office 365](https://docs.microsoft.com/office365/enterprise/view-service-health) | Visualizzare l'integrità dei servizi di Office 365
 
-* **[Amministratore servizio di supporto](#service-support-administrator)**: gli utenti con questo ruolo possono inviare a Microsoft richieste di supporto per i servizi di Azure e Office 365, nonché visualizzare il dashboard del servizio e il centro messaggi nel portale di Azure e nell'interfaccia di amministrazione di Office 365. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+* **[Amministratore servizio di supporto](#service-support-administrator)**: Gli utenti con questo ruolo possono aprire richieste di supporto con Microsoft per servizi di Azure e Office 365 e il dashboard del servizio e il centro messaggi nelle viste di [portale di Azure](https://portal.azure.com) e [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com). Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]
-  > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore servizio di supporto". È l'"Amministratore del servizio" nel [portale di Azure](https://portal.azure.com), nel portale di amministrazione di Office 365 e nel portale di Intune.
+  > Nell'API Microsoft Graph, nell'API Graph di Azure AD e in Azure AD PowerShell questo ruolo è identificato come "Amministratore servizio di supporto". È il "Amministratore del servizio" nel [portale di Azure](https://portal.azure.com), il [interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com)e il portale di Intune.
 
 * **[Amministratore di SharePoint](#sharepoint-service-administrator)**: gli utenti con questo ruolo hanno autorizzazioni globali all'interno di Microsoft SharePoint Online, quando il servizio è presente, nonché la possibilità creare e gestire tutti i gruppi di Office 365, di gestire i ticket di supporto e monitorare l'integrità del servizio. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
   > [!NOTE]

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: tamram
-ms.openlocfilehash: d57023063fe23db9f57d52ab9cdf99e0687c1fdf
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: df9bc1680f20fe6264da0109cd52db1072fd9fc5
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217292"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311136"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -29,14 +29,14 @@ L'aggiornamento a un account di archiviazione per utilizzo generico v2 da un acc
 2. Passare all'account di archiviazione.
 3. Nella sezione **Impostazioni** fare clic su **Configurazione**.
 4. In **Tipologia account** fare clic su **Aggiorna**.
-5. In **Conferma aggiornamento** digitare il nome dell'account. 
+5. In **Conferma aggiornamento** digitare il nome dell'account.
 6. Fare clic su **Aggiorna** nella parte inferiore del pannello.
 
 ## <a name="upgrade-with-powershell"></a>Eseguire l'aggiornamento con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con PowerShell, aggiornare prima PowerShell in modo che usi l'ultima versione del modulo **Az.Storage**. Per informazioni su come installare PowerShell, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). 
+Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con PowerShell, aggiornare prima PowerShell in modo che usi l'ultima versione del modulo **Az.Storage**. Per informazioni su come installare PowerShell, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Chiamare quindi il comando seguente per aggiornare l'account, sostituendo il nome del gruppo di risorse e l'account di archiviazione:
 
@@ -46,17 +46,17 @@ Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-a
 
 ## <a name="upgrade-with-azure-cli"></a>Eseguire l'aggiornamento con l'interfaccia della riga di comando di Azure
 
-Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con l'interfaccia della riga di comando di Azure, installare prima l'ultima versione dell'interfaccia della riga di comando di Azure. Per informazioni sull'installazione dell'interfaccia della riga di comando, vedere [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Installare l'interfaccia della riga di comando di Azure 2.0). 
+Per aggiornare un account per utilizzo generico v1 a un account per utilizzo generico v2 con l'interfaccia della riga di comando di Azure, installare prima l'ultima versione dell'interfaccia della riga di comando di Azure. Per informazioni sull'installazione dell'interfaccia della riga di comando, vedere [Install the Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) (Installare l'interfaccia della riga di comando di Azure 2.0).
 
 Chiamare quindi il comando seguente per aggiornare l'account, sostituendo il nome del gruppo di risorse e l'account di archiviazione:
 
 ```cli
 az storage account update -g <resource-group> -n <storage-account> --set kind=StorageV2
-``` 
+```
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Specificare un livello di accesso per i dati BLOB
 
-Gli account per utilizzo generico v2 supportano tutti i servizi di archiviazione e gli oggetti dati di Azure, ma i livelli di accesso sono disponibili solo per i BLOB in blocchi nell'archiviazione BLOB. Quando si esegue l'aggiornamento a un account di archiviazione per utilizzo generico v2, è possibile specificare un livello di accesso per i dati BLOB. 
+Gli account per utilizzo generico v2 supportano tutti i servizi di archiviazione e gli oggetti dati di Azure, ma i livelli di accesso sono disponibili solo per i BLOB in blocchi nell'archiviazione BLOB. Quando si esegue l'aggiornamento a un account di archiviazione per utilizzo generico v2, è possibile specificare un livello di accesso per i dati BLOB.
 
 I livelli di accesso consentono di scegliere l'archiviazione economicamente più conveniente in base i modelli di utilizzo previsti. I BLOB in blocchi possono essere archiviati in un livello ad accesso frequente, ad accesso sporadico o archivio. Per altre informazioni sui livelli di accesso, vedere [Archiviazione BLOB di Azure: livelli di archiviazione ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -96,7 +96,7 @@ Per stimare il costo di archiviazione e accesso ai dati BLOB in un account di ar
     - Quantità di dati archiviata nell'account di archiviazione
     - Variazione nel volume di dati su base mensile e se i dati precedenti vengono costantemente sostituiti da nuovi dati
 * Modello di accesso primario per i dati di archiviazione BLOB, inclusi:
-    - Quantità di dati letti e scritti nell'account di archiviazione 
+    - Quantità di dati letti e scritti nell'account di archiviazione
     - Numero di operazioni di lettura e di scrittura eseguite sui dati nell'account di archiviazione
 
 Per scegliere il miglior livello di accesso per le proprie esigenze, può essere utile determinare la capacità di dati del BLOB e la modalità d'uso di tali dati. Questa scelta può essere fatta al meglio osservando le metriche di monitoraggio per l'account.
@@ -108,7 +108,7 @@ Per monitorare gli account di archiviazione esistenti e raccoglierne i dati, è 
 Per altre informazioni, vedere [About Storage Analytics Metrics](https://msdn.microsoft.com/library/azure/hh343258.aspx) (Informazioni sulle metriche di Analisi archiviazione) e [Storage Analytics Metrics Table Schema](https://msdn.microsoft.com/library/azure/hh343264.aspx) (Schema di tabella della metrica di Analisi archiviazione)
 
 > [!NOTE]
-> Gli account di archiviazione BLOB espongono l'endpoint di servizio tabelle solo per l'archiviazione e l'accesso ai dati delle metriche per l'account specifico. 
+> Gli account di archiviazione BLOB espongono l'endpoint di servizio tabelle solo per l'archiviazione e l'accesso ai dati delle metriche per l'account specifico.
 
 Per monitorare l'utilizzo delle risorse di archiviazione per l'archiviazione BLOB, è necessario abilitare la metrica della capacità.
 Con questa impostazione abilitata, i dati sulla capacità vengono registrati ogni giorno per il servizio BLOB di un account di archiviazione e registrati come una voce di tabella che viene scritta nella tabella *$MetricsCapacityBlob* nello stesso account di archiviazione.
@@ -120,7 +120,7 @@ Per monitorare i modelli di accesso ai dati per l'archiviazione BLOB, è necessa
 
 Per ottenere una buona approssimazione del modello di accesso e di utilizzo dei dati, è consigliabile scegliere un periodo di conservazione per le metriche che rappresenti l'utilizzo regolare ed estrapolarne i dati. Una possibilità consiste nel conservare i dati delle metriche per sette giorni e raccoglierli ogni settimana per analizzarli alla fine del mese. Un'altra possibilità è conservare i dati di metrica per gli ultimi 30 giorni e raccogliere e analizzare i dati alla fine del periodo di 30 giorni.
 
-Per informazioni dettagliate su come abilitare, raccogliere e visualizzare i dati delle metriche, vedere [Abilitazione delle metriche di Archiviazione di Azure e visualizzazione dei dati delle metriche](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Per informazioni dettagliate su come abilitare, raccogliere e visualizzare i dati delle metriche, vedere [metriche di archiviazione analitica](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 > [!NOTE]
 > Anche l'archiviazione, l'accesso e il download dei dati di analisi vengono addebitati come avviene per i dati utente normali.

@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: bef2e5da1a151fd6178298f3b993337fd07bd294
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 780f87924bcd25f0485bfed1b9640915b7d8e1d3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313332"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309470"
 ---
 # <a name="deploy-a-linux-service-fabric-cluster-into-an-azure-virtual-network"></a>Distribuire un cluster Linux di Service Fabric in una rete virtuale di Azure
 
@@ -89,7 +89,7 @@ Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati m
 |clusterName|mysfcluster123| Nome del cluster. |
 |location|southcentralus| Località del cluster. |
 |certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale SHA1 del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3". </p>|
-|certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, Ad esempio, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, Ad esempio, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore dell'insieme di credenziali di origine, ad esempio "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 <a id="createvaultandcert" name="createvaultandcert_anchor"></a>
@@ -98,7 +98,7 @@ Nel file dei parametri [AzureDeploy.Parameters][parameters] vengono dichiarati m
 
 Configurare quindi la topologia di rete e distribuire il cluster di Service Fabric. Il modello di Resource Manager [AzureDeploy.json][template] crea una rete virtuale e una subnet per Service Fabric. Il modello distribuisce anche un cluster in cui è abilitata la sicurezza basata su certificati.  Come certificato per i cluster di produzione usare un certificato di un'entità di certificazione (CA). Per proteggere i cluster di test è possibile usare un certificato autofirmato.
 
-Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire il certificato. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per usare i nomi comuni del certificato per la gestione dei certificati, vedere [Modificare il cluster per la gestione dei nomi comuni del certificato](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
+Il modello in questo articolo distribuisce un cluster che usa l'identificazione personale del certificato per identificare il certificato del cluster.  Nessun certificato può avere la stessa identificazione personale di un altro, il che rende più difficile gestire il certificato. Commutare un cluster distribuito dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato rende molto più semplice la gestione dei certificati.  Per informazioni su come aggiornare il cluster per l'uso dei nomi comuni del certificato per la gestione dei certificati, vedere [Passare dall'uso di identificazioni personali del certificato all'uso di nomi comuni del certificato in un cluster](service-fabric-cluster-change-cert-thumbprint-to-cn.md).
 
 ### <a name="create-a-cluster-using-an-existing-certificate"></a>Creare un cluster usando un certificato esistente
 

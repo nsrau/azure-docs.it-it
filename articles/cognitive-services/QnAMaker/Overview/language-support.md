@@ -1,24 +1,24 @@
 ---
 title: Supporto delle lingue - QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Elenco delle impostazioni cultura e dei linguaggi naturali supportati da QnA Maker per la knowledge base. Non combinare linguaggi diversi nella stessa knowledge base.
+description: La lingua di una knowledge base influisce sulla capacità di QnA Maker di estrarre automaticamente domande e risposte dalle origini, nonché la pertinenza dei risultati forniti da QnA Maker in risposta alle query degli utenti. Elenco delle impostazioni cultura e dei linguaggi naturali supportati da QnA Maker per la knowledge base. Non combinare linguaggi diversi nella stessa knowledge base.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4e1dbf408565e78547928047ae2ce2d37ad1a022
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 820a9ae0df91fba8cf00764428867bec6196841a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105125"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58335862"
 ---
-# <a name="language-and-region-support-for-qna-maker"></a>Supporto di lingua e area geografica per QnA Maker
+# <a name="language-support-for-qna-maker"></a>Supporto del linguaggio per QnA Maker
 
 La lingua di una knowledge base influisce sulla capacità di QnA Maker di estrarre automaticamente domande e risposte dalle [origini](../Concepts/data-sources-supported.md), nonché la pertinenza dei risultati forniti da QnA Maker in risposta alle query degli utenti.
 
@@ -33,16 +33,28 @@ QnA Maker supporta l'estrazione di domanda/risposta in qualsiasi pagina della li
 |Tedesco|de-*|
 |Spagnolo|es-*|
 
+## <a name="primary-language-detection"></a>Rilevamento della lingua primario
+
+La lingua principale usata per il rilevamento è impostata per la risorsa di QnA Maker e tutte le knowledge base create su tale risorsa, quando il primo documento o l'URL viene aggiunto alla prima knowledge base. Non è possibile modificare la lingua. 
+
+Se si prevede di supportare più lingue, devono disporre di una nuova risorsa di QnA Maker per ciascuna lingua. Informazioni su come [creare una knowledge base QnA Maker di basata sul linguaggio](/how-to/language-knowledge-base.md).  
+
+Verificare che la lingua principale con i passaggi seguenti:
+
+1. Accedere al [portale di Azure](http://portal.azure.com).  
+1. Cercare e selezionare la risorsa di ricerca di Azure creata come parte della risorsa di QnA Maker. Il nome di risorsa di ricerca di Azure inizierà con lo stesso nome della risorsa di QnA Maker e sarà di tipo **servizio di ricerca**. 
+1. Dal **Overview** pagina della risorsa di ricerca, seleziona **indici**. 
+1. Selezionare l'indice **testkb**.
+1. Selezionare il **campi** scheda. 
+1. Visualizza i **analizzatore** colonna per il **domande** e **risposta** campi. 
+
+
 ## <a name="query-matching-and-relevance"></a>Query corrispondente e pertinenza
 QnA Maker dipende dagli [analizzatori del linguaggio](https://docs.microsoft.com/rest/api/searchservice/language-support) in ricerca di Azure per fornire i risultati. Sono disponibili funzionalità speciali di riclassificazione per lingua En-* che consentono una migliore pertinenza.
 
-Le funzionalità di Ricerca di Azure sono all'altezza per le lingue supportate, ma QnA Maker ha un'utilità di classificazione aggiuntiva superiore ai risultati delle ricerche di Azure. In questo modello di utilità di classificazione, per le lingue en-* vengono usate una semantica speciale e funzionalità basate sulle parole non ancora disponibili per le altre lingue. Queste non vengono rese disponibili perché fanno parte del funzionamento interno dell'utilità di classificazione. 
+Le funzionalità di Ricerca di Azure sono all'altezza per le lingue supportate, ma QnA Maker ha un'utilità di classificazione aggiuntiva superiore ai risultati delle ricerche di Azure. In questo modello permettendoti, utilizziamo alcune caratteristiche speciali di semantiche e basato sulle frasi in en-*, che non sono ancora disponibili per altri linguaggi. Microsoft non rendere disponibili tali caratteristiche, come fanno parte dell'attività interna della permettendoti di QnA Maker. 
 
-QnA Maker rileva automaticamente la lingua della knowledge base durante la creazione e imposta l'analizzatore di conseguenza. È possibile creare knowledge base nelle lingue seguenti. Leggere [qui](../How-To/language-knowledge-base.md) per altri dettagli sulla modalità di gestione delle lingue di QnA Maker.
-
-
-> [!Tip]
-> Gli analizzatori del linguaggio, una volta impostati, non possono essere modificati. Inoltre, l'analizzatore del linguaggio si applica a tutte le knowledge base in un [servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md). Se si intende disporre di knowledge base in lingue diverse, è necessario crearli in servizi QnA Maker separati.
+QnA Maker [rileva automaticamente la lingua della knowledge base](#primary-language-detection) durante la creazione e imposta di conseguenza l'analizzatore. È possibile creare knowledge base nelle lingue seguenti. 
 
 |Lingue supportate|
 |-----|

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: ef29dafe32c3c5988cd33f59c8436eeef4b45886
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7a4423449931b74afa15ca238c611f54b071402f
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849279"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339296"
 ---
 # <a name="how-to-work-with-search-results-in-azure-search"></a>Come usare i risultati della ricerca in Ricerca di Azure
 In questo articolo vengono fornite indicazioni su come implementare elementi standard di una pagina di risultati della ricerca, ad esempio i conteggi totali, il recupero di documenti, i criteri di ordinamento e l'esplorazione. Le opzioni relative alla pagina che forniscono dati o informazioni per i risultati della ricerca vengono specificate tramite richieste [Cerca nel documento](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) inviate al servizio Ricerca di Azure. 
@@ -25,8 +25,8 @@ Nell'API REST le richieste includono un comando GET, un percorso e parametri di 
 Alcuni esempi di codice includono un'interfaccia front-end Web, che è possibile trovare in [New York City Jobs demo app](https://azjobsdemo.azurewebsites.net/) (App demo relativa alle offerte di lavoro della città di New York) e [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd).
 
 > [!NOTE]
-> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi richiesta, vedere [API REST del servizio ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice). > 
-> 
+> Una richiesta valida include diversi elementi, ad esempio URL e percorso del servizio, verbo HTTP, `api-version`, e così via. Per brevità, gli esempi sono stati tagliati in modo da evidenziare solo la sintassi rilevante per l'impaginazione. Per altre informazioni sulla sintassi richiesta, vedere [Azure Search Service REST](https://docs.microsoft.com/rest/api/searchservice).
+>
 
 ## <a name="total-hits-and-page-counts"></a>Corrispondenze totali e conteggi delle pagine
 La visualizzazione del numero totale di risultati ottenuti da una query e la restituzione di tali risultati in blocchi più piccoli è fondamentale per tutte le pagine di ricerca.

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: be66dcf8115258b6f593ec913e75785a3f8dbe1f
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 51aa33e4ff387a1030dac42bce8d12cf72343b35
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55743481"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317477"
 ---
 # <a name="streaming-locators"></a>Localizzatori di streaming
 
@@ -30,9 +30,13 @@ Se si vogliono specificare opzioni di crittografia nel flusso, creare i [criteri
 
 > [!IMPORTANT]
 > * Le proprietà dei **localizzatori di streaming** di tipo Datetime sono sempre in formato UTC.
-> * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming ogni volta che si devono usare le stesse opzioni. 
+> * È necessario progettare un set limitato di criteri per l'account di Servizi multimediali e riusare questi criteri per i localizzatori di streaming tutte le volte che si devono usare le stesse opzioni. 
 
-## <a name="filtering-ordering-paging"></a>Filtro, ordinamento, restituzione di più pagine
+## <a name="associate-filters-with-streaming-locators"></a>Associare i filtri con i localizzatori di Streaming
+
+È possibile specificare un elenco di [filtri di asset o account](filters-concept.md), che si applicherebbe alle [localizzatore di Streaming](https://docs.microsoft.com/rest/api/media/streaminglocators/create#request-body). Il [creazione dinamica dei pacchetti](dynamic-packaging-overview.md) si applica questo elenco di filtri insieme a quelli del client specifica l'URL. Questa combinazione genera una [dyanamic manifesto](filters-dynamic-manifest-overview.md), basata su filtri nell'URL + filtri è specificare nel localizzatore di Streaming. È consigliabile usare questa funzionalità se si desidera applicare i filtri, ma non si desidera esporre i nomi dei filtri nell'URL.
+
+## <a name="filter-order-page-streaming-locator-entities"></a>Filtro, ordine, le entità del localizzatore di Streaming di pagina
 
 Vedere [Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali](entities-overview.md).
 

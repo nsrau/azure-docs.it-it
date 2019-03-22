@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 08/15/2018
 ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: ac166161624840aae39e84aa4b149fe58a6c978e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 72cbf71077a8df2b81b366d9f29ae006100da471
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780865"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310541"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint del servizio Rete virtuale
 
@@ -42,6 +42,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti:
 **Anteprima pubblica**
 
 - **[Database di Azure per MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)**: anteprima disponibile in tutte le aree di Azure in cui è disponibile il database di Azure per MariaDB.
+- **[Registro contenitori di Azure](../container-registry/container-registry-vnet.md)**: Visualizzare in anteprima disponibili in tutte le aree di Azure in cui Registro contenitori di Azure è disponibile.
 
 Per le notifiche più aggiornate, vedere la pagina [Aggiornamenti della rete virtuale di Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 

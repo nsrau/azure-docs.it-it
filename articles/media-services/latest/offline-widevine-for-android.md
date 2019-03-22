@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 18c83717e761f22363ccc69c827f5e383f8a9e85
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 5d7dccfecc47b14be62a78600561a8ff0f7ca501
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54122737"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312258"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Streaming Widevine offline per Android
+# <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android
 
 Oltre a proteggere il contenuto per lo streaming online, i servizi di sottoscrizione e noleggio di contenuti multimediali offrono la possibilità di scaricare contenuto utilizzabile anche quando non si è connessi a Internet. Può ad esempio essere necessario scaricare contenuto sullo smartphone o sul tablet per la riproduzione in modalità aereo quando si è disconnessi dalla rete durante il volo. Il download di contenuto può essere utile anche in altri scenari, come nei casi seguenti:
 
@@ -144,7 +144,7 @@ Se si aggiorna il browser Chrome per dispositivi mobili alla versione 62 o succe
 
 Questa app PWA open source è stata creata in Node.js. Se si vuole ospitare una versione personalizzata su un server Ubuntu, tenere presenti i seguenti problemi comunemente riscontrati che possono impedire la riproduzione:
 
-1. Problema di CORS (Cross Origin Resource Sharing): il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS https://biograf-155113.appspot.com (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si prova a eseguire l'accesso, viene visualizzato l'errore HTTP seguente: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. (Non è stato possibile eseguire il caricamento di ... non è presente alcuna intestazione 'Access-Control-Allow-Origin' nella risorsa richiesta). L'origine 'https://13.85.80.81:8080' non può quindi eseguire l'accesso". Se si ritiene soddisfacente una risposta opaca, impostare la modalità della richiesta 'no-cors' per recuperare la risorsa con CORS disabilitato.
+1. Problema di CORS (Cross Origin Resource Sharing): il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS https://biograf-155113.appspot.com (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si prova a eseguire l'accesso, viene visualizzato l'errore HTTP seguente: Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. (Non è stato possibile eseguire il caricamento di ... non è presente alcuna intestazione 'Access-Control-Allow-Origin' nella risorsa richiesta). Origin ' https:\//13.85.80.81:8080' non è pertanto consentito l'accesso. Se si ritiene soddisfacente una risposta opaca, impostare la modalità della richiesta 'no-cors' per recuperare la risorsa con CORS disabilitato.
 2. Problema di certificato: a partire da Chrome versione 58, EME per Widevine richiede HTTPS. È pertanto necessario ospitare l'app di esempio su HTTPS con un certificato X509. Non è possibile usare un normale certificato di test a causa dei requisiti seguenti: È necessario ottenere un certificato che soddisfi i requisiti minimi seguenti:
     - Per Chrome e Firefox, nel certificato deve essere definita l'impostazione relativa al nome alternativo del soggetto (SAN).
     - Il certificato deve avere una CA attendibile. Non è possibile usare un certificato di sviluppo autofirmato.
@@ -175,7 +175,7 @@ Nella [documentazione di Google introduttiva all'architettura di Widevine DRM](h
 
 1.  Livello di sicurezza 1: tutte le operazioni di elaborazione, crittografia e controllo del contenuto vengono eseguite all'interno dell'ambiente di esecuzione affidabile. In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.
 2.  Livello di sicurezza 2: la crittografia, ma non l'elaborazione dei dati video, viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio dell'applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.
-3.  Livello di sicurezza 3: nel dispositivo non è presente un ambiente di esecuzione affidabile. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza.
+3.  Livello di sicurezza 3: non è presente un ambiente di esecuzione affidabile sul dispositivo. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza.
 
 Parallelamente, nella [documentazione di Servizi multimediali di Azure relativa al modello di licenza Widevine](widevine-license-template-overview.md) la proprietà security_level di content_key_specs può avere i cinque valori seguenti, che definiscono i diversi requisiti di affidabilità client per la riproduzione di contenuto:
 
@@ -189,9 +189,9 @@ Entrambi i set di livelli di sicurezza sono definiti da Google Widevine. La diff
 
 | **Livelli di sicurezza definiti nell'architettura Widevine** |**Livelli di sicurezza usati nell'API Widevine**|
 |---|---| 
-| **Livello di sicurezza 1**: tutte le operazioni di elaborazione, crittografia e controllo del contenuto vengono eseguite all'interno dell'ambiente di esecuzione affidabile. In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.|**security_level=5**: le operazioni di crittografia e decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.<br/><br/>**security_level=4**: Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.|
-**Livello di sicurezza 2**: la crittografia, ma non l'elaborazione dei dati video, viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio dell'applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.| **security_level=3**: il materiale delle chiavi e le operazioni di crittografia devono essere gestiti all'interno di un ambiente di esecuzione affidabile basato su hardware. |
-| **Livello di sicurezza 3**: nel dispositivo non è presente un ambiente di esecuzione affidabile. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza. | **security_level=2**: sono necessari una soluzione di crittografia software e un decodificatore offuscato.<br/><br/>**security_level=1**: è necessaria una soluzione di crittografia white box basata su software.|
+| **Livello di sicurezza 1**: tutte le operazioni di elaborazione, crittografia e controllo del contenuto vengono eseguite all'interno dell'ambiente di esecuzione affidabile. In alcuni modelli di implementazione è possibile che l'elaborazione delle informazioni di sicurezza venga eseguita in chip diversi.|**security_level=5**: Le operazioni di crittografia e decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.<br/><br/>**security_level=4**: Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.|
+**Livello di sicurezza 2**: la crittografia, ma non l'elaborazione dei dati video, viene eseguita all'interno dell'ambiente di esecuzione affidabile. I buffer decrittografati vengono restituiti al dominio dell'applicazione ed elaborati tramite software o hardware video separato. Al livello 2, le informazioni di crittografia vengono comunque elaborate solo all'interno dell'ambiente di esecuzione affidabile.| **security_level=3**: Il materiale delle chiavi e le operazioni di crittografia devono essere gestiti all'interno di un ambiente di esecuzione affidabile basato su hardware. |
+| **Livello di sicurezza 3**: nel dispositivo non è presente un ambiente di esecuzione affidabile. È possibile adottare misure appropriate per proteggere le informazioni di crittografia e il contenuto decrittografato nel sistema operativo host. Un'implementazione di livello 3 può includere anche un motore di crittografia hardware, ma solo per migliorare le prestazioni, non la sicurezza. | **security_level=2**: sono necessari una soluzione di crittografia software e un decodificatore offuscato.<br/><br/>**security_level=1**: È necessaria una soluzione di crittografia white box basata su software.|
 
 ### <a name="question"></a>Domanda
 

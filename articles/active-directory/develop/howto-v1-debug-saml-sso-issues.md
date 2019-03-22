@@ -16,12 +16,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, smalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f854c8b27065c2d2bf0c9964fe9dfce66aba423a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9fcc6cb40d83c06a1c9f0a97c72565464e74e655
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104506"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336075"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Eseguire il debug dell'accesso Single Sign-On basato su SAML su applicazioni in Azure Active Directory
 
@@ -29,7 +29,7 @@ Informazioni su come individuare e correggere i problemi di [accesso Single Sign
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-È consigliabile installare l'[estensione My Apps Secure Sign-in](../user-help/active-directory-saas-access-panel-user-help.md#i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension). Questa estensione del browser rende più semplice raccogliere la richiesta SAML e alle informazioni relative alla risposta SAML che è necessario per la risoluzione dei problemi con single sign-on. Nel caso non sia possibile installare l'estensione, questo articolo descrive come risolvere i problemi anche senza l'estensione installata.
+È consigliabile installare l'[estensione My Apps Secure Sign-in](../user-help/my-apps-portal-end-user-troubleshoot.md#im-having-trouble-installing-the-my-apps-secure-sign-in-extension). Questa estensione del browser rende più semplice raccogliere la richiesta SAML e alle informazioni relative alla risposta SAML che è necessario per la risoluzione dei problemi con single sign-on. Nel caso non sia possibile installare l'estensione, questo articolo descrive come risolvere i problemi anche senza l'estensione installata.
 
 Per scaricare e installare l'estensione My Apps Secure Sign-in, usare uno dei collegamenti seguenti.
 
@@ -64,7 +64,7 @@ Quando si tenta di eseguire l'accesso, si potrebbe essere visualizzato un errore
 
 Per eseguire il debug di questo errore, sono necessari il messaggio di errore e la richiesta SAML. L'estensione My Apps Secure Sign-in raccoglie automaticamente queste informazioni e visualizza le istruzioni per risolvere il problema in Azure AD. 
 
-### <a name="to-resolve-the-sign-in-error-with-the-myapps-secure-sign-in-extension-installed"></a>Per risolvere l'errore di accesso con le app personali Secure installato estensione di accesso
+### <a name="to-resolve-the-sign-in-error-with-the-my-apps-secure-sign-in-extension-installed"></a>Per risolvere l'errore di accesso con l'estensione accesso sicuro alle App personali installato
 
 1. Quando si verifica un errore, l'estensione reindirizza l'utente ad Azure AD **testare single sign-on** pannello. 
 1. Nel **testare single sign-on** blade, selezionare **scaricare la richiesta SAML**. 
@@ -73,14 +73,14 @@ Per eseguire il debug di questo errore, sono necessari il messaggio di errore e 
 
 Se non è disponibile alcuna soluzione per l'errore di accesso, si consiglia di usare la casella di testo di commenti e suggerimenti di informare Microsoft.
 
-### <a name="to-resolve-the-error-without-installing-the-myapps-secure-sign-in-extension"></a>Per risolvere l'errore senza installare l'estensione Secure MyApps Accedi
+### <a name="to-resolve-the-error-without-installing-the-my-apps-secure-sign-in-extension"></a>Per risolvere l'errore senza installare l'estensione accesso sicuro alle App personali
 
 1. Copiare il messaggio di errore nell'angolo inferiore destro della pagina. Il messaggio di errore include:
     - Un ID correlazione e il timestamp. Questi valori sono importanti quando si crea un caso di supporto con Microsoft, perché aiutano i tecnici a identificare il problema e a proporre una risoluzione precisa.
     - Una dichiarazione che identifica la causa radice del problema.
 1. Tornare ad Azure AD e individuare il pannello **Test dell'accesso Single Sign-On**.
 1. Nella casella di testo sopra **Ottieni procedure per la risoluzione** incollare il messaggio di errore.
-1. Fare clic su **Ottieni procedure per la risoluzione** per visualizzare i passaggi per risolvere il problema. Le procedure fornite potrebbero richiedere informazioni dalla richiesta o dalla risposta SAML. Se non si usa l'estensione MyApps Secure Sign-in, potrebbe essere necessario usare uno strumento come [Fiddler](https://www.telerik.com/fiddler) per recuperare la richiesta e la risposta SAML.
+1. Fare clic su **Ottieni procedure per la risoluzione** per visualizzare i passaggi per risolvere il problema. Le procedure fornite potrebbero richiedere informazioni dalla richiesta o dalla risposta SAML. Se non si usa l'estensione accesso sicuro alle App personali, è necessario uno strumento, ad esempio [Fiddler](https://www.telerik.com/fiddler) per recuperare la richiesta SAML e la risposta.
 1. Verificare che la destinazione nella richiesta SAML corrisponda al SAML Single Sign-On di URL del servizio ottenuto da Azure AD.
 1. Verificare che l'autorità di certificazione nella richiesta SAML sia lo stesso identificatore che è stato configurato per l'applicazione in Azure AD. Azure AD usa l'emittente per trovare un'applicazione nella directory.
 1. Verificare che sia AssertionConsumerServiceURL in cui l'applicazione si aspetta di ricevere il token SAML da Azure AD. È possibile configurare questo valore in Azure AD, ma non è obbligatorio se fa parte della richiesta SAML.

@@ -4,21 +4,21 @@ description: I moduli di Azure IoT Edge sono inclusi in contenitori di unità di
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 09/21/2018
+ms.date: 03/21/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 976b46a26d95b5e252b0df2383ea94b4dd280d24
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: d1e2e35dafd90c16e9d0dbf38afb1e981653d1fe
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54229626"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311102"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Informazioni sui moduli Azure IoT Edge
 
-Azure IoT Edge consente di distribuire e gestire la logica di business sui dispositivi perimetrali sotto forma di *moduli*. I moduli di Azure IoT Edge sono l'unità più piccola di calcolo gestita da IoT Edge e possono contenere i servizi di Azure, ad esempio Analisi di flusso di Azure, o il codice specifico per la soluzione. Per comprendere come i moduli vengono sviluppati, distribuiti e gestiti, è utile pensare ai quattro componenti concettuali del modulo:
+Azure IoT Edge consente di distribuire e gestire la logica di business sui dispositivi perimetrali sotto forma di *moduli*. I moduli di Azure IoT Edge sono l'unità più piccola di calcolo gestita da IoT Edge e possono contenere i servizi di Azure, ad esempio Analisi di flusso di Azure, o il codice specifico per la soluzione. Per comprendere i moduli vengono sviluppati, distribuiti e gestiti, è utile considerare i quattro elementi concettuali di un modulo:
 
 * Un'**immagine del modulo** è un pacchetto che contiene il software che definisce il modulo.
 * Un'**istanza del modulo** è l'unità di calcolo specifica che esegue l'immagine del modulo in un dispositivo di IoT Edge. L'istanza del modulo viene avviata dal runtime di IoT Edge.
@@ -43,6 +43,7 @@ As use cases for Azure IoT Edge grow, new types of module images and instances w
 ## <a name="module-identities"></a>Identità del modulo
 
 Quando viene creata una nuova istanza del modulo dal runtime di IoT Edge, l'istanza viene associata a un'identità del modulo corrispondente. L'identità del modulo viene archiviata nell'hub IoT e viene usata come ambito di indirizzamento e sicurezza per tutti le comunicazioni cloud locali per un modulo specifico.
+
 L'identità associata all'istanza del modulo dipende dall'identità del dispositivo su cui è in esecuzione l'istanza e dal nome specificato per il modulo nella soluzione. Ad esempio, un modulo che usa un Analisi di flusso di Azure se si chiama `insight` e lo si distribuisce in un dispositivo chiamato `Hannover01`, il runtime di IoT Edge crea un'identità del modulo corrispondente denominata `/devices/Hannover01/modules/insight`.
 
 Chiaramente, negli scenari in cui è necessario distribuire un'immagine del modulo più volte sullo stesso dispositivo, è possibile distribuire la stessa immagine più volte con nomi diversi.
@@ -68,7 +69,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>Funzionalità offline
 
-Azure IoT Edge supporta le operazioni offline sui dispositivi IoT Edge. Queste funzionalità sono limitate per il momento. 
+Azure IoT Edge supporta le operazioni offline sui dispositivi IoT Edge. Queste funzionalità sono limitate per il momento. Altre funzionalità offline sono disponibili in anteprima pubblica. Per altre informazioni, vedere [Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio](offline-capabilities.md).
 
 I moduli IoT Edge possono essere offline per periodi prolungati purché siano soddisfatti i requisiti seguenti: 
 
@@ -77,11 +78,8 @@ I moduli IoT Edge possono essere offline per periodi prolungati purché siano so
 * **Il modulo che ha inviato i messaggi mentre è offline funziona ancora quando viene riattivata la connettività**. Al momento della riconnessione all'hub IoT, l'hub di IoT Edge deve convalidare un nuovo token del modulo (se il precedente è scaduto) prima di poter inoltrare i messaggi del modulo. Se il modulo non è disponibile per fornire un nuovo token, l'hub di IoT Edge non può eseguire operazioni sui messaggi archiviati del modulo. 
 * **L'hub di IoT Edge dispone di spazio su disco per archiviare i messaggi**. Per impostazione predefinita, i messaggi vengono archiviati nel filesystem del contenitore dell'hub di IoT Edge. È disponibile un'opzione di configurazione per specificare invece un volume montato per l'archiviazione dei messaggi. In entrambi i casi è necessario che sia disponibile spazio per archiviare i messaggi per il recapito posticipato all'hub IoT.  
 
-Altre funzionalità offline sono disponibili in anteprima pubblica. Per altre informazioni, vedere [Informazioni sulle funzionalità per periodi offline prolungati per i dispositivi IoT Edge, i moduli e i dispositivi figlio](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
  - [Informazioni sui requisiti e sugli strumenti per lo sviluppo di moduli IoT Edge](module-development.md)
  - [Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura](iot-edge-runtime.md)
 
-<!-- Images -->
-[2]: ./media/iot-edge-modules/identity.png

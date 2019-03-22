@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/17/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3711277ca11346cf73ff37c37ef4185d8bfdf6b9
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: e20e2a094e1fd88dfc2a25b586dc6c894f92b418
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329872"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312445"
 ---
 # <a name="configure-azure-key-vault-integration-for-sql-server-on-azure-virtual-machines-classic"></a>Configurare l'integrazione di Azure Key Vault per SQL Server in macchine virtuali di Azure (distribuzione classica)
 > [!div class="op_single_selector"]
@@ -53,7 +53,7 @@ La tabella seguente elenca i parametri necessari per eseguire lo script di Power
 
 | Parametro | DESCRIZIONE | Esempio |
 | --- | --- | --- |
-| **$akvURL** |**URL dell'insieme di credenziali delle chiavi** |"https://contosokeyvault.vault.azure.net/" |
+| **$akvURL** |**URL dell'insieme di credenziali delle chiavi** |"https:\//contosokeyvault.vault.azure.net/" |
 | **$spName** |**Nome entità servizio** |"fde2b411-33d5-4e11-af04eb07b669ccf2" |
 | **$spSecret** |**Segreto entità servizio** |"9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM=" |
 | **$credName** |**Nome credenziali**: L'integrazione dell'insieme di credenziali delle chiavi di Azure crea le credenziali all'interno di SQL Server, consentendo alla VM di accedere all'insieme di credenziali delle chiavi. Scegliere un nome per la credenziale. |"mycred1" |
@@ -65,7 +65,7 @@ Il cmdlet **New-AzureVMSqlServerKeyVaultCredentialConfig** crea un oggetto di co
 
 1. In Azure PowerShell configurare innanzitutto i parametri di input con i valori specifici, come descritto nelle sezioni precedenti di questo argomento. Di seguito è riportato uno script di esempio.
    
-        $akvURL = "https://contosokeyvault.vault.azure.net/"
+        $akvURL = "https:\//contosokeyvault.vault.azure.net/"
         $spName = "fde2b411-33d5-4e11-af04eb07b669ccf2"
         $spSecret = "9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM="
         $credName = "mycred1"

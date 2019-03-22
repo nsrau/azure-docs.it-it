@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/04/2018
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 93c19bc39f64df21dfa9db2490ab2103aba8191d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: 1428c2925ab57642899732bd4504b2d5b38781a8
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086106"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315148"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gestione del ciclo di vita di Archiviazione BLOB di Azure (anteprima)
 
@@ -190,7 +190,7 @@ Durante l'anteprima, i filtri validi includono:
 | Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione di anteprima supporta solo `blockBlob`. | Sì |
-| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Una stringa di prefisso deve iniziare con un nome di contenitore. Ad esempio, se si desidera cercare tutti i BLOB in "<https://myaccount.blob.core.windows.net/container1/foo/>..." per una regola, è il prefixMatch `container1/foo`. | Se prefixMatch non è definito, le regole si applicano a tutti i BLOB all'interno dell'account. | No  |
+| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Una stringa di prefisso deve iniziare con un nome di contenitore. Ad esempio, se si desidera cercare tutti i BLOB in "https:\//myaccount.blob.core.windows.net/container1/foo/..." per una regola, è il prefixMatch `container1/foo`. | Se prefixMatch non è definito, le regole si applicano a tutti i BLOB all'interno dell'account. | No  |
 
 ### <a name="rule-actions"></a>Azioni della regola
 

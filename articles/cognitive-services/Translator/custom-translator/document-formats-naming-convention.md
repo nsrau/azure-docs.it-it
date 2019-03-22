@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 0b578bfdb75b0ad4d4065d8793a74e7c4284eb74
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dec5ce37aa3b4e9d4d6fcab964c1e48b606a4cd0
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781589"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338055"
 ---
 # <a name="document-formats-and-naming-convention-guidance"></a>Guida ai formati dei documenti e alle convenzioni di denominazione
 
@@ -31,7 +31,7 @@ Questa tabella include tutti i formati di file supportati che è possibile usare
 | Microsoft Word    | DOCX        | Documento di Microsoft Word                                                                                                                                                                                                                                                        |
 | Adobe Acrobat     | PDF         | Documento portatile di Adobe Acrobat                                                                                                                                                                                                                                                |
 | HTML              | HTML, HTM  | Documento HTML                                                                                                                                                                                                                                                                  |
-| File di testo         | TXT         | File di testo con codifica UTF-16 o UTF-8                                                                                                                                                                                                                                             |
+| File di testo         | TXT         | File di testo con codifica UTF-16 o UTF-8. Il nome del file non deve contenere caratteri giapponesi.                                                                                                                                                                                        |
 | File di testo allineato | ALIGN       | `.ALIGN` è un'estensione speciale che è possibile usare se si è certi che le frasi nella coppia di documenti siano perfettamente allineate. Se si fornisce un file `.ALIGN`, Custom Translator non allinea le frasi automaticamente. |
 | File di Excel        | XLSX        | File di Excel (2013 o versione successiva). La prima riga del foglio di calcolo deve essere il codice della lingua.                                                                                                                                                                                                                                                      |
 

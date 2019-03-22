@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 11891153f1ffce438597dc4f2799a9f25d76c2f5
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992603"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337885"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -64,7 +64,7 @@ Per eseguire una migrazione manuale, sono disponibili alcune opzioni:
 
 Una migrazione manuale può comportare tempi di inattività dell'applicazione. Se l'applicazione richiede disponibilità elevata, Microsoft offre anche un'opzione di migrazione in tempo reale. Una migrazione in tempo reale è una migrazione sul posto. 
 
-Quando si esegue una migrazione in tempo reale, è possibile usare l'account di archiviazione durante la migrazione dei dati tra gli indicatori di archiviazione di origine e di destinazione. Durante il processo di migrazione, si hanno a disposizione gli stessi livelli di durabilità e disponibilità normalmente previsti dal contratto di servizio.
+Quando si esegue una migrazione in tempo reale, è possibile usare l'account di archiviazione durante la migrazione dei dati tra gli indicatori di archiviazione di origine e di destinazione. Durante il processo di migrazione, è necessario lo stesso livello di durabilità e disponibilità del contratto di servizio si fa di norma.
 
 Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 
@@ -88,7 +88,33 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
 7. Selezionare **Create**.
 
-Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria. 
+Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
+
+## <a name="live-migration-to-zrs-faq"></a>Migrazione in tempo reale per le domande frequenti ZRS
+
+**È consigliabile pianificare tempi di inattività durante la migrazione?**
+
+Non vi è alcun tempo di inattività causato dalla migrazione. Durante una migrazione in tempo reale, è possibile continuare l'account di archiviazione mentre viene eseguita la migrazione dei dati tra gli indicatori di archiviazione di origine e destinazione. Durante il processo di migrazione, è necessario lo stesso livello di durabilità e disponibilità del contratto di servizio si fa di norma.
+
+**È disponibile alcuna perdita di dati associato alla migrazione?**
+
+Non si verifichino perdite di dati associate alla migrazione. Durante il processo di migrazione, è necessario lo stesso livello di durabilità e disponibilità del contratto di servizio si fa di norma.
+
+**Sono tutti gli aggiornamenti necessari per le applicazioni dopo aver completata la migrazione?**
+
+Dopo aver completata la migrazione il tipo di replica agli account passerà a "archiviazione con ridondanza della zona (ZRS)". Gli endpoint di servizio di accedere alle chiavi di firma di accesso condiviso e le altre opzioni di configurazione di account rimangono intatti e invariati.
+
+**È possibile richiedere una migrazione in tempo reale del mio account per utilizzo generico v1 in archiviazione ZRS?**
+
+ZRS supporta solo account per utilizzo generico v2, pertanto prima di inviare una richiesta per una migrazione in tempo reale all'archiviazione ZRS assicurarsi di eseguire l'aggiornamento agli account per utilizzo generico v2. Visualizzare [panoramica dell'account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview) e [esegue l'aggiornamento a un account di archiviazione per utilizzo generico v2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) per altri dettagli.
+
+**È possibile richiedere una migrazione in tempo reale del mio account di archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) in archiviazione ZRS?**
+
+Prima di inviare una richiesta per una migrazione in tempo reale all'archiviazione ZRS assicurarsi che il carico di lavoro o applicazioni non richiedono l'accesso all'endpoint secondario di sola lettura e modificare il tipo di replica dell'account di archiviazione per archiviazione geograficamente ridondante (GRS). Visualizzare [modifica della strategia di replica](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) per altri dettagli.
+
+**È possibile richiedere una migrazione in tempo reale del mio account di archiviazione ZRS in un'altra area?**
+
+Se si desidera eseguire la migrazione dei dati in un account ZRS che si trova in un'area diversa dall'area dell'account di origine, è necessario eseguire una migrazione manuale.
 
 ## <a name="zrs-classic-a-legacy-option-for-block-blobs-redundancy"></a>Archiviazione con ridondanza della zona (versione classica): opzione legacy per la ridondanza dei BLOB in blocchi
 > [!NOTE]
@@ -101,6 +127,8 @@ La versione classica dell'archiviazione con ridondanza della zona replica i dati
 La versione classica dell'archiviazione con ridondanza della zona è disponibile solo per i **BLOB in blocchi** negli account di archiviazione per utilizzo generico V1 (GPv1). Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md).
 
 Per eseguire manualmente la migrazione di dati di un account di archiviazione con ridondanza della zona in o da un account di archiviazione con ridondanza locale, archiviazione con ridondanza della zona (versione classica), archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura, usare uno degli strumenti seguenti: AzCopy, Azure Storage Explorer, Azure PowerShell o l'interfaccia della riga di comando di Azure. È anche possibile creare una soluzione di migrazione personalizzata con una delle librerie client di Archiviazione di Azure.
+
+È inoltre possibile aggiornare l'account ZRS classico in archiviazione ZRS nel portale o tramite Azure PowerShell o CLI di Azure.
 
 ## <a name="see-also"></a>Vedere anche 
 - [Replica di Archiviazione di Azure](storage-redundancy.md)

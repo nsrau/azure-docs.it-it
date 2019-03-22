@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: ae55f2abf9815174e7258c2ace949078794c380d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: HT
+ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
+ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286194"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58319415"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Domande frequenti sul gateway applicazione
 
@@ -59,7 +59,7 @@ Il reindirizzamento è supportato. Per altre informazioni, vedere la [Panoramica
 
 ### <a name="in-what-order-are-listeners-processed"></a>In quale ordine vengono elaborati i listener?
 
-I listener vengono elaborati nell'ordine in cui sono visualizzati. Per tale motivo, se un listener di base corrisponde a una richiesta in ingresso, questa viene elaborata per prima.  I listener multisito devono essere configurati prima di un listener di base per garantire che il traffico sia indirizzato al back-end corretto.
+Visualizzare [ordine di elaborazione listener](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-listeners).
 
 ### <a name="where-do-i-find-application-gateways-ip-and-dns"></a>Dove è possibile trovare IP e DNS del gateway applicazione?
 
@@ -83,16 +83,13 @@ Un gateway applicazione supporta un solo indirizzo IP pubblico.
 
 ### <a name="how-large-should-i-make-my-subnet-for-application-gateway"></a>Quali dimensioni deve avere la subnet per il gateway applicazione?
 
-Il gateway applicazione utilizza un indirizzo IP privato per ogni istanza, oltre a un altro indirizzo IP privato in presenza di una configurazione degli indirizzi IP front-end privati. Inoltre, Azure riserva i primi quattro e l'ultimo indirizzo IP in ogni subnet per uso interno.
-Se ad esempio il gateway applicazione è impostato su tre istanze e nessun IP front-end privato, le dimensioni necessarie per la subnet sono pari a /29 o superiori. In questo caso, il gateway applicazione usa tre indirizzi IP. Se si hanno tre istanze e un indirizzo IP per la configurazione degli indirizzi IP front-end privati, le dimensioni della subnet devono essere pari a /28 o superiori, perché sono necessari quattro indirizzi IP.
-
-Come procedura consigliata, usare almeno/28 le dimensioni della subnet. In questo modo si 11 indirizzi utilizzabili. Se il carico dell'applicazione richiede più di 10 istanze, è necessario considerare/27 o/26 le dimensioni della subnet.
+Visualizzare [considerazioni sulle dimensioni di subnet di Gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configuration-overview#size-of-the-subnet) per comprendere le dimensioni della subnet necessaria per la distribuzione.
 
 ### <a name="q-can-i-deploy-more-than-one-application-gateway-resource-to-a-single-subnet"></a>D: È possibile distribuire più di una risorsa di gateway applicazione a una singola subnet?
 
 Sì, oltre ad avere più istanze di una determinata distribuzione di Gateway applicazione, è possibile effettuare il provisioning di un'altra risorsa Gateway applicazione univoca a una subnet esistente che contiene un'altra risorsa Gateway applicazione.
 
-La combinazione dei gateway applicazione Standard_v2 e Standard nella stessa subnet non è supportata. Inoltre, se è abilitata la scalabilità automatica, una subnet può avere un solo gateway applicazione.
+La combinazione dei gateway applicazione Standard_v2 e Standard nella stessa subnet non è supportata.
 
 ### <a name="does-application-gateway-support-x-forwarded-for-headers"></a>Il gateway applicazione supporta le intestazioni x-forwarded-for?
 
@@ -152,13 +149,7 @@ No, ma è possibile distribuire altri gateway applicazione nella subnet.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>I gruppi di sicurezza di rete sono supportati nella subnet del gateway applicazione?
 
-I gruppi di sicurezza di rete (NSG) sono supportati nella subnet del gateway applicazione con le restrizioni seguenti:
-
-* Devono essere inserite eccezioni per il traffico in ingresso sulle porte 65503-65534 per lo SKU versione 1 del gateway applicazione e sulle porte 65200-65535 per lo SKU versione 2. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Sono protette (bloccate) dai certificati di Azure. Senza certificati appropriati, le entità esterne, compresi i clienti di questi gateway, non saranno in grado di avviare alcuna modifica su tali endpoint.
-
-* La connettività Internet in uscita non può essere bloccata. Le regole in uscita predefinite in sicurezza di rete già consentono la connettività internet. Si consiglia di non rimuovere le regole in uscita predefinite e che non è possibile creare altre regole in uscita che nega la connettività internet in uscita.
-
-* È necessario consentire il traffico dal tag AzureLoadBalancer.
+Visualizzare [restrizioni di gruppi di sicurezza di rete nella subnet del Gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) informazioni sui gruppi di sicurezza di rete supportati nella subnet del gateway applicazione.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>Le route definite dall'utente sono supportate nella subnet del gateway applicazione?
 
@@ -190,7 +181,7 @@ I probe personalizzati non supportano caratteri jolly o regex nei dati di rispos
 
 ### <a name="how-are-rules-processed"></a>Come vengono elaborate le regole?
 
-Le regole vengono elaborate nell'ordine in cui sono configurate. È consigliabile che le regole multisito siano configurate prima delle regole di base per ridurre le probabilità che il traffico sia indirizzato a un back-end inappropriato, in quanto la regola di base corrisponderebbe al traffico in base alla porta prima che venga valutata la regola multisito.
+Visualizzare [ordine di elaborazione delle regole](https://docs.microsoft.com/azure/application-gateway/configuration-overview#order-of-processing-rules) comprendere funzionamento delle regole di routing sono processi nel Gateway applicazione.
 
 ### <a name="what-does-the-host-field-for-custom-probes-signify"></a>Cosa indica il campo Host per i probe personalizzati?
 
@@ -356,7 +347,7 @@ Sì, il gateway applicazione supporta gli avvisi. Gli avvisi vengono configurati
 
 ### <a name="backend-health-returns-unknown-status-what-could-be-causing-this-status"></a>L'integrità back-end restituisce uno stato sconosciuto. Quale potrebbe essere la causa?
 
-Nella maggior parte dei casi, l'accesso al back-end è bloccato da un gruppo di sicurezza di rete o da un DNS personalizzato. Vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md) per altre informazioni.
+Il motivo più comune è l'accesso al back-end è bloccato da un gruppo di sicurezza, il DNS personalizzato, o si dispone di una route UDR nella subnet del gateway applicazione. Vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md) per altre informazioni.
 
 ## <a name="next-steps"></a>Fasi successive
 

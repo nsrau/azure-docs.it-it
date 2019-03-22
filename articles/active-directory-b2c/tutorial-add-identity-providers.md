@@ -4,17 +4,18 @@ description: Informazioni su come aggiungere provider di identità alle applicaz
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 02/01/2019
 ms.author: davidmu
-ms.openlocfilehash: 2a1843f941c6abc46928b38a66025fa87c4bcea5
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.subservice: B2C
+ms.openlocfilehash: ef264622be1e66c98f8c7f17cf3e04b3239e8553
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55757376"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338276"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Esercitazione: Aggiungere provider di identità alle applicazioni in Azure Active Directory B2C
 

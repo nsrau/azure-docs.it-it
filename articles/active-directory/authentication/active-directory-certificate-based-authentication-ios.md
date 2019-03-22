@@ -1,5 +1,5 @@
 ---
-title: Autenticazione basata su certificati di Azure Active Directory in iOS
+title: Autenticazione basata su certificati in iOS - Azure Active Directory
 description: Informazioni sugli scenari supportati e i requisiti per configurare l'autenticazione basata su certificati nelle soluzioni con i dispositivi iOS
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 717eef0857d6db53462ef1b5eb4786962550d44b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56188070"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309504"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
 

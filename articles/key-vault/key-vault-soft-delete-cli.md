@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 4311d71775ef877e0090abca9c6caabab503ef08
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa9b89b9afec069e97236b7652e0f1d37644f5cf
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097611"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58336073"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -94,7 +94,7 @@ Con la funzione di eliminazione temporanea abilitata:
 ```azurecli
 az keyvault list-deleted
 ```
-- L'*ID* può essere usato per identificare la risorsa durante il recupero o l'eliminazione definitiva. 
+- *ID* può essere utilizzato per identificare la risorsa durante il recupero o l'eliminazione definitiva. 
 - L'*ID risorsa* è l'ID risorsa originale di questo insieme di credenziali. Poiché l'insieme di credenziali delle chiavi è ora in stato "eliminato", non è presente alcuna risorsa con questo ID. 
 - La *data di eliminazione definitiva programmata* indica il momento in cui l'insieme di credenziali verrà eliminato in modo definitivo se non viene eseguita alcuna operazione. Il periodo di memorizzazione predefinito usato per calcolare il campo *Scheduled Purge Date* (Data eliminazione definitiva programmata) è di 90 giorni.
 
@@ -222,6 +222,24 @@ Quando si elencano gli oggetti di un insieme di credenziali eliminato, viene ind
 
 >[!IMPORTANT]
 >Un oggetto di un insieme di credenziali delle chiavi eliminato in modo permanente, attivato dal campo *Scheduled Purge Date* (Data eliminazione definitiva programmata), viene eliminato in modo definitivo e non è più recuperabile.
+
+## <a name="enabling-purge-protection"></a>Abilitazione della protezione dall'eliminazione
+
+Quando protezione dall'eliminazione è attivata, un insieme di credenziali o un oggetto eliminata non può essere ripulito stato fino a quando non ha superato il periodo di conservazione di 90 giorni. Tale insieme di credenziali o oggetto può essere comunque ripristinato. Questa funzionalità offre maggiore sicurezza che un insieme di credenziali o un oggetto non può mai essere definitivamente eliminato fino a quando non ha superato il periodo di conservazione periodo.
+
+È possibile abilitare protezione dall'eliminazione solo se è abilitata anche la funzione di eliminazione temporanea. 
+
+Per attivare entrambi l'eliminazione temporanea e ripulire protezione durante la creazione di un insieme di credenziali, usare il [az keyvault create](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-create) comando:
+
+```
+az keyvault create --name ContosoVault --resource-group ContosoRG --location westus --enable-soft-delete true --enable-purge-protection true
+```
+
+Per aggiungere protezione dall'eliminazione per un insieme di credenziali esistente (che dispone già di eliminazione temporanea abilitata), usare il [aggiornamento di az keyvault](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-update) comando:
+
+```
+az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge-protection true
+```
 
 ## <a name="other-resources"></a>Altre risorse:
 

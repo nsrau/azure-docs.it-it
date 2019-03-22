@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 58be8a222f649abe4be6de272a1ef2b686336262
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8ac0fbb1c62e4162e1c4ad040365a16d055e4552
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847128"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310018"
 ---
 # <a name="setup-your-application-in-the-publishing-portal"></a>Configurare l'applicazione nel portale di pubblicazione
 
@@ -53,7 +53,7 @@ Il modulo delle impostazioni dell'offerta è un modulo di base in cui specificar
 
 Identificatore univoco dell'offerta in un profilo di pubblicazione. Questo ID sarà visibile negli URL dei prodotti. Può essere composto solo da caratteri alfanumerici minuscoli o trattini (-). L'ID non può terminare con un trattino e può contenere massimo 50 caratteri. Questo campo è bloccato dopo la pubblicazione dell'offerta.
 
-Ad esempio, se un editore **"contoso"** crea un'offerta con ID **"sample-WebApp"**, l'offerta sarà visualizzata in AppSource come "https://appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
+ad esempio, se un server di pubblicazione **"contoso"** server di pubblicazione viene creata un'offerta con ID offerta **"esempio-WebApp"**, verrà visualizzata in AppSource come "https:\//appsource.microsoft.com/marketplace/apps/contoso.sample-WebApp?tab=Overview"
 
 ### <a name="publisher-id"></a>Publisher ID (ID editore)
 

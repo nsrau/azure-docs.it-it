@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 534473ccde52af69b6dad1e84ef77da326d29d5c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 087440b60e1d5fecc668849bc1350d66988b16b9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872570"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339084"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Avvio rapido: Eseguire la sintesi vocale con Python
 
@@ -93,7 +93,7 @@ def get_token(self):
 
 In questa sezione si creerà la richiesta e si salverà la risposta di sintesi vocale. In primo luogo, è necessario impostare `base_url` e `path`. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `base_url`. Per altre informazioni, vedere [aree di servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-È quindi necessario aggiungere le intestazioni obbligatorie per la richiesta. Assicurarsi di aggiornare `User-Agent` con il nome della risorsa, che si trova nel portale di Azure, e impostare `X-Microsoft-OutputFormat` sul formato di output audio preferito. Per un elenco completo dei formati di output, vedere [Output audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+È quindi necessario aggiungere le intestazioni obbligatorie per la richiesta. Assicurarsi di aggiornare `User-Agent` con il nome della risorsa, che si trova nel portale di Azure, e impostare `X-Microsoft-OutputFormat` sul formato di output audio preferito. Per un elenco completo dei formati di output, vedere [Output audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Creare quindi il corpo della richiesta nel formato SSML (Speech Synthesis Markup Language). Questo esempio definisce la struttura e usa l'input `tts` creato in precedenza.
 
@@ -166,6 +166,6 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)
 * [Esempi di campioni vocali per la creazione di una voce personalizzata](record-custom-voice-samples.md)

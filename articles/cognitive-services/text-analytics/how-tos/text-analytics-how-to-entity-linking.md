@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 78cc200a7bbaa2673cf6fea71d9be123fc96a75f
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d1f4c72ec0a67baa6f523c1ab632903b0580f3a7
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258072"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339381"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo (anteprima)
 
@@ -107,7 +107,7 @@ I dettagli sulla definizione della richiesta sono reperibili in [How to call the
 
 ## <a name="step-2-post-the-request"></a>Passaggio 2: Pubblicare la richiesta
 
-Al momento della ricezione della richiesta viene eseguita l'analisi. Il servizio accetta fino a 100 richieste al minuto. Ogni richiesta può essere al massimo di 1 MB.
+Al momento della ricezione della richiesta viene eseguita l'analisi. Il servizio accetta fino a 100 richieste al seconda e 1000 richieste al minuto. Ogni richiesta può essere al massimo di 1 MB.
 
 Tenere presente che il servizio è senza stato. Nessun dato viene archiviato nell'account. I risultati vengono restituiti immediatamente nella risposta.
 

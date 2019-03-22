@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 9/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 4685c4213ad992e8d0fcffdf91a039cd04b426ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813a81e3812f9bb95ab11deec35adc6c05f1b58e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844208"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312224"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
 
@@ -142,7 +142,7 @@ Immettere un valore descrittivo per **displayName** e **description** per il pro
 
 * **displayName** può essere un nome qualsiasi per l'API. Per questo articolo usare "Service Fabric App".
 * **name** consente di specificare un nome univoco e descrittivo per l'API, come "service-fabric-app", che viene visualizzato nel portale di pubblicazione e in quello per sviluppatori.
-* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio, "<http://servicefabric>".
+* **serviceUrl** fa riferimento al servizio HTTP che implementa l'API e corrisponde all'indirizzo a cui Gestione API inoltra le richieste. Per i back-end di Service Fabric, questo valore URL non viene usato. È possibile inserire un valore qualsiasi nel campo. Per questo articolo, ad esempio "http:\//servicefabric".
 * **path** viene aggiunto all'URL di base del servizio Gestione API. L'URL di base è comune a tutte le API ospitate da un'istanza del servizio Gestione API. Gestione API distingue le API in base al suffisso, quindi è necessario che questo sia univoco per ciascuna API di un editore specifico.
 * **protocols** determina i protocolli da usare per l'accesso all'API, per questo articolo **http** e **https**.
 * **path** è un suffisso per l'API. Per questo articolo usare "myapp".

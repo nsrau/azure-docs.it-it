@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/4/2019
 ms.author: aljo
-ms.openlocfilehash: 78bf30c01bc240d4fc7439ab14868bf7be90b17e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c27938ad28abc62f42024faae7931196704b9b1b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895827"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314570"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-linux"></a>Creare la prima applicazione contenitore di Service Fabric in Linux
 > [!div class="op_single_selector"]
@@ -122,7 +122,7 @@ docker run -d -p 4000:80 --name my-web-site helloworldapp
 
 *name* assegna un nome al contenitore in esecuzione, anziché l'ID contenitore.
 
-Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http://localhost:4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
+Connettersi al contenitore in esecuzione. Aprire un web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http:\//localhost:4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
 ![Hello World!][hello-world]
 
@@ -271,9 +271,9 @@ Usare lo script di installazione messo a disposizione nei modelli in https://git
 ./install.sh
 ```
 
-Aprire un browser e passare a Service Fabric Explorer all'indirizzo http://localhost:19080/Explorer. Sostituire localhost con l'indirizzo IP privato della macchina virtuale se si usa Vagrant in Mac OS X. Espandere il nodo delle applicazioni, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
+Aprire un browser e passare a Service Fabric Explorer all'indirizzo http:\//localhost:19080 / Explorer (sostituire localhost con l'indirizzo IP privato della macchina virtuale se si usa Vagrant in Mac OS X). Espandere il nodo delle applicazioni, nel quale sarà ora presente una voce per il tipo di applicazione e un'altra per la prima istanza del tipo.
 
-Connettersi al contenitore in esecuzione. Aprire un Web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http://localhost:4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
+Connettersi al contenitore in esecuzione. Aprire un web browser puntando all'indirizzo IP restituito sulla porta 4000, ad esempio "http:\//localhost:4000". Verrà visualizzata l'intestazione "Hello World!" nel browser.
 
 ![Hello World!][hello-world]
 

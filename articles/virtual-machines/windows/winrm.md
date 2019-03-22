@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-ms.openlocfilehash: 77b575de3a84d582c11fb31952120e1079e23ffb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 89739aa51748e7bc69fc42b8b745994bbe50e39d
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091104"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309794"
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurare l'accesso WinRM per le macchine virtuali in Azure Resource Manager
 
@@ -83,7 +83,7 @@ Set-AzureKeyVaultSecret -VaultName "<vault name>" -Name "<secret name>" -SecretV
 Durante il provisioning della VM, il provider di risorse Microsoft.Compute necessita dell'URL della chiave privata all'interno dell'insieme di credenziali delle chiavi. Ciò consente al provider di risorse Microsoft.Compute di scaricare la chiave privata e creare il certificato equivalente nella VM.
 
 > [!NOTE]
-> L'URL della chiave privata deve includerne anche la versione. Un URL di esempio è simile a https://contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve di seguito
+> L'URL della chiave privata deve includerne anche la versione. Un esempio di URL simile al seguente https:\//contosovault.vault.azure.net:443/secrets/contososecret/01h9db0df2cd4300a20ence585a6s7ve
 
 #### <a name="templates"></a>Modelli
 Per ottenere il collegamento all'URL nel modello, è possibile utilizzre il codice seguente

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
 ms.subservice: common
-ms.openlocfilehash: 7db50e8bd1de609256bad58b293af8b7b1ea5dbb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: HT
+ms.openlocfilehash: 03b504524b2f489f1ee042c6e825ccffe0a60bb3
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086718"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58315063"
 ---
 # <a name="preparing-hard-drives-for-an-import-job"></a>Preparazione dei dischi rigidi per un processo di importazione
 Per preparare uno o più dischi rigidi per il processo di importazione, seguire questi passaggi:
@@ -43,10 +43,10 @@ Per preparare uno o più dischi rigidi per il processo di importazione, seguire 
 
 |File o directory di origine|BLOB o directory virtuale di destinazione|
 |------------------------------|-------------------------------------------|
-|H:\Video|https://mystorageaccount.blob.core.windows.net/video|
-|H:\Photo|https://mystorageaccount.blob.core.windows.net/photo|
-|K:\Temp\FavoriteVideo.ISO|https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
-|\\\myshare\john\music|https://mystorageaccount.blob.core.windows.net/music|
+|H:\Video|https:\//mystorageaccount.blob.core.windows.net/video|
+|H:\Photo|https:\//mystorageaccount.blob.core.windows.net/photo|
+|K:\Temp\FavoriteVideo.ISO|https:\//mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO|
+|\\\myshare\john\music|https:\//mystorageaccount.blob.core.windows.net/music|
 
 ## <a name="determine-how-many-drives-are-needed"></a>Determinare il numero di unità necessarie
  Successivamente, è necessario determinare:
