@@ -3,17 +3,17 @@ title: Copertura per il rendering in Mappe di Azure | Microsoft Docs
 description: Informazioni sulla copertura per il rendering in Mappe di Azure
 author: jingjing-z
 ms.author: jinzh
-ms.date: 03/07/2018
+ms.date: 03/22/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 6e4ebd5bfd7225537046d34dd885d04e8a94878f
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
-ms.translationtype: HT
+ms.openlocfilehash: 536a74046f46c7f83907833846e9ec99e8d8a289
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140934"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370279"
 ---
 # <a name="azure-maps-render-coverage"></a>Copertura per il rendering in Mappe di Azure
 
@@ -32,7 +32,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 ## <a name="africa"></a>Africa 
 
 
-| Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Algeria                          | ✓ | ✓ |
 | Angola                           | ✓ | ✓ |
@@ -40,29 +40,29 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Botswana                         | ✓ | ✓ |
 | Burkina Faso                     | ✓ | ✓ |
 | Burundi                          | ✓ | ✓ |
-| Cabo Verde                       |   | ✓ |
+| Cabo Verde                       | ✓ | ✓ |
 | Camerun                         | ✓ | ✓ |
-| Repubblica centrafricana         |   | Ø |
-| Chad                             |   | Ø |
-| Comore                          |   | Ø |
+| Repubblica centrafricana         | ✓ | Ø |
+| Chad                             | ✓ | Ø |
+| Comore                          | ✓ | Ø |
 | Congo                            | ✓ | ✓ |
 | Congo, Repubblica democratica | ✓ | ✓ |
-| Côte d’Ivoire (Costa d'Avorio)                    |   | Ø |
-| Gibuti                         |   | Ø |
+| Côte d’Ivoire (Costa d'Avorio)                    | ✓ | Ø |
+| Gibuti                         | ✓ | Ø |
 | Egitto                            | ✓ | ✓ |
-| Guinea equatoriale                |   | Ø |
-| Eritrea                          |   | Ø |
-| Etiopia                         |   | Ø |
+| Guinea equatoriale                | ✓ | Ø |
+| Eritrea                          | ✓ | Ø |
+| Etiopia                         | ✓ | Ø |
 | Gabon                            | ✓ | ✓ |
-| Gambia                           |   | Ø |
+| Gambia                           | ✓ | Ø |
 | Ghana                            | ✓ | ✓ |
-| Guinea                           |   | Ø |
-| Bissau                    |   | Ø |
+| Guinea                           | ✓ | Ø |
+| Bissau                    | ✓ | Ø |
 | Kenya                            | ✓ | ✓ |
 | Lesotho                          | ✓ | ✓ |
-| Liberia                          |   | Ø |
-| Libia                            |   | Ø |
-| Madagascar                       |   | Ø |
+| Liberia                          | ✓ | Ø |
+| Libia                            | ✓ | Ø |
+| Madagascar                       | ✓ | Ø |
 | Malawi                           | ✓ | ✓ |
 | Mali                             | ✓ | ✓ |
 | Mauritania                       | ✓ | ✓ |
@@ -75,14 +75,14 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Nigeria                          | ✓ | ✓ |
 | Réunion                          | ✓ | ✓ |
 | Ruanda                           | ✓ | ✓ |
-| Sant'Elena, Ascensione e Tristan da Cunha |   | Ø |
-| São Tomé e Príncipe            |   | Ø |
+| Sant'Elena, Ascensione e Tristan da Cunha | ✓ | Ø |
+| São Tomé e Príncipe            | ✓ | Ø |
 | Senegal                          | ✓ | ✓ |
-| Sierra Leone                     |   | Ø |
-| Somalia                          |   | Ø |
+| Sierra Leone                     | ✓ | ✓ |
+| Somalia                          | ✓ | ✓ |
 | Sud Africa                     | ✓ | ✓ |
-| Sudan del Sud                      |   | Ø |
-| Sudan                            |   | Ø |
+| Sudan del Sud                      | ✓ | ✓ |
+| Sudan                            | ✓ | ✓ |
 | Swaziland                        | ✓ | ✓ |
 | Repubblica unita di Tanzania      | ✓ | ✓ |
 | Togo                             | ✓ | ✓ |
@@ -93,7 +93,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 
 ## <a name="americas"></a>Americhe
 
-| Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Anguilla                  | ✓ | ✓ |
 | Antigua e Barbuda       | ✓ | ✓ |
@@ -102,27 +102,27 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Bahamas                   | ✓ | ✓ |
 | Barbados                  | ✓ | ✓ |
 | Belize                    | ✓ | ✓ |
-| Bermuda                   |   | ✓ |
-| Stato plurinazionale di Bolivia |   | ✓ |
-| Bonaire, Sint Eustatius e Saba |   | ✓ |
+| Bermuda                   | ✓ | ✓ |
+| Stato plurinazionale di Bolivia | ✓ | ✓ |
+| Bonaire, Sint Eustatius e Saba | ✓ | ✓ |
 | Brasile                    | ✓ | ✓ |
 | Canada                    | ✓ | ✓ |
 | Isole Cayman            | ✓ | ✓ |
 | Cile                     | ✓ | ✓ |
-| Isola Clipperton         |   | ✓ |
+| Isola Clipperton         | ✓ | ✓ |
 | Colombia                  | ✓ | ✓ |
-| Costa Rica                |   | ✓ |
+| Costa Rica                | ✓ | ✓ |
 | Cuba                      | ✓ | ✓ |
 | Curaçao                   | ✓ | ✓ |
 | Dominica                  | ✓ | ✓ |
 | Repubblica dominicana        | ✓ | ✓ |
-| Ecuador                   |   | ✓ |
-| Isole Falkland |   | ✓ |
+| Ecuador                   | ✓ | ✓ |
+| Isole Falkland | ✓ | ✓ |
 | Guayana francese             | ✓ | ✓ |
-| Groenlandia                 |   | Ø |
+| Groenlandia                 | ✓ | Ø |
 | Grenada                   | ✓ | ✓ |
 | Guadalupa                | ✓ | ✓ |
-| Guatemala                 |   | ✓ |
+| Guatemala                 | ✓ | ✓ |
 | Guiana                    | ✓ | ✓ |
 | Haiti                     | ✓ | ✓ |
 | Honduras                  | ✓ | ✓ |
@@ -131,21 +131,21 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Messico                    | ✓ | ✓ |
 | Montserrat                | ✓ | ✓ |
 | Nicaragua                 | ✓ | ✓ |
-| Marianne Settentrionali  |   | ✓ |
+| Marianne Settentrionali  | ✓ | ✓ |
 | Panama                    | ✓ | ✓ | 
-| Paraguay                  |   | ✓ |
+| Paraguay                  | ✓ | ✓ |
 | Perù                      | ✓ | ✓ |
 | Portorico               | ✓ | ✓ |
-| Quebec (Canada)           |   | ✓ |
+| Quebec (Canada)           | ✓ | ✓ |
 | Saint Barthélemy          | ✓ | ✓ |
 | Saint Kitts e Nevis     | ✓ | ✓ |
 | Saint Lucia               | ✓ | ✓ |
 | Saint Martin (francese)     | ✓ | ✓ |
-| Saint Pierre e Miquelon |   | ✓ |
+| Saint Pierre e Miquelon | ✓ | ✓ |
 | Saint Vincent e Grenadine | ✓ | ✓ |
 | Sint Maarten (olandese)      | ✓ | ✓ |
-| Georgia del Sud e Sandwich Australi |   | ✓ |
-| Suriname                  |   | ✓ |
+| Georgia del Sud e Sandwich Australi | ✓ | ✓ |
+| Suriname                  | ✓ | ✓ |
 | Trinidad e Tobago       | ✓ | ✓ |
 | Isole Turks e Caicos  | ✓ | ✓ |
 | Stati Uniti             | ✓ | ✓ |
@@ -156,7 +156,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 
 ## <a name="asia"></a>Asia 
 
-| Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Afghanistan               |   | Ø |
 | Bahrain                   | ✓ | ✓ |
@@ -170,6 +170,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Repubblica democratica popolare di Corea |   | Ø |
 | Dokdo e Takeshima       |   | Ø |
 | RAS di Hong Kong                 | ✓ | ✓ |
+| India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
 | Iran                      |   | Ø |
 | Iraq                      | ✓ | ✓ |
@@ -210,7 +211,7 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 
 ## <a name="oceania"></a>Oceania
 
-| Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Isole Samoa americane            |   | ✓ |
 | Australia                 | ✓ | ✓ |
@@ -240,13 +241,13 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 
 ## <a name="europe"></a>Europa
 
-| Region | Riquadri raster unificati | Riquadri vettoriali unificati |
+| Paese/Area geografica | Riquadri raster unificati | Riquadri vettoriali unificati |
 | ------ | :------------------: | :------------------: |
 | Albania                   | ✓ | ✓ |
 | Andorra                   | ✓ | ✓ |
-| Armenia                   |   | Ø |
+| Armenia                   | ✓ | Ø |
 | Austria                   | ✓ | ✓ |
-| Azerbaigian                |   | Ø |
+| Azerbaigian                | ✓ | Ø |
 | Bielorussia                   | Ø | ✓ |
 | Belgio                   | ✓ | ✓ |
 | Bosnia ed Erzegovina        | ✓ | ✓ |
@@ -256,21 +257,21 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Repubblica ceca            | ✓ | ✓ |
 | Danimarca                   | ✓ | ✓ |
 | Estonia                   | ✓ | ✓ |
-| Isole Fær Øer             |   | Ø |
+| Isole Fær Øer             | ✓ | Ø |
 | Finlandia                   | ✓ | ✓ |
 | Francia                    | ✓ | ✓ |
-| Georgia                   |   | Ø |
-| Germania                   | ✓ |✓ |
-| Gibilterra                 | ✓ |   |
+| Georgia                   | ✓ | Ø |
+| Germania                   | ✓ | ✓ |
+| Gibilterra                 | ✓ | ✓ |
 | Grecia                    | ✓ | ✓ |
-| Isola di Guernsey                  |   | ✓ |
+| Isola di Guernsey                  | ✓ | ✓ |
 | Ungheria                   | ✓ | ✓ |
 | Islanda                   | ✓ | ✓ |
-| Irlanda, Repubblica     | ✓ | ✓ |
-| Isola di Man               |   | ✓ |
+| Irlanda                   | ✓ | ✓ |
+| Isola di Man               | ✓ | ✓ |
 | Italia                     | ✓ | ✓ |
-| Jan Mayen                 |   | ✓ |
-| Jersey                    |   | ✓ |
+| Jan Mayen                 | ✓ | ✓ |
+| Jersey                    | ✓ | ✓ |
 | Lettonia                    | ✓ | ✓ |
 | Liechtenstein             | ✓ | ✓ |
 | Lituania                 | ✓ | ✓ |
@@ -290,10 +291,10 @@ Mappe non ha tuttavia lo stesso livello di informazioni e accuratezza per tutte 
 | Serbia                    | ✓ | ✓ |
 | Slovacchia                  | ✓ | ✓ |
 | Slovenia                  | ✓ | ✓ |
-| Curili meridionali           |   | ✓ |
+| Curili meridionali           | ✓ | ✓ |
 | Spagna                     | ✓ | ✓ |
-| Svalbard                  |   | ✓ |
-| Svezia                    | ✓ |   |
+| Svalbard                  | ✓ | ✓ |
+| Svezia                    | ✓ | ✓ |
 | Svizzera               | ✓ | ✓ |
 | Turchia                    | ✓ | ✓ |
 | Ucraina                   | ✓ | ✓ |

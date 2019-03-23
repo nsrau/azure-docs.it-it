@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/1/2018
 ms.author: qianw211
-ms.openlocfilehash: 1efe65feaac6e71437958451e8c1a44027495fce
-ms.sourcegitcommit: eba6841a8b8c3cb78c94afe703d4f83bf0dcab13
-ms.translationtype: HT
+ms.openlocfilehash: c3294aaa2b6c88e08028c8958d2ab3a7297aea74
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52620014"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351814"
 ---
 # <a name="private-offers"></a>Offerte private
 
@@ -55,6 +55,9 @@ Le offerte private possono essere individuate solo tramite il [portale di Azure]
 ![[Offerte private]](./media/marketplace-publishers-guide/private-offer.png)
 
 Le offerte private verranno visualizzate anche nei risultati della ricerca. È sufficiente individuare la notifica "Private".
+
+> [!Note]
+> Offerte private non sono supportate con sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

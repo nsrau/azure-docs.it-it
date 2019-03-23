@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36959582a3866426f8dc0e9969210e29e751ea60
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 4d9055ef11bc5c117efc6d4de87d4ca8ec73a661
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311901"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360504"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Restrizioni e criteri password in Azure Active Directory
 
@@ -93,7 +93,7 @@ La tabella seguente descrive le impostazioni dei criteri password applicate ad a
 
 ## <a name="set-password-expiration-policies-in-azure-ad"></a>Impostare i criteri di scadenza della password in Azure AD
 
-In qualità di amministratore globale per un servizio cloud Microsoft, è possibile usare il Modulo di Microsoft Azure AD per Windows PowerShell per impostare password utente che non scadono. È inoltre possibile usare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate in modo da non scadere mai. 
+Un amministratore globale o Amministratore utenti per un servizio cloud Microsoft può usare il modulo di Microsoft Azure AD per Windows PowerShell per impostare le password utente per non scadere. È inoltre possibile usare cmdlet Windows PowerShell per rimuovere la configurazione senza scadenza, o per vedere quali password utente vengono impostate in modo da non scadere mai. 
 
 Queste indicazioni si applicano ad altri provider, ad esempio Intune e Office 365, che si basano sempre su Azure AD per i servizi di identità e directory. La scadenza della password è l'unica parte dei criteri a poter essere modificata.
 
@@ -107,7 +107,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 
 ### <a name="check-the-expiration-policy-for-a-password"></a>Controllare i criteri di scadenza per una password
 
-1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
+1. Connettersi a Windows PowerShell con l'utente amministratore o credenziali di amministratore società.
 1. Eseguire uno di questi comandi:
 
    * Per verificare se la password di un singolo utente è impostata per non scadere mai, eseguire il cmdlet seguente usando l'UPN (ad esempio, *aprilr\@contoso.onmicrosoft.com*) o l'ID utente dell'utente si desidera controllare: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -115,7 +115,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 
 ### <a name="set-a-password-to-expire"></a>Impostare una scadenza della password
 
-1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
+1. Connettersi a Windows PowerShell con l'utente amministratore o credenziali di amministratore società.
 1. Eseguire uno di questi comandi:
 
    * Per impostare la password di un utente in modo che scada, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
@@ -123,7 +123,7 @@ Per iniziare, è necessario [scaricare e installare il modulo di Azure AD PowerS
 
 ### <a name="set-a-password-to-never-expire"></a>Impostare una password senza scadenza
 
-1. Connettersi a Windows PowerShell usando le credenziali aziendali di amministratore.
+1. Connettersi a Windows PowerShell con l'utente amministratore o credenziali di amministratore società.
 1. Eseguire uno di questi comandi:
 
    * Per impostare la password di un utente in modo che non scada mai, eseguire il cmdlet seguente usando l'UPN o l'ID dell'utente: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`

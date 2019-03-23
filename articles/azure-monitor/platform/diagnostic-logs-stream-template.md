@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: e6185a7b62e3c599a7c3588824e3a9c4ac60cb53
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54467629"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371469"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Abilitare automaticamente le impostazioni di diagnostica durante la creazione di risorse con un modello di Resource Manager
-Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. Ciò consente di iniziare automaticamente a trasmettere le metriche e i log di diagnostica a Hub eventi, di memorizzarli in un account di archiviazione o di inviarli a Log Analytics quando viene creata una risorsa.
+Questo articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) per configurare le impostazioni di diagnostica in una risorsa durante la sua creazione. In questo modo è possibile avviare automaticamente i log di diagnostica e le metriche a hub eventi di streaming, memorizzarli in un Account di archiviazione o di inviarli a un'area di lavoro di Log Analitica quando viene creata una risorsa.
 
 > [!WARNING]
 > Il formato dei dati di log nell'account di archiviazione verrà modificato in JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
@@ -40,7 +40,7 @@ Di seguito viene fornito un esempio del file JSON modello da generare per le ris
 ## <a name="non-compute-resource-template"></a>Modello per risorse non di calcolo
 Per le risorse non di calcolo, è necessario eseguire due operazioni:
 
-1. Aggiungere parametri al BLOB dei parametri per il nome dell'account di archiviazione, l'ID della regola di autorizzazione dell'hub eventi e/o l'ID dell'area di lavoro di Log Analytics, abilitando la memorizzazione dei log di diagnostica in un account di archiviazione, la trasmissione dei log a Hub eventi e/o l'invio dei log a Log Analytics.
+1. Aggiungere parametri al blob dei parametri per il nome account di archiviazione, ID di regole di autorizzazione dell'hub eventi e/o ID dell'area di lavoro di Log Analitica (abilitando la memorizzazione dei log di diagnostica in un account di archiviazione, lo streaming dei log a hub eventi e/o inviare i log a monitoraggio di Azure).
    
     ```json
     "settingName": {

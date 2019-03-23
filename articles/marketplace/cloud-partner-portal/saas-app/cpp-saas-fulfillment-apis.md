@@ -14,19 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 9c3fbe7cd7ebd41f59be360f40d66b8d38dbce5e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 6084687f54be265e88e6755e7d082da7c32eda1b
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57319276"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349519"
 ---
-# <a name="saas-fulfillment-apis"></a>API di evasione degli ordini di SaaS
+# <a name="saas-fulfillment-apis"></a>API di evasione ordini SaaS
 
 L'API di evasione SaaS consente ai fornitori di software indipendenti (ISV) di integrare le proprie applicazioni SaaS con Azure Marketplace. Questa API consente alle applicazioni di ISV di far parte di tutti i canali di commercio elettronico: diretto, a cura del partner (rivenditori) e a cura del campo.  Questa API è un requisito per l'elenco che SaaS transactable alle offerte in Azure Marketplace.
-
-La versione corrente di questa API è versione 2, che devono essere usate per tutti i nuovi SaaS offre.  Versione 1 dell'API è deprecata e viene mantenuta per supportare offerte esistenti.
-
 
 ## <a name="business-model-support"></a>Supporto del modello di Business
 
@@ -40,4 +37,4 @@ Questa API supporta le seguenti funzionalità di modello; Si può:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare la versione più recente di questa interfaccia per lo sviluppo: [Versione dell'API SaaS evasione 2](./cpp-saas-fulfillment-api-v2.md).
+Utilizzare questa interfaccia per lo sviluppo: [Versione dell'API SaaS evasione 2](./cpp-saas-fulfillment-api-v2.md).

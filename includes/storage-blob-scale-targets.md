@@ -2,16 +2,16 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 3/23/2019
 ms.author: tamram
-ms.openlocfilehash: 2f46d1ddc8eeefd7d05c51c1d0640f69774746c4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c4c62876ac2483851a1f60835eeee17b4ae47f13
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553704"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395606"
 ---
-| Risorsa | Destinazione |
+| Risorsa | Destinazione        |
 |----------|---------------|
 | Dimensioni massime del singolo contenitore blob | Uguale a capacità dell'account di archiviazione massimo |
 | Numero massimo di blocchi in un blocco di blob o blob di aggiunta | 50.000 blocchi |
@@ -21,4 +21,3 @@ ms.locfileid: "57553704"
 | Dimensioni massime di un blob di Accodamento | 50.000 x 4 MiB (circa 195 GiB) |
 | Dimensioni massime di un blob di pagine | 8 TiB |
 | Numero massimo di criteri di accesso archiviati per il contenitore blob | 5 |
-| Velocità effettiva da raggiungere per BLOB singolo | Fino a 60 MiB al secondo o fino 500 richieste al secondo |

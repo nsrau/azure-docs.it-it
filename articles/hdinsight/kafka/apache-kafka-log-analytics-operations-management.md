@@ -9,18 +9,20 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.openlocfilehash: 281b4b8d20957cbbbf0f4ff52166e8c3a78b3e7d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5154058bb1562b670e24f8813e979588a536f086
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108138"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359858"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>Analizzare i log per Apache Kafka in HDInsight
 
 Informazioni su come usare i log di monitoraggio di Azure per analizzare i log generati da Apache Kafka in HDInsight.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Abilitare i log di monitoraggio di Azure per Apache Kafka
 
@@ -33,7 +35,7 @@ I passaggi per abilitare i log di monitoraggio di Azure per HDInsight sono gli s
 3. Configurare il cluster Kafka per usare i log di monitoraggio di Azure. Per altre informazioni, vedere la [log di usare monitoraggio di Azure per monitorare HDInsight](../hdinsight-hadoop-oms-log-analytics-tutorial.md) documento.
 
     > [!NOTE]  
-    > È anche possibile configurare il cluster per usare i log di monitoraggio di Azure usando il `Enable-AzureRmHDInsightOperationsManagementSuite` cmdlet. Questo cmdlet richiede le informazioni seguenti:
+    > È anche possibile configurare il cluster per usare i log di monitoraggio di Azure usando il `Enable-AzHDInsightOperationsManagementSuite` cmdlet. Questo cmdlet richiede le informazioni seguenti:
     >
     > * Il nome del cluster HDInsight.
     > * L'ID dell'area di lavoro per i log di monitoraggio di Azure. È possibile trovare questo ID nell'area di lavoro di Log Analytics.

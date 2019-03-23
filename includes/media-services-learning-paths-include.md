@@ -2,21 +2,27 @@
 author: Juliako
 ms.service: media-services
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4c803b4915823b3a723728732479b605d9d7ee8a
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
-ms.translationtype: HT
+ms.openlocfilehash: 135232e3e9894bcef1ef657e41f5ad3a5e307289
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52270690"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352444"
 ---
-Esaminare la versione più recente di Servizi multimediali: [Servizi multimediali di Azure v3](https://docs.microsoft.com/azure/media-services/latest/).
+### <a name="media-services-v3-latest"></a>Servizi multimediali v3 (versione più recente)
 
-È possibile iniziare con gli argomenti seguenti: 
+Consultare la versione più recente di servizi multimediali di Azure. 
 
 * [Overview](https://docs.microsoft.com/azure/media-services/latest/media-services-overview)
-* [Eseguire il caricamento, la codifica e lo streaming di video con le API](https://docs.microsoft.com/azure/media-services/latest/stream-files-tutorial-with-api)
-* [Analizzare](https://docs.microsoft.com/azure/media-services/latest/analyze-videos-tutorial-with-api)
-* [Streaming live](https://docs.microsoft.com/azure/media-services/latest/stream-live-tutorial-with-api)
-* [Proteggere i contenuti](https://docs.microsoft.com/azure/media-services/latest/protect-with-aes128)
+* [Concetti](https://docs.microsoft.com/azure/media-services/latest/concepts-overview)
+* [Iniziare a sviluppare](https://docs.microsoft.com/azure/media-services/latest/developers-guide)
+* [Materiale sussidiario di migrazione dalla v2 alla v3](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3)
+
+### <a name="media-services-v2-legacy"></a>Servizi multimediali v2 (legacy)
+
+* [Overview](https://docs.microsoft.com/azure/media-services/previous/media-services-overview)
+* [Creare un account](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-create-account)
+* [Distribuire su richiesta](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-vod-get-started)
+* [Distribuisci in tempo reale](https://docs.microsoft.com/azure/media-services/previous/media-services-portal-live-passthrough-get-started)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dd26bbb06310439aae065349c14c6df1c1c12e6
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1f78a3135fca290d50370652b33fe0a4d16a6f83
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316933"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369053"
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Report in Azure Multi-Factor Authentication
 
@@ -36,9 +36,7 @@ Azure Multi-Factor Authentication offre diversi report che possono essere usati 
 2. A sinistra, selezionare **Azure Active Directory** > **Server MFA**.
 3. Selezionare il report che si vuole visualizzare.
 
-   <center>
-   
-   ![Cloud](./media/howto-mfa-reporting/report.png)</center>
+   ![Report Stato server di MFA Server nel portale di Azure](./media/howto-mfa-reporting/report.png)
 
 ## <a name="azure-ad-sign-ins-report"></a>Report sugli accessi ad Azure AD
 
@@ -55,7 +53,7 @@ Il report sulle attività di accesso fornisce informazioni sull'utilizzo delle a
 
 Questi dati sono disponibili tramite il [portale di Azure](https://portal.azure.com) e l'[API di creazione report](../reports-monitoring/concept-reporting-api.md).
 
-![Cloud](./media/howto-mfa-reporting/sign-in-report.png)
+![Report degli accessi AD Azure nel portale di Azure](./media/howto-mfa-reporting/sign-in-report.png)
 
 ### <a name="sign-ins-report-structure"></a>Struttura del report sugli accessi
 

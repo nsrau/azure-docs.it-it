@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a77c6ce205c40b5814f9b26f9099d868d434d3ce
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d38d93a1c9716cc3a71d904b7b1a46fb8b1c2ee0
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316450"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369225"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personalizzare la funzionalità di Azure AD per la reimpostazione della password self-service
 
@@ -26,12 +26,12 @@ I professionisti IT che vogliono distribuire la reimpostazione della password se
 
 Anche se la reimpostazione della password self-service non è abilitata, gli utenti possono tuttavia usare un collegamento "Contatta l'amministratore" nel portale di reimpostazione della password. Se un utente seleziona il collegamento:
 
-   * Invia un messaggio di posta elettronica agli amministratori e richiede assistenza nella modifica della password dell'utente.
-   * Invia gli utenti a un URL specificato per ottenere assistenza.
+* Invia un messaggio di posta elettronica agli amministratori e richiede assistenza nella modifica della password dell'utente.
+* Invia gli utenti a un URL specificato per ottenere assistenza.
 
 È consigliabile impostare questo contatto ad esempio per un indirizzo di posta elettronica o un sito Web che gli utenti sono soliti usare per inviare domande al supporto tecnico.
 
-![Contatto][Contact]
+![Richiesta di esempio per posta elettronica inviato all'amministratore di reimpostare][Contact]
 
 Questo contatto di posta elettronica viene inviato ai destinatari seguenti nell'ordine seguente:
 
@@ -68,8 +68,8 @@ Gli elementi grafici scelti vengono visualizzati nelle circostanze seguenti:
 
 * Dopo che l'utente immette il proprio nome utente
 * Se l'utente accede all'URL personalizzato:
-    * Passando il `whr` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?whr=contoso.com`
-    * Passando il `username` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * Passando il `whr` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?whr=contoso.com`
+   * Passando il `username` parametro per la password reimpostazione della pagina, ad esempio `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 Per Informazioni dettagliate su come configurare le informazioni personalizzate distintive dell'azienda, vedere l'articolo [Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso](../fundamentals/customize-branding.md).
 

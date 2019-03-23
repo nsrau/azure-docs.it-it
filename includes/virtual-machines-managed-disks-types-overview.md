@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f36ce51a9f385933cbc21e27280828b0ff0e43e2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6eae536bd19a2c0e5707d8e0b379774b6eb2707a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58016698"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58395607"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -27,9 +27,9 @@ La tabella seguente mette a confronto unità Ultra SSD (anteprima), SSD Premium,
 |---------|---------|---------|---------|---------|
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |Carichi di lavoro con I/O elevato come SAP HANA, database di alto livello (ad esempio SQL, Oracle) e altri carichi di lavoro con numerose transazioni.   |Carichi di lavoro di produzione su cui influiscono le prestazioni   |Server Web, applicazioni aziendali con un utilizzo non intensivo e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
-|Dimensioni disco   |65.536 gibibyte (GiB) (Anteprima)   |4.095 GiB (GA), 32.767 GiB (Anteprima)    |4.095 GiB (GA), 32.767 GiB (Anteprima)   |4.095 GiB (GA), 32.767 GiB (Anteprima)   |
-|Velocità effettiva massima   |2.000 MiB/s (Anteprima)   |250 (GA) MiB/s, 750 MiB/s (Anteprima)   |60 MiB/s (GA), 500 MiB/s (Anteprima)   |60 MiB/s (GA), 500 MiB/s (Anteprima)   |
-|Operazioni di I/O al secondo max   |160.000 (Anteprima)   |7500 (GA), 20.000 (Anteprima)   |500 (GA), 2.000 (Anteprima)   |500 (GA), 2.000 (Anteprima)   |
+|Dimensioni disco   |65.536 gibibyte (GiB) (Anteprima)   |32.767 GiB    |32.767 GiB   |32.767 GiB   |
+|Velocità effettiva massima   |2.000 MiB/s (Anteprima)   |900 MiB/s   |750 MiB/s   |500 MiB/s   |
+|Operazioni di I/O al secondo max   |160.000 (Anteprima)   |20.000   |6000   |2.000   |
 
 ## <a name="ultra-ssd-preview"></a>Ultra SSD (anteprima)
 

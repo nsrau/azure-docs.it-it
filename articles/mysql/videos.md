@@ -1,21 +1,21 @@
 ---
 title: Video su Database di Azure per MySQL
 description: Questa pagina elenca il contenuto video utile per imparare a usare Database di Azure per MySQL, la soluzione MySQL gestita offerta da Microsoft in Azure.
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 7bb584e24dcfaff34bbca2bc8a9db99a7007c8f0
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: c18604a9f4b95f4b586efaf3201dd0a679d8d316
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538593"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351295"
 ---
 # <a name="azure-database-for-mysql-videos"></a>Video su Database di Azure per MySQL
 
-[Overview: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147) (Panoramica: Database di Azure per PostgreSQL e MySQL)
+[Panoramica: Azure Database for PostgreSQL and MySQL](https://channel9.msdn.com/Events/Connect/2017/T147) (Panoramica: Database di Azure per PostgreSQL e MySQL)
 
 >[!VIDEO https://channel9.msdn.com/Events/Connect/2017/T147/player]
 

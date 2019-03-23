@@ -5,25 +5,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/06/2019
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f8fd3cdcf73749d787fc6f1c2222946961091f80
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6c57367a3a11aeb5bdded8e19ce57b7e265aeea9
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57849840"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369242"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell"></a>Usare un'identità di Azure AD per accedere ad archiviazione di Azure con PowerShell o CLI
 
-Archiviazione di Azure fornisce estensioni di comando di Azure e PowerShell che consentono di accedere ed eseguire i comandi script con un'identità di Azure Active Directory (Azure AD). L'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'[identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). È possibile assegnare autorizzazioni per accedere alle risorse di archiviazione per l'identità di Azure AD tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sui ruoli RBAC in Archiviazione di Azure, vedere [Gestire i diritti di accesso a dati di Archiviazione di Azure con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
+Archiviazione di Azure fornisce estensioni di comando di Azure e PowerShell che consentono di accedere a ed eseguire i comandi script con un'identità di Azure Active Directory (Azure AD). L'identità di Azure AD può essere un utente, un gruppo o un'entità servizio dell'applicazione oppure può essere un'[identità gestita per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). È possibile assegnare autorizzazioni per accedere alle risorse di archiviazione per l'identità di Azure AD tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni sui ruoli RBAC in archiviazione di Azure, vedere [Gestisci i diritti di accesso ai dati di archiviazione di Azure con RBAC](storage-auth-aad-rbac.md).
 
-Quando si accede all'interfaccia della riga di comando di Azure o a PowerShell con un'identità di Azure AD, viene restituito un token di accesso per l'accesso ad Archiviazione di Azure con questa identità. Tale token viene quindi usato automaticamente dall'interfaccia della riga di comando o da PowerShell per autorizzare le operazioni su Archiviazione di Azure. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
+Quando si accede al comando di Azure o PowerShell con un'identità Azure AD, viene restituito un token di accesso per l'accesso all'archiviazione di Azure con tale identità. Tale token viene quindi usato automaticamente dall'interfaccia della riga di comando o da PowerShell per autorizzare le operazioni su Archiviazione di Azure. Per le operazioni supportate, non è più necessario passare un chiave dell'account o un token di firma di accesso condiviso con il comando.
 
 ## <a name="supported-operations"></a>Operazioni supportate
 
-Le estensioni sono supportate per le operazioni su contenitori e code. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'identità di Azure AD usata per accedere all'interfaccia della riga di comando di Azure o a PowerShell. Le autorizzazioni per i contenitori o le code di Archiviazione di Azure vengono assegnate tramite il controllo degli accessi in base al ruolo (RBAC). Ad esempio, se all'identità viene assegnato un ruolo di Lettore dei dati, è possibile eseguire i comandi di scripting che leggono i dati da un contenitore o una coda. Se all'identità viene assegnato un ruolo di Collaboratore ai dati, è possibile eseguire i comandi di scripting per la lettura, scrittura o eliminazione di un contenitore, di una coda o dei dati in essi contenuti. 
+Le estensioni sono supportate per le operazioni su contenitori e code. Quali operazioni è possibile chiamare dipende dalle autorizzazioni concesse per l'identità di Azure AD con cui si accede al comando di Azure o PowerShell. Le autorizzazioni per i contenitori o le code di Archiviazione di Azure vengono assegnate tramite il controllo degli accessi in base al ruolo (RBAC). Ad esempio, se all'identità viene assegnato un ruolo di Lettore dei dati, è possibile eseguire i comandi di scripting che leggono i dati da un contenitore o una coda. Se all'identità viene assegnato un ruolo di Collaboratore ai dati, è possibile eseguire i comandi di scripting per la lettura, scrittura o eliminazione di un contenitore, di una coda o dei dati in essi contenuti. 
 
 Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di Archiviazione di Azure su un contenitore o una coda, vedere [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations) (Autorizzazioni per la chiamata di operazioni REST).  
 
@@ -61,10 +61,10 @@ Nell'esempio seguente viene illustrato come creare un contenitore in un nuovo ac
         --encryption-services blob
     ```
     
-1. Prima di creare il contenitore, assegnare il [collaboratore ai dati di archiviazione Blob (anteprima)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) ruolo a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni di dati nell'account di archiviazione. Per altre informazioni sull'assegnazione dei ruoli RBAC, vedere [concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure (anteprima)](storage-auth-aad-rbac.md).
+1. Prima di creare il contenitore, assegnare il [collaboratore ai dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) ruolo a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni di dati nell'account di archiviazione. Per altre informazioni sull'assegnazione dei ruoli RBAC, vedere [concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Durante l'anteprima del supporto di Azure AD per code e BLOB, le assegnazioni di ruolo RBAC possono richiedere fino a 5 minuti per propagarsi.
+    > Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per propagarsi.
     
 1. Chiamare il [creare il contenitore di archiviazione di az](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) con il `--auth-mode` parametro impostato su `login` per creare il contenitore usando le credenziali di Azure AD:
 
@@ -114,10 +114,10 @@ Nell'esempio seguente viene illustrato come creare un contenitore in un nuovo ac
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Prima di creare il contenitore, assegnare il [collaboratore ai dati di archiviazione Blob (anteprima)](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) ruolo a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni di dati nell'account di archiviazione. Per altre informazioni sull'assegnazione dei ruoli RBAC, vedere [concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure (anteprima)](storage-auth-aad-rbac.md).
+1. Prima di creare il contenitore, assegnare il [collaboratore ai dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) ruolo a se stessi. Anche se si è il proprietario dell'account, sono necessarie autorizzazioni esplicite per eseguire operazioni di dati nell'account di archiviazione. Per altre informazioni sull'assegnazione dei ruoli RBAC, vedere [concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
-    > Durante l'anteprima del supporto di Azure AD per code e BLOB, le assegnazioni di ruolo RBAC possono richiedere fino a 5 minuti per propagarsi.
+    > Le assegnazioni di ruolo RBAC potrebbero richiedere alcuni minuti per propagarsi.
 
 1. Creare un contenitore chiamando [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer). Poiché questa chiamata viene utilizzato il contesto creato nei passaggi precedenti, viene creato il contenitore usando le credenziali di Azure AD. 
 
@@ -128,6 +128,6 @@ Nell'esempio seguente viene illustrato come creare un contenitore in un nuovo ac
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui ruoli RBAC per Archiviazione di Azure, vedere [Manage access rights to storage data with RBAC (Preview)](storage-auth-aad-rbac.md) (Gestire i diritti di accesso ai dati di archiviazione con il controllo degli accessi in base al ruolo - anteprima).
-- Per altre informazioni sull'uso delle identità gestite per le risorse di Azure con Archiviazione di Azure, vedere [Authenticate access to blobs and queues with Azure managed identities for Azure Resources (Preview)](storage-auth-aad-msi.md) (Autenticare l'accesso a BLOB e code con le identità gestite di Azure per le risorse di Azure - anteprima).
+- Per altre informazioni sui ruoli RBAC per archiviazione di Azure, vedere [Gestisci i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md).
+- Per altre informazioni sull'utilizzo delle identità gestita per le risorse di Azure con archiviazione di Azure, vedere [autentica l'accesso a BLOB e code con Azure managed le identità per le risorse di Azure](storage-auth-aad-msi.md).
 - Per informazioni su come autorizzare l'accesso a contenitori e code all'interno delle applicazioni di archiviazione, vedere [Usare Azure AD con applicazioni di archiviazione](storage-auth-aad-app.md).

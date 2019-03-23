@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e81d5513f43882093883256cf9eab4a22e9ca01
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59c06ae83327683942885190e4b401617dc020f9
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875275"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361371"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -235,13 +235,13 @@ Leggere tutta la configurazione | Amministratore globale |
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
-Configurare i metodi di autenticazione | Amministratore globale | 
-Configurare personalizzazione | Amministratore globale | 
-Configurare notifica | Amministratore globale | 
-Configurare integrazione locale | Amministratore globale | 
-Configurare le proprietà di reimpostazione della password | Amministratore globale | 
-Configurare registrazione | Amministratore globale | 
-Leggere tutta la configurazione | Amministratore sicurezza amministratore utente | 
+Configurare i metodi di autenticazione | Amministratore globale |
+Configurare personalizzazione | Amministratore globale |
+Configurare notifica | Amministratore globale |
+Configurare integrazione locale | Amministratore globale |
+Configurare le proprietà di reimpostazione della password | Amministratore utenti | Amministratore globale
+Configurare registrazione | Amministratore globale |
+Leggere tutta la configurazione | Amministratore della sicurezza | Amministratore utenti |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2865c19e747ca1c5b0a6cda84b8be18bfaeb9335
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 536d26abf563f18ed7cec6668fcd1d4223f5a135
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317664"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370160"
 ---
 # <a name="combined-security-information-registration-preview"></a>Registrazione di informazioni di sicurezza combinati (anteprima)
 
 Prima della registrazione combinata, gli utenti registrati metodi di autenticazione per Azure multi-Factor Authentication (MFA) e la reimpostazione della password self-service (SSPR) illustrate due diverse esperienze. Le persone erano confusione che sono stati usati metodi simili per Azure MFA e SSPR ma che avevano la registrazione per le singole funzionalità separatamente. A questo punto, con la registrazione combinata, gli utenti possono registrare una sola volta e ottenere i vantaggi di Azure MFA e SSPR.
 
-![Combinare le informazioni di sicurezza - profilo personale che mostra le info di sicurezza registrata per un utente, tra cui Microsoft Authenticator e telefono per un utente di esempio nella directory.](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![Che mostra il profilo registrato info di sicurezza per un utente](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Prima di abilitare la nuova esperienza, esaminare questa documentazione incentrata su amministratore e la documentazione incentrato sull'utente per verificare di che conoscere le funzionalità e l'impatto di questa funzionalità. La formazione su documentazione per l'utente per preparare gli utenti per la nuova esperienza e contribuire a garantire una corretta implementazione di base.
 
@@ -36,7 +36,7 @@ Prima di abilitare la nuova esperienza, esaminare questa documentazione incentra
 
 Le pagine MyProfile sono localizzate in base alle impostazioni della lingua corrente del computer di accedere alla pagina. Vengono archiviati il linguaggio più recente utilizzato nella cache del browser in modo che i successivi tentativi di accesso continuerà a eseguire il rendering nell'ultima lingua utilizzata da Microsoft. La cancellazione della cache causerà delle pagine di cui eseguire nuovamente il rendering. Se si vuole forzare una lingua specifica aggiungendo un `?lng=de-DE` alla fine dell'URL in cui `de-DE` è impostato per la lingua appropriata codice forzerà delle pagine di cui eseguire il rendering in tale lingua.
 
-![L'interfaccia di profilo che mostra informazioni di sicurezza e la possibilità di configurare la reimpostazione o altri metodi di verifica aggiuntiva di sicurezza utente.](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Reimpostazione o altri metodi di verifica aggiuntiva di sicurezza di installazione](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
 ## <a name="methods-available-in-converged-registration"></a>Metodi disponibili nella registrazione per la convergenza
 
@@ -99,7 +99,7 @@ Esempio:
 
 Diagramma di flusso seguente vengono descritti i metodi che vengono visualizzati a un utente quando interrotta la registrazione durante l'accesso:
 
-![Combinare diagramma di flusso info di sicurezza che spiegano numerosi metodi obbligatorio quando sono necessarie ulteriori informazioni quando si accede. Questo può cambiare se solo MFA o solo SSPR è obbligatorio](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Diagramma di flusso info di sicurezza combinato](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
 Se si dispone di SSPR abilitate sia l'autenticazione MFA, è consigliabile che implementare la registrazione per MFA.
 

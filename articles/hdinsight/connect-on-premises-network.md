@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/28/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3041fba89ef29cb40cbdfdf9cd3d261ffeae816f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56ca9615bed8d5570d73c44a25ffcec28311b013
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450006"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361354"
 ---
 # <a name="connect-hdinsight-to-your-on-premises-network"></a>Connettere HDInsight alla rete locale
 
@@ -23,6 +23,8 @@ Informazioni su come connettere HDInsight alla rete locale usando Reti virtuali 
 * Configurazione della risoluzione dei nomi DNS tra la rete virtuale e la rete locale.
 * Configurazione dei gruppi di sicurezza di rete per limitare l'accesso Internet per HDInsight.
 * Porte fornite da HDInsight nella rete virtuale.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-virtual-network-configuration"></a>Creare la configurazione della rete virtuale
 
@@ -316,7 +318,7 @@ Per connettersi direttamente a HDInsight attraverso la rete virtuale, seguire qu
     ```powershell
     $resourceGroupName = "The resource group that contains the virtual network used with HDInsight"
 
-    $clusterNICs = Get-AzureRmNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
+    $clusterNICs = Get-AzNetworkInterface -ResourceGroupName $resourceGroupName | where-object {$_.Name -like "*node*"}
 
     $nodes = @()
     foreach($nic in $clusterNICs) {

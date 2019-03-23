@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 637ec63d1c3e5a3eb1ce26765b1ab22e9823e9a1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 63821ef5ebc36f49d4f3a43a7fbfbcf8fda12c50
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317426"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352035"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matrice di supporto per il backup di macchine virtuali di Azure
 È possibile usare la [servizio Backup di Azure](backup-overview.md) per eseguire il backup di macchine virtuali locali e i carichi di lavoro e macchine virtuali di Azure (VM). Questo articolo riepiloga le impostazioni del supporto e le limitazioni quando si esegue il backup di macchine virtuali di Azure con Backup di Azure.
@@ -82,7 +82,7 @@ Per i backup Linux delle macchine virtuali di Azure, il servizio Backup di Azure
 - Backup di Azure non supporta Core OS Linux.
 - Backup di Azure non supporta i sistemi operativi a 32 bit.
 - Altre distribuzioni di Linux bring-your-own potrebbero funzionare, purché la [agente di macchine Virtuali di Azure per Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux) è disponibile nella macchina virtuale e a condizione che supportano Python.
-- Backup di Azure non supporta macchine Virtuali che eseguono  **Python versione 2.6* solo** con il proxy configurato.
+- Backup di Azure non supporta una macchina virtuale che esegue Python versione 2.6* solo con il proxy configurato.
 
 
 

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c537b061619aa458663a9dcfcc97155d8a6614
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59663346fce415d73609f09345048ff321f1a234
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106798"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359830"
 ---
 # <a name="working-with-custom-domains-in-azure-ad-application-proxy"></a>Utilizzo di domini personalizzati nel Proxy di applicazione AD Azure
 
@@ -60,7 +60,8 @@ Quando questi tre requisiti sono pronti, seguire questi passaggi per configurare
 
 6. Caricare il certificato PFX e immettere la relativa password. 
 7. Fare clic su **Salva** per salvare le modifiche. 
-8. Aggiungere un [record DNS](../../dns/dns-operations-recordsets-portal.md) che reindirizza il nuovo URL esterno al dominio msappproxy.net. 
+8. Aggiungere un [record DNS](../../dns/dns-operations-recordsets-portal.md) che reindirizza il nuovo URL esterno al dominio msappproxy.net.
+9. Verificare che il record DNS sia configurato correttamente seguendo la [nslookup](https://social.technet.microsoft.com/wiki/contents/articles/29184.nslookup-for-beginners.aspx) comando per verificare se l'URL esterno è raggiungibile e che il dominio msapproxy.net viene visualizzato come un alias.
 
 >[!TIP] 
 >È sufficiente caricare un certificato per ogni dominio personalizzato. Dopo aver caricato un certificato, è possibile scegliere il dominio personalizzato quando si pubblica una nuova app, senza dover eseguire configurazioni aggiuntive, ad eccezione che per il record DNS. 

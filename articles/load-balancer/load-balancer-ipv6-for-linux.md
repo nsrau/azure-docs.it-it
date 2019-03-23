@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 03/22/2019
 ms.author: kumud
-ms.openlocfilehash: ea1ef845f55fbdadeea1992e167ef6568572abc9
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
-ms.translationtype: HT
+ms.openlocfilehash: 66777ec314e95d81a4be57082f06ef16dc170186
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53141714"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369633"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Configurare DHCPv6 per macchine virtuali Linux
 
@@ -54,7 +54,18 @@ Questo documento descrive come abilitare DHCPv6 in modo che la macchina virtuale
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
+A partire da Ubuntu 17.10, il meccanismo di configurazione di rete predefinito è [NETPLAN]( https://netplan.io).  In fase di installazione/creazione di istanze, NETPLAN legge la configurazione di rete da questo percorso file di configurazione YAML: / {lib,etc,run}/netplan/*.yaml.
 
+Includi un *dhcp6:true* istruzione per ogni interfaccia ethernet nella configurazione.  Ad esempio: 
+  
+        network:
+          version: 2
+          ethernets:
+            eno1:
+              dhcp6: true
+
+Durante l'avvio iniziali, il netplan "rete renderer" scrive la configurazione su/Esegui per presentare il controllo dei dispositivi per il daemon di rete specificato per informazioni di riferimento su NETPLAN, vedere https://netplan.io/reference.
+ 
 ## <a name="debian"></a>Debian
 
 1. Modificare il file */etc/dhcp/dhclient6.conf* e aggiungere la riga seguente:

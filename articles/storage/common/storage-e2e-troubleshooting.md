@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac30888c9f54c5dc88cb72aeec0f3db81d5a99dc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f88a560d4fa819a055534530ddc0862e4aa330fe
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004942"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351882"
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Risoluzione dei problemi end-to-end mediante le metriche e la registrazione di Archiviazione di Azure, AzCopy e Message Analyzer
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -29,12 +29,12 @@ Questa esercitazione offre un'esplorazione pratica di uno scenario di risoluzion
 Per risolvere i problemi relativi alle applicazioni client mediante Archiviazione di Microsoft Azure, è possibile usare una combinazione di strumenti per determinare quando si è verificato un problema e quale potrebbe essere la sua causa. Questi strumenti comprendono:
 
 * **Analisi archiviazione di Azure**. [Analisi archiviazione di Azure](/rest/api/storageservices/Storage-Analytics) fornisce metriche e registrazioni per Archiviazione di Azure.
-  
+
   * **metriche di archiviazione** tengono traccia delle metriche relative alle transazioni e alla capacità per l'account di archiviazione. Le metriche consentono di determinare le prestazioni dell'applicazione in base a un'ampia gamma di misure diverse. Per altre informazioni sui tipi di metriche di cui Analisi archiviazione tiene traccia, vedere [Schema di tabella della metrica di Analisi archiviazione](/rest/api/storageservices/Storage-Analytics-Metrics-Table-Schema) .
   * **registrazione di archiviazione** registra tutte le richieste in arrivo ai servizi di Archiviazione di Azure in un log sul lato server. Nel log vengono registrati dati dettagliati per ogni richiesta, tra cui l'operazione eseguita, lo stato dell'operazione e le informazioni sulla latenza. Per altre informazioni sui dati di richiesta e risposta che vengono scritti nei log di Analisi di archiviazione, vedere [Formato del log di Analisi archiviazione](/rest/api/storageservices/Storage-Analytics-Log-Format) .
 
 * **portale di Azure**. Nel [portale di Azure](https://portal.azure.com) è possibile configurare le metriche e la registrazione dell'account di archiviazione. È possibile anche visualizzare grafici che mostrano le prestazioni dell'applicazione nel tempo e configurare gli avvisi per ricevere una notifica se le prestazioni dell'applicazione si discostano dal previsto per una determinata metrica.
-  
+
     Per informazioni sulla configurazione del monitoraggio nel portale di Azure, vedere [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
 * **AzCopy**. I log di Archiviazione di Azure vengono memorizzati come BLOB, quindi è possibile usare AzCopy per copiare i BLOB di log in una directory locale per l'analisi mediante Microsoft Message Analyzer. Per altre informazioni su AzCopy, vedere [Trasferire dati con l'utilità della riga di comando AzCopy](storage-use-azcopy.md) .
 * **Microsoft Message Analyzer**. Message Analyzer è uno strumento che utilizza i file di log e visualizza i dati di log in un formato visivo che ne semplifica il filtraggio, la ricerca e il raggruppamento in set utili da usare per analizzare gli errori e i problemi di prestazioni. Per altre informazioni su Message Analyzer, vedere [la guida operativa di Microsoft Message Analyzer](https://technet.microsoft.com/library/jj649776.aspx) .
@@ -79,51 +79,7 @@ In questa esercitazione viene usato Message Analyzer per utilizzare tre diversi 
 * Il **log di traccia di rete HTTP**, che raccoglie i dati relativi alle richieste e risposte HTTP/HTTPS, anche per le operazioni in Archiviazione di Azure. In questa esercitazione, la traccia di rete verrà generata mediante Message Analyzer.
 
 ### <a name="configure-server-side-logging-and-metrics"></a>Configurare le metriche e la registrazione sul lato server
-In primo luogo è necessario configurare la registrazione e le metriche di Archiviazione di Azure, in modo da disporre di dati dell'applicazione client per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Per informazioni dettagliate sulla registrazione e sulle metriche, vedere [Abilitazione di Metriche di archiviazione e visualizzazione dei dati di metrica](https://msdn.microsoft.com/library/azure/dn782843.aspx) e [Abilitazione di Registrazione archiviazione e accesso ai dati di log](https://msdn.microsoft.com/library/azure/dn782840.aspx) su MSDN.
-
-**Tramite il portale di Azure**
-
-Per configurare la registrazione e le metriche dell'account di archiviazione tramite il [portale di Azure](https://portal.azure.com), seguire le istruzioni disponibili in [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md).
-
-> [!NOTE]
-> Non è possibile impostare metriche al minuto tramite il portale di Azure. Tuttavia, è consigliabile impostarla ai fini di questa esercitazione e per l'analisi dei problemi di prestazioni relativi all'applicazione. La metrica al minuto può essere impostata tramite PowerShell, come mostrato di seguito, o a livello di codice o tramite la libreria del client di archiviazione.
-> 
-> Il portale di Azure non consente di visualizzare metriche al minuto, ma solo metriche orarie.
-> 
-> 
-
-**Tramite PowerShell**
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-Per informazioni introduttive su PowerShell per Azure, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/overview).
-
-1. Usare il cmdlet [Add-AzAccount](/powershell/module/servicemanagement/azure/add-azureaccount) per aggiungere l'account utente di Azure alla finestra di PowerShell:
-   
-    ```powershell
-    Add-AzAccount
-    ```
-
-2. Nella finestra di **accesso a Microsoft Azure** digitare l'indirizzo di posta elettronica e la password associati all'account. Le informazioni delle credenziali vengono autenticate e salvate in Azure, quindi la finestra viene chiusa.
-3. Impostare l'account di archiviazione predefinito sull'account di archiviazione usato per l'esercitazione eseguendo i comandi seguenti nella finestra di PowerShell:
-   
-    ```powershell
-    $SubscriptionName = 'Your subscription name'
-    $StorageAccountName = 'yourstorageaccount'
-    Set-AzSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-    ```
-
-4. Abilitare la registrazione di archiviazione per il servizio BLOB:
-   
-    ```powershell
-    Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations Read,Write,Delete -PassThru -RetentionDays 7 -Version 1.0
-    ```
-
-5. Abilitare la metrica di archiviazione per il servizio BLOB, assicurandosi di impostare **-MetricsType** su `Minute`:
-   
-    ```powershell
-    Set-AzStorageServiceMetricsProperty -ServiceType Blob -MetricsType Minute -MetricsLevel ServiceAndApi -PassThru -RetentionDays 7 -Version 1.0
-    ```
+In primo luogo, è necessario configurare la registrazione di archiviazione di Azure e le metriche, in modo da disporre di dati dal lato del servizio per l'analisi. La registrazione e le metriche possono essere configurate in diversi modi: tramite il [portale di Azure](https://portal.azure.com), con PowerShell o a livello di codice. Visualizzare [abilitare le metriche](storage-analytics-metrics.md#enable-metrics-using-the-azure-portal) e [abilitare la registrazione](storage-analytics-logging.md#enable-storage-logging) per informazioni dettagliate sulla configurazione di registrazione e metrica.
 
 ### <a name="configure-net-client-side-logging"></a>Configurare la registrazione sul lato client .NET
 Per configurare la registrazione sul lato client per un'applicazione .NET, abilitare la diagnostica .NET nel file di configurazione dell'applicazione (web.config o app.config). Per informazioni dettagliate, vedere [Registrazione lato client con la libreria client di archiviazione .NET](https://msdn.microsoft.com/library/azure/dn782839.aspx) e [Registrazione lato client con Microsoft Azure Storage SDK per Java](https://msdn.microsoft.com/library/azure/dn782844.aspx) su MSDN.
@@ -159,8 +115,8 @@ Per l'esercitazione, raccogliere e salvare una traccia di rete in Message Analyz
 
 > [!NOTE]
 > Al termine della raccolta della traccia di rete, è consigliabile ripristinare le impostazioni modificate in Fiddler per decrittografare il traffico HTTPS. Nella finestra di dialogo Fiddler Options (Opzioni Fiddler) deselezionare le caselle di controllo **Capture HTTPS CONNECTs** (Acquisisci HTTPS CONNECTs) e **Decrypt HTTPS Traffic** (Decrittografa il traffico HTTPS).
-> 
-> 
+>
+>
 
 Per informazioni dettagliate, vedere [l'argomento relativo all'uso delle funzionalità di traccia di rete](https://technet.microsoft.com/library/jj674819.aspx) su Technet.
 
@@ -175,8 +131,8 @@ Per altre informazioni sull'aggiunta e la personalizzazione di grafici di metric
 
 > [!NOTE]
 > Dopo aver abilitato le metriche di archiviazione, è possibile che la visualizzazione dei dati corrispondenti nel portale di Azure non sia immediata. Questo dipende dal fatto che le metriche orarie relative all'ora precedente vengono visualizzate nel portale di Azure solo allo scadere dell'ora in corso. Nel portale di Azure, inoltre, non è supportata la visualizzazione di metriche al minuto. Quindi, per visualizzare i dati relativi alla metrica può essere necessaria fino a un'ora, a seconda del momento in cui è stata abilita.
-> 
-> 
+>
+>
 
 ## <a name="use-azcopy-to-copy-server-logs-to-a-local-directory"></a>Usare AzCopy per copiare i log del server in una directory locale
 Archiviazione di Azure scrive i dati di log del server nei BLOB, mentre le metriche vengono scritti nelle tabelle. I BLOB di log sono disponibili nel noto contenitore `$logs` per l'account di archiviazione. Dato che i BLOB sono denominati in modo gerarchico per anno, mese, giorno e ora, è possibile individuare facilmente l'intervallo di tempo da esaminare. Ad esempio, nell'account `storagesample`, il contenitore per i BLOB di log relativi al 02/01/2015, dalle 8 alle 9, è `https://storagesample.blob.core.windows.net/$logs/blob/2015/01/08/0800`. I singoli BLOB nel contenitore sono denominati in sequenza, a partire da `000000.log`.
@@ -211,8 +167,8 @@ Message Analyzer include risorse per Archiviazione di Azure che consentono di an
 
 > [!NOTE]
 > Installare tutte le risorse di Archiviazione di Azure per questa esercitazione.
-> 
-> 
+>
+>
 
 ### <a name="import-your-log-files-into-message-analyzer"></a>Importare i file di log in Message Analyzer
 È possibile importare tutti i file di log salvati (lato server, lato client e rete) in un'unica sessione di Microsoft Message Analyzer per l'analisi.
@@ -255,8 +211,8 @@ L'immagine seguente mostra questa visualizzazione di layout applicata ai dati di
 
 > [!NOTE]
 > Dato che nei diversi file di log possono essere presenti colonne diverse, quando nella griglia di analisi vengono visualizzati i dati da più file di log, è possibile che alcune colonne non contengano dati per una particolare riga. Ad esempio, nell’immagine precedente, nelle righe relative al log del client non vengono visualizzati i dati per le colonne **Timestamp**, **TimeElapsed**, **Source** e **Destination**, in quanto queste colonne non sono presenti nel log del client, ma lo sono nella traccia di rete. Analogamente, nella colonna **Timestamp** vengono visualizzati i dati di timestamp del log del server, ma non vengono visualizzati dati per le colonne **TimeElapsed**, **Source** e **Destination**, che non fanno parte del log del server.
-> 
-> 
+>
+>
 
 Oltre a usare i layout di visualizzazione di Archiviazione di Azure, è possibile definire e salvare un layout di visualizzazione personalizzato. È anche possibile selezionare altri campi per il raggruppamento dei dati e salvare questo raggruppamento all'interno del layout personalizzato.
 
@@ -289,12 +245,12 @@ Dopo aver applicato il filtro, si noterà che vengono escluse le righe del log d
 
 > [!NOTE]
 > È possibile filtrare in base alla colonna **StatusCode** e visualizzare comunque i dati di tutti e tre i log, compreso il log del client, se si aggiunge un'espressione di filtro che include le voci di log in cui il codice di stato è null. Per costruire questa espressione di filtro, usare:
-> 
+>
 > <code>&#42;StatusCode >= 400 or !&#42;StatusCode</code>
-> 
+>
 > Questo filtro restituisce tutte le righe del log del client e solo righe del log del server e del log HTTP in cui il codice di stato è maggiore di 400. Se viene applicato al layout di visualizzazione raggruppato per ID richiesta client e modulo, è possibile cercare o scorrere le voci di log per trovare quelle in cui sono rappresentati tutte e tre i log.   
-> 
-> 
+>
+>
 
 ### <a name="filter-log-data-to-find-404-errors"></a>Filtrare i dati di log per trovare gli errori 404
 Le risorse di archiviazione includono filtri predefiniti che possono essere usati per limitare i dati di log per trovare gli errori o le tendenze che si stanno cercando. A questo punto verranno applicati due filtri predefiniti: uno che filtra il log del server e il log della traccia di rete per trovare gli errori 404 e uno che filtra i dati in un determinato intervallo di tempo.

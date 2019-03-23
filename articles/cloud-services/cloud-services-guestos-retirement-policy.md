@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 9/20/2017
 ms.author: raiye
-ms.openlocfilehash: 6e4a83eb8b3488c4ce2816151ca31b4a594dd742
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ce66d44c0ddb84ed8c2908d02b8062195d6b461d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338633"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351015"
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Criteri relativi al supporto e al ritiro del sistema operativo guest di Azure
 Le informazioni di questa pagina si riferiscono al sistema operativo guest di Azure ([sistema operativo guest](cloud-services-guestos-update-matrix.md)) per i ruoli di lavoro e Web di Servizi cloud (PaaS). Non si applica alle macchine virtuali (IaaS).
@@ -57,7 +57,7 @@ Allo scadere del periodo di 60 giorni, una versione viene "*disabilitata*". "Dis
 
 Dopo qualche minuto alla "disabilitazione", la versione del sistema operativo Guest "scade" e le installazioni che ancora eseguono quella versione scaduti sono esposti a problemi di protezione e vulnerabilità. Scadenza a livello generale, viene eseguita in batch, in modo che il periodo tra la disabilitazione e scadenza può variare.
 
-I clienti che configurano i propri servizi per aggiornare il sistema operativo Guest manualmente, è necessario assicurarsi che le distribuzioni sono in esecuzione in un sistema operativo Guest supportato. Se un servizio è configurato per aggiornare automaticamente il sistema operativo Guest, la piattaforma sottostante garantisce conformità e aggiornerà il sistema operativo Guest più recente.
+I clienti che configurano i propri servizi per aggiornare il sistema operativo Guest manualmente, è necessario assicurarsi che i relativi servizi siano in esecuzione in un sistema operativo Guest supportato. Se un servizio è configurato per aggiornare automaticamente il sistema operativo Guest, la piattaforma sottostante garantisce conformità e aggiornerà il sistema operativo Guest più recente.
 
 Questi periodi possono essere resi più lunghi a discrezione di Microsoft per facilitare le transizioni del cliente. Le modifiche vengono comunicate nella [matrice di compatibilità di SDK e delle versioni del sistema operativo guest di Azure](cloud-services-guestos-update-matrix.md).
 

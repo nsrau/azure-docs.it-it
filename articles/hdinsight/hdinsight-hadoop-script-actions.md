@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 93313557781c6b3788d8b4d43d6676fc17625709
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d8f7808401b2e11a38b239a353e3b7af2ffcffb3
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201314"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361303"
 ---
 # <a name="develop-script-action-scripts-for-hdinsight-windows-based-clusters"></a>Sviluppare script di Azione script per HDInsight nei cluster basati su Windows
 Informazioni su come scrivere script di Azione script per HDInsight Per informazioni sull'uso di script di Azione script, vedere [Personalizzare cluster HDInsight mediante Azione script](hdinsight-hadoop-customize-cluster-linux.md). Per lo stesso articolo dedicato ai cluster HDInsight basati su Linux, vedere [Sviluppare script di Azione script per HDInsight](hdinsight-hadoop-script-actions-linux.md).
@@ -32,6 +32,8 @@ L'azione script può essere usata per installare software aggiuntivi in esecuzio
 > System.Management.Automation.CommandNotFoundException; ExceptionMessage: il termine "Save-HDIFile" non viene riconosciuto come nome di cmdlet, funzione, file di script o programma eseguibile. Controllare l'ortografia del nome o verificare che il percorso sia incluso e corretto, quindi riprovare.
 > 
 > È perché non sono stati inclusi i metodi di supporto.  Vedere [Metodi helper per gli script personalizzati](hdinsight-hadoop-script-actions.md#helper-methods-for-custom-scripts).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="sample-scripts"></a>Script di esempio
 Per la creazione di cluster HDInsight nel sistema operativo Windows, l'azione Script è uno script di Azure PowerShell. Lo script seguente è un esempio di configurazione dei file di configurazione sito:
@@ -191,8 +193,8 @@ Gli script usati per personalizzare un cluster devono essere nell'account di arc
 
 In questo esempio, è necessario assicurarsi che il contenitore `somecontainer` nell'account di archiviazione `somestorageaccount` sia accessibile pubblicamente. In caso contrario, lo script genera un'eccezione "Non trovato" ed ha esito negativo.
 
-### <a name="pass-parameters-to-the-add-azurermhdinsightscriptaction-cmdlet"></a>Passare i parametri al cmdlet Add-AzureRmHDInsightScriptAction
-Per passare più parametri al cmdlet Add-AzureRmHDInsightScriptAction, è necessario formattare il valore di stringa per contenere tutti i parametri per lo script. Ad esempio: 
+### <a name="pass-parameters-to-the-add-azhdinsightscriptaction-cmdlet"></a>Passare parametri al cmdlet Add-AzHDInsightScriptAction
+Per passare più parametri al cmdlet Add-AzHDInsightScriptAction, è necessario formattare il valore di stringa affinché contenga tutti i parametri per lo script. Ad esempio: 
 
     "-CertifcateUri wasb:///abc.pfx -CertificatePassword 123456 -InstallFolderName MyFolder"
 

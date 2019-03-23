@@ -16,12 +16,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339552"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58349706"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 
@@ -40,7 +40,10 @@ ms.locfileid: "58339552"
 | Capacità massima (in GB) del disco gestito standard | 2048 | La capacità massima di managed disks standard che possono essere create in questa posizione. |
 | Capacità massima (in GB) del disco gestito premium | 2048 | La capacità massima di premium servizio managed disks che possono essere create in questa posizione. |
 
-## <a name="storage-quota-types"></a>Tipi di quote di archiviazione
+> [!NOTE]  
+> Capacità di massimo di dischi non gestiti (BLOB di pagine) è separata dalla quota disco gestito, deve essere impostata nella Quota di archiviazione.
+
+## <a name="storage-quota-types"></a>Tipi di quote di archiviazione 
 
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
@@ -48,7 +51,7 @@ ms.locfileid: "58339552"
 | Numero totale di account di archiviazione |20 |Il numero massimo di account di archiviazione che è possibile creare una sottoscrizione in questa posizione. |
 
 > [!NOTE]  
-> Può richiedere fino a due ore prima che viene applicata una quota di archiviazione.
+> Può richiedere fino a due ore prima che viene applicata una quota di archiviazione. Capacità di massimo del disco gestito è separata dalla quota di archiviazione totale, deve essere impostata nella Quota di calcolo.
 
 ## <a name="network-quota-types"></a>Tipi di quote di rete
 

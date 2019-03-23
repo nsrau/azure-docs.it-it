@@ -1,23 +1,25 @@
 ---
-title: Esempio per l'aggiunta di completamento automatico per la casella di ricerca - ricerca di Azure
-description: Esempi di come migliorare l'esperienza dell'utente finale in riferimento alle applicazioni basate sui dati tramite le API di completamento automatico e suggerimenti di Ricerca di Azure.
+title: Esempio di completamento automatico per l'aggiunta di completamento automatico per una casella di ricerca - ricerca di Azure
+description: Abilitare azioni di query typeahead in ricerca di Azure tramite la creazione di componenti per il suggerimento e formulare le richieste che è riempire in una casella di ricerca con completati termini o frasi.
 manager: pablocas
 author: mrcarter8
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 03/22/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: b754f00e9bed34717734c4aec81e5489d2c12b63
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: b78fdf0c493e4631e4cdd7e26b154570b6226d1f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200277"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369574"
 ---
-# <a name="example-add-autocomplete-to-your-search-box-using-azure-search"></a>Esempio: Aggiungere il completamento automatico alla casella di ricerca tramite Ricerca di Azure
+# <a name="example-add-autocomplete-to-partial-term-inputs-in-azure-search"></a>Esempio: Aggiungere il completamento automatico per gli input parziale di termini in ricerca di Azure
+
+Questa funzionalità in anteprima "completa" un input parziale di termini fornendo un termine completato dai documenti in un indice di ricerca di Azure. Si potrebbe notare questa funzionalità nei motori di ricerca commerciali. È ora possibile aggiungere questa funzionalità, attualmente in anteprima pubblica, a una soluzione di ricerca di Azure per semplificare l'acquisizione di una query.
 
 In questo esempio, si apprenderà come usare [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions), [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) e [facet](search-faceted-navigation.md) nel [API REST di ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/) e [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions?view=azure-dotnet) per compilare una casella di ricerca avanzate. 
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 69a45a0c2c21ffafde8a4b366e1f3e90b7c8f59a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bb00f6ccd22be75a235d9cd6fc174741207a76e0
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012608"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58359161"
 ---
 # <a name="use-azure-powershell-to-run-apache-pig-jobs-with-hdinsight"></a>Usare Azure PowerShell per eseguire processi Apache Pig con HDInsight
 
@@ -26,6 +26,8 @@ Questo documento fornisce un esempio dell'uso di Azure PowerShell per inviare pr
 > Questo documento non fornisce una descrizione dettagliata delle operazioni eseguite dalle istruzioni Pig Latin usate negli esempi. Per informazioni sul codice Pig Latin usato in questo esempio, vedere [Use Apache Pig with Apache Hadoop on HDInsight](hdinsight-use-pig.md) (Usare Apache Pig con Apache Hadoop su HDInsight).
 
 ## <a id="prereq"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 * **Un cluster Azure HDInsight**
 
@@ -40,11 +42,11 @@ Azure PowerShell fornisce *cmdlet* che consentono di eseguire in modalità remot
 
 Durante l'esecuzione di processi Pig in un cluster HDInsight remoto, vengono usati i seguenti cmdlet:
 
-* **Connect-AzureRmAccount**: esegue l'autenticazione di Azure PowerShell nella sottoscrizione di Azure.
-* **New-AzureRmHDInsightPigJobDefinition**: crea una *definizione del processo* usando le istruzioni Pig Latin specificate.
-* **Start-AzureRmHDInsightJob**: invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.
-* **Wait-AzureRmHDInsightJob**: usa l'oggetto del processo per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
-* **Get-AzureRmHDInsightJobOutput**: usato per recuperare l'output del processo.
+* **Connect-AzAccount**: esegue l'autenticazione di Azure PowerShell nella sottoscrizione di Azure.
+* **New-AzHDInsightPigJobDefinition**: crea una *definizione del processo* usando le istruzioni Pig Latin specificate.
+* **Start-AzHDInsightJob**: invia la definizione del processo ad HDInsight e avvia il processo. Viene restituito un oggetto del *processo*.
+* **Wait-AzHDInsightJob**: usa l'oggetto processo per verificare lo stato del processo. Attende che il processo venga completato o che scada il periodo di attesa previsto.
+* **Get-AzHDInsightJobOutput**: usato per recuperare l'output del processo.
 
 La seguente procedura illustra come usare questi cmdlet per eseguire un processo nel cluster HDInsight.
 
@@ -76,7 +78,7 @@ Se al termine del processo non viene restituita alcuna informazione, visualizzar
 
     # Print the output of the Pig job.
     Write-Host "Display the standard error output ..." -ForegroundColor Green
-    Get-AzureRmHDInsightJobOutput `
+    Get-AzHDInsightJobOutput `
             -Clustername $clusterName `
             -JobId $pigJob.JobId `
             -HttpCredential $creds `

@@ -16,12 +16,12 @@ ms.date: 02/26/2019
 ms.author: sethm
 ms.reviewer: jiahan
 ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: c1a0e77f98d269185bc065c86a367c3ed6519fb5
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961976"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368273"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: differenze e considerazioni
 
@@ -134,13 +134,27 @@ Azure supporta Stack *gestiti immagini*, che consentono di creare un oggetto imm
 - Si hanno generalizzato macchine virtuali non gestite e si vuole usare managed disks in futuro.
 - Si dispone di una macchina virtuale gestita generalizzata e si vuole creare più, macchine virtuali gestite simile.
 
-### <a name="migrate-unmanaged-vms-to-managed-disks"></a>Eseguire la migrazione di macchine virtuali non gestite a managed disks
+### <a name="step-1-generalize-the-vm"></a>Passaggio 1: Generalizzare la VM
+Per Windows, vedere la sezione "Generalizza la macchina virtuale Windows tramite Sysprep" di seguito: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Per Linux, seguire il passaggio 1 qui: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
+
+Note: Non dimenticare di generalizzare la macchina virtuale. Creazione di una macchina virtuale da un'immagine che non è stata generalizzata correttamente causerà un errore VMProvisioningTimeout.
+
+### <a name="step-2-create-the-managed-image"></a>Passaggio 2: Creare l'immagine gestita
+A tale scopo, è possibile utilizzare il portale, powershell o cli. Documento di Azure seguenti: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
+
+### <a name="step-3-choose-the-use-case"></a>Passaggio 3: Scegliere il caso d'uso:
+#### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Caso 1: Eseguire la migrazione di macchine virtuali non gestite a managed disks
+Non dimenticare generalizzare la VM correttamente prima di eseguire questo passaggio. Post generalizzazione, questa macchina virtuale non può essere utilizzato ulteriore. Creazione di una macchina virtuale da un'immagine che non è stata generalizzata correttamente causerà un errore VMProvisioningTimeout. 
 
 Seguire le istruzioni riportate [qui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) per creare un'immagine gestita da un disco rigido virtuale generalizzato in un account di archiviazione. Questa immagine può essere usata per creare macchine virtuali gestite in futuro.
 
-### <a name="create-managed-image-from-vm"></a>Creare l'immagine gestita dalla macchina virtuale
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Caso 2: Creare Managed VM dall'immagine gestita tramite Powershell
 
 Dopo la creazione di un'immagine da un oggetto esistente gestito del disco della macchina virtuale usando lo script [qui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , lo script di esempio seguente crea una VM Linux simili da un oggetto immagine esistente:
+
+Stack modulo di Azure powershell 1.7.0 o versione successiva: Seguire le istruzioni [qui](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+
+Stack modulo di Azure powershell versione 1.6.0 o versioni precedenti:
 
 ```powershell
 # Variables for common values
@@ -191,7 +205,7 @@ Add-AzureRmVMNetworkInterface -Id $nic.Id
 New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
 ```
 
-Per altre informazioni, vedere Azure gestito articoli immagine [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../../virtual-machines/windows/capture-image-resource.md) e [creare una macchina virtuale da un'immagine gestita](../../virtual-machines/windows/create-vm-generalized-managed.md).
+È anche possibile usare il portale per creare una VM da un'immagine gestita. Per altre informazioni, vedere Azure gestito articoli immagine [creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../../virtual-machines/windows/capture-image-resource.md) e [creare una macchina virtuale da un'immagine gestita](../../virtual-machines/windows/create-vm-generalized-managed.md).
 
 ## <a name="configuration"></a>Configurazione
 

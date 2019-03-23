@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 02/19/2019
 ms.author: danlep
-ms.openlocfilehash: cdf457eefc88edcc22f1fbaab4859fbcf3b69bca
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: ebbfaba158e7ddb669111f097eb1adde2373aa6c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56654644"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361286"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Bloccare un'immagine del contenitore in Registro contenitori di Azure
 
@@ -35,6 +35,24 @@ Tuttavia, quando si distribuisce un'immagine del contenitore nell'ambiente di pr
 Vedere le sezioni seguenti per gli esempi.
 
 ## <a name="lock-an-image-or-repository"></a>Bloccare un'immagine o un repository 
+
+### <a name="show-the-current-repository-attributes"></a>Mostrare gli attributi di repository corrente
+Per visualizzare gli attributi correnti di un repository, eseguire il comando seguente [show di az acr repository] [ az-acr-repository-show] comando:
+
+```azurecli
+az acr repository show \
+    --name myregistry --repository myrepo
+    --output jsonc
+```
+
+### <a name="show-the-current-image-attributes"></a>Mostrare gli attributi di immagine corrente
+Per visualizzare gli attributi di un tag correnti, eseguire il comando seguente [show di az acr repository] [ az-acr-repository-show] comando:
+
+```azurecli
+az acr repository show \
+    --name myregistry --image image:tag \
+    --output jsonc
+```
 
 ### <a name="lock-an-image-by-tag"></a>Bloccare un'immagine di base al tag
 

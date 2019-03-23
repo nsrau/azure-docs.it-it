@@ -1,7 +1,7 @@
 ---
-title: Finalità utente
+title: Finalità
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Una finalità rappresenta un'attività o un'azione che l'utente desidera eseguire. È un obiettivo espresso in un'espressione dell'utente.
+description: Un intent single rappresenta un'attività o azione, l'utente desidera eseguire. È un obiettivo espresso in un'espressione dell'utente. Definire un set di finalità che corrisponde alle azioni che gli utenti desiderano eseguire nell'applicazione.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae1dd16e3296c11d6bce6ea623f590deaee8f65d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e635a11cb99d11befc40703d9f5d2abec8559632
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55871354"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371112"
 ---
 # <a name="concepts-about-intents-in-your-luis-app"></a>Concetti relativi alle finalità nell'app LUIS
 
@@ -31,7 +31,7 @@ Finalità dell'app di viaggi   |   Espressioni di esempio   |
  Meteo | "Com'è il tempo a Boston?" <br/> "Mostrami le previsioni per il weekend" |
  Nessuna         | "Dammi una ricetta di biscotti"<br>"Ha vinto la Roma?" |
 
-Tutte le applicazioni vengono fornite con la finalità predefinita, "[None](#none-intent-is-fallback-for-app)" (Nessuna) che è la finalità di fallback. 
+Tutte le applicazioni forniti con l'intento predefinito, "[None](#none-intent-is-fallback-for-app)", ovvero l'intento di fallback. 
 
 ## <a name="prebuilt-domains-provide-intents"></a>I domini predefiniti forniscono finalità
 Oltre alle finalità definite, è possibile usare finalità predefinite da uno dei domini predefiniti. Per ulteriori informazioni, vedere [Usare domini predefiniti nelle app LUIS](luis-how-to-use-prebuilt-domains.md) per imparare a personalizzare le finalità da un dominio predefinito per l'uso nell'app.
@@ -57,7 +57,11 @@ La finalità rappresenta l'azione che il chatbot deve eseguire per l'utente ed �
 
 I [domini predefiniti](luis-how-to-use-prebuilt-domains.md) presentano finalità con espressioni.  
 
-## <a name="none-intent-is-fallback-for-app"></a>La finalità None (Nessuna) è la finalità di fallback per l'app
+## <a name="none-intent"></a>Finalità None
+
+Il **None** finalità è importante per ogni app e non deve avere zero espressioni.
+
+### <a name="none-intent-is-fallback-for-app"></a>La finalità None (Nessuna) è la finalità di fallback per l'app
 La finalità **None** (Nessuna) è una finalità catch-all o fallback. Consente di insegnare a LUIS espressioni che non sono importanti nel dominio dell'app (area di interesse). Il 10-20 percento del totale delle espressioni della finalità **None** (Nessuna) deve trovarsi nell'applicazione. Non lasciare quindi vuota la finalità None (Nessuna). 
 
 ### <a name="none-intent-helps-conversation-direction"></a>La finalità None (Nessuna) favorisce la direzione della conversazione
@@ -76,6 +80,12 @@ La finalità **None** è obbligatoria e non può essere eliminata o rinominata.
 
 ## <a name="negative-intentions"></a>Intenzioni negative 
 Per determinare intenzioni negative e positive, ad esempio "**Voglio** un'auto" e "**Non** voglio un'auto", è possibile creare due finalità (una positiva e una negativa) e aggiungere espressioni appropriate per ognuna. In alternativa, è possibile creare una singola finalità e contrassegnare i due diversi termini positivi e negativi come entità.  
+
+## <a name="intents-and-patterns"></a>Gli Intent e modelli
+
+Se si dispone di espressioni di esempio, che possono essere definiti in parte o completamente come un'espressione regolare, è consigliabile usare la [entità di espressione regolare](luis-concept-entity-types.md#regular-expression-entity) associato a un [pattern](luis-concept-patterns.md). 
+
+Usa un'entità di espressione regolare garantisce l'estrazione di dati in modo che viene individuata. I criteri di ricerca garantisce che viene restituito un intent esatto. 
 
 ## <a name="intent-balance"></a>Bilanciamento tra finalità
 Nelle finalità del dominio dell'app le espressioni devono essere equamente distribuite. Evitare di avere una finalità con 10 espressioni e un'altra con 500. Questa non è una distribuzione bilanciata. Se dovesse crearsi questa situazione, esaminare la finalità con 500 espressioni per accertare se alcune delle finalità possono essere riorganizzate in un [criterio](luis-concept-patterns.md). 
@@ -96,6 +106,8 @@ Ulteriori informazioni sulla combinazione di app LUIS e QnA Maker con il [modell
 
 ### <a name="request-help-for-apps-with-significant-number-of-intents"></a>Richiedere la guida per le app con un numero significativo di finalità
 Se ridurre il numero delle finalità o dividere le finalità in più app non comporta alcun miglioramento, contattare l'assistenza. Se la sottoscrizione di Azure include servizi di assistenza, contattare [il team di supporto di Azure](https://azure.microsoft.com/support/options/). 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

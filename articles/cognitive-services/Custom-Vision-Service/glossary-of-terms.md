@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/08/2017
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: e659367ae13026dbe48ed681d0a68058d686e3ec
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884343"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352103"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossario dei termini del Servizio visione artificiale personalizzato
 
-Di seguito sono riportati alcuni termini usati nel Servizio visione artificiale personalizzato con i relativi significati.
+Di seguito sono indicati alcuni termini comunemente usati nel servizio visione artificiale personalizzato:
 
 ## <a name="classifier"></a>Classificatore
 
@@ -37,33 +37,21 @@ Quando si crea un progetto, si seleziona un "dominio" per il progetto. Il domini
 
 I modelli generati da **domini compatti** possono essere esportati con la funzionalità di esportazione iterazione. I modelli sono ottimizzati per i vincoli di classificazione in tempo reale su dispositivi mobili. I classificatori creati con un dominio compatto possono essere leggermente meno precisi rispetto a un dominio standard con la stessa quantità di dati di training. Il compromesso è che sono sufficientemente piccoli da poter essere eseguiti localmente in near real time. 
 
-## <a name="training-image"></a>Immagine di esercitazione
+## <a name="evaluation"></a>Versione di valutazione
 
-Per creare un classificatore ad alta precisione, il Servizio visione artificiale personalizzato necessita di numerose immagini di esercitazione. Un'immagine di esercitazione è una fotografia che si vuole classificare tramite il Servizio visione artificiale personalizzato. Per classificare ad esempio le arance, è necessario caricare numerose immagini di arance nel Servizio visione artificiale personalizzato per consentire al servizio di creare un classificatore in grado di riconoscere le arance. Si consiglia di caricare almeno 30 immagini per tag.
+Dopo avere esercitato il classificatore, è possibile inviare qualsiasi immagine per la valutazione usando l'endpoint HTTPS generato automaticamente. Il classificatore restituisce un set di tag previsti, in ordine di attendibilità.
 
 ## <a name="iteration"></a>Iterazione
 
 Ogni volta che si esercita o riesercita il classificatore, si crea una nuova iterazione del modello. Si conservano le iterazioni passate per poter confrontare i progressi nel tempo. È possibile eliminare qualsiasi iterazione che non è più ritenuta utile. L'eliminazione di un'iterazione è permanente e si eliminano anche tutte le immagini o le modifiche che erano specifiche dell'iterazione eliminata. 
 
-## <a name="workspace"></a>Area di lavoro
+## <a name="precision"></a>Precision
 
-L'area di lavoro contiene tutte le immagini di esercitazione e riflette tutte le modifiche dall'iterazione più recente, ad esempio le immagini aggiunte o rimosse. Quando si esercita il classificatore, si crea una nuova iterazione del classificatore usando le immagini presenti nell'area di lavoro.
-
-## <a name="tags"></a>Tag
-
-Usare i tag per etichettare gli oggetti nelle immagini di esercitazione. Se si crea un classificatore per identificare cani e pony, occorre aggiungere un tag "cane" sulle immagini che contengono cani, un tag "pony" su quelle che contengono pony ed entrambi i tag "cane" e "pony" sulle immagini che ritraggono entrambi gli animali.
-
-## <a name="evaluation"></a>Versione di valutazione
-
-Dopo avere esercitato il classificatore, è possibile inviare qualsiasi immagine per la valutazione usando l'endpoint HTTPS generato automaticamente. Il classificatore restituisce un set di tag previsti, in ordine di attendibilità.
+Quando si classifica un'immagine, quante probabilità ha il classificatore di classificare l'immagine correttamente? Di tutte le immagini usate per esercitare il classificatore (cani e pony), in che percentuale il modello ha ottenuto il risultato corretto? 99 tag corretti su 100 immagini rappresenta una precisione del 99%.
 
 ## <a name="predictions"></a>Previsioni
 
 Man mano che il classificatore accetta nuove immagini da classificare, le memorizza. È possibile usare queste immagini per migliorare la precisione del classificatore applicato i tag corretti alle immagini interpretate in modo errato. È quindi possibile usare queste nuove immagini per esercitare nuovamente il classificatore.
-
-## <a name="precision"></a>Precision
-
-Quando si classifica un'immagine, quante probabilità ha il classificatore di classificare l'immagine correttamente? Di tutte le immagini usate per esercitare il classificatore (cani e pony), in che percentuale il modello ha ottenuto il risultato corretto? 99 tag corretti su 100 immagini rappresenta una precisione del 99%.
 
 ## <a name="recall"></a>Richiamo
 
@@ -73,7 +61,7 @@ Di tutte le immagini da classificare, quante sono state identificate correttamen
 
 Sono disponibili due tipi di impostazioni: quelle a livello di progetto e quelle a livello di utente.
 
-- Impostazioni a livello di progetto: 
+- Impostazioni a livello di progetto:
   
   Le impostazioni a livello di progetto si applicano a un progetto o un classificatore. tra cui:
 
@@ -90,3 +78,15 @@ Sono disponibili due tipi di impostazioni: quelle a livello di progetto e quelle
    - Utilizzo:
       - Numero di progetti creati
       - Numero di chiamate alle API di valutazione/previsione effettuate.
+
+## <a name="tags"></a>Tag
+
+Usare i tag per etichettare gli oggetti nelle immagini di esercitazione. Se si crea un classificatore per identificare cani e pony, occorre aggiungere un tag "cane" sulle immagini che contengono cani, un tag "pony" su quelle che contengono pony ed entrambi i tag "cane" e "pony" sulle immagini che ritraggono entrambi gli animali.
+
+## <a name="training-image"></a>Immagine di esercitazione
+
+Per creare un classificatore ad alta precisione, il Servizio visione artificiale personalizzato necessita di numerose immagini di esercitazione. Un'immagine di esercitazione è una fotografia che si vuole classificare tramite il Servizio visione artificiale personalizzato. Per classificare ad esempio le arance, è necessario caricare numerose immagini di arance nel Servizio visione artificiale personalizzato per consentire al servizio di creare un classificatore in grado di riconoscere le arance. Si consiglia di caricare almeno 30 immagini per tag.
+
+## <a name="workspace"></a>Area di lavoro
+
+L'area di lavoro contiene tutte le immagini di esercitazione e riflette tutte le modifiche dall'iterazione più recente, ad esempio le immagini aggiunte o rimosse. Quando si esercita il classificatore, si crea una nuova iterazione del classificatore usando le immagini presenti nell'area di lavoro.

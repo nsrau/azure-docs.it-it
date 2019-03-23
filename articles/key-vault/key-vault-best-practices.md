@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: prashanthyv
-ms.openlocfilehash: 85bd1858bc3f2d505e1e4d0a88e8c77a46ae4447
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: ee4418700cec5de1dc404c3669dd5de315aab983
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57887976"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368611"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Le procedure consigliate per usare Key Vault
 
@@ -36,7 +36,7 @@ Suggerimenti durante il controllo dell'accesso all'insieme di credenziali sono i
 
 Si consiglia di utilizzare un insieme di credenziali per ogni applicazione per ogni ambiente (sviluppo, pre-produzione e produzione). Ciò consente di non condividere i segreti per gli ambienti e consente inoltre di ridurre la minaccia in caso di violazione.
 
-## <a name="backup-your-vault"></a>L'insieme di credenziali di backup
+## <a name="backup"></a>Backup
 
 Assicurarsi che sia possibile normali nuovamente ups delle [insieme di credenziali](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) su update/delete/creazione degli oggetti all'interno di un insieme di credenziali.
 

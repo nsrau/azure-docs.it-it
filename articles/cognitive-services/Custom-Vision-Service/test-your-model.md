@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 05/03/2018
+ms.date: 03/21/2019
 ms.author: anroth
-ms.openlocfilehash: 21d8f6a3b10de17172ff59463cca4162585fe40f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d516cee81aef66ec58399cb5ff23c89db16bf2ab
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858988"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350437"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Test e ripetere il training di un modello con il Servizio visione artificiale personalizzato
 
@@ -35,7 +35,7 @@ L'immagine selezionata verrà visualizzata al centro della pagina. I risultati v
 
 È possibile ora aggiungere questa immagine di test al modello e quindi ripetere il training del modello.
 
-## <a name="use-the-predicted-image-for-training"></a>Usare l'immagine prevista per il training.
+## <a name="use-the-predicted-image-for-training"></a>Usare l'immagine stimato per il training
 
 Per usare l'immagine inviata in precedenza per il training, usare la procedura seguente:
 

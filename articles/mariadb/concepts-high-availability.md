@@ -1,17 +1,17 @@
 ---
 title: Concetti a disponibilità elevata in Database di Azure per MariaDB
 description: Questo argomento fornisce informazioni relative alla disponibilità elevata quando si usa Database di Azure per MariaDB
-author: jasonwhowell
-ms.author: jasonh
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.openlocfilehash: e1e4103360c2864f6a63f2eb0c7f146cac779cb6
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: ba561cba21b0b83b6a19fffc2fdfebe8ec8b8ed9
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53538158"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351236"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-mariadb"></a>Concetti a disponibilità elevata in Database di Azure per MariaDB
 Il servizio Database di Azure per MariaDB offre un livello di disponibilità elevata garantito. Il contratto di servizio con copertura finanziaria è del 99,99% in concomitanza con la disponibilità a livello generale. I tempi di inattività dell'applicazione sono praticamente nulli quando si usa questo servizio.

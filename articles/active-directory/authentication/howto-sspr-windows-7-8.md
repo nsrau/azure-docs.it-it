@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a7752fac54f9dfb2f8fb0aecd3b6249c52c3bcf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 57d3e955059724756eb7102c1b9fbbf55ed203ab
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316355"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370449"
 ---
 # <a name="how-to-enable-password-reset-from-windows-7-8-and-81"></a>Procedura: Abilitare la reimpostazione della password da Windows 7, 8 e 8.1
 
@@ -46,7 +46,7 @@ A differenza dei computer Windows 10, i computer Windows 7, 8 e 8.1 non hanno re
 1. Dopo il riavvio, nella schermata di accesso scegliere un utente e fare clic su "Password dimenticata?" per avviare il flusso di lavoro di reimpostazione della password.
 1. Completare il flusso di lavoro seguendo i passaggi visualizzati sullo schermo per reimpostare la password.
 
-![Esempio dell'opzione "Password dimenticata?" selezionata in Windows 7 flusso di reimpostazione della password self-service](media/howto-sspr-windows-7-8/windows-7-sspr.png)
+![Esempio dell'opzione "Password dimenticata?" selezionata in Windows 7 Flusso SSPR](media/howto-sspr-windows-7-8/windows-7-sspr.png)
 
 ### <a name="silent-installation"></a>Installazione invisibile all'utente
 
@@ -67,13 +67,11 @@ Gli eventi verranno registrati sia nel computer sia in Azure AD.
 
 Gli eventi di Azure AD includeranno informazioni sull'indirizzo IP e sul tipo di client in cui si è verificata la reimpostazione della password.
 
-![Esempio di reimpostazione della password nella schermata di accesso di Windows 7 nel log di controllo di Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
+![Esempio Windows 7 la reimpostazione della password nel log di controllo di Azure AD](media/howto-sspr-windows-7-8/windows-7-sspr-azure-ad-audit-log.png)
 
 Se è necessaria una registrazione aggiuntiva, è possibile modificare una chiave del Registro di sistema per abilitare la registrazione dettagliata. Abilitare la registrazione dettagliata solo per scopi di risoluzione dei problemi.
 
-```
-HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}
-```
+`HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
 * Per abilitare la registrazione dettagliata, creare un REG_DWORD: "EnableLogging" e impostarlo su 1.
 * Per disabilitare la registrazione dettagliata, creare un REG_DWORD: "EnableLogging" e impostarlo su 0.
@@ -82,4 +80,4 @@ Se i computer Windows 7, 8, e 8.1 sono protetti da un server proxy o da un firew
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Consentire agli utenti di Windows 10 di reimpostare la password nella schermata di accesso](tutorial-sspr-windows.md)
+* [Consentire agli utenti di Windows 10 di reimpostare la password nella schermata di accesso](tutorial-sspr-windows.md)

@@ -11,20 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d9c59bdb2e8a7b115761554f70ebedeecaf5d04e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ba1b5a9b231822fd12d5a349e2518bc77669274
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901731"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351406"
 ---
-# <a name="dynamic-packaging"></a>creazione dinamica dei pacchetti
+# <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
 Servizi multimediali di Microsoft Azure può essere usato per distribuire molti formati di file di origine multimediali, formati di streaming multimediali e formati di protezione del contenuto a un'ampia gamma di tecnologie client, ad esempio iOS e Xbox. Questi client supportano tuttavia protocolli diversi. iOS, ad esempio, richiede un formato HTTP Live Streaming (HLS), mentre Xbox richiede Smooth Streaming. Se si dispone di un set di velocità in bit adattiva (più velocità in bit) MP4 file (ISO Base Media 14496-12) o un set di file Smooth Streaming a bitrate adattivo che si vuole renderli disponibili ai client che supportano HLS, MPEG DASH o Smooth Streaming, è possibile sfruttare dinamico Creazione di pacchetti. La creazione di pacchetti è indipendente dalla risoluzione video, sono supportati SD/HD/UHD - 4K.
 
-[Gli endpoint di streaming](streaming-endpoint-concept.md) è il servizio di creazione dinamica dei pacchetti di servizi multimediali consente di recapitare contenuto multimediale agli assegnatari di client. Creazione dinamica dei pacchetti è una funzionalità che include standard su tutti **gli endpoint di Streaming** (Standard o Premium). Non è senza elementi aggiuntivi costo associato a questa funzionalità in servizi multimediali v3. 
+[Gli endpoint di streaming](streaming-endpoint-concept.md) è il servizio di creazione dinamica dei pacchetti di servizi multimediali consente di recapitare contenuto multimediale agli assegnatari di client. Creazione dinamica dei pacchetti è una funzionalità che include standard su tutti **gli endpoint di Streaming** (Standard o Premium). 
 
 Per poter sfruttare **creazione dinamica dei pacchetti**, è necessario avere un' **Asset** con un set di file MP4 a bitrate adattivo e streaming i file di configurazione necessari da Media Services creazione dinamica dei pacchetti. Un modo per ottenere i file consiste nel codificare il file mezzanine (di origine) con servizi multimediali. Per rendere i video nell'Asset codificato disponibile ai client per la riproduzione, è necessario creare un **localizzatore di Streaming** e creare URL di streaming. Quindi, in base al formato specificato nel manifesto client di streaming (HLS, DASH o Smooth), il flusso sia ricevuto nel protocollo scelto.
 
@@ -34,24 +34,8 @@ In servizi multimediali di creazione dinamica dei pacchetti viene usato se si ut
 
 ![Creazione dinamica dei pacchetti](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-## <a name="common-video-on-demand-workflow"></a>Flusso di lavoro on demand video comune
-
-Di seguito è un comune del flusso di lavoro di streaming in cui viene usato creazione dinamica dei pacchetti di servizi multimediali.
-
-1. Caricare un file di input (detto file in formato intermedio). Ad esempio, H.264, MP4 o WMV (per l'elenco dei formati supportati, vedere [Formati e codec Media Encoder Standard](media-encoder-standard-formats.md)).
-2. Codificare il file in formato intermedio in set MP4 a velocità in bit adattiva H.264.
-3. Pubblicare l'asset contenente il set MP4 a bitrate adattivo. Pubblicazione tramite la creazione di un **localizzatore di Streaming**.
-4. Creare URL che usano formati diversi (HLS, Dash e Smooth Streaming). Il **Endpoint di Streaming** occuparsi di servire il manifesto corretto e le richieste per tutti questi formati diversi.
-
-## <a name="encode-to-adaptive-bitrate-mp4s"></a>Codifica con velocità in bit adattiva MP4s
-
-Per informazioni sulle [come codificare un video con servizi multimediali](encoding-concept.md), vedere gli esempi seguenti:
-
-* [Eseguire la codifica da un URL HTTPS usando i set di impostazioni predefinite](job-input-from-http-how-to.md)
-* [Codificare un file locale usando i set di impostazioni predefinite](job-input-from-local-file-how-to.md)
-* [Creare un set di impostazioni per i requisiti specifici di uno scenario o un dispositivo di destinazione personalizzato](customize-encoder-presets-how-to.md)
-
-Per un elenco dei codec e formati di Media Encoder Standard, vedere [codec e formati](media-encoder-standard-formats.md)
+> [!NOTE]
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare la [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o uno degli [SDK](developers-guide.md).
 
 ## <a name="delivery-protocols"></a>Protocolli di distribuzione
 
@@ -64,13 +48,60 @@ Per un elenco dei codec e formati di Media Encoder Standard, vedere [codec e for
 |MPEG DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
+## <a name="common-on-demand-workflow"></a>Flusso di lavoro on demand comune
+
+Di seguito è un comune del flusso di lavoro di streaming in cui viene usato creazione dinamica dei pacchetti di servizi multimediali.
+
+1. Caricare un file di input (detto file in formato intermedio). Ad esempio, H.264, MP4 o WMV (per l'elenco dei formati supportati, vedere [Formati e codec Media Encoder Standard](media-encoder-standard-formats.md)).
+2. Codificare il file in formato intermedio in set MP4 a velocità in bit adattiva H.264.
+3. Pubblicare l'asset contenente il set MP4 a bitrate adattivo. Pubblicazione tramite la creazione di un **localizzatore di Streaming**.
+4. Creare URL che usano formati diversi (HLS, Dash e Smooth Streaming). Il **Endpoint di Streaming** occuparsi di servire il manifesto corretto e le richieste per tutti questi formati diversi.
+
+### <a name="encode-to-adaptive-bitrate-mp4s"></a>Codifica con velocità in bit adattiva MP4s
+
+Per informazioni sulle [come codificare un video con servizi multimediali](encoding-concept.md), vedere gli esempi seguenti:
+
+* [Eseguire la codifica da un URL HTTPS usando i set di impostazioni predefinite](job-input-from-http-how-to.md)
+* [Codificare un file locale usando i set di impostazioni predefinite](job-input-from-local-file-how-to.md)
+* [Creare un set di impostazioni per i requisiti specifici di uno scenario o un dispositivo di destinazione personalizzato](customize-encoder-presets-how-to.md)
+
+Per un elenco dei codec e formati di Media Encoder Standard, vedere [codec e formati](media-encoder-standard-formats.md)
+
+## <a name="common-live-streaming-workflow"></a>Lavoro di streaming live comuni
+
+Ecco i passaggi del flusso di lavoro di uno streaming live:
+
+1. Creare un [Evento live](live-events-outputs-concept.md).
+1. Ottenere gli URL di inserimento e configurare il codificatore a livello locale per usare l'URL per inviare il feed di contributo.
+1. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
+1. Creare una nuova **Asset**.
+1. Creare un **LiveOutput** e usare il nome dell'asset creato.<br/>L'**output live** archivierà il flusso nell'**asset**.
+1. Creare un **localizzatore di streaming** con i tipi di **Criterio di streaming** predefiniti.<br/>Se si prevede di crittografare il contenuto, rivedere la [Panoramica della protezione del contenuto](content-protection-overview.md).
+1. Elencare i percorsi nel **localizzatore di streaming** per ottenere gli URL da usare.
+1. Ottenere il nome host per l'**endpoint di streaming** da cui si desidera trasmettere.
+1. Creare URL che usano formati diversi (HLS, Dash e Smooth Streaming). Il **Endpoint di Streaming** occuparsi di servire il manifesto corretto e le richieste per tutti questi formati diversi.
+
+Un evento Live può essere uno dei due tipi: codifica pass-through e in tempo reale. Per informazioni dettagliate sullo streaming live in servizi multimediali v3, vedere [panoramica dello streaming Live](live-streaming-overview.md).
+
+Il diagramma seguente illustra lo streaming live con flusso di lavoro di creazione dinamica dei pacchetti.
+
+![pass-through](./media/live-streaming/pass-through.svg)
+
+## <a name="dynamic-encryption"></a>Crittografia dinamica
+
+**Crittografia dinamica** consente di crittografare dinamicamente i contenuti live o on demand tramite AES-128 o uno qualsiasi dei sistemi tre principali diritti digitali (DRM) management: Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Per altre informazioni, vedere [crittografia dinamica](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Manifesto dinamico
+
+Applicazione di filtri dinamici viene utilizzato per controllare il numero di intervalli di tempo di presentazione che vengono inviati ai giocatori, i formati, velocità in bit e tiene traccia. Per altre informazioni, vedere [filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
+
 ## <a name="video-codecs-supported-by-dynamic-packaging"></a>Codec video supportati dalla creazione dinamica dei pacchetti
 
 Creazione dinamica dei pacchetti supporta file MP4 contenenti video codificati [H.264](https://en.m.wikipedia.org/wiki/H.264/MPEG-4_AVC) (MPEG-4 AVC o AVC1), [H.265](https://en.m.wikipedia.org/wiki/High_Efficiency_Video_Coding) (HEVC, hev1 o hvc1).
 
 ## <a name="audio-codecs-supported-by-dynamic-packaging"></a>Codec audio supportati dalla creazione dinamica dei pacchetti
 
-Creazione dinamica dei pacchetti supporta i file MP4, che contengono audio codificato con [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 o E-AC3), o [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, LBR DTS, DTS HD, HD DTS senza perdita di dati).
+Creazione dinamica dei pacchetti supporta i file MP4, che contengono audio codificato con [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus)(Enhanced AC-3 o E-AC3), Atmos Dolby, o [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, LBR DTS, DTS HD, HD DTS senza perdita di dati). Streaming di contenuti Atmos Dolby è supportato per gli standard come MP4 frammentato protocollo MPEG-DASH con formato di Streaming comuni (CSF) o formato di applicazione comuni Media (CMAF) e tramite HTTP Live Streaming (HLS) con CMAF.
 
 > [!NOTE]
 > La creazione dinamica dei pacchetti non supporta file contenenti audio [Dolby Digital](https://en.wikipedia.org/wiki/Dolby_Digital) (AC3) perché si tratta di un codec legacy codec.

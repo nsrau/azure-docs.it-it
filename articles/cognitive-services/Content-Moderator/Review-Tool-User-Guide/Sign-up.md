@@ -7,21 +7,23 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 02/03/2017
+ms.date: 03/21/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6a813cbcb6a0335d80ae7763a43c68915659e99f
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 00d5316af58a1d88c666b9e5fe3c648e8b1b2f65
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55214246"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58352018"
 ---
-# <a name="sign-up-for-content-moderator"></a>Iscriversi a Content Moderator #
-Passare alla pagina di [iscrizione a Content Moderator](https://contentmoderator.cognitive.microsoft.com/Account/Signup). È possibile iscriversi con l'account Microsoft personale o creare un account nel sito Web Content Moderator.
+# <a name="sign-up-for-content-moderator"></a>Iscriversi a Content Moderator
+
+Effettuare l'iscrizione alla Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) sito Web. È possibile iscriversi con l'account Microsoft o creare un account nel sito.
 
 ![Iscrizione](images/0-signup-1.PNG)
 
-## <a name="name-your-team"></a>Assegnare un nome al team ##
+## <a name="name-your-team"></a>Assegnare un nome al team
+
 Assegnare un nome al team di revisione. Facoltativamente, è possibile invitare i colleghi a entrare nel team.
 
 ![Crea team](images/1-Team-Name.PNG)

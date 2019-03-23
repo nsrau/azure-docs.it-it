@@ -10,36 +10,37 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: ceaffebde65402db385ff8b906d77c2ddadc6f97
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 47ce80e1b0cefc01752d2445b751ebe1c2d65d08
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860951"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351330"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Domande frequenti sull'API Viso
 
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Se non è possibile trovare risposte alle proprie domande in queste domande frequenti, provare a porre la domanda alla community dell'API Viso su [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) oppure contattare il [supporto tecnico da UserVoice](https://cognitive.uservoice.com/).
+> [!TIP]
+> Se non è possibile trovare risposte alle proprie domande in queste domande frequenti, provare a porre la domanda alla community dell'API Viso su [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) oppure contattare il [supporto tecnico da UserVoice](https://cognitive.uservoice.com/).
 
 -----
-**Domanda:** quali fattori possono ridurre la precisione dell'API Viso per le funzioni Recognition (Riconoscimento), Verification (Verifica) o Find Similar (Ricerca di simili)?
+**Domanda:** Quali fattori può ridurre la precisione dell'API viso per il riconoscimento, la verifica o trovare simile?
 
-**Risposta:** in genere si tratta degli stessi casi in cui gli utenti hanno difficoltà a identificare qualcuno, tra cui:
+**Risposta:** È in genere gli stessi case in cui gli esseri umani hanno difficoltà a identificare un utente tra cui:
 * Ostacoli che limitano la vista da uno o da entrambi gli occhi
-* Pessima illuminazione, ad esempio forte retroilluminazione
+* Illuminazione harsh (ad esempio, retroilluminazione)
 * Cambiamenti alla pettinatura o ai peli del volto
 * Cambiamenti dovuti all'età
-* Espressioni facciali estreme (ad esempio, urla)
+* Espressioni del viso Extreme (ad esempio, inserire il testo)
 
-In genere, l'API Viso riesce a gestire casi come questi anche se la precisione è ridotta. Per migliorare il riconoscimento e risolvere queste problematiche, usare foto che includono una varietà di angolazioni e illuminazioni.
+API viso ha spesso esito positivo in complessi casi come quello precedente, ma è possibile ridurre la precisione. Per migliorare il riconoscimento e risolvere queste problematiche, usare foto che includono una varietà di angolazioni e illuminazioni.
 
 -----
 **Domanda:**  cosa significa quando si riceve l'errore "Immagine del viso non valida" durante il passaggio di dati immagine binari?
 
-**Risposta:**  significa che l'algoritmo non è riuscito ad analizzare l'immagine. Le cause includono:
+**Risposta:**  Questo errore indica che l'algoritmo verificato un problema di analisi dell'immagine. Le cause includono:
 * I formati di immagine di input supportati includono JPEG, PNG, GIF (il primo frame), BMP.
-* Le dimensioni del file di immagine selezionato devono essere inferiori a 4 MB
-* L'intervallo delle dimensioni rilevabili del volto va da 36x36 a 4096x4096 pixel. I volti al di fuori di questo intervallo non vengono rilevati.
-* È possibile che alcuni volti non vengano rilevati per problemi tecnici, ad esempio angoli del volto molto grandi (durante le pose) e grandi occlusioni. Le riprese frontali e quasi frontali producono i risultati migliori.
+* La dimensione del file di immagine selezionato deve essere minore di 4 MB
+* L'intervallo delle dimensioni rilevabili del volto va da 36x36 a 4096x4096 pixel. I volti al di fuori di questo intervallo non vengono rilevati
+* Alcuni volti non possono essere rilevati a causa di problemi tecnici, ad esempio angoli del volto grandi (head-posa) e grandi occlusioni. Le riprese frontali e quasi frontali producono i risultati migliori.
 
 -----

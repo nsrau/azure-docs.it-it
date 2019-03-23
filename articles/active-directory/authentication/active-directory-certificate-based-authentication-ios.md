@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7243249e7aabf588115ef74f838be8ca67a94c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: cda1b1c2a484f3aa627b8b9cf486528d13f27be8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309504"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369429"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-ios"></a>Autenticazione basata su certificati di Azure Active Directory in iOS
 
@@ -35,16 +35,16 @@ Questa funzionalità è disponibile in anteprima nei piani di Office 365 US Gove
 
 | App | Supporto |
 | --- | --- |
-| App Azure Information Protection |![Controllo][1] |
-| Portale aziendale Intune |![Controllo][1] |
-| Microsoft Teams |![Controllo][1] |
-| OneNote |![Controllo][1] |
-| OneDrive |![Controllo][1] |
-| Outlook |![Controllo][1] |
-| Power BI |![Controllo][1] |
-| Skype for Business Online |![Controllo][1] |
-| Word / Excel / PowerPoint |![Controllo][1] |
-| Yammer |![Controllo][1] |
+| App Azure Information Protection |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| Portale aziendale Intune |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| Microsoft Teams |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| OneNote |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| OneDrive |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| Outlook |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| Power BI |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| Skype for Business Online |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| Word / Excel / PowerPoint |![Segno di spunta per indicare il supporto per questa applicazione][1] |
+| Yammer |![Segno di spunta per indicare il supporto per questa applicazione][1] |
 
 ## <a name="requirements"></a>Requisiti
 

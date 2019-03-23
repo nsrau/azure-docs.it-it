@@ -1,18 +1,18 @@
 ---
 title: Set di dati del flusso di dati di mapping di Azure Data Factory
-description: Azure Data Factory di Mapping del flusso di dati ha sepecific compatibilità di set di dati
+description: Azure Data Factory di Mapping del flusso di dati dispone di compatibilità di specifici set di dati
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: ad6cfdad519ab3901c58979970ea07439b3106e9
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726924"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371316"
 ---
 # <a name="mapping-data-flow-datasets"></a>Set di dati del flusso di dati di mapping
 
@@ -42,6 +42,12 @@ Quando si crea un nuovo set di dati, nella parte superiore destra del pannello �
 ## <a name="import-schemas"></a>Importare schemi
 
 Quando si importa lo schema dei set di dati del flusso di dati, viene visualizzato il pulsante Importa schema. Se si fa clic su questo pulsante, vengono visualizzate due opzioni: importazione dall'origine o importazione da un file locale. Nella maggior parte dei casi si importa lo schema direttamente dall'origine. Se tuttavia si ha un file di schema esistente (file Parquet o CSV con intestazioni), è possibile fare riferimento a tale file locale e Data Factory definirà lo schema in base a questo.
+
+## <a name="create-new-table"></a>Creare una nuova tabella
+
+Nel flusso di dati, è possibile chiedere di Azure Data factory per creare una nuova definizione di tabella nel database di destinazione impostando un set di dati nella trasformazione Sink con un nuovo nome di tabella. Nel set di dati SQL, fare clic su "Modifica" sotto il nome della tabella e immettere un nuovo nome di tabella. Quindi, nella trasformazione del Sink, attivare "Consenti deviazioni dello Schema". Seth l'impostazione "Importa Schema" su None.
+
+![Schema di origine Transformation](media/data-flow/dataset2.png "Schema SQL")
 
 ## <a name="delimited-text-dataset"></a>Set di dati di testo delimitato
 

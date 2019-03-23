@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/01/2019
+ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 67876532496aa0a295bf32692534b16d38599492
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a31cd950ae241eb55c840c716f4679c5a67b1379
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839509"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350013"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -28,23 +28,46 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 - Un codificatore video live in grado di convertire i segnali provenienti da una fotocamera (o da un altro dispositivo, come un portatile) in un feed di contributi inviato a Servizi multimediali. Il feed di contributi può includere segnali relativi alla pubblicità, ad esempio i marcatori SCTE-35.<br/>Per un elenco dei codificatori consigliati di streaming live, vedere [Codificatori di streaming live consigliati](recommended-on-premises-live-encoders.md). Vedere anche questo blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produzione di streaming live con OBS).
 - I componenti in Servizi multimediali, che consentono di inserire, visualizzare in anteprima, includere in un pacchetto, registrare, crittografare e trasmettere l'evento live ai clienti o a una rete CDN per un'ulteriore distribuzione.
 
-Con Servizi multimediali è possibile sfruttare la **Creazione dinamica dei pacchetti**, che consente di visualizzare in anteprima e trasmettere i flussi live nei [formati MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) dal feed di contributi inviato al servizio. Gli utenti possono riprodurre il flusso live con qualsiasi lettore compatibile per HLS, DASH o Smooth Streaming. È possibile usare [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) nelle applicazioni web o per dispositivi mobili per distribuire lo streaming in uno di questi protocolli.
+Questo articolo offre una panoramica e informazioni aggiuntive dello streaming live con servizi multimediali e include collegamenti ad altri articoli pertinenti.
 
-Servizi multimediali consente di distribuire contenuti crittografati dinamicamente (**Crittografia dinamica**) con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali fornisce inoltre un servizio per la distribuzione di chiavi AES e licenze Digital Rights Management ai client autorizzati. Per altre informazioni su come crittografare i contenuti con Servizi multimediali, consultare la [Panoramica sulla protezione dei contenuti](content-protection-overview.md)
+> [!NOTE]
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare la [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o uno degli [SDK](developers-guide.md).
 
-È anche possibile applicare filtri dinamici, che possono essere usati per controllare il numero di tracce, i formati, la velocità in bit e gli intervalli di tempo di presentazione che vengono inviati ai lettori. Per altre informazioni, vedere [Filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
+## <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
-Questo articolo offre una panoramica e linee guida per lo streaming live con Servizi multimediali.
+Con servizi multimediali, è possibile sfruttare Packaging](dynamic-packaging-overview.md) dinamica, che consente di visualizzare in anteprima e la trasmissione di flussi live nella [formati MPEG DASH, HLS e Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) dal contributo feed inviati al servizio. Gli utenti possono riprodurre il flusso live con qualsiasi lettore compatibile per HLS, DASH o Smooth Streaming. È possibile usare [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) nelle applicazioni web o per dispositivi mobili per distribuire lo streaming in uno di questi protocolli.
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="dynamic-encryption"></a>Crittografia dinamica
 
-Per comprendere il flusso di lavoro per lo streaming live in Servizi multimediali v3, è necessario conoscere i concetti seguenti: 
+Crittografia dinamica consente di crittografare dinamicamente i contenuti live o on demand tramite AES-128 o uno dei tre principali digital rights management (DRM) sistemi: Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. Per altre informazioni, vedere [crittografia dinamica](content-protection-overview.md).
+
+## <a name="dynamic-manifest"></a>Manifesto dinamico
+
+Applicazione di filtri dinamici viene utilizzato per controllare il numero di intervalli di tempo di presentazione che vengono inviati ai giocatori, i formati, velocità in bit e tiene traccia. Per altre informazioni, vedere [filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
+
+## <a name="live-event-types"></a>Tipi di evento live
+
+Un evento Live può essere uno dei due tipi: codifica pass-through e in tempo reale. Per informazioni dettagliate sullo streaming live in servizi multimediali v3, vedere [eventi in tempo reale e Live output](live-events-outputs-concept.md).
+
+### <a name="pass-through"></a>Pass-through
+
+![pass-through](./media/live-streaming/pass-through.svg)
+
+Quando si usa l'**evento live** pass-through, al codificatore live locale è affidata la generazione di un flusso video con velocità in bit multipla e l'invio come feed di contributi all'evento live (tramite il protocollo RTMP o MP4 frammentato). L'evento live esegue quindi i flussi video in ingresso senza ulteriori elaborazioni. Questo tipo un pass-through evento Live è ottimizzato per gli eventi in tempo reale con esecuzione prolungata o lo streaming live 24 x 365 lineare. 
+
+### <a name="live-encoding"></a>Codifica live  
+
+![codifica live](./media/live-streaming/live-encoding.svg)
+
+Quando si usa la codifica live con Servizi multimediali, è possibile configurare il codificatore live locale per l'invio di un video a bitrate singolo come feed di contributi all'evento live (tramite il protocollo RTMP o Mp4 frammentato). L'evento live codifica tale flusso a bitrate singolo in ingresso in un [flusso video con velocità in bit multipla](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) e lo rende disponibile per la distribuzione e la riproduzione in dispositivi tramite protocolli come MPEG-DASH, HLS e Smooth Streaming. 
+
+## <a name="live-streaming-workflow"></a>Flusso di lavoro dello streaming live
+
+Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, è necessario esaminare prima e comprendere i concetti seguenti: 
 
 - [Endpoint di streaming](streaming-endpoint-concept.md)
 - [Eventi live e output live](live-events-outputs-concept.md)
 - [Localizzatori di streaming](streaming-locators-concept.md)
-
-## <a name="live-streaming-workflow"></a>Flusso di lavoro dello streaming live
 
 Ecco i passaggi del flusso di lavoro di uno streaming live:
 

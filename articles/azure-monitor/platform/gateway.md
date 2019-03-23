@@ -13,39 +13,39 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: magoedte
-ms.openlocfilehash: a497662ac7a885b53e69bb8c86a646045bd2eef7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 47b589d32accc4a699e7260b9e4b2de4cca58f2b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314671"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369616"
 ---
-# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway"></a>Connettere computer senza accesso a internet usando il gateway Log Analitica
+# <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Connettere computer senza accesso a internet usando il gateway di Analitica di Log in Monitoraggio di Azure
 
 >[!NOTE]
 >Come Microsoft Operations Management Suite (OMS) esegue la transizione a monitoraggio di Microsoft Azure, in fase di modifica della terminologia. Questo articolo si riferisce al Gateway OMS come il gateway di Azure Log Analitica. 
 >
 
-Questo articolo descrive come configurare la comunicazione con automazione di Azure e Log Analitica tramite il gateway Log Analitica quando i computer che sono direttamente connessi o che sono monitorati da Operations Manager non dispone di alcun accesso a internet. 
+Questo articolo descrive come configurare la comunicazione con automazione di Azure e monitoraggio di Azure tramite il gateway Log Analitica quando i computer che sono direttamente connessi o che sono monitorati da Operations Manager non dispone di alcun accesso a internet. 
 
-Il gateway Log Analitica è un proxy di inoltro HTTP che supporta il tunneling HTTP tramite il comando HTTP CONNECT. Questo gateway è possibile raccogliere dati e inviarli all'automazione di Azure e Log Analitica per conto dei computer che non sono connessi a internet.  
+Il gateway Log Analitica è un proxy di inoltro HTTP che supporta il tunneling HTTP tramite il comando HTTP CONNECT. Questo gateway è possibile raccogliere dati e inviarli all'automazione di Azure e un'area di lavoro di Log Analitica in Monitoraggio di Azure per conto dei computer che non sono connessi a internet.  
 
 Il gateway di Log Analytics gli elementi seguenti:
 
 * Creazione di report un massimo di Analitica Log quattro stesso agenti dell'area di lavoro che sono sottostante e che sono configurati con Hybrid Runbook Workers di automazione di Azure.  
-* Computer Windows in cui Microsoft Monitoring Agent è direttamente connesso a un'area di lavoro di Log Analitica.
-* Computer Linux in cui un agente di Log Analitica per Linux è direttamente connesso a un'area di lavoro di Log Analitica.  
+* Computer Windows in cui Microsoft Monitoring Agent è direttamente connesso a un'area di lavoro di Log Analitica in Monitoraggio di Azure.
+* Computer Linux in cui un agente di Log Analitica per Linux è direttamente connesso a un'area di lavoro di Log Analitica in Monitoraggio di Azure.  
 * System Center Operations Manager 2012 SP1 con UR7, Operations Manager 2012 R2 con UR3 o un gruppo di gestione in Operations Manager 2016 o versione successiva che viene integrato con Log Analitica.  
 
-Alcuni criteri di sicurezza IT non consentono la connessione internet per i computer di rete. Questi computer non connessi possibile punto di vendita (POS) dispositivi o i server che supportano servizi IT, ad esempio. Per connettere questi dispositivi per automazione di Azure o Log Analitica in modo da gestire e monitorare, configurarle per comunicare direttamente con il gateway Log Analitica. Il gateway Log Analitica può ricevere le informazioni di configurazione e inoltrare i dati per loro conto. Se i computer sono configurati con l'agente di Log Analitica per connettersi direttamente a un'area di lavoro di Log Analitica, i computer comunicheranno invece con il gateway Log Analitica.  
+Alcuni criteri di sicurezza IT non consentono la connessione internet per i computer di rete. Questi computer non connessi possibile punto di vendita (POS) dispositivi o i server che supportano servizi IT, ad esempio. Per connettere questi dispositivi per automazione di Azure o un'area di lavoro di Log Analitica in modo da gestire e monitorare, configurarle per comunicare direttamente con il gateway Log Analitica. Il gateway Log Analitica può ricevere le informazioni di configurazione e inoltrare i dati per loro conto. Se i computer sono configurati con l'agente di Log Analitica per connettersi direttamente a un'area di lavoro di Log Analitica, i computer comunicheranno invece con il gateway Log Analitica.  
 
 Il Log Analitica gateway trasferisce i dati dagli agenti al servizio direttamente. Senza analizzare i dati in transito.
 
 Quando un gruppo di gestione di Operations Manager è integrato con Log Analitica, i server di gestione possono essere configurati per la connessione al gateway Log Analitica per ricevere informazioni di configurazione e inviare i dati raccolti, a seconda della soluzione che è stata abilitata .  Agenti di Operations Manager inviano alcuni dati al server di gestione. Gli agenti, ad esempio, potrebbero inviare avvisi di Operations Manager, i dati di valutazione della configurazione, i dati dello spazio dell'istanza e dati sulla capacità. Altri dati con volumi elevati, ad esempio Internet Information Services (IIS) log i dati sulle prestazioni e gli eventi di sicurezza, viene inviati direttamente al gateway Log Analitica. 
 
-Se uno o più server Gateway di Operations Manager vengono distribuiti per monitorare i sistemi non attendibili in una rete perimetrale o in una rete isolata, tali server non possono comunicare con un gateway Log Analitica.  Server Gateway di gestione Operations possono fare riferimento solo a un server di gestione.  Quando un gruppo di gestione di Operations Manager viene configurato per la comunicazione con il gateway di Log Analytics, le informazioni di configurazione del proxy vengono automaticamente distribuite a ogni computer gestito tramite agente configurato per la raccolta dei dati per Log Analytics, anche se l'impostazione non è configurata.    
+Se uno o più server Gateway di Operations Manager vengono distribuiti per monitorare i sistemi non attendibili in una rete perimetrale o in una rete isolata, tali server non possono comunicare con un gateway Log Analitica.  Server Gateway di gestione Operations possono fare riferimento solo a un server di gestione.  Quando un gruppo di gestione di Operations Manager è configurato per comunicare con il gateway di Analitica di Log, le informazioni di configurazione del proxy vengono automaticamente distribuite a ogni computer gestito tramite agente configurato per raccogliere dati di log per monitoraggio di Azure anche se l'impostazione è vuota.    
 
-Per garantire un'elevata disponibilità per direttamente connessi o i gruppi di Operations Management che comunicano con Log Analitica tramite il gateway, usare il bilanciamento carico (NLB) per reindirizzare e distribuire il traffico tra più server gateway. In questo modo, se un server gateway si arresta, il traffico viene reindirizzato a un altro nodo disponibile.  
+Per garantire un'elevata disponibilità per direttamente connessi o i gruppi di Operations Management che comunicano con un'area di lavoro di Log Analitica attraverso il gateway, usare il bilanciamento carico (NLB) per reindirizzare e distribuire il traffico tra più server gateway. In questo modo, se un server gateway si arresta, il traffico viene reindirizzato a un altro nodo disponibile.  
 
 Il computer che esegue il gateway Log Analitica richiede l'agente di Log Analitica Windows identificare gli endpoint servizio che deve comunicare con il gateway. È anche l'agente indirizzare il gateway per segnalare le stesse aree di lavoro che gli agenti o il gruppo di gestione di Operations Manager dietro il gateway vengono configurati con. Questa configurazione consente il gateway e l'agente per comunicare con l'area di lavoro assegnato.
 
