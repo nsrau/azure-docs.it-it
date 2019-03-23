@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd0ce02a92c0a2e803866b6f070dba113c566f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9ce388c53a28d6b04bf7685da397eade4b1fd94
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112212"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371775"
 ---
 # <a name="v20-protocols---spas-using-the-implicit-flow"></a>Protocolli della versione 2.0: applicazioni a singola pagina che usano il flusso implicito
 
@@ -55,7 +55,7 @@ Il diagramma seguente mostra come appare l'intero flusso di accesso implicito e 
 Per l'accesso iniziale dell'utente all'app, è possibile inviare una richiesta di autorizzazione [OpenID Connect](v2-protocols-oidc.md) e ottenere un `id_token` dall'endpoint 2.0.
 
 > [!IMPORTANT]
-> Per richiedere un token ID, nella registrazione dell'app all'interno del [portale di registrazione](https://apps.dev.microsoft.com) l'opzione **Consenti flusso implicito** deve essere abilitata per il client Web. Se non è abilitato, verrà restituito un errore `unsupported_response`: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'** (Il valore fornito per il parametro di input 'response_type' non è consentito per questo client. Il valore previsto è 'code')
+> Per richiedere un token ID, la registrazione dell'app nel [portale di Azure - registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina deve avere il flusso di concessione implicita abilitato correttamente, selezionando **i token di accesso** e**Token ID** sotto il **concessione implicita** sezione. Se non è abilitato, verrà restituito un errore `unsupported_response`: **The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'** (Il valore fornito per il parametro di input 'response_type' non è consentito per questo client. Il valore previsto è 'code')
 
 ```
 // Line breaks for legibility only
@@ -77,7 +77,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
 | `tenant` | Obbligatoria |Il valore `{tenant}` del percorso della richiesta può essere usato per controllare chi può accedere all'applicazione. I valori consentiti sono `common`, `organizations`, `consumers` e gli identificatori del tenant. Per altre informazioni, vedere le [nozioni di base sul protocollo](active-directory-v2-protocols.md#endpoints). |
-| `client_id` | Obbligatoria |ID applicazione che il portale di registrazione ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) ha assegnato all'app. |
+| `client_id` | Obbligatoria |ID applicazione (client) che il [portale di Azure - registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina assegnato all'app. |
 | `response_type` | Obbligatoria |Deve includere `id_token` per l'accesso a OpenID Connect. Può anche includere `token` come response_type. Usando qui il `token` , l'app può ricevere immediatamente un token di accesso dall'endpoint di autorizzazione senza dover inviare una seconda richiesta a tale endpoint. Se si usa il `token` come response_type, il parametro `scope` deve contenere un ambito che indica la risorsa per cui emettere il token. |
 | `redirect_uri` | Consigliato |URI di reindirizzamento dell'app dove le risposte di autenticazione possono essere inviate e ricevute dall'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale, ad eccezione del fatto che deve essere codificato come URL. |
 | `scope` | Obbligatoria |Elenco di ambiti separati da [spazi](v2-permissions-and-consent.md). Per OpenID Connect, deve includere l'ambito `openid`che esegue la conversione all'autorizzazione per l'accesso nell'interfaccia utente di consenso. Facoltativamente, è anche possibile includere l'ambito `email` o `profile` per ottenere l'accesso a dati aggiuntivi dell'utente. È anche possibile includere altri ambiti in questa richiesta per richiedere il consenso per varie risorse. |

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 3829fb3c045b149552d3f022e31f30f9cfae8182
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a56f391aa76bd1216fd51d516adb836a2093bcba
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852441"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371140"
 ---
 # <a name="mapping-data-flow-sink-transformation"></a>Trasformazione sink del Flusso di dati di mapping
 
@@ -57,7 +57,7 @@ Se si vuole reimpostare il mapping delle colonne, fare clic sul pulsante "Nuovo 
 ## <a name="file-name-options"></a>Opzioni di nomi di file
 
    * Predefinito: consentire a Spark di denominare i file basati sulle impostazioni predefinite di PART
-   * Criterio: immettere un nome per i file di output
+   * Criterio: Immettere un modello per i file di output. Ad esempio, "loans [n]" creerà loans1.csv, loans2.csv,...
    * Per ogni partizione: immettere un nome di file per ogni partizione
    * Dati nella colonna: impostare il file di output per il valore di una colonna
 
@@ -66,11 +66,16 @@ Se si vuole reimpostare il mapping delle colonne, fare clic sul pulsante "Nuovo 
 
 ## <a name="database-options"></a>Opzioni di database
 
-* Consenti insert, update, delete, esegue l'Upsert. Il valore predefinito è per consentire gli inserimenti. Se si desidera righe insert, upsert o aggiornamento, è necessario aggiungere innanzitutto una trasformazione di riga alter alle righe di tag per le azioni specifiche.
+* Consenti insert, update, delete, esegue l'Upsert. Il valore predefinito è per consentire gli inserimenti. Se si desidera eliminare righe, upsert o aggiornamento, è innanzitutto necessario aggiungere una trasformazione di riga alter alle righe di tag per le azioni specifiche. La disattivazione di "Consenti insert" smetterà di Azure Data factory di inserire nuove righe provenienti dall'origine.
 * Istruzione TRUNCATE table (rimuove tutte le righe dalla tabella di destinazione prima di completare il flusso di dati)
 * Ricreare la tabella (eseguita creano/eliminano della tabella di destinazione prima di completare il flusso di dati)
 * Dimensione batch per i caricamenti di dati di grandi dimensioni. Immettere un numero di scritture di bucket in blocchi
 * Abilitare la gestione temporanea: Ciò indicherà a Azure Data factory per usare Polybase durante il caricamento di Azure Data Warehouse come set di dati sink
+
+> [!NOTE]
+> Nel flusso di dati, è possibile chiedere di Azure Data factory per creare una nuova definizione di tabella nel database di destinazione impostando un set di dati nella trasformazione Sink con un nuovo nome di tabella. Nel set di dati SQL, fare clic su "Modifica" sotto il nome della tabella e immettere un nuovo nome di tabella. Quindi, nella trasformazione del Sink, attivare "Consenti deviazioni dello Schema". Seth l'impostazione "Importa Schema" su None.
+
+![Schema di origine Transformation](media/data-flow/dataset2.png "Schema SQL")
 
 ![Opzioni di SQL Sink](media/data-flow/alter-row2.png "opzioni SQL")
 

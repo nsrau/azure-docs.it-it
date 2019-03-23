@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 20491981cb02e428ff4114b9456d74b0de651be8
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 54302f97913fd01dc8f8e4a8d987a407c8bdf9a7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57569026"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369173"
 ---
 # <a name="mapping-data-flow-source-transformation"></a>Trasformazione origine del flusso di dati di mapping
 
@@ -67,14 +67,14 @@ Il partizionamento dei dati nell'origine del database SQL è facoltativo, ma è 
 
 Selezionare una colonna per la partizione dalla tabella di origine. È anche necessario impostare il numero massimo di connessioni.
 
-### <a name="query-condition"></a>Esegui query della condizione
+### <a name="query-condition"></a>Condizione di query
 
 Facoltativamente, è possibile scegliere di eseguire una partizione delle connessioni in base a una query. Per questa opzione, è sufficiente immettere il contenuto di un predicato WHERE. Ad esempio anno > 1980
 
 ## <a name="source-file-management"></a>Gestione file di origine
 ![Nuove impostazioni di origine](media/data-flow/source2.png "nuove impostazioni")
 
-* Percorso carattere jolly per selezionare una serie di file dalla cartella di origine che corrispondono a un modello. Questa impostazione sostituirà tutti i file che è stato impostato nella definizione del set di dati.
+* Percorso con caratteri jolly per selezionare una serie di file dalla cartella di origine che corrispondono ai criteri. Questa impostazione sostituirà tutti i file che è stato impostato nella definizione del set di dati.
 * Elenco di file. Uguale a un set di file. Puntare a un file di testo che si crea con un elenco di file di percorso relativo da elaborare.
 * La colonna per memorizzare il nome del file memorizzerà il nome del file dall'origine in una colonna dei dati. Immettere un nuovo nome per archiviare la stringa del nome file.
 * Dopo il completamento, è possibile scegliere di non eseguire alcuna operazione con il file di origine dopo l'esecuzione da parte del flusso di dati, eliminare i file di origine o spostare i file di origine. I percorsi di spostamento sono percorsi relativi.
@@ -83,7 +83,7 @@ Facoltativamente, è possibile scegliere di eseguire una partizione delle connes
 
 Quando si usa un database SQL di Azure o Azure SQL DW come origine, saranno disponibili opzioni aggiuntive.
 
-* Query: Immettere una query SQL per l'origine. L'impostazione di una query eseguirà l'override di qualsiasi tabella che è stata scelta nel set di dati. Si noti che le clausole Order By non sono supportate.
+* Query: Immettere una query SQL per l'origine. L'impostazione di una query eseguirà l'override di qualsiasi tabella che è stata scelta nel set di dati. Si noti che le clausole Order By non sono supportate. Tuttavia, è possibile impostare un'istruzione SELECT FROM completa qui.
 
 * Dimensioni batch: Immettere una dimensione batch per suddividere dati di grandi dimensioni in letture di dimensioni batch.
 

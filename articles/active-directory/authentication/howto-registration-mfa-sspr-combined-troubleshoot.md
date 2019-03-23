@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f799b671e6216b402aa988aa66da4c2cfc44693
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d926f7312b62e788289939dfd81c236a33503b43
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317528"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370466"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Risoluzione dei problemi di combinare la registrazione di informazioni di sicurezza (anteprima)
 
@@ -31,7 +31,7 @@ Le informazioni fornite in questo articolo possono essere utili agli amministrat
 
 Gli eventi registrati per la registrazione combinata sono inclusi nella categoria "Metodi di autenticazione" in Azure Active Directory log di controllo.
 
-![Interfaccia che mostra alcuni eventi di registrazione di informazioni per un nuovo utente nella directory dei log di controllo di AD Azure](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
+![Interfaccia con la registrazione eventi dei log di controllo di AD Azure](media/howto-registration-mfa-sspr-combined-troubleshoot/combined-security-info-audit-log.png)
 
 Di seguito sono elencati tutti gli eventi di controllo generati dalla registrazione combinata:
 
@@ -162,4 +162,4 @@ Agli utenti non verrà più chiesto di eseguire la registrazione usando l'esperi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Altre informazioni sull'anteprima pubblica di registrazione combinata per la reimpostazione password self-service e Azure multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)
+* [Altre informazioni sull'anteprima pubblica di registrazione combinata per la reimpostazione password self-service e Azure multi-Factor Authentication](concept-registration-mfa-sspr-combined.md)

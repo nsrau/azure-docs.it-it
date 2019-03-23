@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.subservice: common
-ms.openlocfilehash: 51d8b9bad4bb4a3663b07a711f363b263f5d64db
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 6edb1abae91a675a3fe47b417a112f0951886aaf
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339687"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351916"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -246,7 +246,7 @@ La libreria client di archiviazione genera automaticamente un ID richiesta clien
 >
 
 ### <a name="server-request-id"></a>ID richiesta server
-Il servizio di archiviazione genera automaticamente gli ID richiesta server.
+Il servizio di archiviazione genera automaticamente ID richiesta server.
 
 * Nel log di registrazione dell'archiviazione lato server l'ID richiesta server viene visualizzato nella colonna **Request ID header** (Intestazione ID richiesta).
 * In una traccia di rete come ad esempio quella acquisita con Fiddler, l'ID richiesta server viene visualizzato nei messaggi di risposta come valore dell'intestazione HTTP **x-ms-request-id**.
@@ -814,9 +814,9 @@ Per ulteriori informazioni su analitica in archiviazione di Azure, vedere queste
 * [Monitorare un account di archiviazione nel portale di Azure](storage-monitor-storage-account.md)
 * [Analitica di archiviazione](storage-analytics.md)
 * [Metriche di archiviazione analitica](storage-analytics-metrics.md)
-* [Schema della tabella di metriche di archiviazione analitica](/rest/api/storageservices/storage-analytics-metrics-table-schema.md)
+* [Schema della tabella di metriche di archiviazione analitica](/rest/api/storageservices/storage-analytics-metrics-table-schema)
 * [Log di archiviazione analitica](storage-analytics-logging.md)
-* [Formato di log di archiviazione analitica](/rest/api/storageservices/storage-analytics-log-format.md)
+* [Formato di log di archiviazione analitica](/rest/api/storageservices/storage-analytics-log-format)
 
 <!--Anchors-->
 [Introduzione]: #introduction

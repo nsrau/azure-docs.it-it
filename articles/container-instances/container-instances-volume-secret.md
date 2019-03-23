@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: danlep
-ms.openlocfilehash: 9aa80cf3cb02237cea11e370151eda8c67c7b10e
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
-ms.translationtype: HT
+ms.openlocfilehash: 3c1c83bb0c3e46a7eaab519050d9c556e2cc1a7a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856752"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372261"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Montare un volume segreto in Istanze di Azure Container
 
@@ -31,7 +31,7 @@ Per distribuire un contenitore con uno o più segreti tramite l'interfaccia dell
 az container create \
     --resource-group myResourceGroup \
     --name secret-volume-demo \
-    --image microsoft/aci-helloworld \
+    --image mcr.microsoft.com/azuredocs/aci-helloworld \
     --secrets mysecret1="My first secret FOO" mysecret2="My second secret BAR" \
     --secrets-mount-path /mnt/secrets
 ```
@@ -68,7 +68,7 @@ properties:
   - name: aci-tutorial-app
     properties:
       environmentVariables: []
-      image: microsoft/aci-helloworld:latest
+      image: mcr.microsoft.com/azuredocs/aci-helloworld:latest
       ports: []
       resources:
         requests:
@@ -105,7 +105,8 @@ Successivamente per ogni contenitore del gruppo di contenitori in cui si desider
 
 Il modello di Resource Manager seguente definisce un gruppo di contenitori con un solo contenitore che monta un volume *segreto* in `/mnt/secrets`. Il volume segreto ha due segreti, "mysecret1" e "mysecret2".
 
-<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json --> [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
+<!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
+[!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]
 
 Per eseguire la distribuzione con il modello di Resource Manager, salvare il codice JSON precedente in un file denominato `deploy-aci.json`, quindi eseguire il comando [az group deployment create][az-group-deployment-create] con il parametro `--template-file`:
 
@@ -120,9 +121,9 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 Informazioni su come montare altri tipi di volume in Istanze di Azure Container:
 
-* [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md) (Montare una condivisione file di Azure in Istanze di contenitore di Azure)
-* [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md) (Montare un volume emptyDir in Istanze di contenitore di Azure)
-* [Mount a gitRepo volume in Azure Container Instances](container-instances-volume-gitrepo.md) (Montare un volume gitRepo in Istanze di contenitore di Azure)
+* [Mount an Azure file share in Azure Container Instances](container-instances-volume-azure-files.md) (Montare una condivisione file di Azure in Istanze di Azure Container)
+* [Mount an emptyDir volume in Azure Container Instances](container-instances-volume-emptydir.md) (Montare un volume emptyDir in Istanze di Azure Container)
+* [Mount a gitRepo volume in Azure Container Instances](container-instances-volume-gitrepo.md) (Montare un volume gitRepo in Istanze di Azure Container)
 
 ### <a name="secure-environment-variables"></a>Variabili di ambiente sicure
 

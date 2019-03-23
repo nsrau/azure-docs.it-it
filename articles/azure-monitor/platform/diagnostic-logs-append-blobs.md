@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: f626ef4cfb385a62f68ab611b77dd0c307cd3820
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: ab5fba6bbbf6ade83c7699edec937ba02b222939
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54882380"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370058"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>Prepararsi per la modifica del formato ai log di diagnostica del Monitoraggio di Azure memorizzati in un account di archiviazione
 
@@ -24,7 +24,7 @@ ms.locfileid: "54882380"
 
 ## <a name="what-is-changing"></a>Cosa cambierà
 
-Il Monitoraggio di Azure offre una funzionalità che consente di inviare i dati di diagnostica di risorsa e i dati del log attività in un account di archiviazione di Azure, nei nomi di hub eventi o in Log Analytics. Per risolvere un problema di prestazioni di sistema, il **1° novembre 2018, a mezzanotte UTC**, verrà modificato il formato dei log di invio dei dati nell'archiviazione blob. Se si dispone di strumenti che leggono dati dalla archiviazione blob, è necessario aggiornarli per il riconoscimento del nuovo formato dati.
+Monitoraggio di Azure offre una funzionalità che ti permette di inviare i dati di log attività e i dati di diagnostica di risorsa in un account di archiviazione di Azure, nomi di hub eventi, o in un'area di lavoro di Log Analitica in Monitoraggio di Azure. Per risolvere un problema di prestazioni di sistema, il **1° novembre 2018, a mezzanotte UTC**, verrà modificato il formato dei log di invio dei dati nell'archiviazione blob. Se si dispone di strumenti che leggono dati dalla archiviazione blob, è necessario aggiornarli per il riconoscimento del nuovo formato dati.
 
 * Giovedì 1° novembre 2018, a mezzanotte UTC, il formato blob verrà modificato per diventare [righe JSON](http://jsonlines.org/). Ciò significa che ogni record sarà delimitato da una nuova riga, senza matrice di record esterna e senza virgola tra i record JSON.
 * Il formato del blob cambia per tutte le impostazioni di diagnostica in tutte le sottoscrizioni, in una sola volta. Il primo file PT1H.json generato per il 1° novembre userà questo nuovo formato. I nomi di blob e contenitore rimangono invariati.

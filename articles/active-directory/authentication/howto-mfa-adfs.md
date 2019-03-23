@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f508475166346c56b3bd0c8607c27beb7aba66c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0abf2eca52616638f0c4dce89691c0d4f7875106
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316474"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371529"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protezione delle risorse cloud con Azure Multi-Factor Authentication e AD FS
 
@@ -30,15 +30,15 @@ Per proteggere le risorse cloud, configurare una regola attestazioni in modo che
 2. A sinistra selezionare **Attendibilità componente**.
 3. Fare clic con il pulsante destro del mouse su **Piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
+   ![Console di ad FS - trust Relying Party](./media/howto-mfa-adfs/trustedip1.png)
 
 4. In Regole di trasformazione rilascio fare clic su **Aggiungi regola**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
+   ![Modifica di regole di trasformazione rilascio](./media/howto-mfa-adfs/trustedip2.png)
 
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
 
-   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
+   ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfa-adfs/trustedip3.png)
 
 6. Assegnare un nome alla regola. 
 7. Selezionare **Riferimenti dei metodi di autenticazione** come Tipo di attestazione in ingresso.
@@ -58,15 +58,15 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 
 1. Aprire il componente di gestione di ADFS.
 2. A sinistra selezionare **Attendibilità componente**.
-3. Fare clic con il pulsante destro del mouse su **Piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione...**
-   ![Cloud](./media/howto-mfa-adfs/trustedip1.png)
-4. In Regole di trasformazione rilascio fare clic su **Aggiungi regola.**
-   ![Cloud](./media/howto-mfa-adfs/trustedip2.png)
+3. Fare clic su **piattaforma delle identità di Microsoft Office 365** e selezionare **Modifica regole attestazione... ** 
+    ![Console ADFS - Modifica regole attestazione](./media/howto-mfa-adfs/trustedip1.png)
+4. In regole di trasformazione rilascio fare clic su **Aggiungi regola.** 
+    ![Aggiunta di una regola di attestazione](./media/howto-mfa-adfs/trustedip2.png)
 5. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Applicare la funzione di pass-through o di filtro a un'attestazione in ingresso** dall'elenco a discesa e fare clic su **Avanti**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip3.png)
+   ![Aggiunta guidata regole attestazione di trasformazione](./media/howto-mfa-adfs/trustedip3.png)
 6. Nella casella Nome regola attestazione assegnare un nome alla regola. Ad esempio:  InsideCorpNet.
 7. Nell'elenco a discesa accanto a Tipo di attestazione in ingresso selezionare **All'interno della rete aziendale**.
-   ![Cloud](./media/howto-mfa-adfs/trustedip4.png)
+   ![Attestazione aggiunta all'interno di rete aziendale](./media/howto-mfa-adfs/trustedip4.png)
 8. Fare clic su **Fine**.
 9. In Regole di trasformazione rilascio fare clic su **Aggiungi regola**.
 10. Nell'Aggiunta guidata regole attestazione di trasformazione selezionare **Inviare attestazioni mediante una regola personalizzata** dall'elenco a discesa e fare clic su **Avanti**.
@@ -75,7 +75,7 @@ Per prima cosa è necessario configurare le attestazioni ADFS. Creare due regole
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![Cloud](./media/howto-mfa-adfs/trustedip5.png)
+    ![Creare l'attestazione personalizzata per mantenere gli utenti connessi](./media/howto-mfa-adfs/trustedip5.png)
 13. Fare clic su **Fine**.
 14. Fare clic su **Apply**.
 15. Fare clic su **OK**.

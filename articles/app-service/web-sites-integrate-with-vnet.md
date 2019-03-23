@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 11/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ed99bd3626bb44bff68e4122d6b50523f19e1797
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 768179f8569eac14166bcbb0a888e1cdbe41d497
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112620"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369701"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrare un'app in una rete virtuale di Azure
 Questo documento descrive la funzionalità di integrazione del servizio app di Azure in una rete virtuale, specificando come configurarla con le app del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Le [reti virtuali di Azure][VNETOverview] consentono di posizionare molte risorse di Azure in una rete instradabile non Internet. Queste reti possono quindi essere connesse alle reti locali mediante tecnologie VPN. 
@@ -247,7 +247,7 @@ Sono disponibili tre funzioni che consentono l'accesso alle risorse ospitate su 
 
 Per le connessioni ibride è necessario installare nella rete un agente di inoltro denominato Gestione connessione ibrida. Gestione connessione ibrida deve potersi connettere ad Azure e anche all'applicazione. Connessioni ibride non richiede un endpoint in ingresso accessibile da Internet per la rete remota, a differenza di una connessione VPN. Gestione connessione ibrida può essere eseguita solo su sistemi Windows e prevede un massimo di cinque istanze in esecuzione per garantire un'elevata disponibilità. Le connessioni ibride, tuttavia, supportano solo il TCP e ogni endpoint di connessione ibrida deve corrispondere a una combinazione host:porta specifica. 
 
-La funzionalità dell'ambiente del servizio app consente di eseguire una singola istanza tenant del Servizio app di Azure nella propria rete virtuale. Se le app si trovano in un ambiente del servizio App, le App possono accedere alle risorse nella rete virtuale senza eseguire altri passaggi. Con un ambiente del servizio app le app vengono eseguite in ruoli di lavoro più potenti e possono aumentare fino a 100 istanze ASP. Gli ambienti del servizio app sono compatibili con tutte le funzionalità di rete, tra cui endpoint servizio ed ExpressRoute.  
+La funzionalità dell'ambiente del servizio app consente di eseguire una singola istanza tenant del Servizio app di Azure nella propria rete virtuale. Se le app si trovano in un ambiente del servizio App, le App possono accedere alle risorse nella rete virtuale senza eseguire altri passaggi. Con un ambiente del servizio App le app eseguite sui ruoli di lavoro più potente e consentono scalabilità fino a 100 istanze ASP. Gli ambienti del servizio app sono compatibili con tutte le funzionalità di rete, tra cui endpoint servizio ed ExpressRoute.  
 
 Nonostante ci sia una sovrapposizione del caso d'uso, nessuna di queste funzionalità può sostituire le altre. In base all'uso che se ne intende fare è possibile stabilire quali funzionalità usare. Ad esempio: 
 

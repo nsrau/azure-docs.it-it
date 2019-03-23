@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d34ef1bb5bea6f5f099f7fa2a24ddec2362b44ea
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ecc87e03a80ce10bedbe26b3ebb452ec704eefcb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336185"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368682"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-powershell"></a>Come usare l'eliminazione temporanea di Key Vault con PowerShell
 
@@ -49,9 +49,6 @@ Per altre informazioni sulle autorizzazioni e il controllo degli accessi, vedere
 ## <a name="enabling-soft-delete"></a>Abilitazione della funzione di eliminazione temporanea
 
 La funzione di eliminazione temporanea viene abilitata per consentire il recupero di un insieme di credenziali delle chiavi eliminato o degli oggetti archiviati in un insieme di credenziali delle chiavi.
-
-> [!IMPORTANT]
-> L'abilitazione dell'eliminazione temporanea per un insieme di credenziali delle chiavi è un'azione irreversibile. Dopo che la proprietà di eliminazione temporanea è stata impostata su "true", non può essere modificata o rimossa.  
 
 ### <a name="existing-key-vault"></a>Insieme di credenziali delle chiavi esistente
 

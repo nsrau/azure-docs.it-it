@@ -5,15 +5,15 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 22b070e6d70208057c85ad6a2322cc440d12a0fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ce01301455c7abcd26006e622fcfbb8127e1c511
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58008203"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372489"
 ---
 # <a name="azure-data-lake-storage-gen2-security-guide"></a>Guida alla sicurezza di Azure Data Lake Storage Gen2
 
@@ -134,7 +134,7 @@ La sicurezza del piano dati riguarda i metodi usati per proteggere gli oggetti d
 Sono disponibili tre opzioni per autorizzare l'accesso agli oggetti dati in Archiviazione di Azure, tra cui:
 
 - Uso di Azure AD per autorizzare l'accesso a file system e code. Azure AD offre alcuni vantaggi rispetto ad altri approcci all'autorizzazione, tra cui l'eliminazione della necessità di archiviare i segreti nel codice. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md). 
-- Uso delle chiavi dell'account di archiviazione per autorizzare l'accesso tramite chiave condivisa. L'autorizzazione tramite chiave condivisa richiede l'archiviazione delle chiavi dell'account di archiviazione nell'applicazione, quindi Microsoft consiglia di usare Azure AD, quando possibile. Per le applicazioni di produzione oppure per autorizzare l'accesso alle tabelle e ai file di Azure, continuare a usare la chiave condivisa fino a quando l'integrazione di Azure AD è disponibile in anteprima.
+- Uso delle chiavi dell'account di archiviazione per autorizzare l'accesso tramite chiave condivisa. L'autorizzazione tramite chiave condivisa richiede l'archiviazione delle chiavi dell'account di archiviazione nell'applicazione, quindi Microsoft consiglia di usare Azure AD, quando possibile.
 - Uso di firme di accesso condiviso per concedere autorizzazioni controllate per oggetti dati specifici per un determinato periodo di tempo.
 
 Oltre a limitare l'accesso tramite autorizzazione, è possibile usare anche [Firewall e reti virtuali](storage-network-security.md) per limitare l'accesso all'account di archiviazione in base alle regole di rete.  Questo approccio consente di negare l'accesso al traffico internet pubblico e di concedere l'accesso solo a determinati intervalli di indirizzi IP di reti virtuali di Azure o reti internet pubbliche.

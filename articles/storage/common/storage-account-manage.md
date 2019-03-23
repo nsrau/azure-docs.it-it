@@ -5,14 +5,14 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 03/05/2019
 ms.author: tamram
-ms.openlocfilehash: d3f6009c77618bc043586771a6f67442533b2a0d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fa574558afeec5a7706482a142c0187e6a34bdb3
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444056"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370390"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Gestire le impostazioni dell'account di archiviazione nel portale di Azure
 
@@ -20,9 +20,9 @@ Nel [portale di Azure](https://portal.azure.com) sono disponibili svariate impos
 
 ## <a name="access-control"></a>Controllo di accesso
 
-Archiviazione di Azure supporta l'autenticazione con Azure Active Directory per l'archivio BLOB e l'archivio code (anteprima) tramite il controllo degli accessi in base al ruolo. Per altre informazioni sull'autenticazione con Azure AD, vedere [Autenticare l'accesso ai BLOB e alle code di Azure usando Azure Active Directory (anteprima)](storage-auth-aad.md).
+Archiviazione di Azure supporta l'autenticazione con Azure Active Directory per l'archiviazione Blob e archiviazione di coda tramite il controllo di accesso basato sui ruoli (RBAC). Per altre informazioni sull'autenticazione con Azure AD, vedere [autentica l'accesso ad Azure di BLOB e code usando Azure Active Directory](storage-auth-aad.md).
 
-Le impostazioni di **Controllo di accesso** nel portale di Azure consentono di assegnare in modo semplice i ruoli Controllo degli accessi in base al ruolo a utenti, gruppi, entità servizio e identità gestite. Per altre informazioni sull'assegnazione di ruoli Controllo degli accessi in base al ruolo, vedere [Gestire i diritti di accesso a dati di BLOB e code con il controllo degli accessi in base al ruolo (anteprima)](storage-auth-aad-rbac.md).
+Le impostazioni di **Controllo di accesso** nel portale di Azure consentono di assegnare in modo semplice i ruoli Controllo degli accessi in base al ruolo a utenti, gruppi, entità servizio e identità gestite. Per altre informazioni sull'assegnazione dei ruoli RBAC, vedere [Gestisci i diritti di accesso ai dati blob e di Accodamento con RBAC](storage-auth-aad-rbac.md).
 
 > [!NOTE]
 > L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. 

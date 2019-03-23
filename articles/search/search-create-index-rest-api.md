@@ -1,6 +1,6 @@
 ---
-title: Creare un indice nel codice tramite PowerShell e l'API REST - ricerca di Azure
-description: Creare un indice di ricerca full-text nel codice usando richieste HTTP e API REST di Ricerca di Azure.
+title: Creare, caricare ed eseguire query su un indice usando PowerShell e l'API REST - ricerca di Azure
+description: Creare e caricare un indice usando l'API REST di ricerca di Azure PowerShell e Invoke-RestMethod di query.
 ms.date: 03/15/2019
 author: heidisteen
 manager: cgronlun
@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 87da5cdd31abb41a774a46d3891006eb58ac5e4d
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285131"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372115"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Avvio rapido: Creare un indice di ricerca di Azure con PowerShell e l'API REST
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di
 
 [PowerShell 5.1 o versione successiva](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) per i passaggi sequenziali e interattivi.
 
-Un endpoint dell'URL e admin chiave api del servizio di ricerca. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+Ottenere l'endpoint dell'URL e l'amministrazione chiave api del servizio di ricerca. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
 1. Nel portale di Azure, nel servizio di ricerca **Panoramica** pagina, ottenere l'URL. Un endpoint di esempio potrebbe essere simile a https:\//my-service-name.search.windows.net.
 
@@ -371,11 +371,7 @@ Provare ad aggiungere descrizioni francese all'indice. Nell'esempio seguente inc
         {
             "@search.action": "merge",
             "hotelId": "2",
-            "description_fr": "Hôtel le moins cher en ville",
-        },
-        {
-            "@search.action": "delete",
-            "hotelId": "6"
+            "description_fr": "Hôtel le moins cher en ville"
         }
     ]
 }

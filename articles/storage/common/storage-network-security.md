@@ -5,21 +5,21 @@ services: storage
 author: cbrooksmsft
 ms.service: storage
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c7f7768406ae64615b46abeb396b5469caf2f6e9
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: c34af90f946542608eaf20f4f21d4986f3c80e6b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750651"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369395"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
 Archiviazione di Azure offre un modello di sicurezza su più livelli, che consente di proteggere gli account di archiviazione limitandoli a un set specifico di reti supportate. Quando si configurano le regole di rete, solo le applicazioni che richiedono dati dal set di reti specificato possono accedere a un account di archiviazione.
 
-Per accedere a un account di archiviazione quando le regole di rete sono applicate, un'applicazione deve inviare una richiesta che deve essere correttamente autorizzata. L'autorizzazione è supportata con le credenziali di Azure Active Directory (AD) (per BLOB e code) (anteprima), una chiave di accesso all'account valida o un token di firma di accesso condiviso.
+Per accedere a un account di archiviazione quando le regole di rete sono applicate, un'applicazione deve inviare una richiesta che deve essere correttamente autorizzata. Autorizzazione è supportato con le credenziali di Azure Active Directory (Azure AD) per i BLOB e code, con una chiave di accesso di account valido o con un token di firma di accesso condiviso.
 
 > [!IMPORTANT]
 > L'attivazione delle regole firewall per l'account di archiviazione blocca le richieste in ingresso per i dati per impostazione predefinita, a meno che le richieste non provengano da un servizio che opera all'interno di una rete virtuale di Azure. Le richieste che vengono bloccate sono quelle che provengono da altri servizi di Azure, dal portale di Azure, dai servizi di registrazione e metriche e così via.

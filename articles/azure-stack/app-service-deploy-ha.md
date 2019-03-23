@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285667"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370024"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Distribuire il servizio App in una configurazione a disponibilità elevata
 
@@ -54,8 +54,7 @@ Prima di usare questo modello, assicurarsi che la segue [elementi del marketplac
 ### <a name="deploy-the-app-service-infrastructure"></a>Distribuire l'infrastruttura del servizio App
 Usare i passaggi descritti in questa sezione per creare una distribuzione personalizzata usando il **appservice-condivisione file a sqlserver-disponibilità elevata** modello di avvio rapido di Azure Stack.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Selezionare **\+** **crea una risorsa** > **Custom**, quindi **distribuzione modello**.
 
@@ -94,8 +93,7 @@ Prendere nota ognuno di questi valori di output:
 
 Seguire questi passaggi per individuare i valori di output del modello:
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Nel portale di amministrazione, selezionare **gruppi di risorse** e quindi il nome del gruppo di risorse creato per la distribuzione personalizzata (**app-service-a disponibilità elevata** in questo esempio). 
 
@@ -168,9 +166,20 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     ![Informazioni di output di condivisione file](media/app-service-deploy-ha/07.png)
 
-9. Poiché il computer in uso per installare il servizio App non si trova nella stessa rete virtuale come file server usato per ospitare la condivisione di file di servizio App, non sarà in grado di risolvere il nome. Si tratta di un comportamento previsto.<br><br>Verificare che le informazioni immesse per la condivisione di file di informazioni di account e di percorso UNC siano corrette e premere **Sì** nella finestra di dialogo di avviso per continuare l'installazione del servizio App.
+9. Poiché il computer in uso per installare il servizio App non si trova nella stessa rete virtuale come file server usato per ospitare la condivisione di file di servizio App, non sarà in grado di risolvere il nome. **Questo comportamento è previsto**.<br><br>Verificare che le informazioni immesse per la condivisione di file di informazioni di account e di percorso UNC siano corrette e premere **Sì** nella finestra di dialogo di avviso per continuare l'installazione del servizio App.
 
     ![Finestra di dialogo di errore previsto](media/app-service-deploy-ha/08.png)
+
+    Se si sceglie di distribuire in una rete virtuale esistente e un indirizzo IP interno per la connessione al file server, è necessario aggiungere una regola di sicurezza in uscita, consentendo il traffico tra la subnet del ruolo di lavoro e il file server SMB. Passare a WorkersNsg nel portale di amministrazione e aggiungere una regola di sicurezza in uscita con le proprietà seguenti:
+    - Origine: Qualsiasi
+    - Intervallo di porte di origine: *
+    - Destinazione: Indirizzi IP
+    - Intervallo di indirizzi IP di destinazione: Intervallo di indirizzi IP per il file server
+    - Intervallo di porte di destinazione: 445
+    - Protocollo: TCP
+    - Azione: CONSENTI
+    - Priorità: 700
+    - Nome: Outbound_Allow_SMB445
 
 10. Specificare l'ID applicazione identità e il percorso e le password per i certificati di identità e fare clic su **successivo**:
     - Certificato di identità dell'applicazione (nel formato **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 
     ![Informazioni di connessione di SQL Server](media/app-service-deploy-ha/10.png)
 
-12. Poiché il computer in uso per installare il servizio App non si trova nella stessa rete virtuale di SQL server utilizzato per ospitare i database del servizio App, non sarà in grado di risolvere il nome.  Si tratta di un comportamento previsto.<br><br>Verificare che le informazioni immesse per le informazioni di nome e gli account di SQL Server siano corrette e premere **Sì** per continuare l'installazione del servizio App. Fare clic su **Avanti**.
+12. Poiché il computer in uso per installare il servizio App non si trova nella stessa rete virtuale di SQL server utilizzato per ospitare i database del servizio App, non sarà in grado di risolvere il nome.  **Questo comportamento è previsto**.<br><br>Verificare che le informazioni immesse per le informazioni di nome e gli account di SQL Server siano corrette e premere **Sì** per continuare l'installazione del servizio App. Fare clic su **Avanti**.
 
     ![Informazioni di connessione di SQL Server](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ Per distribuire il provider di risorse del servizio App, seguire questa procedur
 [Scalabilità orizzontale del servizio App](azure-stack-app-service-add-worker-roles.md). Si potrebbe essere necessario aggiungere aggiuntivi del servizio App infrastruttura ruolo worker per soddisfare la domanda previsto per l'applicazione nell'ambiente in uso. Per impostazione predefinita, il servizio App in Azure Stack supporta i livelli gratuito e condiviso ruolo di lavoro. Per aggiungere altri piani di lavoro, è necessario aggiungere altri ruoli di lavoro.
 
 [Configurare le origini di distribuzione](azure-stack-app-service-configure-deployment-sources.md). Configurazione aggiuntiva è necessaria per supportare la distribuzione su richiesta da più provider del controllo sorgente come GitHub, BitBucket, OneDrive e DropBox.
+
+[Eseguire il backup del servizio App](app-service-back-up.md). Dopo aver completato la distribuzione e configurazione del servizio App, è necessario assicurarsi di tutti i componenti necessari per il ripristino di emergenza vengono eseguito il backup per evitare la perdita di dati ed evitare tempi di inattività del servizio non necessarie durante le operazioni di ripristino.

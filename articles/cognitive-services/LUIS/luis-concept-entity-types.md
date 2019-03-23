@@ -1,7 +1,7 @@
 ---
 title: Tipi di entità
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Aggiungere le entità (dati chiave nel dominio dell'applicazione) nelle app Language Understanding Intelligent Service (LUIS).
+description: 'Entità di estrarre dati dal utterance. Tipi di entità offrono stimabile estrazione dei dati. Esistono due tipi di entità: macchina-ottenute, non-machine. È importante sapere quale tipo di entità che si sta lavorando in espressioni.'
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/02/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: c8d2ccc197eb8818cfe3fc54449ee982bbe0c087
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57844589"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372523"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
-Le entità sono parole o frasi nelle espressioni che rappresentano dati chiave nel dominio dell'applicazione.
+Entità di estrarre dati dal utterance. Tipi di entità offrono stimabile estrazione dei dati. Esistono due tipi di entità: macchina-ottenute, non-machine. È importante sapere quale tipo di entità che si sta lavorando in espressioni. 
 
 ## <a name="entity-compared-to-intent"></a>Entità e finalità
 
@@ -190,7 +190,7 @@ Questa entità è idonea quando:
 
 * I dati corrispondono a un caso d'uso comune supportato da entità predefinite per le impostazioni della lingua di destinazione. 
 
-Le entità predefinite possono essere aggiunte e rimosse in qualsiasi momento. Se viene rilevata un'entità predefinita in un'espressione di esempio, che rende impossibile contrassegnare l'entità personalizzata, rimuovere l'entità predefinita dall'app, contrassegnare l'entità, quindi aggiungere nuovamente l'entità predefinita. 
+Le entità predefinite possono essere aggiunte e rimosse in qualsiasi momento.
 
 ![entità predefinita number](./media/luis-concept-entities/number-entity.png)
 
@@ -198,6 +198,29 @@ Le entità predefinite possono essere aggiunte e rimosse in qualsiasi momento. S
 [Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto. 
+
+### <a name="troubleshooting-prebuilt-entities"></a>Risoluzione dei problemi relativi a entità predefinite
+
+Nel portale di LUIS, viene contrassegnata un'entità predefinite anziché all'entità personalizzata, sono disponibili alcune opzioni come risolvere il problema.
+
+Le entità predefinite aggiunte all'app verranno _sempre_ restituiti, anche se il utterance deve estrarre le entità personalizzate per il testo stesso. 
+
+#### <a name="change-tagged-entity-in-example-utterance"></a>Modificare le entità con tag in utterance di esempio
+
+Se l'entità predefinito è lo stesso testo o i token dell'entità personalizzate, selezionare il testo utterance di esempio e modificare il utterance con tag. 
+
+Se l'entità predefinito viene contrassegnato con più testo o un token rispetto all'entità personalizzata, sono disponibili un paio di opzioni di come risolvere il problema:
+
+* [Rimuovere utterance esempio](#remove-example-utterance-to-fix-tagging) (metodo)
+* [Rimuovi entità predefinite](#remove-prebuilt-entity-to-fix-tagging) (metodo)
+
+#### <a name="remove-example-utterance-to-fix-tagging"></a>Rimuovere utterance di esempio per correggere l'assegnazione di tag 
+
+Il metodo preferito consiste nell'eliminare il utterance di esempio e ripetere il training dell'app. Aggiungere di nuovo solo la parola o una frase che rappresenta l'entità come utterance un esempio, quindi contrassegna l'entità e il training. A questo punto aggiungere di nuovo l'entità predefinito e utterance l'esempio originale. L'entità personalizzata deve continuare a essere contrassegnato invece l'entità predefinito. 
+
+#### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Rimuovi entità predefiniti per correggere l'assegnazione di tag
+
+La seconda opzione consiste nel rimuovere l'entità predefinita dall'app, contrassegnare l'entità personalizzata in utterance l'esempio, quindi aggiungere l'entità predefinito all'app. Questa correzione si presuppone che l'entità predefinito non fa parte di un'entità composta. 
 
 ## <a name="regular-expression-entity"></a>Entità di espressione regolare 
 

@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 56c09d9c6d1249713de7c6a0428ad2a124eee157
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013067"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369744"
 ---
 # <a name="azure-storage-security-guide"></a>Guida alla sicurezza di Archiviazione di Azure
 
@@ -22,7 +22,7 @@ Archiviazione di Azure fornisce un set completo di funzionalità di sicurezza, c
 - Tutti i dati scritti in Archiviazione di Azure vengono crittografati automaticamente con la [crittografia del servizio di archiviazione](storage-service-encryption.md). Per altre informazioni, vedere [Announcing Default Encryption for Azure Blobs, Files, Table and Queue Storage](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/) (Annuncio della crittografia predefinita per BLOB, file, tabelle e archiviazione code di Azure).
 - Azure Active Directory (Azure AD) e il controllo degli accessi in base al ruolo sono supportati per Archiviazione di Azure sia per le operazioni di gestione delle risorse che per le operazioni sui dati, come illustrato di seguito:   
     - È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato sull'account di archiviazione alle entità di sicurezza e usare Azure AD per autorizzare le operazioni di gestione delle risorse, ad esempio la gestione delle chiavi.
-    - L'integrazione di Azure AD è supportata nella versione di anteprima per le operazioni sui dati nei servizi BLOB e di accodamento. È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato su una sottoscrizione, un gruppo di risorse, un account di archiviazione o un singolo contenitore o coda a un'entità di sicurezza o un'identità gestita per le risorse di Azure. Per altre informazioni, vedere [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticare l'accesso ad Archiviazione di Azure usando Azure Active Directory - anteprima).   
+    - Integrazione di Azure AD è supportata per le operazioni di dati blob e coda. È possibile assegnare ruoli Controllo degli accessi in base al ruolo con ambito impostato su una sottoscrizione, un gruppo di risorse, un account di archiviazione o un singolo contenitore o coda a un'entità di sicurezza o un'identità gestita per le risorse di Azure. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md).   
 - È possibile proteggere i dati in transito tra un'applicazione e Azure usando la [crittografia lato client](../storage-client-side-encryption.md), HTTPS o SMB 3.0.  
 - I dischi dati e del sistema operativo usati dalle macchine virtuali di Azure possono essere crittografati con [Crittografia dischi di Azure](../../security/azure-security-disk-encryption.md). 
 - È possibile concedere l'accesso delegato agli oggetti dati nell'archiviazione di Azure usando [firme di accesso condiviso](../storage-dotnet-shared-access-signature-part-1.md).
@@ -155,8 +155,8 @@ La sicurezza del piano dati riguarda i metodi usati per proteggere gli oggetti d
 
 Sono disponibili tre opzioni per autorizzare l'accesso agli oggetti dati in Archiviazione di Azure, tra cui:
 
-- Uso di Azure AD per autorizzare l'accesso a contenitori e code (anteprima). Azure AD offre alcuni vantaggi rispetto ad altri approcci all'autorizzazione, tra cui l'eliminazione della necessità di archiviare i segreti nel codice. Per altre informazioni, vedere [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Autenticare l'accesso ad Archiviazione di Azure usando Azure Active Directory - anteprima). 
-- Uso delle chiavi dell'account di archiviazione per autorizzare l'accesso tramite chiave condivisa. L'autorizzazione tramite chiave condivisa richiede l'archiviazione delle chiavi dell'account di archiviazione nell'applicazione, quindi Microsoft consiglia di usare Azure AD, quando possibile. Per le applicazioni di produzione oppure per autorizzare l'accesso alle tabelle e ai file di Azure, continuare a usare la chiave condivisa fino a quando l'integrazione di Azure AD è disponibile in anteprima.
+- Uso di Azure AD per autorizzare l'accesso a contenitori e le code. Azure AD offre alcuni vantaggi rispetto ad altri approcci all'autorizzazione, tra cui l'eliminazione della necessità di archiviare i segreti nel codice. Per altre informazioni, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory](storage-auth-aad.md). 
+- Uso delle chiavi dell'account di archiviazione per autorizzare l'accesso tramite chiave condivisa. L'autorizzazione tramite chiave condivisa richiede l'archiviazione delle chiavi dell'account di archiviazione nell'applicazione, quindi Microsoft consiglia di usare Azure AD, quando possibile.
 - Uso di firme di accesso condiviso per concedere autorizzazioni controllate per oggetti dati specifici per un determinato periodo di tempo.
 
 Per l'archiviazione BLOB è possibile consentire anche l'accesso pubblico ai BLOB impostando di conseguenza il livello di accesso per il contenitore che contiene i BLOB. Se si imposta l'accesso per un contenitore su BLOB o Contenitore, sarà consentito l'accesso pubblico in lettura ai BLOB in quel contenitore. Ciò significa che chiunque abbia un URL che punta a un BLOB in quel contenitore potrà aprirlo in un browser senza usare una firma di accesso condiviso o con le chiavi dell'account di archiviazione.

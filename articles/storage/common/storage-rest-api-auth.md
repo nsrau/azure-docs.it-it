@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/22/2018
+ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 647d40db87f76a9e1a13a108c5f55fac40524017
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f6698eebf184d1df80920b7779512e2fda83a0c
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012785"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369089"
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Uso dell'API REST di Archiviazione di Azure
 
@@ -266,7 +266,7 @@ Ora che si è appreso come creare la richiesta, chiamare il servizio e analizzar
 ## <a name="creating-the-authorization-header"></a>Creazione dell'intestazione dell'autorizzazione
 
 > [!TIP]
-> Archiviazione di Azure supporta ora l'integrazione di Azure Active Directory (Azure AD) per i servizi BLOB e di accodamento (anteprima). Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [Authenticate with Azure Active Directory (Preview)](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory) (Eseguire l'autenticazione con Azure Active Directory - anteprima). Per una panoramica dell'integrazione di Azure AD con Archiviazione di Azure, vedere [Autenticare l'accesso ad Archiviazione di Azure tramite Azure Active Directory (anteprima)](storage-auth-aad.md).
+> Archiviazione di Azure supporta ora l'integrazione di Azure Active Directory (Azure AD) per i BLOB e code. Azure AD offre un'esperienza molto più semplice per l'autorizzazione di una richiesta per Archiviazione di Azure. Per altre informazioni sull'uso di Azure AD per autorizzare le operazioni REST, vedere [eseguire l'autenticazione con Azure Active Directory](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory). Per una panoramica dell'integrazione di Azure AD con archiviazione di Azure, vedere [autenticare l'accesso all'archiviazione di Azure con Azure Active Directory](storage-auth-aad.md).
 
 I concetti di base relativi all'autenticazione (senza esempi di codice) sono illustrati nell'articolo [Authentication for the Azure Storage Services](/rest/api/storageservices/Authorization-for-the-Azure-Storage-Services) (Autenticazione per i servizi di archiviazione di Azure),
 ma ai fini pratici è possibile concentrarsi sulle nozioni fondamentali ed esaminare in dettaglio il codice.

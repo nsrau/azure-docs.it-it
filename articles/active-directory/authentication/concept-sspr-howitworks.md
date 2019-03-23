@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65c64e420bd22498fa2d778095def96cce218055
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 47a6f475b5f1152850ec918b196883c6974f4d95
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313958"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369999"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Come funziona: reimpostazione self-service della password di Azure AD
 
@@ -76,7 +76,7 @@ Gli utenti possono reimpostare la password solo se sono presenti dati nei metodi
 > [!WARNING]
 > Gli account assegnati i ruoli di amministratore di Azure verrà richiesto di utilizzare i metodi definiti nella sezione [Differenze dei criteri di reimpostazione degli amministratori](concept-sspr-policy.md#administrator-reset-policy-differences).
 
-![autenticazione][Authentication]
+![Selezione di metodi di autenticazione nel portale di Azure][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>Numero di metodi di autenticazione necessari
 
@@ -160,7 +160,7 @@ Esempio: nell'ambiente sono presenti quattro amministratori. L'amministratore A 
 
 Se Azure AD Connect è stato installato, configurato e abilitato, saranno disponibili le opzioni aggiuntive seguenti per le integrazioni locali. Se queste opzioni sono disattivate, il writeback non è stato configurato correttamente. Per altre informazioni, vedere [Configurazione del writeback delle password](howto-sspr-writeback.md).
 
-![Writeback][Writeback]
+![Convalida il writeback delle password è abilitata e l'utilizzo][Writeback]
 
 Questa pagina fornisce uno stato rapido del client di writeback locale. In base alla configurazione corrente viene visualizzato uno dei seguenti messaggi:
 
@@ -180,7 +180,7 @@ Questo controllo determina se il writeback delle password è abilitato per la di
 
 ### <a name="allow-users-to-unlock-accounts-without-resetting-their-password"></a>Allow users to unlock accounts without resetting their password
 
-Questo controllo stabilisce se gli utenti che visitano il portale per la reimpostazione della password devono avere la possibilità di sbloccare il proprio account di Active Directory locale senza reimpostare la password. Per impostazione predefinita, Azure AD sblocca gli account quando esegue la reimpostazione di una password. Usare questa impostazione per distinguere queste due operazioni. 
+Questo controllo stabilisce se gli utenti che visitano il portale per la reimpostazione della password devono avere la possibilità di sbloccare il proprio account di Active Directory locale senza reimpostare la password. Per impostazione predefinita, Azure AD sblocca gli account quando esegue la reimpostazione di una password. Usare questa impostazione per distinguere queste due operazioni.
 
 * Se impostata su **Sì**, agli utenti viene offerta la possibilità di scegliere se reimpostare la password e sbloccare l'account o se sbloccare l'account senza reimpostare la password.
 * Se impostata su **No**, gli utenti potranno eseguire le operazioni di reimpostazione della password e di sblocco dell'account solo in abbinamento.
@@ -193,9 +193,9 @@ Reimpostazione della password self-service di Azure AD esegue l'equivalente di u
 
 La modifica e la reimpostazione della password sono completamente supportate in tutte le configurazioni B2B. La reimpostazione della password di utenti B2B è supportata nei tre casi seguenti:
 
-   * **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno *rispettati i criteri di reimpostazione della password abilitati nel tenant*. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365. Per abilitare questa funzionalità, seguire i passaggi descritti in [Guida introduttiva: Reimpostazione password self-service di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
-   * **Utenti che hanno usato** l'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, gli utenti possono eseguire la reimpostazione con l'indirizzo di posta elettronica registrato.
-   * **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) potranno anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
+* **Utenti di un'organizzazione partner con un tenant di Azure AD esistente**: se l'organizzazione partner ha un tenant di Azure AD esistente, verranno *rispettati i criteri di reimpostazione della password abilitati nel tenant*. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365. Per abilitare questa funzionalità, seguire i passaggi descritti in [Guida introduttiva: Reimpostazione password self-service di Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-passwords-getting-started/#enable-users-to-reset-or-change-their-aad-passwords).
+* **Utenti che hanno usato** l'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, gli utenti possono eseguire la reimpostazione con l'indirizzo di posta elettronica registrato.
+* **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure AD](../active-directory-b2b-what-is-azure-ad-b2b.md) potranno anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 
 Per testare questo scenario, passare a https://passwordreset.microsoftonline.com con uno di questi utenti partner. Se l'utente ha un indirizzo di posta elettronica alternativo o un indirizzo di posta elettronica per l'autenticazione, la reimpostazione della password funziona come previsto.
 

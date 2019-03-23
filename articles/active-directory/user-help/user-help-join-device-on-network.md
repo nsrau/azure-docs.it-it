@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b433d8556377206ea53ece2764e251dcb266eb95
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192354"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369140"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Aggiungere il dispositivo aziendale alla rete dell'organizzazione
 Aggiungere il dispositivo Windows 10 di proprietà dell'azienda alla rete dell'organizzazione in modo da poter accedere a risorse potenzialmente limitate.
@@ -26,7 +26,7 @@ Aggiungere il dispositivo Windows 10 di proprietà dell'azienda alla rete dell'o
 ## <a name="what-happens-when-you-join-your-device"></a>Cosa accade quando si aggiunge il dispositivo
 Mentre si aggiunge il dispositivo Windows 10 alla rete dell'organizzazione, si verificheranno le azioni seguenti:
 
-- Windows registra il dispositivo nella rete dell'organizzazione, consentendo l'accesso alle risorse con l'account personale. Dopo aver registrato il dispositivo, Windows aggiunge il dispositivo alla rete, in modo da poter usare nome utente e password dell'organizzazione per eseguire l'accesso e accedere alle risorse limitate.
+- Windows registra il dispositivo alla rete dell'organizzazione, consentendo di accedere alle risorse usando l'account personale. Dopo aver registrato il dispositivo, Windows aggiunge il dispositivo alla rete, in modo da poter usare nome utente e password dell'organizzazione per eseguire l'accesso e accedere alle risorse limitate.
 
 - Facoltativamente, in base alle scelte dell'organizzazione, potrebbe essere richiesto di configurare la verifica in due passaggi tramite [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) oppure [info di sicurezza](user-help-security-info-overview.md).
 

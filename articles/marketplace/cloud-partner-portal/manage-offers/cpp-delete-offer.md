@@ -14,19 +14,21 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 7b4ee33d3e231dc59ce1d7b4ae6337efb11e96bc
-ms.sourcegitcommit: a1cf88246e230c1888b197fdb4514aec6f1a8de2
-ms.translationtype: HT
+ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54355344"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371384"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminare le offerte o gli SKU di Azure Marketplace e AppSource
 
 Per vari motivi è possibile decidere di ritirare l'offerta dal relativo marketplace Microsoft. Tale operazione può assumere due forme:
 
 - *Rimozione dell'offerta*: impedisce a nuovi clienti di acquistare o distribuire l'offerta, ma non ha alcun impatto sui clienti esistenti, ai quali è necessario fornire assistenza in base al contratto di licenza e alle normative pertinenti. 
-- *Risoluzione dell'offerta*: è il processo di chiusura del servizio e/o di risoluzione del contratto di licenza tra l'editore e i clienti esistenti. Le linee guida e i criteri correlati alla rimozione e alla risoluzione di un'offerta sono forniti nel [Contratto Microsoft Marketplace per Editori](https://go.microsoft.com/fwlink/?LinkID=699560) (Sezione 7) e nei [Criteri di Partecipazione](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (Sezione 6.2). 
+- *Risoluzione dell'offerta*: è il processo di chiusura del servizio e/o di risoluzione del contratto di licenza tra l'editore e i clienti esistenti. 
+
+Linee guida e i criteri correlati alla chiusura e la rimozione dell'offerta sono regolati dalle [contratto Microsoft Marketplace Publisher](https://go.microsoft.com/fwlink/?LinkID=699560) (sezione 7) e il [politiche di partecipazione](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sezione [ Offerta di sospensione e rimozione](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 Questo articolo illustra i diversi scenari di eliminazione supportati e i passaggi necessari per eseguire ognuno.  
 
@@ -38,7 +40,7 @@ Questo articolo illustra i diversi scenari di eliminazione supportati e i passag
 
 È possibile eliminare uno SKU pubblicato da Azure Marketplace seguendo questa procedura:
 
-1.  Accedere al [portale Cloud Partner](https://cloudpartner.azure.com/).
+1.  Accedere al [Portale per Cloud Partner](https://cloudpartner.azure.com/).
 2.  Nella pagina **Tutte le offerte** selezionare l'offerta.  L'offerta viene visualizzata nella scheda **Editor**.
 3.  Nella barra degli strumenti a sinistra selezionare la scheda **SKU**. 
 4.  Selezionare lo SKU da eliminare e fare clic sul pulsante **Elimina**.

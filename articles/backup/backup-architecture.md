@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: raynew
-ms.openlocfilehash: b12809627bc7a3ab3f17f4c3b11bc3a899fd0485
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98ffe145103b4be04014627ed04d04dcf7542015
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849925"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368954"
 ---
 # <a name="azure-backup-architecture"></a>Architettura di Backup di Azure
 
@@ -179,7 +179,7 @@ Per altre informazioni sull'archiviazione su disco e i tipi di disco disponibili
 È possibile eseguire il backup di macchine virtuali di Azure usando archiviazione premium con Backup di Azure:
 
 - Durante il processo di backup di macchine virtuali con archiviazione premium, il servizio Backup crea un percorso di gestione temporanea, denominato *AzureBackup -*, nell'account di archiviazione. La dimensione del percorso di gestione temporanea corrisponde alle dimensioni dello snapshot di punto di ripristino.
-- Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. [Altre informazioni](../storage/common/storage-scalability-targets.md#premium-storage-account-scale-limits) Non modificare il percorso di gestione temporanea.
+- Assicurarsi che sia presente spazio libero sufficiente nell'account di archiviazione Premium per il percorso di gestione temporanea. [Altre informazioni](../storage/common/storage-scalability-targets.md#premium-performance-storage-account-scale-limits) Non modificare il percorso di gestione temporanea.
 - Al termine del processo di backup, il percorso di gestione temporanea viene eliminato.
 - Il prezzo della risorsa di archiviazione usata per il percorso di gestione temporanea è in linea con i [prezzi dell'archiviazione Premium](../virtual-machines/windows/disks-types.md#billing).
 

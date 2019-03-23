@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25450d49fd32adf12ac6c8a71671a9cb796b06c4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c5d7f9623a7594aaa79c4cff187486360b1befc8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317443"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369021"
 ---
 # <a name="enable-combined-security-information-registration-preview"></a>Registrazione di informazioni sicurezza Abilita combinata (anteprima)
 
 Prima di abilitare la nuova esperienza, vedere l'articolo [combinati registrazione di informazioni di sicurezza (anteprima)](concept-registration-mfa-sspr-combined.md) per far comprendere la funzionalità e l'impatto di questa funzionalità.
 
-![Registrazione di informazioni di sicurezza combinato migliorata esperienza di richiesta di ulteriori informazioni all'accesso. Esempio illustra la registrazione di app Microsoft Authenticator come primo metodo.](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Esperienza migliorata la registrazione di informazioni di sicurezza combinato](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
@@ -37,7 +37,7 @@ Completare la procedura seguente per abilitare la registrazione combinata:
 2. Passare ad **Azure Active Directory** > **Impostazioni utente** > **Gestisci le impostazioni per le funzionalità in anteprima del pannello di accesso**.
 3. Sotto **gli utenti possono usare anteprima funzionalità per la registrazione e la gestione delle tue info di sicurezza - aggiornamento**, scegliere di abilitare per una **selezionati** gruppo di utenti o per **tutti** agli utenti.
 
-![Abilitare l'esperienza di anteprima di info di sicurezza combinato per tutti gli utenti nel portale di Azure AD](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+![Abilitare l'esperienza di anteprima di info di sicurezza combinato per tutti gli utenti](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
 > A partire da marzo del 2019 le opzioni telefonata non sarà disponibile per gli utenti MFA e SSPR nei tenant gratuiti/versione di valutazione AD Azure. Messaggi SMS non sono interessati da questa modifica. Chiamata telefonica continuerà a essere disponibile per gli utenti a pagamento di tenant di Azure AD. Questa modifica interessa solo i tenant gratuiti/versione di valutazione AD Azure.

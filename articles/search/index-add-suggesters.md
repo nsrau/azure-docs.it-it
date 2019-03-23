@@ -1,7 +1,7 @@
 ---
-title: Aggiungere strumenti suggerimenti a un indice di Ricerca di Azure
-description: Abilita i campi per le azioni di completamento automatico delle query, in cui le query suggerite sono costituite da testo proveniente da campi di un indice di Ricerca di Azure.
-ms.date: 02/13/2019
+title: Aggiungere query typeahead a un indice - ricerca di Azure
+description: Abilitare azioni di completamento automatico delle query in ricerca di Azure tramite la creazione di componenti per il suggerimento e formulare le richieste che richiamano il completamento automatico o autosuggested termini della query.
+ms.date: 03/22/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,67 +19,124 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: fd4b29134fd45ed2888fbc81ded413ecf7286959
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 877294e80d655ab75be78a5aa57854a03a5f267a
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57308653"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370653"
 ---
-# <a name="add-suggesters-to-an-azure-search-index"></a>Aggiungere strumenti suggerimenti a un indice di Ricerca di Azure
+# <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Aggiungere suggester a un indice per typeahead in ricerca di Azure
 
-Uno **Strumento suggerimenti** è un costrutto di Ricerca di Azure che supporta la funzionalità per i [Suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) "search-as-you-type" (ricerca durante la digitazione) e la funzionalità di [completamento automatico (anteprima)](search-autocomplete-tutorial.md). Prima di poter chiamare l'API per i suggerimenti, è necessario definire uno **strumento suggerimenti** in un indice per abilitare i suggerimenti in campi specifici.
+Oggetto **dello strumento suggerimenti** è un costrutto in un [indice di ricerca di Azure](search-what-is-an-index.md) che supporta un'esperienza di "ricerca---digitazione". Contiene un elenco di campi per il quale si desidera abilitare gli input di query typeahead. Esistono due varianti typeahead: [ *autocomplete* ](search-autocomplete-tutorial.md) completamento termine o frase si digita, [ *suggerimenti automatici* ](search-autosuggest-example.md) fornisce un breve elenco di parole o frasi specifiche che è possibile selezionare come una query di input. Si sono visto indubbiamente questi comportamenti prima nei motori di ricerca commerciali.
 
-Anche se uno **strumento suggerimenti** ha diverse proprietà, è principalmente una raccolta di campi per il quale si sta abilitando l'[API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions). Per un'app di viaggio, ad esempio, potrebbe essere necessario abilitare la ricerca con completamento automatico su destinazioni, città e attrazioni. Di conseguenza, tutti e tre i campi finirebbero nella raccolta di campi.
+![Confronto tra Visual della funzionalità Completamento automatico e suggerimenti automatici](./media/index-add-suggesters/visual-comparison-suggest-complete.png "Visual confronto della funzionalità Completamento automatico e suggerimenti automatici")
 
-Si può avere un solo **strumento suggerimenti** per ogni indice, in particolare uno **strumento suggerimenti** nella raccolta **strumento suggerimenti**.
+Per implementare questi comportamenti in ricerca di Azure, è un componente dell'indice e query. 
 
-## <a name="creating-a-suggester"></a>Creazione di uno strumento suggerimenti
++ In un indice, aggiungere un componente di suggerimento. È possibile usare il portale, l'API REST o .NET SDK per creare un componente di suggerimento. 
 
-È possibile creare uno **strumento suggerimenti** in qualsiasi momento, ma l'impatto sull'indice varia in base ai campi.
++ In una query, specificare l'azione di completamento automatico o suggerimenti automatici. 
 
-+ I nuovi campi aggiunti a uno strumento suggerimenti come parte dello stesso aggiornamento sono i meno impattanti, in quanto non è richiesta la ricompilazione di un indice.
-+ L'aggiunta di campi esistenti a uno strumento suggerimenti, tuttavia, cambia la definizione di un campo e richiede quindi la ricompilazione completa dell'indice.
+> [!Important]
+> Completamento automatico è attualmente disponibile in anteprima, disponibile in anteprima le API REST e .NET SDK e non è supportata per le applicazioni di produzione. 
 
-Gli **strumenti suggerimenti** funzionano in modo ottimale quando vengono usati per suggerire documenti specifici anziché espressioni o termini separati. I campi che rappresentano i candidati migliori sono i titoli, i nomi e le altre frasi relativamente brevi che possono identificare un elemento. I campi meno efficaci sono quelli ripetitivi, come le categorie e i tag, o quelli molto lunghi, come le descrizioni o i commenti.
+Supporto Typeahead è abilitato in base al campo. Se si desidera un'esperienza simile a quello indicato nella schermata, è possibile implementare entrambi i comportamenti typeahead all'interno della stessa soluzione di ricerca. Destinazione entrambe le richieste il *documenti* raccolta dell'indice specifico e le risposte vengono restituiti dopo che un utente ha fornito ad almeno una stringa di input di tre caratteri.
+
+## <a name="create-a-suggester"></a>Creare un componente di suggerimento
+
+Anche se un componente per il suggerimento ha diverse proprietà, è principalmente una raccolta di campi per il quale si sta abilitando un'esperienza typeahead. Per un'app di viaggio, ad esempio, potrebbe essere necessario abilitare la ricerca con completamento automatico su destinazioni, città e attrazioni. Di conseguenza, tutte e tre i campi viene memorizzato nella raccolta di campi.
+
+Per creare un componente di suggerimento, aggiungerne uno a uno schema di indice. È possibile avere un suggerimento in un indice (in particolare, un suggerimento nella raccolta suggesters). 
+
+Nell'API REST, è possibile aggiungere suggesters attraverso [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) oppure [indice ad aggiornamento](https://docs.microsoft.com/rest/api/searchservice/update-index). 
+
+  ```json
+  {
+    "name": "hotels",
+    "fields": [
+      . . .
+    ],
+    "suggesters": [
+      {
+        "name": "sg",
+        "searchMode": "analyzingInfixMatching",
+        "sourceFields": ["hotelName", "category"]
+      }
+    ],
+    "scoringProfiles": [
+      . . .
+    ]
+  }
+  ```
+
+In .NET SDK, usare una [classe dello strumento suggerimenti](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Componente per il suggerimento è una raccolta, ma può richiedere solo un elemento.
+
+```csharp
+private static void CreateHotelsIndex(SearchServiceClient serviceClient)
+{
+    var definition = new Index()
+    {
+        Name = "hotels",
+        Fields = FieldBuilder.BuildForType<Hotel>(),
+        Suggesters = new List<Suggester>() {new Suggester()
+            {
+                Name = "sg",
+                SourceFields = new string[] { "HotelId", "Category" }
+            }}
+    };
+
+    serviceClient.Indexes.Create(definition);
+
+}
+```
+
+I punti principali da notare sui componenti per il suggerimento è che ci sia un nome (suggesters viene fatto riferimento in base al nome in una richiesta), un searchMode (attualmente solo una, "analyzingInfixMatching") e l'elenco dei campi per cui è abilitato typeahead. 
 
 Dopo aver creato uno strumento suggerimenti, aggiungere l'[API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) nella logica di query per richiamare la funzionalità.
 
-Le proprietà che definiscono lo **strumento suggerimenti** sono le seguenti:
+### <a name="property-reference"></a>Informazioni di riferimento sulle proprietà
 
-|Proprietà|DESCRIZIONE|
+Un componente per il suggerimento è definito dalle proprietà seguenti:
+
+|Proprietà      |DESCRIZIONE      |
 |--------------|-----------------|
-|`name`|Nome dello **strumento suggerimenti**. Si usa il nome dello **strumento suggerimenti** quando si chiama [Suggestions &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions) (Suggerimenti: API REST per il servizio di Ricerca di Azure).|
-|`searchMode`|La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che ricerca una corrispondenza flessibile di espressioni all'inizio o all'interno di frasi.|
-|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. Solo i campi di tipo `Edm.String` e `Collection(Edm.String)` possono essere origini per i suggerimenti. È possibile usare solo campi per i quali non è impostato un analizzatore di lingua personalizzato. |
+|`name`        |Il nome del componente. Utilizza il nome del componente quando si chiama il [API REST per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) oppure [Autocomplete REST API (anteprima)](https://docs.microsoft.com/rest/api/searchservice/autocomplete).|
+|`searchMode`  |La strategia usata per la ricerca di espressioni candidate. L'unica modalità attualmente supportata è `analyzingInfixMatching`, che ricerca una corrispondenza flessibile di espressioni all'inizio o all'interno di frasi.|
+|`sourceFields`|Un elenco di uno o più campi che sono l'origine del contenuto per i suggerimenti. Solo i campi di tipo `Edm.String` e `Collection(Edm.String)` possono essere origini per i suggerimenti. È possibile usare solo campi per i quali non è impostato un analizzatore di lingua personalizzato.<p/>Specificare solo i campi che si prestano a una risposta prevista e appropriata, sia che si tratti di una stringa completa in una barra di ricerca o un elenco a discesa.<p/>Un nome di un hotel è un candidato valido perché contiene la precisione. I campi dettagliati, ad esempio le descrizioni e i commenti sono troppo ad alta densità. Analogamente, i campi ripetitivi, quali categorie e tag, risultano meno efficaci. Negli esempi si includono "category" comunque per dimostrare che è possibile includere più campi. |
 
-## <a name="suggester-example"></a>Esempio di strumento suggerimenti
-Uno **strumento suggerimenti** fa parte della definizione dell'indice. Nella versione attuale della raccolta **strumenti suggerimenti** può essere presente un solo **strumento suggerimenti**, insieme alla raccolta dei **campi** e degli **scoringProfiles**.
+### <a name="index-rebuilds-for-existing-fields"></a>Ricompilazioni degli indici per i campi esistenti
 
-```
-{
-  "name": "hotels",
-  "fields": [
-    . . .
-  ],
-  "suggesters": [
-    {
-      "name": "sg",
-      "searchMode": "analyzingInfixMatching",
-      "sourceFields": ["hotelName", "category"]
-    }
-  ],
-  "scoringProfiles": [
-    . . .
-  ]
-}
+Suggesters contengono campi e se si aggiunge un componente di suggerimento a un indice esistente o si modifica la composizione dei campi, è molto probabilmente sarà necessario ricompilare l'indice.
 
-```
+| Azione | Impatto |
+|--------|--------|
+| Creare nuovi campi e creare un nuovo componente di suggerimento contemporaneamente nello stesso aggiornamento | Impatto minimo. Se l'indice contiene i campi aggiunti in precedenza, l'aggiunta di nuovi campi e un nuovo componente di suggerimento non incide sui campi esistenti. |
+| Aggiungere campi esistenti a un componente di suggerimento | Impatto elevato. L'aggiunta di un campo di modifica la definizione di campo, è necessario eseguire un' [ricompilazione completa](search-howto-reindex.md).|
 
-## <a name="see-also"></a>Vedere anche 
-[Create Index &#40;Azure Search Service REST API&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare indice API REST per il servizio Ricerca di Azure)  
-[Aggiornare l'indice &#40;API REST di ricerca di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/update-index)  
-[Suggerimenti &#40;API REST di ricerca di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/suggestions)  
-[Operazioni sugli indici &#40;API REST del servizio ricerca di Azure&#41;](https://docs.microsoft.com/rest/api/searchservice/index-operations)  
-[REST del servizio ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice/)  
-[Ricerca di Azure .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
+## <a name="use-a-suggester"></a>Usare un componente di suggerimento
+
+Come indicato in precedenza, è possibile usare un componente di suggerimento di suggerimento automatico, completamento automatico o entrambi. 
+
+Un componente di suggerimento fa riferimento alla richiesta con l'operazione. Ad esempio, in una chiamata GET REST, specificare `suggest` o `autocomplete` nella raccolta di documenti. Per REST, dopo la creazione di un componente di suggerimento, usare il [API per i suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) o nella [Autocomplete API (anteprima)](https://docs.microsoft.com/rest/api/searchservice/autocomplete) nella logica di query.
+
+Per .NET, usare [SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet-preview) oppure [AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet-preview&viewFallbackFrom=azure-dotnet).
+
+Esempi che illustrano ogni richiesta:
+
++ [Aggiungere suggerimenti automatici per le selezioni di query di elenco a discesa](search-autosuggest-example.md)
+
++ [Aggiungere il completamento automatico per gli input parziale di termini in ricerca di Azure](search-autocomplete-tutorial.md) (in anteprima) 
+
+## <a name="sample-code"></a>Codice di esempio
+
+Il [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) esempio contiene sia C# e il codice Java e viene illustrata una costruzione dello strumento suggerimenti, suggerimenti automatici, completamento automatico e navigazione facet. 
+
+Usa un ambiente sandbox del servizio di ricerca di Azure e un indice precaricato in modo che tutto è necessario eseguire è premere F5 per eseguirla. Nessun abbonamento o iscriversi in necessarie.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Esaminare gli esempi seguenti per vedere come vengono formulate le richieste:
+
++ [Esempio di query autosuggested](search-autosuggest-example.md) 
++ [Esempio di query di completamento automatico (anteprima)](search-autocomplete-tutorial.md) 

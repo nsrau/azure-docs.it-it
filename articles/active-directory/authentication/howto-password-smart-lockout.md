@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 402a2d6afc7b58d4dfc1c9fa67e354b4d157bd4c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c81a9f3891130f1c6fc2f1a665d7065fb983227
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310235"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370191"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Blocco intelligente di Azure Active Directory
 
@@ -40,8 +40,8 @@ Il blocco intelligente può essere integrato con distribuzioni ibride, tramite l
 
 Quando si usa l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md), è necessario verificare quanto segue:
 
-   * La soglia di blocco di Azure AD è **inferiore** alla soglia di blocco dell'account Active Directory. Configurare i valori in modo che la soglia di blocco dell'account Active Directory sia almeno due o tre volte superiore rispetto alla soglia di blocco di Azure AD. 
-   * La durata del blocco di Azure AD **in secondi** è **superiore** al tempo **in minuti** definito per la reimpostazione del contatore dei blocchi di account in Active Directory.
+* La soglia di blocco di Azure AD è **inferiore** alla soglia di blocco dell'account Active Directory. Configurare i valori in modo che la soglia di blocco dell'account Active Directory sia almeno due o tre volte superiore rispetto alla soglia di blocco di Azure AD. 
+* La durata del blocco di Azure AD **in secondi** è **superiore** al tempo **in minuti** definito per la reimpostazione del contatore dei blocchi di account in Active Directory.
 
 > [!IMPORTANT]
 > Attualmente un amministratore non può sbloccare gli account cloud degli utenti se questi sono stati bloccati dalla funzionalità di blocco smart. L'amministratore deve attendere la scadenza della durata del blocco.
@@ -55,7 +55,7 @@ Per verificare i criteri di blocco degli account di Active Directory, usare le i
 3. Passare a **Configurazione computer** > **Criteri** > **Impostazioni di Windows** > **Impostazioni di sicurezza** > **Criteri account** > **Criterio di blocco account**.
 4. Verificare i valori di **Soglia di blocchi dell'account** e **Reimposta contatore blocco account dopo**.
 
-![Modificare i criteri di blocco degli account locali di Active Directory tramite un oggetto Criteri di gruppo](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
+![Modificare i criteri di blocco degli account Active Directory locale](./media/howto-password-smart-lockout/active-directory-on-premises-account-lockout-policy.png)
 
 ## <a name="manage-azure-ad-smart-lockout-values"></a>Gestire i valori del blocco intelligente di Azure AD
 
@@ -78,9 +78,7 @@ Quando la soglia di blocco smart è attivata, si otterrà il seguente messaggio 
 
 **L'account è stato temporaneamente bloccato per impedirne l'uso non autorizzato. Riprovare più tardi. Se il problema persiste, contattare l'amministratore.**
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Leggere le informazioni su come escludere le password non valide tramite Azure AD](howto-password-ban-bad.md)
-
-[Configurare la reimpostazione di password self-service per consentire agli utenti di sbloccare i relativi account](quickstart-sspr.md)
+* [Leggere le informazioni su come escludere le password non valide tramite Azure AD](howto-password-ban-bad.md)
+* [Configurare la reimpostazione di password self-service per consentire agli utenti di sbloccare i relativi account](quickstart-sspr.md)
