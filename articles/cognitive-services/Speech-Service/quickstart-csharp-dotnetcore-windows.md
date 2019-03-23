@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Riconoscimento vocale, C# (.NET Core Windows) - Servizi Voce'
+title: 'Avvio rapido: Riconoscimento vocale, C# (.NET Core Windows) - Servizi Voce'
 titleSuffix: Azure Cognitive Services
 description: Informazioni sul riconoscimento vocale in C# per .NET Core in Windows con Speech SDK
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 1f6cbb511546784b316da1e978abf84c41ac753c
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446053"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57895612"
 ---
-# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per .NET Core
+# <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Avvio rapido: Riconoscimento vocale con Speech SDK per .NET Core
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -26,7 +26,7 @@ In questo articolo, si crea un'applicazione console C# per .NET Core su Windows 
 > [!NOTE]
 > .NET core è una multipiattaforma open source, multipiattaforma di .NET che implementa la specifica [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Consultare [Provare gratuitamente il Servizio di riconoscimento vocale](get-started.md) per informazioni dettagliate.
+È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare l'Avvio rapido. È possibile ottenerne una gratuitamente. Per informazioni dettagliate, vedere [Provare gratuitamente il servizio Voce](get-started.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -62,7 +62,7 @@ Questa guida introduttiva richiede:
 
     ![Screenshot dell'applicazione Visual Studio, con l'opzione Avvio del debug evidenziata](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Avviare l’applicazione per eseguire il debug")
 
-1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella stessa finestra.
+1. Si apre una finestra della console che chiede di dire qualcosa. Pronunciare una frase o un'espressione in inglese. I contenuti vocali vengono trasmessi al Servizio di riconoscimento vocale e trascritti in formato testo, che viene visualizzato nella stessa finestra.
 
     ![Risultato sulla console dopo un riconoscimento riuscito](media/sdk/qs-csharp-dotnetcore-windows-07-console-output.png "Risultato sulla console dopo un riconoscimento riuscito")
 

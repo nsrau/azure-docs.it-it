@@ -3,8 +3,8 @@ title: Guida introduttiva - Crittografare una macchina virtuale IaaS Windows con
 description: In questa guida introduttiva si apprenderà come usare Azure PowerShell per crittografare una macchina virtuale IaaS Windows in Azure.
 services: security
 documentationcenter: na
-author: mestew
-manager: barbkess
+author: msmbaldwin
+manager: MBaldwin
 ms.assetid: c8abd340-5ed4-42ec-b83f-4d679b61494d
 ms.service: security
 ms.devlang: na
@@ -12,14 +12,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/14/2019
-ms.author: mstewart
+ms.author: mbaldwin
 ms.custom: seodec18
-ms.openlocfilehash: c1b6d8be66323c94837adea90723d0842d168ddc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 4af2db5af49e1fc70ee46f4fc4c953731daedf0e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109130"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862370"
 ---
 # <a name="quickstart-encrypt-a-windows-iaas-vm-with-azure-powershell"></a>Guida introduttiva: Crittografare una macchina virtuale IaaS Windows con Azure PowerShell
 
@@ -29,9 +29,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 - Windows PowerShell ISE
-- Installare o eseguire l'aggiornamento all'[ultima versione del modulo AzureRM PowerShell](/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-6.13.0)
-    - La versione del modulo AzureRM deve essere 6.0.0 o superiore. `Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path`
+- Installare o eseguire l'aggiornamento all'[ultima versione del modulo Azure PowerShell](/powershell/azure/install-az-ps)
+    - La versione del modulo Azure PowerShell deve essere 1.0.0 o superiore. Usare `Get-Module Az -ListAvailable | Select-Object -Property Name,Version,Path` per controllare la versione.
 - Copia dello [script dei prerequisiti di Crittografia dischi di Azure](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
     - Se si ha già questo script, scaricare una nuova copia perché è stato modificato di recente. 
     - Usare **CTRL + A** per selezionare tutto il testo e quindi usare **CTRL + C** per copiare tutto il testo nel Blocco note.
@@ -45,7 +47,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Nel riquadro di script digitare il cmdlet seguente: 
 
      ```azurepowershell
-      Connect-AzureRMAccount
+      Connect-AzAccount
      ```
 
 1. Fare clic sulla freccia verde per **Esegui script** o usare F5. 
@@ -58,8 +60,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 1. Nella finestra **Amministratore: Windows PowerShell ISE** fare clic su **File** e quindi su **Apri**. Passare al file **ADEPrereqScript.ps1** e fare doppio clic su di esso. Lo script verrà aperto nel riquadro di script.
 2. Fare clic sulla freccia verde per **Esegui script** o usare F5 per eseguire lo script. 
 3. Digitare i nomi di un nuovo **gruppo di risorse** e di un nuovo **insieme di credenziali delle chiavi**. Non usare un gruppo di risorse o un insieme di credenziali delle chiavi esistente per questa guida introduttiva perché più avanti il gruppo di risorse verrà eliminato. 
-4. Digitare il percorso in cui si vogliono creare le risorse, ad esempio **EastUS**. Ottenere un elenco di percorsi con `Get-AzureRMLocation`.
-5. Copiare l'**ID sottoscrizione**. È possibile ottenere l'ID della sottoscrizione con `Get-AzureRMSubscription`.  
+4. Digitare il percorso in cui si vogliono creare le risorse, ad esempio **EastUS**. Ottenere un elenco di percorsi con `Get-AzLocation`.
+5. Copiare l'**ID sottoscrizione**. È possibile ottenere l'ID della sottoscrizione con `Get-AzSubscription`.  
 6. Fare clic sulla freccia verde per **Esegui script**. 
 7. Copiare gli oggetti **DiskEncryptionKeyVaultUrl** e **DiskEncryptionKeyVaultId** restituiti da usare più avanti.
 
@@ -81,52 +83,52 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     $cred = Get-Credential -Message "Enter a username and password for the virtual machine."
     
     # Create a resource group
-    #New-AzureRmResourceGroup -Name $resourceGroup -Location $location
+    #New-AzResourceGroup -Name $resourceGroup -Location $location
     
     # Create a subnet configuration
-    $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
+    $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name mySubnet -AddressPrefix 192.168.1.0/24
     
     # Create a virtual network
-    $vnet = New-AzureRmVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
+    $vnet = New-AzVirtualNetwork -ResourceGroupName $resourceGroup -Location $location `
       -Name MYvNET -AddressPrefix 192.168.0.0/16 -Subnet $subnetConfig
     
     # Create a public IP address and specify a DNS name
-    $pip = New-AzureRmPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
+    $pip = New-AzPublicIpAddress -ResourceGroupName $resourceGroup -Location $location `
       -Name "mypublicdns$(Get-Random)" -AllocationMethod Static -IdleTimeoutInMinutes 4
     
     # Create an inbound network security group rule for port 3389
-    $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
+    $nsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name myNetworkSecurityGroupRuleRDP  -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix * `
       -DestinationPortRange 3389 -Access Allow
     
     # Create a network security group
-    $nsg = New-AzureRmNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
+    $nsg = New-AzNetworkSecurityGroup -ResourceGroupName $resourceGroup -Location $location `
       -Name myNetworkSecurityGroup -SecurityRules $nsgRuleRDP
     
     # Create a virtual network card and associate with public IP address and NSG
-    $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
+    $nic = New-AzNetworkInterface -Name myNic -ResourceGroupName $resourceGroup -Location $location `
       -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
     
     # Create a virtual machine configuration
-    $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D2_v3 | `
-    Set-AzureRmVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
-    Set-AzureRmVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter-smalldisk -Version latest | `
-    Add-AzureRmVMNetworkInterface -Id $nic.Id
+    $vmConfig = New-AzVMConfig -VMName $vmName -VMSize Standard_D2_v3 | `
+    Set-AzVMOperatingSystem -Windows -ComputerName $vmName -Credential $cred | `
+    Set-AzVMSourceImage -PublisherName MicrosoftWindowsServer -Offer WindowsServer -Skus 2016-Datacenter-smalldisk -Version latest | `
+    Add-AzVMNetworkInterface -Id $nic.Id
     
     # Create a virtual machine
-    New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
+    New-AzVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfig
    ```
 
 2. Fare clic sulla freccia verde per **Esegui script** per creare la macchina virtuale.  
 
 
 ## <a name="encrypt-the-disk-of-the-vm"></a>Crittografare il disco della macchina virtuale
-Dopo avere stato creato e configurato un insieme di credenziali delle chiavi e una macchina virtuale, è possibile crittografare il disco con il cmdlet **Set-AzureRmVmDiskEncryptionExtension**. 
+Dopo avere stato creato e configurato un insieme di credenziali delle chiavi e una macchina virtuale, è possibile crittografare il disco con il cmdlet **Set-AzVmDiskEncryptionExtension**. 
  
 1. Eseguire il cmdlet seguente per crittografare il disco della macchina virtuale:
 
     ```azurepowershell
-     Set-AzureRmVmDiskEncryptionExtension -ResourceGroupName "MySecureRG" -VMName "MySecureVM" `
+     Set-AzVmDiskEncryptionExtension -ResourceGroupName "MySecureRG" -VMName "MySecureVM" `
      -DiskEncryptionKeyVaultId "<Returned by the prerequisites script>" -DiskEncryptionKeyVaultUrl "<Returned by the prerequisites script>"
      ```
 
@@ -134,9 +136,9 @@ Dopo avere stato creato e configurato un insieme di credenziali delle chiavi e u
 1. Al termine della crittografia è possibile verificare che il disco sia stato crittografato con il cmdlet seguente: 
 
      ```azurepowershell
-     Get-AzureRmVmDiskEncryptionStatus -ResourceGroupName "MySecureRG" -VMName "MySecureVM"
+     Get-AzVmDiskEncryptionStatus -ResourceGroupName "MySecureRG" -VMName "MySecureVM"
      ```
-    ![Output di Get-AzureRmVmDiskEncryptionStatus](media/azure-security-disk-encryption/ade-get-encryption-status.PNG)
+    ![Get-AzVmDiskEncryptionStatus output](media/azure-security-disk-encryption/ade-get-encryption-status.PNG)
     
 ## <a name="clean-up-resources"></a>Pulire le risorse
  **ADEPrereqScript.ps1** crea un blocco di risorsa nell'insieme di credenziali delle chiavi. Per pulire le risorse di questa guida introduttiva, è necessario innanzitutto rimuovere il blocco di risorsa, quindi eliminare il gruppo di risorse. 
@@ -144,13 +146,13 @@ Dopo avere stato creato e configurato un insieme di credenziali delle chiavi e u
 1. Rimuovere il blocco di risorsa dall'insieme di credenziali delle chiavi
 
      ```azurepowershell
-     $LockId =(Get-AzureRMResourceLock -ResourceGroupName "MySecureRG" -ResourceName "MySecureVault" -ResourceType "Microsoft.KeyVault/vaults").LockID 
-     Remove-AzureRmResourceLock -LockID $LockId
+     $LockId =(Get-AzResourceLock -ResourceGroupName "MySecureRG" -ResourceName "MySecureVault" -ResourceType "Microsoft.KeyVault/vaults").LockID 
+     Remove-AzResourceLock -LockID $LockId
       ```
     
 2. Rimuovere il gruppo di risorse. Verranno eliminate anche tutte le risorse nel gruppo. 
      ```azurepowershell
-      Remove-AzureRmResourceGroup -Name "MySecureRG"
+      Remove-AzResourceGroup -Name "MySecureRG"
       ```
 
 ## <a name="next-steps"></a>Passaggi successivi

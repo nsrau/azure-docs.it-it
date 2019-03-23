@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 32bd8898-c2d2-4aa7-8c46-f1f5c2aa05f1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 1/3/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c964d4e070bafc6e8e66535c3963d82803d3cd1e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2281fb046ca9b96aa5800150d630b9086236c5c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57846923"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-successfactors"></a>Esercitazione: Integrazione di Azure Active Directory con SuccessFactors
 
@@ -106,6 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SuccessFactors, seguire
     ![Informazioni sull'accesso Single Sign-On per URL e dominio di SuccessFactors](common/sp-identifier-reply.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -114,6 +115,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SuccessFactors, seguire
     | `https://<companyname>.sapsf.eu`|
 
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
+
     | |
     |--|
     | `https://www.successfactors.com/<companyname>`|
@@ -127,6 +129,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con SuccessFactors, seguire
     | `https://www.successfactors.cn/<companyname>`|
 
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
+
     | |
     |--|
     | `https://<companyname>.successfactors.com/<companyname>`|
@@ -242,7 +245,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

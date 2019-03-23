@@ -2,18 +2,18 @@
 title: 'Esercitazione: Creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP riservato - Azure PowerShell'
 description: In questa esercitazione vengono fornite informazioni su come creare un gateway applicazione con ridondanza della zona e scalabilità automatica con un indirizzo IP riservato tramite Azure PowerShell.
 services: application-gateway
-author: amitsriva
+author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 2/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd6cc65fca98bc435a8cfea575ba10e3cff376be
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 616a710237c31ef2b4a19c3e1e61838164a78530
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54424677"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57308568"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>Esercitazione: creare un gateway applicazione per migliorare l'accesso alle applicazioni Web
 
@@ -25,6 +25,7 @@ Gli amministratori IT che desiderano migliorare l'accesso alle applicazioni Web 
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
+> * Creare un certificato autofirmato
 > * Creare una rete virtuale con scalabilità automatica
 > * Creare un indirizzo IP pubblico riservato
 > * Configurare l'infrastruttura del gateway applicazione
@@ -36,13 +37,15 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Ai fini di questa esercitazione, è necessario eseguire Azure PowerShell in locale. Deve essere installato il modulo Azure PowerShell 6.9.0 o versioni successive. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Dopo avere verificato la versione di PowerShell, eseguire `Login-AzureRmAccount` per creare una connessione ad Azure.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Ai fini di questa esercitazione, è necessario eseguire Azure PowerShell in locale. Deve essere installato il modulo Azure PowerShell 1.0.0 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). Dopo avere verificato la versione di PowerShell, eseguire `Connect-AzAccount` per creare una connessione ad Azure.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 ```azurepowershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -Subscription "<sub name>"
+Connect-AzAccount
+Select-AzSubscription -Subscription "<sub name>"
 ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
@@ -50,10 +53,41 @@ Creare un gruppo di risorse in una delle località disponibili.
 
 ```azurepowershell
 $location = "East US 2"
-$rg = "<rg name>"
+$rg = "AppGW-rg"
 
 #Create a new Resource Group
-New-AzureRmResourceGroup -Name $rg -Location $location
+New-AzResourceGroup -Name $rg -Location $location
+```
+
+## <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
+
+Per la produzione è necessario importare un certificato valido firmato da un provider attendibile. Per questa esercitazione viene creato un certificato autofirmato usando il comando [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate). È possibile usare [Export-PfxCertificate](https://docs.microsoft.com/powershell/module/pkiclient/export-pfxcertificate) con l'identificazione personale restituita per esportare un file pfx dal certificato.
+
+```powershell
+New-SelfSignedCertificate `
+  -certstorelocation cert:\localmachine\my `
+  -dnsname www.contoso.com
+```
+
+L'output sarà simile al risultato seguente:
+
+```
+PSParentPath: Microsoft.PowerShell.Security\Certificate::LocalMachine\my
+
+Thumbprint                                Subject
+----------                                -------
+E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630  CN=www.contoso.com
+```
+
+Usare l'identificazione personale per creare il file pfx:
+
+```powershell
+$pwd = ConvertTo-SecureString -String "Azure123456!" -Force -AsPlainText
+
+Export-PfxCertificate `
+  -cert cert:\localMachine\my\E1E81C23B3AD33F9B4D1717B20AB65DBB91AC630 `
+  -FilePath c:\appgwcert.pfx `
+  -Password $pwd
 ```
 
 ## <a name="create-a-virtual-network"></a>Crea rete virtuale
@@ -62,9 +96,9 @@ Creare una rete virtuale con una subnet dedicata per un gateway applicazione con
 
 ```azurepowershell
 #Create VNet with two subnets
-$sub1 = New-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -AddressPrefix "10.0.0.0/24"
-$sub2 = New-AzureRmVirtualNetworkSubnetConfig -Name "BackendSubnet" -AddressPrefix "10.0.1.0/24"
-$vnet = New-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
+$sub1 = New-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -AddressPrefix "10.0.0.0/24"
+$sub2 = New-AzVirtualNetworkSubnetConfig -Name "BackendSubnet" -AddressPrefix "10.0.1.0/24"
+$vnet = New-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
        -Location $location -AddressPrefix "10.0.0.0/16" -Subnet $sub1, $sub2
 ```
 
@@ -74,7 +108,7 @@ Specificare il metodo di allocazione dell'indirizzo IP pubblico come **Statico**
 
 ```azurepowershell
 #Create static public IP
-$pip = New-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
+$pip = New-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
        -location $location -AllocationMethod Static -Sku Standard
 ```
 
@@ -83,10 +117,10 @@ $pip = New-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP" `
 Recuperare i dettagli del gruppo di risorse, della subnet e dell'indirizzo IP in un oggetto locale per creare i dettagli di configurazione IP del gateway applicazione.
 
 ```azurepowershell
-$resourceGroup = Get-AzureRmResourceGroup -Name $rg
-$publicip = Get-AzureRmPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
-$vnet = Get-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
-$gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
+$resourceGroup = Get-AzResourceGroup -Name $rg
+$publicip = Get-AzPublicIpAddress -ResourceGroupName $rg -name "AppGwVIP"
+$vnet = Get-AzvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg
+$gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNetwork $vnet
 ```
 
 ## <a name="configure-the-infrastructure"></a>Configurare l'infrastruttura
@@ -94,26 +128,26 @@ $gwSubnet = Get-AzureRmVirtualNetworkSubnetConfig -Name "AppGwSubnet" -VirtualNe
 Impostare la configurazione IP, la configurazione IP front-end, il pool back-end, le impostazioni HTTP, il certificato, la porta, il listener e la regola in un formato identico a quello del gateway applicazione Standard esistente. La nuova SKU segue lo stesso modello a oggetti della SKU Standard.
 
 ```azurepowershell
-$ipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
-$fip = New-AzureRmApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
-$pool = New-AzureRmApplicationGatewayBackendAddressPool -Name "Pool1" `
+$ipconfig = New-AzApplicationGatewayIPConfiguration -Name "IPConfig" -Subnet $gwSubnet
+$fip = New-AzApplicationGatewayFrontendIPConfig -Name "FrontendIPCOnfig" -PublicIPAddress $publicip
+$pool = New-AzApplicationGatewayBackendAddressPool -Name "Pool1" `
        -BackendIPAddresses testbackend1.westus.cloudapp.azure.com, testbackend2.westus.cloudapp.azure.com
-$fp01 = New-AzureRmApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
-$fp02 = New-AzureRmApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
+$fp01 = New-AzApplicationGatewayFrontendPort -Name "SSLPort" -Port 443
+$fp02 = New-AzApplicationGatewayFrontendPort -Name "HTTPPort" -Port 80
 
-$securepfxpwd = ConvertTo-SecureString -String "scrap" -AsPlainText -Force
-$sslCert01 = New-AzureRmApplicationGatewaySslCertificate -Name "SSLCert" -Password $securepfxpwd `
-            -CertificateFile "D:\Networking\ApplicationGateway\scrap.pfx"
-$listener01 = New-AzureRmApplicationGatewayHttpListener -Name "SSLListener" `
+$securepfxpwd = ConvertTo-SecureString -String "Azure123456!" -AsPlainText -Force
+$sslCert01 = New-AzApplicationGatewaySslCertificate -Name "SSLCert" -Password $securepfxpwd `
+            -CertificateFile "c:\appgwcert.pfx"
+$listener01 = New-AzApplicationGatewayHttpListener -Name "SSLListener" `
              -Protocol Https -FrontendIPConfiguration $fip -FrontendPort $fp01 -SslCertificate $sslCert01
-$listener02 = New-AzureRmApplicationGatewayHttpListener -Name "HTTPListener" `
+$listener02 = New-AzApplicationGatewayHttpListener -Name "HTTPListener" `
              -Protocol Http -FrontendIPConfiguration $fip -FrontendPort $fp02
 
-$setting = New-AzureRmApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
+$setting = New-AzApplicationGatewayBackendHttpSettings -Name "BackendHttpSetting1" `
           -Port 80 -Protocol Http -CookieBasedAffinity Disabled
-$rule01 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
+$rule01 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule1" -RuleType basic `
          -BackendHttpSettings $setting -HttpListener $listener01 -BackendAddressPool $pool
-$rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
+$rule02 = New-AzApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleType basic `
          -BackendHttpSettings $setting -HttpListener $listener02 -BackendAddressPool $pool
 ```
 
@@ -124,14 +158,14 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 * **Modalità con capacità fissa**. In questa modalità il gateway applicazione non si ridimensiona automaticamente e opera a una capacità di unità di scala fissa.
 
    ```azurepowershell
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
+   $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
    ```
 
 * **Modalità di scalabilità automatica**. In questa modalità il gateway applicazione si ridimensiona automaticamente in base al modello di traffico dell'applicazione.
 
    ```azurepowershell
-   $autoscaleConfig = New-AzureRmApplicationGatewayAutoscaleConfiguration -MinCapacity 2
-   $sku = New-AzureRmApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
+   $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 2
+   $sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2
    ```
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione
@@ -139,7 +173,7 @@ $rule02 = New-AzureRmApplicationGatewayRequestRoutingRule -Name "Rule2" -RuleTyp
 Creare il gateway applicazione e includere le zone di ridondanza e la configurazione di scalabilità automatica.
 
 ```azurepowershell
-$appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
+$appgw = New-AzApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
   -ResourceGroupName $rg -Location $location -BackendAddressPools $pool `
   -BackendHttpSettingsCollection $setting -GatewayIpConfigurations $ipconfig `
   -FrontendIpConfigurations $fip -FrontendPorts $fp01, $fp02 `
@@ -149,15 +183,15 @@ $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
-Usare Get-AzureRmPublicIPAddress per ottenere l'indirizzo IP pubblico del gateway applicazione. Copiare l'indirizzo IP pubblico o il nome DNS e quindi incollarlo nella barra degli indirizzi del browser.
+Usare Get-AzPublicIPAddress per ottenere l'indirizzo IP pubblico del gateway applicazione. Copiare l'indirizzo IP pubblico o il nome DNS e quindi incollarlo nella barra degli indirizzi del browser.
 
-`Get-AzureRmPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
+`Get-AzPublicIPAddress -ResourceGroupName $rg -Name AppGwVIP`
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Innanzitutto, esplorare le risorse che sono state create con il gateway applicazione. Successivamente, quando non servono più, è possibile usare il comando `Remove-AzureRmResourceGroup` per rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
+Innanzitutto, esplorare le risorse che sono state create con il gateway applicazione. Successivamente, quando non servono più, è possibile usare il comando `Remove-AzResourceGroup` per rimuovere il gruppo di risorse, il gateway applicazione e tutte le risorse correlate.
 
-`Remove-AzureRmResourceGroup -Name $rg`
+`Remove-AzResourceGroup -Name $rg`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
