@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: cc8c62113a9a7a12525f1ba7e59c68831a322cfe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 828d0ced775d46b0e966969acb3220d2a678c57b
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959188"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57440047"
 ---
 # <a name="build-a-net-core-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilare un'app console .NET Core per gestire i dati in un account API SQL di Azure Cosmos DB (anteprima SDK versione 3)
 
@@ -78,7 +78,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è p
 1. Nella scheda **NuGet** fare clic su **Sfoglia** e digitare **Microsoft.Azure.Cosmos** nella casella di ricerca.
 1. Nei risultati trovare **Microsoft.Azure.Cosmos** e fare clic su **Installa**.
    L'ID pacchetto per la libreria client dell'API SQL di Azure Cosmos DB è [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Screenshot del menu di NuGet per l'individuazione dell'SDK client di Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Screenshot del menu di NuGet per l'individuazione dell'SDK client di Azure Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
    Se viene visualizzato un messaggio sulla verifica delle modifiche alla soluzione, fare clic su **OK**. Se viene visualizzato un messaggio sull'accettazione della licenza, fare clic su **Accetto**.
 

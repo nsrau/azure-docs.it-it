@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 32f33e4ac66ad456b5ff8807d6a1b5ea5f541fed
-ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
+ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52161401"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57845223"
 ---
 # <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Esercitazione: Distribuire un'app ASP.NET e il codice di un database SQL di Azure usando Azure DevOps Projects
 
@@ -122,8 +122,8 @@ DevOps Projects crea e configura automaticamente i passaggi necessari per la dis
     
 1. A sinistra selezionare **Variabili**. 
 
-  > [!NOTE]
-  > Eseguire questo passaggio solo se è stata modificata la password di SQL Server. C'è un'unica variabile password.
+   > [!NOTE]
+   > Eseguire questo passaggio solo se è stata modificata la password di SQL Server. C'è un'unica variabile password.
   
 1. Accanto alla casella **Valore**, selezionare l'icona del lucchetto, immettere la nuova password e quindi selezionare **Salva**.
 
@@ -136,13 +136,13 @@ DevOps Projects crea e configura automaticamente i passaggi necessari per la dis
 1. A destra, selezionare **Visualizza versioni** per visualizzare una cronologia delle versioni.
 
 1. Selezionare i puntini di sospensione (...) accanto a una versione e quindi selezionare **Apri**.  
-    È possibile esplorare diversi menu, ad esempio un riepilogo delle versioni, gli elementi di lavoro associati e i test.
+     È possibile esplorare diversi menu, ad esempio un riepilogo delle versioni, gli elementi di lavoro associati e i test.
 
 1. Selezionare **Commit**.  
-    Questa visualizzazione mostra i commit di codice associati a questa distribuzione. È possibile confrontare le versioni per visualizzare le differenze di commit tra le distribuzioni.
+     Questa visualizzazione mostra i commit di codice associati a questa distribuzione. È possibile confrontare le versioni per visualizzare le differenze di commit tra le distribuzioni.
 
 1. Selezionare **Log**.  
-    I log contengono informazioni utili sul processo di distribuzione. È possibile visualizzarli durante e dopo le distribuzioni.
+     I log contengono informazioni utili sul processo di distribuzione. È possibile visualizzarli durante e dopo le distribuzioni.
 
 ## <a name="commit-changes-to-azure-repos-and-automatically-deploy-them-to-azure"></a>Eseguire il commit delle modifiche in Azure Repos e la distribuzione automatica in Azure 
 
@@ -182,10 +182,10 @@ Per connettersi al database SQL di Azure, sono necessarie le autorizzazioni appr
 
     È facoltativamente possibile usare strumenti client come SQL Server Management Studio o Visual Studio per connettersi a SQL Server e al database SQL di Azure. Per la connessione, usare la proprietà **Nome server**.
 
-    Se il nome utente del database non è stato modificato durante la configurazione iniziale di DevOps Projects, il nome utente è la parte locale dell'indirizzo di posta elettronica. Se, ad esempio, l'indirizzo di posta elettronica è *johndoe@microsoft.com*, il nome utente è *johndoe*.
+    Se il nome utente del database non è stato modificato durante la configurazione iniziale di DevOps Projects, il nome utente è la parte locale dell'indirizzo di posta elettronica. Se, ad esempio, l'indirizzo di posta elettronica è *johndoe\@microsoft.com*, il nome utente è *johndoe*.
 
- > [!NOTE]
- > Se si modifica la password per l'accesso SQL, è necessario modificare la password nella variabile della pipeline di versione, come descritto nella sezione "Esaminare la pipeline di distribuzione continua".
+   > [!NOTE]
+   > Se si modifica la password per l'accesso SQL, è necessario modificare la password nella variabile della pipeline di versione, come descritto nella sezione "Esaminare la pipeline di distribuzione continua".
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

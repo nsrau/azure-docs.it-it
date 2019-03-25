@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338598"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863764"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 usando .NET
 
@@ -33,7 +33,7 @@ L'esercitazione illustra come:
 > [!div class="checklist"]
 > * Scaricare l'app di esempio descritta nell'argomento
 > * Esaminare il codice che esegue lo streaming live
-> * Guardare l'evento con [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) in http://ampdemo.azureedge.net
+> * Guardare l'evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) in https://ampdemo.azureedge.net
 > * Pulire le risorse
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,9 +81,9 @@ Per iniziare a usare le API di Servizi multimediali con .NET, è necessario crea
 
 ### <a name="create-a-live-event"></a>Creare un evento live
 
-Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveEventEncodingType impostato su None). Se si vuole creare un evento live abilitato per la codifica live, impostare LiveEventEncodingType su **Standard**. 
-
-Altre caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
+Questa sezione mostra come creare un evento live di tipo **pass-through** (LiveEventEncodingType impostato su None). Per altre informazioni sui tipi di Eventi live disponibili, vedere [Tipi di eventi live](live-events-outputs-concept.md#live-event-types). 
+ 
+Alcune caratteristiche che è possibile specificare durante la creazione dell'evento live sono:
 
 * Account di Servizi multimediali 
 * Protocollo di streaming per l'evento live (attualmente, sono supportati i protocolli RTMP e Smooth Streaming).<br/>Non è possibile modificare l'opzione relativa al protocollo durante l'esecuzione dell'evento live o degli output live associati. Se sono necessari protocolli diversi, è necessario creare eventi live separati per ogni protocollo di streaming.  
@@ -166,7 +166,7 @@ Il codice seguente mostra come pulire l'account da tutti gli eventi live:
 
 ## <a name="watch-the-event"></a>Guardare l'evento
 
-Per guardare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in Creare un localizzatore di streaming e usare un lettore a scelta. È possibile usare [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo http://ampdemo.azureedge.net. 
+Per guardare l'evento, copiare l'URL di streaming ottenuto durante l'esecuzione del codice descritto in Creare un localizzatore di streaming e usare un lettore a scelta. È possibile usare [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) per testare il flusso all'indirizzo https://ampdemo.azureedge.net. 
 
 Quando viene arrestato, l'evento live converte automaticamente gli eventi in contenuto su richiesta. Anche dopo l'arresto e l'eliminazione dell'evento, gli utenti saranno in grado di riprodurre in streaming il contenuto archiviato sotto forma di video on demand, finché non si elimina l'asset. Un asset non può essere eliminato se è usato da un evento. Per farlo, eliminare prima l'evento. 
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 45a8364c-55d1-4dc7-b079-9eb2a701842d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6882cfc0b972fa0ea2a43081b1d6d62671d9da7
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 6e6655c1f67b5655dbde8c04f09a664f64350e3d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881584"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856006"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Esercitazione: Integrazione di Azure Active Directory con Ariba
 
@@ -106,6 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Ariba, seguire questa p
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Ariba](common/sp-identifier.png)
 
     a. Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente:
+    
     | |
     |--|
     | `https://<subdomain>.sourcing.ariba.com` |
@@ -142,7 +143,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

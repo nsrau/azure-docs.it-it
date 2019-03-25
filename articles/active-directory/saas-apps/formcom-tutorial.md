@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: f1bc0112-315c-4e6f-8c69-7c6873007bcf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: d50cf28ebfc34d9b7deaff95c177f0eebd210be3
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1ed8dac90527de396e0b7ae59e5d19939a4a36be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904355"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-formcom"></a>Esercitazione: Integrazione di Azure Active Directory con Form.com
 
@@ -109,6 +109,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Form.com, seguire quest
     b. Nella casella di testo **Identificatore** digitare un URL usando il modello seguente: `https://<subdomain>.form.com`
 
     c. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+    
     | |
     |--|
     | `https://<subdomain>.wa-form.com/Member/UserAccount/SAML2.action` |
@@ -153,7 +154,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

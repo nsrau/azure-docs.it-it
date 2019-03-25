@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 5cdec31775258b4748609e994cc5455dc24eb1e2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9b80222acfc1104c184fc9cfb4711c16e7bb8dd2
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863279"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57312988"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-java"></a>Ottenere risposte a una domanda da una knowledge base con Java
 
-Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). La domanda, in formato JSON, viene inviata nel corpo della richiesta all'API. 
+Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. La knowledge base include domande e risposte da [origini dati](../Concepts/data-sources-supported.md) ad esempio domande frequenti. La [domanda](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) viene inviata al servizio QnA Maker. La [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) include la risposta stimata superiore. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -71,6 +71,8 @@ Nel codice seguente viene effettuata una richiesta HTTPS all'API di QnA Maker pe
 [!code-java[Add a POST request to send question to knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to knowledge base")]
 
 Il valore dell'intestazione di `Authorization` include la stringa `EndpointKey `. 
+
+Altre informazioni su [richiesta](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response).
 
 ## <a name="build-and-run-the-program"></a>Compilare ed eseguire il programma
 

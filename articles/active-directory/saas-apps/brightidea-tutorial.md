@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3adae3e0-f43b-492f-b373-6a512d2d6046
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 589aa227352a839e1d77a35412d2193fa05df420
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc45c63d3168a15b4701dcaff7bb531f759d47ad
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873449"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888707"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightidea"></a>Esercitazione: Integrazione di Azure Active Directory con Brightidea
 
@@ -163,18 +163,18 @@ Per configurare l'accesso Single Sign-On di Azure AD con Brightidea, seguire que
     
     ![Configurazione di Brightidea](./media/brightidea-tutorial/configure4.png)
     
-     * Immettere il **nome del profilo SAML**, ad esempio `Azure Ad SSO`
+   * Immettere il **nome del profilo SAML**, ad esempio `Azure Ad SSO`
     
-     * Per **Upload Metadata** (Carica metadati) fare clic sull'opzione per selezionare i file e caricare i file di metadati scaricati dal portale di Azure.
+   * Per **Upload Metadata** (Carica metadati) fare clic sull'opzione per selezionare i file e caricare i file di metadati scaricati dal portale di Azure.
 
      > [!NOTE]
      > Dopo aver caricato il file di metadati, i campi rimanenti **Single Sign-on Service, Identity Provider Issuer, Upload Public Key** (Servizio Single Sign-On, Autorità di certificazione del provider di identità, Carica chiave pubblica) verranno popolati automaticamente.
 
-     * Nella casella di testo **Email** (Posta elettronica) immettere il valore `mail`.
+   * Nella casella di testo **Email** (Posta elettronica) immettere il valore `mail`.
      
-     * Nella casella di testo **Screen Name** (Nome visualizzato) immettere il valore `givenName`.
+   * Nella casella di testo **Screen Name** (Nome visualizzato) immettere il valore `givenName`.
      
-     * Fare clic su **Salva modifiche**.  
+   * Fare clic su **Salva modifiche**.  
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -194,7 +194,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b7765fc5506129cdf594ef3fd0424f8771de5ef4
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: a97c11b49574d0014ea7fa97f42420b22f9568d7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56651669"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371157"
 documentType: LandingData
 title: Documentazione del servizio Azure Machine Learning
 metadata:
@@ -36,12 +36,12 @@ sections:
 - title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
-    text: "Per usare questo servizio, è necessario configurare un'area di lavoro e le risorse associate.  Iniziare con:"
+    text: "Dopo aver   <a href=\"setup-create-workspace\">creato un'area di lavoro</a> per il servizio Azure Machine Learning, è possibile iniziare seguendo queste guide introduttive:"
   - type: list
     style: unordered
     items:
-    - html: "<a href=\"quickstart-get-started\">Guida introduttiva sul portale di Azure</a>: per ottenere un'area di lavoro ed eseguire esperimenti senza installare nulla."
-    - html: "<a href=\"quickstart-create-workspace-with-python\">Guida introduttiva su Python</a>: per installare l'SDK principale, creare un'area di lavoro ed eseguire esperimenti in un server di notebook locale."
+    - html: <a href="quickstart-run-cloud-notebook">Eseguire un esperimento nel cloud</a> (nessuna installazione necessaria).
+    - html: <a href="quickstart-run-local-notebook">Eseguire un esperimento usando un server di notebook locale</a> (installazione dell'SDK locale).
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph

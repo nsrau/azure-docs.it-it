@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 41437933f715af092dea563b0b1be4794c71925c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5c4d2320ffd54054eb8a5bb26ef14c8e99dabb33
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863160"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855955"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Esercitazione: Moderare immagini di prodotti per l'e-commerce con Azure Content Moderator
 
@@ -43,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="create-a-review-team"></a>Creare un team di revisione
 
-Fare riferimento all'argomento di avvio rapido [Acquisire familiarità con Content Moderator](quick-start.md) per istruzioni su come registrarsi per lo [strumento di revisione di Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e creare un team di revisione. Prendere nota del valore **ID Team** nella pagina **Credenziali**.
+Fare riferimento all'argomento di avvio rapido [Provare Content Moderator sul Web](quick-start.md) per istruzioni su come registrarsi per lo [strumento di revisione di Content Moderator](https://contentmoderator.cognitive.microsoft.com/) e creare un team di revisione. Prendere nota del valore **ID Team** nella pagina **Credenziali**.
 
 ## <a name="create-custom-moderation-tags"></a>Creare tag di moderazione personalizzati
 

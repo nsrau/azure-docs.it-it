@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/19/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: f2b5089f1ec334f80ccb4ce80ba9b512f3305859
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 2d011dffa4db68a0cdf6ac3415ff1316906a4e87
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861120"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57884002"
 ---
 # <a name="get-answers-to-a-question-from-a-knowledge-base-with-c"></a>Ottenere risposte a una domanda da una knowledge base con C#
 
-Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. QnA Maker estrae automaticamente domande e risposte da contenuto semistrutturato, come le domande frequenti, delle [origini dati](../Concepts/data-sources-supported.md). La domanda, in formato JSON, viene inviata nel corpo della richiesta all'API. 
+Questa guida introduttiva illustra come ottenere, a livello di codice, una risposta da una knowledge base QnA Maker pubblicata. La knowledge base include domande e risposte da [origini dati](../Concepts/data-sources-supported.md) ad esempio domande frequenti. La [domanda](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) viene inviata al servizio QnA Maker. La [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response-properties) include la risposta stimata superiore. 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -37,7 +37,7 @@ Il codice per questo avvio rapido si trova nel repository [https://github.com/Az
 ## <a name="create-a-knowledge-base-project"></a>Creare un progetto per la knowledge base
 
 1. Aprire Visual Studio 2017 Community Edition.
-1. Creare un nuovo progetto App console (.Net Core) e assegnare al progetto il nome QnaMakerQuickstart. Accettare le impostazioni predefinite per le altre impostazioni.
+1. Creare un nuovo progetto App console (.NET Core) e assegnare al progetto il nome QnaMakerQuickstart. Accettare le impostazioni predefinite per le altre impostazioni.
 
 ## <a name="add-the-required-dependencies"></a>Aggiungere le dipendenze richieste
 
@@ -58,6 +58,8 @@ Nel codice seguente viene effettuata una richiesta HTTPS all'API di QnA Maker pe
 [!code-csharp[Add a POST request to send question to knowledge base](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to knowledge base")]
 
 Il valore dell'intestazione di `Authorization` include la stringa `EndpointKey `. 
+
+Altre informazioni su [richiesta](../how-to/metadata-generateanswer-usage.md#generateanswer-request) e [risposta](../how-to/metadata-generateanswer-usage.md#generateanswer-response). 
 
 ## <a name="build-and-run-the-program"></a>Compilare ed eseguire il programma
 
