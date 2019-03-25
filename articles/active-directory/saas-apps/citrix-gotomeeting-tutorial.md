@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bcaf19f2-5809-4e1c-acbc-21a8d3498ccf
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9377ebdcc26305ca9652b947e8bd16d98374ef5d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9faf82918619301335f191d39453d317dcf5988b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873747"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57856128"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gotomeeting"></a>Esercitazione: Integrazione di Azure Active Directory con GoToMeeting
 
@@ -115,16 +115,16 @@ Per configurare l'accesso Single Sign-On di Azure AD con GoToMeeting, seguire qu
 
     e. Nella casella di testo **RelayState** digitare l'URL usando il modello seguente:
 
-    - Per l'app GoToMeeting usare `https://global.gotomeeting.com`
+   - Per l'app GoToMeeting usare `https://global.gotomeeting.com`
 
-    - Per GoToTraining usare `https://global.gototraining.com`
+   - Per GoToTraining usare `https://global.gototraining.com`
 
-    - Per GoToWebinar usare `https://global.gotowebinar.com` 
+   - Per GoToWebinar usare `https://global.gotowebinar.com` 
 
-    - Per GoToAssist usare `https://app.gotoassist.com`
+   - Per GoToAssist usare `https://app.gotoassist.com`
 
-    > [!NOTE]
-    > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di GoToMeeting](https://go.microsoft.com/fwlink/?linkid=845985). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+     > [!NOTE]
+     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di GoToMeeting](https://go.microsoft.com/fwlink/?linkid=845985). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
@@ -164,7 +164,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

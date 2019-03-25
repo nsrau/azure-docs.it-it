@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 5b2b3a3ec0e9aec603a69211a7493afc31e83283
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9d789572abf0545eb51b357da091e5a1d712eab2
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56236550"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433808"
 ---
 # <a name="what-is-azure-cache-for-redis"></a>Informazioni su Cache Redis di Azure
 
@@ -57,7 +57,7 @@ Basic | Una cache con un nodo singolo. Questo livello supporta varie dimensioni 
 
 È possibile aumentare le prestazioni della cache fino a un livello superiore, a patto che sia già stato creato. Il passaggio a un piano inferiore non è supportato. Per istruzioni dettagliate sul ridimensionamento, vedere [Come ridimensionare Cache Redis di Azure](cache-how-to-scale.md) e [Come automatizzare un'operazione di ridimensionamento](cache-how-to-scale.md#how-to-automate-a-scaling-operation).
 
-### <a name="feature-comparision"></a>Confronto delle funzionalità
+### <a name="feature-comparison"></a>Confronto delle funzionalità
 
 Nella pagina [Prezzi di Cache Redis di Azure](https://azure.microsoft.com/pricing/details/cache/) è presente un confronto dettagliato dei livelli disponibili. La tabella seguente descrive alcune delle funzionalità supportate in base al livello:
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ab89f8ee-2507-4625-94bc-b24ef3d5e006
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad35d8d3ff04de7e3d99976d637c4fad47c0cd6c
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 7bc40c5043cefad7892eaead8fe8058ac3707865
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869004"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904712"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-envi-mmis"></a>Esercitazione: Integrazione di Azure Active Directory con Envi MMIS
 
@@ -184,7 +184,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -237,7 +237,7 @@ Per consentire agli utenti di Azure AD di accedere a Envi MMIS, è necessario ef
 
     ![Aggiungere un dipendente](./media/envimmis-tutorial/user3.png)
 
-    a. Digitare il nome utente dell'account Britta Simon nella casella di testo **User Name** (Nome utente) come **brittasimon@contoso.com**.
+    a. Digitare il nome utente dell'account Britta Simon nella casella di testo **Nome utente** come **brittasimon\@contoso.com**.
     
     b. Nella casella di testo **First Name** (Nome) digitare il nome di BrittaSimon come **Britta**.
 
@@ -245,9 +245,9 @@ Per consentire agli utenti di Azure AD di accedere a Envi MMIS, è necessario ef
 
     d. Immettere la posizione dell'utente nella sezione **Title** (Titolo) della casella di testo.
     
-    e. Nella casella di testo **Email Address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'account di Britta Simon come **brittasimon@contoso.com**.
+    e. Digitare l'indirizzo e-mail dell'account Britta Simon nella casella di testo **Indirizzo e-mail** come **brittasimon\@contoso.com**.
 
-    f. Nella casella di testo **SSO User Name** (Nome utente SSO) digitare il nome utente dell'account Britta Simon come **brittasimon@contoso.com**.
+    f. Digitare il nome utente dell'account Britta Simon nella casella di testo **Nome utente SSO** come **brittasimon\@contoso.com**.
 
     g. Fare clic su **Save**.
 

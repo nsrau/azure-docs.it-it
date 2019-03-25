@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/18/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5266ca3f50a2d8163dbab95109cb967fb5a63ed8
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: ebe23c606d95baa6c79c668fc929177c8bc37e44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474582"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57862948"
 ---
 # <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -55,6 +55,10 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire i pa
 
 È anche possibile installare e usare l'interfaccia della riga di comando di Azure in locale. Questa guida introduttiva richiede l'interfaccia della riga di comando di Azure 2.0.4 o versioni successive. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). 
 
+# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+
+No.
+
 ---
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
@@ -80,6 +84,10 @@ Per accedere all'installazione locale dell'interfaccia della riga di comando, es
 ```cli
 az login
 ```
+
+# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+
+N/D
 
 ---
 
@@ -170,6 +178,33 @@ Per creare un account di archiviazione per utilizzo generico v2 con l'archiviazi
 |Archiviazione con ridondanza geografica (GRS)     |Standard_GRS         |
 |Archiviazione con ridondanza geografica e accesso in lettura     |Standard_RAGRS         |
 
+# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+
+È possibile usare Azure Powershell o l'interfaccia della riga di comando di Azure per distribuire un modello di Resource Manager per creare un account di archiviazione. Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-storage-account-create/). Per eseguire gli script, selezionare **Prova** per aprire Azure Cloud Shell. Per incollare lo script, fare clic con il pulsante destro del mouse nella shell e quindi scegliere **Incolla**.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
+
+New-AzResourceGroup -Name $resourceGroupName -Location "$location"
+New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+echo "Enter the location (i.e. centralus):" &&
+read location &&
+az group create --name $resourceGroupName --location "$location" &&
+az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
+```
+
+Per informazioni su come creare modelli, vedere:
+
+- [Documentazione di Azure Resource Manager](/azure/azure-resource-manager/).
+- [Storage account template reference](/azure/templates/microsoft.storage/allversions)(Riferimento sul modello di account di archiviazione).
+- [Additional storage account template samples](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Storage)(Altri esempi di modelli di account di archiviazione).
+
 ---
 
 Per altre informazioni sulle opzioni di replica disponibili, vedere [Opzioni di replica dell'archiviazione](storage-redundancy.md).
@@ -202,6 +237,21 @@ Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuov
 az group delete --name storage-quickstart-resource-group
 ```
 
+# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+
+Per rimuovere il gruppo di risorse e tutte le risorse correlate, incluso il nuovo account di archiviazione, usare Azure PowerShell o l'interfaccia della riga di comando di Azure.
+
+```azurepowershell-interactive
+$resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
+Remove-AzResourceGroup -Name $resourceGroupName
+```
+
+```azurecli-interactive
+echo "Enter the Resource Group name:" &&
+read resourceGroupName &&
+az group delete --name $resourceGroupName
+```
+
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -222,5 +272,10 @@ In questa Guida introduttiva è stato creato un account di archiviazione standar
 
 > [!div class="nextstepaction"]
 > [Usare i BLOB con l'interfaccia della riga di comando di Azure](../blobs/storage-quickstart-blobs-cli.md)
+
+# <a name="templatetabtemplate"></a>[Modello](#tab/template)
+
+> [!div class="nextstepaction"]
+> [Usare i BLOB con il portale di Azure](../blobs/storage-quickstart-blobs-portal.md)
 
 ---

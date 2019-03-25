@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 09/05/2018
 ms.author: lbosq
-ms.openlocfilehash: a0d782ac1ba14e58e3cc377bb55ea25bb923c5c4
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 36465c253996e4cecc665b2fd1d59c03adc78a2f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038909"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110546"
 ---
 # <a name="introduction-to-azure-cosmos-db-gremlin-api"></a>Introduzione ad Azure Cosmos DB: API Gremlin
 
@@ -49,31 +49,31 @@ Azure Cosmos DB offre le seguenti funzionalità specifiche rispetto ad altri dat
 
 * Archiviazione e velocità effettiva altamente scalabile
 
- La scalabilità dei grafi nel mondo reale deve superare la capacità di un singolo server. Con Azure Cosmos DB la scalabilità dei grafi può essere ottenuta facilmente tra più server. È anche possibile scalare la velocità effettiva del grafo in modo indipendente in base ai modelli di accesso. Azure Cosmos DB supporta i database di grafi che è possono scalare in misura praticamente illimitata a livello di archiviazione e velocità effettiva con provisioning.
+  La scalabilità dei grafi nel mondo reale deve superare la capacità di un singolo server. Con Azure Cosmos DB la scalabilità dei grafi può essere ottenuta facilmente tra più server. È anche possibile scalare la velocità effettiva del grafo in modo indipendente in base ai modelli di accesso. Azure Cosmos DB supporta i database di grafi che è possono scalare in misura praticamente illimitata a livello di archiviazione e velocità effettiva con provisioning.
 
 * Replica di tipo multiarea
 
- Azure Cosmos DB replica in modo trasparente i dati del grafo in tutte le aree associate all'account. La replica consente di sviluppare applicazioni che richiedono l'accesso ai dati globale. Sussistono compromessi in termini di coerenza, disponibilità e prestazioni e garanzie corrispondenti. Azure Cosmos DB fornisce failover regionale trasparente con API multihosting. È possibile scalare in modo elastico la velocità effettiva e l'archiviazione su scala globale.
+  Azure Cosmos DB replica in modo trasparente i dati del grafo in tutte le aree associate all'account. La replica consente di sviluppare applicazioni che richiedono l'accesso ai dati globale. Sussistono compromessi in termini di coerenza, disponibilità e prestazioni e garanzie corrispondenti. Azure Cosmos DB fornisce failover regionale trasparente con API multihosting. È possibile scalare in modo elastico la velocità effettiva e l'archiviazione su scala globale.
 
 * Query rapide e attraversamenti con la sintassi Gremlin nota
 
- Archiviare bordi e vertici eterogenei ed eseguire query nei documenti tramite una sintassi Gremlin familiare. Azure Cosmos DB usa una tecnologia di indicizzazione a simultaneità elevata, priva di blocchi e strutturata a log per indicizzare automaticamente l'intero contenuto. Questa funzionalità consente di eseguire attraversamenti e query avanzati in tempo reale senza la necessità di specificare hint di schema, indici secondari o visualizzazioni. Per altre informazioni, vedere [Eseguire query sui grafi usando Gremlin](gremlin-support.md).
+  Archiviare bordi e vertici eterogenei ed eseguire query nei documenti tramite una sintassi Gremlin familiare. Azure Cosmos DB usa una tecnologia di indicizzazione a simultaneità elevata, priva di blocchi e strutturata a log per indicizzare automaticamente l'intero contenuto. Questa funzionalità consente di eseguire attraversamenti e query avanzati in tempo reale senza la necessità di specificare hint di schema, indici secondari o visualizzazioni. Per altre informazioni, vedere [Eseguire query sui grafi usando Gremlin](gremlin-support.md).
 
 * Soluzione completamente gestita
 
- Azure Cosmos DB elimina la necessità di gestire le risorse di database e computer. Questo servizio di Microsoft Azure completamente gestito non richiede la gestione di macchine virtuali, la distribuzione e la configurazione di software, la gestione della scalabilità o di complessi aggiornamenti a livello dati. Il backup di ogni grafo viene eseguito automaticamente e ogni grafo è protetto da errori nell'area geografica specifica. È possibile aggiungere con facilità un account Azure Cosmos DB ed eseguire il provisioning della capacità in base alle esigenze in modo da potersi concentrare sull'applicazione anziché sul funzionamento e sulla gestione del database.
+  Azure Cosmos DB elimina la necessità di gestire le risorse di database e computer. Questo servizio di Microsoft Azure completamente gestito non richiede la gestione di macchine virtuali, la distribuzione e la configurazione di software, la gestione della scalabilità o di complessi aggiornamenti a livello dati. Il backup di ogni grafo viene eseguito automaticamente e ogni grafo è protetto da errori nell'area geografica specifica. È possibile aggiungere con facilità un account Azure Cosmos DB ed eseguire il provisioning della capacità in base alle esigenze in modo da potersi concentrare sull'applicazione anziché sul funzionamento e sulla gestione del database.
 
 * Indicizzazione automatica
 
- Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà all'interno di nodi e bordi nel grafo e non prevede né richiede schemi o la creazione di indici secondari.
+  Per impostazione predefinita, Azure Cosmos DB indicizza automaticamente tutte le proprietà all'interno di nodi e bordi nel grafo e non prevede né richiede schemi o la creazione di indici secondari.
 
 * Compatibilità con Apache TinkerPop
 
- Azure Cosmos DB supporta in modo nativo lo standard Gremlin open source e può essere integrato con altri sistemi a grafi che supportano TinkerPop. In questo modo, è possibile migrare con facilità da un altro database di grafi come Titan o Neo4j o usare Azure Cosmos DB con framework di analisi dei grafi come Apache Spark GraphX.
+  Azure Cosmos DB supporta in modo nativo lo standard Gremlin open source e può essere integrato con altri sistemi a grafi che supportano TinkerPop. In questo modo, è possibile migrare con facilità da un altro database di grafi come Titan o Neo4j o usare Azure Cosmos DB con framework di analisi dei grafi come Apache Spark GraphX.
 
 * Livelli di coerenza regolabili
 
- È possibile scegliere tra cinque livelli di coerenza ben definiti per ottenere un compromesso ottimale tra coerenza e prestazioni. Per query e operazioni di lettura, Azure Cosmos DB offre cinque livelli di coerenza distinti, ovvero avanzata, con decadimento ristretto, sessione, prefisso coerente e futura. Questi livelli di coerenza granulari e ben definiti permettono di ottenere un compromesso ottimale tra coerenza, disponibilità e latenza. Per altre informazioni, vedere [Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB](consistency-levels.md).
+  È possibile scegliere tra cinque livelli di coerenza ben definiti per ottenere un compromesso ottimale tra coerenza e prestazioni. Per query e operazioni di lettura, Azure Cosmos DB offre cinque livelli di coerenza distinti, ovvero avanzata, con decadimento ristretto, sessione, prefisso coerente e futura. Questi livelli di coerenza granulari e ben definiti permettono di ottenere un compromesso ottimale tra coerenza, disponibilità e latenza. Per altre informazioni, vedere [Livelli di coerenza dei dati ottimizzabili in Azure Cosmos DB](consistency-levels.md).
 
 Azure Cosmos DB consente anche di usare più modelli, come il documento e il grafo all'interno degli stessi contenitori/database. È possibile usare un contenitore di documenti per archiviare i dati del grafico in modo affiancato con documenti. È possibile utilizzare query SQL su JSON e query Gremlin per eseguire query sugli stessi dati come grafo.
 
@@ -123,19 +123,19 @@ Ecco alcuni scenari in cui è possibile usare il supporto di Graph di Azure Cosm
 
 * Social network
 
- Combinando i dati sui clienti e le relative interazioni con altri utenti, è possibile sviluppare esperienze personalizzate, prevedere il comportamento dei clienti o connettere gli utenti ad altri utenti con interessi simili. Azure Cosmos DB consente di gestire le social network e tenere traccia dei dati e delle preferenze dei clienti.
+  Combinando i dati sui clienti e le relative interazioni con altri utenti, è possibile sviluppare esperienze personalizzate, prevedere il comportamento dei clienti o connettere gli utenti ad altri utenti con interessi simili. Azure Cosmos DB consente di gestire le social network e tenere traccia dei dati e delle preferenze dei clienti.
 
 * Motore di raccomandazione
 
- Questo scenario viene comunemente usato nel settore della vendita al dettaglio. Combinando informazioni su prodotti, utenti e interazioni utente come acquisti, esplorazioni o valutazioni di un elemento, è possibile generare raccomandazioni personalizzate. La bassa latenza, il ridimensionamento elastico, il supporto nativo per grafi di Azure Cosmos DB è ideale per la modellazione di queste interazioni.
+  Questo scenario viene comunemente usato nel settore della vendita al dettaglio. Combinando informazioni su prodotti, utenti e interazioni utente come acquisti, esplorazioni o valutazioni di un elemento, è possibile generare raccomandazioni personalizzate. La bassa latenza, il ridimensionamento elastico, il supporto nativo per grafi di Azure Cosmos DB è ideale per la modellazione di queste interazioni.
 
 * GeoSpatial
 
- Molte applicazioni nel settore delle telecomunicazioni, della logistica e della pianificazione di viaggi devono individuare una posizione di interesse all'interno di una determinata area oppure trovare l'itinerario più breve/ottimale tra due posizioni. Azure Cosmos DB è una scelta ideale in questi scenari.
+  Molte applicazioni nel settore delle telecomunicazioni, della logistica e della pianificazione di viaggi devono individuare una posizione di interesse all'interno di una determinata area oppure trovare l'itinerario più breve/ottimale tra due posizioni. Azure Cosmos DB è una scelta ideale in questi scenari.
 
 * Internet delle cose
 
- Con la rete e le connessioni tra dispositivi IoT modellati come grafo, è possibile comprendere meglio lo stato dei dispositivi e degli asset e come le modifiche apportate in una parte della rete possono potenzialmente influire su un'altra parte.
+  Con la rete e le connessioni tra dispositivi IoT modellati come grafo, è possibile comprendere meglio lo stato dei dispositivi e degli asset e come le modifiche apportate in una parte della rete possono potenzialmente influire su un'altra parte.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sul supporto di Graph in Azure Cosmos DB, vedere:

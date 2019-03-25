@@ -7,14 +7,14 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 01/08/2018
 ms.author: lbosq
-ms.openlocfilehash: b431d1b739342c54cbc218efdfded1ee516ecaa7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 06601fbad43b3daf00e06efbe95a092e76559e36
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586393"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849823"
 ---
-# <a name="quickstart-create-query-and-traverse-a-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
+# <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Avvio rapido: Creare, eseguire query e attraversare un database a grafo di Azure Cosmos DB usando la console Gremlin
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -53,7 +53,7 @@ Per creare un account Azure Cosmos DB per questa guida di avvio rapido, è neces
 1. Prima di avviare la console Gremlin, creare o modificare il file di configurazione remote-secure.yaml nella directory `apache-tinkerpop-gremlin-console-3.2.5/conf`.
 2. Immettere le configurazioni per *host*, *port*, *username*, *password*, *connectionPool* e *serializer* in base alla tabella seguente:
 
-    Impostazione|Valore consigliato|Descrizione
+    Impostazione|Valore consigliato|DESCRIZIONE
     ---|---|---
     hosts|[*account-name*.gremlin.cosmosdb.azure.com] o [*account-name*.graphs.azure.com] per gli account creati prima del 20 dicembre 2017|Vedere lo screenshot seguente. Si tratta del valore URI Gremlin disponibile nella pagina Panoramica del portale di Azure, tra parentesi quadre, senza la parte finale :443/.
     port|443|Impostare su 443.
@@ -81,13 +81,13 @@ serializer: { className: org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessage
 
 assicurarsi di inserire il valore del parametro di host all'interno di parentesi quadre []. 
 
-3. Nel terminale eseguire `bin/gremlin.bat` o `bin/gremlin.sh` per avviare la [console Gremlin](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
-4. Nel terminale eseguire `:remote connect tinkerpop.server conf/remote-secure.yaml` per connettersi al servizio app.
+1. Nel terminale eseguire `bin/gremlin.bat` o `bin/gremlin.sh` per avviare la [console Gremlin](https://tinkerpop.apache.org/docs/3.2.5/tutorials/getting-started/).
+1. Nel terminale eseguire `:remote connect tinkerpop.server conf/remote-secure.yaml` per connettersi al servizio app.
 
     > [!TIP]
     > Se viene visualizzato l'errore `No appenders could be found for logger` assicurarsi di aver aggiornato il valore del serializzatore nel file remote-secure.yaml come descritto nel passaggio 2. 
 
-5. Eseguire poi `:remote console` per reindirizzare tutti i comandi della console al server remoto.
+1. Eseguire poi `:remote console` per reindirizzare tutti i comandi della console al server remoto.
 
    > [!NOTE]
    > Se non si esegue il comando `:remote console` ma si desidera reindirizzare tutti i comandi della console al server remoto, si dovrebbe mettere il prefisso `:>` al comando, ad esempio si dovrebbe eseguire il comando come `:> g.V().count()`. Questo prefisso è parte integrante del comando ed è importante quando si usa la console Gremlin con Azure Cosmos DB. Se il prefisso viene omesso, la console esegue il comando in locale, spesso su un grafo in memoria. L'uso del prefisso `:>` indica alla console di eseguire un comando remoto, in questo caso su Azure Cosmos DB (l'emulatore localhost o un'istanza di Azure).

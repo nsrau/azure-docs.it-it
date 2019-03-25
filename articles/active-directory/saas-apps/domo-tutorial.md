@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 058626e4-73b3-4dc2-86ca-b060d002d70a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0de0f05a2f3609a522b7f400ca94ffcd41b83751
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1bc4118e54b2049f7e5d6cf4ed3b92bfc5e41ae7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867899"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57904951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-domo"></a>Esercitazione: Integrazione di Azure Active Directory con Domo
 
@@ -110,8 +110,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Domo, seguire questa pr
     a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.domo.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente:
+    
     | |
-    |--|    
+    |--|
     | `https://<companyname>.domo.com` |
     | `https://<companyname>.beta.domo.com` |
     | `https://<companyname>.demo.domo.com` |
@@ -193,7 +194,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
