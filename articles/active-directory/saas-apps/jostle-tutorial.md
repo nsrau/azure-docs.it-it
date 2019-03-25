@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 9ca4ca1f-8f68-4225-81a6-1666b486d6a8
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5483d4e50770f3e4cd323c654cbab8cc7794a517
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 9fd2e9c90a7ae2593b2b4d6502ce55b3aee579db
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984357"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57903566"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Esercitazione: Integrazione di Azure Active Directory con Jostle
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Jostle con Azure Active Directory (
 L'integrazione di Jostle con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Jostle.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Jostle con i loro account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Jostle con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-jostle-from-the-gallery"></a>Aggiunta di Jostle dalla raccolta
 
-Per configurare l'integrazione di Jostle in Azure AD, è necessario aggiungere Jostle dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Jostle in Azure AD, è necessario aggiungere Jostle dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Jostle dalla raccolta, seguire questa procedura:**
 
@@ -67,14 +67,14 @@ Per configurare l'integrazione di Jostle in Azure AD, è necessario aggiungere J
 
 4. Nella casella di ricerca digitare **Jostle**, selezionare **Jostle** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Jostle nell'elenco dei risultati](common/search-new-app.png)
+     ![Jostle nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Jostle usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Jostle.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Jostle, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Jostle, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Jostle](#configure-jostle-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -131,7 +131,7 @@ Per configurare l'accesso Single Sign-On sul lato **Jostle**, è necessario invi
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -147,7 +147,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -156,13 +156,13 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Jostle.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Jostle.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Jostle**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni, selezionare **Jostle**.
+2. Nell'elenco delle applicazioni selezionare **Jostle**.
 
     ![Collegamento a Jostle nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -180,7 +180,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-jostle-test-user"></a>Creare un utente di test di Jostle
+### <a name="create-jostle-test-user"></a>Creare l'utente di test di Jostle
 
 In questa sezione viene creato un utente chiamato Britta Simon in Jostle. Collaborare con il  [team di supporto di Jostle](mailto:support@jostle.me) per aggiungere gli utenti alla piattaforma Jostle. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

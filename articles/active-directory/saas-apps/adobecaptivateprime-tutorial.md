@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2f95b226-1465-47f4-b8b7-de4b0772abbc
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 90d82e8c253cd89664aefb9b690a8323d99318c2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1d48eb0605648ba09478d5481d35b61ff4f06a45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901101"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-captivate-prime"></a>Esercitazione: Integrazione di Azure Active Directory con Adobe Captivate Prime
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-adobe-captivate-prime-from-the-gallery"></a>Aggiunta di Adobe Captivate Prime dalla raccolta
 
-Per configurare l'integrazione di Adobe Captivate Prime in Azure AD, è necessario aggiungere Adobe Captivate Prime dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Adobe Captivate Prime in Azure AD, è necessario aggiungere Adobe Captivate Prime dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Adobe Captivate Prime dalla raccolta, seguire questa procedura:**
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di Adobe Captivate Prime in Azure AD, è necessar
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Adobe Captivate Prime.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Adobe Captivate Prime](#configure-adobe-captivate-prime-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Adobe Captivate Prime](#create-adobe-captivate-prime-test-user)**: per avere una controparte di Britta Simon in Adobe Captivate Prime collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime, 
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
 
-    ![Informazioni su URL e dominio per Single Sign-On di Adobe Captivate Prime](common/idp-intiated.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Adobe Captivate Prime](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL: `https://captivateprime.adobe.com`
 
@@ -131,9 +131,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Adobe Captivate Prime, 
 
 Per configurare l'accesso Single Sign-On sul lato **Adobe Captivate Prime**, è necessario inviare il file **XML metadati federazione** scaricato, l'**URL di accesso utente** copiato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Adobe Captivate Prime](mailto:captivateprimesupport@adobe.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -149,24 +149,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione viene concesso a Britta Simon l'accesso ad Adobe Captivate Prime per consentirle di usare l'accesso Single Sign-On di Azure.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Adobe Captivate Prime.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Adobe Captivate Prime**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Adobe Captivate Prime**.
+2. Nell'elenco delle applicazioni selezionare **Adobe Captivate Prime**.
 
-    ![Collegamento ad Adobe Captivate Prime nell'elenco di applicazioni](common/all-applications.png)
+    ![Collegamento ad Adobe Captivate Prime nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Scegliere **Utenti e gruppi** dal menu a sinistra.
 

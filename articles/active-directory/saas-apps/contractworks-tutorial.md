@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e7b269d6-3c4e-4bc4-a55f-5071d1f52591
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f943c33c6aebf8c477b15bef2c1ed55ae60ee0ef
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a8d6ee5d4d9db8f6c91d43f72135ba42d6735287
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866420"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893000"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-contractworks"></a>Esercitazione: Integrazione di Azure Active Directory con ContractWorks
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare ContractWorks con Azure Active Dire
 L'integrazione di ContractWorks con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a ContractWorks.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a ContractWorks con gli account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a ContractWorks con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -49,9 +49,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-contractworks-from-the-gallery"></a>Aggiunta di ContractWorks dalla raccolta
 
-Per configurare l'integrazione di ContractWorks in Azure AD, è necessario aggiungere ContractWorks dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di ContractWorks in Azure AD, è necessario aggiungere ContractWorks dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere ContractWorks dalla raccolta, eseguire queste operazioni:**
+**Per aggiungere ContractWorks dalla raccolta, seguire questa procedura:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -67,19 +67,19 @@ Per configurare l'integrazione di ContractWorks in Azure AD, è necessario aggiu
 
 4. Nella casella di ricerca digitare **ContractWorks**, selezionare **ContractWorks** dal pannello dei risultati e fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![ContractWorks nell'elenco dei risultati](common/search-new-app.png)
+     ![ContractWorks nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ContractWorks usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ContractWorks.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ContractWorks, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con ContractWorks, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per ContractWorks](#configure-contractworks-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di ContractWorks](#create-contractworks-test-user)**: per avere una controparte di Britta Simon in ContractWorks collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -103,7 +103,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ContractWorks, seguire 
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione nella modalità avviata da **IDP**:
 
-    ![Informazioni su URL e dominio di ContractWorks per l'accesso Single Sign-On](common/idp-identifier.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di ContractWorks](common/idp-identifier.png)
 
     Nella casella di testo **Identificatore** digitare un URL: `https://login.securedocs.com/saml/metadata`
 
@@ -119,7 +119,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ContractWorks, seguire 
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura: 
 
-    | NOME | Source Attribute|
+    | Nome | Attributo di origine|
     | ---------------| --------------- |
     | mail | user.mail |
     | displayName | user.displayname |
@@ -150,9 +150,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con ContractWorks, seguire 
 
 Per configurare l'accesso Single Sign-On sul lato **ContractWorks**, è necessario inviare l'**URL dei metadati di federazione dell'app** al [team di supporto di ContractWorks](mailto:support@contractworks.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -168,16 +168,16 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ContractWorks.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ContractWorks.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ContractWorks**.
 

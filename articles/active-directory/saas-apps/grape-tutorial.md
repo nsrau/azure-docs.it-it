@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Gra-Pe | Microsoft Docs'
+title: 'Esercitazione: integrazione di Azure Active Directory con Gra-Pe | Microsoft Docs'
 description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Gra-Pe.
 services: active-directory
 documentationCenter: na
@@ -7,21 +7,21 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 073f8641-b64d-4754-b1a6-2b91c865b13d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 689d0cdea70da4f4ad3c11ba25025ac4f9f342fb
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 192db67f481f3a4c420c19be7ce1febe55342050
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866148"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901373"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Esercitazione: Integrazione di Azure Active Directory con Gra-Pe
+# <a name="tutorial-azure-active-directory-integration-with-gra-pe"></a>Esercitazione: integrazione di Azure Active Directory con Gra-Pe
 
 Questa esercitazione descrive come integrare Gra-Pe con Azure Active Directory (Azure AD).
 L'integrazione di Gra-Pe con Azure AD offre i vantaggi seguenti:
@@ -118,7 +118,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Gra-Pe, seguire questa 
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-gra-pe-single-sign-on"></a>Configurare l'accesso Single Sign-On per Gra-Pe
 
@@ -142,7 +142,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -155,7 +155,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Gra-Pe**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **Gra-Pe**.
 

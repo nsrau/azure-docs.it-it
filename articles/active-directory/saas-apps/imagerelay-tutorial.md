@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 65bb5990-07ef-4244-9f41-cd28fc2cb5a2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b9675289ab14b00d565a5863600845d42b55030
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 63fbab5fffbcc30d0242d223fd8a6b5796c2aeae
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985955"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901900"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-image-relay"></a>Esercitazione: Integrazione di Azure Active Directory con Image Relay
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Image Relay con Azure Active Direct
 L'integrazione di Image Relay con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Image Relay.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Image Relay con i loro account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Image Relay con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-image-relay-from-the-gallery"></a>Aggiunta di Image Relay dalla raccolta
 
-Per configurare l'integrazione di Image Relay in Azure AD, è necessario aggiungere Image Relay dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Image Relay in Azure AD, è necessario aggiungere Image Relay dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Image Relay dalla raccolta, seguire questa procedura:**
 
@@ -67,14 +67,14 @@ Per configurare l'integrazione di Image Relay in Azure AD, è necessario aggiung
 
 4. Nella casella di ricerca digitare **Image Relay**, selezionare **Image Relay** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-    ![Image Relay nell'elenco dei risultati](common/search-new-app.png)
+    ![Image Relay nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Image Relay usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Image Relay.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Image Relay, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Image Relay, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Image Relay](#configure-image-relay-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
@@ -105,9 +105,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Image Relay, seguire qu
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Image Relay](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.imagerelay.com/`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.imagerelay.com/`
 
-    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL usando il modello seguente: `https://<companyname>.imagerelay.com/sso/metadata`
+    b. Nella casella di testo **Identificatore (ID entità)** digitare un URL nel formato seguente: `https://<companyname>.imagerelay.com/sso/metadata`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori contattare il [team di supporto clienti di Image Relay](http://support.imagerelay.com/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -182,7 +182,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Image Relay, seguire qu
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -198,7 +198,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -207,13 +207,13 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Image Relay.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Image Relay.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Image Relay**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Image Relay**.
+2. Nell'elenco delle applicazioni selezionare **Image Relay**.
 
     ![Collegamento a Image Relay nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -231,7 +231,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-image-relay-test-user"></a>Creare un utente di test di Image Relay
+### <a name="create-image-relay-test-user"></a>Creare l'utente di test di Image Relay
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Image Relay.
 

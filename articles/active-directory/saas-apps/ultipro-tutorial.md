@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: afc0f2b9-2eac-47ec-af04-65ed0fb0ca5a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1152ff23db9c53ef36db537acdd75acb19223b2a
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 77d2312c5a20aa6b90586d47ee120593e807295e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873186"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893578"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ultipro"></a>Esercitazione: Integrazione di Azure Active Directory con UltiPro
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-ultipro-from-the-gallery"></a>Aggiunta di UltiPro dalla raccolta
 
-Per configurare l'integrazione di UltiPro in Azure AD, è necessario aggiungere UltiPro dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di UltiPro in Azure AD, è necessario aggiungere UltiPro dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere UltiPro dalla raccolta, seguire questa procedura:**
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di UltiPro in Azure AD, è necessario aggiungere 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con UltiPro usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in UltiPro.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con UltiPro, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con UltiPro, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di UltiPro](#configure-ultipro-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di UltiPro](#create-ultipro-test-user)**: per avere una controparte di Britta Simon in UltiPro collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -106,6 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UltiPro, seguire questa
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di UltiPro](common/sp-identifier-reply.png)
 
     a. Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/`|
@@ -113,6 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UltiPro, seguire questa
     | ` https://<companyname>.ultipro.ca`|
     
     b. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
+
     | |
     |--|
     | `https://<companyname>.ultipro.com/adfs/services/trust`|
@@ -120,6 +122,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UltiPro, seguire questa
     | `https://<companyname>.ultipro.ca/adfs/services/trust`|
     
     c. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente:
+    
     | |
     |--|
     | `https://<companyname>.ultipro.com/<instancename>`|
@@ -133,7 +136,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con UltiPro, seguire questa
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura UltiPro** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura UltiPro** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -147,9 +150,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con UltiPro, seguire questa
 
 Per configurare l'accesso Single Sign-On sul lato **UltiPro**, è necessario inviare il file **Certificato (Base64)** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di UltiPro](https://www.ultimatesoftware.com/ContactUs). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -165,16 +168,16 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a UltiPro.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a UltiPro.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **UltiPro**.
 
@@ -198,7 +201,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-ultipro-test-user"></a>Creare un utente di test di UltiPro
+### <a name="create-ultipro-test-user"></a>Creare l'utente di test di UltiPro
 
 In questa sezione viene creato un utente di nome Britta Simon in UltiPro. Collaborare con il  [team di supporto di UltiPro](https://www.ultimatesoftware.com/ContactUs) per aggiungere gli utenti nella piattaforma UltiPro. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 

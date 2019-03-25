@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 8264159a-11a2-4a8c-8285-4efea0adac8c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,20 +15,20 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 595f1242a93fd6970756b9f6b0b156cb46a93062
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 4aa6a88971ca69fa910435d00722dcdf12db44f1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880892"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clear-review"></a>Esercitazione: Integrazione di Azure Active Directory con Clear Review
 
 Questa esercitazione descrive come integrare Clear Review con Azure Active Directory (Azure AD).
 L'integrazione di Clear Review con Azure AD offre i vantaggi seguenti:
 
-* In Azure AD è possibile controllare chi può accedere a Clear Review.
-* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Clear Review con gli account Azure AD.
+* È possibile controllare in Azure AD chi può accedere a Clear Review.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Clear Review con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-clear-review-from-the-gallery"></a>Aggiunta di Clear Review dalla raccolta
 
-Per configurare l'integrazione di Clear Review in Azure AD, è necessario aggiungere Clear Review dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Clear Review in Azure AD, è necessario aggiungere Clear Review dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Clear Review dalla raccolta, seguire questa procedura:**
 
@@ -74,12 +74,12 @@ Per configurare l'integrazione di Clear Review in Azure AD, è necessario aggiun
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Clear Review usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Clear Review.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Clear Review, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Clear Review, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Clear Review](#configure-clear-review-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Clear Review](#create-clear-review-test-user)**: per avere una controparte di Britta Simon in Clear Review collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<customer name>.clearreview.com/sso/metadata/`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<customer name>.clearreview.com/sso/acs/`
+    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<customer name>.clearreview.com/sso/acs/`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
     
-    | NOME | Source Attribute | 
+    | Nome | Attributo di origine | 
     | ---------------| --------------- |
     | Valore identificatore nome   | user.mail |
 
@@ -186,9 +186,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Clear Review, seguire q
 
 5. Fare clic su **Save**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -204,16 +204,16 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Clear Review.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Clear Review.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Clear Review**.
 
