@@ -1,22 +1,22 @@
 ---
-title: Identificare i problemi con la funzionalità di diagnostica (anteprima) - Azure
-description: Descrive la funzionalità di diagnostica di Desktop virtuale Windows e come usarlo.
+title: Identificare i problemi con la funzionalità di diagnostica di anteprima di Desktop virtuale Windows - Azure
+description: Descrive la funzionalità di diagnostica di anteprima di Desktop virtuale Windows e come usarlo.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: f44f4d632fa1fc607f3933be8e15eb939e20a8ae
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318615"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402848"
 ---
-# <a name="identify-issues-with-the-diagnostics-feature-preview"></a>Identificare i problemi con la funzionalità di diagnostica (anteprima)
+# <a name="identify-issues-with-the-diagnostics-feature"></a>Identificare i problemi con la funzionalità di diagnostica
 
-Windows Virtual Desktop (anteprima) offre funzionalità di diagnostica (anteprima) che consente all'amministratore di identificare i problemi tramite una singola interfaccia. I ruoli di Desktop virtuale Windows di un'attività di diagnostica log ogni volta che un utente interagisce con il sistema. Ogni log contiene informazioni rilevanti, ad esempio i ruoli di Desktop virtuale Windows coinvolti nella transazione, i messaggi di errore, le informazioni del tenant e le informazioni utente. Le attività di diagnostica vengono create sia per l'utente finale e le azioni amministrative e possono essere suddivise in tre bucket principali:
+Anteprima di Desktop virtuale Windows offre funzionalità di diagnostica che consente all'amministratore di identificare i problemi tramite una singola interfaccia. I ruoli di Desktop virtuale Windows di un'attività di diagnostica log ogni volta che un utente interagisce con il sistema. Ogni log contiene informazioni rilevanti, ad esempio i ruoli di Desktop virtuale Windows coinvolti nella transazione, i messaggi di errore, le informazioni del tenant e le informazioni utente. Le attività di diagnostica vengono create sia per l'utente finale e le azioni amministrative e possono essere suddivise in tre bucket principali:
 
 * Feed attività di sottoscrizione: l'utente finale attiva queste attività ogni volta che tentano di connettersi a dei feed tramite le applicazioni Desktop remoto Microsoft.
 * Le attività di connessione: l'utente finale attiva queste attività ogni volta che tentano di connettersi a RemoteApp o desktop tramite le applicazioni Desktop remoto Microsoft.
@@ -145,7 +145,7 @@ Nella tabella seguente elenca gli amministratori potrebbero riscontrare alcuni e
 |8000|InvalidAuthorizationRoleScope|Il nome del ruolo che è stato immesso non corrisponde a tutti i nomi dei ruoli esistenti. Esaminare il nome del ruolo presenti errori di digitazione e riprovare. |
 |8001|UserNotFound |Il nome utente immesso non corrisponde ad alcun nome utente. Esaminare il nome per errori di digitazione e riprovare.|
 |8005|UserNotFoundInAAD |Il nome utente immesso non corrisponde ad alcun nome utente. Esaminare il nome per errori di digitazione e riprovare.|
-|8008|TenantConsentRequired|Seguire le istruzioni riportate [qui](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-service) per fornire il consenso per il tenant.|
+|8008|TenantConsentRequired|Seguire le istruzioni riportate [qui](tenant-setup-azure-active-directory.md#grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service) per fornire il consenso per il tenant.|
 
 ### <a name="external-connection-error-codes"></a>Codici di errore di connessione esterna
 
@@ -164,6 +164,6 @@ Nella tabella seguente elenca gli amministratori potrebbero riscontrare alcuni e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui ruoli all'interno di Desktop virtuale Windows, vedere [ambiente di Desktop virtuale Windows](environment-setup.md).
+Per altre informazioni sui ruoli all'interno di Desktop virtuale Windows, vedere [ambiente di anteprima di Desktop virtuale Windows](environment-setup.md).
 
 Per visualizzare un elenco di cmdlet di PowerShell disponibili per Windows Desktop virtuale, vedere la [riferimento a PowerShell](/powershell/windows-virtual-desktop/overview).

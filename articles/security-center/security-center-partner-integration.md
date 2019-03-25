@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/3/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5a25ba889ebde750937f88e447123263a82d5627
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e756a0a7af9ad89e3aad8b0dbe27a870a3f855c1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57896824"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400941"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -229,8 +229,6 @@ Di seguito sono riportati due query Splunk che è possibile usare per eseguire i
 
 In questo articolo è stato illustrato come integrare soluzioni partner nel Centro sicurezza. Per altre informazioni sul Centro sicurezza, vedere gli articoli seguenti:
 
-* [Connecting Microsoft Advanced Threat Analytics to Azure Security Center (Connessione di Microsoft Advanced Threat Analytics al Centro sicurezza di Azure)](security-center-ata-integration.md)
-* [Connessione di Azure Active Directory Identity Protection al Centro sicurezza di Azure](security-center-aadip-integration.md)
 * [Monitoraggio dell'integrità della sicurezza nel Centro sicurezza di Azure](security-center-monitoring.md). Informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md). Informazioni su come monitorare lo stato integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](security-center-faq.md). Risposte alle domande frequenti sull'uso del Centro sicurezza.

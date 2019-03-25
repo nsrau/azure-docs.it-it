@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/25/2019
+ms.date: 3/20/2019
 ms.author: monhaber
-ms.openlocfilehash: dd7dad51f29b4b5034c72085cd789077747faa0b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fa664952f3eb7d6f9e611fb87a9e484e97f388a2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106560"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403834"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Protezione delle macchine virtuali nel Centro sicurezza di Azure
-Il Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
+Centro sicurezza di Azure analizza lo stato di sicurezza delle risorse di Azure, il server non di Azure e macchine virtuali. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari. Le raccomandazioni sono applicabili a diversi tipi di risorse di Azure, ovvero macchine virtuali (VM) e computer, applicazioni, risorse di rete, SQL, identità e accesso.
 
 Questo articolo illustra le raccomandazioni relative alle macchine e alle applicazioni.
 
@@ -53,7 +53,7 @@ Per continuare, selezionare **Risorse di calcolo e app** in **Protezione della s
 In ogni scheda possono essere presenti più sezioni ed è possibile selezionare in ogni sezione una singola opzione per visualizzare altri dettagli sulla procedura consigliata per risolvere il problema.
 
 ### Macchine virtuali e computer non monitorati <a name="unmonitored-vms-and-computers"></a>
-Una macchina virtuale o un computer non è monitorata dal Centro sicurezza se non esegue l'estensione Microsoft Monitoring Agent. È possibile che in una macchina sia già installato un agente locale, ad esempio l'agente diretto di OMS o l'agente di SCOM. Le macchine virtuali con questi agenti vengono identificate come non monitorate perché tali agenti non sono supportati completamente nel Centro sicurezza. Per sfruttare in modo ottimale i vantaggi di tutte le funzionalità del Centro sicurezza, è necessaria l'estensione Microsoft Monitoring Agent.
+Una macchina virtuale o un computer non è monitorata dal Centro sicurezza se non esegue l'estensione Microsoft Monitoring Agent. Un computer potrebbe avere già installato un agente locale, ad esempio OMS diretto agente o dell'agente System Center Operations Manager. Le macchine virtuali con questi agenti vengono identificate come non monitorate perché tali agenti non sono supportati completamente nel Centro sicurezza. Per sfruttare in modo ottimale i vantaggi di tutte le funzionalità del Centro sicurezza, è necessaria l'estensione Microsoft Monitoring Agent.
 
 È possibile installare l'estensione nella VM o del computer non monitorata oltre all'agente locale già installato. Configurare gli agenti allo stesso modo, connettendoli alla stessa area di lavoro. Ciò consente al Centro sicurezza di interagire con l'estensione Microsoft Monitoring Agent e raccogliere dati. Vedere [Abilitare l'estensione macchina virtuale](../azure-monitor/learn/quick-collect-azurevm.md) per istruzioni su come installare l'estensione Microsoft Monitoring Agent.
 
@@ -103,7 +103,7 @@ Esistono quattro tipi di icone rappresentate in questo elenco:
 ![VM classica di Azure](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon3.png) VM classica di Azure.
 
 
-![VM identificate dall'area di lavoro](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VM identificate solo dall'area di lavoro che fa parte della sottoscrizione visualizzata. Comprende le macchine virtuali di altre sottoscrizioni che inviano report all'area di lavoro in questa sottoscrizione e le macchine virtuali che sono state installate con l'agente SCOM diretto e non hanno un ID di risorsa.
+![VM identificate dall'area di lavoro](./media/security-center-virtual-machine-recommendations/security-center-monitoring-icon4.png) VM identificate solo dall'area di lavoro che fa parte della sottoscrizione visualizzata. Ciò include le macchine virtuali da altre sottoscrizioni report all'area di lavoro in questa sottoscrizione e le macchine virtuali che sono state installate con Operations Manager agente diretto e non dispone di alcun ID di risorsa.
 
 L'icona visualizzata sotto ogni raccomandazione consente di identificare rapidamente le macchine virtuali e i computer che richiedono attenzione e il tipo di raccomandazione. È anche possibile usare i filtri per cercare all'interno dell'elenco in base al **tipo di risorsa** e alla **gravità**.
 
@@ -172,7 +172,7 @@ Per installare Microsoft Monitoring Agent:
 
 Se si desidera impostare nuovi set di scalabilità affinché installino automaticamente Microsoft Monitoring Agent:
 1. Passare a Criteri di Azure e fare clic su **Definizioni**.
-2. Cercare il criterio **Deploy Log Analytics agent for Windows VM scale sets** (Implementa l'agente di Log Analytics per i set di scalabilità della macchina virtuale di Windows) e fare clic su di esso.
+2. Cercare il criterio **agente di distribuzione Log Analitica per set di scalabilità di macchine virtuali Windows** e fare clic su di esso.
 3. Fare clic su **Assegna**.
 4. Impostare l'**ambito** e l'**area di lavoro di Log Analytics** e fare clic su **Assegna**.
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: e0aa3468bda9f904d62e9e20545ac5f990cef521
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57905314"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400892"
 ---
 # <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Gestire l'accesso, potenza e la modalità di connettività per il bordo casella dati di Azure (anteprima)
 
@@ -31,11 +31,11 @@ In questo articolo viene spiegato come:
 
 ## <a name="manage-device-access"></a>Gestire l'accesso al dispositivo
 
-L'accesso al dispositivo Edge casella dei dati viene controllato mediante l'utilizzo di una password amministratore del dispositivo. È possibile modificare la password amministratore tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password amministratore del dispositivo nel portale di Azure.
+L'accesso per dispositivo Edge casella dei dati viene controllato mediante l'utilizzo di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
 
-### <a name="change-device-administrator-password"></a>Modificare la password amministratore del dispositivo
+### <a name="change-device-password"></a>Modificare la password del dispositivo
 
-Per modificare la password amministratore del dispositivo, completare questi passaggi nell'interfaccia utente locale.
+Seguire questi passaggi nell'interfaccia utente locale per modificare la password del dispositivo.
 
 1. Nell'interfaccia utente Web locale passare a **Manutenzione > Modifica password**.
 2. Immettere la password corrente e quindi quella nuova. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Confermare la nuova password.
@@ -44,7 +44,7 @@ Per modificare la password amministratore del dispositivo, completare questi pas
 
 3. Selezionare **Modifica password**.
  
-### <a name="reset-device-administrator-password"></a>Reimpostare la password amministratore del dispositivo
+### <a name="reset-device-password"></a>Reimposta password dispositivo
 
 Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecchia password ed è utile in caso di smarrimento della password. Questo flusso di lavoro viene eseguito nel portale di Azure.
 
@@ -63,7 +63,7 @@ Oltre la modalità sempre connessi predefinita, il dispositivo può anche esegui
 
 - **Completamente connesso** -si tratta della modalità predefinita normale in cui opera il dispositivo. In questa modalità è abilitato il caricamento di cloud e il download dei dati. È possibile usare il portale di Azure o l'interfaccia utente web locale per gestire il dispositivo.
 
-- **Parzialmente disconnesso**: in questa modalità il dispositivo non può caricare dati nelle condivisioni, ma può essere gestito tramite il portale di Azure.
+- **Parzialmente disconnesso** : In questa modalità, il dispositivo non è possibile caricare o scaricare qualsiasi condivisione di dati possono tuttavia essere gestiti tramite il portale di Azure.
 
     Questa modalità viene in genere usata in caso di rete satellitare a consumo e l'obiettivo consiste nel ridurre al minimo il consumo di larghezza di banda di rete. Può comunque avvenire un uso di rete minimo per le operazioni di monitoraggio del dispositivo.
 

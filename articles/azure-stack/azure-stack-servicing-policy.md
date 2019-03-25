@@ -16,12 +16,12 @@ ms.date: 03/07/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: b358609526c61b5acab83c02bdedd8cc06721425
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536482"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400541"
 ---
 # <a name="azure-stack-servicing-policy"></a>Criteri di manutenzione Azure Stack
 
@@ -35,7 +35,7 @@ I pacchetti di aggiornamento mensile sono ospitati in un endpoint protetto a Azu
 
 I pacchetti di aggiornamento hotfix sono ospitati nello stesso endpoint di Azure protetto. È possibile scaricarli manualmente usando i collegamenti incorporati in ognuno di articoli della Knowledge Base hotfix rispettivi; ad esempio, [Azure Stack Hotfix 1.1809.12.114](https://support.microsoft.com/help/4481548/azure-stack-hotfix-1-1809-12-114). Come per i pacchetti di aggiornamento complete, mensile, operatori di Azure Stack possono scaricare i file con estensione XML, con estensione bin e .exe e importarli usando la procedura descritta in [applicare gli aggiornamenti in Azure Stack](azure-stack-apply-updates.md). Gli operatori di Azure Stack con unità di scala connessa visualizzeranno i hotfix vengono visualizzati automaticamente nel portale di amministrazione con il messaggio **aggiornamento disponibile**.
 
-Se non è connessa l'unità di scala e si desidera ricevere una notifica ogni versione dell'hotfix, sottoscrivere il [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss … ) oppure [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom …) feed indicato in ogni versione.  
+Se non è connessa l'unità di scala e si desidera ricevere una notifica ogni versione dell'hotfix, sottoscrivere il [RSS](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss) oppure [ATOM](https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom) feed indicato in ogni versione.  
 
 ## <a name="update-package-types"></a>Tipi di pacchetto di aggiornamento
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 03/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 08f84a3e037301837da984b0891d978027dc2e11
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0a16fbda662ee1d3718dbafc4231de67aab277e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083165"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400679"
 ---
 # <a name="tutorial-detect-threats-with-azure-sentinel-preview"></a>Esercitazione: Rilevare le minacce con Sentinel anteprima di Azure
 
@@ -27,18 +27,21 @@ ms.locfileid: "58083165"
 > Sentinel Azure è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questa esercitazione consente di rilevare le minacce con Sentinel di Azure.
-
 Dopo aver [le origini dati connesse](quickstart-onboard.md) Sentinel di Azure, si desidera ricevere una notifica quando succede qualcosa di sospetto. Per consentire a tale scopo, Azure Sentinel consente di che creare avanzato e le regole di avviso, che generano i casi in cui è possibile assegnare per analizzare completamente le anomalie e le minacce nell'ambiente in uso. 
 
-
+Questa esercitazione consente di rilevare le minacce con Sentinel di Azure.
 > [!div class="checklist"]
 > * Creare regole di rilevamento
 > * Rispondere alle minacce
 
 ## <a name="create-detection-rules"></a>Creare regole di rilevamento
 
-Per analizzare i casi, è necessario innanzitutto creare le regole di rilevamento. Regole di rilevamento sono basate sui tipi di minacce e anomalie che potrebbero essere sospette nell'ambiente che si desidera conoscere sin da subito, assicurando sono visibili, esaminati e risolti. 
+Per analizzare i casi, è necessario innanzitutto creare le regole di rilevamento. 
+
+> [!NOTE]
+> Sono disponibili tramite gli avvisi generati in Azure Sentinel [Microsoft Graph Security](https://aka.ms/securitygraphdocs). Vedere le [documentazione degli avvisi di sicurezza di Microsoft Graph](https://aka.ms/graphsecurityreferencebetadocs) per ulteriori dettagli e i partner di integrazione.
+
+Regole di rilevamento sono basate sui tipi di minacce e anomalie che potrebbero essere sospette nell'ambiente che si desidera conoscere sin da subito, assicurando sono visibili, esaminati e risolti. 
 
 1. Nel portale di Azure in Azure Sentinel, selezionare **Analitica**.
 
@@ -87,7 +90,9 @@ Sentinel Azure offre due opzioni principali per rispondere alle minacce tramite 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questa esercitazione è stato descritto come iniziare a rilevare le minacce tramite Azure Sentinel. Continuare con l'esercitazione [come rispondere alle minacce tramite Playbook automatizzati](tutorial-respond-threats-playbook.md).
+In questa esercitazione è stato descritto come iniziare a rilevare le minacce tramite Azure Sentinel. 
+
+Per informazioni su come automatizzare le risposte alle minacce, [come rispondere alle minacce tramite Playbook automatizzati](tutorial-respond-threats-playbook.md).
 > [!div class="nextstepaction"]
 > [Rispondere alle minacce](tutorial-respond-threats-playbook.md) per automatizzare le risposte alle minacce.
 

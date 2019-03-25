@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: e3a24117cfd01c1c0bd0f08e8eca5adddf5ee7b6
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58119786"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403392"
 ---
-# <a name="data-box-edge-security-and-data-protection-preview"></a>Sicurezza bordo casella dei dati e protezione dei dati (anteprima)
+# <a name="data-box-edge-security-and-data-protection"></a>Sicurezza bordo casella dei dati e protezione dei dati
 
 Sicurezza è delle principali preoccupazioni ad adottare una nuova tecnologia, soprattutto se la tecnologia viene usata con dati riservati o proprietari. Soluzione bordo casella dei dati di Microsoft Azure consente di garantire che solo le entità autorizzate possono visualizzare, modificare o eliminare i dati.
 
@@ -27,9 +27,6 @@ La soluzione Edge casella dei dati di Azure è costituita da quattro componenti 
 - **Il dispositivo di bordo casella dati** : il dispositivo di trasferimento viene fornita all'utente per importare i dati in locale in Azure.
 - **Client/host connessi al dispositivo** – client nell'infrastruttura che si connettono al dispositivo Edge casella dei dati e contiene dati che devono essere protetti.
 - **Archiviazione cloud** – Posizione nel cloud di Azure in cui vengono archiviati i dati. Questo percorso è in genere l'account di archiviazione collegato alla risorsa bordo casella dei dati che è stato creato.
-
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione. 
 
 
 ## <a name="data-box-edgedata-box-gateway-service-protection"></a>Protezione di servizio finestra Edge/Data finestra Gateway dati
@@ -44,7 +41,7 @@ Il servizio Gateway di dati finestra Edge/Data finestra è un servizio di gestio
 Il dispositivo perimetrale casella dei dati è un dispositivo locale che aiuta a trasformare i dati da elaborarlo in locale e quindi inviarli ad Azure. Il dispositivo:
 
 - Richiede una chiave di attivazione per accedere al servizio Gateway di dati finestra Edge/Data finestra.
-- È protetta in tutte le volte in cui da una password amministratore del dispositivo.
+- È protetta in tutte le volte in cui da una password del dispositivo.
 - È un dispositivo bloccato. Il dispositivo BMC e BIOS è protetti da password con accesso utente limitato per il BIOS.
 - Avvio protetto è abilitato.
 - Viene eseguito Windows Defender Device Guard. Device Guard consente di eseguire solo applicazioni attendibili definite nei criteri di integrità del codice. 
@@ -68,14 +65,14 @@ Le password assicurarsi che i dati siano accessibili solo agli utenti autorizzat
 È possibile:
 
 - Connettersi all'interfaccia utente del dispositivo tramite un browser Web locale e quindi specificare una password per accedere al dispositivo.
-- Connettersi in remoto all'interfaccia di PowerShell del dispositivo tramite HTTP. Gestione remota è attivata per impostazione predefinita. È quindi possibile fornire la password amministratore del dispositivo per accedere al dispositivo. Per altre informazioni, visitare [Connect in modalità remota al dispositivo Edge finestra dati](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
+- Connettersi in remoto all'interfaccia di PowerShell del dispositivo tramite HTTP. Gestione remota è attivata per impostazione predefinita. È quindi possibile fornire la password del dispositivo per accedere al dispositivo. Per altre informazioni, visitare [Connect in modalità remota al dispositivo Edge finestra dati](data-box-edge-connect-powershell-interface.md#connect-to-the-powershell-interface).
 
 Tenere presenti le procedure consigliate seguenti:
 
 - Il servizio dati casella Edge non è possibile recuperare le password esistenti: è possibile ripristinare solo tramite il portale di Azure. È consigliabile archiviare tutte le password in un luogo sicuro per non dover reimpostare una password nel caso la si dimentichi. Se si reimposta una password, assicurarsi di notificarlo a tutti gli utenti prima di reimpostarla.
 - Utilizzo interfaccia utente al web locale [modificare la password](data-box-gateway-manage-access-power-connectivity-mode.md#manage-device-access). Se si modifica la password, assicurarsi di notificarlo a tutti gli utenti di accesso remoto in modo che non riscontrino un errore di accesso.
 - È possibile accedere l'interfaccia di Windows PowerShell del dispositivo in modalità remota su HTTP. Per una protezione ottimale, è necessario utilizzare HTTP solo su reti attendibili.
-- Assicurarsi che le password amministratore del dispositivo siano complesse e protette. Seguire le [procedure consigliate di Password](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
+- Assicurarsi che le password del dispositivo siano complesse e protette. Seguire le [procedure consigliate di Password](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices#enable-password-management).
 
 ## <a name="protect-the-data"></a>La protezione dei dati
 

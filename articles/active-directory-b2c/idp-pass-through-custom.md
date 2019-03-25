@@ -10,17 +10,16 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: cd24d4ad026af7d8bce70902376c3a31d659a203
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 784387b119bff6445015419adfd3bc0e52eee43f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427872"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402644"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Passare un token di accesso tramite un criterio personalizzato all'applicazione in Azure Active Directory B2C
 
-> [!NOTE]
-> Questa funzionalità è attualmente in anteprima pubblica.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 Un [criterio personalizzato](active-directory-b2c-get-started-custom.md) in Azure Active Directory (Azure AD) B2C fornisce agli utenti dell'applicazione un'opportunità di iscriversi o accedere con un provider di identità. Quando questo si verifica, Azure AD B2C riceve un [token di accesso](active-directory-b2c-reference-tokens.md) dal provider di identità. Azure AD B2C usa tale token per recuperare informazioni sull'utente. Aggiungere un tipo di attestazione e l'attestazione di output nel criterio personalizzato per passare il token attraverso le applicazioni registrate in Azure AD B2C. 
 

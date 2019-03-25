@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fa48d3825b5b942497b1eabd19a1eeb7e0141058
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 39198c0093f018b64a1292f023914651b51b4faf
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56003143"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403783"
 ---
 # <a name="select-a-page-contract-in-azure-active-directory-b2c-using-custom-policies"></a>Selezionare un contratto di pagina in Azure Active Directory B2C tramite criteri personalizzati
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 È possibile abilitare il codice lato client JavaScript nei criteri di Azure Active Directory (Azure AD) B2C, indipendentemente dal fatto che si usino flussi utente o criteri personalizzati. Questo articolo illustra come selezionare un contratto di pagina in Azure AD B2C configurandolo in [criteri personalizzati](active-directory-b2c-overview-custom.md). Un contratto di pagina è un'associazione di elementi forniti da Azure AD B2C e del contenuto fornito dall'utente. Se si prevede di usare [JavaScript](javascript-samples.md), è necessario definire una versione del contratto di pagina per tutte le definizioni del contenuto nei criteri personalizzati.
 

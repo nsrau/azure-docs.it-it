@@ -1,6 +1,6 @@
 ---
-title: Raccogliere i dati di Palo Alto nell'anteprima di Azure Sentinel | Microsoft Docs
-description: Informazioni su come raccogliere dati di Palo Alto Sentinel di Azure.
+title: Raccogliere i dati di Palo Alto Networks nell'anteprima di Azure Sentinel | Microsoft Docs
+description: Informazioni su come raccogliere dati di Palo Alto Networks Sentinel di Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 149b3b813091033bf5c1685e8b0793f955169808
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57841209"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403562"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Connettere il dispositivo di Palo Alto Networks
 
@@ -27,14 +27,14 @@ ms.locfileid: "57841209"
 > Sentinel Azure è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-È possibile connettere Azure Sentinel per qualsiasi dispositivo di Palo Alto Networks salvando i file di log di CEF Syslog. L'integrazione con Azure Sentinel consente di eseguire facilmente analitica e le query tra i dati dei file di log di Palo Alto. Per altre informazioni sul modo in cui Azure Sentinel CEF inserisce dati di tipo, vedere [Appliance connettersi CEF](connect-common-event-format.md).
+È possibile connettere Azure Sentinel per qualsiasi dispositivo di Palo Alto Networks salvando i file di log di CEF Syslog. L'integrazione con Azure Sentinel consente di eseguire facilmente analitica e le query tra i dati dei file di log di Palo Alto Networks. Per altre informazioni sul modo in cui Azure Sentinel CEF inserisce dati di tipo, vedere [Appliance connettersi CEF](connect-common-event-format.md).
 
 > [!NOTE]
-> - I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui in esecuzione Azure Sentinel.
+> I dati verranno archiviati nella posizione geografica dell'area di lavoro in cui in esecuzione Azure Sentinel.
 
-## <a name="step-1-connect-your-palo-alto-appliance-using-an-agent"></a>Passaggio 1: Connettere l'appliance di Palo Alto usando un agente
+## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Passaggio 1: Connettere l'appliance di Palo Alto Networks usando un agente
 
-Per connettersi all'appliance di Palo Alto per Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o in locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. Distribuzione automatica è disponibile solo se la macchina dedicata è una nuova macchina virtuale in Azure si sta creando. 
+Per connettersi all'appliance di Palo Alto Networks a Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o in locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. Distribuzione automatica è disponibile solo se la macchina dedicata è una nuova macchina virtuale in Azure si sta creando. 
 
 In alternativa, è possibile distribuire l'agente manualmente in una VM di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale.
 
@@ -46,7 +46,7 @@ Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [connettere
 1. Nel portale di Azure Sentinel, fare clic su **la raccolta dei dati** e selezionare il tipo di dispositivo. 
 
 1. Sotto **configurazione dell'agente Linux Syslog**:
-   - Scegli **distribuzione automatica** se si desidera creare una nuova macchina è pre-installata con l'agente Azure Sentinel e include tutte le necessarie di configurazione, come descritto in precedenza. Selezionare **distribuzione automatica** e fare clic su **distribuzione automatica dell'agente**. Consente di andare alla pagina di acquisto per una macchina virtuale dedicata che viene connesso automaticamente all'area di lavoro, è. La macchina virtuale è una **v3 D2s standard (2 vcpu, 8 GB di memoria)** e ha un indirizzo IP pubblico.
+   - Scegli **distribuzione automatica** se si desidera creare una nuova macchina è pre-installata con l'agente Azure Sentinel e include tutte le necessarie di configurazione, come descritto in precedenza. Selezionare **distribuzione automatica** e fare clic su **distribuzione automatica dell'agente**. Consente di andare alla pagina di acquisto per una macchina virtuale dedicata che viene connesso automaticamente all'area di lavoro, è. La macchina virtuale è una **v3 D2s standard (2 Vcpu, 8 GB di memoria)** e ha un indirizzo IP pubblico.
       1. Nel **distribuzione personalizzata** pagina, fornire i dettagli e scegliere un nome utente e una password e se si accettano i termini e condizioni, la macchina virtuale di acquisto.
       1. Configurare l'appliance per inviare i log usando le impostazioni riportate nella pagina di connessione. Per il connettore Generic Common Event Format, usare queste impostazioni:
          - Protocollo UDP =
@@ -98,12 +98,12 @@ Se non si usa Azure, è necessario distribuire manualmente l'agente Azure Sentin
       1. Riavviare l'agente di Syslog usando questo comando: `sudo /opt/microsoft/omsagent/bin/service_control restart [{workspace GUID}]`
       1. Verificare che non siano presenti errori nel log dell'agente, eseguire questo comando: `tail /var/opt/microsoft/omsagent/log/omsagent.log`
  
-## <a name="step-2-forward-palo-alto-logs-to-the-syslog-agent"></a>Passaggio 2: Inoltrare i log di Palo Alto all'agente di Syslog
+## <a name="step-2-forward-palo-alto-networks-logs-to-the-syslog-agent"></a>Passaggio 2: Inoltrare i log di Palo Alto Networks all'agente di Syslog
 
 Configurare Palo Alto Networks per inoltrare i messaggi Syslog in formato CEF per l'area di lavoro di Azure tramite l'agente di Syslog:
-1.  Passare a [guide di configurazione Common Event Format (CEF)](https://docs.paloaltonetworks.com/resources/cef) e scaricare il file pdf per il tipo di dispositivo. Seguire tutte le istruzioni nella Guida per configurare il dispositivo di Palo Alto per raccogliere gli eventi CEF. 
+1.  Passare a [guide di configurazione Common Event Format (CEF)](https://docs.paloaltonetworks.com/resources/cef) e scaricare il file pdf per il tipo di dispositivo. Seguire tutte le istruzioni nella Guida per configurare il dispositivo di Palo Alto Networks per raccogliere gli eventi CEF. 
 
-1.  Passare a [configurare Syslog monitoraggio](https://aka.ms/asi-syslog-paloalto-forwarding) e seguire i passaggi 2 e 3 per configurare l'inoltro di eventi CEF dal dispositivo di Palo Alto per Sentinel di Azure.
+1.  Passare a [configurare Syslog monitoraggio](https://aka.ms/asi-syslog-paloalto-forwarding) e seguire i passaggi 2 e 3 per configurare l'inoltro di eventi CEF dal dispositivo di Palo Alto Networks a Sentinel di Azure.
 
     1. Assicurarsi di impostare il **formato server Syslog** al **BSD**.
     1. Assicurarsi di impostare il **numero di impianto** sullo stesso valore è impostato nell'agente di Syslog.
@@ -130,7 +130,7 @@ Potrebbero occorrere fino a 20 minuti fino a quando i log di avvio venga visuali
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo documento è stato descritto come connettere i dispositivi di Palo Alto per Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
+In questo documento è stato descritto come connettere i dispositivi di Palo Alto Networks a Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
 - Informazioni su come [ottenere la visibilità di dati e le potenziali minacce](quickstart-get-visibility.md).
 - Iniziare a usare [rilevando minacce con Azure Sentinel](tutorial-detect-threats.md).
 

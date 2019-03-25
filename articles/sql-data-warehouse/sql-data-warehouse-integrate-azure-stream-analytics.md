@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: consume
-ms.date: 04/17/2018
+ms.date: 03/22/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 605598d1470cbb535d626c15a5e8e4e08aa4d571
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3a260102e9964cfc248ed3dbabab487bd1c5dfc2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883815"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403766"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Usare Analisi di flusso di Azure con SQL Data Warehouse
 Analisi di flusso di Azure è un servizio completamente gestito che consente l'elaborazione di eventi complessi con bassa latenza, elevata disponibilità e scalabilità per lo streaming di dati nel cloud. Per informazioni di base, vedere [Introduzione ad Analisi di flusso di Azure][Introduction to Azure Stream Analytics]. È possibile apprendere come creare una soluzione end-to-end con Analisi di flusso seguendo l'esercitazione [Introduzione all'uso di Analisi di flusso di Azure][Get started using Azure Stream Analytics].
@@ -34,12 +34,10 @@ Creare quindi un database di Azure SQL Data Warehouse
 
 ## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Specificare l'output del processo: Database di Azure SQL Data Warehouse
 ### <a name="step-1"></a>Passaggio 1
-Nel processo di Analisi di flusso fare clic su **OUTPUT** nella parte superiore della pagina e quindi scegliere **AGGIUNGI OUTPUT**.
+Selezionare il processo di Stream Analitica **OUTPUT** nella parte superiore della pagina e quindi fare clic su **aggiungere**.
 
 ### <a name="step-2"></a>Passaggio 2
-Selezionare il Database SQL e fare clic su Avanti.
-
-![][add-output]
+Selezionare il Database SQL.
 
 ### <a name="step-3"></a>Passaggio 3
 Immettere i valori seguenti nella pagina successiva:
@@ -62,9 +60,7 @@ Immettere i valori seguenti nella pagina successiva:
 ### <a name="step-4"></a>Passaggio 4
 Fare clic sul pulsante con il segno di spunta per aggiungere l'output del processo e per verificare che Analisi di flusso possa connettersi al database.
 
-![][test-connection]
-
-Quando la connessione al database riesce, verrà visualizzata una notifica nella parte inferiore del portale. È possibile scegliere Test connessione nella parte inferiore per testare la connessione al database.
+Quando la connessione al database ha esito positivo, si verrà visualizzata una notifica nel portale. È possibile fare clic su Test per testare la connessione al database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per una panoramica dell'integrazione, vedere [Panoramica dell'integrazione di SQL Data Warehouse][SQL Data Warehouse integration overview].

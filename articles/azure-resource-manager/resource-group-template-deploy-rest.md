@@ -1,6 +1,6 @@
 ---
 title: Distribuire le risorse con i modelli e l'API REST | Microsoft Docs
-description: Utilizzare Azure Resource Manager e l'API REST di Resource Manager per distribuire una risorsa in Azure. Le risorse sono definite in un modello di Resource Manager.
+description: Usare il REST API di Resource Manager e Azure Resource Manager per distribuire risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,28 +10,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: bd574eb2d3537d3e5c0774f57e37283817cc7879
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112025"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402831"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Distribuire le risorse con i modelli e l'API REST di Resource Manager
 
 In questo articolo viene illustrato come utilizzare l'API REST di Resource Manager con i modelli di Resource Manager per distribuire le risorse in Azure.  
 
-> [!TIP]
-> Per informazioni su come eseguire il debug di un errore durante la distribuzione, vedere:
-> 
-> * [View deployment operations](resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione) per ottenere informazioni per la risoluzione degli errori
-> * [Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager](resource-manager-common-deployment-errors.md) per informazioni sulla risoluzione degli errori di distribuzione più comuni
-> 
-> 
-
 È possibile includere il modello nel corpo della richiesta o come collegamento a un file. Quando si usa un file, può trattarsi di un file locale oppure di un file esterno disponibile tramite un URI. Quando il modello si trova in un account di archiviazione, è possibile limitare l'accesso al modello e fornire un token di firma di accesso condiviso in fase di distribuzione.
+
+## <a name="deployment-scope"></a>Ambito di distribuzione
+
+È possibile destinare la distribuzione a una sottoscrizione di Azure o un gruppo di risorse all'interno di una sottoscrizione. Nella maggior parte dei casi, si interagirà distribuzione in un gruppo di risorse. Usare distribuzioni della sottoscrizione per applicare i criteri e le assegnazioni di ruolo nella sottoscrizione. È anche possibile usare distribuzioni della sottoscrizione per creare un gruppo di risorse e distribuire le risorse ad esso. A seconda dell'ambito della distribuzione, si usano comandi diversi.
+
+Per distribuire in un **gruppo di risorse**, usare [distribuzioni - creare](/rest/api/resources/deployments/createorupdate).
+
+Per distribuire in un **abbonamento**, usare [distribuzioni - creazione all'ambito della sottoscrizione](/rest/api/resources/deployments/createorupdateatsubscriptionscope).
+
+Gli esempi in questo articolo usano distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Distribuire con l'API REST
 1. Impostare [parametri e intestazioni comuni](/rest/api/azure/), tra cui i token di autenticazione.

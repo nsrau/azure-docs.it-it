@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/30/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: dbfb559516177d496f5b16dc31f0ef8d0603cf68
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904015"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399982"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -28,7 +28,7 @@ Se si acquistano le istanze di macchina virtuale riservate di Azure, è possibil
 
 ## <a name="change-the-scope-for-a-reservation"></a>Modificare l'ambito di una prenotazione
 
- Lo sconto si applica alle macchine virtuali, ai database SQL, Azure Cosmos DB o ad altre risorse che corrispondono alla prenotazione e vengono eseguiti all'interno dell'ambito di prenotazione. L'ambito di una prenotazione può fare riferimento a una singola sottoscrizione o a tutte le sottoscrizioni nel contesto di fatturazione. Se si imposta l'ambito su una singola sottoscrizione, la prenotazione corrisponde alle risorse in esecuzione nella sottoscrizione selezionata. Se si imposta l'ambito su un ambito condiviso, Azure individua la prenotazione corrispondente relativa alle risorse in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione.
+ Lo sconto si applica alle macchine virtuali, database SQL, Azure Cosmos DB o altre risorse che corrispondono alla prenotazione ed eseguite nell'ambito di prenotazione. Il contesto di fatturazione dipende dalla sottoscrizione usata per acquistare la prenotazione.
 
 Per aggiornare l'ambito di una prenotazione:
 
@@ -115,6 +115,10 @@ Per aggiornare l'impostazione di ottimizzazione per la prenotazione:
 4. Selezionare **Impostazioni** > **Configurazione**.
 5. Modificare l'impostazione **Ottimizza per**.
 
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+
+Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
@@ -130,7 +134,3 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
-
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

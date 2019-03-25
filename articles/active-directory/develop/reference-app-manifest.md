@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb21ddc36141dfee1be6f0e42811e6ccbeb44143
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2750de16c71e7d678810316f281e28ca8c40553d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217497"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403154"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
@@ -77,6 +77,14 @@ Per configurare il manifesto dell'applicazione:
 | `signInUrl` | stringa | Specifica l'URL della home page dell'app. | `https://MyRegisteredApp` |
 | `signInAudience` | stringa | Specifica gli account Microsoft supportati per l'applicazione corrente. I valori supportati sono:<ul><li>**AzureADMyOrg**: utenti con un account aziendale o dell'istituto di istruzione Microsoft nel tenant di Azure AD dell'organizzazione (tenant singolo)</li><li>**AzureADMultipleOrgs**: utenti con un account aziendale o dell'istituto di istruzione Microsoft nel tenant di Azure AD di qualsiasi organizzazione (multi-tenant)</li> <li>**AzureADandPersonalMicrosoftAccount**: utenti con un account Microsoft personale o un account aziendale o dell'istituto di istruzione nel tenant di Azure AD di qualsiasi organizzazione</li></ul> | `AzureADandPersonalMicrosoftAccount` |
 | `tags` | Matrice di stringhe | Stringhe personalizzate che possono essere usate per classificare e identificare l'applicazione. | <code>[<br>&nbsp;&nbsp;"ProductionApp"<br>]</code> |
+
+
+## <a name="manifest-limits"></a>Manifesto limiti
+Un manifesto dell'applicazione ha più attributi che vengono definiti le raccolte, ad esempio approles, keycredentials, knownClientApplications, identifierUris, rediretUris, requiredResourceAccess, oauth2Permissions e così via. Nel manifesto dell'applicazione completa per qualsiasi applicazione, il numero totale di voci in tutte le raccolte combinate è stato limitato di 1200. Se hai 100 URI di reindirizzamento specificato nel manifesto dell'applicazione, l'utente left solo con 1100 rimanenti voci da utilizzare per tutte le altre raccolte combinati che costituiscono il manifesto.
+
+> [!NOTE]
+> Nel caso in cui si prova ad aggiungere voci oltre 1200 nel manifesto dell'applicazione. Si potrebbe ricevere un errore **"non è stato possibile aggiornare xxxxxx dell'applicazione. Dettagli dell'errore: Le dimensioni del manifesto ha superato il limite. Ridurre il numero di valori e ripetere la richiesta.** "
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

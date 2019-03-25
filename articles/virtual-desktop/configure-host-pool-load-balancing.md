@@ -1,5 +1,5 @@
 ---
-title: Configurare il Desktop virtuale Windows con bilanciamento del carico (metodo) (anteprima) - Azure
+title: Configurare il metodo di bilanciamento del carico di anteprima di Desktop virtuale Windows - Azure
 description: Come configurare il metodo di bilanciamento del carico per un ambiente di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
@@ -7,23 +7,23 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 10a1066b85b16749fe95e373e696d486b0e7bafa
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0c4702dada17e759d89c33be99b3155f4b15ad9e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318345"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399851"
 ---
-# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows
+# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Configurare il metodo di bilanciamento del carico di anteprima di Desktop virtuale Windows
 
-Configurazione metodo di bilanciamento del carico per un pool di host consente di modificare l'ambiente di Desktop virtuale di Windows (anteprima) per meglio soddisfare le proprie esigenze.
+Configura il metodo di bilanciamento del carico per un pool di host consente di modificare l'ambiente di anteprima di Desktop virtuale Windows per meglio soddisfare le proprie esigenze.
 
 >[!NOTE]
 > Ciò non si applica a un pool persistente host desktop perché gli utenti dispongono sempre un mapping 1:1 a un host sessione all'interno del pool di host.
 
 ## <a name="configure-breadth-first-load-balancing"></a>Configurare il bilanciamento del carico breadth-first
 
-Bilanciamento del carico breadth-first è la configurazione predefinita per i nuovi pool di host non permanente. Breadth-first-bilanciamento del carico distribuisce le nuove sessioni utente in tutti gli host di sessione disponibili nel pool di host. Durante la configurazione di bilanciamento del carico breadth-first, è possibile impostare un limite di durata massima della sessione per ogni host sessione nel pool di host.
+Bilanciamento del carico breadth-first è la configurazione predefinita per i nuovi pool di host non permanente. Il bilanciamento del carico breadth-first distribuisce nuove sessioni utente in tutti gli host di sessione disponibili nel pool di host. Durante la configurazione di bilanciamento del carico breadth-first, è possibile impostare un limite di durata massima della sessione per ogni host sessione nel pool di host.
 
 Prima di tutto [scaricare e importare il modulo Windows PowerShell di Desktop virtuale](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell se non è già presente.
 

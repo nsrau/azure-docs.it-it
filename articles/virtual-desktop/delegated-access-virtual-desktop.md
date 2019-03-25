@@ -1,22 +1,22 @@
 ---
-title: Accesso delegato in Windows Virtual Desktop (anteprima) - Azure
-description: Come delegare le funzionalità amministrative in una distribuzione di Desktop virtuale Windows, inclusi gli esempi.
+title: Delega per l'accesso in anteprima Desktop virtuale Windows - Azure
+description: Come delegare le funzionalità amministrative in una distribuzione di anteprima di Desktop virtuale Windows, inclusi gli esempi.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 49645b697071abb8a2f8c85ebde1e6761a3536ab
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 250aea52de63a6397ce00e9cadcadf3a8ba39858
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336100"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399991"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Accesso delegato in Windows Virtual Desktop (anteprima)
+# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Delega per l'accesso in anteprima di Desktop virtuale Windows
 
-Windows Virtual Desktop (anteprima) è un modello di accesso delegato che consente di definire il livello di accesso di che un determinato utente è consentito avere assegnandole un ruolo. Un'assegnazione di ruolo include tre componenti: entità di sicurezza, definizione di ruolo e ambito. Il modello di delega per l'accesso Desktop virtuale Windows è basato sul modello di Azure RBAC. Per altre informazioni sulle assegnazioni di ruolo specifico e i relativi componenti, vedere [di Cenni preliminari sul controllo degli accessi in base al ruolo Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Anteprima di Desktop virtuale Windows ha un modello di accesso delegato che consente di definire il livello di accesso di che un determinato utente è consentito avere assegnandole un ruolo. Un'assegnazione di ruolo include tre componenti: entità di sicurezza, definizione di ruolo e ambito. Il modello di delega per l'accesso Desktop virtuale Windows è basato sul modello di Azure RBAC. Per altre informazioni sulle assegnazioni di ruolo specifico e i relativi componenti, vedere [di Cenni preliminari sul controllo degli accessi in base al ruolo Azure](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
 Windows Desktop virtuale delegati access supporta i valori seguenti per ogni elemento dell'assegnazione di ruolo:
 
@@ -66,4 +66,4 @@ L'accesso delegato nel Desktop virtuale Windows ha diverse definizioni di ruolo 
 
 Per un elenco più completo di ogni ruolo può usare i cmdlet di PowerShell, vedere la [riferimento a PowerShell](/powershell/windows-virtual-desktop/overview).
 
-Per linee guida per informazioni su come configurare un ambiente di Desktop virtuale Windows, vedere [configurare un ambiente di Desktop virtuale Windows](environment-setup.md).
+Per linee guida per informazioni su come configurare un ambiente di Desktop virtuale Windows, vedere [ambiente di anteprima di Desktop virtuale Windows](environment-setup.md).

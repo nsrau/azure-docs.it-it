@@ -1,22 +1,22 @@
 ---
-title: Creare un pool di host con un modello di Azure Resource Manager (anteprima) - Azure
-description: Come creare un pool di host di Desktop virtuale Windows con un modello di Azure Resource Manager.
+title: Creare un pool di host di anteprima di Desktop virtuale Windows con un modello di Azure Resource Manager - Azure
+description: Come creare un pool di host in anteprima di Desktop virtuale Windows con un modello di Azure Resource Manager.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 7f4849c19d56bb385e7ad3ce0aa95e16d5c53c23
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318465"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401424"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template-preview"></a>Creare un pool di host con un modello di Azure Resource Manager (anteprima)
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
 
-I pool di host sono una raccolta di uno o più macchine virtuali identiche all'interno di ambienti di tenant (anteprima) di Windows Desktop virtuale. Ogni pool di host può contenere un gruppo di app che gli utenti possono interagire con come in un desktop fisico.
+I pool di host sono una raccolta di uno o più macchine virtuali identiche all'interno di ambienti di tenant di anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app che gli utenti possono interagire con come in un desktop fisico.
 
 Seguire le istruzioni della sezione per creare un pool di host per un tenant di Desktop virtuale Windows con un modello di Azure Resource Manager fornito da Microsoft. Questo articolo illustrerà come creare un pool di host di Desktop virtuale Windows, creare un gruppo di risorse con le macchine virtuali in una sottoscrizione di Azure, aggiungere tali macchine virtuali al dominio di Active Directory e registrare le macchine virtuali con Windows Desktop virtuale.
 

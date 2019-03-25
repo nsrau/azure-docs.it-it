@@ -1,22 +1,22 @@
 ---
-title: Ridimensionare automaticamente l'host di sessione - Azure
-description: Viene descritto come configurare lo script di scalabilità automatica per gli host sessione Desktop virtuale di Windows (anteprima).
+title: Ridimensionare automaticamente gli host della sessione di anteprima di Desktop virtuale Windows - Azure
+description: Viene descritto come configurare lo script di scalabilità automatica per gli host della sessione di Windows Virtual Desktop Preview.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: d800b45310ae476ec0c54460d9719c17e35dfe5a
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: bee02549d68b1dbdba3f0e62477b28bbd475ea32
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318360"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402491"
 ---
 # <a name="automatically-scale-session-hosts"></a>Ridimensionare automaticamente gli host della sessione
 
-Per molte distribuzioni di Desktop virtuale Windows in Azure, i costi di macchine virtuali rappresentano una parte significativa del costo totale distribuzione Desktop virtuale Windows. Per ridurre i costi, è consigliabile arrestare e deallocare sessione ospitare macchine virtuali (VM) durante le ore non di punta, quindi riavviarle durante le ore di punta.
+Per molte distribuzioni di anteprima di Desktop virtuale Windows in Azure, i costi di macchine virtuali rappresentano una parte significativa del costo totale distribuzione Desktop virtuale Windows. Per ridurre i costi, è consigliabile arrestare e deallocare sessione ospitare macchine virtuali (VM) durante le ore non di punta, quindi riavviarle durante le ore di punta.
 
 Questo articolo usa un semplice script di ridimensionamento per ridimensionare automaticamente macchine virtuali host sessione Desktop virtuale Windows nell'ambiente in uso. Per altre informazioni su come funziona lo script di ridimensionamento, vedere la [come funziona lo script scala](#how-the-scaling-script-works) sezione.
 

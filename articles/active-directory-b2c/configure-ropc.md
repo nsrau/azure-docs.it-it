@@ -10,19 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 777aca4754d4d5dc893f930994ffe61db18362fd
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca3fd76cfeb09fe4e18a04bff38e166928ef38b2
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089336"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401786"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure AD B2C
 
 Il flusso delle credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione OAuth standard in cui l'applicazione, nota anche come relying party, scambia credenziali valide, ad esempio ID utente e password, con un token ID, un token di accesso e un token di aggiornamento. 
 
-> [!NOTE]
-> Questa funzionalità è in anteprima.
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 In Azure Active Directory (Azure AD) B2C sono supportate le opzioni seguenti:
 

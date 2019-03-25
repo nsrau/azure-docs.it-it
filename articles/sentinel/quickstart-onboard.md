@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/12/2019
 ms.author: rkarlin
-ms.openlocfilehash: 30f6d08594bdf2e5d78bc8c7881a135d6e57f397
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b6ea852c9a1bb8ea6eb51df310aab97e9b10d48e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57852208"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399687"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Anteprima di onboarding Sentinel di Azure
 
@@ -75,7 +75,6 @@ Ad esempio, fare clic su **Azure Active Directory**. Se ci si connette questa or
 Nella parte inferiore, Sentinel Azure fornisce raccomandazioni per i dashboard di cui è necessario installare per ogni connettore in modo che si può immediatamente ottenere interessanti insights tra i dati. <br> Seguire le istruzioni di installazione oppure [, vedere la Guida relativa connessione](connect-data-sources.md) per altre informazioni. Per informazioni sui connettori di dati, vedere [servizi di Microsoft Connect](connect-data-sources.md).
 
 Dopo che i dati origini connesse, i dati viene avviato lo streaming in Azure Sentinel ed sono pronti per poter iniziare a usare. È possibile visualizzare i log nel [dashboard incorporati](quickstart-get-visibility.md) e iniziare a compilare le query in Log Analitica per [esaminare i dati](tutorial-investigate-cases.md).
-
 
 
 

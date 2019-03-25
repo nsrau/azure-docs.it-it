@@ -1,6 +1,6 @@
 ---
-title: Configurare i criteri di esportazione per un volume di Azure NetApp Files | Microsoft Docs
-description: Descrive come configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files
+title: Configurare i criteri di esportazione per un volume NFS usando file di Azure NetApp | Microsoft Docs
+description: Viene descritto come configurare criteri di esportazione per controllare l'accesso a un volume NFS usando file di Azure NetApp
 services: azure-netapp-files
 documentationcenter: ''
 author: b-juche
@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/28/2018
+ms.date: 03/20/2019
 ms.author: b-juche
-ms.openlocfilehash: 1098c5c2f42b242b3ba2f68ec7480de90dd7c22e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8cda5921a1aec86d28beabbd9cea5b07a203a0e8
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766649"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401495"
 ---
-# <a name="configure-export-policy-for-a-volume"></a>Configurare i criteri di esportazione per un volume
+# <a name="configure-export-policy-for-an-nfs-volume"></a>Configurare i criteri di esportazione per un volume NFS
 
-È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. 
+È facoltativamente possibile configurare i criteri di esportazione per controllare l'accesso a un volume di Azure NetApp Files. Criteri di esportazione sono il supporto solo per i volumi NFS. 
 
 ## <a name="steps"></a>Passaggi 
 
@@ -47,7 +47,7 @@ ms.locfileid: "57766649"
 
     * **Protocols**  (Protocolli)  
         Specificare il protocollo da usare per i criteri di esportazione.   
-        Attualmente Azure NetApp Files supporta solo NFSv3.
+        Criteri di esportazione file NetApp di Azure supportano attualmente solo NFSv3.
 
     ![Criteri di esportazione](../media/azure-netapp-files/azure-netapp-files-export-policy.png) 
 

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/04/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: be51e6c829c5f12d17c6302bb951039711f12075
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56113227"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402967"
 ---
-# <a name="azure-data-box-gateway-system-requirements-preview"></a>Requisiti di sistema di Azure Data Box Gateway (anteprima)
+# <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema di Gateway di dati finestra Azure
 
 Questo articolo descrive i requisiti di sistema importanti per la soluzione Microsoft Azure Data Box Gateway e per i client che ci connettono ad Azure Data Box Gateway. Prima di distribuire Data Box Gateway è consigliabile leggere attentamente queste informazioni e quindi farvi riferimento, se necessario, durante la distribuzione e il successivo funzionamento.
 
@@ -24,8 +24,6 @@ I requisiti di sistema per il dispositivo virtuale Data Box Gateway includono:
 - **Requisiti software per gli host:** descrizione delle piattaforme supportate, dei browser per l'interfaccia utente di configurazione locale, dei client SMB e degli eventuali requisiti aggiuntivi per gli host che si connettono al dispositivo.
 - **Requisiti di rete per il dispositivo:** informazioni sui requisiti di rete per il funzionamento ottimale del dispositivo virtuale.
 
-> [!IMPORTANT]
-> Data Box Gateway è in anteprima. Prima di distribuire la soluzione, leggere le [condizioni d'uso per l'anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 ## <a name="specifications-for-the-virtual-device"></a>Specifiche per il dispositivo virtuale
 

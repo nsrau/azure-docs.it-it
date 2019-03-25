@@ -2,23 +2,18 @@
 title: Informazioni sulle prenotazioni di Azure | Microsoft Docs
 description: Informazioni sulle prenotazioni e sui prezzi di Azure per risparmiare sui costi di macchine virtuali, database SQL, Azure Cosmos DB e altre risorse.
 services: billing
-documentationcenter: ''
 author: yashesvi
 manager: yashar
-editor: ''
 ms.service: billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/06/2019
+ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: a4ad3574849d3c80f671abc93e463b06454289e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3081ab352152d6d736f20da94ed0b513121e231b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904168"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401789"
 ---
 # <a name="what-are-azure-reservations"></a>Informazioni sulle prenotazioni di Azure
 
@@ -44,17 +39,11 @@ Per le macchine virtuali Windows e il database SQL, i costi delle licenze posson
 
 ## <a name="whos-eligible-to-purchase-a-reservation"></a>Chi è idoneo all'acquisto di una prenotazione?
 
-Possono acquistare una prenotazione i clienti di Azure con i tipi di sottoscrizione seguenti:
+Per acquistare un piano, è necessario disporre di un ruolo di proprietario di sottoscrizione in una sottoscrizione di pagamento a consumo (MS-AZR - 003p o MS-AZR - 0023P) o Enterprise (MS-AZR - 0017p o MS-AZR - 0148p). Cloud solution provider può usare il portale di Azure oppure [Centro per i Partner](/partner-center/azure-reservations) per l'acquisto di prenotazioni di Azure.
 
-- Tipo di offerta di sottoscrizione Contratto Enterprise (MS-AZR-0017P o MS-AZR-0148P).
-- Tipo di offerta di sottoscrizione Pagamento in base al consumo (MS-AZR-003P o MS-AZR-0023P).
-- Per acquistare prenotazioni di Azure, i partner CSP (Cloud Solution Provider) possono usare il portale di Azure o il [Centro per i partner](https://docs.microsoft.com/partner-center/azure-reservations).
+I clienti con contratto Enterprise Agreement possono limitare gli acquisti al contratto Enterprise admins disabilitando il **aggiungere le istanze riservate** opzione nel portale EA. Contratti Enterprise admins deve essere un proprietario della sottoscrizione per almeno una sottoscrizione con contratto Enterprise Agreement per acquistare una prenotazione. L'opzione è utile per le aziende che desiderano un team centralizzato per l'acquisto di prenotazioni per diversi reparti. Dopo l'acquisto, centralizzato i team possono aggiungere i proprietari di centro di costo per le prenotazioni. I proprietari possono quindi definire l'ambito la prenotazione per le sottoscrizioni. Il team centrale non deve necessariamente avere accesso proprietario di sottoscrizione in cui viene acquistata la prenotazione.
 
 Lo sconto sull'acquisto di prenotazioni viene applicato solo alle risorse con sottoscrizioni di tipo Enterprise, con pagamento in base al consumo o CSP.
-
- Per acquistare un piano:
-
-- È necessario disporre del ruolo di Proprietario per almeno una sottoscrizione aziendale o con pagamento in base al consumo.
 
 ## <a name="how-is-a-reservation-billed"></a>Come viene fatturata una prenotazione?
 

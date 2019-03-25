@@ -1,24 +1,24 @@
 ---
-title: Connettersi con Windows 7 e Windows 10 (anteprima) - Azure
-description: Come connettersi al client web HTML5 di Desktop virtuale Windows.
+title: Connettersi all'anteprima del Desktop virtuale Windows con Windows 7 e Windows 10 - Azure
+description: Come connettersi al client di anteprima di Desktop virtuale Windows con Windows 7 o Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 925d762bb065567f6462fdb1614fc308e87b5247
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318240"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399738"
 ---
-# <a name="connect-with-windows-7-and-windows-10-preview"></a>Connettersi con Windows 7 e Windows 10 (anteprima)
+# <a name="connect-with-windows-7-and-windows-10"></a>Connettersi con Windows 7 e Windows 10
 
 > Si applica a Windows 7 e Windows 10.
 
-È disponibile un client scaricabile che consente di accedere alle risorse di Desktop virtuale di Windows (anteprima) dai dispositivi che eseguono Windows 7 e Windows 10.
+È disponibile un client scaricabile che consente di accedere alle risorse di anteprima di Desktop virtuale Windows da dispositivi che eseguono Windows 7 e Windows 10.
 
 ## <a name="install-the-client"></a>Installazione del client
 

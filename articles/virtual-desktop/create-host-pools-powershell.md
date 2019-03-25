@@ -1,22 +1,22 @@
 ---
-title: Creare un pool di host con PowerShell (anteprima) - Azure
-description: Come creare un pool di host di Desktop virtuale Windows con i cmdlet di PowerShell.
+title: Creare un pool di host di anteprima di Desktop virtuale Windows con PowerShell - Azure
+description: Come creare un pool di host in anteprima di Desktop virtuale Windows con i cmdlet di PowerShell.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 4b65d7614db94a9cc3fdca3f4b784c2c84ebaef8
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 7b9b7ffbb034a7fb1256d9cc44048cfa55b02245
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318540"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402729"
 ---
-# <a name="create-a-host-pool-with-powershell-preview"></a>Creare un pool di host con PowerShell (anteprima)
+# <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
-I pool di host sono una raccolta di uno o più macchine virtuali identiche all'interno di ambienti di tenant (anteprima) di Windows Desktop virtuale. Ogni pool di host può contenere un gruppo di app che gli utenti possono interagire con come in un desktop fisico.
+I pool di host sono una raccolta di uno o più macchine virtuali identiche all'interno di ambienti di tenant di anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app che gli utenti possono interagire con come in un desktop fisico.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Usare il client di PowerShell per creare un pool di host
 
@@ -70,12 +70,12 @@ A questo punto è possibile creare una macchina virtuale di Azure che possono es
 - [Creare una macchina virtuale da un'immagine gestita](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Creare una macchina virtuale da un'immagine non gestita](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Preparare le macchine virtuali per le installazioni dell'agente di Windows Desktop virtuale
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Preparare le macchine virtuali per le installazioni dell'agente di anteprima di Desktop virtuale Windows
 
 È necessario eseguire le operazioni seguenti per preparare le macchine virtuali prima di installare gli agenti Windows Desktop virtuale e registrare le macchine virtuali al pool di host di Desktop virtuale Windows:
 
 - È necessario aggiunta al dominio del computer. Ciò consente agli utenti di Desktop virtuale Windows in arrivo eseguire il mapping dal proprio account Azure Active Directory al proprio account Active Directory ed è stato consentito l'accesso alla macchina virtuale.
-- Se la macchina virtuale è in esecuzione un sistema operativo Windows Server, è necessario installare il ruolo Host sessione Desktop remoto (RDSH) (anteprima). Il ruolo Host sessione Desktop remoto consente gli agenti di Desktop virtuale Windows da installare in modo corretto.
+- Se la macchina virtuale è in esecuzione un sistema operativo Windows Server, è necessario installare il ruolo Host sessione Desktop remoto (RDSH). Il ruolo Host sessione Desktop remoto consente gli agenti di Desktop virtuale Windows da installare in modo corretto.
 
 A è stata aggiunta al dominio, eseguire le operazioni seguenti in ogni macchina virtuale:
 
@@ -85,7 +85,7 @@ A è stata aggiunta al dominio, eseguire le operazioni seguenti in ogni macchina
 4. Selezionare **dominio** e quindi immettere il dominio di Active Directory nella rete virtuale.
 5. Eseguire l'autenticazione con un account di dominio che disponga dei privilegi per le macchine di aggiunta al dominio.
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrare le macchine virtuali al pool di host di Desktop virtuale Windows
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrare le macchine virtuali al pool di host di anteprima di Desktop virtuale Windows
 
 Le macchine virtuali a un pool di Desktop virtuale di Windows host di registrazione è semplice come installare gli agenti Windows Desktop virtuale.
 
@@ -114,7 +114,7 @@ Per registrare gli agenti Windows Desktop virtuale, eseguire le operazioni segue
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che sono state apportate a un pool di host, è possibile popolarla con RemoteApp (anteprima). Per altre informazioni su come gestire le App in Windows Desktop virtuale, vedere l'esercitazione di gruppi di gestione app.
+Ora che sono state apportate a un pool di host, è possibile popolarlo con RemoteApp. Per altre informazioni su come gestire le App in Windows Desktop virtuale, vedere l'esercitazione di gruppi di gestione app.
 
 > [!div class="nextstepaction"]
 > [Gestire l'esercitazione di gruppi di app](./manage-app-groups.md)

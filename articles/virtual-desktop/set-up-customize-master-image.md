@@ -1,22 +1,22 @@
 ---
 title: Preparare e personalizzare un'immagine di disco rigido virtuale master - Azure
-description: Come preparare, personalizzare e caricare un'immagine master Windows Virtual Desktop (anteprima) in Azure.
+description: Come preparare, personalizzare e caricare un'immagine master di anteprima di Desktop virtuale Windows in Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 53bf33aad6511cc282f53659bbe43873cacfc3ff
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318420"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400766"
 ---
-# <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine di disco rigido virtuale principale
+# <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
-Questo articolo illustrerà come preparare un'immagine di disco rigido virtuale (VHD) master per il caricamento in Azure, incluse le procedure creare macchine virtuali (VM) e installare e configurare il software su di essi. Queste istruzioni sono valide per una configurazione specifica Desktop virtuali di Windows (anteprima) che può essere usata con i processi esistenti dell'organizzazione.
+Questo articolo illustrerà come preparare un'immagine di disco rigido virtuale (VHD) master per il caricamento in Azure, incluse le procedure creare macchine virtuali (VM) e installare e configurare il software su di essi. Queste istruzioni sono valide per una configurazione specifici del Desktop virtuale Windows anteprima che può essere usata con i processi esistenti dell'organizzazione.
 
 ## <a name="create-a-vm"></a>Creare una macchina virtuale
 
@@ -370,8 +370,8 @@ Le istruzioni seguenti indicano come caricare l'immagine master in un account di
 
 Dopo aver creato un'immagine, è possibile creare o aggiornare i pool di host. Per altre informazioni su come creare e aggiornare i pool di host, vedere gli articoli seguenti:
 
-- [Creare un pool di host con un modello di Azure Resource Manager (anteprima)](create-host-pools-arm-template.md)
-- [Esercitazione: Creare un pool di host con Azure Marketplace (anteprima)](create-host-pools-azure-marketplace.md)
-- [Creare un pool di host con PowerShell (anteprima)](create-host-pools-powershell.md)
+- [Creare un pool di host con un modello Azure Resource Manager](create-host-pools-arm-template.md)
+- [Esercitazione: Creare un pool di host con Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Creare un pool di host con PowerShell](create-host-pools-powershell.md)
 - [Configurare una condivisione di profilo utente per un pool di host](create-host-pools-user-profile.md)
 - [Configurare il metodo di bilanciamento del carico di Desktop virtuale Windows](configure-host-pool-load-balancing.md)

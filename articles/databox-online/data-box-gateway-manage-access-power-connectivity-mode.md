@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 02/07/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: 0ad94799320e25d88f616117f1bfcf9f0513aadf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d46d74544181a6b9cbfd049b2f5461b20b928483
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55873020"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401442"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway-preview"></a>Gestire l'accesso, l'avvio/arresto e la modalità di connessione per Azure Data Box Gateway (anteprima)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-gateway"></a>Gestire l'accesso, potenza e la modalità di connettività per il Gateway di finestra di dati di Azure
 
 Questo articolo descrive come gestire l'accesso, l'avvio/arresto e la modalità di connessione per Azure Data Box Gateway. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure.
 
@@ -26,16 +26,13 @@ In questo articolo viene spiegato come:
 > * Gestire la modalità di connessione
 > * Gestire l'avvio/arresto
 
-> [!IMPORTANT]
-> Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
-
 ## <a name="manage-device-access"></a>Gestire l'accesso al dispositivo
 
-L'accesso al dispositivo Data Box Gateway viene controllato tramite l'uso di una password amministratore del dispositivo. È possibile modificare la password amministratore tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password amministratore del dispositivo nel portale di Azure.
+L'accesso al dispositivo Gateway di dati finestra viene controllato mediante l'utilizzo di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
 
-### <a name="change-device-administrator-password"></a>Modificare la password amministratore del dispositivo
+### <a name="change-device-password"></a>Modificare la password del dispositivo
 
-Per modificare la password amministratore del dispositivo, completare questi passaggi nell'interfaccia utente locale.
+Seguire questi passaggi nell'interfaccia utente locale per modificare la password del dispositivo.
 
 1. Nell'interfaccia utente Web locale passare a **Manutenzione > Modifica password**.
 2. Immettere la password corrente e quindi quella nuova. La password specificata deve essere costituita da 8-16 caratteri. La password deve contenere almeno tre di questi caratteri: lettera maiuscola, lettera minuscola, numero e caratteri speciali. Confermare la nuova password.
@@ -44,7 +41,7 @@ Per modificare la password amministratore del dispositivo, completare questi pas
 
 3. Fare clic su **Cambia password**.
  
-### <a name="reset-device-administrator-password"></a>Reimpostare la password amministratore del dispositivo
+### <a name="reset-device-password"></a>Reimposta password dispositivo
 
 Il flusso di lavoro di reimpostazione non richiede che l'utente ricordi la vecchia password ed è utile in caso di smarrimento della password. Questo flusso di lavoro viene eseguito nel portale di Azure.
 

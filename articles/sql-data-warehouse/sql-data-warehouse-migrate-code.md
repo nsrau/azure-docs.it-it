@@ -10,17 +10,19 @@ ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 14b3d62235cfcc8bbc8a929757a16cf99b860753
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: fae3ae16ee0100ad446c0b6c7851553a3376bb4f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815762"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400986"
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Eseguire la migrazione del codice SQL in SQL Data Warehouse
+
 Questo articolo spiega le modifiche del codice che saranno molto probabilmente necessarie quando si esegue la migrazione del codice da un altro database in SQL Data Warehouse. Alcune funzionalità di SQL Data Warehouse possono migliorare in modo significativo le prestazioni perché sono progettate per funzionare direttamente in modalità distribuita. Per mantenere tuttavia le prestazioni e la scalabilità, alcune funzionalità non sono disponibili.
 
 ## <a name="common-t-sql-limitations"></a>Limitazioni comuni di T-SQL
+
 L'elenco seguente riepiloga le funzionalità più comuni non supportate in SQL Data Warehouse. I collegamenti consentono di accedere a soluzioni alternative per le funzionalità non supportate:
 
 * [Join ANSI sugli aggiornamenti][ANSI joins on updates]
@@ -45,12 +47,12 @@ L'elenco seguente riepiloga le funzionalità più comuni non supportate in SQL D
 * [Raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][group by clause with rollup / cube / grouping sets options]
 * [Livelli di annidamento superiori a 8][nesting levels beyond 8]
 * [Aggiornamento tramite visualizzazioni][updating through views]
-* [Uso di select per l'assegnazione di variabili][use of select for variable assignment]
 * [Nessun tipo di dati MAX per stringhe SQL dinamiche][no MAX data type for dynamic SQL strings]
 
 Fortunatamente è possibile ovviare alla maggior parte di queste limitazioni. Le spiegazioni sono fornite dagli articoli pertinenti a cui viene fatto riferimento più indietro.
 
 ## <a name="supported-cte-features"></a>Funzionalità CTE supportate
+
 Le espressioni di tabella comune (CTE) sono parzialmente supportate in SQL Data Warehouse.  Attualmente sono supportate le funzionalità CTE seguenti:
 
 * Un'espressione CTE può essere specificata in un'istruzione SELECT.
@@ -63,6 +65,7 @@ Le espressioni di tabella comune (CTE) sono parzialmente supportate in SQL Data 
 * In un'espressione CTE possono essere definite più definizioni di query CTE.
 
 ## <a name="cte-limitations"></a>Limitazioni CTE
+
 Le espressioni di tabella comune presentano alcune limitazioni in SQL Data Warehouse, tra cui:
 
 * Un'espressione CTE deve essere seguita da una singola istruzione SELECT. Le istruzioni INSERT, UPDATE, DELETE e MERGE non sono supportate.
@@ -73,9 +76,11 @@ Le espressioni di tabella comune presentano alcune limitazioni in SQL Data Wareh
 * Quando vengono usate in istruzioni preparate da sp_prepare, le espressioni CTE si comporteranno esattamente come le altre istruzioni SELECT in PDW. Tuttavia, se le CTE vengono usate come parte di istruzioni CETAS preparate da sp_prepare, il comportamento può variare rispetto a SQL Server e altre istruzioni PDW per la modalità di implementazione del binding per sp_prepare. Se l'istruzione SELECT che fa riferimento alla CTE usa una colonna non corretta che non esiste nella CTE, sp_prepare passa senza rilevare l'errore, che invece viene generato durante sp_execute.
 
 ## <a name="recursive-ctes"></a>CTE ricorsive
+
 Le CTE ricorsive non sono supportate in SQL Data Warehouse.  La migrazione di CTE ricorsive può essere complessa e il processo ottimale consiste nel suddividere l'operazione in più passaggi. In genere è possibile usare un ciclo e popolare una tabella temporanea mentre si scorrono le query provvisorie ricorsive. Una volta che viene popolata la tabella temporanea, è quindi possibile restituire i dati come un unico set di risultati. Un approccio simile è stato usato per risolvere `GROUP BY WITH CUBE` nell'articolo relativo al [raggruppamento per clausola con opzioni di rollup/cubo/set di raggruppamento][group by clause with rollup / cube / grouping sets options].
 
 ## <a name="unsupported-system-functions"></a>Funzioni di sistema non supportate
+
 Anche alcune funzioni di sistema non sono supportate. Alcune di queste funzioni principali che in genere vengono usate nel data warehousing sono:
 
 * NEWSEQUENTIALID()
@@ -88,11 +93,12 @@ Anche alcune funzioni di sistema non sono supportate. Alcune di queste funzioni 
 Per alcuni di questi problemi esiste una soluzione alternativa.
 
 ## <a name="rowcount-workaround"></a>Soluzione alternativa @@ROWCOUNT
+
 Per risolvere la mancanza di supporto per @@ROWCOUNT, creare una stored procedure per recuperare l'ultimo conteggio delle righe da sys.dm_pdw_request_steps e quindi eseguire `EXEC LastRowCount` dopo un'istruzione DML.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
-WITH LastRequest as 
+WITH LastRequest as
 (   SELECT TOP 1    request_id
     FROM            sys.dm_pdw_exec_requests
     WHERE           session_id = SESSION_ID()
@@ -111,6 +117,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per un elenco completo di tutte le istruzioni T-SQL supportate, vedere [Argomenti Transact-SQL][Transact-SQL topics].
 
 <!--Image references-->

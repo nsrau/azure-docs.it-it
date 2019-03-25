@@ -1,6 +1,6 @@
 ---
 title: Distribuire le risorse con il modello e l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Utilizzare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire una risorsa in Azure. Le risorse sono definite in un modello di Resource Manager.
+description: Usare Azure Resource Manager e della riga di comando di Azure per distribuire risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
@@ -10,24 +10,40 @@ ms.devlang: azurecli
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/14/2019
+ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0c298ba2074a57bd182b23e5fd9bc6b68ee496ad
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
-ms.translationtype: HT
+ms.openlocfilehash: f64a76fa6063ebc5681b546b53fe9d6ca7bc5037
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56300450"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400403"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
 Questo articolo illustra come usare l'interfaccia della riga di comando di Azure con modelli di Resource Manager per distribuire risorse in Azure. Per comprendere i concetti di distribuzione e gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).  
 
-Il modello di Resource Manager che si distribuisce può essere un file locale nel computer o un file esterno che si trova in un repository come GitHub. Il modello che viene distribuito in questo articolo è disponibile come [modello di account di archiviazione in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/101-storage-account-create/azuredeploy.json).
-
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
 Se l'interfaccia della riga di comando di Azure non è installata, è possibile usare [Cloud Shell](#deploy-template-from-cloud-shell).
+
+## <a name="deployment-scope"></a>Ambito di distribuzione
+
+È possibile destinare la distribuzione a una sottoscrizione di Azure o un gruppo di risorse all'interno di una sottoscrizione. Nella maggior parte dei casi, si interagirà distribuzione in un gruppo di risorse. Usare distribuzioni della sottoscrizione per applicare i criteri e le assegnazioni di ruolo nella sottoscrizione. È anche possibile usare distribuzioni della sottoscrizione per creare un gruppo di risorse e distribuire le risorse ad esso. A seconda dell'ambito della distribuzione, si usano comandi diversi.
+
+Per distribuire in un **gruppo di risorse**, usare [distribuzione gruppo di az creare](/cli/azure/group/deployment?view=azure-cli-latest#az-group-deployment-create):
+
+```azurecli
+az group deployment create --resource-group <resource-group-name> --template-file <path-to-template>
+```
+
+Per distribuire in un **abbonamento**, usare [creare la distribuzione di az](/cli/azure/deployment?view=azure-cli-latest#az-deployment-create):
+
+```azurecli
+az deployment create --location <location> --template-file <path-to-template>
+```
+
+Gli esempi in questo articolo usano distribuzioni di gruppi di risorse. Per altre informazioni sulle distribuzioni di sottoscrizione, vedere [creare i gruppi di risorse e le risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
 ## <a name="deploy-local-template"></a>Distribuire un modello locale
 
@@ -56,7 +72,7 @@ Per il completamento della distribuzione sarà necessario attendere alcuni minut
 "provisioningState": "Succeeded",
 ```
 
-## <a name="deploy-external-template"></a>Distribuire un modello esterno
+## <a name="deploy-remote-template"></a>Distribuire il modello remoto
 
 Anziché archiviare i modelli di Resource Manager nel computer locale, è consigliabile archiviarli in una posizione esterna, ad esempio in un repository di controllo del codice sorgente come GitHub. È possibile, in alternativa, archiviarli in un account di archiviazione di Azure per consentire l'accesso condiviso nell'organizzazione.
 
@@ -83,10 +99,6 @@ az group deployment create --resource-group examplegroup \
   --template-uri <copied URL> \
   --parameters storageAccountType=Standard_GRS
 ```
-
-## <a name="deploy-to-more-than-one-resource-group-or-subscription"></a>Effettuale la distribuzione in più gruppi di risorse o sottoscrizioni
-
-In genere si distribuiscono tutte le risorse del modello in un unico gruppo di risorse, ma in alcuni scenari può essere preferibile distribuire insieme un set di risorse, inserendole tuttavia in gruppi di sottoscrizioni e risorse diversi. Un'unica distribuzione può interessare solo cinque gruppi di risorse. Per altre informazioni, vedere [Distribuire le risorse di Azure in più gruppi di sottoscrizioni e risorse](resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="redeploy-when-deployment-fails"></a>Eseguire nuovamente la distribuzione se non è riuscita
 
@@ -196,7 +208,6 @@ az group deployment create \
   --parameters @demotemplate.parameters.json \
   --parameters exampleArray=@arrtest.json
 ```
-
 
 ## <a name="test-a-template-deployment"></a>Testare una distribuzione del modello
 

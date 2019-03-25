@@ -8,19 +8,16 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8ef35709e90c0a58cc0ff8df1afb6e864adc0a23
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994708"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402593"
 ---
-# <a name="azure-data-box-edge-technical-specifications-preview"></a>Azure specifiche tecniche bordo casella dei dati (anteprima)
+# <a name="azure-data-box-edge-technical-specifications"></a>Azure specifiche tecniche bordo casella dei dati
 
 I componenti hardware del dispositivo Edge casella dei dati di Microsoft Azure rispettano le specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono le unità di alimentazione (PSU), capacità di archiviazione, le enclosure e standard dell'ambiente. 
-
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione. 
 
 ## <a name="power-supply-unit-specifications"></a>Specifiche unità di alimentazione Power
 
@@ -28,7 +25,7 @@ Il dispositivo perimetrale casella dei dati ha due 100-240 V unità di alimentaz
 
 | Specifiche           | 750 W PSU                  |
 |-------------------------|----------------------------|
-| Potenza massima in uscita    |  750 W                     |
+| Potenza massima in uscita    | 750 W                     |
 | Frequenza               | 50/60 Hz                   |
 | Selezione intervallo di voltaggio | Intervallo automatico: 100-240 V CA |
 | Collegabile "hot"           | Sì                        |

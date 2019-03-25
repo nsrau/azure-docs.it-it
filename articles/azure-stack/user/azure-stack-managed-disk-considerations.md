@@ -1,6 +1,6 @@
 ---
-title: Differenze e considerazioni per Managed Disks in Azure Stack | Microsoft Docs
-description: Informazioni sulle differenze e considerazioni quando si lavora con Managed Disks in Azure Stack.
+title: Le differenze e considerazioni per i dischi gestiti e gestiti immagini in Azure Stack | Microsoft Docs
+description: Informazioni sulle differenze e considerazioni quando si lavora con managed disks e immagini gestite in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: sethmanheim
@@ -12,27 +12,27 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: jiahan
-ms.lastreviewed: 02/26/2019
-ms.openlocfilehash: 28210048cd007fc10dcd4cf5e92577cbd121e2a3
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: c1975c885efc0a2a22b2ab478f8bc9afbcc8bce3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368273"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400368"
 ---
-# <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack Managed Disks: differenze e considerazioni
+# <a name="azure-stack-managed-disks-differences-and-considerations"></a>I dischi gestiti di Azure Stack: differenze e considerazioni
 
-Questo articolo riepiloga le differenze tra note [Managed Disks di Azure Stack](azure-stack-manage-vm-disks.md) e [Managed Disks per Azure](../../virtual-machines/windows/managed-disks-overview.md). Per altre informazioni sulle differenze generali tra Azure e Azure Stack, vedere la [considerazioni chiave](azure-stack-considerations.md) articolo.
+Questo articolo riepiloga le differenze tra note [dischi gestiti di Azure Stack](azure-stack-manage-vm-disks.md) e [managed disks per Azure](../../virtual-machines/windows/managed-disks-overview.md). Per altre informazioni sulle differenze generali tra Azure e Azure Stack, vedere la [considerazioni chiave](azure-stack-considerations.md) articolo.
 
-Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS gestendo il [gli account di archiviazione](../azure-stack-manage-storage-accounts.md) associati ai dischi della macchina virtuale.
+I dischi gestiti semplifica la gestione dei dischi per le macchine virtuali IaaS gestendo il [gli account di archiviazione](../azure-stack-manage-storage-accounts.md) associati ai dischi della macchina virtuale.
 
 > [!Note]  
-> Managed Disks in Azure Stack è disponibile da 1808 update. Si è abilitato per impostazione predefinita durante la creazione di macchine virtuali usando il portale di Azure Stack da 1811 update.
+> Managed disks in Azure Stack è disponibile dall'aggiornamento 1808. Si è abilitato per impostazione predefinita durante la creazione di macchine virtuali usando il portale di Azure Stack, inizia con l'aggiornamento 1811.
   
-## <a name="cheat-sheet-managed-disk-differences"></a>Foglio informativo: Differenze di disco gestito
+## <a name="cheat-sheet-managed-disk-differences"></a>Foglio informativo: differenze di disco gestito
 
 | Funzionalità | Azure (globale) | Azure Stack |
 | --- | --- | --- |
@@ -50,7 +50,7 @@ Managed Disks semplifica la gestione dei dischi per le macchine virtuali IaaS ge
 |Migrazione      |Fornisce lo strumento per eseguire la migrazione da non gestiti Azure Resource Manager le macchine virtuali esistenti senza dover ricreare la macchina virtuale  |Non è ancora supportata |
 
 > [!NOTE]  
-> Dischi IOPs e velocità effettiva in Azure Stack è un numero limite di utilizzo anziché un numero con provisioning, che potrebbe interessate da carichi di lavoro in esecuzione in Azure Stack e hardware.
+> Servizio Managed disks di IOPs e velocità effettiva in Azure Stack è un numero limite di utilizzo anziché un numero con provisioning, che potrebbe essere interessato da carichi di lavoro in esecuzione in Azure Stack e hardware.
 
 ## <a name="metrics"></a>Metriche
 
@@ -61,7 +61,7 @@ Esistono anche differenze con le metriche di archiviazione:
 
 ## <a name="api-versions"></a>Versioni dell'API
 
-Azure Stack Managed Disks supporta le versioni dell'API seguente:
+Azure Stack gestito le versioni di dischi supporta l'API seguente:
 
 - 2017-03-30
 - 2017-12-01
@@ -135,26 +135,31 @@ Azure supporta Stack *gestiti immagini*, che consentono di creare un oggetto imm
 - Si dispone di una macchina virtuale gestita generalizzata e si vuole creare più, macchine virtuali gestite simile.
 
 ### <a name="step-1-generalize-the-vm"></a>Passaggio 1: Generalizzare la VM
-Per Windows, vedere la sezione "Generalizza la macchina virtuale Windows tramite Sysprep" di seguito: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep Per Linux, seguire il passaggio 1 qui: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm 
 
-Note: Non dimenticare di generalizzare la macchina virtuale. Creazione di una macchina virtuale da un'immagine che non è stata generalizzata correttamente causerà un errore VMProvisioningTimeout.
+Per Windows, seguire le [generalizzare la macchina virtuale Windows tramite Sysprep](/azure/virtual-machines/windows/capture-image-resource#generalize-the-windows-vm-using-sysprep) sezione. Per Linux, seguire il passaggio 1 [qui](/azure/virtual-machines/linux/capture-image#step-1-deprovision-the-vm).
+
+> [!NOTE]
+> Assicurarsi che generalizzare la VM. Creazione di una macchina virtuale da un'immagine che non sia stata generalizzata correttamente porterà a una **VMProvisioningTimeout** errore.
 
 ### <a name="step-2-create-the-managed-image"></a>Passaggio 2: Creare l'immagine gestita
-A tale scopo, è possibile utilizzare il portale, powershell o cli. Documento di Azure seguenti: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/capture-image-resource
 
-### <a name="step-3-choose-the-use-case"></a>Passaggio 3: Scegliere il caso d'uso:
+È possibile usare il portale, PowerShell o CLI per creare l'immagine gestita. Seguire i passaggi nell'articolo di Azure [qui](/azure/virtual-machines/windows/capture-image-resource).
+
+### <a name="step-3-choose-the-use-case"></a>Passaggio 3: Scegliere il caso d'uso
+
 #### <a name="case-1-migrate-unmanaged-vms-to-managed-disks"></a>Caso 1: Eseguire la migrazione di macchine virtuali non gestite a managed disks
-Non dimenticare generalizzare la VM correttamente prima di eseguire questo passaggio. Post generalizzazione, questa macchina virtuale non può essere utilizzato ulteriore. Creazione di una macchina virtuale da un'immagine che non è stata generalizzata correttamente causerà un errore VMProvisioningTimeout. 
 
-Seguire le istruzioni riportate [qui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) per creare un'immagine gestita da un disco rigido virtuale generalizzato in un account di archiviazione. Questa immagine può essere usata per creare macchine virtuali gestite in futuro.
+Assicurarsi che generalizzare la VM correttamente prima di eseguire questo passaggio. Dopo la generalizzazione, si non è più possibile utilizzare tale VM. Creazione di una macchina virtuale da un'immagine che non sia stata generalizzata correttamente porterà a una **VMProvisioningTimeout** errore.
 
-#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Caso 2: Creare Managed VM dall'immagine gestita tramite Powershell
+Seguire le istruzioni riportate [qui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-vhd-in-a-storage-account) per creare un'immagine gestita da un disco rigido virtuale generalizzato in un account di archiviazione. È possibile usare questa immagine in futuro per creare macchine virtuali gestite.
 
-Dopo la creazione di un'immagine da un oggetto esistente gestito del disco della macchina virtuale usando lo script [qui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell) , lo script di esempio seguente crea una VM Linux simili da un oggetto immagine esistente:
+#### <a name="case-2-create-managed-vm-from-managed-image-using-powershell"></a>Caso 2: Creare una macchina virtuale gestita da immagine gestita tramite Powershell
 
-Stack modulo di Azure powershell 1.7.0 o versione successiva: Seguire le istruzioni [qui](../../virtual-machines/windows/create-vm-generalized-managed.md) 
+Dopo la creazione di un'immagine da un oggetto esistente gestito del disco della macchina virtuale usando lo script [qui](../../virtual-machines/windows/capture-image-resource.md#create-an-image-from-a-managed-disk-using-powershell), lo script di esempio seguente crea una VM Linux simili da un oggetto immagine esistente:
 
-Stack modulo di Azure powershell versione 1.6.0 o versioni precedenti:
+Modulo PowerShell di Stack di Azure 1.7.0 o versioni successive: seguire le istruzioni riportate [qui](../../virtual-machines/windows/create-vm-generalized-managed.md).
+
+Modulo Azure PowerShell per Stack 1.6.0 o versioni precedenti:
 
 ```powershell
 # Variables for common values
@@ -195,6 +200,7 @@ $nic = New-AzureRmNetworkInterface -Name myNic -ResourceGroupName $resourceGroup
   -SubnetId $vnet.Subnets[0].Id -PublicIpAddressId $pip.Id -NetworkSecurityGroupId $nsg.Id
 
 $image = get-azurermimage -ResourceGroupName $imagerg -ImageName $imagename
+
 # Create a virtual machine configuration
 $vmConfig = New-AzureRmVMConfig -VMName $vmName -VMSize Standard_D1 | `
 Set-AzureRmVMOperatingSystem -Linux -ComputerName $vmName -Credential $cred | `
@@ -209,7 +215,7 @@ New-AzureRmVM -ResourceGroupName $resourceGroup -Location $location -VM $vmConfi
 
 ## <a name="configuration"></a>Configurazione
 
-Dopo aver applicato la 1808 aggiornare o versioni successive, è necessario eseguire la configurazione seguente prima di usare Managed Disks:
+Dopo aver applicato la 1808 aggiornare o versioni successive, è necessario eseguire la configurazione seguente prima di usare i dischi gestiti:
 
 - Se è stata creata una sottoscrizione prima dell'aggiornamento 1808, seguire questa procedura per aggiornare la sottoscrizione. In caso contrario, la distribuzione di macchine virtuali in questa sottoscrizione potrebbe non riuscire con un messaggio di errore "Errore interno in Gestione disco".
    1. Nel portale Tenant, passare a **sottoscrizioni** e individuare la sottoscrizione. Fare clic su **provider di risorse**, quindi fare clic su **Microsoft. COMPUTE**, quindi fare clic su **registrare nuovamente**.

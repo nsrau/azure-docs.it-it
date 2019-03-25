@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 816d25473bfe5f9dc61d6d6f2e50d6cd82ace50c
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 265f1405a8779cdca101f18cf37b64f1933c2ff3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562191"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400753"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Configurare il flusso delle credenziali password del proprietario della risorsa in Azure Active Directory B2C usando criteri personalizzati
 
-[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+[!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
 In Azure Active Directory (Azure AD) B2C, il flusso delle credenziali password del proprietario della risorsa (ROPC) è un flusso di autenticazione standard OAuth. In questo flusso, un'applicazione, nota anche come relying party, scambia credenziali valide con token. Le credenziali includono un ID utente e una password. I token restituiti sono un token ID, un token di accesso e un token di aggiornamento.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2c5a7dc08886e21ef8e287540d9139ec555b11a2
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bc8a644f99d9a84e1f2c177a87e2668ae9a57868
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242293"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400637"
 ---
 # <a name="collect-data-from-threat-intelligence-providers"></a>Raccogliere dati dai provider di threat intelligence 
 
@@ -31,6 +31,8 @@ Dopo che il flusso di dati in Azure Sentinel, è possibile arricchire con i feed
 Per poter incrociato controllare gli avvisi e le regole con intelligence per le minacce true, ad esempio se viene visualizzato un avviso da un indirizzo IP specifico, l'integrazione di provider di threat intelligence sarà in grado di consentono di sapere se quell'indirizzo IP di recente è stato trovato per essere dannose , Consente l'integrazione con azure Sentinel [provider di intelligence per le minacce](https://aka.ms/graphsecuritytips). 
 
 È possibile trasmettere i log dai provider di Threat intelligence in Azure Sentinel con un solo clic. Questa connessione consente di incorporare gli indicatori contenente vari tipi di oggetti Observable, ad esempio indirizzo IP, dominio, URL e hash file per la ricerca e creare avvisi delle regole in Azure Sentinel.  
+> [!NOTE]
+> È possibile immettere gli indicatori di minaccia personalizzato in Azure Sentinel per l'uso in scenari di ricerca, dashboard e le regole di avviso grazie all'integrazione con il [Microsoft Graph Security tiIndicator](https://aka.ms/graphsecuritytiindicators) entità oppure usando un [Microsoft Grafico sicurezza integrata Threat Intelligence Platform](https://aka.ms/graphsecuritytips).
 
 ## <a name="prerequisites"></a>Prerequisiti  
 

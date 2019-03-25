@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: jdial;anavin
-ms.openlocfilehash: 5ce816c9e8bec716de840cc5f6fdd546b6abd298
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649782"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403463"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Creare un peering di rete virtuale - Resource Manager, sottoscrizioni diverse
 
@@ -283,7 +283,7 @@ Se le reti virtuali si trovano in sottoscrizioni diverse e le sottoscrizioni son
    }
    ```
 
-3. Accedere ad Azure come UserA e distribuire il modello usando il [portale](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-templates-stored-locally) o l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specificare il nome file in cui si è salvato il testo JSON di esempio nel passaggio 2.
+3. Accedere ad Azure come UserA e distribuire il modello usando il [portale](../azure-resource-manager/resource-group-template-deploy-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-resources-from-custom-template), [PowerShell](../azure-resource-manager/resource-group-template-deploy.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template) o l'[interfaccia della riga di comando di Azure](../azure-resource-manager/resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-network%2ftoc.json#deploy-local-template). Specificare il nome file in cui si è salvato il testo JSON di esempio nel passaggio 2.
 4. Copiare il codice JSON di esempio dal passaggio 2 a un file nel computer e apportare modifiche alle righe che iniziano con:
    - **name**: sostituire *myVnetA/myVnetAToMyVnetB* con *myVnetB/myVnetBToMyVnetA*.
    - **id**: sostituire `<subscription ID>` con l'ID della sottoscrizione di UserB e sostituire *myVnetB* con *myVnetA*.

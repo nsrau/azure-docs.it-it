@@ -1,22 +1,22 @@
 ---
-title: Metodi host di bilanciamento del carico pool (anteprima) - Azure
-description: Host pool bilanciamento del carico metodi per un ambiente di Desktop virtuale Windows.
+title: Anteprima di Desktop virtuale di Windows host pool bilanciamento del carico metodi - Azure
+description: Host pool bilanciamento del carico metodi per un ambiente di anteprima di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 0a07406c8bad4ad0bef2949103d1f2c78e7dd8af
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8b18224339654c067d8ab9b543fa49a9c7d55ddd
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318510"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400199"
 ---
-# <a name="host-pool-load-balancing-methods"></a>Metodi di bilanciamento del carico host pool
+# <a name="host-pool-load-balancing-methods"></a>Metodo di bilanciamento del carico per i pool di host
 
-Windows Virtual Desktop (anteprima) supporta due metodi di bilanciamento del carico. Ogni metodo determina quali host sessione sarà ospitata una sessione utente quando si connettono a una risorsa in un pool di host.
+Anteprima di Desktop virtuale Windows supporta due metodi di bilanciamento del carico. Ogni metodo determina quali host sessione sarà ospitata una sessione utente quando si connettono a una risorsa in un pool di host.
 
 I seguenti metodi di bilanciamento del carico sono disponibili in Desktop virtuali Windows:
 

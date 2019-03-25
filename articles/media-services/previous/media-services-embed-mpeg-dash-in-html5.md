@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ff14afc9e438c2b493219e9fa207b2e8793b3c87
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189207"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403075"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js  
 
@@ -55,7 +55,7 @@ Il primo passaggio consiste nel creare una pagina HTML standard contenente l'ele
 ```
 
 ## <a name="adding-the-dashjs-player"></a>Aggiunta del lettore DASH.js
-Per aggiungere l'implementazione di riferimento dash.js all'applicazione, è necessario recuperare il file dash.all.js dalla versione 1.0 del progetto dash.js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js sarà possibile identificare i singoli file, il codice di test e molto altro, ma se si vuole solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
+Per aggiungere l'implementazione di riferimento dash. js all'applicazione, è necessario recuperare il file dash dell'ultima versione del progetto dash. js. Il file deve essere quindi salvato nella cartella JavaScript dell'applicazione. Si tratta di un file di riferimento che raccoglie tutto il codice dash.js necessario in un unico file. Esaminando l'archivio dash.js sarà possibile identificare i singoli file, il codice di test e molto altro, ma se si vuole solo usare il file dash.js, questo sarà l'unico elemento effettivamente necessario.
 
 Per aggiungere il lettore dash.js a un'applicazione, aggiungere un tag di script alla sezione di intestazione del file basicPlayer.html:
 

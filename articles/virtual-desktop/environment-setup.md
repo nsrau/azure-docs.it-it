@@ -1,22 +1,22 @@
 ---
-title: Ambiente di Desktop virtuale di Windows (anteprima) - Azure
-description: Elementi di base di un ambiente di Desktop virtuale Windows.
+title: Ambiente di anteprima di Desktop virtuale Windows - Azure
+description: Elementi di base di un ambiente di anteprima di Desktop virtuale Windows.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c503f665e3e2f99cd59f207c3fc4823b927eaac3
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: ceed6a8bb74206b7c6689ce542482148800e4ba9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58318450"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403511"
 ---
-# <a name="windows-virtual-desktop-environment-preview"></a>Ambiente di Desktop virtuale di Windows (anteprima)
+# <a name="windows-virtual-desktop-preview-environment"></a>Ambiente di anteprima di Desktop virtuale Windows
 
-Windows Virtual Desktop (anteprima) è un servizio che offre agli utenti un accesso facile e sicuro ai propri desktop virtualizzati e su macchine virtuali. In questo argomento illustrerà alcune informazioni la struttura generale dell'ambiente di Desktop virtuale Windows.
+Anteprima di Desktop virtuale Windows è un servizio che offre agli utenti un accesso facile e sicuro ai propri desktop virtualizzati e su macchine virtuali. In questo argomento illustrerà alcune informazioni la struttura generale dell'ambiente di Desktop virtuale Windows.
 
 ## <a name="tenants"></a>Tenant
 
@@ -57,11 +57,11 @@ Dopo aver assegnato gli utenti ai gruppi di app, è possibile connettersi a una 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altre informazioni su come assegnare ruoli agli utenti e l'accesso delegato [delega l'accesso in Windows Desktop virtuale](delegated-access-virtual-desktop.md).
+Altre informazioni su come assegnare ruoli agli utenti e l'accesso delegato [delega l'accesso in anteprima di Desktop virtuale Windows](delegated-access-virtual-desktop.md).
 
-Per informazioni su come configurare il tenant di Desktop virtuale Windows, vedere [creare un tenant in Windows Desktop virtuale](tenant-setup-azure-active-directory.md).
+Per informazioni su come configurare il tenant di Desktop virtuale Windows, vedere [creare un tenant nell'anteprima del Desktop virtuale Windows](tenant-setup-azure-active-directory.md).
 
 Per informazioni su come connettersi a Desktop virtuali di Windows, vedere uno degli articoli seguenti:
 
 - [Connettersi al client Desktop remoto in Windows 7 e Windows 10](connect-windows-7-and-10.md)
-- [Connettersi al client web di Desktop virtuale Windows](connect-web.md)
+- [Connettersi al client web di anteprima di Desktop virtuale Windows](connect-web.md)
