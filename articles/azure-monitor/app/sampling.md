@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
-ms.openlocfilehash: 83c286be6429376d4d0b4009b18c5f751a4b158f
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cd0369f45529082ac929b1d87608204033cd78f6
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226692"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370517"
 ---
 # <a name="sampling-in-application-insights"></a>Campionamento in Application Insights
 
@@ -517,7 +517,14 @@ L'SDK lato client (JavaScript) partecipa al campionamento a frequenza fissa insi
 
 *Esistono alcuni eventi rari che si vuole visualizzare sempre. Come è possibile passarli al modulo di campionamento?*
 
-* Inizializzare un'istanza separata di TelemetryClient con una nuova TelemetryConfiguration (non con quello predefinito attivo). Usarla per inviare gli eventi rari.
+* Il modo migliore per ottenere questo risultato consiste nello scrivere un oggetto personalizzato [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), che imposta il `SamplingPercentage` a 100 per l'elemento di telemetria da mantenuto, come illustrato di seguito. Ciò garantisce che tutte le tecniche di campionamento ignorerà questo elemento dall'alcuna considerazione di campionamento.
+
+```csharp
+    if(somecondition)
+    {
+        ((ISupportSampling)item).SamplingPercentage = 100;
+    }
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

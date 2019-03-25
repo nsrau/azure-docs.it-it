@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 30e0c37d3d0c03e77b6dab9c06c0a50bff27e8bc
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: a687398032adffe5e787ef1469abe0b2627a38fe
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966655"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403545"
 ---
-# <a name="azure-data-box-edge-limits-preview"></a>Limiti di Azure Data Box Edge (anteprima)
+# <a name="azure-data-box-edge-limits"></a>Limiti di bordo casella dei dati di Azure
 
 Quando si distribuisce e si usa la soluzione Microsoft Azure Data Box Edge, tenere presenti i limiti seguenti.
-
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Prima di distribuire la soluzione, leggere le [condizioni d'uso per l'anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## <a name="data-box-edge-service-limits"></a>Limiti del servizio Data Box Edge
 

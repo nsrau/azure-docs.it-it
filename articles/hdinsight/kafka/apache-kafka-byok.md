@@ -8,12 +8,12 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 26e4b921b4050efa5217e3b599b9dc942a003090
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 61a4be19000265910493963db9f29df143a7e21c
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58173924"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360351"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight-preview"></a>Bring Your Own Key per Apache Kafka in Azure HDInsight (anteprima)
 
@@ -26,6 +26,8 @@ La crittografia BYOK è un processo costituito da un singolo passaggio gestito d
 Tutti i messaggi inviati al cluster Kafka (incluse le repliche gestite da Kafka) vengono crittografati con una chiave DEK simmetrica. La chiave DEK viene protetta con la chiave di crittografia della chiave dall'insieme di credenziali delle chiavi. I processi di crittografia e decrittografia vengono gestiti interamente da Azure HDInsight. 
 
 È possibile usare il portale di Azure o l'interfaccia della riga di comando di Azure per ruotare in modo sicuro le chiavi nell'insieme di credenziali delle chiavi. Quando una chiave ruota, il cluster HDInsight Kafka inizia a usare la nuova chiave entro pochi minuti. Abilitare le funzionalità di protezione dall'eliminazione e di eliminazione temporanea delle chiavi per proteggersi da scenari di ransomware e dall'eliminazione accidentale. Le chiavi senza queste funzionalità di protezione non sono supportate.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-byok"></a>Introduzione a BYOK
 
@@ -99,7 +101,7 @@ Tutti i messaggi inviati al cluster Kafka (incluse le repliche gestite da Kafka)
 
 **Come è possibile recuperare il cluster se le chiavi vengono eliminate?**
 
-   Poiché sono supportate solo le chiavi abilitate per l'eliminazione temporanea, se le chiavi vengono ripristinate nell'insieme di credenziali delle chiavi, il cluster dovrebbe ottenere nuovamente l'accesso alle chiavi. Per ripristinare una chiave di Azure Key Vault, vedere [Restore-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey).
+   Poiché sono supportate solo le chiavi abilitate per l'eliminazione temporanea, se le chiavi vengono ripristinate nell'insieme di credenziali delle chiavi, il cluster dovrebbe ottenere nuovamente l'accesso alle chiavi. Per ripristinare una chiave di Azure Key Vault, vedere [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey).
 
 **È possibile avere applicazioni producer/consumer che usano contemporaneamente un cluster BYOK e un cluster non BYOK?**
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: 906b1dde3d145268df4fb1ff5c243c7daa8396ec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992436"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370109"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -279,7 +279,18 @@ L'utente proprietario può modificare le autorizzazioni del file in modo da asse
 
 ### <a name="why-do-i-sometimes-see-guids-in-acls"></a>Perché in alcuni casi vengono visualizzati GUID negli elenchi di controllo di accesso?
 
-Viene visualizzato un GUID se la voce rappresenta un utente e tale utente non esiste più in Azure AD. In genere ciò si verifica se l'utente non fa più parte dell'azienda o l'account è stato eliminato in Azure AD. Inoltre, le entità servizio e i gruppi di sicurezza non hanno un nome dell'entità utente (UPN) per identificarli e vengono quindi rappresentati dall'attributo OID (un GUID). 
+Viene visualizzato un GUID se la voce rappresenta un utente e tale utente non esiste più in Azure AD. In genere ciò si verifica se l'utente non fa più parte dell'azienda o l'account è stato eliminato in Azure AD. Inoltre, le entità servizio e i gruppi di sicurezza non hanno un nome dell'entità utente (UPN) per identificarli e vengono quindi rappresentati dall'attributo OID (un GUID).
+
+### <a name="how-do-i-set-acls-correctly-for-a-service-principal"></a>Come si imposta gli ACL in modo corretto per un servizio principale?
+
+Quando si definiscono gli ACL per le entità servizio, è importante usare l'ID di oggetto (OID) del *entità servizio* per la registrazione dell'app che è stato creato. È importante notare che le app registrate dispone di un'entità servizio separato in specifico tenant di Azure AD. Le app registrate hanno un identificatore di oggetto che è visibile nel portale di Azure, ma il *entità servizio* dispone di un altro OID (diverso).
+
+Per ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app, è possibile usare il `az ad sp show` comando. Specificare l'ID dell'applicazione come parametro. Di seguito è riportato un esempio su come ottenere l'OID per l'entità servizio che corrisponde a una registrazione dell'app con App Id = 18218b12-1895-43e9-ad80-6e8fc1ea88ce. Eseguire il comando seguente nell'interfaccia della riga di comando di Azure:
+
+`az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
+<<OID will be displayed>>`
+
+Quando si ha l'OID corretto per l'entità servizio, passare a Storage Explorer **Gestisci accesso** pagina per aggiungere l'OID e assegnare le autorizzazioni appropriate per l'identificatore di oggetto. Assicurarsi di selezionare **salvare**.
 
 ### <a name="does-data-lake-storage-gen2-support-inheritance-of-acls"></a>Data Lake Storage Gen2 supporta l'ereditarietà degli elenchi di controllo di accesso?
 
