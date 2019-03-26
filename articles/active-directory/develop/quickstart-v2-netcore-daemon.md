@@ -4,7 +4,7 @@ description: Informazioni su come un processo .NET Core può ottenere un token d
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 1/11/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27cc0334e8332e3bc09ae4302e0b0efdda8067f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194445"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200517"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Guida introduttiva: Acquisire un token e chiamare l'API Microsoft Graph da un'app console usando l'identità dell'app
 
@@ -30,7 +30,7 @@ ms.locfileid: "56194445"
 
 In questo argomento di avvio rapido verrà illustrato come scrivere un'applicazione .NET Core che può ottenere un token di accesso usando l'identità dell'app e quindi chiamare l'API Microsoft Graph per visualizzare un [elenco di utenti](https://docs.microsoft.com/graph/api/user-list) nella directory. Questo scenario è utile nelle situazioni in cui un processo headless automatico o un servizio di Windows deve essere eseguito con un'identità di applicazione, invece che con l'identità di un utente.
 
-![Funzionamento dell'app di esempio generata da questa guida introduttiva](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.png)
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -198,7 +198,7 @@ var app = new ConfidentialClientApplication(
 > |---------|---------|
 > | `secret` | È il segreto client creato per l'applicazione nel portale di Azure. |
 > | `clientId` | **ID applicazione (client)** dell'applicazione registrata nel portale di Azure. Questo valore è riportato nella pagina **Panoramica** dell'app nel portale di Azure. |
-> | `Authority`    | (Facoltativo) Endpoint del servizio token di sicurezza per l'utente da autenticare, in genere https://login.microsoftonline.com/{tenant} per il cloud pubblico, dove {tenant} è il nome del tenant o l'ID tenant.|
+> | `Authority`    | (Facoltativo) Endpoint del servizio token di sicurezza per l'utente da autenticare, in genere <https://login.microsoftonline.com/{tenant}> per il cloud pubblico, dove {tenant} è il nome del tenant o l'ID tenant.|
 > | `redirectUri`  | URL a cui vengono indirizzati gli utenti dopo l'autenticazione. In questo caso, poiché si tratta di un'applicazione console/non interattiva, questo parametro non viene usato |
 > | `clientCredentials`  | Oggetto credenziali client, che contiene il certificato o il segreto |
 > | `userTokenCache`  | Istanza di una cache dei token per l'utente. In questo caso, poiché questa app viene eseguita nel contesto dell'app e non dell'utente, questo valore è null|

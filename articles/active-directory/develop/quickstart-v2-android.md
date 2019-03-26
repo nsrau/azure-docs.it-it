@@ -3,8 +3,8 @@ title: Guida introduttiva per Android di Azure AD v2 | Microsoft Docs
 description: Informazioni su come le applicazioni Android possono chiamare un'API che richiede token di accesso dall'endpoint di Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: danieldobalian
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 227f8691e65e588d4eb274fd11f76ebd01bb7834
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35cf0f7ffe118a3c878e14e4a81793d18a646fa9
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56207314"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202895"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Avvio rapido: Accesso utenti e chiamata dell'API Microsoft Graph da un'app di Android
 
@@ -30,7 +30,7 @@ ms.locfileid: "56207314"
 
 Questa guida introduttiva contiene un esempio di codice che illustra come un'applicazione Android può concedere l'accesso ad account personali, di lavoro o dell'istituto di istruzione, ottenere un token di accesso e chiamare l'API Graph di Microsoft.
 
-![Funzionamento dell'app di esempio generata da questa Guida introduttiva](media/quickstart-v2-android/android-intro.png)
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-android/android-intro-updated.png)
 
 > [!NOTE]
 > **Prerequisiti**

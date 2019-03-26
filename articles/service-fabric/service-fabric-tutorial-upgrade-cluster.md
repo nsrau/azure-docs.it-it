@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671557"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224958"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Esercitazione: Aggiornare il runtime di un cluster di Service Fabric in Azure
 
-Questa esercitazione, che costituisce la terza parte di una serie, illustra come aggiornare il runtime di Service Fabric in un cluster di Azure Service Fabric. Questa parte dell'esercitazione è scritta per cluster di Service Fabric in esecuzione in Azure e non si applica a cluster di Service Fabric autonomi.
+Questa esercitazione, che costituisce la quarta parte di una serie, illustra come aggiornare il runtime di Service Fabric in un cluster di Azure Service Fabric. Questa parte dell'esercitazione è scritta per cluster di Service Fabric in esecuzione in Azure e non si applica a cluster di Service Fabric autonomi.
 
 > [!WARNING]
 > Questa parte dell'esercitazione richiede PowerShell. L'aggiornamento del runtime del cluster non è ancora supportato dagli strumenti dell'interfaccia della riga di comando di Azure. In alternativa, è possibile aggiornare un cluster nel portale. Per altre informazioni, vedere [Aggiornare un cluster di Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -40,6 +40,7 @@ In questa esercitazione si apprenderà come:
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
 > * Creare un [cluster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) protetto in Azure usando un modello
+> * [Eseguire il monitoraggio di un cluster](service-fabric-tutorial-monitor-cluster.md)
 > * [Aumentare o ridurre un cluster](service-fabric-tutorial-scale-cluster.md)
 > * Aggiornare il runtime di un cluster
 > * [Eliminare un cluster](service-fabric-tutorial-delete-cluster.md)
