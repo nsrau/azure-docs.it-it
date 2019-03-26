@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24d050cbfbe3def0e6475b807f88102f3edfe4f7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3bae4012f20d5f655dba014a0e71616101bc42a2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204662"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58092056"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere a Cosmos DB. Si apprenderà come: 
+Questa esercitazione illustra come usare un’identità gestita assegnata dal sistema per una macchina virtuale Linux per l’accesso ad Azure Data Lake Store. Si apprenderà come: 
 
 In questa esercitazione si apprenderà come:
 
@@ -71,7 +71,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
 
 1. Nel portale passare alla VM Linux. In **Panoramica** selezionare **Connetti**.  
 2. Connettersi alla VM usando il client SSH di propria scelta. 
-3. Nella finestra del terminale usare CURL per inviare una richiesta all'endpoint locale delle identità gestite per le risorse di Azure per ottenere un token di accesso per il file system di Data Lake Store. L'identificatore della risorsa per Data Lake Store è "https://datalake.azure.net/".  È importante includere la barra finale nell'identificatore della risorsa.
+3. Nella finestra del terminale usare CURL per inviare una richiesta all'endpoint locale delle identità gestite per le risorse di Azure per ottenere un token di accesso per il file system di Data Lake Store. L'identificatore della risorsa per Data Lake Store è `https://datalake.azure.net/`.  È importante includere la barra finale nell'identificatore della risorsa.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

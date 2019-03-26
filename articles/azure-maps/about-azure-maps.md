@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce55185effc67709157ce6219c405bb8e32dd5db
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
+ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768580"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57571304"
 ---
 # <a name="what-is-azure-maps"></a>Informazioni su Mappe di Azure
 
@@ -22,15 +22,21 @@ Mappe di Azure è una raccolta di servizi geospaziali esclusi dai dati di mappa 
 
 Il video seguente spiega Mappe di Azure in modo approfondito:
 
-<iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+<iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
 ## <a name="map-controls"></a>Controlli mappa
 
-### <a name="web-control"></a>Controllo Web
+### <a name="web-sdk"></a>Web SDK
 
-Il controllo Web di Mappe di Azure consente di personalizzare le mappe interattive con contenuto e immagini personali per la visualizzazione in applicazioni Web o per dispositivi mobili. Questo controllo usa WebGL, consentendo di eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con il controllo usando JavaScript o TypeScript.
+Web SDK di Mappe di Azure consente di personalizzare le mappe interattive con contenuto e immagini personali per la visualizzazione in applicazioni Web o per dispositivi mobili. Questo controllo usa WebGL, consentendo di eseguire il rendering di set di dati di grandi dimensioni con prestazioni elevate. Sviluppare con SDK usando JavaScript o TypeScript.
 
-![Controllo Web di Mappe di Azure](media/about-azure-maps/Introduction_WebMapControl.png)
+![Azure Maps Web SDK](media/about-azure-maps/Introduction_WebMapControl.png)
+
+### <a name="android-sdk"></a>Android SDK
+
+Android SDK di Mappe di Azure consente di creare applicazioni di mapping avanzate per dispositivi mobili. 
+
+![Azure Maps Android SDK](media/about-azure-maps/AndroidSDK.png)
 
 ## <a name="services-in-azure-maps"></a>Servizi di Mappe di Azure
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2510195f-d5b1-4684-b3da-283fb8619df2
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 607167494381d8fc0bb5a3c0dce190c4af64e670
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0a2c66eba95f286dfa7a84c05c66c14768629312
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865757"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877905"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-fieldglass"></a>Esercitazione: Integrazione di Azure Active Directory con FieldGlass
 
@@ -108,6 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con FieldGlass, seguire que
     a. Nella casella di testo **Identificatore** digitare l'URL `https://www.fieldglass.com` o attenersi al formato seguente: `https://<company name>.fgvms.com`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+    
     | |
     |--|
     | `https://www.fieldglass.net/<company name>`|
@@ -152,7 +153,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: 44427183b6cc785af33daf92bda050336eec5284
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55245287"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863241"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
 
@@ -38,7 +38,7 @@ La VM data science è progettata e configurata per essere usata in un'ampia gamm
 Questa sezione suggerisce alcuni scenari chiave per i quali può essere distribuita la VM per l'analisi scientifica dei dati.
 
 ### <a name="preconfigured-analytics-desktop-in-the-cloud"></a>Desktop di analisi preconfigurato nel cloud
-La VM per l'analisi scientifica dei dati offre una configurazione di base per i team di analisi scientifica dei dati che vogliono sostituire i desktop locali con un desktop cloud gestito. Questa configurazione di base garantisce che tutti gli scienziati dei dati presenti in un team abbiano una configurazione coerente mediante la quale verificare gli esperimenti e promuovere la collaborazione. Anche i costi diminuiscono, grazie alla riduzione del carico lavorativo per gli amministratori di sistema e del tempo richiesto per valutare, installare e gestire i vari pacchetti di software necessari per eseguire analisi avanzate.  
+La VM per l'analisi scientifica dei dati offre una configurazione di base per i team di analisi scientifica dei dati che vogliono sostituire i desktop locali con un desktop cloud gestito. Questa configurazione di base garantisce che tutti gli scienziati dei dati presenti in un team abbiano una configurazione coerente mediante la quale verificare gli esperimenti e promuovere la collaborazione. Anche i costi diminuiscono, grazie alla riduzione del carico lavorativo per gli amministratori di sistema e del tempo richiesto per valutare, installare e gestire i vari pacchetti di software necessari per eseguire analisi avanzate.
 
 ### <a name="data-science-training-and-education"></a>Preparazione e formazione sull'analisi scientifica dei dati
 Gli istruttori e i formatori aziendali che insegnano l'analisi scientifica dei dati in genere forniscono un'immagine di macchina virtuale per garantire che gli studenti abbiano una configurazione coerente e che gli esempi abbiano un comportamento prevedibile. La VM per l'analisi scientifica dei dati consente di creare un ambiente su richiesta con una configurazione coerente che semplifica i problemi relativi a incompatibilità e supporto. Esistono vantaggi sostanziali per i casi in cui tali ambienti devono essere compilati di frequente, in particolare per i corsi di formazione più brevi.
@@ -50,7 +50,7 @@ Gli hackathon e i concorsi di analisi scientifica dei dati o la modellazione e l
 La VM per l'analisi scientifica dei dati può essere usata per valutare o imparare a usare strumenti quali Microsoft ML Server, SQL Server, strumenti di Visual Studio, Jupyter, toolkit di deep learning/ML e i nuovi strumenti popolari nella comunità con il minimo sforzo di installazione. La Data Science VM può essere configurata rapidamente, quindi può essere applicata in altri scenari di utilizzo a breve termine come la replica di esperimenti pubblicati, l'esecuzione di demo, l'esecuzione di procedure dettagliate nelle sessioni online e le esercitazioni in conferenza.
 
 ### <a name="deep-learning"></a>Apprendimento avanzato
-La Data science VM può essere usata per il training di modelli con algoritmi di apprendimento avanzato su hardware basato su GPU (unità di elaborazione grafica). Grazie alle funzioni di scalabilità delle VM del cloud di Azure, la DSVM consente di usare hardware basato su GPU nel cloud in base alle necessità. È possibile passare a una VM basata su GPU durante il training di modelli di grandi dimensioni o quando sono necessari calcoli ad alta velocità, mantenendo lo stesso disco del sistema operativo.  Nell'edizione Windows Server 2016 della DSVM sono preinstallati i driver GPU, i framework e la versione GPU dei framework di apprendimento avanzato. Nell'edizione Linux, l'apprendimento avanzato su GPU è abilitato sulle DSVM CentOS e Ubuntu. È possibile distribuire l'edizione Ubuntu, CentOS o Windows 2016 della Data Science VM a una macchina virtuale di Azure non basata su GPU. In questo caso, tutti i framework di apprendimento avanzato eseguiranno il fallback alla modalità CPU. 
+La Data science VM può essere usata per il training di modelli con algoritmi di apprendimento avanzato su hardware basato su GPU (unità di elaborazione grafica). Grazie alle funzioni di scalabilità delle VM del cloud di Azure, la DSVM consente di usare hardware basato su GPU nel cloud in base alle necessità. È possibile passare a una VM basata su GPU durante il training di modelli di grandi dimensioni o quando sono necessari calcoli ad alta velocità, mantenendo lo stesso disco del sistema operativo.  Nell'edizione Windows Server 2016 della DSVM sono preinstallati i driver GPU, i framework e la versione GPU dei framework di apprendimento avanzato. Nell'edizione Linux, l'apprendimento avanzato su GPU è abilitato sulle DSVM CentOS e Ubuntu. È possibile distribuire l'edizione Ubuntu, CentOS o Windows 2016 della Data Science VM a una macchina virtuale di Azure non basata su GPU. In questo caso, tutti i framework di apprendimento avanzato eseguiranno il fallback alla modalità CPU.
 
 ## <a name="whats-included-in-the-data-science-vm"></a>Funzionalità incluse nella VM per l'analisi scientifica dei dati
 La macchina virtuale per l'analisi scientifica dei dati ha già installati e configurati numerosi strumenti comuni per l'analisi scientifica dei dati e l'apprendimento avanzato. Include anche strumenti che semplificano l'uso di vari prodotti di analisi e dati di Azure, ad esempio Microsoft ML Server (R, Python) per la creazione di modelli predittivi o SQL Server 2017 per l'esplorazione di set di dati su larga scala. Sono inclusi anche una serie di altri strumenti della community open source e di Microsoft, nonché esempi di codice e blocchi appunti. La tabella seguente indica in modo dettagliato e confronta i componenti principali inclusi nelle edizioni per Windows e Linux della macchina virtuale per l'analisi scientifica dei dati.
@@ -66,7 +66,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | Database relazionali                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
 | Strumenti del database                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * driver di ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (strumento di query), <br /> * bcp, sqlcmd <br /> * driver di ODBC/JDBC|
 | Analisi del database scalabile con i servizi ML di SQL Server (R, Python) | S     |N              |
-| **[Jupyter Notebook Server](http://jupyter.org/) con i kernel seguenti,**                                  | S     | S |
+| **[Jupyter Notebook Server](https://jupyter.org/) con i kernel seguenti,**                                  | S     | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | S | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | S | S |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | S | S |
@@ -76,17 +76,17 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | JupyterHub (server notebook multiutente)| N | S |
 | JupyterLab (server notebook multiutente) | N | Y (soltanto Ubuntu) |
 | **Strumenti di sviluppo, editor di codice e IDE**| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) con plug-in Git, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) e [R Tools per Visual Studio (RTVS)](http://microsoft.github.io/RTVS-docs/) | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) con plug-in Git, Azure HDInsight (Hadoop), Data Lake, SQL Server Data Tools, [Node.js](https://github.com/Microsoft/nodejstools), [Python](https://aka.ms/ptvs) e [R Tools per Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Visual Studio Code](https://code.visualstudio.com/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [RStudio Server](https://www.rstudio.com/products/rstudio/#Server) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [PyCharm Community Edition](https://www.jetbrains.com/pycharm/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Atom](https://atom.io/) | N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (Julia IDE)](http://junolab.org/)| S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Juno (Julia IDE)](https://junolab.org/)| S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Vim ed Emacs | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git e GitBash | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* .Net Framework | S | N |
+| &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
 | PowerBI Desktop | S | N |
 | SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure | S | S |
 | **Strumenti di gestione e spostamento dati** | | |
@@ -99,12 +99,12 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Strumento di migrazione dei dati DocDB](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Gateway di gestione dati di Microsoft](https://msdn.microsoft.com/library/dn879362.aspx): Spostare dati tra origini locali e cloud | S | N |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Utilità della riga di comando Unix/Linux | S | S |
-| [Apache Drill](http://drill.apache.org) per l'esplorazione dei dati | S | S |
+| [Apache Drill](https://drill.apache.org) per l'esplorazione dei dati | S | S |
 | **Strumenti di Machine Learning** |||
 | &nbsp;&nbsp;&nbsp;&nbsp;*- Integrazione con [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, Python) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Xgboost](https://github.com/dmlc/xgboost) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](http://www.cs.waikato.ac.nz/ml/weka/) | S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Weka](https://www.cs.waikato.ac.nz/ml/weka/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Rattle](https://togaware.com/rattle/) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [LightGBM](https://github.com/Microsoft/LightGBM) | N | Y (soltanto Ubuntu) |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CatBoost](https://tech.yandex.com/catboost/) | N | Y (soltanto Ubuntu) |
@@ -113,21 +113,21 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow](https://www.tensorflow.org/) | S (Windows 2016) | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Horovod](https://github.com/uber/horovod) | N | S (Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](http://mxnet.io/) | S (Windows 2016) | S|
+| &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet](https://mxnet.io/) | S (Windows 2016) | S|
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [Caffe &amp; Caffe2](https://github.com/caffe2/caffe2) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Chainer](https://chainer.org/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Torch](http://torch.ch/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Theano](https://github.com/Theano/Theano) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [Keras](https://keras.io/)| N | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](http://pytorch.org/)| N | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [PyTorch](https://pytorch.org/)| N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [NVidia Digits](https://github.com/NVIDIA/DIGITS) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [MXNet Model Server](https://github.com/awslabs/mxnet-model-server) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorFlow Serving](https://www.tensorflow.org/serving/) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [TensorRT](https://developer.nvidia.com/tensorrt) | N | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* [CUDA, cuDNN, NVIDIA Driver](https://developer.nvidia.com/cuda-toolkit) | S | S |
 | **Piattaforma Big Data (soltanto Devtest)**|||
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](http://spark.apache.org/) locale indipendente | S | S |
-| &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](http://hadoop.apache.org/) locale (HDFS, YARN) | N | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Spark](https://spark.apache.org/) locale indipendente | S | S |
+| &nbsp;&nbsp;&nbsp;&nbsp;* [Hadoop](https://hadoop.apache.org/) locale (HDFS, YARN) | N | S |
 
 ## <a name="get-started"></a>Attività iniziali
 
