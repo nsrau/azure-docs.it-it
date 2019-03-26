@@ -1,6 +1,6 @@
 ---
 title: Guida introduttiva per Azure Application Insights | Microsoft Docs
-description: Istruzioni per configurare rapidamente un'app Web ASP.NET Core per il monitoraggio con Application Insights
+description: Fornisce istruzioni per configurare rapidamente un'app Web ASP.NET Core per il monitoraggio con Application Insights
 services: application-insights
 keywords: ''
 author: mrbullwinkle
@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 14295bca12e64174d03cfd1c2bd8d214d801e8e5
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: fe986d24df8dce6a390d21a262056f7ab857070c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261061"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886729"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>Iniziare a monitorare l'applicazione Web ASP.NET Core
 
 Con Azure Application Insights, è possibile monitorare facilmente la disponibilità, le prestazioni e l'uso dell'applicazione Web. È anche possibile identificare e diagnosticare rapidamente gli errori nell'applicazione senza attendere che vengano segnalati da un utente. 
 
-Questa guida introduttiva illustra l'aggiunta di Application Insights SDK a un'applicazione Web ASP.Net Core esistente. 
+Questa guida introduttiva illustra l'aggiunta di Application Insights SDK a un'applicazione Web ASP.NET Core esistente. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,7 +33,7 @@ Per completare questa guida introduttiva:
 - [Installare .NET Core 2.0 SDK](https://www.microsoft.com/net/core)
 - Saranno necessarie una sottoscrizione di Azure e un'applicazione Web .NET Core esistente.
 
-Se non si ha un'applicazione Web ASP.NET Core, è possibile usare la guida dettagliata per [creare un'app ASP.NET Core e aggiungere Application Insights](../../azure-monitor/app/asp-net-core.md).
+Se non si ha un'applicazione Web ASP.NET Core, è possibile usare la guida dettagliata per [creare un'app ASP.NET Core e aggiungere Application Insights.](../../azure-monitor/app/asp-net-core.md)
 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
