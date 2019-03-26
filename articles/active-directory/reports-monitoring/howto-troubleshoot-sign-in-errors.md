@@ -3,7 +3,7 @@ title: Come risolvere gli errori di accesso usando i report di Azure Active Dire
 description: Informazioni su come risolvere gli errori di accesso usando i report di Azure Active Directory nel portale di Azure
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -11,15 +11,15 @@ ms.topic: conceptual
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 22126114f2d4fcb865485d9cebc69f0e35f70201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56198474"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434892"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedura: Risolvere gli errori di accesso usando i report di Azure Active Directory
 
@@ -37,17 +37,17 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 È necessario:
 
 * Un tenant di Azure AD con una licenza Premium (P1/P2). vedere [Procedura: Effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) per aggiornare l'edizione di Azure Active Directory in uso.
-* Un utente con ruolo **Amministratore globale**, **Amministratore della sicurezza**, **Ruolo con autorizzazioni di lettura per la sicurezza** o **Ruolo con autorizzazioni di lettura per i report** per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
+* Un utente, che è nel **amministratore globale**, **amministratore della sicurezza**, **lettura per la sicurezza**, oppure **lettore del report** ruolo per il tenant. Qualsiasi utente, inoltre, può visualizzare i propri accessi. 
 
 ## <a name="troubleshoot-sign-in-errors-using-the-sign-ins-report"></a>Risolvere gli errori di accesso usando il report degli accessi
 
 1. Passare al [portale di Azure](https://portal.azure.com) e selezionare la directory.
 2. Selezionare **Azure Active Directory** e quindi scegliere **Accessi** dalla sezione **Monitoraggio**. 
-3. Usare i filtri forniti per circoscrivere l'errore, in base a nome utente o identificatore di oggetto, nome dell'applicazione o data. Selezionare inoltre **Errore** nell'elenco **Stato** per visualizzare solo gli accessi non riusciti. 
+3. Usare i filtri forniti per circoscrivere l'errore, in base a nome utente o identificatore di oggetto, nome dell'applicazione o data. Inoltre, selezionare **errore** dalle **stato** elenco a discesa per visualizzare solo gli accessi non riusciti. 
 
     ![Filtrare i risultati](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
-4. Identificare l'accesso non riuscito da analizzare e selezionarlo. Verrà aperta una finestra di dettagli aggiuntiva con altre informazioni sull'accesso non riuscito. Annotare quanto indicato in **Codice errore di accesso** e **Motivo dell'errore**. 
+4. Identificare il sign-in non riuscito da esaminare. Selezionarlo per aprire la finestra Dettagli aggiuntivi con altre informazioni sull'accesso non riuscito. Annotare quanto indicato in **Codice errore di accesso** e **Motivo dell'errore**. 
 
     ![Selezionare il record](./media/howto-troubleshoot-sign-in-errors/sign-in-failures.png)
         
@@ -55,7 +55,7 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 
     ![Risoluzione dei problemi e supporto](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. Il motivo dell'errore descrive l'errore. Ad esempio, nello scenario precedente, il motivo dell'errore è **l'uso di una password o un nome utente non valido oppure di una password o un nome utente locale non valido**. Ciò significa che l'utente ha immesso una password o un nome utente non corretto per accedere al portale di Azure. La correzione consiste semplicemente nell'eseguire nuovamente l'accesso con nome utente e password corretti.
+6. Il motivo dell'errore descrive l'errore. Ad esempio, nello scenario precedente, il motivo dell'errore è **l'uso di una password o un nome utente non valido oppure di una password o un nome utente locale non valido**. La correzione consiste semplicemente nell'eseguire nuovamente l'accesso con nome utente e password corretti.
 
 7. È possibile ottenere altre informazioni, compresi suggerimenti per la correzione, eseguendo una ricerca del codice di errore, in questo esempio **50126**, nelle [informazioni di riferimento sui codici di errore di accesso](reference-sign-ins-error-codes.md). 
 

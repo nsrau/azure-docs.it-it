@@ -3,8 +3,8 @@ title: Accelerazione sito dinamico tramite la rete CDN di Azure
 description: La rete CDN di Azure supporta l'ottimizzazione Accelerazione sito dinamico per i file con contenuto dinamico.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
-ms.author: rli; v-deasim
-ms.openlocfilehash: 66032a68634be5b52bbfa544d0a3bcd3d1090652
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.date: 03/25/2019
+ms.author: magattus
+ms.openlocfilehash: 6bd1d24cdece91265a7355678ea2bc0b0f9e3910
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359986"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439159"
 ---
 # <a name="dynamic-site-acceleration-via-azure-cdn"></a>Accelerazione sito dinamico tramite la rete CDN di Azure
 
@@ -27,7 +27,7 @@ A causa dell'elevata diffusione di social media, e-commerce e Web iper-personali
 
 Le funzionalità standard della rete per la distribuzione di contenuti (CDN) includono la possibilità di memorizzare nella cache file in posizioni più vicine agli utenti finali per accelerare la distribuzione di file statici. Tuttavia, con le applicazioni Web dinamiche la memorizzazione nella cache di tali contenuti in posizioni periferiche non è possibile, in quanto il server genera il contenuto in risposta al comportamento degli utenti. È più difficile accelerare la distribuzione di tali contenuti rispetto alla memorizzazione nella cache perimetrale tradizionale e a questo scopo è necessaria una soluzione end-to-end in grado di ottimizzare ogni elemento insieme all'intero percorso dei dati, dalle fasi iniziali alla distribuzione. L'ottimizzazione Accelerazione sito dinamico della rete CDN di Azure migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico.
 
-La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint.
+La **rete CDN di Azure di Akamai** e la **rete CDN di Azure di Verizon** offrono entrambe l'ottimizzazione basata su Accelerazione sito dinamico tramite il menu **Ottimizzato per** durante la creazione degli endpoint. Accelerazione sito dinamico da Microsoft è disponibile tramite [servizio di ingresso principale di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 > [!Important]
 > Per i profili di **rete CDN di Azure con tecnologia Akamai**, è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
@@ -109,9 +109,9 @@ Transmission Control Protocol (TCP) è il protocollo standard della suite di pro
 
 1. Viene usato il monitoraggio dell'integrità e della larghezza di banda per misurare la larghezza di banda delle connessioni tra i server POP perimetrali.
     
-2. Le metriche vengono condivise tra i server POP perimetrali in modo che ogni server sia in grado di determinare le condizioni di rete e l'integrità degli altri server POP nelle vicinanze.  
+2. Le metriche vengono condivise tra i server POP perimetrali in modo che ogni server sia in grado di determinare le condizioni di rete e l'integrità degli altri server POP nelle vicinanze.  
     
-3. I server perimetrali della rete CDN fanno ipotesi su alcuni parametri di trasmissione, ad esempio le dimensioni ottimali delle finestre di congestione durante la comunicazione con altri server perimetrali della rete CDN nelle vicinanze. Questo significa che è possibile aumentare le dimensioni iniziali della finestra di congestione se l'integrità della connessione tra i server perimetrali della rete CDN è in grado di supportare trasferimenti di dati di pacchetto di dimensioni maggiori.  
+3. I server perimetrali della rete CDN fanno ipotesi su alcuni parametri di trasmissione, ad esempio le dimensioni ottimali delle finestre di congestione durante la comunicazione con altri server perimetrali della rete CDN nelle vicinanze. Questo significa che è possibile aumentare le dimensioni iniziali della finestra di congestione se l'integrità della connessione tra i server perimetrali della rete CDN è in grado di supportare trasferimenti di dati di pacchetto di dimensioni maggiori.  
 
 #### <a name="leveraging-persistent-connections"></a>Uso di connessioni persistenti
 
@@ -157,7 +157,7 @@ Per i profili di **rete CDN Standard di Azure con tecnologia Verizon** e di **re
 
 Per accedere alle regole di memorizzazione nella cache:
 
-1. Nella pagina **Profilo CDN**, in Impostazioni, selezionare **Regole di memorizzazione nella cache**.  
+1. Nella pagina **Profilo CDN**, in Impostazioni, selezionare **Regole di memorizzazione nella cache**.  
     
     ![Pulsante Regole di memorizzazione nella cache della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-caching-rules-btn.png)
 
@@ -169,7 +169,7 @@ Per i profili di **rete CDN Premium di Azure con tecnologia Verizon** è possibi
 
 Per accedere al motore regole:
     
-1. Nella pagina **Profilo rete CDN** selezionare **Gestisci**.  
+1. Nella pagina **Profilo rete CDN** selezionare **Gestisci**.  
     
     ![Pulsante di gestione del profilo della rete CDN](./media/cdn-dynamic-site-acceleration/cdn-manage-btn.png)
 
@@ -183,7 +183,7 @@ Per accedere al motore regole:
 
 In alternativa, e possibile usare due endpoint di rete CDN, uno ottimizzato con Accelerazione sito dinamico per distribuire asset dinamici e un altro con un'ottimizzazione di tipo statico, ad esempio la distribuzione Web generica, per distribuire asset memorizzabili nella cache. Modificare gli URL delle pagine Web per il collegamento diretto all'asset nell'endpoint di rete CDN che si prevede di usare. 
 
-Ad esempio: `mydynamic.azureedge.net/index.html` è una pagina dinamica e viene caricata dall'endpoint con Accelerazione sito dinamico.  La pagina HTML fa riferimento a più asset statici, tra cui librerie JavaScript o immagini caricate dall'endpoint di rete CDN statico, come `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
+Ad esempio: `mydynamic.azureedge.net/index.html` è una pagina dinamica e viene caricata dall'endpoint con Accelerazione sito dinamico.  La pagina HTML fa riferimento a più asset statici, tra cui librerie JavaScript o immagini caricate dall'endpoint di rete CDN statico, come `mystatic.azureedge.net/banner.jpg` e `mystatic.azureedge.net/scripts.js`. 
 
 
 

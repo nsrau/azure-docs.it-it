@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5597937ff0bc44b55deb43ccc45b618a1bb8fec
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 82e9941a6c468a3b0ed9d1f22a2970cfa6584617
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56186098"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439346"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Rollover della chiave di firma in Azure Active Directory
 Questo articolo illustra che cosa è necessario sapere sulle chiavi pubbliche usate per la firma dei token di sicurezza in Azure Active Directory (Azure AD). È importante notare che il rollover di queste chiavi viene eseguito periodicamente e in caso di emergenza può essere eseguito immediatamente. Tutte le applicazioni che usano Azure AD devono poter gestire a livello di codice il processo di rollover della chiave o stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
@@ -278,7 +278,7 @@ Dopo aver eseguito questi passaggi, il file Web.config dell'applicazione verrà 
 
 Seguire questa procedura per verificare che la logica di rollover della chiave funzioni.
 
-1. Dopo aver verificato che l'applicazione usi il codice indicato in precedenza, aprire il file **Web.config** e passare al blocco **<issuerNameRegistry>**, verificando in particolare le righe seguenti:
+1. Dopo aver verificato che l'applicazione usi il codice riportato sopra, aprire il **Web. config** del file e passare al  **\<issuerNameRegistry >** blocco, verificando in particolare il Dopo alcune righe:
    ```
    <issuerNameRegistry type="System.IdentityModel.Tokens.ValidatingIssuerNameRegistry, System.IdentityModel.Tokens.ValidatingIssuerNameRegistry">
         <authority name="https://sts.windows.net/ec4187af-07da-4f01-b18f-64c2f5abecea/">
@@ -286,7 +286,7 @@ Seguire questa procedura per verificare che la logica di rollover della chiave f
             <add thumbprint="3A38FA984E8560F19AADC9F86FE9594BB6AD049B" />
           </keys>
    ```
-2. Nella tabella **<add thumbprint="">** modificare il valore di identificazione personale sostituendo un carattere con uno diverso. Salvare il file **Web.config** .
+2. Nel  **\<aggiungere l'identificazione personale = "" >** impostazione, modificare il valore di identificazione personale sostituendo ogni carattere con uno diverso. Salvare il file **Web.config** .
 3. Compilare l'applicazione ed eseguirla. Se è possibile completare il processo di accesso, l'applicazione aggiorna in modo corretto la chiave scaricando le informazioni necessarie dal documento di metadati della federazione della directory. In caso di problemi di accesso verificare che le modifiche nell'applicazione siano corrette leggendo l'articolo [Adding Sign-On to Your Web Application Using Azure AD](https://github.com/Azure-Samples/active-directory-dotnet-webapp-openidconnect) (Aggiunta del processo di accesso nell'applicazione Web tramite Azure AD) oppure scaricando ed esaminando l'esempio di codice seguente: [Multi-Tenant Cloud Application for Azure Active Directory](https://code.msdn.microsoft.com/multi-tenant-cloud-8015b84b) (Applicazione cloud multi-tenant per Azure Active Directory).
 
 ### <a name="vs2010"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2008 o 2010 o con Windows Identity Foundation (WIF) v1.0 per .NET 3.5
