@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 67a0b476-2305-4157-8658-2ec3625850d5
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/25/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 627275855f231f5a4336075df3864448325127f2
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0a62aa573d49ccdd237e692b63a6fda0dd83d52a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211870"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57888298"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Palo Alto Networks Captive Portal
 
@@ -70,7 +70,7 @@ Per iniziare, nella raccolta aggiungere Palo Alto Networks Captive Portal all'el
 
 4. Nella casella di ricerca immettere **Palo Alto Networks Captive Portal**. Nei risultati della ricerca selezionare **Palo Alto Networks - Captive Portal** e quindi scegliere **Aggiungi**.
 
-     ![Palo Alto Networks - Captive Portal nell'elenco risultati](common/search-new-app.png)
+     ![Palo Alto Networks - Captive Portal nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
@@ -81,7 +81,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Palo Alto Net
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire all'utente di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Palo Alto Networks Captive Portal](#configure-palo-alto-networks-captive-portal-single-sign-on)**: per configurare le impostazioni dell'accesso Single Sign-On nell'applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente *Britta Simon*.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per configurare Britta Simon per l'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per configurare Britta Simon per l'uso dell'accesso Single Sign-On di Azure AD.
 5. **Creare un utente di test di Palo Alto Networks Captive Portal**: creare un utente *Britta Simon* corrispondente in Palo Alto Networks Captive Portal collegato all'utente di Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -105,12 +105,12 @@ In primo luogo, abilitare l'accesso Single Sign-On di Azure AD nel portale di Az
 
     ![Riquadro Configurazione SAML di base di Palo Alto Networks Captive Portal](common/idp-intiated.png)
 
-    1. In **Identificatore** immettere un URL nel formato seguente: `https://<customer_firewall_host_name>/SAML20/SP`.
+   1. In **Identificatore** immettere un URL nel formato seguente: `https://<customer_firewall_host_name>/SAML20/SP`.
 
-    2. In **URL di risposta** immettere un URL nel formato seguente: `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
+   2. In **URL di risposta** immettere un URL nel formato seguente: `https://<customer_firewall_host_name>/SAML20/SP/ACS`.
 
-    > [!NOTE]
-    > Aggiornare i valori dei segnaposto in questo passaggio con i valori effettivi di identificatore e URL di risposta. Per ottenere i valori effettivi, contattare il [team di supporto clienti di Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
+      > [!NOTE]
+      > Aggiornare i valori dei segnaposto in questo passaggio con i valori effettivi di identificatore e URL di risposta. Per ottenere i valori effettivi, contattare il [team di supporto clienti di Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
 
 5. Nella sezione **Certificato di firma SAML** selezionare **Scarica** accanto a **XML metadati federazione**. Salvare il file scaricato nel computer.
 
@@ -140,7 +140,7 @@ A questo punto configurare l'accesso Single Sing-On in Palo Alto Networks Captiv
     
     3. Selezionare **OK**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
 A questo punto creare un utente di test di nome *Britta Simon* nel portale di Azure:
 
@@ -158,13 +158,13 @@ A questo punto creare un utente di test di nome *Britta Simon* nel portale di Az
 
     1. In **Nome** immettere **BrittaSimon**.
   
-    2. In **Nome utente** immettere **BrittaSimon@\<dominio_società\>**. Ad esempio, **BrittaSimon@contoso.com**.
+    2. In **Nome utente** immettere **BrittaSimon\@\<dominio_società\>**. Ad esempio, **BrittaSimon\@contoso.com**.
 
     3. In **Password** immettere una password. È consigliabile prendere nota della password immessa. Per visualizzare la password, è possibile selezionare la casella di controllo **Mostra password**.
 
     4. Selezionare **Create**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
 Concedere quindi l'accesso a Palo Alto Networks Captive Portal in modo che Britta Simon possa usare l'accesso Single Sign-On di Azure:
 

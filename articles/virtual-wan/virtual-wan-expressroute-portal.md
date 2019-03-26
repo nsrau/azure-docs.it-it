@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/5/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 17d80d07f9b272b0dcb7449404d5d6626e72ce65
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55692854"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842946"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure (anteprima)
 
@@ -37,11 +37,13 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Registrare questa funzionalità
 
-Prima di poter configurare la rete WAN virtuale, è necessario registrare la sottoscrizione nell'anteprima. In caso contrario, non sarà possibile utilizzare la rete WAN virtuale nel portale. Per eseguire la registrazione, inviare un messaggio di posta elettronica all'indirizzo **azurevirtualwan@microsoft.com** con l'ID della sottoscrizione. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione.
+Prima di poter configurare la rete WAN virtuale, è necessario registrare la sottoscrizione nell'anteprima. In caso contrario, non sarà possibile utilizzare la rete WAN virtuale nel portale. Per registrarla, inviare un messaggio di posta elettronica a **azurevirtualwan\@microsoft.com** con il proprio ID sottoscrizione. Si riceverà un messaggio di posta elettronica dopo la registrazione della sottoscrizione.
 
 **Considerazioni sull'anteprima:**
 
@@ -69,15 +71,15 @@ In un browser passare al [portale di Azure (anteprima)](https://aka.ms/azurevirt
 ## <a name="hub"></a>4. Trovare e associare un circuito all'hub
 
 1. Selezionare la rete WAN virtuale e in **Virtual WAN Architecture** (Architettura di rete WAN virtuale) selezionare **Circuiti ExpressRoute**.
-2. Se il circuito ExpressRoute è nella stessa sottoscrizione della rete WAN virtuale, fare clic su **Select ExpressRoute circuit** (Seleziona circuito ExpressRoute) nella sottoscrizione in uso. 
-3. Usando il menu a discesa, selezionare il circuito ExpressRoute da associare all'hub.
-4. Se il circuito ExpressRoute non è nella stessa sottoscrizione o sono stati forniti [una chiave di autorizzazione e un ID peer](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selezionare **Trovare un circuito riscattando una chiave di autorizzazione**.
-5. Immettere i dettagli seguenti:
-* **Chiave di autorizzazione** - Generata dal proprietario del circuito come descritto in precedenza
-* **URI del circuito peer** - URI del circuito fornito dal proprietario del circuito che costituisce l'identificatore univoco per il circuito
-* **Peso del routing** - [Peso del routing](../expressroute/expressroute-optimize-routing.md) consente di preferire determinati percorsi quando allo stesso hub sono connessi più circuiti da diverse località peer
-6. Fare clic su **Trova circuito** e selezionare il circuito, se disponibile.
-7. Selezionare uno o più hub dall'elenco a discesa e fare clic su **Salva**
+1. Se il circuito ExpressRoute è nella stessa sottoscrizione della rete WAN virtuale, fare clic su **Select ExpressRoute circuit** (Seleziona circuito ExpressRoute) nella sottoscrizione in uso. 
+1. Usando il menu a discesa, selezionare il circuito ExpressRoute da associare all'hub.
+1. Se il circuito ExpressRoute non è nella stessa sottoscrizione o sono stati forniti [una chiave di autorizzazione e un ID peer](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), selezionare **Trovare un circuito riscattando una chiave di autorizzazione**.
+1. Immettere i dettagli seguenti:
+1. **Chiave di autorizzazione** - Generata dal proprietario del circuito come descritto in precedenza
+1. **URI del circuito peer** - URI del circuito fornito dal proprietario del circuito che costituisce l'identificatore univoco per il circuito
+1. **Peso del routing** - [Peso del routing](../expressroute/expressroute-optimize-routing.md) consente di preferire determinati percorsi quando allo stesso hub sono connessi più circuiti da diverse località peer
+1. Fare clic su **Find circuit** (Trova circuito) e selezionare il circuito, se disponibile.
+1. Selezionare uno o più hub dall'elenco a discesa e fare clic su **Salva**
 
 ## <a name="vnet"></a>5. Connettere la rete virtuale a un hub
 
@@ -110,10 +112,10 @@ Creare una connessione per monitorare la comunicazione tra una macchina virtuale
 
 ## <a name="cleanup"></a>9. Pulire le risorse
 
-Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
+Quando queste risorse non sono più necessarie, è possibile usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse in esso contenute. Sostituire "myResourceGroup" con il nome del gruppo di risorse specifico ed eseguire il comando di PowerShell seguente:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

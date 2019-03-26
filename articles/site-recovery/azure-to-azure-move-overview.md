@@ -8,105 +8,99 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a73eac1dea731bbf1ffb903ddf2438e791fec9d5
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726450"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078007"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
-Azure continua a crescere di pari passo con la base dei clienti e, in risposta a una crescente domanda, è stato aggiunto il supporto per nuove aree geografiche. Ogni mese vengono anche aggiunte nuove funzionalità nei vari servizi. Per questo motivo, in alcuni casi si può scegliere di spostare le macchine virtuali in un'area geografica diversa o in zone di disponibilità per aumentare la disponibilità.
+Azure cresce di pari passo con la base dei clienti e, per soddisfare la crescente domanda, ha aggiunto il supporto per nuove aree geografiche. Ogni mese vengono aggiunte nuove funzionalità ai diversi servizi. Si può scegliere di spostare le macchine virtuali in un'area geografica diversa o in zone di disponibilità per aumentare la disponibilità.
 
-Questo documento illustra i vari scenari in cui è consigliabile spostare le macchine virtuali, oltre a fornire informazioni su come configurare l'architettura nella destinazione per aumentare la disponibilità. 
+In questa esercitazione vengono descritti diversi scenari nei quali è consigliabile spostare le macchine virtuali. Viene inoltre descritto come configurare l'architettura nell'area di destinazione per ottenere una disponibilità più elevata. 
+
+In questa esercitazione si approfondiranno i seguenti argomenti:
+
 > [!div class="checklist"]
-> * [Perché spostare le macchine virtuali di Azure](#why-would-you-move-azure-vms)
-> * [Come spostare le macchine virtuali di Azure](#how-to-move-azure-vms)
-> * [Architetture tipiche](#typical-architectures-for-a-multi-tier-deployment)
-> * [Spostare le macchine virtuali così come sono in un'area di destinazione](#move-azure-vms-to-another-region)
-> * [Spostare le macchine virtuali per aumentare la disponibilità](#move-vms-to-increase-availability)
+> 
+> * Motivi per spostare le macchine virtuali
+> * Architetture tipiche
+> * Spostare le macchine virtuali così come sono in un'area di destinazione
+> * Spostare le macchine virtuali per aumentare la disponibilità
 
+## <a name="reasons-to-move-azure-vms"></a>Motivi per spostare le macchine virtuali di Azure
 
-## <a name="why-would-you-move-azure-vms"></a>Perché spostare le macchine virtuali di Azure
+Si possono spostare le macchine virtuali per i motivi seguenti:
 
-I clienti spostano le macchine virtuali per i motivi seguenti:
+- È stata già eseguita la distribuzione in un'area geografica ed è stato aggiunto il supporto per una nuova area più vicina a quella degli utenti finali dell'applicazione o del servizio. In questo scenario, è consigliabile spostare le macchine virtuali così come sono nella nuova area per ridurre la latenza. Usare lo stesso approccio per consolidare le sottoscrizioni o se esistono regole di governance/organizzazione che richiedono lo spostamento.
+- La macchina virtuale è stata distribuita come VM a istanza singola o come parte di un set di disponibilità. Se si vuole aumentare la disponibilità di contratti di servizio, è possibile spostare le macchine virtuali in una zona di disponibilità.
 
-- Se è stata già eseguita la distribuzione in un'area geografica ed è stato aggiunto il supporto per una nuova area più vicina a quella degli utenti finali dell'applicazione o del servizio, è consigliabile **spostare le macchine virtuali così come sono nella nuova area** per ridurre la latenza. Lo stesso approccio è valido se si vogliono consolidare le sottoscrizioni o esistono regole di governance/organizzazione che richiedono lo spostamento. 
-- Se la macchina virtuale è stata distribuita come VM a istanza singola o come parte di un set di disponibilità e si vogliono aumentare i contratti di servizio per la disponibilità, è possibile **spostare le macchine virtuali in una zona di disponibilità**. 
+## <a name="steps-to-move-azure-vms"></a>Operazioni per spostare le macchine virtuali di Azure
 
-## <a name="how-to-move-azure-vms"></a>Come spostare le macchine virtuali di Azure
 Per spostare le macchine virtuali, seguire questa procedura:
 
-1. Verificare i prerequisiti 
-2. Preparare le VM di origine 
-3. Preparare l'area di destinazione 
-4. Copiare i dati nell'area di destinazione. Usare la tecnologia di replica di Azure Site Recovery per copiare i dati dalla macchina virtuale di origine all'area di destinazione
-5. Testare la configurazione: dopo aver completato la replica, testare la configurazione eseguendo un failover di test in una rete non di produzione.
-6. Eseguire lo spostamento 
-7. Rimuovere le risorse dall'area di origine 
-
-
-> [!IMPORTANT]
-> Attualmente Azure Site Recovery supporta lo spostamento delle VM da un'area a un'altra, ma non all'interno della stessa area. 
+1. Verificare i prerequisiti.
+2. Preparare le VM di origine.
+3. Preparare l'area di destinazione.
+4. Copiare i dati nell’area di destinazione. Usare la tecnologia di replica di Azure Site Recovery per copiare i dati dalla macchina virtuale di origine all'area di destinazione.
+5. Testare la configurazione. Dopo aver completato la replica, testare la configurazione eseguendo un failover di test in una rete non di produzione.
+6. Eseguire lo spostamento.
+7. Rimuovere le risorse dall'area di origine.
 
 > [!NOTE]
-> Le istruzioni dettagliate per questi passaggi sono disponibili nella documentazione relativa a ogni scenario come indicato [qui](#next-steps)
+> Nelle sezioni seguenti vengono fornite informazioni dettagliate su queste operazioni.
+> [!IMPORTANT]
+> Attualmente Azure Site Recovery supporta lo spostamento delle macchine virtuali da un'area a un'altra, ma non all'interno della stessa area.
 
 ## <a name="typical-architectures-for-a-multi-tier-deployment"></a>Architetture tipiche per una distribuzione multilivello
-La sezione seguente illustra le architetture di distribuzione più comuni adottate dai clienti per un'applicazione multilivello di Azure. L'esempio mostrato è relativo a un'applicazione a tre livelli con un IP pubblico. Ogni livello, ossia Web, applicazione e database, include 2 VM ciascuno ed è connesso agli altri livelli tramite un servizio di bilanciamento del carico. Per il livello del database è impostata la replica Always On di SQL tra le VM per la disponibilità elevata.
 
-1.  **VM a istanza singola distribuite tra i vari livelli**. Ogni VM di un livello è configurata come VM a istanza singola, connessa tramite servizi di bilanciamento del carico agli altri livelli. Questa è la configurazione più semplice adottata dai clienti.
+Questa sezione illustra le architetture di distribuzione più comuni per un'applicazione multilivello di Azure. L'esempio mostrato è relativo a un'applicazione a tre livelli con un IP pubblico. Ogni livello, ossia Web, applicazione e database, include due VM ciascuno ed è connesso agli altri livelli tramite un servizio di bilanciamento del carico di Azure. Per il livello del database è impostata la replica Always On di SQL Server tra le VM per la disponibilità elevata.
 
-       ![single-VMs](media/move-vm-overview/regular-deployment.PNG)
+* **VM a istanza singola distribuite tra vari livelli**: Ogni VM di un livello è configurata come VM a istanza singola, connessa tramite servizi di bilanciamento del carico agli altri livelli. Questa configurazione è la più semplice da adottare.
 
-2. **VM di ogni livello distribuite in set di disponibilità**. Ogni VM di un livello è configurata in un set di disponibilità. I [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) assicurano che le in Azure le macchine virtuali vengano distribuite tra più nodi hardware isolati in un cluster. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un subset delle macchine virtuali viene interessato e che nel complesso la soluzione rimane disponibile e operativa. 
-   
-      ![avset](media/move-vm-overview/AVset.PNG)
+     ![Distribuzione di macchine virtuali a istanza singola tra i livelli](media/move-vm-overview/regular-deployment.png)
 
-3. **VM di ogni livello distribuite in zone di disponibilità**. Ogni VM di un livello è configurata in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Ad esempio, se si creano tre o più macchine virtuali in tre aree in un'area di Azure, le macchine virtuali vengono distribuite in modo efficace in tre domini di errore e tre domini di aggiornamento. La piattaforma di Azure riconosce questa distribuzione in domini di aggiornamento per assicurarsi che le macchine virtuali in diverse aree non vengano aggiornate contemporaneamente.
+* **VM di ogni livello distribuite in set di disponibilità**: Ogni VM di un livello è configurata in un set di disponibilità. I [set di disponibilità](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) assicurano che le in Azure le macchine virtuali vengano distribuite tra più nodi hardware isolati in un cluster. Questa operazione assicura che, se si verifica un errore hardware o software all'interno di Azure, solo un subset delle macchine virtuali viene interessato e che nel complesso la soluzione rimane disponibile e operativa.
 
-      ![zone-deploymnt](media/move-vm-overview/zone.PNG)
+     ![Distribuzione di macchine virtuali nei set di disponibilità](media/move-vm-overview/avset.png)
 
+* **VM di ogni livello distribuite in zone di disponibilità**: Ogni VM di un livello è configurata in [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview). Una zona di disponibilità in un'area di Azure è una combinazione di un dominio di errore e un dominio di aggiornamento. Ad esempio, se si creano tre o più macchine virtuali in tre aree in un'area di Azure, le macchine virtuali vengono distribuite in modo efficace in tre domini di errore e tre domini di aggiornamento. La piattaforma di Azure riconosce questa distribuzione in domini di aggiornamento per assicurarsi che le macchine virtuali in diverse aree non vengano aggiornate contemporaneamente.
 
+     ![Distribuzione zone di disponibilità](media/move-vm-overview/zone.png)
 
 ## <a name="move-vms-as-is-to-a-target-region"></a>Spostare le macchine virtuali così come sono in un'area di destinazione
 
 In base alle [architetture](#typical-architectures-for-a-multi-tier-deployment) citate sopra, ecco come saranno le distribuzioni dopo aver eseguito lo spostamento delle VM così come sono nell'area di destinazione.
 
+* **VM a istanza singola distribuite tra vari livelli**
 
-1. **VM a istanza singola distribuite tra vari livelli** 
+     ![Distribuzione di macchine virtuali a istanza singola tra i livelli](media/move-vm-overview/single-zone.png)
 
-     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+* **VM di ogni livello distribuite in set di disponibilità**
 
-2. **VM di ogni livello distribuite in set di disponibilità**
+     ![Set di disponibilità tra aree](media/move-vm-overview/crossregionaset.png)
 
-     ![crossregionAset.PNG](media/move-vm-overview/crossregionAset.PNG)
+* **VM di ogni livello distribuite tra zone di disponibilità**
 
-
-3. **VM di ogni livello distribuite in zone di disponibilità**
-      
-
-     ![AzoneCross.PNG](media/move-vm-overview/AzoneCross.PNG)
+     ![Distribuzione di macchine virtuali tra zone di disponibilità](media/move-vm-overview/azonecross.png)
 
 ## <a name="move-vms-to-increase-availability"></a>Spostare le macchine virtuali per aumentare la disponibilità
 
-1. **VM a istanza singola distribuite tra vari livelli** 
+* **VM a istanza singola distribuite tra vari livelli**
 
-     ![single-zone.PNG](media/move-vm-overview/single-zone.PNG)
+     ![Distribuzione di macchine virtuali a istanza singola tra i livelli](media/move-vm-overview/single-zone.png)
 
-2. **VM di ogni livello distribuite in set di disponibilità**. È possibile scegliere di configurare l'inserimento delle VM di un set di disponibilità in zone di disponibilità distinte, se si sceglie di abilitare la replica per le VM con Azure Site Recovery. Il contratto di servizio per la disponibilità sarà del 99,9% dopo aver completato l'operazione di spostamento.
+* **VM di ogni livello distribuite in set di disponibilità**: È possibile configurare le macchine virtuali di un set di disponibilità in zone di disponibilità separate quando si abilita la replica della macchina virtuale usando Azure Site Recovery. Una volta completato lo spostamento, il contratto di servizio per la disponibilità sarà del 99,9%.
 
-     ![aset-Azone.PNG](media/move-vm-overview/aset-Azone.PNG)
-
+     ![Distribuzione di macchine virtuali tra set di disponibilità e zone di disponibilità](media/move-vm-overview/aset-azone.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo documento sono riportate le istruzioni generali per lo spostamento delle macchine virtuali. Per informazioni dettagliate sull'esecuzione, vedere:
-
-
 > [!div class="nextstepaction"]
+> 
 > * [Spostare macchine virtuali di Azure in un'altra area](azure-to-azure-tutorial-migrate.md)
-
-> * [Spostare macchine virtuali di Azure nelle zone di disponibilità](move-azure-VMs-AVset-Azone.md)
+> 
+> * [Spostare macchine virtuali di Azure nelle zone di disponibilità](move-azure-vms-avset-azone.md)
 

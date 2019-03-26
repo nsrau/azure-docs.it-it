@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Come usare Azure Key Vault con una macchina virtuale Windows di Azure in Python | Microsoft Docs'
-description: "Esercitazione: Configurare un'applicazione ASP.NET Core per la lettura di un segreto da un insieme di credenziali delle chiavi"
+title: Esercitazione - Usare Azure Key Vault con una macchina virtuale Windows in Python | Microsoft Docs
+description: In questa esercitazione si configura un'applicazione ASP.NET Core per la lettura di un segreto dall'insieme di credenziali delle chiavi.
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -12,47 +12,48 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: cced3d363f9eb7418d6f453eccb1bf1d7ac20ead
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: 133de5410d5e506c9528e2dba90dd4c00d8fcc2d
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53972346"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57438211"
 ---
-# <a name="tutorial-how-to-use-azure-key-vault-with-azure-windows-virtual-machine-in-python"></a>Esercitazione: Come usare Azure Key Vault con una macchina virtuale Windows di Azure in Python
+# <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>Esercitazione: Usare Azure Key Vault con una macchina virtuale Windows in Python
 
 Azure Key Vault facilita la protezione di segreti come le chiavi API, le stringhe di connessione di database necessarie per accedere alle applicazioni, i servizi e le risorse IT.
 
-In questa esercitazione si eseguiranno i passaggi necessari per ottenere un'applicazione Web di Azure per leggere le informazioni da Azure Key Vault usando le identità gestite per le risorse di Azure. Nel corso dell'esercitazione si apprenderà come:
+In questa esercitazione viene descritto come configurare un'applicazione console per leggere un segreto da Azure Key Vault. Per farlo, usare identità gestite per le risorse di Azure. 
+
+L'esercitazione illustra come:
 
 > [!div class="checklist"]
 > * Creare un insieme di credenziali delle chiavi.
-> * Archiviare un segreto nell'insieme di credenziali delle chiavi.
+> * Aggiungere un segreto all'insieme di credenziali delle chiavi.
 > * Recuperare un segreto dall'insieme di credenziali delle chiavi.
 > * Creare una macchina virtuale di Azure.
-> * Abilitare un'[identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per la macchina virtuale.
-> * Concedere le autorizzazioni necessarie per l'applicazione console per la lettura dei dati dall'insieme di credenziali delle chiavi.
-> * Recuperare segreti da Key Vault.
+> * Abilitare un'identità gestita.
+> * Assegnare autorizzazioni per l'identità della macchina virtuale.
 
-Prima di continuare, leggere i [concetti di base](key-vault-whatis.md#basic-concepts).
+Prima di iniziare, leggere i [concetti di base di Key Vault](key-vault-whatis.md#basic-concepts). 
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Tutte le piattaforme:
-  * Git ([download](https://git-scm.com/downloads)).
-  * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-  * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) versione 2.0.4 o versioni successive. È disponibile per Windows, Mac e Linux.
 
-Questa esercitazione usa un'identità del servizio gestita.
+Per Windows, Mac e Linux:
+  * [Git](https://git-scm.com/downloads)
+  * Questa esercitazione richiede l'esecuzione dell'interfaccia della riga di comando di Azure nell'ambiente locale. È necessario che sia installata l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario installare o aggiornare l'interfaccia della riga di comando, vedere [Installare l'interfaccia della riga di comando di Azure 2.0](https://review.docs.microsoft.com/cli/azure/install-azure-cli).
 
-## <a name="what-is-managed-service-identity-and-how-does-it-work"></a>Che cos'è un'identità del servizio gestita e come funziona?
-Prima di continuare, è importante conoscere i concetti alla base dell'identità del servizio gestita. Azure Key Vault consente di archiviare le credenziali in una posizione sicura in modo che non siano incluse nel codice, tuttavia per recuperarle è necessario eseguire l'autenticazione con Azure Key Vault. E per eseguire l'autenticazione con Key Vault servono le credenziali. Un classico problema di bootstrap. Tramite Azure e Azure AD, l'identità del servizio gestita offre una "identità di bootstrap" che semplifica notevolmente il processo iniziale.
+## <a name="about-managed-service-identity"></a>Informazioni sull'identità del servizio gestito
 
-Ecco come funziona. Quando si abilita l'identità del servizio gestita per un servizio di Azure come Macchine virtuali, Servizio app o Funzioni, Azure crea un'[entità servizio](key-vault-whatis.md#basic-concepts) per l'istanza del servizio in Azure Active Directory e inserisce le credenziali per l'entità servizio nell'istanza del servizio. 
+Con Azure Key Vault è possibile archiviare le credenziali in modo sicuro in modo da non visualizzarle nel codice. Tuttavia, è necessario eseguire l'autenticazione con Azure Key Vault per recuperare le chiavi. E per eseguire l'autenticazione con Key Vault servono le credenziali. È un classico circolo vizioso. Identità del servizio gestita risolve questo problema fornendo un'_identità bootstrap_ che semplifica il processo.
+
+Quando si abilita l'identità del servizio gestita per un servizio di Azure, come Macchine virtuali di Microsoft Azure, Servizio app di Azure o Funzioni di Azure, Azure crea un'[entità servizio](key-vault-whatis.md#basic-concepts). per l'istanza del servizio in Azure Active Directory (Azure AD) e inserisce le credenziali dell'entità servizio in tale istanza. 
 
 ![Identità del servizio gestita](media/MSI.png)
 
-Il codice chiama quindi un servizio di metadati locale disponibile nella risorsa di Azure per ottenere un token di accesso.
-Il codice usa il token di accesso ottenuto dal MSI_ENDPOINT locale per eseguire l'autenticazione con un servizio Azure Key Vault. 
+Il codice chiama quindi un servizio di metadati locale disponibile nella risorsa di Azure per ottenere un token di accesso. Il codice usa il token di accesso ottenuto dall'endpoint dell'identità del servizio gestita locale per eseguire l'autenticazione con un servizio Azure Key Vault. 
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
@@ -64,116 +65,124 @@ az login
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-Selezionare il nome di un gruppo di risorse e compilare il segnaposto.
-L'esempio seguente crea un gruppo di risorse nell'area Stati Uniti occidentali:
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). 
+
+Selezionare il nome di un gruppo di risorse e compilare il segnaposto. L'esempio seguente crea un gruppo di risorse nell'area Stati Uniti occidentali:
 
 ```azurecli
 # To list locations: az account list-locations --output table
 az group create --name "<YourResourceGroupName>" --location "West US"
 ```
 
-Il gruppo di risorse appena creato viene usato in tutto l'articolo.
+Questo gruppo di risorse verrà usato durante tutta l'esercitazione.
 
 ## <a name="create-a-key-vault"></a>Creare un insieme di credenziali delle chiavi
 
-Viene ora creato un insieme di credenziali delle chiavi nel gruppo di risorse creato nel passaggio precedente. Specificare le informazioni seguenti:
+Per creare un insieme di credenziali delle chiavi nel gruppo di risorse creato nel passaggio precedente, specificare le informazioni seguenti:
 
-* Nome dell'insieme di credenziali delle chiavi: il nome deve essere una stringa di 3-24 caratteri e deve contenere solo (0-9, a-z, A-Z e -).
-* Nome del gruppo di risorse.
-* Percorso: **Stati Uniti occidentali**.
+* Nome dell'insieme di credenziali delle chiavi: una stringa contenente da 3 a 24 caratteri, limitati a numeri (0-9), lettere (a-z, A-Z) e trattini (-)
+* Nome del gruppo di risorse
+* Percorso: **Stati Uniti occidentali**
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
 ```
-A questo punto, l'account Azure è l'unico autorizzato a eseguire qualsiasi operazione su questo nuovo insieme di credenziali.
+A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su questo nuovo insieme di credenziali.
 
 ## <a name="add-a-secret-to-the-key-vault"></a>Aggiungere un segreto all'insieme di credenziali delle chiavi
 
-Verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Si potrebbe archiviare una stringa di connessione SQL o qualsiasi altra informazione che è necessario conservare in modo sicuro, rendendola però disponibile per l'applicazione.
+Verrà aggiunto un segreto per illustrare il funzionamento di questa operazione. Può trattarsi di una stringa di connessione SQL o di qualsiasi altra informazione che è necessario conservare in modo sicuro e rendere allo stesso tempo disponibile per l'applicazione.
 
-Digitare i comandi seguenti per creare un segreto nell'insieme di credenziali delle chiavi denominato **AppSecret**. Questo segreto archivierà il valore **MySecret**.
+Per creare un segreto nell'insieme di credenziali delle chiavi denominato **AppSecret**, immettere il comando seguente:
 
 ```azurecli
 az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --value "MySecret"
 ```
 
+Questo segreto archivia il valore **MySecret**.
+
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
-Visitare i collegamenti seguenti per creare una macchina virtuale Windows
+È possibile creare una macchina virtuale scegliendo tra i seguenti metodi:
 
-[Interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli) 
+* [L’interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
+* [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+* [Il portale di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
-[PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
+## <a name="assign-an-identity-to-the-vm"></a>Assegnare un'identità alla macchina virtuale
+In questo passaggio si crea un'identità assegnata dal sistema per la macchina virtuale eseguendo questo comando nell'interfaccia della riga di comando di Azure:
 
-[Portale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
-
-## <a name="assign-identity-to-virtual-machine"></a>Assegnare un'identità alla macchina virtuale
-In questo passaggio si crea un'identità assegnata dal sistema per la macchina virtuale eseguendo questo comando nell'interfaccia della riga di comando di Azure
-
-```
+```azurecli
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
 ```
 
-Si noti l'elemento systemAssignedIdentity illustrato di seguito. L'output del comando precedente sarà 
+Annotare l'identità assegnata dal sistema che viene visualizzata nel codice seguente. L'output del comando precedente sarà: 
 
-```
+```azurecli
 {
   "systemAssignedIdentity": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
   "userAssignedIdentities": {}
 }
 ```
 
-## <a name="give-virtual-machine-identity-permission-to-key-vault"></a>Concedere all'identità della macchina virtuale l'autorizzazione per Key Vault
-È ora possibile concedere all'identità creata sopra l'autorizzazione per Key Vault eseguendo questo comando
+## <a name="assign-permissions-to-the-vm-identity"></a>Assegnare autorizzazioni per l'identità della macchina virtuale
+A questo punto è possibile assegnare le autorizzazioni dell’identità creata in precedenza all'insieme di credenziali delle chiavi eseguendo il comando seguente:
 
-```
+```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssignedIdentity> --secret-permissions get list
 ```
 
-## <a name="login-to-the-virtual-machine"></a>Accedere alla macchina virtuale
+## <a name="log-on-to-the-virtual-machine"></a>Accesso alla macchina virtuale
 
-È possibile seguire questa [esercitazione](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
+Per accedere alla macchina virtuale, seguire le istruzioni riportate in [Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon).
 
-## <a name="create-and-run-sample-python-app"></a>Creare ed eseguire un'app Python di esempio
+## <a name="create-and-run-a-sample-python-app"></a>Creare ed eseguire un'app Python di esempio
 
-Quello che segue è un file di esempio denominato "Sample.py". Usa la libreria [Requests](http://docs.python-requests.org/en/master/) per effettuare chiamate HTTP GET.
+Nella prossima sezione è riportato un file di esempio denominato *Sample.py*. Usa la libreria [requests](http://docs.python-requests.org/en/master/) per effettuare chiamate HTTP GET.
 
 ## <a name="edit-samplepy"></a>Modificare Sample.py
-Dopo aver creato Sample.py, aprire il file e copiare il codice riportato di seguito
 
-```
-The below is a 2 step process. 
-1. Fetch a token from the local MSI endpoint on the VM which in turn fetches a token from Azure Active Directory
-2. Pass the token to Key Vault and fetch your secret 
+Dopo aver creato il file *Sample.py*, aprirlo e copiare il codice riportato in questa sezione. 
+
+Il codice è un processo in due passaggi che:
+1. Recupera un token dall'endpoint dell'identità del servizio gestita locale nella macchina virtuale.  
+  Anche questa operazione recupera un token da Azure AD.
+1. Passa il token all'insieme di credenziali delle chiavi e recupera il segreto. 
+
 ```
     # importing the requests library 
     import requests 
 
-    # Step 1: Fetch an access token from a Managed Identity enabled azure resource      
+    # Step 1: Fetch an access token from a Managed Identity enabled azure resource.      
     # Note that the resource here is https://vault.azure.net for public cloud and api-version is 2018-02-01
     MSI_ENDPOINT = "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net"
     r = requests.get(MSI_ENDPOINT, headers = {"Metadata" : "true"}) 
       
     # extracting data in json format 
-    # This request gets a access_token from Azure Active Directory using the local MSI endpoint
+    # This request gets an access_token from Azure AD by using the local MSI endpoint.
     data = r.json() 
     
-    # Step 2: Pass the access_token received from previous HTTP GET call to Key Vault
+    # Step 2: Pass the access_token received from previous HTTP GET call to your key vault.
     KeyVaultURL = "https://prashanthwinvmvault.vault.azure.net/secrets/RandomSecret?api-version=2016-10-01"
     kvSecret = requests.get(url = KeyVaultURL, headers = {"Authorization": "Bearer " + data["access_token"]})
     
     print(kvSecret.json()["value"])
 ```
 
-By running you should see the secret value 
+Eseguendo il codice seguente verrà visualizzato il valore del segreto: 
+
 ```
 python Sample.py
 ```
 
-The above code shows you how to do operations with Azure Key Vault in an Azure Windows Virtual Machine. 
+Il codice precedente mostra come eseguire operazioni con Azure Key Vault in una macchina virtuale Windows. 
 
-## Next steps
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando non servono più, è possibile eliminare la macchina virtuale e l'insieme di credenziali delle chiavi.
+
+## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Azure Key Vault REST API](https://docs.microsoft.com/rest/api/keyvault/)
+> [API REST di Azure Key Vault](https://docs.microsoft.com/rest/api/keyvault/)

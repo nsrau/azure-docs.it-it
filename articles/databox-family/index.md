@@ -17,7 +17,7 @@ ms.author: alkohli
 <p>La famiglia Azure Data Box include prodotti con capacità di archiviazione diverse per supportare l'invio di terabyte (TB) di dati ad Azure in modo veloce, conveniente e affidabile. Microsoft velocizza il trasferimento sicuro dei dati tramite la spedizione di dispositivi di archiviazione proprietari che consentono il trasferimento di dati offline o tramite rete.</p>
 <h2>Trasferimento dei dati offline</h2>
 <p>Per larghezza di banda di rete limitata o assente</p>
-<ul class="cardsA panelContent singlePanelContent cols cols3" style="display:flex!important;">
+<ul class="cardsA panelContent singlePanelContent cols cols3">
     <li>
         <a href="/azure/databox/data-box-disk-overview">
             <div class="cardSize">
@@ -29,7 +29,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Disk</b> per volumi di dati minori di 40 TB. Microsoft invia da 1 a 5 unità SSD (Solid State Drive) crittografate per copiare i dati e rispedirle.</p>
+                            <p><b>Data Box Disk</b> per volumi di dati &lt; di 40 TB. Microsoft invia da 1 a 5 unità SSD (Solid State Drive) crittografate per copiare i dati e rispedirle.</p>
                         </div>
                     </div>
                 </div>
@@ -65,7 +65,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Heavy<SUP>Preview</SUP></b> per volumi di dati > 500 TB. Microsoft invia un dispositivo di archiviazione da 1 petabyte (PB) tramite spedizioniere per copiare i dati e rispedirlo.</p>
+                            <p><b>Data Box Heavy</b> per volumi di dati &gt; di 500 TB. Microsoft invia un dispositivo di archiviazione da 1 petabyte (PB) tramite spedizioniere per copiare i dati e rispedirlo.</p>
                         </div>
                     </div>
                 </div>
@@ -87,7 +87,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Gateway <SUP>Preview</SUP></b> dispositivo virtuale con archiviazione. Usare questo dispositivo per inviare i dati attraverso la rete ad Azure.</p>
+                            <p>Dispositivo virtuale con risorse di archiviazione <b>Data Box Gateway </b>. Usare questo dispositivo per inviare i dati attraverso la rete ad Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -105,7 +105,7 @@ ms.author: alkohli
                             </div>
                         </div>
                         <div class="cardText">
-                            <p><b>Data Box Edge <SUP>Preview</SUP></b> dispositivo fisico con risorse di archiviazione e di calcolo. Usare questo dispositivo quando si prevede di analizzare, trasformare o filtrare i dati durante lo spostamento in Azure.</p>
+                            <p>Dispositivo fisico con risorse di archiviazione e di calcolo <b>Data Box Edge </b>. Usare questo dispositivo quando si prevede di analizzare, trasformare o filtrare i dati durante lo spostamento in Azure.</p>
                         </div>
                     </div>
                 </div>

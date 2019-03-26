@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a1ac4d7f-d079-4f3c-b6da-0f520d427ceb
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,17 +15,17 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c44b89b66c1908c00e075606d6b0201bd3ea6af6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 49e70eab0b9824742a67e4446c5ff6f0a9a366ec
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872948"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894666"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hosted-graphite"></a>Esercitazione: Integrazione di Azure Active Directory con Hosted Graphite
 
 Questa esercitazione descrive come integrare Hosted Graphite con Azure Active Directory (Azure AD).
-L'integrazione di Hosted Graphite con Azure AD offre i vantaggi seguenti:
+L'integrazione di Hosted Graphite in Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Hosted Graphite.
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Hosted Graphite con gli account Azure AD personali.
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per configurare l'integrazione di Azure AD con Hosted Graphite, è necessario quanto segue:
+Per configurare l'integrazione di Azure AD in Hosted Graphite, è necessario quanto segue:
 
 * Una sottoscrizione di Azure AD. Se non si dispone di un ambiente Azure AD, è possibile ottenere una versione di valutazione di un mese [qui](https://azure.microsoft.com/pricing/free-trial/)
 * Sottoscrizione di Hosted Graphite abilitata per l'accesso Single Sign-On
@@ -50,9 +50,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-hosted-graphite-from-the-gallery"></a>Aggiunta di Hosted Graphite dalla raccolta
 
-Per configurare l'integrazione di Hosted Graphite in Azure AD, è necessario aggiungere Hosted Graphite dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Hosted Graphite in Azure AD, è necessario aggiungere Hosted Graphite dalla raccolta all'elenco delle app SaaS gestite.
 
-**Per aggiungere Hosted Graphite dalla raccolta, seguire questa procedura:**
+**Per aggiungere Hosted Graphite dalla raccolta, eseguire i passaggi seguenti:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -75,12 +75,12 @@ Per configurare l'integrazione di Hosted Graphite in Azure AD, è necessario agg
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Hosted Graphite usando un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Hosted Graphite.
 
-Per configurare e testare l'accesso Single Sign-On in AD Azure con Hosted Graphite, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On in AD Azure con Hosted Graphite, è necessario completare le operazioni seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Hosted Graphite](#configure-hosted-graphite-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Hosted Graphite](#create-hosted-graphite-test-user)**: per avere una controparte di Britta Simon in Hosted Graphite collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -108,7 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hosted Graphite, seguir
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://www.hostedgraphite.com/metadata/<user id>`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://www.hostedgraphite.com/complete/saml/<user id>`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://www.hostedgraphite.com/complete/saml/<user id>`
 
 5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
 
@@ -131,13 +131,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hosted Graphite, seguir
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-hosted-graphite-single-sign-on"></a>Configurare l'accesso Single Sign-On per Hosted Graphite
 
 1. Accedere al tenant di Hosted Graphite come amministratore.
 
-2. Accedere alla pagina **SAML Setup** (Configurazione SAML) dalla barra laterale, facendo clic su **Access -> SAML Setup** (Accesso -> Configurazione SAML).
+2. Accedere alla **pagina SAML Setup** (Configurazione SAML) dalla barra laterale, facendo clic su **Accesso -> SAML Setup (Configurazione SAML)**.
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_000.png)
 
@@ -157,11 +157,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hosted Graphite, seguir
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/hostedgraphite-tutorial/tutorial_hostedgraphite_005.png)
 
-7. Fare clic sul pulsante **Salva**.
+7. Fare clic sul pulsante **Salva** .
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -177,20 +177,20 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Hosted Graphite.
+In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Hosted Graphite.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Hosted Graphite**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
 2. Nell'elenco delle applicazioni selezionare **Hosted Graphite**.
 

@@ -91,6 +91,15 @@ items:
       href: personal-data-delete-export.md
     - name: Importare macchine virtuali da un altro lab
       href: import-virtual-machines-from-another-lab.md
+    - name: Creare una factory di immagini
+      href: image-factory-create.md
+      items:
+      - name: Eseguire una factory di immagini da AzureDevOps
+        href: image-factory-set-up-devops-lab.md
+      - name: Salvare immagini personalizzate e distribuirle in più lab
+        href: image-factory-save-distribute-custom-images.md
+      - name: Impostare i criteri di conservazione ed eseguire gli script di pulizia
+        href: image-factory-set-retention-policy-cleanup.md
     - name: Configurare l'infrastruttura di DevTest Labs nell'azienda
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
@@ -132,6 +141,8 @@ items:
         href: devtest-lab-redeploy-vm.md
       - name: Importare una VM
         href: devtest-lab-import-vm.md
+      - name: Avviare o arrestare una VM con PowerShell o con l'interfaccia della riga di comando
+        href: use-command-line-start-stop-virtual-machines.md
     - name: Usare gli ambienti in un lab
       items:
       - name: Creare un ambiente
@@ -252,9 +263,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Domande frequenti
       href: devtest-lab-faq.md
-ms.openlocfilehash: a0b21dfaa64b351e98b6f505568bdbc06c48dd1c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 03ae5399295c0f9fac29fb4cd88cea85130881f7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338378"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435635"

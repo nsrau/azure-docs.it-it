@@ -1,6 +1,6 @@
 ---
-title: "Guida introduttiva: Eseguire un'applicazione in Istanze di Azure Container - Portale"
-description: In questa guida introduttiva si userà il portale di Azure per distribuire un'applicazione in esecuzione in un contenitore Docker in un contenitore isolato di Istanze di Azure Container
+title: Avvio rapido - Distribuire un contenitore Docker in Istanze di Azure Container - Portale
+description: In questo argomento di avvio rapido viene usato il portale di Azure per distribuire rapidamente un'app Web in contenitori, che viene eseguita in un'istanza di contenitore Azure isolata
 services: container-instances
 author: dlepow
 ms.service: container-instances
@@ -8,16 +8,18 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d6a1d442eca0cf5e433a82fb52ed54b09b56c779
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55566097"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57729153"
 ---
-# <a name="quickstart-run-a-container-application-in-azure-container-instances-in-the-azure-portal"></a>Guida introduttiva: Eseguire un'applicazione contenitore in Istanze di Azure Container nel portale di Azure
+# <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Avvio rapido: Distribuzione dell'istanza di contenitore in Azure con il portale di Azure
 
-Istanze di Azure Container consente di eseguire i contenitori Docker in Azure in modo semplice e rapido, senza la necessità di distribuire macchine virtuali o usare una piattaforma di orchestrazione di contenitori completa come Kubernetes. In questa guida introduttiva viene usato il portale di Azure per creare un contenitore in Azure e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Dopo la configurazione di alcune impostazioni e la distribuzione del contenitore, è possibile passare all'applicazione in esecuzione:
+Istanze di Azure Container consente di eseguire i contenitori Docker serverless in Azure in modo semplice e rapido. Distribuire un'applicazione in un'istanza di contenitore su richiesta quando non è necessaria una piattaforma di orchestrazione di contenitori completa come il servizio Azure Kubernetes.
+
+In questa guida introduttiva viene usato il portale di Azure per distribuire un contenitore Docker isolato e renderne disponibile l'applicazione con un nome di dominio completo (FQDN). Dopo la configurazione di alcune impostazioni e la distribuzione del contenitore, è possibile passare all'applicazione in esecuzione:
 
 ![App distribuita in Istanze di Azure Container visualizzata nel browser][aci-portal-07]
 
@@ -41,9 +43,9 @@ Immettere i valori seguenti nelle caselle di testo **Nome contenitore**, **Immag
 
 ![Configurazione delle impostazioni di base per una nuova istanza di contenitore nel portale di Azure][aci-portal-03]
 
-Per questa guida introduttiva non modificare l'impostazione predefinita **Pubblico** per distribuire l'immagine `microsoft/aci-helloworld` dal registro dell'hub Docker pubblico. In questa immagine è inclusa una piccola app Web scritta in Node.js che distribuisce una pagina HTML statica.
+Per questo avvio rapido, non modificare l'impostazione predefinita **Pubblico** per distribuire l'immagine pubblica `microsoft/aci-helloworld`. In questa immagine è inclusa una piccola app Web scritta in Node.js che distribuisce una pagina HTML statica.
 
-In **Configurazione** specificare un'**Etichetta del nome DNS** per il contenitore. Il nome deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Il contenitore sarà pubblicamente raggiungibile in `<dns-name-label>.<region>.azurecontainer.io`.
+In **Configurazione** specificare un'**Etichetta del nome DNS** per il contenitore. Il nome deve essere univoco all'interno dell'area di Azure in cui si crea l'istanza di contenitore. Il contenitore sarà pubblicamente raggiungibile in `<dns-name-label>.<region>.azurecontainer.io`. Se si riceve il messaggio di errore "L'etichetta del nome DNS non è disponibile", provare con un'etichetta del nome DNS diversa.
 
 Lasciare le altre impostazioni in **Configurazione** impostate sui valori predefiniti e quindi selezionare **OK** per convalidare la configurazione.
 

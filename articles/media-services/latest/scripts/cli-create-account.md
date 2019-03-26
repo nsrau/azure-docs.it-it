@@ -1,5 +1,5 @@
 ---
-title: Creare un account di Servizi multimediali di Azure - Interfaccia della riga di comando di Azure| Microsoft Docs
+title: Creare un account di Servizi multimediali di Azure - Interfaccia della riga di comando di Azure | Microsoft Docs
 description: Usare lo script dell'interfaccia della riga di comando di Azure per creare un account di Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 01/25/2019
 ms.author: juliako
-ms.openlocfilehash: 41d9548aa33ee29c40179506ae824ab79b000859
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: 7e668852346de1b48bd34658dea001435ba8a625
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55213175"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842215"
 ---
 # <a name="cli-example-create-an-azure-media-services-account"></a>Esempio di interfaccia della riga di comando: Creare un account di Servizi multimediali di Azure
 

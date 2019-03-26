@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 44c7f6d32737fe83e80a2f2df15f0ae078a5849e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 376f2bd792cb1b3190507f5571a8b7a33daf2542
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400278"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439116"
 documentType: LandingData
 title: Documentazione di Azure Data Box - Trasferimento online
 metadata:
@@ -16,10 +16,10 @@ metadata:
   ms.service: databox
   ms.subservice: edge
   ms.topic: landing-page
-  ms.date: 03/22/2019
+  ms.date: 03/25/2019
   ms.author: alkohli
 abstract:
-  description: La famiglia di prodotti Azure Data Box consente di trasferire centinaia di terabyte di dati in Azure in modo rapido, economico e affidabile. Usare i dispositivi Data Box per trasferimenti dati a prestazioni elevate in rete.<p>Scegliere Data Box Gateway<SUP>Anteprima</SUP> per inviare dati per l'archiviazione nel cloud, il ripristino di emergenza o l'elaborazione dei dati su scala cloud.  Usare Data Box Edge<SUP>Anteprima</SUP> per filtrare, analizzare e trasformare i dati spostati in Azure.</p><p>Le esercitazioni illustrano come sfruttare Data Box Gateway e Data Box Edge per il trasferimento basato su rete.</p>
+  description: La famiglia di prodotti Azure Data Box consente di trasferire centinaia di terabyte di dati in Azure in modo rapido, economico e affidabile. Usare i dispositivi Data Box per trasferimenti dati a prestazioni elevate in rete.<p>Scegliere Data Box Gateway per inviare dati per l'archiviazione nel cloud, il ripristino di emergenza o l'elaborazione dei dati su scala cloud.  Usare Data Box Edge per filtrare, analizzare e trasformare i dati spostati in Azure.</p><p>Le esercitazioni illustrano come sfruttare Data Box Gateway e Data Box Edge per il trasferimento basato su rete.</p>
 sections:
 - title: Esercitazioni
   items:

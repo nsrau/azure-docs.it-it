@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: mscurrell
 ms.custom: mvc
-ms.openlocfilehash: b784e64962569f22cba3bc52b6a4e9443a4587d5
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: e3fcc8be68282f6ce491ff49f0dc5059d79fa98f
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311992"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57730956"
 ---
 # <a name="what-is-azure-batch"></a>Informazioni su Azure Batch
 
@@ -30,7 +30,7 @@ Gli sviluppatori possono usare Batch come un servizio di piattaforma per compila
 
 Non sono previsti costi aggiuntivi per l'uso di Batch. Si pagano solo le risorse sottostanti utilizzate, ad esempio macchine virtuali, archiviazione e rete.
 
-Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [HPC, Batch, and Big Compute solutions](../virtual-machines/linux/high-performance-computing.md) (Soluzioni HPC, Batch e Big Compute).
+Per un confronto tra Batch e altre soluzioni HPC in Azure, vedere [HPC (High Performance Computing) in Azure](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/).
 
 ## <a name="run-parallel-workloads"></a>Eseguire carichi di lavoro paralleli
 Batch funziona bene con carichi di lavoro intrinsecamente paralleli, a volte definiti "imbarazzantemente paralleli". I carichi di lavoro intrinsecamente paralleli sono quelli in cui le applicazioni possono essere eseguite in modo indipendente e ogni istanza completa parte del lavoro. Quando sono in esecuzione, le applicazioni possono accedere ad alcuni dati comuni, ma non comunicano con altre istanze dell'applicazione. I carichi di lavoro intrinsecamente paralleli possono essere quindi eseguiti su larga scala, a seconda della quantità di risorse di calcolo disponibili per l'esecuzione simultanea di applicazioni.
@@ -61,7 +61,7 @@ Per Azure Batch sono anche disponibili funzionalità di livello superiore e spec
 * Batch supporta [carichi di lavoro di rendering](batch-rendering-service.md) su larga scala con strumenti di rendering che includono Autodesk Maya, 3ds Max, Arnold e V-Ray. 
 * Gli utenti di R possono installare il [pacchetto doAzureParallel R](https://github.com/Azure/doAzureParallel) per aumentare facilmente il numero di istanze di esecuzione di algoritmi R nei pool Batch.
 
-È anche possibile eseguire processi Batch nell'ambito di un flusso di lavoro di Azure più ampio per la trasformazione dei dati, gestito da strumenti come [Azure Data Factory](../data-factory/v1/data-factory-data-processing-using-batch.md).
+È anche possibile eseguire processi Batch nell'ambito di un flusso di lavoro di Azure più ampio per la trasformazione dei dati, gestito da strumenti come [Azure Data Factory](../data-factory/transform-data-using-dotnet-custom-activity.md).
 
 
 ## <a name="how-it-works"></a>Funzionamento

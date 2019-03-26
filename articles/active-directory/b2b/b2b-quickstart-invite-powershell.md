@@ -9,13 +9,14 @@ ms.date: 08/28/2018
 ms.author: mimart
 author: msmimart
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8417e2118de01d00e8b0450374a9b10bff40221f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7b9274652b7164a4aef71499912cb8b38ace29ff
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56675144"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57854450"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>Guida introduttiva: Aggiungere un utente guest con PowerShell
 
@@ -73,7 +74,7 @@ Immettere le credenziali quando richiesto.
 
 ## <a name="send-an-invitation"></a>Inviare un invito
 
-1. Per inviare un invito all'account di posta elettronica di test, eseguire il comando PowerShell seguente (sostituire **"Sanda"** e **sanda@fabrikam.com** con il nome e l'indirizzo dell'account di posta elettronica di test): 
+1. Per inviare un invito all'account di posta elettronica di test, eseguire il comando PowerShell seguente (sostituire **"Sanda"** e **sanda\@fabrikam.com** con il nome e l'indirizzo dell'account di posta elettronica di test): 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true
@@ -89,7 +90,7 @@ Immettere le credenziali quando richiesto.
    ```powershell
    Get-AzureADUser -Filter "UserType eq 'Guest'"
    ```
-3. Controllare l'output per verificare che sia elencato anche l'utente invitato, con il nome dell'entità utente nel formato *indirizzopostaelettronica*#EXT#@*dominio*. Ad esempio, *sanda_fabrikam.com#EXT#@contoso.onmicrosoft.com*, in cui contoso.onmicrosoft.com è l'organizzazione da cui sono stati inviati gli inviti.
+3. Controllare l'output per verificare che sia elencato anche l'utente invitato, con il nome dell'entità utente nel formato *indirizzopostaelettronica*#EXT#\@*dominio*. Ad esempio, *sanda_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, in cui contoso.onmicrosoft.com è organizzazione da cui sono stati invitati gli inviti.
 
    ![Output di PowerShell che mostra l'utente guest aggiunto](media/quickstart-invite-powershell/powershell-guest-user-added.png)
 

@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ee8dcf1488cfb407793bdb35cdbbee18b2ef15ab
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: f18b2cbf31b50b27c1ae8a6d4fa4a6510781cb12
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57886491"
 ---
 # <a name="quickstart-create-and-manage-azure-file-shares-using-azure-cli"></a>Avvio rapido: Creare e gestire condivisioni file di Azure tramite l'interfaccia della riga di comando di Azure
 Questa guida contiene tutte le informazioni essenziali sull'uso delle [condivisioni file di Azure](storage-files-introduction.md) con l'interfaccia della riga di comando di Azure. Le condivisioni file di Azure sono esattamente come le altre condivisioni file, ma vengono archiviate nel cloud e sono supportate dalla piattaforma Azure. Le condivisioni file di Azure supportano il protocollo SMB standard di settore e consentono la condivisione di file in più computer, applicazioni e istanze. 
@@ -45,12 +45,12 @@ az group create --name myResourceGroup --location eastus
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 Un account di archiviazione è un pool condiviso di spazio di archiviazione in cui è possibile distribuire condivisioni file di Azure o altre risorse di archiviazione, ad esempio BLOB o code. Un account di archiviazione può contenere un numero illimitato di condivisioni file. In una condivisione può essere archiviato un numero illimitato di file, fino ai limiti di capacità dell'account di archiviazione.
 
-L'esempio seguente crea un account di archiviazione denominato *mystorageaccount\<numero casuale\>* usando il comando [az storage account create](/cli/azure/storage/account) e quindi inserisce il nome di tale account di archiviazione nella variabile `$STORAGEACCT`. I nomi degli account di archiviazione devono essere univoci. Usando `$RANDOM`, al nome dell'account di archiviazione viene aggiunto un numero che lo rende univoco. 
+L'esempio seguente crea un account di archiviazione denominato *mystorageaccount\<numero casuale\>* usando il comando [az storage account create](/cli/azure/storage/account) e quindi inserisce il nome di tale account di archiviazione nella variabile `$STORAGEACCT`. I nomi degli account di archiviazione devono essere univoci, pertanto assicurarsi di sostituire "mystorageacct" con un nome univoco.
 
 ```azurecli-interactive 
 STORAGEACCT=$(az storage account create \
     --resource-group "myResourceGroup" \
-    --name "mystorageacct$RANDOM" \
+    --name "mystorageacct" \
     --location eastus \
     --sku Standard_LRS \
     --query "name" | tr -d '"')
@@ -87,7 +87,7 @@ Per montare una condivisione file con SMB, vedere il documento riportato di segu
 - [Windows](storage-how-to-use-files-windows.md)
 
 ### <a name="using-an-azure-file-share-with-the-file-rest-protocol"></a>Uso di una condivisione file di Azure con il protocollo REST di File 
-È possibile usare il protocollo REST File direttamente, ovvero creando personalmente chiamate HTTP REST, ma il metodo più comune consiste nell'usare l'interfaccia della riga di comando di Azure, il [modulo di Azure PowerShell](storage-how-to-use-files-powershell.md) o Azure Storage SDK, perché offrono un pratico wrapper per il protocollo REST File nel linguaggio di scripting/programmazione preferito.  
+È possibile usare il protocollo REST File direttamente, ovvero creando personalmente chiamate HTTP REST, ma il metodo più comune consiste nell'usare l'interfaccia della riga di comando di Azure, il [modulo di Azure PowerShell](storage-how-to-use-files-powershell.md) o un SDK di Archiviazione di Azure, perché offrono un pratico wrapper per il protocollo REST File nel linguaggio di scripting/programmazione preferito.  
 
 È previsto che la maggior parte degli utenti di File di Azure vorrà usare la propria condivisione file di Azure tramite il protocollo SMB, perché questo consente loro di usare le applicazioni e gli strumenti esistenti con cui possono avere familiarità, ma esistono diversi motivi per cui è vantaggioso usare l'API REST di File invece di SMB, ad esempio:
 

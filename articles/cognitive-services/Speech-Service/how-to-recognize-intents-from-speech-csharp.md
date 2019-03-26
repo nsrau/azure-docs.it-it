@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: 680c10d8402853f1ac2f519b8f07f81b9718ab9e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56866998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855725"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK per C#
 
@@ -45,9 +45,9 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 
 ## <a name="luis-and-speech"></a>LUIS e riconoscimento vocale
 
-LUIS si integra con il servizio di riconoscimento vocale per distinguere le finalità dai contenuti vocali. Non è necessaria una sottoscrizione al servizio di riconoscimento vocale, LUIS è sufficiente.
+LUIS si integra con i servizi Voce per distinguere le finalità dai contenuti vocali. Non è necessaria una sottoscrizione ai servizi Voce, LUIS è sufficiente.
 
-LUIS usa due tipi di chiave: 
+LUIS usa due tipi di chiave:
 
 |Tipo di chiave|Scopo|
 |--------|-------|
@@ -56,7 +56,7 @@ LUIS usa due tipi di chiave:
 
 La chiave di endpoint è la chiave LUIS necessaria per questa esercitazione. Questa esercitazione usa l'esempio dell'app Automazione home di LUIS, che è possibile creare seguendo [Usare l'app predefinita Automazione home](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Se è stata creata un'app LUIS personalizzata, è possibile invece usare quest'ultima.
 
-Quando si crea un'app LUIS, viene generata automaticamente una chiave di avvio in modo da testare l'app usando le query di testo. Questa chiave non attiva l'integrazione del servizio di riconoscimento vocale e non funziona con questa esercitazione. È necessario creare una risorsa di LUIS nella dashboard di Azure e assegnarla all'app LUIS. È possibile usare il livello di sottoscrizione gratuita per questa esercitazione. 
+Quando si crea un'app LUIS, viene generata automaticamente una chiave di avvio in modo da testare l'app usando le query di testo. Questa chiave non attiva l'integrazione dei servizi Voce e non funziona con questa esercitazione. È necessario creare una risorsa di LUIS nella dashboard di Azure e assegnarla all'app LUIS. È possibile usare il livello di sottoscrizione gratuita per questa esercitazione.
 
 Dopo aver creato la risorsa di LUIS nella dashboard di Azure, accedere al [portale di LUIS](https://www.luis.ai/home), scegliere l'applicazione dalla pagina delle app personali, quindi passare alla pagina di gestione dell'app. Infine, fare clic su **Chiavi ed endpoint** nella barra laterale.
 
@@ -123,7 +123,7 @@ Le sezioni seguenti includono una discussione del codice.
 Il primo passaggio del riconoscimento finalità nel riconoscimento vocale consiste nel creare una configurazione di riconoscimento vocale dalla chiave endpoint e area LUIS. Configurazione riconoscimento vocale può essere usata per creare sistemi di riconoscimento per le diverse funzionalità di Speech SDK. La configurazione di riconoscimento vocale specifica in diversi modi la sottoscrizione da usare; In questo caso, usare `FromSubscription`, che accetta la chiave di sottoscrizione e la regione.
 
 > [!NOTE]
-> Usare la chiave e l'area della sottoscrizione LUIS, non di una sottoscrizione del servizio Voce.
+> Usare la chiave e l'area della sottoscrizione LUIS, non di una sottoscrizione dei servizi Voce.
 
 Creare un sistema di riconoscimento delle finalità tramite `new IntentRecognizer(config)`. La configurazione conosce già quale sottoscrizione usare, non serve specificare nuovamente la chiave di sottoscrizione e l'endpoint quando si crea un sistema di riconoscimento.
 
@@ -174,7 +174,7 @@ Il codice seguente illustra due funzionalità aggiuntive del riconoscimento fina
 
 L'altra funzionalità legge l'audio che contiene il riconoscimento vocale per essere elaborato da un file WAV. Ciò comporta la creazione di una configurazione audio che può essere usata quando si crea il riconoscimento finalità. Il file deve essere singolo canale (mono) con una frequenza di campionamento di 16 kHz.
 
-Per provare queste funzionalità, sostituire il corpo del metodo `RecognizeIntentAsync()` con il codice seguente. 
+Per provare queste funzionalità, sostituire il corpo del metodo `RecognizeIntentAsync()` con il codice seguente.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
