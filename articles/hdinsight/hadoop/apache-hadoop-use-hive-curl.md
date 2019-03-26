@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
 ms.author: hrasheed
-ms.openlocfilehash: 89bb5aa1ccfb65b91581e943554806e3363390f4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 00fd697b42c7d93cb04392e91deea23133cf398a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201851"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407240"
 ---
 # <a name="run-apache-hive-queries-with-apache-hadoop-in-hdinsight-using-rest"></a>Eseguire query Apache Hive con Apache Hadoop in HDInsight tramite REST
 
@@ -66,7 +66,7 @@ Questo documento usa anche Windows PowerShell e [Jq](https://stedolan.github.io/
 3. Per verificare che sia possibile connettersi al cluster HDInsight, usare uno dei comandi seguenti:
 
     ```bash
-    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status)
+    curl -u $LOGIN -G https://$CLUSTERNAME.azurehdinsight.net/templeton/v1/status
     ```
     
     ```powershell

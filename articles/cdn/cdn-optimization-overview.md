@@ -12,14 +12,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2018
+ms.date: 03/25/2019
 ms.author: magattus
-ms.openlocfilehash: 5be1835de2aa1631c4ec2115dd34ea85f0267403
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 954d19fb557540e4fdc6b17f313127e01eba97a7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870891"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435604"
 ---
 # <a name="optimize-azure-cdn-for-the-type-of-content-delivery"></a>Ottimizzare la rete CDN di Azure per il tipo di distribuzione di contenuti
 
@@ -38,6 +38,8 @@ I profili di **rete CDN Standard di Azure con tecnologia Microsoft** supportano 
 
 * [Distribuzione Web generale](#general-web-delivery). Questa ottimizzazione viene usata anche per scaricare flussi multimediali e file di grandi dimensioni.
 
+> [!NOTE]
+> Accelerazione sito dinamico da Microsoft è disponibile tramite [servizio di ingresso principale di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview).
 
 I profili di **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon** supportano le ottimizzazioni seguenti:
 
@@ -120,6 +122,9 @@ Per altre informazioni sull'ottimizzazione di file di grandi dimensioni vedere [
 ### <a name="dynamic-site-acceleration"></a>Accelerazione sito dinamico
 
  L'accelerazione dinamica del sito è disponibile per i profili di **rete CDN Standard di Azure con tecnologia Akamai**, **rete CDN Standard di Azure con tecnologia Verizon** e **rete CDN Premium di Azure con tecnologia Verizon**. Per usare questa ottimizzazione, viene applicata una tariffa aggiuntiva. Per altre informazioni, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
+
+> [!NOTE]
+> Accelerazione sito dinamico da Microsoft è disponibile tramite [servizio di ingresso principale di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-overview) che è globale [anycast](https://en.wikipedia.org/wiki/Anycast) servizio sfruttando privata rete globale di Microsoft per offrire i carichi di lavoro di app.
 
 L'accelerazione di sito dinamico include diverse tecniche che sfruttano la latenza e le prestazioni di contenuto dinamico. Le tecniche includono l'ottimizzazione di route e rete, l'ottimizzazione TCP e molto altro. 
 

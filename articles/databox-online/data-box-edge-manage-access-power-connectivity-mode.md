@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: e0b8b35c654f0716fae1e6ab785f57dcf04e1a5a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 813563b500b9365289285a89536f2724fb87acad
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400892"
+ms.locfileid: "58417803"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge-preview"></a>Gestire l'accesso, potenza e la modalità di connettività per il bordo casella dati di Azure (anteprima)
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-data-box-edge"></a>Gestire l'accesso, potenza e la modalità di connettività per il bordo casella dati di Azure
 
 Questo articolo descrive come gestire la modalità di accesso, potenza e la connettività per il bordo casella dati di Azure. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure.
 
@@ -26,8 +26,6 @@ In questo articolo viene spiegato come:
 > * Gestire la modalità di connessione
 > * Gestire l'avvio/arresto
 
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
 
 ## <a name="manage-device-access"></a>Gestire l'accesso al dispositivo
 

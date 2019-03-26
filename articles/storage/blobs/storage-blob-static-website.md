@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 1794aa26fc725207c4a901c11c345eeaa3d2f65d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a72182091721dd6a1104cb8e3495aee1a3b25eb8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867740"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439388"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 Gli account per utilizzo generico v2 di Archiviazione di Azure consentono di usare contenuti statici (file HTML, CSS, JavaScript e di immagine) direttamente da un contenitore di archiviazione denominato *$web*. Sfruttando i vantaggi dell'hosting in Archiviazione di Azure è possibile di usare le architetture serverless tra cui [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi PaaS.
@@ -46,6 +46,9 @@ https://contoso.z4.web.core.windows.net/image.png
 ```
 
 Quando non viene fornito un nome file, viene usato il nome file predefinito selezionato a livello di radice con tutte le sottodirectory. Se il server restituisce un errore 404 e non si specifica un percorso del documento di errore, all'utente verrà restituita una pagina 404 predefinita.
+
+> [!NOTE]
+> Il livello di accesso pubblico predefinito per i file è privato. Poiché i file vengono serviti tramite le richieste di accesso anonimo, questa impostazione viene ignorata. È l'accesso pubblico a tutti i file e le autorizzazioni RBAC vengono ignorate.
 
 ## <a name="cdn-and-ssl-support"></a>Supporto della rete CDN e di SSL
 

@@ -1,5 +1,5 @@
 ---
-title: Esempi di query semplici - Ricerca di Azure
+title: Esempi di query usando la sintassi di ricerca "semplice" - ricerca di Azure
 description: Esempi di query semplici per la ricerca full-text, la ricerca con filtro, la ricerca con geolocalizzazione, la ricerca basata su facet e altre stringhe di query usate per eseguire query in un indice di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
@@ -7,17 +7,17 @@ tags: Simple query analyzer syntax
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 08/09/2018
+ms.date: 03/25/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: a975c95af75e9f3e09e5d0142716795ab4b90e28
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9b7147971bd320a11606a93ab4d988e924cf93b2
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136479"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439118"
 ---
-# <a name="simple-syntax-query-examples-for-building-queries-in-azure-search"></a>Esempi di query con sintassi semplice per compilare query in Ricerca di Azure
+# <a name="query-examples-using-the-simple-search-syntax-in-azure-search"></a>Esempi di query usando la sintassi di ricerca "semplice" ricerca di Azure
 
 La [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) richiama il parser di query predefinito per eseguire query di ricerca full-text in un indice di Ricerca di Azure. L'analizzatore di query semplice è rapido e gestisce scenari comuni in Ricerca di Azure, incluse la ricerca full-text, la ricerca con filtro e facet e la ricerca con geolocalizzazione. In questo articolo vedere gli esempi che dimostrano le operazioni di query disponibili con la sintassi semplice.
 
@@ -55,7 +55,9 @@ La composizione dell'URL presenta i seguenti elementi:
 
 ## <a name="send-your-first-query"></a>Inviare la prima query
 
-Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati. È possibile copiare e incollare questo URL nel primo esempio riportato di seguito.
+Come fase di verifica, incollare la seguente richiesta in GET e fare clic su **Invia**. I risultati vengono restituiti come documenti JSON dettagliati. Vengono restituiti interi documenti, che consente di visualizzare tutti i campi e tutti i valori.
+
+Incollare questo URL in un client REST come passaggio di convalida e per visualizzare la struttura documento.
 
   ```http
   https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&search=*
@@ -74,6 +76,20 @@ Per le query interattive, non è necessario specificare nulla: la sintassi sempl
 Questo primo esempio non è specifico del parser, ma viene presentato per primo come introduzione al primo concetto fondamentale delle query: l'indipendenza. Questo esempio limita l'ambito dell'esecuzione di query e della risposta a un numero ridotto di campi specifici. È importante sapere come strutturare una risposta JSON leggibile quando lo strumento usato è Postman o Esplora ricerche. 
 
 In breve, la query punta solo al campo *business_title* e specifica che vengano restituite solo le qualifiche professionali. La sintassi è **searchFields** per limitare l'esecuzione della query al campo business_title e **select** per specificare i campi da includere nella risposta.
+
+### <a name="partial-query-string"></a>Stringa di query parziali
+
+```http
+searchFields=business_title&$select=business_title&search=*
+```
+
+Di seguito è la stessa query con più campi in un elenco delimitato da virgole.
+
+```http
+search=*&searchFields=business_title, posting_type&$select=business_title, posting_type
+```
+
+### <a name="full-url"></a>URL completo
 
 ```http
 https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2017-11-11&$count=true&searchFields=business_title&$select=business_title&search=*

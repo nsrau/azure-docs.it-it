@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: a9b8be58e8dfb27fbe896cf1c8d8dc0e91e3b24c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 6b79a26d63c02dd06b62ea6ad09941f947704dc0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402848"
+ms.locfileid: "58418636"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identificare i problemi con la funzionalità di diagnostica
 
@@ -32,20 +32,20 @@ Diagnostica di Desktop virtuale Windows Usa un solo cmdlet di PowerShell, ma con
 
 ### <a name="retrieve-diagnostic-activities-in-your-tenant"></a>Recuperare le attività di diagnostica nel tenant
 
-È possibile recuperare le attività di diagnostica, immettere il **Get-RdsDiagnosticsActivities** cmdlet. Il cmdlet di esempio seguente restituirà un elenco delle attività di diagnostica, ordinati dal più specifico al meno recente.
+È possibile recuperare le attività di diagnostica, immettere il **Get-RdsDiagnosticActivities** cmdlet. Il cmdlet di esempio seguente restituirà un elenco delle attività di diagnostica, ordinati dal più specifico al meno recente.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName>
+Get-RdsDiagnosticActivities -TenantName <tenantName>
 ```
 
 Come per altri cmdlet di Windows PowerShell di Desktop virtuale, è necessario usare il **Nometenant -** parametro per specificare il nome del tenant da usare per la query. Il nome del tenant è applicabile per quasi tutte le query di attività diagnostica.
 
 ### <a name="retrieve-detailed-diagnostic-activities"></a>Recuperare le attività di diagnostica dettagliate
 
-Il **-Detailed** parametro fornisce dettagli aggiuntivi per ogni attività diagnostica restituita. Il formato per ogni attività varia a seconda del tipo di attività. Il **-Detailed** parametro possa essere aggiunte a qualsiasi **Get-RdsDiagnosticsActivities** esegue una query, come illustrato nell'esempio seguente.
+Il **-Detailed** parametro fornisce dettagli aggiuntivi per ogni attività diagnostica restituita. Il formato per ogni attività varia a seconda del tipo di attività. Il **-Detailed** parametro possa essere aggiunte a qualsiasi **Get-RdsDiagnosticActivities** esegue una query, come illustrato nell'esempio seguente.
 
 ```powershell
-Get-RdsDiagnosticsActivities -TenantName <tenantName> -Detailed
+Get-RdsDiagnosticActivities -TenantName <tenantName> -Detailed
 ```
 
 ### <a name="retrieve-a-specific-diagnostic-activity-by-activity-id"></a>Recuperare un ID attività dall'attività di diagnostica specifico

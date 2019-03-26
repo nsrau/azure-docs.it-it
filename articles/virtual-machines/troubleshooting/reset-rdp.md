@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 03/25/2019
 ms.author: genli
-ms.openlocfilehash: 875f2d9dbbece4e9587462c6e8bdb2b2d8536c86
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c61e606bde4b50fa10c194c76c79a3d8a27a4b8e
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55979888"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407692"
 ---
 # <a name="reset-remote-desktop-services-or-its-administrator-password-in-a-windows-vm"></a>Reimpostare Servizi Desktop remoto o la relativa password di amministratore in una macchina virtuale Windows
 Se non è possibile connettersi a una macchina virtuale Windows, è possibile reimpostare la password di amministratore locale o la configurazione di Servizi Desktop remoto (opzione non supportata nei controller di dominio Windows). Per reimpostare la password, usare il portale di Azure o l'estensione di accesso alla macchina virtuale in Azure PowerShell. Dopo aver effettuato l'accesso alla macchina virtuale, reimpostare la password per l'amministratore locale.  
@@ -39,18 +39,19 @@ Innanzitutto, accedere al [portale di Azure](https://portal.azure.com) e quindi 
 
 1. Selezionare la macchina virtuale Windows e quindi selezionare **Reimposta password** in **Supporto e risoluzione dei problemi**. Verrà visualizzata la finestra **Reimposta password**.
 
-1. Selezionare **Reimposta password**, immettere un nome utente e una password e quindi selezionare **Aggiorna**. 
+2. Selezionare **Reimposta password**, immettere un nome utente e una password e quindi selezionare **Aggiorna**. 
 
-1. Provare a connettersi di nuovo alla macchina virtuale.
+3. Provare a connettersi di nuovo alla macchina virtuale.
 
 ### <a name="reset-the-remote-desktop-services-configuration"></a>**Reimpostare la configurazione di Servizi Desktop remoto**
 
+Questo processo verrà abilitare Servizi Desktop remoto nella macchina virtuale e creare una regola del firewall per la porta RDP predefinita 3389.
+
 1. Selezionare la macchina virtuale Windows e quindi selezionare **Reimposta password** in **Supporto e risoluzione dei problemi**. Verrà visualizzata la finestra **Reimposta password**. 
 
-1. Selezionare **Reimposta solo configurazione** e quindi **Aggiorna**. 
+2. Selezionare **Reimposta solo configurazione** e quindi **Aggiorna**. 
 
-1. Provare a connettersi di nuovo alla macchina virtuale.
-
+3. Provare a connettersi di nuovo alla macchina virtuale.
 
 ## <a name="reset-by-using-the-vmaccess-extension-and-powershell"></a>Eseguire la reimpostazione usando l'estensione VMAccess e PowerShell
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a51c2987781184539edfcc8be9b9f483a215a157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 88abd3d17218f1168119a66701f1474d27244acf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58122927"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438258"
 ---
 # <a name="customize-the-ui-of-a-user-journey-with-custom-policies"></a>Personalizzare l'interfaccia utente di un percorso utente con criteri personalizzati
 
@@ -150,7 +150,7 @@ La tabella seguente descrive lo scopo delle pagine HTML5 precedenti.
 
 Per aggiungere un collegamento ai modelli HTML5/CSS al percorso utente, è possibile modificare direttamente un criterio personalizzato.
 
-I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un elenco di definizioni del contenuto che possono essere usate in tali percorsi utente. A tale scopo, un elemento XML *<ContentDefinitions>* facoltativo deve essere dichiarato nella sezione *<BuildingBlocks>* del file XML del criterio personalizzato.
+I modelli HTML5/CSS da usare nel percorso utente devono essere specificati in un elenco di definizioni del contenuto che possono essere usate in tali percorsi utente. A tale scopo, facoltativo  *\<ContentDefinitions >* elemento XML deve essere dichiarato con il  *\<BuildingBlocks >* sezione del file XML dei criteri personalizzati.
 
 La tabella seguente descrive il set di ID definizione del contenuto riconosciuti dal motore di esperienza di gestione delle identità di Azure AD B2C e il tipo di pagine correlate.
 

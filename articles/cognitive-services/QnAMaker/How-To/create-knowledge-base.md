@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: b4553a392795bb8578f24848ccacc870b654bce9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae278ac3e0fd9f93e080da8f52b9728e9c22a436
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116233"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439244"
 ---
-# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Avvio rapido: Creare una knowledge base tramite il portale di servizi API QnA Maker
+# <a name="quickstart-create-a-knowledge-base-using-the-qna-maker-api-service-portal"></a>Guida introduttiva: Creare una knowledge base tramite il portale di servizi API QnA Maker
 
 Il portale dei servizi API QnA Maker rende più semplice per aggiungere origini dati esistenti durante la creazione di una knowledge base. È possibile creare una nuova knowledge base di QnA Maker dai tipi di documento seguenti:
 
@@ -69,6 +69,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Dopo aver completato la knowledge base, rimuoverla dal portale di QnA Maker.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
+Per le misure di risparmio sui costi, è possibile [condividere](upgrade-qnamaker-service.md?#share-existing-services-with-qna-maker) alcuni ma non tutte le risorse di Azure create per QnA Maker.
 
 > [!div class="nextstepaction"]
 > [Aggiungere personale chit chat](./chit-chat-knowledge-base.md)

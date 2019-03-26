@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: d007f688483366f2f714a78b5bf9b56a67c55490
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730108"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407607"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
 
@@ -278,7 +278,7 @@ Quando si acquista un dominio dal portale di Azure, l'applicazione di servizio A
 
 **È possibile usare un dominio acquistato nel portale di Azure in modo che punti a una VM di Azure, invece?**
 
-Sì, è possibile puntare il dominio a una macchina virtuale, archiviazione e così via. Per altre informazioni, vedere [creare un nome di dominio personalizzato completo nel portale di Azure per una VM Windows](../virtual-machines/windows/portal-create-fqdn.md).
+Sì, è possibile puntare il dominio a una macchina virtuale. Per altre informazioni, vedere [Usare il servizio DNS di Azure per specificare impostazioni di dominio personalizzate per un servizio di Azure](../dns/dns-custom-domain.md).
 
 **È il mio dominio ospitato da GoDaddy o DNS di Azure?**
 

@@ -1,7 +1,7 @@
 ---
 title: Regioni di pubblicazione ed endpoint
 titleSuffix: Azure Cognitive Services
-description: La regione in cui si pubblica l'app LUIS corrisponde alla regione o alla posizione specificata nel portale di Azure quando si crea una chiave endpoint LUIS di Azure. Quando si pubblica un'app, LUIS genera automaticamente un URL endpoint per la regione associata alla chiave.
+description: 3 Creazione di aree e i rispettivi portali supportano tutte le aree di pubblicazione molti. La regione in cui si pubblica l'app LUIS corrisponde alla regione o alla posizione specificata nel portale di Azure quando si crea una chiave endpoint LUIS di Azure. Quando si pubblica un'app, LUIS genera automaticamente un URL endpoint per la regione associata alla chiave.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,27 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: bbe46db1972951b466b431c9efc0420e15ff6dee
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 01444cec798763bc4e44bcabe0d7ebb640e537a8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765171"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436337"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>Creazione e pubblicazione di aree e chiavi associate
 
-La regione in cui si pubblica l'app LUIS corrisponde alla regione o alla posizione specificata nel portale di Azure quando si crea una chiave endpoint LUIS di Azure. Quando si [pubblica un'app](./luis-how-to-publish-app.md), LUIS genera automaticamente un URL endpoint per la regione associata alla chiave. Per pubblicare un'app LUIS in più regioni, è necessaria almeno una chiave per regione. 
+Tre aree di creazione e modifica e i rispettivi portali supportano tutte le aree di pubblicazione molti. La regione in cui si pubblica l'app LUIS corrisponde alla regione o alla posizione specificata nel portale di Azure quando si crea una chiave endpoint LUIS di Azure. Quando si [pubblica un'app](./luis-how-to-publish-app.md), LUIS genera automaticamente un URL endpoint per la regione associata alla chiave. Per pubblicare un'app LUIS in più regioni, è necessaria almeno una chiave per regione. 
 
-## <a name="luis-website"></a>Sito Web LUIS
+<a name="luis-website"></a>
+
+## <a name="luis-authoring-regions"></a>LUIS di creazione di aree
 Esistono tre siti Web LUIS, in base alla regione. La creazione e la pubblicazione devono avvenire nella stessa regione. 
 
-|LUIS|Region|
-|--|--|
-|[www.luis.ai][www.luis.ai]|Dati<br>non Europa<br>non Australia|
-|[au.luis.ai][au.luis.ai]|Australia|
-|[au.luis.ai][eu.luis.ai]|Europa|
+|LUIS|Regione globale|Creazione e modifica area di Azure|
+|--|--|--|
+|[www.luis.ai][www.luis.ai]|Dati<br>non Europa<br>non Australia| `westus`|
+|[au.luis.ai][au.luis.ai]|Australia| `australiaeast`|
+|[au.luis.ai][eu.luis.ai]|Europa|`westeurope`|
+
+È possibile usare l'area creazione e modifica per l'interazione con il servizio LUIS distribuito in un'altra area di pubblicazione di Azure.  
+
+Creazione e modifica le aree hanno [failover aree abbinate](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 ## <a name="regions-and-azure-resources"></a>Regioni e risorse di Azure
 L'app è pubblicata in tutte le regioni associate alle risorse LUIS aggiunte nel portale di LUIS. Ad esempio, per un'app creata su [www.luis.ai][www.luis.ai], se si crea una risorsa di LUIS in **westus** e la si aggiunge all'app come risorsa, l'app sarà pubblicata in tale regione. 

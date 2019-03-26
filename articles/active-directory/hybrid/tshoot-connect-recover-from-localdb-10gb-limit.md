@@ -16,12 +16,12 @@ ms.date: 07/17/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 194f422c1567103e41f3b39f8510931b1f4762b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d420c64c5834f7d3cb11d2f5f59e3ed85a54891
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105183"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435593"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Come eseguire il ripristino dal limite di 10 GB per LocalDB
 Per archiviare i dati sull'identità, Azure AD Connect richiede un database SQL. È possibile usare l'istanza predefinita di SQL Server 2012 Express LocalDB installata con Azure AD Connect oppure usare la versione di SQL completa. SQL Server Express impone un limite di 10 GB. Quando si usa LocalDB e viene raggiunto questo limite, il servizio di sincronizzazione Azure AD Connect non può più essere avviato o eseguire la sincronizzazione correttamente. Questo articolo illustra la procedura di ripristino.
@@ -87,7 +87,7 @@ Per impostazione predefinita, Azure AD Connect conserva i dati della cronologia 
 
 3. In **Actions** (Azioni) selezionare **Clear Runs** (Cancella esecuzioni).
 
-4. È possibile scegliere **Clear all runs** (Cancella tutte le esecuzioni) oppure **Clear runs before<date>** (Cancella esecuzioni precedenti a). È consigliabile iniziare cancellando i dati della cronologia di esecuzione che risalgono a più di due giorni di prima. Se il problema delle dimensioni del database persiste, scegliere l'opzione **Clear all runs** (Cancella tutte le esecuzioni).
+4. È possibile scegliere **deselezionare tutte le esecuzioni** o **Clear venga eseguito prima... \<data >** opzione. È consigliabile iniziare cancellando i dati della cronologia di esecuzione che risalgono a più di due giorni di prima. Se il problema delle dimensioni del database persiste, scegliere l'opzione **Clear all runs** (Cancella tutte le esecuzioni).
 
 ### <a name="shorten-retention-period-for-run-history-data"></a>Abbreviare il periodo di conservazione dei dati della cronologia di esecuzione
 Questo passaggio consente di ridurre la probabilità che si verifichi il problema del limite di 10 GB dopo più cicli di sincronizzazione.

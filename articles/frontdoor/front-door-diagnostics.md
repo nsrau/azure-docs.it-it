@@ -11,19 +11,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 5d4d591c465cae91c59e8f86ea9d3e421db0f952
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112110"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407029"
 ---
-# <a name="monitoring-metrics-for-front-door"></a>Monitoraggio delle metriche per Frontdoor
+# <a name="monitoring-metrics-and-logs-for-front-door"></a>Monitoraggio delle metriche e log di ingresso principale
 
 Il servizio di ingresso principale di Azure consente di monitorare le risorse nei modi seguenti:
-* [Log](#diagnostic-logging): i log consentono di salvare o usare i dati delle prestazioni, di accesso e di altro tipo relativi a una risorsa per scopi di monitoraggio.
 
 * [Metriche](#metrics): il gateway applicazione dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
+* [Log](#diagnostic-logging): i log consentono di salvare o usare i dati delle prestazioni, di accesso e di altro tipo relativi a una risorsa per scopi di monitoraggio.
 
 ## <a name="metrics"></a>Metriche
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: ca186090f28f04811030e83b159782a9bfeb87f9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ccea3ebae4bcc19410cfb5537a7140f69b04c4e7
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400766"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438785"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparare e personalizzare un'immagine master di disco rigido virtuale
 
@@ -162,8 +162,8 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 
 Per disabilitare gli aggiornamenti automatici:
 
-1. Installare Office 365 seguendo le istruzioni riportate in [Preparazione immagine di Office](set-up-customize-master-image.md#office-image-preparation).
-2. Installare applicazioni aggiuntive, seguendo le istruzioni in [configurazione del profilo utente (FSLogix)](set-up-customize-master-image.md#user-profile-setup-fslogix), [Windows Defender](set-up-customize-master-image.md#windows-defender), e [altre applicazioni e configurazione del Registro di sistema](set-up-customize-master-image.md#other-applications-and-registry-configuration).
+1. Installare Office 365 seguendo le istruzioni riportate in [preparazione di Software e l'installazione](set-up-customize-master-image.md#software-preparation-and-installation).
+2. Installare applicazioni aggiuntive, seguendo le istruzioni in [configurare il contenitore di profilo utente (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [configura Windows Defender](set-up-customize-master-image.md#configure-windows-defender), e [altre applicazioni e il Registro di sistema configurazione](set-up-customize-master-image.md#other-applications-and-registry-configuration).
 3. Disabilitare il servizio di aggiornamento automatico di Windows nella macchina virtuale locale.
 4. Aprire **Editor criteri di gruppo locali\\modelli amministrativi\\i componenti di Windows\\Windows Update**.
 5. Fare doppio clic su **Configura Aggiornamenti automatici** e impostarlo su **disabilitato**.
@@ -171,7 +171,7 @@ Per disabilitare gli aggiornamenti automatici:
 È anche possibile eseguire il comando seguente al prompt dei comandi per disabilitare gli aggiornamenti automatici.
 
 ```batch
-reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
+reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
 
 Eseguire questo comando per specificare un layout iniziale per i PC Windows 10.
@@ -232,9 +232,7 @@ Desktop virtuale di Windows non supporta ufficialmente Skype for Business e i te
 
 ### <a name="set-up-user-profile-container-fslogix"></a>Configurare il contenitore di profilo utente (FSLogix)
 
-Per includere il contenitore FSLogix come parte dell'immagine, seguire le istruzioni in [configurare una condivisione di profilo utente per un pool di host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container).
-
-Quando si configura la chiave del Registro di sistema di condivisione file, usare la condivisione di file creato nella [configurare le autorizzazioni per il file server](set-up-customize-master-image.md#configure-permissions-for-the-file-server) in cui si prevede di archiviare i contenitori di profilo. È anche possibile testare la funzionalità del contenitore FSLogix usando questo [Guida introduttiva](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
+Per includere il contenitore FSLogix come parte dell'immagine, seguire le istruzioni in [configurare una condivisione di profilo utente per un pool di host](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). È possibile testare la funzionalità del contenitore FSLogix [questa Guida introduttiva](https://docs.fslogix.com/display/20170529/Profile+Containers+-+Quick+Start).
 
 ### <a name="configure-windows-defender"></a>Configura Windows Defender
 

@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: markvi
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be66ead6521bdb21626caaecd582fac4da6f664b
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 42f46e6759b0803b49316219f2ca2a6a7beb3818
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351270"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58434756"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l’autenticazione legacy per Azure AD con accesso condizionale   
 
@@ -140,4 +140,6 @@ Se si blocca l'autenticazione legacy usando l'altra condizione dei client, è an
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulla configurazione di criteri di accesso condizionale, in [Richiedere MFA per app specifiche con Azure Active Directory](app-based-mfa.md) è disponibile un esempio.
+- Per informazioni sulla configurazione di criteri di accesso condizionale, in [Richiedere MFA per app specifiche con Azure Active Directory](app-based-mfa.md) è disponibile un esempio.
+
+- Per altre informazioni sul supporto dell'autenticazione moderna, vedere [funzionamento dell'autenticazione moderna per le app client di Office 2013 e Office 2016](https://docs.microsoft.com/en-us/office365/enterprise/modern-auth-for-office-2013-and-2016) 

@@ -12,12 +12,12 @@ ms.date: 01/08/2019
 ms.author: celested
 ms.reviewer: asmalser,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7dfef0e27dd3e38e5a965f47a47619671a3127b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eefde6173156ea86f210ecc196c848fd97aaa0c8
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58117660"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435782"
 ---
 # <a name="configure-single-sign-on-to-non-gallery-applications-in-azure-active-directory"></a>Configurare l'accesso Single Sign-On per applicazioni non incluse nella raccolta in Azure Active Directory
 
@@ -124,7 +124,7 @@ Per altre informazioni, vedere [Gestione di certificati per accesso Single Sign-
 
 ### <a name="set-up-target-application"></a>Configurare l'applicazione di destinazione
 
-Per configurare l'applicazione per un singolo punto di accesso, vedere la documentazione dell'applicazione. Per trovare la documentazione, eseguire lo scorrimento fino alla fine della pagina di configurazione di accesso basato su SAML e quindi fare clic su **Configura <application name>**. 
+Per configurare l'applicazione per un singolo punto di accesso, vedere la documentazione dell'applicazione. Per trovare la documentazione, scorrere fino alla fine della pagina di configurazione basato su SAML sign-on e quindi fare clic su **Configure \<nome applicazione >**. 
 
 I valori richiesti variano in base all'applicazione. Per informazioni dettagliate, vedere la documentazione sul protocollo SAML dell'applicazione. L'URL servizio Single Sign-On e l'URL servizio Sign-Out vengono entrambi risolti nello stesso endpoint, ovvero l'endpoint di gestione delle richieste SAML per questa istanza di Azure AD. L'ID di entità SAML è il valore visualizzato come Autorità di certificazione nel token SAML rilasciato all'applicazione.
 

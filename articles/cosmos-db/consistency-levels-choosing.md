@@ -5,22 +5,22 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 03/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: 11eb849567079bfb1293c3c1e8ce97c43b66d493
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f32434e5ac0cd35cf620c1589aeb441476622442
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116845"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407454"
 ---
 # <a name="choose-the-right-consistency-level"></a>Scegliere il livello di coerenza appropriato 
 
-I database distribuiti che di basano sulla replica per gestire la disponibilità elevata, la bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio richiede che gli sviluppatori scelgano tra due modelli di coerenza estremi: la coerenza assoluta e la coerenza finale. Azure Cosmos DB consente agli sviluppatori di scegliere tra cinque modelli di coerenza ben definiti: assoluta, decadimento ristretto, sessione, prefisso coerente e finale. Ognuno di questi modelli di coerenza è ben definito, intuitivo e può essere usato per scenari reali specifici. Ognuno dei cinque modelli prevede [compromessi in termini di disponibilità e prestazioni](consistency-levels-tradeoffs.md) ed è supportato da un contratto di servizio completo. Le seguenti semplici osservazioni consentiranno all'utente di fare la scelta giusta in molti scenari comuni.
+I database distribuiti che di basano sulla replica per gestire la disponibilità elevata, la bassa latenza o entrambe, applicano il compromesso fondamentale tra coerenza di lettura e disponibilità, latenza e velocità effettiva. La maggior parte dei database distribuiti disponibili in commercio chiedere agli sviluppatori di scegliere tra i due modelli di coerenza estremi: *strong* coerenza e *finale* coerenza. Azure Cosmos DB consente agli sviluppatori di scegliere tra cinque modelli di coerenza ben definiti: *strong*, *decadimento ristretto*, *sessione*, *coerente prefisso* e *finale*. Ognuno di questi modelli di coerenza è ben definito, intuitivo e può essere usato per scenari reali specifici. Ognuno dei modelli di cinque coerenza forniscono preciso [compromessi tra prestazioni e disponibilità](consistency-levels-tradeoffs.md) e sono supportati da contratti di servizio completi. Le seguenti semplici osservazioni consentiranno all'utente di fare la scelta giusta in molti scenari comuni.
 
 ## <a name="sql-api-and-table-api"></a>API SQL e API Tabella
 
-Tenere presente quanto segue se l'applicazione è stata compilata usando l'API SQL di Cosmos DB o l'API Tabella
+Se l'applicazione viene compilata usando l'API SQL o API di tabella, tenere presente quanto segue:
 
 - Per molti scenari reali, la coerenza di sessione è ottimale ed è l'opzione consigliata. Per altre informazioni, vedere [Come gestire il token di sessione per l'applicazione](how-to-manage-consistency.md#utilize-session-tokens).
 
@@ -32,11 +32,11 @@ Tenere presente quanto segue se l'applicazione è stata compilata usando l'API S
 
 - Se vengono richieste garanzie di coerenza meno rigorose rispetto a quelle offerte dalla coerenza di sessione, si consiglia di usare il livello di coerenza con prefisso coerente.
 
-- Se viene richiesta una disponibilità più elevata e una latenza più bassa, usare il livello di coerenza finale.
+- Se è necessaria la disponibilità più elevata e latenza più bassa, quindi usare il livello di coerenza finale.
 
 - Se occorre una durabilità dei dati ancora più elevata che non riduca le prestazioni, è possibile creare un livello di coerenza personalizzato a livello di applicazione. Per altre informazioni, vedere [Come implementare la sincronizzazione personalizzata nelle applicazioni](how-to-custom-synchronization.md).
 
-## <a name="cassandra-mongodb-and-gremlin-api"></a>API Cassandra, MongoDB e Gremlin
+## <a name="cassandra-mongodb-and-gremlin-apis"></a>API Gremlin, MongoDB e Cassandra
 
 - Per informazioni dettagliate sul mapping tra il "Livello di coerenza di lettura" offerto in Apache Cassandra e i livelli di coerenza di Cosmos DB, vedere [Livelli di coerenza e API di Cosmos DB](consistency-levels-across-apis.md#cassandra-mapping).
 
@@ -44,7 +44,7 @@ Tenere presente quanto segue se l'applicazione è stata compilata usando l'API S
 
 ## <a name="consistency-guarantees-in-practice"></a>Garanzie di coerenza in pratica
 
-È possibile ottenere maggiori garanzie di coerenza in pratica. Per un'operazione di lettura, le garanzie di coerenza corrispondono al livello di aggiornamento e ordinamento dello stato del database richiesto. La coerenza di lettura è associata all'ordinamento e alla propagazione delle operazioni di scrittura/aggiornamento.  
+In pratica, è spesso possibile ottenere maggiori garanzie di coerenza. Per un'operazione di lettura, le garanzie di coerenza corrispondono al livello di aggiornamento e ordinamento dello stato del database richiesto. La coerenza di lettura è associata all'ordinamento e alla propagazione delle operazioni di scrittura/aggiornamento.  
 
 * Quando il livello di coerenza è impostato su **decadimento ristretto**, Cosmos DB garantisce che i client leggano sempre il valore di una scrittura precedente, con un intervallo ristretto dalla finestra di decadimento.
 
@@ -52,9 +52,9 @@ Tenere presente quanto segue se l'applicazione è stata compilata usando l'API S
 
 * Per i tre livelli di coerenza rimanenti, la finestra di decadimento dipende in gran parte dal carico di lavoro. Ad esempio, se nel database non sono in corso operazioni di scrittura, un'operazione di lettura con livello di coerenza **finale**, **sessione** o **prefisso coerente** è probabile che fornisca gli stessi risultati di un'operazione di lettura con livello di coerenza assoluto.
 
-Se l'account Cosmos DB è configurato con qualsiasi livello di coerenza diverso dalla coerenza assoluta, è possibile conoscere la probabilità dei client di ottenere letture con coerenza assoluta per i carichi di lavoro esaminando il calcolo del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS). Questa metrica viene esposta nel portale di Azure. Per altre informazioni, vedere [Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
+Se l'account Azure Cosmos è configurato con un livello di coerenza diverso da una coerenza assoluta, è possibile trovare la probabilità che i client possono ottenere una forte e le letture con coerenza per i carichi di lavoro esaminando il *probabilistica Decadimento ristretto* metrica (PB). Questa metrica viene esposta nel portale di Azure. Per altre informazioni, vedere [Monitorare la metrica del decadimento ristretto probabilistico (Probabilistic Bounded Staleness, PBS)](how-to-manage-consistency.md#monitor-probabilistically-bounded-staleness-pbs-metric).
 
-Il decadimento ristretto probabilistico mostra il livello di finalità della coerenza finale. Questa metrica offre informazioni dettagliate sulla frequenza con cui si ottiene una coerenza più elevata rispetto al livello di coerenza attualmente configurato per l'account Cosmos DB. In altre parole, è possibile visualizzare la probabilità (misurata in millisecondi) di ottenere letture con coerenza assoluta per una combinazione di aree di scrittura e lettura.
+Il decadimento ristretto probabilistico mostra il livello di finalità della coerenza finale. Questa metrica offre alcune informazioni su quanto spesso è possibile ottenere una coerenza più elevata rispetto al livello di coerenza attualmente configurato per l'account Azure Cosmos. In altre parole, è possibile visualizzare la probabilità (misurata in millisecondi) di ottenere letture con coerenza assoluta per una combinazione di aree di scrittura e lettura.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

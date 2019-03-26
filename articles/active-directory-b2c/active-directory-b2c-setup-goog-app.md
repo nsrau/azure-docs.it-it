@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 03/25/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 29b988beff0f25bc0d4abcc1c95a70bccf9ba1cb
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 1d4f7460d53e721ca1cba7aba6c6ef9c45111ee5
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427429"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58435441"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurare l'iscrizione e l'accesso con un account Google tramite Azure Active Directory B2C
 
@@ -24,15 +24,13 @@ ms.locfileid: "56427429"
 Per usare un account Google come [provider di identità](active-directory-b2c-reference-oauth-code.md) in Azure Active Directory (Azure AD) B2C, è necessario creare nel tenant un'applicazione che lo rappresenti. Se non si possiede già un account Google, è possibile crearlo sul sito [https://accounts.google.com/SignUp](https://accounts.google.com/SignUp).
 
 1. Accedere alla [Google Developers Console](https://console.developers.google.com/) con le credenziali dell'account Google.
-2. Selezionare **Crea progetto** e quindi fare clic su **Crea**. Se sono stati già creati altri progetti, selezionare l'elenco dei progetti e quindi selezionare **Nuovo progetto**.
+2. Nell'angolo superiore sinistro della pagina, selezionare l'elenco di progetto e quindi selezionare **nuovo progetto**.
 3. Immettere un **Nome progetto**, fare clic su **Crea**e quindi assicurarsi di usare il nuovo progetto.
-3. Selezionare **Credenziali** nel menu a sinistra e quindi selezionare **Crea credenziali di accesso** > **ID client Oauth**.
-4. Selezionare **Configure consent screen** (Configura schermata di consenso).
-5. Selezionare o specificare un **indirizzo di posta elettronica**, inserire il **nome del prodotto visualizzato agli utenti**, aggiungere `b2clogin.com` in **Domini autorizzati** e fare clic su **Salva**.
-6. In **Tipo di applicazione** selezionare **Applicazione Web**.
-7. Fornire un **Nome** per l'applicazione, immettere `https://your-tenant-name.b2clogin.com` nel campo **Origini JavaScript autorizzate** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire `your-tenant-name` con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
-8. Fare clic su **Create**(Crea).
-9. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google come provider di identità nel tenant. **Segreto client** è una credenziale di sicurezza importante.
+4. Selezionare **Credenziali** nel menu a sinistra e quindi selezionare **Crea credenziali di accesso** > **ID client Oauth**.
+5. In **Tipo di applicazione** selezionare **Applicazione Web**.
+6. Fornire un **Nome** per l'applicazione, immettere `https://your-tenant-name.b2clogin.com` nel campo **Origini JavaScript autorizzate** e `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` nel campo **URI di reindirizzamento autorizzati**. Sostituire `your-tenant-name` con il nome del tenant. È necessario usare lettere minuscole quando si immette il nome del tenant, anche se questo viene definito con lettere maiuscole in Azure AD B2C.
+7. Fare clic su **Create**(Crea).
+8. Copiare i valori **ID client** e **Segreto client**. Sono necessari entrambi per configurare Google come provider di identità nel tenant. **Segreto client** è una credenziale di sicurezza importante.
 
 ## <a name="configure-a-google-account-as-an-identity-provider"></a>Configurare un account Google come provider di identità
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 73f97128dc7b71179c0b0ab41340af6c0f371da1
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0d898c8d2273c431967603c36c8ff9d0dd8b4b7b
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402967"
+ms.locfileid: "58417854"
 ---
 # <a name="azure-data-box-gateway-system-requirements"></a>Requisiti di sistema di Gateway di dati finestra Azure
 
@@ -31,7 +31,7 @@ Il sistema host sottostante per Data Box Gateway deve essere in grado di dedicar
 
 | Specifiche                                          | DESCRIZIONE              |
 |---------------------------------------------------------|--------------------------|
-| Processori virtuali (core)   | Minimo 4 |            
+| Processori virtuali (core)   | Minimo 4 |
 | Memoria  | Minimo 8 GB|
 | Disponibilità|Nodo singolo|
 | Dischi| Disco sistema operativo: 250 GB <br> Disco dati: almeno 2 TB, con thin provisioning e supportato da unità SSD|

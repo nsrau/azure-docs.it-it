@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: f3534f3001de1c3e58f0be3fb7bc9639b7dfcd03
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 3f77b7b71fa2ef4e7262656540b8562d3a2ff33c
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295422"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437595"
 ---
 # <a name="install-and-run-face-containers"></a>Installare ed eseguire i contenitori di viso
 
@@ -41,7 +41,7 @@ Prima di usare i contenitori API Viso, è necessario soddisfare i prerequisiti s
 
 ### <a name="the-host-computer"></a>Computer host
 
-[!INCLUDE [Request access to private preview](../../../includes/cognitive-services-containers-host-computer.md)]
+[!INCLUDE [Host Computer requirements](../../../includes/cognitive-services-containers-host-computer.md)]
 
 
 ### <a name="container-requirements-and-recommendations"></a>Indicazioni e requisiti per i contenitori

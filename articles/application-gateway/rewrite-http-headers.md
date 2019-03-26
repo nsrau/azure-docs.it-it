@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: aedd81af8b5821b1f8032faad1896790804df2a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119293"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418007"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
 
@@ -96,10 +96,12 @@ Questa funzionalità supporta la riscrittura delle intestazioni per le variabili
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Restituisce l'elenco di modalità di crittografia supportate dal client          |
 | ciphers_used               | Restituisce la stringa di crittografia usata per una connessione SSL stabilita |
+| client_ip                  | Indirizzo IP del client. particolarmente utile negli scenari in cui i clienti desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione, in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
 | client_port                | Porta del client                                                  |
 | client_tcp_rtt             | Informazioni sulla connessione TCP client. Disponibile nei sistemi che supportano l'opzione di socket TCP_INFO |
 | client_user                | Quando si usa l'autenticazione HTTP, il nome utente fornito per l'autenticazione |
 | host                       | In questo ordine di precedenza: nome host dalla riga della richiesta o nome host dal campo di intestazione della richiesta "Host" oppure nome del server corrispondente a una richiesta |
+| cookie_*nome*              | il *nome* cookie |
 | http_method                | Metodo usato per eseguire la richiesta di URL. Ad esempio GET, POST e così via. |
 | http_status                | Stato della sessione, ad esempio: 200, 400, 403 e così via.                       |
 | http_version               | Protocollo di richiesta, in genere "HTTP/1.0", "HTTP/1.1" o "HTTP/2.0" |
@@ -120,10 +122,6 @@ Questa funzionalità supporta la riscrittura delle intestazioni per le variabili
 - Il supporto della riscrittura dell'intestazione HTTP è disponibile solo per il nuovo SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). La funzionalità non sarà supportata nello SKU precedente.
 
 - La riscrittura delle intestazioni Connect, Upgrade e Host non è ancora supportata.
-
-- Due variabili server importanti, client_ip (indirizzo IP del client che effettua la richiesta) e cookie_*name* (il cookie *name*), non sono ancora supportate. La variabile server client_ip è particolarmente utile negli scenari in cui i clienti vogliono riscrivere l'intestazione x-forwarded-for impostata dal gateway applicazione, in modo che l'intestazione contenga solo l'indirizzo IP del client e non le informazioni sulla porta.
-
-  Entrambe queste variabili server saranno supportate a breve.
 
 - La possibilità di riscrivere in modo condizionale le intestazioni http disponibile a breve.
 

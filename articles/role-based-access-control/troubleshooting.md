@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 03/24/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 7b27c811214def7f5646f886b955d035a50c0725
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342474"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407590"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Risolvere i problemi del controllo degli accessi in base al ruolo per le risorse di Azure
 
@@ -28,23 +28,31 @@ Questo articolo contiene le risposte alle domande comuni sul controllo degli acc
 
 ## <a name="problems-with-rbac-role-assignments"></a>Problemi con le assegnazioni di ruolo di Controllo degli accessi in base al ruolo
 
-- Se non è possibile aggiungere un'assegnazione di ruolo perché l'opzione **Aggiungi un'assegnazione di ruolo** è disabilitata o perché viene visualizzato un errore di autorizzazione, accertarsi di usare un ruolo che disponga dell'autorizzazione `Microsoft.Authorization/roleAssignments/*` nell'ambito in cui si sta tentando di assegnare il ruolo. Se non si dispone di questa autorizzazione, rivolgersi all'amministratore della sottoscrizione.
-- Se si verifica un errore di autorizzazione quando si prova a creare una risorsa, accertarsi di usare un ruolo che disponga dell'autorizzazione per la creazione di risorse nell'ambito selezionato. Ad esempio, può essere necessario usare il ruolo Collaboratore. Se non si dispone di questa autorizzazione, rivolgersi all'amministratore della sottoscrizione.
-- Se si verifica un errore di autorizzazione quando si prova a creare o aggiornare un ticket di supporto, accertarsi di usare un ruolo che disponga dell'autorizzazione `Microsoft.Support/*`, ad esempio quello di [Collaboratore richiesta di supporto](built-in-roles.md#support-request-contributor).
-- Se si verifica un errore di superamento del numero di assegnazioni di ruolo quando si cerca di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo assegnando i ruoli a gruppi. Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione.
+- Se non si riesce ad aggiungere un'assegnazione di ruolo nel portale di Azure sul **controllo di accesso (IAM)** perché la **Add** > **aggiungere un'assegnazione di ruolo** opzione è disabilitata o perché viene visualizzato l'errore relativo alle autorizzazioni "il client con id oggetto non è autorizzato a eseguire l'azione", verificare che si è connessi attualmente con un account utente che viene assegnato un ruolo con il `Microsoft.Authorization/roleAssignments/write` l'autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) oppure [amministratore accesso utenti](built-in-roles.md#user-access-administrator) nell'ambito in cui si sta tentando di assegnare il ruolo.
+- Se viene visualizzato il messaggio di errore "non più assegnazioni di ruolo possono essere create (codice: RoleAssignmentLimitExceeded) "quando si tenta di assegnare un ruolo, provare a ridurre il numero di assegnazioni di ruolo assegnando ruoli invece a gruppi. Azure supporta fino a **2000** assegnazioni di ruolo per sottoscrizione.
 
 ## <a name="problems-with-custom-roles"></a>Problemi con i ruoli personalizzati
 
-- Se non è possibile aggiornare un ruolo personalizzato esistente, controllare se si dispone dell'autorizzazione `Microsoft.Authorization/roleDefinition/write`.
-- Se non è possibile aggiornare un ruolo personalizzato esistente, controllare se uno o più ambiti assegnabili sono stati eliminati dal tenant. La proprietà `AssignableScopes` per un ruolo personalizzato verifica [chi può creare, eliminare, aggiornare o visualizzare il ruolo personalizzato](custom-roles.md#who-can-create-delete-update-or-view-a-custom-role).
-- Se viene visualizzato un errore di superamento del limite di definizioni del ruolo quando si prova a creare un nuovo ruolo, eliminare tutti i ruoli personalizzati inutilizzati. È anche possibile provare a consolidare o riutilizzare eventuali ruoli personalizzati esistenti. Azure supporta fino a **2000** ruoli personalizzati in un tenant.
-- Se non è possibile eliminare un ruolo personalizzato, verificare se sono presenti una o più assegnazioni di ruolo che usano ancora il ruolo personalizzato.
+- Se sono necessari passaggi per creare un ruolo personalizzato, vedere le esercitazioni di ruolo personalizzate utilizzando [Azure PowerShell](tutorial-custom-role-powershell.md) oppure [Azure CLI](tutorial-custom-role-cli.md).
+- Se è in grado di aggiornare un ruolo personalizzato esistente, verificare che si è connessi attualmente con un account utente che viene assegnato un ruolo con il `Microsoft.Authorization/roleDefinition/write` l'autorizzazione, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator).
+- Se non si riesce a eliminare un ruolo personalizzato e ottenere il messaggio di errore "sono presenti assegnazioni di ruolo che fanno riferimento a ruolo (codice: RoleDefinitionHasAssignments) ", significa che sono presenti assegnazioni di ruolo Usa ancora il ruolo personalizzato. Rimuovere le assegnazioni di ruolo e provare nuovamente a eliminare il ruolo personalizzato.
+- Se viene visualizzato il messaggio di errore "limite di definizioni ruolo superato. Non è possibile creare più definizioni di ruolo (codice: RoleDefinitionLimitExceeded) "quando si prova a creare un nuovo ruolo personalizzato, eliminare tutti i ruoli personalizzati che non vengono usati. Azure supporta fino a **2000** ruoli personalizzati in un tenant.
+- Se si verifica un errore simile a "il client è autorizzato a eseguire l'azione 'Microsoft.Authorization/roleDefinitions/write' sull'ambito '/ sottoscrizioni / {subscriptionid}', ma la sottoscrizione collegata non è stata trovata" quando si tenta di aggiornare un ruolo personalizzato, controllare Se uno o più [ambiti assegnabili](role-definitions.md#assignablescopes) sono stati eliminati nel tenant. Se l'ambito è stato eliminato, quindi creare un ticket di supporto come non c'è alcuna soluzione self-service disponibile in questo momento.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Ripristinare il Controllo degli accessi in base al ruolo quando le sottoscrizioni vengono spostate tra i tenant
 
-- Se sono necessari passaggi per il trasferimento di una sottoscrizione a un altro tenant, vedere [Trasferimento della proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md).
-- Quando si trasferisce una sottoscrizione a un altro tenant, tutte le assegnazioni di ruolo vengono eliminate definitivamente dal tenant di origine e non ne viene eseguita la migrazione al tenant di destinazione. È necessario creare nuovamente le assegnazioni di ruolo nel tenant di destinazione.
-- Se si è un amministratore globale e si è perso l'accesso a una sottoscrizione, attivare **Gestione degli accessi per le risorse di Azure** per [elevare l'accesso](elevate-access-global-admin.md) temporaneamente, ottenendo così l'accesso alla sottoscrizione.
+- Se sono necessari passaggi per il trasferimento di una sottoscrizione a un Azure AD diverso tenant, vedere [trasferire la proprietà di una sottoscrizione di Azure a un altro account](../billing/billing-subscription-transfer.md).
+- Se si trasferisce una sottoscrizione a un Azure AD diverso del tenant, tutte le assegnazioni di ruolo vengono eliminate definitivamente dal tenant di Azure AD di origine e non vengono migrate al tenant di Azure AD di destinazione. È necessario creare nuovamente le assegnazioni di ruolo nel tenant di destinazione.
+- Se sei un Azure AD amministratore globale e si autorizzati ad accedere a una sottoscrizione dopo lo spostamento tra i tenant, usare il **Access management per risorse di Azure** attiva/disattiva temporaneamente [elevare l'accesso](elevate-access-global-admin.md) per ottenere l'accesso alla sottoscrizione.
+
+## <a name="issues-with-service-admins-or-co-admins"></a>Problemi con gli amministratori del servizio o i coamministratori
+
+- Se si verificano problemi con l'amministratore del servizio o coamministratore, vedere [gli amministratori delle sottoscrizioni di Azure aggiungere o modificare](../billing/billing-add-change-azure-subscription-administrator.md) e [ruoli amministratore sottoscrizione classico, i ruoli RBAC di Azure e Azure AD i ruoli di amministratore](rbac-and-directory-admin-roles.md).
+
+## <a name="access-denied-or-permission-errors"></a>Accesso negato o errori di autorizzazione
+
+- Se viene visualizzato l'errore relativo alle autorizzazioni "il client con id oggetto non è autorizzato a eseguire azioni sull'ambito (codice: AuthorizationFailed) "quando si tenta di creare una risorsa, verificare che si è connessi attualmente con un account utente che viene assegnato un ruolo che dispone dell'autorizzazione di scrittura per la risorsa nell'ambito selezionato. Ad esempio, per gestire le macchine virtuali in un gruppo di risorse, è necessario per il [collaboratore macchina virtuale](built-in-roles.md#virtual-machine-contributor) ruolo nel gruppo di risorse (o ambito padre). Per un elenco delle autorizzazioni per ogni ruolo predefinito, vedere [ruoli predefiniti per le risorse di Azure](built-in-roles.md).
+- Se viene visualizzato l'errore relativo alle autorizzazioni "Si è autorizzati a creare una richiesta di supporto" quando si prova a creare o aggiornare un ticket di supporto, controllare che si è connessi attualmente con un account utente che viene assegnato un ruolo che dispone di `Microsoft.Support/supportTickets/write` autorizzazione, ad esempio [Collaboratore richiesta di supporto](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>Le modifiche del controllo degli accessi in base al ruolo non vengono rilevate
 

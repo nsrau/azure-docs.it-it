@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/21/2018
 ms.custom: seodec18
-ms.openlocfilehash: 0a3fd2cc66a066d2790d2e12822e3246dc3db382
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c22b82dcd3438a8175457aa0963d52e84d582abf
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898874"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438500"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Informazioni sugli output di Analisi di flusso di Azure
 Questo articolo descrive i diversi tipi di output disponibili per un processo di Analisi di flusso di Azure. Gli output consentono di archiviare e salvare i risultati del processo di Analisi di flusso di Azure. Usando i dati di output, è possibile eseguire altre analisi di business e il data warehousing dei dati.
@@ -127,6 +127,7 @@ Per configurare i flussi dei dati dell'hub eventi, sono necessari alcuni paramet
 | Codifica | Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON. |
 | Delimitatore | Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Format | Applicabile solo per la serializzazione JSON. Separato da righe specifica che l'output viene formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output viene formattato come matrice di oggetti JSON. Questa matrice viene chiusa solo quando il processo viene arrestato o Analisi di flusso di Azure passa all'intervallo di tempo successivo. In generale, è preferibile usare JSON separato da righe, perché non richiede alcuna gestione speciale durante la scrittura del file di output. |
+| Colonne delle proprietà [facoltativi] | Le colonne che devono essere associati come proprietà utente del messaggio in uscita invece di payload delimitati da virgole. Altre informazioni su questa funzionalità nella sezione "Proprietà personalizzate dei metadati per l'output" |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) può essere usato come output per un processo di Analisi di flusso per offrire un'esperienza di visualizzazione avanzata dei risultati di analisi. Questa funzionalità può essere usata per i dashboard operativi, la generazione di report e la creazione di report basati sulle metriche.
@@ -230,6 +231,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Codifica |Al momento UTF-8 è l'unico formato di codifica supportato per i formati CSV e JSON |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
 | Format |Applicabile solo per il tipo JSON. Separato da righe specifica che l'output viene formattato separando ciascun oggetto JSON con una nuova riga. Array specifica che l'output viene formattato come matrice di oggetti JSON. |
+| Colonne delle proprietà [facoltativi] | Le colonne che devono essere associati come proprietà utente del messaggio in uscita invece di payload delimitati da virgole. Altre informazioni su questa funzionalità nella sezione "Proprietà personalizzate dei metadati per l'output" |
 
 Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.
 
@@ -248,6 +250,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Formato di serializzazione eventi |Formato di serializzazione per i dati di output. Sono supportati i formati JSON, CSV e Avro. |
 | Codifica |Se il formato è CSV o JSON, è necessario specificare un formato di codifica. Al momento UTF-8 è l'unico formato di codifica supportato |
 | Delimitatore |Applicabile solo per la serializzazione CSV. Analisi di flusso supporta una serie di delimitatori comuni per la serializzazione dei dati in formato CSV. I valori supportati sono virgola, punto e virgola, spazio, tabulazione e barra verticale. |
+| Colonne delle proprietà [facoltativi] | [Facoltativo] Le colonne che devono essere associati come proprietà utente del messaggio in uscita invece di payload delimitati da virgole. Altre informazioni su questa funzionalità nella sezione "Proprietà personalizzate dei metadati per l'output" |
 
 Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.
 
@@ -293,6 +296,25 @@ Quando Analisi di flusso di Azure riceve l'eccezione 413 (Entità richiesta HTTP
 
 Quando non avviene alcun evento in un intervallo di tempo, non viene generato alcun output. Di conseguenza, non viene chiamata la funzione computeResult. Questo comportamento è coerente con le funzioni di aggregazione finestra predefinite.
 
+## <a name="custom-metadata-properties-for-output"></a>Proprietà di metadati personalizzati per l'output 
+
+Questa funzionalità consente di associare le colonne di query come le proprietà dell'utente ai messaggi in uscita. Queste colonne non entrano nel payload. Queste proprietà sono presenti sotto forma di un dizionario nel messaggio di output. Chiave è il nome della colonna e valore è il valore della colonna nel dizionario delle proprietà. Tutti i tipi di dati di Analitica Stream sono supportati, ad eccezione di Record e la matrice.  
+
+Output supportati: 
+* Code del bus di servizio 
+* Argomenti del bus di servizio 
+* Hub eventi 
+
+Esempio: Nell'esempio seguente, si aggiungerà i 2 campi DeviceId e DeviceStatus ai metadati. 
+* Query: `select *, DeviceId, DeviceStatus from iotHubInput` .
+* Configurazione di output: `DeviceId,DeviceStatus`.
+
+![Colonne delle proprietà](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+
+Le proprietà del messaggio esaminate nell'uso di hub eventi di output [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
+
+   ![Proprietà personalizzate di evento](./media/stream-analytics-define-outputs/09-stream-analytics-custom-properties.png)
+
 ## <a name="partitioning"></a>Partizionamento
 
 Nella tabella seguente viene riepilogato il supporto della partizione e il numero di writer di output per ogni tipo di output:
@@ -302,7 +324,7 @@ Nella tabella seguente viene riepilogato il supporto della partizione e il numer
 | Archivio Azure Data Lake | Sì | Use i token {date} e {time} nello schema prefisso percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Database SQL di Azure | Sì | Basato sulla clausola PARTITION BY nella query | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). Per altre informazioni su come ottenere migliori prestazioni per la velocità effettiva di scrittura quando si caricano dati nel Database SQL di Azure, vedere [Output di Analisi di flusso di Azure in Database SQL di Azure](stream-analytics-sql-output-perf.md). |
 | Archivio BLOB di Azure | Sì | Usare i token {date} e {time} dai campi dell'evento nel modello di percorso. Scegliere il formato della data, ad esempio YYYY/MM/DD, DD/MM/YYYY, MM-DD-YYYY. HH viene usato per il formato dell'ora. L'output del BLOB può essere partizionato in base a un singolo attributo dell'evento personalizzato {fieldname} o {datetime:\<specifier>}. | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
-| Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.<br /> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. <br /> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
+| Hub eventi di Azure | Sì | Sì | Varia a seconda dell'allineamento della partizione.<br /> Quando la chiave di partizione di output di Hub eventi è ugualmente allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni di Hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) di EventHub per inviare eventi alla partizione specifica. <br /> Quando la chiave di partizione di output di Hub eventi non è allineata al passo di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passo precedente. Ogni writer usa la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) di EventHubClient per inviare eventi a tutte le partizioni di output. |
 | Power BI | No  | Nessuna | Non applicabile |
 | Archiviazione tabelle di Azure | Sì | Qualsiasi colonna di output.  | Segue il partizionamento dell'input per le [query completamente eseguibili in parallelo](stream-analytics-scale-jobs.md). |
 | Argomento del bus di servizio di Azure | Sì | Scelto automaticamente. Il numero di partizioni è [basato sullo SKU e sulle dimensioni del bus di servizio](../service-bus-messaging/service-bus-partitioning.md). La chiave di partizione è un valore intero univoco per ogni partizione.| Corrisponde al numero di partizioni nell'argomento di output.  |

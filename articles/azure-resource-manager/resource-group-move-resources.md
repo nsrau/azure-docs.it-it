@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 80577b4585a6c9e4ec83a8f21b358b7609d85268
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081254"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418891"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -49,7 +49,7 @@ Contattare il [supporto tecnico](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="services-that-can-be-moved"></a>Servizi che possono essere spostati
 
-L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che possono essere spostati in un nuovo gruppo di risorse e sottoscrizione. Per maggiori dettagli vedere [Move operation support for resources](move-support-resources.md) (Spostare il supporto operativo per le risorse).
+L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che possono essere spostati in un nuovo gruppo di risorse e sottoscrizione. Per un elenco di risorsa a cui i tipi supportano lo spostamento, vedere [spostare il supporto di operazione per le risorse](move-support-resources.md).
 
 * Analysis Services
 * Gestione API
@@ -143,7 +143,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Dynamics LCS
 * ExpressRoute
 * Kubernetes Service
-* Servizi lab: lo spostamento in un nuovo gruppo di risorse nella stessa sottoscrizione è abilitato, ma lo spostamento tra sottoscrizioni non lo è.
+* Lab Services - lab per le classi non possono essere spostati in un nuovo gruppo di risorse o sottoscrizione. DevTest Labs può essere spostato in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non per tutte le sottoscrizioni.
 * Applicazioni gestite
 * Genomica di Microsoft
 * SAP HANA in Azure

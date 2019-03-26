@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: b43fe513b15d55ee595acaa6733d96cdb58f4e83
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 836d36cc6f220bb544e0c7723506c624c5f9fc39
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294508"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407301"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
 
@@ -31,41 +31,41 @@ La coerenza di lettura si applica a una singola operazione di lettura il cui amb
 
 ## <a name="configure-the-default-consistency-level"></a>Configurare il livello di coerenza predefinito
 
-È possibile configurare il livello di coerenza predefinito nell'account Azure Cosmos in qualsiasi momento. Il livello di coerenza predefinito configurato per l'account si applica a tutti i database di Azure Cosmos DB e ai contenitori in tale account. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite su un contenitore o un database usano il livello di coerenza specificato. Per altre informazioni, vedere come [configurare il livello di coerenza predefinito](how-to-manage-consistency.md#configure-the-default-consistency-level).
+È possibile configurare il livello di coerenza predefinito nell'account Azure Cosmos in qualsiasi momento. Il livello di coerenza predefinito configurato per l'account si applica a tutti i database di Cosmos Azure e contenitori con tale account. Per impostazione predefinita, tutte le operazioni di lettura e le query eseguite su un contenitore o un database usano il livello di coerenza specificato. Per altre informazioni, vedere come [configurare il livello di coerenza predefinito](how-to-manage-consistency.md#configure-the-default-consistency-level).
 
 ## <a name="guarantees-associated-with-consistency-levels"></a>Garanzie associate ai livelli di coerenza
 
-I contratti di servizio completi offerti da Azure Cosmos DB garantiscono che il 100% delle richieste di lettura soddisfano la garanzia di coerenza per qualsiasi livello di coerenza scelto. Una richiesta soddisfa il contratto di servizio per la coerenza se sono soddisfatte tutte le garanzie associate al livello di coerenza. Le definizioni precise dei cinque livelli di coerenza in Azure Cosmos DB che usano il [linguaggio di specifica TLA+](https://lamport.azurewebsites.net/tla/tla.html) sono disponibili nel repository GitHub [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla). 
+I contratti di servizio completi offerti da Azure Cosmos DB garantiscono che il 100% delle richieste di lettura soddisfano la garanzia di coerenza per qualsiasi livello di coerenza scelto. Una richiesta soddisfa il contratto di servizio per la coerenza se sono soddisfatte tutte le garanzie associate al livello di coerenza. Le definizioni precisare dei cinque livelli di coerenza in Azure Cosmos DB usando il [linguaggio di specifica TLA +](https://lamport.azurewebsites.net/tla/tla.html) sono disponibili nel [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) repository GitHub. 
 
 La semantica dei cinque livelli di coerenza è descritta qui:
 
 - **Assoluta**: La coerenza assoluta offre una garanzia di [linearizzabilità](https://aphyr.com/posts/313-strong-consistency-models). È garantito che le letture restituiscano sempre la versione di un elemento di cui sia stato eseguito il commit più di recente. Un client non visualizza mai una scrittura parziale o di cui non sia stato eseguito il commit. Gli utenti possono sempre essere certi di leggere la scrittura più recente sottoposta a commit.
 
-- **Decadimento ristretto**: è garantito che le operazioni di lettura rispettino la garanzia della coerenza del prefisso. Le operazioni di lettura possono essere in ritardo rispetto alle operazioni di scrittura al massimo per "K" versioni (ovvero "aggiornamenti") di un elemento o per un intervallo di tempo "t". Quando si sceglie l'obsolescenza associata, è possibile configurare l'obsolescenza in due modi: 
+- **Decadimento ristretto**: è garantito che le operazioni di lettura rispettino la garanzia della coerenza del prefisso. Le operazioni di lettura potrebbe ritardo delle scritture al massimo *"K"* versioni (ad esempio, "aggiornamenti") di un elemento o da *"T"* intervallo di tempo. In altre parole, quando si sceglie il decadimento ristretto, tale "obsolescenza" può essere configurato in due modi: 
 
-  * Numero di versioni (K) dell'elemento
-  * Intervallo di tempo (t) in cui le operazioni di lettura possono essere in ritardo rispetto alle operazioni di scrittura 
+  * Il numero delle versioni (*K*) dell'elemento
+  * L'intervallo di tempo (*T*) da cui le operazioni di lettura potrebbe rimanere indietro rispetto le operazioni di scrittura 
 
-  Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della finestra di obsolescenza. La coerenza assoluta è basata sulla stessa semantica della coerenza con obsolescenza associata. La finestra di obsolescenza è uguale a zero. L'obsolescenza associata è anche definita linearizzabilità posticipata. Quando un client esegue operazioni di lettura all'interno di un'area che accetta operazioni di scrittura, le garanzie offerte dal livello di coerenza con obsolescenza associata sono identiche a quelle della coerenza assoluta.
+  Il decadimento ristretto offre un ordine globale totale tranne all'interno della "finestra di decadimento". La garanzia di lettura monotona esiste in un'area sia all'interno che all'esterno della finestra di obsolescenza. Coerenza assoluta è la stessa semantica di quella offerta da decadimento ristretto. La finestra di obsolescenza è uguale a zero. L'obsolescenza associata è anche definita linearizzabilità posticipata. Quando un client esegue le operazioni di lettura all'interno di un'area che accetta le scritture, le garanzie fornite dal livello di coerenza decadimento ristretto sono identiche a tali garanzie per la coerenza assoluta.
 
 - **Sessione**: questo livello assicura che le operazioni di lettura rispettino le garanzie della coerenza del prefisso (presupponendo una singola sessione di scrittura), delle letture monotoniche, delle scritture monotoniche, della lettura delle proprie scritture e delle letture che seguono la scrittura. L'ambito di una coerenza di sessione è una sessione client.
 
-- **Coerenza del prefisso**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza lacune. La coerenza del prefisso garantisce che le operazioni di lettura non riscontrino mai scritture non in ordine.
+- **Coerenza del prefisso**: gli aggiornamenti restituiti contengono un prefisso di tutti gli aggiornamenti, senza lacune. Livello di coerenza prefisso coerente garantisce che non vedano mai scritture non di in ordine.
 
 - **Finale**: Non c'è garanzia di ordinamento per le letture. In assenza di altre scritture, le repliche finiscono per convergere.
 
 ## <a name="consistency-levels-explained-through-baseball"></a>I livelli di coerenza spiegati attraverso il baseball
 
-Come esempio, ecco uno scenario tratto dal baseball. Si immagini una sequenza di operazioni di scrittura che rappresentano il punteggio di una partita di baseball. Il punteggio inning per inning è descritto nel documento [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) (La coerenza dei dati replicati spiegata tramite il baseball). In questa ipotetica partita di baseball si sta svolgendo il settimo inning. È la dirittura del settimo inning. La squadra ospite perde 2 a 5.
+Come esempio, ecco uno scenario tratto dal baseball. Si immagini una sequenza di operazioni di scrittura che rappresentano il punteggio di una partita di baseball. Il punteggio inning per inning è descritto nel documento [Replicated data consistency through baseball](https://www.microsoft.com/en-us/research/wp-content/uploads/2011/10/ConsistencyAndBaseballReport.pdf) (La coerenza dei dati replicati spiegata tramite il baseball). In questa ipotetica partita di baseball si sta svolgendo il settimo inning. È la dirittura del settimo inning. I visitatori sono protetti da con un punteggio pari a 2 e 5 come illustrato di seguito:
 
 | | **1** | **2** | **3** | **4** | **5** | **6** | **7** | **8** | **9** | **Punti** |
 | - | - | - | - | - | - | - | - | - | - | - |
 | **Ospiti** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **Locali** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
-I punti totali della squadra ospite e della squadra locale si trovano in un contenitore Azure Cosmos DB. Nel corso della partita, garanzie di lettura diverse possono determinare la lettura di punteggi diversi da parte dei client. La tabella seguente elenca il set completo di punteggi che possono essere restituiti dalla lettura dei punteggi delle due squadre con ognuna delle cinque garanzie di coerenza. Il punteggio della squadra ospite viene elencato per primo. Possibili valori restituiti diversi sono separati da virgole.
+Un contenitore Cosmos Azure contiene i totali di esecuzione per i team home e i visitatori. Nel corso della partita, garanzie di lettura diverse possono determinare la lettura di punteggi diversi da parte dei client. La tabella seguente elenca il set completo di punteggi che possono essere restituiti dalla lettura dei punteggi delle due squadre con ognuna delle cinque garanzie di coerenza. Il punteggio della squadra ospite viene elencato per primo. Possibili valori restituiti diversi sono separati da virgole.
 
-| **Livello di coerenza** | **Punteggio** |
+| **Livello di coerenza** | **Assegna un punteggio (visitatori, home page)** |
 | - | - |
 | **Assoluto** | 2-5 |
 | **Obsolescenza associata** | Punteggi non aggiornati di un inning al massimo: 2-3, 2-4, 2-5 |

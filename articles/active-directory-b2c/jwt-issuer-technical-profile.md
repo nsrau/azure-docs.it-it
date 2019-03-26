@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 10/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: dabffd88965a10fe4feca2b600cfaf5741e2f664
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 247ebdc8156453062eefe6738c5c281d393a9923
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157908"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436055"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico per un'autorità di certificazione del token JWT nei criteri personalizzati di Azure Active Directory B2C
 
@@ -44,26 +44,26 @@ Gli elementi **InputClaims**, **OutputClaims** e **PersistClaims** sono vuoti o 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| issuer_refresh_token_user_identity_claim_type | Yes | L'attestazione da usare come attestazione dell'identità dell'utente all'interno dei codici di autorizzazione OAuth2 e dei token di aggiornamento. Per impostazione predefinita, è necessario impostare su `objectId`, a meno che non si specifichi un tipo di attestazione SubjectNamingInfo diverso. | 
+| issuer_refresh_token_user_identity_claim_type | Sì | L'attestazione da usare come attestazione dell'identità dell'utente all'interno dei codici di autorizzazione OAuth2 e dei token di aggiornamento. Per impostazione predefinita, è necessario impostare su `objectId`, a meno che non si specifichi un tipo di attestazione SubjectNamingInfo diverso. | 
 | SendTokenResponseBodyWithJsonNumbers | No  | Sempre impostato su `true`. Per il formato legacy in cui i valori numerici vengono forniti sotto forma di stringhe anziché di numeri JSON, impostare su `false`. Questo attributo è necessario per i client che hanno acquisito una dipendenza su un'implementazione precedente che ha restituito tali proprietà sotto forma di stringhe. | 
 | token_lifetime_secs | No  | Durata del token di accesso. La durata del token di connessione OAuth 2.0 usato per ottenere l'accesso a una risorsa protetta. Il valore predefinito è 3.600 secondi (1 ora). Il valore minimo (inclusivo) è 300 secondi (5 minuti). Il massimo valore (inclusivo) è 86.400 secondi (24 ore). | 
 | id_token_lifetime_secs | No  | Durate del token ID. Il valore predefinito è 3.600 secondi (1 ora). Il valore minimo (inclusivo) è 300 secondi (5 minuti). Il massimo valore (inclusivo) è 86.400 secondi (24 ore). | 
 | refresh_token_lifetime_secs | No  | Durata del token di aggiornamento. Il periodo di tempo massimo prima del quale un token di aggiornamento può essere usato per acquisire un nuovo token di accesso, nel caso in cui all'applicazione fosse stato concesso l'ambito offline_access. Il valore predefinito è 120.9600 secondi (14 giorni). Il massimo valore (inclusivo) è 86.400 secondi (24 ore). Il massimo valore (inclusivo) è 7.776.000 secondi (90 giorni). | 
 | rolling_refresh_token_lifetime_secs | No  | Durata della finestra temporale scorrevole del token di aggiornamento. Allo scadere di questo periodo di tempo, l'utente deve ripetere l'autenticazione, indipendentemente dal periodo di validità del token di aggiornamento più recente acquisito dall'applicazione. Se non si desidera applicare una durata di una finestra temporale scorrevole, impostare il valore di allow_infinite_rolling_refresh_token su `true`. Il valore predefinito è 7.776.000 secondi (90 giorni). Il massimo valore (inclusivo) è 86.400 secondi (24 ore). Il massimo valore (inclusivo) è 31.536.000 secondi (365 giorni). | 
 | allow_infinite_rolling_refresh_token | No  | Se impostato su `true`, la durata della finestra temporale scorrevole del token di aggiornamento non scade mai. |
-| IssuanceClaimPattern | Yes | Controlla l'attestazione dell'autorità di certificazione (iss). Uno dei valori:<ul><li>AuthorityAndTenantGuid - l'attestazione iss include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com` e l'identificatore del tenant https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - l'attestazione iss include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com`, l'identificatore del tenant e il nome dei criteri relying party. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
-| AuthenticationContextReferenceClaimPattern | No  | Controllare il valore di attestazione `acr`.<ul><li>Nessuno - Azure AD B2C non rilascia l'attestazione acr (record di controllo di accesso)</li><li>PolicyId: l'attestazione `acr` contiene il nome del criterio</li></ul>Le opzioni per impostare questo valore sono TFP (criteri del framework attendibilità) e ACR (riferimento al contesto di autenticazione). È consigliabile impostare questo valore su TFP, per impostare il valore, assicurarsi che `<Item>` con `Key="AuthenticationContextReferenceClaimPattern"` esista e il valore sia `None`. Nei criteri relying party, aggiungere l'elemento <OutputClaims>, aggiungere questo elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Inoltre assicurarsi che i criteri contengano il tipo di attestazione `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
+| IssuanceClaimPattern | Sì | Controlla l'attestazione dell'autorità di certificazione (iss). Uno dei valori:<ul><li>AuthorityAndTenantGuid - l'attestazione iss include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com` e l'identificatore del tenant https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/</li><li>AuthorityWithTfp - l'attestazione iss include il nome di dominio, ad esempio `login.microsoftonline` o `tenant-name.b2clogin.com`, l'identificatore del tenant e il nome dei criteri relying party. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
+| AuthenticationContextReferenceClaimPattern | No  | Controllare il valore di attestazione `acr`.<ul><li>Nessuno - Azure AD B2C non rilascia l'attestazione acr (record di controllo di accesso)</li><li>PolicyId: l'attestazione `acr` contiene il nome del criterio</li></ul>Le opzioni per impostare questo valore sono TFP (criteri del framework attendibilità) e ACR (riferimento al contesto di autenticazione). È consigliabile impostare questo valore su TFP, per impostare il valore, assicurarsi che `<Item>` con `Key="AuthenticationContextReferenceClaimPattern"` esista e il valore sia `None`. Nei criteri relying party, aggiungere l'elemento `<OutputClaims>`, aggiungere questo elemento `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Inoltre assicurarsi che i criteri contengano il tipo di attestazione `<ClaimType Id="trustFrameworkPolicy">   <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 
 ## <a name="cryptographic-keys"></a>Chiavi crittografiche
 
 L'elemento CryptographicKeys contiene gli attributi seguenti:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| issuer_secret | Yes | Il certificato X509 (set di chiavi RSA) da usare per firmare il token JWT. Questa è la chiave `B2C_1A_TokenSigningKeyContainer` configurata in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). | 
-| issuer_refresh_token_key | Yes | Il certificato X509 (set di chiavi RSA) da usare per crittografare il token di aggiornamento. È stata configurata la chiave `B2C_1A_TokenEncryptionKeyContainer` in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md) |
+| issuer_secret | Sì | Il certificato X509 (set di chiavi RSA) da usare per firmare il token JWT. Questa è la chiave `B2C_1A_TokenSigningKeyContainer` configurata in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md). | 
+| issuer_refresh_token_key | Sì | Il certificato X509 (set di chiavi RSA) da usare per crittografare il token di aggiornamento. È stata configurata la chiave `B2C_1A_TokenEncryptionKeyContainer` in [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md) |
 
 
 

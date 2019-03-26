@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 03/20/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 92bd57822226e683f17582bb1534b84961f61032
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 7921454cc9269278db58fcc50bc63ca49b41b1e0
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187165"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417934"
 ---
 # <a name="custom-policies-in-azure-active-directory-b2c"></a>Criteri personalizzati in Azure Active Directory B2C
 
@@ -29,10 +29,10 @@ I criteri personalizzati sono file di configurazione che definiscono il comporta
 |-|-------------------|-----------------|
 | Utenti di destinazione | Tutti gli sviluppatori di applicazioni con o senza competenze di identità. | Professionisti di identità, integratori di sistemi, consulenti e team interni per la gestione di identità. Hanno familiarità con i flussi OpenIDConnect e comprendono i provider di identità e l'autenticazione basata sulle attestazioni. |
 | Metodo di configurazione | Portale di Azure con un'interfaccia utente (UI) intuitiva. | Modifica diretta dei file XML e caricamento nel portale di Azure. |
-| Personalizzazione dell'interfaccia utente | Personalizzazione dell'interfaccia utente completa, compresi i contenuti HTML e CSS.<br><br>Supporto multilingue con stringhe personalizzate. | Uguale |
+| Personalizzazione dell'interfaccia utente | Personalizzazione dell'interfaccia utente completa tra cui HTML, CSS e JavaScript.<br><br>Supporto multilingue con stringhe personalizzate. | Uguale |
 | Personalizzazione degli attributi | Attributi standard e personalizzati. | Uguale |
 | Gestione delle sessioni e dei token | Token personalizzato e opzioni di sessione multiple. | Uguale |
-| Provider di identità | Provider predefinito social o locale. | OIDC, SAML e OAuth basati su standard. |
+| Provider di identità | Provider predefinito locale o social media e la maggior parte dei provider di identità OIDC, ad esempio la federazione con Azure Active Directory tenant. | OIDC, SAML e OAuth basati su standard.  L'autenticazione è anche possibile tramite l'integrazione con le API REST. |
 | Attività relative all'identità | Iscrizione o accesso ad account social o locali multipli.<br><br>Reimpostazione della password self-service.<br><br>Modifica del profilo.<br><br>Autenticazione a più fattori.<br><br>Personalizzare token e sessioni.<br><br>Flussi di accesso ai token. | Completare le stesse attività dei flussi utente usando provider di identità personalizzati ambiti personalizzati.<br><br>Effettuare il provisioning di un account utente in un altro sistema al momento della registrazione.<br><br>Inviare un messaggio di posta elettronica di benvenuto con il proprio provider di servizi di posta elettronica.<br><br>Usare un archivio utente esterno Azure AD B2C.<br><br>Convalidare le informazioni date dall'utente con un sistema attendibile tramite un'API. |
 
 ## <a name="policy-files"></a>File dei criteri

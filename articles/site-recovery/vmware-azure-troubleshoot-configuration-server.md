@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/13/2019
 ms.author: ramamill
-ms.openlocfilehash: 3676a1e4bf69f7d31bb347f99787c4e2f08721a9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 287a4104104c12e33fa2c50c398f422f9e6ea8c5
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107594"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418704"
 ---
 # <a name="troubleshoot-configuration-server-issues"></a>Risolvere i problemi del server di configurazione
 
@@ -48,11 +48,10 @@ Il computer di origine esegue la registrazione con il server di configurazione q
     3. Assicurarsi che le cartelle elencate in [Esclusioni della cartella Azure Site Recovery dal programma antivirus](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) vengano escluse dal software antivirus.  
     4. Dopo aver risolto i problemi, ritentare la registrazione attenendosi alle linee guida contenute in [Registrare il computer di origine con il server di configurazione](vmware-azure-troubleshoot-configuration-server.md#register-source-machine-with-configuration-server).
 
-7. In Linux, se il valore della piattaforma in <INSTALLATION_DIR>\>/etc/drscout.conf è danneggiato, la registrazione non avviene correttamente. Per identificare questo problema, aprire il file /var/log/ua_install.log. Cercare la stringa: **L'interruzione della configurazione come valore VM_PLATFORM è null o non è VmWare/Azure**. La piattaforma deve essere impostata su **VmWare** o **Azure**. Se il file drscout.conf è danneggiato, è consigliabile [disinstallare l'agente di mobilità](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) e quindi installarlo nuovamente. Se la disinstallazione non è riuscita, completare questi passaggi:
-    1. Aprire il file Installation_Directory/uninstall.sh e commentare la chiamata alla funzione **StopServices**.
-    2. Aprire il file Installation_Directory/Vx/bin/uninstall.sh e commentare la chiamata alla funzione **stop_services**.
-    3. Aprire il file Installation_Directory/Fx/uninstall e commentare la sezione completa che prova a fermare il servizio Fx.
-    4. [Disinstallare](vmware-physical-mobility-service-overview.md#uninstall-the-mobility-service) l'agente di mobilità. Al termine della disinstallazione, riavviare il sistema e provare nuovamente a installare l'agente.
+7. In Linux, se il valore della piattaforma in <INSTALLATION_DIR>\>/etc/drscout.conf è danneggiato, la registrazione non avviene correttamente. Per identificare questo problema, aprire il file /var/log/ua_install.log. Cercare la stringa: **L'interruzione della configurazione come valore VM_PLATFORM è null o non è VmWare/Azure**. La piattaforma deve essere impostata su **VmWare** o **Azure**. Se il file drscout.conf è danneggiato, è consigliabile [disinstallare l'agente di mobilità](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) e quindi installarlo nuovamente. Se la disinstallazione non riesce, completare i passaggi seguenti: una. Aprire il file Installation_Directory/uninstall.sh e commentare la chiamata alla funzione **StopServices**.
+    b. Aprire il file Installation_Directory/Vx/bin/uninstall.sh e commentare la chiamata alla funzione **stop_services**.
+    c. Aprire il file Installation_Directory/Fx/uninstall e commentare la sezione completa che prova a fermare il servizio Fx.
+    d. [Disinstallare](vmware-physical-manage-mobility-service.md#uninstall-mobility-service) l'agente di mobilità. Al termine della disinstallazione, riavviare il sistema e provare nuovamente a installare l'agente.
 
 ## <a name="installation-failure-failed-to-load-accounts"></a>Errore di installazione: Impossibile caricare gli account
 
@@ -80,9 +79,9 @@ Per evitare che si verifichi questo errore assicurarsi che l'ora del clock di si
 
 Impossibile creare un certificato richiesto per l'autenticazione di Site Recovery. Eseguire di nuovo l'installazione dopo essersi assicurati di eseguire il programma di installazione come amministratore locale.
 
-## <a name="failure-to-activate-windows-licence-from-server-standard-evaluation-to-server-standard"></a>Errore durante l'attivazione della licenza di Windows dalla versione Server Standard Evaluation a Server Standard
+## <a name="failure-to-activate-windows-license-from-server-standard-evaluation-to-server-standard"></a>Errore durante l'attivazione di Windows di licenza dalla versione di valutazione Standard di Server per Server Standard
 
-1. Come parte della distribuzione di server di configurazione tramite OVF, viene usata una licenza di valutazione, che è valido per 180 giorni. È necessario attivare la licenza prima che scada. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, pregiudicando le attività di replica.
+1. Come parte della distribuzione di server di configurazione tramite OVF, viene usata una licenza di valutazione, che è valido per 180 giorni. È necessario attivare la licenza prima che scada. In caso contrario, questo può comportare l'arresto frequente del server di configurazione, provocando l'ostacolo per le attività di replica.
 2. Se non è possibile attivare la licenza di Windows, rivolgersi al [team di supporto di Windows](https://aka.ms/Windows_Support) per risolvere il problema.
 
 ## <a name="register-source-machine-with-configuration-server"></a>Registrare il computer di origine con il server di configurazione
@@ -146,7 +145,7 @@ Per rimuovere un computer protetto non aggiornato nel server di configurazione, 
    
     `Syntax: Unregister-ASRComponent.pl -IPAddress <IP_ADDRESS_OF_MACHINE_TO_UNREGISTER> -Component <Source/ PS / MT>`
  
-    Se è presente una voce server di origine "OnPrem-VM01" con indirizzo IP 10.0.0.4, usare invece il comando seguente.
+    Se si dispone di una voce di server di origine di "Locale-VM01" con un indirizzo ip 10.0.0.4 usare invece il comando seguente.
  
     `perl Unregister-ASRComponent.pl -IPAddress 10.0.0.4 -Component Source`
  

@@ -11,12 +11,12 @@ ms.date: 10/19/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f8b70a4b098cc7266042499300235588e5303f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5b2471b28132b26c41844b620f6dcf49e3802a6e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56164312"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436711"
 ---
 # <a name="what-is-the-adconnectivitytool-powershell-module"></a>Informazioni sul modulo ADConnectivityTool di PowerShell
 
@@ -47,7 +47,7 @@ Quando ad esempio si prova ad aggiungere una directory nella schermata **Conness
 
 Ciò che effettivamente accade in background è che Azure AD Connect chiama la funzione `Start-NetworkConnectivityDiagnosisTools`.  Questa funzione viene chiamata quando la convalida delle credenziali non riesce a causa di un problema di connettività di rete.
 
-Viene infine generato un file di log dettagliato ogni volta che lo strumento viene chiamato dalla procedura guidata. Il log si trova in **C:\ProgramData\AADConnect\ADConnectivityTool-<date>-<time>.log**
+Viene infine generato un file di log dettagliato ogni volta che lo strumento viene chiamato dalla procedura guidata. Il log si trova in **C:\ProgramData\AADConnect\ADConnectivityTool-\<data >-\<ora >. log**
 
 ## <a name="adconnectivitytools-post-installation"></a>ADConnectivityTools dopo l'installazione
 Dopo l'installazione di Azure AD Connect, è possibile usare qualsiasi funzione del modulo di PowerShell ADConnectivityTools.  
@@ -73,7 +73,7 @@ Se l'utente esegue questa funzione dopo che un problema è stato risolto (o se n
 
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 - [Azure AD Connect: Account e autorizzazioni](reference-connect-accounts-permissions.md)
 - [Installazione rapida](how-to-connect-install-express.md)
 - [Installazione personalizzata](how-to-connect-install-custom.md)

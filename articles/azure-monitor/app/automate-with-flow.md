@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: mbullwin
-ms.openlocfilehash: cbb9cceef68febec0af991c3d8d5df3e3404f1c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15299be83758c157bf3bc7d9fb27b50763b9148e
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834051"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58438938"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Automatizzare i processi di Azure Application Insights con il connettore per Microsoft Flow
 
@@ -43,7 +43,7 @@ Questa esercitazione illustra come creare un flusso che usa l'algoritmo di clust
 
     ![Selezionare pianificarla in compilazione](./media/automate-with-flow/2schedule.png)
 
-1. Nell'il **intervallo** casella, immettere **1**e nel **frequenza** , quindi selezionare **giorno**.
+1. Nel **intervallo** immettere **1**e il **frequenza** , quindi selezionare **giorno**.
 2. Fare clic su **nuovo passaggio**
 
     ![Impostare la pianificazione ricorrenza con immettere frequenza e intervallo](./media/automate-with-flow/3schedulerecurrence.png)

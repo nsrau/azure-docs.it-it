@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 164448f2e96b796d21419e90a3965390f22d7d38
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b20a119a69ac796bc9ea85083d335f0a7d2fdf2d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762977"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417956"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Configurare la replica in un database di Istanza gestita di database SQL di Azure
 
@@ -45,13 +45,13 @@ Per configurare un'istanza gestita che svolga la funzione di server di pubblicaz
 Supporta:
 
 - Combinazione di replica transazionale e replica snapshot di istanze locali e gestite di SQL Server nel database SQL di Azure.
-- I sottoscrittori possono essere database di SQL Server locali, singoli database del database SQL di Azure o database in pool elastici del database SQL di Azure.
+- I sottoscrittori possono trovarsi in database di SQL Server in locale, i database singola/managed istanze nel Database SQL di Azure o in pool di database nei pool elastici di Database SQL di Azure.
 - Replica unidirezionale o bidirezionale.
 
 In un'istanza gestita del database SQL di Azure non sono supportate le funzionalità seguenti:
 
 - Sottoscrizioni aggiornabili.
-- Replica geografica attiva.
+- [Replica geografica attiva](sql-database-active-geo-replication.md) e [gruppi di failover automatico](sql-database-auto-failover-group.md) non deve essere usato se è configurata la replica transazionale.
 
 ## <a name="configure-publishing-and-distribution-example"></a>Esempio di configurazione dei database di pubblicazione e distribuzione
 

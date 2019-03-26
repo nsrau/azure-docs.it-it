@@ -9,14 +9,14 @@ keywords: funzioni di azure, funzioni, elaborazione eventi, webhook, calcolo din
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 12/10/2018
+ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: d3da5cc9e0eff27fde6bcd503c033db12f49371e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767703"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439329"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategie per il test del codice in Funzioni di Azure
 
@@ -44,7 +44,7 @@ Per configurare l'ambiente, creare una funzione e testare l'app. I passaggi segu
 2. [Creare una funzione HTTP dal modello](./functions-create-first-azure-function.md) e denominarla *HttpTrigger*.
 3. [Creare una funzione del timer dal modello](./functions-create-scheduled-function.md) e denominarla *TimerTrigger*.
 4. [Creare un'app di test xUnit](https://xunit.github.io/docs/getting-started-dotnet-core) in Visual Studio facendo clic su **File > Nuovo > Progetto > Visual C# > .NET Core > Progetto di test xUnit** e denominarlo *Functions.Test*. 
-5. Usare Nuget per aggiungere riferimenti dall'app di test in [Microsoft.Extensions.Logging](https://www.nuget.org/packages/Microsoft.Extensions.Logging/) e [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+5. Usare Nuget per aggiungere un riferimento dall'app test [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
 6. [Fare riferimento all'app *Funzioni* ](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017) dall'app *Functions.Test*.
 
 ### <a name="create-test-classes"></a>Crea classi di test
@@ -55,11 +55,28 @@ Ogni funzione accetta un'istanza di [ILogger](https://docs.microsoft.com/dotnet/
 
 La classe `ListLogger` è destinata a implementare l'interfaccia `ILogger` e a mantenere l'elenco interno dei messaggi per la valutazione durante un test.
 
-**Fare doppio clic sull'applicazione**  nella *Functions.Test* e selezionare **Aggiungi > Classe**, denominarla **ListLogger.cs** e immettere il codice seguente:
+**Fare doppio clic su** nella *Functions.Test* dell'applicazione e selezionare **Aggiungi > classe**, denominarla **NullScope.cs** e immettere il codice seguente:
+
+```csharp
+using System;
+
+namespace Functions.Tests
+{
+    public class NullScope : IDisposable
+    {
+        public static NullScope Instance { get; } = new NullScope();
+
+        private NullScope() { }
+
+        public void Dispose() { }
+    }
+}
+```
+
+Successivamente, **fare doppio clic su** nel *Functions.Test* dell'applicazione e selezionare **Aggiungi > classe**, denominarlo **ListLogger.cs** e immettere il codice seguente:
 
 ```csharp
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions.Internal;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -94,7 +111,7 @@ namespace Functions.Tests
 
 La classe `ListLogger` implementa i membri seguenti come contrattato dall'interfaccia `ILogger`:
 
-- **BeginScope**: Gli ambiti aggiungono del contesto alla registrazione. In questo caso, il test punta solo all'istanza statica nella classe [NullScope](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.abstractions.internal.nullscope) per consentire la funzione del test.
+- **BeginScope**: Gli ambiti aggiungono del contesto alla registrazione. In questo caso, il test appena punti all'istanza statica di `NullScope` classe per consentire la funzione del test.
 
 - **IsEnabled**: È disponibile un valore predefinito di `false`.
 

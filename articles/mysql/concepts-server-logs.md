@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.openlocfilehash: b1b5dffed0a82e3e3c91efd4024bafdc64f0d3d2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c5087a038e31c4819ef1ef173bb32faa41e04c97
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119038"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417769"
 ---
 # <a name="server-logs-in-azure-database-for-mysql"></a>Log del server nel Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi. 
@@ -53,31 +53,31 @@ La tabella seguente descrive il contenuto di ogni log. A seconda del metodo di o
 
 | **Proprietà** | **Descrizione** |
 |---|---|
-| TenantId | ID del tenant. |
-| SourceSystem | `Azure` |
-| TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
-| Type | Tipo di log. Sempre `AzureDiagnostics` |
-| SubscriptionId | GUID per la sottoscrizione a cui appartiene il server. |
-| ResourceGroup | Nome del gruppo di risorse a cui appartiene il server. |
-| ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORMYSQL` |
-| ResourceType | `Servers` |
-| ResourceId | URI della risorsa |
-| Risorsa | Nome del server |
-| Categoria | `MySqlSlowLogs` |
-| OperationName | `LogEvent` |
-| Logical_server_name_s | Nome del server |
-| start_time_t [UTC] | Ora di inizio della query |
-| query_time_s | Tempo totale di esecuzione della query |
-| lock_time_s | Tempo totale in cui la query è rimasta bloccata |
-| user_host_s | Username |
-| rows_sent_s | Numero di righe inviate |
-| rows_examined_s | Numero di righe esaminate |
-| last_insert_id_s | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
-| insert_id_s | ID inserimento |
-| sql_text_s | Query completa |
-| server_id_s | Id del server |
-| thread_id_s | ID thread |
-| \_ResourceId | URI della risorsa |
+| `TenantId` | ID del tenant. |
+| `SourceSystem` | `Azure` |
+| `TimeGenerated` [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
+| `Type` | Tipo di log. Sempre `AzureDiagnostics` |
+| `SubscriptionId` | GUID per la sottoscrizione a cui appartiene il server. |
+| `ResourceGroup` | Nome del gruppo di risorse a cui appartiene il server. |
+| `ResourceProvider` | Nome del provider di risorse. Sempre `MICROSOFT.DBFORMYSQL` |
+| `ResourceType` | `Servers` |
+| `ResourceId` | URI della risorsa |
+| `Resource` | Nome del server |
+| `Category` | `MySqlSlowLogs` |
+| `OperationName` | `LogEvent` |
+| `Logical_server_name_s` | Nome del server |
+| `start_time_t` [UTC] | Ora di inizio della query |
+| `query_time_s` | Tempo totale di esecuzione della query |
+| `lock_time_s` | Tempo totale in cui la query è rimasta bloccata |
+| `user_host_s` | Username |
+| `rows_sent_s` | Numero di righe inviate |
+| `rows_examined_s` | Numero di righe esaminate |
+| `last_insert_id_s` | [last_insert_id](https://dev.mysql.com/doc/refman/8.0/en/information-functions.html#function_last-insert-id) |
+| `insert_id_s` | ID inserimento |
+| `sql_text_s` | Query completa |
+| `server_id_s` | Id del server |
+| `thread_id_s` | ID thread |
+| `\_ResourceId` | URI della risorsa |
 
 ## <a name="next-steps"></a>Fasi successive
 - [Come configurare e accedere ai log del server usando l'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).

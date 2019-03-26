@@ -1,19 +1,19 @@
 ---
-title: Installare il servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure | Microsoft Docs
-description: Informazioni su come installare l'agente del servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando il servizio Azure Site Recovery.
+title: Preparare le macchine di origine per installare il servizio Mobility tramite installazione push per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure | Microsoft Docs
+description: Informazioni su come preparare il server per installare l'agente di mobilità tramite installazione push per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure usando il servizio Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 30b177578464653499cdcde8cacf65defa5548ef
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 628be573d03d42ec62a358071074facfe228852d
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52846913"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418670"
 ---
-# <a name="install-the-mobility-service-for-disaster-recovery-of-vmware-vms-and-physical-servers"></a>Installare il servizio Mobility per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure | Microsoft Docs
+# <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparare il computer di origine per l'installazione push dell'agente di mobilità
 
 Quando si configura il ripristino di emergenza per VM VMware e server fisici con [Azure Site Recovery](site-recovery-overview.md), viene installato il [servizio Mobility di Site Recovery](vmware-physical-mobility-service-overview.md) in ogni VM VMware e server fisico locali.  Il servizio Mobility acquisisce le scritture di dati nel computer e le inoltra al server di elaborazione di Site Recovery.
 
@@ -59,6 +59,10 @@ In ogni computer Linux da proteggere eseguire le operazioni seguenti:
 11. Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
 12. Aggiungere l'account che è stato creato.
 13. Immettere le credenziali usate quando si abilita la replica per un computer.
+
+## <a name="anti-virus-on-replicated-machines"></a>Antivirus nei computer replicati
+
+Se nei computer da replicare è attivo e in esecuzione un software antivirus, assicurarsi di escludere la cartella di installazione del servizio Mobility dalle operazioni antivirus (*C:\ProgramData\ASR\agent*). Questa esclusione garantisce che la replica funzioni nel modo previsto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

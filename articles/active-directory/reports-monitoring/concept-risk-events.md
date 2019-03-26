@@ -3,7 +3,7 @@ title: Eventi di rischio di Azure Active Directory | Documentazione Microsoft
 description: Questo articolo presenta una panoramica dettagliata degli eventi di rischio.
 services: active-directory
 keywords: Azure Active Directory Identity Protection, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ed1b7dfa19644fa558cafd8df5fed72490f24ff
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 02fc505c8f14f4cc0e486502060a16af47c68bbc
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195686"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439023"
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventi di rischio di Azure Active Directory
 
@@ -172,7 +172,7 @@ Per altre informazioni su come risolvere problemi correlati alle infezioni malwa
 È consigliabile contattare l'utente per verificare se ha effettivamente eseguito l'accesso da un indirizzo IP contrassegnato come sospetto. Il livello di rischio per questo tipo di evento è "**medio**" perché lo stesso indirizzo IP può essere usato da più dispositivi, mentre solo alcuni di essi potrebbero essere responsabili dell'attività sospetta. 
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 * [Report di sicurezza Utenti contrassegnati per il rischio](concept-user-at-risk.md)
 * [Report degli accessi a rischio](concept-risky-sign-ins.md)

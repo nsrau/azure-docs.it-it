@@ -4,41 +4,41 @@ description: In questo articolo viene descritto come Azure Cosmos DB ridimension
 author: dharmas-cosmos
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 03/24/2019
 ms.author: dharmas
 ms.reviewer: sngun
-ms.openlocfilehash: dd17b08a16dedf474b2a1eca8fa8034672610c1f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b645fe210e7eeb073380dcadefead3e1b4d7ccc0
+ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55454437"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58407437"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning 
 
-In Azure Cosmos DB la velocità effettiva con provisioning viene rappresentata come unità di richieste al secondo (UR/s, plurale: unità richiesta). Le UR misurano il costo delle operazioni sia lettura che di scrittura sul contenitore Cosmos, come illustrato nell'immagine seguente:
+In Azure Cosmos DB, velocità effettiva con provisioning viene rappresentata come richiesta di unità al secondo (UR/s o la forma plurale UR). Le UR misurano il costo delle operazioni sia lettura che di scrittura sul contenitore Cosmos, come illustrato nell'immagine seguente:
 
 ![Unità richiesta](./media/scaling-throughput/request-unit-charge-of-read-and-write-operations.png)
 
-È possibile effettuare il provisioning delle unità richiesta in un contenitore Cosmos o in un database Cosmos. Le unità richiesta con provisioning in un contenitore sono disponibili esclusivamente per le operazioni eseguite in tale contenitore. Le unità richiesta con provisioning in un database sono condivise tra tutti i contenitori all'interno del database (ad eccezione di eventuali contenitori esclusivamente assegnati a unità di richiesta).
+È possibile effettuare il provisioning delle unità richiesta in un contenitore Cosmos o in un database Cosmos. Unità richiesta con provisioning in un contenitore è disponibili esclusivamente per le operazioni eseguite in tale contenitore. Le unità richiesta con provisioning in un database sono condivise tra tutti i contenitori all'interno del database (ad eccezione di eventuali contenitori esclusivamente assegnati a unità di richiesta).
 
-Per ridimensionare in modo elastico la velocità effettiva, aumentare o ridurre le UR/sec con provisioning in qualsiasi momento. Per altre informazioni, vedere [come effettuare il provisioning della velocità effettiva](set-throughput.md) e ridimensionare in modo elastico i database e i contenitori Cosmos. Per la scalabilità a livello globale della velocità effettiva, è possibile aggiungere o rimuovere aree nell'account Cosmos in qualsiasi momento. Per altre informazioni, vedere [Aggiungere o rimuovere aree dall'account di database](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associare più aree con un account Cosmos è importante in molti scenari per ottenere una latenza bassa e una [disponibilità elevata](high-availability.md) in tutto il mondo.
+Per la scalabilità in modo elastico velocità effettiva con provisioning, è possibile aumentare o ridurre le UR/sec con provisioning in qualsiasi momento. Per altre informazioni, vedere [velocità effettiva di provisioning alle procedure](set-throughput.md) e ridimensionare i database e dei contenitori Cosmos. Per la scalabilità a livello globale della velocità effettiva, è possibile aggiungere o rimuovere aree dall'account Cosmos in qualsiasi momento. Per altre informazioni, vedere [Aggiungere o rimuovere aree dall'account di database](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associazione di più aree con un account Cosmos è importante in molti scenari, per ottenere una latenza bassa e [disponibilità elevata](high-availability.md) tutto il mondo.
 
 ## <a name="how-provisioned-throughput-is-distributed-across-regions"></a>Come viene distribuita la velocità effettiva di cui è stato effettuato il provisioning tra le diverse aree
 
-Se si esegue il provisioning di UR di "R" in un contenitore Cosmos (o database), Cosmos DB garantisce che le UR di "R" siano disponibili in *ogni* area associata all'account Cosmos. Ogni volta che si aggiunge una nuova area nell'account, Cosmos DB esegue automaticamente il provisioning UR di "R" nell'area appena aggiunta. Le operazioni eseguite a fronte del contenitore Cosmos garantiscono di ottenere UR di "R" in ognuna delle aree. Non è possibile assegnare in modo selettivo le UR a un'area specifica. Le UR con provisioning per un contenitore (o database) Cosmos vengono sottoposte a provisioning per tutte le aree associate all'account Cosmos.
+Se esegue il provisioning *'R'* RUs in un contenitore Cosmos (o database), Cosmos DB garantisce che *'R'* unità riservate sono disponibili nelle *ogni* aree associate all'account Cosmos. Ogni volta che si aggiunge una nuova area all'account, Cosmos DB esegue automaticamente il provisioning *"R"* unità riservate nell'area appena aggiunto. Le operazioni eseguite a fronte del contenitore Cosmos ricevano sempre *"R"* UR in ogni area. Non è possibile assegnare in modo selettivo le UR a un'area specifica. Vengono effettuato il provisioning di unità richiesta con provisioning in un contenitore Cosmos (o database) in tutte le aree associate all'account Cosmos.
 
-Supponendo che un contenitore Cosmos sia configurato con UR di "R" e sono presenti aree di "N" associate all'account Cosmos, quindi:
+Supponendo che sia configurato con un contenitore Cosmos *'R'* UR e non esistono *"n"* aree associate all'account Cosmos, quindi:
 
-- Se l'account Cosmos è configurato con un'area singola di scrittura, il totale delle unità di richiesta disponibili a livello globale per il contenitore = R x N.
+- Se l'account Cosmos è configurato con un'area singola operazione di scrittura, totale delle unità richiesta disponibili a livello globale per il contenitore = *R* x *N*.
 
-- Se l'account Cosmos è configurato con più aree di scrittura, il totale delle unità di richiesta disponibili a livello globale per il contenitore = R x (N+1). Le unità di richiesta aggiuntive di R sono sottoposte automaticamente a provisioning per elaborare conflitti di aggiornamento e il traffico anti-entropia tra le aree.
+- Se l'account Cosmos è configurata con più aree di scrittura, totale delle unità richiesta disponibili a livello globale per il contenitore = *R* x (*N*+ 1). Le ulteriori *R* UR effettuato il provisioning automatico di conflitti di aggiornamento processo e il traffico di Microsoft anti-entropia tra le aree.
 
-Anche la scelta del [modello di coerenza](consistency-levels.md) influisce sulla velocità effettiva. È possibile ottenere una velocità effettiva di lettura di circa 2x per sessione, un prefisso coerente e la coerenza finale rispetto al decadimento ristretto o coerenza assoluta.
+Di che preferisci [modello di coerenza](consistency-levels.md) influisce anche sulla velocità effettiva. È possibile ottenere circa 2x velocità effettiva di lettura per i livelli di coerenza più ampi (ad esempio, *sessione*, *prefisso coerente* e *finale* coerenza) rispetto a livelli di coerenza più avanzati (ad esempio, *decadimento ristretto* oppure *sicuro* coerenza).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Successivamente si apprenderà come configurare la velocità effettiva con l'aiuto dell'articolo seguente:
+Successivamente è possibile imparare a configurare la velocità effettiva in un contenitore o del database:
 
 * [Ottenere e impostare la velocità effettiva per i contenitori e i database](set-throughput.md) 
 

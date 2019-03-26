@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 8fee19b4d7a1ae05ca9a38c5a9ba374c0674a867
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 2045041a9ee4872e4510e5ee0deba258b0342557
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776258"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437289"
 ---
 # <a name="train-a-model"></a>Eseguire il training di un modello
 
@@ -51,6 +51,9 @@ Per eseguire il training di un modello:
 6.  Custom Translator avvierà il training e visualizzerà lo stato dell'operazione nella scheda Models (Modelli).
 
     ![Pagina Train model (Esegui il training del modello)](media/how-to/how-to-train-model-3.png)
+
+>[!Note]
+>Convertitore personalizzato supporta 10 sessioni simultanee di formazione all'interno di un'area di lavoro in qualsiasi punto nel tempo.
 
 
 ## <a name="edit-a-model"></a>Modificare un modello

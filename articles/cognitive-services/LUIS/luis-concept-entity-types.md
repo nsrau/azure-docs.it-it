@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: d12ea20f9f510b0e2d3d3512d8d8c71a3fb96eec
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372523"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418687"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
@@ -216,11 +216,20 @@ Se l'entità predefinito viene contrassegnato con più testo o un token rispetto
 
 #### <a name="remove-example-utterance-to-fix-tagging"></a>Rimuovere utterance di esempio per correggere l'assegnazione di tag 
 
-Il metodo preferito consiste nell'eliminare il utterance di esempio e ripetere il training dell'app. Aggiungere di nuovo solo la parola o una frase che rappresenta l'entità come utterance un esempio, quindi contrassegna l'entità e il training. A questo punto aggiungere di nuovo l'entità predefinito e utterance l'esempio originale. L'entità personalizzata deve continuare a essere contrassegnato invece l'entità predefinito. 
+Il metodo preferito consiste nel rimuovere utterance l'esempio. 
+
+1. Eliminare il utterance di esempio.
+1. Ripetere il training dell'app. 
+1. Aggiungere di nuovo solo la parola o frase all'entità, che è contrassegnato come un'entità predefinita, come utterance un esempio completo. La parola o frase avranno comunque l'entità predefinito contrassegnato. 
+1. Selezionare l'entità in utterance l'esempio nel **finalità** pagina e modificare l'entità personalizzata ed eseguire il training anche in questo caso. Questo dovrebbe impedire LUIS di contrassegnare questo testo esatto dell'entità predefiniti in ogni espressione di esempio che usano tale testo. 
+1. Aggiungere l'intera utterance esempio originale torna allo scopo. L'entità personalizzata deve continuare a essere contrassegnato invece l'entità predefinito. Se non viene contrassegnata l'entità personalizzata, è necessario aggiungere ulteriori esempi di testo nelle espressioni.
 
 #### <a name="remove-prebuilt-entity-to-fix-tagging"></a>Rimuovi entità predefiniti per correggere l'assegnazione di tag
 
-La seconda opzione consiste nel rimuovere l'entità predefinita dall'app, contrassegnare l'entità personalizzata in utterance l'esempio, quindi aggiungere l'entità predefinito all'app. Questa correzione si presuppone che l'entità predefinito non fa parte di un'entità composta. 
+1. Rimuovere l'entità predefinita dall'app. 
+1. Nel **finalità** pagina, contrassegnare l'entità personalizzata in utterance l'esempio.
+1. Eseguire il training dell'app.
+1. Aggiungere l'entità predefinito all'App ed eseguirne il training dell'app. Questa correzione si presuppone che l'entità predefinito non fa parte di un'entità composta.
 
 ## <a name="regular-expression-entity"></a>Entità di espressione regolare 
 

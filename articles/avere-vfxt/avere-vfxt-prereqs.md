@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 5642f3acd108d0d3f504fc132522936d1b5ab870
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082586"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417973"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -125,6 +125,7 @@ Per poter creare il cluster Avere vFXT per Azure, è necessario prima creare il 
           "Microsoft.Compute/virtualMachines/read",
           "Microsoft.Network/networkInterfaces/read",
           "Microsoft.Network/networkInterfaces/write",
+          "Microsoft.Network/virtualNetworks/read",
           "Microsoft.Network/virtualNetworks/subnets/read",
           "Microsoft.Network/virtualNetworks/subnets/join/action",
           "Microsoft.Network/networkSecurityGroups/join/action",
