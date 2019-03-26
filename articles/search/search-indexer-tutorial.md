@@ -1,32 +1,31 @@
 ---
 title: Esercitazione per l'indicizzazione dei database SQL di Azure nel portale di Azure - Ricerca di Azure
-description: In questa esercitazione verrà eseguita la ricerca per indicizzazione in un database SQL di Azure per estrarre dati ricercabili e popolare un indice di Ricerca di Azure.
+description: In questa esercitazione si eseguirà la connessione al database SQL di Azure, si estrarranno i dati ricercabili e si caricheranno in un indice di Ricerca di Azure.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312052"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201399"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Esercitazione: effettuare una ricerca per indicizzazione in un database SQL di Azure con gli indicizzatori di Ricerca di Azure
 
-Questa esercitazione mostra come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
+Informazioni su come configurare un indicizzatore per l'estrazione di dati ricercabili da un database SQL di Azure di esempio. Gli [indicizzatori](search-indexer-overview.md) sono un componente di Ricerca di Azure che effettua la ricerca per indicizzazione di origini dati esterne, popolando un [indice di ricerca](search-what-is-an-index.md) con contenuti. L'indicizzatore del database SQL di Azure è il più usato tra gli indicizzatori disponibili. 
 
 Una competenza specifica a livello di configurazione dell'indicizzatore risulta utile perché riduce la quantità di codice da scrivere e mantenere. Invece di preparare ed eseguire il push di un set di dati JSON conforme allo schema, è possibile associare un indicizzatore a un'origine dati, richiedere all'indicizzatore di estrarre i dati e inserirli in un indice e facoltativamente eseguire l'indicizzatore su una pianificazione ricorrente per rilevare le modifiche nell'origine sottostante.
 
-In questa esercitazione vengono usate le [librerie client .NET di Ricerca di Azure](https://aka.ms/search-sdk) e un'applicazione console .NET Core per eseguire le attività seguenti:
+In questa esercitazione usare le [librerie client .NET di Ricerca di Azure](https://aka.ms/search-sdk) e un'applicazione console .NET Core per eseguire le attività seguenti:
 
 > [!div class="checklist"]
-> * Scaricare e configurare la soluzione
 > * Aggiungere le informazioni sul servizio di ricerca alle impostazioni dell'applicazione
 > * Preparare un set di dati esterno nel database SQL di Azure 
 > * Esaminare l'indice e le definizioni dell'indicizzatore nel codice di esempio
@@ -38,16 +37,16 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un servizio di Ricerca di Azure. Per informazioni sulla configurazione, vedere [Creare un servizio di ricerca](search-create-service-portal.md).
+[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa esercitazione.
 
-* Un database SQL di Azure che fornisce l'origine dati esterna usata da un indicizzatore. La soluzione di esempio fornisce un file di dati SQL per creare la tabella.
+* Un [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) che fornisce l'origine dati esterna usata da un indicizzatore. La soluzione di esempio fornisce un file di dati SQL per creare la tabella.
 
-* Visual Studio 2017. È possibile usare la versione [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/) gratuita. 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono state testati nell'edizione Community Edition gratuita.
 
 > [!Note]
 > Se si usa il servizio Ricerca di Azure gratuito, si è limitati a tre indici, tre indicizzatori e tre origini dati. Questa esercitazione crea un elemento per ogni tipo. Assicurarsi che lo spazio nel servizio sia sufficiente per accettare le nuove risorse.
 
-## <a name="download-the-solution"></a>Scaricare la soluzione
+### <a name="download-the-solution"></a>Scaricare la soluzione
 
 La soluzione dell'indicizzatore usata in questa esercitazione proviene da una raccolta di esempi di Ricerca di Azure distribuiti in un download master. La soluzione usata per questa esercitazione è *DotNetHowToIndexers*.
 
@@ -63,7 +62,7 @@ La soluzione dell'indicizzatore usata in questa esercitazione proviene da una ra
 
 6. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla soluzione padre del nodo principale, quindi scegliere **Ripristina pacchetti NuGet**.
 
-## <a name="set-up-connections"></a>Configurare le connessioni
+### <a name="set-up-connections"></a>Configurare le connessioni
 Le informazioni sulla connessione per i servizi necessari vengono specificate nel file **appsettings.json** nella soluzione. 
 
 In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popolare ogni impostazione attenendosi alle istruzioni disponibili in questa esercitazione.  
@@ -90,22 +89,22 @@ In Esplora soluzioni aprire **appsettings.json**, in modo che sia possibile popo
 
 4. Copiarlo e incollarlo come prima voce in **appsettings.json** in Visual Studio.
 
-  > [!Note]
-  > Un nome del servizio è parte dell'endpoint che include search.windows.net. Se interessati, è possibile visualizzare l'URL completo in **Informazioni di base** nella pagina Panoramica. L'URL è simile all'esempio seguente: https://your-service-name.search.windows.net
+   > [!Note]
+   > Un nome del servizio è parte dell'endpoint che include search.windows.net. Se interessati, è possibile visualizzare l'URL completo in **Informazioni di base** nella pagina Panoramica. L'URL è simile all'esempio seguente: https://your-service-name.search.windows.net
 
 5. A sinistra in **Impostazioni** > **Chiavi** copiare una delle chiavi amministratore e incollarla come seconda voce in **appsettings.json**. Le chiavi sono stringhe alfanumeriche generate per il servizio durante il provisioning e sono necessarie per l'accesso autorizzato alle operazioni del servizio. 
 
-  Dopo l'aggiunta di entrambe le impostazioni l'aspetto del file sarà analogo a questo esempio:
+   Dopo l'aggiunta di entrambe le impostazioni l'aspetto del file sarà analogo a questo esempio:
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
-## <a name="prepare-an-external-data-source"></a>Preparare un'origine dati esterna
+## <a name="prepare-sample-data"></a>Preparare i dati di esempio
 
 In questo passaggio viene creata un'origine dati esterna che può essere sottoposta a ricerca per indicizzazione da un indicizzatore. Il file di dati per questa esercitazione è *hotels.sql*, disponibile nella cartella \DotNetHowToIndexers della soluzione. 
 
@@ -125,7 +124,7 @@ L'esercizio seguente presuppone che non sia disponibile alcun server o database 
 
 4. Aprire la pagina del database SQL per il nuovo database, se non è già aperta. Il nome della risorsa dovrebbe essere *Database SQL* non *SQL Server*.
 
-  ![Pagina Database SQL](./media/search-indexer-tutorial/hotels-db.png)
+   ![Pagina Database SQL](./media/search-indexer-tutorial/hotels-db.png)
 
 4. Sulla barra dei comandi fare clic su **Strumenti** > **Editor di query**.
 
@@ -135,24 +134,24 @@ L'esercizio seguente presuppone che non sia disponibile alcun server o database 
 
 7. Selezionare il file e fare clic su **Apri**. Lo script dovrebbe essere simile allo screenshot seguente:
 
-  ![Script SQL](./media/search-indexer-tutorial/sql-script.png)
+   ![Script SQL](./media/search-indexer-tutorial/sql-script.png)
 
 8. Fare clic su **Esegui** per eseguire la query. Nel riquadro Risultati dovrebbe essere visualizzato un messaggio di esito positivo della query, per 3 righe.
 
 9. Per restituire un set di righe da questa tabella, è possibile eseguire la query seguente come passaggio di verifica:
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   La query prototipo, `SELECT * FROM Hotels`, non funziona nell'Editor di query. I dati di esempio includono coordinate geografiche nel campo Location, che non viene gestito nell'editor in questo momento. Per un elenco di altre colonne da sottoporre a query, è possibile eseguire questa istruzione: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    La query prototipo, `SELECT * FROM Hotels`, non funziona nell'Editor di query. I dati di esempio includono coordinate geografiche nel campo Location, che non viene gestito nell'editor in questo momento. Per un elenco di altre colonne da sottoporre a query, è possibile eseguire questa istruzione: `SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. È ora disponibile un set di dati esterno. Copiare la stringa di connessione ADO.NET per il database. Nella pagina del database SQL passare a **Impostazioni** > **Stringhe di connessione** e copiare la stringa di connessione ADO.NET.
  
-  Una stringa di connessione ADO.NET ha un aspetto simile all'esempio seguente, modificato per usare un nome database, un nome utente e una password validi.
+    Una stringa di connessione ADO.NET ha un aspetto simile all'esempio seguente, modificato per usare un nome database, un nome utente e una password validi.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Incollare la stringa di connessione in "AzureSqlConnectionString" come terza voce nel file **appsettings.json** in Visual Studio.
 
     ```json
@@ -250,15 +249,15 @@ Nella pagina Panoramica del servizio di ricerca nel portale di Azure fare clic s
 
 2. Fare clic sul pulsante **Ricerca** per eseguire una ricerca vuota. 
 
-  Le tre voci nell'indice vengono restituite come documenti JSON. Esplora ricerche restituisce documenti in JSON, per consentire di visualizzare l'intera struttura.
+   Le tre voci nell'indice vengono restituite come documenti JSON. Esplora ricerche restituisce documenti in JSON, per consentire di visualizzare l'intera struttura.
 
 3. Immettere quindi una stringa di ricerca: `search=river&$count=true`. 
 
-  Questa query richiama una ricerca full-text sul termine `river` e il risultato include un conteggio dei documenti corrispondenti. La restituzione del numero di documenti corrispondenti risulta utile negli scenari di test quando è presente un indice di grandi dimensioni con migliaia o milioni di documenti. In questo caso, solo un documento corrisponde alla query.
+   Questa query richiama una ricerca full-text sul termine `river` e il risultato include un conteggio dei documenti corrispondenti. La restituzione del numero di documenti corrispondenti risulta utile negli scenari di test quando è presente un indice di grandi dimensioni con migliaia o milioni di documenti. In questo caso, solo un documento corrisponde alla query.
 
 4. Immettere infine una stringa di ricerca che limita l'output JSON ai campi rilevanti: `search=river&$count=true&$select=hotelId, baseRate, description`. 
 
-  La risposta della query viene ridotta ai campi selezionati e si otterrà quindi un output più conciso.
+   La risposta della query viene ridotta ai campi selezionati e si otterrà quindi un output più conciso.
 
 ## <a name="view-indexer-configuration"></a>Visualizzare la configurazione dell'indicizzatore
 
@@ -268,7 +267,7 @@ Tutti gli indicizzatori, incluso quello appena creato a livello di codice, vengo
 2. Scorrere verso il basso per trovare i riquadri per **Indicizzatori** e **Origini dati**.
 3. Fare clic su un riquadro per aprire un elenco di ogni risorsa. È possibile selezionare singoli indicizzatori o singole origini dati per visualizzare o modificare le impostazioni di configurazione.
 
-  ![Riquadri dell'indicizzatore e dell'origine dati](./media/search-indexer-tutorial/tiles-portal.png)
+   ![Riquadri dell'indicizzatore e dell'origine dati](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

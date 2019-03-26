@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456929"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226216"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita del database SQL di Azure con le entità server (account di accesso) di Azure AD
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 > [!NOTE]
 > Le entità server (account di accesso) di Azure AD per le istanze gestite sono disponibili in **anteprima pubblica**.
 
-Per altre informazioni, vedere gli articoli sulla [panoramica](sql-database-managed-instance-index.yml) e sulle [capacità](sql-database-managed-instance.md) delle istanze gestite del database SQL di Azure.
+Per altre informazioni, vedere gli articoli sulla [panoramica](sql-database-managed-instance-index.yml) e sulle [capacità](sql-database-managed-instance.md) dell'istanza gestita di database SQL di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ Per completare questa esercitazione, verificare di avere i prerequisiti seguenti
 
 ## <a name="limiting-access-to-your-managed-instance"></a>Limitazione dell'accesso all'istanza gestita
 
-Le istanze gestite sono accessibili solo tramite un indirizzo IP privato. Non sono disponibili endpoint di servizio per la connessione a un'istanza gestita dall'esterno della rete dell'istanza gestita. Analogamente a quanto avviene con un ambiente locale SQL Server isolato, le applicazioni o gli utenti devono accedere alla rete dell'istanza gestita (rete virtuale) prima di poter stabilire una connessione. Per altre informazioni, vedere l'articolo [Connettere l'applicazione a un'istanza gestita](sql-database-managed-instance-connect-app.md).
+Le istanze gestite sono accessibili solo tramite un indirizzo IP privato. Non sono disponibili endpoint di servizio per la connessione a un'istanza gestita dall'esterno della rete dell'istanza gestita. Analogamente a quanto avviene con un ambiente locale Server isolato, le applicazioni o gli utenti devono accedere alla rete dell'istanza gestita (rete virtuale) prima di poter stabilire una connessione. Per altre informazioni, vedere l'articolo [Connettere l'applicazione a un'istanza gestita](sql-database-managed-instance-connect-app.md).
 
 > [!NOTE] 
 > Dal momento che le istanze gestite sono accessibili solo all'interno della relativa rete virtuale, le [regole del firewall del database SQL](sql-database-firewall-configure.md) non vengono applicate. L'istanza gestita include un [firewall predefinito](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md).
@@ -148,13 +148,13 @@ Dopo aver creato l'entità server (account di accesso) di Azure AD e aver conces
 
 1. Connettersi all'istanza gestita con l'entità server (account di accesso) di Azure AD usando SQL Server Management Studio. Immettere il nome dell'istanza gestita. Per l'autenticazione in SSMS è possibile scegliere tra tre opzioni quando si esegue l'accesso con un account Azure AD:
 
-    - Active Directory - Universale con supporto MFA
-    - Active Directory - Password
-    - Active Directory - Integrata </br>
+   - Active Directory - Universale con supporto MFA
+   - Active Directory - Password
+   - Active Directory - Integrata </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Per altre informazioni, vedere l'articolo seguente: [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](sql-database-ssms-mfa-authentication.md)
+     Per altre informazioni, vedere l'articolo seguente: [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Selezionare **Active Directory - Universale con supporto MFA**. Viene visualizzata una finestra di accesso Multi-Factor Authentication (MFA). Accedere con la password di Azure AD.
 
@@ -207,10 +207,10 @@ Dopo aver creato l'entità server (account di accesso) di Azure AD e aver conces
 1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** per la nuova connessione.
 1. Per verificare le autorizzazioni del server per l'entità server (account di accesso) di Azure AD appena creata, eseguire il comando seguente:
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Gli utenti guest di Azure AD sono supportati per gli account di accesso dell'istanza gestita solo quando vengono aggiunti in un gruppo di Azure AD. Per utente guest di Azure AD si intende un account invitato da un'altra istanza di Azure AD all'istanza di Azure AD cui appartiene l'istanza gestita. Ad esempio, è possibile aggiungere joe@contoso.com (account Azure AD) o steve@outlook.com (account MSA) a un gruppo nell'istanza aadsqlmi di Azure AD. Dopo aver aggiunto gli utenti a un gruppo, è possibile creare un account di accesso nel database **master** dell'istanza gestita per il gruppo usando la sintassi **CREATE LOGIN**. Gli utenti guest che fanno parte di questo gruppo possono connettersi all'istanza gestita usando gli account di accesso correnti, ad esempio joe@contoso.com o steve@outlook.com.
@@ -360,7 +360,7 @@ L'istanza gestita supporta la rappresentazione di entità di livello server (acc
     GO
     ```
 
-1. Usare il comando seguente per verificare che l'utente rappresentato durante volta l'esecuzione della stored procedure sia **bob@aadsqlmi.net**.
+1. Usare il comando seguente per verificare che l'utente rappresentato durante l'esecuzione della stored procedure sia **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo
@@ -439,7 +439,7 @@ Le query tra database sono supportate per gli account Azure AD con entità serve
 
 ### <a name="enable-security-features"></a>Abilitare le funzionalità di sicurezza
 
-Vedere l'articolo seguente sulle [funzionalità di sicurezza delle capacità delle istanze gestite](sql-database-managed-instance.md#azure-sql-database-security-features) per un elenco completo di soluzioni per proteggere il database. Sono illustrate le funzionalità di sicurezza seguenti:
+Vedere l'articolo seguente sulle [funzionalità di sicurezza delle istanze gestite](sql-database-managed-instance.md#azure-sql-database-security-features) per un elenco completo di soluzioni per proteggere il database. Sono illustrate le funzionalità di sicurezza seguenti:
 
 - [Controllo delle istanze gestite](sql-database-managed-instance-auditing.md) 
 - [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine)
@@ -448,9 +448,9 @@ Vedere l'articolo seguente sulle [funzionalità di sicurezza delle capacità del
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security) 
 - [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
-### <a name="managed-instance-capabilities"></a>Capacità delle istanze gestite
+### <a name="managed-instance-capabilities"></a>Funzionalità delle istanze gestite
 
-Per una panoramica completa delle capacità delle istanze gestite, vedere:
+Per una panoramica completa delle funzionalità delle istanze gestite, vedere:
 
 > [!div class="nextstepaction"]
-> [Capacità delle istanze gestite](sql-database-managed-instance.md)
+> [Funzionalità delle istanze gestite](sql-database-managed-instance.md)

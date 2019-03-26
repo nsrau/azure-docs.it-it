@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: dfc634fd-1b55-4ba8-94a8-b8288429b6a9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/31/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de0e20eb096ba127790019c1c07fbdd504d3a480
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b22a7a86862f02c3320b7c14cc1ed878a57bd23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877912"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901951"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bluejeans"></a>Esercitazione: Integrazione di Azure Active Directory con BlueJeans
 
@@ -81,8 +81,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con BlueJeans, è
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di BlueJeans](#configure-bluejeans-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di BlueJeans](#create-bluejeans-test-user)**: per avere una controparte di Britta Simon in BlueJeans collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di BlueJeans](#create-bluejeans-test-user)**: per avere una controparte di Britta Simon in BlueJeans collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BlueJeans, seguire ques
 
 4. Nella sezione **Configurazione SAML di base** seguire questa procedura:
 
-    ![Informazioni sull'accesso Single Sign-On per URL e dominio di BlueJeans](common/sp-signonurl.png)
+    ![Informazioni su URL e dominio per l'accesso Single Sign-On di BlueJeans](common/sp-signonurl.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<companyname>.BlueJeans.com`
 
@@ -116,7 +116,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BlueJeans, seguire ques
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-6. Nella sezione **Configura BlueJeans** copiare gli URL appropriati in base alle proprie esigenze.
+6. Nella sezione **Configura BlueJeans** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -164,9 +164,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con BlueJeans, seguire ques
 
     c. Fare clic su **SAVE CHANGES** (Salva modifiche).
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -182,16 +182,16 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a BlueJeans.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a BlueJeans.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **BlueJeans**.
 
@@ -215,7 +215,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-bluejeans-test-user"></a>Creare un utente di test di BlueJeans
+### <a name="create-bluejeans-test-user"></a>Creare l'utente di test di BlueJeans
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in BlueJeans. BlueJeans supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. È possibile scoprire più dettagli [qui](bluejeans-provisioning-tutorial.md) su come configurare il provisioning utenti automatico.
 
@@ -244,7 +244,7 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
     e. Nella casella di testo **Società** immettere il nome della società.
 
-    f. Nella casella di testo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    f. Nella casella di testo **Email Address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
 
     g. Nella casella di testo **Create a BlueJeans Meeting I.D** (Crea un ID riunione BlueJeans) immettere l'ID riunione.
 
@@ -252,7 +252,7 @@ L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simo
 
     i. Fare clic su **CONTINUE** (Continua).
 
-    ![Aggiungi utente](./media/bluejeans-tutorial/IC785887.png "Aggiungi utente")
+    ![Aggiungere un utente](./media/bluejeans-tutorial/IC785887.png "Aggiungere un utente")
 
     J. Fare clic su **Aggiungi utente**.
 

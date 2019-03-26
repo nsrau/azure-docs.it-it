@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: b9141fcef8bda181cd7b679f58d22d4ba2895b14
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56004583"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57893272"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Esercitazione: Proteggere un database singolo o in pool
 
@@ -77,11 +77,11 @@ Per configurare una regola del firewall a livello di server:
 
 1. Nella pagina **Panoramica** selezionare **Imposta firewall server**. Verrà visualizzata la pagina **Impostazioni del firewall** per il server di database.
 
-    1. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. La regola può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP. Selezionare **Salva**.
+   1. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. La regola può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP. Selezionare **Salva**.
 
-    ![Impostare la regola del firewall del server](./media/sql-database-security-tutorial/server-firewall-rule2.png)
+      ![Impostare la regola del firewall del server](./media/sql-database-security-tutorial/server-firewall-rule2.png)
 
-    1. Selezionare **OK** e chiudere la pagina **Impostazioni del firewall**.
+   1. Selezionare **OK** e chiudere la pagina **Impostazioni del firewall**.
 
 È ora possibile connettersi a qualsiasi database nel server con l'indirizzo IP specificato o con un intervallo di indirizzi IP.
 
@@ -90,7 +90,7 @@ Per configurare una regola del firewall a livello di server:
 
 ### <a name="setup-database-firewall-rules"></a>Configurare le regole del firewall per il database
 
-Le regole del firewall a livello di database di applicano solo ai singoli database. Sono portabili e seguono il database durante un failover del server. Le regole del firewall a livello di database possono essere configurate solo tramite istruzioni Transact-SQL (T-SQL) e solo dopo aver configurato una regola del firewall a livello di server.
+Le regole del firewall a livello di database di applicano solo ai singoli database. Il database conserverà queste regole durante un failover del server. Le regole del firewall a livello di database possono essere configurate solo tramite istruzioni Transact-SQL (T-SQL) e solo dopo aver configurato una regola del firewall a livello di server.
 
 Per configurare una regola del firewall a livello di database:
 
@@ -142,7 +142,7 @@ Per informazioni sulla configurazione di Azure AD, vedere:
 
 - [Integrare le identità locali con Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
 - [Aggiungere un nome di dominio personalizzato ad Azure AD](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure supporta la federazione con AD di Windows Server](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/)
+- [Microsoft Azure supporta la federazione con AD di Windows Server](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Amministrare la directory di Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Gestire Azure AD con PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [Porte e protocolli necessari per la soluzione ibrida di gestione delle identità](../active-directory/hybrid/reference-connect-ports.md)
@@ -248,11 +248,11 @@ Per abilitare la sicurezza dei dati avanzata:
 
 1. Nella pagina **SQL Server** cercare la sezione **Sicurezza** e selezionare **Sicurezza dei dati avanzata**.
 
-    1. Selezionare **SÌ** in **Sicurezza dei dati avanzata** per abilitare la funzionalità. Scegliere un account di archiviazione per il salvataggio dei risultati della valutazione della vulnerabilità. Selezionare quindi **Salva**.
+   1. Selezionare **SÌ** in **Sicurezza dei dati avanzata** per abilitare la funzionalità. Scegliere un account di archiviazione per il salvataggio dei risultati della valutazione della vulnerabilità. Selezionare quindi **Salva**.
 
-    ![Riquadro di spostamento](./media/sql-database-security-tutorial/threat-settings.png)
+      ![Riquadro di spostamento](./media/sql-database-security-tutorial/threat-settings.png)
 
-    È anche possibile configurare gli indirizzi di posta elettronica a cui ricevere avvisi di sicurezza, dettagli sulle risorse di archiviazione e tipi di rilevamento delle minacce.
+      È anche possibile configurare gli indirizzi di posta elettronica a cui ricevere avvisi di sicurezza, dettagli sulle risorse di archiviazione e tipi di rilevamento delle minacce.
 
 1. Tornare nella pagina **Database SQL** del database e selezionare **Sicurezza dei dati avanzata** nella sezione **Sicurezza**. In questa sezione sono disponibili vari indicatori della sicurezza per il database.
 
@@ -264,7 +264,7 @@ Se vengono rilevate attività anomale, si riceverà un messaggio di posta elettr
 
 ### <a name="auditing"></a>Controllo
 
-La funzionalità di controllo tiene traccia degli eventi del database e li scrive in un log di controllo un account di archiviazione di Azure, nel servizio Log Analytics o in un hub eventi. Il controllo consente di rispettare la conformità alle normative, identificare le attività del database e acquisire informazioni su discrepanze e anomalie che potrebbero indicare potenziali violazioni della sicurezza.
+La funzionalità di controllo tiene traccia degli eventi del database e li scrive in un log di controllo nell'archiviazione di Azure, nei log di Monitoraggio di Azure o in un hub eventi. Il controllo consente di rispettare la conformità alle normative, identificare le attività del database e acquisire informazioni su discrepanze e anomalie che potrebbero indicare potenziali violazioni della sicurezza.
 
 Per abilitare il controllo:
 
@@ -274,25 +274,25 @@ Per abilitare il controllo:
 
 1. Nelle impostazioni di **Controllo** specificare i valori seguenti:
 
-    1. Impostare **Controllo** su **SÌ**.
+   1. Impostare **Controllo** su **SÌ**.
 
-    1. Selezionare una delle opzioni seguenti per **Destinazione del log di controllo**:
+   1. Selezionare una delle opzioni seguenti per **Destinazione del log di controllo**:
 
-        - **Archiviazione**, un account di archiviazione di Azure in cui vengono salvati i log degli eventi, che possono essere scaricati come file con estensione *xel*
+       - **Archiviazione**, un account di archiviazione di Azure in cui vengono salvati i log degli eventi, che possono essere scaricati come file con estensione *xel*
 
-           > [!TIP]
-           > Per sfruttare al meglio i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
+          > [!TIP]
+          > Per sfruttare al meglio i modelli di report di controllo, usare lo stesso account di archiviazione per tutti i database controllati.
 
-        - **Log Analytics**, un servizio che archivia automaticamente gli eventi per le query o per ulteriori analisi
+       - **Log Analytics**, un servizio che archivia automaticamente gli eventi per le query o per ulteriori analisi
 
-            > [!NOTE]
-            > Per supportare funzionalità avanzate come l'analisi, le regole personalizzate degli avvisi e le esportazioni in Excel o Power BI, è necessaria un'**area di lavoro di Log Analytics**. Senza quest'area di lavoro, è disponibile solo l'editor di query.
+           > [!NOTE]
+           > Per supportare funzionalità avanzate come l'analisi, le regole personalizzate degli avvisi e le esportazioni in Excel o Power BI, è necessaria un'**area di lavoro di Log Analytics**. Senza quest'area di lavoro, è disponibile solo l'editor di query.
 
-        - **Hub eventi**, che consente di instradare gli eventi per l'uso in altre applicazioni
+       - **Hub eventi**, che consente di instradare gli eventi per l'uso in altre applicazioni
 
-    1. Selezionare **Salva**.
+   1. Selezionare **Salva**.
 
-    ![Impostazione di Controllo](./media/sql-database-security-tutorial/audit-settings.png)
+      ![Impostazione di Controllo](./media/sql-database-security-tutorial/audit-settings.png)
 
 1. A questo punto è possibile selezionare **Visualizza log di controllo** per visualizzare i dati sugli eventi del database.
 
@@ -334,7 +334,7 @@ Per abilitare o verificare la crittografia:
     ![Transparent Data Encryption](./media/sql-database-security-tutorial/encryption-settings.png)
 
 > [!NOTE]
-> Per visualizzare lo stato di crittografia, connettersi al database tramite [SSMS](./sql-database-connect-query-ssms.md) ed eseguire una query sulla colonna `encryption_state` della visualizzazione [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql?view=sql-server-2017). Lo stato `3` indica che il database è crittografato.
+> Per visualizzare lo stato di crittografia, connettersi al database tramite [SSMS](./sql-database-connect-query-ssms.md) ed eseguire una query sulla colonna `encryption_state` della visualizzazione [sys.dm_database_encryption_keys](/sql/relational-databases/system-dynamic-management-views/sys-dm-database-encryption-keys-transact-sql). Lo stato `3` indica che il database è crittografato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

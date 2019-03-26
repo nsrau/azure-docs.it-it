@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3883ddcad1c41e131d52016e4fa94a3e668adcd1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 93b59a108d5d87479c12174e97713d4c12d84f2e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56209728"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200056"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>Esercitazione: Aggiungere o rimuovere membri di un gruppo automaticamente
 
@@ -28,7 +28,7 @@ In Azure Active Directory (Azure AD) è possibile aggiungere o rimuovere automat
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
-> * Creare un gruppo di utenti guest popolato automaticamente da una società partner specifica
+> * Creare un gruppo di utenti guest popolato automaticamente da una società partner
 > * Assegnare licenze al gruppo per le funzionalità specifiche del partner per l'accesso degli utenti guess
 > * Vantaggio: proteggere il gruppo **Tutti gli utenti** rimuovendo gli utenti guest, ad esempio, in modo da poter concedere agli utenti membro accesso a siti solo interni
 
@@ -46,13 +46,13 @@ Prima di tutto, è necessario creare un gruppo per gli utenti guest che fanno tu
 
 1. Accedere al portale di Azure (https://portal.azure.com) con un account di amministratore globale per il tenant.
 2. Selezionare **Azure Active Directory** > **Gruppi** > **Nuovo gruppo**.
-  ![Selezionare il comando Nuovo gruppo](./media/groups-dynamic-tutorial/new-group.png)
+   ![selezionare il comando per avviare un nuovo gruppo](./media/groups-dynamic-tutorial/new-group.png)
 3. Nel pannello **Gruppo**:
   
-  * Selezionare **Sicurezza** come tipo di gruppo
-  * Immettere `Guest users Contoso` come nome e descrizione per il gruppo
-  * Modificare **Tipo di appartenenza** in **Utente dinamico**
-  * Selezionare **Aggiungi query dinamica**
+   * Selezionare **Sicurezza** come tipo di gruppo
+   * Immettere `Guest users Contoso` come nome e descrizione per il gruppo
+   * Modificare **Tipo di appartenenza** in **Utente dinamico**
+   * Selezionare **Aggiungi query dinamica**
   
 4. Selezionare **Regola avanzata** e nella casella **Regola avanzata** immettere: `(user.userType -eq "Guest") -and (user.companyName -eq "Contoso")`
 5. Selezionare **Aggiungi query** per chiudere il pannello.

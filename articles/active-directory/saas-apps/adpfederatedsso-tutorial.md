@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7be5331b-0481-48f7-9d6b-619dfec657e1
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/04/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb6943ef6c75f634cdb68557ed2339574bdc2602
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: eba63f8295fb5bebffdc8480f763c852521e331b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878286"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880909"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adp"></a>Esercitazione: Integrazione di Azure Active Directory con ADP
 
@@ -49,7 +49,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-adp-from-the-gallery"></a>Aggiunta di ADP dalla raccolta
 
-Per configurare l'integrazione di ADP in Azure AD, è necessario aggiungere ADP dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di ADP in Azure AD, è necessario aggiungere ADP dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere ADP dalla raccolta, seguire questa procedura:**
 
@@ -67,20 +67,20 @@ Per configurare l'integrazione di ADP in Azure AD, è necessario aggiungere ADP 
 
 4. Nella casella di ricerca digitare **ADP**, selezionare **ADP** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![ADP nell'elenco dei risultati](common/search-new-app.png)
+     ![ADP nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con ADP in base a un utente di test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in ADP.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con ADP, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con ADP, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di ADP](#configure-adp-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di ADP](#create-adp-test-user)**: per avere una controparte di Britta Simon in ADP collegata alla rappresentazione dell'utente in Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di ADP](#create-adp-test-user)**: per avere una controparte di Britta Simon in ADP collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
@@ -127,7 +127,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ADP, seguire questa pro
 
 7. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
     
-    | NOME | Source Attribute | 
+    | Nome | Attributo di origine | 
     | ---------------| --------------- |
     | PersonImmutableID  | user.employeeid |
 
@@ -183,11 +183,11 @@ Al momento della ricezione della conferma dal rappresentante ADP, configurare i 
 
 4. Nella casella di ricerca digitare **ADP**, selezionare **ADP** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![ADP nell'elenco dei risultati](common/search-new-app.png)
+     ![ADP nell'elenco risultati](common/search-new-app.png)
 
 5. Nel portale di Azure, nella pagina di integrazione dell'applicazione **ADP** fare clic sulla scheda **Proprietà** e seguire questa procedura:  
 
-    ![Proprietà collegate Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
+    ![Proprietà collegate per l'accesso Single Sign-On](./media/adpfederatedsso-tutorial/tutorial_adp_linkedproperties.png)
 
     a.  Impostare il valore del campo **Abilitata per l'accesso degli utenti** su **Sì**.
 
@@ -241,9 +241,9 @@ Al momento della ricezione della conferma dal rappresentante ADP, configurare i 
  
 11. Alla conferma dell'esito positivo del test, assegnare il servizio federato ADP a singoli utenti o gruppi di utenti, come illustrato più avanti nell'esercitazione, e distribuirlo ai dipendenti.
  
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -259,16 +259,16 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad ADP.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad ADP.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ADP**.
 
@@ -292,7 +292,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-adp-test-user"></a>Creare un utente di test di ADP
+### <a name="create-adp-test-user"></a>Creare l'utente di test di ADP
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in ADP. Collaborare con il [team di supporto di ADP](https://www.adp.com/contact-us/overview.aspx) per aggiungere gli utenti nell'account ADP. 
 
