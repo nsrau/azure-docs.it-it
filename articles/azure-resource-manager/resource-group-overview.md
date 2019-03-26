@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/13/2019
+ms.date: 03/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: d275455f502cf20eaa573c1716c38023f8e7236e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56821901"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57409842"
 ---
 # <a name="azure-resource-manager-overview"></a>Panoramica di Gestione risorse di Microsoft Azure
 
@@ -51,7 +51,16 @@ Gestione risorse offre numerosi vantaggi:
 * È possibile applicare tag alle risorse per organizzare in modo logico tutte le risorse nella sottoscrizione.
 * È possibile ottenere informazioni dettagliate sulla fatturazione per l'organizzazione visualizzando i costi di un gruppo di risorse che condividono lo stesso tag.
 
+## <a name="understand-management-scope"></a>Informazioni sull'ambito di gestione
+
+Azure offre quattro livelli relativi all'ambito di gestione: gruppi di gestione, sottoscrizioni, gruppi di risorse e risorse. I [gruppi di gestione](../governance/management-groups/index.md) sono disponibili in versione di anteprima. Nella figura seguente viene illustrato un esempio di questi livelli.
+
+![Scope](./media/resource-group-overview/scope-levels.png)
+
+Le impostazioni di gestione possono essere applicate a qualsiasi di questi livelli di ambito. Il livello selezionato determina l'estensione con cui viene applicata l'impostazione. I livelli inferiori ereditano le impostazioni dai livelli superiori. Ad esempio, quando si applicano [criteri](../governance/policy/overview.md) alla sottoscrizione, tali criteri vengono applicati a tutti i gruppi di risorse e le risorse nella sottoscrizione. Quando si applicano criteri al gruppo di risorse, tali criteri vengono applicati al gruppo di risorse e a tutte le risorse che contiene. Tuttavia, un altro gruppo di risorse non disporrà di tale assegnazione di criteri.
+
 ## <a name="guidance"></a>Materiale sussidiario
+
 I suggerimenti seguenti consentono di sfruttare al meglio Resource Manager per le proprie soluzioni.
 
 * Definire e distribuire l'infrastruttura tramite la sintassi dichiarativa nei modelli di Gestione risorse, anziché tramite comandi imperativi.

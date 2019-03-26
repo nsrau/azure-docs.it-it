@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: a04b9383-3a60-4d54-9412-123daaddff3b
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2c6b95d62f6210ecfdd560bc1c00a3e055be3ee
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c24cbf8ad21c7dd5875a71532a5278e313774e66
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883968"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dmarcian"></a>Esercitazione: Integrazione di Azure Active Directory con dmarcian
 
@@ -106,6 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con dmarcian, seguire quest
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di dmarcian](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente:
+
     | |
     | -- |
     | `https://us.dmarcian.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
@@ -113,6 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con dmarcian, seguire quest
     | `https://dmarcian-ap.com/sso/saml/<ACCOUNT_ID>/sp.xml` |
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>/handle/` |
@@ -124,6 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con dmarcian, seguire quest
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di dmarcian](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente:
+    
     | |
     |--|
     | `https://us.dmarcian.com/login/<ACCOUNT_ID>` |
@@ -186,7 +189,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -239,7 +242,7 @@ Per consentire agli utenti di Azure AD di accedere a dmarcian, è necessario eff
 
     ![Nuovo utente](./media/dmarcian-tutorial/tutorial_dmarcian_save.png)
 
-    a. Nella casella di testo **New User Email** (Posta elettronica nuovo utente) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon@contoso.com**.
+    a. Nella casella di testo **New User Email** (Posta elettronica nuovo utente) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
 
     b. Se si vogliono assegnare diritti di amministratore all'utente, selezionare **Make User an Admin** (Imposta utente come amministratore).
 
