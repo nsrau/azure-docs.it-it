@@ -8,12 +8,12 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 82ae36eaaf4616dbd85760a0962f301a2b1a20f5
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319381"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418790"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Domande frequenti - Replica da VMware ad Azure
 
@@ -203,7 +203,7 @@ Sì, è possibile aggiungere nuove macchine virtuali a un gruppo di replica esis
 Per eseguire la replica VMware in Azure, è possibile modificare le dimensioni del disco. Se si desidera aggiungere nuovi dischi, è necessario aggiungere il disco e riabilitare la protezione per la macchina virtuale.
 
 ### <a name="can-i-migrate-on-premises-machines-to-a-new-vcenter-without-impacting-ongoing-replication"></a>È possibile migrare nei computer locali per un nuovo Vcenter senza influire sulla replica in corso?
-No, le modifiche o migrazioni al server Vcenter influiranno sulla replica in corso. Configurare Azure Site Recovery con il nuovo Vcenter e abilitare la replica per i computer.
+No, le modifiche o migrazioni al server Vcenter influiranno sulla replica in corso. È necessario configurare Azure Site Recovery con il nuovo Vcenter e abilitare la replica per le macchine.
 
 ### <a name="can-i-replicate-to-cachetarget-storage-account-which-has-a-vnet-with-azure-storage-firewalls-configured-on-it"></a>È possibile eseguire la replica in un account di archiviazione della cache/di destinazione che abbia una rete virtuale (con i firewall di archiviazione di Azure) configurata?
 No, Azure Site Recovery non supporta la replica di archiviazione in una rete virtuale.
@@ -275,7 +275,7 @@ Nelle **credenziali di Servizi di ripristino**, **Gestisci** > **Infrastruttura 
 I programmi di installazione sono nella cartella **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** nel server di configurazione.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Come si installa il servizio Mobility?
-Si installa su ogni macchina virtuale da replicare usando l'[installazione push](vmware-azure-install-mobility-service.md) o l'[installazione manuale](vmware-physical-mobility-service-install-manual.md) dall'interfaccia utente o da PowerShell. In alternativa, è possibile usare uno strumento di distribuzione, ad esempio [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
+Si installa su ogni macchina virtuale da replicare usando l'[installazione push](vmware-physical-mobility-service-overview.md#push-installation) o l'[installazione manuale](vmware-physical-mobility-service-overview.md#install-mobility-agent-through-ui) dall'interfaccia utente o da PowerShell. In alternativa, è possibile usare uno strumento di distribuzione, ad esempio [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 
