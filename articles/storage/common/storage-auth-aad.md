@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ff543b7275ab05a83b1be1d156cbc6059a3b5430
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369892"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447027"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autenticare l'accesso a BLOB di Azure e code con Azure Active Directory
 
@@ -22,8 +22,6 @@ Archiviazione di Azure supporta l'autenticazione e l'autorizzazione con Azure Ac
 L'autenticazione degli utenti o delle applicazioni tramite le credenziali di Azure AD offre un livello superiore di sicurezza e facilità d'uso rispetto ad altri metodi di autorizzazione. Mentre con le applicazioni è possibile continuare a usare l'autorizzazione con chiave condivisa, l'uso di Azure AD consente di evitare la necessità di archiviare la chiave di accesso dell'account con il codice. È anche possibile continuare a usare le firme di accesso condiviso per concedere accesso specifico alle risorse dell'account di archiviazione, ma Azure AD offre funzionalità simili senza la necessità di gestire i token di firma di accesso condiviso o di occuparsi della revoca di una di firma di accesso condiviso compromessa. Microsoft consiglia di usare l'autenticazione di Azure AD per le applicazioni di Archiviazione di Azure, quando possibile.
 
 L'autenticazione e autorizzazione con le credenziali di Azure AD è disponibile per tutti i per utilizzo generico v2, per utilizzo generico v1 e account di archiviazione Blob in tutte le aree pubbliche. Solo gli account di archiviazione creato con il supporto del modello di distribuzione Azure Resource Manager di autorizzazione di Azure AD.
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="overview-of-azure-ad-for-blobs-and-queues"></a>Panoramica di Azure AD per BLOB e code
 
@@ -41,7 +39,11 @@ Quando viene assegnato un ruolo RBAC a un'entità di sicurezza di Azure AD, Azur
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-Per informazioni su come assegnare un ruolo predefinito nel portale di Azure, vedere [concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure](storage-auth-aad-rbac.md).
+Per informazioni su come assegnare un RBAC predefiniti per le risorse di archiviazione di Azure, vedere uno degli argomenti seguenti:
+
+- [Concedere l'accesso a Azure blob e Accodamento dei dati con accessi nel portale di Azure](storage-auth-aad-rbac-portal.md)
+- [Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite la CLI di Azure](storage-auth-aad-rbac-cli.md)
+- [Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite PowerShell](storage-auth-aad-rbac-powershell.md)
 
 ### <a name="access-permissions-granted-by-rbac-roles"></a>Autorizzazioni di accesso concesse dai ruoli RBAC 
 
@@ -49,7 +51,6 @@ Per informazioni dettagliate sulle autorizzazioni necessarie per chiamare operaz
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure](storage-auth-aad-rbac.md)
 - [Eseguire l'autenticazione con Azure Active Directory da un'applicazione per l'accesso ai BLOB e alle code](storage-auth-aad-app.md)
 - [Autenticare l'accesso a BLOB e code con identità gestite per le risorse di Azure](storage-auth-aad-msi.md)
-- [Usare un'identità di Azure AD per accedere ad archiviazione di Azure con PowerShell o CLI](storage-auth-aad-script.md)
+- File di Azure supporta l'autenticazione con Azure AD su SMB solo per le macchine virtuali aggiunte a un dominio (anteprima). Per informazioni sull'uso di Azure AD su SMB per File di Azure, vedere [Panoramica dell'autenticazione di Azure Active Directory tramite SMB per File di Azure (anteprima)](../files/storage-files-active-directory-overview.md).

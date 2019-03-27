@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: 0ecd0603a5750b6d03da7cf2c577c668482048aa
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 58835b66824d55b64b77e34df64d34c8da1c269a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54077318"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57864814"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Eseguire la distribuzione nel Servizio app di Azure con il plug-in Jenkins 
 
@@ -77,7 +77,7 @@ Prima di configurare il processo in Jenkins sono necessari un piano di servizio 
     az webapp create --name <myAppName> --resource-group <myResourceGroup> --plan <myAppServicePlan>
     ```
     
-3. Impostare la configurazione del runtime Java di cui l'app necessita. Il comando dell'interfaccia della riga di comando di Azure seguente configura l'app Web per l'esecuzione in un'istanza recente di JDK 8 JDK e in [Apache Tomcat](http://tomcat.apache.org/) versione 8.0:
+3. Impostare la configurazione del runtime Java di cui l'app necessita. Il comando dell'interfaccia della riga di comando di Azure seguente configura l'app Web per l'esecuzione in un'istanza recente di JDK 8 JDK e in [Apache Tomcat](https://tomcat.apache.org/) versione 8.0:
     ```azurecli-interactive
     az webapp config set \
     --name <myAppName> \
@@ -90,7 +90,7 @@ Prima di configurare il processo in Jenkins sono necessari un piano di servizio 
 ### <a name="set-up-the-jenkins-job"></a>Impostare il processo Jenkins
 
 1. Creare un nuovo progetto **freestyle** nel dashboard di Jenkins.
-2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http:\//github.com/&lt;ID_utente>/javawebappsample.
 3. Aggiungere un passaggio per compilare il progetto con Maven aggiungendo il comando **Execute shell** (Esegui shell). Per questo esempio, è necessario un passaggio aggiuntivo per rinominare il file \*.war nella cartella di destinazione in **ROOT.war**:   
     ```bash
     mvn clean package
@@ -143,7 +143,7 @@ Prima di configurare il processo in Jenkins, è necessaria un'app Web in Linux. 
 ### <a name="set-up-the-jenkins-job-for-docker"></a>Impostare il processo Jenkins per Docker
 
 1. Creare un nuovo progetto **freestyle** nel dashboard di Jenkins.
-2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http://github.com/&lt;your_ID>/javawebappsample.
+2. Configurare il campo **Source Code Management** (Gestione del codice sorgente) in modo da usare il fork locale di [Simple Java Web App for Azure](https://github.com/azure-devops/javawebappsample). Fornire l'**URL del repository**. Ad esempio: http:\//github.com/&lt;ID_utente>/javawebappsample.
 3. Aggiungere un passaggio per compilare il progetto con Maven aggiungendo un comando **Execute shell** (Esegui shell). Includere la riga seguente nel comando:
     ```bash
     mvn clean package
@@ -154,7 +154,7 @@ Prima di configurare il processo in Jenkins, è necessaria un'app Web in Linux. 
 6. Nella sezione **App Configuration** (Configurazione app) scegliere il gruppo di risorse e un'app Web di Linux nella sottoscrizione.
 7. Scegliere **Publish via Docker** (Pubblica tramite Docker).
 8. Compilare il valore del percorso **Dockerfile**. È possibile mantenere il valore predefinito /Dockerfile.
-Per il valore **Docker registry URL** (URL registro Docker) immettere l'URL nel formato https://&lt;yourRegistry>.azurecr.io se si usa il Registro contenitori di Azure. Se si usa DockerHub, lasciare vuoto il valore.
+Per il valore **Docker registry URL** (URL registro Docker) immettere l'URL nel formato https://&lt;yourRegistry&gt;.azurecr.io se si usa il Registro Azure Container. Se si usa DockerHub, lasciare vuoto il valore.
 9. Per il valore **Registry credentials** (Credenziali registro) aggiungere le credenziali per il registro contenitori. Eseguire i comandi seguenti nell'interfaccia della riga di comando di Azure per ottenere l'ID utente e la password. Il primo comando abilita l'account Administrator:
     ```azurecli-interactive
     az acr update -n <yourRegistry> --admin-enabled true

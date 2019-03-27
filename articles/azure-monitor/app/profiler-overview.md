@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c42de8cf189c0ebaf5f13ef5971ad91d14d862fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57850276"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498129"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilare le applicazioni di produzione in Azure con Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Abilitare Application Insights Profiler per l'applicazione
@@ -32,7 +32,7 @@ Profiler funziona con le applicazioni .NET distribuite nei servizi di Azure segu
 * [Macchine virtuali di Microsoft Azure e set di scalabilità di macchine virtuali](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 * [**ANTEPRIMA** le app Web Linux di Azure ASP.NET Core](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
-Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi.](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+Se Profiler è abilitato ma non vengono visualizzate analisi, controllare la [Guida alla risoluzione dei problemi](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
 ## <a name="view-profiler-data"></a>Visualizzare i dati di Profiler
 
@@ -75,7 +75,7 @@ Se l'esecuzione di **clr!ThePreStub** per una richiesta richiede molto tempo, la
 
 ### <a id="ngencold"></a>Caricamento di codice ([COLD])
 
-Se il nome del metodo contiene **[COLD]**, ad esempio **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, il runtime di .NET Framework esegue per la prima volta codice non ottimizzato dall'[ottimizzazione PGO](https://msdn.microsoft.com/library/e7k32f4k.aspx). Per ogni metodo deve essere visualizzato al massimo una volta nel corso del processo.
+Se il nome del metodo contiene **[COLD]**, ad esempio **mscorlib.ni![COLD]System.Reflection.CustomAttribute.IsDefined**, il runtime di .NET Framework esegue per la prima volta codice non ottimizzato dall'[ottimizzazione PGO](/cpp/build/profile-guided-optimizations). Per ogni metodo deve essere visualizzato al massimo una volta nel corso del processo.
 
 Se il caricamento del codice per una richiesta richiede una quantità di tempo sostanziale, si tratta della prima richiesta che esegue la parte non ottimizzata del metodo. Considerare un processo di riscaldamento che esegua tale parte del codice prima che gli utenti accedano a esso.
 

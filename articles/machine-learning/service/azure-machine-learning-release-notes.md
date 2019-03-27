@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 6b9ab48ea971a5e7f5e9c72f9e729d2fcb5ed37f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c6e0408145ea76ad93b6dc3803fd56a01dc6d4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437867"
+ms.locfileid: "58444646"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Note sulla versione del servizio Azure Machine Learning
 
@@ -29,6 +29,23 @@ Questo articolo fornisce informazioni sulle versioni del servizio Azure Machine 
 
 + **Nuove funzionalità**
   + Il *azureml.core.Run.create_children* metodo consente la creazione di bassa latenza di più elemento figlio viene eseguito con una singola chiamata.
+
+### <a name="azure-machine-learning-data-prep-sdk-v110"></a>SDK versione 1.1.0 della preparazione dei dati di Azure Machine Learning
+
++ **Modifiche di rilievo**
+  + Il concetto del pacchetto di preparazione dei dati è stato deprecato e non è più supportato. Anziché rendere persistente più flussi di dati in un unico pacchetto, è possibile rendere persistenti i flussi di dati singolarmente.
+    + Guida alle procedure: [Notebook di apertura e salvataggio di flussi di dati](https://aka.ms/aml-data-prep-open-save-dataflows-nb)
+
++ **Nuove funzionalità**
+  + Preparazione dei dati ora può riconoscere le colonne che corrispondono a un particolare tipo di semantica e suddividere di conseguenza. Il STypes attualmente supportati includono: messaggio di posta elettronica indirizzo coordinate geografiche (latitudine e longitudine), gli indirizzi IPv4 e IPv6, il numero di telefono degli Stati Uniti e codice postale degli Stati Uniti.
+    + Guida alle procedure: [Semantica notebook di tipi](https://aka.ms/aml-data-prep-semantic-types-nb)
+  + Preparazione dei dati ora supporta le operazioni seguenti per generare una colonna risultante di due colonne numeriche: subtract, multiply e divide e modulo.
+  + È possibile chiamare `verify_has_data()` in un flusso di dati per verificare se il flusso di dati potrebbe produrre record se eseguita.
+
++ **Correzioni di bug e miglioramenti**
+  + È ora possibile specificare il numero di contenitori da usare in un istogramma per i profili di colonna numerica.
+  + Il `read_pandas_dataframe` trasformazione richiede ora il frame di dati di stringa - o - byte digitato i nomi di colonna.
+  + Risolto un bug nella `fill_nulls` trasformazione, in cui i valori sono non stati compilati correttamente se la colonna è mancante.
 
 ## <a name="2019-03-11"></a>2019-03-11
 

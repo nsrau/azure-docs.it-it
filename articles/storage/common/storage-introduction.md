@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d558f0fa5abc421785ff6f9fcc2a6318819e3ebc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ae2384d0ac6773ccd362778d2913cdcaa9cb4d6c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012742"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446715"
 ---
 # <a name="introduction-to-azure-storage"></a>Introduzione ad Archiviazione di Azure
 
@@ -93,23 +93,15 @@ Archiviazione di Azure include anche le funzionalità di dischi gestiti e non ge
 
 Per altre informazioni sui tipi di account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](storage-account-overview.md). 
 
-## <a name="accessing-your-blobs-files-and-queues"></a>Accesso a BLOB, file e code
+## <a name="securing-access-to-storage-accounts"></a>Protezione dell'accesso agli account di archiviazione
 
-Ogni account di archiviazione include due chiavi di autenticazione, che possono essere usate per qualsiasi operazione. Sono disponibili due chiavi per consentire il rollover occasionale delle chiavi per migliorare la sicurezza. È fondamentale mantenere protette le chiavi, perché il loro possesso, insieme al nome dell'account, consente l'accesso illimitato a tutti i dati nell'account di archiviazione.
+Tutte le richieste ad archiviazione di Azure devono essere autorizzata. Archiviazione di Azure supporta i seguenti metodi di autorizzazione:
 
-Questa sezione esamina due modi per proteggere l'account di archiviazione e i rispettivi dati. Per informazioni dettagliate sulla protezione dell'account di archiviazione e dei dati, vedere [Azure Storage security guide](storage-security-guide.md) (Guida alla sicurezza di Archiviazione di Azure).
-
-### <a name="securing-access-to-storage-accounts-using-azure-ad"></a>Protezione dell'accesso agli account di archiviazione tramite Azure AD
-
-Uno dei modi per proteggere l'accesso ai dati di archiviazione è costituito dal controllo dell'accesso alle chiavi degli account di archiviazione. Il controllo degli accessi in base al ruolo di Resource Manager consente di assegnare ruoli a utenti, gruppi o applicazioni. Questi ruoli sono associati a un insieme specifico di azioni consentite o non consentite. L'uso del controllo degli accessi in base al ruolo per concedere l'accesso a un account di archiviazione consente solo di eseguire le operazioni di gestione per tale account di archiviazione, ad esempio la modifica del livello di accesso. Non è possibile usare il controllo degli accessi in base al ruolo per concedere l'accesso a oggetti dati come un contenitore specifico o una condivisione di file. È tuttavia possibile usare il controllo degli accessi in base al ruolo per concedere l'accesso alle chiavi dell'account di archiviazione, che possono essere quindi usate per leggere gli oggetti dati.
-
-### <a name="securing-access-using-shared-access-signatures"></a>Protezione dell'accesso tramite le firme di accesso condiviso
-
-È possibile usare le firme di accesso condiviso e i criteri di accesso archiviati per proteggere gli oggetti dati. Una firma di accesso condiviso è una stringa contenente un token di sicurezza, che può essere collegato a un URI per un asset che consente di delegare l'accesso a oggetti di archiviazione specifici e specificare limitazioni, ad esempio le autorizzazioni e l'intervallo di data/ora di accesso. Questa funzionalità offre capacità estese. Per informazioni dettagliate, vedere [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md) (Uso delle firme di accesso condiviso).
-
-### <a name="public-access-to-blobs"></a>Accesso pubblico ai BLOB
-
-Il servizio BLOB consente di fornire l'accesso pubblico a un contenitore e ai rispettivi BLOB o a un BLOB specifico. Quando si indica che un contenitore o un BLOB è pubblico, qualsiasi utente lo potrà leggere in forma anonima, in quanto non è necessaria l'autenticazione. Questo approccio è ideale ad esempio se si ha un sito Web che usa immagini, video o documenti dall'archivio BLOB. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
+- **Integrazione di Azure Active Directory (Azure AD) per i dati blob e coda.** Archiviazione di Azure supporta l'autenticazione e autorizzazione con le credenziali di Azure AD per i servizi Blob e coda tramite il controllo di accesso basato sui ruoli (RBAC). Autorizzare le richieste con Azure AD è consigliato per la massima sicurezza e facilità d'uso. Per altre informazioni, vedere [autentica l'accesso ad Azure di BLOB e code usando Azure Active Directory](storage-auth-aad.md).
+- **AD autorizzazione di Azure su SMB per i file di Azure (anteprima).** File di Azure supporta l'autorizzazione basata sulle identità su SMB (Server Message Block) tramite Azure Active Directory Domain Services. Il dominio Windows macchine virtuali (VM) può accedere alle condivisioni di file di Azure tramite credenziali di Azure AD. Per altre informazioni, vedere [autorizzazione Panoramica di Azure Active Directory su SMB per i file di Azure (anteprima)](../files/storage-files-active-directory-overview.md).
+- **Autorizzazione con chiave condivisa.** I servizi di Azure Storage Blob, tabelle e di accodamento e file di Azure supporta l'autorizzazione con client condiviso Key.A usando chiave condivisa autorizzazione passa un'intestazione con ogni richiesta che viene firmato usando la chiave di accesso di account di archiviazione. Per altre informazioni, vedere [Authorize with Shared Key](https://docs.microsoft.com/rest/api/storageservices/authorize-with-shared-key) (Autorizzazione con chiave condivisa).
+- **Le autorizzazioni mediante condiviso (SAS) delle firme di accesso.** Una firma di accesso condiviso (SAS) è una stringa contenente un token di sicurezza che può essere aggiunto all'URI per una risorsa di archiviazione. Il token di sicurezza incapsula i vincoli, ad esempio le autorizzazioni e l'intervallo di accesso. Per altre informazioni, consultare [usando le firme di accesso condiviso (SAS)](storage-dotnet-shared-access-signature-part-1.md).
+- **Accesso anonimo a contenitori e BLOB.** Un contenitore e ai relativi BLOB potrebbe essere disponibile pubblicamente. Quando si specifica che un contenitore o blob è pubblico, chiunque può leggerlo in modo anonimo; è necessaria alcuna autenticazione. Per altre informazioni, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../blobs/storage-manage-access-to-resources.md).
 
 ## <a name="encryption"></a>Crittografia
 

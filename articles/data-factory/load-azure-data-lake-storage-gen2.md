@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: ad6fd4a75ca139c4943ca0d079a2d041ccb46d09
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101092"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447230"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Caricare dati in Azure Data Lake Storage Gen2 con Azure Data Factory
 
@@ -39,9 +39,10 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra scegliere **Nuovo** > **Dati e analisi** > **Data factory**:
+1. Nel menu a sinistra, selezionare **crea una risorsa** > **dati + Analitica** > **Data Factory**:
    
-   ![Creare una nuova data factory](./media/load-azure-data-lake-storage-gen2/new-azure-data-factory-menu.png)
+   ![Selezione di Data Factory nel riquadro "Nuovo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
 2. Nella pagina **Nuova data factory** specificare i valori per i campi mostrati nell'immagine seguente: 
       
    ![Pagina Nuova data factory](./media/load-azure-data-lake-storage-gen2//new-azure-data-factory.png)

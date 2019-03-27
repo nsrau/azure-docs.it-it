@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 6a0061c03a10f5a5bd518c9ea01d8edd542e4e39
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54470563"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486156"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schema di configurazione di Diagnostica Azure 1.2
 > [!NOTE]
@@ -28,7 +28,7 @@ Lo schema definisce i possibili valori da utilizzare per inizializzare le impost
 
  Scaricare la definizione dello schema del file di configurazione pubblico eseguendo il comando PowerShell seguente:  
 
-```PowerShell  
+```powershell  
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 

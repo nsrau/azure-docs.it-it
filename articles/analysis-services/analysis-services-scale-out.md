@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 03/25/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: dd89d9645d2054f301ed999121fefc417ea5c6fa
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6a69d8d60b2e588ded9ccca20521195ae11ff136
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293907"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449428"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -45,9 +45,9 @@ Quando si esegue una successiva operazione di scalabilità orizzontale, ad esemp
 
 * Anche se non sono presenti repliche nel pool di query, è consentita la sincronizzazione. Se sono scalabilità orizzontale da zero a una o più repliche con i nuovi dati da un'operazione di elaborazione nel server primario, eseguire prima di tutto la sincronizzazione senza repliche nel pool di query e quindi scalabilità orizzontale. La sincronizzazione prima di scalabilità orizzontale consente di evitare un'attivazione ridondante delle repliche appena aggiunte.
 
-* Quando si elimina un database modello dal server primario, questo non ottenere eliminato automaticamente da repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione che rimuove i file/sec per un database dalla posizione di archiviazione blob di condiviso della replica e quindi Elimina il database modello nelle repliche nel pool di query.
+* Quando si elimina un database modello dal server primario, questo non ottenere eliminato automaticamente da repliche nel pool di query. È necessario eseguire un'operazione di sincronizzazione tramite il [sincronizzazione AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comandi di PowerShell che rimuove i file/sec per un database dalla posizione di archiviazione blob di condiviso della replica e quindi Elimina il modello database nelle repliche nel pool di query.
 
-* Quando si rinomina un database nel server primario, è un passaggio aggiuntivo necessario per assicurare che il database è sincronizzato correttamente a tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione che specifica il `-Database` parametro con il vecchio nome del database. Questa sincronizzazione rimuove il database e i file con il nome precedente da tutte le repliche. Eseguire quindi un'altra sincronizzazione specifica il `-Database` parametro con il nuovo nome del database. La sincronizzazione secondo il database copiato nel nuovo nome per il secondo set di file e generati idratano tutte le repliche. Impossibile eseguire il comando Sincronizza modello nel portale le sincronizzazioni.
+* Quando si rinomina un database nel server primario, è un passaggio aggiuntivo necessario per assicurare che il database è sincronizzato correttamente a tutte le repliche. Dopo la ridenominazione, eseguire una sincronizzazione tramite il [sincronizzazione AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) comando specificando il `-Database` parametro con il vecchio nome del database. Questa sincronizzazione rimuove il database e i file con il nome precedente da tutte le repliche. Eseguire quindi un'altra sincronizzazione specifica il `-Database` parametro con il nuovo nome del database. La sincronizzazione secondo il database copiato nel nuovo nome per il secondo set di file e generati idratano tutte le repliche. Impossibile eseguire il comando Sincronizza modello nel portale le sincronizzazioni.
 
 ### <a name="separate-processing-from-query-pool"></a>Separare l'elaborazione dal pool di query
 
@@ -103,6 +103,20 @@ Usare l'operazione **sync**.
 
 `GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
 
+Codici di stato:
+
+
+|Codice  |DESCRIZIONE  |
+|---------|---------|
+|-1     |  Non valido       |
+|0     | Replica in corso        |
+|1     |  La riattivazione       |
+|2     |   Completi       |
+|3     |   Operazione non riuscita      |
+|4     |    Finalizzazione     |
+|||
+
+
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -112,6 +126,8 @@ Prima di PowerShell, usare [installare o aggiornare il modulo Azure PowerShell p
 Per eseguire la sincronizzazione, usare [sincronizzazione AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance).
 
 Per impostare il numero di repliche di query, utilizzare [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare il parametro facoltativo `-ReadonlyReplicaCount`.
+
+Per separare il server di elaborazione dal pool di query, usare [Set-AzAnalysisServicesServer](https://docs.microsoft.com/powershell/module/az.analysisservices/set-azanalysisservicesserver). Specificare l'opzione facoltativa `-DefaultConnectionMode` parametro per l'utilizzo `Readonly`.
 
 ## <a name="connections"></a>connessioni
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: kfollis
-ms.openlocfilehash: 21119816477d460aa48560b8ca231f23144a901b
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: b24a0397a1365479907fedc6348caa54508dbbb0
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888495"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444870"
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Creare dashboard di Azure a livello di codice
 
@@ -28,7 +28,7 @@ Questo documento descrive in modo dettagliato il processo di creazione e pubblic
 
 ## <a name="overview"></a>Panoramica
 
-I dashboard condivisi in Azure sono [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) molto simili alle macchine virtuali e agli account di archiviazione.  Di conseguenza, possono essere gestiti a livello di codice tramite le [API REST di Azure Resource Manager](/rest/api/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure) e i [comandi di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0). Inoltre, molte funzionalità del [portale di Azure](https://portal.azure.com) sono basate su queste API per semplificare la gestione delle risorse.  
+I dashboard condivisi in Azure sono [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) molto simili alle macchine virtuali e agli account di archiviazione.  Di conseguenza, possono essere gestiti a livello di codice tramite le [API REST di Azure Resource Manager](/rest/api/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure) e i [comandi di Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps). Inoltre, molte funzionalità del [portale di Azure](https://portal.azure.com) sono basate su queste API per semplificare la gestione delle risorse.  
 
 Ognuno degli strumenti e delle API permette di creare, elencare, recuperare, modificare ed eliminare risorse in modi diversi.  Poiché i dashboard sono risorse, è possibile selezionare l'API o lo strumento preferito da usare.
 
