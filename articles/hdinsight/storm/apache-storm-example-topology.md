@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: 73a7c2ef80291920a6d19f0c3ab01b45c1d6b22a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: 42780eae0a85ec8a2ca7e9d6ca1149f6530c25e1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53627725"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448985"
 ---
 # <a name="example-apache-storm-topologies-and-components-for-apache-storm-on-hdinsight"></a>Esempi di topologie e componenti Apache Storm per Apache Storm in HDInsight
 
@@ -40,13 +40,13 @@ Di seguito è riportato un elenco di esempi creati e gestiti da Microsoft per l'
 >
 > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva.
 
-### <a name="next-steps"></a>Passaggi successivi
+### <a name="next-steps"></a>Fasi successive
 
 * [Introduzione ad Apache Storm in HDInsight][2b8c3488]
 * [Informazioni sulla distribuzione e la gestione di topologie Apache Storm con Apache Storm in HDInsight][6eb0d3b8]
 
 [2b8c3488]:apache-storm-tutorial-get-started-linux.md "Informazioni sulla creazione di una topologia Apache Storm in un cluster HDInsight e l'uso del Dashboard di Storm per distribuire topologie di esempio."
-[6eb0d3b8]:apache-storm-deploy-monitor-topology.md "Informazioni su come distribuire e gestire topologie usando il Dashboard di Apache Storm basato su Web e l'interfaccia utente di Storm oppure gli strumenti di HDInsight per Visual Studio."
+[6eb0d3b8]:apache-storm-deploy-monitor-topology-linux.md "Informazioni su come distribuire e gestire topologie usando il Dashboard di Apache Storm basato su Web e l'interfaccia utente di Storm oppure gli strumenti di HDInsight per Visual Studio."
 [16fce2d1]:apache-storm-develop-csharp-visual-studio-topology.md "Informazioni su come creare topologie Storm C# usando gli strumenti di HDInsight per Visual Studio."
 [5797064f]:apache-storm-develop-java-topology.md "Informazioni su come creare topologie Storm in Java, usando Maven e creando una topologia di conteggio parole di base."
 [844d1d81]:apache-storm-develop-csharp-event-hub-topology.md "Informazioni su come leggere e scrivere dati di hub eventi di Azure con Storm in HDInsight."

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: iainfou
-ms.openlocfilehash: 691decb88188a428edfeab1ea9e99c48876b6d9f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 7476747de31819907cf144e5a6b33cb29e1f866f
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53111351"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496175"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>Procedure consigliate per archiviazione e backup nel servizio Azure Kubernetes
 
@@ -62,7 +62,7 @@ I nodi AKS vengono eseguiti come macchine virtuali di Azure. Sono disponibili di
 
 Se le applicazioni richiedono Dischi di Azure come soluzione di archiviazione, pianificare e scegliere una dimensione di macchina virtuale del nodo appropriata. La quantità di CPU e memoria non è l'unico fattore da considerare nella scelta di una dimensione di macchina virtuale. Anche le funzionalità di archiviazione sono importanti. Ad esempio, le dimensioni di macchina virtuale *Standard_B2ms* e *Standard_DS2_v2* offrono una quantità simile di risorse di CPU e memoria. Ma le potenziali prestazioni di archiviazione sono diverse, come illustrato nella tabella seguente:
 
-| Tipo e dimensioni del nodo | vCPU | Memoria (GiB) | Valore massimo per dischi di dati | Operazioni di I/O al secondo del disco senza memorizzazione nella cache | Velocità effettiva massima senza memorizzazione nella cache (MBps) |
+| Tipo e dimensioni del nodo | vCPU | Memoria (GiB) | Numero massimo di dischi dati | Operazioni di I/O al secondo del disco senza memorizzazione nella cache | Velocità effettiva massima senza memorizzazione nella cache (MBps) |
 |--------------------|------|--------------|----------------|------------------------|--------------------------------|
 | Standard_B2ms      | 2    | 8            | 4              | 1.920                  | 22,5                           |
 | Standard_DS2_v2    | 2    | 7            | 8              | 6.400                  | 96                             |
@@ -91,9 +91,9 @@ Per altre informazioni sulle opzioni delle classi di archiviazione, vedere [Clas
 
 ## <a name="secure-and-back-up-your-data"></a>Proteggere ed eseguire il backup dei dati
 
-**Indicazioni sulle procedure consigliate** - Eseguire un backup dei dati usando uno strumento appropriato per il tipo di archiviazione, come Heptio Ark o Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
+**Procedure consigliate** : backup di dati usando uno strumento appropriato per il tipo di archiviazione, ad esempio Velero o da Azure Site Recovery. Verificare l'integrità e la sicurezza di tali backup.
 
-Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Potrebbe essere necessario un hook che consenta all'applicazione di scaricare le scritture su disco prima di eseguire l'operazione snapshot. [Heptio Ark][heptio-ark] può eseguire il backup di volumi permanenti insieme a configurazioni e risorse cluster aggiuntive. Se non è possibile [rimuovere lo stato dall'applicazione][remove-state], eseguire il backup dei dati di volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
+Quando le applicazioni archiviano e utilizzano dati salvati in modo permanente su dischi o in file, è necessario eseguire regolari backup o snapshot di tali dati. Dischi di Azure supporta l'uso di tecnologie snapshot integrate. Potrebbe essere necessario un hook che consenta all'applicazione di scaricare le scritture su disco prima di eseguire l'operazione snapshot. [Velero] [ velero] può eseguire il backup di volumi permanenti con le risorse del cluster aggiuntivi e le configurazioni. Se non è possibile [rimuovere lo stato dall'applicazione][remove-state], eseguire il backup dei dati di volumi permanenti e testare regolarmente le operazioni di ripristino per verificare l'integrità dei dati e i processi necessari.
 
 Comprendere le limitazioni dei diversi approcci ai backup dei dati e la necessità o meno di disattivare i dati prima di creare lo snapshot. Non sempre i backup dei dati consentono di ripristinare l'ambiente applicativo della distribuzione cluster. Per altre informazioni su questi scenari, vedere le [procedure consigliate per continuità aziendale e ripristino di emergenza nel servizio Azure Kubernetes][best-practices-multi-region].
 
@@ -102,7 +102,7 @@ Comprendere le limitazioni dei diversi approcci ai backup dei dati e la necessit
 In questo articolo sono state illustrate in particolare le procedure consigliate di archiviazione nel servizio Azure Kubernetes. Per altre informazioni di base sull'archiviazione in Kubernetes, vedere [Opzioni di archiviazione per le applicazioni nel servizio Kubernetes di Azure (AKS)][aks-concepts-storage].
 
 <!-- LINKS - External -->
-[heptio-ark]: https://github.com/heptio/ark
+[velero]: https://github.com/heptio/velero
 [dysk]: https://github.com/Azure/kubernetes-volume-drivers/tree/master/flexvolume/dysk
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
 

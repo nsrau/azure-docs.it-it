@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: jingwang
-ms.openlocfilehash: ed53f9bf2e22e1d69a4e00de1e8d71291a5be46d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d61874a57801a6c02af885cab6a97ed38da1deb1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58108713"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487924"
 ---
 # <a name="invoke-an-ssis-package-using-stored-procedure-activity-in-azure-data-factory"></a>Chiamare un pacchetto SSIS usando l'attività stored procedure in Azure Data Factory
 Questo articolo descrive come chiamare un pacchetto SSIS da una pipeline di Azure Data Factory usando un'attività stored procedure. 
@@ -229,7 +229,7 @@ Creare un servizio collegato per collegare il database SQL di Azure che ospita i
         }
     ```
 2. In **Azure PowerShell** passare alla cartella **C:\ADF\RunSSISPackage**.
-3. Eseguire la **New-AzDataFactoryLinkedService** cmdlet per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
+3. Eseguire il cmdlet **New-AzDataFactoryLinkedService** per creare il servizio collegato: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     New-AzDataFactoryLinkedService $df -File ".\AzureSqlDatabaseLinkedService.json"
@@ -306,13 +306,13 @@ In questo passaggio viene creata una pipeline con un'attività stored procedure.
 
 1. Eseguire **Get-AzDataFactorySlice** per ottenere informazioni dettagliate su tutte le sezioni dell'output set di dati * *, ovvero la tabella di output della pipeline.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactorySlice $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
     Si noti che il valore di StartDateTime specificato qui corrisponde all'ora di inizio specificata nel codice JSON della pipeline. 
 1. Eseguire **Get-AzDataFactoryRun** per ottenere i dettagli di esecuzioni di attività per una sezione specifica.
 
-    ```PowerShell
+    ```powershell
     Get-AzDataFactoryRun $df -DatasetName sprocsampleout -StartDateTime 2017-10-01T00:00:00Z
     ```
 

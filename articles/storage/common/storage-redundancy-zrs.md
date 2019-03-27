@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/24/2018
 ms.author: jeking
 ms.subservice: common
-ms.openlocfilehash: 8928e59b97143038e0850132196f1ce9a1da131d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: ab3984b29b3bdfac7599c68c14bd6cc5b671cdf4
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337885"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447252"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Archiviazione con ridondanza della zona (ZRS): applicazioni di Archiviazione di Azure a disponibilità elevata
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
@@ -50,7 +50,7 @@ La migrazione in o da archiviazione con ridondanza locale, archiviazione con rid
 
 La migrazione dei dati in o da archiviazione con ridondanza della zona richiede una strategia diversa. La migrazione dell'archiviazione con ridondanza della zona comporta lo spostamento fisico dei dati da un indicatore di archiviazione singolo a più indicatori all'interno di un'area.
 
-Sono disponibili due opzioni principali per la migrazione in e da archiviazione con ridondanza della zona: 
+Esistono due opzioni principali per la migrazione all'archiviazione ZRS: 
 
 - Copiare o spostare manualmente i dati dall'account esistente a un nuovo account di archiviazione con ridondanza della zona.
 - Richiedere una migrazione in tempo reale.
@@ -73,6 +73,7 @@ Tenere presenti le limitazioni seguenti relative alla migrazione in tempo reale:
 - L'account deve contenere dati.
 - È possibile migrare solo i dati nella stessa area. Se si vuole eseguire la migrazione dei dati in un account di archiviazione con ridondanza della zona che si trova in un'area diversa rispetto all'account di origine, è necessario eseguire una migrazione manuale.
 - Solo gli account di archiviazione standard supportano la migrazione in tempo reale. Per gli account di archiviazione premium, è necessario usare la migrazione manuale.
+- Migrazione in tempo reale da ZRS a LRS, GRS o RA-GRS non è supportata. È necessario spostare manualmente i dati in un nuovo oggetto o un account di archiviazione.
 
 È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nel portale selezionare l'account di archiviazione da convertire in archiviazione con ridondanza della zona.
 1. Selezionare **Nuova richiesta di supporto**
@@ -120,7 +121,7 @@ Se si desidera eseguire la migrazione dei dati in un account ZRS che si trova in
 > [!NOTE]
 > Microsoft imposterà come deprecati gli account della versione classica dell'archiviazione con ridondanza della zona e ne eseguirà la migrazione il 31 marzo 2021. Altri dettagli verranno inviati ai clienti della versione classica dell'archiviazione con ridondanza della zona prima di essere deprecati. 
 >
-> Quando l'archiviazione con ridondanza della zona diventa [disponibile a livello generale](#support-coverage-and-regional-availability) in un'area, i clienti non possono creare account della versione classica dell'archiviazione con ridondanza della zona dal portale in quell'area. L'uso di Microsoft PowerShell e dell'interfaccia della riga di comando di Azure per creare gli account della versione classica dell'archiviazione con ridondanza della zona sarà disponibile finché la versione classica dell'archiviazione con ridondanza della zona viene deprecata.
+> Non appena torna ZRS [disponibile a livello generale](#support-coverage-and-regional-availability) in un'area, i clienti non sono in grado di creare account ZRS classici dal portale in tale area. L'uso di Microsoft PowerShell e dell'interfaccia della riga di comando di Azure per creare gli account della versione classica dell'archiviazione con ridondanza della zona sarà disponibile finché la versione classica dell'archiviazione con ridondanza della zona viene deprecata.
 
 La versione classica dell'archiviazione con ridondanza della zona replica i dati in modo asincrono tra data center in una o due aree. I dati replicati potrebbero non essere disponibili a meno che Microsoft non avvii il failover all'area secondaria. Gli account della versione classica dell'archiviazione con ridondanza della zona non possono essere convertiti in o da archiviazione con ridondanza locale, archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura. Gli account della versione classica dell'archiviazione con ridondanza della zona non supportano inoltre le metriche o la registrazione.
 
@@ -128,7 +129,19 @@ La versione classica dell'archiviazione con ridondanza della zona è disponibile
 
 Per eseguire manualmente la migrazione di dati di un account di archiviazione con ridondanza della zona in o da un account di archiviazione con ridondanza locale, archiviazione con ridondanza della zona (versione classica), archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura, usare uno degli strumenti seguenti: AzCopy, Azure Storage Explorer, Azure PowerShell o l'interfaccia della riga di comando di Azure. È anche possibile creare una soluzione di migrazione personalizzata con una delle librerie client di Archiviazione di Azure.
 
-È inoltre possibile aggiornare l'account ZRS classico in archiviazione ZRS nel portale o tramite Azure PowerShell o CLI di Azure.
+È inoltre possibile aggiornare l'account ZRS classico ZRS nel portale o tramite Azure PowerShell o CLI di Azure nelle aree in cui ZRS sarà disponibile.
+
+Eseguire l'aggiornamento a ZRS nel portale passare alla sezione di configurazione dell'account e scegliere Aggiorna:![Eseguire l'aggiornamento della zona classico a ZRS nel portale](media/storage-redundancy-zrs/portal-zrs-classic-upgrade.jpg)
+
+Per eseguire l'aggiornamento all'archiviazione ZRS usando PowerShell chiamare il comando seguente:
+```powershell
+Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
+```
+
+Per eseguire l'aggiornamento all'archiviazione ZRS utilizzando CLI di chiamare il comando seguente:
+```cli
+az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
+```
 
 ## <a name="see-also"></a>Vedere anche 
 - [Replica di Archiviazione di Azure](storage-redundancy.md)

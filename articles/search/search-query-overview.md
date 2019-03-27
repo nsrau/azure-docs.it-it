@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.custom: seodec2018
-ms.openlocfilehash: 6afc9325cb2aababb286f653323531c9ebb04b4a
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: cfc9b44963f6880e97859bc7ab77bff12d258471
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438802"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500169"
 ---
 # <a name="how-to-compose-a-query-in-azure-search"></a>Come comporre una query in Ricerca di Azure
 
@@ -76,7 +76,7 @@ Gli attributi dell'indice in un campo impostano le operazioni consentite - se un
 Lo screenshot precedente è un elenco parziale degli attributi di indice per l'esempio di mercato immobiliare. È possibile visualizzare lo schema dell'intero indice nel portale. Per ulteriori informazioni sugli attributi dell’indice, vedere [Creare indice API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
 
 > [!Note]
-> Alcune funzionalità di query sono abilitate a livello di indice anziché in base al campo. Queste funzionalità includono: [le mappe sinonimiche](search-synonyms.md), [analizzatori](index-add-custom-analyzers.md), [costrutti dello strumento suggerimenti (per il completamento automatico e suggerimenti automatici)](index-add-suggesters.md), [assegnazione dei punteggi per la logica calcolo della pertinenza dei risultati](index-add-scoring-profiles.md).
+> Alcune funzionalità di query sono abilitate a livello di indice anziché in base al campo. Queste funzionalità includono: [le mappe sinonimiche](search-synonyms.md), [analizzatori personalizzati](index-add-custom-analyzers.md), [dello strumento suggerimenti costruisce (per il completamento automatico e le query suggerite)](index-add-suggesters.md), [assegnazione dei punteggi per la logica per la classificazione dei risultati](index-add-scoring-profiles.md).
 
 ## <a name="elements-of-a-query-request"></a>Elementi di una richiesta di query
 

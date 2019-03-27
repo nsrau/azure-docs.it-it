@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 26da504188a9060dbbb35330dbd8604bf5fe5e1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995135"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482093"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di avere una vista dei server corrispondente alla loro rappresentazione concettuale, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -166,7 +166,7 @@ Per altre informazioni sulla raccolta e l'uso dei dati, vedere l'[Informativa su
 
 Per distribuire l'estensione di VM Azure con PowerShell, è possibile usare l'esempio seguente:
 
-```PowerShell
+```powershell
 #
 # Deploy the Dependency agent to every VM in a Resource Group
 #
@@ -278,7 +278,7 @@ I file relativi a Dependency Agent sono memorizzati nelle directory seguenti:
 Per distribuire facilmente Dependency Agent in più server contemporaneamente, viene fornito lo script di esempio seguente per scaricare e installare Dependency Agent in Windows o Linux.
 
 ### <a name="powershell-script-for-windows"></a>Script di PowerShell per Windows
-```PowerShell
+```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
 .\InstallDependencyAgent-Windows.exe /S

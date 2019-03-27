@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 62137f64f0f138ea1c2dfbdf97bde791227617db
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: 7e2f5c344a0fb632956ab5d5b951ee69cff528ec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53793037"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482801"
 ---
 # <a name="test-results-for-hyper-v-replication-to-a-secondary-site"></a>Eseguire test dei risultati della replica Hyper-V in un sito secondario
 
@@ -175,10 +175,10 @@ Nella tabella vengono riepilogate le metriche delle prestazioni e i contatori mi
 | CPU |\Processor(_Total)\% Processor Time |
 | Memoria disponibile |\Memoria\MByte disponibili |
 | IOPS |\DiscoFisico(_Totale)\Trasferimenti disco/secondo |
-| Operazioni di lettura VM (IOPS) al secondo  |\Dispositivo di archiviazione Hyper-V (<VHD>)\Operazioni di lettura/secondo |
-| Operazioni di scrittura VM (IOPS) al secondo |\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\Operazioni di scrittura/S |
-| Velocità effettiva lettura VM |\Dispositivo di archiviazione virtuale Hyper-V (<VHD>)\Byte letti al secondo |
-| Velocità effettiva di scrittura VM |\Dispositivo di archiviazione virtuale Hyper-V(<VHD>)\Byte scritti al secondo |
+| Operazioni di lettura VM (IOPS) al secondo  |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Read operazioni/Sec |
+| Operazioni di scrittura VM (IOPS) al secondo |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Write operazioni al secondo |
+| Velocità effettiva lettura VM |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Read byte/sec |
+| Velocità effettiva di scrittura VM |Dispositivo di archiviazione virtuale \Hyper-V (\<VHD >) \Write byte/sec |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

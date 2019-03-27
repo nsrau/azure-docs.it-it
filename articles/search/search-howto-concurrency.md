@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/21/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c317bbdef2511728d23b33d8eef1c4a41a87d97
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 4599498918b7a01a1207f20135c26924c6758eb8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201518"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499426"
 ---
 # <a name="how-to-manage-concurrency-in-azure-search"></a>Come gestire la concorrenza in Ricerca di Azure
 
@@ -170,7 +170,7 @@ Il codice seguente illustra i controlli accessCondition per le principali operaz
 
 Uno schema progettuale per l'implementazione della concorrenza ottimistica deve includere un ciclo che recupera il controllo della condizione di accesso, un test per la condizione di accesso e, facoltativamente, una risorsa aggiornata prima di provare ad applicare di nuovo le modifiche.
 
-Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è tratto dal [sinonimi (anteprima) C# esempio di ricerca di Azure](https://docs.microsoft.com/azure/search/search-synonyms-example-sdk).
+Questo frammento di codice illustra l'aggiunta di synonymMap a un indice già esistente. Questo codice è tratto dal [sinonimi (anteprima) C# esempio di ricerca di Azure](search-synonyms-tutorial-sdk.md).
 
 Il frammento ottiene l'indice "hotels", controlla la versione dell'oggetto in un'operazione di aggiornamento, genera un'eccezione se la condizione ha esito negativo e quindi esegue un nuovo tentativo di operazione (fino a tre volte), iniziando con il recupero dell'indice dal server per ottenere la versione più recente.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: b9c9973314ed0ec64504cd35daddf9a3ad945f99
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 668631cca9fbd6a7968181826f600b1302a67df0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436983"
+ms.locfileid: "58482058"
 ---
 # <a name="how-to-use-custom-allocation-policies"></a>Come usare i criteri di allocazione personalizzati
 
@@ -318,7 +318,7 @@ Se si usan una workstation basata su Windows, è possibile usare PowerShell per 
 
 1. Sostituire il valore della **CHIAVE** con la **Chiave primaria** annotata in precedenza.
 
-    ```PowerShell
+    ```powershell
     $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
     $REG_ID1='breakroom499-contoso-tstrsd-007'
@@ -334,7 +334,7 @@ Se si usan una workstation basata su Windows, è possibile usare PowerShell per 
     echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
     ```
 
-    ```PowerShell
+    ```powershell
     breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
     mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
     ```
@@ -355,7 +355,7 @@ Questa sezione si riferisce a una workstation basata su Windows. Per un esempio 
 
     L'esempio seguente viene utilizzato Windows PowerShell per verificare l'hash di crittografia per la versione 3.13.4 di x64 distribuzione MSI:
 
-    ```PowerShell
+    ```powershell
     PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
     PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True

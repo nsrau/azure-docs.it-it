@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: 2fecf300bb14132a2e02c81a8a0862adff6b46cc
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: bca61c652953cd7fb9745c49773d22dc372b0f35
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202759"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58448828"
 ---
 # <a name="run-apache-sqoop-jobs-by-using-net-sdk-for-apache-hadoop-in-hdinsight"></a>Eseguire processi Apache Sqoop con .NET SDK per Apache Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
@@ -117,6 +117,6 @@ HDInsight basato su Linux prevede le limitazioni seguenti:
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione si è appreso come usare Sqoop. Per altre informazioni, vedere:
 
-* [Usare Apache Oozie con HDInsight](../hdinsight-use-oozie.md): Usare l'azione Sqoop in un flusso di lavoro Oozie.
+* [Usare Apache Oozie con HDInsight](../hdinsight-use-oozie-linux-mac.md): Usare l'azione Sqoop in un flusso di lavoro Oozie.
 * [Caricare dati in HDInsight](../hdinsight-upload-data.md): trovare altri metodi per il caricamento di dati in HDInsight o nell'archiviazione BLOB di Azure.
 

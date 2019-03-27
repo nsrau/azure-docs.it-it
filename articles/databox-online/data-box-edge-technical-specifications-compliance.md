@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: ab3d3a13f8bfa69bd9e13dae344cfbcc3731cc77
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 52fb32a8b34c62fe94ab35e2c051d996ab8bef10
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402593"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449194"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure specifiche tecniche bordo casella dei dati
 
@@ -57,9 +57,17 @@ Nella tabella seguente vengono elencate le dimensioni dello chassis in millimetr
 
 |     Chassis     |     Millimetri     |     Pollici     |
 |-------------------|---------------------|----------------|
-|    Altezza:         |    304.8            |    12          |
-|    Larghezza          |    660.4            |    26          |
-|    profondità          |    1041.4           |    41          |
+|    Altezza:         |    44.45            |    1.75"          |
+|    Larghezza          |    434.1           |    17.09"          |
+|    Length          |    740.4           |    29.15"          |
+
+La tabella seguente elenca le dimensioni del pacchetto di spedizione in millimetri e pollici.
+
+|     Pacchetto     |     Millimetri     |     Pollici     |
+|-------------------|---------------------|----------------|
+|    Altezza:         |    311.2            |    12.25"          |
+|    Larghezza          |    642.8          |    25.31"          |
+|    Length          |   1,051.1          |    41.38"          |
 
 ### <a name="enclosure-weight"></a>Peso chassis
 
@@ -67,8 +75,8 @@ Il pacchetto dispositivo pesa 66 servizi Location based. e richiede due persone 
 
 |     Chassis                                 |     Peso          |
 |-----------------------------------------------|---------------------|
-|    Peso totale tra le creazione di pacchetti       |    servizi Location based 66.          |
-|    Peso del dispositivo                       |    servizi Location based 48.3.        |
+|    Peso totale tra le creazione di pacchetti       |    servizi Location based 61.          |
+|    Peso del dispositivo                       |    servizi Location based di 35.          |
 
 ## <a name="enclosure-environment-specifications"></a>Specifiche ambientali dello chassis
 

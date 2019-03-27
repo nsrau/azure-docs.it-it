@@ -3,7 +3,7 @@ title: Selezionare immagini di VM Windows in Azure | Microsoft Docs
 description: Usare Azure PowerShell per determinare l'editore, l'offerta, lo SKU e la versione per le immagini di macchine virtuali del Marketplace.
 services: virtual-machines-windows
 documentationcenter: ''
-author: dlepow
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/25/2019
-ms.author: danlep
-ms.openlocfilehash: ebf4b413ecfbdf850f0d9e6ebc50f166e27bee0a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: cynthn
+ms.openlocfilehash: 20fd8a0bfccea579ddef5a605d65f5643d4849bd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081849"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500016"
 ---
 # <a name="find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Trovare immagini di macchine virtuali Windows in Azure Marketplace con Azure PowerShell
 
@@ -72,21 +72,21 @@ Quindi, per uno SKU selezionato, eseguire [Get-AzVMImage](https://docs.microsoft
 
     ```powershell
     $pubName="<publisher>"
-    Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+    Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
     ```
 
 3. Specificare il nome dell'offerta scelta ed elencare gli SKU:
 
     ```powershell
     $offerName="<offer>"
-    Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+    Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
     ```
 
 4. Specificare il nome dello SKU scelto e ottenere la versione dell'immagine:
 
     ```powershell
     $skuName="<SKU>"
-    Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+    Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
     ```
     
 Dall'output del comando `Get-AzVMImage` è possibile selezionare un'immagine di versione per distribuire una nuova macchina virtuale.
@@ -126,7 +126,7 @@ Per l'editore *MicrosoftWindowsServer*:
 
 ```powershell
 $pubName="MicrosoftWindowsServer"
-Get-AzVMImageOffer -Location $locName -Publisher $pubName | Select Offer
+Get-AzVMImageOffer -Location $locName -PublisherName $pubName | Select Offer
 ```
 
 Output:
@@ -143,7 +143,7 @@ Per l'offerta *WindowsServer*:
 
 ```powershell
 $offerName="WindowsServer"
-Get-AzVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
+Get-AzVMImageSku -Location $locName -PublisherName $pubName -Offer $offerName | Select Skus
 ```
 
 Output parziale:
@@ -174,7 +174,7 @@ Per lo SKU *2019-Datacenter*, quindi:
 
 ```powershell
 $skuName="2019-Datacenter"
-Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
+Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
 Ora è possibile combinare l'editore, l'offerta, lo SKU e la versione selezionati in un URN (valori separati da :). Passare questo URN con il parametro `--image` quando si crea una macchina virtuale con il cmdlet [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). È possibile sostituire il numero di versione nell'URN con "latest" per ottenere la versione più recente dell'immagine.
@@ -191,7 +191,7 @@ Ad esempio, l'immagine di *Windows Server 2016 Datacenter* non ha condizioni agg
 
 ```powershell
 $version = "2016.127.20170406"
-Get-AzVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
+Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
 Output:
@@ -216,7 +216,7 @@ DataDiskImages   : []
 L'esempio seguente mostra un comando analogo per l'immagine *Data Science Virtual Machine - Windows 2016*, che ha le proprietà `PurchasePlan` seguenti: `name`, `product` e `publisher`. Alcune immagini hanno anche una proprietà `promotion code`. Per distribuire questa immagine, vedere le sezioni seguenti per accettare le condizioni e abilitare la distribuzione a livello di codice.
 
 ```powershell
-Get-AzVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
+Get-AzVMImage -Location "westus" -PublisherName "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
 Output:

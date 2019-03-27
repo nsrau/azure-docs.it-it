@@ -1,6 +1,6 @@
 ---
-title: Individuazione dati e classificazione nel database SQL di Azure | Microsoft Docs
-description: Individuazione dati e classificazione nel database SQL di Azure
+title: Azure SQL Data Warehouse e Database SQL di individuazione dati e classificazione | Microsoft Docs
+description: Individuazione dati e Database SQL di Azure e classificazione
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -11,15 +11,15 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: ac52d8fa03c3c3ad1d618d014381fadfa752b7d7
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/22/2019
+ms.openlocfilehash: 74bd3af3e1ffd126f8cb4f2347e4566cc4708e25
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202980"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58495987"
 ---
-# <a name="azure-sql-database-data-discovery--classification"></a>Individuazione dati e classificazione nel database SQL di Azure
+# <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>Azure SQL Data Warehouse e Database SQL di individuazione dati e classificazione
 
 Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure per l'**individuazione**, la **classificazione**, l'**aggiunta di etichette**  & (e) la **protezione** dei dati sensibili presenti nei database.
 L'individuazione e la classificazione dei dati più sensibili (dati commerciali, finanziari e relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
@@ -28,10 +28,10 @@ L'individuazione e la classificazione dei dati più sensibili (dati commerciali,
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati riservati e rafforzare la sicurezza di questi.
 
-Individuazione dati e classificazione fa parte dell'offerta [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md) (ADS), un pacchetto unificato che raccoglie le funzionalità di sicurezza avanzate di SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
+Individuazione dati e classificazione fa parte del [protezione dati avanzata](sql-database-advanced-data-security.md) (ADS) offerta, che è un pacchetto unificato per la funzionalità di sicurezza avanzate SQL. È possibile accedere e gestire Individuazione dati e classificazione tramite il portale centrale di Sicurezza dei dati avanzata di SQL.
 
 > [!NOTE]
-> Questo documento si riferisce solo al database SQL di Azure. Per SQL Server (locale), vedere [individuazione dati di SQL e la classificazione](https://go.microsoft.com/fwlink/?linkid=866999).
+> Questo documento è correlato al Database SQL di Azure e Azure SQL Data Warehouse. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse. Per SQL Server (locale), vedere [individuazione dati di SQL e la classificazione](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Informazioni su Individuazione dati e classificazione
 

@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 0f0a22ea4a24a82cb4acf7a3b20a743ee7425c72
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: ac1c1c4ae21ebd184b833fe4d23084f7cf324d2c
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294910"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500475"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -98,7 +98,7 @@ Il passaggio successivo prevede la revisione dei file di log di esecuzione dei p
 
 ### <a name="access-the-hadoop-log-files"></a>Accedere ai file di log di Hadoop
 
-HDInsight archivia i file di log sia nel file system del cluster che in Archiviazione di Azure. È possibile esaminare i file di log del cluster aprendo un' [SSH](/hdinsight-hadoop-linux-use-ssh-unix.md) connessione al cluster e l'esplorazione del file system o usando il portale di Hadoop YARN Status sul server del nodo head remoto. È possibile esaminare i file di log in Archiviazione di Azure usando uno degli strumenti che consentono di accedere ai dati e di scaricarli da Archiviazione di Azure, Sono esempi [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)e Visual Studio Server Explorer. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
+HDInsight archivia i file di log sia nel file system del cluster che in Archiviazione di Azure. È possibile esaminare i file di log del cluster aprendo un' [SSH](hdinsight-hadoop-linux-use-ssh-unix.md) connessione al cluster e l'esplorazione del file system o usando il portale di Hadoop YARN Status sul server del nodo head remoto. È possibile esaminare i file di log in Archiviazione di Azure usando uno degli strumenti che consentono di accedere ai dati e di scaricarli da Archiviazione di Azure, Sono esempi [AzCopy](../storage/common/storage-use-azcopy.md), [CloudXplorer](http://clumsyleaf.com/products/cloudxplorer)e Visual Studio Server Explorer. È anche possibile usare PowerShell e le librerie client di Archiviazione di Azure o gli SDK di Azure .NET per accedere ai dati nell'archivio BLOB di Azure.
 
 Hadoop esegue i processi come *tentativi di attività* in diversi nodi del cluster. HDInsight può avviare tentativi di attività speculativi, terminando qualsiasi altro tentativo di attività non ancora completato. Viene così generata una significativa attività che viene immediatamente registrata nei file di log del controller, di stderr e di syslog. Vengono inoltre eseguiti simultaneamente più tentativi di attività, ma un file di log può visualizzare i risultati solo in modo lineare.
 

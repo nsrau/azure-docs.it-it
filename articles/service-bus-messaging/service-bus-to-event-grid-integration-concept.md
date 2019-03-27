@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: aschhab
-ms.openlocfilehash: 93c4fdd778f1dc3689de74c0144c513744f438c5
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8c33418a8de4510bd8e45487c2f97bd204750dec
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762417"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485100"
 ---
 # <a name="azure-service-bus-to-event-grid-integration-overview"></a>Panoramica dell'integrazione del bus di servizio di Azure in Griglia di eventi
 
@@ -152,9 +152,9 @@ az eventgrid event-subscription create --resource-id $namespaceid --name “<YOU
 
 ## <a name="powershell-instructions"></a>Istruzioni per PowerShell
 
-Verificare che sia installato Azure PowerShell, [Scaricare il programma di installazione](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps?view=azurermps-5.4.0). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
+Verificare che sia installato Azure PowerShell, [Scaricare il programma di installazione](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps). Premere **Windows + X** e quindi aprire una nuova console di PowerShell con autorizzazioni di amministratore. In alternativa è possibile usare una shell dei comandi nel portale di Azure.
 
-```PowerShell-interactive
+```powershell-interactive
 Connect-AzureRmAccount
 
 Select-AzureRmSubscription -SubscriptionName "<YOUR SUBSCRIPTION NAME>"

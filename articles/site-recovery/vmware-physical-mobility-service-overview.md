@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 6b06ee7710dedbf2283fc4e365b767aa57547e7c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: HT
+ms.openlocfilehash: 0e5e4e207542a74ef3fc5ff7fc78431b7956e54c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417820"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449249"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -43,7 +43,8 @@ Durante l'installazione push dell'agente di mobilità, vengono eseguiti i passag
 2. Dopo che l'agente è stato correttamente copiato i controlli dei prerequisiti del server vengono eseguiti nel server. Installazione non riesce se una o più i [prerequisiti](vmware-physical-azure-support-matrix.md) non vengono soddisfatti. Se tutti i prerequisiti sono soddisfatti, viene attivata l'installazione.
 3. Azure Site Recovery VSS provider è installato nel server come parte dell'installazione dell'agente di mobilità. Questo provider viene usato per generare i punti di coerenza dell'applicazione. Se si verifica un errore di installazione del provider servizio Copia shadow, questo passaggio verrà ignorato e l'installazione dell'agente continuerà.
 4. Se l'installazione dell'agente ha esito positivo ma l'installazione del provider VSS non riesce, lo stato del processo viene contrassegnato come "Warning". Ciò non influisce sulla generazione di punti di arresto anomalo del sistema della coerenza.
-    a. Per generare i punti di coerenza dell'applicazione, fare riferimento a [la linea guida prescrive](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) per completare l'installazione del provider di Site Recovery VSS manualmente.
+
+    a. Per generare i punti di coerenza dell'applicazione, fare riferimento a [la linea guida prescrive](vmware-physical-manage-mobility-service.md#install-site-recovery-vss-provider-on-source-machine) per completare l'installazione del provider di Site Recovery VSS manualmente. </br>
     b.  Se non si desidera che punti coerenti con l'applicazione da generare [modificare il criterio di replica](vmware-azure-set-up-replication.md#create-a-policy) disattivare punti coerente dell'applicazione.
 
 ### <a name="before-922-versions"></a>Prima di 9.22 versioni

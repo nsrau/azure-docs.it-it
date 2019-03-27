@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/15/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 777b3a8d414f0b785d908c37da98e987445ed96d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c54d2aef2d8e748e31bffcecef323c4806d15f60
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317460"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482056"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -96,6 +96,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 > Tutte le query dei metadati dell'istanza fanno distinzione tra maiuscole e minuscole.
 
 ### <a name="data-output"></a>Output dei dati
+
 Per impostazione predefinita, il Servizio metadati dell'istanza restituisce i dati in formato JSON (`Content-Type: application/json`). Tuttavia, API diverse restituiscono dati in formati diversi se necessario.
 La tabella seguente costituisce un riferimento per gli altri formati di dati che le API possono supportare.
 
@@ -111,7 +112,10 @@ Per accedere a un formato di risposta non predefinito, specificare il formato ri
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
 ```
 
-### <a name="security"></a>Sicurezza
+> [!NOTE]
+> Per i nodi foglia di `format=json` non funziona. Per queste query `format=text` deve essere specificata in modo esplicito se il formato predefinito è json.
+
+### <a name="security"></a>Security
 
 L'endpoint del Servizio metadati dell'istanza è accessibile solo dall'istanza della macchina virtuale in esecuzione su un indirizzo IP non instradabile. Inoltre, qualsiasi richiesta con intestazione `X-Forwarded-For` viene rifiutata dal servizio.
 È necessario anche che le richieste includano l'intestazione `Metadata: true` per garantire che la richiesta sia stata destinata direttamente e non faccia parte di un reindirizzamento non intenzionale.
@@ -123,8 +127,8 @@ In caso di elementi dati non trovati o di richiesta non valida, il Servizio meta
 Codice di stato HTTP | Motivo
 ----------------|-------
 200 - OK |
-400 - Richiesta non valida | Intestazione `Metadata: true` mancante
-404 - Non trovato | L'elemento richiesto non esiste 
+400 - Richiesta non valida | Missing `Metadata: true` intestazione o manca il formato quando si eseguono query di un nodo foglia
+404 - Non trovato | L'elemento richiesto non esiste
 405 - Metodo non consentito | Sono supportate solo le richieste `GET` e `POST`
 429 - Numero eccessivo di richieste | L'API supporta attualmente un massimo di 5 query al secondo
 500 - Errore del servizio     | Ripetere l'operazione in un secondo momento
@@ -503,12 +507,12 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Azure offre vari cloud sovrani, ad esempio [Azure per enti pubblici](https://azure.microsoft.com/overview/clouds/government/). In taluni casi, per alcune decisioni di runtime è necessario l'ambiente di Azure. L'esempio seguente illustra come è possibile ottenere questo comportamento.
 
 **Richiesta**
-``` bash
+```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnvironment?api-version=2018-10-01&format=text"
 ```
 
 **Risposta**
-```
+```bash
 AZUREPUBLICCLOUD
 ```
 
