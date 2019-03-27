@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/21/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d25963d44960ec3ab15fdee2c264c3bf18e26c2a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8183ac9241ab57150717eebd85267a33912f1660
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540569"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445438"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-client-credentials-flow"></a>Azure Active Directory v2.0 e il flusso di credenziali client OAuth 2.0
 
@@ -76,10 +76,10 @@ Per usare le autorizzazioni per le applicazioni nell'app, seguire i passaggi ill
 
 #### <a name="request-the-permissions-in-the-app-registration-portal"></a>Richiedere le autorizzazioni nel portale di registrazione dell'app
 
-1. Registrare e creare un'app tramite il [portale di registrazione delle applicazioni](quickstart-v2-register-an-app.md) o la nuova [esperienza Registrazioni app (anteprima)](quickstart-register-app.md).
-1. Passare all'applicazione nel portale usato per registrare o creare l'app. Sarà necessario usare almeno un segreto dell'applicazione durante la creazione dell'app.
-1. Individuare la sezione **Autorizzazioni API** e quindi aggiungere le **autorizzazioni dell'applicazione** richieste dall'app.
-1. **Salvare** la registrazione dell'app.
+1. Registrare e creare un'app tramite il nuovo [registrazioni per l'App (anteprima) esperienza](quickstart-register-app.md).
+2. Passare all'applicazione dell'esperienza di registrazioni (anteprima) per l'App. Passare al **certificati e i segreti** sezione e aggiungere un **nuovo segreto client**, perché sarà necessario usare almeno un segreto client per richiedere un token.
+3. Individuare la sezione **Autorizzazioni API** e quindi aggiungere le **autorizzazioni dell'applicazione** richieste dall'app.
+4. **Salvare** la registrazione dell'app.
 
 #### <a name="recommended-sign-the-user-in-to-your-app"></a>Consigliato: Connettere l'utente all'applicazione
 
@@ -172,7 +172,7 @@ curl -X POST -H "Content-Type: application/x-www-form-urlencoded" -d 'client_id=
 | `tenant` | Obbligatorio | Tenant di directory su cui l'applicazione intende agire, in formato di GUID o nome di dominio. |
 | `client_id` | Obbligatorio | ID applicazione assegnato all'app. È possibile trovare queste informazioni nel portale in cui è stata registrata l'app. |
 | `scope` | Obbligatorio | Il valore passato per il parametro `scope` nella richiesta deve essere l'identificatore della risorsa (URI ID applicazione) della risorsa desiderata, con l'aggiunta del suffisso `.default`. Per l'esempio di Microsoft Graph, il valore deve essere `https://graph.microsoft.com/.default`. </br>Questo valore indica all'endpoint 2.0 che, per tutte le autorizzazioni dirette dell'applicazione configurate per l'app, è necessario emettere un token per le autorizzazioni riguardanti la risorsa da usare. Per altre informazioni sull'ambito `/.default`, vedere la [documentazione relativa al consenso](v2-permissions-and-consent.md#the-default-scope). |
-| `client_secret` | Obbligatorio | Segreto dell'applicazione generato per l'app nel portale di registrazione. Prima di essere inviato, il segreto client deve essere codificato come URL. |
+| `client_secret` | Obbligatorio | Il segreto client generato per l'app nel portale di registrazione delle app. Prima di essere inviato, il segreto client deve essere codificato come URL. |
 | `grant_type` | Obbligatorio | Il valore deve essere impostato su `client_credentials`. |
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Secondo caso: richiesta del token di accesso con un certificato

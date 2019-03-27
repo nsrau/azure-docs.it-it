@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: jdial
-ms.openlocfilehash: bb26c7422dda42da93b5e5bebdabadb6809a6b09
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 45fbdac3c099b44f8f12a54f5bde147524f10458
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57843594"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482641"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Risolvere i problemi relativi alle connessioni con Azure Network Watcher usando l'API REST di Azure
 
@@ -44,7 +44,7 @@ Questo articolo presuppone che l'utente disponga delle risorse seguenti:
 
 Accedere ad armclient con le credenziali di Azure.
 
-```PowerShell
+```powershell
 armclient login
 ```
 

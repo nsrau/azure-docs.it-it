@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 4372045590938df701dd00e58a111215f6e8e56d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 76bf36f63051f02d6c37261799342f424609f9b2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369651"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442291"
 ---
 # <a name="authenticate-access-to-blobs-and-queues-with-managed-identities-for-azure-resources"></a>Autenticare l'accesso a BLOB e code con identità gestite per le risorse di Azure
 
@@ -22,8 +22,6 @@ Archiviazione di BLOB e coda di Azure supporta l'autenticazione con [identità g
 Per concedere autorizzazioni a un'identità gestita per un contenitore blob o una coda, si assegna un ruolo di controllo degli accessi in base al ruolo all'identità gestita che include le autorizzazioni per la risorsa nell'ambito appropriato. Per altre informazioni sui ruoli RBAC in archiviazione, vedere [Gestisci i diritti di accesso ai dati di archiviazione con RBAC](storage-auth-aad-rbac.md). 
 
 Questo articolo mostra come eseguire l'autenticazione in Archiviazione BLOB di Azure o Coda con un'identità gestita da una macchina virtuale di Azure.  
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="enable-managed-identities-on-a-vm"></a>Abilitare le identità gestite su una macchina virtuale
 
@@ -42,6 +40,8 @@ Prima di poter autenticare un'identità gestita dall'applicazione di Archiviazio
 ## <a name="get-a-managed-identity-access-token"></a>Ottenere token di accesso a un'identità gestita
 
 Per eseguire l'autenticazione con un'identità gestita, l'applicazione o lo script deve acquisire un token di accesso di identità gestita. Per informazioni su come acquisire un token di accesso, vedere [Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
+
+Per autorizzare le operazioni di BLOB e accodamento con un token OAuth, è necessario usare HTTPS.
 
 ## <a name="net-code-example-create-a-block-blob"></a>Esempio di codice .NET: Creare un BLOB in blocchi
 

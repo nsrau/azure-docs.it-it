@@ -8,19 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: d687665a7f9b18d42dcd45953c15d2fbc6d71d2f
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: e6913b1de0045f86667fdcea824ee4cc613c4bc3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335828"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497670"
 ---
 # <a name="text-to-speech-rest-api"></a>API REST di sintesi vocale
 
-I servizi voce consentono di convertire la sintesi vocale usando un'API REST. Ogni endpoint accessibile è associato a un'area. L'applicazione richiede una chiave di sottoscrizione per l'endpoint che si intende usare. L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali supporta a sua volta una lingua e una lingua regionale specifiche, identificate dalle impostazioni locali.
+I servizi voce consentono [convertire testo in sintesi vocale](#convert-text-to-speech) e [ottenere un elenco di voci supportati](#get-a-list-of-voices) per un'area con una serie di API REST. Ogni endpoint disponibile è associato a un'area. È necessaria una chiave di sottoscrizione per l'endpoint/area geografica che si intende usare.
+
+L'API REST Sintesi vocale supporta voci neurali e standard, ognuna delle quali supporta a sua volta una lingua e una lingua regionale specifiche, identificate dalle impostazioni locali.
 
 * Per un elenco completo delle voci, vedere [Supporto per le lingue](language-support.md#text-to-speech).
 * Per informazioni sulla disponibilità a livello di area, vedere [Aree](regions.md#text-to-speech).
@@ -34,15 +36,117 @@ Prima di usare questa API, comprendere:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-rest-auth.md)]
 
-## <a name="regions-and-endpoints"></a>Aree ed endpoint
+## <a name="get-a-list-of-voices"></a>Ottenere un elenco di voci
+
+Il `voices/list` endpoint consente di ottenere un elenco completo delle voci per un specificato area/endpoint.
+
+### <a name="regions-and-endpoints"></a>Aree ed endpoint
+
+| Region | Endpoint |
+|--------|----------|
+| Stati Uniti occidentali | https://westus.tts.speech.microsoft.com/cognitiveservices/voices/list  |
+| Stati Uniti occidentali 2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Stati Uniti orientali | https://eastus.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Stati Uniti Orientali 2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Asia orientale | https://eastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Asia sud-orientale | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Europa settentrionale | https://northeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+| Europa occidentale | https://westeurope.tts.speech.microsoft.com/cognitiveservices/voices/list |
+
+### <a name="request-headers"></a>Intestazioni della richiesta
+
+Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di sintesi vocale.
+
+| Intestazione | DESCRIZIONE | Obbligatoria / Facoltativa |
+|--------|-------------|---------------------|
+| `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | Obbligatorio |
+
+### <a name="request-body"></a>Corpo della richiesta
+
+Un corpo non è necessario per `GET` richieste a questo endpoint.
+
+### <a name="sample-request"></a>Richiesta di esempio
+
+Questa richiesta richiede solo un'intestazione di autorizzazione.
+
+```http
+GET /cognitiveservices/voices/list HTTP/1.1
+
+Host: westus.tts.speech.microsoft.com
+Authorization: Bearer [Base64 access_token]
+```
+
+### <a name="sample-response"></a>Risposta di esempio
+
+Questa risposta è stata troncata per illustrare la struttura di una risposta.
+
+> [!NOTE]
+> Disponibilità Voice dipende dalla regione/endpoint.
+
+```json
+[
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
+        "ShortName": "ar-EG-Hoda",
+        "Gender": "Female",
+        "Locale": "ar-EG"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ar-SA, Naayf)",
+        "ShortName": "ar-SA-Naayf",
+        "Gender": "Male",
+        "Locale": "ar-SA"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (bg-BG, Ivan)",
+        "ShortName": "bg-BG-Ivan",
+        "Gender": "Male",
+        "Locale": "bg-BG"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (ca-ES, HerenaRUS)",
+        "ShortName": "ca-ES-HerenaRUS",
+        "Gender": "Female",
+        "Locale": "ca-ES"
+    },
+    {
+        "Name": "Microsoft Server Speech Text to Speech Voice (cs-CZ, Jakub)",
+        "ShortName": "cs-CZ-Jakub",
+        "Gender": "Male",
+        "Locale": "cs-CZ"
+    },
+
+    ...
+
+]
+```
+
+### <a name="http-status-codes"></a>Codici di stato HTTP
+
+Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
+
+| Stato codice HTTP | DESCRIZIONE | Possibile motivo |
+|------------------|-------------|-----------------|
+| 200 | OK | La richiesta viene eseguita correttamente. |
+| 400 | Bad Request | Un parametro obbligatorio è mancante, vuoto o Null. In alternativa, il valore passato a un parametro obbligatorio o facoltativo non è valido. Un problema comune è la lunghezza eccessiva dell'intestazione. |
+| 401 | Non autorizzata | La richiesta non è autorizzata. Assicurarsi che la chiave di sottoscrizione o il token sia valido e nell'area corretta. |
+| 429 | Troppe richieste | È stata superata la quota o la frequenza di richieste consentite per la sottoscrizione. |
+| 502 | Gateway non valido | Problema di rete o lato server. Può anche indicare intestazioni non valide. |
+
+
+## <a name="convert-text-to-speech"></a>Conversione sintesi vocale
+
+Il `v1` endpoint consente di eseguire la conversione tramite sintesi vocale [linguaggio di Markup sintesi della voce (SSML)](speech-synthesis-markup.md).
+
+### <a name="regions-and-endpoints"></a>Aree ed endpoint
 
 Queste aree sono supportate per la trascrizione vocale usando l'API REST. Assicurarsi di selezionare l'endpoint corrispondente all'area della propria sottoscrizione.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-## <a name="request-headers"></a>Intestazioni della richiesta
+### <a name="request-headers"></a>Intestazioni della richiesta
 
-Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di riconoscimento vocale.
+Questa tabella elenca le intestazioni obbligatorie e facoltative per le richieste di sintesi vocale.
 
 | Intestazione | DESCRIZIONE | Obbligatoria / Facoltativa |
 |--------|-------------|---------------------|
@@ -51,7 +155,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 | `X-Microsoft-OutputFormat` | Specifica il formato di output audio. Per un elenco completo dei valori accettati, vedere [output audio](#audio-outputs). | Obbligatorio |
 | `User-Agent` | Il nome applicazione. Il valore fornito deve essere minore di 255 caratteri. | Obbligatorio |
 
-## <a name="audio-outputs"></a>Output audio
+### <a name="audio-outputs"></a>Output audio
 
 Questo è un elenco dei formati audio supportati che vengono inviati in ogni richiesta come intestazione `X-Microsoft-OutputFormat`. Ognuno incorpora una velocità in bit e il tipo di codifica. I servizi di riconoscimento vocale supporta 24 KHz, KHz 16, e gli output audio 8 KHz.
 
@@ -68,14 +172,14 @@ Questo è un elenco dei formati audio supportati che vengono inviati in ogni ric
 > [!NOTE]
 > Se la voce selezionata e il formato di output hanno velocità in bit diverse, il campionamento audio viene ripetuto secondo necessità. Tuttavia, le voci a 24 kHz non supportano i formati di output `audio-16khz-16kbps-mono-siren` e `riff-16khz-16kbps-mono-siren`.
 
-## <a name="request-body"></a>Corpo della richiesta
+### <a name="request-body"></a>Corpo della richiesta
 
 Il corpo di ogni richiesta `POST` viene inviato come [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML consente di scegliere la voce e la lingua della sintesi vocale restituita dal servizio di sintesi vocale. Per un elenco completo delle voci supportate, consultare [Supporto per le lingue](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Se si usa una voce personalizzata, il corpo della richiesta può essere inviato come testo normale (ASCII o UTF-8).
 
-## <a name="sample-request"></a>Richiesta di esempio
+### <a name="sample-request"></a>Richiesta di esempio
 
 Questa richiesta HTTP utilizza SSML per specificare la lingua e la voce. Il corpo non può superare i 1000 caratteri.
 
@@ -100,7 +204,7 @@ Vedere le guide introduttive per esempi specifici del linguaggio:
 * [Python](quickstart-python-text-to-speech.md)
 * [Node.js](quickstart-nodejs-text-to-speech.md)
 
-## <a name="http-status-codes"></a>Codici di stato HTTP
+### <a name="http-status-codes"></a>Codici di stato HTTP
 
 Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 

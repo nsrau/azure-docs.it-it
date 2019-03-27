@@ -3,7 +3,7 @@ title: Interrompere l'uso dell'estensione di VM identità gestita e iniziare a u
 description: Eseguire un'istruzione per istruzioni dettagliate per interrompere l'uso dell'estensione VM e iniziare a usare il servizio metadati di Azure istanza (IMDS) per l'autenticazione.
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
-ms.author: priyamo
-ms.openlocfilehash: c29eb22f2606fc44cfd7d948f2c363cb51c811dd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.author: markvi
+ms.openlocfilehash: 5b3c6c99b05320ee53c3ff49f5c299650c32e939
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227617"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498333"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Come interrompere l'uso della macchina virtuale gestiti estensione delle identità e iniziare a usare servizio metadati dell'istanza di Azure
 
@@ -196,7 +196,7 @@ Esistono alcune limitazioni principali per l'uso dell'estensione macchina virtua
 
 ## <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
-Il [servizio metadati dell'istanza di Azure (IMDS)](https://docs.microsoft.com/azure/virtual-machines/instance-metadata-service) è un endpoint REST che fornisce informazioni sull'esecuzione di istanze di macchina virtuale che possono essere utilizzate per gestire e configurare le macchine virtuali. L'endpoint è disponibile presso un indirizzo IP non instradabile noto (`169.254.169.254`) che è accessibile solo dall'interno della macchina virtuale.
+Il [servizio metadati dell'istanza di Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) è un endpoint REST che fornisce informazioni sull'esecuzione di istanze di macchina virtuale che possono essere utilizzate per gestire e configurare le macchine virtuali. L'endpoint è disponibile presso un indirizzo IP non instradabile noto (`169.254.169.254`) che è accessibile solo dall'interno della macchina virtuale.
 
 Esistono diversi vantaggi rispetto all'utilizzo di servizio metadati dell'istanza di Azure per richiedere token. 
 

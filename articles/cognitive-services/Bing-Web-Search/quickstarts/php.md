@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-web-search
 ms.topic: quickstart
-ms.date: 02/12/2019
+ms.date: 03/12/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 1a02862d3ea2e17cfa25a2a2d96e1454699ae7f1
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ba132adc6b0fd2b8423a7bce30ad6d52fccc898e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56166284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858202"
 ---
 # <a name="quickstart-use-php-to-call-the-bing-web-search-api"></a>Guida introduttiva: Usare PHP per chiamare l'API Ricerca Web Bing  
 
-Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Node.js invia una richiesta di ricerca all'API e visualizza la risposta. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
+Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca Web Bing e ricevere la risposta JSON. Questa applicazione Node.js invia una richiesta di ricerca all'API e mostra la risposta. L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare di avere quanto segue:
 
-* [PHP 5.6.x](http://php.net/downloads.php) o versione successiva
+* [PHP 5.6.x](https://php.net/downloads.php) o versione successiva
 * Una chiave di sottoscrizione  
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
@@ -34,11 +35,11 @@ Prima di eseguire i passaggi illustrati in questa guida introduttiva, verificare
 
 Prima di iniziare, individuare `php.ini` e rimuovere il carattere di commento da questa riga:
 
-```
-;extension=php_openssl.dll
+```php
+; extension=php_openssl.dll
 ```
 
-## <a name="create-a-project-and-define-variables"></a>Creare un progetto e definire le variabili  
+## <a name="create-a-project-and-define-variables"></a>Creare un progetto e definire le variabili
 
 Creare un nuovo progetto PHP nell'ambiente di sviluppo integrato o nell'editor preferito. Non dimenticare di aggiungere i tag di apertura e chiusura `<?php` e `?>`.
 

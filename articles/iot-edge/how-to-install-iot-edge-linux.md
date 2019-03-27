@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 398b984f4d97005fdc4d749f3fe072423cc5bbd7
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1d1e0f100a90c28bd7469991dee559abcd88f9a2
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309299"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499472"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-linux-x64"></a>Installare il runtime di Azure IoT Edge in Linux (x64)
 
@@ -23,7 +23,7 @@ Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un disposit
 
 Per altre informazioni, vedere [informazioni sul runtime di Azure IoT Edge e la relativa architettura](iot-edge-runtime.md).
 
-Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge in Linux x64 (Intel/AMD) dispositivo IoT Edge. Fare riferimento a [supporto tecnico di Azure IoT Edge](support.md#operating-systems) per un elenco di sistemi operativi AMD64.
+Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge in Ubuntu Linux x64 (Intel/AMD) dispositivo IoT Edge. Fare riferimento a [supporto tecnico di Azure IoT Edge](support.md#operating-systems) per un elenco di sistemi operativi AMD64.
 
 > [!NOTE]
 > I pacchetti disponibili nei repository di software Linux sono soggetti alle condizioni di licenza indicate in ogni pacchetto (/usr/share/doc/*nome-pacchetto*). Prima di usare il pacchetto, leggere le condizioni di licenza. L'installazione e l'uso del pacchetto costituiscono accettazione di tali condizioni. Se non si accettano le condizioni di licenza, non usare il pacchetto.
@@ -33,11 +33,22 @@ Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge in
 Preparare il dispositivo di IoT Edge installazione del runtime.
 
 
-Installare la configurazione del repository. Sostituire **\<rilascio\>** con **16.04** oppure **18.04** come appropriato per il rilascio di Ubuntu.
+Installare la configurazione del repository. Scegliere il **16.04** oppure **18.04** frammento di codice come appropriato per il rilascio di Ubuntu.
 
+> [!IMPORTANT]
+> Assicurarsi di che scegliere il frammento di codice nella finestra di codice corretto per la versione di Ubuntu.
+
+* Per la **Ubuntu 16.04**:
    ```bash
-   curl https://packages.microsoft.com/config/ubuntu/<release>/prod.list > ./microsoft-prod.list
+   curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list > ./microsoft-prod.list
    ```
+
+* Per la **Ubuntu 18.04**:
+   ```bash
+   curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list > ./microsoft-prod.list
+   ```
+   
+Installare la configurazione del repository. Scegliere il **16.04** oppure **18.04** frammento di codice come appropriato per il rilascio di Ubuntu.
 
 Copiare l'elenco generato.
 

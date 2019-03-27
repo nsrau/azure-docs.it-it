@@ -3,7 +3,7 @@ title: Generare eventi di log da un'app .NET Service Fabric in Azure o da un clu
 description: Informazioni su come aggiungere la registrazione all'applicazione .NET Service Fabric ospitata in un cluster di Azure o in un cluster autonomo.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: srrengar
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/27/2018
-ms.author: ryanwi
-ms.openlocfilehash: 0e5cfa42eba5a2110ebf8879c771f2fef048ae03
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: srrengar
+ms.openlocfilehash: 04eb3a0f46cbf02f1e8e3aca687f5d425792ed76
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835714"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499761"
 ---
 # <a name="add-logging-to-your-service-fabric-application"></a>Aggiungere la registrazione all'applicazione di Service Fabric
 

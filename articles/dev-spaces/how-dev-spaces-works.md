@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Vengono descritti i processi che spazi di sviluppo di Azure power e come vengono configurate nel file di configurazione azds.yaml
 keywords: azds.yaml, Azure Dev spazi Dev, Docker, Kubernetes, Azure, AKS, contenitori di Azure Kubernetes Service
-ms.openlocfilehash: b6f178628961001c4022ffc86bc13ee0e529e3c4
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438972"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500560"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Il funzionamento degli spazi di sviluppo di Azure e viene configurato
 
@@ -96,7 +96,7 @@ Quando gli spazi di sviluppo di Azure è abilitato nel cluster AKS, viene instal
 * Rimuove qualsiasi spazio dei nomi Kubernetes denominato *azds*, se presente e ne crea uno nuovo.
 * Consente di distribuire un oggetto di inizializzazione di Kubernetes.
 
-! [Azure Dev spazi preparare cluster]] (media/how-dev-spaces-works/prepare-cluster.svg)
+![Spazi di sviluppo Azure preparazione cluster](media/how-dev-spaces-works/prepare-cluster.svg)
 
 Per usare Azure Dev spazi, deve esistere almeno uno spazio di sviluppo. Spazi di sviluppo Azure Usa gli spazi dei nomi Kubernetes all'interno del cluster servizio contenitore di AZURE per gli spazi di sviluppo. Quando viene installato un controller, viene richiesto di creare un nuovo spazio dei nomi Kubernetes o sceglierne uno spazio dei nomi esistente da utilizzare come il primo spazio di sviluppo. Quando uno spazio dei nomi verrà designato come uno spazio di sviluppo, il controller aggiunge il *azds.io/space=true* etichetta allo spazio dei nomi per identificarla come uno spazio di sviluppo. Lo spazio di sviluppo iniziale è creare o designare è selezionato per impostazione predefinita, dopo aver preparato il cluster. Quando viene selezionato uno spazio, viene utilizzato da spazi di sviluppo di Azure per la creazione di nuovi carichi di lavoro.
 

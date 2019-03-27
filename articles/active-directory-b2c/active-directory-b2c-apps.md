@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 116abd259d11e66be2dc158d833c569f06aaa923
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 5324f1ed92ae4513dcd877853cb6fa2f4c7dd8f3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446376"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497959"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Tipi di applicazioni che possono essere usate in Active Directory B2C
 
@@ -108,7 +108,7 @@ Per informazioni su come proteggere un'API Web con Azure AD B2C, vedere le eserc
 
 Le applicazioni installate nei dispositivi, ad esempio le applicazioni desktop e per dispositivi mobili, devono spesso accedere a servizi back-end o ad API Web per conto degli utenti. È possibile aggiungere esperienze personalizzate di gestione delle identità alle applicazioni native ed eseguire chiamate sicure ai servizi back-end usando Azure AD B2C e il [flusso del codice di autorizzazione OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
-In questo flusso l'applicazione esegue i [criteri](active-directory-b2c-reference-policies.md) e riceve un `authorization_code` da Azure AD dopo che l'utente ha completato i criteri. L'oggetto `authorization_code` rappresenta l'autorizzazione dell'applicazione a chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'applicazione può quindi scambiare l'oggetto `authorization_code` in background con un `id_token` e un `refresh_token`.  L'applicazione può usare l'oggetto `id_token` per eseguire l'autenticazione a un'API Web back-end nelle richieste HTTP. Può anche usare `refresh_token` per ottenere un nuovo `id_token` alla scadenza di quello precedente.
+In questo flusso l'applicazione esegue i [criteri](active-directory-b2c-reference-policies.md) e riceve un `authorization_code` da Azure AD dopo che l'utente ha completato i criteri. L'oggetto `authorization_code` rappresenta l'autorizzazione dell'applicazione a chiamare servizi back-end per conto dell'utente che ha eseguito l'accesso. L'applicazione può quindi scambiare l'oggetto `authorization_code` in background con un `access_token` e un `refresh_token`.  L'applicazione può usare l'oggetto `access_token` per eseguire l'autenticazione a un'API Web back-end nelle richieste HTTP. Può anche usare `refresh_token` per ottenere un nuovo `access_token` alla scadenza di quello precedente.
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 

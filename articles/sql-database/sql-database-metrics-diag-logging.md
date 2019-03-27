@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: da7dfdb1217e41b7dcb7c7fb6ade55c33488e54b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372608"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499326"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -88,9 +88,16 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 | :------------------- | ------------------- |
 | **Pool elastico** | [Tutte le metriche](sql-database-metrics-diag-logging.md#all-metrics) contiene percentuale eDTU/CPU, limite eDTU/CPU, limite eDTU, percentuale lettura dati fisici, percentuale scrittura log, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, limite di archiviazione, percentuale di archiviazione XTP. |
 
+Per configurare il flusso di dati di telemetria di diagnostica per i pool elastici e database in pool elastici, è necessario configurarle separatamente **entrambi** delle operazioni seguenti:
+
+- Abilitare il flusso di dati di telemetria di diagnostica per un pool elastico, **e**
+- Abilitare il flusso di dati di telemetria di diagnostica per ogni database nel pool elastico
+
+Questo avviene perché il pool elastico è un contenitore di database con la propria telemetria viene separata dai dati di telemetria singolo database.
+
 Per abilitare il flusso di dati di telemetria della diagnostica per una risorsa di pool elastico, procedere come segue:
 
-1. Passare alla risorsa di pool elastico nel portale di Azure.
+1. Andare alla **pool elastico** risorsa nel portale di Azure.
 1. Selezionare **Impostazioni di diagnostica**.
 1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
 
@@ -100,9 +107,9 @@ Per abilitare il flusso di dati di telemetria della diagnostica per una risorsa 
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per analitica di log, selezionare **Configure** e creare una nuova area di lavoro selezionando **+ Crea nuova area di lavoro**, oppure selezionare un'area di lavoro.
 1. Selezionare la casella di controllo per la telemetria di diagnostica del pool elastico: **AllMetrics**.
-1. Selezionare **Salva**.
-
    ![Configurare la diagnostica per i pool elastici](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+1. Selezionare **Salva**.
+1. Inoltre, configurare il flusso di dati di telemetria di diagnostica per ogni database all'interno del pool elastico che si desidera monitorare, seguendo i passaggi descritti nella sezione successiva.
 
 > [!IMPORTANT]
 > Oltre alla configurazione della telemetria di diagnostica per un pool elastico, è anche necessario configurare i dati di telemetria di diagnostica per ogni database nel pool elastico, come descritto di seguito. 
@@ -111,9 +118,9 @@ Per abilitare il flusso di dati di telemetria della diagnostica per una risorsa 
 
    ![Icona del database SQL](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
-Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica per i database singoli, in pool o di istanza, seguire questa procedura:
+Per abilitare il flusso di dati di telemetria di diagnostica per i database singolo o in pool, seguire questa procedura:
 
-1. Passare alla risorsa di database SQL di Azure.
+1. Passare ad Azure **database SQL** risorsa.
 1. Selezionare **Impostazioni di diagnostica**.
 1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
    - È possibile creare fino a tre connessioni parallele per lo streaming dei dati di telemetria diagnostica.
@@ -124,9 +131,9 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per l'esperienza di monitoraggio standard, basato su eventi, selezionare le caselle di controllo seguenti per la telemetria dei log di diagnostica del database: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errori**, **DatabaseWaitStatistics**, **Timeout**, **Blocchi** e **Deadlock**.
 1. Per un'esperienza di monitoraggio avanzata, basata su 1 minuto, selezionare la casella di controllo **AllMetrics**.
+   ![Configurare la diagnostica per un singolo, in pool o i database dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selezionare **Salva**.
-
-   ![Configurare la diagnostica per i database singoli, in pool o di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+1. Ripetere questi passaggi per ogni database che si desidera monitorare.
 
 > [!NOTE]
 > Non è possibile abilitare i log dei controlli di sicurezza dalle impostazioni di diagnostica del database. Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
@@ -143,9 +150,16 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 | :------------------- | ------------------- |
 | **Istanza gestita** | ResourceUsageStats contiene il numero di Vcore, Percentuale CPU Media, le richieste dei / o, byte letti/scritti, riservato spazio e spazio di archiviazione usato. |
 
+Per configurare il flusso di dati di telemetria di diagnostica per istanza gestita e i database di istanza, è necessario configurarle separatamente **entrambi** delle operazioni seguenti:
+
+- Abilitare il flusso di dati di telemetria di diagnostica per l'istanza gestita, **e**
+- Abilitare lo streaming dei dati di telemetria di diagnostica per ogni database dell'istanza
+
+Questo avviene perché istanza gestita è un contenitore di database con la propria telemetria viene separata dalla telemetria del database singola istanza.
+
 Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica per una risorsa di istanza gestita, seguire questa procedura:
 
-1. Passare alla risorsa di istanza gestita nel portale di Azure.
+1. Andare alla **istanza gestita** risorsa nel portale di Azure.
 1. Selezionare **Impostazioni di diagnostica**.
 1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
 
@@ -155,9 +169,9 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per analitica di log, selezionare **Configure** e creare una nuova area di lavoro selezionando **+ Crea nuova area di lavoro**, oppure usare un'area di lavoro.
 1. Selezionare la casella di controllo per la telemetria di diagnostica dell'istanza: **ResourceUsageStats**.
-1. Selezionare **Salva**.
-
    ![Configurare la diagnostica per l'istanza gestita](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+1. Selezionare **Salva**.
+1. Inoltre, configurare il flusso di dati di telemetria di diagnostica per ogni database dell'istanza all'interno dell'istanza gestita che si desidera monitorare, seguendo i passaggi descritti nella sezione successiva.
 
 > [!IMPORTANT]
 > Oltre alla configurazione della telemetria di diagnostica per un'istanza gestita, è anche necessario configurare i dati di telemetria di diagnostica per ogni database dell'istanza, come descritto di seguito. 
@@ -168,20 +182,20 @@ Per abilitare la trasmissione del flusso di dati di telemetria della diagnostica
 
 Per abilitare il flusso di dati di telemetria di diagnostica, ad esempio database, seguire questa procedura:
 
-1. Passare al database di istanza nell'istanza gestita.
-2. Selezionare **Impostazioni di diagnostica**.
-3. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
+1. Passare a **database dell'istanza** risorsa all'interno di istanza gestita.
+1. Selezionare **Impostazioni di diagnostica**.
+1. Selezionare **Abilita diagnostica** se non ci sono impostazioni precedenti oppure selezionare **Modifica l'impostazione** per modificare un'impostazione precedente.
    - È possibile creare fino a tre (3) connessioni parallele per lo streaming dei dati di telemetria diagnostica.
    - Selezionare **+Add diagnostic setting** (Aggiungi impostazione di diagnostica) per configurare flussi paralleli di dati di diagnostica in più risorse.
 
    ![Abilitare la diagnostica per i database di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-4. Immettere un nome di impostazione per il proprio riferimento.
-5. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
-6. Selezionare le caselle di controllo per i dati di telemetria della diagnostica del database: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **Errori**.
-7. Selezionare **Salva**.
-
-   ![Configurare la diagnostica per i database di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+1. Immettere un nome di impostazione per il proprio riferimento.
+1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
+1. Selezionare le caselle di controllo per i dati di telemetria della diagnostica del database: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **Errori**.
+   ![Configurare la diagnostica, ad esempio i database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+1. Selezionare **Salva**.
+1. Ripetere questi passaggi per ogni database dell'istanza che si desidera monitorare.
 
 > [!TIP]
 > Ripetere questi passaggi per ogni database dell'istanza che si desidera monitorare.
@@ -388,7 +402,7 @@ Se si usa Analisi SQL di Azure, è possibile monitorare il consumo di inseriment
 
 ## <a name="metrics-and-logs-available"></a>Le metriche e i log disponibili
 
-I dati di telemetria di monitoraggio raccolti possono essere usati per _l'analisi personalizzata_ e _lo sviluppo di applicazioni_ mediante il [linguaggio di Analisi SQL](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries).
+Monitoraggio dati di telemetria disponibili per il Database SQL di Azure, i pool elastici e istanza gestita è documentato di seguito. Monitoraggio dati di telemetria raccolti all'interno di SQL Analitica può essere utilizzato per il proprio analisi personalizzate e lo sviluppo di applicazioni tramite [query di log di monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) language.
 
 ## <a name="all-metrics"></a>Tutte le metriche
 

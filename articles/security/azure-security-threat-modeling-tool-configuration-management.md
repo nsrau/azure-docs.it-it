@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bd1d3c71660ae584b0aa57c7cc765fdc519f4b1b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284d0e888b89d340088f770af22c026a861a4685
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863594"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498384"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastruttura di sicurezza: Gestione della configurazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -85,7 +85,7 @@ Example: var str="alert(1)"; eval(str);
 | **Fase SDL**               | Compilare |  
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
-| **Riferimenti**              | [Panoramica sul debug di ASP.NET](https://msdn2.microsoft.com/library/ms227556.aspx), [Panoramica sull'analisi di ASP.NET](https://msdn2.microsoft.com/library/bb386420.aspx), [Informazioni su come: Abilitare l’analisi per un'applicazione ASP.NET](https://msdn2.microsoft.com/library/0x5wc973.aspx), [Informazioni su come: Abilitare il debug per applicazioni ASP.NET](https://msdn2.microsoft.com/library/e8z01xdh(VS.80).aspx) |
+| **Riferimenti**              | [Panoramica sul debug di ASP.NET](https://msdn.microsoft.com/library/ms227556.aspx), [Panoramica sull'analisi di ASP.NET](https://msdn.microsoft.com/library/bb386420.aspx), [Informazioni su come: Abilitare l’analisi per un'applicazione ASP.NET](https://msdn.microsoft.com/library/0x5wc973.aspx), [Informazioni su come: Abilitare il debug per applicazioni ASP.NET](https://msdn.microsoft.com/library/e8z01xdh(VS.80).aspx) |
 | **Passaggi** | Quando l'analisi viene abilitata per la pagina, ogni browser che la richiede ottiene anche le informazioni di analisi contenenti i dati sul flusso di lavoro e sullo stato del server interno. Tali informazioni possono essere relative alla sicurezza. Quando il debug viene abilitato per la pagina, gli errori che si verificano sul server restituiscono dati di analisi dello stack completa presentati al browser. Tali dati possono esporre informazioni relative alla sicurezza sul flusso di lavoro del server. |
 
 ## <a id="js-trusted"></a>Accedere a contenuto JavaScript di terze parti solo da origini attendibili

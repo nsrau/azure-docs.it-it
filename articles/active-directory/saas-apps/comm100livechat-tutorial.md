@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0340d7f3-ab54-49ef-b77c-62a0efd5d49c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 873b9d89889317a5c406313811c74286caf7d0e1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 203c082275dc75a7dcf948eb42a383300955f355
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882043"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858100"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-comm100-live-chat"></a>Esercitazione: Integrazione di Azure Active Directory con Comm100 Live Chat
 
@@ -154,29 +154,29 @@ Per configurare l'accesso Single Sign-On di Azure AD con Comm100 Live Chat, segu
 
 ### <a name="configure-comm100-live-chat-single-sign-on"></a>Configurare l'accesso Single Sign-On per Comm100 Live Chat
 
-9. In un'altra finestra del Web browser accedere a Comm100 Live Chat come amministratore della sicurezza.
+1. In un'altra finestra del Web browser accedere a Comm100 Live Chat come amministratore della sicurezza.
 
-10. Fare clic su **Account personale** in alto a destra.
+1. Fare clic su **Account personale** in alto a destra.
 
-    ![Account personale in Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
+   ![Account personale in Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_account.png)
 
-11. A sinistra nel menu fare clic su **Security** (Sicurezza) e quindi su **Agent Single Sign-On** (Agente Single Sign-On).
+1. A sinistra nel menu fare clic su **Security** (Sicurezza) e quindi su **Agent Single Sign-On** (Agente Single Sign-On).
 
-    ![Sicurezza in Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
+   ![Sicurezza in Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_security.png)
 
-12. Nella pagina **Agent Single Sign-On** (Agente Single Sign-On) seguire questa procedura:
+1. Nella pagina **Agent Single Sign-On** (Agente Single Sign-On) seguire questa procedura:
 
-    ![Sicurezza in Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
+   ![Sicurezza in Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_singlesignon.png)
 
-    a. Copiare il primo collegamento evidenziato e incollarlo nella casella di testo **URL accesso** nella sezione **URL e dominio Comm100 Live Chat** del portale di Azure.
+   a. Copiare il primo collegamento evidenziato e incollarlo nella casella di testo **URL accesso** nella sezione **URL e dominio Comm100 Live Chat** del portale di Azure.
 
-    b. Nella casella di testo **SAML SSO URL** (URL SSO SAML) incollare il valore di **URL di accesso** copiato dal portale di Azure.
+   b. Nella casella di testo **SAML SSO URL** (URL SSO SAML) incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo **Remote Logout URL** (URL di disconnessione remota) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
+   c. Nella casella di testo **Remote Logout URL** (URL di disconnessione remota) incollare il valore di **URL di disconnessione** copiato dal portale di Azure.
 
-    d. Fare clic su **Choose a File** (Scegli un file) per caricare il certificato codificato in base 64 scaricato dal portale di Azure in **Certificate** (Certificato).
+   d. Fare clic su **Choose a File** (Scegli un file) per caricare il certificato codificato in base 64 scaricato dal portale di Azure in **Certificate** (Certificato).
 
-    e. Fare clic su **Save Changes** (Salva modifiche).
+   e. Fare clic su **Save Changes** (Salva modifiche).
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
 
@@ -196,7 +196,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -249,7 +249,7 @@ Per consentire agli utenti di Azure AD di accedere a Comm100 Live Chat, è neces
 
     ![Nuovo agente in Comm100 Live Chat](./media/comm100livechat-tutorial/tutorial_comm100livechat_newagent.png)
 
-    a. a. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon@contoso.com**.
+    a. a. Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **Brittasimon\@contoso.com**.
 
     b. Nella casella di testo **First Name** (Nome) immettere il nome dell'utente, ad esempio **Britta**.
 

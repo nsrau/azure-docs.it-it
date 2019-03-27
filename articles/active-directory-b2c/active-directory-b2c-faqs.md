@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 12b8fc2fb8df7fd730e220a3c1b60097ed7748a2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433723"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499897"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>AAD B2C: Domande frequenti 
 Questa pagina include le risposte alle domande frequenti relative ad Azure Active Directory (Azure AD) B2C. Controllarla costantemente per eventuali aggiornamenti.
@@ -113,7 +113,8 @@ No, per il momento. Questa funzionalità verrà implementata in futuro. Questo n
 ### <a name="how-do-i-delete-my-azure-ad-b2c-tenant"></a>Come si elimina il tenant di Azure AD B2C?
 Attenersi a questa procedura per eliminare il tenant di Azure AD B2C:
 
-1. Eliminare tutti i criteri nel tenant di Azure AD B2C.
+1. Eliminare tutti i flussi utente, criteri, nel tenant di Azure AD B2C.
+1. Eliminare tutte le applicazioni che è registrato nel tenant di Azure AD B2C.
 1. Ora accedere al [portale di Azure](https://portal.azure.com/) come amministratore della sottoscrizione. Usare lo stesso account aziendale o dell'istituto d'istruzione o lo stesso account Microsoft usato per l'iscrizione ad Azure.
 1. Passare al tenant di Azure AD B2C che si vuole eliminare.
 2. Passare al menu Active Directory a sinistra.

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 22d270d9bc337b9d7ad776baf5dd35f877c05eae
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b5ace2e741f900dd4ab7ba6518d0956284af35f6
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55856428"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498232"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Creare una parola di attivazione personalizzata usando il servizio Voce
 
@@ -47,25 +47,21 @@ Quando si sceglie una parola di attivazione, tenere presente le linee guida segu
 
 ## <a name="create-your-wake-word"></a>Creare la parola di attivazione
 
-Per usare una parola di attivazione personalizzata con il dispositivo, è necessario prima crearla usando il servizio Microsoft Custom Wake Word Generation. Dopo aver fornito una parola di attivazione, il servizio genera un file da distribuire nel kit di sviluppo per abilitare la parola di attivazione sul dispositivo.
+Per usare una parola di attivazione personalizzata con il dispositivo, è necessario prima crearla usando il servizio Microsoft Custom Wake Word Generation. Dopo aver specificato una parola di riattivazione, il servizio genera un file che viene distribuito il kit di sviluppo per abilitare la riattivazione word nel dispositivo.
 
-1. Andare al [portale del Servizio di riconoscimento vocale personalizzato](https://cris.ai/).
+1. Andare alla [portale di servizi di riconoscimento vocale personalizzato](https://cris.ai/).
 
-1. Creare un nuovo account con l'indirizzo di posta elettronica che ha ricevuto l'invito per Azure Active Directory.
+    ![Il portale di servizi di riconoscimento vocale personalizzato](media/speech-devices-sdk/wake-word-4.png)
 
-    ![Creare un nuovo account](media/speech-devices-sdk/wake-word-1.png)
+1. Accedere con l'indirizzo di posta elettronica che ha ricevuto l'invito per Azure Active Directory.
 
-1. Poiché la pagina **Custom Wake Word** (Parola di attivazione personalizzata) non è disponibile per il pubblico, non sono presenti collegamenti diretti per accedervi. La funzionalità di riconoscimento vocale personalizzato richiede una sottoscrizione ad Azure, al contrario della funzionalità che permette di creare una parola di attivazione personalizzata. Se si visualizza il messaggio di errore **No Subscriptions found** (Non sono state trovate sottoscrizioni), sostituire semplicemente **"Subscriptions?errorMessage=No%20Subscriptions%20found"** con "**customkws**" nell'URL e premere INVIO. L'URL deve corrispondere a uno dei seguenti: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws o https://northeurope.cris.ai/customkws, a seconda della propria regione.
-
-    ![La pagina Custom Wake Word è nascosta](media/speech-devices-sdk/wake-word-4.png)
+1. Poiché la pagina **Custom Wake Word** (Parola di attivazione personalizzata) non è disponibile per il pubblico, non sono presenti collegamenti diretti per accedervi. La funzionalità di riconoscimento vocale personalizzato richiede una sottoscrizione di Azure, ma non la funzionalità personalizzata riattivazione Word. Se si visualizza il messaggio di errore **No Subscriptions found** (Non sono state trovate sottoscrizioni), sostituire semplicemente **"Subscriptions?errorMessage=No%20Subscriptions%20found"** con "**customkws**" nell'URL e premere INVIO. L'URL deve corrispondere a uno dei seguenti: https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws o https://northeurope.cris.ai/customkws, a seconda della propria regione.
 
 1. Digitare la parola di attivazione scelta, quindi selezionare **Submit the word** (Invia parola).
 
     ![Immettere la parola di attivazione](media/speech-devices-sdk/wake-word-5.png)
 
 1. La generazione dei file può richiedere alcuni minuti. Verrà visualizzato un cerchio rotante nella finestra del browser. Poco dopo viene visualizzata una barra delle informazioni con la richiesta di scaricare un file ZIP.
-
-    ![Ricezione del file ZIP](media/speech-devices-sdk/wake-word-6.png)
 
 1. Salvare il file ZIP nel computer. È necessario questo file per distribuire la parola di attivazione personalizzata nel kit di sviluppo. Per distribuire la parola di attivazione personalizzata, seguire le istruzioni riportate in [Introduzione a Speech Devices SDK](speech-devices-sdk-qsg.md).
 

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cb83f0c38f6860340444c15b6c5eef0b990d0ad0
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 03/26/2019
+ms.openlocfilehash: ca53f4bfa80d6fdead24dc7d562c2240bb3fa86d
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295250"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498486"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>Creazione e uso di replica geografica attiva
 
@@ -75,8 +75,11 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
   Un'applicazione può accedere a un database secondario per le operazioni di sola lettura usando le stesse entità di sicurezza usate per l'accesso al database primario. I database secondari operano in modalità di isolamento dello snapshot per garantire che la replica degli aggiornamenti del database primario (riesecuzione del log) non venga ritardata da query eseguite sul database secondario.
 
-  > [!NOTE]
-  > La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario perché richiede un blocco dello schema nel database secondario.
+> [!NOTE]
+> La riesecuzione del log viene ritardata nel database secondario se è in corso la ricezione di aggiornamenti dello schema dal database primario perché richiede un blocco dello schema nel database secondario.
+> [!IMPORTANT]
+> È possibile usare la replica geografica per creare un database secondario nella stessa area del database primario. È possibile usare questo database secondario per i carichi di lavoro di bilanciamento del carico in sola lettura nella stessa area. Tuttavia, un database secondario nella stessa area non fornisce resilienza agli errori aggiuntivi e pertanto non è una destinazione del failover adatto per il ripristino di emergenza. Inoltre non garantisce isolamento zona avaialability. Usare Business critical o livello di servizio Premium con [configurazione con ridondanza della zona](sql-database-high-availability.md#zone-redundant-configuration) per ottenere l'isolamento di zona avaialability.   
+>
 
 - **Failover pianificato**
 

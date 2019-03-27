@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 820a9ae0df91fba8cf00764428867bec6196841a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a6304a93b1409cff871ed1c4c1d7e66d6c8c6f53
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335862"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497687"
 ---
 # <a name="language-support-for-qna-maker"></a>Supporto del linguaggio per QnA Maker
 
@@ -37,7 +37,7 @@ QnA Maker supporta l'estrazione di domanda/risposta in qualsiasi pagina della li
 
 La lingua principale usata per il rilevamento è impostata per la risorsa di QnA Maker e tutte le knowledge base create su tale risorsa, quando il primo documento o l'URL viene aggiunto alla prima knowledge base. Non è possibile modificare la lingua. 
 
-Se si prevede di supportare più lingue, devono disporre di una nuova risorsa di QnA Maker per ciascuna lingua. Informazioni su come [creare una knowledge base QnA Maker di basata sul linguaggio](/how-to/language-knowledge-base.md).  
+Se si prevede di supportare più lingue, devono disporre di una nuova risorsa di QnA Maker per ciascuna lingua. Informazioni su come [creare una knowledge base QnA Maker di basata sul linguaggio](../how-to/language-knowledge-base.md).  
 
 Verificare che la lingua principale con i passaggi seguenti:
 

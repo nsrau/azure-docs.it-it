@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 4c2c22d2d3d68080b1d4e05410121ea1d1be283d
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 41c665a2a1aec56cc07d5465742d01e41e6adfff
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439177"
+ms.locfileid: "58443591"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -209,8 +209,12 @@ Debug.WriteLine(playerWidgetLink);
 
 ```
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="see-also"></a>Vedere anche 
 
-- [Esaminare i dettagli dell'output JSON](video-indexer-output-json-v2.md).
 - [Panoramica di Video Indexer](video-indexer-overview.md)
 - [Aree](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Esaminare i dettagli dell'output JSON](video-indexer-output-json-v2.md).
+
