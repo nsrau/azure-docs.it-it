@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 03/05/2019
 ms.author: alkohli
-ms.openlocfilehash: 43dc9edf715e20c84515d6acf4884e97c3b28184
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: 07ccd2aaec6b2325d6eef09a466a5d0707836b4b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54451885"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57834269"
 ---
 # <a name="tutorial-order-azure-data-box"></a>Esercitazione: Ordinare Azure Data Box
 
@@ -38,7 +38,7 @@ Prima di iniziare, verificare che:
 - La sottoscrizione usata per il servizio Data Box sia di uno dei tipi seguenti:
     - Contratto Enterprise Microsoft. Altre informazioni sui [contratti Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Cloud Solution Provider (CSP). Altre informazioni sul [programma Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
-    - Microsoft Azure Sponsorship Altre informazioni sul [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
+    - Microsoft Azure Sponsorship Altre informazioni sul [programma Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/).
 
 - Si abbia accesso alla sottoscrizione come proprietario o collaboratore per creare un ordine Data Box.
 
@@ -61,6 +61,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 3. Fare clic su **Create**(Crea).
 
 4. Controllare se il servizio Data Box è disponibile nella propria area. Immettere o selezionare le informazioni seguenti e quindi fare clic su **Applica**. 
+
     |Impostazione  |Valore  |
     |---------|---------|
     |Sottoscrizione     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
@@ -68,7 +69,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |Paese di origine     |   Selezionare il paese in cui si trovano attualmente i dati.         |
     |Area di Azure di destinazione     |     Selezionare l'area di Azure in cui si vogliono trasferire i dati.        |
 
-5. Selezionare **Data Box**. La capacità massima della soluzione per un singolo ordine è di 80 TB. È possibile creare più ordini per volumi di dati maggiori.
+5. Selezionare **Data Box**. La capacità massima che è possibile usare per un singolo ordine è di 786 TB. È possibile creare più ordini per volumi di dati maggiori.
 
       [![Selezione del Data Box - opzione 1](media/data-box-deploy-ordered/select-data-box-option1.png)](media/data-box-deploy-ordered/select-data-box-option1.png#lightbox)
 
@@ -79,8 +80,22 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |NOME     |  Specificare un nome descrittivo per tenere traccia dell'ordine. <br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero.      |
     |Gruppo di risorse     |   Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
     |Area di Azure di destinazione     | Selezionare l'area per l'account di archiviazione. <br> Per altre informazioni, vedere [Disponibilità a livello di area](data-box-overview.md#region-availability).        |
-    |Account di archiviazione     | In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**. Non è possibile usare gli account di archiviazione con regole configurate. Gli account di archiviazione devono **consentire l'accesso da tutte le reti** nella sezione dei firewall e delle reti virtuali.|
-    
+    |Destinazione di archiviazione     | Scegliere tra account di archiviazione e/o dischi gestiti. <br> In base all'area di Azure specificata, selezionare uno o più account di archiviazione nell'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**. <br>Sono supportati gli account di archiviazione con reti virtuali. Per consentire al servizio Data Box di lavorare con gli account di archiviazione protetti, abilitare i servizi attendibili all'interno delle impostazioni del firewall di rete dell'account di archiviazione. Per altre informazioni, vedere come [Aggiungere Azure Data Box come servizio attendibile](../storage/common/storage-network-security.md#exceptions).|
+
+    Se si usa l'account di archiviazione come destinazione, vedere lo screenshot seguente:
+
+    ![Ordine di Data Box per l'account di archiviazione](media/data-box-deploy-ordered/order-storage-account.png)
+
+    Se si usa Data Box per creare dischi gestiti da dischi rigidi virtuali in locale è necessario anche fornire le informazioni seguenti:
+
+    |Impostazione  |Valore  |
+    |---------|---------|
+    |Gruppi di risorse     | Se si prevede la creazione di dischi gestiti da dischi rigidi virtuali in locale, creare nuovi gruppi di risorse. È possibile usare un gruppo di risorse solo se questo è stato creato in precedenza durante la creazione di un ordine di Data Box per il disco gestito dal servizio Data Box. <br> Specificare più gruppi di risorse separati da punti e virgola. Vengono supportati un massimo di 10 gruppi di risorse.|
+
+    ![Ordine di Data Box per disco gestito](media/data-box-deploy-ordered/order-managed-disks.png)
+
+    L'account di archiviazione specificato per i dischi gestiti viene usato come account di archiviazione di staging. Il servizio Data Box carica i dischi rigidi virtuali come BLOB di pagine per l'account di archiviazione di staging prima di convertirli in dischi gestiti e spostarli nei gruppi di risorse. Per altre informazioni, vedere [Verificare il caricamento dei dati in Azure](data-box-deploy-picked-up.md#verify-data-upload-to-azure).
+
 7. In **Indirizzo di spedizione** specificare nome e cognome, nome e indirizzo postale della società e un numero di telefono valido. Fare clic su **Convalida indirizzo**. Il servizio convalida l'indirizzo di spedizione per la disponibilità del servizio. Se il servizio è disponibile per l'indirizzo di spedizione specificato, si riceve una notifica in tal senso. Fare clic su **Avanti**.
 
 8. In **Dettagli notifica** specificare gli indirizzi di posta elettronica. Il servizio invia notifiche tramite posta elettronica per qualsiasi aggiornamento dello stato dell'ordine agli indirizzi di posta elettronica specificati.
@@ -89,7 +104,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 9. Verificare il **riepilogo** delle informazioni relative a ordine, contatti, notifiche e informativa sulla privacy. Selezionare la casella corrispondente per accettare le condizioni per la privacy.
 
-10. Fare clic su **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti. 
+10. Fare clic su **Ordina**. Per la creazione dell'ordine sono richiesti pochi minuti.
 
 
 ## <a name="track-the-order"></a>Monitorare l'ordine
@@ -98,9 +113,9 @@ Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal po
 
 Se il dispositivo non è disponibile, si riceverà una notifica. Se il dispositivo è disponibile, Microsoft identifica il dispositivo per la spedizione e lo prepara. Durante la preparazione del dispositivo vengono eseguite le azioni seguenti:
 
-- Vengono create condivisioni SMB per ogni account di archiviazione associato al dispositivo. 
+- Vengono create condivisioni SMB per ogni account di archiviazione associato al dispositivo.
 - Per ogni condivisione vengono generate le credenziali di accesso, come nome utente e password.
-- Viene generata anche una password per il dispositivo che consente di sbloccare il dispositivo. 
+- Viene generata anche una password per il dispositivo che consente di sbloccare il dispositivo.
 - Il Data Box viene bloccato per impedire qualsiasi accesso non autorizzato al dispositivo.
 
 Una volta completata la preparazione del dispositivo, lo stato dell'ordine nel portale diventa **Elaborato**.
