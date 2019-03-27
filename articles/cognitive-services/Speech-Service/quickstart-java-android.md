@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 2ee5028e0766ec52c407bf0ef0e18885c11734d8
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961052"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58258548"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Avvio rapido: Riconoscere i contenuti vocali in Java su Android con Speech SDK
+# <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Guida introduttiva: Riconoscere i contenuti vocali in Java su Android con Speech SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -30,7 +30,7 @@ Speech SDK è attualmente compatibile con i dispositivi Android con processori A
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessaria una chiave di sottoscrizione del Servizio di riconoscimento vocale per completare la guida introduttiva. È possibile ottenerne una gratuitamente. Vedere [Prova il servizio di riconoscimento vocale gratuitamente](get-started.md) per i dettagli.
+Per completare questa guida di avvio rapido, è necessaria una chiave di sottoscrizione di servizi Voce. È possibile ottenerne una gratuitamente. Per informazioni dettagliate, vedere [Provare gratuitamente servizi Voce](get-started.md).
 
 ## <a name="create-and-configure-a-project"></a>Creare e configurare un progetto
 
@@ -61,11 +61,11 @@ Android Studio richiede qualche momento per preparare il nuovo progetto Android.
 La versione corrente di Speech SDK di Servizi cognitivi è `1.3.1`.
 
 Speech SDK per Android viene inserito in un pacchetto come una [AAR (libreria Android)](https://developer.android.com/studio/projects/android-library), che include le librerie necessarie, nonché le autorizzazioni Android richieste.
-È ospitato in un repository Maven in https://csspeechstorage.blob.core.windows.net/maven/.
+È ospitato in un repository Maven in https:\//csspeechstorage.blob.core.windows.net/maven/.
 
 Di seguito viene descritto come configurare il progetto per usare Speech SDK. Aprire la finestra Struttura del progetto, scegliendo **File** > **Struttura del progetto** dalla barra del menu Android Studio. Nella finestra Struttura del progetto, apportare le modifiche seguenti:
 
-1. Nell'elenco sul lato sinistro della finestra, selezionare **Progetto**. Modificare le impostazioni del **Repository predefinito della libreria** aggiungendo una virgola e l'URL del repository Maven racchiuso tra virgolette singole. 'https://csspeechstorage.blob.core.windows.net/maven/'
+1. Nell'elenco sul lato sinistro della finestra, selezionare **Progetto**. Modificare le impostazioni del **Repository predefinito della libreria** aggiungendo una virgola e l'URL del repository Maven racchiuso tra virgolette singole. 'https:\//csspeechstorage.blob.core.windows.net/maven/'
 
    ![Screenshot della finestra della struttura del progetto](media/sdk/qs-java-android-06-add-maven-repository.png)
 
@@ -137,7 +137,7 @@ Il testo e la versione grafica dell'interfaccia utente dovrebbero essere simili 
 
    ![Screenshot della finestra di schermata Seleziona destinazione di distribuzione](media/sdk/qs-java-android-12-deploy.png)
 
-Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati al servizio di riconoscimento vocale e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
+Fare clic sul pulsante dell'applicazione per iniziare una sezione dedicata al riconoscimento vocale. I 15 secondi successivi di riconoscimento vocale in lingua inglese verranno inviati ai servizi Voce e trascritti. Il risultato viene visualizzato nell'applicazione Android e nella finestra di logcat in Android Studio.
 
 ![Screenshot dell'applicazione Android](media/sdk/qs-java-android-13-gui-on-device.png)
 
