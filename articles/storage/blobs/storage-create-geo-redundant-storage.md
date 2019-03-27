@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: b031e7b772389aa81fd214d31365c20018cf48ae
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f00f11e66d33c37ff2107cbb8282b49994fe0d3b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874444"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58013592"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB
 
@@ -49,15 +49,14 @@ Per completare questa esercitazione:
 * Installare [Python](https://www.python.org/downloads/)
 * Scaricare e installare [Azure Storage SDK per Python](https://github.com/Azure/azure-storage-python)
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[Java V7 SDK ](#tab/java-v7)
-
-* Installare e configurare [Maven](http://maven.apache.org/download.cgi) per usarlo dalla riga di comando
-* Installare e configurare un [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-
 # <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-* Installare e configurare [Maven](http://maven.apache.org/download.cgi) per usarlo dalla riga di comando
-* Installare e configurare un [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Installare e configurare [Maven](https://maven.apache.org/download.cgi) per usarlo dalla riga di comando
+* Installare e configurare un [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+* Installare [Node.js](https://nodejs.org).
 
 ---
 
@@ -74,24 +73,24 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
 1. Selezionare il pulsante **Crea una risorsa** visualizzato nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Archiviazione** nella pagina **Nuovo**.
 3. Selezionare **Account di archiviazione - BLOB, file, tabelle, code** nella sezione **In primo piano**.
-4. Compilare il modulo dell'account di archiviazione con le informazioni seguenti, come illustrato nell'immagine seguente e selezionare **Crea**:
+4. Compilare il modulo dell'account di archiviazione con le informazioni seguenti, come illustrato nell'immagine seguente, e selezionare **Crea**:
 
-   | Impostazione       | Valore consigliato | Descrizione |
+   | Impostazione       | Valore consigliato | DESCRIZIONE |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome** | mystorageaccount | Un valore univoco per l'account di archiviazione |
-   | **Modello di distribuzione** | Gestione risorse  | Gestione risorse include le funzionalità più recenti.|
-   | **Tipo di account** | StorageV2 | Per informazioni dettagliate sui tipi di account, consultare i [tipi di account di archiviazione](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
+   | **Gruppo di risorse** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
+   | **Nome account di archiviazione** | mystorageaccount | Un valore univoco per l'account di archiviazione |
+   | **Posizione** | Stati Uniti orientali | Scegliere un paese. |
    | **Prestazioni** | Standard | Standard è sufficiente per lo scenario di esempio. |
+   | **Tipo di account** | StorageV2 | Per informazioni dettagliate sui tipi di account, consultare i [tipi di account di archiviazione](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Replica**| Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS). | È necessario ai fini dell'esempio. |
-   |**Sottoscrizione** | sottoscrizione in uso |Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
-   |**ResourceGroup** | myResourceGroup |Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   |**Posizione** | Stati Uniti orientali | Scegliere un paese. |
+   | **Livello di accesso** | Accesso frequente | L'accesso frequente è sufficiente per lo scenario di esempio. |
 
 ![Creare un account di archiviazione](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
 ## <a name="download-the-sample"></a>Scaricare l'esempio
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 [Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) ed estrarre (decomprimere) il file storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione console.
 
@@ -99,7 +98,7 @@ Seguire questa procedura per creare un account di archiviazione con ridondanza g
 git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 [Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) ed estrarre (decomprimere) il file storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Python di base.
 
@@ -107,15 +106,7 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[SDK Java V7] (#tab/java-v7)
-
-[Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-java-ha-ra-grs) ed estrarre il file storage-java-ragrs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Java di base.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
-```
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[SDK Java V10] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 [Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) ed estrarre il file storage-java-ragrs.zip. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Java di base.
 
@@ -123,62 +114,57 @@ git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+[Scaricare il progetto di esempio](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) e decomprimere il file. È anche possibile usare [git](https://git-scm.com/) per scaricare una copia dell'applicazione nell'ambiente di sviluppo. Il progetto di esempio contiene un'applicazione Node.js di base.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
+```
+
 ---
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+## <a name="configure-the-sample"></a>Configurare l'esempio
 
-Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. È consigliabile archiviare questa stringa di connessione in una variabile di ambiente sul computer locale che esegue l'applicazione. Seguire uno degli esempi riportati più avanti, in base al sistema operativo, per creare la variabile di ambiente.
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Sostituire \<stringaconnessione\> con la stringa di connessione effettiva eseguendo uno dei comandi seguenti in base al sistema operativo in uso. Il comando salva una variabile di ambiente nel computer locale. In Windows, la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso. Sostituire **\<stringaconnessione\>** nell'esempio seguente:
+Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. È possibile archiviare questa stringa di connessione in una variabile di ambiente nel computer locale che esegue l'applicazione. Seguire uno degli esempi riportati più avanti, in base al sistema operativo, per creare la variabile di ambiente.
 
-### <a name="linux"></a>Linux
-
-```
-export storageconnectionstring=\<yourconnectionstring\> 
-```
-### <a name="windows"></a> Windows
-
-```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
-```
-
-# <a name="python-tabpython"></a>[Python] (#tab/python)
-
-Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. È consigliabile archiviare questa stringa di connessione in una variabile di ambiente sul computer locale che esegue l'applicazione. Seguire uno degli esempi riportati più avanti, in base al sistema operativo, per creare la variabile di ambiente.
-
-Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Sostituire \<stringaconnessione\> con la stringa di connessione effettiva eseguendo uno dei comandi seguenti in base al sistema operativo in uso. Il comando salva una variabile di ambiente nel computer locale. In Windows, la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso. Sostituire **\<stringaconnessione\>** nell'esempio seguente:
+Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Eseguire uno dei comandi seguenti in base al sistema operativo in uso, sostituendo \<yourconnectionstring\> con la stringa di connessione effettiva. Il comando salva una variabile di ambiente nel computer locale. In Windows, la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export storageconnectionstring=<yourconnectionstring>
 ```
 ### <a name="windows"></a> Windows
 
 ```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+setx storageconnectionstring "<yourconnectionstring>"
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[SDK Java V7] (#tab/java-v7)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
-Nell'applicazione è necessario inserire la stringa di connessione per l'account di archiviazione. È consigliabile archiviare questa stringa di connessione in una variabile di ambiente sul computer locale che esegue l'applicazione. Seguire uno degli esempi riportati più avanti, in base al sistema operativo, per creare la variabile di ambiente.
+Nell'applicazione è necessario specificare le credenziali dell'account di archiviazione. È possibile archiviare queste informazioni nelle variabili di ambiente del computer locale che esegue l'applicazione. Seguire uno degli esempi seguenti, in base al sistema operativo, per creare le variabili di ambiente.
 
-Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Sostituire \<stringaconnessione\> con la stringa di connessione effettiva eseguendo uno dei comandi seguenti in base al sistema operativo in uso. Il comando salva una variabile di ambiente nel computer locale. In Windows, la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso. Sostituire **\<stringaconnessione\>** nell'esempio seguente:
+Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Incollare i valori di **Nome dell'account di archiviazione** e **Chiave** nei comandi seguenti, sostituendo i segnaposto \<youraccountname\> e \<youraccountkey\>. Questo comando salva le variabili di ambiente nel computer locale. In Windows, la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso.
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=\<yourconnectionstring\> 
+export accountname=<youraccountname>
+export accountkey=<youraccountkey>
 ```
 ### <a name="windows"></a> Windows
 
 ```PowerShell
-setx storageconnectionstring "\<yourconnectionstring\>"
+setx accountname "<youraccountname>"
+setx accountkey "<youraccountkey>"
 ```
 
-# <a name="java-v10-sdk-tabjava-v10"></a>[SDK Java V10] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Questo esempio richiede l'archiviazione sicura del nome e della chiave dell'account di archiviazione. Archiviarli in variabili di ambiente locali nel computer che esegue l'esempio. Eseguire l'esempio per Linux o per Windows, in base al sistema operativo, per creare le variabili di ambiente. In Windows, la variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi** o la shell in uso.
+Questo esempio richiede l'archiviazione sicura del nome e della chiave dell'account di archiviazione. Archiviarli in variabili di ambiente locali nel computer che esegue l'esempio. Eseguire l'esempio per Linux o per Windows, in base al sistema operativo, per creare le variabili di ambiente. 
 
 ### <a name="linux-example"></a>Esempio per Linux
 
@@ -194,11 +180,26 @@ setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
 
+Per trovare queste informazioni nel portale di Azure, accedere all'account di archiviazione e selezionare **Chiavi di accesso** nella sezione **Impostazioni**. 
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Per eseguire l'esempio, è necessario aggiungere le credenziali dell'account di archiviazione nel file `.env.example` e rinominarlo in `.env`.
+
+```
+AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
+AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
+```
+
+Per trovare queste informazioni nel portale di Azure, accedere all'account di archiviazione e selezionare **Chiavi di accesso** nella sezione **Impostazioni**. 
+
+È necessario installare le dipendenze richieste. A questo scopo, aprire un prompt dei comandi, passare alla cartella dell'esempio e quindi immettere `npm install`.
+
 ---
 
 ## <a name="run-the-console-application"></a>Eseguire l'applicazione console
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 In Visual Studio premere **F5** o selezionare **Avvia** per avviare il debug dell'applicazione. Visual Studio ripristina automaticamente i pacchetti NuGet mancanti, se sono stati configurati. Per altre informazioni, vedere l'articolo relativo a [installazione e reinstallazione di pacchetti con Ripristino pacchetto](https://docs.microsoft.com/nuget/consume-packages/package-restore#package-restore-overview).
 
@@ -208,7 +209,7 @@ Si apre una finestra della console e l'applicazione avvia l'esecuzione. L'applic
 
 Nell'esempio di codice l'attività `RunCircuitBreakerAsync` nel file `Program.cs` viene usata per scaricare un'immagine dall'account di archiviazione con il metodo [DownloadToFileAsync](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblob.downloadtofileasync?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudBlob_DownloadToFileAsync_System_String_System_IO_FileMode_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_). Prima del download viene definita una classe [OperationContext](/dotnet/api/microsoft.windowsazure.storage.operationcontext?view=azure-dotnet). Il contesto dell'operazione definisce i gestori dell'evento, generati quando il download viene completato correttamente o se un download ha esito negativo ed esegue un nuovo tentativo.
 
-# <a name="python-tabpython"></a>[Python] (#tab/python)
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 Per eseguire l'applicazione in un terminale o al prompt dei comandi, passare alla directory **circuitbreaker.py** e quindi immettere `python circuitbreaker.py`. L'applicazione carica l'immagine **HelloWorld.png** dalla soluzione nell'account di archiviazione. L'applicazione verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Si avvia quindi il download dell'immagine fino a 999 volte. Ogni lettura è rappresentata da una **P** o una **S**. **P** rappresenta l'endpoint primario e **S** rappresenta l'endpoint secondario.
 
@@ -220,17 +221,11 @@ La funzione di ripetizione dei tentativi dell'oggetto di archiviazione è impost
 
 Prima del download vengono definite le funzioni [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) e [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) dell'oggetto del servizio, che definiscono i gestori eventi che vengono attivati quando un download viene completato oppure ha esito negativo e viene eseguito un nuovo tentativo.  
 
-# <a name="java-v7-sdk-tabjava-v7"></a>[SDK Java V7] (#tab/java-v7)
-
-È possibile eseguire l'applicazione aprendo un terminale o il prompt dei comandi con la cartella dell'applicazione scaricata come ambito. A questo punto immettere `mvn compile exec:java` per eseguire l'applicazione. L'applicazione carica quindi l'immagine **HelloWorld.png** dalla directory all'account di archiviazione e verifica che l'immagine sia stata replicata nell'endpoint RA-GRS secondario. Al termine della verifica, l'applicazione inizierà a scaricare ripetutamente l'immagine, segnalando l'endpoint da cui esegue il download.
-
-La funzione di ripetizione dei tentativi dell'oggetto di archiviazione è impostata in modo da usare un criterio di ripetizione lineare. La funzione di ripetizione dei tentativi determina se eseguire o meno un nuovo tentativo per una richiesta e specifica il numero di secondi di attesa tra i singoli tentativi. La proprietà **LocationMode** di **BlobRequestOptions** è impostata su **PRIMARY\_THEN\_SECONDARY**. In questo modo, l'applicazione può passare automaticamente alla località secondaria se non riesce a raggiungere la località primaria quando tenta di scaricare **HelloWorld.png**.
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[SDK Java V10] (#tab/java-v10)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
 Per eseguire l'esempio, usare Maven nella riga di comando.
 
-1. Aprire una shell e passare a **storage-blobs-java-v10-quickstart** all'interno della directory clonata.
+1. Aprire una shell e passare a **storage-blobs-java-v10-tutorial-master** all'interno della directory clonata.
 2. Immettere `mvn compile exec:java`.
 
 Questo esempio crea un file di test nella directory predefinita, che per gli utenti di Windows è **AppData\Local\Temp**. Presenta quindi le opzioni di comandi seguenti che è possibile immettere:
@@ -270,11 +265,38 @@ Cleaning up the sample and exiting!
 
 Avendo il controllo dell'esempio, immettere i comandi per eseguire il codice. Gli input fanno distinzione tra maiuscole e minuscole.
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Per eseguire l'esempio, aprire un prompt dei comandi, passare alla cartella dell'esempio e quindi immettere `node index.js`.
+
+L'esempio crea un contenitore nell'account di archiviazione BLOB, carica **HelloWorld.png** nel contenitore, quindi verifica ripetutamente se il contenitore e l'immagine sono stati replicati nell'area secondaria. Dopo la replica, chiede di immettere **D** o **Q** (seguito da INVIO) per scaricare (Download) o uscire (Quit). L'output dovrebbe essere simile all'esempio seguente:
+
+```
+Created container successfully: newcontainer1550799840726
+Uploaded blob: HelloWorld.png
+Checking to see if container and blob have replicated to secondary region.
+[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+...
+[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
+[32] Container found, but blob has not replicated to secondary region yet.
+...
+[67] Container found, but blob has not replicated to secondary region yet.
+[68] Blob has replicated to secondary region.
+Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
+> D
+Attempting to download blob...
+Blob downloaded from primary endpoint.
+> Q
+Exiting...
+Deleted container newcontainer1550799840726
+```
+
 ---
 
 ## <a name="understand-the-sample-code"></a>Informazioni sul codice di esempio
 
-# <a name="net-tabdotnet"></a>[.NET] (#tab/dotnet)
+# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
 
@@ -325,7 +347,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="python-tabpython"></a>[Python] (#tab/python) 
+# <a name="pythontabpython"></a>[Python](#tab/python) 
 
 ### <a name="retry-event-handler"></a>Riprovare il gestore dell'evento
 
@@ -367,22 +389,9 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
-# <a name="java-v7-sdk--tabjava-v7"></a>[SDK Java V7] (#tab/java-v7)
+# <a name="java-v10-sdktabjava-v10"></a>[Java V10 SDK](#tab/java-v10)
 
-Con Java, non è necessario definire i gestori di callback se la proprietà **LocationMode** di **BlobRequestOptions** è impostata su **PRIMARY\_THEN\_SECONDARY**. In questo modo, l'applicazione può passare automaticamente alla località secondaria se non riesce a raggiungere la località primaria quando tenta di scaricare **HelloWorld.png**.
-
-```java
-    BlobRequestOptions myReqOptions = new BlobRequestOptions();
-    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
-    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
-    blobClient.setDefaultRequestOptions(myReqOptions);
-
-    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
-```
-
-# <a name="java-v10-sdk-tabjava-v10"></a>[SDK Java V10] (#tab/java-v10)
-
-Con l'SDK Java V10, la definizione di gestori di callback non è comunque necessaria e l'SDK presenta ora alcune differenze fondamentali rispetto all'SDK V7. Invece di LocationMode, è ora disponibile una **pipeline** secondaria. È possibile definire una pipeline secondaria tramite **RequestRetryOptions**. Se definita, l'applicazione passerà automaticamente a questa pipeline secondaria se non riesce ad accedere ai dati tramite quella primaria.
+Con l'SDK Java V10, la definizione di gestori di callback non è necessaria e l'SDK presenta ora alcune differenze fondamentali rispetto all'SDK V7. Invece di LocationMode, è ora disponibile una **pipeline** secondaria. È possibile definire una pipeline secondaria tramite **RequestRetryOptions**. Se definita, l'applicazione passerà automaticamente a questa pipeline secondaria se non riesce ad accedere ai dati tramite quella primaria.
 
 ```java
 // We create pipeline options here so that they can be easily used between different pipelines
@@ -391,6 +400,30 @@ myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONE
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
 ```
+
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Con l'SDK Node.js V10, i gestori di callback non sono necessari. Al contrario, l'esempio crea una pipeline configurata con opzioni di ripetizione e un endpoint secondario. In questo modo l'applicazione passa automaticamente alla pipeline secondaria se non riesce ad accedere ai dati tramite quella primaria. 
+
+```javascript
+const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
+const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
+const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
+
+const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
+const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
+
+const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
+  retryOptions: {
+    maxTries: 3, 
+    tryTimeoutInMs: 10000,
+    retryDelayInMs: 500, 
+    maxRetryDelayInMs: 1000,
+    secondaryHost: secondaryAccountURL
+  }
+});
+```
+
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi

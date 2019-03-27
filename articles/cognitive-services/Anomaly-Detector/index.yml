@@ -1,0 +1,65 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 7b7305a84ac8600629ce27551c0243c427082e5e
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473385"
+documentType: LandingData
+title: Documentazione dell'API Rilevamento anomalie
+metadata:
+  title: API Rilevamento anomalie - Esercitazioni, guide di avvio rapido, informazioni di riferimento sulle API - Servizi cognitivi di Azure | Microsoft Docs
+  description: Usare l'API Rilevamento anomalie per monitorare i dati nel corso del tempo e rilevare anomalie in Machine Learning. È possibile ottenere informazioni dettagliate sui dati, indipendentemente dalla quantità, dal settore o dallo scenario.
+  services: cognitive-services
+  author: aahill
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 03/26/2019
+  ms.author: aahi
+abstract:
+  description: L'API Rilevamento anomalie consente di incorporare facilmente funzionalità di rilevamento delle anomalie nelle app, così gli utenti possono identificare rapidamente i problemi per ridurre al minimo le perdite e l'impatto. Non sono necessarie competenze di Machine Learning. Tramite una singola chiamata API, è possibile attivare questo modello di intelligenza artificiale già sottoposto a training che inserisce dati delle serie temporali di tutti i tipi e quantità, seleziona il modello di rilevamento anomalie più appropriato per assicurare una elevata accuratezza dei dati e rileva automaticamente gli eventi imprevisti non appena si verificano. È possibile personalizzare il servizio per rilevare anomalie di tutte le dimensioni.  Usare Rilevamento anomalie per identificare eventi aziendali imprevisti, monitorare il traffico dei dispositivi IoT, gestire le frodi, rispondere alle variazioni del mercato e altro ancora.
+sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/anomaly-detector/overview
+      html: <p>Altre informazioni sull'API Rilevamento anomalie</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Cos'è l'API Rilevamento anomalie?
+    - href: /azure/cognitive-services/anomaly-detector/concepts/anomaly-detection-best-practices
+      html: <p>Ottimizzare i risultati del rilevamento di anomalie seguendo le procedure consigliate per l'API</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Procedure consigliate per l'API Rilevamento anomalie
+    - href: /azure/cognitive-services/anomaly-detector/how-to/identify-anomalies
+      html: <p>Regolare la sensibilità del rilevamento di anomalie, usare diverse modalità di rilevamento e altro ancora.</p>
+      image:
+        src: ../media/index/i_guidelines.svg
+      title: Uso dell'API Rilevamento anomalie
+- title: Guide introduttive di 5 minuti
+  items:
+  - type: paragraph
+    text: 'Rilevare anomalie nei dati delle serie temporali usando:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_Csharp.svg
+      href: quickstarts/detect-data-anomalies-csharp
+      text: C#
+    - image:
+        src: media/logo_Java.svg
+      href: quickstarts/detect-data-anomalies-java
+      text: Java
+    - image:
+        src: media/logo_python.svg
+      href: quickstarts/detect-data-anomalies-python
+      text: Python

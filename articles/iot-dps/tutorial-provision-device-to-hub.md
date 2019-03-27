@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 40d16076a3d995ecccd06591278b330652d960d8
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: 9ff134b0747e78773c95fac7ceab4cddd61c601d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53189014"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58227015"
 ---
 # <a name="provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>Eseguire il provisioning del dispositivo in un hub IoT con il servizio Device Provisioning in hub IoT di Azure
 
@@ -43,7 +43,7 @@ Questo passaggio prevede l'aggiunta di elementi di sicurezza esclusivi del dispo
       [![Informazioni di registrazione per TPM nel portale](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png)](./media/tutorial-provision-device-to-hub/tpm-device-enrollment.png#lightbox)  
 
 - Per i dispositivi basati su X.509 sono necessari:
-    - [Certificato emesso nel chip X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) o nella simulazione, sotto forma di file con estensione *pem* o *cer*. Per la registrazione individuale è necessario usare il *certificato del firmatario* per dispositivo per il sistema X.509, mentre per i gruppi di registrazione è necessario usare il *certificato radice*. 
+    - [Certificato emesso nel chip X.509](https://msdn.microsoft.com/library/windows/desktop/bb540819.aspx) o nella simulazione, sotto forma di file con estensione *pem* o *cer*. Per la registrazione individuale è necessario usare il *certificato firmato* per dispositivo per il sistema X.509, mentre per i gruppi di registrazione è necessario usare il *certificato radice*. 
 
       [![Aggiungere una registrazione singola per l'attestazione X.509 nel portale](./media/tutorial-provision-device-to-hub/individual-enrollment.png)](./media/tutorial-provision-device-to-hub/individual-enrollment.png#lightbox)
 

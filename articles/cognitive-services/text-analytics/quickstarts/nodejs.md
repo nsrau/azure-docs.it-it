@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: e11e4a59e447a8befcfaedb7ddedbb9aabdfaa28
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 61cfb5fa78a735d2ef542c30b445f3200f256d7c
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330699"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226930"
 ---
 # <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Node.js per chiamare il servizio cognitivo Analisi del testo  
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione. 
+È anche necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati durante l'iscrizione.
 
 <a name="Detect"></a>
 
@@ -36,11 +36,11 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 
 L'API Rilevamento lingua rileva la lingua di un documento di testo usando il [metodo per il rilevamento della lingua](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Creare un nuovo progetto Node.JS nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+1. Creare un nuovo progetto Node.JS nell'IDE preferito o in una cartella sul desktop.
+2. Aggiungere il codice riportato di seguito in un nuovo file `.js`.
+3. Sostituire il valore `accessKey` con una chiave di sottoscrizione della risorsa Analisi del testo in Azure.
 4. Sostituire la località in `uri` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
-5. Eseguire il programma.
+5. Eseguire il programma dall'IDE o da una riga di comando, ad esempio `npm start` o `node detect.js`.
 
 ```javascript
 'use strict';
@@ -156,13 +156,13 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="analyze-sentiment"></a>Analizzare la valutazione
 
-L'API Analisi del sentiment rileva il sentiment di un set di record di testo, usando l'apposito [metodo](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
+L'API Analisi del sentiment rileva il sentiment di un set di record di testo usando il [metodo Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L'analisi del sentiment consente di conoscere l'opinione dei clienti su un marchio o su un argomento analizzando il testo non elaborato alla ricerca di indizi su sentiment positivo o negativo. L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
 
-1. Creare un nuovo progetto Node.JS nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+1. Creare un nuovo progetto Node.JS nell'IDE preferito o in una cartella sul desktop.
+2. Aggiungere il codice riportato di seguito in un nuovo file `.js`.
+3. Sostituire il valore `accessKey` con una chiave di sottoscrizione della risorsa Analisi del testo in Azure.
 4. Sostituire la località in `uri` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
-5. Eseguire il programma.
+5. Eseguire il programma dall'IDE o da una riga di comando, ad esempio `npm start` o `node sentiment.js`.
 
 ```javascript
 'use strict';
@@ -229,7 +229,8 @@ get_sentiments (documents);
 
 **Risposta di Analisi del sentiment**
 
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
+Il risultato viene considerato positivo se il punteggio assegnato è più vicino a 1.0 e negativo se il punteggio assegnato è più vicino a 0.0.
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -251,13 +252,13 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="extract-key-phrases"></a>Estrarre le frasi chiave
 
-L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'esempio seguente estrae le frasi chiave per entrambi i documenti, in inglese e in spagnolo.
+L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'estrazione delle frasi chiave consente di identificare rapidamente i punti principali di un documento o un testo. L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
 
-1. Creare un nuovo progetto Node.JS nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+1. Creare un nuovo progetto Node.JS nell'IDE preferito o in una cartella sul desktop.
+2. Aggiungere il codice riportato di seguito in un nuovo file `.js`.
+3. Sostituire il valore `accessKey` con una chiave di sottoscrizione della risorsa Analisi del testo in Azure.
 4. Sostituire la località in `uri` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
-5. Eseguire il programma.
+5. Eseguire il programma dall'IDE o da una riga di comando, ad esempio `npm start` o `node key-phrases.js`.
 
 ```javascript
 'use strict';
@@ -367,13 +368,13 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="identify-linked-entities"></a>Identificare le entità collegate
 
-L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). L'esempio seguente identifica le entità per i documenti in inglese.
+L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). Le [entità](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) estraggono parole dal testo, ad esempio "United States" e quindi forniscono il tipo e/o il collegamento a Wikipedia relativo alla parola. Il tipo di "United States" è `location`, mentre il collegamento a Wikipedia è `https://en.wikipedia.org/wiki/United_States`.  L'esempio seguente identifica le entità per i documenti in inglese.
 
-1. Creare un nuovo progetto Node.JS nell'ambiente di sviluppo integrato preferito.
-2. Aggiungere il codice riportato di seguito.
-3. Sostituire il valore di `accessKey` con una chiave di accesso valida per la sottoscrizione.
+1. Creare un nuovo progetto Node.JS nell'IDE preferito o in una cartella sul desktop.
+2. Aggiungere il codice riportato di seguito in un nuovo file `.js`.
+3. Sostituire il valore `accessKey` con una chiave di sottoscrizione della risorsa Analisi del testo in Azure.
 4. Sostituire la località in `uri` (attualmente `westus`) con l'area per cui è stata fatta l'iscrizione.
-5. Eseguire il programma.
+5. Eseguire il programma dall'IDE o da una riga di comando, ad esempio `npm start` o `node entities.js`.
 
 ```javascript
 'use strict';
@@ -440,7 +441,7 @@ get_entities (documents);
 
 **Risposta di estrazione di entità**
 
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 
 ```json
 {

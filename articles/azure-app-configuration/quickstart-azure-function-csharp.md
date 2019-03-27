@@ -14,24 +14,24 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 5f28e213a5f824562df62a05b98f0f92f71bc591
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56957437"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226709"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Guida introduttiva: Creare una funzione di Azure con Configurazione app
+# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Avvio rapido: Creare una funzione di Azure con Configurazione app
 
-Configurazione app di Azure è un servizio di configurazione gestito di Azure. Consente di archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida introduttiva mostra come incorporare il servizio in una funzione di Azure. 
+Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarlo per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida di avvio rapido mostra come incorporare il servizio in una funzione di Azure. 
 
-Per completare i passaggi descritti in questa guida di avvio rapido è possibile usare qualsiasi editor di codice. Tuttavia, [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
+Per completare i passaggi riportati in questa guida di avvio rapido, è possibile usare qualsiasi editor di codice. [Visual Studio Code](https://code.visualstudio.com/) è un'ottima scelta per le piattaforme Windows, macOS e Linux.
 
-![Guida introduttiva completa in locale](./media/quickstarts/dotnet-core-function-launch-local.png)
+![Guida di avvio rapido completa in locale](./media/quickstarts/dotnet-core-function-launch-local.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida introduttiva, installare [Visual Studio 2017](https://visualstudio.microsoft.com/vs) (e assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**) e le [versioni più recenti degli strumenti di Funzioni di Azure](../azure-functions/functions-develop-vs.md#check-your-tools-version).
+Per completare questa guida di avvio rapido, installare [Visual Studio 2017](https://visualstudio.microsoft.com/vs). Assicurarsi che sia installato anche il carico di lavoro **Sviluppo di Azure**. Installare anche gli [strumenti di Funzioni di Azure più recenti](../azure-functions/functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,9 +43,9 @@ Per completare questa guida introduttiva, installare [Visual Studio 2017](https:
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-## <a name="connect-to-app-configuration-store"></a>Connettersi all'archivio di configurazione app
+## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di configurazione app
 
-1. Aprire *Function1.cs* e aggiungere un riferimento al provider di configurazione .NET Core per Configurazione app.
+1. Aprire *Function1.cs* e aggiungere un riferimento a un provider di configurazione .NET Core per Configurazione app.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
@@ -89,13 +89,13 @@ Per completare questa guida introduttiva, installare [Visual Studio 2017](https:
 
         export ConnectionString='connection-string-of-your-app-configuration-store'
 
-2. Per testare la funzione premere **F5**. Se viene visualizzata, accettare la richiesta di Visual Studio di scaricare e installare gli strumenti dell'**interfaccia della riga di comando Azure Functions Core Tools**. Potrebbe essere necessario anche abilitare un'eccezione del firewall per consentire agli strumenti di gestire le richieste HTTP.
+2. Per testare la funzione premere F5. Se viene visualizzata, accettare la richiesta di Visual Studio di scaricare e installare gli strumenti dell'**interfaccia della riga di comando Azure Functions Core Tools**. Potrebbe essere necessario anche abilitare un'eccezione del firewall per consentire agli strumenti di gestire le richieste HTTP.
 
 3. Copiare l'URL della funzione dall'output di runtime di Funzioni di Azure.
 
     ![Guida introduttiva: debug di funzioni in VS](./media/quickstarts/function-visual-studio-debugging.png)
 
-4. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser. Di seguito è illustrata la risposta nel browser alla richiesta GET locale restituita dalla funzione:
+4. Incollare l'URL per la richiesta HTTP nella barra degli indirizzi del browser. L'immagine seguente mostra la risposta nel browser alla richiesta GET locale restituita dalla funzione.
 
     ![Guida introduttiva: avvio della funzione in locale](./media/quickstarts/dotnet-core-function-launch-local.png)
 
@@ -105,7 +105,7 @@ Per completare questa guida introduttiva, installare [Visual Studio 2017](https:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato creato un nuovo archivio di configurazione app, che è stato usato con una funzione di Azure. Per altre informazioni sull'uso di Configurazione app, continuare con l'esercitazione successiva sull'autenticazione.
+In questa guida di avvio rapido è stato creato un nuovo archivio di configurazione app, che è stato usato con una funzione di Azure. Per altre informazioni sull'uso di Configurazione app, continuare con l'esercitazione successiva sull'autenticazione.
 
 > [!div class="nextstepaction"]
 > [Identità gestite per l'integrazione di risorse di Azure](./integrate-azure-managed-service-identity.md)

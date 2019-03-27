@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Cercare le parole con il dizionario bilingue, Python - API Traduzione testuale'
+title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Python - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
 description: In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Python e l'API REST Traduzione testuale.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f00cc893f21db302c2efe63da285c8843958b1ee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 55cb9564205c99abc868413ebf43e575999198ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731243"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183697"
 ---
-# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Python
+# <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Guida introduttiva: Cercare le parole con il dizionario bilingue usando Python
 
 In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Python e l'API REST Traduzione testuale.
 
@@ -32,7 +32,7 @@ Questa guida introduttiva richiede:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Creare un nuovo progetto Python tramite l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `dictionary-lookup.py`.
+Creare un nuovo progetto Python usando l'IDE o l'editor preferito oppure creare una nuova cartella sul desktop. Copiare questo frammento di codice nel progetto o nella cartella all'interno di un file denominato `dictionary-lookup.py`.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -60,8 +60,8 @@ else:
     print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
     exit()
 # If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+# below and add your subscription key. Then, be sure to delete your "os" import.
+# subscriptionKey = 'put_your_key_here'
 ```
 
 L'endpoint globale di Traduzione testuale viene impostato come `base_url`. `path` imposta la route `dictionary/lookup` e identifica che si vuole usare la versione 3 dell'API.
@@ -123,7 +123,7 @@ print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separat
 La procedura è completata. È stato realizzato un semplice programma che chiamerà l'API Traduzione testuale e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
 
 ```console
-python dictionary-lookup.py
+python alt-translations.py
 ```
 
 Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio completo è pubblicato su [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).

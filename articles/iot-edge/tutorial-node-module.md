@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f5cf14ae1dcbbb00d723a86213c2707ad91794b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564919"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225927"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Esercitazione: Sviluppare e distribuire un modulo Node.js per IoT Edge in un dispositivo simulato
 
@@ -61,14 +61,14 @@ Se non è ancora disponibile alcun registro contenitori, seguire questa procedur
 
 2. Specificare i valori seguenti per creare il registro contenitori:
 
-   | Campo | Valore | 
+   | Campo | Valore |
    | ----- | ----- |
    | Nome registro | Specificare un nome univoco. |
    | Sottoscrizione | Selezionare una sottoscrizione nell'elenco a discesa. |
    | Gruppo di risorse | È consigliabile usare lo stesso gruppo di risorse per tutte le risorse di test create durante le esercitazioni e le guide introduttive di IoT Edge. Ad esempio, **IoTEdgeResources**. |
    | Località | Scegliere una località vicina. |
    | Utente amministratore | Impostare su **Abilita**. |
-   | SKU | Selezionare **Basic**. | **Terminale**
+   | SKU | Selezionare **Basic**. |
 
 5. Selezionare **Create**.
 
@@ -107,7 +107,7 @@ Usare **npm** per creare un modello di soluzione Node.js a partire dalla quale e
  
    ![Specificare il repository di immagini Docker](./media/tutorial-node-module/repository.png)
 
-La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. La cartella **modules** contiene il codice Node.js per il modulo e i file Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo. Il file **deployment.debug.template.json** contiene invece la versione di debug dei moduli. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**. 
+La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. L'area di lavoro della soluzione contiene cinque componenti di livello superiore. La cartella **modules** contiene il codice Node.js per il modulo e i file Dockerfile per creare il modulo come un'immagine del contenitore. Il file **\.env** archivia le credenziali del registro contenitori. Il file **deployment.template.json** contiene le informazioni che il runtime IoT Edge usa per distribuire i moduli in un dispositivo e il file **deployment.debug.template.json** contiene la versione di debug dei moduli. In questa esercitazione non verranno modificati né la cartella **\.vscode** né il file **\.gitignore**. 
 
 Se non è stato specificato un registro contenitori durante la creazione della soluzione, ma è stato accettato il valore predefinito localhost:5000, non sarà presente il file con estensione \. env. 
 
@@ -197,11 +197,11 @@ In ogni modello è incluso il codice di esempio, che accetta i dati simulati del
 11. Aggiungere il modulo gemello NodeModule al manifesto della distribuzione. Inserire il contenuto JSON seguente alla fine della sezione `moduleContent`, dopo il modulo gemello `$edgeHub`: 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![Aggiungere il modulo gemello al modello di distribuzione](./media/tutorial-node-module/module-twin.png)

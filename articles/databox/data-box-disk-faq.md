@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 02/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 5f44e3c4a1b7f28133ecd232fc49a34931bddfa4
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729832"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57877854"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Che cos'è Azure Data Box Disk?
 
@@ -51,7 +51,7 @@ R.  Per ottenere gli Azure Data Box Disk, accedere al portale di Azure e creare 
 R. Per 5 dischi da 8 TB ognuno (con capacità utilizzabile di 7 TB), la capacità massima utilizzabile è di 35 TB. Di conseguenza, è possibile trasferire 35 TB di dati in una sola volta. Per trasferire più dati, è necessario ordinare altri dischi.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>D: Come è possibile verificare se i dischi di Data Box sono disponibili nella propria area? 
-R.  I Data Box Disk sono attualmente disponibili negli Stati Uniti, in Canada, in Australia e in tutti i paesi dell'Unione europea.  
+R.  Per visualizzare dove sono attualmente disponibili i dischi di Data Box, vedere le [Aree di disponibilità](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>D: In quali aree è possibile archiviare dati con i dischi di Data Box?
 R. I dischi di Data Box sono supportati per tutte le aree degli Stati Uniti, del Canada, dell'Australia e dell'Europa occidentale e settentrionale. Sono supportate solo le aree del cloud pubblico di Azure. Non sono supportati i cloud Azure per enti pubblici o altri cloud sovrani.
@@ -126,14 +126,14 @@ R.  No. Con i dischi di Data Box è attualmente supportato un solo account di ar
 R. Il set di strumenti disponibile con il Data Box Disk contiene tre strumenti:
  - **Strumento di sblocco di Data Box Disk**: usare questo strumento per sbloccare i dischi crittografati forniti da Microsoft. Quando si sbloccano i dischi che usano lo strumento, è necessario fornire una passkey disponibile nell'ordine Data Box Disk nel portale di Azure. 
  - **Strumento di convalida di Data Box Disk**: usare questo strumento per convalidare le dimensioni, il formato e i nomi dei BLOB in base alle convenzioni di denominazione di Azure. Genera anche i checksum per i dati copiati che vengono quindi usati per verificare i dati caricati in Azure.
- - **Strumento di divisione della copia di Data Box Disk**: Usare questo strumento quando si usano più dischi e si ha un set di dati di grandi dimensioni che deve essere suddiviso e copiato tra tutti i dischi. Questo strumento è attualmente disponibile per Windows.
+ - **Strumento di divisione della copia di Data Box Disk**: Usare questo strumento quando si usano più dischi e si ha un set di dati di grandi dimensioni che deve essere suddiviso e copiato tra tutti i dischi. Questo strumento è attualmente disponibile per Windows. Questo strumento non è supportato con dischi gestiti. Lo strumento inoltre esegue la convalida durante la copia dei dati, di conseguenza è possibile ignorare il passaggio di convalida quando lo si usa.
 
 Il set di strumenti è disponibile per Windows e Linux. È possibile scaricare il set di strumenti qui:
- - [Scaricare il set di strumenti di Data Box Disk per Windows](https://aka.ms/databoxdisktoolswin) 
- - [Scaricare il set di strumenti di Data Box Disk per Linux](https://aka.ms/databoxdisktoolslinux)
+- [Scaricare il set di strumenti di Data Box Disk per Windows](https://aka.ms/databoxdisktoolswin) 
+- [Scaricare il set di strumenti di Data Box Disk per Linux](https://aka.ms/databoxdisktoolslinux)
  
-### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>D: È possibile usare Data Box Disk per trasferire i dati in File di Azure e quindi usare i dati con Sincronizzazione file di Azure? 
-R. File di Azure non è supportato con Data Box Disk. I metadati non vengono conservati anche se i dati dei file vengono usati successivamente con Sincronizzazione file di Azure.
+  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>D: È possibile usare Data Box Disk per trasferire i dati in File di Azure e quindi usare i dati con Sincronizzazione file di Azure? 
+  R. I file di Azure sono supportati con Data Box Disk ma non funzionano bene con Sincronizzazione file di Azure. I metadati non vengono conservati se i dati dei file vengono usati con Sincronizzazione file di Azure.
 
 
 ## <a name="verify-and-upload"></a>Verifica e caricamento
@@ -142,10 +142,10 @@ R. File di Azure non è supportato con Data Box Disk. I metadati non vengono con
 R.  Quando lo stato dell'ordine per la copia dei dati risulta completato, dovrebbe essere possibile accedere immediatamente ai dati.
 
 ### <a name="q-where-is-my-data-located-in-azure-after-the-upload"></a>D: Dove vengono collocati i dati in Azure dopo il caricamento?
-R.  Quando si copiano i dati nelle cartelle *BlockBlob* e *PageBlob* nel disco, viene creato un contenitore nell'account di archiviazione di Azure per ogni sottocartella nella cartella *BlockBlob* e *PageBlob*. Se i file sono stati copiati direttamente nelle cartelle *BlockBlob* e *PageBlob*, questi file sono disponibili in un contenitore predefinito *$root* nell'account di archiviazione di Azure.
+R.  Quando si copiano i dati nelle cartelle *BlockBlob* e *PageBlob* nel disco, viene creato un contenitore nell'account di archiviazione di Azure per ogni sottocartella nella cartella *BlockBlob* e *PageBlob*. Se i file sono stati copiati direttamente nelle cartelle *BlockBlob* e *PageBlob*, questi file sono disponibili in un contenitore predefinito *$root* nell'account di archiviazione di Azure. Quando si copiano i dati in una cartella all'interno della cartella *AzureFile*, viene creata una condivisione file.
 
 ### <a name="q-i-just-noticed-that-i-did-not-follow-the-azure-naming-requirements-for-my-containers-will-my-data-fail-to-upload-to-azure"></a>D: Se non si seguono i requisiti di denominazione di Azure per i contenitori, i dati non verranno caricati in Azure?
-R. Se i nomi dei contenitori includono lettere maiuscole, queste verranno convertite automaticamente in lettere minuscole. Se i nomi non sono conformi in altri modi (caratteri speciali, altre lingue e così via), il caricamento avrà esito negativo. Per altre informazioni, vedere le [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions).
+R. Se i nomi dei contenitori includono lettere maiuscole, queste verranno convertite automaticamente in lettere minuscole. Se i nomi non sono conformi in altri modi (caratteri speciali, altre lingue e così via), il caricamento avrà esito negativo. Per altre informazioni, vedere le [convenzioni di denominazione di Azure](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions).
 
 ### <a name="q-how-do-i-verify-the-data-i-copied-onto-multiple-data-box-disks"></a>D: Come è possibile verificare i dati copiati in più dischi di Data Box?
 R.  Dopo aver completato la copia dei dati, è possibile eseguire `DataBoxDiskValidation.cmd` disponibile nella cartella *DataBoxDiskImport* per generare i checksum per la convalida. Per più dischi è necessario aprire una finestra di comando per ogni disco ed eseguire questo comando. Tenere presente che questa operazione può richiedere molto tempo (anche ore) a seconda delle dimensioni dei dati.
@@ -160,7 +160,13 @@ R.  I dischi di Data Box vengono crittografati con crittografia AES-128 Microsof
 R. Sì. Se si decide di convalidare i dati (operazione consigliata), è necessario eseguire di nuovo la convalida se si aggiunto altri dati ai dischi.
 
 ### <a name="q-i-used-all-my-disks-to-transfer-data-and-need-to-order-more-disks-is-there-a-way-to-quickly-place-the-order"></a>D: Se ci si rende conto che i dischi non sono sufficienti per il trasferimento di tutti i dati, è possibile ordinare rapidamente altri dischi?
-R. È possibile clonare l'ordine precedente. La clonazione consente di creare un ordine identico e di modificare solo i dettagli dell'ordine senza dover digitare di nuovo indirizzo, informazioni di contatto e dettagli per le notifiche. 
+R. È possibile clonare l'ordine precedente. La clonazione consente di creare un ordine identico e di modificare solo i dettagli dell'ordine senza dover digitare di nuovo indirizzo, informazioni di contatto e dettagli per le notifiche.
+
+### <a name="q-i-copied-data-to-manageddisk-folder-i-dont-see-any-managed-disks-with-the-resource-group-specified-for-managed-disks-was-my-data-uploaded-to-azure-and-how-can-i-locate-it"></a>D: Sono stati copiati i dati nella cartella ManagedDisk. Non è presente nessun disco gestito con il gruppo di risorse specificato per i dischi gestiti. I dati sono stati caricati in Azure e come è possibile individuarli?
+R. Sì. I dati sono stati caricati in Azure, ma se non viene visualizzato nessun disco gestito con i gruppi di risorse specificati è probabile che i dati non siano validi. Se i BLOB di pagine, i BLOB in blocchi, i file di Azure e i dischi gestiti non fossero validi, verrebbero inviati nelle cartelle seguenti:
+ - I BLOB di pagine verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-pb-*.
+ - I file di Azure verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-af-*.
+ - I dischi gestiti verrebbero inviati in un contenitore blob in blocchi che inizia con *databoxdisk-invalid-md-*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

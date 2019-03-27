@@ -5,21 +5,23 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: overview
-ms.date: 09/26/2018
+ms.date: 03/05/2019
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: db6a02db3a154193a9326e2957038e5daa2faae7
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
+ms.openlocfilehash: 0960977a17925ffd922e75fa03847b7023241c4e
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52992369"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201501"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Servizio Azure Kubernetes
 
 Il servizio Azure Kubernetes semplifica la distribuzione di un cluster Kubernetes gestito in Azure. servizio Azure Kubernetes riduce la complessità e i costi operativi di gestione di Kubernetes, affidando la maggior parte di queste attività ad Azure. Come servizio Kubernetes ospitato, Azure gestisce attività critiche quali il monitoraggio dell'integrità e la manutenzione per l'utente. I master di Kubernetes sono gestiti da Azure. È necessario solo gestire e mantenere i nodi agente. servizio Azure Kubernetes è gratuito in quanto servizio Kubernetes gestito: si paga solo per i nodi dell'agente all'interno dei cluster e non per i master.
 
 È possibile creare un cluster servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o mediante opzioni di distribuzione basate su modello come i modelli di Gestione risorse e Terraform. Quando si distribuisce un cluster servizio Azure Kubernetes, il master Kubernetes e tutti i nodi vengono distribuiti e configurati automaticamente. Durante il processo di distribuzione è anche possibile configurare caratteristiche aggiuntive come funzionalità di rete avanzate, integrazione di Azure Active Directory e monitoraggio.
+
+Per altre informazioni sulle nozioni di base di Kubernetes, vedere [Concetti di base di Kubernetes per il servizio Azure Kubernetes][concepts-clusters-workloads].
 
 Per iniziare, completare la guida introduttiva di servizio Azure Kubernetes [nel portale di Azure][aks-portal] o [con l'interfaccia della riga di comando di Azure][aks-cli].
 
@@ -30,6 +32,8 @@ Per migliorare la sicurezza e la gestione, servizio Azure Kubernetes consente l'
 ### <a name="identity-and-security-management"></a>Gestione delle identità e della sicurezza
 
 Per limitare l'accesso alle risorse del cluster, servizio Azure Kubernetes supporta il [controllo degli accessi in base al ruolo di Kubernetes][kubernetes-rbac]. Il controllo degli accessi in base al ruolo consente di controllare l'accesso alle risorse e agli spazi dei nomi di Kubernetes, nonché le autorizzazioni per tali risorse. Si può anche configurare un cluster servizio Azure Kubernetes per l'integrazione con Azure Active Directory. Con l'integrazione di Azure Active Directory è possibile configurare l'accesso a Kubernetes in base all'identità e all'appartenenza ai gruppi esistenti. Gli utenti di Azure Active Directory e i gruppi esistenti possono ottenere l'accesso ad servizio Azure Kubernetes con un'esperienza di accessi integrata.
+
+Per altre informazioni sull'identità, vedere [Opzioni di accesso e identità per il servizio Azure Kubernetes][concepts-identity].
 
 Per proteggere i cluster servizio Azure Kubernetes, vedere [Integrare Azure Active Directory con servizio Azure Kubernetes][aks-aad].
 
@@ -65,13 +69,17 @@ Per altre informazioni, vedere [Uso di GPU nel servizio Azure Container][aks-gpu
 
 Per supportare carichi di lavoro applicativi, possono essere montati volumi di archiviazione per dati persistenti. È possibile usare volumi sia statici che dinamici. A seconda di quanti pod connessi devono condividere la risorsa di archiviazione, è possibile usare risorse di archiviazione basate su dischi di Azure per l'accesso da un singolo pod o File di Azure per l'accesso da parte di più pod simultaneamente.
 
+Per altre informazioni, vedere [Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes][concepts-storage].
+
 Introduzione ai volumi permanenti dinamici con [dischi di Azure][azure-disk] o [File di Azure][azure-files].
 
 ## <a name="virtual-networks-and-ingress"></a>Reti virtuali e ingresso
 
 Un cluster servizio Azure Kubernetes può essere distribuito in una rete virtuale esistente. In questa configurazione ogni pod del cluster ottiene un indirizzo IP nella rete virtuale e può comunicare direttamente con altri pod nel cluster e con altri nodi della rete virtuale. I pod possono inoltre connettersi ad altri servizi in una rete virtuale con peering e a reti locali tramite ExpressRoute o connessioni VPN da sito a sito (S2S).
 
-Per altre informazioni, vedere [servizio Azure Kubernetes networking overview][aks-networking] (Panoramica di rete servizio Azure Kubernetes).
+Per altre informazioni, vedere [Concetti relativi alla rete per le applicazioni nel servizio Azure Kubernetes][aks-networking].
+
+Per iniziare a usare il traffico in ingresso, vedere [Routing di applicazioni HTTP][aks-http-routing].
 
 ### <a name="ingress-with-http-application-routing"></a>Ingresso con routing di applicazioni HTTP
 
@@ -101,21 +109,19 @@ Il servizio Azure Kubernetes ha ottenuto la certificazione CNCF per la conformit
 
 ## <a name="regulatory-compliance"></a>Conformità alle normative
 
-Il servizio Azure Kubernetes è conforme agli standard SOC, ISO, PCI DSS e HIPAA.
+Il servizio Azure Kubernetes è conforme agli standard SOC, ISO, PCI DSS e HIPAA. Per altre informazioni, vedere [Panoramica della conformità di Microsoft Azure][compliance-doc].
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni sulla distribuzione e la gestione di servizio Azure Kubernetes sono disponibili nella guida introduttiva sull'interfaccia della riga di comando di Azure.
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva ad AKS][aks-cli]
+> [Guida introduttiva ad servizio Azure Kubernetes][aks-cli]
 
 <!-- LINKS - external -->
 [aks-engine]: https://github.com/Azure/aks-engine
-[draft]: https://github.com/Azure/draft
-[helm]: https://helm.sh/
 [kubectl-overview]: https://kubernetes.io/docs/user-guide/kubectl-overview/
-[kubernetes-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
+[compliance-doc]: https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942
 
 <!-- LINKS - internal -->
 [acr-docs]: ../container-registry/container-registry-intro.md
@@ -134,3 +140,7 @@ Altre informazioni sulla distribuzione e la gestione di servizio Azure Kubernete
 [container-health]: ../monitoring/monitoring-container-health.md
 [aks-master-logs]: view-master-logs.md
 [aks-supported versions]: supported-kubernetes-versions.md
+[concepts-clusters-workloads]: concepts-clusters-workloads.md
+[kubernetes-rbac]: concepts-identity.md#role-based-access-controls-rbac
+[concepts-identity]: concepts-identity.md
+[concepts-storage]: concepts-storage.md

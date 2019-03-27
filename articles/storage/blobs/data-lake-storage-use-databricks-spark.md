@@ -6,14 +6,14 @@ author: dineshmurthy
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 01/29/2019
+ms.date: 03/11/2019
 ms.author: dineshm
-ms.openlocfilehash: 14e8d54b7b9cf579bb5dcbce595e2591c158b841
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 7f712bcf3e82005480d4960484cb0ea3ad51fbff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585430"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226760"
 ---
 # <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>Esercitazione: Accedere ai dati di Data Lake Storage Gen2 con Azure Databricks usando Spark
 
@@ -38,16 +38,16 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Installare AzCopy v10. Vedere [Trasferire dati con AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
-*  Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Creare un'entità servizio. Vedere [Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
-   Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
+  Mentre si completano le procedure descritte in tale articolo è necessario eseguire alcune operazioni specifiche.
 
-   :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
+  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Assegnare l'applicazione a un ruolo](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) dell'articolo, assicurarsi di assegnare il ruolo **Collaboratore ai dati del BLOB di archiviazione** all'entità servizio.
 
-   > [!IMPORTANT]
-   > Assicurarsi di assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
+  > [!IMPORTANT]
+  > Assicurarsi di assegnare il ruolo nell'ambito dell'account di archiviazione Data Lake Storage Gen2. È possibile assegnare un ruolo al gruppo di risorse padre o alla sottoscrizione, ma si riceveranno errori relativi alle autorizzazioni fino a quando tali assegnazioni di ruolo non si propagheranno all'account di archiviazione.
 
-   :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare l'ID tenant, l'ID applicazione e i valori della chiave di autenticazione in un file di testo. Saranno necessari a breve.
+  :heavy_check_mark: Quando si esegue la procedura descritta nella sezione [Ottenere i valori per l'accesso](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) dell'articolo, incollare l'ID tenant, l'ID applicazione e i valori della chiave di autenticazione in un file di testo. Saranno necessari a breve.
 
 ### <a name="download-the-flight-data"></a>Scaricare i dati relativi ai voli
 
@@ -147,12 +147,12 @@ In questa sezione si creeranno un file system e una cartella nell'account di arc
 
    * `storage-account-name` è il nome dell'account di archiviazione Azure Data Lake Storage Gen2.
 
-    > [!NOTE]
-    > In un ambiente di produzione è consigliabile archiviare la chiave di autenticazione in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della chiave di autenticazione. Per alcuni esempi di questo approccio, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) nel sito Web di Azure Databricks.
+   > [!NOTE]
+   > In un ambiente di produzione è consigliabile archiviare la chiave di autenticazione in Azure Databricks. Aggiungere quindi una chiave di ricerca al blocco di codice invece della chiave di autenticazione. Per alcuni esempi di questo approccio, vedere l'articolo [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) nel sito Web di Azure Databricks.
 
 19. Premere **MAIUSC + INVIO** per eseguire il codice in questo blocco.
 
-    Tenere aperto il notebook, perché in seguito vi si aggiungeranno comandi.
+   Tenere aperto il notebook, perché in seguito vi si aggiungeranno comandi.
 
 ## <a name="ingest-data"></a>Inserire dati
 
@@ -171,9 +171,10 @@ Usare AzCopy per copiare i dati dal file con estensione *csv* all'account Data L
 2. Per copiare dati dal file con estensione *csv* all'account, immettere il comando seguente.
 
    ```bash
-   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time
+   azcopy cp "<csv-folder-path>" https://<storage-account-name>.dfs.core.windows.net/<file-system-name>/folder1/On_Time.csv
    ```
-   * Sostituire il valore segnaposto `<csv-folder-path>` con il percorso di directory del file con estensione *csv* (escludendo il nome del file).
+
+   * Sostituire il valore segnaposto `<csv-folder-path>` con il percorso del file *CSV*.
 
    * Sostituire il valore segnaposto `storage-account-name` con il nome del proprio account di archiviazione.
 
@@ -181,28 +182,28 @@ Usare AzCopy per copiare i dati dal file con estensione *csv* all'account Data L
 
 ### <a name="use-databricks-notebook-to-convert-csv-to-parquet"></a>Usare un notebook di Databricks per convertire il formato CSV in Parquet
 
-Nel notebook creato in precedenza aggiungere una nuova cella e incollarvi il codice seguente. Sostituire il valore segnaposto `storage-account-name` in questo frammento di codice con il nome della cartella in cui è stato salvato il file CSV.
+Nel notebook creato in precedenza aggiungere una nuova cella e incollarvi il codice seguente. 
 
 ```python
 # Use the previously established DBFS mount point to read the data.
 # create a data frame to read data.
 
-flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/*.csv")
+flightDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/*.csv")
 
 # read the airline csv file and write the output to parquet format for easy query.
- flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
- print("Done")
- ```
+flightDF.write.mode("append").parquet("/mnt/flightdata/parquet/flights")
+print("Done")
+```
 
 ## <a name="explore-data"></a>Esplorazione dei dati
 
-In una nuova cella incollare il codice seguente per ottenere un elenco dei file CSV caricati tramite AzCopy. Sostituire il valore segnaposto `<csv-folder-path>` con lo stesso valore usato in precedenza per tale segnaposto.
+In una nuova cella incollare il codice seguente per ottenere un elenco dei file CSV caricati tramite AzCopy.
 
 ```python
 import os.path
 import IPython
 from pyspark.sql import SQLContext
-display(dbutils.fs.ls("/mnt/flightdata/On_Time/<your-folder-name>"))
+display(dbutils.fs.ls("/mnt/flightdata"))
 ```
 
 Per creare un nuovo file ed elencare i file nella cartella *parquet/flights*, eseguire questo script:
@@ -220,13 +221,11 @@ Con questi esempi di codice è stata esaminata la natura gerarchica di HDFS usan
 
 Per creare frame di dati per le origini dati, eseguire questo script:
 
-* Sostituire il valore segnaposto `<csv-folder-path>` con il percorso di directory del file con estensione *csv* (escludendo il nome del file).
-
-* Sostituire il valore segnaposto `<your-csv-file-name` con il nome del file *CSV*.
+* Sostituire il valore segnaposto `<csv-folder-path>` con il percorso del file *CSV*.
 
 ```python
 #Copy this into a Cmd cell in your notebook.
-acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time/<your-folder-name>/<your-csv-file-name>.csv")
+acDF = spark.read.format('csv').options(header='true', inferschema='true').load("/mnt/flightdata/On_Time.csv")
 acDF.write.parquet('/mnt/flightdata/parquet/airlinecodes')
 
 #read the existing parquet file for the flights database that was created earlier
@@ -285,5 +284,5 @@ Quando non sono più necessari, eliminare il gruppo di risorse e tutte le risors
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[!div class="nextstepaction"] 
+> [!div class="nextstepaction"] 
 > [Estrarre, trasformare e caricare dati usando Apache Hive in Azure HDInsight](data-lake-storage-tutorial-extract-transform-load-hive.md)
