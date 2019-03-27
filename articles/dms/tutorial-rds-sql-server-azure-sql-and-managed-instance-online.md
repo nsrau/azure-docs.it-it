@@ -1,29 +1,29 @@
 ---
-title: 'Esercitazione: Usare Servizio Migrazione del database di Azure per eseguire una migrazione online di RDS SQL Server a Database SQL di Azure o Istanza gestita di database SQL di Azure | Microsoft Docs'
-description: Informazioni su come eseguire una migrazione online da RDS SQL Server in locale a Database SQL di Azure o Istanza gestita di database SQL di Azure con Servizio Migrazione del database di Azure.
+title: "Esercitazione: Usare Servizio Migrazione del database di Azure per eseguire una migrazione online di RDS SQL Server verso il database SQL di Azure o un'istanza gestita | Microsoft Docs"
+description: Informazioni su come eseguire una migrazione online da RDS SQL Server verso il database SQL di Azure o un'istanza gestita di tale database usando Servizio Migrazione del database di Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/11/2019
-ms.openlocfilehash: 00291cbcb23a3bcff320d391e56ff210c0a24af0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: 5b91e3082dba2ac8ea19606f4269e65a0f537ce1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56006799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183136"
 ---
-# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di RDS SQL Server a Database SQL di Azure con Servizio Migrazione del database
-È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza locale di RDS SQL Server a [Database SQL di Azure](https://docs.microsoft.com/azure/sql-database/) o [Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con tempi di inattività minimi. In questa esercitazione si esegue la migrazione del database **AdventureWorks2012** ripristinato in un'istanza di RDS SQL Server con SQL Server 2012 o versione successiva verso un database SQL di Azure o un'istanza gestita usando Servizio Migrazione del database di Azure.
+# <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Esercitazione: Usare Servizio Migrazione del database per eseguire la migrazione online di RDS SQL Server verso il database SQL di Azure o un'istanza gestita
+È possibile usare Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di RDS SQL Server verso il [database SQL di Azure](https://docs.microsoft.com/azure/sql-database/) o un'[istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con tempi di inattività minimi. In questa esercitazione si userà Servizio Migrazione del database di Azure per eseguire la migrazione del database **AdventureWorks2012** ripristinato in un'istanza di RDS SQL Server con SQL Server 2012 (o versione successiva) verso un database SQL di Azure o un'istanza gestita di tale database.
 
 In questa esercitazione si apprenderà come:
 > [!div class="checklist"]
-> * Creare un'istanza di Database SQL di Azure o un database in Istanza gestita di database SQL di Azure. 
+> * Creare un'istanza di database SQL di Azure o un'istanza gestita di database SQL di Azure. 
 > * Eseguire la migrazione dello schema di esempio con Data Migration Assistant.
 > * Creare un'istanza del Servizio Migrazione del database di Azure.
 > * Creare un progetto di migrazione tramite il Servizio Migrazione del database di Azure.
@@ -39,7 +39,7 @@ In questa esercitazione si apprenderà come:
 
 [!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
 
-Questo articolo descrive una migrazione online da RDS SQL Server a Database SQL di Azure o Istanza gestita di database SQL di Azure.
+Questo articolo descrive una migrazione online da RDS SQL Server al database SQL di Azure o a un'istanza gestita di database SQL di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione, è necessario:
@@ -48,16 +48,25 @@ Per completare questa esercitazione, è necessario:
 - Creare un'istanza del database SQL di Azure seguendo le istruzioni riportate nell'articolo [Creare un database SQL di Azure nel portale di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal).
 
     > [!NOTE]
-    > Se si esegue la migrazione a Istanza gestita di database SQL di Azure, seguire le istruzioni dettagliate riportate nell'articolo [Creare un'istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) e quindi creare un database vuoto denominato **AdventureWorks2012**. 
+    > Se si esegue la migrazione a un'istanza gestita di database SQL di Azure, seguire le istruzioni dettagliate riportate nell'articolo [Creare un'istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started) e quindi creare un database vuoto denominato **AdventureWorks2012**. 
  
 - Scaricare e installare [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) 3.3 o versione successiva.
-- Creare una rete virtuale di Azure per Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager. In caso di migrazione a Istanza gestita di database SQL di Azure, assicurarsi di creare l'istanza di Servizio Migrazione del database nella stessa rete virtuale usata per Istanza gestita di database SQL di Azure, ma in una subnet diversa.  In alternativa, se si usa una rete virtuale diversa per Servizio Migrazione del database, è necessario creare un peering tra le due reti virtuali.
-- Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale di Azure non blocchino le porte di comunicazione seguenti: 443, 53, 9354, 445 e 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Creare una rete virtuale di Azure per Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager. In caso di migrazione verso un'istanza gestita di database SQL di Azure, assicurarsi di creare l'istanza di Servizio Migrazione del database nella stessa rete virtuale usata per l'istanza gestita di database SQL di Azure, ma in una subnet diversa.  In alternativa, se si usa una rete virtuale diversa per Servizio Migrazione del database, è necessario creare un peering tra le due reti virtuali.
+ 
+    > [!NOTE]
+    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con peering di rete a Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) del servizio seguenti alla subnet in cui verrà eseguito il provisioning del servizio:
+    > - Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
+    > - Endpoint di archiviazione
+    > - Endpoint di bus di servizio
+    >
+    > Questa configurazione è necessaria perché Servizio Migrazione del database di Azure non dispone di connettività Internet. 
+ 
+- Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione seguenti: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurare [Windows Firewall per l'accesso al motore di database](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Aprire Windows Firewall per consentire al Servizio Migrazione del database di Azure di accedere a SQL Server di origine (per impostazione predefinita attraverso la porta TCP 1433).
 - Creare una [regola del firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a livello di server per il server di database SQL di Azure per consentire al Servizio Migrazione del database di Azure di accedere ai database di destinazione. Specificare l'intervallo di subnet della rete virtuale usato per il Servizio Migrazione del database di Azure.
 - Assicurarsi che le credenziali usate per connettersi all'istanza di RDS SQL Server di origine siano associate a un account membro del ruolo del server "Processadmin" e del ruolo del database "db_owner" in tutti i database di cui verrà eseguita la migrazione.
-- Assicurarsi che le credenziali usate per connettersi all'istanza di Database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE per i database SQL di Azure di destinazione e siano associate a un membro del ruolo sysadmin in caso di migrazione a Istanza gestita di database SQL di Azure.
+- Assicurarsi che le credenziali usate per connettersi all'istanza del database SQL di Azure di destinazione abbiano l'autorizzazione CONTROL DATABASE per i database SQL di Azure di destinazione e siano associate a un membro del ruolo sysadmin in caso di migrazione a un'istanza gestita di database SQL di Azure.
 - La versione dell'istanza di RDS SQL Server di origine deve essere SQL Server 2012 o superiore. Per determinare la versione eseguita dall'istanza di SQL Server, vedere l'articolo [Come determinare la versione, l'edizione e il livello di aggiornamento di SQL Server e dei relativi componenti](https://support.microsoft.com/help/321185/how-to-determine-the-version-edition-and-update-level-of-sql-server-an).
 - Abilitare Change Data Capture (CDC) nel database di RDS SQL Server e in tutte le tabelle utente selezionate per la migrazione.
     > [!NOTE]
@@ -227,8 +236,8 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
     | Impostazione | DESCRIZIONE |
     | ------------- | ------------- |
     | **Numero massimo di tabelle da caricare in parallelo** | Specifica il numero di tabelle eseguite in parallelo da Servizio Migrazione del database durante la migrazione. Il valore predefinito è 5, ma può essere impostato su un valore ottimale per soddisfare esigenze di migrazione specifiche basate su migrazioni PoC. |
-    | **Quando la tabella di origine è troncata** | Specifica se Servizio Migrazione del database tronca la tabella di destinazione durante la migrazione. Può essere utile se una o più tabelle vengono troncate nell'ambito del processo di migrazione. |
-    | **Configurare le impostazioni per i dati LOB (Large Object)** | Specifica se Servizio Migrazione del database esegue la migrazione di dati LOB senza limiti oppure la limita a una determinata dimensione.  Quando viene applicato un limite alla migrazione di dati LOB, i dati LOB oltre tale limite vengono troncati. Per le migrazioni di produzione, è consigliabile selezionare **Consenti dimensioni LOB senza limiti** per evitare la perdita di dati. Quando si specifica Consenti dimensioni LOB senza limiti, per migliorare le prestazioni selezionare la casella di controllo **Migrare i dati LOB in un singolo blocco quando le dimensioni LOB sono inferiori a (KB)**. |
+    | **Quando la tabella di origine è troncata** | Specifica se Servizio Migrazione del database tronca la tabella di destinazione durante la migrazione. Questa impostazione può essere utile se una o più tabelle vengono troncate nell'ambito del processo di migrazione. |
+    | **Configurare le impostazioni per i dati LOB (Large Object)** | Specifica se Servizio Migrazione del database esegue la migrazione di dati LOB senza limiti oppure la limita a una determinata dimensione.  Se viene applicato un limite alla migrazione di dati LOB, i dati LOB che superano tale limite vengono troncati. Per le migrazioni di produzione, è consigliabile selezionare **Consenti dimensioni LOB senza limiti** per evitare la perdita di dati. Quando si specifica Consenti dimensioni LOB senza limiti, per migliorare le prestazioni selezionare la casella di controllo **Migrare i dati LOB in un singolo blocco quando le dimensioni LOB sono inferiori a (KB)**. |
     
     ![Configurare le impostazioni avanzate per la migrazione online](media/tutorial-rds-sql-to-azure-sql-and-managed-instance/dms-advanced-online-migration-settings.png)
 
@@ -267,4 +276,4 @@ Al termine del caricamento completo iniziale, i database vengono contrassegnati 
 - Per informazioni sulle limitazioni e i problemi noti, vedere l'articolo relativo a [problemi noti e soluzioni alternative per le migrazioni online al database SQL di Azure](known-issues-azure-sql-online.md).
 - Per informazioni sul Servizio Migrazione del database di Azure, vedere l'articolo [Definizione del Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/dms-overview).
 - Per informazioni sul database SQL di Azure, vedere l'articolo [Servizio database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview).
-- Per informazioni su Istanza gestita di database SQL di Azure, vedere la pagina [Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).
+- Per informazioni sulle istanze gestite di database SQL di Azure, vedere la pagina [Istanza gestita di database SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index).

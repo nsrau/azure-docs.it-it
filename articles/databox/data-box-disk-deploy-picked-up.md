@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 357fa8a34afc8b426d308940462e22895130169f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158772"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108376"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Esercitazione: Restituire Azure Data Box Disk e verificare il caricamento dei dati in Azure
 
@@ -27,13 +27,13 @@ Questa è l'ultima esercitazione della serie: Distribuire Azure Data Box Disk. I
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: Copiare dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md).
+Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: copiare i dati in Azure Data Box Disk ed eseguire la verifica](data-box-disk-deploy-copy-data.md).
 
 ## <a name="ship-data-box-disk-back"></a>Restituire i dischi di Data Box
 
 1. Dopo aver completato la convalida dei dati, scollegare i dischi. Rimuovere i cavi di collegamento.
 2. Avvolgere i dischi e i cavi di collegamento nel pluriball e inserirli nella scatola per la spedizione.
-3. Usare l'etichetta per la spedizione di ritorno nella busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita, scaricare una nuova etichetta di spedizione dal portale di Azure e applicarla sulla scatola. Passare a **Panoramica > Scarica etichetta di spedizione**. 
+3. Usare l'etichetta per la spedizione di ritorno nella busta in plastica trasparente applicata sulla scatola. Se l'etichetta è danneggiata o è stata smarrita, scaricare una nuova etichetta di spedizione dal portale di Azure e applicarla sulla scatola. Passare a **Panoramica > Scarica etichetta di spedizione**.
 
     ![Scaricare l'etichetta di spedizione](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -44,7 +44,7 @@ Prima di iniziare, assicurarsi di aver completato l'[Esercitazione: Copiare dati
 4. Sigillare la scatola e assicurarsi che l'etichetta per la spedizione di ritorno sia visibile.
 5. Pianificare un ritiro con UPS per la restituzione negli Stati Uniti. Se i dischi vengono rispediti in Europa con DHL, richiedere un ritiro a DHL, visitando il sito Web e specificando il numero di lettera di vettura. Passare al sito Web di DHL Express del paese e scegliere **Prenota il ritiro di un reso > Richiedere ritiro**.
 
-    ![Spedizione di reso DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
+    ![Spedizione di ritorno DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
     Specificare il numero di lettera di vettura e fare clic su **Schedule Pickup** (Pianifica ritiro) per organizzare il ritiro.
 
@@ -66,7 +66,28 @@ Al termine della copia, lo stato dell'ordine diventa **Completato**.
 
 ![Copia dei dati completata](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Verificare la presenza dei dati negli account di archiviazione prima di eliminarli dall'origine. Per verificare che i dati siano stati caricati in Azure, seguire questa procedura:
+Verificare la presenza dei dati negli account di archiviazione prima di eliminarli dall'origine. I dati possono trovarsi in:
+
+- Account di archiviazione di Azure. Quando si copiano i dati in Data Box, a seconda del tipo, i dati vengono caricati in uno dei percorsi seguenti nell'account di archiviazione di Azure.
+
+  - Per i BLOB in blocchi e i BLOB di pagine: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - Per File di Azure: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    In alternativa, è possibile passare all'account di archiviazione di Azure nel portale di Azure e procedere da questa posizione.
+
+- Gruppi di risorse di dischi gestiti. Quando si creano dischi gestiti, i dischi rigidi virtuali vengono caricati come BLOB di pagine e quindi convertiti in dischi gestiti. I dischi gestiti vengono associati ai gruppi di risorse specificati al momento della creazione dell'ordine.
+
+  - Se la copia nei dischi gestiti in Azure ha avuto esito positivo, è possibile passare a **Dettagli ordine** nel portale di Azure e prendere nota del gruppo di risorse specificato per i dischi gestiti.
+
+      ![Visualizzare i dettagli dell'ordine](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+
+    Passare al gruppo di risorse annotato e individuare i dischi gestiti.
+
+      ![Gruppo di risorse per i dischi gestiti](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+
+  - Se è stato copiato un file VHDX oppure un disco rigido virtuale differenze o dinamico, questo verrà caricato nell'account di archiviazione di staging come BLOB in blocchi. Passare all'**account di archiviazione di staging > BLOB** e quindi selezionare il contenitore appropriato (StandardSSD, StandardHDD o PremiumSSD). I file VHDX o i dischi rigidi virtuali verranno visualizzati come BLOB in blocchi nell'account di archiviazione di staging.
+
+Per verificare che i dati siano stati caricati in Azure, seguire questa procedura:
 
 1. Passare all'account di archiviazione associato all'ordine del disco.
 2. Passare a **Servizio Blob > Esplora BLOB**. Viene presentato l'elenco di contenitori. In modo corrispondente alla sottocartella creata nelle cartelle *BlockBlob* e *PageBlob*, contenitori con lo stesso nome vengono creati nell'account di archiviazione.
@@ -78,7 +99,7 @@ Verificare la presenza dei dati negli account di archiviazione prima di eliminar
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Cancellazione dei dati dai dischi di Data Box
 
-Dopo aver completato la copia e aver verificato che i dati siano disponibili nell'account di archiviazione di Azure, i dischi vengono cancellati in modo sicuro come da standard NIST. 
+Dopo aver completato la copia e aver verificato che i dati siano disponibili nell'account di archiviazione di Azure, i dischi vengono cancellati in modo sicuro come da standard NIST.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

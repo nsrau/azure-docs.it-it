@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/25/2018
+ms.date: 03/08/2019
 ms.author: troyhop
-ms.openlocfilehash: 268efa35f63ac8b9e0c6ea3f22a71242a2984726
-ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
+ms.openlocfilehash: 09a6920e0d3a50da1bdacbf2bc7a80396c885897
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50756783"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58180705"
 ---
 # <a name="tutorial-create-and-run-an-iot-device-simulation"></a>Esercitazione: Creare ed eseguire una simulazione di dispositivi IoT
 
@@ -34,7 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per seguire questa esercitazione, è necessaria un'istanza distribuita di Simulazione dispositivi nella sottoscrizione di Azure.
 
-Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare la guida introduttiva [Distribuire ed eseguire una soluzione di simulazione dei dispositivi in Azure](quickstart-device-simulation-deploy.md).
+Se la soluzione Simulazione dispositivi non è stata ancora distribuita, è necessario completare la guida di avvio rapido [Distribuire ed eseguire una soluzione di simulazione dei dispositivi in Azure](quickstart-device-simulation-deploy.md).
 
 ## <a name="open-device-simulation"></a>Aprire Simulazione dispositivi
 
@@ -42,7 +42,7 @@ Per eseguire Simulazione dispositivi nel browser, passare innanzitutto al sito [
 
 Potrebbe essere necessario accedere con le credenziali della sottoscrizione di Azure.
 
-Fare quindi clic su **Avvio** nel riquadro per la soluzione Simulazione dispositivi distribuita nella [guida introduttiva](quickstart-device-simulation-deploy.md).
+Fare quindi clic su **Avvio** nel riquadro per la soluzione Simulazione dispositivi distribuita nella [guida di avvio rapido](quickstart-device-simulation-deploy.md).
 
 ## <a name="view-simulations"></a>Visualizzare le simulazioni
 

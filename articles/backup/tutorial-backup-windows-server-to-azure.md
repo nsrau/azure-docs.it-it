@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: f5cfa3de962c51ac7ff43d9b83bdea9f408f5bcf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616190"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097424"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Eseguire il backup di Windows Server in Azure
 
@@ -31,7 +31,7 @@ ms.locfileid: "42616190"
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -88,11 +88,11 @@ L'agente di Servizi di ripristino di Microsoft Azure (MARS) crea un'associazione
 
 1. Individuare e fare doppio clic sul file scaricato **MARSagentinstaller.exe**.
 2. Si apre l'**Installazione guidata di Agente servizi di ripristino di Microsoft Azure**. Durante la procedura guidata, specificare le informazioni seguenti quando richiesto e scegliere **Registra**.
-    - Percorso per l'installazione e la cartella della cache.
-    - Informazioni sul server proxy se si usa un server proxy per connettersi a Internet.
-    - Il nome utente e la password se si usa un proxy autenticato.
+   - Percorso per l'installazione e la cartella della cache.
+   - Informazioni sul server proxy se si usa un server proxy per connettersi a Internet.
+   - Il nome utente e la password se si usa un proxy autenticato.
 
-    ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
+     ![Preparare l'infrastruttura](./media/tutorial-backup-windows-server-to-azure/mars-installer.png) 
 
 3. Al termine della procedura guidata, fare clic su **Continua con la registrazione** e specificare il file dell'**Insieme di credenziali** che è stato scaricato nella procedura precedente.
  
