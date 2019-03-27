@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984765"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015164"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
 
@@ -151,7 +151,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
           ![Creare una nuova cartella](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Creare un nuovo notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) denominato **mynotebook** nella cartella **adftutorial**e quindi **,** fare clic su **Crea**.
+       1. [Creare un nuovo notebook](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python) denominato **mynotebook** nella cartella **adftutorial** e fare clic su **Crea**.
 
           ![Creare un nuovo notebook](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -173,13 +173,13 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
        1. In questo caso, il **percorso del notebook** è **adftutorial/mynotebook**
 
-1.  Tornare allo **strumento di creazione dell'interfaccia utente di Data Factory**. Passare alla scheda **Settings** (Impostazioni) nell'**attività Notebook1**. 
-    
+1.  Tornare allo **strumento di creazione dell'interfaccia utente di Data Factory**. Passare alla scheda **Settings** (Impostazioni) nell'**attività Notebook1**.
+
     a.  **Aggiungere un parametro** all'attività notebook. Usare lo stesso parametro aggiunto in precedenza alla **pipeline**.
 
        ![Aggiungere un parametro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Assegnare al parametro il nome **input** e specificare il valore come espressione **@pipeline().parameters.name**.
+    b.  Assegnare al parametro il nome **input** e specificare il valore come espressione **\@pipeline().parameters.name**.
 
 1.  Per convalidare la pipeline, selezionare il pulsante **Convalida** sulla barra degli strumenti. Selezionare il pulsante **\>\>** (freccia destra) per chiudere la finestra di convalida.
 

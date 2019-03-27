@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074768"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901424"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Jenkins e Azure DevOps Services
 
@@ -60,7 +60,7 @@ Per questa esercitazione, si consiglia di usare [questa app di esempio disponibi
 Creare un fork di questa app e prendere nota del percorso (URL) per l'uso nei passaggi successivi di questa esercitazione. Per altre informazioni, vedere [Creare una copia tramite fork di un repository](https://help.github.com/articles/fork-a-repo/).    
 
 > [!NOTE]
-> L'app è stata compilata tramite [Yeoman](http://yeoman.io/learning/index.html). Usa Express, bower e grunt. Include alcuni pacchetti npm come dipendenze.
+> L'app è stata compilata tramite [Yeoman](https://yeoman.io/learning/index.html). Usa Express, bower e grunt. Include alcuni pacchetti npm come dipendenze.
 > L'esempio contiene anche uno script che configura Nginx e distribuisce l'app. Viene eseguito sulle macchine virtuali. In particolare, lo script:
 > 1. Installa Node, Nginx e PM2.
 > 2. Configura Nginx e PM2.
@@ -141,7 +141,7 @@ Un endpoint di servizio consente ad Azure DevOps Services di connettersi a Jenki
 8. Dopo l'installazione, vengono chiesti i tag dei gruppi di distribuzione. Accettare i valori predefiniti.
 9. In Azure DevOps Services cercare la nuova macchina virtuale registrata in **Destinazioni** sotto **Gruppi di distribuzione**.
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Creare una pipeline di versione in Azure Pipelines
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Creare una pipeline di versione in Azure Pipelines
 
 Una pipeline di versione specifica il processo usato da Azure Pipelines per distribuire l'app. In questo esempio si esegue uno script della shell.
 

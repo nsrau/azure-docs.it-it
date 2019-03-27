@@ -1,6 +1,6 @@
 ---
-title: Esempio dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale di Azure che esegue il monitoraggio di Log Analytics | Microsoft Docs
-description: Esempio dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale di Azure che esegue Windows Server 2016 e il monitoraggio di Log Analytics.
+title: Esempio dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale di Azure che esegue Monitoraggio di Azure | Microsoft Docs
+description: Esempio dell'interfaccia della riga di comando di Azure - Creare una macchina virtuale di Azure che esegue una macchina virtuale di Windows Server 2016 e Monitoraggio di Azure.
 services: virtual-machines-Windows
 documentationcenter: virtual-machines
 author: rickstercdn
@@ -16,14 +16,14 @@ ms.workload: infrastructure
 ms.date: 02/23/2017
 ms.author: rclaus
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 06e853534dc811ba5b37b192a9da75e88eedd778
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 2565433b8f42a3b81b843a972dd27850cce124b8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668314"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57543322"
 ---
-# <a name="monitor-a-vm-with-log-analytics"></a>Monitorare una macchina virtuale con Log Analytics
+# <a name="monitor-a-vm-with-azure-monitor-logs"></a>Monitorare una macchina virtuale con i log di Monitoraggio di Azure
 
 Questo script consente di creare una macchina virtuale di Azure, installare l'agente Log Analytics e registrare il sistema in un'area di lavoro di Log Analytics. Dopo l'esecuzione dello script, la macchina virtuale sarà visibile nel Monitoraggio di Azure.
 

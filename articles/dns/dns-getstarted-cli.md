@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: e61975d81fd5920feb5fd47845c67d0aa5293ae6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962012"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093423"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Guida introduttiva: Creare una zona e un record DNS di Azure con l'interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ DNS di Azure supporta ora anche le zone DNS private, attualmente disponibili in 
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-the-resource-group"></a>Creare il gruppo di risorse.
+## <a name="create-the-resource-group"></a>Creare il gruppo di risorse
 
 Prima di creare la zona DNS, creare un gruppo di risorse per contenere la zona DNS:
 
@@ -38,20 +38,20 @@ az group create --name MyResourceGroup --location "East US"
 
 Una zona DNS viene creata utilizzando il comando `az network dns zone create` . Per visualizzare la guida per questo comando, digitare `az network dns zone create -h`.
 
-L'esempio seguente crea una zona DNS denominata *contoso.com* nel gruppo di risorse *MyResourceGroup*. Usare l'esempio per creare una zona DNS, sostituendo i valori con quelli personalizzati.
+L'esempio seguente crea una zona DNS denominata *contoso.xyz* nel gruppo di risorse *MyResourceGroup*. Usare l'esempio per creare una zona DNS, sostituendo i valori con quelli personalizzati.
 
 ```azurecli
-az network dns zone create -g MyResourceGroup -n contoso.com
+az network dns zone create -g MyResourceGroup -n contoso.xyz
 ```
 
 ## <a name="create-a-dns-record"></a>Creare un record DNS
 
 Per creare un record DNS, usare il comando `az network dns record-set [record type] add-record`. Per informazioni sui record A, vedere `azure network dns record-set A add-record -h`.
 
-L'esempio seguente crea un record con il nome relativo "www" nella zona DNS "contoso.com" nel gruppo di risorse "MyResourceGroup". Il nome completo del set di record sarà "www.contoso.com". Il tipo di record è "A" con indirizzo IP "1.2.3.4" e un valore TTL predefinito di 3600 secondi (1 ora).
+L'esempio seguente crea un record con il nome relativo "www" nella zona DNS "contoso.xyz" nel gruppo di risorse "MyResourceGroup". Il nome completo del set di record è "www.contoso.xyz". Il tipo di record è "A" con indirizzo IP "10.10.10.10" e un valore TTL predefinito di 3600 secondi (1 ora).
 
 ```azurecli
-az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
 ```
 
 ## <a name="view-records"></a>Visualizzare i record
@@ -59,41 +59,43 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 Per elencare i record DNS nella zona, eseguire:
 
 ```azurecli
-az network dns record-set list -g MyResourceGroup -z contoso.com
+az network dns record-set list -g MyResourceGroup -z contoso.xyz
 ```
 
-## <a name="update-name-servers"></a>Aggiornare i server dei nomi
+## <a name="test-the-name-resolution"></a>Testare la risoluzione dei nomi
 
-Dopo essersi assicurati che la zona e i record DNS siano stati configurati correttamente, è necessario configurare il nome di dominio in modo che usi i server dei nomi DNS di Azure, per consentire ad altri utenti Internet di trovare questi record DNS.
+Dopo aver creato una zona DNS di test, con un record "A" di test, è possibile testare la risoluzione dei nomi con uno strumento denominato *nslookup*. 
 
-I server dei nomi per la zona vengono specificati tramite il comando `az network dns zone show`. Per visualizzare i nomi dei server dei nomi, usare l'output JSON, come mostrato nell'esempio seguente.
+**Per testare la risoluzione dei nomi DNS:**
 
-```azurecli
-az network dns zone show -g MyResourceGroup -n contoso.com -o json
+1. Eseguire il cmdlet seguente per ottenere l'elenco di server dei nomi per la propria zona:
 
-{
-  "etag": "00000003-0000-0000-b40d-0996b97ed101",
-  "id": "/subscriptions/a385a691-bd93-41b0-8084-8213ebc5bff7/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "contoso.com",
-  "nameServers": [
-    "ns1-01.azure-dns.com.",
-    "ns2-01.azure-dns.net.",
-    "ns3-01.azure-dns.org.",
-    "ns4-01.azure-dns.info."
-  ],
-  "numberOfRecordSets": 3,
-  "resourceGroup": "myresourcegroup",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones"
-}
-```
+   ```azurecli
+   az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
+   ```
 
-I server dei nomi devono essere configurati con il registrar dei nomi di dominio, in cui è stato acquistato il nome di dominio. Il registrar offrirà l'opzione per la configurazione dei server dei nomi per il dominio. Per altre informazioni, vedere [Esercitazione: Ospitare un dominio in DNS di Azure](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+1. Copiare uno dei nomi di server dei nomi dall'output del passaggio precedente.
+
+1. Aprire un prompt dei comandi ed eseguire il comando seguente:
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   Ad esempio: 
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+
+   Verrà visualizzata una schermata simile alla seguente:
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+Il nome host **www\.contoso.xyz** viene risolto in **10.10.10.10**, esattamente come è stato configurato. Questo risultato conferma il corretto funzionamento della risoluzione dei nomi.
 
 ## <a name="delete-all-resources"></a>Eliminare tutte le risorse
- 
+
 Quando non sono più necessarie, è possibile eliminare tutte le risorse create in questa guida introduttiva eliminando il gruppo di risorse:
 
 ```azurecli

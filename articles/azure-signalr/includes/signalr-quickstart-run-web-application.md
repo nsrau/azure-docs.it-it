@@ -4,24 +4,24 @@ description: File di inclusione
 author: anthonychu
 ms.service: signalr
 ms.topic: include
-ms.date: 09/14/2018
+ms.date: 03/04/2019
 ms.author: antchu
 ms.custom: include file
-ms.openlocfilehash: 73d40bfb5a7e691cead5a84be70398e9cbf6656a
-ms.sourcegitcommit: 1c1f258c6f32d6280677f899c4bb90b73eac3f2e
+ms.openlocfilehash: 73d4d4e1a5f148dce6099b2d747ee1c290bcf7c1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/11/2018
-ms.locfileid: "53262769"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58051570"
 ---
 ## <a name="run-the-web-application"></a>Eseguire l'applicazione Web
 
-1. È disponibile un'applicazione Web a singola pagina di esempio ospitata in GitHub per comodità. Aprire il browser per [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat/).
+1. È disponibile un'applicazione Web a singola pagina di esempio ospitata in GitHub per comodità. Aprire il browser per [https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/](https://azure-samples.github.io/signalr-service-quickstart-serverless-chat/demo/chat-v2/).
 
     > [!NOTE]
-    > L'origine del file HTML è disponibile all'indirizzo [/docs/demo/chat/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat/index.html).
+    > Il codice sorgente del file HTML è disponibile all'indirizzo [/docs/demo/chat-v2/index.html](https://github.com/Azure-Samples/signalr-service-quickstart-serverless-chat/blob/master/docs/demo/chat-v2/index.html).
 
-1. Quando viene richiesto l'URL di base dell'app per le funzioni, immettere *http://localhost:7071*.
+1. Quando viene richiesto l'URL di base dell'app per le funzioni, immettere `http://localhost:7071`.
 
 1. Immettere un nome utente quando richiesto.
 
@@ -32,3 +32,6 @@ ms.locfileid: "53262769"
     ![Eseguire l'applicazione](../media/signalr-quickstart-azure-functions-csharp/signalr-quickstart-run-application.png)
 
 1. Aprire un'altra istanza dell'applicazione Web in un'altra finestra del browser. Si noterà che tutti i messaggi inviati verranno visualizzati in tutte le istanze dell'applicazione.
+
+> [!IMPORTANT]
+> Dato che la pagina HTML è disponibile tramite HTTPS, ma il runtime locale di Funzioni di Azure usa HTTP per impostazione predefinita, il browser (ad esempio Firefox) potrebbe applicare un criterio di contenuto misto che blocca le richieste della pagina Web alle funzioni dell'utente. Per risolvere questo problema, usare un browser che non ha questa restrizione oppure avviare un server HTTP locale come [http-server](https://www.npmjs.com/package/http-server) nella directory */docs/demo/chat-v2*. Assicurarsi che l'origine venga aggiunta all'impostazione `CORS` in *local.settings.json*.

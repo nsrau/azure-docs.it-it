@@ -3,23 +3,22 @@ title: Sincronizzare lo stato del dispositivo dall'hub IoT di Azure | Microsoft 
 description: Usare dispositivi gemelli per sincronizzare lo stato tra i dispositivi e l'hub IoT
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421913"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088078"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -60,7 +59,7 @@ Scaricare il progetto di esempio di Node.js da https://github.com/Azure-Samples/
 
 Per completare questa esercitazione, la sottoscrizione di Azure deve contenere un hub IoT con un dispositivo aggiunto al registro delle identità del dispositivo. La voce del registro delle identità del dispositivo consente al dispositivo simulato in esecuzione in questa esercitazione di connettersi all'hub.
 
-Se non si dispone già di un hub IoT impostato nella sottoscrizione, è possibile configurarne uno con lo script dell'interfaccia della riga di comando seguente. Questo script usa il nome **tutorial-iot-hub** per l'hub IoT; è consigliabile sostituire questo nome con uno univoco in fase di esecuzione. Lo script crea il gruppo di risorse e l'hub nell'area **Stati Uniti centrali**, che è possibile sostituire con un'area più vicina all'utente. Lo script recupera la stringa di connessione del servizio hub IoT, utilizzabile nell'esempio di back-end per la connessione all'hub IoT:
+Se non è già presente un hub IoT nella sottoscrizione, è possibile configurarne uno con lo script dell'interfaccia della riga di comando seguente. Questo script usa il nome **tutorial-iot-hub** per l'hub IoT; è consigliabile sostituire questo nome con uno univoco in fase di esecuzione. Lo script crea il gruppo di risorse e l'hub nell'area **Stati Uniti centrali**, che è possibile sostituire con un'area più vicina all'utente. Lo script recupera la stringa di connessione del servizio hub IoT, utilizzabile nell'esempio di back-end per la connessione all'hub IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -76,7 +75,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -263,4 +262,4 @@ az group delete --name tutorial-iot-hub-rg
 In questa esercitazione si è appreso come sincronizzare le informazioni sullo stato tra i dispositivi e l'hub IoT. Passare all'esercitazione successiva per imparare a usare i dispositivi gemelli per implementare un processo di aggiornamento del firmware.
 
 > [!div class="nextstepaction"]
-[Implementare un processo di aggiornamento del firmware del dispositivo](tutorial-firmware-update.md)
+> [Implementare un processo di aggiornamento del firmware del dispositivo](tutorial-firmware-update.md)

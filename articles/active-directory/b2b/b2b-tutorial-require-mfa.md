@@ -9,14 +9,15 @@ ms.date: 06/25/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f6718c13534e7f43b183400a1ccf25c3f8d1e1
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 94e5f4eaf32815dd0342ef73705efb2c575b71bc
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669008"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293993"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>Esercitazione: Imporre l'autenticazione a più fattori per gli utenti guest B2B
 
@@ -24,7 +25,7 @@ Quando si collabora con utenti guest B2B esterni, è consigliabile proteggere le
 
 Esempio:
 
-![App B2B che richiede MFA](media/tutorial-mfa/aad-b2b-mfa-example.png)
+![Diagramma che mostra un utente guest che accede alle app di un'azienda](media/tutorial-mfa/aad-b2b-mfa-example.png)
 
 1.  Un amministratore o un dipendente della Società A invita un utente guest a usare un'applicazione cloud o locale configurata per richiedere l'autenticazione MFA per l'accesso.
 2.  L'utente guest accede con la propria identità aziendale, dell'istituto di istruzione o di social networking. 
@@ -56,11 +57,11 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 3.  In **Gestisci** selezionare **Utenti**.
 4.  Selezionare **Nuovo utente guest**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-3.png)
+    ![Screenshot che mostra dove selezionare l'opzione Nuovo utente guest](media/tutorial-mfa/tutorial-mfa-user-3.png)
 
 5.  In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. Se si vuole, includere un messaggio di benvenuto. 
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-user-4.png)
+    ![Screenshot che mostra dove immettere il messaggio di invito per l'utente guest](media/tutorial-mfa/tutorial-mfa-user-4.png)
 
 6.  Selezionare **Invita** per inviare automaticamente l'invito all'utente guest. Viene visualizzato il messaggio **L'utente è stato invitato**. 
 7.  Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla directory come guest.
@@ -79,26 +80,26 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 6.  Nella sezione **Assegnazioni** selezionare **Utenti e gruppi**.
 7.  Nella pagina **Utenti e gruppi** scegliere **Seleziona utenti e gruppi** e quindi selezionare **Tutti gli utenti guest (anteprima)**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-6.png)
+    ![Screenshot che mostra la selezione di tutti gli utenti guest](media/tutorial-mfa/tutorial-mfa-policy-6.png)
 9.  Selezionare **Operazione completata**.
 10. Nella sezione **Assegnazioni** della pagina **Nuovo** selezionare **App cloud**.
 11. Nella pagina **App cloud** scegliere **Selezionare le app** e quindi **Seleziona**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-10.png)
+    ![Screenshot che mostra la pagina App cloud e l'opzione Seleziona](media/tutorial-mfa/tutorial-mfa-policy-10.png)
 
 12. Nella pagina **Seleziona** scegliere **Gestione di Microsoft Azure** e quindi scegliere **Seleziona**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-11.png)
+    ![Screenshot che mostra l'app Gestione di Microsoft Azure selezionata](media/tutorial-mfa/tutorial-mfa-policy-11.png)
 
 13. Nella pagina **App cloud** fare clic su **Fine**.
 14. Nella sezione **Controlli di accesso** della pagina **Nuovo** selezionare **Concedi**.
 15. Nella pagina **Concedi** scegliere **Concedi accesso**, selezionare la casella di controllo **Richiedi autenticazione a più fattori** e quindi scegliere **Seleziona**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-13.png)
+    ![Screenshot che mostra l'opzione Richiedi autenticazione a più fattori](media/tutorial-mfa/tutorial-mfa-policy-13.png)
 
 16. In **Abilita criterio** selezionare **Sì**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-policy-14.png)
+    ![Screenshot che mostra l'opzione Abilita criterio impostata su Sì](media/tutorial-mfa/tutorial-mfa-policy-14.png)
 
 17. Selezionare **Create**.
 
@@ -106,27 +107,27 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 
 1.  Nella pagina **Accesso condizionale - Criteri** selezionare **What If**. 
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
+    ![Screenshot che mostra dove selezionare l'opzione What If](media/tutorial-mfa/tutorial-mfa-whatif-1.png)
 
 2.  Selezionare **Utente**, scegliere l'utente guest di test e quindi scegliere **Seleziona**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
+    ![Screenshot che mostra un utente guest selezionato](media/tutorial-mfa/tutorial-mfa-whatif-2.png)
 
 3.  Selezionare **App cloud**.
 4.  Nella pagina **App cloud** scegliere **Selezionare le app** e quindi fare clic su **Seleziona**. Nell'elenco delle applicazioni selezionare **Gestione di Microsoft Azure** e quindi fare clic su **Seleziona**. 
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
+    ![Screenshot che mostra l'app Gestione di Microsoft Azure selezionata](media/tutorial-mfa/tutorial-mfa-whatif-3.png)
 
 5.  Nella pagina **App cloud** fare clic su **Fine**.
 6.  Selezionare **What If** e verificare che il nuovo criterio sia visualizzato in **Risultati valutazione** nella scheda **Criteri applicabili**.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
+    ![Screenshot che mostra dove selezionare l'opzione What If](media/tutorial-mfa/tutorial-mfa-whatif-4.png)
 
 ## <a name="test-your-conditional-access-policy"></a>Testare i criteri di accesso condizionale
 1.  Usare il nome utente e la password di test per accedere al [portale di Azure](https://portal.azure.com/).
 2.  Verrà visualizzata una richiesta per i metodi di autenticazione aggiuntivi. Si noti che potrebbe essere richiesto del tempo prima che il criterio diventi effettivo.
 
-    ![Selezionare Azure Active Directory](media/tutorial-mfa/mfa-required.png)
+    ![Screenshot che mostra il messaggio per richiedere altre informazioni](media/tutorial-mfa/mfa-required.png)
  
 3.  Uscire,
 
@@ -139,5 +140,6 @@ Quando non sono più necessari, eliminare l'utente e i criteri di accesso condiz
 5.  Nel riquadro sinistro selezionare **Azure Active Directory**.
 6.  In **Sicurezza** selezionare **Accesso condizionale**.
 7.  Nell'elenco **Nome criteri** selezionare il menu di scelta rapida (...) per i criteri di test e quindi scegliere **Elimina**. Selezionare **Sì** per confermare.
+
 ## <a name="next-steps"></a>Passaggi successivi
 In questa esercitazione sono stati creati criteri di accesso condizionale che richiedono agli utenti guest di usare MFA per l'accesso a una delle app cloud. Per altre informazioni sull'aggiunta di utenti guest per la collaborazione, vedere [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](add-users-administrator.md).

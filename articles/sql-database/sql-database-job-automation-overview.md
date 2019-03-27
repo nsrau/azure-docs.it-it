@@ -3,7 +3,6 @@ title: Automazione dei processi SQL di Azure | Microsoft Docs
 description: Usare l'automazione dei processi per eseguire script Transact-SQL (T-SQL) su un set di uno o più database SQL di Azure
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901968"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 
 Database SQL di Azure consente di creare e pianificare processi eseguibili periodicamente su uno o più database per eseguire query T-SQL e attività di manutenzione. Ogni processo registra lo stato di esecuzione e ripete automaticamente le operazioni se si verificano errori.
 È possibile definire il database o i gruppi di database SQL di Azure di destinazione in cui verrà eseguito il processo, nonché le pianificazioni per l'esecuzione.
 Un processo gestisce l'attività di accesso al database di destinazione. È anche possibile definire, gestire e mantenere script Transact-SQL da eseguire su un gruppo di database SQL di Azure.
+
+## <a name="when-to-use-automated-jobs"></a>Quando usare i processi automatizzati
 
 L'automazione dei processi può essere usata in diversi scenari:
 
@@ -36,8 +37,10 @@ L'automazione dei processi può essere usata in diversi scenari:
   - Aggregare i dati di una raccolta di database SQL di Azure in una singola tabella di destinazione.
   - Eseguire query di elaborazione dei dati più lunghe per una vasta serie di database, ad esempio la raccolta della telemetria del cliente. I risultati vengono raccolti in una tabella di destinazione singola per ulteriori analisi.
 - Spostare dati
- - Creare processi che replicano le modifiche apportate ai database in altri database o raccolgono gli aggiornamenti effettuati in database remoti e applicano le modifiche nel database.
- - Creare processi che caricano dati da o verso i database usando SQL Server Integration Services (SSIS).
+  - Creare processi che replicano le modifiche apportate ai database in altri database o raccolgono gli aggiornamenti effettuati in database remoti e applicano le modifiche nel database.
+  - Creare processi che caricano dati da o verso i database usando SQL Server Integration Services (SSIS).
+
+## <a name="overview"></a>Panoramica
 
 In Database SQL di Azure sono disponibili le tecnologie di pianificazione dei processi seguenti.
 
@@ -158,9 +161,9 @@ Alcune delle funzionalità di SQL Agent disponibili in SQL Server non sono suppo
 - Le impostazioni dell'agente SQL sono di sola lettura. La routine `sp_set_agent_properties` non è supportata in Istanza gestita.
 - L'abilitazione/disabilitazione dell'agente non è attualmente supportata in Istanza gestita. SQL Agent è sempre in esecuzione.
 - Le notifiche sono supportate in modo parziale.
- - Il cercapersone non è supportato.
- - NetSend non è supportato.
- - Gli avvisi non sono ancora supportati.
+  - Il cercapersone non è supportato.
+  - NetSend non è supportato.
+  - Gli avvisi non sono ancora supportati.
 - I proxy non sono supportati.
 - EventLog non è supportato.
 

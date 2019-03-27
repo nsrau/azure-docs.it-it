@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 2f5f57f0978adbdf33ed4ce25ba9b32247ea0484
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: dcfb50c58f1205a5ab31c3fc6b9b22fdb503e4ec
+ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455977"
+ms.lasthandoff: 03/08/2019
+ms.locfileid: "57588959"
 ---
 # <a name="what-is-the-azure-face-api"></a>Informazioni sull'API Viso di Azure
 
@@ -26,12 +26,12 @@ L'API Viso offre varie funzioni, descritte nelle sezioni seguenti. Proseguire la
 
 L'API Viso può rilevare i visi umani in un'immagine e restituire le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, la funzionalità di rilevamento viso può estrarre una serie di attributi relativi al viso, come posa, posizione della testa, sesso, età, emozione, barba/baffi e occhiali.
 
+> [!NOTE] 
+> La funzionalità di rilevamento viso è disponibile anche tramite l'[API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), ma se si vogliono eseguono ulteriori operazioni con i dati sui volti è preferibile usare l'API Viso (questo servizio).
+
 ![Immagine di una donna e un uomo, con rettangoli disegnati intorno ai visi e informazioni su età e sesso](./Images/Face.detection.jpg)
 
-> [!NOTE] 
-> La funzionalità di rilevamento viso è disponibile anche tramite l'[API Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home), ma se si vogliono eseguono ulteriori operazioni con i dati sui volti è preferibile usare l'API Viso (questo servizio). 
-
-Per altre informazioni sul rilevamento del viso, vedere l'[API di rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Per altre informazioni sul rilevamento del viso, vedere la [Guida alle procedure di Rilevamento viso](face-api-how-to-topics/howtodetectfacesinimage.md) o consultare la documentazione di riferimento dell'[API di rilevamento](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
 ## <a name="face-verification"></a>Verifica del viso
 

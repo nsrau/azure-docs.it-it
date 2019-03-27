@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 02/21/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 80c9944628eaa828a34ea16eb9f79271d6cd5728
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 79f0474950cf1f48f3552b1ae843a29b5d8dbb24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729220"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57883373"
 ---
 # <a name="what-is-translator-text-api"></a>Informazioni sull'API Traduzione testuale
 
@@ -28,7 +28,7 @@ L'API Traduzione testuale fa parte della raccolta [API Servizi cognitivi](https:
 
 Microsoft Translator è un servizio di traduzione automatica basato sul cloud. Il servizio di base è l'API Traduzione testuale che supporta vari prodotti e servizi Microsoft e viene usato da migliaia di aziende in tutto il mondo nelle applicazioni e nei flussi di lavoro, consentendo ai loro contenuti di raggiungere un pubblico globale.
 
-Traduzione vocale, basato sull'API Traduzione testuale, è disponibile anche tramite il [servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina le funzionalità dell'API Traduzione vocale, dell'API Riconoscimento vocale Bing e del Servizio di riconoscimento vocale personalizzato (anteprima) in un servizio unificato e completamente personalizzabile. Il servizio Voce sta sostituendo l'API Traduzione vocale, che verrà ritirato il 15 ottobre 2019.
+Traduzione vocale, basato sull'API Traduzione testuale, è disponibile anche tramite il [servizio Voce Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/). Combina le funzionalità dell'API Traduzione vocale e del Servizio riconoscimento vocale personalizzato (anteprima) in un unico servizio completamente personalizzabile. Il servizio Voce sta sostituendo l'API Traduzione vocale, che verrà ritirato il 15 ottobre 2019.
 
 ## <a name="language-support"></a>Supporto per le lingue
 

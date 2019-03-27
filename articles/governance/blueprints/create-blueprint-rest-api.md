@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338428"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994871"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -70,6 +70,9 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
 
 - `{YourMG}`: sostituire con l'ID del gruppo di gestione
 - `{subscriptionId}`: sostituire con l'ID sottoscrizione
+
+> [!NOTE]
+> I progetti possono anche essere creati a livello di sottoscrizione. Per un esempio, vedere l'[esempio di creazione del progetto a livello di sottoscrizione](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Creare l'oggetto _progetto_ iniziale. Il **corpo della richiesta** include proprietà relative al progetto, tutti i gruppi di risorse da creare e tutti i parametri a livello di progetto. I parametri vengono impostati durante l'assegnazione e usati dagli elementi aggiunti nei passaggi successivi.
 
@@ -262,7 +265,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },
@@ -335,7 +338,7 @@ In ogni URI dell'API REST vengono usate variabili che è necessario sostituire c
 - `{YourMG}`: sostituire con l'ID del gruppo di gestione
 - `{subscriptionId}`: sostituire con l'ID sottoscrizione
 
-1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID entità servizio varia in base al tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazione diverse.
+1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID dell'entità servizio varia in funzione del tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazione diverse.
 
    - URI DELL'API REST
 
@@ -435,9 +438,9 @@ Per rimuovere il progetto stesso, usare l'operazione API REST seguente:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md)
-- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md)
-- Imparare a personalizzare l'[ordine in sequenza del progetto](./concepts/sequencing-order.md)
-- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md)
-- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md)
+- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./concepts/sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md).
+- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md).

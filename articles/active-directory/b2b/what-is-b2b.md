@@ -10,13 +10,14 @@ ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6fa36ab67957dcba7b5282e219706e442be9dc97
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a77d502182da8128624bfb5fc0481f2f8786ec37
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56674481"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58293635"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Che cos'è l'accesso utente guest in Azure Active Directory B2B?
 
@@ -34,7 +35,7 @@ Con Azure AD B2B il partner usa la propria soluzione di gestione delle identità
 - Non è necessario gestire password o account esterni. 
 - Non è necessario sincronizzare gli account o gestire i cicli di vita degli account.  
 
-![Aggiungere un membro](media/what-is-b2b/add-member.png)
+![Screenshot che mostra la pagina Aggiungi membri](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>Invitare utenti guest con un semplice processo di invito e riscatto
 Gli utenti guest accedono alle app e ai servizi dell'organizzazione con le proprie identità aziendali, dell'istituto di istruzione o di social networking. Se l'utente guest non dispone di un account Microsoft o di un account Azure AD, ne viene creato uno al momento del riscatto dell'invito. 
@@ -42,7 +43,7 @@ Gli utenti guest accedono alle app e ai servizi dell'organizzazione con le propr
 - Inviare un collegamento diretto a un'app o inviare un invito al pannello di accesso dell'utente guest. 
 - Gli utenti guest accedono seguendo una semplice procedura di riscatto.
 
-![Pannello di accesso](media/what-is-b2b/consentscreen.png)
+![Screenshot che mostra la pagina Verifica le autorizzazioni](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>Usare criteri per condividere in modo sicuro app e servizi
 È possibile usare criteri di autorizzazione per proteggere i contenuti aziendali. Possono essere applicati criteri di accesso condizionale, ad esempio l'autenticazione a più fattori:
@@ -50,7 +51,7 @@ Gli utenti guest accedono alle app e ai servizi dell'organizzazione con le propr
 - A livello di applicazione.
 - Per utenti guest specifici per proteggere dati e applicazioni aziendali.
 
-![Aggiungere utenti guest](media/what-is-b2b/tutorial-mfa-policy-2.png)
+![Screenshot che mostra l'opzione Accesso condizionale](media/what-is-b2b/tutorial-mfa-policy-2.png)
 
 
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Aggiungere facilmente utenti guest nel portale di Azure AD
@@ -60,7 +61,7 @@ Gli amministratori possono aggiungere facilmente utenti guest all'organizzazione
 - L'utente guest riceve immediatamente un invito personalizzabile che gli consente di accedere al proprio pannello di accesso.
 - Gli utenti guest nella directory possono essere assegnati ad app o gruppi.  
 
-![Aggiungere utenti guest](media/what-is-b2b/adding-b2b-users-admin.png)
+![Screenshot che mostra la pagina di immissione dell'invito Nuovo utente guest](media/what-is-b2b/adding-b2b-users-admin.png)
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>Consentire ai proprietari di un'applicazione e di un gruppo di gestire i relativi utenti guest
 
@@ -68,7 +69,7 @@ Gli amministratori possono aggiungere facilmente utenti guest all'organizzazione
  - Gli amministratori configurano la gestione self-service dell'app e del gruppo.
  - Gli utenti non amministratori usano il proprio [pannello di accesso](https://myapps.microsoft.com) per aggiungere utenti guest ad applicazioni o gruppi.
 
-![Aggiungere utenti guest](media/what-is-b2b/access-panel-manage-app.png)
+![Screenshot che mostra il pannello di accesso per un utente guest](media/what-is-b2b/access-panel-manage-app.png)
 
 ## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>Usare le API e il codice di esempio per compilare con facilità le applicazioni da caricare
 
@@ -76,7 +77,7 @@ Gli amministratori possono aggiungere facilmente utenti guest all'organizzazione
 - Usare le [API di invito a Collaborazione B2B](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation) per personalizzare le proprie esperienze di caricamento, inclusa la creazione di portali di iscrizione self-service. 
 - Usare il codice di esempio fornito per un portale self-service [su GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web).
 
-![Portale di iscrizione](media/what-is-b2b/sign-up-portal.png)
+![Screenshot che mostra il portale di iscrizione di esempio](media/what-is-b2b/sign-up-portal.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

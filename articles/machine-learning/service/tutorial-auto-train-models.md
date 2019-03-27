@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: c064874c7eeeae0ae0b1176e3756be24f225e7fb
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818630"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295811"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -35,7 +35,7 @@ In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
 > * Eseguire il modello in locale con parametri personalizzati.
 > * Esplorare i risultati.
 
-Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](http://aka.ms/AMLFree).
+Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
 
 >[!NOTE]
 > Il codice di questo articolo è stato testato con Azure Machine Learning SDK versione 1.0.0.
@@ -82,18 +82,19 @@ Usare questa proceduta per creare un server notebook Jupyter locale nel computer
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Configurare l'ambiente di sviluppo
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+Tutte le impostazioni per il lavoro di sviluppo possono essere eseguite in un notebook di Python. La configurazione include le azioni seguenti:
 
-* Install the SDK
-* Import Python packages
-* Configure your workspace
+* Installare l'SDK
+* Importazione di pacchetti Python
+* Configurare l'area di lavoro
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Installare e importare pacchetti
 
-If you are following the tutorial in your own Python environment, use the following to install necessary packages.
+Se si sta seguendo l'esercitazione nell'ambiente Python, usare quanto segue per installare i pacchetti necessari.
 
 ```shell
 pip install azureml-sdk[automl,notebooks] matplotlib
@@ -111,7 +112,7 @@ import os
 
 ### <a name="configure-workspace"></a>Configurare l'area di lavoro
 
-Creare un oggetto area di lavoro dall'area di lavoro esistente. Un oggetto `Workspace` è una classe che accetta le informazioni sulla sottoscrizione e sulle risorse di Azure. Crea inoltre una risorsa cloud per monitorare le esecuzioni del modello e tenerne traccia.
+Creare un oggetto area di lavoro dall'area di lavoro esistente. Un'[area di lavoro](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py) è una classe che accetta le informazioni sulla sottoscrizione e sulle risorse di Azure. Crea inoltre una risorsa cloud per monitorare le esecuzioni del modello e tenerne traccia.
 
 `Workspace.from_config()` legge il file **aml_config/config.json** e carica i dettagli in un oggetto denominato `ws`.  `ws` viene usato in tutta la parte restante del codice in questa esercitazione.
 

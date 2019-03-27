@@ -7,13 +7,13 @@ ms.author: v-orspod
 ms.reviewer: jasonh
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 2/5/2019
-ms.openlocfilehash: c171962fd6177a01afdb8e9605b09574c99f485e
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.date: 3/14/2019
+ms.openlocfilehash: 422813c1ddb77aa11195d3021484744839c4e3bf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889223"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994329"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Esercitazione: Inserire dati in Esplora dati di Azure senza una riga di codice
 
@@ -38,29 +38,44 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="azure-monitor-data-provider-diagnostic-and-activity-logs"></a>Provider di dati di Monitoraggio di Azure: log di diagnostica e attività
 
-Visualizzare e interpretare i dati forniti dai log di diagnostica e attività di Monitoraggio di Azure. Verrà creata una pipeline di inserimento in base a questi schemi di dati.
+Visualizzare e interpretare i dati forniti dai log di diagnostica e attività seguenti di Monitoraggio di Azure. Verrà creata una pipeline di inserimento in base a questi schemi di dati. Si noti che ogni evento in un log ha una matrice di record. Questa matrice di record verrà suddivisa più avanti nell'esercitazione.
 
 ### <a name="diagnostic-logs-example"></a>Esempio di log di diagnostica
 
-I log di diagnostica di Azure sono metriche generate da un servizio di Azure che forniscono dati sul funzionamento del servizio stesso. I dati vengono aggregati con un intervallo di tempo di 1 minuto. Ogni evento di un log di diagnostica contiene un unico record. Di seguito è riportato un esempio di schema di evento di metrica di Esplora dati di Azure sulla durata di una query:
+I log di diagnostica di Azure sono metriche generate da un servizio di Azure che forniscono dati sul funzionamento del servizio stesso. I dati vengono aggregati con un intervallo di tempo di 1 minuto. Di seguito è riportato un esempio di schema di evento di metrica di Esplora dati di Azure sulla durata di una query:
 
 ```json
 {
-    "count": 14,
-    "total": 0,
-    "minimum": 0,
-    "maximum": 0,
-    "average": 0,
-    "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
-    "time": "2018-12-20T17:00:00.0000000Z",
-    "metricName": "QueryDuration",
-    "timeGrain": "PT1M"
+    "records": [
+    {
+        "count": 14,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-20T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    },
+    {
+        "count": 12,
+        "total": 0,
+        "minimum": 0,
+        "maximum": 0,
+        "average": 0,
+        "resourceId": "/SUBSCRIPTIONS/F3101802-8C4F-4E6E-819C-A3B5794D33DD/RESOURCEGROUPS/KEDAMARI/PROVIDERS/MICROSOFT.KUSTO/CLUSTERS/KEREN",
+        "time": "2018-12-21T17:00:00.0000000Z",
+        "metricName": "QueryDuration",
+        "timeGrain": "PT1M"
+    }
+    ]
 }
 ```
 
 ### <a name="activity-logs-example"></a>Esempio di log attività
 
-I log attività di Azure sono log a livello di sottoscrizione contenenti una raccolta di record. Offrono informazioni approfondite sulle operazioni eseguite sulle risorse nella sottoscrizione. A differenza dei log di diagnostica, ogni evento di un log attività include una matrice di record. Sarà necessario dividere questa matrice di record più avanti nell'esercitazione. Di seguito è riportato un esempio di evento di log attività per il controllo dell'accesso:
+I log attività di Azure sono log a livello di sottoscrizione che forniscono informazioni sulle operazioni eseguite sulle risorse nella sottoscrizione. Di seguito è riportato un esempio di evento di log attività per il controllo dell'accesso:
 
 ```json
 {
@@ -129,6 +144,8 @@ Nel database *TestDatabase* di Esplora dati di Azure selezionare **Query** per a
 
 ### <a name="create-the-target-tables"></a>Creare le tabelle di destinazione
 
+La struttura dei log di Monitoraggio di Azure non è tabellare. Si manipoleranno i dati e si espanderà ogni evento per uno o più record. I dati non elaborati verranno inseriti in una tabella intermedia denominata *ActivityLogsRawRecords* per i log attività e *DiagnosticLogsRawRecords* per i log di diagnostica. A quel punto, i dati verranno manipolati ed espansi. Usando un criterio di aggiornamento, i dati espansi verranno inseriti nella tabella *ActivityLogsRecords* per i log attività e *DiagnosticLogsRecords* per i log di diagnostica. Ciò significa che sarà necessario creare due tabelle separate per l'inserimento dei log attività e due tabelle separate per l'importazione dei log di diagnostica.
+
 Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di destinazione nel database di Esplora dati di Azure.
 
 #### <a name="the-diagnostic-logs-table"></a>Tabella dei log di diagnostica
@@ -143,9 +160,13 @@ Usare l'interfaccia utente Web di Esplora dati di Azure per creare le tabelle di
 
     ![Esegui query](media/ingest-data-no-code/run-query.png)
 
-#### <a name="the-activity-logs-tables"></a>Tabelle dei log attività
+1. Creare la tabella dati intermedia denominata *DiagnosticLogsRawRecords* nel database *TestDatabase* per la manipolazione dei dati usando la query seguente. Selezionare **Run** (Esegui) per creare la tabella.
 
-Poiché la struttura dei log attività non è tabulare, sarà necessario manipolare i dati ed espandere ogni evento in uno o più record. I dati non elaborati verranno inseriti in una tabella intermedia denominata *ActivityLogsRawRecords*. A quel punto, i dati verranno manipolati ed espansi. I dati espansi verranno quindi inseriti nella tabella *ActivityLogsRecords* usando un criterio di aggiornamento. Pertanto, per l'inserimento dei log attività sarà necessario creare due tabelle distinte.
+    ```kusto
+    .create table DiagnosticLogsRawRecords (Records:dynamic)
+    ```
+
+#### <a name="the-activity-logs-tables"></a>Tabelle dei log attività
 
 1. Creare la tabella denominata *ActivityLogsRecords* nel database *TestDatabase* per ricevere i record dei log attività. Per creare la tabella, eseguire la query di Esplora dati di Azure seguente:
 
@@ -174,7 +195,7 @@ Poiché la struttura dei log attività non è tabulare, sarà necessario manipol
 Per eseguire il mapping dei dati dei log di diagnostica con la tabella, usare la query seguente:
 
 ```kusto
-.create table DiagnosticLogsRecords ingestion json mapping 'DiagnosticLogsRecordsMapping' '[{"column":"Timestamp","path":"$.time"},{"column":"ResourceId","path":"$.resourceId"},{"column":"MetricName","path":"$.metricName"},{"column":"Count","path":"$.count"},{"column":"Total","path":"$.total"},{"column":"Minimum","path":"$.minimum"},{"column":"Maximum","path":"$.maximum"},{"column":"Average","path":"$.average"},{"column":"TimeGrain","path":"$.timeGrain"}]'
+.create table DiagnosticLogsRawRecords ingestion json mapping 'DiagnosticLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
 #### <a name="table-mapping-for-activity-logs"></a>Mapping della tabella per i log attività
@@ -185,9 +206,11 @@ Per eseguire il mapping dei dati dei log attività con la tabella, usare la quer
 .create table ActivityLogsRawRecords ingestion json mapping 'ActivityLogsRawRecordsMapping' '[{"column":"Records","path":"$.records"}]'
 ```
 
-### <a name="create-the-update-policy-for-activity-logs-data"></a>Creare i criteri di aggiornamento per i dati dei log attività
+### <a name="create-the-update-policy-for-log-data"></a>Creare il criterio di aggiornamento per i dati dei log
 
-1. Creare una [funzione](/azure/kusto/management/functions) che espande la raccolta di record in modo che ogni valore riceva una riga distinta. Usare l'operatore [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+#### <a name="activity-log-data-update-policy"></a>Criterio di aggiornamento dei dati del log attività
+
+1. Creare una [funzione](/azure/kusto/management/functions) che espande la raccolta di record del log attività in modo che ogni valore della raccolta riceva una riga distinta. Usare l'operatore [`mvexpand`](/azure/kusto/query/mvexpandoperator):
 
     ```kusto
     .create function ActivityLogRecordsExpand() {
@@ -212,6 +235,32 @@ Per eseguire il mapping dei dati dei log attività con la tabella, usare la quer
 
     ```kusto
     .alter table ActivityLogsRecords policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    ```
+
+#### <a name="diagnostic-log-data-update-policy"></a>Criterio di aggiornamento dei dati del log di diagnostica
+
+1. Creare una [funzione](/azure/kusto/management/functions) che espande la raccolta di record del log di diagnostica in modo che ogni valore della raccolta riceva una riga distinta. Usare l'operatore [`mvexpand`](/azure/kusto/query/mvexpandoperator):
+     ```kusto
+    .create function DiagnosticLogRecordsExpand() {
+        DiagnosticLogsRawRecords
+        | mvexpand events = Records
+        | project
+            Timestamp = todatetime(events["time"]),
+            ResourceId = tostring(events["resourceId"]),
+            MetricName = tostring(events["metricName"]),
+            Count = toint(events["count"]),
+            Total = todouble(events["total"]),
+            Minimum = todouble(events["minimum"]),
+            Maximum = todouble(events["maximum"]),
+            Average = todouble(events["average"]),
+            TimeGrain = tostring(events["timeGrain"])
+    }
+    ```
+
+2. Aggiungere il [criterio di aggiornamento](/azure/kusto/concepts/updatepolicy) nella tabella di destinazione. Questo criterio eseguirà automaticamente la query su tutti i nuovi dati inseriti nella tabella dati intermedia *DiagnosticLogsRawRecords* e inserirà i relativi risultati nella tabella *DiagnosticLogsRecords*:
+
+    ```kusto
+    .alter table DiagnosticLogsRecords policy update @'[{"Source": "DiagnosticLogsRawRecords", "Query": "DiagnosticLogRecordsExpand()", "IsEnabled": "True"}]'
     ```
 
 ## <a name="create-an-azure-event-hubs-namespace"></a>Creare uno spazio dei nomi di Hub eventi di Azure
@@ -252,12 +301,12 @@ Selezionare una risorsa da cui esportare le metriche. Esistono diversi tipi di r
     ![Impostazioni di diagnostica](media/ingest-data-no-code/diagnostic-settings.png)
 
 1. Viene visualizzato il riquadro **Impostazioni di diagnostica**. Eseguire questa procedura:
-    1. Assegnare ai dati del log di diagnostica il nome *ADXExportedData*.
-    1. In **METRICA** selezionare la casella di controllo **AllMetrics** (facoltativo).
-    1. Selezionare la casella di controllo **Streaming in un hub eventi**.
-    1. Selezionare **Configura**.
+   1. Assegnare ai dati del log di diagnostica il nome *ADXExportedData*.
+   1. In **METRICA** selezionare la casella di controllo **AllMetrics** (facoltativo).
+   1. Selezionare la casella di controllo **Streaming in un hub eventi**.
+   1. Selezionare **Configura**.
 
-    ![Riquadro Impostazioni di diagnostica](media/ingest-data-no-code/diagnostic-settings-window.png)
+      ![Riquadro Impostazioni di diagnostica](media/ingest-data-no-code/diagnostic-settings-window.png)
 
 1. Nel riquadro **Selezionare l'hub eventi** configurare il modo in cui esportare i dati dai log di diagnostica nell'hub eventi creato:
     1. Nell'elenco **Selezionare lo spazio dei nomi dell'hub eventi** selezionare *AzureMonitoringData*.
@@ -330,7 +379,7 @@ A questo punto è necessario creare le connessioni dati per i log di diagnostica
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | **Tabella** | *DiagnosticLogsRecords* | Tabella creata nel database *TestDatabase*. |
+    | **Tabella** | *DiagnosticLogsRawRecords* | Tabella creata nel database *TestDatabase*. |
     | **Formato dati** | *JSON* | Formato usato nella tabella. |
     | **Mapping di colonne** | *DiagnosticLogsRecordsMapping* | Il mapping creato nel database *TestDatabase*, che mappa i dati JSON in ingresso con i nomi di colonna e i tipi di dati della tabella *DiagnosticLogsRecords*.|
     | | |
@@ -400,6 +449,7 @@ ActivityLogsRecords
 ```
 
 Risultati della query:
+
 |   |   |
 | --- | --- |
 |   |  avg(DurationMs) |

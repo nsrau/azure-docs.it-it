@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633725"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994243"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -54,7 +54,7 @@ In primo luogo, creare un gruppo di risorse per contenere le risorse necessarie 
 
 Il gruppo di risorse contiene tutte le risorse per l'esercitazione.
 
-1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Nella home page del portale di Azure fare clic su **Gruppi di risorse** > **Aggiungi**.
 3. In **Nome del gruppo di risorse** immettere **Test-FW-RG**.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
@@ -141,9 +141,9 @@ Distribuire il firewall nella rete virtuale.
    |---------|---------|
    |NOME     |Test-FW01|
    |Sottoscrizione     |\<sottoscrizione in uso\>|
-   |Gruppo di risorse     |**Usa esistente**: Test-FW-RG |
+   |Gruppo di risorse     |**Use existing** (Usa esistente): Test-FW-RG |
    |Località     |Selezionare la stessa località usata in precedenza|
-   |Scegliere una rete virtuale     |**Usa esistente**: Test-FW-VN|
+   |Scegliere una rete virtuale     |**Use existing** (Usa esistente): Test-FW-VN|
    |Indirizzo IP pubblico     |**Creare un nuovo gruppo di risorse**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
 5. Fare clic su **Rivedi e crea**.
@@ -218,7 +218,7 @@ Si tratta della regola di rete che consente l'accesso in uscita a due indirizzi 
 
 ### <a name="change-the-primary-and-secondary-dns-address-for-the-srv-work-network-interface"></a>Modificare l'indirizzo DNS primario e secondario per l'interfaccia di rete **Srv-Work**
 
-Ai fini del test in questa esercitazione vengono configurati gli indirizzi DNS primari e secondari. Ciò non è un requisito generale di Firewall di Azure.
+Ai fini del test in questa esercitazione vengono configurati gli indirizzi DNS primari e secondari. Questo non è un requisito generale di Firewall di Azure.
 
 1. Nel portale di Azure aprire il gruppo di risorse **Test-FW-RG**.
 2. Fare clic sull'interfaccia di rete per la macchina virtuale **Srv-Work**.
@@ -235,12 +235,12 @@ A questo punto testare il firewall per verificare che funzioni come previsto.
 1. Nel portale di Azure rivedere le impostazioni di rete per la macchina virtuale **Srv-Work** e annotare l'indirizzo IP privato.
 2. Connettere una sessione di Desktop remoto alla macchina virtuale **Srv-Jump** e da qui aprire una connessione Desktop remoto all'indirizzo IP privato **Srv-Work**.
 
-3. Aprire Internet Explorer e passare a http://msn.com.
+3. Aprire Internet Explorer e passare a https://msn.com.
 4. Fare clic su **OK** > **Chiudi** negli avvisi di sicurezza.
 
    Verrà visualizzata la home page di MSN.
 
-5. Passare a http://www.msn.com.
+5. Passare a https://www.msn.com.
 
    Si verrà bloccati dal firewall.
 
@@ -256,4 +256,4 @@ A questo punto si è verificato che le regole del firewall funzionano:
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

@@ -1,31 +1,38 @@
 items:
-- name: Documentazione sulla personalizzazione del portale di Azure
+- name: Documentazione sul portale di Azure
   href: index.yml
-- name: Dashboard di Azure
+- name: Panoramica
+  items:
+  - name: Informazioni sul portale di Azure
+    href: azure-portal-overview.md
+  - name: Browser e dispositivi supportati
+    href: azure-portal-supported-browsers-devices.md
+- name: Concetti
   items:
   - name: Creare e condividere dashboard di Azure
     href: azure-portal-dashboards.md
-  - name: Usare un riquadro markdown personalizzato
-    href: azure-portal-markdown-tile.md
   - name: Condividere i dashboard con il controllo degli accessi in base al ruolo
     href: azure-portal-dashboard-share-access.md
-  - name: Struttura dei dashboard di Azure
-    href: azure-portal-dashboards-structure.md
   - name: Creare i dashboard di Azure a livello di codice
     href: azure-portal-dashboards-create-programmatically.md
-- name: Impostazioni
+- name: Guide alle procedure
+  items:
+  - name: Attivare un contrasto elevato o cambiare tema
+    href: azure-portal-change-theme-high-contrast.md
+  - name: Usare un riquadro markdown personalizzato
+    href: azure-portal-markdown-tile.md
+  - name: Esportare o eliminare le impostazioni utente
+    href: azure-portal-export-delete-settings.md
+- name: riferimento
   items:
   - name: Tasti di scelta rapida
     href: azure-portal-keyboard-shortcuts.md
-  - name: Browser e dispositivi supportati
-    href: ../azure-preview-portal-supported-browsers-devices.md
-  - name: Attivare un contrasto elevato o cambiare tema
-    href: azure-portal-change-theme-high-contrast.md
-  - name: Esportare o eliminare le impostazioni utente
-    href: azure-portal-export-delete-settings.md
-  expanded: true
+  - name: Struttura dei dashboard di Azure
+    href: azure-portal-dashboards-structure.md
 - name: Risorse
   items:
+  - name: Serie di video di procedure per il portale di Azure
+    href: https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR
   - name: Roadmap per Azure
     href: https://azure.microsoft.com/updates/
   - name: Sviluppare le proprie competenze con Microsoft Learn
@@ -36,11 +43,11 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-management-portal
-  - name: Video
+  - name: Video di Azure
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-portal&sort=newest
-ms.openlocfilehash: 7fee5a433470309384931e6ea43817288aecf7a8
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 43a009582b565f10261c0cc6cc24507c3ef6e44e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54902772"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443869"

@@ -1,21 +1,21 @@
 ---
 title: 'Esercitazione: Creare e gestire dati esportati da Gestione costi di Azure | Microsoft Docs'
-description: Questo articolo descrive come creare e gestire dati esportati di Gestione costi di Azure in modo da poterli usare in sistemi esterni.
+description: Questo articolo descrive come creare e gestire dati esportati di Gestione costi di Azure per poterli usare in sistemi esterni.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100694"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014123"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Esercitazione: Creare e gestire dati esportati
 
@@ -30,7 +30,7 @@ In questa esercitazione si apprenderà come:
 > * Verificare che i dati vengano raccolti
 
 ## <a name="prerequisites"></a>Prerequisiti
-L'esportazione dati è disponibile per tutti i tipi di account di Azure, inclusi i clienti con [contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Sono supportate le autorizzazioni di Azure seguenti per ogni sottoscrizione per l'esportazione dati per utente e gruppo:
+L'esportazione dati è disponibile per tutti i tipi di account di Azure, inclusi i clienti con [contratto Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Per visualizzare l'elenco completo dei tipi di account supportati, vedere [Understand Cost Management data](understand-cost-mgt-data.md) (Informazioni sui dati di Gestione costi). Sono supportati gli ambiti o le autorizzazioni di Azure seguenti per ogni sottoscrizione per l'esportazione di dati per utente e gruppo. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
 - Proprietario: può creare, modificare o eliminare esportazioni pianificate per una sottoscrizione.
 - Collaboratore: può creare, modificare o eliminare le proprie esportazioni pianificate. Può modificare il nome delle esportazioni pianificate create da altri.
@@ -45,9 +45,9 @@ Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://po
 
 ## <a name="create-a-daily-export"></a>Creare un'esportazione giornaliera
 
-Gestione costi e fatturazione &gt; Gestione costi &gt; Selezionare una sottoscrizione o un gruppo di risorse in una sottoscrizione &gt; Esporta &gt; **Aggiungi**.
+Per creare o visualizzare un'esportazione di dati o pianificare un'esportazione, aprire l'ambito desiderato nel portale di Azure e selezionare **Analisi dei costi** nel menu. Passare ad esempio a **Sottoscrizioni**, selezionare una sottoscrizione dall'elenco, quindi selezionare **Analisi dei costi** nel menu. Nella parte superiore della pagina Analisi dei costi fare clic su **Esporta** e quindi scegli un'opzione di esportazione. Ad esempio fare clic su **Pianifica l'esportazione**. Per altre informazioni sugli ambiti, vedere [Informazioni e utilizzo degli ambiti](understand-work-scopes.md).
 
-Digitare un nome per l'esportazione e selezionare l'opzione "Daily export of month-to-date costs" (Esportazione giornaliera dei costi da inizio mese). Fare clic su **Avanti**.
+Fare clic su **Aggiungi**, digitare un nome per l'esportazione, quindi selezionare l'opzione **Esportazione giornaliera dei costi da inizio mese**. Fare clic su **Avanti**.
 
 ![Nuovo esempio di esportazione con tipo di esportazione](./media/tutorial-export-acm-data/basics_exports.png)
 

@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 12/10/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e4ae0c944323f18876ffcd1ee5c21aa29e9806cc
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4b95c75b863cdc86dd8a1ebe8347b77b637b110c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56650819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999111"
 ---
-# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Guida introduttiva: Creare un'app Java nel servizio app in Linux
+# <a name="quickstart-create-a-java-app-in-app-service-on-linux"></a>Avvio rapido: Creare un'app Java nel servizio app in Linux
 
 Il [Servizio app in Linux](app-service-linux-intro.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva spiega come usare l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) con il [plug-in Maven per App Web di Azure (anteprima)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) per distribuire un file di archivio Web Java (WAR).
 
@@ -55,25 +55,18 @@ Quindi aggiungere la definizione di plug-in seguente all'interno dell'elemento `
     <!--*************************************************-->
     <!-- Deploy to Tomcat in App Service Linux           -->
     <!--*************************************************-->
-      
     <plugin>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-webapp-maven-plugin</artifactId>
         <version>1.5.3</version>
         <configuration>
-            <!-- Specify v2 schema -->
-            <schemaVersion>v2</schemaVersion>
             <!-- App information -->
             <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
             <appName>${WEBAPP_NAME}</appName>
             <region>${REGION}</region>
    
             <!-- Java Runtime Stack for App on Linux-->
-            <runtime>
-                <os>linux</os>
-                <javaVersion>jre8</javaVersion>
-                <webContainer>tomcat 8.5</webContainer>
-            </runtime>
+            <linuxRuntime>tomcat 8.5-jre8</linuxRuntime> 
         </configuration>
     </plugin>
 </plugins>
@@ -115,7 +108,8 @@ Al termine della distribuzione, passare all'applicazione distribuita usando l'UR
 In questa guida introduttiva è stato usato Maven per creare un'app Java, è stato configurato il [plug-in Maven per le app Web di Azure](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) e quindi è stata distribuita un'app Java inclusa in pacchetti come archivio Web nel servizio app in Linux. Per altre informazioni sull’hosting delle applicazioni Java nel servizio App in Linux vedere le esercitazioni e gli articoli sulle procedure qui di seguito.
 
 - [Esercitazione: Distribuire un’app aziendale Java con PostgreSQL](tutorial-java-enterprise-postgresql-app.md)
-- [Configurare un'origine dati di Tomcat](app-service-linux-java.md#connecting-to-data-sources)
+- [Configurare un'origine dati di Tomcat](app-service-linux-java.md#tomcat)
 - [Integrazione continua e distribuzione continua con Jenkins](/azure/jenkins/deploy-jenkins-app-service-plugin)
 - [Configurare gli strumenti di monitoraggio delle prestazioni delle applicazioni](how-to-java-apm-monitoring.md)
+- [Guida per sviluppatori Java per il servizio app in Linux](app-service-linux-java.md)
 

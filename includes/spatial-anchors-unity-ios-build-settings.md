@@ -4,27 +4,27 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: ea01900926f0a2e9b3481b64a191a58e04839513
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 9ef71ef67f53a37e5bbd5a672569114c3cd8af4e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752880"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305084"
 ---
-Aprire Unity e il progetto nella cartella `Unity`.
+In Unity aprire il progetto nella cartella `Unity`.
 
-Aprire **Build Settings** (Impostazioni compilazione) selezionando **File** -> **Build Settings** (File -> Impostazioni compilazione).
+Aprire **Build Settings** (Impostazioni compilazione) selezionando **File** > **Build Settings** (File -> Impostazioni compilazione).
 
 Nella sezione **Platform** (Piattaforma) selezionare **iOS**.
 
-Selezionare **Switch Platform** (Cambia piattaforma) per impostare **iOS** come piattaforma.
+Selezionare **Switch Platform** (Cambia piattaforma) per impostare **iOS** come piattaforma. Unity potrebbe chiedere di installare i componenti di supporto di iOS se sono mancanti.
 
-![Impostazioni di compilazione di Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
+![Finestra di impostazioni di compilazione di Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 
 Chiudere la finestra **Build Settings** (Impostazioni compilazione).
 
 ### <a name="download-and-import-the-unity-arkit-plugin"></a>Scaricare e importare il plug-in ARKit di Unity
 
-Scaricare il [plug-in Unity ARKit v2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) ed estrarre l'archivio.
+Scaricare il [plug-in Unity ARKit versione 2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) ed estrarre l'archivio.
 
 Copiare il contenuto della cartella `Assets` dalla cartella del plug-in Unity ARKit estratto alla cartella `Assets` dell'esempio.

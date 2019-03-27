@@ -8,12 +8,12 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.custom: mvc
-ms.openlocfilehash: bb7a48b08fde07380276d33393225c3f5220b93f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5d5398f4da7563c6f53c17d0305f54c4360f1c65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880700"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58076854"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando il modello di Azure Resource Manager
 
@@ -87,8 +87,8 @@ In questa richiesta, i valori da personalizzare sono:
 +   `storageProfile/geoRedundantBackup`: specificare Enabled o Disabled a seconda dei requisiti del ripristino di emergenza geografico.
 +   `sku/tier`: specificare il livello Basic, GeneralPurpose o MemoryOptimized per la distribuzione.
 +   `sku/capacity`: specificare la capacità vCore. Valori possibili: 2, 4, 8, 16, 32 o 64.
-+   `sku/family`: specificare Gen4 o Gen5 per scegliere la generazione hardware per la distribuzione del server.
-+   `sku/name`: specificare TierPrefix_family_capacity, ad esempio B_Gen4_1, GP_Gen5_16, MO_Gen5_32. Per comprendere i valori validi per area e livello, vedere la documentazione relativa ai [piani tariffari](./concepts-pricing-tiers.md).
++   `sku/family`: specificare Gen5 per scegliere la generazione hardware per la distribuzione del server.
++   `sku/name`: specificare TierPrefix_family_capacity, ad esempio B_Gen5_1, GP_Gen5_16, MO_Gen5_32. Per comprendere i valori validi per area e livello, vedere la documentazione relativa ai [piani tariffari](./concepts-pricing-tiers.md).
 +   `resources/properties/virtualNetworkSubnetId`: specificare l'identificatore Azure della subnet nella rete virtuale in cui deve essere inserito il server MySQL di Azure. 
 +   `tags(optional)`: specificare tag facoltativi come coppie chiave-valore da usare per classificare, ad esempio, le risorse per la fatturazione.
 
@@ -127,8 +127,8 @@ Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -207,5 +207,5 @@ Questa esercitazione illustra come:
 > * Caricare dati di esempio
 > * Eseguire query sui dati
 > * Aggiornare i dati
-
+> 
 > [Come connettere le applicazioni a Database di Azure per MySQL](./howto-connection-string.md)

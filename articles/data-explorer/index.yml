@@ -1,22 +1,31 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e4bd3de3dee3219619c0146eb0e455cd9b25c59e
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
+ms.openlocfilehash: 34de58f7a3f9307714ccc4594d9ac92523c55f69
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52840970"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482218"
 documentType: LandingData
 title: Documentazione di Esplora dati di Azure
 metadata:
   title: Documentazione d Esplora dati di Azure - Guide introduttive, esercitazioni, informazioni di riferimento sul linguaggio e sulle API
   description: Esplora dati di Azure è una piattaforma cloud per l'analisi dei log ottimizzata per query ad hoc su Big Data.
-  author: mgblythe
-  ms.author: mblythe
+  author: orspod
+  ms.author: orspodek
   ms.service: data-explorer
   ms.topic: landing-page
-  ms.date: 09/24/2018
+  ms.date: 03/24/2019
 abstract:
-  description: <p>Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria. Consente di gestire i numerosi flussi di dati generati dal software moderno, in modo da poter raccogliere, archiviare e analizzare i dati. Esplora dati di Azure è ideale per l'analisi di grandi volumi di dati eterogenei da qualsiasi origine dati, ad esempio siti Web, applicazioni, dispositivi IoT e altro ancora.</p><p>Informazioni su come usare Esplora dati di Azure con le guide introduttive, le esercitazioni e il contenuto di riferimento.</p>
+  description: <p>Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. È possibile usare Esplora dati di Azure per raccogliere, archiviare e analizzare dati diversificati per migliorare i prodotti, ottimizzare l'esperienza utente, monitorare i dispositivi e accelerare le operazioni.</p><p>Informazioni su come usare Esplora dati di Azure con le guide introduttive, le esercitazioni e il contenuto di riferimento.</p>
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: media/index/video.png
+      width: 250
+    title: Informazioni su Esplora dati di Azure (19:47)
+    href: https://youtu.be/D_AJk2lAepw
+    width: 250
 sections:
 - title: Guide introduttive di 5 minuti
   items:
@@ -64,7 +73,7 @@ sections:
       image:
         src: /azure/data-explorer/media/index/logo-pluralsight.svg
         href: https://app.pluralsight.com/library/courses/kusto-query-language-kql-from-scratch
-- title: Informazioni di riferimento
+- title: riferimento
   items:
   - type: list
     style: cards

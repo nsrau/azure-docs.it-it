@@ -1,0 +1,47 @@
+items:
+- name: Documentazione di Rilevamento anomalie
+  href: index.yml
+- name: Panoramica
+  items:
+  - name: Cos'è l'API Rilevamento anomalie?
+    href: overview.md
+  expanded: true
+- name: Guide introduttive
+  items:
+  - name: Rilevare anomalie nei dati
+    items:
+    - name: Uso di C#
+      href: quickstarts/detect-data-anomalies-csharp.md
+    - name: Uso di Java
+      href: quickstarts/detect-data-anomalies-java.md
+    - name: Uso di Python
+      href: quickstarts/detect-data-anomalies-python.md
+  expanded: true
+- name: Guide alle procedure
+  items:
+  - name: Identificare le anomalie nei dati
+    href: how-to/identify-anomalies.md
+- name: Concetti
+  items:
+  - name: Procedure consigliate per l'API Rilevamento anomalie
+    href: concepts/anomaly-detection-best-practices.md
+- name: riferimento
+  items:
+  - name: Informazioni di riferimento sulle API REST
+    href: https://aka.ms/anomaly-detector-rest-api-ref
+  - name: SDK
+    items:
+    - name: .NET
+      href: https://aka.ms/anomaly-detector-dotnet-ref
+- name: Risorse
+  items:
+  - name: Prezzi
+    href: https://aka.ms/anomaly-detector-pricing
+  - name: Disponibilità internazionale
+    href: https://aka.ms/anomaly-detector-region
+ms.openlocfilehash: c752383026434ca2f8f1d3f047bb1dbc3740c7ea
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58473400"

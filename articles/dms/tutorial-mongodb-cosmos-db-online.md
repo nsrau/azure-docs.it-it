@@ -2,21 +2,21 @@
 title: "Esercitazione: Usare Servizio Migrazione del database di Azure per eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB | Microsoft Docs"
 description: Informazioni su come eseguire la migrazione online da MongoDB in locale all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database di Azure.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/27/2019
-ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.date: 03/12/2019
+ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985819"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008639"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Esercitazione: Eseguire la migrazione online di MongoDB all'API di Azure Cosmos DB per MongoDB con Servizio Migrazione del database (anteprima)
 È possibile usare Servizio Migrazione del database di Azure per eseguire una migrazione online di database (con tempi di inattività minimi) da un'istanza locale o cloud di MongoDB all'API di Azure Cosmos DB per MongoDB.
@@ -45,6 +45,15 @@ Questo articolo descrive una migrazione online da MongoDB all'API di Azure Cosmo
 Per completare questa esercitazione, è necessario:
 - [Creare un account dell'API di Azure Cosmos DB per MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Creare una rete virtuale di Azure per Servizio Migrazione del database di Azure usando il modello di distribuzione Azure Resource Manager, che offre la connettività da sito a sito per i server di origine locali con [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Durante la configurazione della rete virtuale, se si usa ExpressRoute con peering di rete a Microsoft, aggiungere gli [endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) del servizio seguenti alla subnet in cui verrà eseguito il provisioning del servizio:
+    > - Endpoint del database di destinazione (ad esempio endpoint SQL, endpoint Cosmos DB e così via)
+    > - Endpoint di archiviazione
+    > - Endpoint del bus di servizio
+    >
+    > Questa configurazione è necessaria perché Servizio Migrazione del database di Azure non dispone di connettività Internet.
+
 - Verificare che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione seguenti: 443, 53, 9354, 445 e 12000. Per informazioni dettagliate sui filtri del traffico dei gruppi di sicurezza di rete relativi alla rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Modificare il firewall del server di origine per consentire a Servizio Migrazione del database di Azure di accedere al server MongoDB di origine, che per impostazione predefinita corrisponde alla porta TCP 27017.
 - Quando si usa un'appliance firewall all'ingresso dei database di origine, potrebbe essere necessario aggiungere regole del firewall per consentire al Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione.
@@ -117,20 +126,20 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 1. Nella schermata **Dettagli origine** specificare i dettagli di connessione per il server MongoDB di origine.
 
     Per la connessione a un'origine sono disponibili tre modalità:
-       * **Modalità standard**, che accetta un nome di dominio completo o un indirizzo IP, il numero di porta e le credenziali di connessione.
-       * **Modalità stringa di connessione**, che accetta una stringa di connessione di MongoDB come illustrato nell'articolo [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (Formato URI della stringa di connessione).
-       * **Dati di Archiviazione di Azure**, che accetta l'URL di firma di accesso condiviso di un contenitore BLOB. Selezionare **Il BLOB contiene i dump BSON** se il contenitore BLOB include dump BSON generati dallo [strumento bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) di MongoDB e deselezionare questa opzione se il contenitore contiene file JSON.
+   * **Modalità standard**, che accetta un nome di dominio completo o un indirizzo IP, il numero di porta e le credenziali di connessione.
+   * **Modalità stringa di connessione**, che accetta una stringa di connessione di MongoDB come illustrato nell'articolo [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (Formato URI della stringa di connessione).
+   * **Dati di Archiviazione di Azure**, che accetta l'URL di firma di accesso condiviso di un contenitore BLOB. Selezionare **Il BLOB contiene i dump BSON** se il contenitore BLOB include dump BSON generati dallo [strumento bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) di MongoDB e deselezionare questa opzione se il contenitore contiene file JSON.
 
-      Se si seleziona questa opzione, assicurarsi che la stringa di connessione dell'account di archiviazione abbia questo formato:
+     Se si seleziona questa opzione, assicurarsi che la stringa di connessione dell'account di archiviazione abbia questo formato:
 
-    ```
-    https://blobnameurl/container?SASKEY
-    ```
-      Inoltre, in base alle informazioni sui dump nell'archiviazione di Azure, tenere presenti i dettagli seguenti.
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+     Inoltre, in base alle informazioni sui dump nell'archiviazione di Azure, tenere presenti i dettagli seguenti.
 
-      * Per i dump BSON, i dati all'interno del contenitore di BLOB devono essere in formato bsondump, in modo che i file di dati vengano inseriti in cartelle con gli stessi nomi dei database che li contengono nel formato collection.bson. I nomi dei file di metadati (se presenti) dovranno essere in formato *collection*.metadata.json.
+     * Per i dump BSON, i dati all'interno del contenitore di BLOB devono essere in formato bsondump, in modo che i file di dati vengano inseriti in cartelle con gli stessi nomi dei database che li contengono nel formato collection.bson. I nomi dei file di metadati (se presenti) dovranno essere in formato *collection*.metadata.json.
 
-      * Per i dump JSON, i file nel contenitore di BLOB devono essere inseriti in cartelle con gli stessi nomi dei database che li contengono. All'interno di ogni cartella di database i file di dati devono essere inseriti in una sottocartella chiamata "data" e avere nomi nel formato *collection*.json. I file di metadati (se presenti) devono essere inseriti in una sottocartella chiamata "metadata" e avere nomi nello stesso formato *collection*.json. I file di metadati devono avere lo stesso formato di quelli prodotti con lo strumento bsondump di MongoDB.
+     * Per i dump JSON, i file nel contenitore di BLOB devono essere inseriti in cartelle con gli stessi nomi dei database che li contengono. All'interno di ogni cartella di database i file di dati devono essere inseriti in una sottocartella chiamata "data" e avere nomi nel formato *collection*.json. I file di metadati (se presenti) devono essere inseriti in una sottocartella chiamata "metadata" e avere nomi nello stesso formato *collection*.json. I file di metadati devono avere lo stesso formato di quelli prodotti con lo strumento bsondump di MongoDB.
 
    Nei casi in cui la risoluzione dei nomi DNS non è possibile, si può usare l'indirizzo IP.
 
@@ -155,7 +164,7 @@ Dopo aver creato il servizio, individuarlo nel portale di Azure, aprirlo e crear
 
     Se accanto al nome del database viene visualizzata la stringa **Create** (Crea), ciò indica che il servizio Migrazione del database di Azure non ha trovato il database di destinazione e provvederà quindi a crearlo.
 
-    A questo punto della migrazione, se si vuole configurare la velocità effettiva condivisa per il database specificare un valore di UR di velocità effettiva. In Cosmos DB è possibile effettuare il provisioning della velocità effettiva a livello di database o di singola raccolta. La velocità effettiva viene misurata in [unità richiesta](https://docs.microsoft.com/azure/cosmos-db/request-units) (UR). Vedere altre informazioni sui [prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
+    A questo punto della migrazione, se si vuole la velocità effettiva condivisa per il database, specificare un valore di UR di velocità effettiva. In Cosmos DB è possibile effettuare il provisioning della velocità effettiva a livello di database o di singola raccolta. La velocità effettiva viene misurata in [unità richiesta](https://docs.microsoft.com/azure/cosmos-db/request-units) (UR). Vedere altre informazioni sui [prezzi di Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
     ![Eseguire il mapping nei database di destinazione](media/tutorial-mongodb-to-cosmosdb-online/dms-map-target-databases1.png)
 

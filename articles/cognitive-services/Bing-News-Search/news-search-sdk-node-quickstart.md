@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 262f7f49987dba8340ba4a1f0e6e505b9858e1e5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1930ef761b4be9d8085fd6e1785e78146c6b5547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863874"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109164"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Avvio rapido: Eseguire una ricerca di notizie con l'SDK di Ricerca notizie Bing per Node.js
 
@@ -52,7 +52,7 @@ Per configurare un'applicazione console usando Bing News Search SDK:
 
 ## <a name="send-a-search-query"></a>Inviare una query di ricerca
 
-3. Usare il client per eseguire una ricerca con un termine di query, in questo caso "Winter Olympics":
+1. Usare il client per eseguire una ricerca con un termine di query, in questo caso "Winter Olympics":
     
     ```javascript
     client.newsOperations.search(search_term).then((result) => {
@@ -72,4 +72,4 @@ Il codice visualizza elementi `result.value` nella console senza analizzare il t
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-[Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)
+> [Creare app Web a pagina singola](tutorial-bing-news-search-single-page-app.md)

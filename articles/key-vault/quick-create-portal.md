@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117103"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000606"
 ---
-# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. È possibile creare e gestire istanze di Azure Key Vault tramite il portale di Azure. In questo avvio rapido viene creato un insieme di credenziali delle chiavi che viene poi usato per archiviare un segreto. Per altre informazioni su Key Vault, vedere la relativa [panoramica](key-vault-overview.md).
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Creare un insieme di credenziali
 
@@ -43,7 +43,6 @@ Accedere al portale di Azure all'indirizzo http://portal.azure.com.
     - **Sottoscrizione** Scegliere una sottoscrizione.
     - In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.
     - Scegliere un percorso nel menu a discesa **Percorso**.
-    - Selezionare la casella di controllo **Aggiungi al dashboard**.
     - Lasciare invariati i valori predefiniti delle altre opzioni.
 6. Dopo avere specificato le informazioni, selezionare **Crea**.
 
@@ -70,7 +69,11 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio d
 
 Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. Sarà quindi possibile vedere alcune delle proprietà. Se si fa clic sulla versione corrente è possibile visualizzare il valore specificato nel passaggio precedente.
 
-![Proprietà del segreto](./media/quick-create-portal/version.png)
+![Proprietà del segreto](./media/quick-create-portal/current-version-hidden.png)
+
+Facendo clic sul pulsante "Mostra il valore segreto" nel riquadro di destra, è possibile visualizzare il valore nascosto. 
+
+![Valore segreto visualizzato](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

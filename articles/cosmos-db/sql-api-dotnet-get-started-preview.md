@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672548"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078636"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilare un'app console .NET per gestire i dati in un account API SQL di Azure Cosmos DB (anteprima SDK versione 3)
 
@@ -68,7 +68,7 @@ Creare prima di tutto un account Azure Cosmos DB. Se si ha già un account, è p
 1. Nella scheda **NuGet** fare clic su **Sfoglia** e digitare **Microsoft.Azure.Cosmos** nella casella di ricerca. Assicurarsi di selezionare *Includi versione preliminare* per trovare la versione di anteprima.
 1. Nei risultati trovare **Microsoft.Azure.Cosmos** e fare clic su **Installa**.
    L'ID pacchetto per la libreria client dell'API SQL di Azure Cosmos DB è [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
-   ![Screenshot del menu di NuGet per l'individuazione dell'SDK client di Cosmos DB](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
+   ![Screenshot del menu di NuGet per l'individuazione di Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     Se viene visualizzato un messaggio sulla verifica delle modifiche alla soluzione, fare clic su **OK**. Se viene visualizzato un messaggio sull'accettazione della licenza, fare clic su **Accetto**.
 
@@ -321,7 +321,7 @@ Un contenitore può essere creato usando la funzione [**CreateContainerIfNotExis
         await this.CreateContainer();
     }
     ```
-Premere **F5** per eseguire l'applicazione.
+   Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni! La creazione di un contenitore di Azure Cosmos DB è stata completata.  
 
@@ -331,7 +331,7 @@ Congratulazioni! La creazione di un contenitore di Azure Cosmos DB è stata comp
 È necessario creare prima di tutto una classe **Family** che rappresenterà gli oggetti archiviati in Azure Cosmos DB in questo esempio. Verranno create anche le sottoclassi **Parent**, **Child**, **Pet** e **Address** da usare in **Family**. Si noti che i documenti devono avere una proprietà **Id** serializzata come **id** in JSON. 
 1. Premere **CTRL+MAIUSC+A** per aprire la finestra di dialogo **Aggiungi nuovo elemento**. Aggiungere una nuova classe **Family.cs** al progetto. 
 
-    ![Screenshot dell'aggiunta di una nuova classe Family.cs al progetto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
+    ![Screenshot dell'aggiunta di una nuova classe Family.cs nel progetto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-add-family-class.png)
 
 1. Copiare e incollare le classi **Family**, **Parent**, **Child**, **Pet** e **Address** in **Family.cs**. 
     ```csharp
@@ -599,7 +599,7 @@ In questo passaggio si aggiornerà un elemento in Azure Cosmos DB.
         await this.ReplaceFamilyItem();
     }
     ```
-Premere **F5** per eseguire l'applicazione.
+   Premere **F5** per eseguire l'applicazione.
 
 Congratulazioni! La sostituzione di un elemento di Azure Cosmos DB è stata completata.
 

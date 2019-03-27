@@ -9,12 +9,12 @@ ms.date: 11/01/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6acdbdf5ed5312dc9bc9aa5120bad6e7cf0935b7
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 7a5a92635114be87e59fe8f779c36d4c401a1427
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53075829"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087160"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>Esercitazione: Eseguire la classificazione delle immagini nella rete perimetrale con il Servizio visione artificiale personalizzato
 
@@ -22,13 +22,18 @@ Azure IoT Edge può rendere più efficienti le soluzioni IoT spostando i carichi
 
 In un dispositivo IoT Edge, ad esempio, il Servizio visione artificiale personalizzato potrebbe determinare se un'autostrada sta registrando un traffico superiore o inferiore al normale o se in un garage ci sono posti disponibili in una fila. Queste informazioni dettagliate possono essere condivise con un altro servizio in modo da intraprende l'azione appropriata. 
 
-
 In questa esercitazione si apprenderà come: 
 
 > [!div class="checklist"]
+>
 > * Compilare un classificatore di immagini con il Servizio visione artificiale personalizzato.
 > * Sviluppare un modulo IoT Edge che esegua query sul server Web del Servizio visione artificiale personalizzato nel dispositivo.
 > * Inviare i risultati del classificatore di immagini all'hub IoT.
+
+<center>
+
+![Diagramma - Architettura dell'esercitazione, staging e classificatore della distribuzione](./media/tutorial-deploy-custom-vision/custom-vision-architecture.png)
+</center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -43,7 +48,7 @@ Risorse cloud:
 
 * Un [hub IoT](../iot-hub/iot-hub-create-through-portal.md) di livello Standard in Azure. 
 * Un registro contenitori. Questa esercitazione usa [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/). 
-    * È necessario conoscere le credenziali dell'[account amministratore](../container-registry/container-registry-authentication.md#admin-account) del registro contenitori.
+* È necessario conoscere le credenziali dell'[account amministratore](../container-registry/container-registry-authentication.md#admin-account) del registro contenitori.
 
 Risorse per lo sviluppo:
 

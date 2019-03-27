@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 12/10/2018
 ms.author: sngun
 Customer intent: As a developer, I want to build a Node.js web application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: 47a4b3bc1e71c9dacc53ca3ff507768d4a0f20e9
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: efe24f5203c0479c71b565b8cf2c272dc107a96b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55510579"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088112"
 ---
 # <a name="tutorial-build-a-nodejs-web-app-using-the-javascript-sdk-to-manage-a-sql-api-account-in-azure-cosmos-db"></a>Esercitazione: Compilare un'app Web Node.js con l’SDK JavaScript per gestire un account API SQL in Azure Cosmos DB 
 
@@ -87,7 +87,7 @@ A questo punto si creerà un progetto base Node.js Hello World usando il framewo
    
    ![Informazioni su Node.js - schermata dell'applicazione Hello World in una finestra del browser](./media/sql-api-nodejs-application/cosmos-db-node-js-express.png)
 
- Per arrestare l'applicazione, usare CTRL+C nella finestra del terminale e selezionare **y** per terminare il processo batch.
+   Per arrestare l'applicazione, usare CTRL+C nella finestra del terminale e selezionare **y** per terminare il processo batch.
 
 ## <a name="_Toc395783179"></a>Installare i moduli necessari
 
@@ -99,7 +99,7 @@ Il file **package.json** è uno di quelli creati nella radice del progetto. Ques
    npm install async --save
    ```
 
-2. Installare il modulo **@azure/cosmos** tramite npm. 
+2. Installare il modulo **\@azure/cosmos** tramite npm. 
 
    ```bash
    npm install @azure/cosmos
@@ -183,7 +183,7 @@ Dopo aver completato l'installazione e la configurazione iniziali, è necessario
       const { body } = await this.container.item(itemId).read();
       return body;
     }
-  }
+   }
 
    module.exports = TaskDao;
    ```
@@ -243,9 +243,9 @@ Dopo aver completato l'installazione e la configurazione iniziali, è necessario
 
       res.redirect("/");
     }
-  }
+   }
 
-  module.exports = TaskList;
+   module.exports = TaskList;
    ```
 
 3. Salvare e chiudere il file **tasklist.js** .

@@ -15,21 +15,16 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: c1a8b18062f61be9eb020beefd3ad741c41b55f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c5ff1a0373fcce339bea2b235d86f20dc861a15c
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38652703"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57444260"
 ---
-# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Esercitazione: Eseguire il debug di un'applicazione Java distribuita in un cluster di Azure Service Fabric locale
+# <a name="tutorial-debug-a-java-application-deployed-on-a-local-service-fabric-cluster"></a>Esercitazione: Eseguire il debug di un'applicazione Java distribuita in un cluster di Service Fabric locale
 
 Questa è la seconda di una serie di esercitazioni. Si apprenderà come collegare un debugger remoto usando Eclipse per l'applicazione Service Fabric. Si apprenderà anche come reindirizzare i log dalle applicazioni in esecuzione a un percorso pratico per lo sviluppatore.
-
-Nella seconda parte della serie si apprenderà come:
-> [!div class="checklist"]
-> * Eseguire il debug di un'applicazione Java con Eclipse
-> * Reindirizzare i log a un percorso configurabile
 
 In questa serie di esercitazioni si apprenderà come:
 > [!div class="checklist"]
@@ -39,7 +34,14 @@ In questa serie di esercitazioni si apprenderà come:
 > * [Configurare il monitoraggio e la diagnostica per l'applicazione](service-fabric-tutorial-java-elk.md)
 > * [Configurare CI/CD](service-fabric-tutorial-java-jenkins.md)
 
-## <a name="prerequisites"></a>prerequisiti
+
+Nella seconda parte della serie si apprenderà come:
+> [!div class="checklist"]
+> * Eseguire il debug di un'applicazione Java con Eclipse
+> * Reindirizzare i log a un percorso configurabile
+
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare questa esercitazione:
 
@@ -63,7 +65,7 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 3. Nella finestra Import Projects (Importa progetti) scegliere l'opzione **Select root directory** (Seleziona directory radice) e selezionare la directory **Voting**. Se è stata eseguita la prima serie di esercitazioni, la directory **Voting** si trova nella directory **Eclipse-workspace**.
 
-4. Aggiornare l'elemento entryPoint.sh del servizio di cui eseguire il debug in modo che avvii il processo Java con i parametri di debug remoto. Per questa esercitazione viene usato il front-end senza stato *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. In questo esempio la porta 8001 è impostata per il debug.
+4. Aggiornare l'elemento entryPoint.sh del servizio di cui eseguire il debug in modo che avvii il processo Java con i parametri di debug remoto. Per questa esercitazione viene usato il front-end senza stato: *Voting/VotingApplication/VotingWebPkg/Code/entryPoint.sh*. In questo esempio la porta 8001 è impostata per il debug.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -jar VotingWeb.jar
@@ -89,13 +91,15 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart
 
 10. Nell'IDE di Eclipse selezionare **Run (Esegui) -> Debug Configurations (Configurazioni di debug) -> Remote Java Application (Applicazione Java remota)**, fare clic sulla configurazione **Voting** creata e quindi su **Debug**.
 
-11. Passare al Web browser e accedere a **localhost: 8080** per raggiungere il punto di interruzione e accedere alla **prospettiva di debug** in Eclipse.
+11. Passare al Web browser e accedere a **localhost:8080**. In questo modo, verrà automaticamente raggiunto il punto di interruzione ed Eclipse potrà accedere alla **prospettiva di debug**.
+
+A questo punto, è possibile applicare questi stessi passaggi per eseguire il debug di qualsiasi applicazione di Service Fabric in Eclipse.
 
 ## <a name="redirect-application-logs-to-custom-location"></a>Reindirizzare i log applicazioni a un percorso personalizzato
 
 La procedura seguente illustra come reindirizzare i log applicazioni dal percorso */var/log/syslog* predefinito a un percorso personalizzato.
 
-1. Le applicazioni in esecuzione nei cluster Linux di Service Fabric supportano attualmente la selezione di un singolo file di log. I log vengono quindi sempre indirizzati a */tmp/mysfapp0.0.log*. Creare un file denominato logging.properties nel percorso *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* e aggiungere il contenuto seguente.
+1. Attualmente le applicazioni in esecuzione nei cluster Linux di Service Fabric supportano solo la selezione di un singolo file di log. Per configurare un'applicazione affinché i log vengano sempre inviati a */tmp/mysfapp0.0.log*, creare un file denominato logging.properties nel percorso seguente *Voting/VotingApplication/VotingWebPkg/Code/logging.properties* e aggiungere il contenuto seguente.
 
     ```
     handlers = java.util.logging.FileHandler
@@ -103,7 +107,8 @@ La procedura seguente illustra come reindirizzare i log applicazioni dal percors
     java.util.logging.FileHandler.level = ALL
     java.util.logging.FileHandler.formatter = java.util.logging.SimpleFormatter
 
-    # This value specifies your custom location. You will have to ensure this path has read and write access by the process running the SF Application
+    # This value specifies your custom location.
+    # You will have to ensure this path has read and write access by the process running the SF Application
     java.util.logging.FileHandler.pattern = /tmp/mysfapp0.0.log
     ```
 
@@ -113,7 +118,7 @@ La procedura seguente illustra come reindirizzare i log applicazioni dal percors
     -Djava.util.logging.config.file=logging.properties
     ```
 
-    L'esempio seguente riporta un'esecuzione di esempio:
+    L'esempio seguente illustra un'esecuzione di esempio con il debugger collegato, in modo analogo all'esecuzione nella sezione precedente.
 
     ```bash
     java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=n -Djava.library.path=$LD_LIBRARY_PATH -Djava.util.logging.config.file=logging.properties -jar VotingWeb.jar

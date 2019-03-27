@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2018
+ms.date: 03/13/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 5c99d638845cf0cd00ddbacf1ed0dcf3da889dd6
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 08a1980a8855fc119a5066e058e9bb4d2df6646e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53082544"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57998862"
 ---
 # <a name="what-is-the-cloudyn-service"></a>Che cos'è il servizio Cloudyn?
 
@@ -24,6 +24,35 @@ Cloudyn, un'affiliata Microsoft, consente di tenere traccia dell'uso del cloud e
 Per un video introduttivo, vedere [Introduzione a Cloudyn di Azure](https://azure.microsoft.com/resources/videos/azure-cost-management-overview-and-demo).
 
 Gestione costi di Azure offre funzionalità simili a quelle di Cloudyn. Gestione costi di Azure è una soluzione di gestione costi nativa di Azure. È un modo per analizzare i costi, creare e gestire budget, esportare i dati, esaminare e implementare gli elementi consigliati per l'ottimizzazione e di conseguenza risparmiare. Per altre informazioni, vedere [Gestione costi di Azure](overview-cost-mgt.md).
+
+## <a name="cloudyn-features-moving-to-azure-cost-management"></a>Funzionalità di Cloudyn spostate in Gestione costi di Azure
+
+Microsoft ha acquisito Cloudyn e sta eseguendo la migrazione delle relative funzionalità di gestione dei costi dal portale di Cloudyn in modalità nativa in Azure. Per usare le nuove funzionalità, accedere al portale di Azure e passare a [Gestione costi e fatturazione](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) nell'elenco di servizi di Azure. Rispetto a Cloudyn, l'esperienza nativa offre prestazioni più elevate e una latenza dei dati ridotta di circa otto ore.
+
+La migrazione delle funzionalità chiave per le categorie di offerte relative a contratto Enterprise, pagamento a consumo e MSDN a Gestione costi di Azure è stata completata. La migrazione delle sottoscrizioni CSP a Gestione costi di Azure è ancora in corso.
+
+Per le categorie di offerte non ancora trasferite, è necessario continuare a usare il portale Cloudyn. In tutti gli altri casi, è possibile usare Gestione costi di Azure.
+
+| Offerte e funzionalità di Microsoft Azure | Servizio di gestione dei costi consigliato |
+| --- | --- |
+| Contratto Enterprise di Azure | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure Web Direct (pagamento a consumo/MSDN) | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Azure Government | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| CSP di Azure | [Cloudyn](https://azure.cloudyn.com) |
+| Supporto per l'analisi dei costi tra cloud per AWS (in anteprima) | [Gestione costi di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/Menu/overview) |
+| Raccomandazioni di AWS | [Cloudyn](https://azure.cloudyn.com) |
+
+Alcune funzionalità seguenti sono disponibili in Cloudyn, ma non tutte sono già disponibili in Gestione costi di Azure.
+
+- API
+- Raccomandazioni per il calcolo di Azure
+- Raccomandazioni per le prenotazioni di Azure
+- Budget
+- Analisi dei costi
+- Esportare i dati in un account di archiviazione di Azure
+- Latenza inferiore
+- Pacchetto di contenuto e connettore di Power BI
+- Supporto dei tag delle risorse
 
 ## <a name="monitor-usage-and-spending"></a>Monitorare l'uso e le spese
 
@@ -46,6 +75,7 @@ Gli avvisi contribuiscono a gestire i costi inviando una notifica automatica qua
 Con Cloudyn, è possibile stabilire l'uso ottimale delle macchine virtuali e identificare le macchine virtuali inattive o rimuoverle, oltre ai dischi non collegati. Usando le informazioni contenute nei report di ottimizzazione del ridimensionamento e dell'inefficienza, è possibile creare un piano per ridimensionare o rimuovere le macchine virtuali inattive. Tuttavia i report di ottimizzazione non sono attualmente supportati per le sottoscrizioni o gli account dei partner CSP.
 
 Se è stato eseguito il provisioning delle istanze riservate di AWS, è possibile migliorare l'uso delle istanze riservate con i report di ottimizzazione, in cui è possibile visualizzare i consigli per gli acquisti, modificare le prenotazioni inutilizzate e pianificare il provisioning.
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

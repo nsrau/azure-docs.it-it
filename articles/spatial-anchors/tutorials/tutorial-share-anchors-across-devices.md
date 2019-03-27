@@ -1,6 +1,6 @@
 ---
 title: Esercitazione - Condivisione tra sessioni e dispositivi con Ancoraggi nello spazio di Azure | Microsoft Docs
-description: Questa esercitazione illustra come condividere gli identificatori di Ancoraggi nello spazio di Azure tra dispositivi in ​​Unity con un servizio back-end.
+description: Questa esercitazione illustra come condividere gli identificatori di Ancoraggi nello spazio di Azure tra dispositivi Android/iOS in ​​Unity con un servizio back-end.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: df7f8aa5b49e3fe17be3b17a6e0f5d8861b26253
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753467"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901305"
 ---
 # <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>Esercitazione: condivisione tra sessioni e dispositivi con Ancoraggi nello spazio di Azure
 
@@ -41,11 +41,19 @@ Si noti che in questa esercitazione si useranno Unity e l'app Web ASP.NET Core s
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
+## <a name="open-the-sample-project-in-unity"></a>Aprire il progetto di esempio in Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
 ## <a name="deploy-your-sharing-anchors-service"></a>Distribuire il servizio di condivisione degli ancoraggi
 
 Aprire Visual Studio e il progetto nella cartella `Sharing\SharingServiceSample`.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
+
+## <a name="open-the-sample-project-in-unity"></a>Aprire il progetto di esempio in Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
@@ -53,7 +61,9 @@ Aprire Visual Studio e il progetto nella cartella `Sharing\SharingServiceSample`
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stata distribuita un'app Web ASP.NET Core in Azure, quindi è stata configurata e distribuita un'app Unity. Sono stati creati ancoraggi nello spazio con l'app, successivamente condivisi con altri dispositivi tramite l'app Web ASP.NET Core. Per altre informazioni su come ottimizzare l'app Web ASP.NET Core in modo che usi Cosmos DB per archiviare gli ancoraggi nello spazio condivisi, passare all'esercitazione successiva.
+In questa esercitazione è stata distribuita un'app Web ASP.NET Core in Azure, quindi è stata configurata e distribuita un'app Unity. Sono stati creati ancoraggi nello spazio con l'app, successivamente condivisi con altri dispositivi tramite l'app Web ASP.NET Core.
+
+Per altre informazioni su come ottimizzare l'app Web ASP.NET Core in modo che usi Azure Cosmos DB per archiviare gli ancoraggi nello spazio condivisi, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: usare Cosmos DB per archiviare gli ancoraggi](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [Esercitazione: Usare Cosmos DB per archiviare gli ancoraggi](./tutorial-use-cosmos-db-to-store-anchors.md)

@@ -56,7 +56,7 @@ items:
       href: service-fabric-tutorial-monitoring-wincontainers.md
   - name: Creare un'app contenitore Linux
     items:
-    - name: 1 - Creare immagini del contenitore
+    - name: '1: Creare immagini del contenitore'
       href: service-fabric-tutorial-create-container-images.md
     - name: 2 - Pacchetto e contenitori di distribuzione
       href: service-fabric-tutorial-package-containers.md
@@ -140,9 +140,9 @@ items:
         href: service-fabric-concepts-partitioning.md
       - name: Riconfigurazione dei servizi con stato
         href: service-fabric-concepts-reconfiguration.md
-      - name: Ciclo di vita di Reliable Services - C#
+      - name: 'Ciclo di vita di Reliable Services: C#'
         href: service-fabric-reliable-services-lifecycle.md
-      - name: Ciclo di vita di Reliable Services - Java
+      - name: 'Ciclo di vita di Reliable Services: Java'
         href: service-fabric-reliable-services-lifecycle-java.md
       - name: Ciclo di vita dell'istanza e della replica
         href: service-fabric-concepts-replica-lifecycle.md
@@ -411,9 +411,9 @@ items:
         items:
         - name: Comunicare con Reliable Services
           href: service-fabric-reliable-services-communication.md
-        - name: Servizio remoto - C#
+        - name: 'Servizio remoto: C#'
           href: service-fabric-reliable-services-communication-remoting.md
-        - name: Servizio remoto - Java
+        - name: 'Servizio remoto: Java'
           href: service-fabric-reliable-services-communication-remoting-java.md
         - name: WCF
           href: service-fabric-reliable-services-communication-wcf.md
@@ -596,6 +596,8 @@ items:
       items:
       - name: Create
         items:
+        - name: Pianificare la distribuzione di cluster
+          href: service-fabric-cluster-azure-deployment-preparation.md
         - name: Creare nel portale di Azure
           href: service-fabric-cluster-creation-via-portal.md
         - name: Configurare l'autenticazione di Azure Active Directory
@@ -630,6 +632,10 @@ items:
           href: service-fabric-patch-orchestration-application.md
         - name: Applicare patch ai nodi del cluster (Linux)
           href: service-fabric-patch-orchestration-application-linux.md
+        - name: Abilitare la crittografia dei dischi (Windows)
+          href: service-fabric-enable-azure-disk-encryption-windows.md
+        - name: Abilitare la crittografia dei dischi (Linux)
+          href: service-fabric-enable-azure-disk-encryption-linux.md
         - name: Configurare il controllo di accesso
           href: service-fabric-cluster-security-roles.md
         - name: Aprire una porta nel servizio di bilanciamento del carico
@@ -839,9 +845,9 @@ items:
     href: https://azure.microsoft.com/updates/?product=service-fabric
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-fabric
-ms.openlocfilehash: bb1cfedbaf699ff951a03adc47b93332412d1e5a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1346468fa0f29954ca382c32f49928f7810424a4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225281"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483132"

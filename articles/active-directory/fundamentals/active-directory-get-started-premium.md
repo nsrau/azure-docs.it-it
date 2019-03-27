@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: piotrci
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97c70c6187672c47a9f6dc09e1ccb8e6eadeff6a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: ed01b2b122724ba1428fb685bb3f1f52b7099a7b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187682"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287061"
 ---
 # <a name="sign-up-for-azure-active-directory-premium-editions"></a>Effettuare l'iscrizione alle edizioni Premium di Azure Active Directory
 È possibile acquistare e associare le edizioni Premium di Azure Active Directory (Azure AD) alla sottoscrizione di Azure. Se è necessario creare una nuova sottoscrizione di Azure, sarà anche necessario attivare il piano di licenze e l'accesso al servizio Azure AD.
@@ -65,17 +65,17 @@ Se si effettua l'iscrizione con un nuovo piano di licenza di Azure AD, è necess
 ### <a name="to-activate-your-license-plan"></a>Per attivare il piano di licenza
 - Aprire il messaggio di posta elettronica di conferma ricevuto da Microsoft dopo l'iscrizione e quindi fare clic su **Accedi** oppure **Iscriviti**.
    
-    ![Accesso](media/active-directory-get-started-premium/MOLSEmail.png)
+    ![Messaggio di posta elettronica di conferma con i collegamenti per l'accesso e l'iscrizione](media/active-directory-get-started-premium/MOLSEmail.png)
 
     - **Accedi.** Scegliere questo collegamento se è già disponibile un tenant e quindi eseguire l'accesso con l'account amministratore esistente. È necessario essere un amministratore globale del tenant in cui le licenze vengono attivate.
 
     - **Iscriviti.** Scegliere questo collegamento se si vuole aprire la pagina **Creazione del profilo dell'account** e creare un nuovo tenant di Azure AD per il piano di licenza.
 
-        ![Creazione del profilo dell'account](media/active-directory-get-started-premium/MOLSAccountProfile.png)
+        ![Creare una pagina del profilo dell'account con informazioni di esempio](media/active-directory-get-started-premium/MOLSAccountProfile.png)
 
 Al termine, verrà visualizzata una finestra di conferma di ringraziamento per l'attivazione del piano di licenza per il tenant.
 
-![Conferma](media/active-directory-get-started-premium/MOLSThankYou.png)
+![Finestra di dialogo di conferma con ringraziamento](media/active-directory-get-started-premium/MOLSThankYou.png)
 
 ## <a name="activate-your-azure-ad-access"></a>Attivare l'accesso ad Azure AD
 Se si aggiungono nuove licenze di Azure AD Premium a una sottoscrizione esistente, l'accesso ad Azure AD dovrebbe già essere attivato. In caso contrario, sarà necessario attivare l'accesso ad Azure AD dopo aver ricevuto il **messaggio di posta elettronica di benvenuto**.  
@@ -89,11 +89,11 @@ Dopo il provisioning delle licenze acquistate nella directory, l'utente ricever�
 
 1. Aprire il **messaggio di posta elettronica di benvenuto** e quindi fare clic su **Accedi**.
    
-    ![messaggio di posta elettronica di benvenuto](media/active-directory-get-started-premium/AADEmail.png)
+    ![Messaggio di posta elettronica di benvenuto con il collegamento per l'accesso evidenziato](media/active-directory-get-started-premium/AADEmail.png)
 
 2. Dopo aver effettuato l'accesso, verrà richiesto di eseguire una verifica in due passaggi usando un dispositivo mobile.
    
-    ![Verifica per dispositivi mobili](media/active-directory-get-started-premium/SignUppage.png)
+    ![Pagina della verifica in due passaggi con la verifica del dispositivo mobile](media/active-directory-get-started-premium/SignUppage.png)
 
 Il processo di attivazione richiede in genere solo pochi minuti e si potrà poi iniziare a usare il tenant di Azure AD. 
 

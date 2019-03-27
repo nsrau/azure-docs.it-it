@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 192ecf0cf4f97a709808fa04f676035e8a672b79
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 74087a6d1ce00293c968837e72c636847081e39e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55976947"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285982"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Esercitazione: Creare un'immagine personalizzata di una macchina virtuale di Azure con Azure PowerShell
 
@@ -162,7 +162,7 @@ In questa esercitazione è stata creata un'immagine di macchina virtuale persona
 > * Elencare tutte le immagini nella sottoscrizione
 > * Eliminare un'immagine
 
-Passare all'esercitazione successiva per la descrizione delle macchine virtuali a disponibilità elevata.
+Passare all'esercitazione successiva per scoprire come creare macchine virtuali a disponibilità elevata.
 
 > [!div class="nextstepaction"]
 > [Creare VM a disponibilità elevata](tutorial-availability-sets.md)

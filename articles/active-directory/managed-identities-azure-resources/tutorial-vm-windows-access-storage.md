@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220c419142f31261a193795da85eedd841183db9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7308d5715b1ac8abc62bb26ad3636423bbd727ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202707"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889761"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure
 
@@ -30,8 +30,8 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 
 > [!div class="checklist"]
 > * Creare un contenitore BLOB nell'account di archiviazione
-> * Concedere l'accesso a un account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale Windows 
-> * Ottenere un accesso e usarlo per chiamare l'archiviazione di Azure 
+> * Concedere l'accesso a un account di archiviazione all'identità gestita assegnata dal sistema della macchina virtuale Windows
+> * Ottenere un accesso e usarlo per chiamare l'archiviazione di Azure
 
 > [!NOTE]
 > L'autenticazione di Azure Active Directory per l'Archiviazione di Azure è disponibile come anteprima pubblica.
@@ -40,14 +40,14 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
+## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-In questa sezione, si crea un account di archiviazione. 
+In questa sezione, si crea un account di archiviazione.
 
 1. Fare clic sul pulsante **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
 2. Selezionare **Archiviazione** e quindi **Account di archiviazione: BLOB, File, Tabelle, Code**.
-3. In **Nome**, immettere il nome dell'account di archiviazione.  
-4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su **Gestione di risorse** e **Archiviazione (utilizzo generico v1)**. 
+3. In **Nome**, immettere il nome dell'account di archiviazione.
+4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su **Gestione di risorse** e **Archiviazione (utilizzo generico v1)**.
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
 6. Fare clic su **Create**(Crea).
 
@@ -64,22 +64,22 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 
     ![Creare un contenitore di archiviazione](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Utilizzando un editor di propria scelta, creare un file denominato *hello world.txt* nel computer locale.  Aprire il file e aggiungere il testo (senza virgolette) "Hello world! :)"e quindi salvare il file. 
+5. Utilizzando un editor di propria scelta, creare un file denominato *hello world.txt* nel computer locale. Aprire il file e aggiungere il testo (senza virgolette) "Hello world! :)"e quindi salvare il file.
 6. Per caricare un file nel nuovo contenitore creato, fare clic sul nome del contenitore, quindi fare clic su **Carica**
 7. Nel riquadro **Caricamento BLOB**, in **File**, fare clic sull'icona della cartella e individuare il file **hello_world.txt** nel computer locale, selezionare il file, quindi fare clic su **Carica**.
     ![Caricare un file di testo](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concedere alla macchina virtuale l'accesso a un contenitore di Archiviazione di Azure 
+## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concedere alla macchina virtuale l'accesso a un contenitore di Archiviazione di Azure
 
-È possibile usare l'identità gestita assegnata dal sistema della macchina virtuale per recuperare i dati nel BLOB di archiviazione di Azure.   
+È possibile usare l'identità gestita assegnata dal sistema della macchina virtuale per recuperare i dati nel BLOB di archiviazione di Azure.
 
-1. Tornare all'account di archiviazione appena creato.  
-2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  
+1. Tornare all'account di archiviazione appena creato.
+2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.
 3. Fare clic su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per la macchina virtuale.
-4. In **Ruolo**, nell'elenco a discesa, selezionare **Lettore dei dati del BLOB di archiviazione (anteprima)**. 
-5. Dall'elenco a discesa, in **Assegna accesso a** selezionare **Macchina virtuale**.  
-6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su **Tutti i gruppi di risorse**.  
-7. In **Seleziona**, scegliere la macchina virtuale e quindi fare clic su **Salva**. 
+4. In **Ruolo**, nell'elenco a discesa, selezionare **Lettore dei dati del BLOB di archiviazione (anteprima)**.
+5. Dall'elenco a discesa, in **Assegna accesso a** selezionare **Macchina virtuale**.
+6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su **Tutti i gruppi di risorse**.
+7. In **Seleziona**, scegliere la macchina virtuale e quindi fare clic su **Salva**.
 
     ![Assegnare autorizzazioni](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
@@ -87,7 +87,7 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 
 Archiviazione di Azure supporta in modo nativo l'autenticazione di Azure AD, per poter accettare direttamente i token di accesso ottenuti usando un'identità gestita. Questo fa parte dell'integrazione di Archiviazione di Azure con Azure AD e non prevede l'inserimento di credenziali nella stringa di connessione.
 
-Ecco un esempio di codice .Net per l'apertura di una connessione ad Archiviazione di Azure usando un token di accesso e quindi la lettura del contenuto del file creato in precedenza. Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità gestita della macchina virtuale. Per usare il metodo del token di accesso è necessario .Net Framework 4.6 o una versione successiva. Sostituire il valore di `<URI to blob file>` di conseguenza. È possibile ottenere questo valore spostandosi sul file creato e caricato in archiviazione BLOB e copiando l'**URL** in **Proprietà** nella pagina **Panoramica**.
+Ecco un esempio di codice .NET per l'apertura di una connessione ad Archiviazione di Azure usando un token di accesso e la lettura del contenuto del file creato in precedenza. Questo codice deve essere eseguito nella macchina virtuale per poter accedere all'endpoint dell'identità gestita della macchina virtuale. Per usare il metodo del token di accesso, è necessario .NET Framework 4.6 o versione successiva. Sostituire il valore di `<URI to blob file>` di conseguenza. È possibile ottenere questo valore spostandosi sul file creato e caricato in archiviazione BLOB e copiando l'**URL** in **Proprietà** nella pagina **Panoramica**.
 
 ```csharp
 using System;
@@ -97,7 +97,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-using System.Web.Script.Serialization; 
+using System.Web.Script.Serialization;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -109,7 +109,7 @@ namespace StorageOAuthToken
         {
             //get token
             string accessToken = GetMSIToken("https://storage.azure.com/");
-           
+
             //create token credential
             TokenCredential tokenCredential = new TokenCredential(accessToken);
 
@@ -120,7 +120,7 @@ namespace StorageOAuthToken
 
             //create block blob using storage credentials
             CloudBlockBlob blob = new CloudBlockBlob(blobAddress, storageCredentials);
-        
+
             //retrieve blob contents
             Console.WriteLine(blob.DownloadText());
             Console.ReadLine();
@@ -152,7 +152,7 @@ namespace StorageOAuthToken
                 string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
                 return accessToken;
             }
-        }            
+        }
     }
 }
 ```
@@ -167,6 +167,3 @@ In questa esercitazione si è appreso come abilitare un'identità assegnata dal 
 
 > [!div class="nextstepaction"]
 > [Archiviazione di Azure](/azure/storage/common/storage-introduction)
-
-
-

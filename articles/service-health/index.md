@@ -5,23 +5,18 @@ author: stephbaron
 layout: LandingPage
 ms.service: service-health
 ms.topic: landing-page
-ms.date: 03/27/2018
+ms.date: 03/4/2019
 ms.author: stbaron
-ms.openlocfilehash: d8d922dd16cb00b5e3a682dc491af6b59f8476f2
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55881928"
 ---
 # <a name="azure-service-health-documentation"></a>Documentazione di Integrità dei servizi di Azure
 
-Integrità dei servizi di Azure è una suite di esperienze che fornisce supporto e indicazioni personalizzati quando si verificano problemi nei servizi di Azure dell'utente. Può inviare notifiche, aiutare a comprendere l'impatto dei problemi e fornire informazioni aggiornate durante la risoluzione del problema. Può anche semplificare la preparazione per la manutenzione pianificata e per le modifiche che potrebbero influire sulla disponibilità delle risorse.
+Azure offre una serie di esperienze per mantenere l'utente informato sull'integrità delle sue risorse cloud, tra cui problemi correnti e futuri come eventi che influiscono sui servizi, manutenzione pianificata e altre modifiche che potrebbero avere conseguenze sulla disponibilità.
 
-Integrità dei servizi di Azure è composto dagli elementi seguenti:
- 1. **Stato di Azure**: visualizzazione globale dell'integrità dei servizi di Azure
- 2. **Integrità dei servizi**: visualizzazione personalizzata dell'integrità dei servizi di Azure
- 3. **Integrità risorse**: visualizzazione più approfondita dell'integrità delle singole risorse messe a disposizione dai servizi di Azure
+Si potrebbe avere già familiarità con la pagina **[Stato di Azure](https://status.azure.com)**, una visualizzazione globale dell'integrità di tutti i servizi di Azure in tutte le aree di Azure. La pagina Stato è un riferimento valido per gli eventi imprevisti con un impatto di ampio respiro, ma è consigliabile usare **Integrità dei servizi di Azure** per tenersi informati su eventi imprevisti e attività di manutenzione di Azure.
+
+**[Integrità dei servizi di Azure](service-health-overview.md)** fornisce una visualizzazione personalizzata dell'integrità dei servizi e delle aree di Azure in uso. Si tratta della risorsa ideale da consultare per le comunicazioni sugli eventi che influiscono sui servizi, come interruzioni, attività di manutenzione pianificata e altri consigli sull'integrità, perché l'esperienza autenticata di Integrità dei servizi di Azure riconosce i servizi e le risorse in uso. Il modo migliore per usare Integrità dei servizi consiste nel configurare gli appositi avvisi per ricevere notifiche tramite i canali di comunicazione preferiti quando i problemi dei servizi, le attività di manutenzione pianificata o altre modifiche potrebbero interessare i servizi e le aree di Azure in uso.
+
+**[Integrità risorse di Azure](resource-health-overview.md)** fornisce informazioni sull'integrità delle singole risorse cloud, ad esempio una specifica istanza di macchina virtuale. Usando Monitoraggio di Azure, è anche possibile configurare gli avvisi per ricevere notifiche sulle modifiche di disponibilità delle risorse cloud. Integrità risorse di Azure e Monitoraggio di Azure consentono di tenersi informati sulla disponibilità delle risorse minuto per minuto e di valutare rapidamente se un problema è dovuto a un errore locale o a un evento della piattaforma Azure.
 
 Insieme, queste esperienze offrono una visualizzazione completa dello stato di integrità di Azure, al livello di granularità più idoneo per l'utente.
 

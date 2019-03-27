@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918942"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082195"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Caricare le soluzioni per il rilevamento modifiche e gli aggiornamenti in Automazione di Azure
 
@@ -81,7 +81,7 @@ Ora che le soluzioni sono abilitate, è possibile aggiungere una macchina virtua
    ![Abilitare la soluzione di aggiornamento per la macchina virtuale](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Se non si attende il completamento dell'altra soluzione, quando si abilita la soluzione successiva viene visualizzato il messaggio seguente: *L'installazione di un'altra soluzione è già in corso in questa o in un'altra macchina virtuale. Al termine dell'installazione, il pulsante Abilita sarà abilitato e sarà possibile richiedere l'installazione della soluzione in questa macchina virtuale.*
+> Se non si attende il completamento dell'altra soluzione, quando si abilita la soluzione successiva viene visualizzato il messaggio: *L'installazione di un'altra soluzione è già in corso in questa o in un'altra macchina virtuale. Al termine dell'installazione, il pulsante Abilita sarà abilitato e sarà possibile richiedere l'installazione della soluzione in questa macchina virtuale.*
 
 ## <a name="install-and-update-modules"></a>Installare e aggiornare i moduli
 
@@ -105,7 +105,7 @@ Nella pagina **Moduli** selezionare **Esplora raccolta** per aprire la raccolta 
 1. Selezionare **Esplora raccolta**.
 1. Cercare **aggiornamento e rilevamento delle modifiche**, fare clic sul runbook e selezionare **Importa** nella pagina **Visualizza origine**. Selezionare **OK** per importare il runbook nell'account di Automazione.
 
-  ![Importare il runbook di caricamento](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Importare il runbook di caricamento](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. Nella pagina **Runbook** selezionare **Modifica** e quindi selezionare **Pubblica**. Nella finestra di dialogo **Pubblica runbook** selezionare **Sì** per pubblicare il runbook.
 

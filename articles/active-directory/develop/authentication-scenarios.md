@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244556"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295709"
 ---
 # <a name="what-is-authentication"></a>Informazioni sull'autenticazione
 
@@ -79,7 +79,7 @@ Azure AD rappresenta le applicazioni basate su un modello specifico progettato p
 
 In Azure AD un'**oggetto applicazione** descrive un'applicazione come un'entità astratta. Gli sviluppatori lavorano con le applicazioni. In fase di distribuzione Azure AD usa un oggetto applicazione specificato come un progetto per creare un'**entità servizio**, che rappresenta un'istanza concreta di un'applicazione in un tenant oppure in una directory. L'entità servizio definisce ciò che l'app può effettivamente eseguire in una directory di destinazione specifica, chi può usarla, a quali risorse può accedere e così via. Azure AD crea un'entità servizio da un oggetto applicazione tramite il **consenso**.
 
-Il diagramma seguente illustra un flusso di provisioning di Azure AD semplificato basato su consenso.
+Il diagramma seguente illustra un flusso di provisioning di Azure AD semplificato basato su consenso.  Sono presenti due tenant (A e B), in cui il tenant A è proprietario dell'applicazione e il tenant B crea un'istanza dell'applicazione tramite un'entità servizio.  
 
 ![Flusso di provisioning semplificato basato su consenso](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ In questo flusso di provisioning:
 
 |   |   |
 |---|---|
-| 1 | Un utente da B tenta di eseguire l'accesso con l'app |
+| 1 | Un utente del tenant B prova a eseguire l'accesso con l'app |
 | 2 | Le credenziali dell'utente vengono acquisite e verificate |
 | 3 | All'utente viene richiesto di specificare il consenso per l'app per ottenere l'accesso al tenant B |
-| 4 | Azure AD usa l'oggetto applicazione come un progetto per creare un'entità servizio in B |
+| 4 | Azure AD usa l'oggetto applicazione del tenant A come un progetto per creare un'entità servizio nel tenant B |
 | 5 | L'utente riceve il token richiesto |
 |   |   |
 
-È possibile ripetere questo processo ogni volta che si desidera per altri tenant (C, D e così via). Nella directory A viene mantenuto il consenso per l'app (oggetto applicazione). Gli utenti e amministratori di tutti gli altri tenant in cui all'app viene dato il consenso mantengono il controllo su ciò che l'applicazione può eseguire tramite l'oggetto entità servizio corrispondente in ogni tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory (Azure AD)](app-objects-and-service-principals.md).
+È possibile ripetere questo processo ogni volta che si desidera per altri tenant (C, D e così via). Il tenant A mantiene il progetto per l'app (oggetto applicazione). Gli utenti e amministratori di tutti gli altri tenant in cui all'app viene dato il consenso mantengono il controllo su ciò che l'applicazione può eseguire tramite l'oggetto entità servizio corrispondente in ogni tenant. Per altre informazioni, vedere [Oggetti applicazione e oggetti entità servizio in Azure Active Directory (Azure AD)](app-objects-and-service-principals.md).
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Attestazioni nei token di sicurezza di Azure AD
 

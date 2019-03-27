@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: e6a24bfe25513b1b4eacd8bc192caa5518c896c6
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 12ca210e1fe7aa60515f5b8c4c0ad830dcdd9594
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593200"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078959"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Caricare dati in modo incrementale da più tabelle in SQL Server a un database SQL di Azure
 In questa esercitazione si creerà una data factory di Azure con una pipeline che carica dati delta da più tabelle di un database di SQL Server locale a un database SQL di Azure.    
@@ -382,7 +382,7 @@ In questo passaggio vengono creati i set di dati per rappresentare l'origine dat
    ![Set di dati sink: Connessione](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. Fare clic su **Fine**. Come nome della tabella verrà visualizzato  **@dataset().SinkTableName**.
+   1. Fare clic su **Fine**. Come nome della tabella verrà visualizzato **\@dataset().SinkTableName**.
    
    ![Set di dati sink: Connessione](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -424,11 +424,11 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
     ![Nome della pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. Nella finestra **Proprietà** seguire questa procedura: 
 
-    1. Fare clic su **+ Nuovo**. 
-    1. Immettere **tableList** per il **nome** del parametro. 
-    1. Selezionare **Oggetto** per il **tipo** di parametro.
+   1. Fare clic su **+ Nuovo**. 
+   1. Immettere **tableList** per il **nome** del parametro. 
+   1. Selezionare **Oggetto** per il **tipo** di parametro.
 
-    ![Parametri della pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
+      ![Parametri della pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-parameters.png) 
 1. Nella casella degli strumenti **Attività** espandere **Iteration & Conditionals** (Iterazione e istruzioni condizionali) e trascinare l'attività **ForEach** nell'area di progettazione della pipeline. Nella scheda **Generale** della finestra **Proprietà** immettere **IterateSQLTables**. 
 
     ![Nome dell'attività ForEach](./media/tutorial-incremental-copy-multiple-tables-portal/foreach-name.png)
@@ -457,69 +457,69 @@ Questa pipeline accetta un elenco di nomi di tabella come parametro. L'attività
     ![Seconda attività di ricerca: nome](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-name.png)
 1. Passare alla scheda **Impostazioni** .
 
-    1. Selezionare **SourceDataset** per **Source Dataset** (Set di dati di origine). 
-    1. Selezionare **Query** per **Use Query** (Usa query).
-    1. Immettere la query SQL seguente per **Query**.
+     1. Selezionare **SourceDataset** per **Source Dataset** (Set di dati di origine). 
+     1. Selezionare **Query** per **Use Query** (Usa query).
+     1. Immettere la query SQL seguente per **Query**.
 
-        ```sql    
-        select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
-        ```
+         ```sql    
+         select MAX(@{item().WaterMark_Column}) as NewWatermarkvalue from @{item().TABLE_NAME}
+         ```
     
-        ![Seconda attività di ricerca: impostazioni](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
+         ![Seconda attività di ricerca: impostazioni](./media/tutorial-incremental-copy-multiple-tables-portal/second-lookup-settings.png)
 1. Trascinare l'attività **Copia** dalla casella degli strumenti **Attività** e immettere **IncrementalCopyActivity** per **Nome**. 
 
-    ![Attività di copia: nome](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
+     ![Attività di copia: nome](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-name.png)
 1. Una alla volta, connettere le attività **Ricerca** all'attività **Copia**. Per connetterle, iniziare il trascinamento dalla casella **verde** dell'attività **Ricerca** e rilasciarla sull'attività **Copia**. Rilasciare il pulsante del mouse quando il bordo dell'attività di copia diventa di colore **blu**.
 
-    ![Connettere le attività di ricerca all'attività di copia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
+     ![Connettere le attività di ricerca all'attività di copia](./media/tutorial-incremental-copy-multiple-tables-portal/connect-lookup-to-copy.png)
 1. Selezionare l'attività **Copia** nella pipeline. Passare alla scheda **Origine** nella finestra **Proprietà**. 
 
-    1. Selezionare **SourceDataset** per **Source Dataset** (Set di dati di origine). 
-    1. Selezionare **Query** per **Use Query** (Usa query). 
-    1. Immettere la query SQL seguente per **Query**.
+     1. Selezionare **SourceDataset** per **Source Dataset** (Set di dati di origine). 
+     1. Selezionare **Query** per **Use Query** (Usa query). 
+     1. Immettere la query SQL seguente per **Query**.
 
-        ```sql
-        select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
-        ```
+         ```sql
+         select * from @{item().TABLE_NAME} where @{item().WaterMark_Column} > '@{activity('LookupOldWaterMarkActivity').output.firstRow.WatermarkValue}' and @{item().WaterMark_Column} <= '@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}'        
+         ```
 
-        ![Attività di copia: impostazioni origine](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
+         ![Attività di copia: impostazioni origine](./media/tutorial-incremental-copy-multiple-tables-portal/copy-source-settings.png)
 1. Passare alla scheda **Sink** e selezionare **SinkDataset** in **Sink Dataset** (Set di dati sink). 
         
-    ![Attività di copia: impostazioni sink](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
+     ![Attività di copia: impostazioni sink](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. Passare alla scheda **Parametri** e seguire questa procedura:
 
-    1. Per la proprietà **Sink Stored Procedure Name** (Nome stored procedure sink) immettere `@{item().StoredProcedureNameForMergeOperation}`.
-    1. Per la proprietà **Sink Table Type** (Tipo di tabella sink) immettere `@{item().TableType}`.
-    1. Nella sezione **Sink Dataset** (Set di dati sink), per il parametro **SinkTableName**, immettere `@{item().TABLE_NAME}`.
+     1. Per la proprietà **Sink Stored Procedure Name** (Nome stored procedure sink) immettere `@{item().StoredProcedureNameForMergeOperation}`.
+     1. Per la proprietà **Sink Table Type** (Tipo di tabella sink) immettere `@{item().TableType}`.
+     1. Nella sezione **Sink Dataset** (Set di dati sink), per il parametro **SinkTableName**, immettere `@{item().TABLE_NAME}`.
 
-        ![Attività di copia: parametri](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
+         ![Attività di copia: parametri](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Trascinare l'attività **Stored procedure** dalla casella degli strumenti **Attività** all'area di progettazione della pipeline. Connettere l'attività **Copia** all'attività **Stored procedure**. 
 
-    ![Attività di copia: parametri](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
+     ![Attività di copia: parametri](./media/tutorial-incremental-copy-multiple-tables-portal/connect-copy-to-sproc.png)
 1. Selezionare l'attività **Stored procedure** nella pipeline e immettere **StoredProceduretoWriteWatermarkActivity** per **Nome** nella scheda **Generale** della finestra **Proprietà**. 
 
-    ![Attività stored procedure: nome](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
+     ![Attività stored procedure: nome](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-name.png)
 1. Passare alla scheda **Account SQL** e selezionare **AzureSqlDatabaseLinkedService** per **Servizio collegato**.
 
-    ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
+     ![Attività stored procedure: account SQL](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sql-account.png)
 1. Passare alla scheda **Stored procedure** e seguire questa procedura:
 
-    1. In **Nome stored procedure** selezionare `usp_write_watermark`. 
-    1. Selezionare **Import parameter** (Importa parametro). 
-    1. Specificare i valori seguenti per i parametri: 
+     1. In **Nome stored procedure** selezionare `usp_write_watermark`. 
+     1. Selezionare **Import parameter** (Importa parametro). 
+     1. Specificare i valori seguenti per i parametri: 
 
-        | NOME | Type | Valore | 
-        | ---- | ---- | ----- |
-        | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
-        | TableName | string | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
+         | NOME | Type | Valore | 
+         | ---- | ---- | ----- |
+         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
+         | TableName | string | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |
     
-        ![Attività stored procedure: impostazioni della stored procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
+         ![Attività stored procedure: impostazioni della stored procedure](./media/tutorial-incremental-copy-multiple-tables-portal/sproc-activity-sproc-settings.png)
 1. Nel riquadro a sinistra fare clic su **Pubblica**. Questa azione pubblica le entità create nel servizio Data Factory. 
 
-    ![Pulsante Publish](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
+     ![Pulsante Publish](./media/tutorial-incremental-copy-multiple-tables-portal/publish-button.png)
 1. Attendere fino alla visualizzazione del messaggio **Pubblicazione riuscita**. Per visualizzare le notifiche, fare clic sul collegamento **Show Notifications** (Mostra notifiche). Per chiudere la finestra delle notifiche, fare clic su **X**.
 
-    ![Visualizzare le notifiche](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
+     ![Visualizzare le notifiche](./media/tutorial-incremental-copy-multiple-tables-portal/notifications.png)
 
  
 ## <a name="run-the-pipeline"></a>Eseguire la pipeline

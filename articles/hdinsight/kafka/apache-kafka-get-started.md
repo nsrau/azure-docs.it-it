@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart
 ms.date: 10/12/2018
-ms.openlocfilehash: 76f09af66e362fb6b03346b43a6be1a3ec7cf681
-ms.sourcegitcommit: 803e66de6de4a094c6ae9cde7b76f5f4b622a7bb
+ms.openlocfilehash: a8ed25f761e3109b0b97ee9b604a7a2d58e5aa8e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/02/2019
-ms.locfileid: "53976767"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081339"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Avvio rapido: Creare un cluster Apache Kafka in HDInsight
 
@@ -36,9 +36,9 @@ Questa guida introduttiva illustra come creare un cluster[Apache Kafka](https://
 
     Il comando `ssh` è disponibile per impostazione predefinita nei sistemi Linux, Unix e macOS. In Windows 10 usare uno dei metodi seguenti per installare il comando `ssh`:
 
-    * Usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell include il comando `ssh` e può essere configurata per l'utilizzo di Bash o di PowerShell come ambiente shell.
+  * Usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell include il comando `ssh` e può essere configurata per l'utilizzo di Bash o di PowerShell come ambiente shell.
 
-    * [Installare il sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/install-win10). Le distribuzioni Linux disponibili nel Microsoft Store includono il comando `ssh`.
+  * [Installare il sottosistema Windows per Linux](https://docs.microsoft.com/windows/wsl/install-win10). Le distribuzioni Linux disponibili nel Microsoft Store includono il comando `ssh`.
 
     > [!IMPORTANT]  
     > La procedura descritta in questo documento presuppone che si usi uno dei client SSH sopra menzionati. Se si usa un client SSH diverso e si riscontrano problemi, consultare la documentazione del client SSH.
@@ -75,7 +75,7 @@ Per creare un cluster Apache Kafka in HDInsight seguire questa procedura:
     | Impostazione | Valore |
     | --- | --- |
     | Tipo di cluster | Kafka |
-    | Version | Kafka 1.1.0 (HDI 3.6) |
+    | Versione | Kafka 1.1.0 (HDI 3.6) |
 
     Usare il pulsante **Seleziona** per salvare le impostazioni del tipo di cluster e tornare a __Informazioni di base__.
 
@@ -180,6 +180,9 @@ In questa sezione si ottengono le informazioni sull'host dall'API REST Apache Am
     ```
 
 2. Per impostare una variabile di ambiente sul nome del cluster, usare il comando seguente:
+
+    > [!Important]
+    > Immettere il nome del cluster in tutte le lettere minuscole per questo comando, anche se il provisioning è stato eseguito con lettere maiuscole nel nome. I nomi maiuscoli non possono essere usati con Zookeeper o per informazioni broker.
 
     ```bash
     read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME

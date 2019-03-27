@@ -5,25 +5,25 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2018
+ms.date: 03/14/2019
 ms.topic: overview
 ms.service: cost-management
 manager: benshy
 ms.custom: ''
-ms.openlocfilehash: e526d7fac3c66c5eaf9686db3c9f9f9506d6fc6b
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 69f91949347eadcffb3c0d3ff833a40b5e483e24
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55768658"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58003181"
 ---
 # <a name="what-is-azure-cost-management"></a>Che cos'è la gestione dei costi di Azure?
 
-Gestione costi è il processo con consente di pianificare e controllare i costi aziendali. Le attività di gestione dei costi vengono eseguite in genere dai team finanziario, di gestione e dai team app. Gestione costi di Azure consente alle organizzazioni di pianificare tenendo presenti i costi. Consente inoltre di analizzare in modo efficace i costi e di intraprendere azioni per ottimizzare la spesa per il cloud. Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](cost-mgt-best-practices.md).
+Gestione costi è il processo che consente di pianificare e controllare in maniera efficace i costi aziendali. Le attività di gestione dei costi vengono eseguite in genere dai team finanziario, di gestione e dai team app. Gestione costi di Azure consente alle organizzazioni di pianificare tenendo presenti i costi. Consente inoltre di analizzare in modo efficace i costi e di intraprendere azioni per ottimizzare la spesa per il cloud. Per altre informazioni su come approcciare la gestione dei costi come organizzazione, consultare l'articolo [Procedure consigliate di Gestione costi di Azure](cost-mgt-best-practices.md).
 
 Anche se correlate, le operazioni di fatturazione e di gestione dei costi sono differenti. La fatturazione è il processo di invio di fatture ai clienti per di merci o servizi e di gestione delle relazioni commerciali.  I team di approvvigionamento e quello finanziario svolgono solitamente le attività di fatturazione.
 
-Gestione costi mostra i costi aziendali e i criteri di utilizzo tramite analisi avanzate. I report in Gestione costi mostrano i costi di Azure, l'utilizzo, le istanze riservate e l'uso di Vantaggio Azure Hybrid. Collettivamente, i report mostrano i costi interni ed esterni sull'utilizzo e gli addebiti per Azure Marketplace. Altri addebiti, come gli acquisti di prenotazioni, il supporto e le imposte non vengono ancora visualizzati nel report. I report consentono di comprendere l'uso di risorse e spese e possono suggerire come trovare le anomalie di spesa. È inoltre disponibile analisi predittiva. Gestione costi usa i gruppi di gestione di Azure, i budget e gli elementi consigliati per mostrare chiaramente come sono organizzate le spese e come si potrebbero ridurre i costi.
+Gestione costi mostra i costi aziendali e i criteri di utilizzo tramite analisi avanzate. I report in Gestione costi mostrano i costi basati sull'utilizzo da parte dei servizi di Azure e delle offerte di Marketplace di terze parti. I costi sono basati sui prezzi negoziati e considerati negli sconti per la prenotazione e per il Vantaggio Azure Hybrid. Collettivamente, i report mostrano i costi interni ed esterni sull'utilizzo e gli addebiti per Azure Marketplace. Altri addebiti, come gli acquisti di prenotazioni, il supporto e le imposte non vengono ancora visualizzati nel report. I report consentono di comprendere l'uso di risorse e spese e possono suggerire come trovare le anomalie di spesa. È inoltre disponibile analisi predittiva. Gestione costi usa i gruppi di gestione di Azure, i budget e gli elementi consigliati per mostrare chiaramente come sono organizzate le spese e come si potrebbero ridurre i costi.
 
 È possibile usare il portale di Azure o varie API per l'esportazione di automazione per integrare i dati sui costi con i processi e sistemi esterni. Sono inoltre disponibili l'esportazione automatizzata dei dati di fatturazione e report pianificati.
 
@@ -41,7 +41,7 @@ Se si utilizzano sistemi esterni per accedere o per revisionare i dati di gestio
 
 ## <a name="consider-cloudyn"></a>Prendere in considerazione Cloudyn
 
-[Cloudyn](overview.md) è un servizio di Azure correlato a Gestione costi. Con Cloudyn, è possibile tenere traccia dell'utilizzo del cloud e delle spese per le risorse di Azure. Supporta anche altri provider di cloud, inclusi AWS e Google. I dashboard report di facile comprensione agevolano l'allocazione dei costi e gli showback/chargeback. Attualmente Gestione costi non supporta showback/chargeback o altri provider di servizi cloud. Tuttavia, Cloudyn è un'opzione che _viene_ supportata. Gestione costi supporta attualmente solo gli account di Azure con Contratto Enterprise. Benché non supporti account singoli o con pagamento in base al consumo o provider di servizi Microsoft Cloud, Cloudyn li supporta. Se si dispone di uno di questi account, è possibile usare Cloudyn per la gestione dei costi.
+[Cloudyn](overview.md) è un servizio di Azure correlato a Gestione costi. Con Cloudyn, è possibile tenere traccia dell'utilizzo del cloud e delle spese per le risorse di Azure. Supporta anche altri provider di cloud, inclusi AWS e Google. I dashboard report di facile comprensione agevolano l'allocazione dei costi e gli showback/chargeback. Attualmente Gestione costi non supporta showback/chargeback o altri provider di servizi cloud. Tuttavia, Cloudyn è un'opzione che _viene_ supportata. Attualmente Gestione costi, al contrario di Cloudyn, non supporta gli account di Microsoft Cloud Service Provider (CSP). Se si hanno account CSP o se si desidera utilizzare lo showback/chargeback, è possibile usare Cloudyn per gestire i costi.
 
 ## <a name="additional-azure-tools"></a>Strumenti aggiuntivi di Azure
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961313"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001195"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Che cos'è l'app Microsoft Authenticator?
 
@@ -28,18 +28,21 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
 
 È possibile usare l'app Microsoft Authenticator in diversi modi, tra cui:
 
-- Richiedendo un secondo metodo di verifica dopo l'accesso con il nome utente e la password.
+- Rispondere alla richiesta di autenticazione dopo l'accesso con il nome utente e la password.
 
-- Fornendo l'accesso senza richiedere una password, usando il nome utente e il dispositivo mobile con l'impronta digitale, il viso o il PIN.
+- Accedere senza immettere una password, usando il nome utente, l'app di autenticazione e il dispositivo mobile con l'impronta digitale, il viso o il PIN.
 
->[!Important]
->L'app Microsoft Authenticator funziona con qualsiasi app che usa la verifica a due fattori e qualsiasi account che supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
+- Come generatore di codice per qualsiasi altro account che supporti le app di autenticazione.
 
->L'organizzazione potrebbe richiedere l'uso di un'app di autenticazione per accedere e visualizzare dati e documenti aziendali. Anche se il nome utente potrebbe essere visualizzato nell'app, l'account non è effettivamente configurato per fungere da metodo di verifica finché non si completa il processo di registrazione. Per altre informazioni, vedere [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-overview.md).
-
->Se si verificano problemi di accesso al proprio account, vedere [Se non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429) per ricevere assistenza. Ottenere altre informazioni su cosa fare quando si riceve il messaggio [L'account Microsoft specificato non esiste](https://support.microsoft.com/help/13811) quando si prova ad accedere al proprio account Microsoft.
+> [!Important]
+> L'app Microsoft Authenticator funziona con qualsiasi account che usa la verifica a due fattori e supporta gli standard di password monouso basate sul tempo (Time-Based One-Time Passwords, TOTP).
+> 
+> L'organizzazione potrebbe richiedere l'uso di un'app di autenticazione per accedere e visualizzare dati e documenti aziendali. Anche se il nome utente potrebbe essere visualizzato nell'app, l'account non è effettivamente configurato per fungere da metodo di verifica finché non si completa il processo di registrazione. Per altre informazioni, vedere [Aggiungere l'account aziendale o dell'istituto di istruzione](user-help-auth-app-add-work-school-account.md).
+> 
+> Se si verificano problemi di accesso al proprio account, vedere [Se non si riesce ad accedere all'account Microsoft](https://support.microsoft.com/help/12429) per ricevere assistenza. Ottenere altre informazioni su cosa fare quando si riceve il messaggio [L'account Microsoft specificato non esiste](https://support.microsoft.com/help/13811) quando si prova ad accedere al proprio account Microsoft.
 
 ## <a name="terminology"></a>Terminologia
+
 |Termine|DESCRIZIONE|
 |----|-----------|
 |Verifica a due fattori |Un processo di verifica che richiede l'utilizzo specifico di due sole informazioni di verifica, come una password e un PIN. L'app Microsoft Authenticator supporta sia la verifica a due fattori standard che l'accesso senza password.|

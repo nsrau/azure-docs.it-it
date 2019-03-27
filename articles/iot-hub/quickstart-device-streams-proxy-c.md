@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: c
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 300b42c9452fc58c857d075a7fd8c42fd6a1c409
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: 59a84190386b554716472b4cb46c94030a66a4cb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55731734"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077106"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-application-preview"></a>Avvio rapido: SSH/RDP su flussi dispositivo dell'hub IoT con un'applicazione proxy C (anteprima)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+L'hub IoT di Microsoft Azure attualmente supporta i flussi dispositivo come [funzionalità di anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 I [flussi dispositivo dell'hub IoT](./iot-hub-device-streams-overview.md) consentono alle applicazioni del servizio e del dispositivo di comunicare in modo sicuro e di facile integrazione con i firewall. Vedere [questa pagina](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) per una panoramica della configurazione.
 
@@ -29,7 +31,6 @@ Questo documento descrive la configurazione per il tunneling del traffico SSH (c
 La figura seguente illustra la configurazione del modo in cui i programmi proxy locali del dispositivo e del servizio consentiranno la connettività end-to-end tra i processi del client SSH e del daemon SSH. Durante l'anteprima pubblica, l'SDK C supporta solo i flussi dispositivo sul lato dispositivo. Di conseguenza, questa guida introduttiva illustra solo le istruzioni per eseguire l'applicazione proxy locale del dispositivo. È consigliabile eseguire un'applicazione proxy locale del servizio associata disponibile nella [guida introduttiva per C#](./quickstart-device-streams-proxy-csharp.md) o nella [guida introduttiva per Node.js](./quickstart-device-streams-proxy-nodejs.md).
 
 ![Testo alternativo](./media/quickstart-device-streams-proxy-csharp/device-stream-proxy-diagram.svg "Configurazione di un proxy locale")
-
 
 1. Il proxy locale del servizio si connette all'hub IoT e avvia un flusso dispositivo nel dispositivo di destinazione.
 
@@ -48,6 +49,11 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
+* L'anteprima dei flussi dispositivo attualmente è supportata solo per gli hub IoT creati nelle aree seguenti:
+
+  * **Stati Uniti centrali**
+  * **Stati Uniti centrali EUAP**
+
 * Installare [Visual Studio 2017](https://www.visualstudio.com/vs/) con il carico di lavoro [Sviluppo di applicazioni desktop con C++](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) abilitato.
 * Installare la versione più recente di [Git](https://git-scm.com/download/).
 
@@ -55,24 +61,23 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per questa guida introduttiva si userà [Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md). Si preparerà un ambiente di sviluppo usato per clonare e compilare [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) da GitHub. L'SDK in GitHub include il codice di esempio usato in questa guida introduttiva. 
 
-
-1. Scaricare la versione 3.11.4 del [sistema di compilazione CMake](https://cmake.org/download/) da [GitHub](https://github.com/Kitware/CMake/releases/tag/v3.11.4). Verificare il file binario scaricato usando il valore hash di crittografia corrispondente. Nell'esempio seguente viene usato Windows PowerShell per verificare l'hash di crittografia per la versione 3.11.4 della distribuzione MSI x64:
+1. Scaricare la versione 3.13.4 del [sistema di compilazione CMake](https://cmake.org/download/). Verificare il file binario scaricato usando il valore hash di crittografia corrispondente. Nell'esempio seguente è stato usato Windows PowerShell per verificare l'hash di crittografia per la versione 3.13.4 della distribuzione MSI x64:
 
     ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    I seguenti valori hash per la versione 3.11.4 venivano elencati nel sito di CMake al momento della stesura di questo articolo:
+
+    I seguenti valori hash per la versione 3.13.4 venivano elencati nel sito di CMake al momento della stesura di questo articolo:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
-    È importante che nel computer siano installati i prerequisiti di Visual Studio (Visual Studio e carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i prerequisiti sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
+    È importante che nel computer siano installati i componenti che costituiscono un prerequisito per l'uso di Visual Studio (Visual Studio e il carico di lavoro 'Sviluppo di applicazioni desktop con C++') **prima** di avviare l'installazione di `CMake`. Quando i componenti che costituiscono un prerequisito sono pronti e il download è stato verificato, installare il sistema di compilazione CMake.
 
 2. Aprire un prompt dei comandi o la shell Git Bash. Eseguire il comando seguente per clonare il repository GitHub [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c):
     
@@ -80,7 +85,6 @@ Per questa guida introduttiva si userà [Azure IoT SDK per dispositivi per C](io
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
     Le dimensioni di questo repository sono attualmente di circa 220 MB. Il completamento di questa operazione richiederà alcuni minuti.
-
 
 3. Creare una sottodirectory `cmake` nella directory radice del repository Git e passare a tale cartella. 
 
@@ -90,28 +94,27 @@ Per questa guida introduttiva si userà [Azure IoT SDK per dispositivi per C](io
     cd cmake
     ```
 
-4. Eseguire il comando seguente che compila una versione dell'SDK specifica per la piattaforma di sviluppo client. In Windows verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`. 
+4. Eseguire i comandi seguenti dalla directory `cmake` per compilare una versione dell'SDK specifica per la piattaforma client di sviluppo.
 
-```
-    # In Linux
-    cmake ..
-    make -j
-```
+   * Linux:
 
-In Windows eseguire i comandi seguenti nel Prompt dei comandi per gli sviluppatori per Visual Studio 2015 o 2017:
+      ```bash
+      cmake ..
+      make -j
+      ```
 
-```
-    rem In Windows
-    rem For VS2015
-    cmake .. -G "Visual Studio 15 2015"
+   * In Windows eseguire i comandi seguenti nel Prompt dei comandi per gli sviluppatori per Visual Studio 2015 o 2017. Verrà generata una soluzione di Visual Studio per il dispositivo simulato nella directory `cmake`.
 
-    rem Or for VS2017
-    cmake .. -G "Visual Studio 15 2017"
+      ```cmd
+      rem For VS2015
+      cmake .. -G "Visual Studio 14 2015"
 
-    rem Then build the project
-    cmake --build . -- /m /p:Configuration=Release
-```
-    
+      rem Or for VS2017
+      cmake .. -G "Visual Studio 15 2017"
+
+      rem Then build the project
+      cmake --build . -- /m /p:Configuration=Release
+      ```
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
 
@@ -146,65 +149,64 @@ In Windows eseguire i comandi seguenti nel Prompt dei comandi per gli sviluppato
 
     Il valore verrà usato più avanti in questa guida introduttiva.
 
-
 ## <a name="ssh-to-a-device-via-device-streams"></a>Connessione SSH a un dispositivo tramite i flussi dispositivo
 
 ### <a name="run-the-device-local-proxy-application"></a>Eseguire l'applicazione proxy locale del dispositivo
 
-- Modificare il file di origine `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` e fornire la stringa di connessione del dispositivo, l'IP/nome host del dispositivo di destinazione e la porta RDP 22:
-```C
-  /* Paste in the your iothub connection string  */
-  static const char* connectionString = "[Connection string of IoT Hub]";
-  static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
-  static const size_t localPort = 22; // Port of the local server to connect to.
-```
+1. Modificare il file di origine `iothub_client/samples/iothub_client_c2d_streaming_proxy_sample/iothub_client_c2d_streaming_proxy_sample.c` e specificare la stringa di connessione del dispositivo, l'IP/nome host del dispositivo di destinazione e la porta SSH 22:
 
-- Compilare l'esempio come indicato di seguito:
+   ```C
+   /* Paste in the your iothub connection string  */
+   static const char* connectionString = "[Connection string of IoT Hub]";
+   static const char* localHost = "[IP/Host of your target machine]"; // Address of the local server to connect to.
+   static const size_t localPort = 22; // Port of the local server to connect to.
+   ```
 
-```
+2. Compilare l'esempio:
+
+   ```bash
     # In Linux
     # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     make -j
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
     rem Go to cmake at root of repository
     cmake --build . -- /m /p:Configuration=Release
-```
+   ```
 
-- Eseguire il programma compilato nel dispositivo:
-```
+3. Eseguire il programma compilato nel dispositivo:
+
+   ```bash
     # In Linux
-    # Go to sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
+    # Go to the sample's folder cmake/iothub_client/samples/iothub_client_c2d_streaming_proxy_sample
     ./iothub_client_c2d_streaming_proxy_sample
-```
+   ```
 
-```
+   ```cmd
     rem In Windows
-    rem Go to sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
+    rem Go to the sample's release folder cmake\iothub_client\samples\iothub_client_c2d_streaming_proxy_sample\Release
     iothub_client_c2d_streaming_proxy_sample.exe
-```
+   ```
 
 ### <a name="run-the-service-local-proxy-application"></a>Eseguire l'applicazione proxy locale del servizio
 
-Come descritto [in precedenza](#how-it-works), per stabilire un flusso end-to-end per effettuare il tunneling del traffico SSH, è necessario un proxy locale ad ogni estremità, ovvero nel servizio e nel dispositivo. Tuttavia, durante l'anteprima pubblica, l'SDK C dell'hub IoT supporta solo i flussi dispositivo sul lato dispositivo. Per il proxy locale del servizio usare la [guida introduttiva per C#](./quickstart-device-streams-proxy-csharp.md) o la [guida introduttiva per Node.js](./quickstart-device-streams-proxy-nodejs.md).
-
+Come descritto [in precedenza](#how-it-works), per stabilire un flusso end-to-end per effettuare il tunneling del traffico SSH, è necessario un proxy locale a ogni estremità, ovvero nel servizio e nel dispositivo. Durante l'anteprima pubblica, l'SDK C dell'hub IoT supporta solo i flussi dispositivo sul lato dispositivo. Per compilare ed eseguire il proxy locale del servizio, seguire la procedura disponibile nell'[argomento di avvio rapido per C# ](./quickstart-device-streams-proxy-csharp.md) o nell'[argomento di avvio rapido per Node. js](./quickstart-device-streams-proxy-nodejs.md).
 
 ### <a name="establish-an-ssh-session"></a>Stabilire una sessione SSH
 
-Supponendo che siano in esecuzione i proxy locali sia del dispositivo che del servizio, usare ora il programma client SSH per connettersi al proxy locale del servizio sulla porta 2222 (anziché usare direttamente il daemon SSH). 
+Dopo che sono in esecuzione i proxy locali sia del dispositivo che del servizio, usare il programma client SSH e connettersi al proxy locale del servizio sulla porta 2222 (invece di usare direttamente il daemon SSH).
 
-```
+```cmd/sh
 ssh <username>@localhost -p 2222
 ```
 
 A questo punto, verrà visualizzato il prompt di accesso SSH per immettere le credenziali.
 
-
 Output della console nel proxy locale del dispositivo che si connette al daemon SSH con `IP_address:22`: ![Testo alternativo](./media/quickstart-device-streams-proxy-c/device-console-output.PNG "Output del proxy locale del dispositivo")
 
-Output della console del programma client SSH (il client SSH comunica con il daemon SSH tramite la connessione alla porta 22 dove è in ascolto il proxy locale del servizio): ![Testo alternativo](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Output del client SSH")
+Output della console del programma client SSH (il client SSH comunica con il daemon SSH tramite la connessione alla porta 22, su cui è in ascolto il proxy locale del servizio): ![Testo alternativo](./media/quickstart-device-streams-proxy-csharp/ssh-console-output.png "Output del client SSH")
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

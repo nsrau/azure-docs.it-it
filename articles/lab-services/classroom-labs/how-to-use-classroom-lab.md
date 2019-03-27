@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096980"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Come accedere a un lab per le classi in Azure Lab Services
 Questo articolo descrive come accedere a un lab per le classi, connettersi alla macchina virtuale nel lab e arrestare la macchina virtuale. 
@@ -46,10 +46,10 @@ Dopo la registrazione ai lab, è possibile visualizzare tutti i lab per le class
 
 1. Avviare la macchina virtuale, se non è già stata avviata, selezionando **Avvia** nel riquadro. 
 2. Selezionare **Connetti** sul riquadro che rappresenta la macchina virtuale del lab a cui si vuole accedere. 
-3. Salvare il file RDP (per la macchina virtuale Windows) nel disco rigido e aprirlo. 
-4. Usare **nome utente** e **password** ricevuti dal docente per accedere alla macchina virtuale. 
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Arrestare la macchina virtuale in un lab della classe
+3. Procedere in uno dei seguenti modi: 
+   1. Per le macchine virtuali **Windows**, salvare il file **RDP** nel disco rigido. Aprire il file RDP per connettersi alla macchina virtuale. Usare il **nome utente** e la **password** forniti dal docente per accedere alla macchina virtuale. 
+   3. Per le macchine virtuali **Linux**, copiare e salvare la stringa di connessione SSH nella finestra di dialogo **Connettersi alla macchina virtuale**. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale.
+      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Arrestare la macchina virtuale in un lab della classe
 
 Per arrestare la macchina virtuale, selezionare **Interrompi** nel riquadro. Quando la macchina virtuale viene arrestata, il pulsante **Avvia** sul riquadro diventa attivo. 
 

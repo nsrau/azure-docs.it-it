@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4ebc9b83c3aa135c90f18ff982621e862cb01d72
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56879613"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890747"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>Che cosa è successo ad Azure Machine Learning Workbench?
 
@@ -60,7 +60,7 @@ Le cronologie di esecuzione sono denominate **esperimenti**. È possibile raccog
 
 Il dashboard dell'area di lavoro del portale è supportato solo nei browser Microsoft Edge, Chrome e Firefox:
 
-[ ![Portale online](./media/overview-what-happened-to-workbench/image001.png)] (./media/overview-what-happened-to-workbench/image001.png#lightbox)
+[![Portale online](./media/overview-what-happened-to-workbench/image001.png)](./media/overview-what-happened-to-workbench/image001.png#lightbox)
 
 Iniziare ad eseguire il training dei modelli e a rilevare le cronologie di esecuzione usando la nuova interfaccia della riga di comando e il nuovo SDK. La procedura è descritta in [Tutorial: train models with Azure Machine Learning service](tutorial-train-models-with-aml.md) (Esercitazione: Eseguire il training dei modelli con il servizio Azure Machine Learning).
 
@@ -68,7 +68,7 @@ Iniziare ad eseguire il training dei modelli e a rilevare le cronologie di esecu
 
 I file di preparazione dei dati preesistenti non possono essere portati nella versione più recente perché Machine Learning Workbench non è più disponibile. È comunque possibile preparare un set di dati di qualsiasi dimensione per la modellazione.   
 
-Con set di dati di qualsiasi dimensione, è possibile usare [Azure Machine Learning Data Prep SDK](http://aka.ms/data-prep-sdk) per preparare rapidamente i dati prima della modellazione scrivendo codice Python. 
+Con set di dati di qualsiasi dimensione, è possibile usare [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) per preparare rapidamente i dati prima della modellazione scrivendo codice Python. 
 
 Per altre informazioni su come usare Azure Machine Learning Data Prep SDK è possibile seguire [questa esercitazione](tutorial-data-prep.md).
 
@@ -84,7 +84,7 @@ run = exp.submit(source_directory = script_folder, script = 'train.py', run_conf
 Informazioni su come iniziare a usare [Python con l'SDK principale](quickstart-create-workspace-with-python.md) o il [portale di Azure](quickstart-get-started.md).
 
 ## <a name="what-about-my-registered-models-and-images"></a>Che ne sarà delle immagini e dei modelli registrati?
- 
+
 Se si vuole continuare a usare i modelli registrati nel registro dei modelli precedente, è necessario eseguirne la migrazione nella nuova area di lavoro. Per eseguire la migrazione dei modelli, scaricare i modelli e registrarli nuovamente nella nuova area di lavoro. 
 
 Le immagini create nel registro delle immagini precedente devono essere ricreate nella nuova area di lavoro per continuare a usarle. È possibile eseguire questa operazione seguendo le indicazioni nelle sezioni per [configurare e creare un'immagine](how-to-deploy-and-where.md#configureimage). 
@@ -109,7 +109,7 @@ Usando il nuovo SDK per Python nella versione più recente, è possibile interag
 
 In quest'ultima versione, l'estensione è stata rinominata in Azure Machine Learning per Visual Studio Code ed è stata ampliata e migliorata per supportare le nuove funzionalità descritte sopra.
 
-[![Azure Machine Learning per Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)] (./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
+[![Azure Machine Learning per Visual Studio Code](./media/overview-what-happened-to-workbench/vscode.png)](./media/overview-what-happened-to-workbench/vscode-big.png#lightbox)
 
 ## <a name="what-about-domain-packages"></a>Che ne è dei pacchetti di domini?
 

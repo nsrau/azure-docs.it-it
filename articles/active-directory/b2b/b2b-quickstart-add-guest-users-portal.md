@@ -9,16 +9,17 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669976"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295029"
 ---
-# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Guida introduttiva: Aggiungere utenti guest alla directory nel portale di Azure
+# <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Avvio rapido: Aggiungere utenti guest alla directory nel portale di Azure
 
 È possibile invitare chiunque a collaborare con l'organizzazione aggiungendolo alla directory come utente guest. È quindi possibile inviare un messaggio di posta elettronica di invito contenente un collegamento di riscatto oppure inviare un collegamento diretto a un'app che si vuole condividere. Gli utenti guest possono accedere con la propria identità aziendale, dell'istituto di istruzione o di social networking.
 
@@ -39,15 +40,15 @@ Per completare lo scenario in questa esercitazione, sono necessari gli elementi 
 2. Nel riquadro sinistro selezionare **Azure Active Directory**.
 3.  In **Gestisci** selezionare **Utenti**.
 
-    ![Selezionare Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Screenshot che mostra dove selezionare l'opzione Utenti](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Selezionare **Nuovo utente guest**.
 
-    ![Selezionare Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Screenshot che mostra dove selezionare l'opzione Nuovo utente guest](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  In **Nome utente** immettere l'indirizzo di posta elettronica dell'utente esterno. In **Includi un messaggio personale con l'invito** digitare un messaggio di benvenuto. 
 
-    ![Selezionare Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Screenshot che mostra dove immettere il messaggio di invito per l'utente guest](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Selezionare **Invita** per inviare automaticamente l'invito all'utente guest. Viene visualizzata una notifica in alto a destra con il messaggio **L'utente è stato invitato**. 
 7.  Dopo aver inviato l'invito, l'account utente viene automaticamente aggiunto alla directory come guest.
@@ -59,7 +60,7 @@ Aggiungere l'app Salesforce nel tenant di test e assegnare all'app l'utente gues
 3.  Selezionare **Nuova applicazione**.
 4. In **Aggiungi dalla raccolta** cercare **Salesforce** e selezionarla.
 
-    ![Selezionare Azure Active Directory](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Screenshot che mostrala casella di ricerca Aggiungi dalla raccolta](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Selezionare **Aggiungi**.
 6. In **Gestisci** selezionare **Single Sign-On** e in **Modalità Single Sign-On** selezionare **Accesso basato su password** e fare clic su **Salva**.
 7. In **Gestisci** selezionare **Utenti e gruppi** > **Aggiungi utente** > **Utenti e gruppi**.
@@ -71,11 +72,11 @@ Accedere ora come utente guest per visualizzare l'invito.
 1.  Accedere all'account di posta elettronica dell'utente guest di test.
 2.  Nella cartella Posta in arrivo cercare il messaggio "You're invited" ("Sei invitato").
 
-    ![Messaggio di posta elettronica di invito B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Screenshot che mostra il messaggio di posta elettronica di invito B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  Nel corpo del messaggio di posta elettronica selezionare **Get Started** (Inizia). Nel browser viene aperta la pagina **Verifica le autorizzazioni**. 
 
-    ![Pagina di invito per accettare la collaborazione B2B](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Screenshot che mostra la pagina Verifica le autorizzazioni](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Selezionare **Accetto**. Viene visualizzato il pannello di accesso, in cui sono elencate le applicazioni a cui può accedere l'utente guest.
 

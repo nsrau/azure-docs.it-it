@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728727"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087704"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Esercitazione: configurare il routing dei messaggi con l'hub IoT
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -276,7 +276,7 @@ Si stanno per inviare messaggi a diverse risorse in base alle proprietà allegat
 
 Ora configurare il routing per l'account di archiviazione. Passare al riquadro Routing messaggi e quindi aggiungere una route. Quando si aggiunge la route, definire un nuovo endpoint per la route. Dopo aver completato la configurazione, i messaggi in cui la proprietà **livello** è impostata su **archiviazione** vengono scritti automaticamente in un account di archiviazione. 
 
-I dati vengono scritti nell'archiviazione BLOB in formato Avro.
+Per impostazione predefinita, i dati vengono scritti nell'archivio BLOB in formato Avro.
 
 1. Nel [portale di Azure](https://portal.azure.com), fare clic su **Gruppi di risorse**, quindi selezionare il gruppo di risorse. Questa esercitazione usa **ContosoResources**. 
 
@@ -301,8 +301,9 @@ I dati vengono scritti nell'archiviazione BLOB in formato Avro.
    > 
    > Ad esempio, se si usa il formato del nome file del BLOB predefinito, il nome dell'hub è ContosoTestHub e la data e l'ora sono 30 ottobre 2018 10:56, il nome del BLOB sarà simile al seguente: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > I BLOB vengono scritti nel formato Avro.
-   >
+   > I BLOB sono scritti in formato Avro per impostazione predefinita. È possibile scegliere di scrivere file in formato JSON. La funzionalità di codifica del formato JSON è in anteprima in tutte le aree in cui è disponibile l'hub IoT, a eccezione degli Stati Uniti orientali, degli Stati Uniti occidentali e dell'Europa occidentale. Vedere il [materiale sussidiario sul routing all'archivio BLOB](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > Quando si esegue il routing all'archivio BLOB è consigliabile integrare i BLOB e quindi eseguirne l'iterazione per garantire che tutti i contenitori vengano letti senza fare ipotesi sulla partizione. L'intervallo di partizione potrebbe potenzialmente cambiare durante un [failover avviato da Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover)o un [failover manuale](iot-hub-ha-dr.md#manual-failover-preview) dell'hub IoT. Per informazioni su come enumerare l'elenco dei BLOB, vedere il [routing all'archivio BLOB](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
 
 8. Fare clic su **Create** per creare l'endpoint di archiviazione e aggiungerlo alla route. Si tornerà al riquadro **Aggiungi route**.
 
@@ -311,15 +312,15 @@ I dati vengono scritti nell'archiviazione BLOB in formato Avro.
    **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **StorageRoute**.
 
    **Endpoint**: viene visualizzato l'endpoint appena configurato. 
-   
+
    **Origine dati**: selezionare **Messaggi di telemetria del dispositivo** nell'elenco a discesa.
 
    **Abilita route**: verificare che questa opzione sia abilitata.
-   
+
    **Query di routing**: immettere `level="storage"` come stringa di query. 
 
    ![Screenshot che mostra la creazione di una query di routing per l'account di archiviazione.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Fare clic su **Save**. Al termine, si torna al riquadro Routing messaggi, dove è possibile visualizzare la nuova query di routing per l'archiviazione. Chiudere il riquadro delle route, che rimanda alla pagina del gruppo risorse.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Routing a una coda del bus di servizio. 
@@ -337,14 +338,14 @@ Ora configurare il routing per la coda del bus di servizio. Passare al riquadro 
 4. Compilare i campi:
 
    **Nome endpoint**: Immettere un nome per l'endpoint. Questa esercitazione usa **CriticalQueue**.
-   
+
    **Spazio dei nomi del bus di servizio**: fare clic su questo campo per visualizzare l'elenco a discesa; selezionare lo spazio dei nomi del bus di servizio configurato nei passaggi di preparazione. Questa esercitazione usa **ContosoSBNamespace**.
 
    **Coda del bus di servizio**: fare clic su questo campo per visualizzare l'elenco a discesa; selezionare la coda del bus di servizio nell'elenco a discesa. Questa esercitazione usa **contososbqueue**.
 
 5. Fare clic su **Crea** per aggiungere l'endpoint della coda del bus di servizio. Si tornerà al riquadro **Aggiungi route**. 
 
-6.  Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi alla coda del bus di servizio appena aggiunta come endpoint. Compilare i campi sullo schermo. 
+6. Completare ora il resto delle informazioni per la query di routing. Questa query specifica i criteri per l'invio di messaggi alla coda del bus di servizio appena aggiunta come endpoint. Compilare i campi sullo schermo. 
 
    **Nome**: immettere un nome per la query di routing. Questa esercitazione usa **SBQueueRoute**. 
 
@@ -401,7 +402,7 @@ La coda del Bus di servizio viene usata per la ricezione di messaggi designati c
    ![Screenshot che mostra l'impostazione della connessione per la coda del Bus di servizio.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Fare clic sullo spazio dei nomi del Bus di servizio. Questa esercitazione usa **ContosoSBNamespace**. Quando si seleziona lo spazio dei nomi, il portale esegue una query per lo spazio dei nomi del Bus di servizio per recuperare le chiavi. Selezionare **RootManageSharedAccessKey** e fare clic su **Crea**. 
-   
+
    ![Screenshot che mostra la fine della configurazione della connessione.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. Nella schermata successiva, selezionare il nome della coda (questa esercitazione usata **contososbqueue**) dall'elenco a discesa. È possibile usare le impostazioni predefinite nei campi rimanenti. 
@@ -442,9 +443,9 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Aggiungere un input al processo di Analisi di flusso
 
-4. In **Topologia processo** fare clic su **Input**.
+1. In **Topologia processo** fare clic su **Input**.
 
-5. Nel riquadro **Input**, fare clic su **Aggiungi input del flusso** e selezionare Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
+1. Nel riquadro **Input**, fare clic su **Aggiungi input del flusso** e selezionare Hub IoT. Nella schermata che viene visualizzata, compilare i campi seguenti:
 
    **Alias di input**: Questa esercitazione usa **contosoinputs**.
 
@@ -457,12 +458,12 @@ Per visualizzare i dati in una visualizzazione di Power BI, innanzitutto imposta
    **Nome criteri di accesso condiviso**: selezionare **iothubowner**. Nel portale viene inserita la chiave di criteri di accesso condivisi per l'utente.
 
    **Gruppo di consumer**: selezionare il gruppo di consumer creato in precedenza. Questa esercitazione usa **contosoconsumers**.
-   
+
    Accettare i valori predefiniti nei campi rimanenti. 
 
    ![Screenshot che mostra come configurare gli input per il processo di analisi del flusso.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Fare clic su **Save**.
+1. Fare clic su **Save**.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Aggiungere un output al processo di Analisi di flusso
 
@@ -631,4 +632,4 @@ In questa esercitazione è stato descritto come usare il routing dei messaggi pe
 Passare all'esercitazione successiva per imparare a gestire lo stato di un dispositivo hub IoT. 
 
 > [!div class="nextstepaction"]
-[Configurare e usare le metriche e la diagnostica con un hub IoT](tutorial-use-metrics-and-diags.md)
+> [Configurare e usare le metriche e la diagnostica con un hub IoT](tutorial-use-metrics-and-diags.md)

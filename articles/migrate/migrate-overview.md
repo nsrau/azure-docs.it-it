@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 03/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 317e843f1fcc2fc85ffbc590d48e9bdf4aa934c1
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
+ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56415766"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57999962"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -30,15 +30,17 @@ Azure Migrate consente di eseguire le operazioni seguenti.
 ## <a name="current-limitations"></a>Limitazioni correnti
 
 - È possibile valutare solo macchine virtuali (VM) VMware locali per la migrazione a Macchine virtuali di Azure. Le VM VMware devono essere gestite dal server vCenter (versione 5.5, 6.0, 6.5 o 6.7).
-- Se si vogliono valutare VM Hyper-V e server fisici, usare [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) per Hyper-V e gli [strumenti dei partner](https://azure.microsoft.com/migration/partners/) per i computer fisici.
+- Il supporto di produzione per Hyper-V è attualmente in fase di anteprima; se si è interessati a provarlo, iscriversi [qui.](https://aka.ms/migratefuture)
+- Per la valutazione dei server fisici, è possibile usare gli [strumenti dei partner](https://azure.microsoft.com/migration/partners/).
 - È possibile individuare fino a 1500 VM in una singola individuazione e fino a 1500 VM in un singolo progetto. È inoltre possibile valutare fino a 1500 VM in una singola valutazione.
 - Se si vuole eseguire l'individuazione di un ambiente di maggiori dimensioni, è possibile suddividere l'individuazione e creare più progetti. [Altre informazioni](how-to-scale-assessment.md) Azure Migrate supporta fino a 20 progetti per ogni sottoscrizione.
 - Azure Migrate supporta solo dischi gestiti per la valutazione della migrazione.
 -  È possibile creare un progetto Azure Migrate nelle seguenti aree geografiche. Tuttavia, ciò non limita la possibilità di creare le valutazioni per gli altri percorsi di destinazione di Azure.
+
     **Area geografica** | **Posizione di archiviazione**
     --- | ---
     Azure Government | US Gov Virginia
-    Asia | Asia sud-orientale
+    Asia | Asia sud-orientale o Asia orientale
     Europa | Europa settentrionale o Europa occidentale
     Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 
@@ -72,27 +74,27 @@ Le impostazioni di valutazione possono essere personalizzate in base alle esigen
 
 ## <a name="how-does-azure-migrate-work"></a>Funzionamento di Azure Migrate
 
-1.  Creare un progetto Azure Migrate.
-2.  Azure Migrate usa una VM locale denominata appliance dell'agente di raccolta per individuare informazioni sui computer locali. Per creare l'appliance, scaricare un file di installazione in formato Open Virtualization Appliance (con estensione ova) e importarlo come macchina virtuale nel server vCenter locale.
+1. Creare un progetto Azure Migrate.
+2. Azure Migrate usa una VM locale denominata appliance dell'agente di raccolta per individuare informazioni sui computer locali. Per creare l'appliance, scaricare un file di installazione in formato Open Virtualization Appliance (con estensione ova) e importarlo come macchina virtuale nel server vCenter locale.
 3. Connettersi alla VM dal server vCenter e specificare una nuova password durante la connessione.
 4. Eseguire l'agente di raccolta nella VM per avviare l'individuazione.
 5. L'agente di raccolta raccoglie i metadati delle VM usando cmdlet di VMware PowerCLI. L'individuazione è senza agente e non comporta installazioni nelle VM o negli host VMware. I metadati raccolti includono informazioni sulle VM come core, memoria, dischi, dimensioni dei dischi e schede di rete. Vengono anche raccolti dati sulle prestazioni delle VM, tra cui utilizzo di CPU e memoria, operazioni di I/O al secondo e velocità effettiva (in MBps) dei dischi e output di rete (in MBps).
-5.  I metadati vengono inseriti nel progetto Azure Migrate e possono essere visualizzati nel portale di Azure.
-6.  Ai fini della valutazione, riunire le macchine virtuali individuate in gruppi. È ad esempio possibile raggruppare le macchine virtuali che eseguono la stessa applicazione. Per un raggruppamento più preciso, è anche possibile usare la visualizzazione delle dipendenze per verificare le dipendenze per un computer specifico o per tutti i computer di un gruppo e ottimizzare il gruppo.
-7.  Dopo aver definito un gruppo, creare una valutazione per tale gruppo.
-8.  Dopo che è stata completata, la valutazione può essere visualizzata nel portale o scaricata in formato Excel.
+5. I metadati vengono inseriti nel progetto Azure Migrate e possono essere visualizzati nel portale di Azure.
+6. Ai fini della valutazione, riunire le macchine virtuali individuate in gruppi. È ad esempio possibile raggruppare le macchine virtuali che eseguono la stessa applicazione. Per un raggruppamento più preciso, è anche possibile usare la visualizzazione delle dipendenze per verificare le dipendenze per un computer specifico o per tutti i computer di un gruppo e ottimizzare il gruppo.
+7. Dopo aver definito un gruppo, creare una valutazione per tale gruppo.
+8. Dopo che è stata completata, la valutazione può essere visualizzata nel portale o scaricata in formato Excel.
 
-  ![Architettura di Azure Migrate](./media/migration-planner-overview/overview-1.png)
+   ![Architettura di Azure Migrate](./media/migration-planner-overview/overview-1.png)
 
 ## <a name="what-are-the-port-requirements"></a>Requisiti relativi alle porte
 
 La tabella offre un riepilogo delle porte necessarie per le comunicazioni di Azure Migrate.
 
-Componente | Comunica con |  Dettagli
---- | --- |---
-Agente di raccolta  | Servizio Azure Migrate | L'agente di raccolta si connette al servizio sulla porta SSL 443.
-Agente di raccolta | Server vCenter | Per impostazione predefinita, l'agente di raccolta si connette al server vCenter sulla porta 443. Se il server è in ascolto su una porta diversa, configurarla come porta in uscita nella VM dell'agente di raccolta.
-VM locale | Area di lavoro di Log Analytics | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) usa la porta TCP 443 per la connessione a Log Analytics. Questa porta è necessaria solo se si usa la visualizzazione delle dipendenze, per cui è necessario l'agente MMA.
+| Componente | Comunica con |  Dettagli |
+| --- | --- |--- |
+|Agente di raccolta  | Servizio Azure Migrate | L'agente di raccolta si connette al servizio sulla porta SSL 443.|
+|Agente di raccolta | Server vCenter | Per impostazione predefinita, l'agente di raccolta si connette al server vCenter sulla porta 443. Se il server è in ascolto su una porta diversa, configurarla come porta in uscita nella VM dell'agente di raccolta.|
+|VM locale | Area di lavoro di Log Analytics | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) usa la porta TCP 443 per la connessione ai log di Monitoraggio di Azure. Questa porta è necessaria solo se si usa la visualizzazione delle dipendenze, per cui è necessario l'agente MMA.|
 
 
 ## <a name="what-happens-after-assessment"></a>Operazioni successive alla valutazione

@@ -11,19 +11,20 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 02/18/2019
-ms.openlocfilehash: 481c82eb74bcf80c3d0546324009ec0bf6495cfb
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.date: 03/13/2019
+ms.openlocfilehash: 6aa8f362f067a4e3e391f435ee849f96abdf752f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997505"
 ---
-# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Guida introduttiva: Creare un'istanza gestita di database SQL di Azure
+# <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Avvio rapido: Creare un'istanza gestita di database SQL di Azure
 
 Questa guida introduttiva illustra come creare un'[istanza gestita](sql-database-managed-instance.md) di database SQL di Azure nel portale di Azure.
 
-Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+> [!IMPORTANT]
+> Per le limitazioni, vedere le [aree supportate](sql-database-managed-instance-resource-limits.md#supported-regions) e i [tipi di sottoscrizione](sql-database-managed-instance-resource-limits.md#supported-subscription-types) supportati.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure
 
@@ -35,13 +36,13 @@ I passaggi seguenti mostrano come creare un'istanza gestita.
 
 1. Scegliere **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 2. Individuare **Istanza gestita** e quindi selezionare **Istanza gestita di SQL di Azure**.
-3. Selezionare **Crea**.
+3. Selezionare **Create**.
 
    ![Creare un'istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Compilare il modulo **Istanza gestita di SQL** con le informazioni necessario, riportate nella tabella seguente:
 
-   | Impostazione| Valore consigliato | Descrizione |
+   | Impostazione| Valore consigliato | DESCRIZIONE |
    | ------ | --------------- | ----------- |
    | **Sottoscrizione** | Sottoscrizione in uso | Una sottoscrizione in cui si dispone dell'autorizzazione per creare nuove risorse |
    |**Nome istanza gestita**|Qualsiasi nome valido|Per informazioni sui nomi validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
@@ -49,7 +50,7 @@ I passaggi seguenti mostrano come creare un'istanza gestita.
    |**Password**|Qualsiasi password valida|La password deve contenere almeno 16 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
    |**Regole di confronto**|Le regole di confronto da usare per l'istanza gestita|In caso di migrazione di database da SQL Server, controllare le regole di confronto di origine con `SELECT SERVERPROPERTY(N'Collation')` e usare tale valore. Per informazioni sulle regole di confronto, vedere l'articolo relativo alle [regole di confronto a livello di server](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Posizione**|La posizione in cui creare l'istanza gestita|Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/).|
-   |**Rete virtuale**|Selezionare **Crea nuova rete virtuale** o una rete virtuale valida e una subnet.| Se una rete/subnet è disattivata, prima di selezionarla come destinazione per la nuova istanza gestita è necessario [modificarla per soddisfare i requisiti di rete](sql-database-managed-instance-configure-vnet-subnet.md). Per informazioni sui requisiti per la configurazione dell'ambiente di rete per un'istanza gestita, vedere [Configurare una rete virtuale per Istanza gestita](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Rete virtuale**|Selezionare **Crea nuova rete virtuale** o una rete virtuale valida e una subnet.| Se una rete/subnet non è disponibile, prima di selezionarla come destinazione per la nuova istanza gestita è necessario [modificarla per soddisfare i requisiti di rete](sql-database-managed-instance-configure-vnet-subnet.md). Per informazioni sui requisiti per la configurazione dell'ambiente di rete per un'istanza gestita, vedere [Configurare una rete virtuale per Istanza gestita](sql-database-managed-instance-connectivity-architecture.md). |
    |**Gruppo di risorse**|Gruppo di risorse nuovo o esistente|Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
 
    ![modulo istanza gestita](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

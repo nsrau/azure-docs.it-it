@@ -9,12 +9,12 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 12/07/2018
-ms.openlocfilehash: 6509db136524d90db11b83acb701bda71c541060
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 54a7f308163cb2463554da32f0fae8b897c0742f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882621"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58080540"
 ---
 # <a name="tutorial-sentiment-analysis-on-streaming-data-using-azure-databricks"></a>Esercitazione: Analisi della valutazione sui dati in streaming con Azure Databricks
 
@@ -41,7 +41,11 @@ Questa esercitazione illustra le attività seguenti:
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-## <a name="prerequisites"></a>prerequisiti
+> [!Note]
+> Questa esercitazione non può essere eseguita usando una **sottoscrizione di valutazione gratuita di Azure**.
+> Per usare un account gratuito per creare il cluster Azure Databricks, prima di creare il cluster, passare al profilo personale e impostare la sottoscrizione per il **pagamento in base al consumo**. Per altre informazioni, vedere [Account gratuito di Azure](https://azure.microsoft.com/free/).
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare l'esercitazione, verificare che siano soddisfatti i requisiti seguenti:
 - Uno spazio dei nomi di Hub eventi in Azure.
@@ -97,11 +101,11 @@ In questa sezione viene creata un'area di lavoro di Azure Databricks usando il p
 
     Accettare tutti gli altri valori predefiniti tranne i seguenti:
 
-    * Immettere un nome per il cluster.
-    * Per questo articolo è necessario creare un cluster con il runtime **4.0 (beta)**.
-    * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
+   * Immettere un nome per il cluster.
+   * Per questo articolo è necessario creare un cluster con il runtime **4.0 (beta)**.
+   * Assicurarsi di selezionare la casella di controllo **Terminate after \_\_ minutes of inactivity** (Termina dopo \_\_ minuti di attività). Specificare una durata in minuti per terminare il cluster, se questo non viene usato.
 
-    Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
+     Selezionare **Crea cluster**. Quando il cluster è in esecuzione, è possibile collegare blocchi appunti al cluster ed eseguire processi Spark.
 
 ## <a name="create-a-twitter-application"></a>Creare un'applicazione Twitter
 
@@ -125,16 +129,16 @@ Salvare i valori recuperati per l'applicazione Twitter. Sarà necessario usare q
 
 In questa esercitazione verranno usate le API Twitter per inviare tweet a Hub eventi. Verrà anche usato il [connettore di Hub eventi per Apache Spark](https://github.com/Azure/azure-event-hubs-spark) per leggere e scrivere dati in Hub eventi di Azure. Per usare queste API nell'ambito del cluster, aggiungerle come librerie ad Azure Databricks e quindi associarle al cluster Spark. Le istruzioni seguenti illustrano come aggiungere la libreria alla cartella **Shared** (Condivisa) dell'area di lavoro.
 
-1.  Nell'area di lavoro di Azure Databricks selezionare **Workspace** (Area di lavoro) e quindi fare clic con il pulsante destro del mouse su **Shared** (Condivisa). Nel menu di scelta rapida scegliere **Create (Crea)** > **Library (Raccolta)**.
+1. Nell'area di lavoro di Azure Databricks selezionare **Workspace** (Area di lavoro) e quindi fare clic con il pulsante destro del mouse su **Shared** (Condivisa). Nel menu di scelta rapida scegliere **Create (Crea)** > **Library (Raccolta)**.
 
-    ![Finestra di dialogo di aggiunta della libreria](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Finestra di dialogo di aggiunta della libreria")
+   ![Finestra di dialogo di aggiunta della libreria](./media/databricks-sentiment-analysis-cognitive-services/databricks-add-library-option.png "Finestra di dialogo di aggiunta della libreria")
 
 2. Nella pagina New Library (Nuova libreria) selezionare **Maven Coordinate** (Coordinata Maven) in **Source** (Origine). Per **Coordinate** (Coordinata) immettere la coordinata del pacchetto da aggiungere. Le coordinate di Maven per le librerie usate in questa esercitazione sono le seguenti:
 
-    * Connettore di Hub eventi per Spark - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
-    * API Twitter - `org.twitter4j:twitter4j-core:4.0.6`
+   * Connettore di Hub eventi per Spark - `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.5`
+   * API Twitter - `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Specificare le coordinate Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Specificare le coordinate Maven ")
+     ![Specificare le coordinate Maven](./media/databricks-sentiment-analysis-cognitive-services/databricks-eventhub-specify-maven-coordinate.png "Specificare le coordinate Maven ")
 
 3. Selezionare **Create Library** (Crea libreria).
 
@@ -164,13 +168,13 @@ In questa esercitazione si useranno le [API Analisi del testo di Servizi cogniti
 
     ![Creare un account Servizi cognitivi](./media/databricks-sentiment-analysis-cognitive-services/create-cognitive-services-account.png "Creare un account Servizi cognitivi")
 
-    - Immettere un nome per l'account Servizi cognitivi.
-    - Selezionare la sottoscrizione di Azure in cui viene creato l'account.
-    - Selezionare una località di Azure.
-    - Selezionare un piano tariffario per il servizio. Per altre informazioni sui prezzi di Servizi cognitivi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/).
-    - Specificare se si vuole creare un nuovo gruppo di risorse o selezionarne uno esistente.
+   - Immettere un nome per l'account Servizi cognitivi.
+   - Selezionare la sottoscrizione di Azure in cui viene creato l'account.
+   - Selezionare una località di Azure.
+   - Selezionare un piano tariffario per il servizio. Per altre informazioni sui prezzi di Servizi cognitivi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/).
+   - Specificare se si vuole creare un nuovo gruppo di risorse o selezionarne uno esistente.
 
-    Selezionare **Create**.
+     Selezionare **Create**.
 
 5. Dopo aver creato l'account, nella scheda **Panoramica** selezionare **Mostra chiavi di accesso**.
 
