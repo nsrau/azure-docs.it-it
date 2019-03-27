@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270335"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137828"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Avvio rapido: Usare gli strumenti predefiniti del portale per importazione, indicizzazione e query in Ricerca di Azure
 
@@ -34,13 +34,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o trovare un servizio esistente nella sottoscrizione corrente.
-
-1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Aprire il dashboard relativo al servizio Ricerca di Azure. Se il riquadro del servizio non è stato aggiunto al dashboard, seguire questa procedura per trovare il servizio:
-
-   * Nell'indice fare clic su **Tutti i servizi** nel riquadro di spostamento a sinistra.
-   * Nella casella di ricerca digitare *ricerca* per ottenere un elenco dei servizi correlati alla ricerca per la sottoscrizione. Fare clic su **Servizi di ricerca**. Il servizio verrà visualizzato nell'elenco.
+[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
 ### <a name="check-for-space"></a>Verificare lo spazio
 
@@ -79,7 +73,7 @@ Questo passaggio per il momento verrà ignorato e si passerà direttamente a **P
    ![Ignorare il passaggio delle competenze cognitive](media/search-get-started-portal/skip-cog-skill-step.png)
 
 > [!TIP]
-> È possibile provare a eseguire la nuova funzionalità di anteprima di ricerca cognitiva per Ricerca di Azure presentata nella [guida introduttiva alla ricerca cognitiva](cognitive-search-quickstart-blob.md) oppure in questa [esercitazione](cognitive-search-tutorial-blob.md).
+> È possibile provare a eseguire la nuova funzionalità di anteprima di ricerca cognitiva per Ricerca di Azure presentata nella [guida di avvio rapido alla ricerca cognitiva](cognitive-search-quickstart-blob.md) oppure in questa [esercitazione](cognitive-search-tutorial-blob.md).
 
 ### <a name="step-3---configure-index"></a>Passaggio 3: Configurare l'indice
 

@@ -1,10 +1,10 @@
 ---
-title: Guida introduttiva sul server Web ASP.NET di Azure AD v2.0 | Microsoft Docs
+title: Avvio rapido sul server Web ASP.NET di Azure AD v2.0 | Microsoft Docs
 description: Informazioni su come implementare l'accesso Microsoft in un'app Web ASP.NET usando OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc5200156533abf940ce8fc7ff2186ba3a961bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200480"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200260"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Guida introduttiva: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
+# <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Avvio rapido: Aggiungere l'accesso con Microsoft a un'app Web ASP.NET
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Questa guida introduttiva descrive come un'app Web ASP.NET può consentire l'accesso ad account personali (hotmail.com, outlook.com e altri), aziendali o dell'istituto di istruzione da una qualsiasi istanza di Azure Active Directory (Azure AD).
+Questo argomento di avvio rapido descrive come un'app Web ASP.NET può consentire l'accesso ad account personali (hotmail.com, outlook.com e altri), aziendali o dell'istituto di istruzione da una qualsiasi istanza di Azure Active Directory (Azure AD).
 
-![Funzionamento dell'app di esempio generata da questa guida introduttiva](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
+![Mostra come funziona l'app di esempio generata da questo avvio rapido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app della guida introduttiva
-> Per avviare l'applicazione della guida introduttiva sono disponibili due opzioni:
+> ## <a name="register-and-download-your-quickstart-app"></a>Registrare e scaricare l'app di avvio rapido
+> Per avviare l'applicazione di avvio rapido sono disponibili due opzioni:
 > * [Rapida] [Opzione 1: Registrare e configurare automaticamente l'app e quindi scaricare l'esempio di codice](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
 > * [Manuale] [Opzione 2: Registrare e configurare manualmente l'applicazione e il codice di esempio](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
@@ -58,7 +58,7 @@ Selezionare il menu **Autenticazione**, impostare **Token ID** in **Concessione 
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Passaggio 1: Configurare l'applicazione nel portale di Azure
-> Per il funzionamento dell'esempio di codice di questa guida introduttiva è necessario aggiungere un URL di risposta come `https://localhost:44368/`.
+> Per il funzionamento dell'esempio di codice di questo argomento di avvio rapido è necessario aggiungere un URL di risposta come `https://localhost:44368/`.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >
@@ -107,7 +107,7 @@ Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="owin-startup-class"></a>Classe di avvio OWIN
 
-Il middleware OWIN usa una *classe di avvio* che viene eseguita in seguito all'inizializzazione del processo di hosting (nel caso di questa guida introduttiva il file *startup.cs* che si trova nella cartella radice). Il codice seguente mostra il parametro usato da questa guida introduttiva:
+Il middleware OWIN usa una *classe di avvio* che viene eseguita in seguito all'inizializzazione del processo di hosting (nel caso di questo argomento di avvio rapido il file *startup.cs* che si trova nella cartella radice). Il codice seguente mostra il parametro usato da questo argomento di avvio rapido:
 
 ```csharp
 public void Configuration(IAppBuilder app)
@@ -147,7 +147,7 @@ public void Configuration(IAppBuilder app)
 > |Where  |  |
 > |---------|---------|
 > | `ClientId`     | ID dell'applicazione registrata nel portale di Azure |
-> | `Authority`    | Endpoint del servizio token di sicurezza per l'utente da autenticare. In genere https://login.microsoftonline.com/{tenant}/v2.0 per il cloud pubblico, dove {tenant} è il nome del tenant, l'ID del tenant, oppure *common* per un riferimento all'endpoint comune (usato per le applicazioni multi-tenant) |
+> | `Authority`    | Endpoint del servizio token di sicurezza per l'utente da autenticare. In genere <https://login.microsoftonline.com/{tenant}/v2.0> per il cloud pubblico, dove {tenant} è il nome del tenant, l'ID del tenant, oppure *common* per un riferimento all'endpoint comune (usato per le applicazioni multi-tenant) |
 > | `RedirectUri`  | URL a cui vengono indirizzati gli utenti dopo l'autenticazione con l'endpoint di Azure AD v2.0 |
 > | `PostLogoutRedirectUri`     | URL a cui vengono indirizzati gli utenti dopo la disconnessione |
 > | `Scope`     | Elenco di ambiti richiesti, separati da spazi |
@@ -180,9 +180,9 @@ public void SignIn()
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Provare l'esercitazione per ASP.NET per una guida dettagliata completa sulla creazione di applicazioni e nuove funzionalità, tra cui una spiegazione completa di questa guida introduttiva.
+Provare l'esercitazione per ASP.NET per una guida dettagliata completa sulla creazione di applicazioni e nuove funzionalità, tra cui una spiegazione completa di questo argomento di avvio rapido.
 
-### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Informazioni sulla procedura per creare l'applicazione usata in questa guida introduttiva
+### <a name="learn-the-steps-to-create-the-application-used-in-this-quickstart"></a>Informazioni sulla procedura per creare l'applicazione usata in questo argomento di avvio rapido
 
 > [!div class="nextstepaction"]
 > [Esercitazione sull'accesso](./tutorial-v2-asp-webapp.md)

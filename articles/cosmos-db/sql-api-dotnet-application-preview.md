@@ -1,5 +1,5 @@
 ---
-title: Esercitazione sullo sviluppo di un'applicazione Web MVC ASP.NET con Azure Cosmos DB tramite .Net Preview SDK.
+title: Esercitazione sullo sviluppo di un'applicazione Web MVC ASP.NET con Azure Cosmos DB tramite .NET Preview SDK.
 description: Questa esercitazione illustra come creare un'applicazione Web MVC ASP.NET con Azure Cosmos DB. A questo scopo si archivieranno e si accederà ai dati JSON da un'app Todo ospitata in Azure.
 author: deborahc
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/03/2018
 ms.author: dech
-ms.openlocfilehash: e3ad852246b4b78d5ed7ac938348e59e9b7e6ce0
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: bf1da7e8a1041b15076ebda6eeac9b0a75c567c0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54037124"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57857165"
 ---
-# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET con Azure Cosmos DB tramite .Net Preview SDK 
+# <a name="tutorial-develop-an-aspnet-mvc-web-application-with-azure-cosmos-db-by-using-net-preview-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET con Azure Cosmos DB tramite .NET Preview SDK 
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
@@ -28,7 +28,7 @@ ms.locfileid: "54037124"
 
 Questa esercitazione illustra come usare Azure Cosmos DB per archiviare e accedere ai dati da un'applicazione Web MVC ASP.NET ospitata in Azure. Nel corso dell'esercitazione si userà .NET SDK V3, che è attualmente in versione di anteprima. L'immagine seguente mostra la pagina Web che verrà compilata usando l'esempio di questo articolo:
  
-![Schermata dell'applicazione Web MVC per un elenco di azioni creata in questa esercitazione - Esercitazione dettagliata su MVC ASP NET](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
+![Screenshot dell'applicazione Web MVC per un elenco di azioni creato in questa esercitazione - Esercitazione dettagliata su MVC ASP NET](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-image01.png)
 
 Se non si ha il tempo necessario per completare l'esercitazione, è possibile scaricare il progetto di esempio completo da [GitHub][GitHub]. 
 
@@ -55,7 +55,7 @@ Prima di seguire le istruzioni di questo articolo, verificare di disporre delle 
 
 * Microsoft Azure SDK per .NET per Visual Studio 2017, disponibile tramite il programma di installazione di Visual Studio.
 
-Tutte le schermate in questo articolo sono state ottenute usando Microsoft Visual Studio Community 2017. Se il sistema in uso è configurato con una versione diversa, è probabile che le schermate e le opzioni non siano interamente corrispondenti, ma se si soddisfano i prerequisiti precedenti la soluzione dovrebbe funzionare comunque.
+Tutti gli screenshot in questo articolo sono stati ottenuti usando Microsoft Visual Studio Community 2017. Se il sistema in uso è configurato con una versione diversa, è probabile che le schermate e le opzioni non siano interamente corrispondenti, ma se si soddisfano i prerequisiti precedenti la soluzione dovrebbe funzionare comunque.
 
 ## <a name="create-an-azure-cosmos-account"></a>Passaggio 1: Creare un account Azure Cosmos
 
@@ -129,7 +129,7 @@ A questo punto occorre aggiungere i modelli, le visualizzazioni e i controller a
 
 1. Selezionare **Controller MVC 5 - Vuoto** e quindi scegliere **Aggiungi**.
 
-   ![Schermata della finestra di dialogo Aggiungi scaffolding con l'opzione Controller MVC 5 - Vuoto evidenziata](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![Screenshot della finestra di dialogo Aggiungi scaffolding con l'opzione Controller MVC 5 - Vuoto evidenziata](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
 1. Assegnare al nuovo controller il nome **ItemController e sostituire il codice incluso nel file con il codice seguente:
 
@@ -151,7 +151,7 @@ A questo punto occorre creare le tre visualizzazioni seguenti:
 
 1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni**, fare clic con il pulsante destro del mouse sulla cartella **Item** vuota creata da Visual Studio quando è stato aggiunto **ItemController**, scegliere **Aggiungi** e quindi fare clic su **Visualizzazione**.
    
-   ![Schermata di Esplora soluzioni con la cartella Item creata da Visual Studio con i comandi Aggiungi visualizzazione evidenziati](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
+   ![Screenshot di Esplora soluzioni con la cartella Item creata da Visual Studio con i comandi Aggiungi visualizzazione evidenziati](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view.png)
 
 2. Nella finestra di dialogo **Aggiungi visualizzazione** aggiornare i valori seguenti:
    
@@ -160,7 +160,7 @@ A questo punto occorre creare le tre visualizzazioni seguenti:
    * Nella casella **Classe modello** selezionare ***Item (todo.Models)***.
    * Nella casella della pagina di layout digitare ***~/Views/Shared/_Layout.cshtml***.
      
-   ![Schermata con la finestra di dialogo Aggiungi visualizzazione](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view-dialog.png)
+   ![Screenshot con la finestra di dialogo Aggiungi visualizzazione](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-add-view-dialog.png)
 
 3. Dopo aver aggiunto questi valori, scegliere **Aggiungi** per creare automaticamente una nuova visualizzazione modello. Al termine si aprirà il file cshtml creato. È possibile chiudere questo file in Visual Studio, in quanto servirà più avanti.
 
@@ -235,13 +235,13 @@ La prima cosa da fare è aggiungere una classe che contenga la logica per connet
    defaults: new { controller = "Item", action = "Index", id = UrlParameter.Optional }
    ```
 
-  Questo codice indica a MVC ASP.NET, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, di usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
+   Questo codice indica a MVC ASP.NET, se non è stato specificato alcun valore nell'URL per controllare il comportamento di routing, di usare **Item** invece di **Home** come controller e **Index** come visualizzazione.
 
 Se ora si esegue l'applicazione, questa effettua una chiamata in **ItemController** che chiama i metodi GetItems dalla classe TodoItemService definita nella sezione successiva. 
 
 Se compilato ed eseguito ora, il progetto avrà un aspetto simile al seguente.    
 
-![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
+![Screenshot dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/sql-api-dotnet-application-preview/build-and-run-the-project-now.png)
 
 
 ## <a name="run-the-application"></a>Passaggio 6: Eseguire l'applicazione in locale
@@ -250,17 +250,17 @@ Per testare l'applicazione nel computer locale, eseguire la procedura seguente:
 
 1. Premere F5 in Visual Studio per compilare l'applicazione in modalità di debug. L'applicazione verrà compilata e verrà avviato un browser con la pagina di griglia vuota osservata sopra:
    
-   ![Schermata dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
+   ![Screenshot dell'applicazione Web per un elenco di azioni creata in questa esercitazione del database](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item-a.png)
        
 2. Fare clic sul collegamento **Crea nuovo** e specificare i valori dei campi **Nome** e **Descrizione**. Lasciare deselezionata la casella di controllo **Completato**. In caso contrario, il nuovo elemento viene aggiunto con lo stato completato e non viene visualizzato nell'elenco iniziale.
    
 3. Fare clic su **Crea** per tornare di nuovo alla visualizzazione **Index** e visualizzare l'elemento nell'elenco. È possibile aggiungere alcuni altri elementi all'elenco di azioni.
 
-    ![Schermata della visualizzazione Index](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item.png)
+    ![Screenshot della visualizzazione Index](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-create-an-item.png)
   
 4. Fare clic su **Edit** accanto a un oggetto **Item** nell'elenco per tornare alla visualizzazione **Edit**, in cui è possibile aggiornare qualsiasi proprietà dell'oggetto, incluso il flag **Completed**. Se si seleziona il flag **Completed** e si fa clic su **Salva**, l'oggetto **Item** viene rimosso dall'elenco di attività incomplete.
    
-   ![Schermata della visualizzazione Index con la casella Completed selezionata](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
+   ![Screenshot della visualizzazione Index con la casella Completed selezionata](./media/sql-api-dotnet-application-preview/asp-net-mvc-tutorial-completed-item.png)
 
 5. Una volta testata l'app, premere CTRL+F5 per arrestarne il debug. È ora possibile distribuire l'app.
 

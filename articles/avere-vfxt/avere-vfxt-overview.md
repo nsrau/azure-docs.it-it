@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670488"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989320"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Informazioni su Avere vFXT per Azure 
 
@@ -67,7 +67,7 @@ Il sistema Avere vFXT usa le risorse di Azure seguenti:
 
 |Componente di Azure|   |
 |----------|-----------|
-|Macchine virtuali|3 o più D16s_v3 o E32s_v3|
+|Macchine virtuali|3 o più E32_v3|
 |Archiviazione SSD Premium|200 GB di spazio del sistema operativo più 1-4 TB di spazio di memorizzazione nella cache per nodo |
 |Account di archiviazione (facoltativo) |v2|
 |Archiviazione back-end dei dati (facoltativa) | Un contenitore BLOB di archiviazione con ridondanza locale vuoto |

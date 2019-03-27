@@ -8,24 +8,28 @@ ms.topic: quickstart
 ms.date: 1/8/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 0ba18b1ef0ba6c0a73759577c83ab80550baa6f8
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: eb0f73d31abced8decbed31e5604a2056584eb98
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55754745"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549426"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-cli"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Interfaccia della riga di comando di Azure
 
-Questa guida di avvio rapido illustra come usare l'interfaccia della riga di comando di Azure per creare rapidamente un gateway applicazione con due macchine virtuali nel relativo pool back-end. Il gateway verrà quindi testato per assicurarsi che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end.
+Questa guida di avvio rapido illustra come usare il portale di Azure per creare un gateway applicazione.  Al termine della creazione, si testa il gateway applicazione per verificare che funzioni correttamente. Con il gateway applicazione di Azure si indirizza il traffico Web dell'applicazione a risorse specifiche assegnando listener alle porte, creando regole e aggiungendo risorse a un pool back-end. Per semplicità, questo articolo usa una semplice configurazione con un IP front-end pubblico, un listener di base che ospita un singolo sito nel gateway applicazione, due macchine virtuali usate per il pool back-end e una regola di gestione delle richieste di base.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
+## <a name="prerequisites"></a>Prerequisiti
+
+### <a name="azure-powershell-module"></a>Modulo di Azure PowerShell
+
 Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, eseguire l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Per trovare la versione, eseguire **az --version**. Per informazioni sull'installazione o sull'aggiornamento, vedere [Installare l'interfaccia da riga di comando di Azure]( /cli/azure/install-azure-cli).
 
-## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
+### <a name="resource-group"></a>Gruppo di risorse
 
 In Azure, si allocano le risorse correlate a un gruppo di risorse. Creare un gruppo di risorse usando [az group create](/cli/azure/group#az-group-create). 
 
@@ -35,9 +39,9 @@ L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupAG* nell
 az group create --name myResourceGroupAG --location eastus
 ```
 
-## <a name="create-network-resources"></a>Creare risorse di rete 
+### <a name="required-network-resources"></a>Risorse di rete necessarie 
 
-Quando si crea una rete virtuale, il gateway applicazione può comunicare con altre risorse. È possibile creare una rete virtuale durante la creazione del gateway applicazione. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per le macchine virtuali. La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.
+Per le comunicazioni tra le risorse create in Azure è necessaria una rete virtuale.  La subnet del gateway applicazione può contenere solo i gateway applicazione. Non sono consentite altre risorse.  È possibile creare una nuova subnet per il gateway applicazione o usarne una esistente. In questo esempio vengono create due subnet: una per il gateway applicazione e l'altra per i server back-end. L'IP front-end del gateway applicazione può essere configurato come pubblico o privato a seconda del caso d'uso. In questo esempio si sceglierà un IP front-end pubblico.
 
 Per creare la rete virtuale e la subnet usare il comando [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). Eseguire [az network public-ip create](/cli/azure/network/public-ip) per creare l'indirizzo IP pubblico.
 
@@ -59,11 +63,11 @@ az network public-ip create \
   --name myAGPublicIPAddress
 ```
 
-## <a name="create-backend-servers"></a>Creare i server back-end
+### <a name="backend-servers"></a>Server back-end
 
-In questo esempio vengono create due macchine virtuali che Azure usa come server back-end per il gateway applicazione. 
+Il back-end può essere costituito da schede di interfaccia di rete, set di scalabilità di macchine virtuali, IP pubblici, IP interni, nomi di dominio completi (FQDN) e back-end multi-tenant come Servizio app di Azure. In questo esempio vengono create due macchine virtuali per Azure da usare come server back-end per il gateway applicazione. È anche possibile installare IIS nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione in Azure.
 
-### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
+#### <a name="create-two-virtual-machines"></a>Creare due macchine virtuali
 
 Installare il [server Web NGINX](https://docs.nginx.com/nginx/) nelle macchine virtuali per verificare l'avvenuta creazione del gateway applicazione. È possibile usare un file di configurazione cloud-init per installare NGINX ed eseguire un'app Node.js "Hello World" in una macchina virtuale Linux. Per altre informazioni su cloud-init, vedere gli [Supporto di cloud-init per macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/linux/using-cloud-init).
 
@@ -169,13 +173,13 @@ az network public-ip show \
   --name myAGPublicIPAddress \
   --query [ipAddress] \
   --output tsv
-``` 
+```
 
 Copiare e incollare l'indirizzo IP pubblico nella barra degli indirizzi del browser.
     
 ![Testare il gateway applicazione](./media/quick-create-cli/application-gateway-nginxtest.png)
 
-Quando si aggiorna il browser, dovrebbe apparire il nome della seconda macchina virtuale.
+Quando si aggiorna il browser, dovrebbe apparire il nome della seconda macchina virtuale. Una risposta valida verifica che il gateway applicazione sia stato creato correttamente e sia in grado di connettersi correttamente al back-end.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -184,7 +188,7 @@ Quando le risorse create con il gateway applicazione non sono più necessarie, u
 ```azurecli-interactive 
 az group delete --name myResourceGroupAG
 ```
- 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]

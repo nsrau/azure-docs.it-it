@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 9/18/2018
 ms.author: aanandr
 ms.custom: ''
-ms.openlocfilehash: 9c168598d3237f7fd6dcc0e1c6414750e59c287b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 82836c7686d9b0f376268ef7919a188a8f78944e
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46973838"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57548780"
 ---
 # <a name="enable-containers-to-use-azure-virtual-network-capabilities"></a>Abilitare i contenitori per usare le funzionalità di Rete virtuale di Azure
 
@@ -53,15 +53,15 @@ Per consentire ai pod di accedere a Internet, il plug-in configura regole *iptab
 
 ## <a name="limits"></a>Limiti
 
-Il plug-in supporta fino a 250 pod per macchina virtuale e fino a 16.000 pod in una rete virtuale. Questi limiti sono diversi per il [servizio Azure Kubernetes](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#kubernetes-service-limits).
+Il plug-in supporta fino a 250 pod per macchina virtuale e fino a 16.000 pod in una rete virtuale. Questi limiti sono diversi per il [servizio Azure Kubernetes](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-kubernetes-service-limits).
 
 ## <a name="using-the-plug-in"></a>Uso del plug-in
 
 Il plug-in può essere usato nei modi seguenti, per fornire un collegamento di rete virtuale di base per pod e contenitori Docker:
 
-- **Servizio Kubernetes di Azure**: il plug-in è integrato nel servizio Kubernetes di Azure (AKS) e può essere usato scegliendo l'opzione *Advanced Networking* (Rete avanzata). La rete avanzata permette di distribuire un cluster Kubernetes in una rete virtuale nuova o esistente. Per altre informazioni sulla rete avanzata e sui passaggi per configurarla, vedere [Configurazione della rete in servizio Azure Kubernetes](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- **Servizio Azure Kubernetes**: il plug-in è integrato nel servizio Azure Kubernetes e può essere usato scegliendo l'opzione *Advanced Networking* (Rete avanzata). La rete avanzata permette di distribuire un cluster Kubernetes in una rete virtuale nuova o esistente. Per altre informazioni sulla rete avanzata e sui passaggi per configurarla, vedere [Configurazione della rete in servizio Azure Kubernetes](../aks/networking-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - **ACS-Engine**: ACS-Engine è uno strumento che genera un modello di Azure Resource Manager per la distribuzione di un cluster Kubernetes in Azure. Per istruzioni dettagliate, vedere [Distribuire il plug-in per un cluster Kubernetes di ACS-Engine](deploy-container-networking.md#deploy-plug-in-for-acs-engine-kubernetes-cluster).
-- **Creazione di un cluster Kubernetes personalizzato in Azure**: il plug-in può essere usato per fornire funzionalità di rete di base per i pod nei cluster Kubernetes distribuiti, senza usare AKS o strumenti come ACS-Engine. In questo caso, il plug-in viene installato e abilitato in ogni macchina virtuale in un cluster. Per istruzioni dettagliate, vedere [Distribuire il plug-in per un cluster Kubernetes](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
+- **Creazione di un cluster Kubernetes in Azure**: il plug-in può essere usato per fornire funzionalità di rete di base per i pod nei cluster Kubernetes distribuiti, senza usare il servizio Azure Kubernetes o strumenti come ACS-Engine. In questo caso, il plug-in viene installato e abilitato in ogni macchina virtuale in un cluster. Per istruzioni dettagliate, vedere [Distribuire il plug-in per un cluster Kubernetes](deploy-container-networking.md#deploy-plug-in-for-a-kubernetes-cluster).
 - **Collegamento di rete virtuale per i contenitori Docker in Azure**: il plug-in può essere usato nei casi in cui non si vuole creare un cluster Kubernetes e si preferisce creare contenitori Docker con collegamento di rete virtuale nelle macchine virtuali. Per istruzioni dettagliate, vedere [Distribuire il plug-in per i contenitori Docker](deploy-container-networking.md#deploy-plug-in-for-docker-containers).
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200871"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224652"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Esercitazione: Reimpostazione password self-service di Azure AD dalla schermata di accesso
 
@@ -34,7 +34,9 @@ In questa esercitazione viene descritto come consentire agli utenti di reimposta
    * [Aggiunti ad Azure AD ibrido](../device-management-hybrid-azuread-joined-devices-setup.md), con connettività di rete a un controller di dominio.
 * È necessario abilitare la reimpostazione password self-service di Azure AD.
 * Se i dispositivi Windows 10 sono protetti da un firewall o un server proxy, è necessario aggiungere gli URL `passwordreset.microsoftonline.com` e `ajax.aspnetcdn.com` al proprio elenco di URL consentiti per il traffico HTTPS (porta 443).
+* La reimpostazione della password self-service per Windows 10 è supportata solo per proxy a livello di computer
 * Esaminare le limitazioni seguenti prima di provare questa funzionalità nel proprio ambiente.
+* Se si usa un'immagine, assicurarsi che la cache Web sia stata cancellata per l'amministratore predefinito prima di eseguire il passaggio CopyProfile di Sysprep. Per altre informazioni, vedere l'articolo relativo alle [prestazioni insufficienti quando si usa il profilo utente predefinito personalizzato](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configurare il collegamento di reimpostazione della password con Intune
 

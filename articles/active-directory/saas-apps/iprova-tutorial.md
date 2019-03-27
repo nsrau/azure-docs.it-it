@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 1eaeef9b-4479-4a9f-b1b2-bc13b857c75c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c65f8e023e087c3ca49e0d53f5760fbcd9a5f4d9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 395d3887e35d6e9c043d4d947b605e71eb58bd6b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869208"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897334"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-iprova"></a>Esercitazione: Integrazione di Azure Active Directory con iProva
 
@@ -134,7 +134,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con iProva, seguire questa 
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come illustrato nell'immagine precedente. Seguire questa procedura.
 
-    | NOME | Attributo di origine| Spazio dei nomi |
+    | Nome | Attributo di origine| Spazio dei nomi |
     | ---------------| -------- | -----|
     | `samaccountname` | `user.onpremisessamaccountname`| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims`|
     | | |
@@ -221,7 +221,7 @@ In questa sezione viene creato un utente di test di nome Britta Simon nel portal
 
     a. Nella casella **Nome** immettere un nome, ad esempio **Britta Simon**.
   
-    b. Nella casella **Nome utente** immettere *yourname@yourcompanydomain.extension*. 
+    b. Nella casella **Nome utente** immettere *nome\@dominioaziendale.estensione*. 
     Un esempio è BrittaSimon@contoso.com.
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
@@ -264,16 +264,16 @@ In questa sezione, l'utente Britta Simon viene abilitato per l'uso dell'accesso 
 
 4. Selezionare **Users** (Utenti) nel pannello **Users and user groups** (Utenti e gruppi di utenti).
 
-5. Selezionare **Aggiungi**.
+5. Selezionare **Add** (Aggiungi).
 
-6. Nella casella **Username** (Nome utente) immettere *brittasimon@yourcompanydomain.extension*. 
+6. Nella casella **Username** (Nome utente) immettere *brittasimon\@dominioaziendale.estensione*. 
     Un esempio è BrittaSimon@contoso.com.
 
 7. Nella casella **Full name** (Nome completo) immettere il nome completo, ad esempio **Britta Simon**.
 
 8. Selezionare l'opzione **No password (use single sign-on)** (Nessuna password - usa Single Sign-On).
 
-9. Nella casella **E-mail address** (Indirizzo di posta elettronica) immettere *yourname@yourcompanydomain.extension*. 
+9. Nella casella **E-mail address** (Indirizzo di posta elettronica) immettere *nome\@dominioaziendale.estensione*. 
    Un esempio è BrittaSimon@contoso.com.
 
 10. Scorrere fino alla fine della pagina e selezionare **Finish** (Fine).

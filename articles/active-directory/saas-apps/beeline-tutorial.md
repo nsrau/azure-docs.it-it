@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 0726859d-1dac-44a0-810b-da56d89039ee
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f846791bfcaadbfec85f150654e18e55517acdcc
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: ec694e9d0bf69ca1d9adbe1c12beedba24d9994b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984935"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852541"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-beeline"></a>Esercitazione: Integrazione di Azure Active Directory con BeeLine
 
@@ -108,6 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con BeeLine, seguire questa
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://projects.beeline.net/<instancename>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+    
     | |
     |--|
     | `https://projects.beeline.net/<instancename>/SSO_External.ashx`|
@@ -156,7 +157,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

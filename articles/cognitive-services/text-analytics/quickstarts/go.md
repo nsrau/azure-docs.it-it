@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso di Go per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di Go per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Informazioni ed esempi di codice per iniziare a usare l'API Analisi del testo nei Servizi cognitivi Microsoft in Azure.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: b4778c87ca5da266858cd05c67e5f0a78af731bc
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 11a8ef1974e8d930b0001ccfb445b0eee509356f
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56330818"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58188952"
 ---
-# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di Go per chiamare il servizio cognitivo Analisi del testo 
+# <a name="quickstart-using-go-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di Go per chiamare il servizio cognitivo Analisi del testo 
 <a name="HOLTop"></a>
 
 Questo articolo illustra come [rilevare la lingua](#Detect), [analizzare il sentiment](#SentimentAnalysis), [estrarre frasi chiave](#KeyPhraseExtraction) e [identificare le entità collegate](#Entities) usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con Go.
@@ -41,9 +41,9 @@ L'API Rilevamento lingua rileva la lingua di un documento di testo usando il [me
 1. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
 1. Sostituire la località in `uriBase` (attualmente `westcentralus`) con l'area per cui è stata fatta l'iscrizione.
 1. Salvare il file con estensione "go".
-1. Aprire un prompt dei comandi in un computer in cui è installato Go.
-1. Compilare il file, ad esempio: go build quickstart.go
-1. Eseguire il file, ad esempio: quickstart
+1. Aprire un prompt dei comandi dalla cartella radice in un computer in cui è installato Go.
+1. Compilare il file, ad esempio: `go build detect.go`.
+1. Eseguire il file, ad esempio: `go run detect.go`.
 
 ```golang
 package main
@@ -177,16 +177,16 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="analyze-sentiment-request"></a>Richiesta di analisi del sentiment
 
-L'API Analisi del sentiment rileva il sentiment di un set di record di testo usando il [metodo Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
+L'API Analisi del sentiment rileva il sentiment di un set di record di testo usando il [metodo Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). L'analisi del sentiment consente di conoscere l'opinione dei clienti su un marchio o su un argomento analizzando il testo non elaborato alla ricerca di indizi su sentiment positivo o negativo. L'esempio seguente assegna un punteggio a due documenti, uno in inglese e un altro in spagnolo.
 
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.
 1. Sostituire il valore di `subscriptionKey` con una chiave di accesso valida per la sottoscrizione.
 1. Sostituire la località in `uriBase` (attualmente `westcentralus`) con l'area per cui è stata fatta l'iscrizione.
 1. Salvare il file con estensione "go".
-1. Aprire un prompt dei comandi in un computer in cui è installato Go.
-1. Compilare il file, ad esempio: go build quickstart.go
-1. Eseguire il file, ad esempio: quickstart
+1. Aprire un prompt dei comandi dalla cartella radice in un computer in cui è installato Go.
+1. Compilare il file, ad esempio: `go build sentiment.go`.
+1. Eseguire il file, ad esempio: `go run sentiment.go`.
 
 ```golang
 package main
@@ -272,7 +272,8 @@ func main() {
 
 ## <a name="analyze-sentiment-response"></a>Risposta alla richiesta di analisi del sentiment
 
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
+Il risultato viene considerato positivo se il punteggio assegnato è più vicino a 1.0 e negativo se il punteggio assegnato è più vicino a 0.0.
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -294,7 +295,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 ## <a name="extract-key-phrases-request"></a>Richiesta di estrazione delle frasi chiave
 
-L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
+L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documento di testo usando il [metodo per le frasi chiave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). L'estrazione delle frasi chiave consente di identificare rapidamente i punti principali di un documento o un testo. L'esempio seguente estrae le frasi chiave per i documenti in inglese e in spagnolo.
 
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.
@@ -302,8 +303,8 @@ L'API Estrazione frasi chiave consente di estrarre le frasi chiave da un documen
 1. Sostituire la località in `uriBase` (attualmente `westcentralus`) con l'area per cui è stata fatta l'iscrizione.
 1. Salvare il file con estensione "go".
 1. Aprire un prompt dei comandi in un computer in cui è installato Go.
-1. Compilare il file, ad esempio: go build quickstart.go
-1. Eseguire il file, ad esempio: quickstart
+1. Compilare il file, ad esempio: `go build key-phrases.go`.
+1. Eseguire il file, ad esempio: `go run key-phrases.go`.
 
 ```golang
 package main
@@ -390,7 +391,7 @@ func main() {
 
 ## <a name="extract-key-phrases-response"></a>Risposta alla richiesta di estrazione delle frasi chiave
 
-Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente: 
+Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 
 ```json
 {
@@ -430,9 +431,9 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
 
 <a name="Entities"></a>
 
-## <a name="identify-entities-request"></a>Richiesta di identificazione delle entità
+## <a name="identify-entities"></a>Identificare le entità
 
-L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). L'esempio seguente identifica le entità per i documenti in inglese.
+L'API Entità identifica le entità note in un documento di testo usando il metodo [Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). Le [entità](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) estraggono parole dal testo, ad esempio "United States" e quindi forniscono il tipo e/o il collegamento a Wikipedia relativo alla parola. Il tipo di "United States" è `location`, mentre il collegamento a Wikipedia è `https://en.wikipedia.org/wiki/United_States`.  L'esempio seguente identifica le entità per i documenti in inglese.
 
 1. Creare un nuovo progetto Go nell'editor di codice preferito.
 1. Aggiungere il codice riportato di seguito.
@@ -440,8 +441,8 @@ L'API Entità identifica le entità note in un documento di testo usando il meto
 1. Sostituire la località in `uriBase` (attualmente `westcentralus`) con l'area per cui è stata fatta l'iscrizione.
 1. Salvare il file con estensione "go".
 1. Aprire un prompt dei comandi in un computer in cui è installato Go.
-1. Compilare il file, ad esempio: go build quickstart.go
-1. Eseguire il file, ad esempio: quickstart
+1. Compilare il file, ad esempio: `go build entities.go`.
+1. Eseguire il file, ad esempio: `go run entities.go`.
 
 ```golang
 package main

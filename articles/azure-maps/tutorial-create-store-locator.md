@@ -9,25 +9,25 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 28c2d65e1b1858b653775b4b298c9ab3e1d31e6e
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: d8256f96a79969103b17047c4ebb55fb140eb0bc
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991413"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121112"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creare un localizzatore di punti vendita con Mappe di Azure
 
 Questa esercitazione illustra il processo di creazione di un semplice localizzatore di punti vendita con Mappe di Azure. I localizzatori di punti vendita sono molto diffusi. Molti dei concetti usati in questo tipo di applicazione sono applicabili a molti altri tipi di applicazioni. L'offerta di un localizzatore di punti vendita ai clienti è essenziale per la maggior parte delle aziende che vendono direttamente ai consumatori. In questa esercitazione si apprenderà come:
     
 > [!div class="checklist"]
-* Creare una nuova pagina Web con l'API Controllo mappa di Azure.
-* Caricare dati personalizzati da un file e visualizzarli in una mappa.
-* Usare il servizio Ricerca di Mappe di Azure per trovare un indirizzo o immettere una query.
-* Ottenere la posizione dell'utente dal browser e visualizzarla sulla mappa.
-* Combinare più livelli per creare simboli personalizzati sulla mappa.  
-* Creare cluster di punti dati.  
-* Aggiungere controlli zoom alla mappa.
+> * Creare una nuova pagina Web con l'API Controllo mappa di Azure.
+> * Caricare dati personalizzati da un file e visualizzarli in una mappa.
+> * Usare il servizio Ricerca di Mappe di Azure per trovare un indirizzo o immettere una query.
+> * Ottenere la posizione dell'utente dal browser e visualizzarla sulla mappa.
+> * Combinare più livelli per creare simboli personalizzati sulla mappa.  
+> * Creare cluster di punti dati.  
+> * Aggiungere controlli zoom alla mappa.
 
 <a id="Intro"></a>
 
@@ -42,12 +42,16 @@ Per completare le procedure disponibili in questa esercitazione, è prima di tut
 Prima di passare al codice, è consigliabile definire la struttura. Il localizzatore di punti vendita può essere semplice o complesso, in base alle necessità specifiche. In questa esercitazione viene creato un localizzatore di punti vendita semplice. L'esercitazione include alcuni suggerimenti utili per estendere alcune funzionalità, se necessario. Verrà creato un localizzatore di punti vendita per una società fittizia denominata Contoso Coffee. La figura seguente mostra un wireframe del layout generale del localizzatore di punti vendita creato in questa esercitazione:
 
 <br/>
-<center>![Wireframe di un localizzatore di punti vendita per le posizioni dei punti vendita di Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+<center>
+
+![Wireframe di un localizzatore di punti vendita per le posizioni dei bar Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 Per massimizzare l'utilità di questo localizzatore di punti vendita, includeremo un layout reattivo che si adatta quando la larghezza dello schermo di un utente è inferiore a 700 pixel. Un layout reattivo semplifica l'uso del localizzatore di punti vendita su un piccolo schermo, ad esempio in un dispositivo mobile. Ecco un wireframe del layout per uno schermo di piccole dimensioni:  
 
 <br/>
-<center>![Wireframe del localizzatore di punti vendita di Contoso Coffee in un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+<center>
+
+![Wireframe del localizzatore di punti vendita di Contoso Coffee su un dispositivo mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include una casella di ricerca, un elenco di punti vendita nelle vicinanze, una mappa con alcuni marcatori (simboli) e una finestra popup che mostra informazioni aggiuntive quando l'utente seleziona un marcatore. Ecco una descrizione più dettagliata delle funzionalità create nel localizzatore di punti vendita in questa esercitazione:
 
@@ -70,7 +74,9 @@ I wireframe mostrano un'applicazione abbastanza semplice. L'applicazione include
 Prima di sviluppare un'applicazione di tipo localizzatore di punti vendita, è necessario creare un set di dati dei punti vendita da visualizzare sulla mappa. In questa esercitazione viene usato un set di dati per un bar fittizio denominato Contoso Coffee. Il set di dati per questo semplice localizzatore di punti vendita viene gestito in una cartella di lavoro di Excel. Il set di dati contiene 10.213 posizioni di bar Contoso Coffee in nove paesi, ovvero Stati Uniti, Canada, Regno Unito, Francia, Germania, Italia, Paesi Bassi, Danimarca e Spagna. Ecco uno screenshot dell'aspetto dei dati:
 
 <br/>
-<center>![Screenshot dei dati del localizzatore di punti vendita in una cartella di lavoro di Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+<center>
+
+![Screenshot dei dati del localizzatore di punti vendita in una cartella di lavoro di Excel](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 È possibile [scaricare la cartella di lavoro di Excel](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
@@ -90,12 +96,16 @@ Un altro approccio consiste nel convertire questo set di dati in un file flat di
 Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)**. Specificare il nome *ContosoCoffee.txt* per il file. 
 
 <br/>
-<center>![Screenshot della finestra di dialogo Salva come](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
+<center>
+
+![Screenshot della finestra di dialogo con Tipo file](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura seguente:
 
 <br/>
-<center>![Screenshot di un file di Blocco note che mostra un set di dati con valori delimitati da tabulazioni](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+<center>
+
+![Screenshot di un file di Blocco note che mostra un set di dati con valori delimitati da tabulazioni](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## <a name="set-up-the-project"></a>Configurare il progetto
@@ -103,7 +113,9 @@ Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura 
 Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html*, *index.css* e *index.js*. Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images*. In questa applicazione vengono usate dieci immagini per icone, pulsanti e marcatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
 
 <br/>
-<center>![Screenshot della cartella del progetto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+<center>
+
+![Screenshot della cartella del progetto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## <a name="create-the-user-interface"></a>Creare l'interfaccia utente
 
@@ -395,12 +407,12 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
 
 1. Aggiungere codice al file *index.js*. Il codice seguente consente di inizializzare la mappa, aggiungere un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) che rimane in attesa fino al completamento del caricamento della pagina, aggiungere eventi per monitorare il caricamento della mappa e attivare il pulsante di ricerca e il pulsante My Location. 
 
-  Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy rispetto alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi. La limitazione dei paesi in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
+   Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy rispetto alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi. La limitazione dei paesi in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
-  Al termine della ricerca, accettare il primo risultato e impostare la fotocamera della mappa su tale area. Quando l'utente seleziona il pulsante My Location, usare l'API per la georilevazione HTML5 incorporata nel browser per recuperare la posizione dell'utente e centrare la mappa rispetto a tale posizione.  
+   Al termine della ricerca, accettare il primo risultato e impostare la fotocamera della mappa su tale area. Quando l'utente seleziona il pulsante My Location, usare l'API per la georilevazione HTML5 incorporata nel browser per recuperare la posizione dell'utente e centrare la mappa rispetto a tale posizione.  
 
-  > [!Tip]
-  > Quando si usano finestre popup, è consigliabile creare una singola istanza di `Popup` e riutilizzare l'istanza caricandone il contenuto e la posizione. Per ogni istanza di `Popup` aggiunta al codice, più elementi DOM vengono aggiunti alla pagina. Maggiore il numero di elementi DOM presenti nella pagina, maggiore sarà il numero di elementi di cui il browser deve tenere traccia. Se il numero di elementi è troppo elevato, è possibile che il browser risulti lento.
+   > [!Tip]
+   > Quando si usano finestre popup, è consigliabile creare una singola istanza di `Popup` e riutilizzare l'istanza caricandone il contenuto e la posizione. Per ogni istanza di `Popup` aggiunta al codice, più elementi DOM vengono aggiunti alla pagina. Maggiore il numero di elementi DOM presenti nella pagina, maggiore sarà il numero di elementi di cui il browser deve tenere traccia. Se il numero di elementi è troppo elevato, è possibile che il browser risulti lento.
 
     ```Javascript
     function initialize() { 
@@ -542,7 +554,7 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
 
 1. Dopo il caricamento del set di dati nel listener di eventi `load` della mappa, definire un set di livelli per il rendering dei dati. Un livello a bolle viene usato per il rendering dei punti dati in cluster. Un livello di simboli viene usato per il rendering del numero di punti in ogni cluster sopra il livello a bolle. Un secondo livello di simboli esegue il rendering di un'icona personalizzata per singole posizioni sulla mappa. 
 
-  Aggiungere gli eventi `mouseover` e `mouseout` ai livelli a bolle e di icone per modificare il cursore del mouse quando l'utente lo posiziona sopra un cluster o un'icona sulla mappa. Aggiungere un evento `click` al livello a bolle del cluster. Questo evento `click` ingrandisce la mappa in due livelli e la centra rispetto a un cluster quando l'utente seleziona un cluster. Aggiungere un evento `click` al livello di icone. Questo evento `click` mostra una finestra popup che visualizza i dettagli di un bar quando un utente seleziona un'icona relativa a una singola posizione. Aggiungere un evento alla mappa per monitorare il momento in cui viene completato lo spostamento della mappa. Quando questo evento viene generato, aggiornare gli elementi nel pannello elenchi.  
+   Aggiungere gli eventi `mouseover` e `mouseout` ai livelli a bolle e di icone per modificare il cursore del mouse quando l'utente lo posiziona sopra un cluster o un'icona sulla mappa. Aggiungere un evento `click` al livello a bolle del cluster. Questo evento `click` ingrandisce la mappa in due livelli e la centra rispetto a un cluster quando l'utente seleziona un cluster. Aggiungere un evento `click` al livello di icone. Questo evento `click` mostra una finestra popup che visualizza i dettagli di un bar quando un utente seleziona un'icona relativa a una singola posizione. Aggiungere un evento alla mappa per monitorare il momento in cui viene completato lo spostamento della mappa. Quando questo evento viene generato, aggiornare gli elementi nel pannello elenchi.  
 
     ```Javascript
     //Create a bubble layer to render clustered data points. 
@@ -916,30 +928,36 @@ A questo punto l'interfaccia utente è stata configurata. Ora è necessario aggi
 Quando un utente seleziona il pulsante My Location per la prima volta, il browser mostra un avviso di sicurezza che richiede l'autorizzazione per accedere alla posizione dell'utente. Se l'utente accetta di condividere la propria posizione, la mappa viene ingrandita per visualizzarla e vengono mostrati i bar presenti nelle vicinanze. 
 
 <br/>
-<center>![Screenshot della richiesta del browser per l'accesso alla posizione dell'utente](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+<center>
+
+![Screenshot della richiesta del browser di accedere alla posizione dell'utente](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
 Quando si ingrandisce a sufficienza un'area che include posizioni dei bar, i cluster si separano in singole posizioni. Selezionare una delle icone sulla mappa oppure selezionare un elemento nel pannello laterale per visualizzare una finestra popup che mostra le informazioni per tale posizione.
 
 <br/>
-<center>![Screenshot del localizzatore di punti vendita finito](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
+<center>
+
+![Screenshot del localizzatore di punti vendita completato](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 Se si ridimensiona la finestra del browser fino a una larghezza inferiore a 700 pixel o se si apre l'applicazione in un dispositivo mobile, il layout viene modificato per adattarsi meglio a schermi più piccoli. 
 
 <br/>
-<center>![Screenshot della versione del localizzatore di punti vendita per schermi più piccoli](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+<center>
+
+![Screenshot della versione del localizzatore di punti vendita per schermi di piccole dimensioni](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione viene illustrato come creare un localizzatore di punti vendita di base con Mappe di Azure. Il localizzatore di punti vendita creato in questa esercitazione può includere tutte le funzionalità necessarie. È possibile aggiungere funzionalità al localizzatore di punti vendita o usare funzionalità più avanzate per ottenere un'esperienza utente più personalizzata: 
 
 > [!div class="checklist"]
-* Abilitare i [suggerimenti durante la digitazione](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) nella casella di ricerca.  
-* Aggiungere il [supporto per più lingue](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
-* Consentire all'utente di [filtrare le posizioni lungo un tragitto](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
-* Aggiungere la possibilità di [impostare filtri](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-* Aggiungere il supporto per specificare un valore di ricerca iniziale mediante una stringa di query. Quando si include questa opzione nel localizzatore di punti vendita, gli utenti possono aggiungere ai segnalibri e condividere le ricerche. Questa opzione consente anche di passare con facilità le ricerche a questa pagina da un'altra pagina.  
-* Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-* Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Abilitare i [suggerimenti durante la digitazione](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) nella casella di ricerca.  
+> * Aggiungere il [supporto per più lingue](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+> * Consentire all'utente di [filtrare le posizioni lungo un tragitto](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+> * Aggiungere la possibilità di [impostare filtri](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
+> * Aggiungere il supporto per specificare un valore di ricerca iniziale mediante una stringa di query. Quando si include questa opzione nel localizzatore di punti vendita, gli utenti possono aggiungere ai segnalibri e condividere le ricerche. Questa opzione consente anche di passare con facilità le ricerche a questa pagina da un'altra pagina.  
+> * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+> * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
 
 È possibile accedere all'esempio di codice per questa esercitazione qui:
 

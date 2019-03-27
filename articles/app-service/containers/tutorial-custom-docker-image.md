@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee91c9f152d72fbcc58cb4707af9420a57a1517b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984818"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224199"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usare un'immagine Docker personalizzata per l'app Web per contenitori
 
@@ -526,6 +526,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > `https://` è necessario in *\<docker-registry-server-url>*.
 >
+> [!NOTE]
+> Quando si usa un registro diverso dall'hub Docker, `docker-custom-image-name` deve includere il nome di dominio completo (FQDN) del registro.  
+> Per Registro Azure Container, sarà simile a `<azure-container-registry>.azurecr.io/mydockerimage`.
 
 Il comando mostra un output simile alla stringa JSON seguente, indicante che la modifica alla configurazione è riuscita:
 

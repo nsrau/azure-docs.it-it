@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: d437b5ab-4d71-4c13-96d0-79018cebbbd4
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2728ce2c375519646d0781005fc10a4174cf2483
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ea643622973456f6334333731f3a3e7be6a41089
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881363"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889523"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clicktime"></a>Esercitazione: Integrazione di Azure Active Directory con ClickTime
 
@@ -108,6 +108,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ClickTime, seguire ques
     a. Nella casella di testo **Identificatore** digitare un URL: `https://app.clicktime.com/sp/`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente:
+    
     | |
     |--|
     | `https://app.clicktime.com/Login/` |
@@ -163,7 +164,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
@@ -206,7 +207,7 @@ Nel caso di ClickTime, il provisioning è un'attività manuale.
 
 **Per eseguire il provisioning di un account utente, seguire questa procedura:**
 
-1. Accedere al tenant **ClickTime** .
+1. Accedere al tenant **ClickTime**.
 
 1. Nel barra degli strumenti in alto fare clic su **Company** (Azienda) e quindi su **People** (Persone).
    
@@ -222,7 +223,7 @@ Nel caso di ClickTime, il provisioning è un'attività manuale.
    
     a.  Nella casella di testo **full name** (Nome completo) digitare il nome e cognome dell'utente, ad esempio **Britta Simon**. 
   
-    b.  Nella casella di testo **email address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'utente come **brittasimon@contoso.com**.
+    b.  Nella casella di testo **email address** (Indirizzo di posta elettronica) digitare l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
        
     > [!NOTE]
     > È anche possibile impostare altre proprietà dell'oggetto new person.

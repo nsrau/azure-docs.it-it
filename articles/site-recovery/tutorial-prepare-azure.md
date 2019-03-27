@@ -2,18 +2,18 @@
 title: Preparare Azure per il ripristino di emergenza di computer locali con Azure Site Recovery | Microsoft Docs
 description: Informazioni su come preparare Azure per il ripristino di emergenza di computer locali con Azure Site Recovery.
 services: site-recovery
-author: rayne-wiselman
+author: mayurigupta13
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: raynew
+ms.date: 03/03/2019
+ms.author: mayg
 ms.custom: MVC
-ms.openlocfilehash: da71857e84b27b9e9a063d707f75fdf33e5d6a96
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5168fc28952631f00c2415d6bc171a130dc85dfd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54159010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57838562"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparare le risorse di Azure per il ripristino di emergenza di computer locali
 
@@ -28,7 +28,6 @@ Questo articolo spiega come preparare i componenti di Azure quando si vuole eseg
 
 > [!div class="checklist"]
 > * Verificare che l'account Azure abbia le autorizzazioni di replica.
-> * Creare un account di archiviazione di Azure Le immagini delle macchine replicate sono archiviate al suo interno.
 > * Creare un insieme di credenziali dei servizi di ripristino. Un insieme di credenziali contiene i metadati e le informazioni di configurazione per le macchine virtuali e altri componenti di replica.
 > * Configurare una rete di Azure. Le macchine virtuali di Azure create dopo il failover vengono aggiunte a questa rete di Azure.
 
@@ -36,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Accedere al [portale di Azure](http://portal.azure.com).
+Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="verify-account-permissions"></a>Verificare le autorizzazioni dell'account
 
@@ -44,27 +43,11 @@ Se è appena stato creato l'account Azure gratuito, si è amministratori della p
 
 - Creare una macchina virtuale nel gruppo di risorse selezionato.
 - Creare una macchina virtuale nella rete virtuale selezionata.
-- Scrivere nell'account di archiviazione selezionato.
+- Scrivere nell'account di archiviazione.
+- Scrivere nel disco gestito.
 
 Per completare queste attività, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore Macchina virtuale. Per gestire le operazioni di Site Recovery in un insieme di credenziali, è necessario che all'account sia assegnato il ruolo predefinito Collaboratore di Site Recovery.
 
-## <a name="create-a-storage-account"></a>Creare un account di archiviazione
-
-Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure. Le macchine virtuali di Azure vengono create dall'archiviazione quando si esegue il failover da locale ad Azure. L'account di archiviazione deve trovarsi nella stessa area dell'insieme di credenziali dei servizi di ripristino. In questa esercitazione si usa l'area Europa occidentale.
-
-1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** > **Archiviazione**  > **Account di archiviazione: BLOB, File, Tabelle, Code**.
-2. In **Crea account di archiviazione** immettere un nome per l'account. Per queste esercitazioni viene usato **contosovmsacct1910171607**. Il nome selezionato deve essere univoco in Azure, avere una lunghezza compresa tra 3 e 24 caratteri e contenere solo numeri e lettere minuscole.
-3. In **Modello di distribuzione** selezionare **Resource Manager**.
-4. In **Tipologia account** selezionare **Archiviazione (Utilizzo generico v1)**. Non selezionare l'archivio BLOB.
-5. In **Replica** selezionare l'opzione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** per la ridondanza dell'archiviazione. È in corso lasciando **trasferimento necessario protetto** come **disabilitato**.
-6. In **Prestazioni** selezionare **Standard** e in **Livello di accesso** scegliere l'opzione predefinita di **Accesso frequente**.
-7. In **Sottoscrizione** selezionare la sottoscrizione in cui creare il nuovo account di archiviazione.
-8. In **Gruppo di risorse** immettere un nuovo gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Per queste esercitazioni viene usato **ContosoRG**.
-9. In **Località** selezionare la posizione geografica dell'account di archiviazione. 
-
-   ![Creare un account di archiviazione](media/tutorial-prepare-azure/create-storageacct.png)
-
-9. Selezionare **Crea** per creare l'account di archiviazione.
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
@@ -81,7 +64,7 @@ Le immagini delle macchine replicate sono archiviate nell'archiviazione di Azure
 
 ## <a name="set-up-an-azure-network"></a>Configurare una rete di Azure
 
-Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono aggiunte a questa rete.
+Le macchine virtuali di Azure create da dischi gestiti dopo il failover vengono aggiunte a questa rete.
 
 1. Nel [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** >  **Rete** > **Rete virtuale**.
 2. Lasciare selezionato **Resource Manager** come modello di distribuzione.
@@ -100,8 +83,7 @@ Le macchine virtuali di Azure create dall'archiviazione dopo il failover vengono
 ## <a name="useful-links"></a>Collegamenti utili
 
 - [Informazioni](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sulle reti di Azure.
-- [Informazioni](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts) sui tipi di archiviazione di Azure.
-- [Informazioni](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs#read-access-geo-redundant-storage) sulla ridondanza dell'archiviazione e il [trasferimento sicuro](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) per l'archiviazione.
+- [Informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sui dischi gestiti.
 
 
 

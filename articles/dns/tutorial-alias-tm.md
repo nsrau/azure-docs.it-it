@@ -7,14 +7,14 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: victorh
-ms.openlocfilehash: fc56fe3a5bdfa0f5e1ef4bc309932cb7f57cf27d
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 6bb3506e60894db525efaf2985dd92f9eaaf9e0a
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50978094"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57530961"
 ---
-# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi della radice del dominio con Gestione traffico 
+# <a name="tutorial-configure-an-alias-record-to-support-apex-domain-names-with-traffic-manager"></a>Esercitazione: Configurare un record alias per supportare nomi di dominio radice con Gestione traffico 
 
 È possibile creare un record alias per la radice del nome di dominio per fare riferimento a un profilo di Gestione traffico di Azure. Un esempio è contoso.com. Invece di usare un servizio di reindirizzamento, configurare DNS di Azure in modo che faccia riferimento a un profilo di Gestione traffico direttamente dalla zona. 
 
@@ -39,7 +39,7 @@ Il dominio di esempio usato per questa esercitazione è contoso.com, ma in quest
 
 ## <a name="create-the-network-infrastructure"></a>Creare l'infrastruttura di rete
 Creare innanzitutto una rete virtuale e una subnet in cui inserire i server Web.
-1. Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 2. In alto a sinistra nel portale selezionare **Crea una risorsa**. Immettere *gruppo di risorse* nella casella di ricerca e creare un gruppo di risorse denominato **RG-DNS-Alias-TM**.
 3. Selezionare **Crea una risorsa** > **Rete** > **Rete virtuale**.
 4. Creare una rete virtuale denominata **VNet-Servers**. Inserirla nel gruppo di risorse **RG-DNS-Alias-TM** e assegnare il nome **SN-Web** alla subnet.

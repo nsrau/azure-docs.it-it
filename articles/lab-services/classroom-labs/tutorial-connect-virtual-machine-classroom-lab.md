@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 2e34aef9a6f184c60fbb23023f798941a1fc11da
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 3ec3abffc7962051f4cfc02d5369581ca193d70e
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55894429"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57775578"
 ---
 # <a name="tutorial-access-a-classroom-lab-in-azure-lab-services"></a>Esercitazione: Accedere a un lab per le classi in Azure Lab Services
 Questa esercitazione descrive come uno studente può connettersi a una macchina virtuale (VM) in un lab per le classi. 
@@ -44,8 +44,9 @@ In questa esercitazione vengono completate le azioni seguenti:
 1. Selezionare **Connetti** sul riquadro della macchina virtuale del lab a cui si vuole accedere. 
 
     ![Connettersi alla macchina virtuale](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
-2. Salvare il file RDP sul disco rigido e aprirlo (supponendo che sia una VM Windows)
-3. Usare **nome utente** e **password** ricevuti dal docente per accedere alla macchina virtuale. 
+2. Eseguire uno dei passaggi seguenti: 
+    1. Per le macchine virtuali **Windows**, salvare il file **RDP** nel disco rigido. Aprire il file RDP per connettersi alla macchina virtuale. Usare il **nome utente** e la **password** forniti dal docente per accedere alla macchina virtuale. 
+    3. Per le macchine virtuali **Linux**, copiare e salvare la stringa di connessione SSH nella finestra di dialogo **Connettersi alla macchina virtuale**. Usare questa stringa di connessione da un terminale SSH, ad esempio [Putty](https://www.putty.org/), per connettersi alla macchina virtuale. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione ha illustrato come eseguire l'accesso a un lab per le classi usando il collegamento di registrazione ottenuto dal professore/docente.

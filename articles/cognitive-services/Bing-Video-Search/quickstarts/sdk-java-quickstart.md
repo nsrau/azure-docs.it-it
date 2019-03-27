@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Cercare video con l'SDK di Ricerca video Bing per Java"
+title: "Guida introduttiva: Cercare video con l'SDK di Ricerca video Bing per Java"
 titleSuffix: Azure Cognitive Services
 description: Usare questa guida introduttiva per inviare richieste di ricerca di video con l'SDK di Ricerca video Bing per Java.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: rosh
-ms.openlocfilehash: ff214a545023364b09a0e757462a1b3f3d963d44
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: d421abf0a3cc402cf8d040363dfe79b07b66bf95
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885022"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58105710"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>Guida introduttiva: Eseguire una ricerca di video con l'SDK di Ricerca video Bing per Java
 
@@ -41,7 +41,7 @@ Installare le dipendenze dell'SDK di Ricerca video Bing usando Maven, Gradle o u
   </dependencies> 
 ```
 
-## <a name="create-and-initalize-a-project"></a>Creare e inizializzare un progetto
+## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
 
 Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor preferito e importare le librerie seguenti.
@@ -61,7 +61,7 @@ Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor 
 
 ## <a name="create-a-search-client"></a>Creare un client di ricerca
 
-2. Implementare il client `VideoSearchAPIImpl`, che richiede l'endpoint API, e un'istanza della classe `ServiceClientCredentials`.
+1. Implementare il client `VideoSearchAPIImpl`, che richiede l'endpoint API, e un'istanza della classe `ServiceClientCredentials`.
 
     ```java
     public static VideoSearchAPIImpl getClient(final String subscriptionKey) {
@@ -115,7 +115,7 @@ Creare un nuovo progetto Java nell'ambiente di sviluppo integrato o nell'editor 
         //...
         ```
 
-## <a name="send-a-search-request-and-recieve-the-response"></a>Inviare una richiesta di ricerca e ricevere la risposta 
+## <a name="send-a-search-request-and-receive-the-response"></a>Inviare una richiesta di ricerca e ricevere la risposta 
 
 1. Creare una funzione denominata `VideoSearch()` che accetta la chiave della sottoscrizione come stringa. Creare un'istanza del client di ricerca creato in precedenza.
     

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855884"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193739"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Esercitazione: Aggiungere formati comuni di espressione modello di criterio
 
@@ -221,22 +221,7 @@ Affinché un criterio possa essere messo in corrispondenza con un'espressione, l
 
 **Mentre i criteri consentono di fornire un numero inferiore espressioni di esempio, se le entità non vengono rilevate, il criterio non corrisponde.**
 
-In questa esercitazione, si aggiungono due nuove finalità: `OrgChart-Manager` e `OrgChart-Reports`. 
-
-|Finalità|Espressione|
-|--|--|
-|OrgChart-Manager|A chi riferisce Jill Jones?|
-|OrgChart-Reports|Chi riferisce a Jill Jones?|
-
-Una volta che LUIS ha restituito una stima per l'app client, il nome della finalità può essere usato come un nome di funzione nell'app client e l'entità Employee può essere usata come parametro di tale funzione.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Tenere presente che i dipendenti siano stati creati nell'[esercitazione delle entità elenco](luis-quickstart-intent-and-list-entity.md).
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Aggiungere i criteri per la finalità OrgChart-Manager
 
 1. Selezionare **Build** (Compila) nel menu in alto.
 
@@ -259,7 +244,7 @@ Tenere presente che i dipendenti siano stati creati nell'[esercitazione delle en
 
     [ ![Screenshot dell'immissione di espressioni modello per una finalità](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Selezionare la finalità **OrgChart-Reports**, quindi inserire le espressioni modello seguenti:
+4. Sempre nella pagina Patterns (Criteri) selezionare la finalità **OrgChart-Reports** e quindi immettere le espressioni modello seguenti:
 
     |Espressioni modello|
     |:--|
@@ -272,11 +257,13 @@ Tenere presente che i dipendenti siano stati creati nell'[esercitazione delle en
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Eseguire query sull'endpoint quando vengono usati i criteri
 
+Ora che sono stati aggiunti i criteri, eseguire il training dell'app, pubblicarla e inviare query all'app nell'endpoint di runtime di stima.
+
 1. Eseguire il training dell'app e ripubblicarla.
 
-2. Tornare alla scheda del browser dell'URL dell'endpoint.
+1. Tornare alla scheda del browser dell'URL dell'endpoint.
 
-3. Andare alla fine dell'URL nell'indirizzo e immettere `Who is the boss of Jill Jones?` come espressione. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
+1. Andare alla fine dell'URL nell'indirizzo e immettere `Who is the boss of Jill Jones?` come espressione. L'ultimo parametro querystring è `q`, la **query** dell'espressione. 
 
     ```json
     {
@@ -362,11 +349,11 @@ Tenere presente che i dipendenti siano stati creati nell'[esercitazione delle en
     }
     ```
 
-La stima della finalità a questo punto è significativamente più elevata.
+A questo punto, la stima della finalità è significativamente più attendibile.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Uso di testo facoltativo e di entità predefinite
 
-Le espressioni modello di criterio precedenti mostrate in questa esercitazione contengono alcuni esempi di testo facoltativo come l'uso del genitivo sassone, `'s`, e del punto interrogativo, `?`. Si supponga che le espressioni dell'endpoint indichino che i responsabili e i rappresentati delle risorse umane cercano dati cronologici e spostamenti pianificati dei datori di lavoro all'interno della società previsti in una data futura.
+Le espressioni modello di criterio precedenti mostrate in questa esercitazione contengono alcuni esempi di testo facoltativo come l'uso del genitivo sassone, `'s`, e del punto interrogativo, `?`. Si supponga di dover includere date attuali e future nel testo dell'espressione.
 
 Le espressioni di esempio sono:
 
@@ -379,23 +366,22 @@ Le espressioni di esempio sono:
 
 Ognuno di questi esempi usa un tempo verbale, `was`, `is`, `will be`, insieme a una data, `March 3`, `now` e `in a month`, che LUIS deve essere in grado di stimare correttamente. Si noti che gli ultimi due esempi usano praticamente lo stesso testo, ad eccezione di `in` e `on`.
 
-Espressioni modello di esempio:
+Espressioni modello di esempio che consentono queste informazioni facoltative: 
+
 |Finalità|Espressioni di esempio con testo facoltativo ed entità predefinite|
 |:--|:--|
 |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta di questo testo facoltativo all'espressione modello, può essere annidata fino a un secondo livello, `[[]]`, e includere entità o testo.
 
-**Domanda: perché non è possibile combinare le ultime due espressioni di esempio in una singola espressione modello?** Il modello non supporta la sintassi OR. Per recuperare sia la versione `in` sia la versione `on`, ognuna deve essere un'espressione modello separata.
 
 **Domanda: perché tutte le lettere `w`, ovvero la prima lettera in ogni espressione modello, sono minuscole? Non dovrebbero essere facoltativamente maiuscole o minuscole?** L'espressione inviata all'endpoint della query dall'applicazione client viene convertita in minuscola. L'espressione modello può essere maiuscola o minuscola, come l'espressione dell'endpoint. Il confronto viene eseguito sempre dopo la conversione in minuscole.
 
 **Domanda: perché non è presente la parte del numero predefinita dell'espressione modello se March 3 è stimato sia come numero `3` sia come data `March 3`?** L'espressione modello usa contestualmente una data, letteralmente come in `March 3` o in modo astratto come `in a month`. Una data può contenere un numero, ma un numero può non necessariamente essere interpretato come data. Usare sempre l'entità che rappresenta al meglio il tipo che si vuole venga restituito nei risultati JSON della stima.  
 
-**Domanda: che cosa succede in caso di espressioni formulate in modo inesatto come `Who will {Employee}['s] manager be on March 3?`.** Tempi verbali grammaticamente diversi come in questo esempio, in cui `will` e `be` sono separati, devono essere una nuova espressione modello. L'espressione modello esistente non verrà restituita come corrispondente a questo esempio. Anche se la finalità dell'espressione non è cambiata, è cambiata la posizione delle parole nell'espressione. Questa modifica influisce sulla stima in LUIS.
+**Domanda: che cosa succede in caso di espressioni formulate in modo inesatto come `Who will {Employee}['s] manager be on March 3?`.** Tempi verbali grammaticamente diversi come in questo esempio, in cui `will` e `be` sono separati, devono essere una nuova espressione modello. L'espressione modello esistente non verrà restituita come corrispondente a questo esempio. Anche se la finalità dell'espressione non è cambiata, è cambiata la posizione delle parole nell'espressione. Questa modifica influisce sulla stima in LUIS. È possibile [applicare la sintassi di raggruppamento e l'operatore OR](#use-the-or-operator-and-groups) ai tempi verbali per combinare queste espressioni. 
 
 **Ricordare che vengono trovate le entità per prime e quindi il criterio.**
 
@@ -403,11 +389,9 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
 
 1. Nel sito Web LUIS selezionare **Compila** nel menu in alto e quindi selezionare **Criteri** nel menu a sinistra. 
 
-2. Trovare l'espressione modello esistente, ovvero `Who is {Employee}['s] manager[?]`, e selezionare i puntini di sospensione (***...***) a destra. 
+1. Cercare l'espressione modello esistente, `Who is {Employee}['s] manager[?]`, selezionare i puntini di sospensione (***...***) a destra e quindi selezionare **Edit** (Modifica) dal menu a comparsa. 
 
-3. Scegliere **Modifica** dal menu popup. 
-
-4. Modificare l'espressione modello in `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. Modificare l'espressione modello in `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>Aggiungere nuove espressioni modello di criterio
 
@@ -416,7 +400,6 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
     |Finalità|Espressioni di esempio con testo facoltativo ed entità predefinite|
     |--|--|
     |OrgChart-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
 
 4. Immettere diverse espressioni di test per verificare che venga trovata la corrispondenza con il criterio e che il punteggio della finalità sia significativamente alto. 
 
-    Dopo aver immesso la prima espressione, selezionare **Ispeziona** sotto il risultato per poter visualizzare tutti i risultati delle stime.
+    Dopo aver immesso la prima espressione, selezionare **Ispeziona** sotto il risultato per poter visualizzare tutti i risultati delle stime. Ogni espressione deve avere la finalità **OrgChart-Manager** e deve estrarre i valori per le entità Employee e datetimeV2.
 
     |Espressione|
     |--|
@@ -438,6 +421,51 @@ L'uso della sintassi facoltativa con parentesi quadre `[]` semplifica l'aggiunta
     |Who will be Jill Jones manager in a month?|
 
 Tutte queste espressioni hanno individuato le entità all'interno e di conseguenza corrisponderanno allo stesso criterio e avranno un punteggio di stima elevato.
+
+## <a name="use-the-or-operator-and-groups"></a>Usare l'operatore OR e i gruppi
+
+Diverse espressioni modello precedenti sono molto simili. Usare la sintassi di **raggruppamento** `()` e l'operatore **OR** `|` per ridurre le espressioni modello. 
+
+I due criteri seguenti possono essere combinati in un singolo criterio usando la sintassi di raggruppamento `()` e l'operatore OR `|`.
+
+|Finalità|Espressioni di esempio con testo facoltativo ed entità predefinite|
+|--|--|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+La nuova espressione modello sarà: 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+Nel modello vengono usati i caratteri di **raggruppamento** attorno al tempo verbale richiesto e le preposizioni facoltative `in` e `on` separate da un carattere pipe, **OR**. 
+
+1. Nella pagina **Patterns** (Criteri) selezionare il filtro **OrgChart-Manager**. Limitare l'elenco eseguendo la ricerca di `manager`. 
+
+    ![Nei criteri della finalità OrgChart-Manager cercare il termine "manager"](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. Mantenere una sola versione dell'espressione modello (da modificare nel passaggio successivo) ed eliminare le altre varianti. 
+
+1. Modificare l'espressione modello nel modo seguente: 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. Eseguire il training dell'app.
+
+1. Usare il riquadro Test per testare le versioni dell'espressione:
+
+    |Espressioni da immettere nel riquadro Test|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Usare gli ancoraggi di inizio e fine delle espressioni
+
+La sintassi dei criteri include ancoraggi di inizio e fine delle espressioni rappresentati da un accento circonflesso, `^`. Gli ancoraggi di inizio e fine delle espressioni possono essere usati insieme per identificare un'espressione molto specifica e possibilmente letterale e oppure possono usati separatamente per identificare finalità. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

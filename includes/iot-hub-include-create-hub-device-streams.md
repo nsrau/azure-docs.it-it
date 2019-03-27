@@ -5,19 +5,19 @@ author: rezas
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
 ms.custom: include file
-ms.openlocfilehash: ea82bdca23d8b34898261eb60fd908d281451fd0
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: d1cfe3d998c08aef2b845315a16d881dea1cd1f6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825861"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124355"
 ---
 Questa sezione illustra come creare un hub IoT usando il [portale di Azure](https://portal.azure.com).
 
-1. Accedere al [Portale di Azure](https://portal.azure.com). 
+1. Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Scegliere **+Crea una risorsa** e quindi scegliere **Internet delle cose**.
 
@@ -31,7 +31,7 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
 
    **Gruppo di risorse**: è possibile creare un nuovo gruppo di risorse o selezionarne uno esistente. Per crearne uno nuovo, fare clic su **Crea nuovo** e specificare il nome da usare. Per usare un gruppo di risorse esistente, fare clic su **Usa esistente** e selezionare il gruppo di risorse nell'elenco a discesa. Per altre informazioni, vedere l'articolo su come [gestire gruppi di risorse di Azure Resource Manager](../articles/azure-resource-manager/manage-resource-groups-portal.md).
 
-   **Area**: si tratta dell'area in cui si vuole collocare l'hub. Assicurarsi di selezionare un'area supportata (ad esempio, Stati Uniti centrali o Stati Uniti centrali EUAP).
+   **Area**: si tratta dell'area in cui si vuole collocare l'hub. Selezionare un'area che supporta l'anteprima dei flussi dispositivo per l'hub IoT, ossia Stati Uniti centrali o Stati Uniti centrali EUAP.
 
    **Nome hub IoT**: inserire il nome dell'hub IoT. Il nome deve essere univoco a livello globale. Se il nome immesso è disponibile, viene visualizzato un segno di spunta verde.
 
@@ -41,8 +41,7 @@ Questa sezione illustra come creare un hub IoT usando il [portale di Azure](http
 
    ![Screenshot che mostra la configurazione delle dimensioni e della scalabilità per un nuovo hub IoT con il portale di Azure](./media/iot-hub-include-create-hub-device-streams/iot-hub-creation-2-free.png)
 
-
-   In questa schermata è sufficiente accettare le impostazioni predefinite e fare semplicemente clic su **Revisione e creazione** nella parte inferiore. 
+   In questa schermata è sufficiente accettare le impostazioni predefinite e fare semplicemente clic su **Revisione e creazione** nella parte inferiore.
 
    **Piano tariffario e livello di scalabilità**: assicurarsi di selezionare uno degli standard (S1, S2, S3) o il livello gratuito (F1). Questa scelta può anche essere guidata dalle dimensioni della flotta e dai carichi di lavoro non di streaming che si prevedono nell'hub (ad esempio, i messaggi di telemetria). Ad esempio, il livello gratuito è utilizzabile a scopo di test e valutazione. Consente la connessione di 500 dispositivi all'hub IoT e un massimo di 8.000 messaggi al giorno. Ogni sottoscrizione Azure può creare hub IoT nel livello gratuito. 
 

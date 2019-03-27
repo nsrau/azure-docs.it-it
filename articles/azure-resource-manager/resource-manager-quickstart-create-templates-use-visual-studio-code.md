@@ -10,19 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: 33bc10bb601fa14a34b6032c54b0c751a3608ccc
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: c73084b03736a422e5e3b617ec058ade1de0fbb9
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823655"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57317119"
 ---
-# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Guida introduttiva: Creare modelli di Azure Resource Manager con Visual Studio Code
+# <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Avvio rapido: Creare modelli di Azure Resource Manager con Visual Studio Code
 
 Questa guida introduttiva illustra come usare Visual Studio Code e l'estensione Strumenti di Azure Resource Manager per creare e modificare i modelli di Azure Resource Manager. È possibile creare modelli di Resource Manager in Visual Studio Code senza l'estensione, ma questa offre opzioni di completamento automatico che semplificano lo sviluppo di modelli. Per comprendere i concetti associati alla distribuzione e alla gestione delle soluzioni di Azure, vedere [Panoramica di Azure Resource Manager](resource-group-overview.md).
+
+In questa esercitazione viene distribuito un account di archiviazione:
+
+![modello di resource manager avvio rapido diagramma visual studio code](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/resource-manager-template-quickstart-vscode-diagram.png)
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -90,15 +94,24 @@ Per sperimentare la modifica di un modello con Visual Studio Code, aggiungere un
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-Per distribuire i modelli sono disponibili molti metodi.  In questa guida introduttiva si usa Azure Cloud Shell. Cloud Shell è un'applicazione Web che non richiede alcuna configurazione. Supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell.
+Per distribuire i modelli sono disponibili molti metodi. In questa guida di avvio rapido si usa Azure Cloud Shell. Cloud Shell supporta sia l'interfaccia della riga di comando di Azure che Azure PowerShell. Usare il selettore di schede per scegliere tra l'interfaccia della riga di comando e PowerShell.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-
 1. Accedere ad [Azure Cloud Shell](https://shell.azure.com)
 
+2. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** (interfaccia della riga di comando) nell'angolo superiore sinistro.  Quando si cambia interfaccia, è necessario riavviare la shell.
+
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
+
     ![Interfaccia della riga di comando in Cloud Shell nel portale di Azure](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-2. Scegliere l'ambiente preferito selezionando **PowerShell** o **Bash** nell'angolo superiore sinistro. Per usare l'interfaccia della riga di comando è necessario aprire una sessione Bash. Per eseguire Azure PowerShell è necessario aprire una sessione di PowerShell. Selezionare la freccia Giù per alternare Bash e PowerShell. Vedere l'immagine sopra riportata. Quando si cambia interfaccia, è necessario riavviare la shell.
+
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+
+    ![Portale di Azure Cloud Shell PowerShell](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-powershell.png)
+
+    ---
+
 3. Selezionare **Carica/Scarica file** e quindi **Carica**.
 
     # <a name="clitabcli"></a>[CLI](#tab/CLI)

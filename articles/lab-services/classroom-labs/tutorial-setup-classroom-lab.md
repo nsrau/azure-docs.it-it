@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 02/07/2019
+ms.date: 03/18/2019
 ms.author: spelluru
-ms.openlocfilehash: 4abec80df4aeeb4c20d56b43ba122ee7266905a6
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649588"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58090322"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Esercitazione: Configurare un lab per le classi 
 Questa esercitazione descrive come configurare un lab per le classi con macchine virtuali usate dagli studenti nella classe.  
@@ -69,9 +69,9 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
 
     ![Pagina di configurazione del modello al termine dell'operazione](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Nella pagina **Configure template** (Configura modello) procedere come segue: Questi passaggi sono **facoltativi** per l'esercitazione.
-    2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). 
-    3. Installare e configurare il software nella macchina virtuale modello.     
-    5. Immettere una **descrizione** per il modello.
+    1. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). 
+    2. Installare e configurare il software nella macchina virtuale modello.     
+    3. Immettere una **descrizione** per il modello.
 9. Selezionare **Next** (Avanti) nella pagina del modello. 
 10. Nella pagina **Publish the template** (Pubblica il modello) eseguire le azioni seguenti. 
     1. Per pubblicare il modello immediatamente, selezionare **Publish** (Pubblica).  
@@ -108,15 +108,15 @@ Un proprietario del lab può aggiungere altri utenti al ruolo **Autore di labora
     ![Elenco utenti](../media/how-to-configure-student-usage/users-list-new.png)
 
 
-## <a name="send-registration-link-to-students"></a>Inviare un collegamento di registrazione agli studenti
-
+## <a name="send-an-email-with-the-registration-link"></a>Inviare un messaggio di posta elettronica con il collegamento per la registrazione
 1. Passare alla vista **Utenti** se non si è già nella pagina. 
-2. Selezionare **Get registration link** (Ottieni collegamento registrazione) sulla barra degli strumenti.
-1. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Copia**. Il collegamento viene copiato negli Appunti.
+2. Selezionare utenti specifici o tutti gli utenti nell'elenco. Per selezionare utenti specifici, selezionare le caselle di controllo nella prima colonna dell'elenco. Per selezionare tutti gli utenti, selezionare la casella di controllo accanto al titolo della prima colonna (**Nome**) oppure tutte le caselle di controllo per tutti gli utenti nell'elenco.
+3. Selezionare **Invia invito** sulla barra degli strumenti. È anche possibile passare il puntatore del mouse sul nome di uno studente nell'elenco e quindi selezionare l'icona per l'invio di un messaggio di posta elettronica. 
 
-    ![Collegamento di registrazione](../media/tutorial-setup-classroom-lab/registration-link.png)
-1. Nella finestra di dialogo **User registration** (Registrazione utente) selezionare il pulsante **Chiudi**. 
-2. Condividere il collegamento di registrazione con uno studente in modo che possa eseguire la registrazione alla classe.
+    ![Inviare un collegamento per la registrazione tramite posta elettronica](../media/tutorial-setup-classroom-lab/send-email.png)
+4. Nella pagina **Send registration link by email** (Invia collegamento registrazione per posta elettronica) seguire questa procedura: 
+    1. Digitare un **messaggio facoltativo** da inviare agli studenti. Il messaggio di posta elettronica include automaticamente il collegamento per la registrazione. 
+    2. Nella pagina **Send registration link by email** (Invia collegamento registrazione per posta elettronica) selezionare **Invia**. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Questa esercitazione ha illustrato come creare un lab per le classi e come configurare il lab. Per informazioni su come uno studente può accedere a una VM nel lab usando il collegamento di registrazione, passare alla prossima esercitazione:

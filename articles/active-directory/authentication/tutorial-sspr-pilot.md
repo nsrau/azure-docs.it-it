@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0fe472a45d99f966c851934ea44a346326cb4201
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
+ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175150"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57215592"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Esercitazione: Completare l'implementazione di un gruppo pilota per la reimpostazione della password self-service di Azure AD
 
@@ -40,15 +40,15 @@ In questa esercitazione verrà abilitata un'implementazione pilota di reimpostaz
    * Nella pagina **Proprietà** scegliere **Selezionato** per l'opzione **Reimpostazione password self-service abilitata** e selezionare un gruppo pilota.
       * Solo i membri di un gruppo specifico di Azure AD scelti dall'amministratore possono usare la reimpostazione della password self-service. È consigliabile definire un gruppo di utenti e usare questa impostazione nella distribuzione di questa funzionalità per un modello di verifica. È supportato l'annidamento dei gruppi di sicurezza.
       * Verificare che gli utenti nel gruppo scelto abbiano le licenze appropriate.
-   * Fare clic su **Save**
+   * Fare clic su **Save** (Salva).
 1. Nella pagina **Metodi di autenticazione**
-   * Impostare **Numero di metodi da reimpostare** su **2**
-   * Scegliere i **Metodi disponibili per gli utenti** che l'organizzazione vuole consentire. Per questa esercitazione selezionare le caselle per abilitare **Posta elettronica**, **Cellulare** e **Telefono ufficio**.
-   * Fare clic su **Save**
+   * Impostare **Numero di metodi da reimpostare** su **1**
+   * Scegliere i **Metodi disponibili per gli utenti** che l'organizzazione vuole consentire. Per questa esercitazione selezionare le caselle per abilitare **Posta elettronica** e **Codice dell'app per dispositivi mobili (anteprima)**.
+   * Fare clic su **Save** (Salva).
 1. Nella pagina **Registrazione**
    * Selezionare **Sì** per **Richiedere agli utenti di registrarsi all'accesso**.
    * Impostare **Numero di giorni prima che agli utenti venga chiesto di riconfermare le informazioni di autenticazione** su **180**.
-   * Fare clic su **Save**
+   * Fare clic su **Save** (Salva).
 1. Nella pagina **Notifiche**
    * Impostare l'opzione **Notificare agli utenti le reimpostazioni delle password** su **Sì**.
    * Impostare **Notificare agli amministratori quando altri amministratori reimpostano le proprie password** su **Sì**.
@@ -74,7 +74,7 @@ Se si decide di non volere più usare le funzionalità configurate nell'ambito d
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare ad **Azure Active Directory** e selezionare **Reimpostazione password**.
 1. Nella pagina **Proprietà** scegliere **Nessuno** per l'opzione **Reimpostazione password self-service abilitata**.
-1. Fare clic su **Save**
+1. Fare clic su **Save** (Salva).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

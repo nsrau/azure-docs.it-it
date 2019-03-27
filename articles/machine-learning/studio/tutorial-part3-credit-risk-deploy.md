@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: f64000ed502ee817f907e6ac9c89c2f037725a39
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823791"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57839018"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio
 
@@ -72,12 +72,11 @@ Si supponga che il modello di albero con boosting funzioni meglio del modello SV
 
 Selezionare ogni modulo e premere CANC oppure fare clic con il pulsante destro del mouse sul modulo e scegliere **Delete** (Elimina). 
 
-![Rimuovere il modello SVM](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
-
+![Evidenzia i moduli da eliminare per rimuovere il modello Macchina a vettore di supporto](./media/tutorial-part3-credit-risk-deploy/publish3a.png)
 
 Il modello avrà ora un aspetto analogo al seguente:
 
-![Rimuovere il modello SVM](./media/tutorial-part3-credit-risk-deploy/publish3.png)
+![Esperimento risultante dall'eliminazione del modello Macchina a vettore di supporto](./media/tutorial-part3-credit-risk-deploy/publish3.png)
 
 Ora il modello è pronto per essere distribuito tramite il modulo [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 

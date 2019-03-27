@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/27/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: db10361707d83fcda20f0e4bf2adc2abc4176808
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 67f4eb5383452a81ba288f5fe611242259217951
+ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54156172"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57404893"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk"></a>Esercitazione: Ordinare un disco di Azure Data Box
 
@@ -77,14 +77,28 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
 
     |Impostazione|Valore|
     |---|---|
-    |Nome|Specificare un nome descrittivo per tenere traccia dell'ordine.<br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero. |
+    |NOME|Specificare un nome descrittivo per tenere traccia dell'ordine.<br> Il nome può contenere da 3 a 24 caratteri che possono essere lettere, numeri e trattini. <br> Il nome deve iniziare e terminare con una lettera o un numero. |
     |Gruppo di risorse| Usare un gruppo esistente o crearne uno nuovo. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme. |
     |Area di Azure di destinazione| Selezionare l'area per l'account di archiviazione.<br> Attualmente sono supportati gli account di archiviazione in tutte le aree di Stati Uniti, Europa occidentale e settentrionale, Canada e Australia. |
-    |Account di archiviazione|In base all'area di Azure specificata, selezionare un account di archiviazione esistente nell'elenco filtrato. <br>È anche possibile creare un nuovo account Utilizzo generico v1 o Utilizzo generico v2. |
     |Dimensioni dei dati stimate in TB| Immettere una stima in TB. <br>In base alle dimensioni dei dati, Microsoft invia un numero appropriato di dischi SSD da 8 TB (con capacità utilizzabile di 7 TB). <br>La capacità massima utilizzabile nei 5 dischi è di 35 TB. |
     |Passkey disco| Se si seleziona **Usare una chiave personalizzata anziché la passkey generata da Azure**, specificare la passkey del disco. <br> Immettere una chiave alfanumerica di lunghezza compresa tra 12 e 32 caratteri e che contenga almeno un carattere numerico e un carattere speciale. I caratteri speciali consentiti sono `@?_+`. <br> Se si preferisce, è possibile ignorare questa opzione e usare la passkey generata da Azure per sbloccare i dischi.|
+    |Destinazione di archiviazione     | Scegliere tra account di archiviazione e/o dischi gestiti. <br> In base all'area di Azure specificata, selezionare un account di archiviazione dall'elenco filtrato di un account di archiviazione esistente. Il Data Box può essere collegato a un massimo di 10 account di archiviazione. <br> È anche possibile creare un nuovo account **Utilizzo generico v1**, **Utilizzo generico v2** o un **account di archiviazione BLOB**. <br>Non è possibile usare gli account di archiviazione con regole configurate. Gli account di archiviazione devono **consentire l'accesso da tutte le reti** nella sezione dei firewall e delle reti virtuali.|
 
-13. Fare clic su **Avanti**. 
+    Se si usa l'account di archiviazione come destinazione, vedere lo screenshot seguente:
+
+    ![Ordine di Data Box Disk per l'account di archiviazione](media/data-box-disk-deploy-ordered/order-storage-account.png)
+
+    Se si usa Data Box Disk per creare dischi gestiti da dischi rigidi virtuali in locale, è necessario fornire anche le informazioni seguenti:
+
+    |Impostazione  |Valore  |
+    |---------|---------|
+    |Gruppo di risorse     | Se si prevede la creazione di dischi gestiti da dischi rigidi virtuali in locale, creare un nuovo gruppo di risorse. Usare un gruppo di risorse esistente solo se è stato creato per l'ordine di Data Box Disk per il disco gestito dal servizio Data Box. <br> È supportato un solo gruppo di risorse.|
+
+    ![Ordine di Data Box Disk per disco gestito](media/data-box-disk-deploy-ordered/order-managed-disks.png)
+
+    L'account di archiviazione specificato per i dischi gestiti viene usato come account di archiviazione di staging. Il servizio Data Box carica i dischi rigidi virtuali nell'account di archiviazione di staging e poi li converte in dischi gestiti e li sposta nei gruppi di risorse. Per altre informazioni, vedere [Verificare il caricamento dei dati in Azure](data-box-disk-deploy-picked-up.md#verify-data-upload-to-azure).
+
+13. Fare clic su **Avanti**.
 
     ![Specificare i dettagli dell'ordine](media/data-box-disk-deploy-ordered/data-box-order-details.png)
 
@@ -102,7 +116,7 @@ Seguire questa procedura nel [portale di Azure](https://aka.ms/azuredataboxfromd
  
 ## <a name="track-the-order"></a>Monitorare l'ordine
 
-Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal portale di Azure. Passare all'ordine e quindi a **Panoramica** per visualizzare lo stato. Il portale mostra il processo con stato **Ordinato**. 
+Dopo aver inserito l'ordine, è possibile monitorare lo stato dell'ordine dal portale di Azure. Passare all'ordine e quindi a **Panoramica** per visualizzare lo stato. Il portale mostra il processo con stato **Ordinato**.
 
 ![Stato del disco di Data Box ordinato](media/data-box-disk-deploy-ordered/data-box-portal-ordered.png) 
 
@@ -118,9 +132,9 @@ Microsoft prepara e spedisce quindi i dischi tramite un vettore dell'area. Verr�
 
 ## <a name="cancel-the-order"></a>Annullare l'ordine
 
-Per annullare l'ordine, nel portale di Azure passare a **Panoramica** e fare clic su **Annulla** sulla barra dei comandi. 
+Per annullare l'ordine, nel portale di Azure passare a **Panoramica** e fare clic su **Annulla** sulla barra dei comandi.
 
-È possibile annullare solo quando i dischi sono stati ordinati ed è in corso l'elaborazione dell'ordine per la spedizione. Dopo l'elaborazione dell'ordine, non è più possibile annullarlo. 
+È possibile annullare solo quando i dischi sono stati ordinati ed è in corso l'elaborazione dell'ordine per la spedizione. Dopo l'elaborazione dell'ordine, non è più possibile annullarlo.
 
 ![Annullare l'ordine](media/data-box-disk-deploy-ordered/cancel-order1.png)
 
@@ -140,5 +154,3 @@ Passare all'esercitazione successiva per informazioni su come configurare Data B
 
 > [!div class="nextstepaction"]
 > [Configurare Azure Data Box Disk](./data-box-disk-deploy-set-up.md)
-
-

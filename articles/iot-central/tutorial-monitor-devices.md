@@ -3,18 +3,18 @@ title: Monitorare i dispositivi in Azure IoT Central | Microsoft Docs
 description: Un operatore può usare l'applicazione Azure IoT Central per monitorare i dispositivi.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2018
+ms.date: 02/01/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 941fbffaa7a0129de30d6fdf14d3d0559429309f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200242"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760473"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Esercitazione: Usare Azure IoT Central per monitorare i dispositivi
 
@@ -41,7 +41,7 @@ Azure IoT Central invia le notifiche sui dispositivi come messaggi di posta elet
 
 Aprire il messaggio di posta elettronica ricevuto al termine dell'esercitazione [Configurare le regole e le azioni per il dispositivo](tutorial-configure-rules.md). Nel messaggio di posta elettronica scegliere **Click here to open your device** (Fare clic qui per accedere al dispositivo):
 
-![Regole di Application Builder (Generatore applicazioni)](media/tutorial-monitor-devices/email.png)
+![Messaggio di posta elettronica di notifica avvisi](media/tutorial-monitor-devices/email.png)
 
 Nel browser viene visualizzata la pagina **Dispositivo** relativa al dispositivo simulato **Connected Air Conditioner-1** creato nelle esercitazioni precedenti:
 
@@ -55,13 +55,13 @@ Scegliere la visualizzazione **Dashboard** per vedere le informazioni sul dispos
 
 ![Pagina dashboard](media/tutorial-monitor-devices/initial_screen.png)
 
-Il grafico del dashboard mostra il tracciato della temperatura del dispositivo. È inoltre possibile visualizzare la temperatura target corrente impostata per il dispositivo nel riquadro **Set target temperature** (Temperatura target impostata). Si decide che la temperatura target è troppo alta.
+Il grafico del dashboard mostra il tracciato della temperatura del dispositivo. È inoltre possibile visualizzare la temperatura target corrente impostata per il dispositivo nel riquadro **Proprietà dispositivo**. Si decide che la temperatura target è troppo alta.
 
 ## <a name="remediate-an-issue"></a>Correggere un problema
 
 Per modificare la temperatura target del dispositivo, usare la pagina **Impostazioni**:
 
-1. Scegliere **Impostazioni**. Modificare il valore di **Set Temperature** (Temperatura impostata) impostandolo su 75. Scegliere **Aggiorna** per inviare la nuova temperatura target al dispositivo. Quando il dispositivo riconosce la modifica delle impostazioni, lo stato del valore dell'impostazione passa a **sincronizzato**:
+1. Scegliere **Impostazioni**. Modificare il valore di **Set Temperature** (Temperatura impostata) impostandolo su 75. Scegliere **Aggiorna** per inviare la nuova temperatura target al dispositivo. Quando il dispositivo conferma la modifica delle impostazioni, viene ripristinato lo stato **synced** (sincronizzato):
 
     ![Aggiornamento delle impostazioni](media/tutorial-monitor-devices/change_settings.png)
 

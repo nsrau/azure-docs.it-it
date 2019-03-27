@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Go - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Go.
+description: In questo argomento di avvio rapido si trovano traduzioni alternative ed esempi di termini in contesto usando l'API Traduzione testuale con Go.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,29 +10,29 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: b9f1b3b7ab99ca878227d8bf618545ec90aca4ac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 356c414d6e3823f927cbb201aeb0a0186e421b5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732042"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175534"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Go
 
 In questo argomento di avvio rapido viene illustrato come trovare traduzioni alternative ed esempi d'uso per un testo specifico usando Go e l'API REST Traduzione testuale.
 
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva richiede:
+Questo argomento di avvio rapido richiede:
 
 * [Go](https://golang.org/doc/install)
 * Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Creare un nuovo progetto Go usando l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `alt-translations.go`.
+Creare un nuovo progetto Go usando l'IDE o l'editor preferito oppure creare una nuova cartella sul desktop. Copiare quindi questo frammento di codice nel progetto o nella cartella all'interno di un file denominato `alt-translations.go`.
 
 ```go
 package main
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. Then, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -227,10 +227,10 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare i pacchetti Go per le API Servizi cognitivi da [Azure SDK per Go](https://github.com/Azure/azure-sdk-for-go) su GitHub.
+Esaminare gli esempi Go per le API Servizi cognitivi da [Azure SDK per Go](https://github.com/Azure/azure-sdk-for-go) su GitHub.
 
 > [!div class="nextstepaction"]
-> [Esaminare i pacchetti Go su GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Esaminare gli esempi Go su GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>Vedere anche 
 

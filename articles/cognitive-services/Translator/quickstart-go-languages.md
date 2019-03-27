@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Ottenere le lingue supportate, Go: API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Go.
+description: In questo argomento di avvio rapido si ottiene un elenco di lingue supportate per la traduzione, la traslitterazione e la ricerca nei dizionari insieme a esempi usando l'API Traduzione testuale con Go.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 3bccf50d9236fb5b51b89f31ffc2ec9b0d2c74cd
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: bf33860b111900fed850158d6b80d5a9d4404893
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727282"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58181606"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-get-a-list-of-supported-languages-using-go"></a>Avvio rapido: Usare l'API Traduzione testuale per ottenere un elenco delle lingue supportate usando Go
 
@@ -23,13 +23,13 @@ In questa guida di avvio rapido si apprenderà come effettuare una richiesta GET
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva richiede:
+Questo argomento di avvio rapido richiede:
 
 * [Go](https://golang.org/doc/install)
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Creare un nuovo progetto Go usando l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `get-languages.go`.
+Creare un nuovo progetto Go usando l'IDE o l'editor preferito oppure creare una nuova cartella sul desktop. Copiare quindi questo frammento di codice nel progetto o nella cartella all'interno di un file denominato `get-languages.go`.
 
 ```go
 package main
@@ -134,6 +134,8 @@ go run get-languages.go
 Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio completo è pubblicato su [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Go).
 
 ## <a name="sample-response"></a>Risposta di esempio
+
+Trovare l'abbreviazione del paese in questo [elenco di lingue](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 Viene restituita una risposta con esito positivo in formato JSON, come illustrato nell'esempio seguente:
 

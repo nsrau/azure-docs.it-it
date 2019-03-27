@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 445ddb3c580218e21410c961c614a8a9e29d21a0
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 2ea228a1db204170f947b5fe71f1865a4620b0f4
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56328334"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57549035"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
 
@@ -32,7 +32,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 La query seguente non ha un filtro per la chiave di partizione (`DeviceId`) e ne viene effettuato il fan-out a tutte le partizioni in cui viene eseguita a fronte dell'indice della partizione. Per eseguire una query tra partizioni, impostare `EnableCrossPartitionQuery` su true (o `x-ms-documentdb-query-enablecrosspartition` nell'API REST).
 
-La proprietà EnablecrossPartitionQuery accetta un valore booleano. Se impostata su true e se la query non ha una chiave di partizione, Azure Cosmos DB esegue il fan-out della query tra le partizioni. Il fan-out viene eseguito tramite l'esecuzione di singole query per tutte le partizioni. Per leggere i risultati della query, le applicazioni client devono utilizzare i risultati di FeedResponse e controllare la proprietà ContinuationToken. Per leggere tutti i risultati, proseguire l'iterazione sui dati fino a quando ContinuationToken non diventa null. 
+La proprietà EnableCrossPartitionQuery accetta un valore booleano. Se impostata su true e se la query non ha una chiave di partizione, Azure Cosmos DB esegue il fan-out della query tra le partizioni. Il fan-out viene eseguito tramite l'esecuzione di singole query per tutte le partizioni. Per leggere i risultati della query, le applicazioni client devono utilizzare i risultati di FeedResponse e controllare la proprietà ContinuationToken. Per leggere tutti i risultati, proseguire l'iterazione sui dati fino a quando ContinuationToken non diventa null. 
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading

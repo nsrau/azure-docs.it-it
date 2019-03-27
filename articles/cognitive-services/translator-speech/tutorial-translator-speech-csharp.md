@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: a3ed13cfe764c4f94dfa50fd096cfc7a8ac7656d
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 81ee3c7da43aa4d81838c90f4e8f41d114da72b5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673752"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900829"
 ---
 # <a name="tutorial-translator-speech-application-in-c"></a>Esercitazione: Applicazione Traduzione vocale in C#
 
@@ -40,7 +40,7 @@ La soluzione di Visual Studio crea anche un programma di installazione per l'app
 
 È necessario anche avere una chiave di sottoscrizione per il servizio Traduzione vocale, che è possibile ottenere dal dashboard di Microsoft Azure. È disponibile un piano tariffario gratuito che consente di tradurre gratuitamente fino a 10 ore di contenuto vocale al mese. Questo piano è sufficiente per l'esercitazione.
 
-È inoltre necessaria la [libreria JSON.Net](https://www.newtonsoft.com/json) di terze parti (di Newtonsoft). Questo assembly viene installato automaticamente da NuGet se nelle opzioni di Visual Studio sono abilitate entrambe le caselle di controllo di Ripristino pacchetto.
+È inoltre necessaria la [libreria JSON.NET](https://www.newtonsoft.com/json) di terze parti (di Newtonsoft). Questo assembly viene installato automaticamente da NuGet se nelle opzioni di Visual Studio sono abilitate entrambe le caselle di controllo di Ripristino pacchetto.
 
 ## <a name="trying-the-translation-app"></a>Prova dell'app di traduzione
 

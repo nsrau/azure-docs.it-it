@@ -1,20 +1,20 @@
 ---
 title: Configurare il cloud per il servizio Device Provisioning in hub IoT di Azure nel portale | Microsoft Docs
 description: Provisioning automatico dei dispositivi nell'hub IoT nel portale di Azure
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514843"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170735"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurare risorse cloud per il provisioning dei dispositivi con il servizio Device Provisioning in hub IoT
 
@@ -81,9 +81,9 @@ Il passaggio successivo consiste nel collegare il servizio Device Provisioning e
 
 4. Nella pagina **Aggiungi collegamento all'hub IoT** fornire le informazioni seguenti e fare clic su **Salva**:
 
-    * **Sottoscrizione**: assicurarsi di selezionare la sottoscrizione che contiene l'hub IoT. È possibile aggiungere un collegamento all'hub IoT presente in un'altra sottoscrizione.
+    * **Sottoscrizione:** assicurarsi di selezionare la sottoscrizione che contiene l'hub IoT. È possibile aggiungere un collegamento all'hub IoT presente in un'altra sottoscrizione.
 
-    * **Hub IoT:**  scegliere il nome dell'hub IoT che si vuole collegare con la nuova istanza del servizio Device Provisioning.
+    * **Hub IoT:** scegliere il nome dell'hub IoT che si vuole collegare con la nuova istanza del servizio Device Provisioning.
 
     * **Criteri di accesso:** selezionare **iothubowner** come credenziali da usare per stabilire il collegamento con l'hub IoT.
 
@@ -93,11 +93,11 @@ Il passaggio successivo consiste nel collegare il servizio Device Provisioning e
 
 I criteri di allocazione rappresentano un'impostazione del servizio Device Provisioning in hub IoT che determina la modalità di assegnazione dei dispositivi a un hub IoT. Sono supportati tre criteri di allocazione: 
 
-1. **Lowest latency** (Latenza minima): il provisioning dei dispositivi viene eseguito in un hub IoT in base all'hub con latenza minima per il dispositivo.
+1. **Latenza più bassa**: il provisioning dei dispositivi viene eseguito in un hub IoT in base all'hub con la latenza più bassa per il dispositivo.
 
-2. **Evenly weighted distribution** (Distribuzione ponderata uniforme): gli hub IoT collegati hanno le stesse probabilità di avere dispositivi sottoposti a provisioning. Questa è l'impostazione predefinita. Se si esegue il provisioning dei dispositivi in un solo hub IoT, è possibile mantenere questa impostazione. 
+2. **Distribuzione ponderata in modo uniforme** (impostazione predefinita): gli hub IoT collegati hanno le stesse probabilità di essere scelti per il provisioning dei dispositivi. Questa è l'impostazione predefinita. Se si esegue il provisioning dei dispositivi in un solo hub IoT, è possibile mantenere questa impostazione. 
 
-3. **Static configuration via the enrollment list** (Configurazione statica tramite l'elenco di registrazione): la specifica dell'hub IoT desiderato nell'elenco di registrazione ha priorità rispetto ai criteri di allocazione a livello del servizio Device Provisioning.
+3. **Configurazione statica tramite elenco di registrazione**: la specifica dell'hub IoT desiderato nell'elenco di registrazione ha priorità rispetto ai criteri di allocazione a livello del servizio Device Provisioning.
 
 Per impostare i criteri di allocazione, nella pagina Device Provisioning Service (Servizio Device Provisioning) fare clic su **Manage allocation policy** (Gestisci criteri di allocazione). Verificare che i criteri di allocazione siano impostati su **Evenly weighted distribution** (Distribuzione ponderata uniforme) (impostazione predefinita). Al termine, se si apportano modifiche, fare clic su **Save** (Salva).
 

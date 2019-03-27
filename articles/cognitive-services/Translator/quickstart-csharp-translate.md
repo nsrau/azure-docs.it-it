@@ -1,7 +1,7 @@
 ---
-title: 'Guida introduttiva: Tradurre un testo, C# - Traduzione testuale'
+title: 'Avvio rapido: Tradurre un testo, C# - Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questa guida introduttiva si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con C#.
+description: In questo argomento di avvio rapido si traduce testo da una lingua a un'altra usando l'API Traduzione testuale con C#.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: fce3a2f11aa168c669899d8ff7980a8288e10924
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: fc52512f48050c46894996d5a79b26f36fc6ad6c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731226"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183833"
 ---
-# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Guida introduttiva: Usare l'API Traduzione testuale per tradurre una stringa con C#
+# <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-c"></a>Avvio rapido: Usare l'API Traduzione testuale per tradurre una stringa con C#
 
-In questa guida introduttiva si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con .NET Core e l'API REST Traduzione testuale.
+In questo argomento di avvio rapido si apprenderà come tradurre una stringa di testo dall'inglese all'italiano e al tedesco con .NET Core e l'API REST Traduzione testuale.
 
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -155,6 +155,8 @@ dotnet run
 
 ## <a name="sample-response"></a>Risposta di esempio
 
+Trovare l'abbreviazione del paese in questo [elenco di lingue](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
+
 ```json
 [
   {
@@ -182,7 +184,7 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Esaminare il codice di esempio per questa guida introduttiva e per altre, incluse quelle relative alla traslitterazione e all'identificazione della lingua, e anche altri progetti di esempio di Traduzione testuale su GitHub.
+Esaminare il codice di esempio per questo argomento di avvio rapido e per altre, incluse quelle relative alla traslitterazione e all'identificazione della lingua, e anche altri progetti di esempio di Traduzione testuale su GitHub.
 
 > [!div class="nextstepaction"]
 > [Esaminare gli esempi di codice C# su GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)

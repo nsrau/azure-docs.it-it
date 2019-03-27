@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 0978db31f4aa8caa273c63c2f55d5146b19dea26
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: cdde9f0ec69bec48ae0fb747db0cc49e81920817
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878014"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57872569"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-unity-beta"></a>Guida introduttiva: Riconoscimento vocale con Speech SDK per Unity (beta)
 
@@ -65,7 +65,7 @@ Si aggiunge alla scena un'interfaccia utente minima, costituita da un pulsante p
 * La [finestra della gerarchia](https://docs.unity3d.com/Manual/Hierarchy.html), che per impostazione predefinita si trova a sinistra, contiene una scena di esempio creata da Unity con il nuovo progetto.
 * Fare clic sul pulsante **Create** (Crea) nella parte superiore della finestra della gerarchia e selezionare **UI** (Interfaccia utente) > **Button** (Pulsante).
 * Verranno così creati tre oggetti di gioco, visualizzati nella finestra della gerarchia: un oggetto **Button** annidato in un oggetto **Canvas** e un oggetto **EventSystem**.
-* [Spostarsi nella visualizzazione della scena](https://docs.unity3d.com/Manual/SceneViewNavigation.html), in cui è possibile esaminare il canvas e il pulsante.
+* [Spostarsi nella visualizzazione della scena](https://docs.unity3d.com/Manual/SceneViewNavigation.html), in modo da poter esaminare il canvas e il pulsante nella [visualizzazione della scena](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Fare clic sull'oggetto **Button** nella finestra della gerarchia per visualizzarne le impostazioni nella [finestra di controllo](https://docs.unity3d.com/Manual/UsingTheInspector.html), che per impostazione predefinita si trova a destra.
 * Impostare le proprietà **Pos X** e **Pos Y** su **0**, affinché il pulsante sia posizionato al centro del canvas.
 * Fare di nuovo clic sul pulsante **Create** (Crea) nella parte superiore della finestra della gerarchia e selezionare **UI** (Interfaccia utente) > **Text** (Testo).
@@ -82,14 +82,14 @@ Al termine, l'interfaccia utente dovrebbe essere simile allo screenshot seguente
 
 1. Modificare lo script facendo doppio clic su di esso.
 
-  > [!NOTE]
-  > È possibile configurare l'editor di codice da avviare in **Edit** (Modifica) > **Preferences** (Preferenze). Vedere il [manuale dell'utente di Unity](https://docs.unity3d.com/Manual/Preferences.html).
+   > [!NOTE]
+   > È possibile configurare l'editor di codice da avviare in **Edit** (Modifica) > **Preferences** (Preferenze). Vedere il [manuale dell'utente di Unity](https://docs.unity3d.com/Manual/Preferences.html).
 
 1. Sostituire tutto il codice con quanto riportato di seguito:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-unity/Assets/Scripts/HelloWorld.cs#code)]
 
-1. Individuare e sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione del Servizio Voce.
+1. Individuare e sostituire la stringa `YourSubscriptionKey` con la chiave di sottoscrizione dei servizi Voce.
 
 1. Individuare e sostituire la stringa `YourServiceRegion` con l'[area](regions.md) associata alla sottoscrizione, ad esempio `westus` per la sottoscrizione di valutazione gratuita.
 
@@ -97,19 +97,19 @@ Al termine, l'interfaccia utente dovrebbe essere simile allo screenshot seguente
 
 1. Nell'editor di Unity è necessario aggiungere lo script come componente a uno degli oggetti di gioco.
 
-  * Fare clic sull'oggetto **Canvas** nella finestra della gerarchia. La relativa impostazione verrà visualizzata nella [finestra di controllo](https://docs.unity3d.com/Manual/UsingTheInspector.html), che per impostazione predefinita si trova a destra.
-  * Fare clic sul pulsante **Add Component** (Aggiungi componente) nella finestra di controllo e quindi cercare lo script HelloWorld creato in precedenza e aggiungerlo.
-  * Si noti che il componente Hello World ha due proprietà non inizializzate, **Output Text** (Testo di output) e **Start Reco Button** (Pulsante di avvio riconoscimento), che corrispondono alle proprietà pubbliche della classe `HelloWorld`.
-    Per collegarle, fare clic sul selettore oggetti (icona a forma di piccolo cerchio a destra della proprietà) e scegliere gli oggetti testo e pulsante creati in precedenza.
+   * Fare clic sull'oggetto **Canvas** nella finestra della gerarchia. L'impostazione verrà visualizzata nella [finestra di controllo](https://docs.unity3d.com/Manual/UsingTheInspector.html), che per impostazione predefinita si trova a destra.
+   * Fare clic sul pulsante **Add Component** (Aggiungi componente) nella finestra di controllo e quindi cercare lo script HelloWorld creato in precedenza e aggiungerlo.
+   * Si noti che il componente Hello World ha due proprietà non inizializzate, **Output Text** (Testo di output) e **Start Reco Button** (Pulsante di avvio riconoscimento), che corrispondono alle proprietà pubbliche della classe `HelloWorld`.
+     Per collegarle, fare clic sul selettore oggetti (icona a forma di piccolo cerchio a destra della proprietà) e scegliere gli oggetti testo e pulsante creati in precedenza.
 
-    > [!NOTE]
-    > Il pulsante include anche un oggetto testo annidato. Assicurarsi di non selezionarlo accidentalmente per l'output di testo oppure rinominare uno degli oggetti testo usando il campo Name (Nome) nella finestra di controllo per evitare di confondersi.
+     > [!NOTE]
+     > Il pulsante include anche un oggetto testo annidato. Assicurarsi di non selezionarlo accidentalmente per l'output di testo oppure rinominare uno degli oggetti testo usando il campo Name (Nome) nella finestra di controllo per evitare di confondersi.
 
 ## <a name="run-the-application-in-the-unity-editor"></a>Eseguire l'applicazione nell'editor di Unity
 
 * Fare clic sul pulsante **Play** (Riproduci) sulla barra degli strumenti dell'editor di Unity, sotto la barra dei menu.
 
-* Dopo l'avvio dell'app, fare clic sul pulsante e pronunciare una frase o un'espressione in inglese nel microfono del computer. Il riconoscimento vocale viene trasmesso al Servizio di riconoscimento vocale e trascritto in formato testo, che appare nella finestra.
+* Dopo l'avvio dell'app, fare clic sul pulsante e pronunciare una frase o un'espressione in inglese nel microfono del computer. Il contenuto vocale viene trasmesso ai servizi Voce e trascritto come testo, che appare nella finestra.
 
   [![Screenshot della guida introduttiva in esecuzione nella finestra del gioco in Unity](media/sdk/qs-csharp-unity-03-output-inline.png)](media/sdk/qs-csharp-unity-03-output-expanded.png#lightbox)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Avvio rapido: Cercare le parole con il dizionario bilingue, Node.js - API Traduzione testuale'
 titleSuffix: Azure Cognitive Services
-description: In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
+description: In questo argomento di avvio rapido verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,29 +10,29 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 7cfcf68a7725ba6c8a7ad4e0a88c5eed814b38ba
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4b8d26868c3880852e0d2f9c43b06ca1b25d094f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176379"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-nodejs"></a>Avvio rapido: Cercare le parole con il dizionario bilingue usando Node.js
 
-In questa Guida introduttiva verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
+In questo argomento di avvio rapido verrà illustrato come trovare traduzioni alternative ed esempi di utilizzo per un testo specifico usando Node.js e l'API REST Traduzione testuale.
 
-Per questa guida introduttiva è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
+Per questo argomento di avvio rapido è necessario avere un [account di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) con una risorsa Traduzione testuale. Se non si dispone di un account, è possibile usare la [versione di valutazione gratuita](https://azure.microsoft.com/try/cognitive-services/) per ottenere una chiave di sottoscrizione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa guida introduttiva richiede:
+Questo argomento di avvio rapido richiede:
 
 * [Node 8.12.x o versione successiva](https://nodejs.org/en/)
 * Una chiave di sottoscrizione di Azure per Traduzione testuale
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creare un progetto e importare i moduli necessari
 
-Creare un nuovo progetto tramite l'editor o l'IDE preferito. Copiare quindi questo frammento di codice nel progetto all'interno di un file denominato `dictionary-lookup.js`.
+Creare un nuovo progetto usando l'IDE o l'editor preferito oppure creare una nuova cartella sul desktop. Copiare questo frammento di codice nel progetto o nella cartella all'interno di un file denominato `alt-translations.js`.
 
 ```javascript
 const request = require('request');
@@ -114,7 +114,7 @@ request(options, function(err, res, body){
 La procedura è completata. È stato realizzato un semplice programma che chiamerà l'API Traduzione testuale e restituirà una risposta JSON. A questo punto, è possibile eseguire il programma:
 
 ```console
-node dictionary-lookup.js
+node alt-translations.js
 ```
 
 Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio completo è pubblicato su [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-NodeJS).
@@ -149,7 +149,7 @@ Se si vuole confrontare il proprio codice con quello già disponibile, l'esempio
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questa guida introduttiva.
+Se la chiave di sottoscrizione è stata impostata come hardcoded nel programma, assicurarsi di rimuoverla al termine di questo argomento di avvio rapido.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

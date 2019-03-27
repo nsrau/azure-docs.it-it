@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: e37d5b050c5ca957b59c1e0a60c88171c1fc4a23
-ms.sourcegitcommit: 56d20d444e814800407a955d318a58917e87fe94
+ms.openlocfilehash: df57faad770b252228b6c55d4caff775acfe3594
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/29/2018
-ms.locfileid: "52582242"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531165"
 ---
 # <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico in ingresso con DNAT di Firewall di Azure tramite il portale di Azure
 
@@ -37,7 +37,7 @@ Per questa esercitazione vengono create due reti virtuali con peering:
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-1. Accedere al portale di Azure all'indirizzo [http://portal.azure.com](http://portal.azure.com).
+1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 2. Nella home page del portale di Azure fare clic su **Gruppi di risorse**, quindi fare clic su **Aggiungi**.
 3. In **Nome del gruppo di risorse** digitare **RG-DNAT-Test**.
 4. In **Sottoscrizione** selezionare la propria sottoscrizione.
@@ -152,9 +152,9 @@ Al termine della distribuzione, prendere nota dell'indirizzo IP privato della ma
    |---------|---------|
    |NOME     |FW-DNAT-test|
    |Sottoscrizione     |\<sottoscrizione in uso\>|
-   |Gruppo di risorse     |**Usa esistente**: RG-DNAT-Test |
+   |Gruppo di risorse     |**Use existing** (Usa esistente): RG-DNAT-Test |
    |Località     |Selezionare la stessa località usata in precedenza|
-   |Scegliere una rete virtuale     |**Usa esistente**: VN-Hub|
+   |Scegliere una rete virtuale     |**Use existing** (Usa esistente): VN-Hub|
    |Indirizzo IP pubblico     |**Creare un nuovo gruppo di risorse**. L'indirizzo IP pubblico deve essere di tipo SKU Standard.|
 
 5. Fare clic su **Rivedi e crea**.
@@ -229,4 +229,4 @@ Questa esercitazione illustra come:
 È possibile ora monitorare i log di Firewall di Azure.
 
 > [!div class="nextstepaction"]
-> [Esercitazione: Monitorare i log di Firewall di Azure](./tutorial-diagnostics.md)
+> [Esercitazione: monitorare i log del Firewall di Azure](./tutorial-diagnostics.md)

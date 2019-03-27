@@ -6,21 +6,21 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/28/2018
+ms.date: 3/4/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 003b43760b4c0ae5785315e6acf0ed9982d9b1fe
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4f95cbb6cb04f2215bb5cb89bb5e9afb4ca2628f
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960854"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57342155"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
 Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud che consente di proteggere le risorse della rete virtuale di Azure. È un firewall con stato completo come servizio con disponibilità elevata incorporata e scalabilità del cloud senza restrizioni. 
 
-![Panoramica del firewall](media/overview/firewall-overview.png)
+![Panoramica del firewall](media/overview/firewall-threat.png)
 
 È possibile creare, applicare e registrare criteri di connettività di applicazione e di rete in modo centralizzato tra le sottoscrizioni e le reti virtuali. Firewall di Azure usa un indirizzo IP pubblico statico per le risorse della rete virtuale consentendo ai firewall esterni di identificare il traffico proveniente dalla rete virtuale.  Il servizio è completamente integrato con Monitoraggio di Azure per la registrazione e l'analisi.
 
@@ -29,9 +29,11 @@ Firewall di Azure è un servizio di sicurezza di rete gestito basato sul cloud c
 Il Firewall di Azure offre le funzionalità seguenti:
 
 ### <a name="built-in-high-availability"></a>Disponibilità elevata predefinita
+
 La disponibilità elevata è integrata, quindi non sono necessari servizi di bilanciamento del carico aggiuntivi e non è necessario eseguire altre configurazioni.
 
-### <a name="unrestricted-cloud-scalability"></a>Scalabilità del cloud senza restrizioni 
+### <a name="unrestricted-cloud-scalability"></a>Scalabilità del cloud senza restrizioni
+
 È possibile aumentare le prestazioni di Firewall di Azure a seconda delle esigenze in modo da soddisfare i mutevoli flussi del traffico di rete senza dover stabilire un budget per i periodi di traffico più intenso.
 
 ### <a name="application-fqdn-filtering-rules"></a>Regole di filtro del nome di dominio completo dell'applicazione
@@ -45,6 +47,14 @@ La disponibilità elevata è integrata, quindi non sono necessari servizi di bil
 ### <a name="fqdn-tags"></a>Tag FQDN
 
 I tag FQDN rendono più semplice consentire il traffico di rete noto del servizio di Azure attraverso il firewall. Ad esempio, si supponga di voler consentire il traffico di rete di Windows Update attraverso il firewall. Creare una regola di applicazione e includere il tag di Windows Update. A questo punto il traffico di rete da Windows Update può attraversare il firewall.
+
+### <a name="service-tags"></a>Tag di servizio
+
+Un tag di servizio rappresenta un gruppo di prefissi di indirizzo IP che consente di ridurre al minimo la complessità nella creazione di regole di sicurezza. Non è possibile creare tag di servizio personalizzati, né specificare gli indirizzi IP inclusi in un tag. I prefissi di indirizzo inclusi nel tag di servizio sono gestiti da Microsoft, che aggiorna automaticamente il tag in caso di modifica degli indirizzi.
+
+### <a name="threat-intelligence"></a>Intelligence per le minacce
+
+I filtri basati sull'intelligence per le minacce possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti. Gli indirizzi IP e i domini sono originati dal feed Intelligence sulle minacce Microsoft.
 
 ### <a name="outbound-snat-support"></a>Supporto SNAT in uscita
 
@@ -72,11 +82,10 @@ Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non f
 |I tag FQDN richiedono l'impostazione di protocol:port|Le regole di applicazione con tag FQDN richiedono la definizione port:protocol.|È possibile usare **https** come valore port:protocol. A breve questo campo sarà reso facoltativo quando vengono usati i tag FQDN.|
 |Lo spostamento di un firewall in un altro gruppo di risorse o sottoscrizione non è supportato|Lo spostamento di un firewall in un altro gruppo di risorse o sottoscrizione non è supportato.|Il supporto di questa funzionalità è previsto per il futuro. Per spostare un firewall in un altro gruppo di risorse o sottoscrizione, è necessario eliminare l'istanza corrente e ricrearla nel nuovo gruppo di risorse o sottoscrizione.|
 |Intervallo di porte nelle regole di rete e dell'applicazione|Il numero di porte è limitato a 64.000 perché le porte con numeri elevati sono riservate ai probe di gestione e integrità. |Microsoft si sta adoperando per ovviare a questa limitazione.|
-|
+|Gli avvisi dell'intelligence per le minacce possono essere mascherati|Le regole di rete con destinazione 80/443 per i filtri in uscita mascherano gli avvisi di intelligence quando sono configurati in modalità di solo avviso.|Creare filtri in uscita per 80/443 usando le regole dell'applicazione. Oppure impostare la modalità di intelligence per le minacce su **Alert and Deny** (Avviso e rifiuto).|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure](tutorial-firewall-deploy-portal.md)
 - [Distribuire Firewall di Azure con un modello](deploy-template.md)
 - [Creare un ambiente di test di Firewall di Azure](scripts/sample-create-firewall-test.md)
-

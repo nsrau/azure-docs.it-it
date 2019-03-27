@@ -1,23 +1,22 @@
 ---
-title: Creare uno spazio di sviluppo Kubernetes nel cloud usando .NET Core e Visual Studio | Microsoft Docs
+title: Creare uno spazio di sviluppo Kubernetes nel cloud usando .NET Core e Visual Studio
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.subservice: azds-kubernetes
 author: zr-msft
 ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
-keywords: Docker, Kubernetes, Azure, servizio Azure Kubernetes, contenitori
-ms.openlocfilehash: f345ff2e64670536771a639a7619c6e1d4d2d82d
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s
+ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823944"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894156"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introduzione ad Azure Dev Spaces con .NET Core e Visual Studio
 
@@ -34,18 +33,17 @@ In questa guida si apprenderà come:
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creare un cluster Kubernetes abilitato per Azure Dev Spaces
 
-1. Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+1. Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 1. Scegliere **Crea una risorsa** > cercare **Kubernetes** > selezionare **Kubernetes Service** > **Crea**.
 
-   Completare i passaggi seguenti in ogni intestazione del modulo per la creazione di un cluster del servizio Azure Container.
+   Completare i passaggi seguenti in ogni intestazione del modulo *Creare un cluster Kubernetes* e verificare che l'[area selezionata supporti Azure Dev Spaces](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams).
 
-    - **PROJECT DETAILS** (DETTAGLI PROGETTO): selezionare una sottoscrizione di Azure e un gruppo di risorse di Azure nuovo o esistente.
-    - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere nome, area (attualmente è possibile scegliere EastUS, EastUS2, CentralUS, WestEurope, WestUS2, SoutheastAsia, CanadaCentral o CanadaEast), versione e prefisso del nome DNS per il cluster servizio Azure Kubernetes.
-    - **SCALE** (SCALABILITÀ): selezionare le dimensioni della macchina virtuale per i nodi agente servizio Azure Kubernetes e il numero di nodi. Se si sta iniziando a usare Azure Dev Spaces, un nodo è sufficiente per esplorare tutte le funzionalità. Il numero di nodi può essere modificato facilmente in qualsiasi momento dopo la distribuzione del cluster. Le dimensioni della macchina virtuale non possono essere modificate dopo la creazione del cluster servizio Azure Kubernetes. Tuttavia, se è necessario aumentare le prestazioni, dopo la distribuzione del cluster servizio Azure Kubernetes è possibile facilmente creare un nuovo cluster servizio Azure Kubernetes con macchine virtuali di dimensioni maggiori e usare Dev Spaces per la ridistribuzione nel cluster più grande.
-
-   Assicurarsi di scegliere Kubernetes versione 1.9.6 o versioni successive.
+   - **PROJECT DETAILS** (DETTAGLI PROGETTO): selezionare una sottoscrizione di Azure e un gruppo di risorse di Azure nuovo o esistente.
+   - **CLUSTER DETAILS** (DETTAGLI CLUSTER): immettere un nome, un'area, una versione e un prefisso di nome DNS per il cluster del servizio Azure Container.
+   - **SCALE** (SCALABILITÀ): selezionare le dimensioni della macchina virtuale per i nodi agente servizio Azure Kubernetes e il numero di nodi. Se si sta iniziando a usare Azure Dev Spaces, un nodo è sufficiente per esplorare tutte le funzionalità. Il numero di nodi può essere modificato facilmente in qualsiasi momento dopo la distribuzione del cluster. Le dimensioni della macchina virtuale non possono essere modificate dopo la creazione del cluster servizio Azure Kubernetes. Tuttavia, se è necessario aumentare le prestazioni, dopo la distribuzione del cluster servizio Azure Kubernetes è possibile facilmente creare un nuovo cluster servizio Azure Kubernetes con macchine virtuali di dimensioni maggiori e usare Dev Spaces per la ridistribuzione nel cluster più grande.
 
    ![Impostazioni di configurazione di Kubernetes](media/common/Kubernetes-Create-Cluster-2.PNG)
+
 
    Selezionare **Avanti: Autenticazione** al termine.
 
@@ -63,7 +61,7 @@ In questa guida si apprenderà come:
 
 ## <a name="create-a-web-app-running-in-a-container"></a>Creare un'app Web in esecuzione in un contenitore
 
-In questa sezione si creerà un'app Web ASP.NET Core e si eseguirà tale app in un contenitore in Kubernetes.
+In questa sezione si creerà un'app Web ASP.NET Core e la si eseguirà in un contenitore in Kubernetes.
 
 ### <a name="create-an-aspnet-web-app"></a>Creare un'app Web ASP.NET
 

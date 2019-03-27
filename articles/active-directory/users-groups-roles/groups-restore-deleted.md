@@ -1,5 +1,5 @@
 ---
-title: Ripristinare un gruppo di Office 365 eliminato in Azure AD | Microsoft Docs
+title: Ripristinare un gruppo di Office 365 eliminato - Azure AD | Microsoft Docs
 description: Come ripristinare un gruppo eliminato, visualizzare i gruppi ripristinabili ed eliminare in modo permanente un gruppo in Azure Active Directory
 services: active-directory
 author: curtand
@@ -8,19 +8,20 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: krbain
-ms.custom: it-pro
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cacd4a24becab1dfe797fe29aea125c016527192
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 81bf41dd183944a43d9558d0aec0c416d30620b2
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734388"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58202572"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Ripristinare un gruppo di Office 365 eliminato in Azure Active Directory
+
 Quando si elimina un gruppo di Office 365 in Azure Active Directory (Azure AD), il gruppo eliminato viene conservato ma non è visibile per 30 giorni dalla data di eliminazione. In questo modo è possibile ripristinare il gruppo e i relativi contenuti se necessario. Questa funzionalità è limitata esclusivamente ai gruppi di Office 365 in Azure AD. Non è disponibile per i gruppi di sicurezza e i gruppi di distribuzione.
 
 > [!NOTE]
@@ -30,22 +31,22 @@ Per ripristinare un gruppo sono necessarie una delle autorizzazioni seguenti:
 
 Ruolo | Autorizzazioni
 --------- | ---------
-Amministratore società, Supporto partner - Livello 2 e Amministratore del servizio Intune | Possono ripristinare qualsiasi gruppo di Office 365 eliminato
-Amministratore dell'account utente e supporto partner di livello 1 | Possono ripristinare qualsiasi gruppo di Office 365 eliminato, ad eccezione di quelli assegnati al ruolo Amministratore società
-Utente | Possono ripristinare qualsiasi gruppo di Office 365 eliminato che era di loro proprietà
+Amministratore globale, Supporto partner - Livello 2 e Amministratore di Intune | Possono ripristinare qualsiasi gruppo di Office 365 eliminato
+Amministratore utenti e Supporto partner - Livello 1 | Possono ripristinare qualsiasi gruppo di Office 365 eliminato, ad eccezione di quelli assegnati al ruolo Amministratore società
+Utente | Possono ripristinare qualsiasi gruppo di Office 365 eliminato di cui sono proprietari
 
 ## <a name="view-and-manage-the-deleted-office-365-groups-that-are-available-to-restore"></a>Visualizzare e gestire i gruppi di Office 365 eliminati che è possibile ripristinare
 
-1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account amministratore.
+1. Accedere all'[interfaccia di amministrazione di Azure AD](https://aad.portal.azure.com) con un account Amministratore utenti.
 
 2. Selezionare **Gruppi** e quindi **Gruppi eliminati** per visualizzare i gruppi eliminati disponibili per il ripristino.
 
-    ![Pannello Gruppi eliminati](media/groups-lifecycle/deleted-groups3.png)
+    ![Visualizzare i gruppi che è possibile ripristinare](media/groups-lifecycle/deleted-groups3.png)
 
 3. Nel pannello **Gruppi eliminati** è possibile:
 
-  - Ripristinare il gruppo eliminato e il relativo contenuto selezionando **Ripristina gruppo**.
-  - Rimuovere in modo permanente il gruppo eliminato selezionando **Elimina definitivamente**. Per rimuovere definitivamente un gruppo, è necessario essere un amministratore.
+   - Ripristinare il gruppo eliminato e il relativo contenuto selezionando **Ripristina gruppo**.
+   - Rimuovere in modo permanente il gruppo eliminato selezionando **Elimina definitivamente**. Per rimuovere definitivamente un gruppo, è necessario essere un amministratore.
 
 ## <a name="view-the-deleted-office-365-groups-that-are-available-to-restore-using-powershell"></a>Visualizzare i gruppi di Office 365 eliminati che è possibile ripristinare tramite PowerShell
 I cmdlet seguenti consente di visualizzare i gruppi eliminati per verificare che il gruppo o i gruppi a cui l'utente è interessato non siano stati ancora eliminati definitivamente. Questi cmdlet fanno parte del modulo [PowerShell di Azure AD](https://www.powershellgallery.com/packages/AzureAD/). Altre informazioni su questo modulo sono reperibili nell'articolo [PowerShell di Azure Active Directory versione 2](/powershell/azure/install-adv2?view=azureadps-2.0).

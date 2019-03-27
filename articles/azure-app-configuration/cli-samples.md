@@ -14,25 +14,25 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 053baf072c667c46f9e6d955125c13f711c20c20
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884297"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223649"
 ---
 # <a name="azure-cli-samples"></a>Esempi dell'interfaccia della riga di comando di Azure
 
-La tabella seguente include collegamenti a script Bash per il servizio Configurazione app di Azure tramite l'interfaccia della riga di comando di Azure.
+La tabella seguente include collegamenti a script Bash per Configurazione app di Azure con l'interfaccia della riga di comando di Azure.
 
 | | |
 |-|-|
 |**Creare**||
 | [Creare un archivio di configurazione di app](./scripts/cli-create-service.md) | Creare un gruppo di risorse e un'istanza di archivio di configurazione di app.  |
-|**Usare**||
+|**Uso**||
 | [Usare coppie chiave-valore](./scripts/cli-work-with-keys.md) | Creare, visualizzare, aggiornare ed eliminare coppie chiave-valore. |
 | [Importare coppie chiave-valore](./scripts/cli-import.md) | Importare coppie chiave-valore da altre origini. |
 | [Esportare coppie chiave-valore](./scripts/cli-export.md) | Esportare coppie chiave-valore in altre destinazioni. |
-|**Eliminare**||
+|**Elimina**||
 | [Eliminare un archivio di configurazione di app](./scripts/cli-delete-service.md) | Eliminare un'istanza di archivio di configurazione di app.  |
 | | |

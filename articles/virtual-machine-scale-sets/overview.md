@@ -16,12 +16,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: manayar
-ms.openlocfilehash: 5cd9593bba1e97f52bfa37467920959b1ef0f698
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 1ace0ddd3b29f844488eb7579934541fa8273fa0
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329611"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58199903"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Che cosa sono i set di scalabilità delle macchine virtuali?
 I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di VM identiche con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono disponibilità elevata per le applicazioni e consentono di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali. Con i set di scalabilità di macchine virtuali è possibile creare servizi su larga scala per aree quali calcolo, Big Data e carichi di lavoro contenitore.
@@ -46,7 +46,7 @@ I set di scalabilità di macchine virtuali di Azure offrono funzionalità di ges
     - La scalabilità automatica consente inoltre di ridurre al minimo il numero di istanze VM non necessarie che eseguono l'applicazione quando la domanda è bassa, mentre i clienti continuano a ricevere un livello di prestazioni accettabile all'aumentare della domanda, grazie all'aggiunta automatica di altre istanze VM. Questa possibilità consente di ridurre i costi e di creare in modo efficiente risorse di Azure quando necessario.
 
 - **Funzionamento su larga scala**
-    - I set di scalabilità supportano fino a 1.000 istanze VM. Se si creano e si caricano immagini di VM personalizzate, il limite è di 300 istanze VM.
+    - I set di scalabilità supportano fino a 1.000 istanze VM. Se si creano e si caricano immagini di macchine virtuali personalizzate, il limite è di 600 istanze di macchina virtuale.
     - Per prestazioni ottimali con carichi di lavoro di produzione, usare [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 

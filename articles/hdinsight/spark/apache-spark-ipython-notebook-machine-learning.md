@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 0a0712e4985414263d1e90299d78d5e30fe78a3e
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 54ef9ac72ffeebbf228a85768f6c2eb4b64862c9
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608512"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57433400"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in HDInsight 
 

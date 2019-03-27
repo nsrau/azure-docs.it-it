@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 02/20/2019
+ms.date: 03/04/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 84287191af60a5e9306f03ca2ebd10f9e347c9ac
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 87c5d24f0e9077acf66bacd97097cfc32bd49ead
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453053"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57432108"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -42,12 +42,11 @@ Il servizio Visione artificiale di Azure consente agli sviluppatori di accedere 
 |**[Generare un'anteprima](concept-generating-thumbnails.md)**|È possibile analizzare i contenuti di un'immagine per generare un'anteprima appropriata per tale immagine. Visione artificiale genera prima di tutto un'anteprima di qualità elevata e quindi analizza gli oggetti inclusi nell'immagine per determinare l'*area di interesse*. L'immagine viene quindi ritagliata per soddisfare i requisiti dell'area di interesse. L'anteprima generata può essere visualizzata con proporzioni diverse da quelle dell'immagine originale, in base alle esigenze specifiche.|
 |**[Ottenere l'area di interesse](concept-generating-thumbnails.md#area-of-interest)**|Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area di interesse*. Questa funzione corrisponde a quella usata per generare un'anteprima, ma invece di ritagliare l'immagine Visione artificiale restituisce le coordinate del rettangolo di selezione dell'area, in modo che l'applicazione chiamante possa modificare l'immagine originale in base alle esigenze.|
 
-
 ## <a name="extract-text-from-images"></a>Estrarre testo dalle immagini
 
-È possibile usare Visione artificiale per [estrarre testo con il riconoscimento ottico dei caratteri (OCR)](concept-extracting-text-ocr.md) da un'immagine a un flusso di caratteri leggibili dal computer. Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto e fornisce le coordinate del frame per ogni parola. La funzione OCR supporta 25 lingue e rileva automaticamente la lingua del testo riconosciuto.
+È possibile usare Visione artificiale per estrarre testo da un'immagine in un flusso di caratteri leggibili dal computer con il [riconoscimento ottico dei caratteri (OCR)](concept-recognizing-text.md#ocr-optical-character-recognition-api). Se necessario, la funzione OCR corregge la rotazione del testo riconosciuto e fornisce le coordinate del frame per ogni parola. La funzione OCR supporta 25 lingue e rileva automaticamente la lingua del testo riconosciuto.
 
-È anche possibile [riconoscere testo stampato e scritto a mano](concept-recognizing-text.md) in un'immagine. Visione artificiale può rilevare ed estrarre testo stampato e scritto a mano da immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster, biglietti da visita, lettere e lavagne. La funzionalità di riconoscimento di testo stampato e scritto a mano è attualmente in anteprima e l'inglese è l'unica lingua supportata. 
+È anche possibile usare l'[API di lettura](concept-recognizing-text.md#read-api) per estrarre testo, scritto a mano o stampato, da immagini e documenti con grandi quantità di testo. L'API di lettura usa modelli aggiornati e funziona per un'ampia varietà di oggetti con diverse superfici e sfondi, ad esempio ricevute, poster, biglietti da visita, lettere e lavagne. Attualmente, l'API di lettura è disponibile in anteprima e l'unica lingua supportata è l'inglese.
 
 ## <a name="moderate-content-in-images"></a>Moderare i contenuti nelle immagini
 

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 973d5c5c3822eaddce2bc77d06d01930606994c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815745"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182575"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Esercitazione: Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -25,7 +25,7 @@ Per questa esercitazione vengono create tre reti virtuali:
 
 - **VNet-Hub**: in questa rete virtuale si trova la rete virtuale.
 - **VNet-Spoke**: la rete virtuale spoke rappresenta il carico di lavoro che si trova in Azure.
-- **VNet-Onprem**: rappresenta una rete locale. In una distribuzione reale può essere connessa tramite una connessione VPN o Route. Per semplicità, questa esercitazione usa una connessione gateway VPN e per rappresentare una rete locale viene usata una rete virtuale ubicata in Azure.
+- **VNet-Onprem**: rappresenta una rete locale. In una distribuzione reale la connessione può essere effettuata tramite una connessione VPN o ExpressRoute. Per semplicità, questa esercitazione usa una connessione gateway VPN e per rappresentare una rete locale viene usata una rete virtuale ubicata in Azure.
 
 ![Firewall in una rete ibrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -51,13 +51,16 @@ Per il corretto funzionamento di questo scenario devono essere soddisfatti tre r
 
 - Una route definita dall'utente nella subnet spoke che punti all'indirizzo IP di Firewall di Azure come gateway predefinito. La propagazione della route BGP deve essere impostata su **Disabilitata** in questa tabella di route.
 - Una route definita dall'utente nella subnet del gateway dell'hub deve puntare all'indirizzo IP del firewall come hop successivo per le reti spoke.
-- Non è richiesta alcuna route definita dall'utente nella subnet di Firewall di Azure, dal momento che le route vengono apprese dal protocollo BGP.
+
+   Non è richiesta alcuna route definita dall'utente nella subnet di Firewall di Azure, dal momento che le route vengono apprese dal protocollo BGP.
 - Assicurarsi di impostare **AllowGatewayTransit** durante il peering di VNet-Hub a VNet-Spoke e usare **UseRemoteGateways** durante il peering di VNet-Spoke a VNet-Hub.
 
-Vedere la sezione Creare route in questa esercitazione per vedere come vengono create le route.
+Vedere la sezione [Creare route](#create-the-routes) in questa esercitazione per vedere come vengono create le route.
 
 >[!NOTE]
->Connettività diretta al Firewall di Azure. Se è stato abilitato il tunneling forzato in locale tramite ExpressRoute o gateway applicazione, è necessario configurare una route definita dall'utente 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet**e quindi assegnarla ad  **AzureFirewallSubnet**.
+>Connettività diretta al Firewall di Azure. Per impostazione predefinita, AzureFirewallSubnet deve consentire solo una route definita dall'utente 0.0.0.0/0 con il valore **NextHopType** impostato come **Internet**.
+>
+>Se si abilita il tunneling forzato in locale tramite ExpressRoute o il gateway applicazione, è necessario configurare in modo esplicito una route definita dall'utente 0.0.0.0/0 con il valore NextHopType impostato come **Internet** e associarla ad AzureFirewallSubnet. Se l'organizzazione richiede il tunneling forzato per il traffico di Firewall di Azure, contattare il supporto in modo che sia possibile inserire la sottoscrizione nell'elenco elementi consentiti e assicurare che venga mantenuta la connettività Internet del firewall necessaria.
 
 >[!NOTE]
 >Il traffico tra reti virtuali direttamente con peering viene instradato direttamente anche se una route definita dall'utente punta al firewall di Azure come gateway predefinito. Per inviare il traffico da subnet a subnet al firewall in questo scenario, una route definita dall'utente deve contenere il prefisso di rete subnet di destinazione in modo esplicito su entrambe le subnet.

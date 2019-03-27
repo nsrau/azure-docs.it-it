@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva: Uso di C# per chiamare l'API Analisi del testo"
+title: "Avvio rapido: Uso di C# per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Analisi del testo.
 services: cognitive-services
@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871010"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189649"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di C# per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
-Questo articolo mostra come rilevare la lingua, analizzare il sentiment ed estrarre frasi chiave usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. Il codice è stato scritto per lavorare su un'applicazione .Net Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
+Questo articolo mostra come rilevare la lingua, analizzare il sentiment ed estrarre frasi chiave usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. Il codice è stato scritto per lavorare su un'applicazione .NET Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
 
 Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.microsoft.com/fwlink/?LinkID=759346).
 
@@ -30,26 +30,25 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 
 È inoltre necessario avere la [chiave di accesso e l'endpoint](../How-tos/text-analytics-how-to-access-key.md) generati automaticamente durante l'iscrizione.
 
-
 ## <a name="install-the-nuget-sdk-package"></a>Installare il pacchetto NuGet SDK
 1. Creare una nuova soluzione Console in Visual Studio.
 1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Manage NuGet Packages for Solution** (Gestisci pacchetti NuGet per la soluzione)
 1. Selezionare la casella di controllo **Include Prerelease** (Includi versione provvisoria).
 1. Selezionare la scheda **Sfoglia** e cercare **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Selezionare il pacchetto NuGet e installarlo.
+1. Selezionare il pacchetto NuGet e installarlo. Per il momento è consigliabile usare la versione 2.8.0 (3-18-2019), anziché la 3.0.0, finché non viene corretto un bug nel software.
 
 > [!Tip]
 >  Sebbene sia possibile chiamare direttamente gli [endpoint HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) da C#, Microsoft.Azure.CognitiveServices.Language SDK agevola la chiamata al servizio perché non rende più necessarie la serializzazione e la deserializzazione di JSON.
 >
 > Collegamenti utili:
-> - [Pagina SDK Nuget](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [Pagina SDK Nuget](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [Codice SDK](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Chiamare l'API Analisi del testo usando l'SDK
+
 1. Sostituire Program.cs con il codice fornito di seguito. Questo programma illustra le funzionalità dell'API Analisi del testo in tre sezioni (estrazione del linguaggio, estrazione di frasi chiave e analisi del sentiment).
 1. Sostituire il valore dell'intestazione `Ocp-Apim-Subscription-Key` con una chiave di accesso valida per la sottoscrizione.
-1. Sostituire la località in `Endpoint` con l'endpoint per cui è stata fatta l'iscrizione. È possibile trovare l'endpoint nella risorsa del portale di Azure. L'endpoint inizia in genere con "https://[region].api.cognitive.microsoft.com". Includere solo il protocollo e il nome host.
+1. Sostituire l'area in `Endpoint`. L'endpoint è disponibile nella sezione della panoramica della risorsa Analisi del testo nel [portale di Azure](<https://ms.portal.azure.com>). Includere solo questa parte dell'endpoint: "https://[area].api.cognitive.microsoft.com".
 1. Eseguire il programma.
 
 ```csharp

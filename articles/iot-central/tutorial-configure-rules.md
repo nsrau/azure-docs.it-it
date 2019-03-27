@@ -3,20 +3,20 @@ title: Configurare regole e azioni in Azure IoT Central | Microsoft Docs
 description: Questa esercitazione illustra come i creatori possono configurare regole e azioni basate su dati di telemetria nell'applicazione Azure IoT Central.
 author: ankitscribbles
 ms.author: ankitgup
-ms.date: 10/12/2018
+ms.date: 01/28/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: d7269f61579ce1ffd9a686634effd153837a2f25
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 096daa28b7548401adc857c3c6c8327ef1d1eb00
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662986"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57769405"
 ---
-# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Esercitazione: Configurare regole e azioni per il dispositivo in Azure IoT Central
+# <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central-new-ui-design"></a>Esercitazione: Configurare regole e azioni per il dispositivo in Azure IoT Central (nuovo design dell'interfaccia utente)
 
 *Questo articolo è rivolto a operatori, autori e amministratori.*
 
@@ -28,31 +28,23 @@ In questa esercitazione si apprenderà come:
 > * Creare una regola basata su dati di telemetria
 > * Aggiungere un'azione
 
-[!INCLUDE [iot-central-experimental-note](../../includes/iot-central-experimental-note.md)]
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, si consiglia di completare l'esercitazione [Definire un nuovo tipo di dispositivo nell'applicazione](tutorial-define-device-type.md) per creare il modello di dispositivo **Condizionatore connesso** con cui lavorare.
 
 ## <a name="create-a-telemetry-based-rule"></a>Creare una regola basata su dati di telemetria
 
-1. Per aggiungere una nuova regola basata su dati di telemetria all'applicazione, scegliere **Device Explorer** nel menu di spostamento a sinistra:
+1. Per aggiungere una nuova regola basata su dati di telemetria all'applicazione, selezionare **Modelli di dispositivo** nel menu di spostamento a sinistra:
 
-    ![Pagina Device Explorer](media/tutorial-configure-rules/explorerpage1.png)
+    ![Pagina Modelli di dispositivo](media/tutorial-configure-rules/templatespage1.png)
 
-    Vengono visualizzati il modello di dispositivo **Condizionatore connesso (1.0.0)** e il dispositivo **Condizionatore connesso 1** creati nell'esercitazione precedente.
+    Viene visualizzato il modello di dispositivo **Condizionatore connesso (1.0.0)** creato nell'esercitazione precedente.
 
-2. Per iniziare a personalizzare il condizionatore connesso, scegliere il dispositivo creato nell'esercitazione precedente:
+2. Per personalizzare il modello di dispositivo, selezionare il modello **Connected Air Conditioner** creato nell'esercitazione precedente.
 
-    ![Pagina del condizionatore connesso](media/tutorial-configure-rules/builderdevicelist1.png)
+3. Per aggiungere una regola basata su dati di telemetria, nella visualizzazione **Regole** selezionare **Regole**, quindi **+ Nuova regola** e infine **Telemetria**:
 
-3. Per iniziare ad aggiungere una regola nella visualizzazione **Regole**, scegliere **Regole** e fare clic su **Modifica modello**:
-
-    ![Visualizzazione Regole](media/tutorial-configure-rules/builderedittemplate.png)
-
-4. Per creare la regola di telemetria basata su una soglia, fare clic su **Nuova regola** e quindi **Telemetria**.
-
-    ![Modifica modello](media/tutorial-configure-rules/buildernewrule.png)
+    ![Visualizzazione Regole](media/tutorial-configure-rules/newrule.png)
 
 5. Usare le informazioni nella tabella seguente per definire la regola:
 
@@ -60,19 +52,20 @@ Prima di iniziare, si consiglia di completare l'esercitazione [Definire un nuovo
     | -------------------------------------------- | ------------------------------    |
     | NOME                                         | Avviso temperatura condizionatore |
     | Abilita la regola per tutti i dispositivi di questo modello | Attivato                                |
-    | Abilita la regola in questo dispositivo                   | Attivato                                |
     | Condizione                                    | La temperatura è maggiore di 90    |
     | Aggregazione                                  | Nessuna                              |
 
-    ![Condizione della regola di temperatura](media/tutorial-configure-rules/buildertemperaturerule1.png)
+    ![Condizione della regola di temperatura](media/tutorial-configure-rules/temperaturerule.png)
+
+    Selezionare quindi **Salva**.
 
 ## <a name="add-an-action"></a>Aggiungere un'azione
 
-Quando si definisce una regola è anche possibile definire un'azione da eseguire quando vengono soddisfatte le condizioni della regola. In questa esercitazione si aggiunge un'azione per inviare un messaggio di posta elettronica come notifica quando la regola viene attivata.
+Quando si definisce una regola è anche possibile definire un'azione da eseguire quando vengono soddisfatte le condizioni della regola. In questa esercitazione viene creata una regola con un'azione che invia una notifica tramite posta elettronica.
 
-1. Per aggiungere un'**Azione**, **salvare** innanzitutto la regola, quindi scorrere verso il basso fino al pannello **Configura regola di telemetria** e scegliere **+** accanto ad **Azioni**, quindi scegliere **Messaggio di posta elettronica**:
+1. Per aggiungere un'**azione**, **salvare** prima la regola e quindi scorrere verso il basso nel pannello **Configure Telemetry Rule** (Configura regola di telemetria). Scegliere il segno **+** accanto ad **Azioni** e quindi scegliere **Posta elettronica**:
 
-    ![Azione della regola di temperatura](media/tutorial-configure-rules/builderaddaction1.png)
+    ![Azione della regola di temperatura](media/tutorial-configure-rules/addaction.png)
 
 2. Usare le informazioni nella tabella seguente per definire l'azione:
 
@@ -84,23 +77,16 @@ Quando si definisce una regola è anche possibile definire un'azione da eseguire
     > [!NOTE]
     > Per ricevere una notifica, l'indirizzo di posta elettronica deve essere un [ID utente nell'applicazione](howto-administer.md) e tale utente deve aver eseguito almeno una volta l'accesso all'applicazione.
 
-    ![Azione di temperatura in Application Builder (Generatore applicazioni)](media/tutorial-configure-rules/buildertemperatureaction.png)
+    ![Azione della temperatura](media/tutorial-configure-rules/temperatureaction.png)
 
-3. Scegliere **Salva**. La regola è elencata nella pagina **Regole**:
-
-    ![Regole di Application Builder (Generatore applicazioni)](media/tutorial-configure-rules/builderrules1.png)
-
-4. Scegliere **Fine** per uscire dalla modalità **Modifica modello**.
- 
+3. Selezionare **Salva**. La regola è elencata nella pagina **Regole**.
 
 ## <a name="test-the-rule"></a>Testare la regola
 
 Subito dopo aver salvato la regola, questa viene applicata. Quando vengono soddisfatte le condizioni definite nella regola, l'applicazione invia un messaggio all'indirizzo di posta elettronica specificato nell'azione.
 
-![Azione di posta elettronica](media/tutorial-configure-rules/email.png)
-
 > [!NOTE]
-> Al termine del test, disattivare la regola per smettere di ricevere gli avvisi nella posta in arrivo. 
+> Al termine del test, disattivare la regola per smettere di ricevere gli avvisi nella posta in arrivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

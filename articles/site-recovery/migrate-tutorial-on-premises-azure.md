@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6c97289cd1ad406769613621afdc16c8096f4aeb
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116168"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110308"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -36,6 +36,8 @@ Questa è la terza esercitazione di una serie. In questa esercitazione si presup
 
 Prima di iniziare è utile esaminare le architetture [VMware](vmware-azure-architecture.md) o [Hyper-V](hyper-v-azure-architecture.md) per il ripristino di emergenza.
 
+> [!TIP]
+> Per informazioni sulla migrazione di macchine virtuali VMware in Azure senza agenti, [fare clic qui ](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -54,7 +56,6 @@ I dispositivi esportati da driver paravirtualizzati non sono supportati.
    ![Nuovo insieme di credenziali](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
 Il nuovo insieme di credenziali viene aggiunto al **Dashboard**, nella sezione **Tutte le risorse**, e nella pagina **Insiemi di credenziali dei servizi di ripristino** principale.
-
 
 
 ## <a name="select-a-replication-goal"></a>Selezionare un obiettivo di replica
@@ -112,10 +113,10 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 5. Assicurarsi che la macchina virtuale di Azure sia visualizzata in Azure come previsto.
 6. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Vengono eseguite le operazioni seguenti:
 
-    - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
-    - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione.
+   - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+   - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione.
 
-    ![Completare la migrazione](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
+     ![Completare la migrazione](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 
 
 > [!WARNING]

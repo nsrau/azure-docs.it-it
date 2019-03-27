@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/16/2019
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5f8dffa01b2d7dd7fa966d2b417019f1d2afb1bc
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 25dda12ca33165cfc64ffd949a2068acb5150b84
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867015"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097150"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Esercitazione: Creare modelli collegati di Azure Resource Manager
 
 Informazioni su come creare modelli collegati di Azure Resource Manager. Utilizzando modelli collegati, è possibile avere un modello che chiama un altro modello. È utile per la modularizzazione del modelli. In questa esercitazione si usa lo stesso modello di [Esercitazione: Creare modelli di Azure Resource Manager con risorse dipendenti](./resource-manager-tutorial-create-templates-with-dependent-resources.md), operazione che crea una macchina virtuale, una rete virtuale e altre risorse dipendenti, tra cui un account di archiviazione. Separare la creazione della risorsa account dell'account di archiviazione da un modello collegato.
+
+La chiamata di un modello collegato è simile a una chiamata di funzione.  Verrà anche illustrato come passare i valori dei parametri al modello collegato e come ottenere i "valori restituiti" da tale modello.
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -34,6 +36,8 @@ Questa esercitazione illustra le attività seguenti:
 > * Configurare le dipendenze
 > * Distribuire il modello
 > * Procedure consigliate aggiuntive
+
+Per altre informazioni, vedere [Uso di modelli collegati e annidati nella distribuzione di risorse di Azure](./resource-group-linked-templates.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -67,95 +71,97 @@ Modelli di avvio rapido di Azure è un repository di modelli di Resource Manager
 3. Selezionare **Apri** per aprire il file.
 4. Sono presenti cinque risorse definite dal modello:
 
-    * `Microsoft.Storage/storageAccounts`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts). 
-    * `Microsoft.Network/publicIPAddresses`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses). 
-    * `Microsoft.Network/virtualNetworks`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks). 
-    * `Microsoft.Network/networkInterfaces`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces). 
-    * `Microsoft.Compute/virtualMachines`. Vedere le [informazioni di riferimento sul modello](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
+   * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
+   * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
+   * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
-    Prima di personalizzare il modello è utile acquisirne una conoscenza di base.
+     Prima di personalizzare il modello è utile acquisire una conoscenza di base del relativo schema.
 5. Selezionare **File**>**Salva con nome** per salvare una copia del file con il nome **azuredeploy.json** nel computer locale.
 6. Selezionare **File**>**Salva con nome** per creare un'altra copia del file con il nome **linkedTemplate.json**.
 
 ## <a name="create-the-linked-template"></a>Creazione del modello collegato
 
-Il modello collegato crea un account di archiviazione. Il modello collegato è quasi identico al modello autonomo che crea un account di archiviazione. In questa esercitazione, il modello collegato deve ripassare un valore al modello principale. Questo valore viene definito nell'elemento `outputs`.
+Il modello collegato crea un account di archiviazione. Il modello collegato può essere usato come un modello autonomo per creare un account di archiviazione. In questa esercitazione, il modello collegato accetta due parametri e passa quindi un valore al modello principale. Questo valore "restituito" viene definito nell'elemento `outputs`.
 
-1. Aprire linkedTemplate.json in Visual Studio Code, se il file non è aperto.
+1. Aprire **linkedTemplate.json** in Visual Studio Code, se il file non è aperto.
 2. Apportare le modifiche seguenti:
 
-    * Rimuovere tutte le risorse, ad eccezione dell'account di archiviazione. Si rimuove un totale di quattro risorse.
+    * Rimuovere tutti i parametri tranne **location**.
+    * Aggiungere un parametro denominato **storageAccountName**. 
+        ```json
+        "storageAccountName":{
+          "type": "string",
+          "metadata": {
+              "description": "Azure Storage account name."
+          }
+        },
+        ```
+        Il nome e la località dell'account di archiviazione vengono passati dal modello principale al modello collegato come parametri.
+        
+    * Rimuovere l'elemento **variables** e tutte le definizioni delle variabili.
+    * Rimuovere tutte le risorse tranne l'account di archiviazione. Si rimuove un totale di quattro risorse.
     * Aggiornare il valore dell'elemento **name** della risorsa dell'account di archiviazione a:
 
         ```json
           "name": "[parameters('storageAccountName')]",
         ```
-    * Rimuovere l'elemento **variables** e tutte le definizioni delle variabili.
-    * Rimuovere tutti i parametri ad eccezione di **location**.
-    * Aggiungere un parametro denominato **storageAccountName**. Il nome dell'account di archiviazione viene passato dal modello principale al modello collegato come parametro.
 
-        ```json
-        "storageAccountName":{
-        "type": "string",
-        "metadata": {
-            "description": "Azure Storage account name."
-        }
-        },
-        ```
     * Aggiornare l'elemento **output**, in modo che sia simile a:
-
+    
         ```json
         "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
+          "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
+            }
         }
         ```
-        **storageUri** è richiesto dalla definizione della risorsa della macchina virtuale nel modello principale.  Si ripassa il valore al modello principale come un valore di output.
+       **storageUri** è richiesto dalla definizione della risorsa della macchina virtuale nel modello principale.  Si ripassa il valore al modello principale come un valore di output.
 
-    Al termine, il modello è simile a:
+        Al termine, il modello è simile a:
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-          "storageAccountName":{
-            "type": "string",
-            "metadata": {
-              "description": "Azure Storage account name."
+        ```json
+        {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": {
+            "storageAccountName": {
+              "type": "string",
+              "metadata": {
+                "description": "Azure Storage account name."
+              }
+            },
+            "location": {
+              "type": "string",
+              "defaultValue": "[resourceGroup().location]",
+              "metadata": {
+                "description": "Location for all resources."
+              }
             }
           },
-          "location": {
-            "type": "string",
-            "defaultValue": "[resourceGroup().location]",
-            "metadata": {
-              "description": "Location for all resources."
+          "resources": [
+            {
+              "type": "Microsoft.Storage/storageAccounts",
+              "name": "[parameters('storageAccountName')]",
+              "location": "[parameters('location')]",
+              "apiVersion": "2018-07-01",
+              "sku": {
+                "name": "Standard_LRS"
+              },
+              "kind": "Storage",
+              "properties": {}
+            }
+          ],
+          "outputs": {
+            "storageUri": {
+              "type": "string",
+              "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
             }
           }
-        },
-        "resources": [
-          {
-            "type": "Microsoft.Storage/storageAccounts",
-            "name": "[parameters('storageAccountName')]",
-            "apiVersion": "2016-01-01",
-            "location": "[parameters('location')]",
-            "sku": {
-              "name": "Standard_LRS"
-            },
-            "kind": "Storage",
-            "properties": {}
-          }
-        ],
-        "outputs": {
-            "storageUri": {
-                "type": "string",
-                "value": "[reference(parameters('storageAccountName')).primaryEndpoints.blob]"
-              }
         }
-    }
-    ```
+        ```
 3. Salvare le modifiche.
 
 ## <a name="upload-the-linked-template"></a>Caricamento del modello collegato
@@ -227,7 +233,7 @@ In pratica, si genera un token di firma di accesso condiviso quando si distribui
 
 Il modello principale è denominato azuredeploy.json.
 
-1. Aprire azuredeploy.json in Visual Studio Code, se non è aperto.
+1. Aprire **azuredeploy.json** in Visual Studio Code, se non è aperto.
 2. Eliminare la definizione della risorsa dell'account di archiviazione dal modello:
 
     ```json
@@ -302,8 +308,6 @@ Poiché l'account di archiviazione viene ora definito nel modello collegato, è 
     *linkedTemplate* è il nome della risorsa deployments.  
 3. Aggiornare **properties/diagnosticsProfile/bootDiagnostics/storageUri** come illustrato nello screenshot precedente.
 4. Salvare il modello modificato.
-
-Per altre informazioni, vedere [Usare modelli collegati e annidati nella distribuzione di risorse di Azure](./resource-group-linked-templates.md)
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 

@@ -12,14 +12,14 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231033"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097662"
 ---
-# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Guida introduttiva: Creare app per la logica per automatizzare flussi di lavoro con App per la logica di Azure - Visual Studio
+# <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Avvio rapido: Creare e automatizzare attività, processi e flussi di lavoro con App per la logica di Azure - Visual Studio
 
 Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md) e Visual Studio è possibile creare flussi di lavoro che automatizzano le attività e i processi per l'integrazione di applicazioni, dati, sistemi e servizi tra aziende e organizzazioni. Questa guida introduttiva mostra come progettare e implementare questi flussi di lavoro mediante la creazione di app per la logica in Visual Studio e la distribuzione di tali app in <a href="https://docs.microsoft.com/azure/guides/developer/azure-developer-guide" target="_blank">Azure</a> nel cloud. Benché sia possibile eseguire queste attività nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, Visual Studio consente di aggiungere app per la logica al controllo del codice sorgente, pubblicare versioni diverse e creare modelli di Azure Resource Manager per ambienti di distribuzione differenti. 
 
@@ -83,11 +83,13 @@ Per iniziare, creare un [progetto Gruppo di risorse di Azure](../azure-resource-
 
 Dopo aver creato il progetto Gruppo di risorse di Azure, creare e compilare l'app per la logica a partire dal modello **App per la logica vuota**.
 
-1. In Esplora soluzioni aprire il menu di scelta rapida per il file **LogicApp.json**. Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica) (scelta rapida da tastiera: CTRL+L).
+1. In Esplora soluzioni aprire il menu di scelta rapida per il file **LogicApp.json**. 
+   Selezionare **Open With Logic App Designer** (Apri con Progettazione app per la logica) (scelta rapida da tastiera: CTRL+L).
 
    ![Aprire il file con estensione json dell'app per la logica con Progettazione app per la logica](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. In **Sottoscrizione** selezionare la sottoscrizione di Azure da usare. In **Gruppo di risorse** selezionare **Crea nuovo** per creare un nuovo gruppo di risorse di Azure. 
+2. In **Sottoscrizione** selezionare la sottoscrizione di Azure da usare. 
+   In **Gruppo di risorse** selezionare **Crea nuovo** per creare un nuovo gruppo di risorse di Azure. 
 
    ![Selezionare la sottoscrizione di Azure, un gruppo di risorse e la posizione delle risorse](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ Dopo aver creato il progetto Gruppo di risorse di Azure, creare e compilare l'ap
    | **Posizione** | MiaAppLogica-GR2 <br> (Stati Uniti occidentali) | Una posizione diversa se non si desidera usare la posizione del gruppo di risorse |
    ||||
 
-3. Viene visualizzata la finestra Progettazione app per la logica, che mostra una pagina con un video introduttivo e i trigger più usati. Scorrere dopo il video e i trigger. In **Modelli** selezionare **App per la logica vuota**.
+3. Viene visualizzata la finestra Progettazione app per la logica, che mostra una pagina con un video introduttivo e i trigger più usati. 
+   Scorrere dopo il video e i trigger. In **Modelli** selezionare **App per la logica vuota**.
 
    ![Selezionare App per la logica vuota](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -109,7 +112,7 @@ Dopo aver creato il progetto Gruppo di risorse di Azure, creare e compilare l'ap
 
 Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts) che attiva il flusso di lavoro quando nel feed RSS è presente un nuovo elemento. Ogni app per la logica deve iniziare con un trigger, che viene attivato quando sono soddisfatti criteri specifici. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che esegue il flusso di lavoro.
 
-1. Nella finestra Progettazione app per la logica immettere "rss" nella casella di ricerca. Selezionare il trigger: **Quando viene pubblicato un elemento del feed**
+1. Nella finestra Progettazione app per la logica immettere "rss" nella casella di ricerca. Selezionare questo trigger: **Quando viene pubblicato un elemento del feed**
 
    ![Creare l'app per la logica aggiungendo un trigger e azioni](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 

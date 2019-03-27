@@ -6,30 +6,30 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 12/27/2018
+ms.date: 03/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8fea062e2c72410b13fa70cc5cad22b7e677086b
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: f7adcb7d4516e9013bf87306fff77b566885e018
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55211849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57855283"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>Configurare il ripristino di emergenza in un'area di Azure secondaria per una macchina virtuale di Azure        
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) contribuisce a realizzare la strategia di continuità aziendale e ripristino di emergenza (BCDR) mantenendo operative le app aziendali durante le interruzioni pianificate e non pianificate. Site Recovery gestisce e coordina il ripristino di emergenza di computer locali e macchine virtuali di Azure, incluse le operazioni di replica, failover e failback.
 
-Questa guida introduttiva illustra come replicare una macchina virtuale di Azure in un'area di Azure diversa.
+Questo argomento di avvio rapido descrive come configurare il ripristino di emergenza per una macchina virtuale di Azure replicandola in un'area di Azure diversa.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 > [!NOTE]
-> Scopo di questo articolo è illustrare a un nuovo utente l'esperienza Azure Site Recovery con le opzioni predefinite e una minima personalizzazione. Per maggiori informazioni sulle diverse impostazioni personalizzabili, vedere [l'esercitazione relativa all'abilitazione della replica per le macchine virtuali di Azure](azure-to-azure-tutorial-enable-replication.md).
+> Questo articolo è una rapida procedura dettagliata per i nuovi utenti. Usa il percorso più semplice, con opzioni predefinite e personalizzazione minima.  Per una procedura dettagliata più completa, vedere questa [esercitazione](azure-to-azure-tutorial-enable-replication.md).
 
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
-Accedere al portale di Azure all'indirizzo http://portal.azure.com.
+Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="enable-replication-for-the-azure-vm"></a>Abilitare la replica per la macchina virtuale di Azure
 
@@ -54,8 +54,8 @@ Al termine del processo di replica, è possibile controllare lo stato di replica
 
 La replica della macchina virtuale nell'area primaria viene arrestata nel momento in cui si disabilita la replica corrispondente:
 
-- Le impostazioni della replica di origine vengono automaticamente pulite. Si noti che l'estensione Site Recovery installata come parte della replica non viene rimossa e deve essere rimossa manualmente. 
-- Viene arrestata anche la fatturazione di Site Recovery per la macchina virtuale.
+- Le impostazioni della replica di origine vengono automaticamente pulite. L'estensione Site Recovery installata nella macchina virtuale come parte della replica non viene rimossa e deve essere rimossa manualmente. 
+- La fatturazione di Site Recovery per la macchina virtuale viene arrestata.
 
 Per arrestare la replica, seguire questa procedura
 
@@ -66,7 +66,7 @@ Per arrestare la replica, seguire questa procedura
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stata replicata una singola macchina virtuale in un'area secondaria. È ora possibile esplorare altre opzioni e provare a replicare un set di macchine virtuali di Azure usando un piano di ripristino.
+In questa guida introduttiva è stata replicata una singola macchina virtuale in un'area secondaria. Ora, provare a replicare più macchine virtuali di Azure usando un piano di ripristino.
 
 > [!div class="nextstepaction"]
 > [Configurare il ripristino di emergenza per macchine virtuali di Azure](azure-to-azure-tutorial-enable-replication.md)

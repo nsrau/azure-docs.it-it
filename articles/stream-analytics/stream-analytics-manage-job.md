@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097941"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizzare i dati delle telefonate con Analisi di flusso di Azure e visualizzare i risultati in una dashboard Power BI
 
@@ -180,7 +180,7 @@ L'ultimo passaggio consiste nel definire un sink di output per il processo, in c
 3. Selezionare **+ Aggiungi** > **Power BI**. Compilare quindi il modulo con i dettagli seguenti e selezionare **Autorizza**:
 
    |**Impostazione**  |**Valore consigliato**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Alias di output  |  MyPBIoutput  |
    |Nome del set di dati  |   ASAdataset  |
    |Nome tabella |  ASATable  |
@@ -236,7 +236,7 @@ In questo esempio le chiamate fraudolente provengono dallo stesso utente ma da l
 
 4. Selezionare **Test** per testare la query. I risultati visualizzati sono simili ai seguenti:
 
-   ![Output dal test di query di Analisi di flusso di Azure](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Output del test di query di Analisi di flusso](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Avviare il processo e visualizzare l'output
 

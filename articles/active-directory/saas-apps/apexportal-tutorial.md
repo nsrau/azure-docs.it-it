@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: db204a46-6460-4ace-bdbb-4353846723ad
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89b264c35d7dc269252a156aad6a24a565dbd6ea
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 10ffd7207367d0bbdd670fb8402775b26952ae5d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872683"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57852594"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-apex-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Apex Portal
 
@@ -50,7 +50,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-apex-portal-from-the-gallery"></a>Aggiunta di Apex Portal dalla raccolta
 
-Per configurare l'integrazione di Apex Portal in Azure AD, è necessario aggiungere Apex Portal dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Apex Portal in Azure AD, è necessario aggiungere Apex Portal dalla raccolta al proprio elenco di app SaaS gestite.
 
 **Per aggiungere Apex Portal dalla raccolta, seguire questa procedura:**
 
@@ -72,15 +72,15 @@ Per configurare l'integrazione di Apex Portal in Azure AD, è necessario aggiung
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Apex Portal usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Apex Portal usando un utente test di nome **Britta Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Apex Portal.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Apex Portal, è necessario completare le procedure di base seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Apex Portal, è necessario completare i blocchi predefiniti seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Apex Portal](#configure-apex-portal-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare un utente di test di Apex Portal](#create-apex-portal-test-user)**: per avere una controparte di Britta Simon in Apex Portal collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -104,11 +104,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apex Portal, seguire qu
 
 4. Nella pagina **Configura l'accesso Single Sign-On con SAML** eseguire questa procedura:
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Apex Portal](common/idp-intiated.png)
+    ![Informazioni sull'accesso Single Sign-On a URL e dominio di Apex Portal](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
-    b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<customer name>.apexanalytix.com/saml/sso.aspx`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Per ottenere tali valori, contattare il [team di supporto clienti di Apex Portal](mailto:support@apexanalytix.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
@@ -119,7 +119,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apex Portal, seguire qu
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni usando l'**icona Modifica** o aggiungere le attestazioni usando l'opzione **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | Nome | Attributo di origine|
+    | NOME | Source Attribute|
     | ------------------- | -------------------- |
     | FIRSTNAME | user.givenname |
     | LASTNAME | user.surname |
@@ -142,13 +142,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apex Portal, seguire qu
 
     f. Fare clic su **Ok**
 
-    g. Fare clic su **Salva**.
+    g. Fare clic su **Save**.
 
 7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
-8. Nella sezione **Configura Apex Portal** copiare gli URL appropriati in base alle esigenze.
+8. Nella sezione **Set up Apex Portal** (Configura Apex Portal) copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -156,15 +156,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Apex Portal, seguire qu
 
     b. Identificatore Azure AD
 
-    c. URL disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="configure-apex-portal-single-sign-on"></a>Configurare l'accesso Single Sign-On per Apex Portal
 
 Per configurare l'accesso Single Sign-On sul lato **Apex Portal**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Apex Portal](mailto:support@apexanalytix.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD
 
-Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -180,22 +180,22 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente** digitare **brittasimon@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Apex Portal.
+In questa sezione a Britta Simon viene concesso l'accesso ad Apex Portal per abilitarla all'uso dell'accesso Single Sign-On di Azure.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Apex Portal**.
 
-    ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
+    ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Apex Portal**.
+2. Nell'elenco di applicazioni selezionare **Apex Portal**.
 
     ![Collegamento di Apex Portal nell'elenco delle applicazioni](common/all-applications.png)
 

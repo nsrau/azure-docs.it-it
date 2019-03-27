@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/23/2019
 ms.author: shvija
-ms.openlocfilehash: 073d1b54b1c6da2b1178f482d17b4de7abcc8a51
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: a7976c0798bd78fd51632d3025147526a645b041
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54888924"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57528797"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>Guida introduttiva: Creare un hub eventi con il portale di Azure
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
@@ -60,7 +60,7 @@ Uno spazio dei nomi di Hub eventi specifica un contenitore di ambito univoco, a 
    ![Pulsante Aggiungi della barra degli strumenti](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. Nella pagina **Crea spazio dei nomi** seguire questa procedura:
     1. Immettere un nome per lo spazio dei nomi. Verrà effettuato immediatamente un controllo sulla disponibilità del nome.
-    2. Scegliere il piano tariffario (Base o Standard).
+    2. Scegliere il piano tariffario (Basic o Standard).
     3. Selezionare la **sottoscrizione** in cui creare lo spazio dei nomi.
     4. Selezionare una **località** per lo spazio dei nomi.
     5. Selezionare **Create**. Per il provisioning completo delle risorse da parte del sistema, potrebbero essere necessari alcuni minuti.

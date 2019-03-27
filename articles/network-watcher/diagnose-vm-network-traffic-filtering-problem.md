@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 6d5c159d030303b90128513d3521a19419e4277e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: d469ee5148e3742f30795c09acf1a217db1b997a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429231"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004645"
 ---
-# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Guida introduttiva: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
+# <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>Avvio rapido: Diagnosticare un problema di filtro del traffico di rete di una macchina virtuale con il portale di Azure
 
 In questa guida introduttiva si distribuisce una macchina virtuale e quindi si controllano le comunicazioni verso un indirizzo IP e un URL e da un indirizzo IP. Viene determinata la causa di un errore di comunicazione e si apprende come è possibile risolverlo.
 
@@ -85,7 +85,7 @@ Quando si crea una macchina virtuale, per impostazione predefinita Azure consent
     | Direzione         | In uscita                                                                                          |
     | Indirizzo IP locale  | 10.0.0.4                                                                                          |
     | Porta locale      | 60000                                                                                                |
-    | Indirizzo IP remoto | 13.107.21.200: uno degli indirizzi per www.bing.com.                                             |
+    | Indirizzo IP remoto | 13.107.21.200: uno degli indirizzi per <www.bing.com>.                                             |
     | Porta remota       | 80                                                                                                |
 
     ![Verifica del flusso IP](./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-outbound.png)

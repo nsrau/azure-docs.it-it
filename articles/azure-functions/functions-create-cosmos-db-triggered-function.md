@@ -6,18 +6,18 @@ documentationcenter: na
 author: ggailey777
 manager: jeconnoc
 ms.assetid: bc497d71-75e7-47b1-babd-a060a664adca
-ms.service: azure-functions; cosmos-db
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e08d76199817dfe15ba190d2deedf450c986c65a
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 941a35084ba811e3bf9224087336db9abbd5b5d5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904285"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137845"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Creare una funzione attivata da Azure Cosmos DB
 
@@ -52,15 +52,15 @@ Si creerà ora una funzione nella nuova app per le funzioni.
 
 1. Espandere l'app per le funzioni e fare clic sul pulsante **+** accanto a **Funzioni**. Se questa è la prima funzione nell'app per le funzioni, selezionare **Nel portale** e quindi **Continua**. In caso contrario, andare direttamente al passaggio 3.
 
-   ![Pagina della guida introduttiva di Funzioni nel portale di Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
+   ![Pagina dell'avvio rapido di Funzioni nel portale di Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
 
 1. Scegliere **Altri modelli** e quindi **Termina e visualizza i modelli**.
 
-    ![Selezione di altri modelli nella guida introduttiva di Funzioni](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
+    ![Selezione di altri modelli nell'avvio rapido di Funzioni](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
 1. Nel campo di ricerca digitare `cosmos` e quindi scegliere il modello del **trigger Azure Cosmos DB**.
 
-1. Se richiesto, selezionare **Installa** per installare l'estensione Archiviazione di Azure e le relative dipendenze nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
+1. Se richiesto, selezionare **Installa** per installare l'estensione Azure Cosmos DB nell'app per le funzioni. Al termine dell'installazione, selezionare **Continua**.
 
     ![Installare le estensioni di binding](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 

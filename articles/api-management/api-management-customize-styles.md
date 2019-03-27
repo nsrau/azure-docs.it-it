@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: c3c79e7bd68e7c96b57ea66951c080b7d952ee8c
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
+ms.openlocfilehash: 4ea64b16a9a581683d3b7a44b4b331af435db22c
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52441758"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57762722"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizzare lo stile delle pagine del portale per sviluppatori
 
@@ -40,8 +40,8 @@ In questa esercitazione si apprenderà come:
 ## <a name="prerequisites"></a>Prerequisiti
 
 + Acquisire familiarità con la [terminologia di Gestione API di Azure](api-management-terminology.md).
-+ Completare la guida introduttiva seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
-+ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md).
++ Completare l'argomento di avvio rapido seguente: [Creare un'istanza di Gestione API di Azure](get-started-create-service-instance.md).
++ Completare anche l'esercitazione seguente: [Importare e pubblicare la prima API](import-and-publish.md)
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -57,11 +57,11 @@ In questa esercitazione si apprenderà come:
     Nella pagina vengono visualizzati tutti gli elementi che è possibile personalizzare con gli **stili**
 5. Immettere "headings-color" nel campo **Change variable values to customize developer portal appearance:** (Modificare i valori delle variabili per personalizzare l'aspetto del portale per sviluppatori).
 
-    Nella pagina viene visualizzato l'elemento **@headings-color**. Questa variabile controlla il colore del testo.
+    Nella pagina viene visualizzato l'elemento **\@headings-color**. Questa variabile controlla il colore del testo.
 
     ![personalizzare lo stile](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Fare clic sul campo per la variabile **@headings-color**. 
+6. Fare clic sul campo per la variabile **\@headings-color**. 
     
     Viene aperto il menu a discesa Selezione colori.
 7. Nel menu a discesa Selezione colori selezionare un colore nuovo.

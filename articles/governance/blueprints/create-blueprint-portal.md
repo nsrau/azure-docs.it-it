@@ -4,17 +4,17 @@ description: Usare Azure Blueprints per creare, definire e distribuire elementi 
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818664"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004910"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definire e assegnare un progetto Azure Blueprint nel portale
 
@@ -42,7 +42,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    ![Crea progetto](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Specificare un nome in **Nome progetto**, ad esempio "MyBlueprint" (lettere e numeri, fino a 48 caratteri, ma senza spazi o caratteri speciali) per il progetto, ma per il momento lasciare vuoto il campo **Descrizione del progetto**.  Nella casella **Località della definizione** fare clic sui puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e fare clic su **Seleziona**.
+1. Specificare un nome in **Nome progetto**, ad esempio "MyBlueprint" (lettere e numeri, fino a 48 caratteri, ma senza spazi o caratteri speciali) per il progetto, ma per il momento lasciare vuoto il campo **Descrizione del progetto**. Nella casella **Località della definizione** fare clic sui puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e fare clic su **Seleziona**.
 
 1. Verificare che le informazioni siano corrette (i campi **Nome progetto** e **Località della definizione** non potranno essere modificati successivamente) e fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
@@ -84,7 +84,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descriz
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello creato in precedenza e scegliere **Modifica progetto**.
 
-1. In **Descrizione del progetto** fornire alcune informazioni sul progetto e sugli elementi che lo costituiscono.  In questo caso, immettere una descrizione simile a quella che segue: "Questo progetto imposta criteri di tag e un'assegnazione di ruolo nella sottoscrizione, crea un gruppo di risorse e distribuisce al suo interno un modello di risorsa e un'assegnazione di ruolo".
+1. In **Descrizione del progetto** fornire alcune informazioni sul progetto e sugli elementi che lo costituiscono. In questo caso, immettere una descrizione simile a quella che segue: "Questo progetto imposta criteri di tag e un'assegnazione di ruolo nella sottoscrizione, crea un gruppo di risorse e distribuisce al suo interno un modello di risorsa e un'assegnazione di ruolo".
 
 1. Fare clic su **Avanti: Artefatti** nella parte inferiore della pagina o nella scheda **Artefatti** nella parte superiore della pagina.
 
@@ -186,13 +186,17 @@ Una volta pubblicato, un progetto può essere assegnato a una sottoscrizione. As
    > [!NOTE]
    > Viene creata un'assegnazione per ogni sottoscrizione selezionata, permettendo successive modifiche a un'assegnazione a una sottoscrizione singola senza forzare modifiche nelle altre sottoscrizioni selezionate.
 
-1. In **Assigned Name** (Nome assegnato) specificare un nome univoco per l'assegnazione.
+1. In **Nome dell'assegnazione** specificare un nome univoco per l'assegnazione.
 
-1. In **Località** selezionare un'area per l'identità gestita in cui creare l'assegnazione. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
+1. In **Località** selezionare un'area per la creazione dell'identità gestita e dell'oggetto di distribuzione della sottoscrizione. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
 
-1. Lasciare l'elenco a discesa **Versione della definizione di progetto** per **Versioni pubblicate** sulla voce "v1" (voce predefinita per le versioni **pubblicate** più recenti).
+1. Lasciare l'elenco a discesa **Versione della definizione di progetto** per **Versioni pubblicate** impostato sulla voce "v1". L'impostazione predefinita corrisponde alla versione **pubblicata** più recente.
 
 1. Per **Blocca assegnazione**, lasciare il valore predefinito **Non bloccare**. Per altre informazioni, vedere [Blueprints resource locking](./concepts/resource-locking.md) (Blocco delle risorse del progetto).
+
+   ![Assegnazione - Blocco e identità gestite](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. In **Identità gestita** lasciare invariata l'impostazione predefinita **Assegnata dal sistema**.
 
 1. Per l'assegnazione di ruolo a livello di sottoscrizione **[gruppo di utenti o nome applicazione]: Collaboratore**, cercare e selezionare un utente, un'app o un gruppo.
 
@@ -245,9 +249,9 @@ Rimuovere un'assegnazione di progetto da una sottoscrizione se non è più neces
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md)
-- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md)
-- Imparare a personalizzare l'[ordine in sequenza del progetto](./concepts/sequencing-order.md)
-- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md)
-- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md)
+- Informazioni sul [ciclo di vita del progetto](./concepts/lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](./concepts/parameters.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./concepts/sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./concepts/resource-locking.md).
+- Informazioni su come [aggiornare assegnazioni esistenti](./how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](./troubleshoot/general.md).

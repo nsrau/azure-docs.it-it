@@ -10,14 +10,14 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 87afdd9e949ec866c6ee962c2b68af42590bee67
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8007d576a6b896f12423087cfd4a483d9171abc5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878715"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58104370"
 ---
-# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Node.js
+# <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-nodejs"></a>Avvio rapido: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing con Node.js
 
 Usare questa guida introduttiva per eseguire la prima chiamata all'API Ricerca entità Bing e visualizzare la risposta JSON. Questa semplice applicazione JavaScript invia una query di ricerca notizie all'API e visualizza la risposta. Il codice sorgente di questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingEntitySearchv7.js).
 
@@ -74,7 +74,7 @@ L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful com
         });
         ```
 
-    3. Quando viene segnalato un flag **end**, analizzare JSON e stamparlo.
+    3. Quando viene segnalato un flag **end**, analizzare il codice JSON e stamparlo.
 
         ```javascript
         response.on ('end', function () {
@@ -87,24 +87,24 @@ L'applicazione è scritta in JavaScript, ma l'API è un servizio Web RESTful com
 
 1. Creare una funzione denominata `Search` per inviare una richiesta di ricerca. In essa, eseguire la procedura seguente.
 
-    1. Creare un oggetto JSON contenente i parametri della richiesta: usare `Get` per il metodo e aggiungere le informazioni su host e percorso. Aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`. 
-    2. Usare `https.request()` per inviare la richiesta con il gestore di risposta creato in precedenza e i parametri di ricerca.
+   1. Creare un oggetto JSON contenente i parametri della richiesta: usare `Get` per il metodo e aggiungere le informazioni su host e percorso. Aggiungere la chiave di sottoscrizione all'intestazione `Ocp-Apim-Subscription-Key`. 
+   2. Usare `https.request()` per inviare la richiesta con il gestore di risposta creato in precedenza e i parametri di ricerca.
     
-    ```javascript
-    let Search = function () {
-        let request_params = {
-            method : 'GET',
-            hostname : host,
-            path : path + query,
-            headers : {
-                'Ocp-Apim-Subscription-Key' : subscriptionKey,
-            }
-        };
+      ```javascript
+      let Search = function () {
+       let request_params = {
+           method : 'GET',
+           hostname : host,
+           path : path + query,
+           headers : {
+               'Ocp-Apim-Subscription-Key' : subscriptionKey,
+           }
+       };
     
-        let req = https.request (request_params, response_handler);
-        req.end ();
-    }
-    ```
+       let req = https.request (request_params, response_handler);
+       req.end ();
+      }
+      ```
 
 2. Chiamare la funzione `Search()`.
 
@@ -148,7 +148,7 @@ Viene restituita una risposta con esito positivo in formato JSON, come illustrat
         "_type": "Restaurant",
         "webSearchUrl": "https://www.bing.com/search?q=Pickles+and+Preserves...",
         "name": "Munson's Pickles and Preserves Farm",
-        "url": "http://www.princi.com/",
+        "url": "https://www.princi.com/",
         "entityPresentationInfo": {
           "entityScenario": "ListItem",
           "entityTypeHints": [

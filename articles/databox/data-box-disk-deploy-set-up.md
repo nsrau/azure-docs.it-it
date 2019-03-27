@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 10/31/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: f2e18db7bd1766901ffb36cc74172f4c8414135c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 4c2f2ebca40ee3e4b5a9a32767783694af52944b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232887"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106645"
 ---
-# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Esercitazione: Disimballare, collegare e sbloccare Azure Data Box Disk
+# <a name="tutorial-unpack-connect-and-unlock-azure-data-box-disk"></a>Esercitazione: Disimballare, connettere e sbloccare Azure Data Box Disk
 
 Questa esercitazione descrive come disimballare, collegare e sbloccare Azure Data Box Disk.
 
@@ -32,7 +32,7 @@ In questa esercitazione si apprenderà come:
 
 Prima di iniziare, verificare che:
 
-1. Sia stata completata l'[Esercitazione: Ordinare Azure Data Box Disk](data-box-disk-deploy-ordered.md).
+1. Aver completato l'esercitazione descritta in [Esercitazione: Ordinare Azure Data Box Disk](data-box-disk-deploy-ordered.md).
 2. Sono stati ricevuti i dischi e lo stato del processo nel portale viene aggiornato a **Recapitato**.
 3. Sia disponibile un computer client in cui è possibile installare lo strumento di sblocco di Data Box Disk. Il computer client deve:
     - Eseguire un [sistema operativo supportato](data-box-disk-system-requirements.md#supported-operating-systems-for-clients).
@@ -70,7 +70,7 @@ A seconda se si è connessi a un client Windows o Linux, la procedura per sblocc
 Eseguire la procedura seguente per collegare e sbloccare i dischi.
      
 1. Nel portale di Azure passare a **Generale > Dettagli dispositivo**. 
-2. Scaricare il set di strumenti di Data Box Disk corrispondente al client Windows. Questo set include tre strumenti di Data Box Disk: sblocco, convalida e divisione della copia. 
+2. Scaricare il set di strumenti di Data Box Disk corrispondente al client Windows. Questo set contiene 3 strumenti: lo strumento di sblocco, lo strumento di convalida e lo strumento di divisione della copia di Data Box Disk. 
 
     In questa procedura si userà solo lo strumento di sblocco di Data Box Disk. Gli altri due strumenti saranno usati in seguito.
 
@@ -170,39 +170,39 @@ Eseguire la procedura seguente per collegare e sbloccare i dischi.
     
  
 5. Digitare `y` per continuare l'installazione. I pacchetti installati dallo script sono: 
-    - **epel-release** - Repository che contiene i tre pacchetti seguenti. 
-    - **dislocker e fuse-dislocker** - Questa utilità consente di decrittografare i dischi crittografati con BitLocker. 
-    - **ntfs-3g** - Pacchetto di supporto per il montaggio di volumi NTFS. 
+   - **epel-release** - Repository che contiene i tre pacchetti seguenti. 
+   - **dislocker e fuse-dislocker** - Questa utilità consente di decrittografare i dischi crittografati con BitLocker. 
+   - **ntfs-3g** - Pacchetto di supporto per il montaggio di volumi NTFS. 
  
-    Al termine dell'installazione dei pacchetti, il terminale visualizzerà una notifica a tale proposito.     
-    ```
-    Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
-    ruby-libs.x86 64 0:1.8.7.374-5.el6 
-    Complete! 
-    Loaded plugins: fastestmirror, refresh-packagekit, security 
-    Setting up Remove Process 
-    Resolving Dependencies 
-    --> Running transaction check 
-    ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
-    Dependencies Resolved 
-    Package        Architecture        Version        Repository        Size 
-    Removing:  epel-release        noarch         6-8        @extras        22 k 
-    Transaction Summary                                 
-    Remove        1 Package(s) 
-    Installed size: 22 k 
-    Downloading Packages: 
-    Running rpmcheckdebug 
-    Running Transaction Test 
-    Transaction Test Succeeded 
-    Running Transaction 
-    Erasing : epel-release-6-8.noarch 
-    Verifying : epel-release-6-8.noarch 
-    Removed: 
-    epel-release.noarch 0:6-8 
-    Complete! 
-    Dislocker is installed by the script. 
-    OpenSSL is already installed.
-    ```
+     Al termine dell'installazione dei pacchetti, il terminale visualizzerà una notifica a tale proposito.     
+     ```
+     Dependency Installed: compat-readline5.x86 64 0:5.2-17.I.el6 dislocker-libs.x86 64 0:0.7.1-8.el6 mbedtls.x86 64 0:2.7.4-l.el6        ruby.x86 64 0:1.8.7.374-5.el6 
+     ruby-libs.x86 64 0:1.8.7.374-5.el6 
+     Complete! 
+     Loaded plugins: fastestmirror, refresh-packagekit, security 
+     Setting up Remove Process 
+     Resolving Dependencies 
+     --> Running transaction check 
+     ---> Package epel-release.noarch 0:6-8 will be erased --> Finished Dependency Resolution 
+     Dependencies Resolved 
+     Package        Architecture        Version        Repository        Size 
+     Removing:  epel-release        noarch         6-8        @extras        22 k 
+     Transaction Summary                                 
+     Remove        1 Package(s) 
+     Installed size: 22 k 
+     Downloading Packages: 
+     Running rpmcheckdebug 
+     Running Transaction Test 
+     Transaction Test Succeeded 
+     Running Transaction 
+     Erasing : epel-release-6-8.noarch 
+     Verifying : epel-release-6-8.noarch 
+     Removed: 
+     epel-release.noarch 0:6-8 
+     Complete! 
+     Dislocker is installed by the script. 
+     OpenSSL is already installed.
+     ```
 
 6. Eseguire lo strumento di sblocco di Data Box Disk. Specificare la passkey dal portale di Azure ottenuta in [Connettersi ai dischi e ottenere la passkey](#Connect-to-disks-and-get-the-passkey). Facoltativamente, specificare un elenco di volumi crittografati con BitLocker da sbloccare. La passkey e l'elenco dei volumi devono essere specificati racchiusi tra virgolette singole. 
 

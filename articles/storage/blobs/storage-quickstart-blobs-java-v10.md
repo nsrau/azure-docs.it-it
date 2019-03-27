@@ -1,5 +1,5 @@
 ---
-title: "Guida introduttiva di Azure: Creare un BLOB nell'archivio oggetti con Java Storage SDK V10 | Microsoft Docs"
+title: "Avvio rapido di Azure: Creare un BLOB nell'archivio oggetti con Java Storage SDK V10 | Microsoft Docs"
 description: In questa guida introduttiva si crea un contenitore nell'archivio oggetti (BLOB di Azure), si carica un file, si elencano gli oggetti e si esegue il download con Java Storage SDK.
 services: storage
 author: roygara
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: rogarana
-ms.openlocfilehash: 43db4ca12fbdf8ee637ca86e1a90cc3baf4ec572
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: f44a6b825f9e8871bb7d7877ebd1821038b45f65
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51713283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004871"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con Java Storage SDK V10
+# <a name="quickstart-upload-download-and-list-blobs-by-using-the-java-storage-sdk-v10"></a>Avvio rapido: Caricare, scaricare ed elencare BLOB con Java Storage SDK V10
 
 In questa guida introduttiva viene illustrato come usare il nuovo Java Storage SDK per caricare, scaricare ed elencare BLOB in blocchi in un contenitore di Archiviazione BLOB di Azure. Il nuovo Java SDK usa il modello di programmazione reattiva con RxJava, che offre operazioni asincrone. Altre informazioni sulle [estensioni reattive di RxJava per la macchina virtuale Java](https://github.com/ReactiveX/RxJava). 
 
@@ -25,7 +25,7 @@ In questa guida introduttiva viene illustrato come usare il nuovo Java Storage S
 
 Verificare che siano installati i prerequisiti aggiuntivi seguenti:
 
-* [Maven](http://maven.apache.org/download.cgi) per usare la riga di comando o qualsiasi altro ambiente di sviluppo integrato per Java si preferisca.
+* [Maven](https://maven.apache.org/download.cgi) per usare la riga di comando o qualsiasi altro ambiente di sviluppo integrato per Java si preferisca.
 * [JDK](https://aka.ms/azure-jdks)
 
 ## <a name="download-the-sample-application"></a>Scaricare l'applicazione di esempio
@@ -100,7 +100,7 @@ Cleaning up the sample and exiting!
 
 Avendo il controllo dell'esempio, immettere i comandi per eseguire il codice. Per gli input viene fatta distinzione tra maiuscole e minuscole.
 
-È anche possibile usare uno strumento come [Azure Storage Explorer](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per visualizzare i file nell'archivio BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione. 
+È anche possibile usare uno strumento come [Azure Storage Explorer](https://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) per visualizzare i file nell'archivio BLOB. Azure Storage Explorer è uno strumento multipiattaforma gratuito che consente di accedere alle informazioni dell'account di archiviazione. 
 
 Verificare i file. Selezionare quindi **E** ed **Enter** per terminare la demo ed eliminare i file di test. Ora che si conosce il risultato dell'esempio, aprire il file **Quickstart.java** per esaminare il codice. 
 
@@ -166,19 +166,19 @@ L'archiviazione BLOB supporta BLOB in blocchi, BLOB di aggiunta e BLOB di pagine
 1. Per caricare un file in un BLOB, ottenere un riferimento al BLOB nel contenitore di destinazione. 
 2. Dopo avere ottenuto il riferimento al BLOB, è possibile caricare un file usando una delle API seguenti:
 
-    * API di basso livello. Sono esempi [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), detto anche PutBlob, e [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), chiamato anche PutBLock, nell'istanza di **BlockBlobURL**. 
+   * API di basso livello. Sono esempi [BlockBlobURL.upload](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.upload?view=azure-java-stable#com_microsoft_azure_storage_blob__block_blob_u_r_l_upload_Flowable_ByteBuffer__long_BlobHTTPHeaders_Metadata_BlobAccessConditions_Context_), detto anche PutBlob, e [BlockBlobURL.stageBlock](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._block_blob_u_r_l.stageblock?view=azure-java-stable), chiamato anche PutBLock, nell'istanza di **BlockBlobURL**. 
 
-    * API di alto livello fornite nella [classe TransferManager](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). Un esempio è il metodo [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable). 
+   * API di alto livello fornite nella [classe TransferManager](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager?view=azure-java-stable). Un esempio è il metodo [TransferManager.uploadFileToBlockBlob](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.blob._transfer_manager.uploadfiletoblockblob?view=azure-java-stable). 
 
-    Questa operazione crea il BLOB se non esiste già. Il BLOB viene sovrascritto se esiste già.
+     Questa operazione crea il BLOB se non esiste già. Il BLOB viene sovrascritto se esiste già.
 
 Il codice di esempio crea un file locale da usare per il caricamento e il download, archiviando il file da caricare come **sourceFile** e l'URL del BLOB in **blob**. Nell'esempio seguente il file viene caricato in un contenitore denominato **quickstart**.
 
 ```java
 static void uploadFile(BlockBlobURL blob, File sourceFile) throws IOException {
-    
+
     FileChannel fileChannel = FileChannel.open(sourceFile.toPath());
-            
+
     // Uploading a file to the blobURL using the high-level methods available in TransferManager class
     // Alternatively call the Upload/StageBlock low-level methods from BlockBlobURL type
     TransferManager.uploadFileToBlockBlob(fileChannel, blob, 8*1024*1024, null)
@@ -198,20 +198,20 @@ I BLOB in blocchi possono essere qualsiasi tipo di file di testo o binario. I BL
 ```java
 static void listBlobs(ContainerURL containerURL) {
     // Each ContainerURL.listBlobsFlatSegment call return up to maxResults (maxResults=10 passed into ListBlobOptions below).
-    // To list all Blobs, we are creating a helper static method called listAllBlobs, 
+    // To list all Blobs, we are creating a helper static method called listAllBlobs,
     // and calling it after the initial listBlobsFlatSegment call
     ListBlobsOptions options = new ListBlobsOptions(null, null, 10);
 
     containerURL.listBlobsFlatSegment(null, options)
-        .flatMap(containersListBlobFlatSegmentResponse -> 
-            listAllBlobs(containerURL, containersListBlobFlatSegmentResponse))    
+        .flatMap(containersListBlobFlatSegmentResponse ->
+            listAllBlobs(containerURL, containersListBlobFlatSegmentResponse))
                 .subscribe(response-> {
                     System.out.println("Completed list blobs request.");
                     System.out.println(response.statusCode());
                 });
 }
 
-private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(ContainerURL url, ContainersListBlobFlatSegmentResponse response) {                
+private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(ContainerURL url, ContainersListBlobFlatSegmentResponse response) {
     // Process the blobs returned in this result segment (if the segment is empty, blobs() will be null.
     if (response.body().blobs() != null) {
         for (Blob b : response.body().blobs().blob()) {
@@ -225,7 +225,7 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
     else {
         System.out.println("There are no more blobs to list off.");
     }
-    
+
     // If there is not another segment, return this response as the final response.
     if (response.body().nextMarker() == null) {
         return Single.just(response);
@@ -234,17 +234,17 @@ private static Single <ContainersListBlobFlatSegmentResponse> listAllBlobs(Conta
         IMPORTANT: ListBlobsFlatSegment returns the start of the next segment; you MUST use this to get the next
         segment (after processing the current result segment
         */
-            
+
         String nextMarker = response.body().nextMarker();
 
         /*
         The presence of the marker indicates that there are more blobs to list, so we make another call to
         listBlobsFlatSegment and pass the result through this helper function.
         */
-            
-    return url.listBlobsFlatSegment(nextMarker, new ListBlobsOptions(null, null,1))
-        .flatMap(containersListBlobFlatSegmentResponse ->
-            listAllBlobs(url, containersListBlobFlatSegmentResponse));
+
+        return url.listBlobsFlatSegment(nextMarker, new ListBlobsOptions(null, null,1))
+            .flatMap(containersListBlobFlatSegmentResponse ->
+                listAllBlobs(url, containersListBlobFlatSegmentResponse));
     }
 }
 ```

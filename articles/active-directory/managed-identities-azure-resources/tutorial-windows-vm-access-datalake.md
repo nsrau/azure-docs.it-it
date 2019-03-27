@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/13/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f20031b41d56e049670491a9aa9a41b21e0bfca4
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 99a35c09d60ccb009c0f21d3aea59de2d5e9b63d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197811"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58119820"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
@@ -68,7 +68,7 @@ In questa esercitazione si esegue l'autenticazione all'API REST del file system 
 1. Nel portale passare a **Macchine virtuali**, selezionare la VM Windows e in **Panoramica** fare clic su **Connetti**.
 2. In **Nome utente** e **Password** immettere i valori specificati al momento della creazione della macchina virtuale Windows. 
 3. Ora che si è creata una **connessione Desktop remoto** con la macchina virtuale, aprire **PowerShell** nella sessione remota. 
-4. Usando `Invoke-WebRequest` di PowerShell, eseguire una richiesta all'endpoint locale delle identità gestite per le risorse di Azure per ottenere un token di accesso per Azure Data Lake Store.  L'identificatore della risorsa per Data Lake Store è "https://datalake.azure.net/".  La barra finale è importante perché Data Lake stabilisce una corrispondenza esatta con l'identificatore della risorsa.
+4. Usando `Invoke-WebRequest` di PowerShell, eseguire una richiesta all'endpoint locale delle identità gestite per le risorse di Azure per ottenere un token di accesso per Azure Data Lake Store.  L'identificatore della risorsa per Data Lake Store è `https://datalake.azure.net/`.  La barra finale è importante perché Data Lake stabilisce una corrispondenza esatta con l'identificatore della risorsa.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

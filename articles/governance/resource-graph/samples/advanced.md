@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344013"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842618"
 ---
 # <a name="advanced-resource-graph-queries"></a>Query avanzate di Resource Graph
 
@@ -74,7 +74,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Macchine virtuali individuate da un'espressione regolare
 
 Questa query cerca le macchine virtuali che corrispondono a un'[espressione regolare](/dotnet/standard/base-types/regular-expression-language-quick-reference) (nota come _regex_).
-**matches regex @** permette di definire l'espressione regolare usata per cercare le corrispondenze, ovvero `^Contoso(.*)[0-9]+$`. Tale definizione di espressione regolare è spiegata come:
+**matches regex \@** permette di definire l'espressione regolare usata per cercare le corrispondenze, ovvero `^Contoso(.*)[0-9]+$`. Tale definizione di espressione regolare è spiegata come:
 
 - `^` - La corrispondenza deve cominciare all'inizio della stringa.
 - `Contoso` - Stringa con distinzione tra maiuscole e minuscole.

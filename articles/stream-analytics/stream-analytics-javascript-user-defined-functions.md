@@ -1,24 +1,20 @@
 ---
 title: "Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure | Microsoft Docs "
 description: In questa esercitazione si eseguono meccanismi di query avanzate con funzioni JavaScript definite dall'utente
-keywords: javascript, funzioni definite dall'utente, udf
 services: stream-analytics
 author: rodrigoamicrosoft
-manager: kfile
-ms.assetid: ''
+ms.author: rodrigoa
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.workload: data-services
-ms.author: rodrigoa
-ms.openlocfilehash: e33b90d6f70bb1b765f5170ac37880d31e87f3a5
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: ff8e61c53774429087ffe1a9137d40b155eb3f68
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53088878"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57192276"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -50,12 +46,19 @@ Ecco alcune operazioni non eseguibili con una funzione JavaScript definita dall'
 Sebbene le funzioni come **Date.GetDate()** o **Math.random()** non sono bloccate nella definizione delle funzioni, è consigliabile evitare di utilizzarle. Queste funzioni, infatti, **non** restituiscono lo stesso risultato ogni volta che vengono chiamate e Analisi di flusso di Azure non conserva un giornale di chiamate di funzione e dei risultati restituiti. Se una funzione restituisce risultati diversi per gli stessi eventi, non viene garantita la ripetibilità in caso di processo riavviato dall'utente o dal servizio di Analisi di flusso.
 
 ## <a name="add-a-javascript-user-defined-function-in-the-azure-portal"></a>Aggiungere una funzione JavaScript definita dall'utente nel portale di Azure
-I passaggi seguenti illustrano come creare una semplice funzione JavaScript definita dall'utente in un processo esistente di Analisi di flusso:
+Per creare una semplice funzione JavaScript definita dall'utente in un processo esistente di Analisi di flusso, seguire questa procedura:
+
+> [!NOTE]
+> Questi passaggi funzionano sui processi di Analisi di flusso configurati per l'esecuzione nel cloud. Se il processo di Analisi di flusso è configurato per l'esecuzione su Azure IoT Edge, usare invece Visual Studio e [scrivere la funzione definita dall'utente usando C#](stream-analytics-edge-csharp-udf.md).
 
 1.  Nel portale di Azure individuare il processo di Analisi di flusso.
-2.  In **TOPOLOGIA PROCESSO** selezionare la funzione. Viene visualizzato un elenco vuoto di funzioni.
-3.  Per creare una nuova funzione definita dall'utente, selezionare **Aggiungi**.
+
+2. Nell'intestazione **Topologia processo** selezionare **Funzioni**. Viene visualizzato un elenco vuoto di funzioni.
+
+3.  Per creare una nuova funzione definita dall'utente, selezionare **+ Aggiungi**.
+
 4.  Sul pannello **Nuova funzione** selezionare **JavaScript** per **Tipo funzione**. Nell'editor viene visualizzato un modello di funzione predefinita.
+
 5.  Per l'**alias della funzione definita dall'utente**, inserire **hex2Int** e modificare l'implementazione della funzione come indicato di seguito:
 
     ```javascript
@@ -70,7 +73,7 @@ I passaggi seguenti illustrano come creare una semplice funzione JavaScript defi
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>Chiamare una funzione JavaScript definita dall'utente nella query
 
-1. Nell'editor di query, in **TOPOLOGIA PROCESSO**, selezionare **Query**.
+1. Nell'editor di query, nell'intestazione **Topologia processo**, selezionare **Query**.
 2.  Modificare la query e quindi chiamare la funzione definita dall'utente, simile alla seguente:
 
     ```SQL
@@ -97,7 +100,7 @@ Esistono delle differenze tra i tipi supportati da JavaScript e dal linguaggio d
 Analisi di flusso | JavaScript
 --- | ---
 bigint | Numero (per la precisione, JavaScript può rappresentare solo numeri interi fino a 2^53)
-Datetime | Data (JavaScript supporta solo millisecondi)
+DateTime | Data (JavaScript supporta solo millisecondi)
 Double | Number
 nvarchar(MAX) | string
 Record | Oggetto
@@ -111,7 +114,7 @@ Ecco le conversioni da JavaScript ad Analisi di flusso:
 JavaScript | Analisi di flusso
 --- | ---
 Number | Bigint (se il numero è arrotondato e compreso tra long.MinValue e long.MaxValue, in caso contrario è doppio)
-Data | Datetime
+Data | DateTime
 string | nvarchar(MAX)
 Oggetto | Record
 Array | Array

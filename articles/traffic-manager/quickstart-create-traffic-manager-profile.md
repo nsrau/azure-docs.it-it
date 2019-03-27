@@ -2,7 +2,7 @@
 title: Guida introduttiva - Creare un profilo di Gestione traffico per la disponibilità elevata delle applicazioni usando il portale di Azure
 description: Questa guida introduttiva descrive come creare un profilo di Gestione traffico per creare applicazioni Web a disponibilità elevata.
 services: traffic-manager
-dauthor: kumudd
+author: KumudD
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: kumud
-ms.openlocfilehash: f24bcebb04c3cb17b5e0420695504541c54e88f3
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 2cd8830f4b2b7c972ba8972e686be984bb96fd04
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198220"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760665"
 ---
-# <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata
+# <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>Guida introduttiva: Creare un profilo di Gestione traffico usando il portale di Azure
 
 Questo argomento di avvio rapido descrive come creare un profilo di Gestione traffico che fornisce disponibilità elevata per l'applicazione Web.
 
@@ -100,7 +100,7 @@ Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario 
 
     | Impostazione | Valore |
     | ------- | ------|
-    | type | Selezionare **Endpoint Azure**. |
+    | Type | Selezionare **Endpoint Azure**. |
     | NOME | Immettere *myPrimaryEndpoint*. |
     | Tipo di risorsa di destinazione | Selezionare **Servizio app**. |
     | Risorsa di destinazione | Selezionare **Scegliere un servizio app** > **Stati Uniti orientali**. |
@@ -113,7 +113,7 @@ Aggiungere il sito Web nell'area *Stati Uniti orientali* come endpoint primario 
 
     | Impostazione | Valore |
     | ------- | ------|
-    | type | Selezionare **Endpoint Azure**. |
+    | Type | Selezionare **Endpoint Azure**. |
     | NOME | Immettere *myFailoverEndpoint*. |
     | Tipo di risorsa di destinazione | Selezionare **Servizio app**. |
     | Risorsa di destinazione | Selezionare **Scegliere un servizio app** > **Europa occidentale**. |

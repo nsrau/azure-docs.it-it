@@ -1,90 +1,122 @@
 ---
-title: Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
-description: Informazioni su come creare un'app per le funzioni eseguita su Linux in un piano di servizio app tramite l'interfaccia della riga di comando di Azure.
+title: Creare un'app per le funzioni in Linux dal portale di Azure | Microsoft Docs
+description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite il portale di Azure.
 services: functions
-keywords: ''
+documentationcenter: na
 author: ggailey777
-ms.author: glenga
-ms.date: 11/28/2018
-ms.topic: conceptual
-ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: ec7b71c7da19ecefc14696c029e63a074b498ec8
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.service: azure-functions
+ms.devlang: multiple
+ms.topic: quickstart
+ms.date: 02/28/2019
+ms.author: glenga
+ms.custom: ''
+ms.openlocfilehash: cc99bc4345c388f22e72957590f3917a85e214e0
+ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55696738"
+ms.lasthandoff: 03/05/2019
+ms.locfileid: "57339810"
 ---
-# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan-preview"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure (anteprima)
+# <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
 
-Funzioni di Azure consente di ospitare le funzioni in Linux in un contenitore di Servizio app di Azure predefinito. Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare un'app per le funzioni Linux in Azure, che viene eseguita in un [piano di servizio app](functions-scale.md#app-service-plan). È anche possibile [usare un contenitore personalizzato](functions-create-function-linux-custom-image.md). L'hosting Linux è attualmente in fase di anteprima.
+Funzioni di Azure consente di ospitare le funzioni in Linux in un contenitore di Servizio app di Azure predefinito. Questo articolo illustra come usare il [portale di Azure](https://portal.azure.com) per creare un'app per le funzioni ospitata in Linux che viene eseguita in un [piano di servizio app](functions-scale.md#app-service-plan). È anche possibile [usare un contenitore personalizzato](functions-create-function-linux-custom-image.md).
 
-In un piano di servizio app l'utente è responsabile del ridimensionamento dell'app per le funzioni. Per sfruttare i vantaggi delle funzionalità serverless di Funzioni di Azure è anche possibile ospitare le funzioni in Linux in un [piano a consumo](functions-scale.md#consumption-plan).
-
-È possibile eseguire queste procedure con un computer Mac, Windows o Linux.
-
-## <a name="prerequisites"></a>Prerequisiti
-
-Per completare l'esercitazione introduttiva, sono necessari gli elementi seguenti:
-
-+ Una sottoscrizione di Azure attiva.
+![Creare un'app per le funzioni nel portale di Azure](./media/create-function-app-linux-app-service-plan/function-app-in-portal-editor.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo argomento è necessaria la versione 2.0.21 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione in uso. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli). 
+Accedere al portale di Azure all'indirizzo <https://portal.azure.com> con il proprio account Azure.
 
-[!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
+## <a name="create-a-function-app"></a>Creare un'app per le funzioni
 
-[!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
+Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione del codice delle funzioni. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. In questo articolo si crea un piano di servizio app durante la creazione dell'app per le funzioni.
 
-## <a name="create-a-linux-app-service-plan"></a>Creare un nuovo piano di servizio app Linux
+1. Selezionare il pulsante **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure e quindi selezionare **Calcolo** > **App per le funzioni**.
 
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
+    ![Creare un'app per le funzioni nel portale di Azure](./media/create-function-app-linux-app-service-plan/function-app-create-flow.png)
 
-## <a name="create-a-function-app-on-linux"></a>Creare un'app per le funzioni in Linux
+2. Usare le impostazioni dell'app per le funzioni come indicato nella tabella sottostante l'immagine.
 
-Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente per l'esecuzione del codice delle funzioni. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. Creare un'app per le funzioni usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create) con un piano di servizio app Linux.
+    ![Definire nuove impostazioni dell'app per le funzioni](./media/create-function-app-linux-app-service-plan/function-app-create-flow2.png)
 
-Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco dell'app per le funzioni e il nome dell'account di archiviazione con `<storage_name>`. Dato che verrà usato come dominio DNS predefinito per l'app per le funzioni, è necessario che `<app_name>` sia univoco tra tutte le app in Azure. È necessario impostare anche il runtime `<language>` per l'app per le funzioni, da `dotnet` (C#) o `node` (JavaScript) o `python`.
+    | Impostazione      | Valore consigliato  | DESCRIZIONE                                        |
+    | ------------ |  ------- | -------------------------------------------------- |
+    | **Nome app** | Nome globalmente univoco | Nome che identifica la nuova app per le funzioni. I caratteri validi sono `a-z`, `0-9` e `-`.  | 
+    | **Sottoscrizione** | Sottoscrizione in uso | Sottoscrizione in cui viene creata questa nuova app per le funzioni. | 
+    | **[Gruppo di risorse](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | Nome del nuovo gruppo di risorse in cui creare l'app per le funzioni. |
+    | **Sistema operativo** | Linux | L'app per le funzioni viene eseguita in Linux. |
+    | **Pubblica** | Codice | Viene usato il contenitore Linux predefinito per lo **stack di runtime**. È sufficiente specificare il codice di progetto dell'app per le funzioni. Un'altra opzione consiste nel pubblicare un'[immagine Docker](functions-create-function-linux-custom-image.md) personalizzata. |
+    | **[Piano di hosting](functions-scale.md)** | Piano di servizio app | Piano di hosting che definisce come vengono allocate le risorse all'app per le funzioni. In caso di esecuzione in un piano di servizio app, è possibile controllare il [ridimensionamento dell'app per le funzioni](functions-scale.md).  |
+    | **Piano di servizio app/Località** | Crea piano | Scegliere **Crea nuovo** e specificare un nome in **Piano di servizio app**. Scegliere una **località** in un'[area](https://azure.microsoft.com/regions/) nelle vicinanze o vicino ad altri servizi a cui accedono le funzioni. Scegliere il **[piano tariffario](https://azure.microsoft.com/pricing/details/app-service/linux/)** preferito. <br/>Non è possibile eseguire app per le funzioni sia Linux che Windows nello stesso piano di servizio app. |
+    | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere **.NET** per le funzioni C# e F #. Il [supporto di Python](functions-reference-python.md) attualmente è disponibile in anteprima. |
+    | **[Archiviazione](../storage/common/storage-quickstart-create-account.md)** |  Nome globalmente univoco |  Creare un account di archiviazione usato dall'app per le funzioni. I nomi degli account di archiviazione devono avere una lunghezza compresa tra 3 e 24 caratteri e possono contenere solo numeri e lettere minuscole. È anche possibile usare un account esistente, che dovrà soddisfare i [requisiti dell'account di archiviazione](functions-scale.md#storage-account-requirements). |
+    | **[Application Insights](functions-monitoring.md)** | Attivato | Application Insights è disabilitato per impostazione predefinita. È consigliabile abilitare l'integrazione di Application Insights ora e scegliere una località vicina a quella del piano di servizio app. Se si vuole farlo successivamente, vedere [Monitorare Funzioni di Azure](functions-monitoring.md).  |
 
-```azurecli-interactive
-az functionapp create --resource-group myResourceGroup --plan myAppServicePlan \
---name <app_name> --storage-account  <storage_name> --runtime <language>
-```
+3. Selezionare **Crea** per effettuare il provisioning dell'app per le funzioni e distribuirla.
 
-Al termine della creazione e distribuzione dell'app per le funzioni, l'interfaccia della riga di comando di Azure visualizza informazioni simili all'esempio seguente:
+4. Selezionare l'icona di notifica nell'angolo superiore destro del portale e attendere la visualizzazione del messaggio **La distribuzione è riuscita**.
 
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 1536,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "quickstart.azurewebsites.net",
-  "enabled": true,
-  "enabledHostNames": [
-    "quickstart.azurewebsites.net",
-    "quickstart.scm.azurewebsites.net"
-  ],
-   ....
-    // Remaining output has been truncated for readability.
-}
-```
+    ![Definire nuove impostazioni dell'app per le funzioni](./media/create-function-app-linux-app-service-plan/function-app-create-notification.png)
 
-Dato che `myAppServicePlan` è un piano di Linux, viene usata l'immagine docker incorporata per creare il contenitore che esegue l'app per le funzioni in Linux.
+5. Selezionare **Vai alla risorsa** per visualizzare la nuova app per le funzioni.
 
-[!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources-simple.md)]
+> [!TIP]
+> In caso di problemi nell'individuare le app per le funzioni nel portale, provare ad [aggiungere le app per le funzioni ai preferiti nel portale di Azure](functions-how-to-use-azure-function-app-settings.md#favorite).
+
+Si creerà ora una funzione nella nuova app per le funzioni. Anche dopo che l'app per le funzioni è disponibile, l'inizializzazione completa potrebbe richiedere alcuni minuti.
+
+## <a name="create-function"></a>Creare una funzione attivata tramite HTTP
+
+Questa sezione illustra come creare una funzione nella nuova app per le funzioni nel portale.
+
+> [!NOTE]
+> L'esperienza di sviluppo nel portale può essere utile per provare Funzioni di Azure. Per la maggior parte degli scenari è consigliabile sviluppare le funzioni in locale e pubblicare il progetto nell'app per le funzioni usando [Visual Studio Code](functions-create-first-function-vs-code.md#create-an-azure-functions-project) o [Azure Functions Core Tools](functions-run-local.md#create-a-local-functions-project).  
+
+1. Nella nuova app per le funzioni scegliere la scheda **Panoramica** e, al termine del caricamento, scegliere **+ Nuova funzione**.
+
+    ![Creare una nuova funzione dalla scheda Panoramica](./media/create-function-app-linux-app-service-plan/overview-create-function.png)
+
+1. Nella scheda **Avvio rapido** scegliere **Nel portale** e selezionare **Continua**.
+
+    ![Scegliere la piattaforma di sviluppo della funzione.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-choose-portal.png)
+
+1. Scegliere **WebHook e API** e quindi selezionare **Crea**.
+
+    ![Guida di avvio rapido di Funzioni nel portale di Azure.](./media/create-function-app-linux-app-service-plan/function-app-quickstart-node-webhook.png)
+
+Viene creata una funzione usando il modello specifico del linguaggio per una funzione attivata tramite HTTP.
+
+Ora è possibile eseguire la nuova funzione inviando una richiesta HTTP.
+
+## <a name="test-the-function"></a>Testare la funzione
+
+1. Nella nuova funzione fare clic su **</> Recupera URL della funzione** nell'angolo in alto a destra, selezionare **default (Function key)** (predefinita - tasto funzione) e quindi fare clic su **Copia**. 
+
+    ![Creare l'URL della funzione dal portale di Azure](./media/create-function-app-linux-app-service-plan/function-app-develop-tab-testing.png)
+
+2. Incollare l'URL della funzione nella barra degli indirizzi del browser. Aggiungere il valore della stringa di query `&name=<yourname>` alla fine dell'URL e premere il tasto `Enter` per eseguire la richiesta. Nel browser dovrebbe venire visualizzata la risposta restituita dalla funzione.  
+
+    L'esempio seguente mostra la risposta nel browser:
+
+    ![Risposta della funzione nel browser.](./media/create-function-app-linux-app-service-plan/function-app-browser-testing.png)
+
+    L'URL della richiesta include una chiave necessaria per impostazione predefinita per accedere a una funzione tramite HTTP.
+
+3. Quando viene eseguita la funzione, vengono scritte nei log informazioni di traccia. Per visualizzare l'output di traccia dell'esecuzione precedente, tornare alla funzione nel portale e fare clic sulla freccia nella parte inferiore della schermata per espandere **Log**.
+
+   ![Visualizzatore log di Funzioni nel portale di Azure.](./media/create-function-app-linux-app-service-plan/function-view-logs.png)
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+[!INCLUDE [Clean-up resources](../../includes/functions-quickstart-cleanup.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo illustra come creare in Azure un'app per le funzioni ospitata in Linux. Ora è possibile [distribuire un progetto di funzione](https://docs.microsoft.com/cli/azure/functionapp/deployment/source?view=azure-cli-latest) a questa app per le funzioni. È possibile usare Azure Functions Core Tools per [creare un progetto Functions](functions-run-local.md) nel computer locale e distribuirlo alla nuova app per le funzioni Linux.  
+È stata creata un'app per le funzioni con una semplice funzione attivata tramite HTTP.  
 
-> [!div class="nextstepaction"] 
-> [Scrivere codici per Funzioni di Azure e testarle in locale](functions-run-local.md)
+[!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
+
+Per altre informazioni, vedere [Associazioni HTTP e webhook in Funzioni di Azure](functions-bindings-http-webhook.md).

@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 0096a7a57cb4a404f5c8e36d8b69eac2c20c1fab
-ms.sourcegitcommit: 78ec955e8cdbfa01b0fa9bdd99659b3f64932bba
+ms.openlocfilehash: 31330c3d2b10e6245db775da4039fd1948539df4
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53139812"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106016"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>Esercitazione: Distribuire Analisi di flusso di Azure come modulo IoT Edge
 
@@ -33,7 +33,8 @@ In questa esercitazione si apprenderà come:
 > * Distribuire il processo di Analisi di flusso di Azure in un dispositivo IoT Edge dal portale di Azure.
 
 <center>
-![Diagramma - Esercitazione sull'architettura, lo staging e la distribuzione di un processo di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+
+![Diagramma - Architettura dell'esercitazione, staging e distribuzione di un processo di Analisi di flusso di Azure](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 
@@ -215,9 +216,9 @@ Per questa esercitazione, si distribuiscono due moduli. Il primo è **tempSensor
    ```cmd/sh
    iotedge list  
    ```
-<!--
+   <!--
    ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
--->
+   -->
 1. Visualizzare tutti i registri di sistema e i dati di metrica. Usare il nome del modulo di Analisi di flusso:
 
    ```cmd/sh

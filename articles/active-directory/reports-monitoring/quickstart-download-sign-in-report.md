@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168818"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547810"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Avvio rapido: Scaricare un report relativo agli accessi con il portale di Azure
 
-In questa guida introduttiva si apprenderà come scaricare i dati di accesso per il tenant relativi alle ultime 24 ore. dal portale di Azure è possibile scaricare fino a 5000 record. Per impostazione predefinita, vengono scaricati gli ultimi 5000 record, ordinati partendo dai record più recenti. 
+In questa guida introduttiva si apprenderà come scaricare i dati di accesso per il tenant relativi alle ultime 24 ore. Dal portale di Azure è possibile scaricare fino a 250.000 record. Per impostazione predefinita, vengono scaricati gli ultimi 250.000 record, ordinati partendo dai record più recenti. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ In questa guida introduttiva si apprenderà come scaricare i dati di accesso per
 2. Selezionare **Azure Active Directory** nel riquadro di spostamento sinistro e usare il pulsante **Cambia directory** per selezionare la directory attiva.
 3. Nel dashboard selezionare **Azure Active Directory** e quindi selezionare **Accessi**. 
 4. Scegliere **Ultime 24 ore** nell'elenco a discesa del filtro **Data** e selezionare **Applica** per visualizzare i dati di accesso delle ultime 24 ore. 
-5. Selezionare il pulsante **Scarica** per scaricare un file CSV contenente i record filtrati. 
+5. Selezionare il pulsante **Download**, selezionare **CSV** come formato file e specificare un nome file per scaricare un file CSV contenente i record filtrati. 
 
 ![Creazione di report](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 
