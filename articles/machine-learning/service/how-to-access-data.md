@@ -11,18 +11,18 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 02/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: c171e35c6542febffc666ad5abfab50e093bb698
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 25da234e4210c98ce17bdeb502493c5c649dab28
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359280"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481638"
 ---
 # <a name="access-data-from-your-datastores"></a>Accedere ai dati da archivi di dati
 
-Archivi dati consentono di interagire con e accedere ai dati se si esegue il codice in locale, in un cluster di calcolo o in una macchina virtuale. In questo articolo si Scopri i flussi di lavoro di Azure Machine Learning, assicurarsi di archivi dati sono accessibili e resi disponibili per il contesto di calcolo.
+ Nel servizio di Azure Machine Learning, archivi dati sono di calcolo meccanismi indipendente dalla posizione per accedere all'archiviazione senza dover apportare modifiche al codice sorgente. Scrivere il codice di training per richiedere un percorso come parametro, o fornire un archivio dati direttamente a un Estimatore, assicurarsi che i flussi di lavoro di Azure Machine Learning i percorsi di archivio dati sono accessibili e resi disponibili per il contesto di calcolo.
 
-Questo argomento vengono illustrati esempi per le attività seguenti:
+Questo argomento vengono illustrati esempi delle attività seguenti:
 * [Scegliere un archivio dati](#access)
 * [Ottenere i dati](#get)
 * [Caricare e scaricare i dati in archivi dati](#up-and-down)
@@ -30,7 +30,7 @@ Questo argomento vengono illustrati esempi per le attività seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per usare gli archivi dati, è necessario un [dell'area di lavoro](concept-azure-machine-learning-architecture.md#workspace) prima. 
+Per usare archivi dati, è necessaria prima di tutto un'[area di lavoro](concept-azure-machine-learning-architecture.md#workspace).
 
 Per iniziare, [creare una nuova area di lavoro](setup-create-workspace.md#sdk) o recuperarne una esistente:
 
@@ -49,14 +49,16 @@ ws = Workspace.from_config()
 
 ### <a name="use-the-default-datastore-in-your-workspace"></a>Usare l'archivio dati predefinito nell'area di lavoro
 
-Non è necessario creare o configurare un account di archiviazione, poiché ogni area di lavoro dispone di un archivio dati predefinito. È possibile usare l'archivio dati immediatamente perché già registrato nell'area di lavoro. 
+ Ogni area di lavoro dispone di un archivio di dati predefinito registrato, che è possibile utilizzare sin da subito.
 
 Per ottenere l'archivio dati predefinito dell'area di lavoro:
+
 ```Python
 ds = ws.get_default_datastore()
 ```
 
 ### <a name="register-your-own-datastore-with-the-workspace"></a>Registrare il proprio archivio dati con l'area di lavoro
+
 Se si ha già una risorsa di Archiviazione di Azure, è possibile registrarla come archivio dati nell'area di lavoro.   Tutti i metodi di registrazione sono sul [ `Datastore` ](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) classe e disporre i form register_azure_ *. 
 
 Gli esempi seguenti illustrano è possibile registrare un contenitore Blob di Azure o una condivisione di File di Azure come un archivio dati.
@@ -145,19 +147,17 @@ ds.download(target_path='your target path',
 <a name="train"></a>
 ## <a name="access-datastores-during-training"></a>Archivi dati di accesso durante il training
 
-Dopo aver effettuato l'archivio dati disponibile in attività di calcolo remoto, è possibile accedervi durante le esecuzioni di training (ad esempio, i dati di training o la convalida) semplicemente passando il percorso a esso come parametro nello script di training.
+Dopo aver effettuato l'archivio dati disponibile nella destinazione di calcolo, è possibile accedervi durante le esecuzioni di training (ad esempio, i dati di training o la convalida) semplicemente passando il percorso a esso come parametro nello script di training.
 
-La tabella seguente elenca i comuni [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) i metodi che rendono disponibili gli archivi dati in attività di calcolo remoto.
+La tabella seguente elenca i [ `DataReference` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py) metodi che indicano come usare l'archivio dati durante le esecuzioni della destinazione di calcolo.
 
-# #
-
-metodo|Metodo|DESCRIZIONE
+metodo|Metodo|DESCRIZIONE|
 ----|-----|--------
-Eseguire il montaggio| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usare per montare un archivio dati nell'attività di calcolo remoto. Modalità predefinita per gli archivi dati.
-Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Consente di scaricare i dati dalla posizione specificata da `path_on_compute` nell'archivio dati per le risorse di calcolo remoto.
-Caricamento|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Per caricare i dati alla radice dell'archivio dati dalla posizione specificata da `path_on_compute`.
+Eseguire il montaggio| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-mount--)| Usare per montare l'archivio dati nella destinazione di calcolo.
+Download|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-download-path-on-compute-none--overwrite-false-)|Usare per scaricare il contenuto dell'archivio dati nella posizione specificata da `path_on_compute`. <br> Per il contesto di esecuzione di training, questo download viene eseguita prima dell'esecuzione.
+Caricamento|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#as-upload-path-on-compute-none--overwrite-false-)| Consente di caricare un file dal percorso specificato dal `path_on_compute` all'archivio dati. <br> Per il contesto di esecuzione di training, questo caricamento avviene dopo l'esecuzione.
 
-```Python
+ ```Python
 import azureml.data
 from azureml.data import DataReference
 
@@ -166,22 +166,38 @@ ds.as_download(path_on_compute='your path on compute')
 ds.as_upload(path_on_compute='yourfilename')
 ```  
 
-Per fare riferimento a una cartella o un file specifico nell'archivio dati, usare la funzione [`path()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) dell'archivio dati.
+Per fare riferimento a file nell'archivio dati o una cartella specifica e renderla disponibile nella destinazione di calcolo, usare l'archivio dati [ `path()` ](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference?view=azure-ml-py#path-path-none--data-reference-name-none-) (funzione).
 
 ```Python
-#download the contents of the `./bar` directory from the datastore to the remote compute
+#download the contents of the `./bar` directory in ds to the compute target
 ds.path('./bar').as_download()
 ```
 
+> [!NOTE]
+> Eventuali `ds` oppure `ds.path` oggetto si risolve in un nome di variabile di ambiente nel formato `"$AZUREML_DATAREFERENCE_XXXX"` il cui valore rappresenta il percorso di montaggio e scaricare sulle risorse di calcolo di destinazione. Il percorso dell'archivio dati a risorse di calcolo di destinazione potrebbe non essere quello utilizzato per il percorso di esecuzione per script di training.
+
+### <a name="compute-context-and-datastore-type-matrix"></a>Matrice di tipi di contesto e l'archivio dati di calcolo
+
+La matrice seguente consente di visualizzare le funzionalità di accesso di dati disponibili per gli scenari di contesto e l'archivio dati di calcolo diversi. Il termine "Pipeline" in questa matrice si riferisce alla possibilità di usare archivi dati come input o output in [pipeline di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/concept-ml-pipelines).
+
+||Calcolo locale|Ambiente di calcolo di Azure Machine Learning|Trasferimento dati|Databricks|HDInsight|Azure Batch|Azure Data Lake Analitica|Macchine virtuali|
+-|--|-----------|----------|---------|-----|--------------|---------|---------|
+|AzureBlobDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] <br> Pipeline|Pipeline|Pipeline|[`as_download()`] <br> [`as_upload()`]|Pipeline||[`as_download()`] <br> [`as_upload()`]|
+|AzureFileDatastore|[`as_download()`] [`as_upload()`]|[`as_mount()`]<br> [`as_download()`] [`as_upload()`] Pipeline |||[`as_download()`] [`as_upload()`]|||[`as_download()`] [`as_upload()`]|
+|AzureDataLakeDatastore|||Pipeline|Pipeline|||Pipeline||
+|AzureDataLakeGen2Datastore|||Pipeline||||||
+|AzureDataPostgresSqlDatastore|||Pipeline||||||
+|AzureSqlDatabaseDataDatastore|||Pipeline||||||
 
 
 > [!NOTE]
-> Eventuali oggetti `ds` oppure `ds.path` si risolvono in un nome di variabile di ambiente nel formato `"$AZUREML_DATAREFERENCE_XXXX"` il cui valore rappresenta il percorso di esecuzione del montaggio o download in attività di calcolo remoto. Il percorso di archivio dati nell'attività di calcolo remoto potrebbe non essere quello utilizzato per il percorso di esecuzione per script di training.
+> Possono esistere scenari in cui altamente iterativi, i processi di dati di grandi dimensioni eseguiti usando più veloce [`as_download()`] anziché [`as_mount()`]; ciò può essere convalidato sperimentale.
 
 ### <a name="examples"></a>Esempi 
 
-I seguenti illustrano gli esempi specifici per il [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe per l'accesso all'archivio dati durante il training.
+Esempi di codice seguenti sono specifici per il [ `Estimator` ](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) classe per l'accesso all'archivio dati durante il training.
 
+Questo codice crea un Estimatore usando lo script di training `train.py`, dalla directory di origine indicato utilizzando i parametri definiti `script_params`, tutto nella destinazione di calcolo specificato.
 
 ```Python
 from azureml.train.estimator import Estimator
@@ -191,17 +207,16 @@ script_params = {
 }
 
 est = Estimator(source_directory='your code directory',
+                entry_script='train.py',
                 script_params=script_params,
-                compute_target=compute_target,
-                entry_script='train.py')
+                compute_target=compute_target
+                )
 ```
 
-Poiché `as_mount()` è la modalità predefinita per un archivio dati, è possibile passare direttamente `ds` per il `'--data_dir'` argomento.
-
-Oppure passare al costruttore di strumento di stima in un elenco di archivi dati `inputs` parametro a montare o copiare da/in archivi di dati. Questo esempio di codice:
-* Scarica tutto il contenuto nell'archivio dati `ds1` per le risorse di calcolo remoto prima lo script di training `train.py` viene eseguito
-* Nella cartella downloads `'./foo'` nell'archivio dati `ds2` le risorse di calcolo remoto prima `train.py` viene eseguito
-* Il file viene caricato `'./bar.pkl'` dall'attività di calcolo remoto fino a nell'archivio dati `ds3` dopo l'esecuzione di script
+È anche possibile passare in un elenco di archivi dati per il costruttore Estimator `inputs` parametro a montare o copiare da/in archivi di dati. Questo esempio di codice:
+* Scarica tutto il contenuto nell'archivio dati `ds1` per la destinazione di calcolo prima lo script di training `train.py` viene eseguito
+* Nella cartella downloads `'./foo'` nell'archivio dati `ds2` per la destinazione di calcolo prima `train.py` viene eseguito
+* Il file viene caricato `'./bar.pkl'` dalla destinazione di calcolo fino a nell'archivio dati `ds3` dopo l'esecuzione di script
 
 ```Python
 est = Estimator(source_directory='your code directory',
@@ -209,7 +224,6 @@ est = Estimator(source_directory='your code directory',
                 entry_script='train.py',
                 inputs=[ds1.as_download(), ds2.path('./foo').as_download(), ds3.as_upload(path_on_compute='./bar.pkl')])
 ```
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -4,14 +4,14 @@ description: Questo articolo offre una panoramica dei problemi noti relativi al 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/13/2019
 ms.author: raynew
-ms.openlocfilehash: 2b542cc8202b75c0007686e3f0e0d9fbd1ac28c1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67c07169b3ff66d99ee52a0e078e0e463a42702e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119174"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482913"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -61,11 +61,11 @@ Se non è possibile esportare il report di valutazione dal portale, provare a us
 
    a.    In una finestra di Windows PowerShell come amministratore eseguire il comando seguente: ```armclient login```
 
-   Verrà visualizzata la finestra popup di accesso ad Azure da cui è necessario eseguire l'accesso ad Azure.
+        This opens the Azure login pop-up where you need to sign in to Azure.
 
    b.    Nella stessa finestra di PowerShell eseguire il comando seguente per ottenere l'URL di download per il report di valutazione (sostituire i parametri dell'URI con i valori appropriati; di seguito è riportata una richiesta di API di esempio)
 
-      ```armclient POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
+       ```armclient POST https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Migrate/projects/{projectName}/groups/{groupName}/assessments/{assessmentName}/downloadUrl?api-version=2018-02-02```
 
       Richiesta di esempio e output:
 
@@ -102,6 +102,9 @@ Azure Migrate profili continuamente l'ambiente locale per raccogliere dati sulle
    - Fare clic sul File > Deploy OVF template (Distribuisci modello OVF) > individuare il file OVA e completare la distribuzione
 4. Se l'errore di distribuzione persiste, contattare il supporto di Azure Migrate.
 
+### <a name="unable-to-select-the-azure-cloud-in-the-appliance"></a>Impossibile selezionare Azure cloud nell'appliance
+
+Si tratta di un problema noto ed è disponibile una correzione per il problema. Scaricare il [più recente aggiornamento bits](https://docs.microsoft.com/azure/migrate/concepts-collector-upgrade#continuous-discovery-upgrade-versions) per il dispositivo e aggiornare il dispositivo per applicare la correzione.
 
 ### <a name="collector-is-not-able-to-connect-to-the-internet"></a>L'agente di raccolta non è in grado di connettersi a Internet
 

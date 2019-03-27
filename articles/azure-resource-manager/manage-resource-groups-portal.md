@@ -9,14 +9,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: cbbc710c9408c84c601d7b9eb9560641b5313a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1eb5ac27c53f4c0d48fe3644febc62f848486d
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090934"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484696"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Gestire i gruppi di risorse di Azure Resource Manager usando il portale di Azure
 
@@ -122,7 +122,7 @@ Per esportare un modello sono disponibili due modi:
 
 Questo metodo consente di esportare i modelli per alcune distribuzioni. Se è stata modificata le risorse dal portale o risorse aggiunte/rimosse in distribuzioni multiple, vedere [esportare modelli da gruppi di risorse](#export-templates-from-resource-groups).
 
-1. Aprire il gruppo di risorse che si desidera eliminare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
+1. Aprire il gruppo di risorse da esportare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
 2. Nel riquadro sinistro, selezionare **distribuzioni**, o selezionare il collegamento sotto **distribuzioni**.  Nella schermata seguente viene illustrato **Succeeded 4** perché si sono verificati quattro distribuzioni separate con quattro i nomi di distribuzione diversi. Si noterà **1 riuscito**.
 
     ![modelli di esportazione di gruppo di risorse di Azure](./media/manage-resource-groups-portal/manage-resource-groups-export-templates-deployment-history.png)
@@ -148,8 +148,8 @@ Questo metodo consente di esportare i modelli per alcune distribuzioni. Se è st
 
 Se si aver modificato le risorse dal portale o aggiungere o rimuovere le risorse in più distribuzioni, il modello recuperato dalla cronologia delle distribuzioni non riflette lo stato corrente del gruppo di risorse. Questa sezione illustra come esportare un modello che rispecchia tale stato. Si tratta di uno snapshot del gruppo di risorse, che è possibile usare per la ridistribuzione nello stesso gruppo di risorse. Per usare il modello esportato per altre soluzioni, è necessario apportare alcune importanti modifiche.
 
-1. Aprire il gruppo di risorse che si desidera eliminare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
-2. Nel riquadro sinistro, selezionare **script di automazione**. Resource Manager recupera i sei file seguenti:
+1. Aprire il gruppo di risorse da esportare.  Visualizzare [aprire gruppi di risorse](#open-resource-groups).
+2. Nel riquadro sinistro, selezionare **Esporta modello**. Resource Manager recupera i sei file seguenti:
 
    - **Modello** : modello che definisce l'infrastruttura per la soluzione. Quando è stato creato l'account di archiviazione tramite il portale, Resource Manager ha usato un modello per distribuirlo e ha salvato tale modello come riferimento futuro.
    - **Parametri** : file dei parametri che può essere usato per passare i valori durante la distribuzione. Contiene i valori specificati durante la prima distribuzione. Quando si ridistribuisce il modello è possibile modificare qualsiasi valore.

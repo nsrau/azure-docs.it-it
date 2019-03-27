@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: bc4896f634bb98b4663dfc3fbc6bad7ba9bace3e
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319708"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58444714"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare il portale di Azure per accedere ai dati di accodamento o blob
 
@@ -43,7 +43,7 @@ Per accedere ai dati di accodamento o blob dal portale di Azure con il proprio a
 - È stata assegnata Azure Resource Manager [lettore](../../role-based-access-control/built-in-roles.md#reader) ruolo, come minimo, hanno come ambito il livello dell'account di archiviazione o versione successiva. Il **lettore** ruolo concede le autorizzazioni più limitate, ma è accettabile anche un altro ruolo di Azure Resource Manager che concede l'accesso alle risorse di gestione di account di archiviazione.
 - Si sono state assegnate di un ruolo predefinito o personalizzato che fornisce accesso ai BLOB o i dati della coda.
 
-Il **lettore** assegnazione di ruolo o un'altra assegnazione di ruolo di Azure Resource Manager è necessaria in modo che l'utente può visualizzare e spostarsi tra le risorse di gestione account di archiviazione nel portale di Azure. I ruoli RBAC che concedono l'accesso ai dati di accodamento o blob non concedono l'accesso alle risorse di gestione di account di archiviazione. Per accedere a dati blob o una coda nel portale, l'utente deve avere autorizzazioni per passare le risorse di account di archiviazione. Per altre informazioni su questo requisito, vedere [assegnare il ruolo lettore per l'accesso al portale](../common/storage-auth-aad-rbac.md#assign-the-reader-role-for-portal-access).
+Il **lettore** assegnazione di ruolo o un'altra assegnazione di ruolo di Azure Resource Manager è necessaria in modo che l'utente può visualizzare e spostarsi tra le risorse di gestione account di archiviazione nel portale di Azure. I ruoli RBAC che concedono l'accesso ai dati di accodamento o blob non concedono l'accesso alle risorse di gestione di account di archiviazione. Per accedere a dati blob o una coda nel portale, l'utente deve avere autorizzazioni per passare le risorse di account di archiviazione. Per altre informazioni su questo requisito, vedere [assegnare il ruolo lettore per l'accesso al portale](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 I ruoli predefiniti che supportano l'accesso ai dati di accodamento o blob includono:
 
@@ -96,5 +96,7 @@ Si noti che nessun BLOB vengono visualizzati nell'elenco, se non hai accesso all
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Autenticare l'accesso a BLOB di Azure e code con Azure Active Directory (anteprima)](storage-auth-aad.md)
-- [Concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure (anteprima)](storage-auth-aad-rbac.md)
+- [Autenticare l'accesso a BLOB di Azure e code con Azure Active Directory](storage-auth-aad.md)
+- [Concedere l'accesso a contenitori di Azure e code con accessi nel portale di Azure](storage-auth-aad-rbac-portal.md)
+- [Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite la CLI di Azure](storage-auth-aad-rbac-cli.md)
+- [Concedere l'accesso a dati blob e di Accodamento di Azure con RBAC tramite PowerShell](storage-auth-aad-rbac-powershell.md)

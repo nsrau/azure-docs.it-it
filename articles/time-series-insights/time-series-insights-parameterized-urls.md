@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: big-data
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 305d81d6614d1f0654e0d96b10f1759498683003
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: 172e6f53b25a1aeef67afea0c1769e6fcaf497cd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558465"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487873"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Condividere una visualizzazione personalizzata usando un URL con parametri
 
@@ -81,13 +81,13 @@ Il parametro 'multiChartStack=<true/false>' consente l'impilamento nel grafico, 
 - 'multiChartStack=false&multiChartSameScale=true' 
   - È necessario abilitare l'impilamento per usare la stessa scala dell'asse Y in tutti i termini.  L'impilamento è 'false' per impostazione predefinita, quindi la funzionalità verrà abilitata passando 'true'.  
   
-'timeBucketUnit=<Unit>&timeBucketSize=<integer>' consente di modificare il dispositivo di scorrimento dell'intervallo per fornire una vista più granulare o più semplice e aggregata del grafico.  
-- 'timeBucketUnit=<Unit>&timeBucketSize=<integer>'
+Il `timeBucketUnit=<Unit>&timeBucketSize=<integer>` consente di regolare il dispositivo di scorrimento di intervallo per fornire più granulare o semplice e più aggregati visualizzazione del grafico.  
+- `timeBucketUnit=<Unit>&timeBucketSize=<integer>`
   - Unità = giorni, ore, minuti, secondi, millisecondi.  Scrivere sempre in lettere maiuscole l'unità.
   - Definire il numero di unità, passando l'intero desiderato per timeBucketSize.  Si noti che l'arco temporale è di 7 giorni.  
   
-Il parametro 'timezoneOffset=<integer>' consente di impostare il fuso orario per il grafico da visualizzare come differenza dall'ora UTC.  
-  - 'timezoneOffset=-<integer>'
+Il `timezoneOffset=<integer>` parametro consente di impostare il fuso orario per il grafico da visualizzare come differenza dall'ora UTC.  
+  - `timezoneOffset=-<integer>`
     - L'intero viene sempre espresso in millisecondi.  
     - Si noti che questa funzionalità è leggermente diversa da quella abilitata nell'ambiente di esplorazione TSI, nel quale è possibile scegliere l'ora locale (ora del browser) o l'ora UTC.  
  

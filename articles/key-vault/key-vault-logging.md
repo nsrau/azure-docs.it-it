@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: barclayn
-ms.openlocfilehash: afec42551f124890dd2cc7b03cce48c359fc88c4
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 25ebd72c512eb92c5d9a464a4b4d74f9e41ae389
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194096"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484113"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -55,7 +55,7 @@ Il primo passaggio nella configurazione di registrazione dei tasti sia al punto 
 
 Avviare una sessione di Azure PowerShell e accedere al proprio account Azure con il comando seguente:  
 
-```PowerShell
+```powershell
 Connect-AzAccount
 ```
 
@@ -63,13 +63,13 @@ Nella finestra del browser a comparsa, immettere il nome utente e la password de
 
 Potrebbe essere necessario specificare la sottoscrizione usata per creare l'insieme di credenziali delle chiavi. Immettere il comando seguente per visualizzare le sottoscrizioni per l'account:
 
-```PowerShell
+```powershell
 Get-AzSubscription
 ```
 
 Quindi, per specificare la sottoscrizione che ha associato l'insieme di credenziali di che accesso, immettere:
 
-```PowerShell
+```powershell
 Set-AzContext -SubscriptionId <subscription ID>
 ```
 
@@ -81,7 +81,7 @@ Sebbene sia possibile usare un account di archiviazione per i log, si creerà un
 
 Per rendere ancora più facile gestione, si userà anche stesso gruppo di risorse è quello che contiene l'insieme di credenziali delle chiavi. Dal [esercitazione introduttiva](key-vault-get-started.md), questo gruppo di risorse è denominato **ContosoResourceGroup**, e si continuerà a usare l'area Asia orientale. Sostituire questi valori con quelli personalizzati, come applicabile:
 
-```PowerShell
+```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 ```
 
@@ -94,7 +94,7 @@ Per rendere ancora più facile gestione, si userà anche stesso gruppo di risors
 
 Nel [esercitazione introduttiva](key-vault-get-started.md), il nome dell'insieme di credenziali chiave è stata **ContosoKeyVault**. Microsoft continuerà a usare il nome e archiviare i dettagli in una variabile denominata **kv**:
 
-```PowerShell
+```powershell
 $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 ```
 
@@ -102,7 +102,7 @@ $kv = Get-AzKeyVault -VaultName 'ContosoKeyVault'
 
 Per abilitare la registrazione per Key Vault, si userà il **Set-AzDiagnosticSetting** cmdlet, insieme alle variabili create per il nuovo account di archiviazione e l'insieme di credenziali delle chiavi. Impostiamo anche il **-abilitata** flag **$true** e impostare la categoria **AuditEvent** (l'unica categoria per la registrazione di Key Vault):
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent
 ```
 
@@ -122,7 +122,7 @@ Questo output conferma che la registrazione è abilitata per l'insieme di creden
 
 Facoltativamente, è possibile impostare un criterio di conservazione per i log in modo che i log meno recenti vengano eliminati automaticamente. Ad esempio, impostare criteri di conservazione impostando il **- RetentionEnabled** flag **$true**e impostare il **- RetentionInDays** parametro **90**in modo che i log antecedenti a 90 giorni vengono eliminati automaticamente.
 
-```PowerShell
+```powershell
 Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -StorageAccountId $sa.Id -Enabled $true -Category AuditEvent -RetentionEnabled $true -RetentionInDays 90
 ```
 
@@ -141,13 +141,13 @@ I log di Key Vault sono archiviati nel **insights-log-auditevent** contenitore n
 
 Creare prima una variabile per il nome contenitore. È possibile usare questa variabile in tutto il resto della procedura dettagliata.
 
-```PowerShell
+```powershell
 $container = 'insights-logs-auditevent'
 ```
 
 Per elencare tutti i BLOB nel contenitore, immettere:
 
-```PowerShell
+```powershell
 Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
@@ -174,19 +174,19 @@ Poiché è possibile usare lo stesso account di archiviazione per raccogliere i 
 
 Creare una cartella per scaricare i BLOB. Ad esempio: 
 
-```PowerShell 
+```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
 ```
 
 Ottenere quindi un elenco di tutti i BLOB:  
 
-```PowerShell
+```powershell
 $blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 Inviare l'elenco tramite pipe **Get-AzStorageBlobContent** per scaricare i BLOB nella cartella di destinazione:
 
-```PowerShell
+```powershell
 $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVaultLogs'
 ```
 
@@ -196,19 +196,19 @@ Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
 
 * Se sono disponibili più insiemi di credenziali delle chiavi e si vogliono scaricare i log per un solo insieme di credenziali delle chiavi denominato CONTOSOKEYVAULT3, usare:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/VAULTS/CONTOSOKEYVAULT3
   ```
 
 * Se sono disponibili più gruppi di risorse e si vogliono scaricare i log per un solo gruppo di risorse, usare `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
   ```
 
 * Se si vuole scaricare tutti i log per il mese di gennaio 2019, usare `-Blob '*/year=2019/m=01/*'`:
 
-  ```PowerShell
+  ```powershell
   Get-AzStorageBlob -Container $container -Context $sa.Context -Blob '*/year=2016/m=01/*'
   ```
 
@@ -221,7 +221,7 @@ A questo punto si può iniziare a osservare il contenuto dei log. Ma prima di pr
 
 I singoli BLOB vengono archiviati come testo, formattati come BLOB JSON. Verrà ora esaminato un esempio di voce di log. Eseguire questo comando:
 
-```PowerShell
+```powershell
 Get-AzKeyVault -VaultName 'contosokeyvault'`
 ```
 

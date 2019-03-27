@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 5fe3d9369958984b76fd704583460a95868da85e
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: c85644e3cab39f9e0864af91722ee54aab6d59f3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56114214"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486870"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
@@ -116,7 +116,7 @@ az appservice plan create \
 
 Il comando seguente crea un piano di servizio app in _P1V2_. Le opzioni per `-WorkerSize` sono _Small_, _Medium_ e _Large_.
 
-```PowerShell
+```powershell
 New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
     -Name <app_service_plan_name> `
     -Location <region_name> `

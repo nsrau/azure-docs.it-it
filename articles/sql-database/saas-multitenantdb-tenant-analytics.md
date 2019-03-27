@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: anjangsh,billgib,genemi
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: 340c08841b7bedc9f2453617aeff111beb810961
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0146f6ca610a25e57771fb21436a70acbdd5a5ef
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888179"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481383"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
  
@@ -92,7 +92,7 @@ Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tena
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto. Ai fini dell'apprendimento, è consigliabile un database SQL senza columnstore.
     - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
-3. Premere **F5** per eseguire lo script dimostrativo che chiama lo script *Deploy-TenantAnalytics<XX>.ps1* e crea l'archivio di analisi dei tenant. 
+3. Premere **F5** per eseguire lo script della demo (che chiama il *Deploy-TenantAnalytics\<XX > con estensione ps1* script) che consente di creare l'archivio di analitica di tenant. 
 
 Dopo aver distribuito l'applicazione e avervi inserito i dati tenant interessanti, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) connettersi **tenants1-mt -\<utente\>**  e **catalog-mt -\<utente\>**  server usando l'account di accesso = *developer*, Password = *P\@ssword1*.
 
@@ -121,7 +121,7 @@ Prima di procedere, assicurarsi di aver distribuito l'account per i processi e i
 
 1. In SSMS connettersi al database **jobaccount** in catalog-mt-\<Utente\>.
 2. In SSMS aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql*. 
-3. Modificare la variabile @User all'inizio dello script, sostituendo <User> con il valore dell'utente usato per la distribuzione dell'applicazione di database multi-tenant SaaS Wingtip Tickets.
+3. Modificare la variabile @User all'inizio dello script, sostituendo `<User>` con il valore dell'utente usato per la distribuzione dell'applicazione di database multi-tenant SaaS Wingtip Tickets.
 4. Premere **F5** per eseguire lo script che crea i due gruppi di destinazione.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Estrarre dati non elaborati da tutti i tenant
@@ -135,7 +135,7 @@ Ogni processo estrae i rispettivi dati e li inserisce nell'archivio di analisi. 
 
 1. In SSMS connettersi al database **jobaccount** nel server catalog-mt-\<Utente\>.
 2. In SSMS aprire *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
-3. Modificare @User all'inizio dello script e sostituire <User> con il nome utente usato per la distribuzione dell'applicazione di database multi-tenant SaaS Wingtip Tickets. 
+3. Modificare @User all'inizio dello script e sostituire `<User>` con il nome utente usato per la distribuzione dell'applicazione di database multi-tenant SaaS Wingtip Tickets. 
 4. Premere **F5** per eseguire lo script che crea ed esegue il processo che estrae i dati relativi ai biglietti e ai clienti dal database di ogni tenant. Il processo salva i dati nell'archivio di analisi.
 5. Eseguire una query sulla tabella TicketsRawData del database tenantanalytics per verificare che la tabella sia stata popolata con le informazioni sui biglietti di tutti i tenant.
 

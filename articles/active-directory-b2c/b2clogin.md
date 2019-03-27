@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/28/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 61c4212233dd7ed9c34de779176c3402890e673f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8188e36278bad9c93f709a5d7d9f831d1c19e6b4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55160905"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486848"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 
@@ -25,6 +25,13 @@ L'uso di b2clogin.com offre vantaggi aggiuntivi, ad esempio:
 
 - Lo spazio usato nell'intestazione cookie dei servizi Microsoft viene ridotto.
 - Gli URL non includono più un riferimento a Microsoft. Ad esempio: `https://your-tenant-name.b2clogin.com/tenant-id/oauth2/authresp`.
+
+>[!NOTE]
+> È possibile usare il nome del tenant e il GUID del tenant come indicato di seguito:
+> * `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com` (che fa ancora riferimento a `onmicrosoft.com`)
+> * `https://your-tenant-name.b2clogin.com/your-tenant-guid` (nel qual caso non sono presenti riferimenti a Microsoft tutti)
+>
+> Tuttavia, è possibile usare una _dominio personalizzato_ per Azure Active Directory B2C del tenant, ad esempio `https://your-tenant-name.b2clogin.com/your-custom-domain-name` verrebbe _non_ di lavoro.
 
 Prendere in considerazione queste impostazioni che potrebbe essere necessario modificare quando si usa b2clogin.com:
 

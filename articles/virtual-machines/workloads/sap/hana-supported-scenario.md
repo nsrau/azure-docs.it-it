@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855456"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482964"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Scenari supportati nelle istanze Large di HANA
 Questo documento descrive gli scenari supportati e i dettagli delle relative architettura per istanze Large di HANA (HLI).
@@ -68,10 +68,10 @@ Ogni server fornito è preconfigurato con i set di interfacce Ethernet. Di segui
 | b | TIPO I | eth2.tenant | eno3.tenant | Da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Da nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Da nodo a nodo |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | STONITH |
 
 Utilizzare le interfacce sulla base della topologia configurata nell'unità HLI. L'interfaccia "B", ad esempio, è impostata per la comunicazione da nodo a nodo, che risulta utile quando è stata configurata una topologia con scalabilità orizzontale. Per le configurazioni a scalabilità verticale con un singolo nodo, questa interfaccia non viene usata. Esaminare gli scenari richiesti, indicati più avanti in questo documento, per ottenere ulteriori informazioni sull'utilizzo dell'interfaccia. 
 
@@ -101,7 +101,7 @@ Una configurazione del pannello con due indirizzi IP assegnati non è appropriat
 L'archiviazione è preconfigurata e si basa sulla topologia richiesta. Le dimensioni del volume e il punto di montaggio variano in base alla topologia e al numero di server e SKU configurati. Esaminare gli scenari richiesti, indicati più avanti in questo documento, per ottenere altre informazioni. Se è necessario disporre di ulteriore spazio di archiviazione, è possibile acquistare incrementi di un TB.
 
 >[!NOTE]
->Il punto di montaggio /usr/sap/<SID> è un collegamento simbolico al punto di montaggio/hana/shared.
+>Il punto di montaggio /usr/SAP/\<SID > è un collegamento simbolico per il punto di montaggio/hana/condivisi.
 
 
 ## <a name="supported-scenarios"></a>Scenari Supportati
@@ -142,10 +142,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -177,10 +177,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -217,10 +217,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -258,10 +258,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -312,10 +312,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usato per STONITH |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Usato per STONITH |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Usato per STONITH |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -360,10 +360,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurato ma non in uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usato per STONITH |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Usato per STONITH |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Configurato ma non in uso |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Usato per STONITH |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -419,10 +419,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -460,10 +460,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -496,10 +496,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:
@@ -535,10 +535,10 @@ Sono preconfigurate le interfacce di rete seguenti:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicazione da nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Da nodo ad archiviazione |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurato ma non in uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Da client a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Da client a HLI |
+| b | TIPO II | vlan\<tenantNo+2> | team0.tenant+2 | Comunicazione da nodo a nodo |
+| C | TIPO II | vlan\<tenantNo+1> | team0.tenant+1 | Da nodo ad archiviazione |
+| D | TIPO II | vlan\<tenantNo+3> | team0.tenant+3 | Configurato ma non in uso |
 
 ### <a name="storage"></a>Archiviazione
 I punti di montaggio seguenti sono preconfigurati:

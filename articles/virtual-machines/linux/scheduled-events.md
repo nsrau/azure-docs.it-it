@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: df7f3dfa525c59ff8862c3b1a46f70be53a93a32
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: 6337477b55addefb7579d6f328473428ba72ba24
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54198746"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446140"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -47,7 +47,9 @@ Grazie agli eventi pianificati, l'applicazione è in grado di sapere quando verr
 Gli eventi pianificati informano sugli eventi nei casi d'uso seguenti:
 
 - Manutenzione avviata dalla piattaforma, ad esempio un aggiornamento del sistema operativo host
+- Hardware con funzionalità ridotte
 - Manutenzione avviata dall'utente, ad esempio il riavvio o la ridistribuzione di una macchina virtuale eseguita dall'utente
+- [Rimozione di macchine Virtuali con priorità bassa](https://azure.microsoft.com/en-us/blog/low-priority-scale-sets) nella scala imposta
 
 ## <a name="the-basics"></a>Nozioni di base  
 
@@ -65,17 +67,18 @@ Di conseguenza, è opportuno controllare il campo `Resources` dell'evento per id
 ### <a name="endpoint-discovery"></a>Individuazione degli endpoint
 Per le macchine virtuali abilitate per le reti virtuali, il servizio metadati è disponibile da un indirizzo IP statico non instradabile, `169.254.169.254`. L'endpoint completo per la versione più recente degli eventi pianificati è: 
 
- > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01`
+ > `http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01`
 
 Se la macchina virtuale non viene creata all'interno di una rete virtuale, caso predefinito per i servizi cloud e le macchine virtuali classiche, è necessaria logica aggiuntiva per individuare l'indirizzo IP da usare. Per informazioni su come [individuare l'endpoint dell'host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm), vedere l'esempio seguente.
 
 ### <a name="version-and-region-availability"></a>Versione e disponibilità in base all'area geografica
-Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie; la versione corrente è `2017-08-01`.
+Il servizio eventi pianificati è un servizio con versione. Le versioni sono obbligatorie; la versione corrente è `2017-11-01`.
 
-| Version | Tipo di versione | Regioni | Note sulla versione | 
+| Versione | Tipo di versione | Regioni | Note sulla versione | 
 | - | - | - | - | 
+| 2017-11-01 | Disponibilità generale | Tutti | <li> Aggiunta del supporto per l'eliminazione di macchine Virtuali con priorità bassa EventType 'Preempt'<br> | 
 | 2017-08-01 | Disponibilità generale | Tutti | <li> È stato rimosso il carattere di sottolineatura all'inizio dei nomi delle risorse per le macchine virtuali IaaS<br><li>Requisito dell'intestazione dei metadati applicato per tutte le richieste | 
-| 2017-03-01 | Preview | Tutti | <li>Versione iniziale
+| 2017-03-01 | Anteprima | Tutti | <li>Versione iniziale
 
 
 > [!NOTE] 
@@ -112,7 +115,7 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
     "Events": [
         {
             "EventId": {eventID},
-            "EventType": "Reboot" | "Redeploy" | "Freeze",
+            "EventType": "Reboot" | "Redeploy" | "Freeze" | "Preempt",
             "ResourceType": "VirtualMachine",
             "Resources": [{resourceName}],
             "EventStatus": "Scheduled" | "Started",
@@ -123,10 +126,10 @@ Nel caso in cui siano presenti eventi pianificati, la risposta contiene una matr
 ```
 
 ### <a name="event-properties"></a>Proprietà dell'evento
-|Proprietà  |  DESCRIZIONE |
+|Proprietà  |  Descrizione |
 | - | - |
 | EventId | Identificatore globalmente univoco per l'evento. <br><br> Esempio: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: per la macchina virtuale è pianificata una pausa di alcuni secondi. La CPU viene sospesa, ma la memoria, i file aperti o le connessioni di rete non subiranno conseguenze. <li>`Reboot`: per la macchina virtuale è pianificato il riavvio. La memoria non persistente viene persa. <li>`Redeploy`: per la macchina virtuale è pianificato uno spostamento in un altro nodo. I dischi temporanei vengono persi. |
+| EventType | Impatto che l'evento causa. <br><br> Valori: <br><ul><li> `Freeze`: per la macchina virtuale è pianificata una pausa di pochi secondi. La CPU viene sospesa, ma la memoria, i file aperti o le connessioni di rete non subiranno conseguenze. <li>`Reboot`: per la macchina virtuale è pianificato un riavvio (la memoria non permanente andrà persa). <li>`Redeploy`: per la macchina virtuale è pianificato uno spostamento in un altro nodo (i dischi temporanei andranno persi). <li>`Preempt`: Viene eliminata la macchina virtuale con priorità bassa (i dischi temporanei andranno persi).|
 | ResourceType | Tipo di risorsa interessata dall'evento. <br><br> Valori: <ul><li>`VirtualMachine`|
 | Risorse| Elenco di risorse interessate dall'evento. L'elenco contiene sicuramente i computer al massimo di un [dominio di aggiornamento](manage-availability.md), ma potrebbe non contenere tutti i computer del dominio. <br><br> Esempio: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Stato dell'evento. <br><br> Valori: <ul><li>`Scheduled`: l'avvio dell'evento è pianificato dopo la data e l'ora specificate nella proprietà `NotBefore`.<li>`Started`: l'evento è stato avviato.</ul> Lo stato `Completed` o simile non viene mai restituito. Al termine dell'evento, quest'ultimo non viene più restituito.
@@ -138,8 +141,9 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 |EventType  | Preavviso minimo |
 | - | - |
 | Freeze| 15 minuti |
-| Reboot | 15 minuti |
+| Riavvio | 15 minuti |
 | Ripetere la distribuzione | 10 minuti |
+| Ha la precedenza sui | 30 secondi |
 
 ### <a name="start-an-event"></a>Avviare un evento 
 
@@ -158,7 +162,7 @@ Di seguito è riportato l'esempio JSON con il codice previsto nel corpo della ri
 
 #### <a name="bash-sample"></a>Esempio Bash
 ```
-curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01
 ```
 
 > [!NOTE] 
@@ -176,7 +180,7 @@ import urllib2
 import socket
 import sys
 
-metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01"
+metadata_url = "http://169.254.169.254/metadata/scheduledevents?api-version=2017-11-01"
 headers = "{Metadata:true}"
 this_host = socket.gethostname()
 

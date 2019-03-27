@@ -8,33 +8,49 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/26/2019
 ms.author: anroth
-ms.openlocfilehash: e50933ea0231b4be22c2d0f82d33fd02dd0918f5
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 715fa526c83608c9922315e3a0d89b67b31e0d16
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351610"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472727"
 ---
-# <a name="use-the-prediction-endpoint-to-test-images-programmatically"></a>Usare l'endpoint di stima per testare le immagini a livello di codice
+#  <a name="use-your-model-with-the-prediction-api"></a>Usare il modello con l'API Prediction
 
 Dopo avere eseguito il training del modello, è possibile testare le immagini a livello di codice inviandole all'API Prediction.
 
 > [!NOTE]
-> Questo documento illustra l'uso di C# per inviare un'immagine all'API Prediction. Per altre informazioni ed esempi relativi all'uso dell'API, vedere le [informazioni di riferimento per l'API Prediction](https://go.microsoft.com/fwlink/?linkid=865445).
+> Questo documento illustra l'uso di C# per inviare un'immagine all'API Prediction. Per altre informazioni ed esempi relativi all'uso dell'API, vedere le [informazioni di riferimento per l'API Prediction](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+
+## <a name="publish-your-trained-iteration"></a>Pubblicare l'iterazione sottoposto a training
+
+Dalla [pagina Web di Visione personalizzata](https://customvision.ai) selezionare il progetto e quindi selezionare la scheda __Performance__ (Prestazioni).
+
+Per inviare le immagini per le API di stima, è necessario pubblicare l'iterazione per la stima, che può essere eseguita selezionando __pubblica__ e specificando un nome per l'iterazione pubblicato. In questo modo il modello sia accessibile per l'API di stima delle tue risorse di Azure di visione artificiale personalizzato. 
+
+![Viene visualizzata nella scheda prestazioni, con un rettangolo rosso che racchiudono il pulsante pubblica.](./media/use-prediction-api/unpublished-iteration.png)
+
+Al termine il modello è stato pubblicato correttamente, si noterà un'etichetta "Pubblicato" vengono visualizzate accanto all'iterazione nella barra laterale a sinistra, nonché il nome dell'iterazione pubblicato nella descrizione dell'iterazione.
+
+![Viene visualizzata nella scheda prestazioni, con un rettangolo rosso che circonda l'etichetta pubblicato e il nome dell'iterazione pubblicato.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Ottenere l'URL e la chiave di stima
 
-Dalla [pagina Web di Visione personalizzata](https://customvision.ai) selezionare il progetto e quindi selezionare la scheda __Performance__ (Prestazioni). Per visualizzare informazioni sull'uso dell'API Prediction, incluso il valore __Prediction-key__ selezionare __Prediction URL__. Per i progetti collegati a una risorsa di Azure, il __stima-key__ sono disponibili anche nel [portale di Azure](https://portal.azure.com) pagina per la risorsa di Azure associata in __chiavi__. Copiare le informazioni seguenti da usare nell'applicazione:
+Dopo aver pubblicato il modello, è possibile recuperare le informazioni sull'uso dell'API di stima, selezionando __stima URL__. Verrà aperta una finestra di dialogo simile a quello illustrato di seguito con le informazioni per l'uso dell'API di stima, tra cui il __URL di stima__ e __stima-Key__.
 
-* __URL__ per l'uso di un __file di immagine__.
-* Valore __Prediction-Key__.
+![La scheda prestazioni viene visualizzata con un rettangolo rosso che racchiudono il pulsante di URL di stima.](./media/use-prediction-api/published-iteration-prediction-url.png)
+
+![La scheda prestazioni viene visualizzata con un rettangolo rosso che racchiudono il valore dell'URL di stima per l'uso di un file di immagine e il valore della chiave di stima.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Se si hanno più iterazioni, è possibile controllare l'iterazione usata impostandola come predefinita. Selezionare l'iterazione nella sezione __Iterations__ (Iterazioni), quindi selezionare __Make default__ (Predefinito) nella parte superiore della pagina.
+> I __stima-Key__ sono disponibili anche nel [portale di Azure](https://portal.azure.com) pagina per la risorsa di Azure di visione artificiale personalizzato associato al progetto, sotto __chiavi__. 
 
-![La scheda Performance (Prestazioni) viene visualizzata con un rettangolo rosso intorno a Prediction URL.](./media/use-prediction-api/prediction-url.png)
+Nella finestra di dialogo, copiare le informazioni seguenti per l'uso dell'applicazione:
+
+* __URL di stima__ per l'uso di un __file di immagine__.
+* __Chiave di stima__ valore.
 
 ## <a name="create-the-application"></a>Creazione dell'applicazione
 
@@ -46,8 +62,8 @@ Dalla [pagina Web di Visione personalizzata](https://customvision.ai) selezionar
     > Modificare le informazioni seguenti:
     >
     > * Impostare lo __spazio dei nomi__ sul nome del progetto.
-    > * Impostare il valore __Prediction-Key__ ricevuto in precedenza nella riga che inizia con `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Impostare il valore __URL__ ricevuto in precedenza nella riga che inizia con `string url =`.
+    > * Impostare il __stima-Key__ valore recuperato in precedenza nella riga che inizia con `client.DefaultRequestHeaders.Add("Prediction-Key",`.
+    > * Impostare il __URL di stima__ valore recuperato in precedenza nella riga che inizia con `string url =`.
 
     ```csharp
     using System;
@@ -56,37 +72,30 @@ Dalla [pagina Web di Visione personalizzata](https://customvision.ai) selezionar
     using System.Net.Http.Headers;
     using System.Threading.Tasks;
 
-    namespace CSPredictionSample
+    namespace CVSPredictionSample
     {
-        static class Program
+        public static class Program
         {
-            static void Main()
+            public static void Main()
             {
                 Console.Write("Enter image file path: ");
                 string imageFilePath = Console.ReadLine();
 
                 MakePredictionRequest(imageFilePath).Wait();
 
-                Console.WriteLine("\n\n\nHit ENTER to exit...");
+                Console.WriteLine("\n\nHit ENTER to exit...");
                 Console.ReadLine();
             }
 
-            static byte[] GetImageAsByteArray(string imageFilePath)
-            {
-                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
-                BinaryReader binaryReader = new BinaryReader(fileStream);
-                return binaryReader.ReadBytes((int)fileStream.Length);
-            }
-
-            static async Task MakePredictionRequest(string imageFilePath)
+            public static async Task MakePredictionRequest(string imageFilePath)
             {
                 var client = new HttpClient();
 
-                // Request headers - replace this example key with your valid subscription key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "13hc77781f7e4b19b5fcdd72a8df7156");
+                // Request headers - replace this example key with your valid Prediction-Key.
+                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d945300f2");
 
-                // Prediction URL - replace this example URL with your valid prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v1.0/prediction/d16e136c-5b0b-4b84-9341-6a3fff8fa7fe/image?iterationId=f4e573f6-9843-46db-8018-b01d034fd0f2";
+                // Prediction URL - replace this example URL with your valid Prediction URL.
+                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-67a11deffd7b/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
 
                 HttpResponseMessage response;
 
@@ -100,23 +109,30 @@ Dalla [pagina Web di Visione personalizzata](https://customvision.ai) selezionar
                     Console.WriteLine(await response.Content.ReadAsStringAsync());
                 }
             }
+
+            private static byte[] GetImageAsByteArray(string imageFilePath)
+            {
+                FileStream fileStream = new FileStream(imageFilePath, FileMode.Open, FileAccess.Read);
+                BinaryReader binaryReader = new BinaryReader(fileStream);
+                return binaryReader.ReadBytes((int)fileStream.Length);
+            }
         }
     }
     ```
 
 ## <a name="use-the-application"></a>Usare l'applicazione
 
-Quando si esegue l'applicazione, è possibile immettere il percorso di un file di immagine. L'immagine viene inviata all'API e i risultati vengono restituiti come documento JSON. Il documento JSON seguente è un esempio della risposta
+Quando si esegue l'applicazione, sarà necessario immettere il percorso del file di immagine nella console. L'immagine viene inviato all'API di stima e i risultati di stima vengono restituiti come documento JSON. Il codice JSON seguente è riportato un esempio della risposta.
 
 ```json
 {
-    "Id":"3f76364c-b8ae-4818-a2b2-2794cfbe377a",
-    "Project":"2277aca4-7aff-4742-8afb-3682e251c913",
-    "Iteration":"84105bfe-73b5-4fcc-addb-756c0de17df2",
-    "Created":"2018-05-03T14:15:22.5659829Z",
+    "Id":"7796df8e-acbc-45fc-90b4-1b0c81b73639",
+    "Project":"8622c779-471c-4b6e-842c-67a11deffd7b",
+    "Iteration":"59ec199d-f3fb-443a-b708-4bca79e1b7f7",
+    "Created":"2019-03-20T16:47:31.322Z",
     "Predictions":[
-        {"TagId":"35ac2ad0-e3ef-4e60-b81f-052a1057a1ca","Tag":"dog","Probability":0.102716163},
-        {"TagId":"28e1a872-3776-434c-8cf0-b612dd1a953c","Tag":"cat","Probability":0.02037274}
+        {"TagId":"d9cb3fa5-1ff3-4e98-8d47-2ef42d7fb373","TagName":"cat", "Probability":1.0},
+        {"TagId":"9a8d63fb-b6ed-4462-bcff-77ff72084d99","TagName":"dog", "Probability":0.1087869}
     ]
 }
 ```
@@ -124,3 +140,13 @@ Quando si esegue l'applicazione, è possibile immettere il percorso di un file d
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Esportare il modello per l'uso con i dispositivi mobili](export-your-model.md)
+
+[Introduzione a .NET SDK](csharp-tutorial.md)
+
+[Introduzione a Python SDK](python-tutorial.md)
+
+[Introduzione a Java SDK](java-tutorial.md)
+
+[Introduzione a SDK di nodo](node-tutorial.md)
+
+[Introduzione a Go SDK](go-tutorial.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/22/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: 44533bc6ed0656be387fa76c0e975046ad7f79ab
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 72d9ec52732a78e39f6481e2cb2d40f17f86f028
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741049"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58494711"
 ---
 # <a name="enable-write-accelerator"></a>Abilitare l'acceleratore di scrittura
 
@@ -96,7 +96,7 @@ Specificare $true o $false per controllare il supporto dell'acceleratore di scri
 
 Ecco alcuni esempi di comandi:
 
-```PowerShell
+```powershell
 New-AzVMConfig | Set-AzVMOsDisk | Add-AzVMDataDisk -Name "datadisk1" | Add-AzVMDataDisk -Name "logdisk1" -WriteAccelerator | New-AzVM
 
 Get-AzVM | Update-AzVM -OsDiskWriteAccelerator $true
@@ -114,7 +114,7 @@ Get-AzVmss | Update-AzVmss -OsDiskWriteAccelerator:$false
 
 Sostituire `myVM`, `myWAVMs`, `log001`, dimensioni del disco e LunID del disco con i valori appropriati per la specifica distribuzione.
 
-```PowerShell
+```powershell
 # Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group
@@ -137,7 +137,7 @@ Update-AzVM -ResourceGroupName $rgname -VM $vm
 
 Questo script può essere utilizzato per abilitare l'acceleratore di scrittura per un disco esistente. Sostituire `myVM`, `myWAVMs` e `test-log001` con i valori appropriati per la specifica distribuzione. Lo script aggiunge l'acceleratore di scrittura a un disco esistente in cui il valore **$newstatus** è impostato su '$true'. L'uso del valore '$false' disabiliterà l'acceleratore di scrittura per il disco specificato.
 
-```PowerShell
+```powershell
 #Specify your VM Name
 $vmName="myVM"
 #Specify your Resource Group

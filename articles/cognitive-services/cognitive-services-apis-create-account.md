@@ -1,22 +1,22 @@
 ---
 title: Creare un account di Servizi cognitivi nel portale di Azure
 titlesuffix: Azure Cognitive Services
-description: Come creare un account delle API Servizi cognitivi Microsoft nel Portale di Azure.
+description: Come creare un account API servizi cognitivi di Azure nel portale di Azure.
 services: cognitive-services
 author: garyericson
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 02/01/2018
+ms.date: 03/22/2019
 ms.author: garye
-ms.openlocfilehash: 21e1eb00f688f2e7061e876cc4375d6d780838fc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7df429aa848c6f9fb9abe09fbf4357db20fcde6a
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534804"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472855"
 ---
-# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Avvio rapido: Creare un account di Servizi cognitivi nel portale di Azure
+# <a name="quickstart-create-a-cognitive-services-account-in-the-azure-portal"></a>Guida introduttiva: Creare un account di Servizi cognitivi nel portale di Azure
 
 In questa guida di avvio rapido viene illustrato come effettuare l'iscrizione per Servizi cognitivi di Azure e creare una sottoscrizione di un singolo servizio o multiservizio. Questi servizi sono rappresentati da [risorse](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-portal) di Azure che consentono di connettersi a una o più API Servizi cognitivi di Azure.
 
@@ -29,7 +29,7 @@ In questa guida di avvio rapido viene illustrato come effettuare l'iscrizione pe
 Prima di iniziare, è importante sapere che ci sono due tipi di sottoscrizioni di Servizi cognitivi di Azure. La prima è una sottoscrizione di un singolo servizio, ad esempio Visione artificiale o i servizi di riconoscimento vocale. Una sottoscrizione di un singolo servizio è limitata alla risorsa specifica. La seconda è una sottoscrizione multiservizio per Servizi cognitivi di Azure. Questa sottoscrizione consente di usare una sottoscrizione singola per la maggior parte dei Servizi cognitivi di Azure. Questa opzione consente anche il consolidamento della fatturazione. Per altre informazioni, vedere [Prezzi di Servizi cognitivi](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
 >[!WARNING]
-> Attualmente questi servizi **non** supportano le chiavi multiservizio: QnA Maker, servizi di riconoscimento vocale e Visione personalizzata.
+> Attualmente questi servizi **non** supportano le chiavi multiservizio: QnA Maker, servizi di riconoscimento vocale, visione artificiale personalizzato e rilevatore di anomalie.
 
 Nelle sezioni successive vengono illustrati i passaggi per la creazione di una sottoscrizione di un singolo servizio o multiservizio.
 

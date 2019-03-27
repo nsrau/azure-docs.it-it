@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/02/2019
+ms.date: 03/26/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 86e28c3561968b1411a3baa9ec0daecfab6ac73f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202878"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445696"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Archiviare dati critici in Archiviazione BLOB di Azure
 
@@ -46,6 +46,8 @@ Archiviazione non modificabile supporta quanto segue:
 ## <a name="how-it-works"></a>Funzionamento
 
 L'archiviazione non modificabile per Archiviazione BLOB di Azure supporta due tipi di criteri non modificabili o WORM: conservazione basata sul tempo e blocchi a fini giudiziari. Quando un criterio di conservazione basati sul tempo o a fini giudiziari viene applicata in un contenitore, tutti i BLOB esistenti di spostare in uno stato immutabile WORM inferiore a 30 secondi. Tutti i nuovi BLOB caricati in tale contenitore verrà spostata anche nello stato non modificabile. Dopo aver spostato tutti i BLOB nello stato non modificabile, il criterio non modificabile è confermato e tutto sovrascrivere o eliminare le operazioni per gli oggetti nuovi ed esistenti nel contenitore non modificabile non sono consentite.
+
+Eliminazione dell'Account e contenitore inoltre non sono consentiti se sono presenti eventuali BLOB protetti da un criterio non modificabile. L'operazione di eliminazione del contenitore avrà esito negativo se esiste almeno un BLOB con criteri di conservazione basati sul tempo bloccati o un blocco a fini giudiziari. L'eliminazione dell'account di archiviazione avrà esito negativo se è presente almeno un contenitore WORM con un blocco a fini giudiziari o un BLOB con un intervallo di conservazione attivo. 
 
 ### <a name="time-based-retention"></a>Conservazione basata su tempo
 
@@ -85,12 +87,10 @@ La tabella seguente illustra i tipi di operazioni BLOB che vengono disabilitate 
 Per l'uso di questa funzionalità non sono previsti costi aggiuntivi. Il prezzo dei dati non modificabili è lo stesso dei normali dati modificabili. Per informazioni sui prezzi di Archiviazione BLOB di Azure, vedere la [pagina dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="getting-started"></a>Introduzione
+È disponibile solo per utilizzo generico v2 e account di archiviazione Blob di archiviazione non modificabile. Questi account deve essere gestito attraverso [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Per informazioni sull'aggiornamento di un account di archiviazione v1 generico esistente, vedere [esegue l'aggiornamento di un account di archiviazione](../common/storage-account-upgrade.md).
 
 Le versioni più recenti del [portale di Azure](https://portal.azure.com), [CLI di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), e [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) supportano l'archiviazione non modificabile per l'archiviazione Blob di Azure. [Supporto delle librerie client](#client-libraries) viene anche fornito.
 
-> [!NOTE]
->
-> È disponibile solo per utilizzo generico v2 e account di archiviazione Blob di archiviazione non modificabile. Questi account deve essere gestito attraverso [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Per informazioni sull'aggiornamento di un account di archiviazione v1 generico esistente, vedere [esegue l'aggiornamento di un account di archiviazione](../common/storage-account-upgrade.md).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -114,17 +114,19 @@ Le versioni più recenti del [portale di Azure](https://portal.azure.com), [CLI 
 
     ![Comando per il blocco dei criteri nel menu](media/storage-blob-immutable-storage/portal-image-4-lock-policy.png)
 
-    Selezionare **dei criteri di blocco**. I criteri ora sono bloccato e non possono essere eliminato, saranno consentite solo le estensioni dell'intervallo di conservazione.
+6. Selezionare **criteri di blocco** e confermare il blocco. I criteri ora sono bloccato e non possono essere eliminato, saranno consentite solo le estensioni dell'intervallo di conservazione. Elimina BLOB e le sostituzioni non sono consentite. 
 
-6. Per abilitare i blocchi a fini giudiziari, selezionare **+ Aggiungi criteri**. Scegliere **Blocco a fini giudiziari** dal menu a discesa.
+    ![Conferma "blocco" criteri nel menu](media/storage-blob-immutable-storage/portal-image-5-lock-policy.png)
+
+7. Per abilitare i blocchi a fini giudiziari, selezionare **+ Aggiungi criteri**. Scegliere **Blocco a fini giudiziari** dal menu a discesa.
 
     !["Blocco a fini giudiziari" nel menu sotto "Tipo di criteri"](media/storage-blob-immutable-storage/portal-image-legal-hold-selection-7.png)
 
-7. Creare un blocco a fini giudiziari con uno o più tag.
+8. Creare un blocco a fini giudiziari con uno o più tag.
 
     ![Casella "Nome tag" sotto il tipo di criteri](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
-8. Per cancellare un a fini giudiziari, è sufficiente rimuovere il tag di identificatore applicato a fini giudiziari.
+9. Per cancellare un a fini giudiziari, è sufficiente rimuovere il tag di identificatore applicato a fini giudiziari.
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -170,9 +172,9 @@ Sì. Per la conformità di documento, Microsoft mantenuta una società di valuta
 
 L'archiviazione non modificabile può essere usata con qualsiasi tipo di BLOB, ma è consigliabile usarla principalmente per i BLOB in blocchi. A differenza dei BLOB in blocchi, i BLOB di pagine e i BLOB di aggiunta devono essere creati al di fuori di un contenitore WORM e quindi copiati al suo interno. Dopo aver copiato questi BLOB nel contenitore WORM, non un'ulteriore *Accoda* per un accodamento sono consentite modifiche in un blob di pagine o blob.
 
-**Per usare questa funzionalità è sempre necessario creare un nuovo account di archiviazione?**
+**È necessario creare un nuovo account di archiviazione per usare questa funzionalità?**
 
-È possibile usare l'archiviazione non modificabile con qualsiasi nuovo o esistente utilizzo generico v2 o l'account di archiviazione Blob. Questa funzionalità è destinata all'utilizzo con i BLOB in blocchi negli account per utilizzo generico v2 e Blob di archiviazione.
+No, è possibile usare archiviazione non modificabile con qualsiasi nuovo o esistente utilizzo generico v2 o l'account di archiviazione Blob. Questa funzionalità è destinata all'utilizzo con i BLOB in blocchi negli account per utilizzo generico v2 e Blob di archiviazione. Account di archiviazione generale utilizzo generico v1 non sono supportati ma può essere facilmente aggiornato per utilizzo generico v2. Per informazioni sull'aggiornamento di un account di archiviazione v1 generico esistente, vedere [esegue l'aggiornamento di un account di archiviazione](../common/storage-account-upgrade.md).
 
 **È possibile applicare a fini giudiziari sia criteri di conservazione basati sul tempo?**
 
@@ -188,7 +190,7 @@ L'operazione di eliminazione del contenitore avrà esito negativo se esiste alme
 
 **Che cosa accade se si tenta di eliminare un account di archiviazione con un contenitore WORM che dispone di un criterio di conservazione basato sul tempo *bloccato* o un blocco a fini giudiziari?**
 
-L'eliminazione dell'account di archiviazione avrà esito negativo se è presente almeno un contenitore WORM con un blocco a fini giudiziari o un BLOB con un intervallo di conservazione attivo.  È necessario eliminare tutti i contenitori WORM prima di poter eliminare l'account di archiviazione. Per informazioni sull'eliminazione di contenitori, vedere la domanda precedente.
+L'eliminazione dell'account di archiviazione avrà esito negativo se è presente almeno un contenitore WORM con un blocco a fini giudiziari o un BLOB con un intervallo di conservazione attivo. È necessario eliminare tutti i contenitori WORM prima di poter eliminare l'account di archiviazione. Per informazioni sull'eliminazione di contenitori, vedere la domanda precedente.
 
 **È possibile spostare i dati tra i diversi livelli BLOB (ad accesso frequente, ad accesso sporadico e archivio) quando il BLOB è in stato non modificabile?**
 

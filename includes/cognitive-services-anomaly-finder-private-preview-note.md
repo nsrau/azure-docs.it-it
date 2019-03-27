@@ -7,15 +7,15 @@ manager: cgrounlun
 ms.service: cognitive-services
 ms.technology: anomaly-finder
 ms.topic: include
-ms.date: 11/15/2018
+ms.date: 03/21/2019
 ms.author: nitinme
 ms.custom: include file
-ms.openlocfilehash: e93b889ee3ead06c28f9fec5659a61aad2752bac
-ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
-ms.translationtype: HT
+ms.openlocfilehash: 1dab9b0e23b5fe574f9b4506fdcad510d378bfef
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51716205"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58495102"
 ---
 > [!NOTE]
-> Ricerca di anomalie è disponibile in anteprima privata. Per partecipare all'anteprima privata di Ricerca di anomalie, [contattarci a questo indirizzo di posta elettronica](mailto:kenshoteam@microsoft.com). Dopo aver ottenuto l'accesso, per altre informazioni vedere la [documentazione dell'anteprima privata di Ricerca di anomalie](https://aka.ms/AnomalyFinderPrivatePreview) con controllo dell'accesso.
+> L'API rilevatore di anomalie (ora in anteprima pubblica) consiste nella sostituzione del laboratorio di ricerca di anomalie. Lab di ricerca di anomalie esistenti verranno rimossi il 30 aprile 2019. Si consiglia di eseguire la migrazione al rilevatore di anomalie prima dell'ora. Vedere le [documentazione dell'API rilevatore di anomalie](../articles/cognitive-services/anomaly-detector/index.yml) per altre informazioni. 

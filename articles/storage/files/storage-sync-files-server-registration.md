@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 493f6f3380dee4ed70bb6e0bc9bba24f93071097
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 954cbe66bfc4a0cebf7692a90aeee637ffcb6ca3
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56165332"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485056"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Gestire i server registrati con Sincronizzazione file di Azure
 Sincronizzazione file di Azure consente di centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Tutto questo avviene trasformando i sistemi Windows Server in una cache rapida della condivisione file di Azure. È possibile usare qualsiasi protocollo disponibile in Windows Server per accedere ai dati in locale (tra cui SMB, NFS e FTPS) ed è possibile scegliere tutte le cache necessarie in tutto il mondo.
@@ -101,7 +101,7 @@ Per poter essere usato come *endpoint server* in un *gruppo di sincronizzazione*
 #### <a name="register-the-server-with-powershell"></a>Registrare il server con PowerShell
 È anche possibile eseguire la registrazione del server tramite PowerShell. Questo è l'unico modo supportato per registrare server per le sottoscrizioni Cloud Solution Provider (CSP):
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
 Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
@@ -116,7 +116,7 @@ Sono necessari alcuni passaggi per annullare la registrazione di un server con u
 #### <a name="optional-recall-all-tiered-data"></a>(Facoltativo) Richiamare tutti i dati archiviati a livelli
 Se si vuole che i file attualmente a livelli siano disponibili dopo la rimozione di Sincronizzazione file di Azure, ad esempio in un ambiente di produzione, non di test, richiamare tutti i file presenti in ogni volume contenente endpoint server. Disabilitare la suddivisione in livelli cloud per tutti gli endpoint server e quindi eseguire il cmdlet di PowerShell seguente:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 ```
@@ -134,7 +134,7 @@ Prima di annullare la registrazione del server nel servizio di sincronizzazione 
 
 Questa operazione può essere eseguita anche con un semplice script di PowerShell:
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 
 $accountInfo = Connect-AzAccount
@@ -172,20 +172,20 @@ Dato che Sincronizzazione file di Azure raramente è l'unico servizio in esecuzi
 
 È possibile, ad esempio, creare un nuovo limite di rete per fare il modo che Sincronizzazione file di Azure non usi più di 10 Mbps tra le 9:00 e le 17:00 durante la settimana lavorativa: 
 
-```PowerShell
+```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
 
 È possibile visualizzare il limite con il cmdlet seguente:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 
 Per rimuovere i limiti di rete, usare `Remove-StorageSyncNetworkLimit`. Il comando seguente, ad esempio, rimuove tutti i limiti di rete:
 
-```PowerShell
+```powershell
 Get-StorageSyncNetworkLimit | ForEach-Object { Remove-StorageSyncNetworkLimit -Id $_.Id } # assumes StorageSync.Management.ServerCmdlets.dll is imported
 ```
 

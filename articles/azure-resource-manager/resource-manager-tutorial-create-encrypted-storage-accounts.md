@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 12/06/2018
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1f831f2d962626de6f847e2fe775605b7bfca5b8
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 68199083369018cab1c9f83dd6781653a8cae37c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53097591"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849296"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>Esercitazione: Usare le informazioni di riferimento sui modelli di Resource Manager
 
 Questo articolo illustra come trovare le informazioni sullo schema dei modelli e usarle per creare modelli di Azure Resource Manager.
 
 In questa esercitazione si usa un modello di base di Modelli di avvio rapido di Azure. Usando la documentazione di riferimento sui modelli, si personalizza il modello in modo da creare un account di archiviazione crittografato.
+
+![Account di archiviazione crittografato creato in base alle informazioni di riferimento sui modelli di Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-tutorial-deploy-encrypted-storage-account.png)
 
 Questa esercitazione illustra le attività seguenti:
 
@@ -76,9 +78,9 @@ Per completare l'esercitazione di questo articolo, sono necessari gli elementi s
 
 ## <a name="find-the-template-reference"></a>Trovare le informazioni di riferimento sui modelli
 
-1. Passare a [Modelli di Azure](https://docs.microsoft.com/azure/templates/).
-2. In **Filtra per titolo**, immettere **account di archiviazione**.
-3. Selezionare **Riferimento/Riferimento al modello/Archiviazione/<Version>/Account di archiviazione** come illustrato nello screenshot seguente:
+1. Passare a [Informazioni di riferimento sui modelli di Azure](https://docs.microsoft.com/azure/templates/).
+2. Nella casella **Filtra per titolo** immettere **account di archiviazione**.
+3. Selezionare **Riferimento/Riferimento al modello/Archiviazione/&lt;Versione>/Account di archiviazione** come illustrato nello screenshot seguente:
 
     ![Account di archiviazione di riferimento al modello di Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 

@@ -5,20 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2018
-ms.openlocfilehash: 1a71fb81acc91036ce12ff15f6b2762b808c7473
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.openlocfilehash: 69963f34cb49482cc7eae25320a6a3a5f176f8dd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53541617"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486580"
 ---
 # <a name="query-performance-insight"></a>Informazioni dettagliate prestazioni query 
 
 **Si applica a:** Database di Azure per PostgreSQL 9.6 e 10
-
-> [!IMPORTANT]
-> La funzionalità Informazioni dettagliate prestazioni query è disponibile in anteprima pubblica. 
 
 Informazioni dettagliate prestazioni query consente di identificare rapidamente quali sono le query a esecuzione più lunga, come cambiano nel corso del tempo e le attese che ne compromettono le prestazioni.
 
