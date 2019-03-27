@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8898280e887392591873f1fc832bfd0c105689fe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0dad74f75fd7b73e7dab0b2dddbdfda193d5b2ec
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097287"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445788"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Inoltrare configurazione dello stato di automazione di Azure i dati dei report per i log di monitoraggio di Azure
 
@@ -44,7 +44,7 @@ Per iniziare a inviare i report di configurazione dello stato di automazione a l
 
 Per avviare l'importazione di dati da Azure Automation DSC nei registri di monitoraggio di Azure, completare i passaggi seguenti:
 
-1. Accedere all'account Azure in PowerShell. Vedere [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0) (Accedere con Azure PowerShell)
+1. Accedere all'account Azure in PowerShell. Vedere [Log in with Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) (Accedere con Azure PowerShell)
 1. Ottenere il valore _ResourceId_ dell'account di Automazione eseguendo questo comando di PowerShell. Se sono presenti più account di Automazione, scegliere il valore _ResourceID_ per l'account da configurare.
 
    ```powershell

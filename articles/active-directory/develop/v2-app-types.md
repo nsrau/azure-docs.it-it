@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e6ea0be84cc36ca6fa6547d01054599e37229d7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162935"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499982"
 ---
 # <a name="application-types-for-v20"></a>Tipi di applicazioni per v2.0
 
@@ -124,7 +124,7 @@ In questo flusso, l'app riceve un codice di autorizzazione dall'endpoint 2.0 qua
 
 Anche le app che contengono processi a esecuzione prolungata o che non prevedono l'interazione con l'utente necessitano di un modo per accedere alle risorse protette, ad esempio le API Web. Queste app possono autenticarsi e ottenere i token usando l'identità dell'app, anziché un'identità delegata dell'utente, con il flusso delle credenziali client di OAuth 2.0. È possibile dimostrare l'identità dell'app usando un certificato o un segreto client. Per altre informazioni, vedere [Autenticazione di Azure AD nelle app daemon con certificati](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
-In questo flusso, l'app interagisce direttamente con l'endpoint `/token` per ottenere gli endpoint:
+In questo flusso, l'app interagisce direttamente con il `/token` endpoint per ottenere l'accesso:
 
 ![Flusso di autenticazione dell'app daemon](./media/v2-app-types/convergence_scenarios_daemon.png)
 

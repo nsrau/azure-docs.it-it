@@ -4,15 +4,15 @@ description: L'articolo contiene informazioni sull'appliance Agente di raccolta 
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 78ef88d0710e8a82d30fa26b60073aa75e363c15
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 224511b9748c540f2cd48a3d8393a9c74f76ce32
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315301"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498418"
 ---
 # <a name="about-the-collector-appliance"></a>Informazioni sull'appliance Agente di raccolta
 
@@ -150,6 +150,9 @@ Server vCenter | TCP 443 | Agente di raccolta deve essere in grado di comunicare
 RDP | TCP 3389 |
 
 ## <a name="collected-metadata"></a>Metadati raccolti
+
+> [!NOTE]
+> I metadati individuati da Azure Migrate appliance dell'agente di raccolta viene usata per consentono di dimensionare le applicazioni come eseguirne la migrazione ad Azure, eseguire analisi di idoneità per Azure, analisi delle dipendenze dell'applicazione e la pianificazione di costo. Microsoft non usa questi dati in relazione a qualsiasi controllo di conformità della licenza.
 
 Per ogni macchina virtuale, l'appliance Agente di raccolta individua i metadati di configurazione seguenti. I dati di configurazione per le macchine virtuali sono disponibili un'ora dopo l'avvio dell'individuazione.
 

@@ -5,22 +5,22 @@ services: functions
 keywords: ''
 author: ggailey777
 ms.author: glenga
-ms.date: 11/28/2018
+ms.date: 03/12/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
+ms.custom: mvc, fasttrack-edit
 ms.devlang: javascript
 manager: jeconnoc
-ms.openlocfilehash: b6df653f89f05a9b253ecea102ed8310ff2a53b7
-ms.sourcegitcommit: c2e61b62f218830dd9076d9abc1bbcb42180b3a8
+ms.openlocfilehash: 78c2f599ba7d22e6de070f5867398e111a396d45
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/15/2018
-ms.locfileid: "53438283"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849738"
 ---
 # <a name="create-your-first-function-hosted-on-linux-using-core-tools-and-the-azure-cli-preview"></a>Creare la prima funzione ospitata in Linux usando Core Tools e l'interfaccia della riga di comando di Azure (anteprima)
 
-Funzioni di Azure consente di eseguire il codice in un ambiente Linux [senza server](https://azure.com/serverless), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. L'hosting Linux è attualmente disponibile in versione di anteprima e richiede il [runtime di Funzioni 2.0](functions-versions.md). Per altre considerazioni sull'anteprima per l'esecuzione delle app per le funzioni in Linux, vedere [questo articolo su Funzioni in Linux](https://aka.ms/funclinux).
+Funzioni di Azure consente di eseguire il codice in un ambiente Linux [senza server](https://azure.com/serverless), senza dover prima creare una macchina virtuale o pubblicare un'applicazione Web. L'hosting in Linux richiede il [runtime di Functions 2.0](functions-versions.md). Il supporto per l'esecuzione di un'app per le funzioni in Linux nel [piano a consumo](functions-scale.md#consumption-plan) serverless è attualmente disponibile in anteprima. Per altre informazioni, vedere [questo articolo con considerazioni sull'anteprima](https://aka.ms/funclinux).
 
 Questa guida introduttiva illustra come usare l'interfaccia della riga di comando di Azure per creare la prima app per le funzioni in esecuzione in Linux. Il codice della funzione viene creato in locale e quindi distribuito in Azure usando [Azure Functions Core Tools](functions-run-local.md).
 
@@ -49,7 +49,7 @@ func init MyFunctionProj
 Quando richiesto, usare i tasti di direzione per selezionare un runtime del ruolo di lavoro dalle seguenti opzioni linguaggio:
 
 + `dotnet`: crea un progetto libreria di classi .NET (.csproj).
-+ `node`: crea un progetto JavaScript.
++ `node`: crea un progetto JavaScript o TypeScript. Quando richiesto, scegliere `JavaScript`.
 + `python`: crea un progetto Python. Per le funzioni Python, vedere l'[Avvio rapido per Python](functions-create-first-function-python.md).
 
 Quando viene eseguito il comando, viene visualizzato qualcosa di simile a quanto segue:
@@ -59,6 +59,12 @@ Writing .gitignore
 Writing host.json
 Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
+```
+
+Usare il comando seguente per passare alla nuova cartella del progetto `MyFunctionProj`.
+
+```bash
+cd MyFunctionProj
 ```
 
 [!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
@@ -71,23 +77,16 @@ Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 
 [!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
 
-## <a name="create-a-linux-app-service-plan"></a>Creare un nuovo piano di servizio app Linux
-
-[!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
-
 ## <a name="create-a-linux-function-app-in-azure"></a>Creare un'app per le funzioni Linux in Azure
 
 Per ospitare l'esecuzione delle funzioni in Linux, è necessaria un'app per le funzioni. L'app per le funzioni offre un ambiente senza server per l'esecuzione del codice della funzione. Consente di raggruppare le funzioni come un'unità logica per semplificare la gestione, la distribuzione e la condivisione delle risorse. Creare un'app per le funzioni in esecuzione in Linux usando il comando [az functionapp create](/cli/azure/functionapp#az-functionapp-create).
 
-Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco dell'app per le funzioni e il segnaposto `<storage_name>` con il nome dell'account di archiviazione. `<app_name>` è anche il dominio DNS predefinito per l'app per le funzioni. Questo nome deve essere univoco in tutte le app di Azure. È necessario impostare anche il runtime `<language>` per l'app per le funzioni, da `dotnet` (C#) o `node` (JavaScript) o `python`.
+Nel comando seguente sostituire il segnaposto `<app_name>` con il nome univoco dell'app per le funzioni e il segnaposto `<storage_name>` con il nome dell'account di archiviazione. `<app_name>` è anche il dominio DNS predefinito per l'app per le funzioni. Questo nome deve essere univoco in tutte le app di Azure. È necessario impostare anche il runtime `<language>` per l'app per le funzioni, da `dotnet` (C#), `node` (JavaScript/TypeScript) o `python`.
 
 ```azurecli-interactive
 az functionapp create --resource-group myResourceGroup --consumption-plan-location westus --os-type Linux \
 --name <app_name> --storage-account  <storage_name> --runtime <language>
 ```
-
-> [!NOTE]
-> Se esiste un gruppo di risorse esistente denominato `myResourceGroup` con eventuali app del servizio app non Linux, è necessario usare un gruppo di risorse diverso. Non è possibile ospitare app Windows e Linux nello stesso gruppo di risorse.  
 
 Dopo aver creato l'app per le funzioni, viene visualizzato il messaggio seguente:
 
@@ -104,9 +103,4 @@ Ora è possibile pubblicare il progetto nella nuova app per le funzioni in Azure
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-## <a name="next-steps"></a>Passaggi successivi
-
-In questo articolo è stato spiegato come ospitare l'app per le funzioni in un contenitore Servizio app di Azure predefinito. È anche possibile ospitare le funzioni in Linux in un contenitore personalizzato.
-
-> [!div class="nextstepaction"]
-> [Creare una funzione in Linux tramite un'immagine personalizzata](functions-create-function-linux-custom-image.md)
+[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]

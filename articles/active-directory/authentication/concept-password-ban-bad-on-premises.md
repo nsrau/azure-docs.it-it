@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0a25dd3a2228f0b1b3ab33db0c9c689d7b2899d
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310558"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58479530"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
 
@@ -32,8 +32,15 @@ Protezione tramite password di Azure AD è stato progettato con questi principi 
 * Non Active Directory foresta o dominio funzionale livello minimo (funzionalità del dominio/FFL) è obbligatorio.
 * Il software non creare o richiedono gli account in domini di Active Directory che protegge.
 * Le password non crittografate utente non lasciare il controller di dominio durante le operazioni di convalida delle password o in qualsiasi momento.
-* Distribuzione incrementale è supportata. Ma i criteri password vengono applicati solo in cui è installato l'agente Controller di dominio (DC agente).
-* È consigliabile installare l'agente controller di dominio in tutti i controller di dominio per garantire l'imposizione della protezione di protezione universale password.
+* Distribuzione incrementale è supportata, tuttavia i criteri password vengono applicati solo in cui è installato l'agente Controller di dominio (DC agente). Vedere l'argomento successivo per altri dettagli.
+
+## <a name="incremental-deployment"></a>Distribuzione incrementale
+
+Protezione tramite password di Azure AD supporta la distribuzione incrementale tra i controller di dominio in un dominio di Active Directory, ma è importante comprendere il significato reale e quali sono i compromessi.
+
+Il software dell'agente protezione controller di dominio di Azure AD password solo possibile convalidare le password quando viene installato in un controller di dominio e solo per le modifiche delle password che vengono inviati al controller di dominio. Non è possibile controllare quali controller di dominio vengono scelti dal computer client Windows per l'elaborazione delle modifiche di password utente. Per garantire un comportamento coerente e l'imposizione della protezione di protezione universale password, il software dell'agente controller di dominio deve essere installato in tutti i controller di dominio in un dominio.
+
+Molte organizzazioni dovranno eseguire test accurati della protezione tramite password di Azure AD su un subset dei controller di dominio prima di eseguire una distribuzione completa. Protezione tramite password di Azure AD supporta la distribuzione parziale, Internet Explorer il software dell'agente controller di dominio in un determinato controller di dominio verrà convalidato attivamente le password anche quando altri controller di dominio nel dominio non è installato il software agente controller di dominio. Le distribuzioni parziale di questo tipo non sono sicuro e non sono consigliati oltre a scopo di test.
 
 ## <a name="architectural-diagram"></a>Diagramma dell'architettura
 

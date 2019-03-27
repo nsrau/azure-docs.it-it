@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ca111623f6d3d7c61b1bfc4e1af328f9599c2440
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6753b3a76ff5d3e0266f238d8e354943dec694a8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884507"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480459"
 ---
 # <a name="sample-application-for-use-with-dmzs"></a>Applicazione di esempio per l'uso con reti perimetrali
 [Tornare alla pagina relativa alle procedure consigliate sui limiti di sicurezza][HOME]
@@ -30,7 +30,7 @@ Tale applicazione consente di implementare un ambiente di testing per molti esem
 ## <a name="firewall-rule-to-allow-icmp"></a>Regola del firewall per consentire il traffico ICMP
 Questa semplice istruzione PowerShell può essere eseguita su qualsiasi macchina virtuale Windows per consentire il traffico ICMP (Ping). Questo aggiornamento del firewall consente di eseguire più facilmente il testing e la risoluzione dei problemi perché il protocollo ping può attraversare Windows Firewall. Per la maggior parte delle distribuzioni Linux, ICMP è attivato per impostazione predefinita.
 
-```PowerShell
+```powershell
 # Turn On ICMPv4
 New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
     -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
@@ -49,7 +49,7 @@ Questo script consentirà di:
 
 Lo script di PowerShell deve essere eseguito localmente mentre viene usata una sessione RDP per accedere a IIS01.
 
-```PowerShell
+```powershell
 # IIS Server Post Build Config Script
 # Get Admin Account and Password
     Write-Host "Please enter the admin account information used to create this VM:" -ForegroundColor Cyan
@@ -161,7 +161,7 @@ Imposta il back-end per questa semplice applicazione. Questo script consentirà 
 
 Lo script di PowerShell deve essere eseguito localmente mentre viene usata una sessione RDP per accedere ad AppVM01. Per essere certi che la procedura abbia esito positivo, è necessario eseguire PowerShell come amministratori.
 
-```PowerShell
+```powershell
 # AppVM01 Server Post Build Config Script
 # PowerShell must be run as Administrator for Net Share commands to work
 

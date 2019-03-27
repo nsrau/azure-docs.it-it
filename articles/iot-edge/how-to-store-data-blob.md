@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0fc34c913453abd174009213233a54e30b9346d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3a0df408e70ed61355ffba319f6261f90d8e4348
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57881385"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499159"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Archiviare i dati sui dispositivi perimetrali con l'archiviazione BLOB di Azure in IoT Edge (anteprima)
 
@@ -345,7 +345,7 @@ Di seguito è riportato un esempio di proprietà desiderate per questo modulo: !
     }
 
    ```
-  ## <a name="logs"></a>Log
+## <a name="logs"></a>Log
 
 Seguire le istruzioni fornite per [configurare i log di docker per i moduli di IoT Edge](production-checklist.md#set-up-logs-and-diagnostics)
 
@@ -383,9 +383,10 @@ Le seguenti guide introduttive utilizzano linguaggi che sono supportati anche da
 * [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs.md) 
 
 ### <a name="azure-storage-explorer"></a>Esplora archivi Azure
-È anche possibile provare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per connettersi all'account di archiviazione locale. Si è tentato di con [precedente versione 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0) di Azure Explorer.
+È anche possibile provare "Azure Storage Explorer" per la connessione all'account di archiviazione locale. Funziona con [Azure Storage Explorer versione 1.5.0](https://github.com/Microsoft/AzureStorageExplorer/releases/tag/v1.5.0).
+
 > [!NOTE]
-> Potrebbero riscontrare errori durante l'esecuzione di passaggi riportati di seguito, ignorare e aggiornare. 
+> Si potrebbero verificare errori durante l'esecuzione di questa procedura, ad esempio l'aggiunta di una connessione a un account di archiviazione locale o la creazione di contenitori nell'account di archiviazione locale. Per ignorare e aggiornare. 
 
 1. Scaricare e installare Azure Storage Explorer
 2. Connettersi ad archiviazione di Azure usando una stringa di connessione

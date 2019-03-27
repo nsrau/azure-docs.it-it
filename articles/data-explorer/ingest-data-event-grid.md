@@ -1,6 +1,6 @@
 ---
-title: 'Avvio rapido: Inserire BLOB di Azure in Esplora dati di Azure'
-description: In questa guida introduttiva verrà illustrato come inviare dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di Griglia di eventi.
+title: 'Guida introduttiva: Inserire BLOB di Azure in Esplora dati di Azure'
+description: In questo argomento di avvio rapido verrà illustrato come inviare dati dell'account di archiviazione a Esplora dati di Azure usando una sottoscrizione di Griglia di eventi.
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,28 +8,31 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
+ms.openlocfilehash: 625556986c5034303e83cc23b4ba06b1638115d1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804648"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448425"
 ---
-# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Avvio rapido: Inserire BLOB di Azure in Esplora dati di Azure tramite una sottoscrizione delle notifiche di Griglia di eventi
+# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Avvio rapido: Inserire BLOB in Esplora dati di Azure tramite la sottoscrizione delle notifiche di Griglia di eventi
 
-Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre l'inserimento continuo di dati (caricamento) dai BLOB scritti nei contenitori di BLOB. Questo risultato si ottiene impostando una sottoscrizione di [Griglia di eventi di Azure](/azure/event-grid/overview) per gli eventi di creazione di BLOB e instradando questi eventi a Kusto tramite Hub eventi. Per questa guida introduttiva, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia le relative notifiche a Hub eventi. È quindi possibile creare una connessione dati di Griglia di eventi e verificare il flusso di dati attraverso l'intero sistema.
+Esplora dati di Azure è un servizio di esplorazione dati rapido e scalabile per dati di log e di telemetria. Consente l'inserimento continuo (caricamento di dati) dai BLOB scritti nei contenitori di BLOB. 
+
+Questo argomento di avvio rapido descrive come impostare una sottoscrizione di [Griglia di eventi di Azure](/azure/event-grid/overview) e instradare gli eventi a Esplora dati di Azure tramite un hub eventi. Per iniziare, è necessario avere un account di archiviazione con una sottoscrizione di Griglia di eventi che invia notifiche a Hub eventi di Azure. Si creerà quindi una connessione dati a Griglia di eventi e si esaminerà il flusso di dati attraverso l'intero sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Se non si ha una sottoscrizione di Azure, è possibile [creare un account Azure gratuito](https://azure.microsoft.com/free/)
-1. [Un cluster e un database](create-cluster-database-portal.md)
-1. [Un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
-1. [Hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Una sottoscrizione di Azure. Creare un [account Azure gratuito](https://azure.microsoft.com/free/).
+* [Un cluster e un database](create-cluster-database-portal.md).
+* [Un account di archiviazione](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+* [Un hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-event-grid-subscription-in-your-storage-account"></a>Creare una sottoscrizione di Griglia di eventi nell'account di archiviazione
 
-1. Nel portale di Azure passare all'account di archiviazione
-1. Fare clic sulla scheda **Eventi** e quindi su **Sottoscrizione di eventi**
+1. Nel portale di Azure trovare l'account di archiviazione.
+1. Selezionare **Eventi** > **Sottoscrizione di eventi**.
 
     ![Collegamento all'applicazione di query](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
@@ -41,20 +44,20 @@ Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilit�
     | Schema di eventi | *Schema griglia di eventi* | Lo schema da usare per la griglia di eventi. |
     | Tipo di argomento | *Account di archiviazione* | Il tipo di argomento della griglia di eventi. |
     | Risorsa argomento | *gridteststorage* | nome dell'account di archiviazione. |
-    | Esegui la sottoscrizione di tutti i tipi di eventi | *Deselezionare* | Non si ricevono notifiche per tutti gli eventi. |
+    | Esegui la sottoscrizione di tutti i tipi di eventi | *deselezionare* | Non si ricevono notifiche per tutti gli eventi. |
     | Tipi di evento definiti | *Blob created* (BLOB creato) | Gli eventi specifici per cui ricevere notifiche. |
     | Tipo di endpoint | *Hub eventi* | Il tipo di endpoint a cui vengono inviati gli eventi. |
     | Endpoint | *test-hub* | Hub eventi creato. |
     | | |
 
 1. Se si vuole tenere traccia dei file di uno specifico contenitore, selezionare la scheda **Funzionalità aggiuntive**. Impostare i filtri per le notifiche come segue:
-    * Il campo **L'oggetto inizia con** è il prefisso di tipo *letterale* del contenitore di BLOB (poiché il criterio applicato è *startswith*, può includere più contenitori). I caratteri jolly non sono consentiti.
+    * Il campo **L'oggetto inizia con** è il prefisso *letterale* del contenitore di BLOB. Poiché il criterio applicato è *startswith*, può interessare più contenitori. I caratteri jolly non sono consentiti.
      È *necessario* impostarlo come segue: *`/blobServices/default/containers/`*[prefisso contenitore]
     * Il campo **L'oggetto termina con** è il suffisso di tipo *letterale* del BLOB. I caratteri jolly non sono consentiti.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Creare una tabella di destinazione in Esplora dati di Azure
 
-Creare una tabella in Esplora dati di Azure a cui verranno inviati i dati da Hub eventi. La tabella viene creata nel cluster e nel database preparati in **Prerequisiti**.
+Creare una tabella in Esplora dati di Azure a cui verranno inviati i dati da Hub eventi. Creare la tabella nel cluster e nel database preparati nei prerequisiti.
 
 1. Nel portale di Azure, in corrispondenza del cluster selezionare **Query**.
 
@@ -76,21 +79,21 @@ Creare una tabella in Esplora dati di Azure a cui verranno inviati i dati da Hub
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Creare una connessione dati di Griglia di eventi in Esplora dati di Azure
 
-A questo punto è possibile connettersi a Griglia di eventi da Esplora dati di Azure per consentire lo streaming del flusso di dati dal contenitore di BLOB alla tabella di test.
+A questo punto, connettersi alla griglia di eventi da Esplora dati di Azure per consentire il passaggio del flusso di dati dal contenitore di BLOB alla tabella di test.
 
 1. Selezionare **Notifiche** sulla barra degli strumenti per verificare che la distribuzione dell'hub eventi abbia avuto esito positivo.
 
-1. Nel cluster creato selezionare **Database** e quindi **TestDatabase**.
+1. Nel cluster creato selezionare **Database** > **TestDatabase**.
 
     ![Selezionare il database di test](media/ingest-data-event-grid/select-test-database.png)
 
-1. Selezionare **Inserimento dati** e quindi **Aggiungi connessione dati**.
+1. Selezionare **Inserimento dati** > **Aggiungi connessione dati**.
 
     ![Inserimento di dati](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1. Selezionare il tipo di connessione: **Archiviazione BLOB**.
+1.  Selezionare il tipo di connessione: **Archiviazione BLOB**.
 
-1. Compilare il modulo con le informazioni seguenti e quindi fare clic su **Crea**.
+1. Compilare il modulo con le informazioni seguenti e quindi selezionare **Crea**.
 
     ![Connessione all'hub eventi](media/ingest-data-event-grid/create-event-grid-data-connection.png)
 
@@ -98,12 +101,12 @@ A questo punto è possibile connettersi a Griglia di eventi da Esplora dati di A
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Data connection name (Nome connessione dati) | *test-hub-connection* | Nome della connessione da creare in Esplora dati di Azure.|
+    | Data connection name (Nome connessione dati) | *test-hub-connection* | Il nome della connessione da creare in Esplora dati di Azure.|
     | Sottoscrizione dell'account di archiviazione | ID sottoscrizione | L'ID sottoscrizione in cui risiede l'account di archiviazione.|
     | Account di archiviazione | *gridteststorage* | Il nome dell'account di archiviazione creato in precedenza.|
     | Griglia di eventi | *test-grid-connection* | Il nome della griglia di eventi creata. |
-    | Nome dell'hub eventi | *test-hub* | Hub eventi creato. Questo campo viene compilato automaticamente quando si seleziona una griglia di eventi. |
-    | Gruppo di consumer | *test-group* | Gruppo di consumer definito nell'hub eventi creato. |
+    | Nome dell'hub eventi | *test-hub* | L'hub eventi creato. Questo campo viene compilato automaticamente quando si seleziona una griglia di eventi. |
+    | Gruppo di consumer | *test-group* | Il gruppo di consumer definito nell'hub eventi creato. |
     | | |
 
     Tabella di destinazione:
@@ -117,11 +120,11 @@ A questo punto è possibile connettersi a Griglia di eventi da Esplora dati di A
 
 ## <a name="generate-sample-data"></a>Generare i dati di esempio
 
-Dopo aver connesso Esplora dati di Azure e l'account di archiviazione, è possibile creare i dati di esempio e caricarli nell'archiviazione BLOB.
+Dopo aver connesso Esplora dati di Azure e l'account di archiviazione, è possibile creare i dati di esempio e caricarli nella risorsa di archiviazione BLOB.
 
-Verrà usato un piccolo script della shell che invia alcuni semplici comandi dell'interfaccia della riga di comando di Azure per interagire con le risorse di Archiviazione di Azure. Innanzitutto lo script crea un nuovo contenitore nell'account di archiviazione e poi carica un file esistente (come un BLOB) in tale contenitore. Crea quindi un elenco di tutti i BLOB inclusi nel contenitore. È possibile usare [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per eseguire lo script direttamente nel portale.
+Verrà usato un piccolo script della shell che invia alcuni semplici comandi dell'interfaccia della riga di comando di Azure per interagire con le risorse di Archiviazione di Azure. Questo script crea un nuovo contenitore nell'account di archiviazione, carica un file esistente (come BLOB) in tale contenitore e quindi elenca gli oggetti BLOB nel contenitore. È possibile usare [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per eseguire lo script direttamente nel portale.
 
-Salvare i dati seguenti in un file e usarli con lo script seguente:
+Salvare i dati in un file e caricarlo con questo script:
 
 ```Json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
@@ -154,7 +157,7 @@ Salvare i dati seguenti in un file e usarli con lo script seguente:
 ## <a name="review-the-data-flow"></a>Esaminare il flusso di dati
 
 > [!NOTE]
-> ADX prevede un criterio di aggregazione (invio in batch) per l'inserimento di dati, progettato per ottimizzare questo processo.
+> Esplora dati di Azure prevede un criterio di aggregazione (invio in batch) per l'inserimento di dati in modo da ottimizzare il processo di inserimento.
 Per impostazione predefinita, il criterio viene impostato su 5 minuti.
 Sarà possibile modificarlo in un secondo momento, se necessario. In questa guida introduttiva si può prevedere una latenza di alcuni minuti.
 
@@ -191,7 +194,7 @@ Se non si prevede di usare nuovamente la griglia di eventi, eliminare **test-hub
 
 1. In **test-resource-group** selezionare **Elimina gruppo di risorse**.
 
-1. Nella nuova finestra digitare il nome del gruppo di risorse da eliminare (*test-hub-rg*) e quindi selezionare **Elimina**.
+1. Nella nuova finestra immettere il nome del gruppo di risorse da eliminare (*test-hub-rg*) e quindi selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

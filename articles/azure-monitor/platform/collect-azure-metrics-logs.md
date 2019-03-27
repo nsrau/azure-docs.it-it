@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: ae4e4487b3d9df4b2cf756174f0a56e721af91c4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406907"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498537"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics
 
@@ -81,8 +81,6 @@ Le risorse di Azure che supportano [Monitoraggio di Azure](../../azure-monitor/o
 ### <a name="enable-diagnostics-with-powershell"></a>Abilitare la diagnostica con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
-
-È necessaria la versione di novembre 2016 (2.3.0) o versione successiva di [Azure PowerShell](/powershell/azure/overview).
 
 Nell'esempio di PowerShell seguente viene illustrato come utilizzare [Set-AzDiagnosticSetting](/powershell/module/Az.Monitor/Set-AzDiagnosticSetting) per abilitare la diagnostica in un gruppo di sicurezza di rete. Lo stesso approccio funziona per tutte le risorse supportate. Impostare `$resourceId` sull'ID della risorsa per cui si vuole abilitare la diagnostica.
 

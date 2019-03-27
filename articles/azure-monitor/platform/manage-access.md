@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: magoedte
-ms.openlocfilehash: be285b6a51ae5a0f4239b841ce64100f1875d785
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294349"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500186"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in Monitoraggio di Azure
 Monitoraggio di Azure archivia i dati di log in un'area di lavoro di Log Analytics, che in pratica è un contenitore che include dati e informazioni di configurazione. Per gestire l'accesso ai dati di log, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
@@ -114,7 +114,7 @@ Nella tabella seguente vengono riepilogate le modalità di accesso:
 |:---|:---|:---|
 | Per chi è destinato ogni modello? | Amministrazione centrale. Amministratori che devono configurare utenti e la raccolta dei dati che devono accedere a un'ampia gamma di risorse. Attualmente necessari anche per gli utenti autorizzati di accedere ai log per le risorse all'esterno di Azure. | Team dell'applicazione. Amministratori delle risorse di Azure da monitorare. |
 | Che cos'è richiesto un utente per visualizzare i log? | Autorizzazioni per l'area di lavoro. Visualizzare **le autorizzazioni dell'area di lavoro** nelle [gestire utenti e account](#manage-accounts-and-users). | Accesso in lettura alla risorsa. Visualizzare **autorizzazioni per le risorse** nelle [gestire utenti e account](#manage-accounts-and-users). Le autorizzazioni possono essere ereditate (ad esempio il gruppo di risorse che lo contiene) o assegnato direttamente alla risorsa. L'autorizzazione per i log per la risorsa verrà assegnato automaticamente. |
-| Che cos'è l'ambito delle autorizzazioni? | Area di lavoro. Eseguire una query tutti i log nell'area di lavoro dalle tabelle di cui dispongono delle autorizzazioni per gli utenti con accesso all'area di lavoro. Vedere [controllo di accesso di tabella](#table-access-control) | Risorse di Azure. Utente possa eseguire query sui log per le risorse che ha accesso da qualsiasi area di lavoro ma non è possibile eseguire query sui log per le altre risorse. |
+| Che cos'è l'ambito delle autorizzazioni? | Area di lavoro. Eseguire una query tutti i log nell'area di lavoro dalle tabelle di cui dispongono delle autorizzazioni per gli utenti con accesso all'area di lavoro. Vedere [controllo di accesso di tabella](#table-level-rbac) | Risorse di Azure. Utente possa eseguire query sui log per le risorse che ha accesso da qualsiasi area di lavoro ma non è possibile eseguire query sui log per le altre risorse. |
 | Come è possibile accedere ai log utente? | Avviare **registri** dalla **monitoraggio di Azure** dal menu o **aree di lavoro di Log Analitica**. | Avviare **registri** dal menu di scelta per la risorsa di Azure. |
 
 
@@ -150,13 +150,13 @@ Si tratta dell'impostazione predefinita per tutte le aree di lavoro creati dopo 
 
 Per esaminare la modalità di controllo di accesso per tutte le aree di lavoro nella sottoscrizione, usare il comando seguente:
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {$_.Name + ": " + $_.Properties.features.enableLogAccessUsingOnlyResourcePermissions} 
 ```
 
 Usare lo script seguente per impostare la modalità di controllo di accesso per un'area di lavoro specifico:
 
-```PowerShell
+```powershell
 $WSName = "my-workspace"
 $Workspace = Get-AzResource -Name $WSName -ExpandProperties
 if ($Workspace.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
@@ -168,7 +168,7 @@ Set-AzResource -ResourceId $Workspace.ResourceId -Properties $Workspace.Properti
 
 Usare lo script seguente per impostare la modalità di controllo di accesso per tutte le aree di lavoro nella sottoscrizione
 
-```PowerShell
+```powershell
 Get-AzResource -ResourceType Microsoft.OperationalInsights/workspaces -ExpandProperties | foreach {
 if ($_.Properties.features.enableLogAccessUsingOnlyResourcePermissions -eq $null) 
     { $_.Properties.features | Add-Member enableLogAccessUsingOnlyResourcePermissions $true -Force }
@@ -273,13 +273,13 @@ Quando si connette da aree di lavoro tramite l'accesso incentrato su risorse con
 
 Questa autorizzazione viene in genere concesso da un ruolo che includa  _\*/lettura oppure_ _\*_ autorizzazioni, ad esempio l'elemento predefinito [lettore](../../role-based-access-control/built-in-roles.md#reader) e[ Collaboratore](../../role-based-access-control/built-in-roles.md#contributor) ruoli. Si noti che i ruoli personalizzati che includono azioni specifiche o i ruoli predefiniti dedicati potrebbero non includere l'autorizzazione.
 
-Visualizzare [definizione di controllo di accesso per ogni tabella](#defining-per-table-access-control) seguito se si desidera creare il controllo di accesso diversi per diverse tabelle.
+Visualizzare [definizione di controllo di accesso per ogni tabella](#table-level-rbac) seguito se si desidera creare il controllo di accesso diversi per diverse tabelle.
 
 
 ## <a name="table-level-rbac"></a>RBAC a livello di tabella
 **Tabella a livello di RBAC** consente di fornire un controllo più granulare ai dati in un'area di lavoro di Log Analitica oltre alle altre autorizzazioni. Questo controllo consente di definire tipi di dati specifici che sono accessibili solo a un set specifico di utenti.
 
-Si implementa il controllo degli accessi nella tabella con [Azure ruoli personalizzati](../../role-based-access-control/custom-roles.md) di concedere o negare l'accesso a specifici [tabelle](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) nell'area di lavoro. Questi ruoli vengono applicati alle aree di lavoro con area di lavoro incentrato o risorsa incentrato [modalità di controllo di accesso ai](#access-control-modes) indipendentemente dal fatto l'utente [accessmode](#access-mode).
+Si implementa il controllo degli accessi nella tabella con [Azure ruoli personalizzati](../../role-based-access-control/custom-roles.md) di concedere o negare l'accesso a specifici [tabelle](../log-query/log-query-overview.md#how-azure-monitor-log-data-is-organized) nell'area di lavoro. Questi ruoli vengono applicati alle aree di lavoro con area di lavoro incentrato o risorsa incentrato [modalità di controllo di accesso ai](#access-control-mode) indipendentemente dal fatto l'utente [accessmode](#access-modes).
 
 Creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md) con le azioni seguenti per definire l'accesso al controllo degli accessi di tabella.
 

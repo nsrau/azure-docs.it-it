@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: 1b6c8b1af00c2819632c60a27d61d7cf8db44885
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012324"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445992"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
@@ -98,7 +98,7 @@ Al momento della redazione di questo documento, gli obiettivi di larghezza di ba
 Se si sta per raggiungere il limite di account di archiviazione consentiti in una combinazione sottoscrizione/area specifica, valutare l'applicazione e l'utilizzo di account di archiviazione e determinare se si applica una di queste condizioni.
 
 * Uso di account di archiviazione come dischi non gestiti e aggiunta di tali dischi alle macchine virtuali. In questo scenario, è consigliabile usare [dischi gestiti](../../virtual-machines/windows/managed-disks-overview.md), poiché questi gestiscono automaticamente la scalabilità dei dischi di archiviazione e l'utente non deve creare e gestire gli account di archiviazione singolarmente.
-* Uso di un account di archiviazione per cliente, a scopo di isolamento dei dati. In questo scenario, per ogni cliente è consigliabile usare contenitori di archiviazione, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di specificare il controllo degli accessi in base al ruolo [per contenitore](storage-auth-aad-rbac.md).
+* Uso di un account di archiviazione per cliente, a scopo di isolamento dei dati. In questo scenario, per ogni cliente è consigliabile usare contenitori di archiviazione, anziché un intero account di archiviazione. Archiviazione di Azure consente ora di specificare il controllo degli accessi in base al ruolo [per contenitore](storage-auth-aad-rbac-portal.md).
 * Uso di più account di archiviazione da partizionare per una maggiore scalabilità in ingresso/in uscita/di IOPS/di capacità. In questo scenario, se possibile, è consigliabile sfruttare l'[innalzamento dei limiti](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) degli account di archiviazione standard per ridurre il numero di account di archiviazione necessari per il carico di lavoro.
 
 Se l'applicazione sta raggiungendo gli obiettivi di scalabilità per un singolo account di archiviazione, valutare uno dei seguenti approcci:  

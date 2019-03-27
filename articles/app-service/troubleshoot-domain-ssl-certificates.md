@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: b367251e6799031ed96058d21e606446e14636c7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407607"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449134"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
 
@@ -314,7 +314,7 @@ Sì. Quando si accedere al pannello domini personalizzati ed SSL nel portale di 
 
 **È possibile trasferire un dominio da una sottoscrizione a un'altra sottoscrizione?**
 
-È possibile spostare un dominio a un altro gruppo di risorse/sottoscrizioni usando il [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource?view=azurermps-6.13.0) cmdlet di PowerShell.
+È possibile spostare un dominio a un altro gruppo di risorse/sottoscrizioni usando il [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet di PowerShell.
 
 **Come gestire il dominio personalizzato se non è attualmente disponibile un'app di servizio App di Azure?**
 

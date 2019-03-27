@@ -1,21 +1,21 @@
 ---
-title: "Avvio rapido: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
+title: "Guida introduttiva: Creare un'istanza di Azure SQL Data Warehouse ed eseguire query - Portale di Azure | Microsoft Docs"
 description: Creare un data warehouse ed eseguirvi una query con Azure SQL Data Warehouse nel portale di Azure.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
-ms.topic: conceptual
+ms.topic: quickstart
 ms.subservice: manage
-ms.date: 08/01/2018
+ms.date: 08/02/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 317756f8684088b9df52856ce4f10c5401485e86
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 053dccb4ba5798fabd4426d5741d9238af579449
+ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461866"
+ms.lasthandoff: 03/11/2019
+ms.locfileid: "57732406"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>Avvio rapido: Creare un data warehouse SQL di Azure ed eseguirvi una query nel portale di Azure
 
@@ -24,9 +24,7 @@ Creare rapidamente un data warehouse SQL di Azure ed eseguirvi una query usando 
 Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 > [!NOTE]
-> La creazione di un'istanza di SQL Data Warehouse può dare luogo a un nuovo servizio fatturabile.  Per altre informazioni, vedere [SQL Data Warehouse Prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
->
->
+> La creazione di un'istanza di SQL Data Warehouse può dare luogo a un nuovo servizio fatturabile. Per altre informazioni, vedere [SQL Data Warehouse Prezzi](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -48,26 +46,28 @@ Seguire questa procedura per creare un data warehouse SQL contenente i dati dell
 
     ![creare un data warehouse vuoto](media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
-3. Compilare il modulo di SQL Data Warehouse con le informazioni seguenti:   
+3. Compilare il modulo di SQL Data Warehouse con le informazioni seguenti:
 
-    | Impostazione | Valore consigliato | Descrizione | 
-    | ------- | --------------- | ----------- | 
-    | **Nome database** | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). Si noti che un data warehouse è un tipo di database.| 
-    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
+    | Impostazione | Valore consigliato | Descrizione |
+    | :------ | :-------------- | :---------- |
+    | **Nome database** | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). Si noti che un data warehouse è un tipo di database.|
+    | **Sottoscrizione** | Sottoscrizione in uso | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
     | **Gruppo di risorse** | myResourceGroup | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
     | **Seleziona origine** | Esempio | Specifica di caricare un database di esempio. Si noti che un data warehouse è un tipo di database. |
-    | **Selezionare l'esempio** | AdventureWorksDW | Specifica di caricare il database di esempio AdventureWorksDW.  |
+    | **Selezionare l'esempio** | AdventureWorksDW | Specifica di caricare il database di esempio AdventureWorksDW. |
+    ||||
 
     ![creare un data warehouse](media/create-data-warehouse-portal/select-sample.png)
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
 
-    | Impostazione | Valore consigliato | Descrizione | 
-    | ------------ | ------------------ | ------------------------------------------------- | 
-    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
+    | Impostazione | Valore consigliato | Descrizione |
+    | :------ | :-------------- | :---------- |
+    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
     | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
     | **Password** | Qualsiasi password valida | La password deve contenere almeno otto caratteri delle tre categorie seguenti: maiuscole, minuscole, numeri e caratteri non alfanumerici. |
     | **Posizione** | Qualsiasi località valida | Per informazioni sulle aree, vedere [Aree di Azure](https://azure.microsoft.com/regions/). |
+    ||||
 
     ![creare un server di database](media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
@@ -75,7 +75,7 @@ Seguire questa procedura per creare un data warehouse SQL contenente i dati dell
 
 6. Fare clic su **Livello di prestazioni** per specificare la configurazione delle prestazioni per il data warehouse.
 
-7. Per questa esercitazione selezionare **Seconda generazione**. Per impostazione predefinita, il dispositivo di scorrimento è impostato su **DW1000c**.  Provare a spostarlo verso l'alto o il basso per vedere come funziona. 
+7. Per questa esercitazione selezionare **Seconda generazione**. Per impostazione predefinita, il dispositivo di scorrimento è impostato su **DW1000c**. Provare a spostarlo verso l'alto o il basso per vedere come funziona. 
 
     ![configurare le prestazioni](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -91,11 +91,10 @@ Seguire questa procedura per creare un data warehouse SQL contenente i dati dell
 
 ## <a name="create-a-server-level-firewall-rule"></a>Creare una regola del firewall a livello di server
 
-Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici.  Seguire questa procedura per creare una [regola del firewall a livello di server](../sql-database/sql-database-firewall-configure.md) per l'indirizzo IP del client. 
+Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o ai database sul server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici. Seguire questa procedura per creare una [regola del firewall a livello di server](../sql-database/sql-database-firewall-configure.md) per l'indirizzo IP del client. 
 
 > [!NOTE]
 > SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server del database SQL di Azure, a meno che il reparto IT non apra la porta 1433.
->
 
 1. Al termine della distribuzione, scegliere **SQL Data Warehouse** dal menu a sinistra e fare clic su **mySampleDatabase** nella pagina **DSQL Data Warehouse**. Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione. 
 
@@ -118,7 +117,7 @@ Il servizio SQL Data Warehouse crea un firewall a livello di server che impedisc
 
 6. Fare clic su **OK** e quindi chiudere la pagina **Impostazioni del firewall**.
 
-È ora possibile connettersi al server SQL e ai relativi data warehouse usando questo indirizzo IP. La connessione funziona da SQL Server Management Studio o un altro strumento di propria scelta. Quando ci si connette, usare l'account ServerAdmin creato in precedenza.  
+È ora possibile connettersi al server SQL e ai relativi data warehouse usando questo indirizzo IP. La connessione funziona da SQL Server Management Studio o un altro strumento di propria scelta. Quando ci si connette, usare l'account ServerAdmin creato in precedenza.
 
 > [!IMPORTANT]
 > Per impostazione predefinita, l'accesso attraverso il firewall del database SQL è abilitato per tutti i servizi di Azure. Fare clic su **DISATTIVATO** in questa pagina e quindi fare clic su **Salva** per disabilitare il firewall per tutti i servizi di Azure.
@@ -131,7 +130,7 @@ Ottenere il nome completo del server SQL nel portale di Azure. Questo nome verr�
 2. Scegliere **SQL Data Warehouse** dal menu a sinistra, quindi fare clic sul data warehouse nella pagina **SQL Data Warehouse**. 
 3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**. In questo esempio il nome completo è mynewserver-20180430.database.windows.net. 
 
-    ![informazioni di connessione](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
+    ![informazioni di connessione](media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)
 
 ## <a name="connect-to-the-server-as-server-admin"></a>Connettersi al server come amministratore del server
 
@@ -141,19 +140,20 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-   | Impostazione       | Valore consigliato | DESCRIZIONE | 
-   | ------------ | ------------------ | ------------------------------------------------- | 
+   | Impostazione | Valore consigliato | DESCRIZIONE |
+   | :------ | :-------------- | :---------- |
    | Tipo di server | Motore di database | Questo valore è obbligatorio |
    | Nome server | Nome completo del server | Di seguito è riportato un esempio: **mynewserver-20180430.database.windows.net**. |
    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
    | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
+   ||||
 
     ![connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-4. Fare clic su **Connetti**. La finestra Esplora oggetti viene visualizzata in SSMS. 
+3. Fare clic su **Connetti**. La finestra Esplora oggetti viene visualizzata in SSMS. 
 
-5. In Esplora oggetti espandere **Database**. Espandere quindi **mySampleDatabase** per visualizzare gli oggetti nel nuovo database.
+4. In Esplora oggetti espandere **Database**. Espandere quindi **mySampleDatabase** per visualizzare gli oggetti nel nuovo database.
 
     ![oggetti di database](media/create-data-warehouse-portal/connected.png) 
 
@@ -161,14 +161,14 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 SQL Data Warehouse usa T-SQL come linguaggio di query. Per aprire una finestra di query ed eseguire alcune query T-SQL, seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query**.  Verrà visualizzata una nuova finestra di query.
+1. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query**. Verrà visualizzata una nuova finestra di query.
 2. Nella finestra di query immettere il comando seguente per visualizzare un elenco di database.
 
     ```sql
     SELECT * FROM sys.databases
     ```
 
-3. Fare clic su **Execute**.  I risultati della query mostrano due database: **master** e **mySampleDataWarehouse**.
+3. Fare clic su **Execute**. I risultati della query mostrano due database: **master** e **mySampleDataWarehouse**.
 
     ![Eseguire query sui database](media/create-data-warehouse-portal/query-databases.png)
 
@@ -194,16 +194,17 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
     ![Pulire le risorse](media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-1. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, fare clic su **Avvia**.
+2. Per sospendere il calcolo, fare clic sul pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**. Per riprendere il calcolo, fare clic su **Avvia**.
 
-2. Per rimuovere il data warehouse in modo da non ricevere addebiti per operazioni di calcolo o archiviazione, fare clic su **Elimina**.
+3. Per rimuovere il data warehouse in modo da non ricevere addebiti per operazioni di calcolo o archiviazione, fare clic su **Elimina**.
 
-3. Per rimuovere il server SQL creato, fare clic su **mynewserver-20180430.database.windows.net** nell'immagine precedente e quindi fare clic su **Elimina**.  Fare attenzione quando si esegue questa operazione perché l'eliminazione del server comporta anche quella di tutti i database assegnati al server.
+4. Per rimuovere il server SQL creato, fare clic su **mynewserver-20180430.database.windows.net** nell'immagine precedente e quindi fare clic su **Elimina**. Fare attenzione quando si esegue questa operazione perché l'eliminazione del server comporta anche quella di tutti i database assegnati al server.
 
-4. Per rimuovere il gruppo di risorse, fare clic su **myResourceGroup** e quindi su **Elimina gruppo di risorse**.
-
+5. Per rimuovere il gruppo di risorse, fare clic su **myResourceGroup** e quindi su **Elimina gruppo di risorse**.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Sono stati creati un data warehouse e una regola del firewall, è stata stabilita una connessione al data warehouse e sono state eseguite alcune query. Per altre informazioni su Azure SQL Data Warehouse, continuare con l'esercitazione per il caricamento dei dati.
+
 > [!div class="nextstepaction"]
->[Caricare i dati in SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)
+> [Caricare i dati in SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md)

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 7a478a9f73edae463a5dace1b1a28180e5d09bdc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6a7e0a27d3cda4193a04467d541f851a9e57fa46
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437735"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446730"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Caricare dati in Azure SQL Data Warehouse tramite Azure Data Factory
 
@@ -45,10 +45,11 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra scegliere **Nuovo** > **Dati e analisi** > **Data factory**: 
+1. Nel menu a sinistra, selezionare **crea una risorsa** > **dati + Analitica** > **Data Factory**: 
    
-   ![Creare una nuova data factory](./media/load-azure-sql-data-warehouse/new-azure-data-factory-menu.png)
-1. Nella pagina **Nuova data factory** specificare i valori per i campi mostrati nell'immagine seguente:
+   ![Selezione di Data Factory nel riquadro "Nuovo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
+
+2. Nella pagina **Nuova data factory** specificare i valori per i campi mostrati nell'immagine seguente:
       
    ![Pagina Nuova data factory](./media/load-azure-sql-data-warehouse/new-azure-data-factory.png)
  
@@ -58,8 +59,8 @@ Questo articolo mostra come usare lo strumento Copia dati di Data Factory per _c
     * **Versione**: selezionare **V2**.
     * **Località**: Selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. Questi archivi dati includono Azure Data Lake Store, Archiviazione di Azure, il database SQL di Azure e così via.
 
-1. Selezionare **Create**.
-1. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente:
+3. Selezionare **Create**.
+4. Al termine della creazione, accedere alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente:
    
    ![Home page di Data factory](./media/load-azure-sql-data-warehouse/data-factory-home-page.png)
 

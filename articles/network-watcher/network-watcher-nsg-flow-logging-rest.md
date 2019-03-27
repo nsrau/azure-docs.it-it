@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: eadff8e2db6e5b8ea19b041614e0d1f3908da8a2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4569ea0ff43993c4605c55c529dbcb951ef502ca
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876885"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485018"
 ---
 # <a name="configuring-network-security-group-flow-logs-using-rest-api"></a>Configurazione dei log di flusso del gruppo di sicurezza di rete con l'API REST
 
@@ -54,7 +54,7 @@ In questo scenario si apprenderà come:
 
 Accedere ad armclient con le credenziali di Azure.
 
-```PowerShell
+```powershell
 armclient login
 ```
 

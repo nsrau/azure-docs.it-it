@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2017
 ms.author: jdial
-ms.openlocfilehash: c37e2357038e4f711b015fda80a0de8c4dbd9498
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 02db9f2b8cb2ec71d23ad077b90eeacb905d2a16
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57880926"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445647"
 ---
 # <a name="azure-networking"></a>Rete di Azure
 
@@ -34,7 +34,7 @@ Azure offre un'ampia gamma di funzionalità di rete che possono essere usate ins
 - [Gestibilità](#manageability): consente di monitorare e gestire le risorse di rete di Azure.
 - [Strumenti di distribuzione e configurazione](#tools): consentono di usare un portale basato sul Web o strumenti da riga di comando multipiattaforma per distribuire e configurare le risorse di rete.
 
-## <a name="Connectivity"></a>Connettività tra risorse di Azure
+## <a name="connectivity"></a>Connettività tra risorse di Azure
 
 Le risorse di Azure, quali ad esempio Macchine virtuali, Servizi cloud, i set di scalabilità di macchine virtuali e gli ambienti del servizio app di Azure possono comunicare tra loro in privato tramite una rete virtuale di Azure. Una rete virtuale è un isolamento logico del cloud di Azure dedicato alla [sottoscrizione](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fnetworking%2ftoc.json). È possibile implementare più reti virtuali in ogni sottoscrizione e [area](https://azure.microsoft.com/regions) di Azure. Ogni rete virtuale è isolata dalle altre. Per ogni rete virtuale è possibile:
 
@@ -150,7 +150,7 @@ Azure offre gli strumenti seguenti per il monitoraggio e la gestione di rete:
 È possibile distribuire e configurare le risorse di rete di Azure con uno qualsiasi degli strumenti seguenti:
 
 - **Portale di Azure:** interfaccia utente grafica che viene eseguita in un browser. Aprire il [portale di Azure](https://portal.azure.com).
-- **Azure PowerShell:** strumenti da riga di comando per la gestione di Azure da computer Windows. Per altre informazioni su Azure PowerShell, vedere l'articolo [Panoramica di Azure PowerShell](/powershell/azure/overview?view=azurermps-3.8.0?toc=%2fazure%2fnetworking%2ftoc.json).
+- **Azure PowerShell:** strumenti da riga di comando per la gestione di Azure da computer Windows. Per altre informazioni su Azure PowerShell, vedere l'articolo [Panoramica di Azure PowerShell](/powershell/azure/overview?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Interfaccia della riga di comando di Azure:** strumenti da riga di comando per la gestione di Azure da computer Linux, macOS o Windows. Per altre informazioni sull'interfaccia della riga di comando di Azure, vedere la [panoramica dell'interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli?toc=%2fazure%2fnetworking%2ftoc.json).
 - **Modelli di Azure Resource Manager:** file in formato JSON che definiscono l'infrastruttura e la configurazione delle soluzioni Azure. Usando il modello è possibile distribuire ripetutamente la soluzione nel corso del ciclo di vita garantendo al contempo che le risorse vengano distribuite in uno stato coerente. Per altre informazioni sulla creazione di modelli, vedere l'articolo [Procedure consigliate per la creazione di modelli di Azure Resource Manager](../azure-resource-manager/resource-manager-template-best-practices.md?toc=%2fazure%2fnetworking%2ftoc.json). Per distribuire i modelli è possibile usare il portale di Azure, l'interfaccia della riga di comando o PowerShell. Per iniziare da subito a usare i modelli, è possibile distribuire uno dei numerosi modelli preconfigurati disponibili nella libreria [Modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/?term=network). 
 
