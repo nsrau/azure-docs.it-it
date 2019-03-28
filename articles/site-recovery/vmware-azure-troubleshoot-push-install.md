@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078653"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541188"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Risolvere i problemi di installazione push del servizio Mobility
 
@@ -183,7 +183,7 @@ Se si osserva la stringa precedente formattata in grassetto, si noterà che GRUB
 I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.<br>
 
 
-1. Individuare l'UUID del dispositivo eseguendo il comando "blkid <device name>". Ad esempio: <br>
+1. Individuare l'UUID del dispositivo eseguendo il comando "blkid \<nome dispositivo >". Ad esempio: <br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ I nomi dei dispositivi devono essere sostituiti con l'UUID corrispondente.<br>
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. A questo punto sostituire il nome del dispositivo con il suo UUID nel formato simile a "root=UUID=<UUID>". Ad esempio, se sostituire i nomi dei dispositivi con UUID per radice e riprendere parametro indicato in precedenza nei file "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" o "/ e così via/predefinita/grub: quindi le righe nei file saranno simili. <br>
+2. A questo punto sostituire il nome del dispositivo con le UUID nel formato, ad esempio "radice = UUID =\<UUID >". Ad esempio, se sostituire i nomi dei dispositivi con UUID per radice e riprendere parametro indicato in precedenza nei file "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" o "/ e così via/predefinita/grub: quindi le righe nei file saranno simili. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. Riavviare nuovamente la protezione
 

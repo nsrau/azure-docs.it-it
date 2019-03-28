@@ -1,6 +1,6 @@
 ---
-title: Usare l'archiviazione BLOB per IIS e l'archiviazione tabelle per gli eventi in Log Analytics di Azure| Documentazione Microsoft
-description: Log Analytics è in grado di leggere i log per i servizi di Azure che scrivono dati di diagnostica nell'archivio tabelle o log di IIS nell'archivio BLOB.
+title: Usare l'archiviazione blob per IIS e tabella di archiviazione per gli eventi in Monitoraggio di Azure | Microsoft Docs
+description: Monitoraggio di Azure può leggere i log per i servizi di Azure che scrivono dati di diagnostica nell'archivio tabelle o log IIS scritti nell'archivio blob.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,28 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 9f5948887262ae190547c96aa09318a19f64812e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 35befe7122f493998d0d91c2721e6013e057fed3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306630"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540602"
 ---
-# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Usare l'archiviazione BLOB di Azure per IIS e l'archiviazione tabelle di Azure per gli eventi con Log Analytics
+# <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-azure-monitor"></a>Usare l'archiviazione blob di Azure per archiviazione tabelle di Azure e IIS per gli eventi con monitoraggio di Azure
 
-Log Analytics è in grado di leggere i log per i servizi seguenti che scrivono dati di diagnostica nell'archivio tabelle o log di IIS nell'archivio BLOB:
+Monitoraggio di Azure può leggere i log per i servizi seguenti che scrivono dati di diagnostica nell'archivio tabelle o log IIS scritti nell'archivio blob:
 
 * Cluster di Service Fabric (Anteprima)
 * Macchine virtuali
 * Ruoli di lavoro/Web
 
-Affinché Log Analytics possa raccogliere i dati per tali risorse, è necessario abilitare la diagnostica di Azure.
+Prima di monitoraggio di Azure può raccogliere i dati in un'area di lavoro di Log Analitica per queste risorse, è necessario abilitare diagnostica di Azure.
 
-Dopo l'abilitazione della diagnostica, è possibile usare il Portale di Azure o PowerShell per configurare Log Analytics per la raccolta dei log.
+Dopo l'abilitazione della diagnostica, è possibile usare il portale di Azure o PowerShell per configurare l'area di lavoro per raccogliere i log.
 
-Diagnostica di Azure è un'estensione di Azure che consente di raccogliere i dati di diagnostica da un ruolo di lavoro, da un ruolo Web o da una macchina virtuale in esecuzione in Azure. I dati vengono memorizzati in un account di archiviazione di Azure e possono quindi essere raccolti da Log Analytics.
+Diagnostica di Azure è un'estensione di Azure che consente di raccogliere i dati di diagnostica da un ruolo di lavoro, da un ruolo Web o da una macchina virtuale in esecuzione in Azure. I dati vengono archiviati in un account di archiviazione di Azure e possono quindi essere raccolti da monitoraggio di Azure.
 
-Per consentire a Log Analytics di raccogliere questi log di Diagnostica di Azure, è necessario che i log si trovino nelle posizioni seguenti:
+Per monitoraggio di Azure per raccogliere questi log di diagnostica di Azure, i log devono trovarsi nei percorsi seguenti:
 
 | Tipo di log | Tipo di risorsa | Località |
 | --- | --- | --- |
@@ -116,10 +116,10 @@ Assicurarsi che ConfigurationSettings specifichi un account di archiviazione, co
 
 I valori **AccountName** e **AccountKey** sono disponibili nel dashboard dell'account di archiviazione del portale di Azure in Gestisci chiavi di accesso. Il protocollo per la stringa di connessione deve essere **https**.
 
-Dopo che la configurazione della diagnostica aggiornata è stata applicata al servizio cloud e ha iniziato a scrivere la diagnostica in Archiviazione di Azure, è possibile configurare Log Analytics.
+Dopo la configurazione della diagnostica aggiornata è stata applicata al servizio cloud e sta scrivendo la diagnostica in archiviazione di Azure, si è pronti per configurare l'area di lavoro di Log Analitica.
 
 ## <a name="use-the-azure-portal-to-collect-logs-from-azure-storage"></a>Usare il portale di Azure per raccogliere log da Archiviazione di Azure
-È possibile usare il portale di Azure per configurare Log Analytics per raccogliere i log per i servizi di Azure seguenti:
+È possibile usare il portale di Azure per configurare un'area di lavoro di Log Analitica in Monitoraggio di Azure per raccogliere i log per i servizi di Azure seguenti:
 
 * Cluster di Service Fabric
 * Macchine virtuali
@@ -136,9 +136,9 @@ Nel portale di Azure passare all'area di lavoro di Log Analytics ed eseguire que
 5. Il valore per l'origine viene compilato automaticamente in base al tipo di dati e non può essere modificato
 6. Fare clic su OK per salvare la configurazione
 
-Ripetere i passaggi da 2 a 6 per account di archiviazione aggiuntivi e tipi di dati che devono essere raccolti da Log Analytics.
+Ripetere i passaggi da 2 a 6 per account di archiviazione aggiuntivi e i tipi di dati che si desidera raccogliere nell'area di lavoro.
 
-Nel giro di 30 minuti circa è possibile visualizzare i dati dell'account di archiviazione in Log Analytics. Verranno visualizzati solo i dati scritti nell'archivio dopo l'applicazione della configurazione. Log Analytics non legge i dati preesistenti dall'account di archiviazione.
+Dopo circa 30 minuti, si è in grado di visualizzare i dati dall'account di archiviazione nell'area di lavoro di Log Analitica. Verranno visualizzati solo i dati scritti nell'archivio dopo l'applicazione della configurazione. L'area di lavoro non legge i dati preesistenti dall'account di archiviazione.
 
 > [!NOTE]
 > Il portale non conferma l'esistenza dell'origine nell'account di archiviazione e non verifica se vengono scritti nuovi dati.
@@ -149,7 +149,7 @@ Nel giro di 30 minuti circa è possibile visualizzare i dati dell'account di arc
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Usare la procedura [Configurazione di Log Analytics per indicizzare Diagnostica di Azure](../../azure-monitor/platform/powershell-workspace-configuration.md#configuring-log-analytics-to-collect-azure-diagnostics-from-storage) per leggere tramite PowerShell i dati di Diagnostica di Azure scritti nell'archiviazione tabelle.
+Usare la procedura descritta in [configurazione di monitoraggio di Azure per indicizzare diagnostica di Azure](powershell-workspace-configuration.md#configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage) usare PowerShell per leggere da diagnostica di Azure che viene scritti in archiviazione tabelle.
 
 Con Azure PowerShell è possibile specificare in modo più preciso gli eventi che vengono scritti nell'Archiviazione di Azure.
 Per altre informazioni, vedere [Abilitare la diagnostica nelle macchine virtuali di Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).

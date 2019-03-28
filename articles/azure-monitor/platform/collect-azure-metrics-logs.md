@@ -1,6 +1,6 @@
 ---
-title: Raccogliere log e metriche per i servizi di Azure per Log Analytics | Documentazione Microsoft
-description: È possibile configurare la diagnostica per le risorse di Azure per scrivere log e metriche in Log Analytics.
+title: Raccogliere i log di servizio di Azure e le metriche nell'area di lavoro di Log Analitica | Microsoft Docs
+description: Configurare la diagnostica nelle risorse di Azure per scrivere log e metriche all'area di lavoro di Log Analitica in Monitoraggio di Azure.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498537"
+ms.locfileid: "58540178"
 ---
-# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Raccolta di log e metriche per i servizi di Azure da usare in Log Analytics
+# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Raccogliere i log di servizio di Azure e le metriche nell'area di lavoro di Log Analitica in Monitoraggio di Azure
 
 Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Azure:
 
-1. Da Diagnostica di Azure direttamente a Log Analytics (*Diagnostica* nella tabella seguente)
-2. Da Diagnostica di Azure ad Archiviazione di Azure a Log Analytics (*Archiviazione* nella tabella seguente)
+1. Diagnostica di Azure direttamente all'area di lavoro di Log Analitica in Monitoraggio di Azure (*diagnostica* nella tabella seguente)
+2. Diagnostica di Azure in archiviazione di Azure all'area di lavoro di Log Analitica in Monitoraggio di Azure (*archiviazione* nella tabella seguente)
 3. Connettori per i servizi di Azure (*Connettori* nella tabella seguente)
-4. Script per raccogliere e inviare i dati a Log Analytics (spazi vuoti nella tabella seguente e per i servizi non elencati)
+4. Script per raccogliere e inviare i dati nell'area di lavoro di Log Analitica in Monitoraggio di Azure (gli spazi vuoti nella tabella seguente e per i servizi non elencati)
 
 
 | Service                 | Tipo di risorsa                           | Log        | Metriche     | Soluzione |
@@ -64,12 +64,12 @@ Esistono quattro diversi modi per raccogliere log e metriche per i servizi di Az
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Da Diagnostica di Azure direttamente a Log Analytics
-Molte risorse di Azure sono in grado di scrivere i log di diagnostica e le metriche direttamente in Log Analytics e questo è il modo migliore per raccogliere i dati per l'analisi. Quando si usa Diagnostica di Azure, i dati vengono scritti immediatamente in Log Analytics e non occorre scriverli prima nell'archiviazione.
+Molte risorse di Azure sono in grado di scrivere i log di diagnostica e metriche direttamente a un'area di lavoro di Log Analitica in Monitoraggio di Azure e questo è il modo migliore di raccogliere i dati per l'analisi. Quando si usa diagnostica di Azure, i dati vengono scritti immediatamente l'area di lavoro e non è necessario prima scrivere i dati all'archiviazione.
 
-Le risorse di Azure che supportano [Monitoraggio di Azure](../../azure-monitor/overview.md) possono inviare i log e le metriche direttamente a Log Analytics.
+Le risorse di Azure che supportano [monitoraggio di Azure](../../azure-monitor/overview.md) può inviare i log e metriche direttamente a un'area di lavoro di Log Analitica.
 
 > [!NOTE]
-> L'invio delle metriche multidimensionali a Log Analytics tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
+> L'invio delle metriche multidimensionali a un'area di lavoro di Log Analitica tramite le impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.
 >
 > *Ad esempio*: La metrica 'Messaggi in arrivo' su un hub eventi può essere esplorata e rappresentata in un grafico a livello di singola coda. Tuttavia, in caso di esportazione tramite impostazione di diagnostica, la metrica viene rappresentata come tutti i messaggi in ingresso in tutte le code nell'hub eventi.
 >
@@ -125,9 +125,9 @@ Per abilitare la diagnostica per una risorsa al momento della creazione e inviar
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Da Diagnostica di Azure ad Archiviazione di Azure e poi a Log Analytics
 
-Per raccogliere i log da alcune risorse, è possibile inviare i log ad Archiviazione di Azure e quindi configurare Log Analytics per leggere i log dall'archiviazione.
+Per raccogliere i log da alcune risorse, è possibile inviare i log ad archiviazione di Azure e quindi configurare l'area di lavoro di Log Analitica per leggere i log dall'archiviazione.
 
-Log Analytics può usare questo approccio per raccogliere i dati di diagnostica da Archiviazione di Azure per le risorse e i log seguenti:
+Monitoraggio di Azure è possibile usare questo approccio per raccogliere dati di diagnostica da archiviazione di Azure per i log e le risorse seguenti:
 
 | Risorsa | Log |
 | --- | --- |
@@ -136,23 +136,23 @@ Log Analytics può usare questo approccio per raccogliere i dati di diagnostica 
 | Ruoli Web <br> Ruoli di lavoro |Syslog Linux <br> Evento Windows <br> Log IIS <br> ETWEvent Windows |
 
 > [!NOTE]
-> Quando si inviano dati di diagnostica a un account di archiviazione e quando Log Analytics legge i dati da tale account, vengono addebitate le normali tariffe dati di Azure per l'archiviazione e le transazioni.
+> Ti vengono addebitate le tariffe normali dati di Azure per l'archiviazione e le transazioni quando si invia la diagnostica per un account di archiviazione e quando l'area di lavoro di Log Analitica legge i dati dall'account di archiviazione.
 >
 >
 
-Vedere [Uso dell'archivio BLOB per IIS e dell'archivio tabelle per gli eventi](azure-storage-iis-table.md) per altre informazioni sulle modalità di raccolta di questi log in Log Analytics.
+Visualizzare [Usa l'archiviazione blob per IIS e tabella di archiviazione per gli eventi](azure-storage-iis-table.md) per altre informazioni su come monitoraggio di Azure può raccogliere questi log.
 
 ## <a name="connectors-for-azure-services"></a>Connettori per i servizi di Azure
 
-Esiste un connettore per Application Insights, che consente di inviare i dati raccolti da Application Insights a Log Analytics.
+È presente un connettore per Application Insights, che consente i dati raccolti da Application Insights da inviare a un'area di lavoro di Log Analitica.
 
 Altre informazioni sul [connettore Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Script per raccogliere i dati e inviarli a Log Analytics
+## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>Script per raccogliere e inviare i dati all'area di lavoro di Log Analitica
 
-Per i servizi di Azure che non forniscono un modo diretto per inviare i log e le metriche a Log Analytics, è possibile usare uno script di Automazione di Azure per raccogliere i log e le metriche. Lo script può quindi inviare i dati a Log Analytics tramite l'[API di raccolta dati](../../azure-monitor/platform/data-collector-api.md)
+Per i servizi di Azure che non forniscono un modo diretto per inviare i log e metriche per un'area di lavoro di Log Analitica è possibile utilizzare uno script di automazione di Azure per raccogliere i log e metriche. Lo script può quindi inviare i dati all'area di lavoro utilizzando il [API di raccolta dati](../../azure-monitor/platform/data-collector-api.md)
 
-La raccolta di modelli di Azure include [esempi dell'uso di Automazione di Azure](https://azure.microsoft.com/resources/templates/?term=OMS) per raccogliere dati dai servizi e inviarli a Log Analytics.
+La raccolta di modelli di Azure dispone [esempi di utilizzo di automazione di Azure](https://azure.microsoft.com/resources/templates/?term=OMS) per raccogliere dati dai servizi e inviarli a monitoraggio di Azure.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

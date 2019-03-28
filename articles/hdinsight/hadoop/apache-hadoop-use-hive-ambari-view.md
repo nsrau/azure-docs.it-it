@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446599"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517301"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Usare la vista Hive di Apache Ambari con Apache Hadoop in HDInsight
 
@@ -24,22 +24,14 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un cluster Apache Hadoop basato su Linux in HDInsight versione 3.4 o successiva.
-
-  > [!IMPORTANT]  
-  > Linux è l'unico sistema operativo usato in HDInsight versione 3.4 o successiva. Per altre informazioni, vedere la sezione relativa al [ritiro di HDInsight in Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* Un cluster Hadoop in HDInsight. Visualizzare [Introduzione a HDInsight su Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un Web browser
 
 ## <a name="run-a-hive-query"></a>Eseguire una query Hive
 
-1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Dal [portale di Azure](https://portal.azure.com/), selezionare il cluster.  Visualizzare [elencare e visualizzare i cluster](../hdinsight-administer-use-portal-linux.md#showClusters) per le istruzioni. Il cluster viene aperto in un nuovo pannello del portale.
 
-2. Selezionare il cluster HDInsight, quindi **Viste di Ambari** nella sezione **Collegamenti rapidi**.
-
-    ![Sezione Collegamenti rapidi del portale](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster.
+2. Dal **dashboard Cluster**, selezionare **visualizzazioni di Ambari**. Quando viene richiesta l'autenticazione, usare il nome e la password dell'account di accesso al cluster (per impostazione predefinita, `admin`) specificati durante la creazione del cluster.
 
 3. Nell'elenco di viste selezionare __vista Hive__.
 
@@ -81,30 +73,30 @@ Informazioni su come eseguire query Hive usando la vista Hive di Apache Ambari. 
 
    * `SELECT`: seleziona un conteggio di tutte le righe in cui la colonna t4 contiene il valore [ERROR].
 
-     > [!IMPORTANT]  
-     > Mantenere la selezione di __Database__ __predefinita__. Gli esempi di questo documento usano il database predefinito incluso in HDInsight.
+   > [!IMPORTANT]  
+   > Mantenere la selezione di __Database__ __predefinita__. Gli esempi di questo documento usano il database predefinito incluso in HDInsight.
 
-5. Per avviare la query, usare il pulsante **Execute** (Esegui) sotto il foglio di lavoro. Il pulsante diventa arancione e il testo cambia in **Interrompi**.
+5. Per avviare la query, selezionare **Execute** sotto il foglio di lavoro. Il pulsante diventa arancione e il testo cambia in **Interrompi**.
 
 6. Al termine dell'elaborazione della query, nella scheda **Risultati** vengono visualizzati i risultati dell'operazione. Il testo seguente è il risultato della query:
 
         loglevel       count
         [ERROR]        3
 
-    La scheda **Logs** può essere usata per visualizzare le informazioni sulla registrazione create dal processo.
+    È possibile usare la **LOG** scheda per visualizzare le informazioni sulla registrazione create dal processo.
 
    > [!TIP]  
-   > Per scaricare o salvare i risultati, usare la finestra di dialogo **Salva risultati** nella parte superiore sinistra della sezione **Query Process Results** (Risultati del processo di query).
+   > Scaricare o salvare i risultati di **azioni** nella finestra di dialogo elenco a discesa la **risultati** scheda.
 
 ### <a name="visual-explain"></a>Visual Explain
 
 Per aprire una visualizzazione del piano di query, selezionare la scheda **Visual Explain** (Spiegazione visiva) sotto il foglio di lavoro.
 
-La vista **Visual Explain** (Spiegazione visiva) della query può essere utile per conoscere il flusso delle query complesse. Per un equivalente testuale di questa visualizzazione, usare il pulsante **Spiega** in Query Editor.
+La vista **Visual Explain** (Spiegazione visiva) della query può essere utile per conoscere il flusso delle query complesse.
 
 ### <a name="tez-ui"></a>Interfaccia utente di Tez
 
-Per visualizzare l'interfaccia utente di Tez per la query, selezionare la scheda **Tez** sotto il foglio di lavoro.
+Per visualizzare la UI Tez per la query, selezionare la **Tez UI** tab di sotto del foglio di lavoro.
 
 > [!IMPORTANT]  
 > Tez non viene usato per risolvere tutte le query. Molte query possono essere risolte senza usare Tez. 

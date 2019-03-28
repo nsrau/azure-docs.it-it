@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: 739ae64c6b32958271260bcbd01b339c1b108f11
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337426"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522197"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usare apprendimento attivo per migliorare la tua knowledge base
 
@@ -208,7 +208,7 @@ Una risposta con esito positivo restituisce uno stato 204 e alcun corpo della ri
 
 Quando l'app ha apprendimento attivo abilitato e si esporta l'app, il `SuggestedQuestions` della colonna nel file tsv mantiene i dati di apprendimento attivo. 
 
-Il `SuggestedQuestions` colonna è un oggetto JSON delle informazioni di implicita (`autosuggested`) ed esplicite (`usersuggested`) [commenti e suggerimenti](#active-learning). Un esempio di questo oggetto JSON per una singola domanda inviato dall'utente di `help` è:
+Il `SuggestedQuestions` colonna è un oggetto JSON delle informazioni di implicita (`autosuggested`) ed esplicite (`usersuggested`) commenti e suggerimenti. Un esempio di questo oggetto JSON per una singola domanda inviato dall'utente di `help` è:
 
 ```JSON
 [

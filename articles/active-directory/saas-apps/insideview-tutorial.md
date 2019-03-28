@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92cb4f1093d8450bb2c32d99f4ccedd0a5688253
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845ab85ae10a9d57bf3e263d49532675f60cd84f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165918"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517845"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Esercitazione: Integrazione di Azure Active Directory con InsideView
 
@@ -91,7 +91,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con InsideView, √
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalit√†.
 1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di InsideView](#creating-a-insideview-test-user)**  : per avere una controparte di Britta Simon in InsideView collegata alla rappresentazione in Azure AD dell'utente.
+1. **[Creazione di un utente test di InsideView](#creating-an-insideview-test-user)**  : per avere una controparte di Britta Simon in InsideView collegata alla rappresentazione in Azure AD dell'utente.
 1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testing Single Sign-On](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
@@ -254,4 +254,3 @@ Quando si fa clic sul riquadro InsideView nel pannello di accesso, si accede aut
 [201]: ./media/insideview-tutorial/tutorial_general_201.png
 [202]: ./media/insideview-tutorial/tutorial_general_202.png
 [203]: ./media/insideview-tutorial/tutorial_general_203.png
-

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57850f67b56113036cb6cc37e9f1f2694ba9eb8f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672730"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540126"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
 
@@ -26,11 +26,11 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
 1. Creare un nuovo file HTML.
 
 2. Caricare Azure Maps Web SDK. A tale scopo, è possibile procedere nei due modi descritti di seguito:
-    
+
     a. Usare la versione CDN di Azure Maps Web SDK ospitata a livello globale aggiungendo gli endpoint dell'URL al foglio di stile e i riferimenti a script nell'elemento `<head>` del file:
 
-    ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+    ```HTML
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
     ```
 
@@ -40,19 +40,19 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
 
     Aggiungere quindi i riferimenti alle origini del foglio di stile e dello script di Mappe di Azure all'elemento `<head>` del file:
 
-    ```html
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css" />
+    ```HTML
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
     <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
     ```
 
 3. Per eseguire il rendering della mappa in modo che riempia l'intero corpo della pagina, aggiungere l'elemento `<style>` seguente all'elemento `<head>`.
 
-    ```html
+    ```HTML
     <style>
         html, body {
             margin: 0;
         }
-    
+
         #myMap {
             height: 100vh;
             width: 100vw;
@@ -60,9 +60,9 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </style>
     ```
 
-4. Nel corpo della pagina aggiungere un elemento `<div>` e assegnargli un `id` **myMap**. 
+4. Nel corpo della pagina aggiungere un elemento `<div>` e assegnargli un `id` **myMap**.
 
-    ```html
+    ```HTML
     <body>
         <div id="myMap"></div>
     </body>
@@ -70,8 +70,8 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
 
 5. Per inizializzare il controllo mappa, definire una nuova sezione nel corpo HTML e creare uno script. Usare la propria chiave dell'account di Mappe di Azure oppure le credenziali di Azure Active Directory (AAD) per autenticare la mappa usando le [opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Se è necessario creare un account o trovare la chiave, vedere [Come gestire l'account e le chiavi dell'account Mappe di Azure](how-to-manage-account-keys.md). L'opzione **language** specifica la lingua da usare per le etichette e i controlli mappa. Per altre informazioni sulle lingue supportate, vedere [Lingue supportate](supported-languages.md). Se si usa una chiave di sottoscrizione per l'autenticazione:
 
-    ```html
-    <script type='text/javascript'>
+    ```HTML
+    <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
             zoom: 12,
@@ -86,8 +86,8 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
 
     Se si usa Azure Active Directory (AAD) per l'autenticazione:
 
-    ```html
-    <script type='text/javascript'>
+    ```HTML
+    <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
             zoom: 12,
@@ -103,41 +103,42 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     ```
 
     Visualizzare [l'autenticazione con le mappe di Azure](azure-maps-authentication.md) per altri dettagli.
+
 6. Facoltativamente, può risultare utile aggiungere gli elementi di tag meta seguenti all'inizio della pagina:
 
-    ```html
+    ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
     <!-- Ensures the web page looks good on all screen sizes. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
 7. Riassumendo, il file HTML dovrebbe essere simile al seguente:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
         <title></title>
-    
-        <meta charset="utf-8" />
-        
+
+        <meta charset="utf-8">
+
         <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-        <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
         <!-- Ensures the web page looks good on all screen sizes. -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
-    
+
         <style>
             html, body {
                 margin: 0;
             }
-        
+
             #myMap {
                 height: 100vh;
                 width: 100vw;
@@ -146,8 +147,8 @@ La libreria JavaScript lato client del controllo mappa consente di eseguire il r
     </head>
     <body>
         <div id="myMap"></div>
-        
-        <script type='text/javascript'>
+
+        <script type="text/javascript">
             //Create an instance of the map control and set some options.
             var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

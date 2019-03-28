@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841643"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541050"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Eseguire il failback per le macchine virtuali Hyper-V
 
@@ -54,7 +54,7 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
 
 1. Se si configura nuovo hardware, installare Windows Server 2012 R2 e il ruolo Hyper-V nel server.
 2. Creare un commutatore di rete virtuale con lo stesso nome presente nel server originale.
-3. Selezionare **Elementi protetti** -> **Gruppo protezione dati** -> <ProtectionGroupName> -> <VirtualMachineName>di cui si vuole eseguire il failback e selezionare **Failover pianificato**.
+3. Selezionare **elementi protetti** -> **gruppo protezione dati** -> \<Nomegruppoprotezione > -> \<VirtualMachineName > che si desidera eseguire il failback, e selezionare **Failover pianificato**.
 4. Fare clic su **Conferma failover pianificato** select **Crea macchina virtuale locale, se non esiste**.
 5. In Nome host selezionare il nuovo server host Hyper-V in cui si vuole collocare la macchina virtuale.
 6. In Sincronizzazione dati, è consigliabile selezionare l'opzione Sincronizza i dati prima del failover. Questa opzione riduce al minimo i tempi di inattività per le macchine virtuali senza arrestarle. Effettua le seguenti operazioni:
@@ -63,7 +63,7 @@ Se è stata distribuita la protezione tra un [sito Hyper-V e Azure](site-recover
     - Fase 2: Arresta la macchina virtuale in Azure in modo che non vengano apportate nuove modifiche. Il set finale di modifiche viene trasferito al server locale e viene avviata la macchina virtuale locale.
     
 7. Fare clic sul segno di spunta per iniziare il failover (failback).
-8. Quando è stata completata la sincronizzazione iniziale e si è pronti per arrestare la macchina virtuale in Azure, fare clic su **Processi** > <planned failover job> > **Failover completo**. La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata.
+8. Al termine della sincronizzazione iniziale e si è pronti ad arrestare la macchina virtuale in Azure, fare clic su **processi** > \<processo failover pianificato >> **Failover completo** . La macchina Azure viene arrestata e le modifiche più recenti vengono trasferite alla macchina virtuale locale, che viene avviata.
 9. È possibile accedere alla macchina virtuale locale per verificare il funzionamento corretto atteso. Fare clic su **Commit** per completare il failover. Il commit elimina la macchina virtuale di Azure e i relativi dischi e prepara la VM a essere protetta di nuovo.
 10. Fare clic su **Replica inversa** per iniziare a proteggere la macchina virtuale in locale.
 
@@ -91,6 +91,6 @@ La sincronizzazione dei dati crea uno snapshot dei dischi della macchina virtual
 Per rendere più veloce il download dei dati, è possibile configurare l'agente MARS affinché usi più thread per eseguire i download in parallelo. Consultare il [documento qui](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) su come modificare i thread di download nell'agente.
 
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 
 Dopo aver eseguito il **commit**, è possibile avviare la *replica inversa*. In questo modo si inizia a proteggere la macchina virtuale dalla posizione locale ad Azure. Con questa operazione vengono replicate solo le modifiche apportate dal momento in cui la VM è stata disattivata in Azure e pertanto vengono inviate solo le modifiche differenziali.

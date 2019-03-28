@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479974"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540143"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ L'obiettivo è installare più istanze con cluster Advanced Business Application
 
 _**Figura 2:** Configurazione multi-SID di SAP in due cluster_
 
-L'installazione di un sistema **SAP \<SID2>** aggiuntivo è identico all'installazione di un sistema <SID>. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
+L'installazione di un'ulteriore **SAP \<SID2 >** è identico per l'installazione di un sistema \<SID > system. Sono necessari due passaggi di preparazione aggiuntivi nel cluster ASCS/SCS e nel cluster di file server di scalabilità orizzontale della condivisione file.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Preparare l'infrastruttura per uno scenario di multi-SID di SAP
 
@@ -261,7 +261,7 @@ Questa procedura è descritta in [Preparazione dell'infrastruttura per lo scenar
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparare l'infrastruttura in un cluster di file server di scalabilità orizzontale usando l'host globale SAP esistente
 
-È possibile usare di nuovo \<SAPGlobalHost> e Volume1 del primo sistema SAP <SID1>.
+È possibile riutilizzare l'oggetto esistente \<SAPGlobalHost > e Volume1 del primo SAP \<SID1 > system.
 
 ![Figura 3: Il file server di scalabilità orizzontale multi-SID è lo stesso del nome host globale SAP][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**Figura 3:** Il file server di scalabilità orizzontale multi-SID è lo stesso
 >Per il secondo sistema **SAP \<SID2>**, vengono usati lo stesso Volume1 e lo stesso nome di rete **\<SAPGlobalHost>**.
 >Dal momento che è già stato impostato **SAPMNT** come nome di condivisione per i vari sistemi SAP, per usare di nuovo il nome di rete **\<SAPGlobalHost>**, è necessario usare lo stesso **Volume1**.
 >
->Il percorso file per l'host globale <SID2> è C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\.
+>Il percorso del file per il \<SID2 > host globale è C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 Per il sistema \<SID2>, è necessario preparare la cartella SAP Global Host ..\SYS\. nel cluster del file server di scalabilità orizzontale.

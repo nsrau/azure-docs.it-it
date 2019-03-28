@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 057f5fcf9f050bdce9efb301db43b909893ade60
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d2b0209f57ff5f59d59ee057db7675b2dcd071b8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769167"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522061"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Usare Transact-SQL (T-SQL) per creare e gestire processi di database elastico
 
@@ -408,19 +408,19 @@ Le stored procedure seguenti sono disponibili nel [database dei processi](sql-da
 
 |Stored procedure  |DESCRIZIONE  |
 |---------|---------|
-|[sp_add_job](#spaddjob)     |     Aggiunge un nuovo processo.    |
-|[sp_update_job](#spupdatejob)    |      Aggiorna un processo esistente.   |
-|[sp_delete_job](#spdeletejob)     |      Elimina il processo esistente.   |
-|[sp_add_jobstep](#spaddjobstep)    |    Aggiunge un passaggio a un processo.     |
-|[sp_update_jobstep](#spupdatejobstep)     |     Aggiorna un passaggio di un processo.    |
-|[sp_delete_jobstep](#spdeletejobstep)     |     Elimina un passaggio di un processo.    |
-|[sp_start_job](#spstartjob)    |  Avvia l'esecuzione di un processo.       |
-|[sp_stop_job](#spstopjob)     |     Arresta l'esecuzione di un processo.   |
-|[sp_add_target_group](#spaddtargetgroup)    |     Aggiunge un gruppo di destinazione.    |
-|[sp_delete_target_group](#spdeletetargetgroup)     |    Elimina un gruppo di destinazione.     |
-|[sp_add_target_group_member](#spaddtargetgroupmember)     |    Aggiunge un database o un gruppo di database a un gruppo di destinazione.     |
-|[sp_delete_target_group_member](#spdeletetargetgroupmember)     |     Rimuove un membro del gruppo di destinazione da un gruppo di destinazione.    |
-|[sp_purge_jobhistory](#sppurgejobhistory)    |    Rimuove i record della cronologia per un processo.     |
+|sp_add_job     |     Aggiunge un nuovo processo.    |
+|sp_update_job    |      Aggiorna un processo esistente.   |
+|sp_delete_job     |      Elimina il processo esistente.   |
+|sp_add_jobstep    |    Aggiunge un passaggio a un processo.     |
+|sp_update_jobstep     |     Aggiorna un passaggio di un processo.    |
+|sp_delete_jobstep     |     Elimina un passaggio di un processo.    |
+|sp_start_job    |  Avvia l'esecuzione di un processo.       |
+|sp_stop_job     |     Arresta l'esecuzione di un processo.   |
+|sp_add_target_group    |     Aggiunge un gruppo di destinazione.    |
+|sp_delete_target_group     |    Elimina un gruppo di destinazione.     |
+|sp_add_target_group_member     |    Aggiunge un database o un gruppo di database a un gruppo di destinazione.     |
+|sp_delete_target_group_member     |     Rimuove un membro del gruppo di destinazione da un gruppo di destinazione.    |
+|sp_purge_jobhistory    |    Rimuove i record della cronologia per un processo.     |
 
 
 
@@ -1195,13 +1195,13 @@ Le viste seguenti sono disponibili nel [database dei processi](sql-database-job-
 
 |Visualizza  |DESCRIZIONE  |
 |---------|---------|
-|[jobs_executions](#jobsexecutions-view)     |  Mostra la cronologia di esecuzione dei processi.      |
+|jobs_executions     |  Mostra la cronologia di esecuzione dei processi.      |
 |[jobs](#jobs-view)     |   Mostra tutti i processi.      |
-|[job_versions](#jobversions-view)     |   Mostra tutte le versioni dei processi.      |
+|job_versions     |   Mostra tutte le versioni dei processi.      |
 |[jobsteps](#jobsteps-view)     |     Mostra tutti i passaggi nella versione corrente di ogni processo.    |
-|[jobstep_versions](#jobstepversions-view)     |     Mostra tutti i passaggi in tutte le versioni di ogni processo.    |
-|[target_groups](#targetgroups-view)     |      Mostra tutti i gruppi di destinazione.   |
-|[target_group_members](#targetgroups-view)     |   Mostra tutti i membri di tutti i gruppi di destinazione.      |
+|jobstep_versions     |     Mostra tutti i passaggi in tutte le versioni di ogni processo.    |
+|target_groups     |      Mostra tutti i gruppi di destinazione.   |
+|target_group_members     |   Mostra tutti i membri di tutti i gruppi di destinazione.      |
 
 
 ### <a name="jobsexecutions-view"></a>jobs_executions view

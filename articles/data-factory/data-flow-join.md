@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726873"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540041"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mapping dei dati del flusso di Join-trasformazione
 
@@ -67,6 +67,10 @@ Se il set di dati è compatibile con la memoria nodo del ruolo di lavoro Databri
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
 Nel diagramma precedente, la trasformazione Select si trova nella parte superiore. Non si tratta di altro che creare un alias del flusso originale in "OrigSourceBatting". Nella trasformazione Join evidenziata sotto, è possibile vedere che viene usato un flusso alias Select come join di destra, consentendo di fare riferimento alla medesima chiave relativamente agli inner Join di destra e di sinistra.
+
+## <a name="composite-and-custom-keys"></a>Chiavi composte e personalizzate
+
+È possibile creare le chiavi composite e personalizzate in tempo reale all'interno la trasformazione di Join. Aggiungere le righe per le colonne di join aggiuntivo con il segno più (+) accanto a ogni riga della relazione. O calcolare un nuovo valore della chiave del generatore di espressioni per un valore di join in tempo reale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

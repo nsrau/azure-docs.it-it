@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 03/25/2019
 ms.author: diberry
-ms.openlocfilehash: 39c1a212bee552b436ef21d208f4a20086578325
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d6c0d04966d3a713493485d52ca4e81ba25ab743
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437850"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521483"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -145,6 +145,10 @@ Il contenitore fornisce API dell'endpoint di stima di query basate su REST.
 
 Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Arrestare il contenitore
 
 [!INCLUDE [How to stop the container](../../../../includes/cognitive-services-containers-stop.md)]
@@ -152,10 +156,6 @@ Usare l'host, `https://localhost:5000`, per le API del contenitore.
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se si esegue il contenitore con un punto di [montaggio](../text-analytics-resource-container-config.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
-
-## <a name="containers-api-documentation"></a>Documentazione dell'API del contenitore
-
-[!INCLUDE [Container's API documentation](../../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Fatturazione
 

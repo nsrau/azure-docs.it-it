@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258531"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518038"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Usare Azure Data Box per migrare i dati da un archivio HDFS in locale in archiviazione di Azure
 
@@ -111,7 +111,7 @@ Per migliorare la velocità di copia:
 
 Seguire questi passaggi per preparare e spedire il dispositivo Data Box a Microsoft.
 
-1. Dopo aver completata la copia dei dati, eseguire [Prepara per la spedizione](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) nella casella di dati. Dopo aver completato la preparazione dei dispositivi, scaricare i file della distinta base. Si utilizzeranno questi DBA o manifesto i file in un secondo momento per verificare i dati caricati in Azure. Arrestare il dispositivo e rimuovere i cavi. 
+1. Dopo aver completata la copia dei dati, eseguire [Prepara per la spedizione](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) nella casella di dati. Dopo aver completato la preparazione dei dispositivi, scaricare i file della distinta base. Si utilizzeranno questi DBA o manifesto i file in un secondo momento per verificare i dati caricati in Azure. Arrestare il dispositivo e rimuovere i cavi. 
 2.  Pianificare un ritiro con gruppo di continuità [spedire il Data Box ad Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  Dopo che Microsoft riceve il dispositivo, è connesso al Data Center alla rete e i dati vengono caricati nell'account di archiviazione specificati (con gli spazi dei nomi gerarchico disabilitato) quando è stato ordinato Data Box. Verificare che tutti i dati viene caricato in Azure con i file della distinta base. È ora possibile passare i dati a un account di archiviazione Gen2 di archivio Data Lake.
 

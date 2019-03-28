@@ -4,14 +4,14 @@ description: Informazioni su come impostare la velocità effettiva con provision
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005064"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520905"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Effettuare il provisioning della velocità effettiva per contenitori e database
 
@@ -75,6 +75,20 @@ L'immagine seguente mostra in che modo una partizione fisica può ospitare una o
 * È possibile configurare in modo esplicito "P" UR di velocità effettiva con provisioning nel contenitore B.
 * La velocità effettiva di "K" UR viene condivisa tra i quattro contenitori A, C, D ed E. La quantità esatta di velocità effettiva disponibile per A, C, D o E varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
 * Il contenitore B otterrà sempre la velocità effettiva di "P" UR ed è supportato da contratti di servizio.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>Velocità effettiva di aggiornamento in un database o un contenitore
+
+Dopo aver creato un contenitore Cosmos Azure o in un database, è possibile aggiornare la velocità effettiva con provisioning. Non è previsto alcun limite per la massima velocità effettiva con provisioning che è possibile configurare nel database o il contenitore. La velocità effettiva con provisioning minima dipende dai fattori seguenti: 
+
+* La dimensione massima dei dati che mai archiviati nel contenitore
+* La velocità effettiva massima che viene sempre effettuato il provisioning nel contenitore
+* Il numero massimo di contenitori di Azure Cosmos mai create in un database con una velocità effettiva condiviso. 
+
+È possibile recuperare la velocità effettiva minima di un contenitore o un database a livello di programmazione tramite gli SDK o visualizzare il valore nel portale di Azure. Quando si usa .NET SDK, il [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) metodo consente di ridimensionare il valore di velocità effettiva con provisioning. Quando si usa il SDK di Java, il [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) metodo consente di ridimensionare il valore di velocità effettiva con provisioning. 
+
+Quando si usa .NET SDK, il [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) metodo consente di recuperare la velocità effettiva minima di un contenitore o un database. 
+
+È possibile ridimensionare la velocità effettiva con provisioning di un contenitore o un database in qualsiasi momento. È possibile eseguire l'operazione di riduzione delle prestazioni dopo il periodo di inattività di 4 ore. Il periodo di inattività è definito come il tempo periodo quando non esiste alcuna offerta operazioni di sostituzione (che include ampliamento e riduzione) in un contenitore o un database. 
 
 ## <a name="comparison-of-models"></a>Confronto tra modelli
 

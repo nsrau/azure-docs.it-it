@@ -14,12 +14,12 @@ ms.date: 07/30/2018
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d0dbfeaf3fb018c8dd3f671ce7ad9d7d50e5fca
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c6790fa1cbb10999a751b31bcb27db2edcb67b4a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336304"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517755"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 
@@ -40,7 +40,7 @@ Quando si usano password per le app, è importante tenere presente quanto segue:
 
 Una password per le app viene assegnata durante la registrazione iniziale della verifica in due passaggi. Se è necessaria più di una password, è possibile crearne altre, in base al modo in cui si usa la verifica in due passaggi:
 
-- **La verifica in due passaggi viene usata con l'account aziendale o dell'istituto di istruzione e il portale MyApps.** Creare ed eliminare le password per le app tramite le istruzioni fornite nella sezione [Creare ed eliminare password per le app tramite il portale di MyApps](#create-and-delete-app-passwords-using-the-my-apps-portal) di questo articolo. Per altre informazioni sul portale MyApps e su come usarlo, vedere [Informazioni sul portale MyApps in Azure Active Directory](active-directory-saas-access-panel-introduction.md).
+- **La verifica in due passaggi viene usata con l'account aziendale o dell'istituto di istruzione e il portale MyApps.** Creare ed eliminare le password dell'app con le istruzioni di creazione ed eliminare le password dell'app usando la sezione portale MyApps di questo articolo. Per altre informazioni sul portale MyApps e su come usarlo, vedere [Informazioni sul portale MyApps in Azure Active Directory](active-directory-saas-access-panel-introduction.md).
 
 - **La verifica in due passaggi viene usata con l'account aziendale o dell'istituto di istruzione e il portale Office 365.** Creare ed eliminare le password per le app tramite le istruzioni fornite nella sezione [Creare ed eliminare password per le app tramite il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) di questo articolo.
 

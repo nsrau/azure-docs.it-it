@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311185"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522265"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Come filtrare in base alla lingua in Ricerca di Azure 
 
@@ -39,11 +39,11 @@ Negli esempi, incluso l'[esempio sui dati immobiliari](search-get-started-portal
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Per esempi di codice che mostrano definizioni di campo con analizzatori di lingua, vedere [Definire un indice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) e [Definire un indice (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
+> Per esempi di codice che mostrano definizioni di campo con analizzatori di lingua, vedere [Definire un indice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [Definire un indice (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json).
 
 ## <a name="build-and-load-an-index"></a>Creare e caricare un indice
 
-Un passaggio intermedio necessario (e probabilmente ovvio) consiste nel [compilare e popolare l'indice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) prima di formulare una query. Questo passaggio viene citato qui per motivi di completezza. Un modo per determinare se l'indice è disponibile consiste nel controllare l'elenco degli indici nel [portale](https://portal.azure.com).
+Un passaggio intermedio necessario (e probabilmente ovvio) consiste nel [compilare e popolare l'indice](https://docs.microsoft.com/azure/search/search-create-index-dotnet) prima di formulare una query. Questo passaggio viene citato qui per motivi di completezza. Un modo per determinare se l'indice è disponibile consiste nel controllare l'elenco degli indici nel [portale](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Limitare la query e ridurre i risultati
 

@@ -1,27 +1,19 @@
 ---
 title: Scenari comuni delle raccolte di aree di lavoro di Microsoft Power BI
 description: Scenari comuni di Microsoft Power BI Embedded
-services: power-bi-embedded
-documentationcenter: ''
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
-ROBOTS: NOINDEX
-ms.assetid: 0bf9706c-11bd-432a-bab3-89c04bc4dd1f
-ms.service: power-bi-embedded
-ms.devlang: NA
+ms.author: maghan
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 57eb3bc52dc61be38b94e93e7872b9a2166279cf
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
-ms.translationtype: HT
+ms.openlocfilehash: 0e111c40df79d236bad6130338d021f76587dde4
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407300"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519171"
 ---
 # <a name="common-power-bi-workspace-collection-scenarios"></a>Scenari comuni delle raccolte di aree di lavoro di Power BI
 

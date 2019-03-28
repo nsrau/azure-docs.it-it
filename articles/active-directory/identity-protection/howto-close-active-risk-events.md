@@ -4,7 +4,7 @@ description: Informazioni sulle opzioni disponibili per chiudere eventi di risch
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: e7434eeb-4e98-4b6b-a895-b5598a6cccf1
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: markvi
-ms.reviewer: raluthra
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50448cc5d4fe6714aa0cd29216209506eccf7a7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2e003aec8fa5aeab587fa07acdae3a13b370a535
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56201619"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521160"
 ---
 # <a name="how-to-close-active-risk-events"></a>Procedura: Chiudere gli eventi di rischio attivi
 

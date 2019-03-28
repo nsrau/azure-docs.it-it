@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: juliako
-ms.openlocfilehash: eaea0719aa8ca981da68841dae365decdd3c860e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 39a1dd5c3d26eeb6545a96aa35f9457bd9859c21
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499863"
+ms.locfileid: "58516485"
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizzazione dei set di impostazioni di Media Encoder Standard  
 
@@ -274,7 +274,3 @@ namespace CustomizeMESPresests
 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## <a name="see-also"></a>Vedere anche
-[Panoramica sulla codifica dei servizi multimediali](media-services-encode-asset.md)
-

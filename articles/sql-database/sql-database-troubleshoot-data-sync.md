@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 8b86103f76e2425acea1b4f7c590204f0a893510
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484429"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539633"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Risolvere i problemi della sincronizzazione dati SQL
 
@@ -40,7 +40,7 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 - [Si osserva una riduzione delle prestazioni considerevole](#sync-perf)
 
-- [Viene visualizzato il messaggio: "Impossibile inserire il valore NULL nella colonna <column>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore?](#sync-nulls)
+- [Viene visualizzato il messaggio: "Impossibile inserire il valore NULL nella colonna \<colonna >. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore?](#sync-nulls)
 
 - [In che modo la sincronizzazione dati gestisce i riferimenti circolari? In altre parole, quando vengono sincronizzati gli stessi dati in più gruppi di sincronizzazione e pertanto continuano a cambiare?](#sync-circ)
 
@@ -105,7 +105,7 @@ Le prestazioni vengono considerevolmente ridotte, anche al punto da non poter ap
 
 - **Risoluzione**. La correzione migliore è prevenire questa situazione. Verificare che non siano presenti riferimenti circolari nei gruppi di sincronizzazione. Le righe sincronizzate da un gruppo di sincronizzazione non possono essere sincronizzate da un altro gruppo di sincronizzazione.
 
-### <a name="sync-nulls"></a> Viene visualizzato il messaggio: "Impossibile inserire il valore NULL nella colonna <column>. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
+### <a name="sync-nulls"></a> Viene visualizzato il messaggio: "Impossibile inserire il valore NULL nella colonna \<colonna >. La colonna non ammette valori Null." Cosa significa e come è possibile correggere l'errore? 
 Questo messaggio di errore indica che si è verificato uno dei due problemi seguenti:
 -  Una tabella non dispone di una chiave primaria. Per risolvere il problema, aggiungere una chiave primaria a tutte le tabelle da sincronizzare.
 -  Potrebbe essere presente una clausola WHERE nell'istruzione CREATE INDEX. La sincronizzazione dati non gestisce questa condizione. Per risolvere il problema, rimuovere la clausola WHERE o apportare manualmente le modifiche a tutti i database. 

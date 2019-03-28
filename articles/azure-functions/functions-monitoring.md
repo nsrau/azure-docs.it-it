@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317069"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518729"
 ---
 # <a name="monitor-azure-functions"></a>Monitorare Funzioni di Azure
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317069"
 
 ![Esplora metriche di Application Insights](media/functions-monitoring/metrics-explorer.png)
 
-Funzioni di Azure offre inoltre [predefiniti di monitoraggio che non usano Application Insights](#monitoring-without-application-insights). Si consiglia di usare Application Insights perché offre un numero maggiore di dati e modalità di analisi dei dati migliori.
+Funzioni di Azure offre anche funzionalità di monitoraggio incorporate che non usano Application Insights. Si consiglia di usare Application Insights perché offre un numero maggiore di dati e modalità di analisi dei dati migliori.
 
 ## <a name="application-insights-pricing-and-limits"></a>Prezzi e limiti di Application Insights
 
@@ -77,7 +77,7 @@ Il passaggio successivo consiste nel [disabilitare la registrazione incorporata]
 
 ## <a name="disable-built-in-logging"></a>Disabilitare la registrazione predefinita
 
-Quando si abilita Application Insights, disabilitare il [la registrazione predefinita che usa l'archiviazione di Azure](#logging-to-storage). La registrazione predefinita risulta utile per i test con carichi di lavoro leggeri, ma non è destinata all'uso in produzione di carichi elevati. Per il monitoraggio della produzione, si consiglia di Application Insights. Se la registrazione predefinita viene usata nell'ambiente di produzione, il record di registrazione potrebbe essere incompleto a causa di limitazione delle richieste nell'archiviazione di Azure.
+Quando si abilita Application Insights, disabilitare la registrazione predefinita che usa l'archiviazione di Azure. La registrazione predefinita risulta utile per i test con carichi di lavoro leggeri, ma non è destinata all'uso in produzione di carichi elevati. Per il monitoraggio della produzione, si consiglia di Application Insights. Se la registrazione predefinita viene usata nell'ambiente di produzione, il record di registrazione potrebbe essere incompleto a causa di limitazione delle richieste nell'archiviazione di Azure.
 
 Per disabilitare la registrazione predefinita, eliminare l'impostazione app `AzureWebJobsDashboard`. Per informazioni su come eliminare le impostazioni app nel portale di Azure, vedere la sezione relativa alle **impostazioni dell'applicazione** in [Come gestire un'app per le funzioni nel portale di Azure](functions-how-to-use-azure-function-app-settings.md#settings). Prima di eliminare l'impostazione dell'app, assicurarsi che nessuna funzione esistente nella stessa app per le funzioni usano l'impostazione per i trigger di archiviazione di Azure o le associazioni.
 
@@ -125,7 +125,7 @@ Nelle [Esplora metriche](../azure-monitor/app/metrics-explorer.md), è possibile
 
 ![Esplora metriche](media/functions-monitoring/metrics-explorer.png)
 
-Nella scheda [Errori](../azure-monitor/app/asp-net-exceptions.md) è possibile creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori di dipendenze non vengono visualizzati solo se implementano [telemetria personalizzata](#custom-telemetry-in-c-functions) per le dipendenze.
+Nella scheda [Errori](../azure-monitor/app/asp-net-exceptions.md) è possibile creare grafici e avvisi in base agli errori di funzione e alle eccezioni del server. Il **nome dell'operazione** corrisponde al nome della funzione. Gli errori di dipendenze non vengono visualizzati solo se si implementano i dati di telemetria personalizzati per le dipendenze.
 
 ![Errori](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ Nelle funzioni di script C# è possibile usare il metodo di estensione `LogMetri
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Questo codice è un'alternativa alla chiamata `TrackMetric` usando [l'API di Application Insights per .NET](#custom-telemetry-in-c-functions).
+Questo codice è un'alternativa alla chiamata `TrackMetric` usando l'API di Application Insights per .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>Scrivere i log in funzioni JavaScript
 
@@ -441,7 +441,7 @@ Quando si eseguono [versione 1.x](functions-versions.md#creating-1x-apps) del ru
 context.log.metric("TestMetric", 1234);
 ```
 
-Questo codice è un'alternativa alla chiamata `trackMetric` usando [il SDK di Node. js per Application Insights](#custom-telemetry-in-javascript-functions).
+Questo codice è un'alternativa alla chiamata `trackMetric` usando il SDK di Node. js per Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Dati di telemetria personalizzati di log in C# funzioni
 
@@ -632,7 +632,7 @@ Il `tagOverrides` set di parametri di `operation_Id` all'ID di chiamata. della f
 
 ### <a name="dependencies"></a>Dependencies
 
-Dipendenze con la funzione agli altri servizi non vengono visualizzati automaticamente. È possibile scrivere codice personalizzato per visualizzare le dipendenze. Per esempi, vedere il codice di esempio il [ C# sezione dati di telemetria personalizzati](#custom-telemetry-in-c-functions). Il codice di esempio crea un' *mappa delle applicazioni* in Application Insights simile a quello riportato nell'immagine seguente:
+Dipendenze con la funzione agli altri servizi non vengono visualizzati automaticamente. È possibile scrivere codice personalizzato per visualizzare le dipendenze. Per esempi, vedere il codice di esempio il [ C# sezione dati di telemetria personalizzati](#log-custom-telemetry-in-c-functions). Il codice di esempio crea un' *mappa delle applicazioni* in Application Insights simile a quello riportato nell'immagine seguente:
 
 ![Mappa delle applicazioni](media/functions-monitoring/app-map.png)
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 846f07051ee65a542b56624fa84a9bdc4ca0f4e6
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418007"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520922"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
 
@@ -96,7 +96,7 @@ Questa funzionalità supporta la riscrittura delle intestazioni per le variabili
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Restituisce l'elenco di modalità di crittografia supportate dal client          |
 | ciphers_used               | Restituisce la stringa di crittografia usata per una connessione SSL stabilita |
-| client_ip                  | Indirizzo IP del client. particolarmente utile negli scenari in cui i clienti desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione, in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
+| client_ip                  | Indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima il gateway applicazione e il client di origine, quindi *client_ip* restituirà l'indirizzo IP del proxy inverso. variabile tjsi è particolarmente utile negli scenari in cui i clienti desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione, in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
 | client_port                | Porta del client                                                  |
 | client_tcp_rtt             | Informazioni sulla connessione TCP client. Disponibile nei sistemi che supportano l'opzione di socket TCP_INFO |
 | client_user                | Quando si usa l'autenticazione HTTP, il nome utente fornito per l'autenticazione |
@@ -121,7 +121,7 @@ Questa funzionalità supporta la riscrittura delle intestazioni per le variabili
 
 - Il supporto della riscrittura dell'intestazione HTTP è disponibile solo per il nuovo SKU [Standard_V2](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant). La funzionalità non sarà supportata nello SKU precedente.
 
-- La riscrittura delle intestazioni Connect, Upgrade e Host non è ancora supportata.
+- Riscrivere le intestazioni di connessione, aggiornamento e l'Host non è ancora supportata.
 
 - La possibilità di riscrivere in modo condizionale le intestazioni http disponibile a breve.
 

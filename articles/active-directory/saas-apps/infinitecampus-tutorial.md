@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d7d194d810e0fd3b9fb57b0876bee12447f65c6
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885068"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519868"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Esercitazione: Integrazione di Azure Active Directory con Infinite Campus
 
@@ -90,7 +90,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Infinite Camp
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'utilizzo di questa funzionalità.
 2. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-3. **[Creazione di un utente test di infinito Campus](#creating-a-infinite-campus-test-user)**  : per avere una controparte di Britta Simon in infinito Campus collegata alla rappresentazione in Azure AD dell'utente.
+3. **[Creazione di un utente test di infinito Campus](#creating-an-infinite-campus-test-user)**  : per avere una controparte di Britta Simon in infinito Campus collegata alla rappresentazione in Azure AD dell'utente.
 4. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Test dell'accesso Single Sign-On](#testing-single-sign-on)**: per verificare se la configurazione funziona.
 
@@ -196,7 +196,7 @@ Questa sezione descrive come creare un _singolo_ utente test denominato Britta S
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel **nome utente** , digitare **brittasimon\@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

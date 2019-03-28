@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213926"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519137"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -100,12 +100,16 @@ Il rilevamento delle minacce migliora il controllo analizzando i log di controll
 
 Il database SQL protegge i dati del cliente mediante la crittografia dei dati in movimento avvalendosi di [Transport Layer Security](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
+SQL Server applica la crittografia (SSL/TLS) in tutte le volte in cui per tutte le connessioni. In questo modo tutti i dati vengono crittografati "in transito" tra il client e server indipendentemente dall'impostazione della **Encrypt** oppure **TrustServerCertificate** nella stringa di connessione.
+
+Come procedura consigliata, consigliano di connessione dell'applicazione di stringhe è specificare una connessione crittografata e _**non**_ considerare attendibile il certificato del server. In tal modo l'applicazione per verificare il certificato del server e quindi si evita che l'applicazione sia vulnerabile a man gli attacchi di tipo intermedio.
+
+Ad esempio quando si usa il driver ADO.NET questa operazione viene eseguita tramite **Encrypt = True** e **TrustServerCertificate = False**. Se si ottiene la stringa di connessione dal portale di Azure, avrà le impostazioni corrette.
+
 > [!IMPORTANT]
-> Database SQL di Azure applica la crittografia (SSL/TLS) in qualsiasi caso per tutte le connessioni, in modo da garantire che i dati vengano crittografati quando sono in transito tra il database e il client. Questo avviene indipendentemente dall'impostazione di **Encrypt** o di **TrustServerCertificate** nella stringa di connessione.
+> Si noti che alcuni driver non Microsoft non può usare TLS per impostazione predefinita o si basano su una versione precedente di TLS (< 2.0) per il funzionamento. In questo caso SQL Server consente comunque di connettersi al database. Tuttavia, è consigliabile valutare i rischi di sicurezza di consentire tali driver e applicazioni per la connessione al Database SQL, specialmente se si archiviano dati sensibili. 
 >
-> Nella stringa di connessione dell'applicazione assicurarsi di specificare una connessione crittografata e di _non_ considerare attendibile il certificato del server. Per il driver ADO.NET corrisponde a **Encrypt=True** e **TrustServerCertificate=False**. In questo modo si impediscono attacchi di tipo man-in-the-middle, forzando l'applicazione a verificare il server e ad applicare la crittografia. Se si ottiene la stringa di connessione dal portale di Azure, le impostazioni saranno corrette.
->
-> Per informazioni su TLS e sulla connettività, vedere [Considerazioni su TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> Per altre informazioni su TLS e connettività, vedere [considerazioni TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Transparent Data Encryption (TDE - crittografia inattiva)
 

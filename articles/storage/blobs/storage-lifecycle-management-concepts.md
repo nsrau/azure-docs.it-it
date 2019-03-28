@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: 0d52b2f59bba2270b3d36ff2499ce1e0e492b228
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fe5e4b6a4f6a3da851b6e27419bff265758a1ba1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500424"
+ms.locfileid: "58522214"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di archiviazione Blob di Azure
 
@@ -227,7 +227,7 @@ Questo esempio illustra la transizione di BLOB in blocchi con prefisso `containe
 
 ### <a name="archive-data-at-ingest"></a>Archiviare i dati al momento dell'inserimento 
 
-Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. Archiviare questi dati subito dopo l'inserimento. Per archiviare i dati al momento dell'inserimento viene configurato il criterio del ciclo di vita seguente. In questo esempio i BLOB in blocchi nell'account di archiviazione all'interno del contenitore `archivecontainer` vengono immediatamente spostati in un livello di archiviazione. La transizione immediata avviene agendo sui BLOB 0 giorni dopo la data dell'ultima modifica:
+Alcuni dati rimangono inattivi sul cloud e gli utenti vi accedono raramente, se non mai, dopo l'archiviazione. I seguenti criteri di ciclo di vita sono configurato per archiviare i dati una volta di inserimento. In questo esempio i BLOB nell'account di archiviazione all'interno di contenitori in blocchi transizioni `archivecontainer` in un livello di spazio di archiviazione. La transizione avviene tramite che agisce sui blob di 0 giorni dopo l'ora dell'ultima modifica:
 
 ```json
 {

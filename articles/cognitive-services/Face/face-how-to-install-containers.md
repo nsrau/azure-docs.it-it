@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3f77b7b71fa2ef4e7262656540b8562d3a2ff33c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437595"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521619"
 ---
 # <a name="install-and-run-face-containers"></a>Installare ed eseguire i contenitori di viso
 
@@ -120,6 +120,11 @@ Il contenitore fornisce API dell'endpoint di stima di query basate su REST.
 
 Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Arrestare il contenitore
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -128,9 +133,6 @@ Usare l'host, `https://localhost:5000`, per le API del contenitore.
 
 Se si esegue il contenitore con un punto di [montaggio](./face-resource-container-config.md#mount-settings) di output e la registrazione attivata, il contenitore genera file di log utili per risolvere i problemi che si verificano durante l'avvio o l'esecuzione del contenitore. 
 
-## <a name="containers-api-documentation"></a>Documentazione dell'API del contenitore
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Fatturazione
 

@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9793ad76859fdd14b3194dfeb77e68905ff58fe5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b62b710a7217792276392e8815013848ef607733
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362068"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522367"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -231,7 +231,7 @@ Sono disponibili i ruoli di amministratore seguenti:
 
 * **[Specialista di supporto comunicazioni Teams](#teams-communications-support-specialist)**: gli utenti con questo ruolo possono risolvere i problemi di comunicazione all'interno di Microsoft Teams e Skype for Business tramite gli strumenti di risoluzione dei problemi relativi alle chiamate utente nell'interfaccia di amministrazione di Microsoft Teams e Skype for Business. Gli utenti con questo ruolo possono visualizzare i dettagli dell'utente nella chiamata per l'utente specifico cercato. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
-* **[L'utente amministratore](#user-account-administrator)**: Gli utenti con questo ruolo possono creano utenti e gestire tutti gli aspetti di utenti con alcune restrizioni (vedere sotto) e possono aggiornare i criteri di scadenza delle password. Possono anche creare e gestire tutti i gruppi. Il ruolo consente anche di creare e gestire visualizzazioni utente, gestire i ticket di supporto e monitorare l'integrità del servizio.
+* **L'utente amministratore**: Gli utenti con questo ruolo possono creano utenti e gestire tutti gli aspetti di utenti con alcune restrizioni (vedere sotto) e possono aggiornare i criteri di scadenza delle password. Possono anche creare e gestire tutti i gruppi. Il ruolo consente anche di creare e gestire visualizzazioni utente, gestire i ticket di supporto e monitorare l'integrità del servizio.
 
   | | |
   | --- | --- |

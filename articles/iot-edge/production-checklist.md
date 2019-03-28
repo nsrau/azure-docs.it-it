@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 618414331ab22cff41c7ac02c78f4bef333d0c84
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c64db6b35aa2f1daa4484f137c8505b1415c5a0b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433451"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521755"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Preparare la distribuzione della soluzione IoT Edge alla produzione
 
@@ -134,7 +134,7 @@ Nelle esercitazioni e in altri documenti, viene indicato di usare nel dispositiv
 
 ### <a name="use-tags-to-manage-versions"></a>Usare tag per gestire le versioni
 
-Un tag è un concetto Docker che è possibile usare per distinguere tra le versioni dei contenitori Docker. I tag sono suffissi come **1.0** che vanno alla fine di un repository del contenitore. Ad esempio, **mcr.microsoft.com/azureiotedge-agent:1.0**. I tag sono modificabili e possono essere modificati in modo da puntare a un altro contenitore in qualsiasi momento, in modo che il team debba concordare una convenzione da seguire quando si aggiornano le immagini del modulo. 
+Un tag è un concetto di docker che è possibile usare per distinguere tra le versioni di contenitori docker. I tag sono suffissi come **1.0** che vanno alla fine di un repository del contenitore. Ad esempio, **mcr.microsoft.com/azureiotedge-agent:1.0**. I tag sono modificabili e possono essere modificati in modo da puntare a un altro contenitore in qualsiasi momento, in modo che il team debba concordare una convenzione da seguire quando si aggiornano le immagini del modulo. 
 
 I tag consentono inoltre di applicare gli aggiornamenti sui dispositivi IoT Edge. Quando si esegue il push di una versione aggiornata di un modulo nel registro contenitori, incrementare il tag. Eseguire quindi il push di una nuova distribuzione per i dispositivi con il tag incrementato. Il motore contenitore riconoscerà il tag incrementato come una nuova versione ed eseguirà il pull della versione più recente del modulo nel dispositivo. 
 
@@ -172,7 +172,7 @@ Questo elenco di controllo è un punto di partenza per le regole del firewall:
    | \*.azurecr.io | 443 | Registri contenitori personali e di terze parti |
    | \*.blob.core.windows.net | 443 | Download dei delta delle immagini | 
    | \*.azure-devices.net | 5671, 8883, 443 | Accesso hub IoT |
-   | \*.docker.io  | 443 | Accesso Docker (facoltativo) |
+   | \*.docker.io  | 443 | Accesso dell'Hub docker (facoltativo) |
 
 ### <a name="configure-communication-through-a-proxy"></a>Configurare la comunicazione tramite un proxy
 
@@ -186,16 +186,57 @@ Se i dispositivi vengono distribuiti su una rete che utilizza un server proxy, d
 
 ### <a name="set-up-logs-and-diagnostics"></a>Impostare i log e la diagnostica
 
-In Linux, il daemon di IoT Edge Usa diari come impostazione predefinita la registrazione del driver. È possibile usare lo strumento della riga di comando `journalctl` per eseguire una query dei log daemon. In Windows, il daemon di IoT Edge usa la diagnostica di PowerShell. Usare `Get-WinEvent` per eseguire query dei log da daemon. I moduli IoT Edge utilizzano il driver JSON per la registrazione, che è l'impostazione predefinita di Docker.  
+In Linux, il daemon di IoT Edge Usa diari come impostazione predefinita la registrazione del driver. È possibile usare lo strumento della riga di comando `journalctl` per eseguire una query dei log daemon. In Windows, il daemon di IoT Edge usa la diagnostica di PowerShell. Usare `Get-WinEvent` per eseguire query dei log da daemon. Moduli di IoT Edge usano il driver JSON per la registrazione, ovvero l'impostazione predefinita.  
 
 Quando si esegue il test di una distribuzione di IoT Edge, è generalmente possibile accedere ai dispositivi per recuperare i log e risolvere i problemi. In uno scenario di distribuzione, quell'opzione potrebbe non essere disponibile. Considerare in che modo raccogliere informazioni sui dispositivi in produzione. Una possibilità consiste nell'usare un modulo di registrazione che raccoglie le informazioni da altri moduli e le invia al cloud. Un esempio di un modulo di registrazione [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), oppure è possibile progettare il proprio. 
 
-Se si teme che i registri diventino troppo grandi in un dispositivo con risorse limitate, sono disponibili alcune opzioni per ridurre l'utilizzo di memoria. 
+### <a name="place-limits-on-log-size"></a>Impone limiti per le dimensioni del log
 
-* È possibile limitare specificamente la dimensione di tutti i file di log di docker nel daemon Docker stesso. Per Linux, configurare il daemon su `/etc/docker/daemon.json`. Per Windows, `C:\ProgramData\docker\confige\daemon.json`. 
-* Se si desidera modificare le dimensioni del file di log per ogni contenitore, è possibile farlo in CreateOptions di ciascun modulo. 
-* Configurare Docker per gestire automaticamente i log tramite l'impostazione registrazioni come il driver di registrazione predefinito per Docker. 
-* Rimuovere periodicamente i log precedenti dal dispositivo tramite l'installazione di uno strumento logrotate per Docker. Usare la specifica del file seguente: 
+Per impostazione predefinita il motore contenitore Moby non imposta limiti di dimensioni del registro contenitori. Nel corso del tempo questo può causare il dispositivo riempia con i log e lo spazio su disco insufficiente. Prendere in considerazione le opzioni seguenti per evitare questo problema:
+
+**Opzione: Impostare i limiti globali che si applicano a tutti i moduli del contenitore**
+
+È possibile limitare le dimensioni di tutti i file di log contenitore nelle opzioni di log del contenitore del motore. L'esempio seguente imposta il driver di log `json-file` (scelta consigliata) con i limiti sulle dimensioni e numero di file:
+
+    {
+        "log-driver": "json-file",
+        "log-opts": {
+            "max-size": "10m",
+            "max-file": "3"
+        }
+    }
+
+Aggiungere (o accodare) queste informazioni in un file denominato `daemon.json` e lo posiziona la località corretta per la piattaforma del dispositivo.
+
+| Piattaforma | Località |
+| -------- | -------- |
+| Linux | `/etc/docker/` |
+| Windows | `C:\ProgramData\iotedge-moby-data\config\` |
+
+Il motore del contenitore deve essere riavviato rendere effettive le modifiche.
+
+**Opzione: Modificare le impostazioni di log per ogni modulo del contenitore**
+
+È possibile eseguire questa operazione nel **createOptions** di ciascun modulo. Ad esempio: 
+
+    "createOptions": {
+        "HostConfig": {
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {
+                    "max-size": "10m",
+                    "max-file": "3"
+                }
+            }
+        }
+    }
+
+
+**Opzioni aggiuntive nei sistemi Linux**
+
+* Configurare il motore di contenitori per inviare log ad `systemd` [journal](https://docs.docker.com/config/containers/logging/journald/) impostando `journald` come il driver di registrazione predefinito. 
+
+* Consente di rimuovere periodicamente i log precedenti dal dispositivo tramite l'installazione di uno strumento logrotate. Usare la specifica del file seguente: 
 
    ```
    /var/lib/docker/containers/*/*-json.log{

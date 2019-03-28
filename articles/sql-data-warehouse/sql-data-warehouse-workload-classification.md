@@ -10,12 +10,12 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994011"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520132"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>Classificazione del carico di lavoro di SQL Data Warehouse (anteprima)
 
@@ -33,6 +33,8 @@ Classificazione di gestione del carico di lavoro consente di essere applicato al
 Sebbene esistano diversi modi per classificare i carichi di lavoro di data warehousing, la classificazione più semplice e più comune è carico ed eseguire query. Si caricano dati con istruzioni delete, update e insert.  I dati usando istruzioni SELECT è eseguire una query. Una soluzione di data warehousing avrà spesso un criterio di carico di lavoro per l'attività di caricamento, ad esempio l'assegnazione di una classe di risorse superiore con più risorse. È stato possibile applicare un criterio del carico di lavoro diverse a query, ad esempio minore importanza rispetto per caricare le attività.
 
 È anche possibile subclassify carichi di lavoro di carico e query. Sottoclassificazione offre maggiore controllo dei carichi di lavoro. Ad esempio, i carichi di lavoro di query può includere gli aggiornamenti del cubo, le query dashboard o query ad-hoc. È possibile classificare ciascuno di questi carichi di lavoro di query con diverse classi di risorse o le impostazioni di priorità. Caricamento può trarre vantaggio da sottoclassificazione. Trasformazioni di grandi dimensioni possono essere assegnate a classi di risorse più grandi. Un'importanza superiore è utilizzabile per verificare che i dati di vendita chiave siano caricatore prima i dati meteo o un feed di dati basati su social network.
+
+Non tutte le istruzioni sono classificate come non richiedono risorse né necessario importanza per influenzare l'esecuzione.  I comandi DBCC, istruzioni BEGIN, COMMIT e ROLLBACK TRANSACTION non vengono classificate.
 
 ## <a name="classification-process"></a>Processo di classificazione
 
@@ -82,4 +84,4 @@ sp_droprolemember ‘[Resource Class]’, membername
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse e importanza, vedere [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md) e [importanza di SQL Data Warehouse](sql-data-warehouse-workload-importance.md). Visualizzare [DM pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la priorità assegnata.
+Per altre informazioni sulla classificazione del carico di lavoro di SQL Data Warehouse e importanza, vedere [crea un classificatore di carico di lavoro](quickstart-create-a-workload-classifier-tsql.md) e [importanza di SQL Data Warehouse](sql-data-warehouse-workload-importance.md). Consultare [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql) per visualizzare le query e la loro priorità.

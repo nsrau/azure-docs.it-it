@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: fb4fed2aa6b80ceb37dde1205996a16f0c30bdd4
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 4483a7f53e084be5f245840829f4c9c95648b1af
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994715"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520582"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>Verificare e risolvere i problemi di impostazione di tipo scale-out a disponibilità elevata per SAP HANA su SLES 12 SP3 
 
@@ -964,7 +964,7 @@ Questo esempio mostra i vincoli di posizione generati da una migrazione di risor
 ![Elenco di vincoli in Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-È anche possibile caricare l'output di **hb_report** in Hawk nell'area **History** (Cronologia), come illustrato di seguito. Vedere [Utilità hb_report per la raccolta dei file di log](#hbreport-to-collect-log-files): 
+È anche possibile caricare l'output di **hb_report** in Hawk nell'area **History** (Cronologia), come illustrato di seguito. Oggetto hb_report per raccogliere i file di log, vedere: 
 
 ![Caricamento dell'output di hb_report in Hawk](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 

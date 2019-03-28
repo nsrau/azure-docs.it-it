@@ -2,7 +2,7 @@
 title: Domande frequenti - HSM dedicato di Azure | Microsoft Docs
 description: Domande frequenti che riguardano diversi argomenti relativi a HSM dedicato di Azure
 services: dedicated-hsm
-author: johndaw
+author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/19/2019
+ms.date: 3/27/2019
 ms.author: barclayn
-ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259993"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540823"
 ---
 # <a name="frequently-asked-questions-faq"></a>Domande frequenti
 
@@ -58,9 +58,28 @@ Attualmente il servizio HSM dedicato di Azure fornisce solo moduli di protezione
 
 Microsoft offre solo il modulo di protezione hardware Gemalto SafeNet Luna Network mediante il servizio HSM dedicato e non può ospitare dispositivi forniti dai clienti.
 
-### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>D: HSM dedicato di Azure supporta funzionalità PIN/ETF o soddisfa i requisiti di certificazione PCI HSM v1 o v2?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>D: Comporta il pagamento di supporto di hardware di Azure dedicato funzionalità (PIN/MET)?
 
-Il servizio HSM dedicato di Azure usa dispositivi SafeNet Luna Network HSM 7 (modello A790). Questi dispositivi non supportano le certificazioni o le funzionalità specifiche di HSM per i pagamenti (come PIN o ETF). Se si ha l'esigenza che il servizio HSM dedicato di Azure supporti moduli di protezione hardware per il pagamento in futuro, fornire il proprio feedback di seguito.
+Il servizio HSM dedicato di Azure usa dispositivi SafeNet Luna Network HSM 7 (modello A790). Questi dispositivi non supportano le certificazioni o le funzionalità specifiche di HSM per i pagamenti (come PIN o ETF). Se si desidera il servizio di hardware di Azure dedicate per il supporto in futuro il pagamento da moduli di protezione hardware, passare i commenti e suggerimenti al rappresentante Microsoft.
+
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>D: Quali aree di Azure è disponibile nel modulo di protezione hardware dedicato?
+
+A partire dalla fine 2019 marzo, modulo di protezione hardware dedicato è disponibile in 14 aree elencate di seguito. Altre aree sono pianificate e possono essere illustrate tramite il rappresentante dell'Account Microsoft.
+
+* Stati Uniti orientali
+* Stati Uniti orientali 2
+* Stati Uniti occidentali
+* Stati Uniti centro-meridionali
+* Asia sud-orientale
+* Asia orientale
+* Europa settentrionale
+* Europa occidentale
+* Regno Unito meridionale
+* Regno Unito occidentale
+* Canada centrale
+* Canada orientale
+* Australia orientale
+* Australia sud-orientale
 
 ## <a name="interoperability"></a>Interoperabilità
 

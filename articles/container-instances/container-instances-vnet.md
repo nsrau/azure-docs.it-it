@@ -5,18 +5,18 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 01/03/2019
+ms.date: 03/26/2019
 ms.author: danlep
-ms.openlocfilehash: c6c82ee26fdbd824bdf42720ed7fc08135a872da
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a4da7a23d6dcb50164829507130fed145abeebbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372406"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517318"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Distribuire le istanze di contenitore in una rete virtuale di Azure
 
-In [Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) sono disponibili funzionalità per implementare una rete sicura e privata, ad esempio filtri, routing e peering per le risorse locali e di Azure. Grazie alla distribuzione di gruppi di contenitori in una rete virtuale di Azure, i contenitori possono comunicare in modo sicuro con altre risorse nella rete virtuale.
+[Rete virtuale di Azure](../virtual-network/virtual-networks-overview.md) fornisce funzionalità di rete sicura e privata per Azure e alle risorse locali. Grazie alla distribuzione di gruppi di contenitori in una rete virtuale di Azure, i contenitori possono comunicare in modo sicuro con altre risorse nella rete virtuale.
 
 Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenari analoghi ai seguenti:
 
@@ -34,7 +34,6 @@ Gruppi di contenitori distribuiti in una rete virtuale di Azure abilitano scenar
 Quando si distribuiscono gruppi di contenitori in una rete virtuale, si applicano alcune limitazioni.
 
 * Per distribuire gruppi di contenitori in una subnet, quest'ultima non può contenere altri tipi di risorse. Rimuovere tutte le risorse presenti in una subnet esistente prima di distribuire gruppi di contenitori nella subnet oppure creare una nuova subnet.
-* Gruppi di contenitori distribuiti in una rete virtuale attualmente non supportano gli indirizzi IP pubblici né etichette del nome DNS.
 * Non è possibile usare un'[identità gestita](container-instances-managed-identity.md) in un gruppo di contenitori distribuito in una rete virtuale.
 * A causa di altre risorse di rete coinvolte, la distribuzione di un gruppo di contenitori in una rete virtuale è leggermente più lenta, in genere, rispetto a quella di un'istanza di contenitore standard.
 
@@ -46,10 +45,14 @@ Quando questa funzionalità è disponibile in anteprima, le limitazioni seguenti
 
 I limiti delle risorse del contenitore possono differire dai limiti delle istanze contenitore non in rete in queste aree. Attualmente sono supportati i contenitori Linux per questa funzionalità. È previsto il supporto per la versione Windows.
 
-### <a name="unsupported-network-resources-and-features"></a>Funzionalità e le risorse di rete non supportata
+### <a name="unsupported-networking-scenarios"></a>Scenari di rete non supportati 
 
-* Azure Load Balancer
-* Peering di rete virtuale
+* **Azure Load Balancer** -inserimento di un Azure Load Balancer davanti alle istanze di contenitore in un gruppo di contenitori in rete non è supportato
+* **Peering reti virtuali** -è possibile eseguire il peering una rete virtuale che contiene una subnet del delegato a istanze di contenitore di Azure a un'altra rete virtuale
+* **Tabelle di route** -route definite dall'utente non possono essere configurate in una subnet del delegato a istanze di contenitore di Azure
+* **I gruppi di sicurezza di rete** -attualmente non vengono imposte le regole di sicurezza in uscita in Nsg applicato a una subnet delegata a istanze di contenitore di Azure 
+* **Etichetta indirizzo IP o DNS pubblica** -gruppi di contenitori distribuiti a una rete virtuale attualmente non supportano i contenitori che espone direttamente a internet con un indirizzo IP pubblico o un nome di dominio completo
+* **Risoluzione dei nomi interna** -risoluzione dei nomi per le risorse di Azure nella rete virtuale tramite il DNS interno di Azure non è supportato
 
 L'**eliminazione delle risorse di rete** richiede [passaggi aggiuntivi](#delete-network-resources) dopo la distribuzione di gruppi di contenitori nella rete virtuale.
 

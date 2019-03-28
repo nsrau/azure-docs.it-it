@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285072"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522163"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -145,7 +145,7 @@ Configurare il backup come segue:
 
    - Selezionare i criteri predefiniti: HourlyLogBackup.
    - Scegliere un criterio di backup creato in precedenza per SQL.
-   - [Definire un nuovo criterio](#configure-a-backup-policy) basato sull'obiettivo del punto di recupero (RPO) e sull'intervallo di conservazione.
+   - Definire un nuovo criterio basato sull'intervallo di conservazione e RPO.
 
      ![Selezionare il criterio di backup](./media/backup-azure-sql-database/select-backup-policy.png)
 

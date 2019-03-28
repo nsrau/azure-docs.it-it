@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: a3fd89ee67b495d3ca1173faa9381ceba117ef63
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259313"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521704"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e ripristino di macchine virtuali di Azure con PowerShell
 
@@ -24,7 +24,7 @@ In questo articolo viene spiegato come:
 > * Creare un insieme di credenziali di Servizi di ripristino e impostare il contesto dell'insieme di credenziali.
 > * Definire un criterio di backup
 > * Applicare un criterio di backup per proteggere più macchine virtuali
-> * Un processo di backup su richiesta per le macchine virtuali protette prima di trigger può eseguire il backup o proteggere una macchina virtuale, è necessario completare i [prerequisiti](backup-azure-arm-vms-prepare.md) per preparare l'ambiente per la protezione delle macchine virtuali. 
+> * Attivare un processo di backup su richiesta per le macchine virtuali protette Prima di poter eseguire il backup o proteggere una macchina virtuale, è necessario completare i [prerequisiti](backup-azure-arm-vms-prepare.md) per preparare l'ambiente per la protezione delle macchine virtuali. 
 
 
 
@@ -420,7 +420,7 @@ I dettagli del processo risultante includono l'URI del modello che può essere s
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-È sufficiente distribuire il modello per creare una nuova macchina virtuale, come spiegato [qui](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+È sufficiente distribuire il modello per creare una nuova macchina virtuale, come spiegato [qui](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS

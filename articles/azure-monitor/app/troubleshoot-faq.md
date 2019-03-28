@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905061"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521816"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Domande frequenti
 
@@ -153,7 +153,7 @@ Ciò si verifica se il codice invia tali dati. Può succedere anche se le variab
 
 **Tutti** gli ottetti dell'indirizzo Web del client sono sempre impostati su 0 dopo che viene eseguita la ricerca degli attributi relativi alla località geografica.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>L'iKey dell'utente è visibile nell'origine della pagina Web. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>La chiave di strumentazione è visibile nell'origine della pagina web. 
 
 * Questo è una pratica comune nelle soluzioni di monitoraggio.
 * Questo valore non può essere usato per appropriarsi dei dati personali.
@@ -162,7 +162,7 @@ Ciò si verifica se il codice invia tali dati. Può succedere anche se le variab
 
 È possibile:
 
-* Usare due valori iKey separati, ovvero due risorse separate di Application Insights, per i dati del client e del server. Oppure
+* Usare due distinti chiavi di strumentazione (separare le risorse di Application Insights), per i dati client e server. Oppure
 * Scrivere un proxy che viene eseguito nel server in modo che il client Web invii i dati tramite tale proxy.
 
 ## <a name="post"></a>Come visualizzare dati POST in Ricerca diagnostica?

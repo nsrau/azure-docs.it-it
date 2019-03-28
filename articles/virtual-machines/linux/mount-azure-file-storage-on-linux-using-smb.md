@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: bc4de2d406ea2c1814825daf89d5e6a576c94036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3bba1da5238655ca749f6464c539e53ca48f27
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764813"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540058"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montare l'archiviazione file di Azure su VM Linux usando SMB
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
-Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). In questo esempio viene creato un account di archiviazione denominato *mySTORAGEACCT<random number>* e viene inserito il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
+Creare un nuovo account di archiviazione nel gruppo di risorse creato usando [az storage account create](/cli/azure/storage/account). Questo esempio viene creato un account di archiviazione denominato *mySTORAGEACCT\<numero casuale >* e inserisce il nome dell'account di archiviazione nella variabile **STORAGEACCT**. I nomi degli account di archiviazione devono essere univoci, usando `$RANDOM` si aggiunge un numero al nome e lo si rende univoco.
 
 ```bash
 STORAGEACCT=$(az storage account create \

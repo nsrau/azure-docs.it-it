@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Eseguire la sintesi vocale, Node.js - Servizi di riconoscimento vocale'
+title: 'Guida introduttiva: Eseguire la sintesi vocale, Node.js - Servizi di riconoscimento vocale'
 titleSuffix: Azure Cognitive Services
 description: In questa guida introduttiva si apprenderà come eseguire la sintesi vocale di testo usando Node.js e l'API REST Sintesi vocale. Il testo di esempio incluso in questo articolo è strutturato come SSML (Speech Synthesis Markup Language). Questo formato consente di scegliere la voce e la lingua della risposta di sintesi vocale.
 services: cognitive-services
@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: eff79b31e926d382d98416b585ca2af54b3e87d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872643"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520837"
 ---
-# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Avvio rapido: Eseguire la sintesi vocale con Node.js
+# <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Guida introduttiva: Eseguire la sintesi vocale con Node.js
 
 In questa guida introduttiva si apprenderà come eseguire la sintesi vocale di testo usando Node.js e l'API REST Sintesi vocale. In questo articolo il corpo della richiesta è strutturato nel formato [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md), che consente di scegliere la voce e la lingua della risposta.
 
@@ -30,7 +30,7 @@ Questa guida introduttiva richiede:
 
 * [Node 8.12.x o versione successiva](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) o l'editor di testo preferito
-* Una chiave di sottoscrizione di Azure per i servizi di riconoscimento vocale. [È possibile ottenerne una gratuitamente](get-started.md).
+* Una chiave di sottoscrizione di Azure per i servizi Voce. [È possibile ottenerne una gratuitamente](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>Creare un progetto e richiedere le dipendenze
 
@@ -82,7 +82,7 @@ Nella sezione successiva si creerà la funzione per chiamare l'API di sintesi vo
 
 In questa sezione si creerà la richiesta all'API di sintesi vocale e si salverà la risposta vocale. Questo esempio presuppone che si usi l'endpoint Stati Uniti occidentali. Se la risorsa è registrata in un'area diversa, assicurarsi di aggiornare il valore di `uri`. Per altre informazioni, vedere [aree di servizi di riconoscimento vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-È quindi necessario aggiungere le intestazioni obbligatorie per la richiesta. Assicurarsi di aggiornare `User-Agent` con il nome della risorsa, che si trova nel portale di Azure, e impostare `X-Microsoft-OutputFormat` sul formato di output audio preferito. Per un elenco completo dei formati di output, vedere [Output audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+È quindi necessario aggiungere le intestazioni obbligatorie per la richiesta. Assicurarsi di aggiornare `User-Agent` con il nome della risorsa, che si trova nel portale di Azure, e impostare `X-Microsoft-OutputFormat` sul formato di output audio preferito. Per un elenco completo dei formati di output, vedere [Output audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 Creare quindi il corpo della richiesta nel formato SSML (Speech Synthesis Markup Language). Questo esempio definisce la struttura e usa l'input `text` creato in precedenza.
 
@@ -187,6 +187,6 @@ Assicurarsi di rimuovere eventuali informazioni riservate dal codice sorgente de
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Informazioni di riferimento sull'API Sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Creazione di caratteri voce personalizzati](how-to-customize-voice-font.md)
 * [Esempi di campioni vocali per la creazione di una voce personalizzata](record-custom-voice-samples.md)

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 4e36e96947e6a8595230023065eb9f44a5a1f3d2
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: efb82c57a5620ef3eace8b39f6f27f2286202f84
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371316"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521840"
 ---
 # <a name="mapping-data-flow-datasets"></a>Set di dati del flusso di dati di mapping
 
@@ -49,9 +49,27 @@ Nel flusso di dati, è possibile chiedere di Azure Data factory per creare una n
 
 ![Schema di origine Transformation](media/data-flow/dataset2.png "Schema SQL")
 
-## <a name="delimited-text-dataset"></a>Set di dati di testo delimitato
+## <a name="choose-your-type-of-data-first"></a>Scegliere innanzitutto il tipo di dati
 
-Nel set di dati di testo delimitato, si imposterà il delimitatore per gestire entrambi delimitatori singoli ('\t 'per TSV,',' per CSV, ' |'...) o usare più caratteri per il delimitatore. Impostare l'interruttore di riga di intestazione e quindi analizzare la trasformazione di origine può rilevare automaticamente i tipi di dati.
+### <a name="delimited-text"></a>Testo delimitato
+
+Nel set di dati di testo delimitato, si imposterà il delimitatore per gestire entrambi delimitatori singoli ('\t 'per TSV,',' per CSV, ' |'...) o usare più caratteri per il delimitatore. Impostare l'interruttore di riga di intestazione e quindi analizzare la trasformazione di origine può rilevare automaticamente i tipi di dati. Se si usa un set di dati di testo delimitato per trasferire i dati in un sink, è sufficiente selezionare una cartella di destinazione. Nelle impostazioni del Sink, è possibile definire il nome dei file di output.
+
+### <a name="parquet"></a>Parquet
+
+Usare Parquet come il tipo preferito di set di dati di gestione temporanea nei flussi di dati di Azure Data factory. Parquet archivia metadata complessi dello schema insieme ai dati.
+
+### <a name="database-types"></a>Tipi di database
+
+È possibile selezionare il database SQL di Azure o Azure SQL Data Warehouse.
+
+Per gli altri tipi set di dati Azure Data factory, usare l'attività di copia per la collocazione temporanea dei dati. È presente un modello di Azure Data Factory nella raccolta di modelli che consentono di creare questo modello.
+
+![copia di staging](media/data-flow/templatedf.png "copia di staging")
+
+## <a name="choose-your-connection-type"></a>Scegliere il tipo di connessione
+
+Se si utilizza set di dati Parquet o delimitato da testo, è quindi possibile selezionare il percorso per i dati: Blob o Azure Data Lake Store.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

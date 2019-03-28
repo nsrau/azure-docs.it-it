@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319449"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519749"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -72,7 +72,7 @@ In caso di v2 SKU, route definite dall'utente nella subnet del gateway applicazi
 
 È supportato un solo indirizzo IP pubblico o un indirizzo IP privato. Si sceglie l'indirizzo IP front-end durante la creazione del Gateway applicazione. 
 
-- In caso di un indirizzo IP pubblico, è possibile scegliere di creare un nuovo indirizzo IP pubblico oppure usare un IP pubblico esistente nella stessa posizione del gateway applicazione. Se si crea un nuovo indirizzo IP pubblico, il tipo di indirizzo IP selezionato (statico o dinamico) non può essere modificato in un secondo momento. Per altre informazioni, vedere [porte statiche e indirizzo IP pubblico dinamico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- In caso di un indirizzo IP pubblico, è possibile scegliere di creare un nuovo indirizzo IP pubblico oppure usare un IP pubblico esistente nella stessa posizione del gateway applicazione. Se si crea un nuovo indirizzo IP pubblico, il tipo di indirizzo IP selezionato (statico o dinamico) non può essere modificato in un secondo momento. Per altre informazioni, vedere [porte statiche e indirizzo IP pubblico dinamico](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - In caso di un indirizzo IP privato, è possibile scegliere di specificare un indirizzo IP privato dalla subnet in cui viene creato il Gateway applicazione. Se non specificato in modo esplicito, un indirizzo IP arbitrario verrà selezionato automaticamente dalla subnet. Per altre informazioni, vedere [creare un gateway applicazione con un endpoint di servizio di bilanciamento del carico interno.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ Scegliere la porta front-end. È possibile scegliere tra le porte esistenti o cr
 
 - Se si sceglie HTTP, il traffico tra il client e il gateway applicazione scorrerà non crittografati.
 
-- Selezionare HTTPS se si è interessati [terminazione Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) oppure [crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Se si sceglie di HTTPS, il traffico tra il client e il gateway applicazione verrà crittografato e verrà terminata la connessione SSL nel gateway applicazione.  Se si desidera crittografia SSL end-to-end, sarà inoltre necessario scegliere il protocollo HTTPS durante la configurazione *impostazione back-end HTTP*. Ciò garantisce che il traffico viene nuovamente crittografato quando viene trasmesso dal back-end del Gateway applicazione.
+- Selezionare HTTPS se si è interessati [terminazione Secure Sockets Layer (SSL)](https://docs.microsoft.com/azure/application-gateway/overview) oppure [crittografia SSL end-to-end](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Se si sceglie di HTTPS, il traffico tra il client e il gateway applicazione verrà crittografato e verrà terminata la connessione SSL nel gateway applicazione.  Se si desidera crittografia SSL end-to-end, sarà inoltre necessario scegliere il protocollo HTTPS durante la configurazione *impostazione back-end HTTP*. Ciò garantisce che il traffico viene nuovamente crittografato quando viene trasmesso dal back-end del Gateway applicazione.
 
   Per configurare la terminazione Secure Sockets Layer (SSL) e crittografia SSL end-to-end, è necessario un certificato da aggiungere al listener in modo da consentire al Gateway applicazione derivare una chiave simmetrica in base alla specifica del protocollo SSL. La chiave simmetrica viene quindi usata per crittografare e decrittografare il traffico inviato al gateway. Il certificato del gateway deve essere in formato PFX (Personal Information Exchange). Questo formato di file consente l'esportazione della chiave privata necessaria al gateway applicazione per eseguire la crittografia e la decrittografia del traffico. 
 

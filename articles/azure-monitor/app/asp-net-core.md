@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ae0d3658d9ae8534b1596fa7363495926cd0dfe7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482776"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520752"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights per ASP.NET Core
 
@@ -409,6 +409,6 @@ Quando si usa uno di questi due metodi, il problema è che non disabilitano solo
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Esplorare i flussi degli utenti](../../azure-monitor/app/usage-flows.md) per identificare in che modo gli utenti si sposteranno nell'app.
-* [Configurare la raccolta di snapshot](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) per visualizzare lo stato del codice sorgente e delle variabili nel momento in cui viene generata un'eccezione.
+* [Configurare la raccolta di snapshot](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) per visualizzare lo stato del codice sorgente e delle variabili nel momento in cui viene generata un'eccezione.
 * [Utilizzare l'API](../../azure-monitor/app/api-custom-events-metrics.md) per inviare gli eventi e le metriche per una visualizzazione più dettagliata dell'utilizzo e delle prestazioni dell'app.
 * Usare [test di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md) per controllare costantemente l'app da ogni parte del mondo.

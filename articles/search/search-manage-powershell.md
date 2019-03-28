@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781715"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520565"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gestire il servizio Ricerca di Azure con PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "57781715"
 > * [Elencare tutti i servizi di ricerca nella sottoscrizione](#list-search-services)
 > * [Ottenere informazioni su un servizio di ricerca specifici](#get-search-service-information)
 > * [Creare o eliminare un servizio](#create-or-delete-a-service)
-> * [Rigenerare le chiavi API amministratore](#regenerate-admin-api-keys)
+> * Rigenerare le chiavi API amministratore
 > * [Creare o eliminare le chiavi api di query](#create-or-delete-query-keys)
 > * [Ridimensionare un servizio aumentando o diminuendo le repliche e partizioni](#scale-replicas-and-partitions)
 

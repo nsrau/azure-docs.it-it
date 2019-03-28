@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0de6cf9be01fc93a26a782189a2062d19eaf73e8
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499268"
+ms.locfileid: "58541146"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configurare esperimenti di Machine Learning automatizzato
 
@@ -36,8 +36,6 @@ Opzioni di configurazione disponibili nell'apprendimento automatico:
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
 Prima di iniziare l'esperimento, è necessario determinare il tipo di problema di machine learning da risolvere. Il processo di Machine Learning automatizzato supporta attività di tipo classificazione, regressione e previsione.
-
-Mentre le funzionalità di Machine Learning automatizzato sono disponibili a livello generale, quella relativa alla **previsione è ancora in anteprima pubblica**.
 
 Durante il processo di automazione e ottimizzazione, il processo di Machine Learning automatizzato supporta gli algoritmi seguenti. Come utente, non è necessario specificare l'algoritmo. Sebbene gli algoritmi di rete neurale profonda siano disponibili durante il training, Machine Learning automatizzati non compila i modelli di rete neurale profonda.
 

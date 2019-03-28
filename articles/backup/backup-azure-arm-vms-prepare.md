@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403664"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520174"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -220,7 +220,8 @@ Dopo l'abilitazione del backup:
 - Un backup iniziale viene eseguito in base alla pianificazione del backup.
 - Il servizio Backup installa l'estensione di backup indipendentemente dal fatto che la VM sia in esecuzione o meno.
     - Una macchina virtuale in esecuzione consente di ottenere un punto di ripristino coerente con l'applicazione.
-    -  Il backup della macchina virtuale, tuttavia, viene eseguito anche se la macchina è spenta e non è possibile installare l'estensione. È noto come una macchina virtuale offline. In questo caso, il punto di ripristino sarà coerente con l'arresto anomalo del sistema. [Altre informazioni]() si noti che Backup di Azure non supporta la regolazione automatica dell'orologio per le modifiche legale per i backup di macchine Virtuali di Azure. Modificare manualmente i criteri di backup in base alle necessità.
+    -  Il backup della macchina virtuale, tuttavia, viene eseguito anche se la macchina è spenta e non è possibile installare l'estensione. È noto come una macchina virtuale offline. In questo caso, il punto di ripristino sarà coerente con l'arresto anomalo del sistema.
+    Si noti che Backup di Azure non supporta la regolazione automatica dell'orologio in base all'ora legale per i backup delle macchine virtuali di Azure. Modificare manualmente i criteri di backup in base alle necessità.
 
 ## <a name="run-the-initial-backup"></a>Eseguire il backup iniziale
 

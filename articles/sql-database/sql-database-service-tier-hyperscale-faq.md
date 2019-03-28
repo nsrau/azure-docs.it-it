@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/26/2019
+ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075936"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540670"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Domande frequenti sui database SQL di Azure di livello Hyperscale
 
@@ -216,7 +216,7 @@ Sì. È possibile spostare i database SQL di Azure esistenti al livello Hypersca
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>Dopo la migrazione al livello di servizio Hyperscale si perdono funzionalità o caratteristiche
 
-Sì. Alcune funzionalità del database SQL di Azure non sono supportate nel livello Hyperscale durante l'anteprima pubblica, tra cui in via esemplificativa Transparent Data Encryption e il backup con conservazione a lungo termine. Dopo la migrazione dei database al livello Hyperscale, queste funzionalità smettono di funzionare.
+Sì. Alcune delle funzionalità di Database SQL di Azure non sono supportati in con Iperscalabilità durante l'anteprima pubblica, tra cui esemplificativa di backup di conservazione a lungo termine. Dopo la migrazione dei database al livello Hyperscale, queste funzionalità smettono di funzionare.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>È possibile spostare il database di SQL Server locale o il database delle macchine virtuali di SQL Server al livello Hyperscale
 

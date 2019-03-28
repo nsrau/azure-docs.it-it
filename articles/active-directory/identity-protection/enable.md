@@ -4,7 +4,7 @@ description: Informazioni su come abilitare Azure Active Directory Identity Prot
 services: active-directory
 keywords: azure active directory identity protection, cloud app discovery, gestione applicazioni, sicurezza, rischio, livello di rischio, vulnerabilità, criteri di sicurezza
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: f7a7ffaf-76bf-4cc7-96a1-86c944275c82
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/02/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f203a85bba1998d630091ab8e5493ccd712446f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5d33c5c3fe970ee8e5d70e0ba358462d5bdf2bbd
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185027"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521857"
 ---
 # <a name="enabling-azure-active-directory-identity-protection"></a>Abilitazione di Azure Active Directory Identity Protection
 
@@ -56,6 +56,6 @@ Questo articolo illustra come abilitare Azure Active Directory Identity Protecti
    
     ![Creare](./media/enable/04.png "Creare")
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

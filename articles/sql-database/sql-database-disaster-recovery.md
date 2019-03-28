@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749036"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540483"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Ripristinare un database SQL di Azure o eseguire il failover in un database secondario
 
@@ -32,6 +32,13 @@ Per informazioni sugli scenari di continuità aziendale e sulle funzionalità ch
 
 > [!NOTE]
 > Se si usano database o pool premium o business critical con ridondanza della zona, il processo di ripristino viene automatizzato e la parte restante di questo articolo non è applicabile.
+
+> [!NOTE]
+> I database primari e secondari devono avere lo stesso livello di servizio. È anche consigliabile che il database secondario viene creato con le stesse dimensioni di calcolo (Dtu o Vcore) del database primario. Per altre informazioni, vedere [l'aggiornamento o downgrade come database primario](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+
+> [!NOTE]
+> Usare uno o più gruppi di failover per gestire il failover di più database.
+> Se si aggiunge una relazione di replica geografica esistente al gruppo di failover, verificare che il database di replica geografica secondario sia configurato con lo stesso livello di servizio e dimensione dell'ambiente di calcolo del database primario. Per altre informazioni, vedere [usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Prepararsi per un evento di interruzione del servizio
 
@@ -73,6 +80,7 @@ Per eseguire il failover in un database secondario con replica geografica, segui
 
 - [Failover in un server secondario con replica geografica tramite il portale di Azure](sql-database-geo-replication-portal.md)
 - [Failover nel server secondario tramite PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Eseguire il failover in un server secondario tramite Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Ripristino tramite il ripristino geografico
 

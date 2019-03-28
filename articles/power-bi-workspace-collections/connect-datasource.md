@@ -1,21 +1,19 @@
 ---
 title: Connessione a un'origine dati nelle raccolte di aree di lavoro di Power BI | Microsoft Docs
 description: Informazioni su come connettersi a un'origine dati nelle raccolte di aree di lavoro di Power BI.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.assetid: 2a4caeb3-255d-4215-9554-0ca8e3568c13
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: c67369edec2f3c84ada14e6c2a3a3ab8056b3e0c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 143213b148518fdf936974152d5d9196c42febd8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57870096"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521500"
 ---
 # <a name="connect-to-a-data-source"></a>Connettersi a un'origine dati
 
@@ -43,7 +41,7 @@ Con le raccolte di aree di lavoro di Power BI, è attualmente possibile usare Di
 
 **Import (Importa) (Import (Importa)a)**
 
-È possibile usare per l'importazione tutte le origini dati disponibili in Power BI Desktop. Tali dati **non** potranno essere aggiornati nelle raccolte di aree di lavoro di Power BI. Sarà necessario caricare le modifiche al file PBIX nelle raccolte di aree di lavoro di Power BI. Questo è dovuto al fatto che non è disponibile un gateway. 
+È possibile usare per l'importazione tutte le origini dati disponibili in Power BI Desktop. Tali dati **non** potranno essere aggiornati nelle raccolte di aree di lavoro di Power BI. Sarà necessario caricare le modifiche al file PBIX nelle raccolte di aree di lavoro di Power BI. Questo è dovuto al fatto che non è disponibile un gateway.
 
 ## <a name="benefits-of-using-directquery"></a>Vantaggi di DirectQuery
 
@@ -73,4 +71,3 @@ Per garantire che le prestazioni delle query inviate all'origine dati sottostant
 * [Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-get-the-desktop/)
 
 Altre domande? [Contattare la community di Power BI](https://community.powerbi.com/)
-

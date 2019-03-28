@@ -1,5 +1,5 @@
 ---
-title: Aggiornamenti in sequenza delle applicazioni - Database SQL di Azure | Microsoft Docs
+title: Aggiornamenti in sequenza delle applicazioni - Database SQL di Azure | Documentazione Microsoft
 description: Informazioni su come usare la replica geografica del database SQL di Azure per supportare gli aggiornamenti online dell'applicazione cloud.
 services: sql-database
 ms.service: sql-database
@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: ad971ae3157dd17ecd4af662626c986584a27fe2
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329167"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540585"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gestire gli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
 
@@ -59,7 +59,7 @@ Se l'aggiornamento ha esito positivo, è possibile far passare gli utenti alla c
 
 Se il processo di aggiornamento non riesce, ad esempio a causa di un errore nello script di aggiornamento, tenere presente che l'ambiente di gestione temporanea sarà compromesso. Per eseguire il rollback dell'applicazione allo stato di pre-aggiornamento, ripristinare l'applicazione nell'ambiente di produzione per l'accesso completo. Il diagramma seguente illustra i passaggi per il ripristino:
 
-1. Impostare la copia del database in modalità di lettura/scrittura (8). Questa azione ripristina la funzionalità completa della versione V1 nella copia di produzione.
+1. Impostare la copia del database in modalità lettura/scrittura (8). Questa azione ripristina la funzionalità completa della versione V1 nella copia di produzione.
 2. Analizzare la causa radice del problema e rimuovere le autorizzazioni dell'ambiente di gestione temporanea (9).
 
 A questo punto, l'applicazione è perfettamente funzionante ed è possibile ripetere i passaggi per l'aggiornamento.
@@ -103,7 +103,21 @@ Per poter eseguire il rollback dell'aggiornamento, è necessario creare un ambie
 Al termine dei passaggi di preparazione, l'ambiente di gestione temporanea è pronto per l'aggiornamento. Il diagramma seguente illustra questi passaggi di aggiornamento:
 
 1. Impostare il database primario nell'ambiente di produzione in modalità di sola lettura (10). In questo modo si ha la certezza che il database di produzione (V1) non venga modificato durante l'aggiornamento, evitando così la divergenza dei dati tra le istanze di database V1 e V2.
-2. Disconnettere il database secondario nella stessa area usando la modalità di terminazione pianificata (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato.
+
+```sql
+-- Set the production database to read-only mode
+ALTER DATABASE <Prod_DB>
+SET (ALLOW_CONNECTIONS = NO)
+```
+
+2. Terminare la replica geografica scollegando il database secondario (11). Questa azione crea una copia indipendente ma completamente sincronizzata del database di produzione. Questo database verrà aggiornato. L'esempio seguente usa Transact-SQL, ma [PowerShell](/powershell/module/az.sql/remove-azsqldatabasesecondary?view=azps-1.5.0) è inoltre disponibile. 
+
+```sql
+-- Disconnect the secondary, terminating geo-replication
+ALTER DATABSE V1
+REMOVE SECONDARY ON SERVER <Partner-Server>
+```
+
 3. Eseguire lo script di aggiornamento su `contoso-1-staging.azurewebsites.net`, `contoso-dr-staging.azurewebsites.net` e sul database primario di gestione temporanea (12). Le modifiche del database verranno replicate automaticamente sul database secondario di gestione temporanea.
 
 ![Configurazione della replica geografica del database SQL per il ripristino di emergenza cloud.](media/sql-database-manage-application-rolling-upgrade/option2-2.png)
@@ -131,7 +145,7 @@ Il vantaggio principale di questa opzione è dato dalla possibilità di aggiorna
 
 Lo svantaggio principale consiste invece nella necessità di una doppia ridondanza per ogni componente dell'applicazione, con un conseguente aumento dei costi e un flusso di lavoro più complesso.
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
 
 I due metodi di aggiornamento descritti nell'articolo differiscono in termini di complessità e di costi, ma sono entrambi finalizzati a ridurre il periodo di tempo in cui gli utenti possono eseguire solo operazioni di sola lettura. Questo periodo di tempo viene definito direttamente dalla durata dello script di aggiornamento. Non dipende dalle dimensioni del database, dal livello di servizio scelto, dalla configurazione del sito Web o da altri fattori difficilmente controllabili. Tutti i passaggi di preparazione sono separati dalle operazioni di aggiornamento e non hanno alcun impatto sull'applicazione di produzione. L'efficienza dello script di aggiornamento è un fattore determinante per l'esperienza degli utenti durante gli aggiornamenti. Il modo ottimale per migliorare questa esperienza consiste quindi nel concentrare gli sforzi sullo script di aggiornamento, per renderlo il più efficiente possibile.
 

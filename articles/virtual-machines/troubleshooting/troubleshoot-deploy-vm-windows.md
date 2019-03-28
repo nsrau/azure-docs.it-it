@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure | Microsoft Docs
-description: Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure con il modello di distribuzione Resource Manager.
+description: Risolvere i problemi di macchina virtuale di distribuzione Windows nel modello di distribuzione Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 9d98a060033674a53c8ac5390bc40d10b0fbe69b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 5752731f08a7dc9ae8661e698aef9655837c6220
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882502"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540704"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Risolvere i problemi di distribuzione della macchina virtuale Windows in Azure
 
@@ -32,11 +32,7 @@ Per ricevere assistenza in qualsiasi punto di questo articolo, contattare gli es
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>Il cluster non supporta le dimensioni della VM richieste
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Ripetere la richiesta usando una VM di dimensioni inferiori.
 - Se le dimensioni della VM richieste non possono essere modificate:
     - Arrestare tutte le VM nel set di disponibilità. Fare clic su **Gruppi di risorse** > il proprio gruppo di risorse > **Risorse** > il proprio set di disponibilità > **Macchine virtuali** > la propria macchina virtuale > **Arresta**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>Il cluster non ha risorse disponibili
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<properties supportTopicIds="123456789" resourceTags="windows" productPesIds="1234, 5678" />
 - Ripetere la richiesta più tardi.
 - Se la nuova VM può far parte di un set di disponibilità diverso
     - Creare una VM in un altro set di disponibilità nella stessa area.

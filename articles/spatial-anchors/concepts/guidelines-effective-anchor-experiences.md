@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895805"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520803"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Creare un'esperienza efficace ancoraggio usando gli ancoraggi spaziale di Azure
 
@@ -86,7 +86,7 @@ Nello scenario di destinazione, possono aiutare foto. Se si visualizza agli uten
 
 Nello scenario di spazio, gli utenti immettono un spazio è sufficiente conoscere che è un ancoraggio qui un punto qualsiasi. Gli utenti analizza lo spazio con il dispositivo e di individuare rapidamente il punto di ancoraggio.
 
-Questa esperienza in genere necessario creare ancoraggi ben curati, come descritto nella [varie angolazioni visualizzazione](#consider-various-viewing-perspectives). Se sottoposto a scansione chat room da molte angolazioni quando è stato creato il punto di ancoraggio, gli utenti possono analizzare quasi ovunque quando tentano di individuarla.
+Questa esperienza in genere è necessario creare ancoraggi ben curati, come illustrato nelle varie prospettive di visualizzazione. Se sottoposto a scansione chat room da molte angolazioni quando è stato creato il punto di ancoraggio, gli utenti possono analizzare quasi ovunque quando tentano di individuarla.
 
 ![Illustrazione di come un utente consente di analizzare una chat room per trovare un ancoraggio](./media/scan-room.png)
 

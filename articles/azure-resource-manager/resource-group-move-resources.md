@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 98236133a90cfddfe2ea476486556318b2c88b10
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418891"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521093"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi
 
@@ -104,6 +104,7 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che posson
 * Power BI - sia Power BI Embedded che Raccolta di aree di lavoro di Power BI
 * IP pubblico: è possibile spostare l'IP pubblico con SKU Basic. L'indirizzo IP pubblico dello SKU Standard non può essere spostato.
 * Insieme di credenziali di Servizi di ripristino: registrarsi in un'[anteprima](#recovery-services-limitations).
+* SAP HANA in Azure
 * Utilità di pianificazione
 * Ricerca: non è possibile spostare più risorse di Ricerca in aree diverse in un'unica operazione. Al contrario, è possibile spostarle con operazioni separate.
 * Bus di servizio
@@ -146,7 +147,6 @@ L'elenco seguente fornisce un riepilogo generale dei servizi di Azure che non po
 * Lab Services - lab per le classi non possono essere spostati in un nuovo gruppo di risorse o sottoscrizione. DevTest Labs può essere spostato in un nuovo gruppo di risorse nella stessa sottoscrizione, ma non per tutte le sottoscrizioni.
 * Applicazioni gestite
 * Genomica di Microsoft
-* SAP HANA in Azure
 * Security
 * Site Recovery
 * Gestione dispositivi StorSimple

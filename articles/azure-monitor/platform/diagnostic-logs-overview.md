@@ -1,19 +1,19 @@
 ---
 title: Panoramica dei log di diagnostica di Azure
 description: Informazioni sui log di diagnostica di Azure e su come usarli per comprendere gli eventi che si verificano all'interno di una risorsa di Azure.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310183"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519392"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Raccogliere e usare i dati dei log dalle risorse di Azure
 
@@ -49,11 +49,6 @@ Ecco alcune delle attività che è possibile eseguire con i log di diagnostica:
 > [!NOTE]
 >  Non è al momento possibile archiviare i log del flusso di rete in un account di archiviazione che risiede dietro una rete virtuale protetta.
 
-> [!WARNING]
-> Il formato dei dati di log nell'account di archiviazione verrà modificato in JSON Lines dal 1° novembre 2018. [Vedere questo articolo per una descrizione dell'impatto e per informazioni su come aggiornare gli strumenti per gestire il nuovo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 
 I log di diagnostica di risorsa sono configurati usando le impostazioni di diagnostica delle risorse. I log di diagnostica del tenant sono configurati usando un'impostazione di diagnostica del tenant. **Le impostazioni di diagnostica** per un servizio controllano:
@@ -61,7 +56,7 @@ I log di diagnostica di risorsa sono configurati usando le impostazioni di diagn
 * Destinazione dei log di diagnostica di risorsa e delle metriche, ad esempio un account di archiviazione, un Hub eventi e/o Monitoraggio di Azure.
 * Categorie di log e metriche da inviare.
 * Periodo di tempo in cui ogni log di categoria deve essere mantenuto nell'account di archiviazione
-    - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. Se impostato su zero giorni, i log vengono conservati all'infinito.
+    - Un periodo di conservazione di zero giorni significa che i log vengono conservati all'infinito. In caso contrario, il valore può essere qualsiasi numero di giorni compreso tra 1 e 365.
     - Se i criteri di conservazione sono impostati, ma la memorizzazione dei log in un account di archiviazione è disabilitata, ad esempio se sono selezionate solo le opzioni Hub eventi o Log Analytics, i criteri di conservazione non hanno alcun effetto.
     - I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata (UTC), i log relativi a tale giornata che non rientrano più nei criteri di conservazione verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione.
 

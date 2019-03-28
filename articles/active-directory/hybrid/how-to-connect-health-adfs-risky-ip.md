@@ -15,12 +15,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c68e937c1c4e77a5b24b48f8b73271bf8ec9da66
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 49b93cb7852692e4dad65fcbd72cd749db1b16fb
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58170803"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540908"
 ---
 # <a name="risky-ip-report-public-preview"></a>Report sugli indirizzi IP rischiosi (anteprima pubblica)
 I clienti con AD FS possono esporre endpoint di autenticazione delle password in Internet per offrire servizi di autenticazione per l'accesso degli utenti finali ad applicazioni SaaS come Office 365. In questo caso, un attore malintenzionato potrebbe eseguire tentativi di accesso nel sistema AD FS per indovinare la password di un utente finale e ottenere l'accesso alle risorse dell'applicazione. A partire da AD FS in Windows Server 2012 R2, AD FS offre la funzionalità di blocco account Extranet per impedire questi tipi di attacchi. Se si usa una versione precedente, è consigliabile eseguire l'aggiornamento del sistema AD FS a Windows Server 2016. <br />
@@ -38,7 +38,7 @@ I clienti con AD FS possono esporre endpoint di autenticazione delle password in
 > 
 
 ## <a name="what-is-in-the-report"></a>Che cos'è il report?
-Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Fornisce le informazioni seguenti: ![Portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
+L'accesso non riusciti agli indirizzi IP del client attività viene aggregato tramite Server Proxy applicazione Web. Ogni elemento nel report sugli indirizzi IP rischiosi mostra informazioni aggregate sulle attività di accesso ad AD FS non riuscite che superano la soglia designata. Fornisce le informazioni seguenti: ![Portale di Azure AD Connect Health](./media/how-to-connect-health-adfs/report4a.png)
 
 | Elemento del report | DESCRIZIONE |
 | ------- | ----------- |

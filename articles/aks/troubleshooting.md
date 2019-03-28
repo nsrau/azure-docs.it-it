@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 5902ba86b51ca1998364e393ac02bbb0d0a23a28
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 56d91d7801c576064b941ac6089a52e74b4a3b7b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432635"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540925"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -90,3 +90,7 @@ Le operazioni del cluster sono limitate quando si verificano operazioni di aggio
 
 * Se è attiva l'aggiornamento di cluster, attendere finché non termina l'operazione. Se la connessione riesce, ripetere l'operazione non riuscita in precedenza.
 * Se cluster ha esito negativo di aggiornamento, seguire i passaggi descritti in precedenza
+
+## <a name="can-i-move-my-cluster-to-a-different-subscription-or-my-subscription-with-my-cluster-to-a-new-tenant"></a>È possibile spostare il cluster a un'altra sottoscrizione o la sottoscrizione con il cluster in un nuovo tenant?
+
+Se sono stati spostati cluster servizio contenitore di AZURE a un'altra sottoscrizione o del cluster proprietario di sottoscrizione in un nuovo tenant, il cluster perderà la funzionalità a causa di diritti di identità del servizio e le assegnazioni di ruolo non confermata. **Servizio contenitore di AZURE non supporta cluster lo spostamento tra sottoscrizioni o i tenant** a causa di questo vincolo.

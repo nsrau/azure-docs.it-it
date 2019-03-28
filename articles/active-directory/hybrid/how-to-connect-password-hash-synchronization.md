@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d0b3f3d53d6e8204e23ac9aaa8a428b25dc4dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195550"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517998"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementare la sincronizzazione dell'hash delle password con il servizio di sincronizzazione Azure AD Connect
 Questo articolo contiene le informazioni necessarie per sincronizzare le password utente da un'istanza di Active Directory locale a un'istanza di Azure Active Directory (Azure AD) basata sul cloud.
@@ -46,7 +46,7 @@ Un utente deve immettere le proprie credenziali aziendali una seconda volta per 
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Descrizione dettagliata del funzionamento della sincronizzazione dell'hash delle password
 La sezione seguente illustra in dettaglio il funzionamento della sincronizzazione hash delle password tra Active Directory e Azure AD.
 
-![Flusso dettagliato della sincronizzazione password](./media/how-to-connect-password-hash-synchronization/arch3.png)
+![Flusso dettagliato della sincronizzazione password](./media/how-to-connect-password-hash-synchronization/arch3a.png)
 
 
 1. Ogni due minuti, l'agente di sincronizzazione hash delle password nel server AD Connect richiede gli hash delle password archiviate (attributo unicodePwd) da un controller di dominio.  La richiesta si avvale del protocollo di replica standard [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) usato per sincronizzare i dati tra i controller di dominio. L'account di servizio deve disporre delle autorizzazioni di Azure AD Replica modifiche directory e Replica modifiche directory - Tutto (concesse per impostazione predefinita in fase di installazione) per ottenere gli hash delle password.

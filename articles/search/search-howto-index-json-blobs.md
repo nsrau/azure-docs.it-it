@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405114"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518746"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Come indicizzare i BLOB JSON con l'indicizzatore di Blob di ricerca di Azure
 Questo articolo illustra come configurare un blob di ricerca di Azure [indicizzatore](search-indexer-overview.md) per estrarre contenuto strutturato dai documenti JSON in archiviazione Blob di Azure e rendere disponibili per la ricerca in ricerca di Azure. Questo flusso di lavoro viene creato un indice di ricerca di Azure e lo carica con il testo esistente estratto dai BLOB JSON. 
@@ -211,7 +211,7 @@ Configurazione dell'indicizzatore è nel corpo della richiesta. È necessaria un
 
 Pianificazione e i parametri sono facoltativi. Se vengono omessi, l'indicizzatore viene eseguito immediatamente usando `json` come la modalità di analisi.
 
-Questo indicizzatore particolare non include [mapping dei campi](#field-mappings). All'interno della definizione dell'indicizzatore, è possibile tralasciare **mapping dei campi** se le proprietà del documento JSON di origine corrispondono ai campi dell'indice di ricerca di destinazione. 
+Questo indicizzatore particolare non include i mapping dei campi. All'interno della definizione dell'indicizzatore, è possibile tralasciare **mapping dei campi** se le proprietà del documento JSON di origine corrispondono ai campi dell'indice di ricerca di destinazione. 
 
 
 ### <a name="rest-example"></a>Esempio REST
@@ -253,7 +253,7 @@ Tutti gli indicizzatori richiedono un indice di destinazione che riceve i dati. 
 
 ### <a name="indexer-request"></a>Richiesta dell'indicizzatore
 
-Questa richiesta Mostra un indicizzatore specificato completamente. Include [mapping dei campi](#field-mappings), che sono stati omessi negli esempi precedenti. È importante ricordare che "schedule", "parameters", e "fieldMappings" sono facoltativi, purché vi sia una predefinite disponibili. L'omissione "pianificazione" fa in modo che l'indicizzatore per l'esecuzione immediata. L'omissione "parsingMode" fa in modo che l'indice da utilizzare il valore predefinito "json".
+Questa richiesta Mostra un indicizzatore specificato completamente. Include i mapping di campo, che sono stati omessi negli esempi precedenti. È importante ricordare che "schedule", "parameters", e "fieldMappings" sono facoltativi, purché vi sia una predefinite disponibili. L'omissione "pianificazione" fa in modo che l'indicizzatore per l'esecuzione immediata. L'omissione "parsingMode" fa in modo che l'indice da utilizzare il valore predefinito "json".
 
 Creare l'indicizzatore in ricerca di Azure attiva l'importazione dei dati. Viene eseguito immediatamente e, successivamente in base a una pianificazione se è stato fornito uno.
 

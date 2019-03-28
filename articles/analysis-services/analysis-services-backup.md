@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b88660548feaa1d3a8e83e633f798212c80ac6dc
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 31e8e65b382a3a6bcad2998a0babdf9605dc4968
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190307"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539106"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -24,8 +24,7 @@ Il backup dei database modello tabulare in Azure Analysis Services è molto simi
 > 
 > 
 
-I backup vengono salvati con estensione abf. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte. 
-
+I backup vengono salvati con estensione ABF. Per i modelli tabulari in memoria, vengono archiviati sia i dati del modello che i metadati. Per i modelli tabulari DirectQuery, vengono archiviati solo i metadati del modello. I backup possono essere compressi e crittografati, a seconda delle opzioni scelte.
 
 
 ## <a name="configure-storage-settings"></a>Configurare le impostazioni di archiviazione

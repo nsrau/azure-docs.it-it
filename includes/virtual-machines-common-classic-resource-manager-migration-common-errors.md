@@ -4,15 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 432d0d4c201d0d73e5695a1726129e7fa744bdde
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319757"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505776"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Errori comuni durante la migrazione dalla distribuzione classica ad Azure Resource Manager
 Questo articolo descrive gli errori più comuni e le relative soluzioni per agevolare la migrazione delle risorse IaaS dal modello di distribuzione classica di Azure allo stack di Azure Resource Manager.
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="list-of-errors"></a>Elenco degli errori
 
@@ -22,7 +24,7 @@ Questo articolo descrive gli errori più comuni e le relative soluzioni per agev
 | La migrazione non è supportata per la distribuzione {nome-distribuzione} in HostedService {nome-servizio-ospitato} perché si tratta di una distribuzione PaaS (Web/di lavoro). |Ciò si verifica quando una distribuzione contiene un ruolo Web o di lavoro. Dal momento che la migrazione è supportata solo per le macchine virtuali, rimuovere il ruolo Web o di lavoro dalla distribuzione e tentare nuovamente la migrazione. |
 | Distribuzione del modello {nome modello} non riuscita. CorrelationId={guid} |Nel back-end del servizio di migrazione, vengono usati i modelli di Azure Resource Manager per creare risorse nello stack di Azure Resource Manager. Dal momento che i modelli sono idempotenti, in genere è possibile ritentare in modo sicuro l'operazione di migrazione per superare l'errore. Se l'errore persiste, [contattare il supporto tecnico Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) e fornire il CorrelationId. <br><br> **NOTA:** una volta che il team di supporto ha rilevato l'evento imprevisto, non tentare altre soluzioni di mitigazione in autonomia per evitare conseguenze impreviste nell'ambiente. |
 | La rete virtuale {nome-rete-virtuale} non esiste. |Questa situazione può verificarsi se la rete virtuale è stata creata nel nuovo portale di Azure. Il nome effettivo della rete virtuale segue il modello "Group * <VNET name>" |
-| La VM {nome-vm} in HostedService {nome-servizio-ospitato} contiene l'estensione {nome-estensione} non supportata in Azure Resource Manager. È consigliabile disinstallare l'estensione dalla macchina virtuale prima di continuare con la migrazione. |Le estensioni XML, ad esempio BGInfo 1.*, non sono supportate in Azure Resource Manager. Queste estensioni non possono essere migrate. Se queste estensioni non vengono disinstallate dalla macchina virtuale, vengono automaticamente disinstallate prima di completare la migrazione. |
+| La VM {nome-vm} in HostedService {nome-servizio-ospitato} contiene l'estensione {nome-estensione} non supportata in Azure Resource Manager. È consigliabile disinstallare l'estensione dalla macchina virtuale prima di continuare con la migrazione. |Estensioni XML, ad esempio BGInfo 1. \* non sono supportati in Azure Resource Manager. Queste estensioni non possono essere migrate. Se queste estensioni non vengono disinstallate dalla macchina virtuale, vengono automaticamente disinstallate prima di completare la migrazione. |
 | La macchina virtuale {nome-vm} nel servizio ospitato {nome-servizio-ospitato} contiene l'estensione VMSnapshot/VMSnapshotLinux che non è attualmente supportata per la migrazione. Disinstallare l'estensione dalla macchina virtuale e riaggiungerla tramite Azure Resource Manager al termine della migrazione |Questo è lo scenario in cui la macchina virtuale è configurata per Backup di Azure. Poiché si tratta di uno scenario attualmente non supportato, attenersi alla soluzione descritta in https://aka.ms/vmbackupmigration. |
 | La VM {nome-vm} in HostedService {nome-servizio-ospitato} contiene l'estensione {nome-estensione} il cui stato non viene segnalato dalla macchina virtuale. Di conseguenza, non è possibile eseguire la migrazione di questa VM. Assicurarsi che venga segnalato lo stato dell'estensione o disinstallare l'estensione dalla macchina virtuale e ripetere la migrazione. <br><br> La VM {nome-vm} in HostedService {nome-servizio-ospitato} contiene l'estensione {nome-estensione} con Stato Handler: {stato-handler}. Di conseguenza, non è possibile eseguire la migrazione della VM. Assicurarsi che lo stato handler dell'estensione segnalato sia {stato-handler} o disinstallare l'estensione dalla macchina virtuale e ripetere la migrazione. <br><br> L'agente VM per la macchina virtuale {nome-vm} in HostedService {nome-servizio-ospitato} indica lo stato generale dell'agente Non pronto. Di conseguenza, se dispone di un'estensione migrabile, la macchina virtuale potrebbe non essere migrata. Assicurarsi che l'agente VM indichi lo stato dell'agente generale Pronto. Vedere https://aka.ms/classiciaasmigrationfaqs. |L'agente guest di Azure e le estensioni delle macchine virtuali hanno bisogno di accesso Internet in uscita per consentire all'account di archiviazione della macchina virtuale di popolare il proprio stato. Le cause più comuni degli errori di stato includono <li> Un gruppo di sicurezza di rete che blocca l'accesso Inernet in uscita <li> Se la rete virtuale è in locale i server DNS e connettività DNS si perde <br><br> Se si continua a visualizzare lo stato non supportato, è possibile disinstallare le estensioni per ignorare il controllo e procedere con la migrazione. |
 | La migrazione non è supportata per la distribuzione {nome-distribuzione} in HostedService {nome-servizio-ospitato} poiché esso dispone di più set di disponibilità. |Attualmente è possibile migrare solo i servizi ospitati che dispongono di un massimo di 1 set di disponibilità. Per risolvere questo problema, spostare il set di disponibilità aggiuntivi e le macchine virtuali di questi set di disponibilità su un servizio ospitato differente. |
@@ -44,7 +46,7 @@ Ciò si verifica quando le dimensioni logiche del disco dati non sono sincronizz
 
 #### <a name="verifying-the-issue"></a>Verifica del problema
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -65,7 +67,7 @@ ExtensionData       :
 
 # Now get the properties of the blob backing the data disk above
 # NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
-$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+$blob = Get-AzStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
 
 $blob
 
@@ -82,7 +84,7 @@ Name              : coreosvm-dd1.vhd
 
 #### <a name="mitigating-the-issue"></a>Prevenzione del problema
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

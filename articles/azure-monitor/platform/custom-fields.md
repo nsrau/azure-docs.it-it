@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261265"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541078"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Creare campi personalizzati in Log Analytics
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Creare campi personalizzati in un'area di lavoro di Log Analitica in Monitoraggio di Azure
 
 > [!NOTE]
-> Questo articolo descrive come analizzare dati di testo in Log Analytics durante la raccolta. L'analisi dei dati di testo in una query dopo la raccolta presenta dei vantaggi, come descritto in [Analizzare i dati di testo in Log Analytics](../log-query/parse-text.md).
+> Questo articolo descrive come analizzare i dati di testo in un'area di lavoro di Log Analitica come la raccolta. Esistono vantaggi per l'analisi dei dati di testo in una query dopo la raccolta come descritto in [analizzare i dati di testo in Monitoraggio di Azure](../log-query/parse-text.md).
 
-La funzionalità **Campi personalizzati** di Log Analytics consente di estendere i record esistenti in Log Analytics con l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
+Il **campi personalizzati** funzionalità di monitoraggio di Azure consente di estendere i record esistenti nell'area di lavoro di Log Analitica mediante l'aggiunta di campi ricercabili personalizzati.  I campi personalizzati vengono popolati automaticamente con dati estratti da altre proprietà nello stesso record.
 
 ![Panoramica dei campi personalizzati](media/custom-fields/overview.png)
 
