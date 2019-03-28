@@ -1,0 +1,75 @@
+items:
+- name: Documentazione dell'anteprima del Centro sicurezza di Azure per IoT
+  href: index.yml
+- name: Panoramica
+  href: overview.md
+  items:
+  - name: Architettura della soluzione
+    href: architecture.md
+  - name: Agenti di sicurezza
+    href: security-agent-architecture.md
+  - name: Prerequisiti del servizio
+    href: service-prerequisites.md
+  - name: Introduzione al Centro sicurezza di Azure per IoT
+    href: getting-started.md
+- name: Guide introduttive
+  items:
+  - name: Abilitare il Centro sicurezza di Azure per IoT nell'hub IoT
+    href: quickstart-onboard-iot-hub.md
+  - name: Configurare la soluzione
+    href: quickstart-configure-your-solution.md
+  - name: Creare un modulo gemello del Centro sicurezza di Azure per IoT
+    href: quickstart-create-security-twin.md
+  - name: Creare avvisi di sicurezza personalizzati
+    href: quickstart-create-custom-alerts.md
+  expanded: true
+- name: Esercitazioni
+  items:
+  - name: Distribuire gli agenti di sicurezza
+    items:
+    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Windows
+      href: tutorial-deploy-windows-cs.md
+    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Linux
+      href: tutorial-deploy-linux-cs.md
+    - name: Distribuire un agente di sicurezza basato su C in un dispositivo Linux
+      href: tutorial-deploy-linux-c.md
+  - name: Analizzare un dispositivo
+    href: tutorial-investigate-device.md
+  - name: Inviare messaggi di sicurezza personalizzati
+    href: tutorial-send-security-messages.md
+- name: Concetti
+  items:
+  - name: Quale agente distribuire?
+    href: select-deploy-agent.md
+  - name: Configurare gli agenti di sicurezza
+    href: concept-agent-configuration.md
+  - name: Autenticazione degli agenti di sicurezza
+    href: concept-security-agent-authentication-methods.md
+  - name: Modulo di sicurezza
+    href: concept-security-module.md
+  - name: Avvisi di sicurezza
+    href: concept-security-alerts.md
+  - name: Suggerimenti per la sicurezza
+    href: concept-recommendations.md
+- name: Guide alle procedure
+  items:
+  - name: Accedere a dati non elaborati sulla sicurezza
+    href: how-to-security-data-access.md
+  - name: Modificare un modulo gemello di sicurezza
+    href: how-to-modify-security-module-twin.md
+- name: Risorse
+  items:
+  - name: Domande frequenti
+    href: resources-frequently-asked-questions.md
+  - name: Roadmap per Azure
+    href: https://azure.microsoft.com/roadmap/?category=security-identity
+  - name: Blog su sicurezza, privacy e conformità per Azure
+    href: http://blogs.msdn.com/b/azuresecurity/
+  - name: Disponibilità internazionale
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541323"

@@ -18,6 +18,8 @@ ms.author: carolz
 
 Informazioni su come riprodurre in streaming video di alta qualità con Servizi multimediali, una piattaforma cloud estendibile. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti.
 
+**NOTA:** Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere inoltre le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">

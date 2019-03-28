@@ -403,32 +403,36 @@ items:
       href: compute-linked-services.md
   - name: Flusso di controllo
     items:
-    - name: Aggiungere un'attività variabile
+    - name: Attività di accodamento a variabile
       href: control-flow-append-variable-activity.md
     - name: Attività di Funzione di Azure
       href: control-flow-azure-function-activity.md
     - name: Attività di esecuzione del flusso di dati
       href: control-flow-execute-data-flow-activity.md
-    - name: Eseguire l'attività di pipeline
+    - name: Attività di esecuzione di pipeline
       href: control-flow-execute-pipeline-activity.md
-    - name: Filtrare attività
+    - name: Attività di filtro
       href: control-flow-filter-activity.md
-    - name: Per ogni attività
+    - name: Attività ForEach
       href: control-flow-for-each-activity.md
-    - name: Ottenere attività di metadati
+    - name: Attività di recupero metadati
       href: control-flow-get-metadata-activity.md
     - name: Attività della condizione If
       href: control-flow-if-condition-activity.md
     - name: Attività di ricerca
       href: control-flow-lookup-activity.md
-    - name: Configurare un'attività variabile
+    - name: Attività di impostazione variabile
       href: control-flow-set-variable-activity.md
     - name: Attività Until
       href: control-flow-until-activity.md
+    - name: Attività Validation
+      href: control-flow-validation-activity.md
     - name: Attività Wait
       href: control-flow-wait-activity.md
     - name: Attività Web
       href: control-flow-web-activity.md
+    - name: Attività Webhook
+      href: control-flow-webhook-activity.md
   - name: Trasformazioni del flusso di dati
     items:
     - name: Aggregazione
@@ -587,9 +591,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Opzioni di supporto
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: ac130165fbad1b43cfef531ac6c3aa69a373d82d
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 0edb3a8bab3effef2219746714e8ab1f58462fb8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337035"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518015"
