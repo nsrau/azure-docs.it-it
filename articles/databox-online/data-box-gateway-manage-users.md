@@ -6,21 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 8adec2986a286e55ee71f0fddca695d1800b5317
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 898049fb8c24529db03300ed6dcc2fef43b38ab1
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167189"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499931"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire gli utenti in Azure Data Box Gateway 
 
 Questo articolo descrive come gestire gli utenti in Azure Data Box Gateway. È possibile gestire Azure Data Box Gateway dal portale di Azure o dall'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, modificare o eliminare utenti.
-
-> [!IMPORTANT]
-> - Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
 
 In questo articolo viene spiegato come:
 
@@ -52,7 +49,7 @@ Seguire questa procedura nel portale di Azure per aggiungere un utente.
     ![Fare clic su Aggiungi utente](media/data-box-gateway-manage-users/add-user-2.png)
 
     > [!IMPORTANT] 
-    > Questi utenti sono riservati dal sistema e non deve essere usati: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
+    > Questi utenti sono riservati dal sistema e non devono essere usati: Administrator, EdgeUser, EdgeSupport, HcsSetupUser, WDAGUtilityAccount, CLIUSR, DefaultAccount, Guest.  
 
 3. Dopo l'avvio e il completamento della creazione degli utenti si riceve una notifica. Dopo aver creato l'utente, dalla barra dei comandi, fare clic su **Aggiorna** per visualizzare l'elenco aggiornato degli utenti.
 

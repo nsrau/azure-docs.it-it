@@ -3,7 +3,7 @@ title: 'Script di Azure PowerShell di esempio: aggiornare il nome utente e la pa
 description: 'Script di Azure PowerShell di esempio: aggiornare il nome utente e la password di Remote Desktop Protocol per tutti i nodi del cluster di Service Fabric di un tipo specifico.'
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 03/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ff9cfabc4ac7b759a916ddaaeb3f4c95ceecd452
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: a5c1e7786f02b7ebc42f96e4ed12b2fb5729bb41
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30177832"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498010"
 ---
 # <a name="update-the-admin-username-and-password-of-the-vms-in-a-cluster"></a>Aggiornare il nome utente e la password dell'amministratore delle macchine virtuali in un cluster
 
 Ogni [tipo di nodo](../service-fabric-cluster-nodetypes.md) in un cluster di Service Fabric è un set di scalabilità di macchine virtuali. Questo script di esempio aggiorna il nome utente e la password dell'amministratore per le macchine virtuali del cluster in un tipo di nodo specifico.  Aggiungere l'estensione VMAccessAgent al set di scalabilità, perché la password dell'amministratore non è una proprietà modificabile del set di scalabilità.  Le modifiche al nome utente e alla password si applicano a tutti i nodi del set di scalabilità. Personalizzare i parametri in base alle esigenze.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview). 
 
@@ -34,13 +36,13 @@ Se necessario, installare Azure PowerShell usando l'istruzione presente nella [G
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Lo script usa i seguenti comandi: ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti: Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|
-| [Get-AzureRmVmss](/powershell/module/azurerm.compute/get-azurermvmss) | Ottiene le proprietà di un tipo di nodo del cluster (un set di scalabilità di macchine virtuali).   |
-| [Add-AzureRmVmssExtension](/powershell/module/azurerm.compute/add-azurermvmssextension)| Aggiunge un'estensione al set di scalabilità di macchine virtuali.|
-| [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss)|Aggiorna lo stato di un set di scalabilità di macchine virtuali con lo stato di un oggetto set di scalabilità di macchine virtuali locale.|
+| [Get-AzVmss](/powershell/module/az.compute/get-azvmss) | Ottiene le proprietà di un tipo di nodo del cluster (un set di scalabilità di macchine virtuali).   |
+| [Add-AzVmssExtension](/powershell/module/az.compute/add-azvmssextension)| Aggiunge un'estensione al set di scalabilità di macchine virtuali.|
+| [Update-AzVmss](/powershell/module/az.compute/update-azvmss)|Aggiorna lo stato di un set di scalabilità di macchine virtuali con lo stato di un oggetto set di scalabilità di macchine virtuali locale.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
