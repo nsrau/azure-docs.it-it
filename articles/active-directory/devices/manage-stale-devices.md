@@ -3,7 +3,7 @@ title: Come gestire i dispositivi non aggiornati in Azure AD | Microsoft Docs
 description: In seguito ad esempio allo smarrimento o al furto di dispositivi, alla presenza di dispositivi guasti o alle reinstallazioni del sistema operativo, nell'ambiente in uso potrebbero essere presenti dispositivi non aggiornati. Informazioni su come rimuovere i dispositivi non aggiornati dal database di dispositivi registrati in Azure Active Directory (Azure AD).
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 01/30/2019
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fcbc7f66df65cd1ea18cd3062ec61adb1e0399f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5c4aa4d3a4425c93cb495d27d0fe38d329ddea7a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58164961"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521534"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: Gestire i dispositivi non aggiornati in Azure AD
 

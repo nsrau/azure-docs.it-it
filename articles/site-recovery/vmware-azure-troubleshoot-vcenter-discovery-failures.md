@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: v-doglov
-ms.openlocfilehash: a0707ad356e51a9e4d4f73c54085fe9736bb0752
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884469"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540806"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Risoluzione dei problemi di individuazione di vCenter
 
@@ -46,8 +46,8 @@ In generale, viene utilizzato il proxy per comunicare su reti pubbliche; quali l
 
 Quando viene rilevato questo problema, si verificano le situazioni seguenti:
 
-- Il server vCenter <vCenter> non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: Non disponibile (503) server
-- Il server vCenter <vCenter> non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: Non è possibile connettersi al server remoto.
+- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: Non disponibile (503) server
+- Il server vCenter \<vCenter > non è raggiungibile a causa dell'errore: Il server remoto ha restituito un errore: Non è possibile connettersi al server remoto.
 - Impossibile connettersi al server vCenter/ESXi.
 
 Per risolvere il problema:

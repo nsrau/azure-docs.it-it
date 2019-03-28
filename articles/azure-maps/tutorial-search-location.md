@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f04041234bbb7197e276a65b011d16bb15cee90e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d35c33a45f2ce23dabfba20bbd902c058e3033d3
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58099502"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540458"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Eseguire ricerche vicino a punti di interesse con Mappe di Azure
 
@@ -77,17 +77,17 @@ L'API del controllo mappa è una pratica libreria client che consente di integra
     <html>
     <head>
         <title>Map Search</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
-        
+
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
         <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
-        
-        <script>        
+
+        <script>
         function GetMap(){
             //Add Map Control JavaScript code here.
         }
@@ -101,7 +101,7 @@ L'API del controllo mappa è una pratica libreria client che consente di integra
                 padding: 0;
                 margin: 0;
             }
-            
+
             #myMap {
                 width: 100%;
                 height: 100%;
@@ -118,16 +118,16 @@ L'API del controllo mappa è una pratica libreria client che consente di integra
 
 3. Aggiungere il codice JavaScript seguente alla funzione `GetMap` del file HTML. Sostituire la stringa **\<Your Azure Maps Key\>** con la chiave primaria copiata dall'account Mappe.
 
-   ```JavaScript
-   //Instantiate a map object
-   var map = new atlas.Map("myMap", {
-       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-       authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: '<Your Azure Maps Key>'
-       }
-   });
-   ```
+    ```JavaScript
+    //Instantiate a map object
+    var map = new atlas.Map("myMap", {
+        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+        authOptions: {
+            authType: 'subscriptionKey',
+            subscriptionKey: '<Your Azure Maps Key>'
+        }
+    });
+    ```
 
    Questo segmento inizializza l'API Controllo mappa per la chiave dell'account Mappe di Azure. Lo spazio dei nomi che contiene l'API e i componenti visivi correlati è denominato **atlas**. **atlas.Map** fornisce il controllo per una mappa Web visiva e interattiva.
 
@@ -137,30 +137,29 @@ L'API del controllo mappa è una pratica libreria client che consente di integra
 
 5. Dopo aver inizializzato la mappa, aggiungere il codice JavaScript seguente nella funzione `GetMap`.
 
-   ```JavaScript
+    ```JavaScript
+    //Wait until the map resources are loaded.
+    map.events.add('load', function() {
 
-   //Wait until the map resources are loaded.
-   map.events.add('load', function () {
+        //Create a data source and add it to the map.
+        datasource = new atlas.source.DataSource();
+        map.sources.add(datasource);
 
-       //Create a data source and add it to the map.
-       datasource = new atlas.source.DataSource();
-       map.sources.add(datasource);
-    
-       //Add a layer for rendering point data.
-       var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
-          iconOptions: {
-            image: 'pin-round-darkblue',
-            anchor: 'center',
-            allowOverlap: true
-          },
-          textOptions: {
-            anchor: "top"
-          }
-       });
+        //Add a layer for rendering point data.
+        var resultLayer = new atlas.layer.SymbolLayer(datasource, null, {
+            iconOptions: {
+                image: 'pin-round-darkblue',
+                anchor: 'center',
+                allowOverlap: true
+            },
+            textOptions: {
+                anchor: "top"
+            }
+        });
 
-       map.layers.add(resultLayer);
-   });
-   ```
+        map.layers.add(resultLayer);
+    });
+    ```
 
    In questo segmento di codice viene aggiunto alla mappa un evento di caricamento che verrà attivato dopo che le risorse della mappa sono state caricate completamente. Nel gestore dell'evento di caricamento della mappa viene creata un'origine dati per archiviare i dati dei risultati. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello consente di specificare la modalità di rendering dei dati dei risultati nell'origine dati. In questo caso verrà usata l'icona di una puntina rotonda di colore blu scuro al centro delle coordinate dei risultati che consente la sovrapposizione di altre icone. Il livello risultati viene aggiunto ai livelli della mappa.
 
@@ -188,32 +187,32 @@ Questa sezione illustra come usare l'[API di ricerca](https://docs.microsoft.com
    **SubscriptionKeyCredential** crea un oggetto **SubscriptionKeyCredentialPolicy** per autenticare le richieste HTTP per Mappe di Azure con la chiave di sottoscrizione. **atlas.service.MapsURL.newPipeline()** accetta i criteri di **SubscriptionKeyCredential** e crea un'istanza di [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). **searchURL** rappresenta un URL per le operazioni di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure.
 
 2. Aggiungere quindi il blocco script seguente per compilare la query di ricerca. Viene usato il servizio di ricerca fuzzy, che è un'API di base del servizio di ricerca. Il servizio di ricerca fuzzy gestisce la maggior parte degli input fuzzy come indirizzi, località e punti di interesse. Questo codice cerca le stazioni di rifornimento vicine entro il raggio specificato dalle coordinate di latitudine e longitudine inserite. Dalla risposta viene quindi estratta con il metodo **geojson.getFeatures()** una raccolta di caratteristiche GeoJSON che viene aggiunta all'origine dati determinando così automaticamente il rendering dei dati nella mappa tramite il livello simboli. Nell'ultima parte dello script viene impostata la visualizzazione delle videocamere della mappa usando il rettangolo di selezione dei risultati con la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
- 
-   ```JavaScript
-   var query =  'gasoline-station';
-   var radius = 9000;
-   var lat = 47.64452336193245;
-   var lon = -122.13687658309935;
 
-   searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
-       limit: 10,
-       lat: lat,
-       lon: lon,
-       radius: radius
-   }).then((results) => {
-      
-      // Extract GeoJSON feature collection from the response and add it to the datasource
-      var data = results.geojson.getFeatures();
-      datasource.add(data);
-      
-      // set camera to bounds to show the results
-      map.setCamera({
-        bounds: data.bbox,
-        zoom: 10
-      });
+    ```JavaScript
+    var query =  'gasoline-station';
+    var radius = 9000;
+    var lat = 47.64452336193245;
+    var lon = -122.13687658309935;
+
+    searchURL.searchPOI(atlas.service.Aborter.timeout(10000), query, {
+        limit: 10,
+        lat: lat,
+        lon: lon,
+        radius: radius
+    }).then((results) => {
+
+        // Extract GeoJSON feature collection from the response and add it to the datasource
+        var data = results.geojson.getFeatures();
+        datasource.add(data);
+
+        // set camera to bounds to show the results
+        map.setCamera({
+            bounds: data.bbox,
+            zoom: 10
+        });
     });
-   ```
- 
+    ```
+
 3. Salvare il file **MapSearch.html** e aggiornare il browser. Ora la mappa è centrata su Seattle con segnaposto blu rotondi che contrassegnano le posizioni delle stazioni di rifornimento nell'area.
 
    ![Visualizzare la mappa con i risultati della ricerca](./media/tutorial-search-location/pins-map.png)
@@ -239,12 +238,12 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
     //Add a mouse over event to the result layer and display a popup when this event fires.
     map.events.add('mouseover', resultLayer, showPopup);
     ```
-    
-    La funzione **atlas.Popup** dell'API consente di aggiungere una finestra di informazioni ancorata alla posizione richiesta sulla mappa. 
-      
-2. Nel tag *script* aggiungere il codice seguente dopo la funzione `GetMap` per mostrare nel popup le informazioni sui risultati al passaggio del mouse. 
 
-   ```JavaScript
+    La funzione **atlas.Popup** dell'API consente di aggiungere una finestra di informazioni ancorata alla posizione richiesta sulla mappa. 
+
+2. Nel tag *script* aggiungere il codice seguente dopo la funzione `GetMap` per mostrare nel popup le informazioni sui risultati al passaggio del mouse.
+
+    ```JavaScript
     function showPopup(e) {
         //Get the properties and coordinates of the first shape that the event occured on.
 
@@ -265,7 +264,7 @@ La mappa creata finora analizza solo i dati di longitudine/latitudine per i risu
         //Open the popup.
         popup.open(map);
     }
-   ```
+    ```
 
 3. Salvare il file e aggiornare il browser. Ora la mappa nel browser mostrerà finestre popup di informazioni al passaggio del mouse sui punti creati mediante la ricerca.
 

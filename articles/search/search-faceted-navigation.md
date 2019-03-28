@@ -6,15 +6,15 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/10/2017
+ms.date: 03/27/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f1d557396f17357afd6f9e5d701e946668fcee65
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b5c7050ac006ea2500854f8f41b134895e5e0061
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57861044"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541214"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-search"></a>Come implementare l'esplorazione in base a facet in Ricerca di Azure
 L'esplorazione in base a facet è un meccanismo di filtro che consente un'esplorazione drill-down mirata nelle applicazioni di ricerca. Il termine "esplorazione in base a facet" può essere poco noto, ma probabilmente è già stato usato in precedenza. Come illustrato nell'esempio seguente, l'esplorazione in base a facet non è rappresentata dalle categorie usate per filtrare i risultati.
@@ -34,7 +34,7 @@ Nello sviluppo di applicazioni la scrittura di codice che crea query costituisce
 ## <a name="sample-code-and-demo"></a>Demo e codice di esempio
 Questo articolo usa un portale di ricerca dei processi come esempio. L'esempio viene implementato come applicazione MVC ASP.NET.
 
--   Esaminare e testare la demo di lavoro online in [Job Portal Demo di Ricerca di Azure](https://azjobsdemo.azurewebsites.net/).
+-   Esaminare e testare la demo di lavoro online in [Job Portal Demo di Ricerca di Azure](http://azjobsdemo.azurewebsites.net/).
 
 -   Scaricare il codice dal [repository di esempi di Azure su GitHub](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs).
 
@@ -364,7 +364,7 @@ Sono disponibili due funzioni geospaziali in Ricerca di Azure, **geo.distance** 
 * La funzione **geo** restituisce la distanza in chilometri tra due punti. Un punto è un campo e l'altro è una costante passata come parte del filtro. 
 * La funzione **intersects** restituisce true se un punto specificato si trova all'interno di un poligono specificato. Il punto è un campo e il poligono è specificato come un elenco costante di coordinate passate come parte del filtro.
 
-È possibile trovare alcuni esempi di filtri in [Sintassi dell'espressione di OData (Ricerca di Azure)](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+È possibile trovare alcuni esempi di filtri in [Sintassi dell'espressione di OData (Ricerca di Azure)](query-odata-filter-orderby-syntax.md).
 
 <a name="tryitout"></a>
 

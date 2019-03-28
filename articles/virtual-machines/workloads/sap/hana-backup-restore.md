@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107730"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541231"
 ---
 # <a name="backup-and-restore"></a>Backup e ripristino
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 I dettagli dei parametri sono i seguenti: 
 
 - Il primo parametro caratterizza il tipo di backup di snapshot. I valori consentiti sono **hana**, **logs** e **boot**. 
-- Il parametro **<HANA Large Instance Type>** è necessario solo per i backup di volumi di avvio. Esistono due valori validi con "TypeI" o "TypeII" in base all'unità dell'Istanza Grande HANA. Per identificare il tipo di unità, vedere [Panoramica e architettura di SAP HANA (istanze Large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- Il parametro **<snapshot_prefix>** è un'etichetta di snapshot o di backup per il tipo di snapshot. Il parametro ha due scopi: il primo è assegnare un nome agli snapshot, in modo da poterli identificare facilmente in qualsiasi momento, mentre il secondo è permettere allo script *azure\_hana\_backup.pl* di determinare il numero di snapshot di archiviazione conservati con l'etichetta specifica. Se si pianificano due backup di snapshot di archiviazione dello stesso tipo, ad esempio **HANA**, con due etichette diverse e si stabilisce che per ogni etichetta devono essere conservati 30 snapshot, in totale saranno interessati 60 snapshot di archiviazione dei volumi. Sono consentiti solo caratteri alfanumerici ("A-Z, a-z, 0-9"), il carattere di sottolineatura ("_") e il trattino ("-"). 
-- Il parametro **< snapshot_frequency >** è riservato agli sviluppi futuri e non ha alcun impatto. Impostarlo su 3 minuti al momento dell'esecuzione dei backup di tipo **log** e su 15 minuti quando si eseguono gli altri tipi di backup.
-- Il parametro **<number of snapshots retained>** definisce la conservazione degli snapshot in modo indiretto, definendo il numero di snapshot con lo stesso prefisso (etichetta). Questo parametro è importante per le esecuzioni pianificate tramite cron. Se il numero di snapshot con lo stesso prefisso supera il numero specificato da questo parametro, lo snapshot meno recente viene eliminato prima di eseguire un nuovo snapshot di archiviazione.
+- Il parametro  **\<tipo di istanza Large di HANA >** è necessario solo il backup del volume boot. Esistono due valori validi con "TypeI" o "TypeII" in base all'unità dell'Istanza Grande HANA. Per identificare il tipo di unità, vedere [Panoramica e architettura di SAP HANA (istanze Large) in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- Il parametro  **\<snapshot_prefix >** snapshot o etichetta di backup per il tipo di snapshot. Il parametro ha due scopi: il primo è assegnare un nome agli snapshot, in modo da poterli identificare facilmente in qualsiasi momento, mentre il secondo è permettere allo script *azure\_hana\_backup.pl* di determinare il numero di snapshot di archiviazione conservati con l'etichetta specifica. Se si pianificano due backup di snapshot di archiviazione dello stesso tipo, ad esempio **HANA**, con due etichette diverse e si stabilisce che per ogni etichetta devono essere conservati 30 snapshot, in totale saranno interessati 60 snapshot di archiviazione dei volumi. Sono consentiti solo caratteri alfanumerici ("A-Z, a-z, 0-9"), il carattere di sottolineatura ("_") e il trattino ("-"). 
+- Il parametro  **\<snapshot_frequency >** è riservato agli sviluppi futuri e non ha alcun impatto. Impostarlo su 3 minuti al momento dell'esecuzione dei backup di tipo **log** e su 15 minuti quando si eseguono gli altri tipi di backup.
+- Il parametro  **\<numero di snapshot conservati >** definisce il periodo di conservazione degli snapshot in modo indiretto, definendo il numero di snapshot con lo stesso prefisso (etichetta). Questo parametro è importante per le esecuzioni pianificate tramite cron. Se il numero di snapshot con lo stesso prefisso supera il numero specificato da questo parametro, lo snapshot meno recente viene eliminato prima di eseguire un nuovo snapshot di archiviazione.
 
 In caso di scalabilità orizzontale, lo script esegue alcuni controlli aggiuntivi per verificare che sia possibile accedere a tutti i server HANA. Lo script controlla anche che tutte le istanze di HANA restituiscano lo stato appropriato, prima di procedere alla creazione di uno snapshot di SAP HANA, seguito da uno snapshot di archiviazione.
 

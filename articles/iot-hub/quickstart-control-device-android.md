@@ -8,14 +8,14 @@ services: iot-hub
 ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: a9e5b00ad84a57f49303f2e6f9389b4791fd0f60
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b7a46fab296fa8d585f1ae70dcf278e6686cca64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58166947"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520599"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Guida introduttiva: controllare un dispositivo connesso a un hub IoT (Android)
 
@@ -117,10 +117,10 @@ L'applicazione di esempio degli SDK per dispositivi può essere eseguita su un d
 3. In Android Studio fare clic su **File** > **Sync Project with Gradle Files**. Verificare il completamento della compilazione.
 
    > [!NOTE]
-   > Se la sincronizzazione del progetto non riesce, potrebbe essere a causa di uno dei motivi seguenti:
+   > L'esito negativo della sincronizzazione del progetto può essere dovuto a uno dei motivi seguenti:
    >
-   > * Le versioni del plug-in Gradle Android e Gradle a cui si fa riferimento nel progetto non sono aggiornate per la versione di Android Studio. Seguire [queste istruzioni](https://developer.android.com/studio/releases/gradle-plugin) per fare riferimento e installare le versioni corrette del plug-in e di Gradle per l'installazione.
-   > * Il contratto di licenza per Android SDK non è stato firmato. Seguire le istruzioni nell'output della compilazione per firmare il contratto di licenza e scaricare l'SDK.
+   > * Le versioni del plug-in Android Gradle e di Gradle a cui si fa riferimento nel progetto non sono aggiornate per la versione di Android Studio in uso. Per fare riferimento e installare le versioni corrette del plug-in e di Gradle per l'installazione, seguire [queste istruzioni](https://developer.android.com/studio/releases/gradle-plugin).
+   > * Il contratto di licenza per Android SDK non è stato firmato. Seguire le istruzioni nell'output di compilazione per firmare il contratto di licenza e scaricare l'SDK.
 
 
 4. Una volta completata la compilazione, fare clic su **Esegui** > **Esegui "app"**. Configurare l'app in modo da eseguirla su un dispositivo Android fisico o un emulatore Android. Per altre informazioni sull'esecuzione di un'app Android in un dispositivo fisico o un emulatore, vedere [Eseguire l'app](https://developer.android.com/training/basics/firstapp/running-app).
@@ -172,10 +172,10 @@ Un'applicazione di servizio back-end dell'hub IoT in genere viene eseguita nel c
 3. In Android Studio fare clic su **File** > **Sync Project with Gradle Files**. Verificare il completamento della compilazione.
 
    > [!NOTE]
-   > Se la sincronizzazione del progetto non riesce, potrebbe essere a causa di uno dei motivi seguenti:
+   > L'esito negativo della sincronizzazione del progetto può essere dovuto a uno dei motivi seguenti:
    >
-   > * Le versioni del plug-in Gradle Android e Gradle a cui si fa riferimento nel progetto non sono aggiornate per la versione di Android Studio. Seguire [queste istruzioni](https://developer.android.com/studio/releases/gradle-plugin) per fare riferimento e installare le versioni corrette del plug-in e di Gradle per l'installazione.
-   > * Il contratto di licenza per Android SDK non è stato firmato. Seguire le istruzioni nell'output della compilazione per firmare il contratto di licenza e scaricare l'SDK.
+   > * Le versioni del plug-in Android Gradle e di Gradle a cui si fa riferimento nel progetto non sono aggiornate per la versione di Android Studio in uso. Per fare riferimento e installare le versioni corrette del plug-in e di Gradle per l'installazione, seguire [queste istruzioni](https://developer.android.com/studio/releases/gradle-plugin).
+   > * Il contratto di licenza per Android SDK non è stato firmato. Seguire le istruzioni nell'output di compilazione per firmare il contratto di licenza e scaricare l'SDK.
 
 
 4. Una volta completata la compilazione, fare clic su **Esegui** > **Esegui "app"**. Configurare l'app in modo da eseguirla su un dispositivo Android fisico o un emulatore Android separato. Per altre informazioni sull'esecuzione di un'app Android in un dispositivo fisico o un emulatore, vedere [Eseguire l'app](https://developer.android.com/training/basics/firstapp/running-app).

@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 8654899e0a6dfce8f25855eba6c5f4a88af78665
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b044a7c2b3122fcbce44ae2e45198f57f6a87260
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903131"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541282"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -217,7 +217,7 @@ Per altre informazioni, vedere [ALTER DATABASE SET PARTNER e SET WITNESS](https:
 
 - I file di log multipli non sono supportati.
 - Gli oggetti in memoria non sono supportati nel livello di servizio per utilizzo generico.  
-- È previsto un limite di 280 file per istanza e quindi di un massimo di 280 file per database. I file di dati e i file di log vengono conteggiati per il limite.  
+- È previsto un limite di 280 file per ogni istanza di uso generale che implichi massimo di 280 file per ogni database. In generale i dati e log file scopo livello vengono conteggiati per il limite. [Livello Business Critical supporta 32.767 file per ogni database](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 - I database non possono contenere filegroup che contengono a loro volta dati FileStream.  Se il file con estensione bak contiene dati `FILESTREAM`, il ripristino non riesce.  
 - Ogni file viene inserito in Archiviazione BLOB di Azure. L'I/O e la velocità effettiva per file dipendono dalle dimensioni di ogni singolo file.  
 
@@ -485,9 +485,9 @@ Non è possibile ripristinare l'istanza gestita [database indipendenti](https://
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Superamento dello spazio di archiviazione con file di database di piccole dimensioni
 
-Ogni istanza gestita dispone di una risorsa di archiviazione da 35 TB riservata allo spazio su disco Premium di Azure e ogni file di database si trova su un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato su disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni delle risorse di archiviazione, a causa della frammentazione interna.
+Ogni istanza gestita di generale scopo dispone archiviazione di 35 TB riservata per lo spazio su disco Premium di Azure e ogni file di database viene posizionato su un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato su disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni delle risorse di archiviazione, a causa della frammentazione interna.
 
-Per esempio, un'istanza gestita può avere un file da 1,2 TB all'interno di un disco da 4 TB e 248 file (da 1 GB ciascuno) all'interno di dischi da 128 GB separati. Esempio:
+Ad esempio, un'istanza gestita scopo generale può avere uno file 1,2 TB di dimensioni contenute conservata sul disco da 4 TB e 248 file (ogni 1 GB di dimensioni) che vengono inseriti in dischi separati da 128 GB. Esempio:
 
 - la dimensione totale della risorsa di archiviazione sul disco allocato è 1 x 4 TB + 248 x 128 GB = 35 TB.
 - Lo spazio totale riservato per i database nell'istanza è 1 x 1,2 TB + 248 x 1 GB = 1,4 TB.
@@ -495,6 +495,8 @@ Per esempio, un'istanza gestita può avere un file da 1,2 TB all'interno di un d
 Ciò dimostra che, in determinate circostanze, a causa di una distribuzione specifica dei file, un'istanza gestita può raggiungere i 35 TB riservati ad Azure Premium Disk allegato anche quando non previsto.
 
 In questo esempio, i database esistenti continueranno a funzionare e potranno crescere senza alcun problema fino a quando non vengono aggiunti nuovi file. È possibile tuttavia che non vengano creati o ripristinati nuovi database a causa dello spazio insufficiente per le nuove unità disco, anche se le dimensioni totali di tutti i database non raggiungono il limite di dimensioni dell'istanza. L'errore restituito in questo caso potrebbe non essere chiaro.
+
+È possibile [identificare il numero dei file rimanenti](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) utilizzando viste di sistema. Se sta per essere raggiunto questo limite tenta [vuoti e l'eliminazione di alcuni dei file più piccoli utilizzando l'istruzione DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o shitch al [livello Business Critical che non presenta questo limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configurazione non corretta della chiave di firma di accesso condiviso durante il ripristino del database
 

@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: masoucou
-ms.openlocfilehash: 06dd24b9909da9c3358c876a71de7d0df45a5223
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 1f86690b97fc7d65afed650664a76200ef490f33
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56585325"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517114"
 ---
 # <a name="quickstart-build-a-todo-app-with-xamarin-using-azure-cosmos-db-sql-api-account"></a>Guida introduttiva: Compilare un'app ToDo con Xamarin usando un account API SQ di Azure Cosmos DB
 
@@ -31,7 +31,7 @@ Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito
 > [!NOTE]
 > Il codice di esempio per un'intera app Xamarin canonica di esempio che include più offerte di Azure, tra cui CosmosDB, è disponibile in GitHub [qui](https://github.com/xamarinhq/app-geocontacts). Questa app offre una dimostrazione della visualizzazione di contatti in località geografiche diverse e di come consentire a tali contatti di aggiornare la propria posizione.
 
-Questa guida introduttiva mostra come creare un account dell'API SQL di Azure Cosmos DB, un database di documenti e una raccolta di Azure Cosmos DB usando il portale di Azure. Verrà quindi creata e distribuita un'app Web ToDo basata sull'[API .NET SQL](sql-api-sdk-dotnet.md) e [Xamarin](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=Cross-Platform) tramite [Xamarin.Forms](https://docs.microsoft.com/xamarin/#pivot=platforms&panel=XamarinForms) e il [modello architettonico MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
+Questa guida introduttiva mostra come creare un account dell'API SQL di Azure Cosmos DB, un database di documenti e una raccolta di Azure Cosmos DB usando il portale di Azure. Verrà quindi creata e distribuita un'app Web ToDo basata sull'[API .NET SQL](sql-api-sdk-dotnet.md) e [Xamarin](https://docs.microsoft.com/xamarin/) tramite [Xamarin.Forms](https://docs.microsoft.com/xamarin/) e il [modello architettonico MVVM](https://docs.microsoft.com/xamarin/xamarin-forms/xaml/xaml-basics/data-bindings-to-mvvm).
 
 ![App ToDo Xamarin in esecuzione in iOS](./media/create-sql-api-xamarin-dotnet/ios-todo-screen.png)
 

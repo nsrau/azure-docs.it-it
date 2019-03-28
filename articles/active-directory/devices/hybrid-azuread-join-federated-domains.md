@@ -3,7 +3,7 @@ title: Configurare l'aggiunta ad Azure Active Directory ibrido per i domini fede
 description: Informazioni su come configurare l'aggiunta ad Azure Active Directory ibrido per i domini federati.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 54e1b01b-03ee-4c46-bcf0-e01affc0419d
@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/08/2019
-ms.author: markvi
+ms.date: 03/20/2019
+ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f9045246366d8595dd47b1e1be50e966859759b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d737be389666590d32e9f1b887db57dacce543e2
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58163909"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517183"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati
 
@@ -230,7 +230,7 @@ Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibr
 
 > [!div class="nextstepaction"]
 > [Configurare l'aggiunta ad Azure Active Directory ibrido per i domini gestiti](hybrid-azuread-join-managed-domains.md)
-> [Configurare manualmente l'aggiunta ad Azure Active Directory ibrido](hybrid-azuread-join-manual-steps.md)
+> [Configurare manualmente l'aggiunta ad Azure Active Directory ibrido](hybrid-azuread-join-manual.md)
 
 
 

@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/01/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: be96aaa69fc1d59bdfa8079eff99c13c1e92c736
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3b3bb206286629a68c14b6444f3f88ffa0af50dd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905121"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540874"
 ---
 # <a name="use-azure-premium-storage-with-sql-server-on-virtual-machines"></a>Utilizzare Archiviazione Premium di Azure con SQL Server in macchine virtuali
 
@@ -682,7 +682,7 @@ $destcloudsvc = "danNewSvcAms"
 New-AzureService $destcloudsvc -Location $location
 ```
 
-#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passaggio 2: aumentare il numero di errori consentiti nelle risorse <Optional>
+#### <a name="step-2-increase-the-permitted-failures-on-resources-optional"></a>Passaggio 2: Aumentare il numero di errori consentiti nelle risorse \<facoltativo >
 
 In alcune risorse che appartengono al gruppo di disponibilità AlwaysOn sono previsti limiti al numero di errori che possono verificarsi in un intervallo di tempo durante il quale il servizio cluster prova a riavviare il gruppo di risorse. Si consiglia di aumentare questo numero durante l’esecuzione di questa procedura poiché se non si esegue il failover manuale e non si attivano i failover arrestando le macchine si potrebbe raggiungere il limite.
 
@@ -692,7 +692,7 @@ Sarebbe prudente raddoppiare la quantità di errori consentita. A questo scopo, 
 
 Modificare il numero massimo di errori in 6.
 
-#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passaggio 3: aggiungere la risorsa indirizzo IP per il gruppo di cluster <Optional>
+#### <a name="step-3-addition-ip-address-resource-for-cluster-group-optional"></a>Passaggio 3: Risorsa di indirizzo IP di addizione per il gruppo Cluster \<facoltativo >
 
 Con un solo indirizzo IP per il gruppo cluster, se viene allineato alla subnet cloud, tenere presente che se si portano accidentalmente offline tutti i nodi del cluster nel cloud nella rete, la risorsa IP del cluster e il nome di rete del cluster non potranno essere portati online. In questo caso vengono impediti gli aggiornamenti ad altre risorse cluster.
 
