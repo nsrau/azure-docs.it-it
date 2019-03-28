@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 24dfc9602f7329b4ea56db2257f29f5711510d22
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 43a5f3be9b176cf25e643d6a5231669922300b98
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977797"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485935"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Guida introduttiva: Creare una macchina virtuale Windows di SQL Server con Azure PowerShell
 
@@ -44,7 +44,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Aprire PowerShell e accedere all'account Azure eseguendo il comando **Connect-AzAccount**.
 
-   ```PowerShell
+   ```powershell
    Connect-AzAccount
    ```
 
@@ -54,19 +54,19 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Definire una variabile con un nome univoco per il gruppo di risorse. Per semplificare il resto della guida introduttiva, gli altri comandi usano questo nome come base per i nomi delle altre risorse.
 
-   ```PowerShell
+   ```powershell
    $ResourceGroupName = "sqlvm1"
    ```
 
 1. Definire la posizione di un'area di Azure di destinazione per tutte le risorse della macchina virtuale.
 
-   ```PowerShell
+   ```powershell
    $Location = "East US"
    ```
 
 1. Creare il gruppo di risorse.
 
-   ```PowerShell
+   ```powershell
    New-AzResourceGroup -Name $ResourceGroupName -Location $Location
    ```
 
@@ -93,7 +93,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Creare un gruppo di sicurezza di rete. Configurare le regole per consentire connessioni RDP (Remote Desktop) e SQL Server.
 
-   ```PowerShell
+   ```powershell
    # Rule to allow remote desktop (RDP)
    $NsgRuleRDP = New-AzNetworkSecurityRuleConfig -Name "RDPRule" -Protocol Tcp `
       -Direction Inbound -Priority 1000 -SourceAddressPrefix * -SourcePortRange * `
@@ -113,7 +113,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Creare l'interfaccia di rete.
 
-   ```PowerShell
+   ```powershell
    $InterfaceName = $ResourceGroupName + "int"
    $Interface = New-AzNetworkInterface -Name $InterfaceName `
       -ResourceGroupName $ResourceGroupName -Location $Location `
@@ -134,7 +134,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. Creare un oggetto di configurazione della macchina virtuale e quindi creare la VM. Il comando seguente crea una VM di SQL Server 2017 Developer Edition su Windows Server 2016.
 
-   ```PowerShell
+   ```powershell
    # Create a virtual machine configuration
    $VMName = $ResourceGroupName + "VM"
    $VMConfig = New-AzVMConfig -VMName $VMName -VMSize Standard_DS13_V2 | `
@@ -153,7 +153,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per ottenere l'integrazione del portale e le funzionalità della macchina virtuale SQL, è necessario installare l'[estensione SQL Server IaaS Agent](virtual-machines-windows-sql-server-agent-extension.md). Per installare l'agente nella nuova VM, eseguire il comando seguente dopo averla creata.
 
-   ```PowerShell
+   ```powershell
    Set-AzVMSqlServerExtension -ResourceGroupName $ResourceGroupName -VMName $VMName -name "SQLIaasExtension" -version "1.2" -Location $Location
    ```
 
@@ -161,7 +161,7 @@ Per ottenere l'integrazione del portale e le funzionalità della macchina virtua
 
 1. Usare il comando seguente per recuperare l'indirizzo IP pubblico per la nuova VM.
 
-   ```PowerShell
+   ```powershell
    Get-AzPublicIpAddress -ResourceGroupName $ResourceGroupName | Select IpAddress
    ```
 
@@ -185,7 +185,7 @@ Si è ora connessi localmente a SQL Server. Se ci si vuole connettere in remoto,
 
 Se non è necessario che la VM sia continuamente in esecuzione, è possibile evitare addebiti superflui arrestandola quando non è in uso. Il comando seguente arresta la VM ma la lascia disponibile per un uso futuro.
 
-```PowerShell
+```powershell
 Stop-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
 ```
 

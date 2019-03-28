@@ -6,18 +6,21 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: b0c09c5b425beef6badff7fb6ec298f96591abc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57990528"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339313"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come scrivere stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 
 L'esecuzione integrata e transazionale di JavaScript con il linguaggio di Azure Cosmos DB permette di scrivere **stored procedure**, **trigger** e **funzioni definite dall'utente**. Quando si usa l'API SQL in Azure Cosmos DB, è possibile scrivere stored procedure, trigger e funzioni definite dall'utente (UDF) nel linguaggio JavaScript. È possibile scrivere la logica nel linguaggio JavaScript ed eseguirla all'interno del motore di database. È possibile creare ed eseguire trigger, stored procedure e UDF usando il [portale di Azure](https://portal.azure.com/), l'[API di query integrata nel linguaggio JavaScript in Azure Cosmos DB](javascript-query-api.md) e gli [SDK client dell'API SQL di Cosmos DB](sql-api-dotnet-samples.md). 
 
 Per chiamare una stored procedure, un trigger e le funzioni definite dall'utente, è necessario registrarla. Per altre informazioni, vedere [Come usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md).
+
+> [!NOTE]
+> Per i contenitori partizionati, quando si esegue una stored procedure, è necessario specificare un valore della chiave di partizione nelle opzioni di richiesta. Le stored procedure hanno sempre come ambito una chiave di partizione. Gli elementi con un valore della chiave di partizione diverso non saranno visibili alla stored procedure. Questo vale anche per i trigger.
 
 ## <a id="stored-procedures"></a>Come scrivere stored procedure
 

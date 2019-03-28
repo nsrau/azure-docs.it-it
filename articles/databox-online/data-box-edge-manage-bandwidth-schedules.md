@@ -6,23 +6,20 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/12/2019
+ms.date: 03/22/2019
 ms.author: alkohli
-ms.openlocfilehash: 2c8d21a9494bace7d60b90637450cb10a5f3576e
-ms.sourcegitcommit: f596d88d776a3699f8c8cf98415eb874187e2a48
+ms.openlocfilehash: f88003e38a34eb3396b83158ff71e4739080cd9d
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/16/2019
-ms.locfileid: "58109359"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58401399"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-edge"></a>Usare il portale di Azure per gestire le pianificazioni della larghezza di banda in Azure Data Box Edge  
 
 Questo articolo descrive come gestire gli utenti in Azure Data Box Edge. Le pianificazioni della larghezza di banda consentono di configurare l'uso della larghezza di banda della rete in più pianificazioni orarie. Queste pianificazioni possono essere applicate alle operazioni di caricamento e download dal dispositivo al cloud.
 
 È possibile aggiungere, modificare o eliminare le pianificazioni della larghezza di banda per Data Box Edge dal portale di Azure.
-
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
 
 In questo articolo viene spiegato come:
 

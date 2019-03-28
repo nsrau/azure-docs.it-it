@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: ceaabdd9aa15e5979d8ab163a9b64986a03c8332
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
+ms.openlocfilehash: 2d816ab2f14be8574f77491807d4dbd071487f42
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023088"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483066"
 ---
 # <a name="tutorial-create-a-data-factory-by-using-visual-studio"></a>Esercitazione: Creare una data factory con Visual Studio
 > [!div class="op_single_selector" title="Tools/SDKs"]
@@ -60,6 +60,9 @@ Di seguito sono elencati i passaggi da eseguire nell'ambito di questa procedura 
 5. Dopo la pubblicazione, si useranno i pannelli del portale e l'app di monitoraggio e gestione di Azure per monitorare la pipeline. 
   
 ### <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 1. Vedere la [panoramica dell'esercitazione](data-factory-build-your-first-pipeline.md) ed eseguire i passaggi relativi ai **prerequisiti** . È anche possibile selezionare l'opzione **Panoramica e prerequisiti** nell'elenco a discesa in alto per passare a tale articolo. Dopo aver completato i prerequisiti, tornare a questo articolo selezionando l'opzione **Visual Studio** nell'elenco a discesa.
 2. Per creare istanze di data factory, è necessario essere membri del ruolo [Collaboratore Data factory](../../role-based-access-control/built-in-roles.md#data-factory-contributor) a livello di sottoscrizione/gruppo di risorse.  
 3. È necessario disporre dei seguenti prodotti installati nel computer in uso:
@@ -128,7 +131,7 @@ Con il servizio collegato HDInsight su richiesta, il cluster HDInsight viene cre
     > [!IMPORTANT]
     > Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (linkedServiceName). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che viene elaborata una sezione, a meno che non esista un cluster attivo (timeToLive). Il cluster viene eliminato al termine dell'elaborazione.
     > 
-    > Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono il modello `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](http://storageexplorer.com/) .
+    > Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono il modello `adf<yourdatafactoryname>-<linkedservicename>-datetimestamp`. Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](https://storageexplorer.com/) .
 
     Per altre informazioni sulle proprietà JSON, vedere l'articolo relativo ai [servizi collegati di calcolo](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service). 
 4. Salvare il file **HDInsightOnDemandLinkedService1.json** .
@@ -311,8 +314,8 @@ In questo passaggio si pubblicano le entità della data factory (servizi collega
    5. Selezionare l' **area** per la data factory.
    6. Fare clic su **Avanti** per passare alla pagina **Pubblica elementi**. Premere **TAB** per uscire dal campo Nome se il pulsante **Avanti** è disabilitato.
 
-    > [!IMPORTANT]
-    > Se al momento della pubblicazione viene visualizzato l'errore **Il nome "DataFactoryUsingVS" per la data factory non è disponibile**, modificare il nome (ad esempio in nomeutenteDataFactoryUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .   
+      > [!IMPORTANT]
+      > Se al momento della pubblicazione viene visualizzato l'errore **Il nome "DataFactoryUsingVS" per la data factory non è disponibile**, modificare il nome (ad esempio in nomeutenteDataFactoryUsingVS). Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere l'argomento relativo alle [regole di denominazione di Data factory](data-factory-naming-rules.md) .   
 1. Nella pagina **Pubblica elementi** assicurarsi che tutte le data factory siano selezionate e fare clic su **Avanti** per passare alla pagina **Riepilogo**.
 
     ![Pagina Publish Items (Pubblica elementi)](media/data-factory-build-your-first-pipeline-using-vs/publish-items-page.png)     
@@ -325,13 +328,13 @@ Elementi importanti da considerare:
 
 - Se viene visualizzato l'errore **La sottoscrizione non è registrata per l'uso dello spazio dei nomi Microsoft.DataFactory**, eseguire una di queste operazioni e provare a ripetere la pubblicazione:
     - In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory.
-        ```PowerShell   
-        Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+        ```powershell   
+        Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
         ```
         È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato.
 
-        ```PowerShell
-        Get-AzureRmResourceProvider
+        ```powershell
+        Get-AzResourceProvider
         ```
     - Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Questa azione registra automaticamente il provider.
 - Il nome della data factory può essere registrato come nome DNS in futuro e quindi divenire visibile pubblicamente.
@@ -412,7 +415,7 @@ Per istruzioni su come usare il portale di Azure per monitorare la pipeline e i 
 -  Data Factory crea automaticamente un cluster HDInsight **basato su Linux** con il codice JSON precedente. Per i dettagli, vedere [Servizio collegato Azure HDInsight su richiesta](data-factory-compute-linked-services.md#azure-hdinsight-on-demand-linked-service) .
 - Il cluster HDInsight crea un **contenitore predefinito** nell'archivio BLOB specificato nel file JSON (linkedServiceName). HDInsight non elimina il contenitore quando viene eliminato il cluster. Questo comportamento dipende dalla progettazione. Con il servizio collegato HDInsight su richiesta, viene creato un cluster HDInsight ogni volta che viene elaborata una sezione, a meno che non esista un cluster attivo (timeToLive). Il cluster viene eliminato al termine dell'elaborazione.
     
-    Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono il modello `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](http://storageexplorer.com/) .
+    Man mano che vengono elaborate più sezioni, vengono visualizzati numerosi contenitori nell'archivio BLOB di Azure. Se non sono necessari per risolvere i problemi relativi ai processi, è possibile eliminarli per ridurre i costi di archiviazione. I nomi dei contenitori seguono il modello `adf**yourdatafactoryname**-**linkedservicename**-datetimestamp`. Per eliminare i contenitori nell'archivio BLOB di Azure, usare strumenti come [Microsoft Azure Storage Explorer](https://storageexplorer.com/) .
 - In questo momento la pianificazione è basata sul set di dati di output, quindi è necessario creare un set di dati di output anche se l'attività non genera alcun output. Se l'attività non richiede input, è possibile ignorare la creazione del set di dati di input. 
 - Questa esercitazione non illustra come copiare dati con Azure Data Factory. Per un'esercitazione su come copiare dati usando Azure Data Factory, vedere [Tutorial: Copy data from Blob Storage to SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) (Esercitazione: Copiare dati da archiviazione BLOB a database SQL).
 
@@ -478,7 +481,7 @@ Per aggiungere un file di configurazione per ogni ambiente, seguire questa proce
     }
     ```
 
-    Questo esempio configura la proprietà connectionString di un servizio collegato Archiviazione di Azure e di un servizio collegato Azure SQL. Si noti che la sintassi per specificare il nome è [JsonPath](http://goessner.net/articles/JsonPath/).   
+    Questo esempio configura la proprietà connectionString di un servizio collegato Archiviazione di Azure e di un servizio collegato Azure SQL. Si noti che la sintassi per specificare il nome è [JsonPath](https://goessner.net/articles/JsonPath/).   
 
     Se JSON ha una proprietà con una matrice di valori come indicato nel codice seguente:  
 
@@ -562,6 +565,7 @@ In questo articolo è stata creata una pipeline con un'attività di trasformazio
 
 
 ## <a name="see-also"></a>Vedere anche
+
 | Argomento | DESCRIZIONE |
 |:--- |:--- |
 | [Pipeline](data-factory-create-pipelines.md) |Questo articolo contiene informazioni sulle pipeline e sulle attività in Azure Data Factory e su come usarle per costruire flussi di lavoro basati sui dati per lo scenario o l'azienda. |

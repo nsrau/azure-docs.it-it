@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8ac17c00f635c4c14c0e4752847aff941f81804a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a9ca5f8598e737d82d6a51632e1e89394b24ac0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111617"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487618"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-visual-studio"></a>Esercitazione: Creare una pipeline con l'attività Copia usando Visual Studio
 > [!div class="op_single_selector"]
@@ -335,12 +335,12 @@ Tenere presente quanto segue:
   
   * In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory. 
 
-    ```PowerShell    
+    ```powershell    
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
     È possibile eseguire questo comando per verificare che il provider di Data Factory sia registrato. 
     
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Questa azione registra automaticamente il provider.

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: e833146d05f0c35449915c1d1293873258a7b7eb
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6238f96c9e8df0431e42caa5e5846af3fc60e681
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226777"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484016"
 ---
 # <a name="point-in-time-snapshot"></a>Snapshot temporizzato
 
@@ -27,7 +27,7 @@ Configurazione app di Azure conserva i record dei momenti precisi in cui una nuo
 
 Per recuperare coppie chiave-valore precedenti, specificare il momento di acquisizione dello snapshot delle coppie chiave-valore nell'intestazione HTTP di una chiamata all'API REST. Ad esempio: 
 
-        GET /revisions HTTP/1.1
+        GET /kv HTTP/1.1
         Accept-Datetime: Sat, 1 Jan 2019 02:10:00 GMT
 
 Attualmente, il servizio Configurazione app conserva sette giorni di cronologia delle modifiche.

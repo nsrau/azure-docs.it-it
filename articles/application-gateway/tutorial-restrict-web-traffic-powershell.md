@@ -8,17 +8,25 @@ tags: azure-resource-manager
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 03/25/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5ba19c5156f25c2ff4a616e1482b6dfc83cadc27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 72d750022f9dc7005a5d20b012b47680ba69a270
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894462"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58446183"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Abilitare il web application firewall tramite Azure PowerShell
+
+> [!div class="op_single_selector"]
+>
+> - [Portale di Azure](application-gateway-web-application-firewall-portal.md)
+> - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
+> - [Interfaccia della riga di comando di Azure](tutorial-restrict-web-traffic-cli.md)
+>
+> 
 
 È possibile limitare il traffico in un [gateway applicazione](overview.md) usando un [web application firewall](waf-overview.md). Il WAF usa regole di [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) per proteggere l'applicazione. Queste regole includono la protezione contro attacchi di tipo SQL injection, attacchi tramite script da altri siti (XSS) e hijack delle sessioni. 
 

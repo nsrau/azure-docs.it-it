@@ -3,7 +3,7 @@ title: Esercitazione - Rimuovere un'app in esecuzione in Azure Service Fabric Me
 description: In questa esercitazione si apprenderà come rimuovere un'applicazione in esecuzione in Service Fabric Mesh e come eliminare le relative risorse.
 services: service-fabric-mesh
 documentationcenter: .net
-author: rwike77
+author: dkkapur
 manager: jeconnoc
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
-ms.author: ryanwi
+ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: d3ac0f6f8f6811117a515236de81eca1dc3d0e4d
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
+ms.openlocfilehash: adc5b96f29f610c63bcfa24a3b5f761c04d41d5b
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54264139"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339670"
 ---
 # <a name="tutorial-remove-an-application-and-resources"></a>Esercitazione: Rimuovere un'applicazione e le relative risorse
 
@@ -51,7 +51,7 @@ Prima di iniziare questa esercitazione:
 
 ## <a name="delete-the-resource-group-and-all-the-resources"></a>Eliminare il gruppo di risorse e tutte le relative risorse
 
-Quando tutte le risorse create non sono più necessarie, eliminarle. In precedenza, è stato [creato un nuovo gruppo di risorse](service-fabric-mesh-tutorial-template-deploy-app.md#create-a-container-registry) per ospitare l'istanza di Registro contenitori di Azure e le risorse dell'applicazione Service Fabric Mesh.  È possibile eliminare questo gruppo di risorse. Con questa operazione vengono eliminate tutte le risorse associate.
+Quando tutte le risorse create non sono più necessarie, eliminarle. In precedenza, è stato [creato un nuovo gruppo di risorse](service-fabric-mesh-tutorial-template-deploy-app.md#create-a-container-registry) per ospitare l'istanza di Registro Azure Container e le risorse dell'applicazione Service Fabric Mesh.  È possibile eliminare questo gruppo di risorse. Con questa operazione vengono eliminate tutte le risorse associate.
 
 ```azurecli
 az group delete --resource-group myResourceGroup
@@ -62,9 +62,9 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 ```
 
 ## <a name="individually-delete-the-resources"></a>Eliminare le risorse singolarmente
-È anche possibile eliminare l'istanza di Registro contenitori di Azure, l'applicazione Service Fabric Mesh e le risorse di rete singolarmente.
+È anche possibile eliminare l'istanza di Registro Azure Container, l'applicazione Service Fabric Mesh e le risorse di rete singolarmente.
 
-Per eliminare l'istanza di Registro contenitori di Azure:
+Per eliminare l'istanza di Registro Azure Container:
 
 ```azurecli
 az acr delete --resource-group myResourceGroup --name myContainerRegistry

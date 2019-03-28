@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b472927f435cb86787c4580920250cb33438a07b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 59b390776a5e23c08d8793125747742cee4e473e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57992254"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487024"
 ---
 # <a name="tutorial-build-an-aspnet-app-in-azure-with-sql-database"></a>Esercitazione: Creare un'app ASP.NET in Azure con un database SQL
 
@@ -227,19 +227,19 @@ Nel menu **Strumenti** fare clic su **Gestione pacchetti NuGet** > **Console di 
 
 Nella finestra Console di Gestione pacchetti abilitare le migrazioni Code First:
 
-```PowerShell
+```powershell
 Enable-Migrations
 ```
 
 Aggiungere una migrazione:
 
-```PowerShell
+```powershell
 Add-Migration AddProperty
 ```
 
 Aggiornare il database locale:
 
-```PowerShell
+```powershell
 Update-Database
 ```
 

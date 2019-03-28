@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 384294dfcd443f0bdbb7a915069d2563bcc35ae4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 5dcf31adc5e8bdf810d484f07ebeb6f23acbf452
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533886"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487805"
 ---
 # <a name="tutorial-build-your-first-azure-data-factory-using-data-factory-rest-api"></a>Esercitazione: Creare la prima data factory di Azure usando l'API REST di Data Factory
 > [!div class="op_single_selector"]
@@ -63,7 +63,7 @@ La pipeline in questa esercitazione include un'attività: **Attività Hive di HD
   3. Eseguire **Get-AzSubscription -SubscriptionName NameOfAzureSubscription | Set-AzContext** per selezionare la sottoscrizione che si vuole usare. Sostituire **NameOfAzureSubscription** con il nome della sottoscrizione di Azure.
 * Creare un gruppo di risorse di Azure denominato **ADFTutorialResourceGroup** eseguendo questo comando in PowerShell:
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -272,7 +272,7 @@ In Azure PowerShell eseguire i comandi seguenti dopo avere sostituito i valori c
 >
 >
 
-```PowerShell
+```powershell
 $client_id = "<client ID of application in AAD>"
 $client_secret = "<client key of application in AAD>"
 $tenant = "<Azure tenant ID>";
@@ -285,7 +285,7 @@ $adf = "FirstDataFactoryREST"
 
 ## <a name="authenticate-with-aad"></a>Eseguire l'autenticazione con AAD
 
-```PowerShell
+```powershell
 $cmd = { .\curl.exe -X POST https://login.microsoftonline.com/$tenant/oauth2/token  -F grant_type=client_credentials  -F resource=https://management.core.windows.net/ -F client_id=$client_id -F client_secret=$client_secret };
 $responseToken = Invoke-Command -scriptblock $cmd;
 $accessToken = (ConvertFrom-Json $responseToken).access_token;
@@ -301,17 +301,17 @@ In questo passaggio viene creata un'istanza di Azure Data Factory denominata **F
 
     Verificare che il nome della data factory specificato qui (ADFCopyTutorialDF) corrisponda al nome specificato in **datafactory.json**.
 
-    ```PowerShell
+    ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@datafactory.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/FirstDataFactoryREST?api-version=2015-10-01};
     ```
 2. Eseguire il comando usando **Invoke-Command**.
 
-    ```PowerShell
+    ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
 3. Visualizzare i risultati. Se la data factory è stata creata correttamente, in **results** viene visualizzato il codice JSON per la data factory. In caso contrario, viene visualizzato un messaggio di errore.
 
-    ```PowerShell
+    ```powershell
     Write-Host $results
     ```
 
@@ -327,12 +327,12 @@ Tenere presente quanto segue:
 
   * In Azure PowerShell eseguire questo comando per registrare il provider di Data Factory:
 
-    ```PowerShell
+    ```powershell
     Register-AzResourceProvider -ProviderNamespace Microsoft.DataFactory
     ```
 
       Per verificare che il provider di Data Factory sia registrato è possibile eseguire questo comando:
-    ```PowerShell
+    ```powershell
     Get-AzResourceProvider
     ```
   * Accedere usando la sottoscrizione di Azure nel [portale di Azure](https://portal.azure.com) e passare al pannello Data Factory oppure creare un'istanza di Data Factory nel portale di Azure. Questa azione registra automaticamente il provider.
@@ -347,17 +347,17 @@ In questo passaggio l'account di archiviazione di Azure viene collegato alla dat
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
-    ```PowerShell
+    ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data “@azurestoragelinkedservice.json” https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/AzureStorageLinkedService?api-version=2015-10-01};
     ```
 2. Eseguire il comando usando **Invoke-Command**.
 
-    ```PowerShell
+    ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
 3. Visualizzare i risultati. Se il servizio collegato è stato creato correttamente, in **results** viene visualizzato il codice JSON per il servizio collegato. In caso contrario, viene visualizzato un messaggio di errore.
 
-    ```PowerShell
+    ```powershell
     Write-Host $results
     ```
 
@@ -366,17 +366,17 @@ In questo passaggio viene collegato un cluster HDInsight su richiesta alla data 
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
-    ```PowerShell
+    ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@hdinsightondemandlinkedservice.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/linkedservices/hdinsightondemandlinkedservice?api-version=2015-10-01};
     ```
 2. Eseguire il comando usando **Invoke-Command**.
 
-    ```PowerShell
+    ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
 3. Visualizzare i risultati. Se il servizio collegato è stato creato correttamente, in **results** viene visualizzato il codice JSON per il servizio collegato. In caso contrario, viene visualizzato un messaggio di errore.
 
-    ```PowerShell
+    ```powershell
     Write-Host $results
     ```
 
@@ -388,17 +388,17 @@ In questo passaggio viene creato il set di dati di input per rappresentare i dat
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
-    ```PowerShell
+    ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@inputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobInput?api-version=2015-10-01};
     ```
 2. Eseguire il comando usando **Invoke-Command**.
 
-    ```PowerShell
+    ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
 
-    ```PowerShell
+    ```powershell
     Write-Host $results
     ```
 
@@ -407,17 +407,17 @@ In questo passaggio viene creato il set di dati di output per rappresentare i da
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
-    ```PowerShell
+    ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
     ```
 2. Eseguire il comando usando **Invoke-Command**.
 
-    ```PowerShell
+    ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
 
-    ```PowerShell
+    ```powershell
     Write-Host $results
     ```
 
@@ -428,17 +428,17 @@ Verificare che il file **input.log** si trovi nella cartella **adfgetstarted/inp
 
 1. Assegnare il comando alla variabile denominata **cmd**.
 
-    ```PowerShell
+    ```powershell
     $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@pipeline.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datapipelines/MyFirstPipeline?api-version=2015-10-01};
     ```
 2. Eseguire il comando usando **Invoke-Command**.
 
-    ```PowerShell
+    ```powershell
     $results = Invoke-Command -scriptblock $cmd;
     ```
 3. Visualizzare i risultati. Se il set di dati è stato creato correttamente, in **results** viene visualizzato il codice JSON per il set di dati. In caso contrario, viene visualizzato un messaggio di errore.
 
-    ```PowerShell
+    ```powershell
     Write-Host $results
     ```
 4. La creazione della prima pipeline tramite Azure PowerShell è così completata.
@@ -446,7 +446,7 @@ Verificare che il file **input.log** si trovi nella cartella **adfgetstarted/inp
 ## <a name="monitor-pipeline"></a>Monitorare la pipeline
 In questo passaggio viene usata l'API REST di Azure Data Factory per monitorare le sezioni prodotte dalla pipeline.
 
-```PowerShell
+```powershell
 $ds ="AzureBlobOutput"
 
 $cmd = {.\curl.exe -X GET -H "Authorization: Bearer $accessToken" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/$ds/slices?start=1970-01-01T00%3a00%3a00.0000000Z"&"end=2016-08-12T00%3a00%3a00.0000000Z"&"api-version=2015-10-01};

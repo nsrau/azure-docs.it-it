@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: 6feeaeb71818f355c0d91d5b49b4162a33682fa0
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57408752"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58442959"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>Guida introduttiva: Creare un processo di Analisi di flusso usando Azure PowerShell
 
@@ -147,7 +147,7 @@ Il seguente blocco di codice di Azure PowerShell usa comandi per creare l'archiv
 
 ## <a name="create-a-stream-analytics-job"></a>Creare un processo di Analisi di flusso.
 
-Creare un processo di Analisi di flusso con il cmdlet [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome del gruppo di risorse e la definizione del processo come parametri. Il nome del processo può essere un qualsiasi nome descrittivo che identifica il processo. Può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri. La definizione del processo è un file JSON che contiene le proprietà necessarie per creare un processo. Nel computer locale creare un file denominato `JobDefinition.json` e aggiungere i dati JSON seguenti:
+Creare un processo di Analisi di flusso con il cmdlet [New-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsjob). Questo cmdlet accetta il nome del processo, il nome del gruppo di risorse e la definizione del processo come parametri. Il nome del processo può essere un qualsiasi nome descrittivo che identifica il processo. Può contenere solo caratteri alfanumerici, trattini e caratteri di sottolineatura e deve avere una lunghezza compresa tra 3 e 63 caratteri. La definizione del processo è un file JSON che contiene le proprietà necessarie per creare un processo. Nel computer locale creare un file denominato `JobDefinition.json` e aggiungere i dati JSON seguenti:
 
 ```json
 {
@@ -177,7 +177,7 @@ New-AzStreamAnalyticsJob `
 
 ## <a name="configure-input-to-the-job"></a>Configurare l'input per il processo
 
-Aggiungere un input al processo tramite il cmdlet [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome dell'input del processo, il nome del gruppo di risorse e la definizione dell'input del processo come parametri. La definizione dell'input del processo è un file JSON che contiene le proprietà necessarie per configurare l'input del processo. In questo esempio come input verrà creato un archivio BLOB.
+Aggiungere un input al processo tramite il cmdlet [New-AzStreamAnalyticsInput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsinput). Questo cmdlet accetta il nome del processo, il nome dell'input del processo, il nome del gruppo di risorse e la definizione dell'input del processo come parametri. La definizione dell'input del processo è un file JSON che contiene le proprietà necessarie per configurare l'input del processo. In questo esempio come input verrà creato un archivio BLOB.
 
 Nel computer locale creare un file denominato `JobInputDefinition.json` e aggiungere i dati JSON seguenti. Assicurarsi di sostituire il valore di `accesspolicykey` con la parte `SharedAccessKey` della stringa di connessione dell'hub IoT salvato in una sezione precedente.
 
@@ -224,7 +224,7 @@ New-AzStreamAnalyticsInput `
 
 ## <a name="configure-output-to-the-job"></a>Configurare l'output per il processo
 
-Aggiungere un output al processo tramite il cmdlet [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome dell'output del processo, il nome del gruppo di risorse e la definizione dell'output del processo come parametri. La definizione dell'output del processo è un file JSON che contiene le proprietà necessarie per configurare l'output del processo. In questo esempio come output viene usato l'archivio BLOB.
+Aggiungere un output al processo tramite il cmdlet [New-AzStreamAnalyticsOutput](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticsoutput). Questo cmdlet accetta il nome del processo, il nome dell'output del processo, il nome del gruppo di risorse e la definizione dell'output del processo come parametri. La definizione dell'output del processo è un file JSON che contiene le proprietà necessarie per configurare l'output del processo. In questo esempio come output viene usato l'archivio BLOB.
 
 Nel computer locale creare un file denominato `JobOutputDefinition.json` e aggiungere i dati JSON seguenti. Assicurarsi di sostituire il valore di `accountKey` con la chiave di accesso dell'account di archiviazione corrispondente al valore archiviato in $storageAccountKey.
 
@@ -273,7 +273,7 @@ New-AzStreamAnalyticsOutput `
 
 ## <a name="define-the-transformation-query"></a>Definire la query di trasformazione
 
-Aggiungere una trasformazione al processo tramite il cmdlet [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome della trasformazione del processo, il nome del gruppo di risorse e la definizione della trasformazione del processo come parametri. Nel computer locale creare un file denominato `JobTransformationDefinition.json` e aggiungere i dati JSON seguenti. Il file JSON contiene un parametro di query che definisce la query di trasformazione:
+Aggiungere una trasformazione al processo tramite il cmdlet [New-AzStreamAnalyticsTransformation](https://docs.microsoft.com/powershell/module/az.streamanalytics/new-azstreamanalyticstransformation). Questo cmdlet accetta il nome del processo, il nome della trasformazione del processo, il nome del gruppo di risorse e la definizione della trasformazione del processo come parametri. Nel computer locale creare un file denominato `JobTransformationDefinition.json` e aggiungere i dati JSON seguenti. Il file JSON contiene un parametro di query che definisce la query di trasformazione:
 
 ```json
 {
@@ -310,7 +310,7 @@ New-AzStreamAnalyticsTransformation `
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>Avviare il processo di Analisi di flusso e controllare l'output
 
-Avviare il processo tramite il cmdlet [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0). Questo cmdlet accetta il nome del processo, il nome del gruppo di risorse, la modalità di avvio dell'output e l'ora di inizio come parametri. `OutputStartMode` accetta i valori `JobStartTime`, `CustomTime` o `LastOutputEventTime`. Per altre informazioni sugli elementi a cui fanno riferimento ognuno di questi valori, vedere la sezione sui [parametri](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob?view=azurermps-5.4.0) nella documentazione di PowerShell.
+Avviare il processo tramite il cmdlet [Start-AzStreamAnalyticsJob](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob). Questo cmdlet accetta il nome del processo, il nome del gruppo di risorse, la modalità di avvio dell'output e l'ora di inizio come parametri. `OutputStartMode` accetta i valori `JobStartTime`, `CustomTime` o `LastOutputEventTime`. Per altre informazioni sugli elementi a cui fanno riferimento ognuno di questi valori, vedere la sezione sui [parametri](https://docs.microsoft.com/powershell/module/az.streamanalytics/start-azstreamanalyticsjob) nella documentazione di PowerShell.
 
 Dopo aver eseguito il cmdlet seguente, verrà restituito `True` come output se il processo viene avviato. Nel contenitore di archiviazione viene creata una cartella di output con i dati trasformati.
 

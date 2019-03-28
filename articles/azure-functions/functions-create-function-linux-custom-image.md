@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 976bab529dc77621ce92dff0d2ae665777023a01
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337575"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418058"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creare una funzione in Linux tramite un'immagine personalizzata
 
@@ -69,7 +69,7 @@ Quando richiesto, scegliere un runtime del ruolo di lavoro tra i linguaggi segue
 * `node`: crea un progetto JavaScript.
 * `python`: crea un progetto Python.
 
-[!INCLUDE functions-python-preview-note]
+[!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
 Quando viene eseguito il comando, viene visualizzato qualcosa di simile a quanto segue:
 

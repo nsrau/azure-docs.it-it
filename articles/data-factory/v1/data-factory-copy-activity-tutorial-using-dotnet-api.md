@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 647b2ae5f23ef6f94e3a56eb777053a7eb3e0097
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8b96492c44d7a8cd8c0f1bb8fbcea8e78fc11c30
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090441"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484305"
 ---
 # <a name="tutorial-create-a-pipeline-with-copy-activity-using-net-api"></a>Esercitazione: Creare una pipeline con l'attività di copia usando l'API .NET
 > [!div class="op_single_selector"]
@@ -60,17 +60,17 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
 1. Avviare **PowerShell**.
 2. Eseguire il comando seguente e immettere il nome utente e la password usati per accedere al portale di Azure.
 
-    ```PowerShell
+    ```powershell
     Connect-AzAccount
     ```
 3. Eseguire il comando seguente per visualizzare tutte le sottoscrizioni per l'account.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription
     ```
 4. Eseguire il comando seguente per selezionare la sottoscrizione da usare. Sostituire **&lt;NameOfAzureSubscription**&gt; con il nome della sottoscrizione di Azure.
 
-    ```PowerShell
+    ```powershell
     Get-AzSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzContext
     ```
 
@@ -79,7 +79,7 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
 
 5. Creare un gruppo di risorse di Azure denominato **ADFTutorialResourceGroup** eseguendo il comando seguente in PowerShell.
 
-    ```PowerShell
+    ```powershell
     New-AzResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
     ```
 
@@ -88,28 +88,28 @@ Creare l'applicazione Azure Active Directory, creare un'entità servizio per l'a
     Se si usa un gruppo di risorse diverso, è necessario usare il nome del gruppo di risorse invece di ADFTutorialResourceGroup in questa esercitazione.
 6. Creare un'applicazione Azure Active Directory.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication = New-AzADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
     ```
 
     Se viene visualizzato l'errore seguente, specificare un URL diverso ed eseguire di nuovo il comando.
     
-    ```PowerShell
+    ```powershell
     Another object with the same value for property identifierUris already exists.
     ```
 7. Creare l'entità servizio di AD.
 
-    ```PowerShell
+    ```powershell
     New-AzADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
     ```
 8. Aggiungere l'entità servizio al ruolo **Collaboratore Data Factory** .
 
-    ```PowerShell
+    ```powershell
     New-AzRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
     ```
 9. Ottenere l'ID applicazione.
 
-    ```PowerShell
+    ```powershell
     $azureAdApplication 
     ```
     Annotare l'ID applicazione (applicationID) dall'output.

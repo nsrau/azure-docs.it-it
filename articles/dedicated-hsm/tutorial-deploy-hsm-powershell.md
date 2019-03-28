@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: fdda53172bef9fb7a4a09cbacfdc5fa4ec4c7509
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122353"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449345"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -37,7 +37,7 @@ L'esercitazione è incentrata sull'integrazione di una coppia di moduli di prote
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-HSM dedicato di Azure non è attualmente disponibile nel portale di Azure, di conseguenza l'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usato PowerShell in Azure Cloud Shell. Se non si ha familiarità con PowerShell, seguire le istruzioni introduttive disponibili nell'[introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
+HSM dedicato di Azure non è attualmente disponibile nel portale di Azure, di conseguenza l'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usato PowerShell in Azure Cloud Shell. Se non si ha familiarità con PowerShell, seguire le istruzioni introduttive disponibili nell'[introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
 Presupposti:
 

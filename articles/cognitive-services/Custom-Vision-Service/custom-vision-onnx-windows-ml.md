@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879072"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351865"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Esercitazione: Usare un modello ONNX di Visione personalizzata con Windows ML (anteprima)
 
@@ -51,7 +51,7 @@ L'applicazione di esempio è disponibile all'indirizzo [https://github.com/Azure
 
 1. Usare il tasto `F5` per avviare l'applicazione da Visual Studio. Potrebbe essere richiesto di abilitare la modalità di sviluppo. Per altre informazioni, vedere il documento [Abilitare il dispositivo per lo sviluppo](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
 
-2. All'avvio dell'applicazione, usare il pulsante per selezionare un'immagine per l'assegnazione dei punteggi.
+1. All'avvio dell'applicazione, usare il pulsante per selezionare un'immagine per l'assegnazione dei punteggi.
 
 ## <a name="use-your-own-model"></a>Usare il modello personalizzato
 
@@ -65,8 +65,8 @@ Per usare il modello personalizzato, eseguire la procedura seguente:
 
 1. In Esplora soluzioni fare clic con il pulsante destro del mouse sulla cartella Asset e scegliere __Aggiungi elemento esistente__. Selezionare il file ONNX.
 
-1. In Esplora soluzioni selezionare il file ONNX dalla cartella Asset. Modificare le proprietà seguenti per il file: 
-    
+1. In Esplora soluzioni selezionare il file ONNX dalla cartella Asset. Modificare le proprietà seguenti per il file:
+
     * __Azione di compilazione__ -> __Contenuto__
     * __Copia nella directory di output__ -> __Copia se più recente__
 

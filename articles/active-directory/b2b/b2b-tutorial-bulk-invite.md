@@ -10,12 +10,13 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ROBOTS: NOINDEX
+ms.openlocfilehash: 897fa353061d5b3e59f5613ea46e47afba0e3efa
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994605"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337800"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Esercitazione: Invitare in blocco utenti di Collaborazione B2B di Azure AD
 
@@ -119,7 +120,7 @@ Per verificare che gli utenti invitati siano stati aggiunti ad Azure AD, eseguir
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-Dovrebbero essere elencati gli utenti invitati, con il nome dell'entità utente nel formato *emailaddress*#EXT#\@*domain*. Ad esempio *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, in cui contoso.onmicrosoft.com è l'organizzazione da cui sono stati inviati gli inviti.
+Dovrebbero essere elencati gli utenti invitati, con il nome dell'entità utente nel formato *indirizzopostaelettronica*#EXT#\@*dominio*. Ad esempio *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, in cui contoso.onmicrosoft.com è l'organizzazione da cui sono stati inviati gli inviti.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

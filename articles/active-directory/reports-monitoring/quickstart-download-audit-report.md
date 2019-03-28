@@ -3,7 +3,7 @@ title: 'Guida introduttiva: Scaricare il report di controllo con il portale di A
 description: Informazioni su come scaricare il report di controllo con il portale di Azure
 services: active-directory
 documentationcenter: ''
-author: priyamohanram
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 4de121ea-f4aa-4c8a-aae4-700c2c5e97a2
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 11/13/2018
-ms.author: priyamo
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7a45e85b35ab48f95ecff07043484b322f237a8
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: a6cbea49fe39c92c8a2fc50e501cb4ef5cff74b1
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538052"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58436669"
 ---
-# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Avvio rapido: Scaricare il report di controllo con il portale di Azure
+# <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Guida introduttiva: Scaricare il report di controllo con il portale di Azure
 
-In questa guida introduttiva si apprenderà come scaricare un file CSV dei log di controllo per il tenant per le ultime 24 ore. Dal portale di Azure è possibile scaricare fino a 250,000 record. Per impostazione predefinita, vengono scaricati gli ultimi 250,000 record, ordinati partendo dai record più recenti. 
+In questa guida introduttiva si apprenderà come scaricare un file CSV dei log di controllo per il tenant per le ultime 24 ore. Dal portale di Azure è possibile scaricare fino a 250,000 record. Per impostazione predefinita, vengono scaricati gli ultimi 250.000 record, ordinati partendo dai record più recenti. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 

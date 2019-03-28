@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c99380faee8fd1bc42922f7f0e367edde1154a9b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137624"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368902"
 ---
-# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Avvio rapido: Esplorare le API REST di Ricerca di Azure con Postman o Fiddler
+# <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Guida introduttiva: Esplorare le API REST di Ricerca di Azure con Postman o Fiddler
 
 Uno dei modi più semplici per esplorare l'[API REST di Ricerca di Azure](https://docs.microsoft.com/rest/api/searchservice) consiste nell'usare Postman o Fiddler per formulare le richieste HTTP e controllare le risposte. Con gli strumenti corretti e con queste istruzioni è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
 
@@ -145,6 +145,7 @@ Il corpo della richiesta contiene quattro documenti da aggiungere all'indice deg
              "hotelId": "1",
              "baseRate": 199.0,
              "description": "Best hotel in town",
+             "description_fr": "Meilleur hôtel en ville"
              "hotelName": "Fancy Stay",
              "category": "Luxury",
              "tags": ["pool", "view", "wifi", "concierge"],
@@ -159,6 +160,7 @@ Il corpo della richiesta contiene quattro documenti da aggiungere all'indice deg
              "hotelId": "2",
              "baseRate": 79.99,
              "description": "Cheapest hotel in town",
+             "description_fr": "Hôtel le moins cher en ville",
              "hotelName": "Roach Motel",
              "category": "Budget",
              "tags": ["motel", "budget"],
@@ -262,8 +264,8 @@ In Fiddler fare clic sulla scheda **Inspectors** (Controlli), quindi sulla sched
 
 I client REST sono molto utili per l'esplorazione improvvisata, ma ora che si conosce il funzionamento delle API REST, è possibile precedere con il codice. Per i passaggi successivi, vedere i collegamenti seguenti:
 
-+ [Avvio rapido: Creare un indice con .NET SDK](search-create-index-dotnet.md)
-+ [Avvio rapido: Creare un indice (REST) con PowerShell](search-create-index-rest-api.md)
++ [Guida introduttiva: Creare un indice con .NET SDK](search-create-index-dotnet.md)
++ [Guida introduttiva: Creare un indice (REST) con PowerShell](search-create-index-rest-api.md)
 
 <!--Image References-->
 [1]: ./media/search-fiddler/fiddler-url.png
