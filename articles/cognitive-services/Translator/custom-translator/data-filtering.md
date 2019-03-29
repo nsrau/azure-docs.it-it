@@ -18,7 +18,7 @@ ms.locfileid: "57844674"
 ---
 # <a name="data-filtering"></a>Filtro dei dati
 
-Quando si inviano documenti da usare per il training di un sistema personalizzato, i documenti vengono sottoposti a una serie di passaggi di elaborazione e filtro per la preparazione al training. Questi passaggi sono illustrati qui. La conoscenza del filtri può aiutare a comprendere il numero delle frasi visualizzato nel traduttore personalizzato, nonché le operazioni eseguite manualmente per preparare i documenti per il training con il traduttore personalizzato.
+Quando si inviano documenti da usare per il training di un sistema personalizzato, i documenti vengono sottoposti a una serie di passaggi di elaborazione e filtro per la preparazione al training. Questi passaggi sono illustrati qui. La conoscenza dei filtri può aiutare a comprendere il numero di frasi visualizzato nel traduttore personalizzato, nonché le operazioni che è possibile eseguire per preparare i documenti per il training con il traduttore personalizzato.
 
 ## <a name="sentence-alignment"></a>Allineamento di frasi
 Se il documento non è in formato XLIFF, TMX o ALIGN, il traduttore personalizzato allinea le frasi dei documenti di origine e destinazione tra loro, frase per frase. Il traduttore non esegue l'allineamento dei documenti: segue la denominazione dei documenti per trovare il documento corrispondente nell'altra lingua. All'interno del documento il traduttore personalizzato tenta di trovare la frase corrispondente nell'altra lingua. Per facilitare l'allineamento usa il markup del documento, ad esempio i tag HTML presenti nel documento.  
@@ -27,7 +27,7 @@ Se possibile visualizzare una grande discrepanza tra il numero di frasi nell'ori
 
 
 ## <a name="deduplication"></a>Deduplicazione
-Il traduttore personalizzato rimuove le frasi presenti nei documenti di test e ottimizzazione dai dati di training. La rimozione avviene in modo dinamico durante l'esecuzione del training e non nella fase di elaborazione dei dati. Prima di procedere alla rimozione il traduttore personalizzato segnala il numero delle frasi all'utente nella panoramica del progetto.  
+Il traduttore personalizzato rimuove le frasi presenti nei documenti di test e ottimizzazione dai dati di training. La rimozione avviene in modo dinamico durante l'esecuzione del training e non nella fase di elaborazione dei dati. Prima di procedere alla rimozione il traduttore personalizzato segnala il numero di frasi all'utente nella panoramica del progetto.  
 
 ## <a name="length-filter"></a>Filtro di lunghezza
 * Rimuovere le frasi con una sola parola su entrambi i lati.
