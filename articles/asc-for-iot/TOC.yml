@@ -8,6 +8,8 @@ items:
     href: architecture.md
   - name: Agenti di sicurezza
     href: security-agent-architecture.md
+  - name: Modulo di sicurezza per Edge
+    href: security-edge-architecture.md
   - name: Prerequisiti del servizio
     href: service-prerequisites.md
   - name: Introduzione al Centro sicurezza di Azure per IoT
@@ -23,26 +25,8 @@ items:
   - name: Creare avvisi di sicurezza personalizzati
     href: quickstart-create-custom-alerts.md
   expanded: true
-- name: Esercitazioni
-  items:
-  - name: Distribuire gli agenti di sicurezza
-    items:
-    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Windows
-      href: tutorial-deploy-windows-cs.md
-    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Linux
-      href: tutorial-deploy-linux-cs.md
-    - name: Distribuire un agente di sicurezza basato su C in un dispositivo Linux
-      href: tutorial-deploy-linux-c.md
-  - name: Analizzare un dispositivo
-    href: tutorial-investigate-device.md
-  - name: Inviare messaggi di sicurezza personalizzati
-    href: tutorial-send-security-messages.md
 - name: Concetti
   items:
-  - name: Quale agente distribuire?
-    href: select-deploy-agent.md
-  - name: Configurare gli agenti di sicurezza
-    href: concept-agent-configuration.md
   - name: Autenticazione degli agenti di sicurezza
     href: concept-security-agent-authentication-methods.md
   - name: Modulo di sicurezza
@@ -51,12 +35,30 @@ items:
     href: concept-security-alerts.md
   - name: Suggerimenti per la sicurezza
     href: concept-recommendations.md
+  - name: Prezzi e costi associati
+    href: concept-pricing.md
 - name: Guide alle procedure
   items:
+  - name: Quale agente distribuire?
+    items:
+    - name: Selezionare un agente da distribuire
+      href: how-to-deploy-agent.md
+    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Windows
+      href: how-to-deploy-windows-cs.md
+    - name: Distribuire un agente di sicurezza basato su C# in un dispositivo Linux
+      href: how-to-deploy-linux-cs.md
+    - name: Distribuire un agente di sicurezza basato su C in un dispositivo Linux
+      href: how-to-deploy-linux-c.md
+  - name: Distribuire il modulo di sicurezza per Edge
+    href: how-to-deploy-edge.md
+  - name: Configurare gli agenti di sicurezza
+    href: how-to-agent-configuration.md
+  - name: Inviare messaggi di sicurezza personalizzati
+    href: how-to-send-security-messages.md
   - name: Accedere a dati non elaborati sulla sicurezza
     href: how-to-security-data-access.md
-  - name: Modificare un modulo gemello di sicurezza
-    href: how-to-modify-security-module-twin.md
+  - name: Analizzare un dispositivo
+    href: how-to-investigate-device.md
 - name: Risorse
   items:
   - name: Domande frequenti
@@ -67,9 +69,9 @@ items:
     href: http://blogs.msdn.com/b/azuresecurity/
   - name: Disponibilità internazionale
     href: https://azure.microsoft.com/regions/services/
-ms.openlocfilehash: 6789b87deb5c502df3541a10e9a8e4eece21a351
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 17508e05a8de52e12487bf35fd3e063761abcbe2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541323"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575165"

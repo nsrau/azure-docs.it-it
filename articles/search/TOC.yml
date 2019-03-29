@@ -203,11 +203,6 @@ items:
     - name: Esempi (sintassi semplice)
       href: search-query-simple-examples.md
     - name: Esempi (sintassi completa Lucene)
-      href: search-query-lucene-examples.md
-  - name: Gestire i risultati
-    items:
-    - name: Funzionalità correlate alle pagine
-      href: search-pagination-page-layout.md
   - name: Filtrare e ordinare i dati
     items:
     - name: Panoramica dei filtri
@@ -216,8 +211,12 @@ items:
       href: search-filters-facets.md
     - name: Aggiungere l'esplorazione in base a facet
       href: search-faceted-navigation.md
-    - name: Sintassi delle espressioni Filter e OrderBy
-      href: query-odata-filter-orderby-syntax.md
+    - name: Sintassi ed esempi delle espressioni Filter e OrderBy
+      href: search-query-lucene-examples.md
+  - name: Gestire i risultati
+    items:
+    - name: Funzionalità correlate alle pagine
+      href: search-pagination-page-layout.md
   - name: Ottimizzazione della pertinenza
     items:
     - name: Aggiungere profili di punteggio
@@ -307,9 +306,9 @@ items:
     href: https://azure.microsoft.com/pricing/details/search/
   - name: Video
     href: https://azure.microsoft.com/resources/videos/index/?services=search
-ms.openlocfilehash: 74d4c29b7a4c70116531ef242929571eee3e4d90
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: d0e692407a89e01806f425bedb302160ec8c672b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500495"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576825"
