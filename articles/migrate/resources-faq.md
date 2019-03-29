@@ -4,14 +4,14 @@ description: Risposte alle domande frequenti su Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 03/28/2019
 ms.author: snehaa
-ms.openlocfilehash: 20a3b790310153ac5bda23fb72baf2ae61e1da52
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 366240c273feed559edb6e569640020046cc9471
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58003727"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578646"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Domande frequenti su Azure Migrate
 
@@ -52,8 +52,8 @@ Azure Migrate attualmente supporta Europa, Stati Uniti e Azure per enti pubblici
 
 **Area geografica** | **Posizione di archiviazione dei metadati**
 --- | ---
-Azure Government | US Gov Virginia
-Asia | Asia sud-orientale
+Azure per enti pubblici | US Gov Virginia
+Asia | Asia sudorientale
 Europa | Europa settentrionale o Europa occidentale
 Stati Uniti | Stati Uniti orientali o Stati Uniti centro-occidentali
 
@@ -93,8 +93,8 @@ L'individuazione basata su appliance raccoglie i metadati relativi alle macchine
 - Dimensione della memoria, dimensioni dei dischi
 
 **Dati sulle prestazioni della macchina virtuale**
-- Utilizzo di CPU
-- Utilizzo della memoria
+- Utilizzo CPU
+- Utilizzo memoria
 - Per ogni disco collegato alla macchina virtuale:
   - Velocità effettiva lettura da disco
   - Velocità effettiva di scrittura su disco
@@ -108,9 +108,7 @@ L'individuazione basata su agenti è un'opzione disponibile sopra l'individuazio
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Ci sono conseguenze sulle prestazioni dell'ambiente host di ESXi analizzato?
 
-Nel caso dell'[approccio di individuazione una tantum](https://docs.microsoft.com/azure/migrate/concepts-collector), per raccogliere i dati sulle prestazioni, il livello delle statistiche nel server vCenter deve essere impostato su 3. Impostando il livello in questo modo viene raccolta una grande quantità di dati di risoluzione dei problemi che viene archiviata nel database del server vCenter. Ciò potrebbe causare problemi di prestazioni del server vCenter, mentre l'impatto sull'host ESXi sarebbe trascurabile.
-
-È stata introdotta la profilatura continua dei dati sulle prestazioni (disponibile in anteprima). Con la profilatura continua, non è più necessario modificare il livello delle statistiche del server vCenter per eseguire una valutazione basata sulle prestazioni. L'appliance dell'agente di raccolta esegue ora la profilatura delle macchine virtuali locali per misurarne i dati sulle prestazioni. Ciò ha un impatto quasi nullo sulle prestazioni degli host ESXi, nonché del server vCenter.
+Con l'analisi continue dei dati sulle prestazioni, non è necessario modificare il livello di Server delle statistiche per eseguire una valutazione basata sulle prestazioni di vCenter. L'appliance dell'agente di raccolta verrà profilare le macchine virtuali locali per misurare i dati sulle prestazioni delle macchine virtuali. Ciò ha un impatto quasi nullo sulle prestazioni degli host ESXi, nonché del server vCenter.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Dove vengono archiviati i dati raccolti e per quanto tempo?
 
@@ -159,7 +157,7 @@ Se si dispone di un ambiente condiviso da più tenant e non si desidera individu
 
 Azure Migrate attualmente non supporta la stima dei costi per [offerta del Contratto Enterprise Agreement](https://azure.microsoft.com/offers/enterprise-agreement-support/). La soluzione temporanea consiste nello specificare Con pagamento in base al consumo come l'offerta e specificando manualmente la percentuale di sconto (applicabile alla sottoscrizione) nel campo 'Sconto' delle proprietà della valutazione.
 
-  ![Discount](./media/resources-faq/discount.png)
+  ![Sconto](./media/resources-faq/discount.png)
 
 ### <a name="what-is-the-difference-between-as-on-premises-sizing-and-performance-based-sizing"></a>Qual è la differenza tra il dimensionamento locale e il dimensionamento basato sulle prestazioni?
 
@@ -169,7 +167,7 @@ Quando si specifica che il criterio di dimensionamento deve essere locale, Azure
 
 Queste proprietà sono applicabili solo per il dimensionamento basato sulle prestazioni. Azure Migrate raccoglie la cronologia delle prestazioni dei computer locali e la usa per consigliare le dimensioni della macchina virtuale e il tipo di disco in Azure. L'appliance dell'agente di raccolta esegue continuamente una profilatura dell'ambiente locale per raccogliere i dati di utilizzo in tempo reale ogni 20 secondi. L'appliance esegue il rollup dei campioni raccolti ogni 20 secondi e crea un singolo punto dati ogni 15 minuti. Per creare il singolo punto dati, l'appliance seleziona il valore di picco da tutti i campioni raccolti ogni 20 secondi e lo invia ad Azure. Quando si crea una valutazione in Azure, in base alla durata delle prestazioni e al valore percentile della cronologia delle prestazioni, Azure Migrate calcola il valore di utilizzo effettivo e lo usa per il dimensionamento. Se ad esempio la durata delle prestazioni è stata impostata su 1 giorno e il valore percentile è stato impostato su 95, Azure Migrate usa i punti campione da 15 minuti inviati dall'agente di raccolta per l'ultimo giorno, li ordina in senso crescente e sceglie il valore del 95° percentile come utilizzo effettivo. Il valore del 95° percentile assicura che vengano ignorati eventuali outlier, come potrebbe invece verificarsi se si selezionasse il 99° percentile. Per scegliere il picco nell'utilizzo per il periodo di tempo senza perdere gli outlier, è consigliabile selezionare il 99° percentile.
 
-## <a name="dependency-visualization"></a>Visualizzazione delle dipendenze
+## <a name="dependency-visualization"></a>Visualizzazione dipendenze
 
 > [!NOTE]
 > La funzionalità di visualizzazione delle dipendenze non è disponibile in Azure per enti pubblici.
@@ -180,7 +178,7 @@ La visualizzazione delle dipendenze consente di valutare in modo più attendibil
 
 ### <a name="do-i-need-to-pay-to-use-the-dependency-visualization-feature"></a>È necessario pagare per usare la funzionalità di visualizzazione delle dipendenze?
 
- No. Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://azure.microsoft.com/pricing/details/azure-migrate/).
+No. Altre informazioni sui prezzi di Azure Migrate sono disponibili [qui](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ### <a name="do-i-need-to-install-anything-for-dependency-visualization"></a>È necessario eseguire eventuali installazioni per usare la visualizzazione delle dipendenze?
 

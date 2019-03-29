@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444513"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578921"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Eseguire l'aggiornamento a un account di archiviazione per utilizzo generico v2
 
@@ -21,7 +21,7 @@ Gli account di archiviazione per utilizzo generico v2 supportano le funzionalit�
 L'aggiornamento a un account di archiviazione per utilizzo generico v2 dall'utilizzo generico v1 o account di archiviazione Blob è semplice. È possibile eseguire l'aggiornamento tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
 > [!IMPORTANT]
-> L'aggiornamento di un utilizzo generico v1 o archiviazione BLOB di archiviazione per utilizzo generico v2 è permanente e non può essere annullata.
+> L'aggiornamento di un utilizzo generico v1 o un account di archiviazione Blob per utilizzo generico v2 è permanente e non può essere annullata.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Aggiornamento con il portale di Azure
 

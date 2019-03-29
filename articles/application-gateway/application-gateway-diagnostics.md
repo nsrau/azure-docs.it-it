@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309129"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620877"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Integrità back-end, log di diagnostica e metriche per il gateway applicazione
 
@@ -131,7 +131,7 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Abilitare la registrazione tramite il portale di Azure
 
-1. Nel portale di Azure trovare la risorsa e fare clic su **Log di diagnostica**.
+1. Nel portale di Azure, trovare la risorsa e selezionare **le impostazioni di diagnostica**.
 
    Per il gateway applicazione sono disponibili tre log:
 
@@ -139,21 +139,15 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
    * Log delle prestazioni
    * Log del firewall
 
-2. Fare clic su **Abilita diagnostica** per avviare la raccolta dei dati.
+2. Per avviare la raccolta dei dati, selezionare **attivare la diagnostica**.
 
    ![Attivare la diagnostica][1]
 
-3. Il pannello **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica. In questo esempio viene usato Log Analytics per archiviare i log. Fare clic su **Configura** in **Log Analytics** per configurare l'area di lavoro. Per salvare i log di diagnostica è possibile anche usare l'hub eventi e un account di archiviazione.
+3. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica. In questo esempio viene usato Log Analytics per archiviare i log. Per salvare i log di diagnostica è possibile anche usare l'hub eventi e un account di archiviazione.
 
    ![Avvio del processo di configurazione][2]
 
-4. Scegliere un'area di lavoro di Log Analytics esistente oppure crearne una nuova. Questo esempio usa un'area di lavoro esistente.
-
-   ![Opzioni disponibili per le aree di lavoro di Log Analytics][3]
-
-5. Confermare le impostazioni e fare clic su **Salva**.
-
-   ![Pannello delle impostazioni di diagnostica con le selezioni][4]
+5. Digitare un nome per le impostazioni, verificare le impostazioni e selezionare **salvare**.
 
 ### <a name="activity-log"></a>Log attività
 
@@ -214,7 +208,7 @@ Il log delle prestazioni viene generato solo se è stato abilitato in ogni istan
 |healthyHostCount     | Numero di host integri nel pool back-end.        |
 |unHealthyHostCount     | Numero di host non integri nel pool back-end.        |
 |requestCount     | Numero di richieste gestite.        |
-|latency | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
+|latenza | Latenza media in millisecondi delle richieste dall'istanza al back-end che gestisce le richieste. |
 |failedRequestCount| Numero di richieste non riuscite.|
 |throughput| Velocità effettiva media dall'ultimo log, misurata in byte al secondo.|
 
@@ -254,10 +248,10 @@ Il log del firewall viene generato solo se è stato abilitato in ogni gateway ap
 |ruleSetType     | Tipo di set di regole. Il valore disponibile è OWASP.        |
 |ruleSetVersion     | Versione del set di regole usata. I valori disponibili sono 2.2.9 e 3.0.     |
 |ruleId     | ID regola dell'evento di attivazione.        |
-|Message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
-|action     |  Azione eseguita sulla richiesta. I valori disponibili sono Blocked e Allowed.      |
+|message     | Messaggio descrittivo dell'evento di attivazione. Altre informazioni sono disponibili nella sezione dei dettagli.        |
+|azione     |  Azione eseguita sulla richiesta. I valori disponibili sono Blocked e Allowed.      |
 |site     | Sito per cui è stato generato il log. Attualmente viene visualizzato solo Global poiché le regole sono globali.|
-|informazioni dettagliate     | Dettagli dell'evento di attivazione.        |
+|dettagli     | Dettagli dell'evento di attivazione.        |
 |details.message     | Descrizione della regola.        |
 |details.data     | Dati specifici individuati nella richiesta corrispondente alla regola.         |
 |details.file     | File di configurazione che conteneva la regola.        |
@@ -313,7 +307,7 @@ I [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-anal
 
 È stato pubblicato un modello di Resource Manager che installa ed esegue il diffuso analizzatore di log [GoAccess](https://goaccess.io/) per i log di accesso del gateway applicazione. GoAccess offre utili statistiche sul traffico HTTP, come ad esempio visitatori univoci, file richiesti, host, sistemi operativi, browser, codici di stato HTTP e altro ancora. Per altre informazioni, vedere il [file Readme nella cartella del modello di Resource Manager in GitHub](https://aka.ms/appgwgoaccessreadme).
 
-## <a name="metrics"></a>Metriche
+## <a name="metrics"></a>Metrica
 
 Le metriche sono una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per il gateway applicazione sono disponibili le metriche seguenti:
 
@@ -334,7 +328,7 @@ Le metriche sono una funzionalità di alcune risorse di Azure che consente di vi
 
    È possibile filtrare in base al pool back-end per visualizzare gli host integri o non integri in un pool back-end specifico.
 
-Passare a un gateway applicazione e in **Monitoraggio** fare clic su **Metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
+Passare a un gateway applicazione, sotto **Monitoring** selezionate **metriche**. Per visualizzare i valori disponibili, selezionare l'elenco a discesa **METRICA**.
 
 Nella figura seguente è illustrato un esempio con tre metriche visualizzate per gli ultimi 30 minuti:
 
@@ -348,11 +342,11 @@ Per un elenco delle metriche correnti, vedere [Metriche supportate con il monito
 
 L'esempio seguente illustra la creazione di una regola di avviso per l'invio di un messaggio di posta elettronica a un amministratore al superamento della soglia della velocità effettiva:
 
-1. Fare clic su **Aggiungi avviso per la metrica** per aprire il pannello **Aggiungi regola**. È possibile visualizzare questo pannello anche dal pannello delle metriche.
+1. Selezionare **Aggiungi avviso sulla metrica** per aprire il **Aggiungi regola** pagina. È anche possibile raggiungere questa pagina dalla pagina di metriche.
 
    ![Pulsante "Aggiungi avviso per la metrica"][6]
 
-2. Nel pannello **Aggiungi regola** compilare le sezioni relative a nome, condizione e notifica e fare clic su **OK**.
+2. Nel **Aggiungi regola** pagina, immettere il nome, condizione e notifica sezioni e selezionare **OK**.
 
    * Nel selettore **Condizione** selezionare uno dei quattro valori seguenti: **Maggiore di**, **Maggiore di o uguale a**, **Minore di** o **Minore o uguale a**.
 
@@ -360,7 +354,7 @@ L'esempio seguente illustra la creazione di una regola di avviso per l'invio di 
 
    * Se si seleziona **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**, il messaggio di posta elettronica può essere dinamico basato sugli utenti che hanno accesso alla risorsa. In alternativa, è possibile inserire un elenco di utenti separato da virgole nella casella **Indirizzi di posta elettronica aggiuntivi dell'amministratore**.
 
-   ![Aggiungere il pannello delle regole][7]
+   ![Aggiungi pagina regola][7]
 
 Se la soglia viene superata, l'utente riceve un messaggio di posta elettronica simile al seguente:
 

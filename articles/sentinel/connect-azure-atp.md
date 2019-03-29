@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242174"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574944"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Raccogliere i dati da Azure Advanced Threat Protection (ATP)
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -46,6 +46,7 @@ Se Azure ATP viene distribuita e l'inserimento dei dati, gli avvisi sospetti pos
 
 2. Fare clic su **Connetti**.
 
+6. Per usare lo schema appropriato nel Log Analitica per gli avvisi di Azure ATP, cercare **SecurityAlert**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento è stato descritto come connettere Azure Advanced Threat Protection per Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:

@@ -1,5 +1,5 @@
 ---
-title: Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in PIM | Microsoft Docs
+title: Visualizza cronologia di attività e controllo per i ruoli delle risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
 description: Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.subservice: pim
 ms.date: 01/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9afbbad9b956d41252ff9121c99a91669c71aaab
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: a6fb97c416d0e34635b8aa4c19fc6b94889f566c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211734"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578136"
 ---
 # <a name="view-activity-and-audit-history-for-azure-resource-roles-in-pim"></a>Visualizzare la cronologia delle attività e dei controlli per i ruoli delle risorse di Azure in PIM
 
@@ -113,4 +113,4 @@ Controllo personale consente di visualizzare l'attività del ruolo personale.
 
 - [Assegnare i ruoli delle risorse di Azure in PIM](pim-resource-roles-assign-roles.md)
 - [Approvare o rifiutare le richieste per i ruoli delle risorse di Azure in PIM](pim-resource-roles-approval-workflow.md)
-- [Visualizzare la cronologia dei controlli per i ruoli della directory di Azure AD in PIM](pim-how-to-use-audit-log.md)
+- [Cronologia di controllo di visualizzazione per i ruoli di Azure AD in PIM](pim-how-to-use-audit-log.md)

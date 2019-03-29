@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382568"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578527"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Panoramica di Azure Load Balancer Standard
 
-Azure Load Balancer consente di ridimensionare le applicazioni e di creare disponibilità elevata per i servizi. Load Balancer supporta scenari in ingresso e in uscita, offre bassa latenza, elevata produttività e una scalabilità fino a milioni di flussi per tutte le applicazioni TCP e UDP. 
+Azure Load Balancer permette di ridimensionare le applicazioni e creare la disponibilità elevata per i servizi. Load Balancer supporta scenari in ingresso e in uscita, offre bassa latenza, elevata produttività e una scalabilità fino a milioni di flussi per tutte le applicazioni TCP e UDP. 
 
 Questo articolo illustra Load Balancer Standard.  Per una panoramica più generale di Load Balancer di Azure, consultare anche la [Panoramica di Load Balancer](load-balancer-overview.md).
 
@@ -73,6 +73,9 @@ Inoltre, in caso di [inattività dei probe](load-balancer-custom-probe-overview.
 Per informazioni dettagliate, vedere [Probe di integrità di Load Balancer](load-balancer-custom-probe-overview.md).
 
 ### <a name="az"></a>Zone di disponibilità
+
+>[!IMPORTANT]
+>Revisione [zone di disponibilità](../availability-zones/az-overview.md) per argomenti correlati, incluse eventuali informazioni specifiche di area.
 
 Load Balancer Standard supporta funzionalità aggiuntive in aree in cui sono disponibili zone di disponibilità.  Queste funzionalità sono incrementali rispetto a tutte le funzioni di Load Balancer Standard.  Le configurazioni delle zone di disponibilità sono disponibili per Load Balancer Standard pubblico e interno.
 
@@ -201,7 +204,7 @@ Gli SKU non sono modificabili. Seguire i passaggi di questa sezione per passare 
 >
 >Per le risorse di Load Balancer e IP pubblico è necessario usare SKU corrispondenti. Non è possibile avere una combinazione di risorse SKU Basic e risorse SKU Standard. Non è possibile collegare le macchine virtuali autonome, le macchine virtuali in una risorsa del set di disponibilità, o una risorsa di un set di scalabilità di macchina virtuale per entrambi gli SKU contemporaneamente.
 
-## <a name="region-availability"></a>Aree di disponibilità
+## <a name="region-availability"></a>Disponibilità a livello di area
 
 Load Balancer Standard è attualmente disponibile in tutte le aree di cloud pubblico.
 

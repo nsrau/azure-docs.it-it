@@ -1,6 +1,6 @@
 ---
-title: Completare una verifica di accesso di gruppi o applicazioni in verifiche di accesso AD Azure | Microsoft Docs
-description: Informazioni su come completare una verifica di accesso dei membri del gruppo o l'accesso alle applicazioni nelle verifiche di accesso di Azure AD.
+title: Completare una verifica di accesso di gruppi o applicazioni - Azure Active Directory | Microsoft Docs
+description: Informazioni su come completare una verifica di accesso dei membri del gruppo o l'accesso alle applicazioni in Azure Active Directory le verifiche di accesso.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729611"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579598"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso di gruppi o applicazioni nelle verifiche di accesso di Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Completare una verifica di accesso dei gruppi o applicazioni in Azure AD le verifiche di accesso
 
 Gli amministratori possono usare Azure Active Directory (Azure AD) per [creare una verifica di accesso](create-access-review.md) per gli utenti o i membri del gruppo assegnati a un'applicazione. Azure AD invia automaticamente ai revisori un messaggio di posta elettronica in cui viene chiesto di verificare l'accesso. Se un utente non ha ricevuto un messaggio di posta elettronica, è possibile inviargli le istruzioni [verificare l'accesso a gruppi o applicazioni](perform-access-review.md). Tenere presente che i guest a cui è stato assegnato il ruolo di revisore ma che non hanno accettato l'invito non riceveranno un messaggio di posta elettronica dalle verifiche di accesso, poiché dovranno accettare l'invito prima di poter eseguire la verifica. Al termine del periodo della verifica di accesso o se l'amministratore interrompe la verifica, seguire la procedura descritta in questo articolo per esaminare e applicare i risultati.
 

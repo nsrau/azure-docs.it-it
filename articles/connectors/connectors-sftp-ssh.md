@@ -10,12 +10,12 @@ ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
 ms.date: 01/15/2019
-ms.openlocfilehash: e196a7a0b1ad29462aa7e2fb60fcb5d07c57eea7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 660d785baf12052bddf5206d8641116c9ac606aa
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886664"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575097"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -27,10 +27,16 @@ Per automatizzare le attività che monitorano, creano, inviano e ricevono file i
 * Leggere contenuti e metadati dei file.
 * Estrarre archivi nella cartella.
 
-Rispetto al [connettore SFTP](../connectors/connectors-create-api-sftp.md), il connettore SFTP-SSH può leggere e scrivere file fino a un massimo di *1 GB* gestendo i dati in blocchi da 50 MB. Per i file di dimensioni superiori a 1 GB, le azioni possono usare la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Per altre differenze, vedere [SFTP-SSH e SFTP a confronto](#comparison) più avanti in questo articolo.
-
 È possibile usare trigger che monitorano eventi sul server SFTP e rendere disponibile l'output per altre azioni. È possibile usare azioni che eseguono varie attività sul server SFTP. Si può anche fare in modo che altre azioni dell'app per la logica usino l'output delle azioni SFTP. Se ad esempio si recuperano regolarmente file dal server SFTP, è possibile inviare avvisi su tali file e sul relativo contenuto tramite posta elettronica usando il connettore Outlook di Office 365 o Outlook.com.
 Se non si ha familiarità con le app per la logica, consultare [Informazioni su App per la logica di Azure](../logic-apps/logic-apps-overview.md)
+
+## <a name="limits"></a>Limiti
+
+* In grado di leggere o scrivere i file che sono azioni SFTP-SSH *1 GB o ridurre le dimensioni* gestendo i dati come *50 MB pezzi*, non 1 GB parti.
+
+* Per i file *superano 1 GB*, le azioni possono utilizzare [chunking messaggio](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger SFTP-SSH non supportano la suddivisione in blocchi.
+
+Per altre differenze, esaminare [confrontare SFTP-SSH e SFTP](#comparison) più avanti nella sezione successiva.
 
 <a name="comparison"></a>
 
@@ -38,23 +44,23 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
 Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e il connettore SFTP. SFTP-SSH offre queste funzionalità:
 
-* Usa la libreria <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, una libreria SSH open source con supporto per .NET. 
+* Usa la libreria <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a>, una libreria SSH open source con supporto per .NET.
 
   > [!NOTE]
   >
   > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
-  > 
+  >
   > * **Formati di chiave privata**: chiavi RSA (Rivest Shamir Adleman) e DSA (Digital Signature Algorithm) in entrambi i formati OpenSSH e ssh.com
   > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   > * **Impronta digitale**: MD5
 
-* Legge o scrive file per una dimensione massima di *1 GB* rispetto al connettore SFTP, ma gestisce i dati in parti di 50 MB, non di 1 GB. Per i file di dimensioni superiori a 1 GB, le azioni possono usare anche la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger non supportano la suddivisione in blocchi.
+* Le azioni possano leggere o scrivere i file *fino a 1 GB* confrontato con il connettore SFTP, ma gestisce dati in parti di 50 MB, 1 GB non parti. Per i file di dimensioni superiori a 1 GB, le azioni possono usare anche la [suddivisione in blocchi dei messaggi](../logic-apps/logic-apps-handle-large-messages.md). Attualmente, i trigger SFTP-SSH non supportano la suddivisione in blocchi.
 
 * Fornisce l'azione **Crea cartella** che crea una cartella nel percorso specificato nel server SFTP.
 
 * Fornisce l'azione **Rinomina file** che rinomina un file nel server SFTP.
 
-* Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> nella configurazione di SSH sul server SFTP. 
+* Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà <a href="https://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> nella configurazione di SSH sul server SFTP.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -140,7 +146,7 @@ Per le richieste del contenuto del file, i trigger non recuperano file di dimens
 
 <a name="file-added-modified"></a>
 
-### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP - SSH: When a file is added or modified (Quando un file viene aggiunto o modificato)
+### <a name="sftp---ssh-trigger-when-a-file-is-added-or-modified"></a>Trigger SFTP - SSH: Quando viene aggiunto o modificato un file
 
 Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP. 
 
@@ -168,7 +174,7 @@ Per le richieste del contenuto del file, i trigger non recuperano file di dimens
 
 Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sftpconnector/) del connettore.
 
-## <a name="get-support"></a>Supporto
+## <a name="get-support"></a>Supporto tecnico
 
 * In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * Per votare o inviare idee relative alle funzionalità, visitare il [sito dei commenti e suggerimenti degli utenti di App per la logica](https://aka.ms/logicapps-wish).

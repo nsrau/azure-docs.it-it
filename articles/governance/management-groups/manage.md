@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990545"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622060"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -67,9 +67,9 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 
 1. Nel gruppo di gestione non esistono gruppi di gestione o sottoscrizioni figlio.
 
-   - Per spostare una sottoscrizione da un gruppo di gestione, vedere [Spostare sottoscrizioni in un altro gruppo di gestione](#Move-subscriptions-in-the-hierarchy).
+   - Per spostare una sottoscrizione da un gruppo di gestione, vedere [Spostare sottoscrizioni in un altro gruppo di gestione](#move-subscriptions-in-the-hierarchy).
 
-   - Per spostare un gruppo di gestione in un altro gruppo di gestione, vedere [Spostare gruppi di gestione nella gerarchia](#Move-management-groups-in-the-hierarchy).
+   - Per spostare un gruppo di gestione in un altro gruppo di gestione, vedere [Spostare gruppi di gestione nella gerarchia](#move-management-groups-in-the-hierarchy).
 
 1. Si dispone delle autorizzazioni di scrittura sul gruppo di gestione ("Proprietario", "Collaboratore" o "Collaboratore del gruppo di gestione"). Per controllare le proprie autorizzazioni, selezionare il gruppo di gestione e quindi selezionare **IAM**. Per altre informazioni sui ruoli Controllo degli accessi in base al ruolo, vedere [Gestire accessi e autorizzazioni con il controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).  
 
@@ -223,7 +223,7 @@ Per controllare quali autorizzazioni sono disponibili nel portale di Azure, sele
 
 1. Selezionare nell'elenco la sottoscrizione con l'ID corretto.
 
-   ![Elemento figlio](./media/add_context_sub.png)
+   ![Elementi figlio](./media/add_context_sub.png)
 
 1. Selezionare "Salva".
 

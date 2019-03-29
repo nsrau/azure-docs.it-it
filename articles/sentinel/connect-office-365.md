@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7cd90b987550dc60b30d3aa0cd1016b681eec85f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547021"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574859"
 ---
 # <a name="collect-data-from-office-365-logs"></a>Raccogliere dati dai log di Office 365
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile trasmettere i log di controllo da [Office 365](https://docs.microsoft.com/office365/admin/admin-home?view=o365-worldwide) in Azure Sentinel con un solo clic. È possibile trasmettere i log di controllo da più tenant per una singola area di lavoro in Azure Sentinel. Il connettore di log attività di Office 365 offre informazioni approfondite le attività degli utenti in corso. Otterrai informazioni sui vari utente, amministratore, sistema e le azioni dei criteri e gli eventi da Office 365. Connettendo i log di Office 365 in Azure Sentinel è possibile utilizzare questi dati per visualizzare i dashboard, creare avvisi personalizzati e migliorare il processo di analisi.
@@ -33,7 +33,7 @@ ms.locfileid: "57547021"
 ## <a name="prerequisites"></a>Prerequisiti
 
 - È necessario essere un amministratore globale o amministratore della sicurezza nel tenant
-- Per aggiungere un tenant, aprire la porta 4433 al traffico web nel computer da cui si esegue la connessione.
+- Nel computer da cui è registrato in Azure Sentinel per creare la connessione, assicurarsi suretha porta 4433 è aperta al traffico web.
 
 ## <a name="connect-to-office-365"></a>Connettersi a Office 365
 

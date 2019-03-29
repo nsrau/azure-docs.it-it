@@ -1,6 +1,6 @@
 ---
-title: Configurare le impostazioni dei ruoli della directory di Azure AD in PIM | Microsoft Docs
-description: Informazioni su come configurare le impostazioni dei ruoli della directory di Azure in Azure AD Privileged Identity Management (PIM).
+title: Configurare le impostazioni di ruolo di Azure AD in PIM - Azure Active Directory | Microsoft Docs
+description: Informazioni su come configurare le impostazioni di ruolo di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162544"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576863"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configurare le impostazioni dei ruoli della directory di Azure AD in PIM
+# <a name="configure-azure-ad-role-settings-in-pim"></a>Configurare le impostazioni di ruolo di Azure AD in PIM
 
-Un amministratore dei ruoli con privilegi può personalizzare Azure AD Privileged Identity Management (PIM) nell'organizzazione, ad esempio modificando l'esperienza di un utente che attiva l'assegnazione di idoneo al ruolo.
+Un amministratore del ruolo con privilegi può personalizzare Azure Active Directory (Azure AD) Privileged Identity Management (PIM) nell'organizzazione, ad esempio modificando l'esperienza per gli utenti che si sta attivando un'assegnazione di ruolo idonea.
 
 ## <a name="open-role-settings"></a>Aprire le impostazioni del ruolo
 
-Seguire questi passaggi per aprire le impostazioni per un ruolo della directory di Azure AD.
+Seguire questi passaggi per aprire le impostazioni per un ruolo di Azure AD.
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Fare clic su **Ruoli della directory di Azure AD**.
+1. Fare clic su **Ruoli di Azure AD**.
 
 1. Fare clic su **Impostazioni**.
 
-    ![Ruoli della directory di Azure AD - Impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Ruoli di Azure AD - impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Fare clic su **Ruoli**.
 
 1. Fare clic sul ruolo di cui si intende configurare le impostazioni.
 
-    ![Ruoli della directory di Azure AD - Impostazioni - Ruoli](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Ruoli di Azure AD - ruoli delle impostazioni](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     Nella pagina delle impostazioni per ogni ruolo sono presenti numerose impostazioni che è possibile configurare. Tali impostazioni interessano solo gli utenti **idonei** per le assegnazioni e non le assegnazioni **permanenti**.
 
@@ -55,7 +55,7 @@ Usare il parametro **Notifiche** per determinare se gli amministratori riceveran
 
 Se impostato su **Abilita**, le notifiche sono inviate a:
 
-- Amministratore dei ruoli con privilegi
+- Amministratore del ruolo con privilegi
 - Amministratore della sicurezza
 - Amministratore globale
 
@@ -78,15 +78,15 @@ Usare l'opzione **Multi-Factor Authentication** per specificare se richiedere ag
   * Amministratore di accesso condizionale
   * Amministratore del servizio CRM
   * Responsabile approvazione per l'accesso a Customer Lockbox
-  * Writer di directory
+  * Ruoli con autorizzazioni di scrittura nella directory
   * Amministratore di Exchange
   * Amministratore globale
   * Amministratore di Information Protection
   * Amministratore del servizio Intune
   * Amministratore del servizio Power BI
-  * Amministratore dei ruoli con privilegi
+  * Amministratore del ruolo con privilegi
   * Amministratore della sicurezza
-  * Amministratore del servizio SharePoint
+  * Amministratore di SharePoint Services
   * Amministratore di Skype for Business
   * Amministratore utenti
 
@@ -98,13 +98,13 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 
 1. Impostare l'opzione **Richiedi approvazione** su **Abilitato**. Il riquadro viene espanso con le opzioni per selezionare i responsabili dell'approvazione.
 
-    ![Ruoli della directory di Azure AD - Impostazioni - Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Ruoli di Azure AD - impostazioni - Richiedi l'approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Se **NON** viene specificato alcun responsabile delle approvazioni, gli amministratori con ruolo con privilegi diventano i responsabili dell'approvazione predefiniti. Gli amministratori con ruolo con privilegi devono approvare **TUTTE** le richieste di attivazione per il ruolo.
 
 1. Per specificare i responsabili dell'approvazione, fare clic su **Selezione responsabili approvazione**.
 
-    ![Ruoli della directory di Azure AD - Impostazioni - Richiedi approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Ruoli di Azure AD - impostazioni - Richiedi l'approvazione](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Selezionare uno o più responsabili dell'approvazione e quindi fare clic su **Seleziona**. È possibile selezionare utenti o gruppi. È consigliabile selezionare almeno 2 responsabili dell'approvazione. L'autoapprovazione non è consentita.
 
@@ -117,5 +117,5 @@ Se si vuole richiedere l'approvazione per attivare un ruolo, seguire questa proc
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Assegnare ruoli della directory di Azure AD in PIM](pim-how-to-add-role-to-user.md)
-- [Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM](pim-how-to-configure-security-alerts.md)
+- [Assegnare i ruoli di Azure AD in PIM](pim-how-to-add-role-to-user.md)
+- [Configurare gli avvisi di sicurezza per i ruoli di Azure AD in PIM](pim-how-to-configure-security-alerts.md)

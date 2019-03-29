@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482093"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622043"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurare Mapping dei servizi in Azure
 Mapping dei servizi individua automaticamente i componenti delle applicazioni nei sistemi Windows e Linux ed esegue la mappatura della comunicazione fra i servizi. Consente di avere una vista dei server corrispondente alla loro rappresentazione concettuale, ovvero come sistemi interconnessi che offrono servizi critici. Mapping dei servizi mostra le connessioni fra i server, i processi e le porte di tutte le architetture connesse via TCP senza il bisogno di alcuna configurazione a parte l'installazione di un agente.
@@ -32,7 +32,7 @@ Mapping dei servizi è attualmente disponibile nelle aree seguenti:
 - Canada centrale
 - Regno Unito meridionale
 - Europa occidentale
-- Asia sud-orientale
+- Asia sudorientale
 
 ## <a name="supported-windows-operating-systems"></a>Sistemi operativi Windows supportati
 La sezione seguenti elenca i sistemi operativi supportati per Dependency Agent in Windows. 
@@ -49,7 +49,7 @@ La sezione seguenti elenca i sistemi operativi supportati per Dependency Agent i
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
-### <a name="windows-desktop"></a>Desktop di Windows
+### <a name="windows-desktop"></a>Windows Desktop
 - Windows 10 1803
 - Windows 10
 - Windows 8.1
@@ -57,17 +57,15 @@ La sezione seguenti elenca i sistemi operativi supportati per Dependency Agent i
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
-La sezione seguente elenca i sistemi operativi supportati per Dependency Agent in Red Hat Enterprise Linux, CentOS Linux e Oracle Linux (con il Kernel RHEL).  
+La sezione seguente elenca i sistemi operativi supportati per l'agente di dipendenza in Linux.  
 
 - Sono supportate solo versioni predefinita e SMP del kernel Linux.
 - Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Ad esempio, un sistema con la stringa di versione "2.6.16.21-0.8-xen" non è supportato.
 - I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportati.
-- Il kernel CentOSPlus è supportato.
-- Unbreakable Enterprise Kernel (UEK) di Oracle è illustrato in una sezione successiva di questo articolo.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| Versione del sistema operativo | Versione del kernel |
+| Versione sistema operativo | Versione del kernel |
 |:--|:--|
 | 7.4 | 3.10.0-693 |
 | 7.5 | 3.10.0-862 |
@@ -75,20 +73,20 @@ La sezione seguente elenca i sistemi operativi supportati per Dependency Agent i
 
 ### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| Versione del sistema operativo | Versione del kernel |
+| Versione sistema operativo | Versione del kernel |
 |:--|:--|
 | 6.9 | 2.6.32-696 |
 | 6.10 | 2.6.32-754 |
 
 ### <a name="centosplus"></a>CentOSPlus
-| Versione del sistema operativo | Versione del kernel |
+| Versione sistema operativo | Versione del kernel |
 |:--|:--|
 | 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
 | 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
-### <a name="ubuntu-server"></a>Ubuntu Server
+### <a name="ubuntu-server"></a>Server Ubuntu
 
-| Versione del sistema operativo | Versione del kernel |
+| Versione sistema operativo | Versione del kernel |
 |:--|:--|
 | Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
@@ -97,20 +95,20 @@ La sezione seguente elenca i sistemi operativi supportati per Dependency Agent i
 
 ### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
-| Versione del sistema operativo | Versione del kernel
+| Versione sistema operativo | Versione del kernel
 |:--|:--|
 | 11 SP4 | 3.0.* |
 
 ### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| Versione del sistema operativo | Versione del kernel
+| Versione sistema operativo | Versione del kernel
 |:--|:--|
 | 12 SP2 | 4.4.* |
 | 12 SP3 | 4.4.* |
 
 ## <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 
-| File | OS | Versione | SHA-256 |
+| File | Sistema operativo | Versione | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -123,7 +121,7 @@ Mapping dei servizi ottiene i dati da Microsoft Dependency Agent. Dependency Age
 | Agenti di Windows | Sì | Mapping dei servizi analizza e raccoglie i dati dai computer Windows. <br><br>Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere Sistemi operativi supportati. |
 | Agenti Linux | Sì | Mapping dei servizi analizza e raccoglie i dati dai computer Linux. <br><br>Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/platform/log-analytics-agent.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere Sistemi operativi supportati. |
 | Gruppo di gestione di System Center Operations Manager | Sì | Mapping dei servizi analizza e raccoglie i dati dagli agenti Windows e Linux in un [gruppo di gestione System Center Operations Manager](../../azure-monitor/platform/om-agents.md) connesso. <br><br>È necessaria una connessione diretta dal computer agente System Center Operations Manager a Log Analytics. |
-| Account di archiviazione di Azure | No  | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
+| Account di archiviazione di Azure | N. | Mapping dei servizi raccoglie i dati dai computer agente, pertanto non presenta dati che possano essere raccolti dall'Archiviazione di Azure. |
 
 In Windows, Microsoft Monitoring Agent (MMA) viene usato sia da System Center Operations Manager che da Log Analytics per raccogliere e inviare dati di monitoraggio. Questo agente è chiamato agente System Center Operations Manager, agente di Log Analytics, agente MMA o diretto, a seconda del contesto. System Center Operations Manager e Log Analytics offrono versioni diverse pronte all'uso dell'agente MMA. Ognuna di queste versioni può inviare segnalazioni a System Center Operations Manager, Log Analytics o entrambi.  
 
@@ -147,12 +145,12 @@ Quando viene attivato Mapping dei servizi in un'area di lavoro di Log Analytics,
 
 Il Management Pack è denominato Microsoft.IntelligencePacks.ApplicationDependencyMonitor Viene scritto in %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. L'origine dati usata dal management pack è %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
-## <a name="data-collection"></a>Raccolta dei dati
+## <a name="data-collection"></a>Raccolta dati
 È possibile aspettarsi che ogni agente trasmetta circa 25 MB al giorno, in base alla complessità delle dipendenze del sistema. I dati sulle dipendenze di Mapping dei servizi vengono inviati da ogni agente ogni 15 secondi.  
 
 Dependency Agent usa in genere lo 0,1% della memoria di sistema e lo 0,1% della CPU di sistema.
 
-## <a name="diagnostic-and-usage-data"></a>Dati di diagnostica e di utilizzo
+## <a name="diagnostic-and-usage-data"></a>Dati di utilizzo e di diagnostica
 Microsoft raccoglie automaticamente i dati di utilizzo e prestazioni tramite l'uso del servizio Mapping dei servizi da parte dell'utente. Microsoft usa questi dati per offrire e migliorare la qualità, la sicurezza e l'integrità del servizio Mapping dei servizi. I dati includono informazioni sulla configurazione del software, ad esempio sistema operativo e versione. Includono anche l'indirizzo IP, il nome DNS e il nome della workstation per offrire funzionalità di risoluzione dei problemi accurate ed efficienti. Non vengono raccolti nomi, indirizzi o altre informazioni di contatto.
 
 Per altre informazioni sulla raccolta e l'uso dei dati, vedere l'[Informativa sulla privacy di Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
@@ -345,7 +343,7 @@ Ubuntu:
 sudo apt -y purge dependency-agent
 ```
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 Se si verificano problemi di installazione o esecuzione di Mapping dei servizi, questa sezione può essere d'aiuto. Se si non riesce a risolvere il problema, contattare il supporto tecnico Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemi di installazione di Dependency Agent

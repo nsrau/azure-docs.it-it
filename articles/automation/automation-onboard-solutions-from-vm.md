@@ -4,29 +4,29 @@ description: Informazioni su come eseguire l'onboarding in una macchina virtuale
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837763"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619723"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario da una macchina virtuale di Azure
 
 Automazione di Azure fornisce soluzioni per gestire gli aggiornamenti della sicurezza del sistema operativo, tenere traccia delle modifiche e gestire l'inventario dei componenti installati nei computer. Esistono diversi modi per eseguire l'onboarding delle macchine virtuali. È possibile eseguire l'onboarding della soluzione da una macchina virtuale, [dall'account di Automazione](automation-onboard-solutions-from-automation-account.md), [dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md) o tramite un [runbook](automation-onboard-solutions.md). Questo articolo descrive il processo di onboarding di queste soluzioni da una macchina virtuale di Azure.
 
-## <a name="sign-in-to-azure"></a>Accedere ad Azure
+## <a name="sign-in-to-azure"></a>Accedi ad Azure
 
 Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Abilitare le soluzioni
 
-Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gestione degli aggiornamenti**, **Inventario** o **Rilevamento modifiche**. La macchina virtuale può esistere in qualsiasi area, indipendentemente dal percorso dell'Account di automazione.
+Passare a una macchina virtuale esistente. In **Operazioni** selezionare **Gestione degli aggiornamenti**, **Inventario** o **Rilevamento modifiche**. La macchina virtuale può esistere in qualsiasi area, indipendentemente dal percorso dell'Account di automazione. Quando una soluzione da una macchina virtuale di onboarding è necessario disporre di `Microsoft.OperationalInsights/workspaces/read` dell'autorizzazione per determinare se la macchina virtuale è caricata in un'area di lavoro. Per altre informazioni sulle autorizzazioni aggiuntive necessarie in generale, vedere [autorizzazioni necessarie per caricare i computer](automation-role-based-access-control.md#onboarding).
 
 Per abilitare la soluzione solo per la macchina virtuale, assicurarsi che sia selezionata l'opzione **Enable for this VM** (Abilita per questa macchina virtuale). Per eseguire l'onboarding di più macchine virtuali nella soluzione, selezionare **Enable for VMs in this subscription** (Abilita per le macchine virtuali in questa sottoscrizione) e quindi selezionare **Click to select machines to enable** (Fare clic per selezionare le macchine virtuali da abilitare). Per informazioni su come eseguire l'onboarding di più macchine virtuali contemporaneamente, vedere [Eseguire l'onboarding delle soluzioni Gestione aggiornamenti, Rilevamento modifiche e Inventario](automation-onboard-solutions-from-automation-account.md).
 
@@ -59,7 +59,7 @@ Quando un computer viene aggiunto alle soluzioni Gestione aggiornamenti, Rilevam
 
 Passa all'area di lavoro. In **Generale** selezionare **Ricerche salvate**. Le due ricerche salvate usate da queste soluzioni sono indicate nella tabella seguente:
 
-|NOME     |Categoria  |Alias  |
+|Attività     |Categoria  |Alias  |
 |---------|---------|---------|
 |MicrosoftDefaultComputerGroup     |  ChangeTracking       | ChangeTracking__MicrosoftDefaultComputerGroup        |
 |MicrosoftDefaultComputerGroup     | Aggiornamenti        | Updates__MicrosoftDefaultComputerGroup         |
@@ -85,13 +85,13 @@ Dopo la rimozione di queste soluzioni è possibile eseguire i passaggi seguenti 
 
 1. Nel portale di Azure aprire l'account di Automazione e nella pagina Account di automazione selezionare **Area di lavoro collegata** nella sezione **Risorse correlate** a sinistra.
 
-1. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
+2. Nella pagina Unlink workspace (Scollega area di lavoro) fare clic su **Unlink workspace (Scollega area di lavoro)**.
 
    ![Pagina Unlink workspace (Scollega area di lavoro)](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Verrà richiesto di confermare l'operazione.
 
-1. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro di Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
+3. Mentre Automazione di Azure tenta di scollegare l'account dall'area di lavoro di Log Analytics, è possibile tenere traccia dello stato di avanzamento in **Notifiche** dal menu.
 
 Se è stata usata la soluzione di gestione degli aggiornamenti, facoltativamente è consigliabile rimuovere gli elementi seguenti che non sono più necessari dopo la rimozione della soluzione.
 
@@ -103,7 +103,7 @@ Se è stata usata la soluzione per avviare/arrestare VM durante gli orari di min
 
 * Avviare e arrestare le pianificazioni di runbook delle VM
 * Avviare e arrestare i runbook delle VM
-* variables
+* Variabili
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,5 +1,5 @@
 ---
-title: Usare le verifiche di accesso di Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale | Microsoft Docs
+title: Usare le verifiche di accesso per gestire utenti esclusi dai criteri di accesso condizionale - Azure Active Directory | Microsoft Docs
 description: Informazioni su come usare le verifiche di accesso di Azure Active Directory (Azure AD) per gestire gli utenti che sono stati esclusi dai criteri di accesso condizionale
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892720"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577136"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Usare le verifiche di accesso di Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Verifiche di accesso di Usa Azure AD per gestire gli utenti esclusi dai criteri di accesso condizionale
 
-In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. Questo articolo vengono descritti alcuni esempi in cui le esclusioni potrebbero essere necessarie se e come è, l'amministratore IT può gestire questa attività, evitare supervisione delle eccezioni dei criteri e avere a disposizione i revisori come prova che queste eccezioni vengono esaminate regolarmente con Azure Verifiche di accesso di Active Directory (Azure AD).
+In una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. Questo articolo descrive alcuni esempi in cui potrebbero essere necessarie delle esclusioni e come può l'amministratore IT gestire questa esigenza, evitare sviste nelle eccezioni dei criteri e offrire ai revisori una prova della revisione regolare di tali eccezioni tramite le verifiche di accesso di Azure Active Directory (Azure AD).
 
 > [!NOTE]
 > Per usare le verifiche di accesso di Azure AD è necessaria una licenza di valutazione o una licenza a pagamento Azure Premium P2 o Enterprise Mobility + Security E5 valida. Per altre informazioni, vedere [Edizioni di Azure Active Directory](../fundamentals/active-directory-whatis.md).
@@ -44,7 +44,7 @@ Un altro esempio potrebbe essere la presenza di criteri di accesso condizionale 
 
 ## <a name="why-are-exclusions-challenging"></a>Perché le esclusioni sono complesse?
 
-In Azure AD, è possibile definire un set di utenti come ambito per i criteri di accesso condizionale. È anche possibile escludere alcuni di questi utenti, selezionando ruoli della directory, singoli utenti o gli utenti guest. È importante ricordare che quando vengono configurate queste esclusioni, la finalità dei criteri non può essere applicata a questi utenti. Se le esclusioni venissero configurate come un elenco di singoli utenti o tramite un gruppo di sicurezza locale legacy, risulterebbero limitati la visibilità di questo elenco di esclusioni (gli utenti potrebbero non sapere della sua esistenza) e il controllo dell'amministratore IT (gli utenti possono richiedere l'inserimento nel gruppo di sicurezza per evitare i criteri). Inoltre, gli utenti che risultano qualificati per l'esclusione una volta, potrebbero non averne più bisogno o non essere più idonei.
+In Azure AD, è possibile definire un set di utenti come ambito per i criteri di accesso condizionale. È anche possibile escludere alcuni di questi utenti, selezionare i ruoli Azure AD, singoli utenti o gli utenti guest di utenti. È importante ricordare che quando vengono configurate queste esclusioni, la finalità dei criteri non può essere applicata a questi utenti. Se le esclusioni venissero configurate come un elenco di singoli utenti o tramite un gruppo di sicurezza locale legacy, risulterebbero limitati la visibilità di questo elenco di esclusioni (gli utenti potrebbero non sapere della sua esistenza) e il controllo dell'amministratore IT (gli utenti possono richiedere l'inserimento nel gruppo di sicurezza per evitare i criteri). Inoltre, gli utenti che risultano qualificati per l'esclusione una volta, potrebbero non averne più bisogno o non essere più idonei.
 
 All'inizio di un'esclusione, l'elenco di utenti che possono ignorare i criteri è in genere breve. Con il passare del tempo, il numero degli utenti esclusi cresce, così come l'elenco. A un certo punto, diventa necessario verificare l'elenco e accertarsi che ognuno di questi utenti debba continuare a essere escluso. La gestione dell'elenco da un punto di vista tecnico può essere relativamente semplice, ma chi prende le decisioni aziendali e come ci si può assicurare che tutto ciò sia controllabile?
 

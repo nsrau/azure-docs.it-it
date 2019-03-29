@@ -1,6 +1,6 @@
 ---
-title: Gestire i programmi e controlli per le verifiche di accesso AD Azure | Microsoft Docs
-description: Informazioni su come creare programmi aggiuntivi per ogni governance, gestione dei rischi e iniziativa di conformità dell'organizzazione per raccogliere e organizzare Azure Active Directory verifiche di accesso come controlli.
+title: Gestire i programmi e controlli per le verifiche di accesso - Azure Active Directory | Microsoft Docs
+description: Informazioni su come creare programmi aggiuntivi per ogni governance, gestione dei rischi e iniziativa di conformità dell'organizzazione per raccogliere e organizzare le verifiche di accesso di Azure Active Directory come controlli.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43c0f1c041bfed1b041a9926efd869d167c6f1e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895177"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577264"
 ---
-# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Gestire i programmi e controlli per le verifiche di accesso di Azure AD
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Gestire i programmi e controlli per Azure AD le verifiche di accesso
 
 Azure Active Directory (Azure AD) include le verifiche di accesso dell'accesso delle applicazioni e di membri del gruppo. Questi esempi di controlli assicurano la supervisione per chi ha accesso alle applicazioni e alle appartenenze ai gruppi dell'organizzazione. Le organizzazioni possono usare questi controlli per gestire in modo efficiente la governance, i requisiti di conformità e la gestione dei rischi.
 

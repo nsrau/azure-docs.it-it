@@ -1,5 +1,5 @@
 ---
-title: Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM | Microsoft Docs
+title: Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
 description: Informazioni su come configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 538661df85ca0960992cb40a53b0e149c3b566b6
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 09e04e6b61d3387cb8c50c2af4eef2cfb4bec196
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56189532"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575763"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli delle risorse di Azure in PIM
-Privileged Identity Management (PIM) per le risorse di Azure genera avvisi in presenza di attività sospette o non sicure nell'ambiente. Una volta attivato, un avviso viene visualizzato nella pagina Avvisi. 
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genera avvisi quando vengono eseguite operazioni sospette o non sicure nel proprio ambiente. Una volta attivato, un avviso viene visualizzato nella pagina Avvisi. 
 
 ![Pagina degli avvisi](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
 
@@ -33,11 +33,11 @@ Selezionare un avviso per visualizzare un report che elenca gli utenti o i ruoli
 ![Report degli avvisi](media/azure-pim-resource-rbac/rbac-alert-info.png)
 
 ## <a name="alerts"></a>Avvisi
-| Avviso | Gravità | Trigger | Recommendation |
+| Avviso | Gravità | Trigger | Indicazione |
 | --- | --- | --- | --- |
-| **Troppi proprietari assegnati a una risorsa** |Media |Troppi utenti hanno il ruolo di proprietario. |Controllare gli utenti nell'elenco e riassegnarne alcuni a ruoli con privilegi meno elevati. |
-| **Troppi proprietari permanenti assegnati a una risorsa** |Media |Troppi utenti sono assegnati in modo permanente a un ruolo. |Controllare gli utenti nell'elenco e riassegnarne alcuni per richiedere l'attivazione per l'uso dei ruoli. |
-| **È stato creato un ruolo duplicato** |Media |Più ruoli hanno gli stessi criteri. |Usare solo uno di questi ruoli. |
+| **Troppi proprietari assegnati a una risorsa** |Medio |Troppi utenti hanno il ruolo di proprietario. |Controllare gli utenti nell'elenco e riassegnarne alcuni a ruoli con privilegi meno elevati. |
+| **Troppi proprietari permanenti assegnati a una risorsa** |Medio |Troppi utenti sono assegnati in modo permanente a un ruolo. |Controllare gli utenti nell'elenco e riassegnarne alcuni per richiedere l'attivazione per l'uso dei ruoli. |
+| **È stato creato un ruolo duplicato** |Medio |Più ruoli hanno gli stessi criteri. |Usare solo uno di questi ruoli. |
 
 
 ### <a name="severity"></a>Gravità

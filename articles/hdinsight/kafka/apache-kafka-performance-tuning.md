@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 903cd8921801ffb47dd73f48e507f30aa0b6dccc
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 3f15f45e0543c582d70463fb9ddc7ac569ff57bc
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58373151"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576759"
 ---
 # <a name="performance-optimization-for-apache-kafka-hdinsight-clusters"></a>Ottimizzazione delle prestazioni per i cluster HDInsight di Apache Kafka
 
@@ -39,7 +39,7 @@ Le prestazioni di Apache Kafka presenta due aspetti principali: velocità effett
 
 Le sezioni seguenti verranno illustrate alcune delle proprietà di configurazione più importanti per ottimizzare le prestazioni dei producer Kafka. Per una spiegazione dettagliata di tutte le proprietà di configurazione, vedere [documentazione di Apache Kafka in configurazioni producer](https://kafka.apache.org/documentation/#producerconfigs).
 
-### <a name="batch-size"></a>Dimensioni dei batch
+### <a name="batch-size"></a>Dimensioni batch
 
 I producer di Apache Kafka assemblare i gruppi di messaggi (detto batch) che vengono inviati come un'unità da archiviare in una partizione di archiviazione singolo. Le dimensioni del batch indica il numero di byte che deve essere presente prima della trasmissione di tale gruppo. Aumentando il `batch.size` parametro può aumentare la velocità effettiva, poiché riduce il sovraccarico dalla rete e le richieste dei / o l'elaborazione. Sotto carico ridotto, le dimensioni del batch maggiore possono aumentare la latenza media invio Kafka nel producer è in attesa di un batch sia pronto. Con un carico pesante, è consigliabile per aumentare le dimensioni di batch per migliorare la velocità effettiva e latenza.
 
@@ -66,7 +66,7 @@ I dischi di archiviazione non dispongono di IOPS (Input/Output operazioni al sec
 
 ### <a name="number-of-topics-and-partitions"></a>Numero di argomenti e partizioni
 
-I producer Kafka di scrittura agli argomenti. I consumer Kafka leggono dagli argomenti. Un argomento è associato un log che è una struttura di dati su disco. Kafka aggiunge i record da un producer(s) alla fine di un log di argomento. Un log di argomento è costituito da un numero di partizioni distribuite in più file. Questi file vengono, a sua volta, distribuiti in più nodi del cluster Kafka. I consumer leggono dagli argomenti Kafka loro cadenza ed e scegliere la posizione (offset) nel Registro di argomento.
+I producer Kafka di scrittura agli argomenti. I consumer Kafka leggono dagli argomenti. Un argomento è associato un log che è una struttura di dati su disco. Kafka aggiunge i record da un producer(s) alla fine di un log di argomento. Un log di argomento è costituito da un numero di partizioni distribuite in più file. Questi file vengono, a sua volta, distribuiti in più nodi del cluster Kafka. Consumer di leggere gli argomenti Kafka loro cadenza e scegliere la posizione (offset) nel Registro di argomento.
 
 Ogni partizione Kafka è un file di log nel sistema e thread producer può scrivere contemporaneamente in più log. Analogamente, poiché ogni thread consumer legge i messaggi da una partizione, utilizzato da più partizioni viene gestita in parallelo anche.
 

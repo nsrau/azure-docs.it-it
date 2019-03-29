@@ -1,5 +1,5 @@
 ---
-title: Usare un dashboard delle risorse per eseguire una verifica di accesso in PIM - Azure | Microsoft Docs
+title: Usare un dashboard delle risorse per eseguire una verifica di accesso in PIM - Azure Active Directory | Microsoft Docs
 description: Questo articolo descrive come usare un dashboard delle risorse per eseguire una verifica di accesso in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89abf15731bd125737e7c18ab45782820a856b38
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 37057e531ea8387fbed84c9b03bbfb9c14d160ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012663"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574961"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review-in-pim"></a>Usare un dashboard delle risorse per eseguire una verifica di accesso in PIM
 
-È possibile usare un dashboard di risorse per eseguire una verifica di accesso in Privileged Identity Management (PIM) per le risorse di Azure. Il dashboard Visualizzazione amministratore include tre componenti principali:
+È possibile usare un dashboard delle risorse per eseguire una verifica di accesso in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Il dashboard Visualizzazione amministratore include tre componenti principali:
 
 - Una rappresentazione grafica delle attivazioni del ruolo delle risorse.
 - Due grafici che visualizzano la distribuzione delle assegnazioni di ruolo in base al tipo di assegnazione.

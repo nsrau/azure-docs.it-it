@@ -2,20 +2,20 @@
 title: 'Esercitazione: Caricare dati relativi ai taxi di New York in Azure SQL Data Warehouse | Microsoft Docs'
 description: L'esercitazione usa il portale di Azure e SQL Server Management Studio per caricare dati relativi ai taxi di New York da un archivio BLOB di Azure pubblico a SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466527"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620190"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Esercitazione: Caricare dati relativi ai taxi di New York in Azure SQL Data Warehouse
 
@@ -56,7 +56,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 3. Compilare il modulo di SQL Data Warehouse con le informazioni seguenti:   
 
-   | Impostazione | Valore consigliato | Descrizione | 
+   | Impostazione | Valore suggerito | Descrizione | 
    | ------- | --------------- | ----------- | 
    | **Nome database** | mySampleDataWarehouse | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). | 
    | **Sottoscrizione** | Sottoscrizione in uso  | Per informazioni dettagliate sulle sottoscrizioni, vedere [Sottoscrizioni](https://account.windowsazure.com/Subscriptions). |
@@ -67,7 +67,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 4. Fare clic su **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti: 
 
-    | Impostazione | Valore consigliato | Descrizione | 
+    | Impostazione | Valore suggerito | Description | 
     | ------- | --------------- | ----------- |
     | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
     | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers).|
@@ -80,7 +80,7 @@ Per creare un SQL Data Warehouse vuoto, eseguire la procedura seguente.
 
 6. Fare clic su **Livello di prestazioni** per specificare se il data warehouse è di prima o seconda generazione e il numero di unità del data warehouse. 
 
-7. Per questa esercitazione selezionare **Prima generazione** di SQL Data Warehouse. Per impostazione predefinita, il dispositivo di scorrimento è impostato su **DW1000c**.  Provare a spostarlo verso l'alto o il basso per vedere come funziona. 
+7. Per questa esercitazione, selezionare **Gen2** di SQL Data Warehouse. Il dispositivo di scorrimento è impostato su **DW1000c** per impostazione predefinita.  Provare a spostarlo verso l'alto o il basso per vedere come funziona. 
 
     ![configurare le prestazioni](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -146,12 +146,12 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 2. Nella finestra di dialogo **Connetti al server** immettere le informazioni seguenti:
 
-    | Impostazione      | Valore consigliato | Descrizione | 
+    | Impostazione      | Valore suggerito | DESCRIZIONE | 
     | ------------ | --------------- | ----------- | 
     | Tipo di server | Motore di database | Questo valore è obbligatorio |
-    | Nome server | Nome completo del server | Il nome sarà simile a: **mynewserver-20180430.database.windows.net**. |
-    | Authentication | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
-    | Login | Account amministratore del server | Si tratta dell'account specificato quando è stato creato il server. |
+    | Nome del server | Nome completo del server | Il nome sarà simile a: **mynewserver-20180430.database.windows.net**. |
+    | Autenticazione | Autenticazione di SQL Server | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+    | Accedi | Account amministratore del server | Si tratta dell'account specificato al momento della creazione del server. |
     | Password | Password per l'account amministratore del server | Si tratta della password specificata quando è stato creato il server. |
 
     ![connetti al server](media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)

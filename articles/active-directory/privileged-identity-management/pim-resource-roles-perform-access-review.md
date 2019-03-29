@@ -1,5 +1,5 @@
 ---
-title: Eseguire una verifica di accesso dei ruoli delle risorse di Azure in PIM | Microsoft Docs
+title: Eseguire una verifica di accesso dei ruoli personali risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
 description: Informazioni su come eseguire una verifica di accesso dei ruoli delle risorse di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,15 +16,15 @@ ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b2a8ef3d0ff602ce4580755db0ada97fcf7cdbbc
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: dc503e5c11f8e3a00fe9c258ad2a7cad5b6ade7e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208232"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575080"
 ---
 # <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Eseguire una verifica di accesso dei ruoli delle risorse di Azure in PIM
-Privileged Identity Management (PIM) per le risorse di Azure semplifica per le aziende la gestione dell'accesso con privilegi alle risorse in Azure. 
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica come le aziende gestiscono l'accesso con privilegi alle risorse in Azure. 
 
 Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore dei ruoli con privilegi dell'organizzazione richieda di confermare a intervalli regolari che il ruolo sia ancora necessario. È possibile che si riceva un messaggio di posta elettronica contenente un collegamento oppure accedere direttamente al [portale di Azure](https://portal.azure.com). Per eseguire una verifica automatica dei ruoli assegnati, seguire la procedura descritta in questo articolo.
 
@@ -54,4 +54,4 @@ Seguire questa procedura per trovare e completare la verifica dell'accesso:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Eseguire una verifica di accesso dei ruoli della directory di Azure AD in PIM](pim-how-to-perform-security-review.md)
+- [Eseguire una verifica di accesso dei ruoli personali AD Azure in PIM](pim-how-to-perform-security-review.md)

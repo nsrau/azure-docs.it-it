@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 03/28/2019
 ms.author: jingwang
-ms.openlocfilehash: f06dd47a519d992e52ac0010c0ae7d81870a4842
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 601ae4a896c4e52d8a1f4022c92a22988465369c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544521"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578476"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copiare dati da e in Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -186,7 +186,7 @@ Per copiare dati da Salesforce, impostare il tipo di origine nell'attività di c
 |:--- |:--- |:--- |
 | type | La proprietà type dell'origine dell'attività di copia deve essere impostata su **SalesforceSource**. | Sì |
 | query |Usare la query personalizzata per leggere i dati. È possibile usare una query SQL-92 o una query [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Vedere altri suggerimenti nella sezione [Suggerimenti di query](#query-tips). Se la proprietà query non viene specificata, tutti i dati dell'oggetto Salesforce specificato in "objectApiName" nel set di dati verranno recuperati. | No (se "objectApiName" è specificato nel set di dati) |
-| readBehavior | Indica se eseguire query sui record esistenti o su tutti i record inclusi quelli eliminati. Se non specificato, il comportamento predefinito è quello indicato per primo. <br>Valori consentiti: **query** (predefinito), **queryAll**.  | No  |
+| readBehavior | Indica se eseguire query sui record esistenti o su tutti i record inclusi quelli eliminati. Se non specificato, il comportamento predefinito è quello indicato per primo. <br>Valori consentiti: **query** (predefinito), **queryAll**.  | N. |
 
 > [!IMPORTANT]
 > La parte "__c" del**nome dell'API** è necessaria per qualsiasi oggetto personalizzato.
@@ -295,8 +295,8 @@ Quando si copiano dati da Salesforce, è possibile usare una query SOQL o SQL. S
 | Virgolette | I nomi di campo/oggetto non possono essere racchiusi tra virgolette. | I nomi di campo/oggetto non possono essere racchiusi tra virgolette, ad es. `SELECT "id" FROM "Account"` |
 | Formato Datetime |  Fare riferimento a informazioni dettagliate [qui](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) ed esempi nella sezione successiva. | Fare riferimento a informazioni dettagliate [qui](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) ed esempi nella sezione successiva. |
 | Valori booleani | Rappresentati come `False` e `True`, ad esempio `SELECT … WHERE IsDeleted=True`. | Rappresentati come 0 o 1, ad esempio `SELECT … WHERE IsDeleted=1`. |
-| Ridenominazione delle colonne | Non supportati. | Supportata, ad es. `SELECT a AS b FROM …`. |
-| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportati. |
+| Ridenominazione delle colonne | Non supportato. | Supportata, ad es. `SELECT a AS b FROM …`. |
+| Relazione | Supportata, ad es. `Account_vod__r.nvs_Country__c`. | Non supportato. |
 
 ### <a name="retrieve-data-by-using-a-where-clause-on-the-datetime-column"></a>Recuperare i dati usando una clausola where nella colonna DateTime
 
@@ -304,6 +304,10 @@ Quando si specifica la query SOQL o SQL, prestare attenzione alla differenza di 
 
 * **Esempio SOQL**: `SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Esempio SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}`
+
+### <a name="error-of-malformedquerytruncated"></a>Errore di MALFORMED_QUERY: troncato
+
+Se si riscontra errori di "MALFORMED_QUERY: Troncato", in genere è dovuto a è presente JunctionIdList tipo colonna nei dati e Salesforce è limitazioni al supporto di tali dati con un numero elevato di righe. Per ridurre, provare a escludere la colonna JunctionIdList o limitare il numero di righe per la copia (è possibile eseguire il partizionamento per più esecuzioni di attività di copia).
 
 ## <a name="data-type-mapping-for-salesforce"></a>Mapping dei tipi di dati per Salesforce
 
@@ -313,15 +317,15 @@ Quando si copiano dati da Salesforce, vengono usati i mapping seguenti tra i tip
 |:--- |:--- |
 | Numero automatico |string |
 | Casella di controllo |boolean |
-| Valuta |Decimal |
+| Valuta |Decimale |
 | Data |Datetime |
 | Data/ora |Datetime |
 | Email |string |
 | ID |string |
 | Relazione di ricerca |string |
 | Elenco a discesa seleziona multipla |string |
-| Number |Decimal |
-| Percentuale |Decimal |
+| Numero |Decimale |
+| Percentuale |Decimale |
 | Telefono |string |
 | Elenco a discesa |string |
 | Text |string |

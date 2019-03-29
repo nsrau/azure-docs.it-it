@@ -1,6 +1,6 @@
 ---
-title: Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM | Microsoft Docs
-description: Informazioni su come configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Configurare gli avvisi di sicurezza per i ruoli di Azure AD in PIM - Azure Active Directory | Microsoft Docs
+description: Informazioni su come configurare gli avvisi di sicurezza per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,22 +14,22 @@ ms.date: 01/04/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d2cb78d048559a011756362b58848c5e91ca40dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 1cd391af4e4b4722e433e9bf25f0d584fba2321e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172383"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577230"
 ---
-# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli della directory di Azure AD in PIM
+# <a name="configure-security-alerts-for-azure-ad-roles-in-pim"></a>Configurare gli avvisi di sicurezza per i ruoli di Azure AD in PIM
 
-Azure AD Privileged Identity Management (PIM) genera avvisi quando si verificano attività sospette o non sicure nell'ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) genera avvisi quando vengono eseguite operazioni sospette o non sicure nel proprio ambiente. Una avviso attivato viene visualizzato nel dashboard di PIM. Selezionare l'avviso per visualizzare un report che elenca gli utenti o i ruoli che hanno attivato l'avviso.
 
 ![Avvisi di sicurezza di PIM - screenshot](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 
-Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory, oltre a fornire indicazioni su come risolverli ed evitarli. Ecco il significato dei vari livelli di gravità:
+Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli di Azure AD, oltre a come risolvere e come evitare. Ecco il significato dei vari livelli di gravità:
 
 * **Alta**: richiede un'azione immediata a causa di una violazione dei criteri.
 * **Medium**: non richiede un'azione immediata ma segnala una potenziale violazione dei criteri.
@@ -69,7 +69,7 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory,
 
 | | |
 | --- | --- |
-| **Severity** | Media |
+| **Severity** | Medio |
 | **Perché viene visualizzato questo avviso?** | Account in un ruolo con privilegi che non hanno cambiato la password negli ultimi 90 giorni. Questi account potrebbero essere account di servizio o condivisi che non vengono mantenuti aggiornati e sono vulnerabili agli attacchi. |
 | **Come correggerlo?** | Esaminare gli account nell'elenco. Se l'accesso non è più necessario, rimuovere gli account dai ruoli con privilegi. |
 | **Prevenzione** | Assicurarsi che per gli account condivisi venga eseguita la rotazione di password complesse quando cambiano gli utenti che conoscono la password. </br>Esaminare regolarmente gli account con ruoli con privilegi usando le [verifiche di accesso](pim-how-to-start-security-review.md) e rimuovere le assegnazioni di ruolo che non sono più necessarie. |
@@ -107,7 +107,7 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory,
 | **Perché viene visualizzato questo avviso?** | L'attivazione ripetuta dello stesso ruolo con privilegi da parte dello stesso utente è indicativa di un attacco. |
 | **Come correggerlo?** | Esaminare gli utenti nell'elenco e verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività. |
 | **Prevenzione** | Verificare che la [durata di attivazione](pim-how-to-change-default-settings.md) dei ruoli con privilegi sia sufficiente per consentire agli utenti di eseguire le proprie attività.</br>[Richiedere l'autenticazione a più fattori](pim-how-to-change-default-settings.md) per i ruoli con privilegi che dispongono di account condivisi da più amministratori. |
-| **Azione di mitigazione nel portale** | N/D |
+| **Azione di mitigazione nel portale** | N/A |
 | **Trigger** | Questo avviso viene attivato se un utente attiva lo stesso ruolo con privilegi più volte entro l'intervallo di tempo specificato. È possibile configurare il periodo di tempo e il numero di attivazioni. |
 | **Intervallo di tempo per il rinnovo delle attivazioni** | Questa impostazione specifica in giorni, ore, minuti e secondi il periodo per cui si vogliono rilevare i rinnovi sospetti. |
 | **Numero di rinnovi di attivazioni** | Questa impostazione specifica il numero di attivazioni, da 2 a 100, considerati idonei per un avviso, entro l'intervallo di tempo specificato. È possibile modificare questa impostazione spostando il dispositivo di scorrimento o digitando un numero nella casella di testo. |
@@ -130,4 +130,4 @@ Questa sezione elenca tutti gli avvisi di sicurezza per i ruoli della directory,
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare le impostazioni dei ruoli della directory di Azure AD in PIM](pim-how-to-change-default-settings.md)
+- [Configurare le impostazioni di ruolo di Azure AD in PIM](pim-how-to-change-default-settings.md)

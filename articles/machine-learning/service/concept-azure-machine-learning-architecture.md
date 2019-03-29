@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361099"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577323"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
@@ -46,11 +46,13 @@ L'area di lavoro mantiene un elenco di destinazioni di calcolo che può essere u
 
 I modelli vengono registrati con l'area di lavoro. Il modello registrato e gli script di punteggio sono usati per creare un'immagine. È possibile quindi distribuire l'immagine nelle Istanze di Azure Container, nel servizio Azure Kubernetes o in una matrice FPGA come un endpoint HTTP basato su REST. È inoltre possibile distribuirla in un dispositivo Azure IoT Edge come modulo.
 
-È possibile creare più aree di lavoro, ciascuna delle quali può essere condivisa da più utenti. Quando si condivide un'area di lavoro, è possibile controllarne l'accesso assegnando agli utenti i ruoli seguenti:
+È possibile creare più aree di lavoro, ciascuna delle quali può essere condivisa da più utenti. Quando si condivide un'area di lavoro, è possibile controllare l'accesso a esso tramite l'assegnazione di utenti ai ruoli seguenti:
 
 * Proprietario
 * Collaboratore
-* Reader
+* Lettore
+
+Per altre informazioni su questi ruoli, vedere la [gestire l'accesso a un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md) articolo.
 
 Quando si crea una nuova area di lavoro, vengono create automaticamente diverse risorse di Azure usate dall'area di lavoro:
 
@@ -118,7 +120,7 @@ Una destinazione di calcolo è la risorsa di calcolo usata per eseguire lo scrip
 | Ambiente di calcolo di Azure Machine Learning | ✓ | &nbsp; |
 | Una VM Linux in Azure</br>(ad esempio, Data Science Virtual Machine) | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics. | ✓ | &nbsp; |
+| Azure Data Lake Analytics | ✓ | &nbsp; |
 | Apache Spark per HDInsight | ✓ | &nbsp; |
 | Istanze di Azure Container | &nbsp; | ✓ |
 | Servizio Azure Kubernetes | &nbsp; | ✓ |
@@ -171,7 +173,7 @@ Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni se
 
 Le attività possono fornire notifiche tramite l'SDK o l'interfaccia utente Web in modo da poter facilmente monitorare l'avanzamento di queste operazioni.
 
-## <a name="image"></a>Image
+## <a name="image"></a>Immagine
 
 Le immagini consentono di distribuire in modo affidabile un modello e tutti i componenti necessari per il suo utilizzo. Un'immagine contiene i seguenti elementi:
 

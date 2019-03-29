@@ -1,5 +1,5 @@
 ---
-title: Estendere o rinnovare le assegnazioni dei ruoli delle risorse di Azure in PIM | Microsoft Docs
+title: Estendere o rinnovare le assegnazioni di ruolo di risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
 description: Informazioni su come estendere o rinnovare le assegnazioni dei ruoli delle risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8aef7d4ac37109233af4ffb364b6f3e4c9b291ac
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004239"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578391"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Estendere o rinnovare le assegnazioni dei ruoli delle risorse di Azure in PIM
 
-Privileged Identity Management (PIM) per le risorse di Azure introduce nuovi controlli per la gestione del ciclo di vita di accesso e di assegnazione per le risorse di Azure. Gli amministratori possono assegnare l'appartenenza usando proprietà di data/ora di inizio e fine. Quando ci si avvicina al termine dell'assegnazione, PIM invia notifiche tramite posta elettronica agli utenti o ai gruppi interessati. Inoltre, invia notifiche tramite posta elettronica agli amministratori della risorsa per garantire che venga mantenuto l'accesso appropriato. Anche qualora l'accesso non venga esteso, le assegnazioni possono essere rinnovate e rimanere visibili nello stato scaduti fino a 30 giorni.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) introduce nuovi controlli per la gestione del ciclo di vita di assegnazione e accesso per le risorse di Azure. Gli amministratori possono assegnare l'appartenenza usando proprietà di data/ora di inizio e fine. Quando ci si avvicina al termine dell'assegnazione, PIM invia notifiche tramite posta elettronica agli utenti o ai gruppi interessati. Inoltre, invia notifiche tramite posta elettronica agli amministratori della risorsa per garantire che venga mantenuto l'accesso appropriato. Anche qualora l'accesso non venga esteso, le assegnazioni possono essere rinnovate e rimanere visibili nello stato scaduti fino a 30 giorni.
 
 ## <a name="who-can-extend-and-renew"></a>Chi può estendere e rinnovare?
 

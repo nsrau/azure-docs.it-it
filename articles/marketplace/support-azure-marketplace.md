@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727435"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620820"
 ---
 # <a name="support-for-the-marketplace"></a>Supporto per Marketplace  
 Ecco un elenco delle opzioni di supporto per Marketplace.  
@@ -28,7 +28,7 @@ Ecco un elenco delle opzioni di supporto per Marketplace.
 
 ## <a name="onboarding"></a>Onboarding
 
-Aprire un ticket per il [supporto dell'editor del Marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) di Microsoft per risolvere tutti i problemi relativi alla registrazione e alle attività iniziali.
+Aprire un ticket con Microsoft [supporto di server di pubblicazione di marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) per problemi di onboarding e guide introduttive o con Microsoft [supporto del partner](https://partner.microsoft.com/support) se hai domande su Microsoft Partner Network.
 
 ## <a name="cloud-partner-portal"></a>Portale per Cloud Partner  
 
@@ -36,7 +36,7 @@ Aprire un ticket per il [supporto dell'editor del Marketplace](https://support.m
 |:--- |:--- |:--- |  
 | Per assistenza, visitare la pagina Create an incident (Creare un evento imprevisto) disponibile nel [supporto per il Marketplace](https://go.microsoft.com/fwlink/?linkid=844975)</li> </ul> | Supporto per il Portale per Cloud Partner. | I servizi di supporto vengono erogati tra le 6.00 e le 18.00 PST. |  
 
-## <a name="technical"></a>Tecnici  
+## <a name="technical"></a>Tecnico  
 
 | Canale di supporto | DESCRIZIONE |  
 |:--- |:--- |  

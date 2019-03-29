@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: roiyz
-ms.openlocfilehash: 4d3e77ab2ee7f25c9155feb9d40c0870103320d3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5adc86b161770f2502b6ef9cf5ec2189ec3d4f99
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007907"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619926"
 ---
 # <a name="nvidia-gpu-driver-extension-for-windows"></a>Estensione di driver GPU NVIDIA per Windows
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Informazioni generali
 
-Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Windows serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
+Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Windows serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
 È anche disponibile un'estensione per installare i driver GPU NVIDIA nelle [macchine virtuali serie N di Linux](hpccompute-gpu-linux.md).
 
@@ -37,9 +37,9 @@ Questa estensione supporta i seguenti sistemi operativi:
 
 | Distribuzione | Versione |
 |---|---|
-| Windows 10 (fino alla versione 1803)| Core |
-| Windows Server 2016 | Core |
-| Windows Server 2012 R2 | Core |
+| Windows 10 (fino alla versione 1803)| core |
+| Windows Server 2016 | core |
+| Windows Server 2012 R2 | core |
 
 ### <a name="internet-connectivity"></a>Connettività Internet
 
@@ -69,13 +69,13 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 }
 ```
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
-| NOME | Valore/Esempio | Tipo di dati |
+| Attività | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | stringa |
-| type | NvidiaGpuDriverWindows | stringa |
+| apiVersion | 2015-06-15 | data |
+| publisher | Microsoft.HpcCompute | string |
+| tipo | NvidiaGpuDriverWindows | string |
 | typeHandlerVersion | 1.2 | int |
 
 
@@ -139,7 +139,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell e l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente.
 
@@ -159,7 +159,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 
 ### <a name="error-codes"></a>Codici di errore
 
-| Codice di errore | Significato | Azione possibile |
+| Codice errore | Significato | Azione possibile |
 | :---: | --- | --- |
 | 0 | Operazione riuscita |
 | 1 | Operazione riuscita. Riavvio richiesto. |
@@ -169,7 +169,7 @@ C:\WindowsAzure\Logs\Plugins\Microsoft.HpcCompute.NvidiaGpuDriverMicrosoft\
 | -5x | Operazione interrotta a causa di un riavvio in sospeso. | Riavviare la macchina virtuale. L'installazione continuerà dopo il riavvio. La disinstallazione deve essere richiamata manualmente. |
 
 
-### <a name="support"></a>Supporto
+### <a name="support"></a>Supporto tecnico
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 

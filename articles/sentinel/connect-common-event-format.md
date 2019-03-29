@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 31939b3b09fb36ac59efa1d7d7e302ac5f65a51c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3ecfed766f8a1ba558e0b0cd4fe6a27c33e441
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117184"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579632"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connettere la soluzione esterna usando Common Event Format
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile connettere Azure Sentinel con una soluzione esterna che consente di salvare i file di log in Syslog. Se l'appliance consente di salvare i log come Syslog Common Event Format (CEF), l'integrazione con Azure Sentinel consente di eseguire facilmente analitica e le query tra i dati.
@@ -33,7 +33,7 @@ ms.locfileid: "58117184"
 > 
 > I dati vengono archiviati nella posizione geografica dell'area di lavoro in cui in esecuzione Azure Sentinel.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 La connessione tra l'appliance CEF e Sentinel Azure viene eseguita in tre passaggi:
 
@@ -50,11 +50,11 @@ La connessione tra l'appliance CEF e Sentinel Azure viene eseguita in tre passag
 
 È necessario distribuire un agente in un computer Linux dedicato (macchina virtuale o in locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. Distribuzione automatica è basata su modelli di Resource Manager e può essere utilizzata solo se la macchina Linux dedicata è una nuova macchina virtuale in Azure si sta creando.
 
- ![Formato CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
+ ![CEF in Azure](./media/connect-cef/cef-syslog-azure.png)
 
-In alternativa, è possibile distribuire l'agente manualmente in una VM di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale. 
+In alternativa, è possibile distribuire l'agente manualmente in una macchina virtuale di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale. 
 
- ![Formato CEF in locale](./media/connect-cef/cef-syslog-onprem.png)
+ ![CEF in locale](./media/connect-cef/cef-syslog-onprem.png)
 
 ### <a name="deploy-the-agent-in-azure"></a>Distribuire l'agente di Azure
 
@@ -123,7 +123,7 @@ Potrebbero occorrere fino a 20 minuti fino a quando i log di avvio venga visuali
 3. Se entrambi i comandi forniti risultati corretti, controllare i Log Analitica per vedere se i log sono in arrivo. Tutti gli eventi trasferiti da questi dispositivi vengono visualizzati in formato non elaborato nel Log Analitica in `CommonSecurityLog ` tipo.
 1. Per verificare se sono presenti errori o se i log non sono in arrivo, Cerca in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Assicurarsi che le dimensioni predefinite del messaggio Syslog sono limitata a 2048 byte (2KB). Se i log sono troppo lunghi, aggiornare il security_events usando questo comando: `message_length_limit 4096`
-
+6. Per usare lo schema appropriato nel Log Analitica per gli eventi CEF, cercare **CommonSecurityLog**.
 
 
 

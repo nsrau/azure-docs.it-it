@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: ba72f273724bb45418b104b1245648419ababbf0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c6c44525018e2115f1df8ed2d3f15432b95490c6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903624"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619833"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostica unificata delle transazioni tra componenti
 
@@ -32,7 +32,7 @@ I componenti sono parti dell'applicazione distribuita o di microservizi, distrib
 * I componenti possono essere chiavi di strumentazione di Application Insights diverse tra loro (anche in caso di sottoscrizioni diverse) oppure ruoli diversi che creano report per una sola chiave di strumentazione di Application Insights. La nuova esperienza mostra i dettagli per tutti i componenti, indipendentemente dalla loro configurazione.
 
 > [!NOTE]
-> * **Mancano i collegamenti agli elementi correlati?** Tutti i dati di telemetria correlati sono inclusi nelle sezioni [superiore](#cross-component-transaction-chart) e [inferiore](#all-telemetry-with-this-Operation-Id) del lato sinistro. 
+> * **Mancano i collegamenti agli elementi correlati?** Tutti i dati di telemetria correlati sono inclusi nelle sezioni [superiore](#cross-component-transaction-chart) e [inferiore](#all-telemetry-with-this-operation-id) del lato sinistro. 
 
 ## <a name="transaction-diagnostics-experience"></a>Esperienza di diagnostica delle transazioni
 Questa vista è composta da quattro parti principali: elenco risultati, un grafico delle transazioni tra componenti, un elenco temporale di tutti i dati di telemetria relativi a questa operazione e il riquadro dei dettagli relativi agli elementi di telemetria selezionati a sinistra.
@@ -64,11 +64,11 @@ Questo riquadro comprimibile mostra i dettagli di qualsiasi elemento selezionato
 
 ![Dettagli dell'eccezione](media/transaction-diagnostics/exceptiondetail.png)
 
-## <a name="search-results"></a>Search Results
+## <a name="search-results"></a>Risultati della ricerca
 
 Questo riquadro comprimibile mostra altri risultati che soddisfano i criteri del filtro. Fare clic su qualsiasi risultato per aggiornare i rispettivi dettagli delle 3 sezioni elencate in precedenza. Tentiamo di trovare gli esempi con le maggiori possibilità di ottenere dettagli disponibili da tutti i componenti, anche se il campionamento è attivo in ognuno di essi. Questi vengono visualizzati come esempi "consigliati".
 
-![Search Results](media/transaction-diagnostics/searchResults.png)
+![Risultati della ricerca](media/transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profiler e Snapshot Debugger
 

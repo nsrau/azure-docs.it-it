@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486785"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621550"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure 
 
@@ -97,18 +97,18 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| NOME       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
+| Attività       |Porta                        |Protocollo|Target           |Destinazione|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |Qualsiasi        |CONSENTI |
-|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |Qualsiasi        |CONSENTI |
-|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|Qualsiasi        |CONSENTI |
+|gestione  |9000, 9003, 1438, 1440, 1452|TCP     |Tutte              |Tutte        |Consenti |
+|mi_subnet   |Tutte                         |Tutte     |MI SUBNET        |Tutte        |Consenti |
+|health_probe|Tutte                         |Tutte     |AzureLoadBalancer|Tutte        |Consenti |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| NOME       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
+| Attività       |Porta          |Protocollo|Target           |Destinazione|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Qualsiasi              |Internet   |CONSENTI |
-|mi_subnet   |Qualsiasi           |Qualsiasi     |Qualsiasi              |MI SUBNET *  |CONSENTI |
+|gestione  |80, 443, 12000|TCP     |Tutte              |AzureCloud  |Consenti |
+|mi_subnet   |Tutte           |Tutte     |Tutte              |MI SUBNET *  |Consenti |
 
 > Assicurarsi che sia presente solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 80, 443, 12000. Provisioning dell'istanza gestita tramite distribuzioni ARM può non riuscire se le regole in ingresso e di output vengono configurate separatamente per ogni porte. 
 
@@ -122,7 +122,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
-|NOME|Prefisso indirizzo|Hop successivo|
+|Attività|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
 |subnet_to_vnetlocal|[mi_subnet]|Rete virtuale|
 |mi-0-5-next-hop-internet|0.0.0.0/5|Internet|

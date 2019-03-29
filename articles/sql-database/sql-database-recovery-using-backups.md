@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: ff3f1e405dc7a1e69c3b1d1d20936ca78b97fcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ca54ae11390b388c3158bd220ee5c7829172a5c3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855096"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620479"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Ripristinare un database SQL di Azure mediante i backup automatici del database
 
@@ -175,9 +175,9 @@ Per ripristinare un database singolo o in pool con l'API REST:
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
 - Per ripristinare un database singolo o in pool con l'interfaccia della riga di comando di Azure, vedere [Ripristino az sql db](/cli/azure/sql/db#az-sql-db-restore).
-- Per ripristinare un'istanza gestita con CLI di Azure, vedere [ripristino midb di az sql](/cli/azure/sql/db)
+- Per ripristinare un'istanza gestita con CLI di Azure, vedere [ripristino midb di az sql](/cli/azure/sql/midb#az-sql-midb-restore)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I backup automatici proteggono i database da errori dell'utente e delle applicazioni, dall'eliminazione accidentale e da interruzioni prolungate. Questa funzionalità incorporata è disponibile per tutti i livelli di servizio e le dimensioni di calcolo.
 

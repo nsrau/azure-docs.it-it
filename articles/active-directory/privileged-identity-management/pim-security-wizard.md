@@ -1,5 +1,5 @@
 ---
-title: Procedura guidata relativa alla sicurezza per i ruoli di Azure AD in PIM | Microsoft Docs
+title: I ruoli sicurezza guidata di Azure AD in PIM - Azure Active Directory | Microsoft Docs
 description: Descrive la procedura guidata relativa alla sicurezza che è possibile usare per convertire le assegnazioni di ruolo di Azure AD con privilegi permanenti in assegnazioni idonee usando Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b66dcc834ab089f28e6bb47c2905e6a2a3907091
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 226c00dfdf651580a58a9409bc7cd22658415a56
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208759"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576361"
 ---
 # <a name="azure-ad-roles-security-wizard-in-pim"></a>Procedura guidata relativa alla sicurezza per i ruoli di Azure AD in PIM
 
-Quando si esegue per la prima volta Azure AD Privileged Identity Management (PIM) per l'organizzazione, viene visualizzata una procedura guidata. La procedura guidata offre informazioni sui rischi di sicurezza delle identità con privilegi e su come usare PIM per ridurre tali rischi. Se si vuole farlo in seguito, non è necessario apportare modifiche alle assegnazioni dei ruoli esistenti nella procedura guidata.
+Se si è la prima persona per l'esecuzione di Azure Active Directory (Azure AD) Privileged Identity Management (PIM) per l'organizzazione, verrà visualizzato con una procedura guidata. La procedura guidata offre informazioni sui rischi di sicurezza delle identità con privilegi e su come usare PIM per ridurre tali rischi. Se si vuole farlo in seguito, non è necessario apportare modifiche alle assegnazioni dei ruoli esistenti nella procedura guidata.
 
 ## <a name="wizard-overview"></a>Panoramica della procedura guidata
 
@@ -65,9 +65,9 @@ Il secondo passaggio della procedura guidata offre la possibilità di modificare
 
     ![Notifiche](./media/pim-security-wizard/notification-completion.png)
 
-Se è necessario convertire altre assegnazioni di ruolo con privilegi in idonee, è possibile eseguire nuovamente la procedura guidata. Se si vuole usare l'interfaccia di PIM invece della procedura guidata, vedere [Assegnare ruoli della directory di Azure AD in PIM](pim-how-to-add-role-to-user.md).
+Se è necessario convertire altre assegnazioni di ruolo con privilegi in idonee, è possibile eseguire nuovamente la procedura guidata. Se si vuole usare l'interfaccia PIM invece la procedura guidata, vedere [assegnare i ruoli di Azure AD in PIM](pim-how-to-add-role-to-user.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Assegnare ruoli della directory di Azure AD in PIM](pim-how-to-add-role-to-user.md)
+- [Assegnare i ruoli di Azure AD in PIM](pim-how-to-add-role-to-user.md)
 - [Concedere l'accesso ad altri amministratori per gestire PIM](pim-how-to-give-access-to-pim.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432142"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622077"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Recupero di tabelle ARP nel modello di distribuzione Resource Manager
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Prima di procedere, verificare che siano presenti gli elementi seguenti:
 * Gli intervalli degli indirizzi IP usati per la configurazione del peer (privato di Azure, pubblico di Azure e Microsoft). Consultare gli esempi di assegnazione dell'indirizzo IP in [Requisiti per il routing di ExpressRoute](expressroute-routing.md) per ottenere informazioni sul mapping degli indirizzi IP verso le interfacce sul lato utente e sul lato ExpressRoute. È possibile ottenere informazioni sulla configurazione del peering consultando la [pagina sulla configurazione del peering di ExpressRoute](expressroute-howto-routing-arm.md).
 * Informazioni dal team di rete/provider di connettività sugli indirizzi MAC delle interfacce usate con questi indirizzi IP.
 * È necessario disporre del modulo PowerShell più recente per Azure (versione 1.50 o successiva).
+
+> [!NOTE]
+> Se layer 3 viene fornito dal provider di servizi e le tabelle ARP sono mostrate nel portale/output riportato di seguito, aggiornare la configurazione del circuito utilizzando il pulsante di aggiornamento nel portale. Questa operazione applicherà la configurazione di routing corretta nel circuito. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Ottenere tabelle ARP per il circuito ExpressRoute
 Questa sezione fornisce istruzioni su come visualizzare le tabelle ARP per il peering tramite PowerShell. Prima di procedere all'elaborazione, l'utente o il provider di connettività devono aver configurato il peering. Ogni circuito ha due percorsi (primario e secondario). È possibile controllare la tabella ARP di ogni percorso in modo indipendente.
@@ -149,7 +154,7 @@ Se si verificano problemi con la sessione locale o provider di connettività su 
        --- ----------------- ---------  ----------    
          0 Microsoft         65.0.0.2   aaaa.bbbb.cccc
 
-oppure
+o
        
        Age InterfaceProperty IpAddress  MacAddress    
        --- ----------------- ---------  ----------   
@@ -168,7 +173,7 @@ oppure
 * Se sono presenti problemi sul lato Microsoft, non verrà visualizzata la tabella ARP illustrata per il peering. 
 * Aprire un ticket di assistenza al [supporto tecnico Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Specificare che si è riscontrato un problema di connettività di livello 2. 
 
-## <a name="next-steps"></a>Fasi successive
+## <a name="next-steps"></a>Passaggi successivi
 * Convalidare le configurazioni di livello 3 per il circuito ExpressRoute
   * Ottenere un riepilogo del routing per determinare lo stato delle sessioni BGP 
   * Ottenere la tabella del routing per stabilire i prefissi pubblicati in ExpressRoute

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: d9443349ea7ce91a3b8ab01510917bc82ae9b8ad
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316134"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579462"
 ---
 # <a name="saas-fulfillment-apis-version-1"></a>Versione di API SaaS evasione 1
 
@@ -38,8 +38,8 @@ Le API seguenti sono fornite per semplificare l'integrazione del servizio SaaS c
 
 -   Risolvi
 -   Sottoscrivi
--   Conversione
--   Annullare la sottoscrizione
+-   Converti
+-   Annulla sottoscrizione
 
 Il diagramma seguente mostra il flusso di sottoscrizione di un nuovo cliente e quando vengono usate queste API:
 
@@ -102,7 +102,7 @@ Metodo HTTP
 
 |  **Nome parametro**  | **Obbligatorio**  | **Descrizione**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
-| TenantId             | True           | ID tenant dell'applicazione AAD registrata   |
+| TenantId             | True          | ID tenant dell'applicazione AAD registrata   |
 |  |  |  |
 
 
@@ -110,7 +110,7 @@ Metodo HTTP
 
 |  **Nome dell'intestazione**  | **Obbligatorio** |  **Descrizione**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True          | Tipo di contenuto associato alla richiesta. Il valore predefinito è `application/x-www-form-urlencoded`.  |
+|  Tipo contenuto     | True         | Tipo di contenuto associato alla richiesta. Il valore predefinito è `application/x-www-form-urlencoded`.  |
 |  |  |  |
 
 
@@ -118,16 +118,16 @@ Metodo HTTP
 
 | **Nome proprietà**   | **Obbligatorio** |  **Descrizione**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True          | Tipo di concessione. Il valore predefinito è `client_credentials`.                    |
-|  Client_id          | True          |  Identificatore del client/app associato all'app di Azure AD.                  |
-|  client_secret      | True          |  Password associata all'app di Azure AD.                               |
-|  Risorsa           | True          |  Risorsa di destinazione per cui è richiesto il token. Il valore predefinito è `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
+|  Grant_type         | True         | Tipo di concessione. Il valore predefinito è `client_credentials`.                    |
+|  Client_id          | True         |  Identificatore del client/app associato all'app di Azure AD.                  |
+|  client_secret      | True         |  Password associata all'app di Azure AD.                               |
+|  Risorsa           | True         |  Risorsa di destinazione per cui è richiesto il token. Il valore predefinito è `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
 |  |  |  |
 
 
 *Risposta*
 
-|  **Nome**  | **Tipo**       |  **Descrizione**    |
+|  **Name**  | **Tipo**       |  **Descrizione**    |
 | ---------- | -------------  | ------------------- |
 | 200 - OK    | TokenResponse  | La richiesta ha avuto esito positivo   |
 |  |  |  |
@@ -177,8 +177,8 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
-| x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| x-ms-requestid     | N.           | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
+| x-ms-correlationid | N.           | Valore stringa univoco per l'operazione sul client. Mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | Tipo di contenuto       | Sì          | `application/json`                                        |
 | authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
 | x-ms-marketplace-token| Sì| Il parametro di query token nell'URL quando l'utente viene reindirizzato al sito Web dell'ISV SaaS da Azure. **Nota:** questo token è valido solo per un'ora. Decodificare inoltre l'URL nel valore del token dal browser prima dell'uso.|
@@ -198,10 +198,10 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                       |
 |--------------------|---------------|---------------------------------------|
-| id                 | string        | ID della sottoscrizione SaaS.          |
-| subscriptionName| string| Nome della sottoscrizione SaaS impostata dall'utente in Azure durante la sottoscrizione al servizio SaaS.|
-| OfferId            | string        | ID dell'offerta sottoscritta dall'utente. |
-| planId             | string        | ID del piano sottoscritto dall'utente.  |
+| ID                 | Stringa        | ID della sottoscrizione SaaS.          |
+| subscriptionName| Stringa| Nome della sottoscrizione SaaS impostata dall'utente in Azure durante la sottoscrizione al servizio SaaS.|
+| OfferId            | Stringa        | ID dell'offerta sottoscritta dall'utente. |
+| planId             | Stringa        | ID del piano sottoscritto dall'utente.  |
 |  |  |  |
 
 
@@ -224,7 +224,7 @@ Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un to
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo valore è l'ID di correlazione del server.                   |
 | x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
-| Retry-After        | No            | Questo valore viene impostato solo per una risposta 429.                                                                   |
+| Retry-After        | N.           | Questo valore viene impostato solo per una risposta 429.                                                                   |
 |  |  |  |
 
 
@@ -246,12 +246,12 @@ L'endpoint di sottoscrizione consente agli utenti di avviare una sottoscrizione 
 
 |  **Chiave dell'intestazione**        | **Obbligatorio** |  **Descrizione**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
-| x-ms-requestid         |   No          | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| x-ms-correlationid     |   No          | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| If-Match/If-None-Match |   No          |   Valore assoluto del validator ETag.                                                          |
+| x-ms-requestid         |   N.         | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| x-ms-correlationid     |   N.         | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| If-Match/If-None-Match |   N.         |   Valore assoluto del validator ETag.                                                          |
 | content-type           |   Sì        |    `application/json`                                                                   |
 |  authorization         |   Sì        |    Il token di connessione JSON Web token (JWT).                                               |
-| x-ms-marketplace-modalità sessione| No  | Flag per abilitare la modalità di esecuzione durante la sottoscrizione di un'offerta SaaS. Se impostato, non verrà addebitato nessun importo di sottoscrizione. Ciò è utile per scenari di test di ISV. Impostarlo su **"dryrun"**|
+| x-ms-marketplace-modalità sessione| N. | Flag per abilitare la modalità di esecuzione durante la sottoscrizione di un'offerta SaaS. Se impostato, non verrà addebitato nessun importo di sottoscrizione. Ciò è utile per scenari di test di ISV. Impostarlo su **"dryrun"**|
 |  |  |  |
 
 *Corpo*
@@ -311,9 +311,9 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 
 | **Chiave dell'intestazione**          | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid          | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
-| x-ms-correlationid      | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
-| If-Match /If-None-Match | No            | Valore assoluto del validator ETag.                              |
+| x-ms-requestid          | N.           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
+| x-ms-correlationid      | N.           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| If-Match /If-None-Match | N.           | Valore assoluto del validator ETag.                              |
 | content-type            | Sì          | `application/json`                                        |
 | authorization           | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  |
@@ -355,7 +355,7 @@ L'endpoint di modifica consente all'utente di convertire il piano attualmente so
 | Operation-Location | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
 
-### <a name="delete-subscription"></a>Eliminare una sottoscrizione
+### <a name="delete-subscription"></a>Elimina sottoscrizione
 
 L'azione Eliminare dell'endpoint "sottoscrivere" consente all'utente di eliminare una sottoscrizione con un ID specifico.
 
@@ -375,8 +375,8 @@ L'azione Eliminare dell'endpoint "sottoscrivere" consente all'utente di eliminar
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
-| x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
-| x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| x-ms-requestid     | N.           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
+| x-ms-correlationid | N.           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  |
 
@@ -425,8 +425,8 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
-| x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
+| x-ms-requestid     | N.           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.   |
+| x-ms-correlationid | N.           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
 | authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  | 
 
@@ -444,10 +444,10 @@ Questo endpoint consente all'utente di tracciare lo stato di un'operazione asinc
 
 | **Nome parametro** | **Tipo di dati** | **Descrizione**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
-| id                 | string        | ID dell'operazione.                                                                      |
-| status             | Enum          | Stato dell'operazione, uno dei seguenti: `In Progress`, `Succeeded` o `Failed`.          |
-| resourceLocation   | string        | Collegamento alla sottoscrizione creata o modificata. In questo modo, il client ottiene lo stato successivo all'operazione aggiornato. Questo valore non è impostato per le operazioni `Unsubscribe`. |
-| created            | DateTime      | Ora della creazione dell'operazione in formato UTC.                                                           |
+| ID                 | Stringa        | ID dell'operazione.                                                                      |
+| Stato             | Enum          | Stato dell'operazione, uno dei seguenti: `In Progress`, `Succeeded` o `Failed`.          |
+| resourceLocation   | Stringa        | Collegamento alla sottoscrizione creata o modificata. In questo modo, il client ottiene lo stato successivo all'operazione aggiornato. Questo valore non è impostato per le operazioni `Unsubscribe`. |
+| creato            | DateTime      | Ora della creazione dell'operazione in formato UTC.                                                           |
 | LastModified       | DateTime      | Ultimo aggiornamento dell'operazione in formato UTC.                                                      |
 |  |  |  |
 
@@ -493,8 +493,8 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
-| x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
-| x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| x-ms-requestid     | N.           | Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.                                                           |
+| x-ms-correlationid | N.           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | authorization      | Sì          | Il token di connessione JSON Web token (JWT).                                                                    |
 |  |  |  |
 
@@ -514,12 +514,12 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
-| offerId                | string        | ID dell'offerta sottoscritta dall'utente.         |
-| planId                 | string        | ID del piano sottoscritto dall'utente.          |
-| saasSubscriptionName   | string        | Nome della sottoscrizione SaaS.                |
+| ID                     | Stringa        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | Stringa        | ID dell'offerta sottoscritta dall'utente.         |
+| planId                 | Stringa        | ID del piano sottoscritto dall'utente.          |
+| saasSubscriptionName   | Stringa        | Nome della sottoscrizione SaaS.                |
 | saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: la sottoscrizione è attiva.  <br/> - `Pending`: la risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: l'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: l'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`:  la sottoscrizione di Azure è sospesa.  |
-| created                | DateTime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
+| creato                | DateTime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
 | LastModified           | DateTime      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
 |  |  |  |
 
@@ -542,7 +542,7 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente agli utenti di recuper
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
 | x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
-| Retry-After        | No            | Intervallo per cui il client può controllare lo stato.                                                       |
+| Retry-After        | N.           | Intervallo per cui il client può controllare lo stato.                                                       |
 | eTag               | Sì          | Collegamento a una risorsa per ottenere lo stato dell'operazione.                                                        |
 |  |  |  |
 
@@ -565,8 +565,8 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 
 | **Chiave dell'intestazione**     | **Obbligatorio** | **Descrizione**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
-| x-ms-requestid     | No            | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.             |
-| x-ms-correlationid | No            | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
+| x-ms-requestid     | N.           | Valore stringa univoco per tenere traccia della richiesta dal client. Consigliare un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.             |
+| x-ms-correlationid | N.           | Valore stringa univoco per l'operazione sul client. Questo valore mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta. |
 | authorization      | Sì          | Il token di connessione JSON Web token (JWT).                    |
 |  |  |  |
 
@@ -586,12 +586,12 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
-| offerId                | string        | ID dell'offerta sottoscritta dall'utente.         |
-| planId                 | string        | ID del piano sottoscritto dall'utente.          |
-| saasSubscriptionName   | string        | Nome della sottoscrizione SaaS.                |
+| ID                     | Stringa        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | Stringa        | ID dell'offerta sottoscritta dall'utente.         |
+| planId                 | Stringa        | ID del piano sottoscritto dall'utente.          |
+| saasSubscriptionName   | Stringa        | Nome della sottoscrizione SaaS.                |
 | saasSubscriptionStatus | Enum          | Stato dell'operazione.  Uno dei seguenti:  <br/> - `Subscribed`: la sottoscrizione è attiva.  <br/> - `Pending`: la risorsa viene creata dall'utente ma non viene attivata dall'ISV.   <br/> - `Unsubscribed`: l'utente ha annullato la sottoscrizione.   <br/> - `Suspended`: l'utente ha sospeso la sottoscrizione.   <br/> - `Deactivated`:  la sottoscrizione di Azure è sospesa.  |
-| created                | DateTime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
+| creato                | DateTime      | Valore timestamp relativo alla creazione della sottoscrizione in formato UTC. |
 | LastModified           | DateTime      | Valore timestamp relativo alla modifica della sottoscrizione in formato UTC. |
 |  |  |  |
 
@@ -614,7 +614,7 @@ L'azione Ottieni nell'endpoint di sottoscrizione consente all'utente di recupera
 | x-ms-requestid     | Sì          | ID richiesta ricevuta dal client.                                                                   |
 | x-ms-correlationid | Sì          | ID di correlazione, se viene passato dal client, in caso contrario, questo è l'ID di correlazione del server.                   |
 | x-ms-activityid    | Sì          | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni. |
-| Retry-After        | No            | Intervallo per cui il client può controllare lo stato.                                                       |
+| Retry-After        | N.           | Intervallo per cui il client può controllare lo stato.                                                       |
 |  |  |  |
 
 ### <a name="saas-webhook"></a>Webhook SaaS
@@ -624,28 +624,26 @@ Un webhook SaaS viene usato per notificare le modifiche in modo proattivo al ser
 *Corpo*
 
 ``` json
-  { 
+  {
     "id": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "activityId": "be750acb-00aa-4a02-86bc-476cbe66d7fa",
     "subscriptionId":"cd9c6a3a-7576-49f2-b27e-1e5136e57f45",
-    "offerId": "sampleSaaSOffer", // Provided with "Update" action
-    "publisherId": "contoso", 
-    "planId": "silver",     // Provided with "Update" action
-    "action": "Activate", // Activate/Delete/Suspend/Reinstate/Update
-    "timeStamp": "2018-12-01T00:00:00"
+    "action": "Subscribe", // Subscribe/Unsubscribe/ChangePlan
+    "operationRequestSource":"Azure",
+    "timeStamp":"2018-12-01T00:00:00"
   }
 ```
 
 | **Nome parametro**     | **Tipo di dati** | **Descrizione**                               |
 |------------------------|---------------|-----------------------------------------------|
-| id  | string       | ID univoco per l'operazione attivata.                |
-| activityId   | string        | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni.               |
-| subscriptionId                     | string        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
-| offerId                | string        | ID dell'offerta sottoscritta dall'utente. Fornito solo con l'azione di aggiornamento.        |
-| publisherId                | string        | ID dell'autore dell'offerta SaaS.         |
-| planId                 | string        | ID del piano sottoscritto dall'utente. Fornito solo con l'azione di aggiornamento.          |
-| action                 | string        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
-| Timestamp                 | string        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
+| ID  | Stringa       | ID univoco per l'operazione attivata.                |
+| activityId   | Stringa        | Valore stringa univoco per tenere traccia della richiesta dal servizio. Viene usato per eventuali riconciliazioni.               |
+| subscriptionId                     | Stringa        | ID di una risorsa di sottoscrizione SaaS in Azure.    |
+| offerId                | Stringa        | ID dell'offerta sottoscritta dall'utente. Fornito solo con l'azione di aggiornamento.        |
+| publisherId                | Stringa        | ID dell'autore dell'offerta SaaS.         |
+| planId                 | Stringa        | ID del piano sottoscritto dall'utente. Fornito solo con l'azione di aggiornamento.          |
+| action                 | Stringa        | Azione che attiva questa notifica. I valori possibili sono Activate, Delete, Suspend, Reinstate, Update.          |
+| Timestamp                 | Stringa        | Valore del timestamp in UTC in cui questa notifica è stata attivata.          |
 |  |  |  |
 
 

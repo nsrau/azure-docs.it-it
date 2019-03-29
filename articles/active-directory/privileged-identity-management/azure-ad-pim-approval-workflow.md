@@ -1,6 +1,6 @@
 ---
-title: Approvare o rifiutare le richieste per i ruoli della directory di Azure AD in PIM | Microsoft Docs
-description: Informazioni su come approvare o rifiutare le richieste per i ruoli della directory di Azure in Azure AD Privileged Identity Management (PIM).
+title: Approvare o rifiutare le richieste per i ruoli di Azure AD in PIM - Azure Active Directory | Microsoft Docs
+description: Informazioni su come approvare o rifiutare le richieste per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,36 +16,36 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68b0dba0280ce7875e797634a5dc2254cb889ad7
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 125a9864eaf53ecdf035247ba23d7c95a8daf131
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244982"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576795"
 ---
-# <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Approvare o rifiutare le richieste per i ruoli della directory di Azure AD in PIM
+# <a name="approve-or-deny-requests-for-azure-ad-roles-in-pim"></a>Approvare o rifiutare le richieste per i ruoli di Azure AD in PIM
 
-Con Azure AD Privileged Identity Management (PIM) è possibile configurare ruoli per richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili dell'approvazione con delega. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 ore per l'approvazione non è configurabile.
+Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), è possibile configurare i ruoli per richiedere l'approvazione per l'attivazione e scegliere uno o più utenti o gruppi come responsabili approvazione con delega. I responsabili approvazione delegati hanno 24 ore di tempo per approvare le richieste. Se una richiesta non viene approvata entro 24 ore, l'utente idoneo deve inviare una nuova richiesta. L'intervallo di tempo di 24 ore per l'approvazione non è configurabile.
 
-Seguire i passaggi descritti in questo articolo per approvare o rifiutare le richieste per i ruoli della directory di Azure AD.
+Seguire i passaggi descritti in questo articolo per approvare o rifiutare le richieste per ruoli di Azure AD.
 
-## <a name="view-pending-requests"></a>Visualizzare le richieste in sospeso
+## <a name="view-pending-requests"></a>Visualizza richieste in sospeso
 
-In qualità di responsabile dell'approvazione con delega si riceverà una notifica di posta elettronica quando una richiesta per i ruoli della directory è in attesa di approvazione. È possibile visualizzare queste richieste in sospeso in PIM.
+Come responsabile approvazione con delega, si riceverà una notifica e-mail quando una richiesta di ruolo di Azure AD è in attesa di approvazione. È possibile visualizzare queste richieste in sospeso in PIM.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Aprire **Azure AD Privileged Identity Management**.
 
-1. Fare clic su **Ruoli della directory di Azure AD**.
+1. Fare clic su **Ruoli di Azure AD**.
 
 1. Fare clic su **Approva richieste**.
 
-    ![Ruoli della directory di Azure AD PIM - Ruoli](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
+    ![Ruoli AD Azure PIM - ruoli](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
     È possibile visualizzare un elenco delle richieste in attesa di approvazione.
 
-## <a name="approve-requests"></a>Approvare le richieste
+## <a name="approve-requests"></a>Approva richieste
 
 1. Selezionare le richieste da approvare e quindi fare clic su **Approva** per aprire il riquadro Approva le richieste selezionate.
 

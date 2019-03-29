@@ -6,69 +6,60 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439006"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620118"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
 Questo articolo descrive come eliminare un' [Backup di Azure](backup-overview.md) insieme di credenziali dei servizi di ripristino. Contiene istruzioni per la rimozione delle dipendenze e quindi eliminare un insieme di credenziali e l'eliminazione di un insieme di credenziali tramite forza.
 
 
-
-
 ## <a name="before-you-start"></a>Prima di iniziare
 
 Prima di iniziare, è importante comprendere che non è possibile eliminare un insieme di credenziali di servizi di ripristino che dispone di server registrati in esso o che contiene dati di backup.
 
-
-- Per eliminare un insieme di credenziali normalmente, annullare la registrazione di server in essa e rimuovere i dati dell'insieme di credenziali.
+- Per eliminare un insieme di credenziali normalmente, annullare la registrazione di server in essa, rimuovere i dati dell'insieme di credenziali e quindi eliminare l'insieme di credenziali.
+- Se si prova a eliminare un insieme di credenziali che ancora dispone di dipendenze, viene generato un messaggio di errore. ed è necessario rimuovere manualmente le dipendenze dell'insieme di credenziali, tra cui:
+    - Il backup di elementi
+    - Server protetti
+    - Server di gestione (Server di Backup di Azure, Data Protection Manager) di backup ![selezionare l'insieme di credenziali per aprire il dashboard](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - Se non si desidera conservare i dati nell'insieme di credenziali di servizi di ripristino e si desidera eliminare l'insieme di credenziali, è possibile eliminare l'insieme di credenziali tramite forza.
 - Se si tenta di eliminare un insieme di credenziali senza riuscirci, l'insieme di credenziali risulta ancora configurato per ricevere dati di backup.
 
-Per informazioni su come eliminare un insieme di credenziali, vedere la sezione [Eliminare un insieme di credenziali dal portale di Azure](#delete-a-vault-from-the-azure-portal). Se sezione [eliminare l'insieme di credenziali tramite forza](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Se non si conosce con sicurezza il contenuto dell'insieme di credenziali e si vuole essere certi di poter eliminare l'insieme di credenziali, vedere la sezione [Rimuovere le dipendenze dell'insieme di credenziali ed eliminare l'insieme di credenziali](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Eliminare un insieme di credenziali dal portale di Azure
 
-1. Aprire l'elenco degli insiemi di credenziali di servizi di ripristino nel portale.
-2. Selezionare dall'elenco l'insieme di credenziali da eliminare. Viene aperto il dashboard dell'insieme di credenziali.
+1. Aprire il dashboard dell'insieme di credenziali.  
+2. Nel dashboard, fare clic su **Elimina**. Verificare che si desidera eliminare.
 
     ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-1. Nel dashboard dell'insieme di credenziali, fare clic su **Elimina**. Verificare che si desidera eliminare.
+Se si riceve un errore, rimuovere [elementi di backup](#remove-backup-items), [server di infrastruttura](#remove-backup-infrastructure-servers), e [i punti di ripristino](#remove-azure-backup-agent-recovery-points)e quindi eliminare l'insieme di credenziali.
 
-    ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
+![Errore dell'insieme di credenziali di eliminazione](./media/backup-azure-delete-vault/error.png)
 
-2. Se sono presenti dipendenze di insieme di credenziali, il **insieme di credenziali di errore di eliminazione** viene visualizzata: 
-
-    ![Errore di eliminazione dell'insieme di credenziali](./media/backup-azure-delete-vault/vault-delete-error.png)
-
-    - Seguire queste istruzioni per rimuovere le dipendenze prima di eliminare l'insieme di credenziali, esaminare
-    - [Seguire queste istruzioni](#delete-the-recovery-services-vault-by-force) usare PowerShell per eliminare l'insieme di credenziali tramite forza. 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Eliminare l'insieme di credenziali dei servizi di ripristino
 
+È possibile eliminare un insieme di credenziali forzato con PowerShell. Force delete significa che l'insieme di credenziali e tutti i relativi dati di backup viene eliminato definitivamente.
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-È possibile usare PowerShell per eliminare forzatamente un insieme di credenziali dei servizi di ripristino. Ciò significa che l'insieme di credenziali e tutti i relativi dati di backup viene eliminato definitivamente. 
 
-> [!Warning]
-> Quando si usa PowerShell per eliminare un insieme di credenziali di servizi di ripristino, verificare che si desidera eliminare definitivamente tutti i dati di backup nell'insieme di credenziali.
->
-
-Per eliminare un insieme di credenziali dei servizi di ripristino:
+Per eliminare un insieme di credenziali tramite forza:
 
 1. Accedi alla sottoscrizione di Azure con il `Connect-AzAccount` comando e seguire sullo schermo le direzioni.
 
    ```powershell
     Connect-AzAccount
    ```
-2. La prima volta che si usa Backup di Azure, è necessario registrare il provider di servizi di ripristino di Azure nella sottoscrizione con [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
+2. Quando si usa Backup di Azure per la prima volta, è necessario registrare il provider di Servizi di ripristino di Azure nella sottoscrizione con [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
 
    ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -90,28 +81,18 @@ Per eliminare un insieme di credenziali dei servizi di ripristino:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Se l'insieme di credenziali non vuoto, viene visualizzato l'errore "Non è possibile eliminare insieme di credenziali perché contiene risorse esistenti all'interno di questo insieme di credenziali". Per rimuovere un contenitore all'interno di un insieme di credenziali, eseguire le operazioni seguenti:
+9. Se l'insieme di credenziali non vuoto, viene visualizzato l'errore "Non è possibile eliminare insieme di credenziali perché contiene risorse esistenti all'interno di questo insieme di credenziali". Per rimuovere un oggetto contenuto all'interno di un insieme di credenziali, eseguire le operazioni seguenti:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-10. Accedi alla sottoscrizione nel portale di Azure e verificare che l'insieme di credenziali viene eliminato.
+10. Nel portale di Azure, verificare che l'insieme di credenziali viene eliminato.
 
 
-## <a name="remove-vault-dependencies-and-delete-vault"></a>Rimuovere le dipendenze dell'insieme di credenziali ed eliminare l'insieme di credenziali
+## <a name="remove-vault-items-and-delete-the-vault"></a>Rimuovere gli elementi dell'insieme di credenziali ed eliminare l'insieme di credenziali
 
-È possibile rimuovere manualmente le dipendenze di insieme di credenziali, come indicato di seguito:
-
-- Nel **elementi di Backup** menu, rimuovere le dipendenze:
-    - Backup di Archiviazione di Azure (File di Azure)
-    - Backup di SQL Server in macchine virtuali di Azure
-    - Backup di macchine virtuali di Azure
-- Nel **infrastruttura di Backup** menu, rimuovere le dipendenze:
-    - Backup del Server Backup di Microsoft Azure (MABS)
-    - Backup di System Center DPM
-
-![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+Queste procedure forniscono alcuni esempi per la rimozione dei dati di backup e i server di infrastruttura. Dopo che tutto ciò che viene rimosso da un insieme di credenziali, è possibile eliminarlo.
 
 ### <a name="remove-backup-items"></a>Rimuovere gli elementi di backup
 
@@ -200,12 +181,13 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 
 
 
+
+
+
 ### <a name="delete-the-vault-after-removing-dependencies"></a>Eliminare l'insieme di credenziali dopo la rimozione delle dipendenze
 
 1. Quando tutte le dipendenze sono state rimosse, scorrere fino al **Essentials** riquadro del menu dell'insieme di credenziali.
-
-    - Nell'elenco non dovrebbero essere presenti **Elementi di backup**, **Server di gestione di backup** o **Elementi replicati**.
-    - Se nell'insieme di credenziali sono ancora presenti elementi, rimuoverli.
+2. Verificare che non vi siano **elementi di Backup**, **server di gestione di Backup**, o **elementi replicati** elencati. Se nell'insieme di credenziali sono ancora presenti elementi, rimuoverli.
 
 2. Dopo che tutti gli elementi nell'insieme di credenziali sono stati eliminati, nel dashboard dell'insieme di credenziali fare clic su **Elimina**.
 

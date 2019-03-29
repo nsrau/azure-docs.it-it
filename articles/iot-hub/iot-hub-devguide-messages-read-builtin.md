@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 52f1316b8167d2e1c3e37dbbfc0059b68e832172
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 827d7d9a3d584342703a84dd2a42e5cda9b3a656
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57538562"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579411"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Leggere messaggi da dispositivo a cloud dall'endpoint predefinito
 
@@ -24,7 +24,7 @@ Per impostazione predefinita, i messaggi vengono instradati all'endpoint per ser
 | **Numero di partizioni** | Impostare questa proprietà in fase di creazione per definire il numero di [partizioni](../event-hubs/event-hubs-features.md#partitions) per l'inserimento di eventi da dispositivo a cloud. |
 | **Tempo di conservazione**  | Questa proprietà specifica per quanti giorni i messaggi vengono conservati dall'hub IoT. Il valore predefinito è un giorno, ma può essere aumentato a sette giorni. |
 
-L'IoT Hub consente la conservazione dei dati in hub eventi predefinito per un massimo di 7 giorni. È possibile impostare il tempo di conservazione durante la creazione dell'IoT Hub. Dimensioni di conservazione dei dati nell'IoT Hub dipendono dal livello dell'hub IoT e tipo di unità. In termini di dimensioni, l'hub di eventi predefiniti consente di conservare i messaggi della dimensione massima dei messaggi fino a 24 ore della quota. Ad esempio, per 1 unità S1 che dell'IoT Hub fornisce spazio di archiviazione sufficiente a conservare almeno 400 KB di messaggi di 4 KB dimensioni ognuno. Se i dispositivi inviano messaggi più piccoli, si potrebbe essere conservati per più tempo (fino a 7 giorni) a seconda di quanto spazio di archiviazione viene usato. Microsoft garantisce il mantenimento dati per il periodo di conservazione specificato come minimo.
+L'IoT Hub consente la conservazione dei dati in hub eventi predefinito per un massimo di 7 giorni. È possibile impostare il tempo di conservazione durante la creazione dell'IoT Hub. Nel livello dell'hub IoT e tipo di unità dipende dal periodo di conservazione dei dati nell'IoT Hub. In termini di dimensioni, l'hub di eventi predefiniti consente di conservare i messaggi della dimensione massima dei messaggi fino a 24 ore della quota. Ad esempio, per 1 unità S1 che dell'IoT Hub fornisce spazio di archiviazione sufficiente a conservare almeno 400 KB di messaggi di 4 KB dimensioni ognuno. Se i dispositivi inviano messaggi più piccoli, si potrebbe essere conservati per più tempo (fino a 7 giorni) a seconda di quanto spazio di archiviazione viene usato. Microsoft garantisce il mantenimento dati per il periodo di conservazione specificato come minimo.
 
 L'hub IoT consente inoltre di gestire i gruppi di consumer nell'endpoint di ricezione predefinito da dispositivo a cloud.
 
@@ -50,17 +50,17 @@ Quando si usa il SDK di hub eventi o le integrazioni dei prodotti che non sono c
 
 Nel portale, il campo dell'endpoint compatibile con Hub eventi contiene una stringa di connessione hub eventi completa che è simile a: **Endpoint=sb://abcd1234namespace.servicebus.windows.net/;SharedAccessKeyName=iothubowner;SharedAccessKey=keykeykeykeykeykey=;EntityPath=iothub-ehub-abcd-1234-123456**. Se il SDK in uso richiede altri valori, quindi sarebbero:
 
-| NOME | Valore |
+| Nome | Valore |
 | ---- | ----- |
 | Endpoint | sb://abcd1234namespace.servicebus.windows.net/ |
 | Nome host | abcd1234namespace.servicebus.windows.net |
-| Spazio dei nomi | abcd1234namespace |
+| Namespace | abcd1234namespace |
 
 È quindi possibile usare qualsiasi criterio di accesso condiviso con autorizzazioni **ServiceConnect** per connettersi all'hub eventi specificato.
 
 il SDK da che usare per connettersi all'endpoint predefinito compatibile con Hub eventi esposti dall'IoT Hub includono:
 
-| Linguaggio | SDK | Esempio | Note |
+| Linguaggio | SDK | Esempio | Notes |
 | -------- | --- | ------ | ----- |
 | .NET | https://github.com/Azure/azure-event-hubs-dotnet | [Guida introduttiva](quickstart-send-telemetry-dotnet.md) | Usa informazioni compatibile con hub eventi |
  Java | https://github.com/Azure/azure-event-hubs-java | [Guida introduttiva](quickstart-send-telemetry-java.md) | Usa informazioni compatibile con hub eventi |

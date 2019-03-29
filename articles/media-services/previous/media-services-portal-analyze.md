@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259687"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619442"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Analizzare i contenuti multimediali usando il portale di Azure 
 > [!NOTE]
-> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
+> Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
 > 
 > 
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Informazioni generali
 Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e visione artificiale, con conformità, sicurezza e copertura globale di livello enterprise, che semplificano alle aziende e alle organizzazioni l'acquisizione di informazioni dettagliate dai file video. Per una panoramica più dettagliata di Analisi Servizi multimediali, vedere [questo](media-services-analytics-overview.md) argomento. 
 
 Questo argomento illustra come elaborare i contenuti multimediali con processori di contenuti multimediali (MP) di Analisi Servizi multimediali tramite il portale di Azure. I processori di contenuti multimediali di Analisi Servizi multimediali producono file MP4 o JSON. Se un processore di contenuti multimediali produce un file MP4, è possibile scaricare progressivamente il file. Se un processore di contenuti multimediali produce un file JSON, è possibile scaricare il file da Archiviazione BLOB di Azure. 
@@ -50,7 +50,7 @@ Il processore di contenuti multimediali **Azure Media Indexer** consente di rend
 
 ![Analizzare i video](./media/media-services-portal-analyze/media-services-portal-analyze003.png)
 
-### <a name="language"></a>Linguaggio
+### <a name="language"></a>Lingua
 Linguaggio naturale da riconoscere nel file multimediale, ad esempio l'inglese o lo spagnolo. 
 
 ### <a name="captions"></a>Sottotitoli
@@ -74,12 +74,7 @@ Nome descrittivo che consente di identificare il processo. [Questo](media-servic
 ### <a name="output-file"></a>File di output
 Nome descrittivo che consente di identificare il contenuto di output. 
 
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse è un processore multimediale che crea fluidi video in time-lapse da contenuti registrati in prima persona o da fotocamere d'azione.  Per altre informazioni, vedere [questo](media-services-hyperlapse-content.md) argomento. Questa sezione offre alcuni dettagli sulle opzioni che è possibile specificare per questo processore di contenuti multimediali.
-
-![Analizzare i video](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
-
-### <a name="speed"></a>speed
+### <a name="speed"></a>Velocità
 Specificare la velocità di riproduzione del video di input. L'output è costituito da un rendering stabilizzato e in time-lapse del video di input.
 
 ### <a name="job-name"></a>Nome processo
@@ -144,7 +139,7 @@ Questo processore consente di rilevare contenuti potenzialmente pornografici e p
 ### <a name="version"></a>Versione 
 Usare "2.0".
 
-### <a name="mode"></a>Mode
+### <a name="mode"></a>Modalità
 La versione 2.0 ignora l'impostazione `Mode`.
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -152,5 +147,5 @@ Visualizzare i percorsi di apprendimento di Servizi multimediali.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

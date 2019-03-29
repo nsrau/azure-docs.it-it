@@ -1,6 +1,6 @@
 ---
-title: Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM | Microsoft Docs
-description: Informazioni su come avviare una verifica di accesso per i ruoli della directory di Azure in Azure AD Privileged Identity Management (PIM).
+title: Avviare una verifica di accesso per i ruoli di Azure AD in PIM - Azure Active Directory | Microsoft Docs
+description: Informazioni su come avviare una verifica di accesso per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33f2e3249d1b7ad0efc16dd0b9ced26379c3cae7
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: e5cbf96c165d79c26985663ef5a9d64bbf8f9892
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56174470"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574995"
 ---
-# <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM
-Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi o gli amministratori globali devono creare periodicamente delle verifiche degli accessi, in modo da chiedere agli amministratori di verificare i ruoli assegnati agli utenti. Questo documento illustra i passaggi per l'avvio di una verifica dell'accesso in Azure AD Privileged Identity Management (PIM).
+# <a name="start-an-access-review-for-azure-ad-roles-in-pim"></a>Avviare una verifica di accesso per i ruoli di Azure AD in PIM
+Le assegnazioni dei ruoli diventano "obsolete" quando gli utenti hanno accessi con privilegi di cui non necessitano più. Per ridurre il rischio associato alle assegnazioni dei ruoli obsolete, gli amministratori dei ruoli con privilegi o gli amministratori globali devono creare periodicamente delle verifiche degli accessi, in modo da chiedere agli amministratori di verificare i ruoli assegnati agli utenti. Questo documento illustra i passaggi per avviare una verifica di accesso in Azure Active Directory (Azure AD) Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Avviare una verifica dell'accesso
 > [!NOTE]
@@ -80,6 +80,6 @@ Fino al termine del periodo di verifica, è possibile ricordare agli utenti di c
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM](pim-how-to-complete-review.md)
-- [Eseguire una verifica di accesso dei ruoli della directory di Azure AD in PIM](pim-how-to-perform-security-review.md)
+- [Completare una verifica di accesso per i ruoli di Azure AD in PIM](pim-how-to-complete-review.md)
+- [Eseguire una verifica di accesso dei ruoli personali AD Azure in PIM](pim-how-to-perform-security-review.md)
 - [Avviare una verifica di accesso per i ruoli delle risorse di Azure in PIM](pim-resource-roles-start-access-review.md)

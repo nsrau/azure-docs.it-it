@@ -7,23 +7,20 @@ manager: vijayts
 keywords: ripristinare il backup; come ripristinare; punto di ripristino.
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/28/2019
 ms.author: geg
-ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3b32418361b992b91aa96579a0cf1f84d8b9d312
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315386"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620411"
 ---
 # <a name="restore-azure-vms"></a>Ripristinare VM di Azure
 
 Questo articolo descrive come ripristinare i dati delle macchine virtuali di Azure dai punti di ripristino archiviati negli insiemi di credenziali di Servizi di ripristino di [Backup di Azure](backup-overview.md).
 
-Per ripristinare una macchina virtuale assicurarsi di avere la necessaria [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) l'autorizzazione.
 
-> [!NOTE]
-> Se non si dispone [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) è possibile eseguire l'autorizzazione [ripristinare il disco](backup-azure-arm-restore-vms.md#create-new-restore-disks) e creare la macchina virtuale Usa [distribuire il modello](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) funzionalità.
 
 ### <a name="restore-options"></a>Opzioni di ripristino
 
@@ -39,6 +36,13 @@ Backup di Azure offre diversi modi per ripristinare una macchina virtuale.
 > È anche possibile ripristinare file e cartelle specifici in una macchina virtuale di Azure. [Altre informazioni](backup-azure-restore-files-from-vm.md)
 >
 > Se si esegue la [versione più recente](backup-instant-restore-capability.md) di Backup di Azure per macchine virtuali di Azure (noto come Ripristino istantaneo), gli snapshot possono essere conservati fino a un massimo di sette giorni ed è possibile ripristinare una macchina virtuale dagli snapshot prima che i dati di backup vengano inviati all'insieme di credenziali. Se si vuole ripristinare una macchina virtuale da un backup degli ultimi sette giorni, è più rapido effettuare il ripristino dallo snapshot anziché dall'insieme di credenziali.
+
+## <a name="before-you-start"></a>Prima di iniziare
+
+Ripristinare una macchina virtuale (Crea una nuova macchina virtuale) assicurarsi di avere il controllo di accesso corretti in base al ruolo (RBAC) [autorizzazioni](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) per l'operazione di ripristino della macchina virtuale.
+
+Se non si dispone delle autorizzazioni, è possibile [ripristinare un disco](#restore-disks), quindi dopo che il disco ripristinato, è possibile [usare il modello](#use-templates-to-customize-a-restored-vm) che è stato generato come parte dell'operazione di ripristino per creare una nuova macchina virtuale.
+
 
 
 ## <a name="select-a-restore-point"></a>Selezionare un punto di ripristino
@@ -61,7 +65,7 @@ Backup di Azure offre diversi modi per ripristinare una macchina virtuale.
 
 2. Specificare le impostazioni per l'opzione di ripristino selezionata.
 
-## <a name="create-new-create-a-vm"></a>Crea nuovo-Crea macchina virtuale
+## <a name="create-a-vm"></a>Creare una macchina virtuale
 
 Tra le [opzioni di ripristino](#restore-options) è possibile creare rapidamente una macchina virtuale con le impostazioni di base da un punto di ripristino.
 
@@ -76,7 +80,7 @@ Tra le [opzioni di ripristino](#restore-options) è possibile creare rapidamente
 6. In **Configurazione di ripristino** selezionare **OK**. In **Ripristino** fare clic su **Ripristina** per attivare l'operazione di ripristino.
 
 
-## <a name="create-new-restore-disks"></a>Crea nuovo-Dischi di ripristino
+## <a name="restore-disks"></a>Ripristinare i dischi
 
 Tra le [opzioni di ripristino](#restore-options) è possibile creare un disco da un punto di ripristino. Con il disco è quindi possibile eseguire una di queste operazioni:
 
@@ -132,11 +136,11 @@ Esistono diversi scenari comuni in cui potrebbe essere necessario ripristinare l
 --- | ---
 **Ripristino di macchine virtuali con vantaggio Hybrid Use** | Se una macchina virtuale Windows usa la [licenza per il vantaggio Hybrid Use (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), ripristinare i dischi e creare una nuova macchina virtuale usando il modello fornito (con **Tipo di licenza** impostato su **Windows_Server**) o PowerShell.  È possibile applicare questa impostazione anche dopo aver creato la macchina virtuale.
 **Ripristino di macchine virtuali durante un'emergenza nel data center di Azure** | Se l'insieme di credenziali usa l'archiviazione con ridondanza geografica e il data center principale per la macchina virtuale si arresta, Backup di Azure supporta il ripristino delle macchine virtuali sottoposte a backup nel data center associato. Selezionare un account di archiviazione nel data center associato e ripristinare come di consueto. Backup di Azure usa il servizio di calcolo nella posizione associata per creare la macchina virtuale ripristinata. [Vedere altre informazioni](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sulla resilienza dei data center.
-**Ripristino di una macchina virtuale con controller di dominio singolo in un dominio singolo** | Ripristinare la macchina virtuale come qualsiasi altra macchina virtuale. Si noti che:<br/><br/> Dalla prospettiva di Active Directory, la macchina virtuale di Azure è come qualsiasi altra macchina virtuale.<br/><br/> È anche disponibile Modalità ripristino servizi directory (Directory Services Restore Mode, DSRM), in modo che tutti gli scenari di ripristino di Active Directory siano attuabili. [Vedere altre informazioni](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sul backup e il ripristino dei controller di dominio virtualizzati.
-**Ripristino di macchine virtuali con più controller di dominio in un dominio singolo** | Nel caso in cui sia possibile raggiungere altri controller di dominio dello stesso dominio sulla rete, è possibile ripristinare il controller di dominio come qualsiasi macchina virtuale. Se si tratta dell'ultimo controller di dominio restante nel dominio o viene eseguito un ripristino in una rete isolata, effettuare un [ripristino della foresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Ripristino di una macchina virtuale con controller di dominio singolo in un dominio singolo** | Ripristinare la macchina virtuale come qualsiasi altra macchina virtuale. Si noti che:<br/><br/> Da una prospettiva di Active Directory, la macchina virtuale di Azure è come qualsiasi altra macchina virtuale.<br/><br/> È anche disponibile Modalità ripristino servizi directory (Directory Services Restore Mode, DSRM), in modo che tutti gli scenari di ripristino di Active Directory siano attuabili. [Vedere altre informazioni](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sul backup e il ripristino dei controller di dominio virtualizzati.
+**Ripristino di macchine virtuali con più controller di dominio in un dominio singolo** | Se altri controller di dominio nello stesso dominio può essere raggiunto tramite la rete, il controller di dominio può essere ripristinato come qualsiasi altra macchina virtuale. Se si tratta dell'ultimo controller di dominio restante nel dominio o viene eseguito un ripristino in una rete isolata, effettuare un [ripristino della foresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Ripristino di domini multipli in una foresta** | È consigliabile eseguire un [ripristino della foresta](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Ripristino bare metal** | La differenza principale tra le macchine virtuali di Azure e gli hypervisor locali consiste nel fatto che in Azure non è disponibile una console per macchine virtuali. La console è obbligatoria per alcuni scenari, ad esempio per il ripristino tramite un backup di tipo di ripristino bare metal (BMR). Tuttavia, il ripristino della macchina virtuale dall'insieme di credenziali è una sostituzione completa con il ripristino bare metal.
-**Ripristino di macchine virtuali con configurazioni di rete speciali** | Configurazioni di rete speciali includono macchine virtuali con bilanciamento del carico interno o esterno, con più schede di interfaccia di rete o con più indirizzi IP riservati. Per ripristinare queste macchine virtuali, usare l'[opzione relativa al disco di ripristino](#create-new-restore-disks). Questa opzione Crea una copia di dischi rigidi virtuali in account di archiviazione specificato e quindi è possibile creare una macchina virtuale con un [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) oppure [esterno](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) servizio di bilanciamento del carico [più schede di rete](../virtual-machines/windows/multiple-nics.md), o [più indirizzi IP riservati](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in conformità con la configurazione.
+**Ripristino di macchine virtuali con configurazioni di rete speciali** | Configurazioni di rete speciali includono macchine virtuali con bilanciamento del carico interno o esterno, con più schede di interfaccia di rete o con più indirizzi IP riservati. Per ripristinare queste macchine virtuali, usare l'[opzione relativa al disco di ripristino](#restore-disks). Questa opzione Crea una copia di dischi rigidi virtuali in account di archiviazione specificato e quindi è possibile creare una macchina virtuale con un [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) oppure [esterno](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) servizio di bilanciamento del carico [più schede di rete](../virtual-machines/windows/multiple-nics.md), o [più indirizzi IP riservati](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), in conformità con la configurazione.
 **Gruppo di sicurezza di rete (NSG) sulla scheda di rete/Subnet** | Backup delle VM di Azure supporta le informazioni di Backup e ripristino configurazione di sicurezza di rete nella rete virtuale, subnet e a livello di interfaccia di rete.
 
 ## <a name="track-the-restore-operation"></a>Tenere traccia dell'operazione di ripristino

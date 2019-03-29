@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 20f934ae418b0a5e37d3e619fabadc5cb6e23642
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285548"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578901"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
@@ -67,6 +67,8 @@ Gli snapshot incrementali vengono archiviati nell'account di archiviazione della
 Nel portale di Azure, è possibile visualizzare un campo aggiunto nel **criteri di Backup di macchine Virtuali** pannello sotto il **ripristino istantaneo** sezione. È possibile cambiare la durata della conservazione degli snapshot nel pannello **Criteri di backup di macchine virtuali** per tutte le macchine virtuali associate al criterio di backup specifico.
 
 ![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
+
+Per configurare la conservazione degli snapshot tramite Powershell, vedere [questo documento](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

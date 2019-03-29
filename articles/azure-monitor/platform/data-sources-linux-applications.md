@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.openlocfilehash: 453e66934b93ab4368c4d3816d3db1a4588ae660
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: ea74440a5c8a9a2584e742ec72ccf888b6bb5ad9
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001330"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621533"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-azure-monitor"></a>Raccogliere i contatori delle prestazioni per applicazioni Linux in Monitoraggio di Azure 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 Questo articolo offre informazioni dettagliate per configurare l'[agente di Log Analytics per Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) in modo che raccolga i contatori delle prestazioni per applicazioni specifiche in Monitoraggio di Azure.  Le applicazioni incluse in questo articolo sono:  
 
-- [MySQL](#MySQL)
+- [MySQL](#mysql)
 - [Server HTTP Apache](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
@@ -52,7 +52,7 @@ Nella tabella seguente sono descritte le voci presenti nel file di autenticazion
 |:--|:--|
 | Porta | Rappresenta la porta corrente su cui è in ascolto l'istanza di MySQL. La porta 0 indica che per l'istanza predefinita vengono usate le proprietà seguenti. |
 | Bind-address| Valore bind-address corrente di MySQL. |
-| username| Utente di MySQL usato per monitorare l'istanza del server MySQL. |
+| nome utente| Utente di MySQL usato per monitorare l'istanza del server MySQL. |
 | Password con codifica Base64| Password dell'utente di monitoraggio di MySQL con codifica Base64. |
 | AutoUpdate| Specifica se ripetere la ricerca di modifiche nel file my.cnf e se sovrascrivere il file di autenticazione di OMI MySQL quando viene aggiornato il provider OMI MySQL. |
 
@@ -119,7 +119,7 @@ Dopo aver configurato l'agente di Log Analytics per Linux per l'invio di dati a 
 | Nome oggetto | Nome contatore |
 |:--|:--|
 | MySQL Database | Disk Space in Bytes |
-| MySQL Database | Tabelle |
+| Database MySQL | Tabelle |
 | Server MySQL | Aborted Connection Pct |
 | Server MySQL | Connection Use Pct |
 | Server MySQL | Disk Space Use in Bytes |

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3c17ec2133e278b17475e4988e1e9766b1349ba4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734641"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620837"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Schema del linguaggio di definizione del flusso di lavoro in App per la logica di Azure - Informazioni di riferimento
 
@@ -40,13 +40,13 @@ Di seguito è riportata la struttura generale di una definizione del flusso di l
 
 | Elemento | Obbligatoria | DESCRIZIONE |
 |---------|----------|-------------|
-| Definizione | Sì | Elemento iniziale della definizione del flusso di lavoro |
-| $schema | Solo quando si fa riferimento esternamente a una definizione del flusso di lavoro | Percorso del file di schema JSON che descrive la versione del linguaggio di definizione del flusso di lavoro, disponibile qui: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |
-| contentVersion | No  | Numero di versione della definizione del flusso di lavoro, per impostazione predefinita "1.0.0.0". Specificare un valore da usare per identificare e confermare la definizione corretta durante la distribuzione di un flusso di lavoro. |
-| Parametri | No  | Definizioni di uno o più parametri che trasferiscono i dati nel flusso di lavoro <p><p>Numero massimo di parametri: 50 |
-| trigger | No  | Definizioni di uno o più trigger che creano istanze del flusso di lavoro. È possibile definire più di un trigger, ma solo con il linguaggio di definizione del flusso di lavoro, non in modo visivo tramite Progettazione app per la logica. <p><p>Numero massimo di trigger: 10 |
-| Azioni | No  | Definizioni di una o più azioni da eseguire in fase di esecuzione del flusso di lavoro <p><p>Numero massimo di azioni: 250 |
-| outputs | No  | Definizioni degli output restituiti dall'esecuzione di un flusso di lavoro <p><p>Numero massimo di output: 10 |
+| definizione | Sì | Elemento iniziale della definizione del flusso di lavoro |
+| $schema | Solo quando si fa riferimento esternamente a una definizione del flusso di lavoro | Percorso del file di schema JSON che descrive la versione del linguaggio di definizione del flusso di lavoro, disponibile qui: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
+| contentVersion | N. | Numero di versione della definizione del flusso di lavoro, per impostazione predefinita "1.0.0.0". Specificare un valore da usare per identificare e confermare la definizione corretta durante la distribuzione di un flusso di lavoro. |
+| parametri | N. | Definizioni di uno o più parametri che trasferiscono i dati nel flusso di lavoro <p><p>Numero massimo di parametri: 50 |
+| trigger | N. | Definizioni di uno o più trigger che creano istanze del flusso di lavoro. È possibile definire più di un trigger, ma solo con il linguaggio di definizione del flusso di lavoro, non in modo visivo tramite Progettazione app per la logica. <p><p>Numero massimo di trigger: 10 |
+| Azioni | N. | Definizioni di una o più azioni da eseguire in fase di esecuzione del flusso di lavoro <p><p>Numero massimo di azioni: 250 |
+| output | N. | Definizioni degli output restituiti dall'esecuzione di un flusso di lavoro <p><p>Numero massimo di output: 10 |
 ||||
 
 ## <a name="parameters"></a>Parametri
@@ -70,12 +70,12 @@ Di seguito è riportata la struttura generale della definizione di un parametro:
 },
 ```
 
-| Elemento | Obbligatoria | Type | DESCRIZIONE |
+| Elemento | Obbligatoria | Tipo | DESCRIZIONE |
 |---------|----------|------|-------------|
-| type | Sì | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. | Tipo di parametro |
-| defaultValue | No  | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro |
-| allowedValues | No  | Uguale a `type` | Matrice con valori che il parametro può accettare |
-| metadata | No  | Oggetto JSON | Qualsiasi altro parametro, ad esempio il nome o una descrizione leggibile dell'app per la logica o i dati di progettazione usati da Visual Studio o altri strumenti |
+| tipo | Sì | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Per tutte le password, le chiavi e i segreti, usare i tipi `securestring` e `secureobject` perché l'operazione `GET` non restituisce questi tipi. Per altre informazioni sulla protezione dei parametri, vedere [proteggere l'app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | Tipo di parametro |
+| defaultValue | Sì | Uguale a `type` | Valore del parametro predefinito quando non viene specificato alcun valore durante la creazione dell'istanza del flusso di lavoro |
+| allowedValues | N. | Uguale a `type` | Matrice con valori che il parametro può accettare |
+| Metadati | N. | Oggetto JSON | Qualsiasi altro parametro, ad esempio il nome o una descrizione leggibile dell'app per la logica o i dati di progettazione usati da Visual Studio o altri strumenti |
 ||||
 
 ## <a name="triggers-and-actions"></a>Trigger e azioni
@@ -100,11 +100,11 @@ Di seguito è riportata la struttura generale della definizione di un output:
 }
 ```
 
-| Elemento | Obbligatoria | Type | DESCRIZIONE |
+| Elemento | Obbligatoria | Tipo | DESCRIZIONE |
 |---------|----------|------|-------------|
-| <*key-name*> | Sì | string | Valore chiave del valore di output restituito |
-| type | Sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
-| value | Sì | Uguale a `type` | Valore di output restituito |
+| <*key-name*> | Sì | String | Valore chiave del valore di output restituito |
+| tipo | Sì | int, float, string, securestring, bool, array, JSON object | Tipo di valore di output restituito |
+| valore | Sì | Uguale a `type` | Valore di output restituito |
 |||||
 
 Per ottenere l'output dall'esecuzione di un flusso di lavoro, esaminare la cronologia di esecuzione e i dettagli dell'app per la logica nel portale di Azure oppure usare l'[API REST del flusso di lavoro](https://docs.microsoft.com/rest/api/logic/workflows). È anche possibile passare l'output a sistemi esterni, ad esempio Power BI, per creare dashboard.
@@ -206,7 +206,7 @@ Nelle [espressioni](#expressions) e nelle [funzioni](#functions), gli operatori 
 
 | Operatore | Attività |
 |----------|------|
-| ' | Per usare un valore letterale di stringa come input o in espressioni e funzioni, racchiudere la stringa solo tra virgolette singole, ad esempio `'<myString>'`. Non usare le virgolette doppie (""), che sono in conflitto con la formattazione JSON per racchiudere un'espressione intera. Ad esempio:  <p>**Yes**: length('Hello') </br>**No**: length("Hello") <p>Quando si passano matrici o numeri, non è necessario il wrapping della punteggiatura. Ad esempio:  <p>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") |
+| ' | Per usare un valore letterale di stringa come input o in espressioni e funzioni, racchiudere la stringa solo tra virgolette singole, ad esempio `'<myString>'`. Non usare le virgolette doppie (""), che sono in conflitto con la formattazione JSON per racchiudere un'espressione intera. Ad esempio: <p>**Yes**: length('Hello') </br>**No**: length("Hello") <p>Quando si passano matrici o numeri, non è necessario il wrapping della punteggiatura. Ad esempio: <p>**Yes**: length([1, 2, 3]) </br>**No**: length("[1, 2, 3]") |
 | [] | Per fare riferimento a un valore in una posizione specifica (indice) di una matrice, usare le parentesi quadre. Ad esempio, per ottenere il secondo elemento in una matrice: <p>`myArray[1]` |
 | . | Per fare riferimento a una proprietà in un oggetto, usare l'operatore punto. Ad esempio, per ottenere la proprietà `name` di un oggetto JSON `customer`: <p>`"@parameters('customer').name"` |
 | ? | Per fare riferimento alle proprietà Null di un oggetto senza un errore di runtime, usare l'operatore punto interrogativo. È ad esempio possibile usare questa espressione per gestire gli output di trigger Null: <p>`@coalesce(trigger().outputs?.body?.<someProperty>, '<property-default-value>')` |

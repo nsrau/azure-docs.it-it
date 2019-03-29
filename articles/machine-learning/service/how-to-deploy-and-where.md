@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 370fb17e9f00d64db847e49c48c6f03cb329612d
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472940"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622128"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
@@ -48,9 +48,7 @@ Per altre informazioni sui concetti relativi al flusso di lavoro di distribuzion
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una sottoscrizione di Azure. Se non è disponibile una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Provare subito la [versione gratuita o a pagamento del servizio Azure Machine Learning](https://aka.ms/AMLFree).
-
-- Un'area di lavoro del servizio di Azure Machine Learning e Azure Machine Learning SDK per Python installato. Informazioni su come ottenere questi prerequisiti usando [creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md).
+[!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
 - Un modello con training. Se non si ha un modello con training, usare la procedura descritta nell'esercitazione [Eseguire il training di modelli](tutorial-train-models-with-aml.md) per eseguire il training di un modello e registrarlo con il servizio Azure Machine Learning.
 
@@ -257,14 +255,14 @@ La creazione di un cluster servizio Azure Kubernetes si esegue una sola volta pe
 
 Il servizio Azure Kubernetes offre le funzionalità seguenti:
 
-* Scalabilità automatica
+* Ridimensionamento automatico
 * Registrazione
 * Raccolta di dati del modello
 * Tempi di risposta rapidi per i servizi Web
 * Terminazione TLS
-* Authentication
+* Autenticazione
 
-#### <a name="autoscaling"></a>Scalabilità automatica
+#### <a name="autoscaling"></a>Ridimensionamento automatico
 
 La scalabilità automatica può essere controllata definendo `autoscale_target_utilization`, `autoscale_min_replicas`, e `autoscale_max_replicas` per il servizio contenitore di AZURE al servizio web. Nell'esempio seguente viene illustrato come abilitare la scalabilità automatica:
 

@@ -11,21 +11,21 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500186"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577247"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in Monitoraggio di Azure
 Monitoraggio di Azure archivia i dati di log in un'area di lavoro di Log Analytics, che in pratica è un contenitore che include dati e informazioni di configurazione. Per gestire l'accesso ai dati di log, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
 
 Questo articolo illustra come gestire l'accesso ai log e per amministrare le aree di lavoro che li contengono. 
 
-## <a name="create-a-workspace"></a>Creare un'area di lavoro
+## <a name="create-a-workspace"></a>Crea un'area di lavoro
 Per creare un'area di lavoro di Log Analitica, è necessario:
 
 1. Disporre di una sottoscrizione di Azure
@@ -99,7 +99,7 @@ Il _accessmode_ fa riferimento al modo in cui un utente accede a un'area di lavo
 > [!NOTE]
 > I log sono disponibili per le query sugli elementi risorsa solo se si trovassero sia associati correttamente la risorsa in questione. Attualmente, le risorse seguenti presentano limitazioni: 
 > - Computer all'esterno di Azure
-> - Service Fabric
+> - Risorsa Service Fabric
 > - Application Insights
 > - Contenitori
 > - Log personalizzato creato dalle API di raccolta dati HTTP
@@ -214,7 +214,7 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 
 Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
-| Type    | Autorizzazione | DESCRIZIONE |
+| Tipo    | Autorizzazione | DESCRIZIONE |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse |
 | Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Consente di eseguire query di ricerca log versione 2 |
@@ -300,10 +300,10 @@ Per creare un ruolo con accesso solo _SecurityBaseline_ e altre tabelle, creare 
 
 ```
     "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
     ],
     "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
     ],
 ```
 

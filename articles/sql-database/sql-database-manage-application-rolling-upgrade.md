@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 63f301b4618df9764460d0a9a133834fb72e33bb
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 47fd6c1e2bb342bc1a31fb16a45a5ebc749dca69
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540585"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621448"
 ---
 # <a name="manage-rolling-upgrades-of-cloud-applications-by-using-sql-database-active-geo-replication"></a>Gestire gli aggiornamenti in sequenza delle applicazioni cloud con la replica geografica attiva del database SQL
 
@@ -114,7 +114,7 @@ SET (ALLOW_CONNECTIONS = NO)
 
 ```sql
 -- Disconnect the secondary, terminating geo-replication
-ALTER DATABSE V1
+ALTER DATABASE <Prod_DB>
 REMOVE SECONDARY ON SERVER <Partner-Server>
 ```
 
@@ -145,7 +145,7 @@ Il vantaggio principale di questa opzione è dato dalla possibilità di aggiorna
 
 Lo svantaggio principale consiste invece nella necessità di una doppia ridondanza per ogni componente dell'applicazione, con un conseguente aumento dei costi e un flusso di lavoro più complesso.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I due metodi di aggiornamento descritti nell'articolo differiscono in termini di complessità e di costi, ma sono entrambi finalizzati a ridurre il periodo di tempo in cui gli utenti possono eseguire solo operazioni di sola lettura. Questo periodo di tempo viene definito direttamente dalla durata dello script di aggiornamento. Non dipende dalle dimensioni del database, dal livello di servizio scelto, dalla configurazione del sito Web o da altri fattori difficilmente controllabili. Tutti i passaggi di preparazione sono separati dalle operazioni di aggiornamento e non hanno alcun impatto sull'applicazione di produzione. L'efficienza dello script di aggiornamento è un fattore determinante per l'esperienza degli utenti durante gli aggiornamenti. Il modo ottimale per migliorare questa esperienza consiste quindi nel concentrare gli sforzi sullo script di aggiornamento, per renderlo il più efficiente possibile.
 

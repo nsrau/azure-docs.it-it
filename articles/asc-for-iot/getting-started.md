@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: a78eeda814b21d489eb957d44202b17c61d836d5
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541888"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575216"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Iniziare con Azure Security Center (Centro sicurezza di AZURE) per IoT 
 
@@ -67,7 +67,7 @@ Assicurarsi di usare Centro sicurezza di AZURE per le funzionalità di sicurezza
 1. Se l'IoT Hub non sono presenti dispositivi registrati, [registrare un nuovo dispositivo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
 1. [Creare un modulo di protezione azureiotsecurity](quickstart-create-security-twin.md) per i dispositivi.
 1. Per installare l'agente in un dispositivo simulato Azure anziché eseguire l'installazione in un dispositivo effettivo [selezione di una macchina virtuale di Azure nuova (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in una zona di disponibilità. 
-1. [Distribuire un Centro sicurezza di AZURE per l'agente di sicurezza IoT](tutorial-deploy-linux-cs.md) sul dispositivo IoT o nuova macchina virtuale.
+1. [Distribuire un Centro sicurezza di AZURE per l'agente di sicurezza IoT](how-to-deploy-linux-cs.md) sul dispositivo IoT o nuova macchina virtuale.
 1. Seguire le istruzioni relative [trigger_events](https://aka.ms/iot-security-github-trigger-events) per eseguire una simulazione di un attacco innocuo.
 1. Verificare di Centro sicurezza di AZURE per IoT gli avvisi in risposta all'attacco simulato nel passaggio precedente. 
     - Iniziare verifica cinque minuti dopo l'esecuzione dello script.
@@ -79,4 +79,4 @@ Assicurarsi di usare Centro sicurezza di AZURE per le funzionalità di sicurezza
 - Configurare il [soluzione](quickstart-configure-your-solution.md)
 - [Creare moduli di protezione](quickstart-create-security-twin.md)
 - Configurare [avvisi personalizzati](quickstart-create-custom-alerts.md)
-- [Distribuire un agente protezione](select-deploy-agent.md)
+- [Distribuire un agente protezione](how-to-deploy-agent.md)

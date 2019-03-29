@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: c4b6b416d6a36938948573da7b9c3f5cac04bdcf
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 591f7ed52a64d1005f1bb52e54eb3359da0e30a2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904900"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579649"
 ---
 # <a name="connect-your-cisco-asa-appliance"></a>Connettersi all'appliance Cisco ASA 
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile connettere Azure Sentinel per qualsiasi dispositivo Cisco ASA. Cisco ASA in modo nativo è integrato con Azure Sentinel per l'inserimento di dati, in modo che anche se l'appliance Cisco non salva i log di CEF, Sentinel Azure inserisce essi nello stesso modo che consente di gestire i log CEF. L'integrazione con Azure Sentinel consente di eseguire facilmente analitica e le query tra i dati dei file di log dal dispositivo Cisco ASA. 
@@ -34,9 +34,9 @@ ms.locfileid: "57904900"
 
 ## <a name="step-1-connect-your-cisco-asa-appliance-using-an-agent"></a>Passaggio 1: Connettere l'appliance Cisco ASA usando un agente
 
-Per connettersi all'appliance Cisco ASA a Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o in locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. Distribuzione automatica è disponibile solo se la macchina dedicata è una nuova macchina virtuale in Azure si sta creando. 
+Per connettersi all'appliance Cisco ASA a Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o in locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. La distribuzione automatica è disponibile solo se il computer dedicato è una nuova macchina virtuale che si sta creando in Azure. 
 
-In alternativa, è possibile distribuire l'agente manualmente in una VM di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale.
+In alternativa, è possibile distribuire l'agente manualmente in una macchina virtuale di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale.
 
 Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [connettere origini dati](connect-data-sources.md).
 
@@ -116,6 +116,7 @@ Potrebbero occorrere fino a 20 minuti fino a quando i log di avvio venga visuali
 3. Se entrambi i comandi forniti risultati corretti, controllare i Log Analitica per vedere se i log sono in arrivo. Tutti gli eventi trasferiti da questi dispositivi vengono visualizzati in formato non elaborato nel Log Analitica in `CommonSecurityLog ` tipo.
 1. Per verificare se sono presenti errori o se i log non sono in arrivo, Cerca in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Assicurarsi che le dimensioni predefinite del messaggio Syslog sono limitata a 2048 byte (2KB). Se i log sono troppo lunghi, aggiornare il security_events usando questo comando: `message_length_limit 4096`
+6. Per usare lo schema appropriato nel Log Analitica per gli eventi di Cisco, cercare **CommonSecurityLog**.
 
 
 

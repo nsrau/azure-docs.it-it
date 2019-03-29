@@ -1,5 +1,5 @@
 ---
-title: Distribuire Azure AD Privileged Identity Management (PIM) | Microsoft Docs
+title: Distribuzione di Privileged Identity Management (PIM) - Azure Active Directory | Microsoft Docs
 description: Descrive come pianificare la distribuzione di Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 02/08/2019
 ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05bf125d629ffef01a645dc407c341a984805520
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227032"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578196"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Distribuire Azure AD Privileged Identity Management (PIM)
 
-Questa guida dettagliata descrive come pianificare la distribuzione di Azure AD Privileged Identity Management (PIM) nella propria organizzazione.
+In questa Guida dettagliata descrive come pianificare la distribuzione di Azure Active Directory (Azure AD) Privileged Identity Management (PIM) nell'organizzazione.
 
 > [!TIP]
 > In questo documento alcuni elementi sono contrassegnati con:
@@ -50,7 +50,7 @@ Per altre informazioni, vedere [What is Azure AD Privileged Identity Management?
 
 Per usare PIM, la directory deve avere una delle licenze di valutazione o a pagamento seguenti:
 
-- Azure AD Premium P2
+- Azure AD P2 Premium
 - Enterprise Mobility + Security (EMS) E5
 - Microsoft 365 M5
 
@@ -61,7 +61,7 @@ Per altre informazioni, vedere [Requisiti della licenza per usare PIM](subscript
 | Termine o concetto | DESCRIZIONE |
 | --- | --- |
 | idoneo | Un'assegnazione di ruolo che richiede a un utente di eseguire una o più azioni per usare il ruolo. Se un utente è stato reso idoneo per un ruolo, potrà attivare il ruolo quando avrà bisogno di svolgere le attività con privilegi. Non esiste alcuna differenza sostanziale tra l'accesso concesso a un utente con l'assegnazione permanente e quello con l'assegnazione di idoneità al ruolo. L'unica differenza è che alcuni utenti non necessitano dell'accesso continuo. |
-| activate | Il processo di esecuzione di una o più azioni per usare un ruolo per cui un utente è idoneo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati. |
+| attiva | Il processo di esecuzione di una o più azioni per usare un ruolo per cui un utente è idoneo. Le azioni possono includere il completamento di un controllo di autenticazione a più fattori (MFA), l'indicazione di una motivazione aziendale e la richiesta di approvazione da parte di responsabili dell'approvazione designati. |
 | accesso just-in-time (JIT) | Un modello in base al quale gli utenti ricevono autorizzazioni temporanee per eseguire attività con privilegi, che impedisce a utenti non autorizzati o malintenzionati di ottenere l'accesso dopo la scadenza delle autorizzazioni. L'accesso viene concesso solo quando l'utente ne ha necessità. |
 | principio di accesso con privilegi minimi | Una procedura consigliata per la sicurezza in base alla quale ogni utente viene dotato solo dei privilegi minimi necessari per eseguire le attività che è autorizzato a svolgere. Ciò consente di ridurre al minimo il numero di amministratori globali usando in alternativa ruoli di amministratore specifici per determinati scenari. |
 
@@ -79,7 +79,7 @@ Per altre informazioni, vedere [What is Azure AD Privileged Identity Management?
 
 ### <a name="roles-that-can-be-managed-by-pim"></a>Ruoli che possono essere gestiti da PIM
 
-**Ruoli di Azure AD**: tutti i ruoli della directory all'interno di Azure Active Directory, ad esempio Amministratore globale, Amministratore di Exchange e Amministratore della sicurezza. Altre informazioni sui ruoli e sulle relative funzionalità sono disponibili in [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Per informazioni su come determinare i ruoli da assegnare agli amministratori, vedere [Ruoli con privilegi minimi per attività](../users-groups-roles/roles-delegate-by-task.md).
+**Ruoli di Azure AD** : questi ruoli sono tutti in Azure Active Directory (ad esempio amministratore globale, amministratore di Exchange e amministratore della sicurezza). Altre informazioni sui ruoli e sulle relative funzionalità sono disponibili in [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md). Per informazioni su come determinare i ruoli da assegnare agli amministratori, vedere [Ruoli con privilegi minimi per attività](../users-groups-roles/roles-delegate-by-task.md).
 
 **Ruoli delle risorse di Azure**: i ruoli collegati a una risorsa, a un gruppo di risorse, a una sottoscrizione o a un gruppo di gestione in Azure. PIM offre l'accesso just-in-time sia ai ruoli predefiniti, ad esempio Proprietario, Amministratore Accesso utenti e Collaboratore, sia ai [ruoli personalizzati](../../role-based-access-control/custom-roles.md). Per altre informazioni sui ruoli delle risorse di Azure, vedere [Controllo degli accessi in base al ruolo](../../role-based-access-control/overview.md).
 
@@ -99,7 +99,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Stakeholder: ruoli di PIM per Azure AD
 
-| NOME | Ruolo | Azione |
+| Attività | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Architetto delle identità o Amministratore globale di Azure**<br/>Un rappresentante del team di gestione delle identità che è responsabile di definire come questa modifica è allineata all'infrastruttura di base per la gestione delle identità all'interno dell'organizzazione. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Proprietario del servizio o diretto superiore**<br/>Un rappresentante dei proprietari IT di un servizio o di un gruppo di servizi. È fondamentale per prendere decisioni e aiutare a implementare PIM per il proprio team. | A/R/I |
@@ -109,7 +109,7 @@ La sezione seguente consente di identificare tutti gli stakeholder coinvolti nel
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Stakeholder: ruoli di PIM per le risorse di Azure
 
-| NOME | Ruolo | Azione |
+| Attività | Ruolo | Azione |
 | --- | --- | --- |
 | Nome e indirizzo di posta elettronica | **Proprietario delle risorse o delle sottoscrizioni**<br/>Un rappresentante dei proprietari IT di ogni sottoscrizione o risorsa per cui si vuole distribuire PIM. | A/R/I |
 | Nome e indirizzo di posta elettronica | **Responsabile della sicurezza**<br/>Un rappresentante del team addetto alla sicurezza che può approvare la conformità del piano ai requisiti di sicurezza dell'organizzazione. | A/R |
@@ -151,7 +151,7 @@ Per applicare il principio di accesso con privilegi minimi per i ruoli di Azure 
 
 Per automatizzare i passaggi 3 e 4, è possibile usare la funzione per la verifica di accesso disponibile in PIM. Seguendo la procedura descritta in [Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM](pim-how-to-start-security-review.md), è possibile configurare una verifica di accesso per ogni ruolo di Azure AD che include uno o più membri.
 
-![Creare una verifica di accesso](./media/pim-deployment-plan/create-access-review.png)
+![Crea una verifica di accesso](./media/pim-deployment-plan/create-access-review.png)
 
 È necessario impostare i revisori su **Membri (autonomo)**. In questo modo verrà inviato un messaggio di posta elettronica a tutti i membri del ruolo per chiedere loro di confermare se hanno bisogno dell'accesso. È anche necessario attivare **Richiedi il motivo all'approvazione** nelle impostazioni avanzate in modo che gli utenti possano indicare il motivo per cui devono disporre del ruolo. In base alle informazioni raccolte, sarà possibile rimuovere gli utenti dai ruoli non necessari e, nel caso di amministratori globali, delegare più ruoli di amministratore specifici.
 
@@ -184,7 +184,7 @@ La scelta dei ruoli da proteggere con PIM può essere difficile e varia a second
 1. Amministratore di SharePoint
 1. Amministratore di Intune
 1. Ruolo con autorizzazioni di lettura per la sicurezza
-1. Amministratore del servizio
+1. Amministratore dei servizi
 1. Amministratore fatturazione
 1. Amministratore di Skype for Business
 
@@ -243,16 +243,16 @@ Prima di implementare la soluzione PIM, è consigliabile definire una bozza dell
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Ticket di evento imprevisto | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore permanente |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Amministratore globale | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri amministratori globali | 1 ora | Account di accesso di emergenza |
-| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | Nessuna | 2 ore | Nessuna |
-| Amministratore del supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | Nessuna | 8 ore | Nessuna |
+| Amministratore di Exchange | :heavy_check_mark: | :heavy_check_mark: | :x: | :x: | None | 2 ore | None |
+| Amministratore supporto tecnico | :x: | :x: | :heavy_check_mark: | :x: | None | 8 ore | None |
 
 #### <a name="pim-settings-for-azure-resource-roles"></a>Impostazioni di PIM per i ruoli delle risorse di Azure
 
 | Ruolo | Richiedere l'autenticazione MFA | Notifica | Richiedi approvazione | Responsabile approvazione | Durata attivazione | Amministratore attivo | Scadenza assegnazioni attive | Scadenza assegnazioni idonee |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | Nessuna | n/d | 3 mesi |
-| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | Nessuna | 1 ora | Nessuna | n/d | 3 mesi |
-| Collaboratore macchine virtuali | :x: | :heavy_check_mark: | :x: | Nessuna | 3 ore | Nessuna | n/d | 6 mesi |
+| Proprietario di sottoscrizioni critiche | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | Altri proprietari della sottoscrizione | 1 ora | None | n/d | 3 mesi |
+| Amministratore Accesso utenti di sottoscrizioni meno critiche | :heavy_check_mark: | :heavy_check_mark: | :x: | None | 1 ora | None | n/d | 3 mesi |
+| Collaboratore Macchina virtuale | :x: | :heavy_check_mark: | :x: | None | 3 ore | None | n/d | 6 mesi |
 
 La tabella seguente include le descrizioni per ciascuna delle impostazioni.
 
@@ -294,7 +294,7 @@ Ora che sono stati identificati gli utenti di test, seguire questo passaggio per
 
 #### <a name="configure-pim-for-azure-ad-roles"></a>Configurare i ruoli di PIM per Azure AD
 
-1. [Configurare le impostazioni dei ruoli di Azure AD Directory](pim-how-to-change-default-settings.md) in base al piano definito.
+1. [Configurare le impostazioni del ruolo di Azure AD](pim-how-to-change-default-settings.md) basato su ciò che è pianificato.
 
 1. Passare a **Ruoli di Azure AD**, fare clic su **Ruoli** e quindi selezionare il ruolo appena configurato.
 

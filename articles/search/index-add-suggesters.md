@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497434"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577111"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Aggiungere suggester a un indice per typeahead in ricerca di Azure
 
-Oggetto **dello strumento suggerimenti** è un costrutto in un [indice di ricerca di Azure](search-what-is-an-index.md) che supporta un'esperienza di "ricerca---digitazione". Contiene un elenco di campi per il quale si desidera abilitare gli input di query typeahead. Esistono due varianti typeahead: *autocomplete* completa termine o frase si digita, *suggerimenti* offre un breve elenco di risultati. 
+Oggetto **dello strumento suggerimenti** è un costrutto in un [indice di ricerca di Azure](search-what-is-an-index.md) che supporta un'esperienza di "ricerca---digitazione". Contiene un elenco di campi per il quale si desidera abilitare gli input di query typeahead. All'interno di un indice, il componente stesso supporta una o entrambe queste due varianti typeahead: *autocomplete* completa termine o frase si digita, *suggerimenti* offre un breve elenco di risultati. 
 
-In questa pagina di ricerca Xbox, gli elementi di completamento automatico indirizzano a una nuova pagina di risultati di ricerca per tale query, mentre i suggerimenti rappresentano i risultati effettivi che visualizzano una pagina del gioco specifico. È possibile limitare il completamento automatico per un elemento in una barra di ricerca o fornire un elenco simile a quello illustrato di seguito. Per suggerimenti, è possibile della superficie di attacco qualsiasi parte di un documento che meglio descrive il risultato.
+Lo screenshot seguente illustra entrambe le funzionalità typeahead. In questa pagina di ricerca Xbox, gli elementi di completamento automatico indirizzano a una nuova pagina di risultati di ricerca per tale query, mentre i suggerimenti rappresentano i risultati effettivi che visualizzano una pagina del gioco specifico. È possibile limitare il completamento automatico per un elemento in una barra di ricerca o fornire un elenco simile a quello illustrato di seguito. Per suggerimenti, è possibile della superficie di attacco qualsiasi parte di un documento che meglio descrive il risultato.
 
 ![Confronto tra Visual di completamento automatico e le query suggerite](./media/index-add-suggesters/visual-comparison-suggest-complete.png "confronto visivo del completamento automatico e le query suggerite")
 
 Per implementare questi comportamenti in ricerca di Azure, è un componente dell'indice e query. 
 
-+ In un indice, aggiungere un componente di suggerimento. È possibile usare il portale, l'API REST o .NET SDK per creare un componente di suggerimento. 
++ Il componente dell'indice è un componente di suggerimento. È possibile usare il portale, l'API REST o .NET SDK per creare un componente di suggerimento. 
 
-+ In una query, specificare un suggerimento o sutocomplete azione. 
++ Il componente di query è un'azione specificata nella richiesta di query (azione di suggerimenti o il completamento automatico). 
 
 > [!Important]
-> Completamento automatico è attualmente disponibile in anteprima, disponibile in anteprima le API REST e .NET SDK e non è supportata per le applicazioni di produzione. 
+> Completamento automatico è attualmente in anteprima, disponibile in anteprima le API REST e .NET SDK. Non si tratta delle applicazioni di produzione. 
 
 Ricerca---digitazione supporto è abilitato in base al campo. Se si desidera un'esperienza simile a quello indicato nella schermata, è possibile implementare entrambi i comportamenti typeahead all'interno della stessa soluzione di ricerca. Destinazione entrambe le richieste il *documenti* raccolta dell'indice specifico e le risposte vengono restituiti dopo che un utente ha fornito ad almeno una stringa di input di tre caratteri.
 
@@ -77,7 +77,7 @@ Dopo la creazione di un componente di suggerimento, aggiungere il [API per i sug
 
 ### <a name="use-the-net-sdk"></a>Usare .NET SDK
 
-In C#, definire un [classe dello strumento suggerimenti](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Componente per il suggerimento è una raccolta, ma può richiedere solo un elemento.
+In C#, definire un [classe dello strumento suggerimenti](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Un componente di suggerimento è una raccolta che può accettare solo un elemento. Assicurarsi di aggiungere `using System.Collections.Generic;` in modo che sia possibile creare un elenco di oggetti. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -98,7 +98,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Informazioni di riferimento sulle proprietà
+## <a name="property-reference"></a>Riferimento alla proprietà
 
 I punti principali da notare sui componenti per il suggerimento è che ci sia un nome (suggesters viene fatto riferimento in base al nome in una richiesta), un searchMode (attualmente solo una, "analyzingInfixMatching") e l'elenco dei campi per cui è abilitato typeahead. 
 
@@ -137,4 +137,4 @@ Usa un ambiente sandbox del servizio di ricerca di Azure e un indice precaricato
 È consigliabile l'esempio seguente per vedere come vengono formulate le richieste.
 
 > [!div class="nextstepaction"]
-> [Esempio di query di completamento automatico (anteprima)](search-autocomplete-tutorial.md) 
+> [Suggerimenti ed esempi di completamento automatico](search-autocomplete-tutorial.md) 

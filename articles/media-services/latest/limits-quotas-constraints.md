@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897562"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621686"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quote e limitazioni in Servizi multimediali di Azure v3
 
@@ -27,15 +27,17 @@ Questo articolo descrive le quote e le limitazioni in Servizi multimediali di Az
 | Asset per ogni account di Servizi multimediali di Azure | 1.000.000|
 | Filtri manifesto dinamico|100|
 | JobInput per ogni processo | 50 (fisso)|
-| JobOutputs per ogni processo/TransformOutputs in una trasformazione | 20 (fisso) |
+| JobOutput per ogni processo | 20 (fisso) |
+| TransformOutputs in una forma Trasforma | 20 (fisso) |
 | File per ogni JobInput|10 (fisso)|
-| Dimensioni complete| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
+| Dimensione file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
 | Job per ogni account di Servizi multimediali | 500.000 <sup>(2)</sup> (fisso)|
 | Elenco di trasformazioni|Impaginare la risposta, con 1000 trasformazioni per ogni pagina|
 | Elenco di processi|Impaginare la risposta, con 500 processi per ogni pagina|
 | Eventi live per ogni account di Servizi multimediali |5|
 | Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
-| Output live in stato di esecuzione per ogni LiveEvent |3|
+| Output in tempo reale in esecuzione per ogni evento Live |3|
+| Durata max Live Output | 25 ore |
 | Account di archiviazione | 100<sup>(4)</sup> (fisso) |
 | Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2 (fisso)|
 | Criteri di streaming | 100 <sup>(3)</sup> |
@@ -61,4 +63,4 @@ Per le risorse non fisse, è possibile richiedere l'aumento delle quote aprendo 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](media-services-overview.md)
+[Panoramica](media-services-overview.md)

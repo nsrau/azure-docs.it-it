@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/28/2019
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 591624e6bab07bfa06799d8e4817622e7a5c280a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 403cbeb0a68e39eab714ceb428fcfaefe8de0ff7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107645"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576242"
 ---
 # <a name="how-to-onboard-azure-monitor-for-containers"></a>Come eseguire l'onboarding di Monitoraggio di Azure per contenitori  
 
@@ -28,14 +28,16 @@ Questo articolo descrive come configurare Monitoraggio di Azure per contenitori 
 
 Monitoraggio di Azure per i contenitori può essere abilitato per le nuove distribuzioni oppure per una o più distribuzioni esistenti del servizio Azure Kubernetes usando i metodi supportati seguenti:
 
-* Dal portale di Azure oppure con l'interfaccia della riga di comando di Azure
+* Dal portale di Azure, Azure PowerShell, o con CLI di Azure
 * Usando [Terraform e il servizio Azure Kubernetes](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+
 
 ## <a name="prerequisites"></a>Prerequisiti 
 Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 - **Un'area di lavoro di Log Analitica.** È possibile crearla quando si abilita il monitoraggio del nuovo cluster servizio Azure Kubernetes o lasciare che l'esperienza di onboarding crei un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes. Se si è scelto di crearla in autonomia, è possibile procedere attraverso [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
-- Si è un **membro del ruolo di collaboratore di Log Analitica** per abilitare il monitoraggio di contenitori. Per altre informazioni su come controllare l'accesso a un'area di lavoro di Log Analytics, vedere [Gestire le aree di lavoro](../../azure-monitor/platform/manage-access.md).
+- Si è un membro del **ruolo di collaboratore di Log Analitica** per abilitare il monitoraggio di contenitori. Per altre informazioni su come controllare l'accesso a un'area di lavoro di Log Analytics, vedere [Gestire le aree di lavoro](../../azure-monitor/platform/manage-access.md).
+- Si è un membro del **[proprietario](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-role.mds#owner)** ruolo sulla risorsa del cluster servizio contenitore di AZURE. 
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -52,13 +54,16 @@ Quando viene rilasciata una nuova versione dell'agente, questo viene aggiornato 
 Accedere al [portale di Azure](https://portal.azure.com). 
 
 ## <a name="enable-monitoring-for-a-new-cluster"></a>Abilitare il monitoraggio per un nuovo cluster
-Durante la distribuzione, è possibile abilitare il monitoraggio di un nuovo cluster del servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o con Terraform.  Seguire la procedura nell'articolo introduttivo [Distribuire un cluster del servizio Azure Kubernetes](../../aks/kubernetes-walkthrough-portal.md) se si desidera abilitarlo dal portale. Nella pagina **Monitoraggio** selezionare **Sì** per l'opzione **Abilita monitoraggio** e quindi selezionare un'area di lavoro di Log Analytics esistente o crearne una nuova. 
+Durante la distribuzione, è possibile abilitare il monitoraggio di un nuovo cluster del servizio Azure Kubernetes nel portale di Azure, con l'interfaccia della riga di comando di Azure o con Terraform.  Per abilitare dal portale, seguire i passaggi nell'articolo della Guida introduttiva [distribuire un cluster Azure Kubernetes Service (AKS)](../../aks/kubernetes-walkthrough-portal.md) e seguire i passaggi nella sezione **monitorare l'integrità e i log**.  
+
+>[!NOTE]
+>Quando la procedura descritta nell'articolo della Guida introduttiva per abilitare il monitoraggio per il cluster servizio contenitore di AZURE dal portale, viene chiesto di selezionare un'area di lavoro di Log Analitica esistente oppure crearne uno nuovo. 
 
 ### <a name="enable-using-azure-cli"></a>Abilitare tramite l'interfaccia della riga di comando di Azure
 Per abilitare il monitoraggio di un nuovo cluster servizio Azure Kubernetes creato con l'interfaccia della riga di comando di Azure, seguire la procedura nell'articolo introduttivo nella sezione [Creare il cluster servizio Azure Kubernetes](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È richiesta l'interfaccia della riga di comando di Azure 2.0.43 o versione successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+>Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire il comando di Azure versione 2.0.59 o versione successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
 ### <a name="enable-using-terraform"></a>Abilitare con Terraform
@@ -79,9 +84,14 @@ Dopo aver abilitato il monitoraggio e completato tutte le attività di configura
 Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster. 
 
 ## <a name="enable-monitoring-for-existing-managed-clusters"></a>Abilitare il monitoraggio per i cluster gestiti esistenti
-È possibile abilitare il monitoraggio di un cluster servizio Azure Kubernetes già distribuito usando l'interfaccia della riga di comando di Azure, dal portale o con il modello di Azure Resource Manager fornito usando il cmdlet di PowerShell `New-AzResourceGroupDeployment`. 
+È possibile abilitare il monitoraggio di un cluster servizio contenitore di AZURE che è già stato distribuito usando uno dei metodi supportati:
 
-### <a name="enable-monitoring-using-azure-cli"></a>Abilitare il monitoraggio usando l'interfaccia della riga di comando di Azure
+* Interfaccia della riga di comando di Azure
+* Terraform
+* [Monitoraggio di Azure](#enable-from-azure-monitor-in-the-portal) oppure [direttamente dal cluster di AKS](#enable-directly-from-aks-cluster-in-the-portal) nel portale di Azure 
+* Con il [modello di Azure Resource Manager forniti](#enable-using-an-azure-resource-manager-template) usando il cmdlet di Azure PowerShell `New-AzResourceGroupDeployment` o con CLI di Azure. 
+
+### <a name="enable-using-azure-cli"></a>Abilitare tramite l'interfaccia della riga di comando di Azure
 La procedura seguente abilita il monitoraggio del cluster servizio Azure Kubernetes usando l'interfaccia della riga di comando di Azure. In questo esempio non è necessario creare o specificare un'area di lavoro esistente. Questo comando semplifica il processo creando un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster servizio Azure Kubernetes se non ne esiste già una nella regione.  L'area di lavoro predefinita creata ricorda il formato di *DefaultWorkspace-\<GUID>-\<Region>*.  
 
 ```azurecli
@@ -106,7 +116,7 @@ L'output sarà simile al seguente:
 provisioningState       : Succeeded
 ```
 
-### <a name="enable-monitoring-using-terraform"></a>Abilitare il monitoraggio usando Terraform
+### <a name="enable-using-terraform"></a>Abilitare con Terraform
 1. Aggiungere il profilo del componente aggiuntivo **oms_agent** alla [risorsa azurerm_kubernetes_cluster](https://www.terraform.io/docs/providers/azurerm/d/kubernetes_cluster.html#addon_profile) esistente
 
    ```
@@ -120,7 +130,7 @@ provisioningState       : Succeeded
 
 2. Aggiungere [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) seguendo i passaggi nella documentazione di Terraform.
 
-### <a name="enable-monitoring-from-azure-monitor-in-the-portal"></a>Abilitare il monitoraggio tramite Monitoraggio di Azure nel portale 
+### <a name="enable-from-azure-monitor-in-the-portal"></a>Abilita monitoraggio di Azure nel portale 
 Per abilitare il monitoraggio del cluster servizio Azure Kubernetes nel portale di Azure da Monitoraggio di Azure, seguire questa procedura:
 
 1. Nel portale di Azure selezionare **Monitoraggio**. 
@@ -137,8 +147,8 @@ Per abilitare il monitoraggio del cluster servizio Azure Kubernetes nel portale 
  
 Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti prima di poter visualizzare le metriche di integrità per il cluster. 
 
-### <a name="enable-monitoring-from-aks-cluster-in-the-portal"></a>Abilitare il monitoraggio dal cluster servizio Azure Kubernetes nel portale
-Per abilitare il monitoraggio del contenitore servizio Azure Kubernetes nel portale di Azure completare la procedura seguente:
+### <a name="enable-directly-from-aks-cluster-in-the-portal"></a>Abilitare direttamente dal cluster servizio contenitore di AZURE nel portale
+Per abilitare il monitoraggio direttamente da uno dei cluster servizio contenitore di AZURE nel portale di Azure, eseguire le operazioni seguenti:
 
 1. Nel portale di Azure fare clic su **Tutti i servizi**. 
 2. Nell'elenco delle risorse digitare **Contenitori**.  
@@ -159,24 +169,23 @@ Per abilitare il monitoraggio del contenitore servizio Azure Kubernetes nel port
  
 Dopo aver abilitato il monitoraggio, può essere necessario attendere circa 15 minuti prima di poter visualizzare i dati operativi per il cluster. 
 
-### <a name="enable-monitoring-by-using-an-azure-resource-manager-template"></a>Abilitare il monitoraggio usando un modello di Azure Resource Manager
+### <a name="enable-using-an-azure-resource-manager-template"></a>Abilitare l'uso di un modello Azure Resource Manager
 Questo metodo include due modelli JSON. Un modello JSON specifica la configurazione per abilitare il monitoraggio e l'altro contiene i valori dei parametri da configurare per specificare quanto segue:
 
 * L'ID risorsa del contenitore servizio Azure Kubernetes. 
 * Il gruppo di risorse in cui viene distribuito il cluster.
-* L'area di lavoro di Log Analytics e l'area geografica in cui creare l'area di lavoro. 
 
 >[!NOTE]
 >Il modello deve essere distribuito nello stesso gruppo di risorse del cluster.
 >
 
-L'area di lavoro di Log Analytics deve essere creata manualmente. Per creare l'area di lavoro, è possibile configurarla tramite [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
+L'area di lavoro di Log Analitica è necessario creare prima di abilitare il monitoraggio tramite Azure PowerShell o CLI. Per creare l'area di lavoro, è possibile configurarla tramite [Azure Resource Manager](../../azure-monitor/platform/template-workspace-configuration.md), [PowerShell](../scripts/powershell-sample-create-workspace.md?toc=%2fpowershell%2fmodule%2ftoc.json) o il [portale di Azure](../../azure-monitor/learn/quick-create-workspace.md).
 
 Se non si ha familiarità con il concetto di distribuzione delle risorse tramite un modello, vedere:
 * [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È richiesta la versione 2.0.27 o successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
+Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima necessario installarla ed eseguirla in locale. È necessario eseguire il comando di Azure versione 2.0.59 o versione successiva. Per identificare la versione in uso, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 
 #### <a name="create-and-execute-a-template"></a>Creare ed eseguire un modello
 
@@ -204,13 +213,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
       "metadata": {
          "description": "Azure Monitor Log Analytics Resource ID"
        }
-    },
-    "workspaceRegion": {
-    "type": "string",
-    "metadata": {
-       "description": "Azure Monitor Log Analytics workspace region"
-      }
-     }
+    }
     },
     "resources": [
       {
@@ -230,41 +233,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
          }
        }
       }
-     },
-    {
-        "type": "Microsoft.Resources/deployments",
-        "name": "[Concat('ContainerInsights', '-',  uniqueString(parameters('workspaceResourceId')))]", 
-        "apiVersion": "2017-05-10",
-        "subscriptionId": "[split(parameters('workspaceResourceId'),'/')[2]]",
-        "resourceGroup": "[split(parameters('workspaceResourceId'),'/')[4]]",
-        "properties": {
-            "mode": "Incremental",
-            "template": {
-                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                "contentVersion": "1.0.0.0",
-                "parameters": {},
-                "variables": {},
-                "resources": [
-                    {
-                        "apiVersion": "2015-11-01-preview",
-                        "type": "Microsoft.OperationsManagement/solutions",
-                        "location": "[parameters('workspaceRegion')]",
-                        "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
-                        "properties": {
-                            "workspaceResourceId": "[parameters('workspaceResourceId')]"
-                        },
-                        "plan": {
-                            "name": "[Concat('ContainerInsights', '(', split(parameters('workspaceResourceId'),'/')[8], ')')]",
-                            "product": "[Concat('OMSGallery/', 'ContainerInsights')]",
-                            "promotionCode": "",
-                            "publisher": "Microsoft"
-                        }
-                    }
-                ]
-            },
-            "parameters": {}
-        }
-       }
+     }
      ]
     }
     ```
@@ -285,19 +254,16 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
        },
        "workspaceResourceId": {
          "value": "/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroup>/providers/Microsoft.OperationalInsights/workspaces/<workspaceName>"
-       },
-       "workspaceRegion": {
-         "value": "<workspaceLocation>"
-       }
+       }  
      }
     }
     ```
 
-4. Sostituire i valori di **servizio Azure KubernetesResourceId** e **servizio Azure KubernetesResourceLocation** con i valori indicati nella pagina di **panoramica del servizio Azure Kubernetes** per il cluster servizio Azure Kubernetes. Il valore per **workspaceResourceId** è l'ID risorsa completo dell'area di lavoro di Log Analytics, che include il nome dell'area di lavoro. Specificare anche l'area geografica in cui si trova l'area di lavoro per **workspaceRegion**. 
+4. Modificare i valori per **aksResourceId** e **aksResourceLocation** usando i valori nel **Panoramica AKS** pagina per il cluster AKS. Il valore per **workspaceResourceId** è l'ID risorsa completo dell'area di lavoro di Log Analytics, che include il nome dell'area di lavoro. 
 5. Salvare questo file come **existingClusterParam.json** in una cartella locale.
 6. A questo punto è possibile distribuire il modello. 
 
-   * Usare i comandi di PowerShell seguenti nella cartella che contiene il modello:
+   * Per distribuire con Azure PowerShell, usare i comandi seguenti nella cartella che contiene il modello:
 
        ```powershell
        New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceGroupName> -TemplateFile .\existingClusterOnboarding.json -TemplateParameterFile .\existingClusterParam.json
@@ -308,7 +274,7 @@ Se si sceglie di usare l'interfaccia della riga di comando di Azure, è prima ne
        provisioningState       : Succeeded
        ```
 
-   * Eseguire il comando seguente usando l'interfaccia della riga di comando di Azure:
+   * Per eseguire la distribuzione con CLI di Azure, eseguire i comandi seguenti:
     
        ```azurecli
        az login

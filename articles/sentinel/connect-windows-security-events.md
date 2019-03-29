@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3c79747bf33e1769af5f8d3589904ba15105f216
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087602"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576089"
 ---
 # <a name="connect-windows-security-events"></a>Connettere gli eventi di sicurezza di Windows 
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile trasmettere tutti gli eventi di sicurezza dai server Windows connessi all'area di lavoro Azure Sentinel. Questa connessione consente di visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. Questo ti offre informazioni più dettagliate sulla rete dell'organizzazione e migliorare le funzionalità di sicurezza.  È possibile selezionare gli eventi per lo streaming:
@@ -45,7 +45,7 @@ Integrare completamente gli eventi di sicurezza di Windows con Azure Sentinel:
 1. Nel portale di Azure Sentinel, selezionare **raccolta di dati** e quindi fare clic sui **gli eventi di sicurezza di Windows** riquadro. 
 1. Selezionare i tipi di dati da trasmettere in streaming.
 1. Fare clic su **Update**.
-
+6. Per usare lo schema appropriato nel Log Analitica per gli eventi di sicurezza di Windows, cercare **SecurityEvent**.
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
 

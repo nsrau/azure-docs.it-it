@@ -1,5 +1,5 @@
 ---
-title: Notifiche tramite posta elettronica in PIM - Azure | Microsoft Docs
+title: Notifiche in PIM - Azure Active Directory tramite posta elettronica | Microsoft Docs
 description: Descrive le notifiche tramite posta elettronica in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f2e5674413cb4057187b7573fde0bcd8899caab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9aa9da83a7a6e97f5b721dad550831fe2645ffd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57905172"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576948"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
 
-Azure AD Privileged Identity Management (PIM) segnala gli eventi importanti, ad esempio l'assegnazione o l'attivazione di un ruolo. PIM informa l'utente e gli altri partecipanti mediante l'invio di notifiche di posta elettronica. I messaggi di posta elettronica possono includere collegamenti ad attività importanti, quali l'attivazione o il rinnovo di un ruolo. Questo articolo descrive l'aspetto dei messaggi di posta elettronica, quando vengono inviati e chi li riceve.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) consente di sapere quando si verificano eventi importanti, ad esempio quando un ruolo viene assegnato o attivato. PIM informa l'utente e gli altri partecipanti mediante l'invio di notifiche di posta elettronica. I messaggi di posta elettronica possono includere collegamenti ad attività importanti, quali l'attivazione o il rinnovo di un ruolo. Questo articolo descrive l'aspetto dei messaggi di posta elettronica, quando vengono inviati e chi li riceve.
 
 ## <a name="sender-email-address-and-subject-line"></a>Indirizzo e-mail del mittente e riga dell'oggetto
 
@@ -34,7 +34,7 @@ I messaggi di posta elettronica inviati da PIM per i ruoli di Azure e Azure AD h
 - Indirizzo di posta elettronica: **azure-noreply\@microsoft.com**
 - Nome visualizzato: Microsoft Azure
 
-Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
+Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Di seguito è riportato un esempio:
 
 - PIM: Ad Alain Charon è stato assegnato in modo permanente il ruolo Lettore di backup
 
@@ -50,9 +50,9 @@ I destinatari di questi messaggi di posta elettronica per i ruoli di Azure AD va
 
 | Utente | Attivazione del ruolo in attesa di approvazione | Richiesta di attivazione del ruolo completata | PIM è abilitato |
 | --- | --- | --- | --- |
-| Amministratore dei ruoli con privilegi</br>(Attivato/Idoneo) | Sì</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Sì |
-| Amministratore della sicurezza</br>(Attivato/Idoneo) | No  | Sì* | Sì |
-| Amministratore globale</br>(Attivato/Idoneo) | No  | Sì* | Sì |
+| Amministratore del ruolo con privilegi</br>(Attivato/Idoneo) | Sì</br>(solo se non è specificato nessun responsabile approvazione esplicito) | Sì* | Sì |
+| Amministratore della sicurezza</br>(Attivato/Idoneo) | N. | Sì* | Sì |
+| Amministratore globale</br>(Attivato/Idoneo) | N. | Sì* | Sì |
 
 \* Se l'impostazione di [**Notifiche**](pim-how-to-change-default-settings.md#notifications) è **Abilita**.
 
@@ -101,5 +101,5 @@ Di seguito viene riportato un esempio di messaggio di posta elettronica inviato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare le impostazioni dei ruoli della directory di Azure AD in PIM](pim-how-to-change-default-settings.md)
-- [Approvare o rifiutare le richieste per i ruoli della directory di Azure AD in PIM](azure-ad-pim-approval-workflow.md)
+- [Configurare le impostazioni di ruolo di Azure AD in PIM](pim-how-to-change-default-settings.md)
+- [Approvare o rifiutare le richieste per i ruoli di Azure AD in PIM](azure-ad-pim-approval-workflow.md)

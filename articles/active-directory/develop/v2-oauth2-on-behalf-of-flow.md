@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445756"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576931"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Flusso on-behalf-of di Azure Active Directory v2.0 e di OAuth 2.0
 
@@ -71,12 +71,12 @@ Quando si usa un segreto condiviso, una richiesta di token di accesso da servizi
 
 | Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
-| `grant_type` | Obbligatorio | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obbligatorio | L'ID applicazione (client) che il [portale di registrazione dell'applicazione](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o il nuovo [portale di Registrazioni app (anteprima)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) ha assegnato all'app. |
-| `client_secret` | Obbligatorio | Il segreto dell'applicazione generato per l'app nel portale usato per la registrazione dell'app. |
-| `assertion` | Obbligatorio | Il valore del token usato nella richiesta. |
-| `scope` | Obbligatorio | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti). |
-| `requested_token_use` | Obbligatorio | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
+| `grant_type` | Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obbligatoria | ID applicazione (client) che [portale di Azure - registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina ha assegnato all'app. |
+| `client_secret` | Obbligatoria | Il segreto client generato per l'app nel portale di Azure: pagina di registrazioni per l'App. |
+| `assertion` | Obbligatoria | Il valore del token usato nella richiesta. |
+| `scope` | Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti). |
+| `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
 
 #### <a name="example"></a>Esempio
 
@@ -103,13 +103,13 @@ Una richiesta di token di accesso da servizio a servizio con un certificato cont
 
 | Parametro |  | DESCRIZIONE |
 | --- | --- | --- |
-| `grant_type` | Obbligatorio | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obbligatorio | L'ID applicazione (client) che il [portale di registrazione dell'applicazione](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o il nuovo [portale di Registrazioni app (anteprima)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) ha assegnato all'app. |
-| `client_assertion_type` | Obbligatorio | Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| `client_assertion` | Obbligatorio | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Per informazioni sulla registrazione del certificato e il formato dell'asserzione, vedere le [credenziali del certificato](active-directory-certificate-credentials.md). |
-| `assertion` | Obbligatorio | Il valore del token usato nella richiesta. |
-| `requested_token_use` | Obbligatorio | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
-| `scope` | Obbligatorio | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti).|
+| `grant_type` | Obbligatoria | Il tipo di richiesta del token. Per una richiesta con un token JWT, il valore deve essere `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
+| `client_id` | Obbligatoria |  ID applicazione (client) che [portale di Azure - registrazioni di App](https://go.microsoft.com/fwlink/?linkid=2083908) pagina ha assegnato all'app. |
+| `client_assertion_type` | Obbligatoria | Il valore deve essere `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
+| `client_assertion` | Obbligatoria | Un'asserzione (un token JSON Web) che è necessario creare e firmare con il certificato registrato come credenziale per l'applicazione. Per informazioni sulla registrazione del certificato e il formato dell'asserzione, vedere le [credenziali del certificato](active-directory-certificate-credentials.md). |
+| `assertion` | Obbligatoria | Il valore del token usato nella richiesta. |
+| `requested_token_use` | Obbligatoria | Specifica la modalità di elaborazione della richiesta. Nel flusso OBO il valore deve essere impostato su `on_behalf_of`. |
+| `scope` | Obbligatoria | Un elenco di ambiti separati da spazi per la richiesta di token. Per altre informazioni, vedere [Scopes](v2-permissions-and-consent.md) (Ambiti).|
 
 Si noti che i parametri sono quasi uguali a quelli usati nella richiesta tramite segreto condiviso, con l'eccezione del parametro `client_secret` che viene sostituito da due parametri: `client_assertion_type` e `client_assertion`.
 
@@ -205,9 +205,9 @@ Attualmente il sistema di account Microsoft personale non supporta il consenso c
 
 #### <a name="pre-authorized-applications"></a>Applicazioni preautorizzate
 
-Una nuova funzionalità dell'anteprima delle applicazioni è costituita dalle "applicazioni preautorizzate". In questo modo, una risorsa può indicare che una determinata applicazione disponga sempre dell'autorizzazione per ricevere determinati ambiti. Ciò risulta particolarmente utile per semplificare le connessioni tra un client front-end e una risorsa back-end. Una risorsa può dichiarare più applicazioni preautorizzate: qualsiasi applicazione di questo tipo può richiedere tali autorizzazioni in un flusso OBO e riceverle senza che l'utente fornisca il consenso.
+Una funzionalità del portale dell'applicazione è "applicazioni preautorizzate". In questo modo, una risorsa può indicare che una determinata applicazione disponga sempre dell'autorizzazione per ricevere determinati ambiti. Ciò risulta particolarmente utile per semplificare le connessioni tra un client front-end e una risorsa back-end. Una risorsa può dichiarare più applicazioni preautorizzate: qualsiasi applicazione di questo tipo può richiedere tali autorizzazioni in un flusso OBO e riceverle senza che l'utente fornisca il consenso.
 
-#### <a name="admin-consent"></a>Consenso dell'amministratore
+#### <a name="admin-consent"></a>Consenso amministratore
 
 Un amministratore del tenant può garantire che le applicazioni siano autorizzate a chiamare le API necessarie fornendo il consenso dell'amministratore per l'applicazione di livello intermedio. A tale scopo, l'amministratore può trovare l'applicazione di livello intermedio nel proprio tenant, aprire la pagina delle autorizzazioni necessarie e scegliere di concedere l'autorizzazione per l'app. Per altre informazioni sul consenso dell'amministratore, vedere la [documentazione su autorizzazioni e consenso](v2-permissions-and-consent.md). 
 

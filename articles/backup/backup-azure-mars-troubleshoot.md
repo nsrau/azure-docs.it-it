@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008168"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621618"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Risoluzione dei problemi dell'agente di Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -48,7 +48,7 @@ Questo articolo descrive come risolvere gli errori che potrebbero essere visuali
 
 | Dettagli errore | Possibili cause | Azioni consigliate |
 |---------|---------|---------|
-|**Error (Errore) (Error (Errore)e)** <br /><ol>*L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione dopo alcuni minuti. Se il problema persiste, contattare il supporto tecnico Microsoft*     | <li> La cartella Scratch si trova in un volume che dispone di spazio insufficiente. <li> La cartella Scratch viene spostata in modo errato in un'altra posizione. <li> Il file OnlineBackup.KEK è mancante.         | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare la cartella Scratch o la posizione della cache in un volume con spazio libero uguale al 5-10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere le procedure in [Domande sull'agente di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito della cartella Scratch o della posizione della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.        |
+|**Error (Errore) (Error (Errore)e)** <br /><ol>*L'attivazione non è stata completata. Impossibile eseguire l'operazione corrente a causa di un errore di servizio interno [0x1FC07]. Ripetere l'operazione in un secondo momento. Se il problema persiste, contattare il supporto tecnico Microsoft*     | <li> La cartella Scratch si trova in un volume che dispone di spazio insufficiente. <li> La cartella Scratch viene spostata in modo errato in un'altra posizione. <li> Il file OnlineBackup.KEK è mancante.         | <li>Eseguire l'aggiornamento alla [versione più recente](https://aka.ms/azurebackup_agent) dell'Agente di Servizi di ripristino di Microsoft Azure.<li>Spostare la cartella Scratch o la posizione della cache in un volume con spazio libero uguale al 5-10% delle dimensioni totali dei dati di backup. Per spostare correttamente il percorso della cache, vedere le procedure in [Domande sull'agente di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq#backup).<li> Verificare che sia presente il file OnlineBackup.KEK. <br>*Il percorso predefinito della cartella Scratch o della posizione della cache è C:\Programmi\Microsoft Azure Recovery Services Agent\Scratch*.        |
 
 ## <a name="encryption-passphrase-not-correctly-configured"></a>La passphrase di crittografia non è configurata correttamente
 
@@ -60,7 +60,7 @@ Questo articolo descrive come risolvere gli errori che potrebbero essere visuali
 ## <a name="backups-dont-run-according-to-the-schedule"></a>I backup non vengono eseguiti in base alla pianificazione
 Se i backup pianificati non vengono generati automaticamente, mentre i backup manuali funzionano senza problemi, eseguire queste operazioni:
 
-- Verificare che la pianificazione di backup di Windows Server non sia in conflitto con quella di file e cartelle di Azure.
+- Assicurarsi di pianificazione di Windows Server backup non in conflitto con Azure pianificazione di backup di file e cartelle.
 - Andare a **Pannello di controllo** > **Strumenti di amministrazione** > **Utilità di pianificazione**. Espandere **Microsoft** e selezionare **Backup online**. Fare doppio clic su **Microsoft-Backup online** e andare alla scheda **Trigger**. Verificare che lo stato sia impostato su **Abilitato**. In caso contrario, selezionare **Modifica**, quindi selezionare la casella di controllo **Abilitata** e fare clic su **OK**. Nella scheda **Generale** passare a **Opzioni di sicurezza** e assicurarsi che l'account utente selezionato per l'esecuzione dell'attività sia **SISTEMA** o il **gruppo Amministratori locali** nel server.
 
 - Verificare se PowerShell 3.0 o versione successiva è installato nel server. Per controllare la versione di PowerShell, eseguire il comando seguente e verificare che il numero di versione *principale* sia uguale o maggiore di 3.
@@ -109,7 +109,7 @@ Backup di Azure potrebbe non montare il volume di ripristino in modo corretto, a
 
 Se il ripristino ha ancora esito negativo, riavviare il server o il client. Se non si intende eseguire il riavvio o se il ripristino non riesce anche dopo il riavvio del server, ripetere il ripristino da un altro computer. Seguire i passaggi descritti in [questo articolo](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
-## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
+## <a name="need-help-contact-support"></a>Richiesta di assistenza Contatta il supporto tecnico
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.
 
 ## <a name="next-steps"></a>Passaggi successivi

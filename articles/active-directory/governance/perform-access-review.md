@@ -1,6 +1,6 @@
 ---
-title: Verificare l'accesso a gruppi o applicazioni in verifiche di accesso AD Azure | Microsoft Docs
-description: Informazioni su come verificare l'accesso dei membri del gruppo o l'accesso alle applicazioni nelle verifiche di accesso di Azure Active Directory.
+title: Verificare l'accesso a gruppi o applicazioni in verifiche di accesso - Azure Active Directory | Microsoft Docs
+description: Informazioni su come verificare l'accesso dei membri del gruppo o l'accesso alle applicazioni in Azure Active Directory le verifiche di accesso.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728387"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579683"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni nelle verifiche di accesso di Azure AD
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Verificare l'accesso a gruppi o applicazioni in Azure AD le verifiche di accesso
 
-Azure Active Directory (Azure AD) semplifica come le aziende gestiscono l'accesso a gruppi e applicazioni in Azure AD e altri Microsoft Online Services con una funzionalità denominata verifiche di accesso di Azure AD.
+Azure Active Directory (Azure AD) semplifica le aziende gestiscono l'accesso a gruppi e applicazioni in Azure AD e vengono esaminati altri Microsoft Online Services con una funzionalità denominata accesso di Azure AD.
 
 Questo articolo descrive come un revisore designato esegue una verifica di accesso per i membri di un gruppo o gli utenti con accesso a un'applicazione.
 
@@ -44,7 +44,7 @@ Se non si ha l'indirizzo di posta elettronica, è possibile trovare che l'access
 
     ![Portale MyApps](./media/perform-access-review/myapps-access-panel.png)
 
-1. Nell'angolo superiore destro della pagina, fare clic sul simbolo utente, che visualizza il nome e l'organizzazione predefinita. Se sono elencate più organizzazioni, selezionare l'organizzazione che ha richiesto una verifica di accesso.
+1. Fare clic sul simbolo utente nell'angolo superiore destro della pagina, che indica il proprio nome e l'organizzazione predefinita. Se sono elencate più organizzazioni, selezionare l'organizzazione che ha richiesto una verifica di accesso.
 
 1. Sul lato destro della pagina, scegliere il **verifiche di accesso** riquadro per visualizzare un elenco delle verifiche di accesso in sospeso.
 
@@ -94,7 +94,7 @@ Per rendere più facile e veloce le verifiche di accesso per te, offriamo anche 
 
 1. Nella barra blu nella parte inferiore della pagina, fare clic su **accettare le raccomandazioni**.
 
-    ![Accetta le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
+    ![Accettare le raccomandazioni](./media/perform-access-review/accept-recommendations.png)
 
     Viene visualizzato un riepilogo delle azioni consigliate.
 

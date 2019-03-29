@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-Factor Authentication (MFA) e PIM - Azure | Microsoft Docs
+title: Multi-factor authentication (MFA) e PIM - Azure Active Directory | Microsoft Docs
 description: Informazioni su come Azure Active Directory Privileged Identity Management (PIM) convalida l'autenticazione Multi-Factor Authentication (MFA).
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a641f5be28e4750ba8d3d4f8b56802034aab2c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187254"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578799"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>Autenticazione Multi-Factor Authentication (MFA) e PIM
 
 È consigliabile richiedere l'autenticazione Multi-Factor Authentication (MFA) per tutti gli amministratori. Ciò consente di ridurre il rischio di attacchi causato da una password compromessa.
 
-È possibile richiedere agli utenti di compilare una richiesta per l'autenticazione MFA durante l'accesso. È anche possibile richiedere agli utenti di compilare una richiesta per l'autenticazione MFA durante l'attivazione di un ruolo in Azure AD Privileged Identity Management (PIM). In questo modo, se l'utente non ha compilato una richiesta per l'autenticazione MFA durante l'accesso, PIM richiederà all'utente di eseguire tale operazione.
+È possibile richiedere agli utenti di compilare una richiesta per l'autenticazione MFA durante l'accesso. È anche possibile richiedere agli utenti di compilare una richiesta di autenticazione a più fattori quando si attiva un ruolo in Azure Active Directory (Azure AD) Privileged Identity Management (PIM). In questo modo, se l'utente non ha compilato una richiesta per l'autenticazione MFA durante l'accesso, PIM richiederà all'utente di eseguire tale operazione.
 
 > [!IMPORTANT]
 > Azure Multi-Factor Authentication (MFA) funziona attualmente solo con account aziendali o dell'istituto di istruzione, non con account Microsoft (account personale usato in genere per l'accesso a servizi Microsoft, come Skype, Xbox e Outlook.com). Gli utenti che usano un account Microsoft non possono essere amministratori idonei poiché non possono usare l'autenticazione MFA per attivare i propri ruoli. Se devono continuare a gestire i carichi di lavoro con un account Microsoft, elevare questi utenti a livello di amministratori permanenti per ora.
@@ -40,5 +40,5 @@ In alternativa, se gli utenti eseguono l'autenticazione in locale, è possibile 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Configurare le impostazioni dei ruoli della directory di Azure AD in PIM](pim-how-to-change-default-settings.md)
+- [Configurare le impostazioni di ruolo di Azure AD in PIM](pim-how-to-change-default-settings.md)
 - [Configurare le impostazioni dei ruoli delle risorse di Azure in PIM](pim-resource-roles-configure-role-settings.md)

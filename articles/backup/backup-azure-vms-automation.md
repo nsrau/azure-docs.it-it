@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521704"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578884"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e ripristino di macchine virtuali di Azure con PowerShell
 
-Questo articolo illustra come eseguire il backup e ripristinare una macchina virtuale di Azure in un' [Backup di Azure](backup-overview.md) credenziali di servizi di ripristino usando i cmdlet di PowerShell. 
+Questo articolo illustra come eseguire il backup e ripristinare una macchina virtuale di Azure in un' [Backup di Azure](backup-overview.md) credenziali di servizi di ripristino usando i cmdlet di PowerShell.
 
 In questo articolo viene spiegato come:
 
@@ -24,10 +24,7 @@ In questo articolo viene spiegato come:
 > * Creare un insieme di credenziali di Servizi di ripristino e impostare il contesto dell'insieme di credenziali.
 > * Definire un criterio di backup
 > * Applicare un criterio di backup per proteggere più macchine virtuali
-> * Attivare un processo di backup su richiesta per le macchine virtuali protette Prima di poter eseguire il backup o proteggere una macchina virtuale, è necessario completare i [prerequisiti](backup-azure-arm-vms-prepare.md) per preparare l'ambiente per la protezione delle macchine virtuali. 
-
-
-
+> * Attivare un processo di backup su richiesta per le macchine virtuali protette Prima di poter eseguire il backup o proteggere una macchina virtuale, è necessario completare i [prerequisiti](backup-azure-arm-vms-prepare.md) per preparare l'ambiente per la protezione delle macchine virtuali.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -44,8 +41,6 @@ Nel diagramma seguente viene riepilogata la gerarchia di oggetti.
 
 Rivedere le **Az.RecoveryServices** [riferimento dei cmdlet](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) riferimento nella raccolta di Azure.
 
-
-
 ## <a name="set-up-and-register"></a>Configurare e registrare
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ Per iniziare:
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     Verranno visualizzati alias e cmdlet per Backup di Azure, Azure Site Recovery e l'insieme di credenziali di Servizi di ripristino. L'immagine seguente è un esempio di quanto verrà visualizzato. Non è l'elenco completo dei cmdlet.
 
@@ -67,7 +62,7 @@ Per iniziare:
 3. Accedere all'account Azure tramite **Connect-AzAccount**. Questo cmdlet visualizza una pagina Web che richiede le credenziali dell'account:
 
     * In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzAccount**, usando il parametro **-Credential**.
-    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio:  **Connect-AzAccount -Tenant "fabrikam.com"**
+    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
@@ -147,6 +142,18 @@ Prima di abilitare la protezione per una macchina virtuale, usare [Set-AzRecover
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>Modifica delle impostazioni di replica di archiviazione
+
+Uso [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) comando per impostare la configurazione della replica di archiviazione dell'insieme di credenziali di archiviazione con ridondanza locale o archiviazione con ridondanza geografica
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> La ridondanza di archiviazione può essere modificata solo se non sono presenti elementi di backup protetti nell'insieme di credenziali.
+
 ### <a name="create-a-protection-policy"></a>Creare i criteri di protezione
 
 Quando si crea un insieme di credenziali di Servizi di ripristino, questo è dotato di protezione predefinita e criteri di conservazione. I criteri di protezione predefinita attivano un processo di backup ogni giorno all'ora specificata. I criteri di conservazione predefiniti consentono di mantenere il punto di recupero giornaliero per 30 giorni. È possibile usare i criteri predefiniti per proteggere rapidamente la macchina virtuale e modificare i criteri in un secondo momento con dettagli diversi.
@@ -193,7 +200,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ```
 
-### <a name="enable-protection"></a>Abilitare la protezione
+### <a name="enable-protection"></a>Abilita protezione
 
 Dopo aver definito i criteri di protezione è necessario abilitarli per un elemento. Uso [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) per abilitare la protezione. Per abilitare la protezione sono necessari due oggetti, l'elemento e i criteri. Dopo aver associato i criteri all'insieme di credenziali, il flusso di lavoro di backup verrà attivato al momento definito nella pianificazione dei criteri.
 
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Se si usa il cloud di Azure per enti pubblici, usare ff281ffe-705c-4f53-9f37-a40e6f2c68f3 il valore del parametro ServicePrincipalName nel [Set-AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>Modificare i criteri di protezione
 
 Per modificare i criteri di protezione, utilizzare [Set-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) per modificare gli oggetti SchedulePolicy o RetentionPolicy.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>Configurazione della conservazione dello snapshot di ripristino immediato
+
+> [!NOTE]
+> Da PS Az versione 1.6.0 e versioni successive, una possibile aggiornare il periodo di conservazione snapshot di ripristino immediato nel criterio tramite Powershell
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+Il valore predefinito è 2, l'utente può impostare il valore con un minimo di 1 e al massimo 5. Per criteri di backup settimanale, il periodo è impostato su 5 e non può essere modificato.
 
 ## <a name="trigger-a-backup"></a>Attivare un backup
 
@@ -672,7 +691,7 @@ $rp[0]
 
 L'output è simile all'esempio seguente:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se si preferisce usare PowerShell per coinvolgere le risorse di Azure, vedere l'articolo PowerShell [Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell](backup-client-automation.md). Se si gestiscono i backup DPM, vedere l'articolo [Distribuire e gestire il backup per DPM](backup-dpm-automation.md). 
+Se si preferisce usare PowerShell per coinvolgere le risorse di Azure, vedere l'articolo PowerShell [Distribuire e gestire il backup in Azure per server Windows/client Windows mediante PowerShell](backup-client-automation.md). Se si gestiscono i backup DPM, vedere l'articolo [Distribuire e gestire il backup per DPM](backup-dpm-automation.md).

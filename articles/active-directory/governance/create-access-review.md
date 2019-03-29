@@ -1,6 +1,6 @@
 ---
-title: Creare una verifica di accesso di gruppi o applicazioni in verifiche di accesso AD Azure | Microsoft Docs
-description: Informazioni su come creare una verifica di accesso dei membri del gruppo o l'accesso alle applicazioni nelle verifiche di accesso di Azure AD.
+title: Creare una verifica di accesso di gruppi o applicazioni - Azure Active Directory | Microsoft Docs
+description: Informazioni su come creare una verifica di accesso dei membri del gruppo o l'accesso alle applicazioni in Azure Active Directory le verifiche di accesso.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,14 +15,14 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847383"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576200"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso di gruppi o applicazioni nelle verifiche di accesso di Azure AD
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi o applicazioni in Azure AD le verifiche di accesso
 
 L'accesso a gruppi e applicazioni per dipendenti e utenti guest cambia nel corso del tempo. Per ridurre i rischi associati alle assegnazioni di accesso obsolete, gli amministratori possono usare Azure Active Directory (Azure AD) per creare verifiche di accesso per i membri dei gruppi o l'accesso alle applicazioni. Se è necessario esaminare periodicamente l'accesso, è anche possibile creare verifiche di accesso ricorrenti. Per altre informazioni su questi scenari, vedere [Gestire l'accesso utente](manage-user-access-with-access-reviews.md) e [Gestire l'accesso guest](manage-guest-access-with-access-reviews.md).
 
@@ -35,7 +35,7 @@ Questo articolo descrive come creare uno o più verifiche di accesso per i membr
 
 ## <a name="create-one-or-more-access-reviews"></a>Creare uno o più verifiche di accesso
 
-1. Accedere al portale di Azure e aprire la [pagina Verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Accedi al portale di Azure e aprire il [pagina delle verifiche di accesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Fare clic su **Controlli**.
 
@@ -120,7 +120,7 @@ Se alcuni revisori sono guest, i guest riceveranno la notifica tramite posta ele
 
 ## <a name="manage-the-access-review"></a>Gestire la verifica di accesso
 
-È possibile tenere traccia dello stato di avanzamento delle verifiche eseguite dai revisori nella sezione **Verifiche di accesso** del dashboard di Azure AD. Nessun diritto di accesso viene modificato nella directory fino al [completamento della verifica](complete-access-review.md).
+È possibile tenere traccia dello stato di avanzamento i revisori delle verifiche nel dashboard di Azure AD nel **verifiche di accesso** sezione. Nessun diritto di accesso viene modificato nella directory fino al [completamento della verifica](complete-access-review.md).
 
 Se si tratta di una singola revisione, dopo il periodo della verifica l'accesso o l'amministratore ha interrotto la verifica di accesso, seguire i passaggi descritti in [completare una verifica di accesso dei gruppi o applicazioni](complete-access-review.md) per esaminare e applicare i risultati.  
 
@@ -130,7 +130,7 @@ A seconda delle selezioni in Impostazioni al completamento, l'applicazione autom
 
 ## <a name="create-reviews-via-apis"></a>Creare verifiche tramite API
 
-È anche possibile creare verifiche di accesso usando le API. Le operazioni eseguite per gestire le verifiche di accesso di gruppi e utenti di applicazioni nel portale di Azure possono essere svolte anche tramite le API Microsoft Graph. Per altre informazioni, vedere [Azure AD Access Reviews API reference](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) (Informazioni di riferimento sulle API per le verifiche di accesso di Azure AD). Per un esempio di codice, vedere [Example of retrieving Azure AD access reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096) (Esempio di recupero delle verifiche di accesso di Azure AD tramite Microsoft Graph).
+È anche possibile creare verifiche di accesso usando le API. Le operazioni eseguite per gestire le verifiche di accesso di gruppi e utenti di applicazioni nel portale di Azure possono essere svolte anche tramite le API Microsoft Graph. Per altre informazioni, vedere la [riferimento all'API di verifiche di accesso AD Azure](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Per un esempio di codice, vedere [verifiche di esempio di recupero di accesso di Azure AD tramite Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

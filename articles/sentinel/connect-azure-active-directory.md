@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/30/2019
 ms.author: rkarlin
-ms.openlocfilehash: 315b18feb74862bbeca6ff8265ee003fbad48595
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242313"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575131"
 ---
 # <a name="collect-data-from-azure-active-directory"></a>Raccogliere i dati da Azure Active Directory
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Sentinel Azure consente di raccogliere i dati dai [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) e trasmetterlo in Sentinel di Azure. È possibile scegliere di flusso [i log di accesso](../active-directory/reports-monitoring/concept-sign-ins.md) e [log di controllo](../active-directory/reports-monitoring/concept-audit-logs.md) .
@@ -42,7 +42,7 @@ Sentinel Azure consente di raccogliere i dati dai [Azure Active Directory](../ac
 
 2. Accanto i log si vuole trasmettere in Sentinel di Azure, fare clic su **Connect**.
 
-
+6. Per usare lo schema appropriato nel Log Analitica per gli avvisi di Azure AD, cercare **SigninLogs** e **AuditLogs**.
 
 
 

@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulle verifiche di accesso di Azure AD | Microsoft Docs
-description: Usando le verifiche di accesso di Azure Active Directory, è possibile controllare l'appartenenza ai gruppi e l'accesso alle applicazioni per soddisfare i requisiti di governance, gestione dei rischi e conformità dell'organizzazione.
+title: Informazioni sulle verifiche di accesso - Azure Active Directory | Microsoft Docs
+description: Usando le verifiche di accesso di Azure Active Directory, è possibile controllare l'accesso al gruppo di appartenenza e l'applicazione in modo da soddisfare governance, gestione dei rischi e iniziative di conformità dell'organizzazione.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845155"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576123"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>Informazioni sulle verifiche di accesso di Azure AD
+# <a name="what-are-azure-ad-access-reviews"></a>Che cosa sono Azure AD access verifiche?
 
-Le verifiche di accesso di Azure Active Directory (Azure AD) consentono alle organizzazioni di gestire in modo efficiente l'appartenenza a gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruoli. È possibile verificare regolarmente l'accesso degli utenti per assicurarsi che solo le persone appropriate dispongano di accesso continuo.
+Le verifiche di accesso di Azure Active Directory (Azure AD) consentono alle organizzazioni di gestire le appartenenze, accedere ad applicazioni aziendali e le assegnazioni di ruolo in modo efficiente. È possibile verificare regolarmente l'accesso degli utenti per assicurarsi che solo le persone appropriate dispongano di accesso continuo.
 
 Il video seguente presenta una rapida panoramica delle verifiche di accesso:
 
@@ -42,7 +42,7 @@ Azure AD consente di collaborare internamente nell'organizzazione e con utenti d
 
 ## <a name="when-to-use-access-reviews"></a>Quando è opportuno usare le verifiche di accesso?
 
-- **Troppi utenti nei ruoli con privilegi:** È una buona idea per verificare quanti utenti hanno accesso amministrativo, quanti di essi sono gli amministratori globali, e se sono presenti eventuali invitato utenti guest o partner che non sono stati rimossi dopo l'assegnazione per eseguire un'attività amministrativa. È possibile ricertificare gli utenti a cui sono assegnati i [ruoli di Azure Active Directory](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio gli amministratori globali, o i [ruoli delle risorse di Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio il ruolo Amministratore Accesso utenti, tramite l'esperienza di [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
+- **Troppi utenti nei ruoli con privilegi:** È una buona idea per verificare quanti utenti hanno accesso amministrativo, quanti di essi sono gli amministratori globali, e se sono presenti eventuali invitato utenti guest o partner che non sono stati rimossi dopo l'assegnazione per eseguire un'attività amministrativa. È possibile ricertificare gli utenti di assegnazione ruolo [ruoli di Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , ad esempio gli amministratori globali, o [ruoli delle risorse di Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) , ad esempio amministratore accesso utenti nel [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md) esperienza.
 - **Quando l'automazione non è realizzabile:** è possibile creare regole per l'appartenenza dinamica ai gruppi di sicurezza o ai gruppi di Office 365, ma cosa accade se i dati delle risorse umane non si trovano in Azure AD o se gli utenti necessitano ancora dell'accesso dopo aver lasciato il gruppo per aiutare nella formazione del loro sostituto? È possibile creare una verifica per tale gruppo per assicurarsi che gli utenti che necessitano ancora dell'accesso dispongano di accesso continuo.
 - **Quando un gruppo viene usato per un nuovo scopo**: se c'è un gruppo che deve essere sincronizzato con Azure AD o se si prevede di abilitare l'applicazione Salesforce per tutti gli utenti nel gruppo del team di vendita, può essere utile chiedere al proprietario del gruppo di verificare l'appartenenza al gruppo prima che il gruppo venga usato in un ambito di rischio diverso.
 - **Accesso ai dati business critical**: per determinate risorse, può essere necessario chiedere alle persone esterne all'IT di disconnettersi regolarmente e di fornire una giustificazione in merito al motivo per cui devono eseguire l'accesso a scopo di controllo.
@@ -52,23 +52,23 @@ Azure AD consente di collaborare internamente nell'organizzazione e con utenti d
 
 ## <a name="where-do-you-create-reviews"></a>Dove si creano le verifiche?
 
-A seconda di ciò che si vuole verificare, è possibile creare una verifica di accesso in Verifiche di accesso di Azure AD, App aziendali di Azure AD (in anteprima) o Azure AD PIM.
+A seconda di ciò che si desidera esaminare, si creerà la verifica di accesso di Azure AD accedere alle recensioni, le app aziendali di Azure AD (in anteprima) o Azure AD Privileged Identity Management.
 
 | Diritti di accesso degli utenti | I revisori possono essere | Verifica creata in | Esperienza di verifica |
 | --- | --- | --- | --- |
-| Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Revisori self-service | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Pannello di accesso |
-| Assegnati a un'app connessa | Revisori specificati</br>Revisori self-service | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Pannello di accesso |
-| Ruolo della directory di Azure AD | Revisori specificati</br>Revisori self-service | Azure AD PIM | Portale di Azure |
-| Ruolo delle risorse di Azure | Revisori specificati</br>Revisori self-service | Azure AD PIM | Portale di Azure |
+| Membri di gruppi di sicurezza</br>Membri di gruppi di Office | Revisori specificati</br>Proprietari del gruppo</br>Revisori self-service | Verifiche di accesso di Azure AD</br>Gruppi di Azure AD | Riquadro di accesso |
+| Assegnati a un'app connessa | Revisori specificati</br>Revisori self-service | Verifiche di accesso di Azure AD</br>App aziendali di Azure AD (in anteprima) | Riquadro di accesso |
+| Ruolo di Azure AD | Revisori specificati</br>Revisori self-service | Azure AD PIM | portale di Azure |
+| Ruolo delle risorse di Azure | Revisori specificati</br>Revisori self-service | Azure AD PIM | portale di Azure |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per usare le verifiche di accesso, è necessario avere una delle licenze seguenti:
 
-- Azure AD Premium P2
+- Azure AD P2 Premium
 - Licenza di Enterprise Mobility + Security (EMS) E5
 
-Per ulteriori informazioni, consultare [Come effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Versione di valutazione di Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
+Per altre informazioni, vedere [Procedura: effettuare l'iscrizione alle edizioni Azure Active Directory Premium](../fundamentals/active-directory-get-started-premium.md) o [Versione di valutazione di Enterprise Mobility + Security E5](https://aka.ms/emse5trial).
 
 ## <a name="get-started-with-access-reviews"></a>Introduzione alle verifiche di accesso
 
@@ -88,13 +88,13 @@ Per abilitare le verifiche di accesso, seguire questa procedura.
 
 1. Fare clic su **Tutti i servizi** e trovare il servizio Verifiche di accesso.
 
-1. Fare clic su **Verifiche di accesso**.
+1. Fare clic su **verifiche di accesso**.
 
-    ![Tutti i servizi - Verifiche di accesso](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![Tutti i servizi, le verifiche di accesso](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. Nell'elenco di spostamento fare clic su **Onboarding** per aprire la pagina **Onboarding delle verifiche di accesso**.
 
-    ![Onboarding delle verifiche di accesso](./media/access-reviews-overview/onboard-button.png)
+    ![Eseguire l'onboarding delle verifiche di accesso](./media/access-reviews-overview/onboard-button.png)
 
 1. Fare clic su **Crea** per abilitare le verifiche di accesso nella directory corrente.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 1f94544a2e7a26ab00432a3564bb752c71254844
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ef313ea631a963aa7893bf15e826e591c9d9cfc3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484881"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619799"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Distribuire l'app in Servizio app di Azure con un file ZIP o WAR
 
@@ -31,6 +31,7 @@ La distribuzione tramite file ZIP utilizza lo stesso servizio Kudu usato per le 
 - Opzione per attivare il processo di compilazione predefinito, che include il ripristino del pacchetto.
 - [Personalizzazione della distribuzione](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), inclusa l'esecuzione di script di distribuzione.  
 - Log di distribuzione. 
+- Una dimensione massima di 512 MB.
 
 Per altre informazioni, vedere [Documentazione Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 

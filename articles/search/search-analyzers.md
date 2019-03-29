@@ -4,17 +4,17 @@ description: Assegnare degli analizzatori ai campi di testo di ricerca in un ind
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343273"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578765"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
 
@@ -58,7 +58,7 @@ Alcuni analizzatori predefiniti, ad esempio, **Pattern** o **Stop**, supportano 
 
 Non è consentita l'assegnazione di **analizzatore** oppure **indexAnalyzer** a un campo che è già stato creato fisicamente. Per eventuali chiarimenti, esaminare la tabella seguente per una suddivisione di quali azioni richiedono la ricompilazione e perché.
  
- | Scenario | Impatto | Passaggi |
+ | Scenario | Impatto | Istruzioni |
  |----------|--------|-------|
  | Aggiungere un nuovo campo | Minimo | Se il campo non esiste ancora nello schema, non occorre alcuna revisione perché il campo non è ancora presente fisicamente nell'indice. È possibile usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per aggiungere un nuovo campo a un indice esistente, e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo.|
  | Aggiungere un **analizzatore** o **indexAnalyzer** a un campo indicizzato esistente. | [rebuild](search-howto-reindex.md) | L'indice invertito per il campo deve essere ricreato da zero e il contenuto per questi campi deve essere reindicizzato. <br/> <br/>Per gli indici in fase di sviluppo, [eliminare](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [creare](https://docs.microsoft.com/rest/api/searchservice/create-index) l'indice per selezionare la nuova definizione di campo. <br/> <br/>Per gli indici nell'ambiente di produzione, è possibile posticipare la ricompilazione mediante la creazione di un nuovo campo per fornire la definizione modificata e iniziare a usarla al posto di quella precedente. Usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per incorporare il nuovo campo e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo. In un secondo momento, nell'ambito della manutenzione pianificata dell'indice, sarà possibile pulire l'indice per rimuovere i campi obsoleti. |
@@ -97,16 +97,18 @@ Se la ricerca non restituisce i risultati previsti, è molto probabile che esist
 
 [Search Analyzer Demo](https://alice.unearth.ai/) è un'app dimostrativa di terze parti che illustra un confronto tra l'analizzatore Lucene standard, l'analizzatore di lingua inglese Lucene e il processore di lingua inglese di Microsoft. L'indice è fisso e contiene testo da una storia comune. Per ogni input di ricerca fornito vengono visualizzati i risultati di ogni analizzatore in riquadri adiacenti, in modo da poter verificare come ogni analizzatore elabora la stessa stringa. 
 
-## <a name="examples"></a>Esempi
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>Esempi REST
 
 Gli esempi seguenti mostrano le definizioni degli analizzatori per alcuni scenari chiave.
 
-+ [Esempio di analizzatore personalizzato](#Example1)
-+ [Esempio dell'assegnazione degli analizzatori a un campo](#Example2)
-+ [Combinazioni di analizzatori per indicizzazione e ricerca](#Example3)
-+ [Esempio di analizzatore del linguaggio](#Example4)
++ [Esempio di analizzatore personalizzato](#Custom-analyzer-example)
++ [Esempio dell'assegnazione degli analizzatori a un campo](#Per-field-analyzer-assignment-example)
++ [Combinazioni di analizzatori per indicizzazione e ricerca](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Esempio di analizzatore del linguaggio](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>Esempio di analizzatore personalizzato
 
@@ -180,7 +182,7 @@ Passaggi di questo esempio:
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>Esempio di assegnazione dell'analizzatore in base al campo
 
@@ -213,7 +215,7 @@ L'elemento "analizzatore" sostituisce l'analizzatore Standard campo per campo. N
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Combinazioni di analizzatori per le operazioni di indicizzazione e ricerca
 
@@ -241,7 +243,7 @@ Le API includono attributi di indice aggiuntivi per specificare analizzatori div
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>Esempio di analizzatore del linguaggio
 
@@ -274,6 +276,69 @@ I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del
   }
 ~~~~
 
+## <a name="c-examples"></a>C#esempi
+
+Se si usa gli esempi di codice .NET SDK, è possibile aggiungere questi esempi per usare o configurare gli analizzatori.
+
++ [Assegnare un analizzatore predefinito](#Assign-a-language-analyzer)
++ [Configurare un analizzatore](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>Assegnare un analizzatore del linguaggio
+
+Qualsiasi analizzatore che viene usato come-è, senza alcuna configurazione, viene specificato in una definizione di campo. Non è necessario per la creazione di un costrutto di analizzatore. 
+
+In questo esempio assegna gli analizzatori Microsoft English e francese ai campi di descrizione. È un frammento di codice eseguito da una definizione dell'indice degli hotel, creazione tramite la classe Hotel nel file hotels.cs di dimensioni maggiori di [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) esempio.
+
+Chiamare [analizzatore](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specificando la [classe AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) che fornisce tutti gli analizzatori text in ricerca di Azure è supportati.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>Definire un analizzatore personalizzato
+
+Quando è necessaria la personalizzazione o configurazione, è necessario aggiungere un costrutto di analizzatore a un indice. Dopo averlo definito, è possibile aggiungere la definizione del campo come illustrato nell'esempio precedente.
+
+Uso [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) per creare l'oggetto. Per altri esempi, vedere [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 + Esaminare la descrizione dettagliata contenuta in [Funzionamento della ricerca full-text in Ricerca di Azure](search-lucene-query-architecture.md). Questo articolo usa alcuni esempi per illustrare i comportamenti che potrebbero sembrare poco plausibili in un primo momento.
@@ -286,7 +351,7 @@ I campi contenenti stringhe in diverse lingue possono utsare un analizzatore del
 
 + [Fare un confronto degli analizzatori standard e in lingua inglese](https://alice.unearth.ai/) su riquadri adiacenti in questo sito Web demo. 
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

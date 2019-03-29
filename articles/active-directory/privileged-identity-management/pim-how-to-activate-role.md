@@ -1,6 +1,6 @@
 ---
-title: Attivare ruoli della directory di Azure AD in PIM | Microsoft Docs
-description: Informazioni su come attivare i ruoli della directory di Azure AD in Azure AD Privileged Identity Management (PIM).
+title: Attiva il mio ruolo di Azure AD in PIM - Azure Active Directory | Microsoft Docs
+description: Informazioni su come attivare i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,38 +14,38 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7fc0a22f4300a06b5c827973ffb2436d0b8cfb36
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ca069da1239a505b3e3686998cd29844ed80ba46
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542746"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576813"
 ---
-# <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Attivare i ruoli della directory di Azure AD in PIM
+# <a name="activate-my-azure-ad-roles-in-pim"></a>Attiva il mio ruolo di Azure AD in PIM
 
 Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica la gestione aziendale dell'accesso con privilegi alle risorse in Azure AD e in altri servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.  
 
 Se un ruolo amministrativo è stato impostato come idoneo, è possibile attivare il ruolo quando è necessario eseguire delle azioni con privilegi. Se ad esempio si gestiscono occasionalmente le funzionalità di Office 365, è possibile che gli amministratori dei ruoli con privilegi dell'organizzazione non configurino l'utente come amministratore globale permanente perché tale ruolo interessa anche altri servizi. L'utente è invece considerato idoneo per ruoli di Azure AD, ad esempio amministratore di Exchange Online. È possibile richiedere l'attivazione del ruolo quando tali privilegi risulteranno necessari; si avrà il controllo amministrativo per un periodo di tempo predeterminato.
 
-Questo articolo è specifico per gli amministratori che devono attivare il proprio ruolo della directory di Azure AD in PIM.
+Questo articolo è destinato agli amministratori che devono attivare il proprio ruolo di Azure AD in PIM.
 
 ## <a name="activate-a-role"></a>Attivare un ruolo
 
-Quando è necessario usare un ruolo della directory di Azure AD è possibile richiedere l'attivazione tramite l'opzione di navigazione **Ruoli personali** in PIM.
+Quando è necessario usare un ruolo di Azure AD, è possibile richiedere l'attivazione tramite il **ruoli personali** opzione di navigazione in PIM.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
 1. Aprire **Azure AD Privileged Identity Management**. Per informazioni su come aggiungere il riquadro PIM alla dashboard, vedere [Iniziare a usare PIM](pim-getting-started.md).
 
-1. Fare clic su **Ruoli della directory di Azure AD**.
+1. Fare clic su **Ruoli di Azure AD**.
 
-1. Fare clic su **Ruoli personali** per visualizzare un elenco di ruoli idonei della directory di Azure AD.
+1. Fare clic su **ruoli personali** per visualizzare un elenco di idonei per i ruoli di Azure AD.
 
-    ![Ruoli della directory di Azure AD - Ruoli personali](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
+    ![Ruoli di Azure AD - ruoli personali](./media/pim-how-to-activate-role/directory-roles-my-roles.png)
 
 1. Individuare un ruolo che si desidera attivare.
 
-    ![Ruoli della directory di Azure AD - Elenco Ruoli personali](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
+    ![Ruoli di Azure AD - mio elenco di ruoli](./media/pim-how-to-activate-role/directory-roles-my-roles-activate.png)
 
 1. Fare clic su **Attiva** per aprire il riquadro dei dettagli di attivazione del ruolo.
 
@@ -55,7 +55,7 @@ Quando è necessario usare un ruolo della directory di Azure AD è possibile ric
 
 1. Fare clic su **Verifica la mia identità** e seguire le istruzioni per fornire la verifica aggiuntiva di sicurezza.
 
-    ![Verifica aggiuntiva di sicurezza](./media/pim-how-to-activate-role/additional-security-verification.png)
+    ![Verifica di sicurezza aggiuntiva](./media/pim-how-to-activate-role/additional-security-verification.png)
 
 1. Fare clic su **Attiva** per aprire il riquadro di attivazione.
 
@@ -87,11 +87,11 @@ Quando è necessario usare un ruolo della directory di Azure AD è possibile ric
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Ruoli della directory di Azure AD**.
+1. Fare clic su **Ruoli di Azure AD**.
 
 1. Fare clic su **Richieste personali** per visualizzare un elenco delle richieste.
 
-    ![Ruoli della directory di Azure AD - Richieste personali](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
+    ![Ruoli di Azure AD - richieste personali](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
 ## <a name="deactivate-a-role"></a>Disattivare un ruolo
 
@@ -101,7 +101,7 @@ Se si completano le attività dell'amministratore prima del raggiungimento del l
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Ruoli della directory di Azure AD**.
+1. Fare clic su **Ruoli di Azure AD**.
 
 1. Fare clic su **Ruoli personali**.
 
@@ -115,7 +115,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Ruoli della directory di Azure AD**.
+1. Fare clic su **Ruoli di Azure AD**.
 
 1. Fare clic su **Richieste personali**.
 
@@ -125,7 +125,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
    ![Annullare una richiesta in sospeso](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Autorizzazioni non concesse dopo l'attivazione di un ruolo
 

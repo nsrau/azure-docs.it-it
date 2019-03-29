@@ -6,17 +6,17 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 69a2d9e7858c0f152056e821c19caa9852b420d5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556603"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620277"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resilienza e ripristino di emergenza
 
 La resilienza e il ripristino di emergenza sono un'esigenza comune per i sistemi online. Il servizio Azure SignalR garantisce già una disponibilità del 99,9%, ma è comunque un servizio a livello di area.
-L'istanza del servizio viene sempre eseguita in un'unica area e non viene effettuato il failover in un'altra in caso di interruzione a livello di area.
+L'istanza del servizio sia sempre in esecuzione in un'unica area e non effettuare il failover in un'altra area quando si verifica un'interruzione a livello di area.
 
 L'SDK del servizio offre invece una funzionalità per supportare più istanze del servizio SignalR e passare automaticamente ad altre istanze quando alcune non sono disponibili.
 Con questa funzionalità si potrà eseguire il ripristino in caso di emergenza, ma si dovrà configurare autonomamente la topologia di sistema appropriata. Questo documento illustra come procedere.
@@ -28,8 +28,8 @@ Quando si connettono più istanze del servizio al server app, esistono due ruoli
 Il ruolo primario è un'istanza che gestisce il traffico online, mentre quello secondario è un'istanza dotata di funzionalità complete ma di backup per il ruolo primario.
 Nell'implementazione dell'SDK, la negoziazione restituirà solo gli endpoint primari, quindi normalmente i client si connettono solo agli endpoint primari.
 Quando l'istanza primaria è inattiva, tuttavia, la negoziazione restituirà gli endpoint secondari affinché il client possa comunque connettersi.
-L'istanza primaria e il server app sono connessi tramite una connessione al server normale, mentre l'istanza secondaria e il server app sono connessi tramite una speciale tipologia di connessione denominata connessione debole.
-La differenza principale di una connessione debole consiste nel fatto che non accetta il routing di connessione client, perché l'istanza secondaria si trova in genere in un'altra area. Il routing di un client a un'altra area non è in genere una soluzione ottimale, perché aumenta la latenza.
+Istanza primaria e il server applicazioni sono connesse tramite le connessioni al server normale ma istanza secondaria e il server applicazioni sono connessi tramite un tipo speciale di connessione denominato connessione debole.
+La differenza principale di una connessione debole è di non accettare routing di connessione client, in quanto istanza secondaria si trova in un'altra area. Routing di un client a un'altra area non è una soluzione ottimale (aumenta la latenza).
 
 Un'istanza del servizio può avere diversi ruoli se connessa a più server app.
 Una configurazione tipica per uno scenario che include più aree consiste nell'avere due o più coppie di server app e istanze del servizio SignalR.
@@ -41,7 +41,7 @@ Al momento della connessione, tuttavia, un client viene sempre indirizzato al se
 
 Di seguito è riportato un diagramma che illustra tale topologia:
 
-![Topologia](media/signalr-concept-disaster-recovery/topology.png)
+![topologia](media/signalr-concept-disaster-recovery/topology.png)
 
 ## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configurare i server app con più istanze del servizio SignalR
 
@@ -51,7 +51,7 @@ Questa operazione può essere eseguita in due modi.
 
 ### <a name="through-config"></a>Tramite configurazione
 
-Dovrebbe essere già noto come impostare la stringa di connessione del servizio SignalR tramite variabili di ambiente/impostazioni dell'app/web.config, con una voce di configurazione denominata `Azure:SignalR:ConnectionString`.
+È consigliabile sono noti come impostare una stringa di connessione servizio SignalR tramite settings/web.cofig/app le variabili di ambiente, tramite una voce di configurazione denominata `Azure:SignalR:ConnectionString`.
 Se sono presenti più endpoint, si possono impostare in più voci di configurazione, ognuna con il formato seguente:
 
 ```
@@ -121,7 +121,7 @@ Il servizio SignalR può supportare entrambi i modelli. La differenza principale
 In caso di server app attivi/passivi, anche il servizio SignalR sarà attivo/passivo, perché il server app primario restituisce solo la propria istanza primaria del servizio SignalR.
 In caso di server app attivi/attivi, anche il servizio SignalR sarà attivo/attivo, perché tutti i server app restituiranno le rispettive istanze del servizio SignalR e tutte le istanze potranno quindi ricevere traffico.
 
-Si noti che, indipendentemente dai modelli che si sceglie di usare, ogni istanza del servizio SignalR deve essere connessa come primaria a un server app.
+Notare indipendentemente da quali modelli si sceglie di usare, è necessario connettersi ogni istanza del servizio SignalR a un server di app come primario.
 
 Dato che la connessione di SignalR è una connessione lunga, inoltre, i client subiranno interruzioni delle connessioni in caso di emergenza e failover.
 Sarà necessario gestire questi casi sul lato client in modo che siano trasparenti per i clienti finali, ad esempio eseguendo la riconnessione dopo la chiusura di una connessione.
@@ -129,3 +129,5 @@ Sarà necessario gestire questi casi sul lato client in modo che siano trasparen
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo articolo ha illustrato come configurare l'applicazione per ottenere la resilienza per il servizio SignalR. Per altre informazioni dettagliate sulla connessione client/server e il routing di connessione nel servizio SignalR, vedere [questo articolo](signalr-concept-internals.md) relativo agli elementi interni del servizio SignalR.
+
+Per la scalabilità scenari come partizionamento orizzontale, che utilizzano contemporaneamente più istanze per gestire un numero elevato di connessioni, leggere [scalabilità di più istanze](signalr-howto-scale-multi-instances.md)?

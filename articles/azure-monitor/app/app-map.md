@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 777bf38fbc8a90335af79bbd0fb2ce74310bd991
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a42eb7b57319df7de4c5277cdcdd93eb777f376c
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58006808"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622111"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mappa delle applicazioni: Valutazione delle applicazioni distribuite
 
@@ -50,7 +50,7 @@ Fare clic su qualsiasi componente per visualizzare le informazioni dettagliate c
 
 ![Riquadro a comparsa](media/app-map/application-map-002.png)
 
-### <a name="investigate-failures"></a>Esaminare gli errori
+### <a name="investigate-failures"></a>Esamina errori
 
 Selezionare **Esamina errori** per aprire il riquadro Errori.
 
@@ -58,7 +58,7 @@ Selezionare **Esamina errori** per aprire il riquadro Errori.
 
 ![Screenshot dell'esperienza Errori](media/app-map/failures.png)
 
-### <a name="investigate-performance"></a>Esaminare le prestazioni
+### <a name="investigate-performance"></a>Esamina prestazioni
 
 Per risolvere i problemi relativi alle prestazioni, selezionare **Esamina prestazioni**.
 
@@ -187,7 +187,7 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 
 Per altre informazioni su come eseguire l'override della proprietà cloud_RoleName con gli inizializzatori di telemetria, vedere [Aggiungi proprietà: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 Se si verificano problemi nel far funzionare come previsto la mappa delle applicazioni, provare questa procedura:
 
@@ -199,11 +199,12 @@ Se si verificano problemi nel far funzionare come previsto la mappa delle applic
 
 3. Se si usa Funzioni di Azure con C#, eseguire l'aggiornamento a [Funzioni V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confermare che [cloud_RoleName](app-map.md#set-cloudrolename) è configurato correttamente.
+4. Confermare che [cloud_RoleName](#set-cloud_rolename) è configurato correttamente.
 
 5. Se non si presenta una dipendenza, assicurarsi che sia nell'elenco delle [dipendenze raccolte automaticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). Se non lo è, si può comunque tenere traccia di essa manualmente con una [chiamata per tenere traccia delle dipendenze](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
 
 ## <a name="portal-feedback"></a>Commenti e suggerimenti del portale
+
 Per inviare commenti e suggerimenti, usare l'apposita opzione del feedback.
 
 ![Immagine MapLink-1](./media/app-map/14-updated.png)

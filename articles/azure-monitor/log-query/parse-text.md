@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 9897fbb3f5efe1f5255992e4894ea22041595263
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: ad4839a1b9e951a2bb206518254826a066330000
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268193"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620860"
 ---
 # <a name="parse-text-data-in-azure-monitor-logs"></a>Analizzare i dati di testo in log di Monitoraggio di Azure
 Alcuni dati di log raccolti da Monitoraggio di Azure includeranno più informazioni in una singola proprietà. L'analisi di questi dati in più proprietà ne semplifica l'uso nelle query. Un esempio comune è un [log personalizzato](../../log-analytics/log-analytics-data-sources-custom-logs.md) che raccoglie un'intera voce di registro con più valori in una singola proprietà. Creando proprietà separate per i diversi valori, è possibile eseguire ricerche e aggregare in ciascuna di esse.
@@ -55,7 +55,7 @@ I vantaggi di questo metodo sono i seguenti:
  
 Gli svantaggi di questo metodo sono i seguenti:
 
-- Richiede query più complesse. Questo problema può essere contenuto usando [funzioni che simulano una tabella](#Use-function-to-simulate-a-table).
+- Richiede query più complesse. Questo problema può essere contenuto usando [funzioni che simulano una tabella](#use-function-to-simulate-a-table).
 - È necessario replicare la logica di analisi in più query. Può condividere la logica tra le funzioni.
 - Può creare un overhead quando esegue una logica complessa in set di record di dimensioni molto grandi (miliardi di record).
 

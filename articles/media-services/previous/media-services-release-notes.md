@@ -13,19 +13,19 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f09d18759478c6c07aa0aea82f8bd1707595aa63
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: ea5a6a70372571daf82e7639fc31c125d69fa44f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499081"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621431"
 ---
 # <a name="azure-media-services-release-notes"></a>Note sulla versione di Servizi multimediali di Azure
 
 Nelle presenti note sulla versione per Servizi multimediali di Azure vengono riepilogate le modifiche rispetto alle versioni precedenti e i problemi noti.
 
 > [!NOTE]
-> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Estrarre la versione più recente [servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolverli. Per segnalare un problema o rivolgere domande, pubblicare un post nel [forum MSDN su Servizi multimediali di Microsoft Azure]. 
 
@@ -42,13 +42,12 @@ Microsoft invita i clienti a segnalare eventuali problemi e si impegna a risolve
 | Alcuni client possono riscontrare un problema di tag di ripetizione nel manifesto Smooth Streaming. |Per altre informazioni, vedere [questa sezione](media-services-deliver-content-overview.md#known-issues). |
 | Gli oggetti Media Services .NET SDK non possono essere serializzati e di conseguenza non funzionano con la Cache di Azure per Redis. |Se si prova a serializzare l'oggetto AssetCollection dell'SDK per aggiungerlo a Cache di Azure per Redis, viene generata un'eccezione. |
 
-
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Cronologia delle versioni dell'API REST
 Per informazioni sulla cronologia delle versioni dell'API REST di Servizi multimediali, vedere [Informazioni di riferimento sull'API REST di Servizi multimediali di Azure].
 
 ## <a name="december-2018"></a>Dicembre 2018
 
-La funzionalità [Media Hyperlapse Preview](media-services-hyperlapse-content.md) di Servizi multimediali di Azure verrà ritirata a breve. A partire dal 19 dicembre 2018 non verranno più apportati miglioramenti o modifiche alla funzionalità Media Hyperlapse di Servizi multimediali. Il 29 marzo 2019 questa funzionalità verrà ritirata e non sarà più disponibile.
+La funzionalità di anteprima di Hyperlapse multimediale di servizi multimediali di Azure verrà ritirata a breve. A partire dal 19 dicembre 2018 non verranno più apportati miglioramenti o modifiche alla funzionalità Media Hyperlapse di Servizi multimediali. Il 29 marzo 2019 questa funzionalità verrà ritirata e non sarà più disponibile.
 
 ## <a name="october-2018"></a>Ottobre 2018
 
@@ -260,7 +259,6 @@ Sono state annunciate le nuove funzionalità seguenti:
 
 * [Anteprima della codifica live con Servizi multimediali](media-services-manage-live-encoder-enabled-channels.md)
 * [Manifesto dinamico](media-services-dynamic-manifest-overview.md)
-* [Anteprima del processore di contenuti multimediali Azure Media Hyperlapse](https://azure.microsoft.com/blog/?p=286281&preview=1&_ppp=61e1a0b3db)
 
 ## <a id="april_changes_15"></a>Versione di aprile 2015
 ### <a name="general-media-services-updates"></a>Aggiornamenti generali di Servizi multimediali
@@ -548,7 +546,7 @@ Le funzionalità seguenti sono state introdotte nella versione di novembre dell'
   
     * A tutti i metodi è stato aggiunto il supporto asincrono.
 
-## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
+## <a name="provide-feedback"></a>Invia commenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 <!-- Anchors. -->

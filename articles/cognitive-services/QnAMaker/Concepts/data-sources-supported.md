@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433111"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578629"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Origini dati per i contenuti QnA Maker
 
@@ -23,7 +23,7 @@ QnA Maker estrae automaticamente coppie di domande e risposte da contenuto semis
 
 La tabella seguente riepiloga i tipi di contenuto e di formato di file supportati da QnA Maker.
 
-|Tipo di origine|Content Type| Esempi|
+|Tipo di origine|Tipo contenuto| Esempi|
 |--|--|--|
 |URL|Domande frequenti<br> (con struttura piatta, a sezioni o con collegamenti ad altre pagine)<br>Pagine del supporto <br> (singola pagina di procedure dettagliate, articoli sulla risoluzione dei problemi e così via).|[Domande frequenti semplici](https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs), <br>[domande frequenti con collegamenti](https://www.microsoft.com/software-download/faq),<br> [domande frequenti con home page degli argomenti](https://www.microsoft.com/Licensing/servicecenter/Help/Faq.aspx)<br>[articolo del supporto tecnico](https://docs.microsoft.com/azure/cognitive-services/qnamaker/concepts/best-practices)|
 |PDF/DOC|domande frequenti,<br> manuale del prodotto,<br> brochure,<br> documento,<br> volantino,<br> guida di supporto,<br> file domanda-risposta strutturato,<br> e così via.|[File domanda-risposta strutturato](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample Product Manual.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf),<br> [Sample semi-structured.doc](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/semi-structured.docx),<br> [Sample white paper.pdf](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/white-paper.pdf)|
@@ -32,7 +32,11 @@ La tabella seguente riepiloga i tipi di contenuto e di formato di file supportat
 
 ## <a name="data-source-locations"></a>Percorsi di origine dati
 
-Solo gli URL pubblici sono validi per tutte le origini dati. Non inviare origini dati che richiedono l'autenticazione. È possibile scaricare il file dal sito autenticato e quindi usare l'opzione di caricamento file per estrarre domande e risposte.
+La maggior parte dei percorsi di origine di dati necessario fornire l'URL pubblico o file, che non richiedono l'autenticazione. 
+
+[Località dell'origine dati SharePoint](../How-to/add-sharepoint-datasources.md) possono fornire file autenticati. Risorse di SharePoint devono essere file, non le pagine web. 
+
+Se si dispone di un file autenticato o un URL, un'opzione alternativa consiste nello scaricare il file dal sito di autenticazione nel computer locale, quindi aggiungere il file dal computer locale i computer alla knowledge base. 
 
 ## <a name="faq-urls"></a>Indirizzo Web di domande frequenti
 
@@ -137,7 +141,7 @@ Di seguito è riportato un esempio di file *.xls* domanda-risposta strutturato, 
 
 L'importazione di una Knowledge Base sostituisce il contenuto della Knowledge Base esistente. L'importazione richiede un file TSV strutturato che contiene informazioni sull'origine dei dati. Queste informazioni consentono a QnA Maker di raggruppare le coppie domanda/risposta e di attribuirle a una specifica origine dati.
 
-| Domanda  | Risposta  | Source (Sorgente)| I metadati (1 tasto: 1 valore) |          
+| Domanda  | Risposta  | Target| I metadati (1 tasto: 1 valore) |          
 |-----------|---------|----|---------------------|
 | Question1 | Answer1 | Url1 | <code>Key1:Value1 &#124; Key2:Value2</code> |
 | Question2 | Answer2 | Editoriale|    `Key:Value`       |
@@ -150,7 +154,7 @@ Se non è presente contenuto pre-esistente per popolare la Knowledge Base, è po
 
 Dopo aver importato un file o un URL, questo viene convertito in Markdown e archiviato in questo formato. Se il processo di conversione non converte correttamente i collegamenti nei file e gli URL, è consigliabile modificare le domande e risposte nella pagina **Modifica**. 
 
-|Format|Scopo|
+|Formato|Scopo|
 |--|--|
 |`\n\n`| Nuova riga|
 |`\n*`|Punto elenco per elenco ordinato|
@@ -172,6 +176,6 @@ Usare l'esercitazione **[CommonMark](https://commonmark.org/help/tutorial/index.
 > [!div class="nextstepaction"]
 > [Configurare un servizio QnA Maker](../How-To/set-up-qnamaker-service-azure.md)
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche 
 
 [Panoramica di QnA Maker](../Overview/overview.md)

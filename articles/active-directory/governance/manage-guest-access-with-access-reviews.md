@@ -1,6 +1,6 @@
 ---
-title: Gestire l'accesso guest con verifiche di accesso AD Azure | Microsoft Docs
-description: Gestire gli utenti guest come membri di un gruppo o assegnati a un'applicazione con verifiche di accesso di Azure Active Directory
+title: Gestire l'accesso guest con verifiche di accesso - Azure Active Directory | Microsoft Docs
+description: Gestire gli utenti guest come membri di un gruppo o assegnati a un'applicazione con le verifiche di accesso di Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881045"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576497"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con verifiche di accesso di Azure AD
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Gestire l'accesso guest con le verifiche di accesso di Azure AD
 
 
 Con Azure Active Directory (Azure AD) è possibile abilitare facilmente la collaborazione all'interno dell'azienda usando la [funzionalità Azure AD B2B](../b2b/what-is-b2b.md). Gli utenti guest dagli altri tenant possono essere [invitati dagli amministratori](../b2b/add-users-administrator.md) o da [altri utenti](../b2b/what-is-b2b.md). Questa funzionalità si applica anche alle identità di social networking, ad esempio gli account Microsoft.

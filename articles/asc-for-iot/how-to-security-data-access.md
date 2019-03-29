@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: e394f6025f7898aad7dde7b1acefd9f95029a554
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541993"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576640"
 ---
 # <a name="access-your-security-data"></a>Accedere ai dati di sicurezza 
 
@@ -39,20 +39,20 @@ Per configurare l'area di lavoro di Log Analitica viene usato:
 
 Per accedere all'area di lavoro di Log Analitica dopo la configurazione:
 
-1. Scegliere un avviso nel Centro sicurezza di AZURE per IoT. 
+1. Scegliere un avviso o raccomandazione nel Centro sicurezza di AZURE per IoT. 
 2. Fare clic su **ulteriori indagini condotte**, quindi fare clic su **per verificare quali dispositivi sono associati a questo avviso fare clic qui e visualizzare la colonna DeviceId**.
 
 Per informazioni dettagliate sulle query sui dati di Log Analitica, vedere [Introduzione alle query in Log Analitica](https://docs.microsoft.com//azure/log-analytics/query-language/get-started-queries).
 
 ## <a name="security-alerts"></a>Avvisi di sicurezza
 
-Avvisi di sicurezza vengono archiviati nel **ASCforIoT.SecurityAlert** tabella nell'area di lavoro di Log Analitica configurata.
+Avvisi di sicurezza vengono archiviati nel _AzureSecurityOfThings.SecurityAlert_ tabella nell'area di lavoro di Log Analitica configurato per il Centro sicurezza di AZURE per la soluzione IoT.
 
-Utilizzare le seguenti query di base kql per iniziare a esplorare gli avvisi di sicurezza.
+È stato fornito un numero di query utili che consentono di iniziare a esplorare gli avvisi di sicurezza.
 
-### <a name="sample-records-query"></a>Esempio di query di record
+### <a name="sample-records"></a>Record di esempio
 
-Per selezionare in modo casuale alcuni record: 
+Selezionare alcuni record casuale
 
 ```
 // Select a few random records
@@ -69,17 +69,15 @@ SecurityAlert
 | take 3
 ```
 
-#### <a name="sample-query-results"></a>Risultati della query di esempio 
-
 | TimeGenerated           | IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | DESCRIZIONE                                             | ExtendedProperties                                                                                                                                                             |
 |-------------------------|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|---------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 2018-11-18T18:10:29.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Attacco di forza bruta ha avuto esito positivo           | Un attacco di forza bruta sul dispositivo è stato completato        |    {"Indirizzo di origine completo": "[\"10.165.12.18:\"]", "Nomi utente": "[\"\"]", "DeviceId": "IoT-Device-Linux" }                                                                       |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Eseguito correttamente l'accesso locale sul dispositivo      | È stato rilevato un accesso locale ha esito positivo al dispositivo     | {"Indirizzo remoto": "?", "Porta remota": "", "Porta locale": "", "Account di accesso Shell": "/ bin/unità di streaming", "Id di processo di accesso": "28207", "User Name": "autore dell'attacco", "DeviceId": "IoT-Device-Linux" } |
 | 2018-11-19T12:40:31.000 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Tentativo di accesso locale sul dispositivo non è riuscito  | È stato rilevato un tentativo di accesso locale nel dispositivo |  {"Indirizzo remoto": "?", "Porta remota": "", "Porta locale": "", "Account di accesso Shell": "/ bin/unità di streaming", "Id di processo di accesso": "22644", "User Name": "autore dell'attacco", "DeviceId": "IoT-Device-Linux" } |
 
-### <a name="device-summary-query"></a>Query di riepilogo dispositivo
+### <a name="device-summary"></a>Riepilogo del dispositivo
 
-Utilizzare questa query kql per selezionare un numero di avvisi di sicurezza distinti rilevato ultima settimana per l'IoT Hub, dispositivo, alla gravità dell'avviso e tipo di avviso.
+Selezionare il numero di avvisi di sicurezza distinti rilevato ultima settimana per l'IoT Hub, dispositivo, alla gravità dell'avviso e tipo di avviso.
 
 ```
 // Select number of distinct security alerts detected last week by 
@@ -94,19 +92,16 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="device-summary-query-results"></a>Risultati di query di riepilogo dispositivo
-
-| IoTHubId | deviceId| AlertSeverity| DisplayName | Conteggio |
-|----------|---------|------------------|---------|---------|
-|/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Attacco di forza bruta ha avuto esito positivo           | 9   |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media        | Tentativo di accesso locale sul dispositivo non è riuscito  | 242 |    
+| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Count |
+|----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Attacco di forza bruta ha avuto esito positivo           | 9   |   
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | Tentativo di accesso locale sul dispositivo non è riuscito  | 242 |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Eseguito correttamente l'accesso locale sul dispositivo      | 31  |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media        | Operazioni di crittografia moneta Miner                     | 4   |
-|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | Operazioni di crittografia moneta Miner                     | 4   |
 
-### <a name="iot-hub-summary"></a>Riepilogo dell'IoT Hub
+### <a name="iot-hub-summary"></a>Riepilogo dell'hub IoT
 
-Usare questa query kql per selezionare un numero di dispositivi distinti che sono stati rilevati avvisi nell'ultima settimana, dall'hub IoT, alla gravità dell'avviso, tipo di avviso:
+Selezionare un numero di dispositivi distinti che sono stati rilevati avvisi nell'ultima settimana, dall'IoT Hub, alla gravità dell'avviso, tipo di avviso
 
 ```
 // Select number of distinct devices which had alerts in the last week, by 
@@ -121,15 +116,65 @@ SecurityAlert
     DisplayName
 ```
 
-#### <a name="iot-hub-summary-query-results"></a>Risultati di riepilogo della query dell'IoT Hub
-
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Attacco di forza bruta ha avuto esito positivo           | 1          |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Media        | Tentativo di accesso locale sul dispositivo non è riuscito  | 1          | 
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Medio        | Tentativo di accesso locale sul dispositivo non è riuscito  | 1          | 
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Eseguito correttamente l'accesso locale sul dispositivo      | 1          |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Media        | Operazioni di crittografia moneta Miner                     | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Medio        | Operazioni di crittografia moneta Miner                     | 1          |
 
+## <a name="security-recommendations"></a>Suggerimenti per la sicurezza
+
+Raccomandazioni sulla sicurezza vengono archiviati nel _AzureSecurityOfThings.SecurityRecommendation_ tabella nell'area di lavoro di Log Analitica configurato per il Centro sicurezza di AZURE per la soluzione IoT.
+
+È stato fornito un numero di query utili che consentono di iniziare a esplorare le raccomandazioni sulla sicurezza.
+
+### <a name="sample-records"></a>Record di esempio
+
+Selezionare alcuni record casuale
+
+```
+// Select a few random records
+//
+SecurityRecommendation
+| project 
+    TimeGenerated, 
+    IoTHubId=AssessedResourceId, 
+    DeviceId,
+    RecommendationSeverity,
+    RecommendationState,
+    RecommendationDisplayName,
+    Description,
+    RecommendationAdditionalData
+| take 2
+```
+    
+| TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | DESCRIZIONE | RecommendationAdditionalData |
+|---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio | Attiva | Regola di firewall permissivi nella catena di input è stata trovata | È stata trovata una regola del firewall contenente un modello permissivo per un'ampia gamma di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio | Attiva | Regola di firewall permissivi nella catena di input è stata trovata | È stata trovata una regola del firewall contenente un modello permissivo per un'ampia gamma di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+
+### <a name="device-summary"></a>Riepilogo del dispositivo
+
+Selezionare il numero di raccomandazioni di sicurezza attivi distinti dall'IoT Hub, dispositivi, la gravità di raccomandazione e tipo.
+
+```
+// Select number of distinct active security recommendations by 
+//   IoT hub, device, recommendation severity and type
+//
+SecurityRecommendation
+| extend IoTHubId=AssessedResourceId
+| summarize CurrentState=arg_max(RecommendationState, DiscoveredTimeUTC) by IoTHubId, DeviceId, RecommendationSeverity, RecommendationDisplayName
+| where CurrentState == "Active"
+| summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
+```
+
+| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | Count |
+|----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | 2   |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | 1  |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | 4   |
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -137,3 +182,4 @@ SecurityAlert
 - Leggere il Centro sicurezza di AZURE per IoT [Panoramica](overview.md)
 - Informazioni sul Centro sicurezza di AZURE per IoT [architettura](architecture.md)
 - Comprendere ed esplorare [Centro sicurezza di AZURE per gli avvisi di IoT](concept-security-alerts.md)
+- Comprendere ed esplorare [Centro sicurezza di AZURE per IoT raccomandazione](concept-recommendations.md)

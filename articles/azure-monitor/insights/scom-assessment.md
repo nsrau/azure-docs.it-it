@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 5b4da39d56b86f79727590076ac60b87541643e1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 27b55af74a713c51655891df8c852ff44cd3744a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082841"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621771"
 ---
 # <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Ottimizzare l'ambiente con la soluzione Controllo integrità System Center Operations Manager (Anteprima)
 
@@ -61,7 +61,7 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 
 La soluzione di Operations Manager controllo integrità System Center raccoglie i dati dalle origini seguenti:
 
-* Registro
+* Registro di sistema
 * Strumentazione gestione Windows (WMI)
 * Registro eventi
 * Dati dei file
@@ -89,7 +89,7 @@ Prima di procedere l'account RunAs deve soddisfare i requisiti seguenti:
 4. Nella pagina **Proprietà generali** selezionare **Windows** nell'elenco **Tipo di account RunAs**.
 5. Digitare un nome visualizzato nella casella di testo **Nome visualizzato** e facoltativamente una descrizione nella casella **Descrizione** e quindi fare clic su **Avanti**.
 6. Nella pagina **Sicurezza della distribuzione** selezionare **Più protetto**.
-7. Fare clic su **Create**(Crea).  
+7. Fare clic su **Crea**.  
 
 Dopo aver creato l'account RunAs, è necessario indicare i server di gestione di destinazione nel gruppo di gestione e associare l'account a un profilo RunAs predefinito in modo che i flussi di lavoro vengano eseguiti usando le credenziali.  
 
@@ -297,7 +297,7 @@ Per ignorare alcune raccomandazioni, è possibile creare un file di testo che Lo
 
 *Perché vengono visualizzate solo le prime 10 raccomandazioni?* Invece di esaminare un lunghissimo elenco completo di attività, è consigliabile concentrare l'attenzione sulle raccomandazioni con priorità maggiore. Dopo la verifica delle raccomandazioni principali, verranno rese disponibili raccomandazioni aggiuntive. Se si preferisce visualizzare l'elenco dettagliato, usare Ricerca log per mostrare tutte le raccomandazioni.
 
-*È possibile ignorare una raccomandazione?* Sì, vedere [Ignorare le raccomandazioni](#Ignore-recommendations).
+*È possibile ignorare una raccomandazione?* Sì, vedere [Ignorare le raccomandazioni](#ignore-recommendations).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

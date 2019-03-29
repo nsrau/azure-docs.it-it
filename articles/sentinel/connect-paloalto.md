@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6145d77e6485a33ea3a9f9d66a4356587966bc5f
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: bcab43869b488eed1cc6693a2970b6ea4bb2e7c1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403562"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576344"
 ---
 # <a name="connect-your-palo-alto-networks-appliance"></a>Connettere il dispositivo di Palo Alto Networks
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile connettere Azure Sentinel per qualsiasi dispositivo di Palo Alto Networks salvando i file di log di CEF Syslog. L'integrazione con Azure Sentinel consente di eseguire facilmente analitica e le query tra i dati dei file di log di Palo Alto Networks. Per altre informazioni sul modo in cui Azure Sentinel CEF inserisce dati di tipo, vedere [Appliance connettersi CEF](connect-common-event-format.md).
@@ -34,9 +34,9 @@ ms.locfileid: "58403562"
 
 ## <a name="step-1-connect-your-palo-alto-networks-appliance-using-an-agent"></a>Passaggio 1: Connettere l'appliance di Palo Alto Networks usando un agente
 
-Per connettersi all'appliance di Palo Alto Networks a Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o in locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. Distribuzione automatica è disponibile solo se la macchina dedicata è una nuova macchina virtuale in Azure si sta creando. 
+Per connettersi all'appliance di Palo Alto Networks a Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o in locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. La distribuzione automatica è disponibile solo se il computer dedicato è una nuova macchina virtuale che si sta creando in Azure. 
 
-In alternativa, è possibile distribuire l'agente manualmente in una VM di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale.
+In alternativa, è possibile distribuire l'agente manualmente in una macchina virtuale di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale.
 
 Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [connettere origini dati](connect-data-sources.md#agent-options).
 
@@ -122,6 +122,7 @@ Potrebbero occorrere fino a 20 minuti fino a quando i log di avvio venga visuali
 3. Se entrambi i comandi forniti risultati corretti, controllare i Log Analitica per vedere se i log sono in arrivo. Tutti gli eventi trasferiti da questi dispositivi vengono visualizzati in formato non elaborato nel Log Analitica in `CommonSecurityLog ` tipo.
 1. Per verificare se sono presenti errori o se i log non sono in arrivo, Cerca in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Assicurarsi che le dimensioni predefinite del messaggio Syslog sono limitata a 2048 byte (2KB). Se i log sono troppo lunghi, aggiornare il security_events usando questo comando: `message_length_limit 4096`
+6. Per usare lo schema appropriato nel Log Analitica per gli eventi di Palo Alto Networks, cercare **CommonSecurityLog**.
 
 
 

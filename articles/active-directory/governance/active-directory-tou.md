@@ -1,6 +1,6 @@
 ---
-title: Condizioni per l'utilizzo di Azure Active Directory| Microsoft Docs
-description: Illustra come iniziare a usare le Condizioni per l'utilizzo di Microsoft Azure AD per presentare le informazioni ai dipendenti o ai guest prima di ottenere l'accesso.
+title: Le condizioni d'uso - Azure Active Directory | Microsoft Docs
+description: Viene descritto come iniziare a usare Azure Active Directory condizioni d'uso per presentare le informazioni per i dipendenti o Guest prima di ottenere l'accesso.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,12 +15,12 @@ ms.subservice: compliance
 ms.date: 03/24/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f6ac8a693e09d0efbac080d7effc6ce21c6a094
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 25a3eb6fdfc6928e2e414dcbe799861c3b2eb999
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418972"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576174"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Funzionalità Condizioni per l'utilizzo di Azure Active Directory
 Condizioni per l'utilizzo di Azure Active Directory offre un sistema semplice che le organizzazioni possono usare per presentare le informazioni agli utenti finali. In questo modo si garantisce che gli utenti vedano le dichiarazioni rilevanti di non responsabilità che si riferiscono ai requisiti legali o di conformità. Questo articolo descrive come iniziare con Condizioni per l'utilizzo.
@@ -98,8 +98,8 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 
     | Scadenza a partire da | Frequenza | Risultato |
     | --- | --- | --- |
-    | Data odierna  | Mensile | A partire da oggi, gli utenti devono accettare le Condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
-    | Data nel futuro  | Mensile | A partire da oggi, gli utenti devono accettare le Condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
+    | Data odierna  | Ogni mese | A partire da oggi, gli utenti devono accettare le Condizioni per l'utilizzo e quindi riaccettarle ogni mese. |
+    | Data nel futuro  | Ogni mese | A partire da oggi, gli utenti devono accettare le Condizioni per l'utilizzo. Quando si verifica la data futura, scadono i consensi e quindi gli utenti devono riaccettare ogni mese.  |
 
     Ad esempio, se si imposta la scadenza a partire dalla data **1 gen** e la frequenza su **Mensile**, ecco come le scadenze potrebbero verificarsi per i due utenti:
 
@@ -133,7 +133,7 @@ Dopo avere completato le condizioni per l'utilizzo, seguire questa procedura per
 
      I criteri personalizzati di accesso condizionale consentono condizioni per l'utilizzo granulari, fino a un'applicazione cloud o a un gruppo di utenti specifici. Per ulteriori informazioni, consultare [Avvio rapido: Richiedere l'accettazione delle condizioni per l'utilizzo prima dell'accesso alle app cloud](../conditional-access/require-tou.md).
 
-1. Fare clic su **Create**(Crea).
+1. Fare clic su **Crea**.
 
     Se è stato selezionato un modello personalizzato di accesso condizionale, verrà visualizzata una nuova schermata che consente di creare il criterio personalizzato di accesso condizionale.
 
@@ -260,12 +260,12 @@ L'impostazione **Richiedere agli utenti di fornire il consenso in tutti i dispos
 Ecco un elenco dei software e delle piattaforme supportate.
 
 > [!div class="mx-tableFixed"]
-> |  | iOS | Android | Windows 10 | Altri |
+> |  | iOS | Android | Windows 10 | Altro |
 > | --- | --- | --- | --- | --- |
-> | **App nativa** | Sì | Sì | Sì |  |
-> | **Microsoft Edge** | Sì | Sì | Sì |  |
-> | **Internet Explorer** | Sì | Sì | Sì |  |
-> | **Chrome (con estensione)** | Sì | Sì | Sì |  |
+> | **App nativa** | Sì | Yes | Sì |  |
+> | **Microsoft Edge** | Sì | Yes | Sì |  |
+> | **Internet Explorer** | Sì | Yes | Sì |  |
+> | **Chrome (con estensione)** | Sì | Yes | Sì |  |
 
 Le Condizioni per l'utilizzo per ogni dispositivo presenta i vincoli seguenti:
 
@@ -287,7 +287,7 @@ Se si usa Chrome, verrà richiesto di installare l'[estensione account di Window
 
 Se un utente sta usando un browser che non è supportato, si dovrà usare un browser diverso.
 
-![Browser non supportato](./media/active-directory-tou/per-device-browser-unsupported.png)
+![Il browser non è supportato](./media/active-directory-tou/per-device-browser-unsupported.png)
 
 ## <a name="delete-terms-of-use"></a>Eliminare le condizioni per l'utilizzo
 È possibile eliminare le condizioni per l'utilizzo obsolete con la procedura seguente.

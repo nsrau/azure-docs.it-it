@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 63d21cc5027145ab87030bd2561bc5087298f16c
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541843"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579377"
 ---
-# <a name="security-module"></a>Modulo di protezione
+# <a name="security-module"></a>Modulo di sicurezza
 
 > [!IMPORTANT]
 > Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
@@ -35,16 +35,18 @@ Per le soluzioni IoT integrate in Azure, ai dispositivi gemelli svolgono un ruol
 
 Centro sicurezza di AZURE per IoT offre l'integrazione completa con la piattaforma di gestione di dispositivi IoT esistente, consentendo di gestire lo stato della protezione di dispositivi, nonché rendere utilizzare funzionalità di controllo dispositivo esistenti. L'integrazione è realizzata creando usare dell'IoT Hub twin meccanismo.  
 
-Altre informazioni sui concetti di relativi [dispositivo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) gemelli nell'IoT Hub di Azure. 
+Altre informazioni sui concetti di relativi [sui dispositivi gemelli](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) nell'IoT Hub di Azure. 
 
 ## <a name="security-module-twins"></a>Moduli gemelli di sicurezza
 
-Centro sicurezza di AZURE per IoT mantiene un modulo gemello di sicurezza per ogni dispositivo nel servizio. Il dispositivo gemello del modulo security contiene tutte le informazioni relative alla sicurezza dei dispositivi per ogni dispositivo specifico nella soluzione. Le proprietà di sicurezza di dispositivi vengono gestite in un modulo gemello sicurezza dedicato per la comunicazione più sicura e per l'abilitazione degli aggiornamenti e manutenzione che richiedono meno risorse.  
+Centro sicurezza di AZURE per IoT mantiene un modulo gemello di sicurezza per ogni dispositivo nel servizio.
+Il dispositivo gemello del modulo security contiene tutte le informazioni relative alla sicurezza dei dispositivi per ogni dispositivo specifico nella soluzione.
+Le proprietà di sicurezza di dispositivi vengono gestite in un modulo gemello sicurezza dedicato per la comunicazione più sicura e per l'abilitazione degli aggiornamenti e manutenzione che richiedono meno risorse.  
 
-Visualizzare [crea dispositivo gemello del modulo security](quickstart-create-security-twin.md) e [configurare gli agenti di protezione](concept-agent-configuration.md) per imparare a creare, personalizzare e configurare il dispositivo gemello. Visualizzare [moduli gemelli Understanding](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) per approfondire il concetto di moduli gemelli nell'IoT Hub. 
+Visualizzare [crea dispositivo gemello del modulo security](quickstart-create-security-twin.md) e [configurare gli agenti di protezione](how-to-agent-configuration.md) per imparare a creare, personalizzare e configurare il dispositivo gemello. Visualizzare [moduli gemelli Understanding](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) per approfondire il concetto di moduli gemelli nell'IoT Hub. 
  
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Centro sicurezza di AZURE per l'anteprima di IoT](overview.md)
-- [Distribuire gli agenti protezione](select-deploy-agent.md)
+- [Distribuire gli agenti protezione](how-to-deploy-agent.md)
 - [Metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md)

@@ -10,18 +10,18 @@ ms.subservice: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 2995c08b2dc92f36061c6ba29be68b402b2d3ec0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d2fcdd4aa28a7d3b1a8e50629e5be1d88046a12b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57876477"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621210"
 ---
 # <a name="integrate-other-services-with-sql-data-warehouse"></a>Integrare altri servizi con SQL Data Warehouse
 Oltre alle funzionalità di base, SQL Data Warehouse assicura agli utenti l'integrazione con molti altri servizi in Azure. Alcuni di questi servizi includono:
 
 * Power BI
-* Data factory di Azure
+* Azure Data Factory
 * Azure Machine Learning
 * Analisi di flusso di Azure
 
@@ -35,7 +35,7 @@ L'integrazione di Power BI consente di combinare la potenza di calcolo di SQL Da
 
 Per altre informazioni, vedere [Integrazione con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md) o fare riferimento alla [documentazione di Power BI](https://powerbi.microsoft.com/blog/exploring-azure-sql-data-warehouse-with-power-bi/).
 
-## <a name="azure-data-factory"></a>Data factory di Azure
+## <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory offre agli utenti una piattaforma gestita per creare pipeline di estrazione e caricamento complesse. L'integrazione di SQL Data Warehouse con Azure Data Factory include:
 
 * **Procedure di archiviazione**: Orchestrare l'esecuzione delle procedure di archiviazione in SQL Data Warehouse.
@@ -58,6 +58,4 @@ L’Analisi dei flussi di Azure è un'infrastruttura complessa, completamente ge
 
 Per altre informazioni, vedere [Integrazione con Analisi di flusso di Azure](sql-data-warehouse-integrate-azure-stream-analytics.md).
 
-## <a name="next-steps"></a>Passaggi successivi
-Per l'integrazione con il database SQL di Azure, vedere [Configurare la query elastica del database SQL](tutorial-elastic-query-with-sql-datababase-and-sql-data-warehouse.md).
 

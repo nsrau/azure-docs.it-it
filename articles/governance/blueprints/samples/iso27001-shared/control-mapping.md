@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f655db8643a16e6818f5becf25c8761fb4c9093b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008040"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576106"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Mapping di controllo dell'esempio di progetto Azure progetti ISO 27001
 
@@ -110,7 +110,7 @@ La comprensione in cui le risorse di Azure abbia le configurazioni di crittograf
 - [Anteprima]: Audit HTTPS only access for an API App
 - [Anteprima]: Audit missing blob encryption for storage accounts
 - [Anteprima]: Deploy VM extension to audit Windows VM should not store passwords using reversible
-  Crittografian
+  crittografian
 - [Anteprima]: Audit Windows VM should not store passwords using reversible encryption
 - [Anteprima]: Monitor unencrypted SQL database in Azure Security Center
 - [Anteprima]: Monitor unencrypted VM Disks in Azure Security Center
@@ -118,18 +118,18 @@ La comprensione in cui le risorse di Azure abbia le configurazioni di crittograf
 - Controlla l'abilitazione delle sole connessioni sicure alla cache Redis
 - Controlla il trasferimento sicuro negli account di archiviazione
 - Controlla l'impostazione della proprietà ClusterProtectionLevel su EncryptAndSign in Service Fabric
-- Controllare lo stato di Transparent Data Encryption
+- Controlla stato di Transparent Data Encryption
 
 ## <a name="a1241-event-logging"></a>Registrazione degli eventi A.12.4.1
 
-Questo progetto consente di verificare che gli eventi di sistema vengono registrati tramite l'assegnazione di sette [criteri di Azure](../../../policy/overview.md) definizioni che Controlla accesso impostazioni in risorse di Azure. Un criterio assegnato controlla anche se le macchine virtuali non inviano i log a un'area di lavoro di analitica di log specificato.
+Questo progetto consente di verificare che gli eventi di sistema vengono registrati tramite l'assegnazione di sette [criteri di Azure](../../../policy/overview.md) definizioni che controlla le impostazioni del log in risorse di Azure. Un criterio assegnato controlla anche se le macchine virtuali non inviano i log a un'area di lavoro di analitica di log specificato.
 
 - [Anteprima]: Distribuzione dell'agente di dipendenza - immagini (sistema operativo VM) rimossa dall'elenco di controllo
 - [Anteprima]: Distribuzione dell'agente di dipendenza nel VMSS - immagini (sistema operativo VM) rimossa dall'elenco di controllo
 - [Anteprima]: La distribuzione dell'agente di Log Analitica - immagini (sistema operativo VM) rimossa dall'elenco di controllo
 - [Anteprima]: Distribuzione dell'agente di controllo Log Analitica nei set di scalabilità - immagine (sistema operativo VM) non in elenco
 - [Anteprima]: Monitor unaudited SQL database in Azure Security Center
-- Audit diagnostic setting (Controllare le impostazioni di diagnostica)
+- Controlla impostazione di diagnostica
 - Controlla le impostazioni di controllo a livello del server SQL
 
 ## <a name="a121-management-of-technical-vulnerabilities"></a>Gestione A.12.1 delle vulnerabilità tecniche
@@ -167,7 +167,7 @@ Questo progetto consente di proteggere le risorse di sistema di informazioni tra
 
 - [Anteprima]: Monitor unprotected network endpoints in Azure Security Center
 - [Anteprima]: Monitor unprotected web application in Azure Security Center
-- Controlla l'accesso di rete senza restrizioni agli account di archiviazione
+- Controlla l'acceso di rete senza restrizioni agli account di archiviazione
 
 ## <a name="a1613-reporting-information-security-weaknesses"></a>Problemi di sicurezza delle informazioni di A.16.1.3 Reporting
 

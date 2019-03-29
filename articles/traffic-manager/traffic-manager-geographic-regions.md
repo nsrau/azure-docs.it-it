@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 26e54ba507ecab5d12ceb4169baaa52f99c20792
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: b6a8393a5f47d7fb85699f6828c4d08cc7afcabc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54232431"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620700"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Gerarchia di paesi/aree geografiche usata da Gestione traffico di Azure per il metodo di routing del traffico Geografico
 
@@ -128,6 +128,7 @@ In questo articolo sono elencati i paesi e le aree geografiche usati nel metodo 
         - SM (San Marino)
 
         - UA (Ucraina)
+            - Area di Crimea
 
         - VA (Città del Vaticano)
 

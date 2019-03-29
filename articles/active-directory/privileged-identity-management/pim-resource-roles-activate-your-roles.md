@@ -1,5 +1,5 @@
 ---
-title: Attivare i ruoli di risorse di Azure in PIM | Microsoft Docs
+title: Attiva il mio ruolo di risorse di Azure in PIM - Azure Active Directory | Microsoft Docs
 description: Informazioni su come attivare i ruoli di risorse di Azure in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002045"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575807"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Attivare i ruoli di risorse di Azure in PIM
 
-Usando Azure AD Privileged Identity Management (PIM), i membri dei ruoli idonei per le risorse di Azure possono pianificare l'attivazione per una data e un'ora future. Possono anche selezionare una durata specifica dell'attivazione entro il valore massimo configurato dagli amministratori.
+Usa Azure Active Directory (Azure AD) Privileged Identity Management (PIM), i membri del ruolo idoneo per le risorse di Azure possono pianificare l'attivazione per una data futura e un'ora. Possono anche selezionare una durata specifica dell'attivazione entro il valore massimo configurato dagli amministratori.
 
 Questo articolo è destinato ai membri che devono attivare il proprio ruolo delle risorse di Azure in PIM.
 
@@ -38,7 +38,7 @@ Quando è necessario usare un ruolo delle risorse di Azure è possibile richiede
 
 1. Fare clic su **Ruoli personali**.
 
-    ![Ruoli della directory di Azure AD e ruoli delle risorse di Azure - Ruoli personali](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Ruoli di Azure AD e i ruoli delle risorse di Azure - ruoli personali](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Fare clic su **ruoli delle risorse di Azure** per visualizzare un elenco dei ruoli idonei risorse di Azure.
 
@@ -84,7 +84,7 @@ In caso di qualsiasi ritardo dopo l'attivazione, seguire questi passaggi dopo av
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Ruoli personali** per visualizzare un elenco di ruoli idonei della directory di Azure AD e delle risorse di Azure.
+1. Fare clic su **ruoli personali** per visualizzare un elenco di idonei per i ruoli di Azure AD e i ruoli delle risorse di Azure.
 
 1. Fare clic su **ruoli delle risorse di Azure**.
 
@@ -100,9 +100,9 @@ In caso di qualsiasi ritardo dopo l'attivazione, seguire questi passaggi dopo av
 
 1. Aprire Azure AD Privileged Identity Management.
 
-1. Fare clic su **Richieste personali** per visualizzare un elenco richieste di ruoli della directory di Azure AD e delle risorse di Azure.
+1. Fare clic su **richieste personali** per visualizzare un elenco dei ruoli delle risorse di Azure e ruolo di Azure AD le richieste.
 
-    ![Ruoli della directory di Azure AD e ruoli delle risorse di Azure - Richieste personali](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Ruoli di Azure AD e i ruoli delle risorse di Azure - richieste personali](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Scorrere verso destra per visualizzare la colonna **Stato richiesta**.
 
@@ -120,7 +120,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
    ![Annullare una richiesta in sospeso](./media/pim-resource-roles-activate-your-roles/resources-my-requests-cancel.png)
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot"></a>Risoluzione dei problemi
 
 ### <a name="permissions-not-granted-after-activating-a-role"></a>Autorizzazioni non concesse dopo l'attivazione di un ruolo
 
@@ -138,4 +138,4 @@ Se si riceve un messaggio che indica che una risorsa di Azure è bloccata quando
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Estendere o rinnovare i ruoli delle risorse di Azure in PIM](pim-resource-roles-renew-extend.md)
-- [Attivare i ruoli della directory di Azure AD in PIM](pim-how-to-activate-role.md)
+- [Attiva il mio ruolo di Azure AD in PIM](pim-how-to-activate-role.md)

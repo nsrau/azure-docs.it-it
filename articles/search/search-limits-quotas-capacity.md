@@ -7,24 +7,29 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b97c84a7a5d7732c8c895fd3074734762e5e040c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780406"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620641"
 ---
 # <a name="service-limits-in-azure-search"></a>Limiti dei servizi in Ricerca di Azure
-I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti dipendono dal [piano tariffario scelto per Ricerca di Azure](search-create-service-portal.md): **Gratuito**, **Basic** o **Standard**.
+I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, documenti e altri oggetti variano a seconda che si [ricerca di Azure](search-create-service-portal.md) alla **gratuito**, **base**,  **Standard**, oppure **ottimizzate per l'archiviazione** piani tariffari.
 
 + **gratuito** è un servizio condiviso multi-tenant fornito con la sottoscrizione di Azure.
 
 + Il piano **Basic** fornisce risorse di elaborazione dedicate per carichi di lavoro di produzione di dimensioni ridotte.
 
 + Il piano **Standard** prevede computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello. Il piano Standard è disponibile in quattro livelli: S1, S2, S3 ed S3 HD.
+
++ **Archiviazione ottimizzata** prevede computer dedicati con più spazio di archiviazione totale, della larghezza di banda di archiviazione e memoria rispetto a quella **Standard**. Con ottimizzazione per la memoria è disponibile in due livelli: L1 e L2
+
+> [!NOTE]
+> I livelli di servizio con ottimizzazione per la memoria sono attualmente disponibili in anteprima al prezzo scontato per scopi di test e sperimentazione allo scopo di raccogliere commenti e suggerimenti. I prezzi finali verranno annunciati in un secondo momento quando questi livelli sono disponibili a livello generale. È consigliabile evitare di utilizzare questi livelli per le applicazioni di produzione.
 
   S3 Alta densità (S3 HD) è progettato per carichi di lavoro specifici: [multi-tenancy](search-modeling-multitenant-saas-applications.md) e grandi quantità di indici di dimensioni ridotte (un milione di documenti per ogni indice, tremila indici per ogni servizio). Questo livello non contiene la [funzionalità indicizzatore](search-indexer-overview.md). In S3 HD, l'inserimento dati deve sfruttare l'approccio push, usando le chiamate API per eseguire il push dei dati dall'origine all'indice. 
 
@@ -42,13 +47,13 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici, doc
 
 ## <a name="index-limits"></a>Limiti per gli indici
 
-| Risorsa | Gratuito | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
-| -------- | ---- | ------------------- | --- | --- | --- | --- |
-| Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |
-| Numero massimo di campi per indice |1000 |100 |1000 |1000 |1000 |1000 |
-| Numero massimo di [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |
-| Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |
-| Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |
+| Risorsa | Gratis | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
+| Numero massimo di indici |3 |5 o 15 |50 |200 |200 |1000 per partizione o 3000 per servizio |10 |10 |
+| Numero massimo di campi per indice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| Numero massimo di [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |1 |1 |
+| Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |100 |100 |
+| Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini dati e indicizzatori è stato aumentato a 15. I servizi creati in precedenza hanno un limite di 5. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
 
@@ -74,7 +79,7 @@ Se il portale indica un limite sui documenti, il servizio è stato creato prima 
 
 Per i servizi soggetti a limiti per i documenti, si applicano i limiti massimi seguenti:
 
-|  Gratuito | Basic | S1 | S2 | S3 | S3&nbsp;HD |
+|  Gratis | Di base | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
 |  10,000 |1 milione |15 milioni per partizione o 180 milioni per servizio |60 milioni per partizione o 720 milioni per servizio |120 milioni per partizione o 1,4 miliardi per servizio |1 milione per indice o 200 milioni per partizione |
 
@@ -98,16 +103,16 @@ Per i servizi Basic creati dopo la fine del 2017 il limite di indici, origini da
 
 Le operazioni a elevato utilizzo di risorse, ad esempio l'analisi delle immagini nell'indicizzazione BLOB di Azure o l'elaborazione del linguaggio naturale nella ricerca cognitiva, hanno tempi di esecuzione massimi più brevi. Ciò consente di inserire altri processi di indicizzazione. Se un processo di indicizzazione non può essere completato nel tempo massimo consentito, provare a eseguirlo in una pianificazione. L'utilità di pianificazione tiene traccia dello stato di indicizzazione. Se un processo di indicizzazione pianificato viene interrotto per qualsiasi motivo, alla successiva esecuzione pianificata l'indicizzatore può riprendere dall'ultima interruzione.
 
-| Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
-| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
-| Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/D |
-| Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/D |
-| Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |
-| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/D |
-| Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/D  |
-| Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/D  |
-| Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/D  |
-| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 milioni |4 milioni |4 milioni |N/D |
+| Risorsa | Gratuito&nbsp;<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
+| Numero massimo di indicizzatori |3 |5 o 15|50 |200 |200 |N/A |10 |10 |
+| Numero massimo di origini dati |3 |5 o 15 |50 |200 |200 |N/A |10 |10 |
+| Numero massimo di set di competenze <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/A |10 |10 |
+| Carico di indicizzazione massimo per chiamata |10.000 documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |Limitato solo da numero massimo di documenti |N/A |Nessun limite |Nessun limite |
+| Tempo massimo di esecuzione <sup>5</sup> | 1-3 minuti |24 ore |24 ore |24 ore |24 ore |N/A  |24 ore |24 ore |
+| Tempo massimo di esecuzione per set di competenze di ricerca cognitiva o indicizzazione BLOB con analisi delle immagini <sup>5</sup> | 3-10 minuti |2 ore |2 ore |2 ore |2 ore |N/A  |2 ore |2 ore |
+| Indicizzatore BLOB: dimensioni massime per un BLOB, MB |16 |16 |128 |256 |256 |N/A  |256 |256 |
+| Indicizzatore BLOB: numero massimo di caratteri di contenuto estratti da un BLOB |32.000 |64.000 |4 milioni |4 milioni |4 milioni |N/A |4 milioni |4 milioni |
 
 <sup>1</sup> I servizi del livello Gratuito hanno un tempo massimo di esecuzione degli indicizzatori di 3 minuti per le origini BLOB e di 1 minuto per tutte le altre origini dati.
 
@@ -124,6 +129,8 @@ Le operazioni a elevato utilizzo di risorse, ad esempio l'analisi delle immagini
 Le stime di query al secondo devono essere sviluppate in modo indipendente da ogni cliente. Le dimensioni e la complessità dell'indice, le dimensioni e la complessità della query e la quantità di traffico sono i fattori principali in base ai quali è possibile determinare il numero di query al secondo. Non è possibile fornire stime significative se questi fattori sono sconosciuti.
 
 Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca di Azure](search-performance-optimization.md).
+
+Per i livelli di ottimizzazione dell'archiviazione, è possibile aspettarsi una velocità effettiva di query inferiore e una latenza maggiore rispetto a livelli Standard.  La metodologia per la stima delle prestazioni delle query che si verifichi è quello utilizzato per i livelli Standard.
 
 ## <a name="data-limits-cognitive-search"></a>Limiti dei dati (ricerca cognitiva)
 

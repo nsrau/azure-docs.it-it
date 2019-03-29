@@ -1,7 +1,7 @@
 ---
 title: Sintassi delle espressioni OData per filtri e clausole order-by - Ricerca di Azure
 description: Sintassi delle espressioni OData dei filtri e delle clausole order-by per le query di Ricerca di Azure.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541054"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578408"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintassi delle espressioni OData filter e order-by in Ricerca di Azure
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Trovare tutti gli alberghi con nome uguale a "Roach motel" o "Budget hotel":  
+Trovare tutti gli alberghi con nome uguale a 'Motel rocca' o 'hotel Budget'). Frasi contengono spazi, che è un delimitatore di impostazione predefinita. Per specificare un override di delimitatore, racchiudere il nuovo delimitatore tra virgolette singole come parte dell'espressione di filtro:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ Trovare tutti gli alberghi con il tag "wifi" o "pool":
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Trovare una corrispondenza su più tag, 'towel riscaldato rack' o 'asciugacapelli incluso'. Ricordarsi di specificare un delimitatore alternativo quando il delimitatore predefinito è praticabile. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Trovare tutti gli alberghi senza il tag "motel" o "cabin":  
@@ -310,7 +316,7 @@ $orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(
 
 -   `any/all` con espressioni lambda arbitrarie  
 
-## <a name="see-also"></a>Vedere anche   
+## <a name="see-also"></a>Vedere anche  
 
 + [Navigazione sfaccettata nella ricerca di Azure](search-faceted-navigation.md) 
 + [Filtri in Ricerca di Azure](search-filters.md) 

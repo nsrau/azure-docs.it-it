@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: 1a8bfbe12156156944d4527ebb11fa6f1a1de544
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977236"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579751"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
 
@@ -43,16 +43,52 @@ Il ridimensionamento verticale, ovvero l'aumento o la riduzione delle prestazion
 4. Aggiungere un avviso al set di scalabilità di macchine virtuali con una notifica di webhook.
 
 > [!NOTE]
-> Il ridimensionamento verticale può avvenire solo entro determinati intervalli di dimensioni delle VM. Confrontare le specifiche di ogni dimensione prima di decidere il tipo di ridimensionamento (un numero più alto non sempre indica dimensioni della VM più grandi). È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
+> A causa delle dimensioni della prima macchina virtuale, le dimensioni a cui la macchina può essere ridimensionata possono essere limitate a seconda della disponibilità di altre dimensioni nel cluster in cui viene distribuita la macchina virtuale corrente. Nei runbook di automazione pubblicati usati in questo articolo viene considerato questo caso e la scalabilità viene applicata solo all'interno delle coppie di dimensioni delle macchine virtuali seguenti. Pertanto, una macchina virtuale Standard_D1v2 non verrà improvvisamente ridimensionata verso l'alto a una Standard_G5 o verso il basso a una Basic_A0. Anche vincolata macchina virtuale di dimensioni di aumentare/ridurre le dimensioni non è supportato. È possibile scegliere di applicare il ridimensionamento tra le seguenti coppie di dimensioni:
 > 
 > | coppie di ridimensionamento di dimensioni delle macchine virtuali |  |
 > | --- | --- |
-> | Standard_A0 |Standard_A11 |
-> | Standard_D1 |Standard_D14 |
-> | Standard_DS1 |Standard_DS14 |
-> | Standard_D1v2 |Standard_D15v2 |
+> | Basic_A0 |Basic_A4 |
+> | Standard_A0 |Standard_A4 |
+> | Standard_A5 |Standard_A7 |
+> | Standard_A8 |Standard_A9 |
+> | Standard_A10 |Standard_A11 |
+> | Standard_A1_v2 |Standard_A8_v2 |
+> | Standard_A2m_v2 |Standard_A8m_v2  |
+> | Standard_B1s |Standard_B2s |
+> | Standard_B1ms |Standard_B8ms |
+> | Standard_D1 |Standard_D4 |
+> | Standard_D11 |Standard_D14 |
+> | Standard_DS1 |Standard_DS4 |
+> | Standard_DS11 |Standard_DS14 |
+> | Standard_D1_v2 |Standard_D5_v2 |
+> | Standard_D11_v2 |Standard_D14_v2 |
+> | Standard_DS1_v2 |Standard_DS5_v2 |
+> | Standard_DS11_v2 |Standard_DS14_v2 |
+> | Standard_D2_v3 |Standard_D64_v3 |
+> | Standard_D2s_v3 |Standard_D64s_v3 |
+> | Standard_DC2s |Standard_DC4s |
+> | Standard_E2_v3 |Standard_E64_v3 |
+> | Standard_E2s_v3 |Standard_E64s_v3 |
+> | Standard_F1 |Standard_F16 |
+> | Standard_F1s |Standard_F16s |
+> | Standard_F2sv2 |Standard_F72sv2 |
 > | Standard_G1 |Standard_G5 |
 > | Standard_GS1 |Standard_GS5 |
+> | Standard_H8 |Standard_H16 |
+> | Standard_H8m |Standard_H16m |
+> | Standard_L4s |Standard_L32s |
+> | Standard_L8s_v2 |Standard_L80s_v2 |
+> | Standard_M8ms  |Standard_M128ms |
+> | Standard_M32ls  |Standard_M64ls |
+> | Standard_M64s  |Standard_M128s |
+> | Standard_M64  |Standard_M128 |
+> | Standard_M64m  |Standard_M128m |
+> | Standard_NC6 |Standard_NC24 |
+> | Standard_NC6s_v2 |Standard_NC24s_v2 |
+> | Standard_NC6s_v3 |Standard_NC24s_v3 |
+> | Standard_ND6s |Standard_ND24s |
+> | Standard_NV6 |Standard_NV24 |
+> | Standard_NV6s_v2 |Standard_NV24s_v2 |
 > 
 > 
 
@@ -123,7 +159,7 @@ Per altre informazioni su come creare gli avvisi, vedere gli articoli seguenti:
 * [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](../azure-monitor/platform/powershell-quickstart-samples.md)
 * [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure](../azure-monitor/platform/cli-samples.md)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 Questo articolo ha illustrato semplici esempi di ridimensionamento verticale. Con questi blocchi predefiniti, ovvero account di automazione, runbook, webhook e avvisi, è possibile connettere una vasta gamma di eventi con un set di azioni personalizzato.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

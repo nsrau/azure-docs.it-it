@@ -11,10 +11,10 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
 ms.openlocfilehash: f93d9eaefe18dd012a639cd26636b56b9eb09249
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
+ms.lasthandoff: 03/28/2019
 ms.locfileid: "56427637"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Distribuire e monitorare i moduli di IoT Edge su larga scala tramite l'interfaccia della riga di comando di Azure
@@ -144,7 +144,7 @@ Usare il comando seguente per creare una distribuzione:
 * **--hub-name**: nome dell'hub IoT in cui verrà creata la distribuzione. L'hub deve trovarsi nella sottoscrizione corrente. Per passare alla sottoscrizione desiderata, usare il comando `az account set -s [subscription name]`.
 * **--content**: percorso file del manifesto della distribuzione JSON. 
 * **--labels**: aggiungere etichette per tenere traccia delle distribuzioni. Le etichette sono coppie nome-valore che descrivono la distribuzione. Le etichette richiedono la formattazione JSON per nomi e valori. Ad esempio: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
-* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio: `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
+* **--target-condition**: immettere una condizione di destinazione per determinare i dispositivi di destinazione di questa distribuzione. La condizione è basata sui tag o sulle proprietà segnalate dei dispositivi gemelli e deve corrispondere al formato di espressione. Ad esempio `tags.environment='test' and properties.reported.devicemodel='4000x'`. 
 * **--priority**: numero intero positivo. Nel caso in cui due o più distribuzioni abbiano lo stesso dispositivo di destinazione, verrà applicata quella con valore di priorità più alto.
 
 ## <a name="monitor-a-deployment"></a>Monitorare una distribuzione
@@ -196,7 +196,7 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 * **--set**: aggiorna una proprietà nella distribuzione. È possibile aggiornare le proprietà seguenti:
   * targetCondition, ad esempio `targetCondition=tags.location.state='Oregon'`
   * Etichette 
-  * priority
+  * priorità
 
 
 ## <a name="delete-a-deployment"></a>Eliminare una distribuzione

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 213e6a95484b5f6953f8423474953125f8739015
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541828"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574745"
 ---
 # <a name="asc-for-iot-prerequisites"></a>Centro sicurezza di AZURE per IoT prerequisiti
 
@@ -46,7 +46,7 @@ Centro sicurezza di AZURE per informazioni dettagliate IoT e i report sono dispo
 Centro sicurezza di AZURE per IoT è attualmente supportata per gli hub IoT nelle aree di Azure seguenti:
   - Stati Uniti centrali
   - Europa settentrionale
-  - Asia sud-orientale
+  - Asia sudorientale
 
 ## <a name="wheres-my-iot-hub"></a>Dove si trova l'Hub IoT?
 
@@ -59,10 +59,10 @@ Controllare la posizione dell'IoT Hub per verificare la disponibilità del servi
 
 ## <a name="supported-platforms-for-agents"></a>Piattaforme supportate per gli agenti 
 
-Centro sicurezza di AZURE per gli agenti IoT supporta un elenco in continua crescita di dispositivi e piattaforme. Vedere le [elenco di piattaforme supportate](select-deploy-agent.md) per controllare la libreria di dispositivo esistente o pianificato.  
+Centro sicurezza di AZURE per gli agenti IoT supporta un elenco in continua crescita di dispositivi e piattaforme. Vedere le [elenco di piattaforme supportate](how-to-deploy-agent.md) per controllare la libreria di dispositivo esistente o pianificato.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Overview](overview.md)
+- [Panoramica](overview.md)
 - [Abilitare il servizio](quickstart-onboard-iot-hub.md)
 - [Centro sicurezza di AZURE per IoT domande frequenti](resources-frequently-asked-questions.md)
 - [La comprensione di Centro sicurezza di AZURE per gli avvisi di IoT](concept-security-alerts.md)

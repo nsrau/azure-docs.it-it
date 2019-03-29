@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: d8b2b10f9a12fb32a522a9c87c67bb24d6d4475e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991851"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620683"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Estensione di driver GPU NVIDIA per Linux
 
-## <a name="overview"></a>Panoramica
+## <a name="overview"></a>Informazioni generali
 
-Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Linux serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
+Questa estensione installa i driver GPU NVIDIA nelle macchine virtuali Linux serie N. A seconda della famiglia di macchine virtuali, l'estensione installa i driver CUDA o GRID. Quando si installano i driver NVIDIA con questa estensione, l'utente accetta e acconsente alle condizioni del [contratto di licenza dell'utente finale di NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante il processo di installazione, la macchina virtuale potrebbe venire riavviata per completare l'installazione del driver.
 
 È anche disponibile un'estensione per installare i driver GPU NVIDIA nelle [macchine virtuali serie N di Windows](hpccompute-gpu-windows.md).
 
@@ -38,7 +38,7 @@ Questa estensione supporta le distribuzioni dei sistemi operativi seguenti, in b
 | Distribuzione | Versione |
 |---|---|
 | Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
-| Linux: Red Hat Enterprise Linux. | 7.3, 7.4, 7.5, 7.6 |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
 
 ### <a name="internet-connectivity"></a>Connettività Internet
@@ -69,23 +69,23 @@ Il codice JSON riportato di seguito mostra lo schema dell'estensione.
 }
 ```
 
-### <a name="properties"></a>Properties
+### <a name="properties"></a>Proprietà
 
-| NOME | Valore/Esempio | Tipo di dati |
+| Attività | Valore/Esempio | Tipo di dati |
 | ---- | ---- | ---- |
-| apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.HpcCompute | stringa |
-| type | NvidiaGpuDriverLinux | stringa |
+| apiVersion | 2015-06-15 | data |
+| publisher | Microsoft.HpcCompute | string |
+| tipo | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Impostazioni
 
 Tutte le impostazioni sono facoltative. In base al comportamento predefinito, il kernel non viene aggiornato se non è necessario per l'installazione del driver e vengono installati il driver supportato più recente e il toolkit CUDA (se applicabile).
 
-| NOME | DESCRIZIONE | Default Value | Valori validi | Tipo di dati |
+| Attività | DESCRIZIONE | Valore predefinito | Valori validi | Tipo di dati |
 | ---- | ---- | ---- | ---- | ---- |
-| updateOS | Aggiorna il kernel anche se non è necessario per l'installazione del driver | false | true, false | boolean |
-| driverVersion | NV: Versione del driver GRID<br> NC/ND: Versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | più recenti | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | stringa |
+| updateOS | Aggiorna il kernel anche se non è necessario per l'installazione del driver | falso | true, false | boolean |
+| driverVersion | NV: Versione del driver GRID<br> NC/ND: Versione del toolkit CUDA. I driver più recenti del CUDA scelto vengono installati automaticamente. | più recente | GRID: "410.92", "410.71", "390.75", "390.57", "390.42"<br> CUDA: "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installa il toolkit CUDA. Pertinente solo per le macchine virtuali serie NC/ND. | true | true, false | boolean |
 
 
@@ -154,7 +154,7 @@ az vm extension set `
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto
 
-### <a name="troubleshoot"></a>Risolvere problemi
+### <a name="troubleshoot"></a>Risoluzione dei problemi
 
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell e l'interfaccia della riga di comando di Azure. Per visualizzare lo stato di distribuzione delle estensioni per una determinata macchina virtuale, eseguire il comando seguente.
 
@@ -185,7 +185,7 @@ L'output dell'esecuzione dell'estensione viene registrato nel file seguente:
 | 14 | Operazione conclusa | Controllare il log di output dell'esecuzione |
 
 
-### <a name="support"></a>Supporto
+### <a name="support"></a>Supporto tecnico
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow relativi ad Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare l'opzione desiderata per ottenere supporto. Per informazioni sull'uso del supporto di Azure, leggere le [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 

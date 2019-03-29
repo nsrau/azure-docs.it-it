@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 23bc4d0df1c8124ec225ac31239c7acb3f1ab546
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541813"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577801"
 ---
 # <a name="security-agent-authentication-methods"></a>Metodi di autenticazione di sicurezza dell'agente 
 
@@ -41,10 +41,12 @@ I due metodi per l'agente AzureIoTSecurity eseguire l'autenticazione:
 
  - **Modulo** modalità di autenticazione<br>
    Il modulo di autenticazione viene eseguito indipendentemente dal dispositivo gemello.
-   Le informazioni necessarie per questo tipo di autenticazione è definito dal file config per C# e il LocalConfiguration.json per C.
+   Se si vuole che l'agente di sicurezza da utilizzare un metodo di autenticazione dedicato tramite modulo di protezione (solo chiave simmetrica), usare questo tipo di autenticazione.
         
  - **Dispositivo** modalità di autenticazione<br>
-    In questo metodo, l'agente di protezione prima l'autenticazione con il dispositivo. Al termine dell'autenticazione iniziale, esegue il Centro sicurezza di AZURE per l'agente di IoT **Rest** chiamate all'IoT Hub usando l'API Rest con i dati di autenticazione del dispositivo. Il Centro sicurezza di AZURE per l'agente di IoT richiede quindi il metodo di autenticazione modulo di protezione e i dati dall'IoT Hub. Nel passaggio finale, il Centro sicurezza di AZURE per IoT agente esegue l'autenticazione con il Centro sicurezza di AZURE per il modulo di IoT.    
+    In questo metodo, l'agente protezione viene autenticata prima con l'identità del dispositivo. Al termine dell'autenticazione iniziale, il Centro sicurezza di AZURE per IoT agente esegue una **REST** chiamate all'IoT Hub usando l'API REST con i dati di autenticazione del dispositivo. Il Centro sicurezza di AZURE per l'agente di IoT richiede quindi il metodo di autenticazione modulo di protezione e i dati dall'IoT Hub. Nel passaggio finale, il Centro sicurezza di AZURE per IoT agente esegue l'autenticazione con il Centro sicurezza di AZURE per il modulo di IoT.
+    
+    Se si vuole che l'agente di protezione per riutilizzare un metodo di autenticazione dispositivo esistente (autofirmato certificato o chiave simmetrica), usare questo tipo di autenticazione. 
 
 Visualizzare [parametri di installazione dell'agente protezione](#security-agent-installation-parameters) per imparare a configurare.
                                 
@@ -55,7 +57,7 @@ Visualizzare [parametri di installazione dell'agente protezione](#security-agent
 
 ## <a name="security-agent-installation-parameters"></a>Parametri di installazione dell'agente protezione
 
-Quando [distribuzione di un agente protezione](select-deploy-agent.md), è necessario specificare i dettagli di autenticazione come argomenti.
+Quando [distribuzione di un agente protezione](how-to-deploy-agent.md), è necessario specificare i dettagli di autenticazione come argomenti.
 Questi argomenti sono documentati nella tabella seguente.
 
 
@@ -109,7 +111,7 @@ Modificare _LocalConfiguration.json_ con i parametri seguenti:
 }
 ```
 
-## <a name="see-also"></a>Vedere anche 
+## <a name="see-also"></a>Vedere anche
 - [Panoramica degli agenti protezione](security-agent-architecture.md)
-- [Distribuire l'agente protezione](select-deploy-agent.md)
+- [Distribuire l'agente protezione](how-to-deploy-agent.md)
 - [Accedere ai dati di sicurezza non elaborati](how-to-security-data-access.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/24/2019
 ms.author: artemuwka
 ms.subservice: common
-ms.openlocfilehash: ffc4a0c57681e877250c7be82f5160174178892a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486020"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574978"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Trasferire dati con AzCopy v10 (anteprima)
 
@@ -175,7 +175,7 @@ Il comando di sincronizzazione Sincronizza contenuto di una directory di origine
 
 > [!NOTE] 
 > Usare il `--delete-destination` flag con cautela. Abilitare la [eliminazione temporanea](https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete) funzionalità prima di abilitare la sincronizzazione per impedire eliminazioni accidentali nell'account di comportamento di eliminazione. 
-
+>
 > Quando si `--delete-destination` è impostato su true, AzCopy eliminerà i file che non esistono nell'origine dalla destinazione senza alcuna richiesta all'utente. Se si desidera essere richiesto di confermare, usare `--delete-destination=prompt`.
 
 Per eseguire la sincronizzazione del file system locale con un account di archiviazione, usare il comando seguente:
@@ -250,7 +250,7 @@ Il comando seguente otterrà tutti gli errori con stato UPLOADFAILED dal log 04d
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
-## <a name="troubleshooting"></a>risoluzione dei problemi
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 AzCopy v10 crea file di log e file di piano per ogni processo. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. Il log conterrà lo stato dell'errore (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), il percorso completo e il motivo dell'errore. I file di piano e i log dei processi si trovano nella cartella %USERPROFILE\\.azcopy su Windows oppure in $HOME\\.azcopy su Mac e Linux.
 

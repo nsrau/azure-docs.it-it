@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361796"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577561"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 
@@ -296,7 +296,7 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
 
 1. Scegli **sola** opzione (nessun altra installazione di SDK sono supportati)
 
-   |SDK&nbsp;pacchetto&nbsp;funzionalità aggiuntive|Source (Sorgente)|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
+   |SDK&nbsp;pacchetto&nbsp;funzionalità aggiuntive|Target|PyPi&nbsp;Name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
    |----|---|---|
    |Per Databricks| Caricare Python Egg o PyPI | azureml-sdk[databricks]|
    |Per Databricks - with-<br> funzionalità di Machine Learning automatizzate| Caricare Python Egg o PyPI | azureml-sdk[automl_databricks]|
@@ -315,7 +315,9 @@ Quando il cluster è in esecuzione, [creare una libreria](https://docs.databrick
    1. Nella scheda **Librerie** selezionare **Riavvia**.
       
    Si consideri inoltre:
-   + Alcuni pacchetti, come `psutil`, possono causare conflitti di Databricks durante l'installazione. Per evitare tali errori, installare i pacchetti dalle versioni lib del blocco, ad esempio `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + Nel file di configurazione Automl, quando si usa Azure Databricks aggiungere i parametri seguenti:
+    1. ```max_concurrent_iterations``` basata sul numero di nodi di lavoro nel cluster. 
+    2. ```spark_context=sc``` contesto di spark predefinito #databricks/spark. 
    + In alternativa, se si dispone di una versione precedente del SDK, deselezionarla dalle librerie installate del cluster e spostare nel Cestino. Installare la nuova versione dell'SDK e riavviare il cluster. Se successivamente si verifica un problema, scollegare e ricollegare il cluster.
 
 Se l'installazione ha esito positivo, la libreria importata dovrebbe essere simile a uno dei seguenti:

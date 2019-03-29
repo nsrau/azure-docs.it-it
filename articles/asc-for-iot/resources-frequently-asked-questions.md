@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541933"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575148"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>Domande frequenti sul Centro sicurezza di AZURE per IoT  
 
@@ -77,7 +77,7 @@ Informazioni dettagliate installazione e l'agente di distribuzione sono disponib
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>Quali sono le dipendenze e i prerequisiti dell'agente?
 
-Centro sicurezza di AZURE per IoT supporta un'ampia gamma di piattaforme. Visualizzare [piattaforme per dispositivi supportate](select-deploy-agent.md) per verificare il supporto per i dispositivi specifici. 
+Centro sicurezza di AZURE per IoT supporta un'ampia gamma di piattaforme. Visualizzare [piattaforme per dispositivi supportate](how-to-deploy-agent.md) per verificare il supporto per i dispositivi specifici. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>Quali dati vengono raccolti dall'agente?
 
@@ -97,9 +97,9 @@ Sì. I dati dell'agente trasmessi viene conteggiati nella quota di IoT Hub.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>Come procedere? È stato installato un agente e non viene visualizzato qualsiasi attività o dei log
 
-1. Controllare il [tipo agente di si adatta alla piattaforma del sistema operativo designata del dispositivo](select-deploy-agent.md)
+1. Controllare il [tipo agente di si adatta alla piattaforma del sistema operativo designata del dispositivo](how-to-deploy-agent.md)
 
-1. Verificare i [agent è in esecuzione nel dispositivo](concept-agent-configuration.md).
+1. Verificare i [agent è in esecuzione nel dispositivo](how-to-agent-configuration.md).
 
 2. Controllare la [servizio è stato abilitato correttamente](quickstart-onboard-iot-hub.md) al **sicurezza** nell'IoT Hub. 
 

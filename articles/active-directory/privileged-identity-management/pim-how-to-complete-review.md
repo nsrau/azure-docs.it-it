@@ -1,6 +1,6 @@
 ---
-title: Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM | Microsoft Docs
-description: Informazioni su come completare una verifica di accesso per i ruoli della directory di Azure AD in Azure AD Privileged Identity Management (PIM) e visualizzare i risultati
+title: Completare una verifica di accesso per i ruoli di Azure AD in PIM - Azure Active Directory | Microsoft Docs
+description: Informazioni su come completare una verifica di accesso per i ruoli di Azure AD in Azure AD Privileged Identity Management (PIM) e visualizzare i risultati
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,15 +14,15 @@ ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bea4f649b40298de15b8352fc8eb522da87dead5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ed53c8bb3cb735822fc40aab86ca40bef7b9607a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190348"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619183"
 ---
-# <a name="complete-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Completare una verifica di accesso per i ruoli della directory di Azure AD in PIM
-Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica di accesso](pim-how-to-start-security-review.md). Azure AD Privileged Identity Management (PIM) invia automaticamente un messaggio di posta elettronica che richiede agli utenti di controllare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni descritte in [Come eseguire una verifica di accesso](pim-how-to-perform-security-review.md).
+# <a name="complete-an-access-review-for-azure-ad-roles-in-pim"></a>Completare una verifica di accesso per i ruoli di Azure AD in PIM
+Gli amministratori dei ruoli con privilegi possono esaminare l'accesso con privilegi dopo che è stata [avviata una verifica di accesso](pim-how-to-start-security-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) invia automaticamente un messaggio di posta elettronica che richiede agli utenti di controllare l'accesso. Agli utenti che non hanno ricevuto il messaggio di posta elettronica è possibile inviare le istruzioni descritte in [Come eseguire una verifica di accesso](pim-how-to-perform-security-review.md).
 
 Trascorso il periodo della verifica di accesso o al termine della verifica automatica di tutti gli utenti, seguire la procedura descritta in questo articolo per gestire la verifica e visualizzare i risultati.
 
@@ -38,13 +38,13 @@ Nel pannello dei dettagli della verifica di accesso sono disponibili alcune opzi
 ### <a name="remind"></a>Promemoria
 Se una verifica di accesso è stata impostata in modo che gli utenti verifichino se stessi, il pulsante **Promemoria** invia una notifica. 
 
-### <a name="stop"></a>Arresto
+### <a name="stop"></a>Interrompi
 Tutte le verifiche di accesso hanno una data di fine, ma il pulsante **Interrompi** consente di completare l'operazione in anticipo. Eventuali utenti non sottoposti a verifica fino a questo momento, non potranno essere controllati dopo l'interruzione della verifica. Non è possibile riavviare una verifica dopo che è stata interrotta.
 
 ### <a name="apply"></a>Applica
 Al termine di una verifica di accesso in corrispondenza della data di fine o in caso di interruzione manuale, il pulsante **Applica** implementa il risultato della verifica. Se l'accesso di un utente è stato negato nel corso della verifica, questo passaggio consente di rimuovere l'assegnazione di ruolo.  
 
-### <a name="export"></a>Esportazione
+### <a name="export"></a>Esporta
 Per applicare manualmente i risultati della verifica di accesso, è possibile esportare la verifica. Il pulsante **Esporta** avvia il download di un file con estensione csv. È possibile gestire i risultati in Excel o in altri programmi in grado di aprire i file con estensione csv.
 
 ### <a name="delete"></a>Delete
@@ -55,5 +55,5 @@ Se la verifica non è più necessaria, eliminarla. Il pulsante **Elimina** rimuo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Avviare una verifica di accesso per i ruoli della directory di Azure AD in PIM](pim-how-to-start-security-review.md)
-- [Eseguire una verifica di accesso dei ruoli della directory di Azure AD in PIM](pim-how-to-perform-security-review.md)
+- [Avviare una verifica di accesso per i ruoli di Azure AD in PIM](pim-how-to-start-security-review.md)
+- [Eseguire una verifica di accesso dei ruoli personali AD Azure in PIM](pim-how-to-perform-security-review.md)

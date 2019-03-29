@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 02/26/2019
+ms.date: 03/28/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 72a3bead4ba8670187c35856f9cd4e4f4b975a30
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0f94a1fdc01825b5bf78644f84c72e6b031109c0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311696"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621975"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>Procedure consigliate per una knowledge base di QnA Maker
 Il [ciclo di vita di sviluppo della knowledge base](../Concepts/development-lifecycle-knowledge-base.md) fornisce informazioni sulla gestione della KB dall'inizio alla fine. Usare queste procedure consigliate per migliorare la knowledge base e fornire risultati migliori per gli utenti finali dell'applicazione/chat bot.
@@ -57,11 +57,11 @@ Esistono alcune domande specifiche per i bot che fanno parte del set di dati chi
 
 È consigliabile rendere le seguenti QnA di chit-chat più specifiche:
 
-* Chi si sta autenticando?
+* Identificarsi
 * Cosa fare
 * Quanti anni hai?
 * Chi ti ha creato?
-* Ciao
+* Salve
    
 
 ## <a name="rankingscoring"></a>Classificazione e assegnazione dei punteggi
@@ -73,7 +73,7 @@ Il punteggio di attendibilità predefinito che viene usato come soglia è 50, ma
 ### <a name="add-alternate-questions"></a>Aggiungere domande alternative
 Le [domande alternative](../How-To/edit-knowledge-base.md) aumentano la probabilità di una corrispondenza con una query utente. Le domande alternative sono utili quando ci sono più modi per porre la stessa domanda. Ciò può includere modifiche alla struttura della frase e allo stile delle parole.
 
-|Query originale|Query alternative|Modifica| 
+|Query originale|Query alternative|Cambia| 
 |--|--|--|
 |È disponibile il parcheggio?|Si dispone di parcheggio?|struttura della frase|
  |Ciao|Ehi<br>Salve!|stile delle parole o gergo|
@@ -108,7 +108,7 @@ QnA Maker permette agli utenti di [collaborare](../How-to/collaborate-knowledge-
 
 ## <a name="active-learning"></a>Apprendimento attivo
 
-[Apprendimento attivo](../How-to/improve-knowledge-base.md) garantisce migliori prestazioni nel suggerimento di domande alternative se è disponibile un'ampia gamma, in termini di qualità e quantità, di query basate sull'utente. È importante consentire alle query degli utenti delle applicazioni client di entrare nel ciclo di feedback relativo all'apprendimento attivo senza alcuna limitazione. Una volta domande vengono suggerite nel portale di QnA Maker, è necessario rivedere e accettare o rifiutare tali suggerimenti. 
+[Apprendimento attivo](../How-to/improve-knowledge-base.md) garantisce migliori prestazioni nel suggerimento di domande alternative se è disponibile un'ampia gamma, in termini di qualità e quantità, di query basate sull'utente. È importante consentire alle query degli utenti delle applicazioni client di entrare nel ciclo di feedback relativo all'apprendimento attivo senza alcuna limitazione. Una volta domande vengono suggerite nel portale di QnA Maker, puoi **[Filtra in base a suggerimenti](../How-To/improve-knowledge-base.md#add-active-learning-suggestion-to-knowledge-base)** quindi esaminare e accettare o rifiutare tali suggerimenti. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

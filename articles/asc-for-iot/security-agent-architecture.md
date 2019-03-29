@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7c8f256cf91a479c45f21b933efdb6a5e0212796
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541873"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578459"
 ---
 # <a name="security-agent-reference-architecture"></a>Architettura di riferimento di sicurezza dell'agente
 
@@ -32,15 +32,15 @@ Centro sicurezza di AZURE per IoT offre l'architettura di riferimento per gli ag
 
 Gli agenti di protezione sono progettati per funzionare in un ambiente vincolato IoT e sono altamente personalizzabili in termini di valori che forniscono quando confrontato con le risorse utilizzate.
 
-Gli agenti di protezione supportano le funzionalità di soluzioni IoT seguenti:
+Gli agenti di protezione supportano le funzionalità seguenti:
 
-- Raccogli eventi di sicurezza non elaborati dal sistema operativo sottostante (Linux, Windows). Per altre informazioni sugli agenti di raccolta dati sicurezza disponibili, vedere [Centro sicurezza di AZURE per la configurazione dell'agente di IoT](concept-agent-configuration.md).
+- Raccogli eventi di sicurezza non elaborati dal sistema operativo sottostante (Linux, Windows). Per altre informazioni sugli agenti di raccolta dati sicurezza disponibili, vedere [Centro sicurezza di AZURE per la configurazione dell'agente di IoT](how-to-agent-configuration.md).
 
 - Aggregare eventi di sicurezza non elaborati in messaggi inviati tramite l'hub IoT.
 
 - Eseguire l'autenticazione con l'identità del dispositivo esistente o un'identità del modulo dedicato. Visualizzare [metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md) per altre informazioni.
 
-- Configurare in remoto tramite l'uso del **ascforiot** modulo gemello. Per altre informazioni, vedere [configurare un Centro sicurezza di AZURE per l'agente di IoT](concept-agent-configuration.md).
+- Configurare in remoto tramite l'uso del **azureiotsecurity** modulo gemello. Per altre informazioni, vedere [configurare un Centro sicurezza di AZURE per l'agente di IoT](how-to-agent-configuration.md).
 
 Centro sicurezza di AZURE per gli agenti di sicurezza IoT vengono sviluppate come progetti open source e disponibili da GitHub: 
 
@@ -62,10 +62,8 @@ In questo articolo si è appreso sul Centro sicurezza di AZURE per l'architettur
 
 Per altre informazioni sul con Centro sicurezza di AZURE per la distribuzione IoT, usare gli articoli seguenti:
 
-
+- Comprendere [i metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md)
+- Selezionare e distribuire un [agente protezione](how-to-deploy-agent.md)
 - Esaminare il Centro sicurezza di AZURE per IoT [prerequisiti del servizio](service-prerequisites.md)
 - Informazioni su come [Abilita Centro sicurezza di AZURE per il servizio IoT nell'IoT Hub](quickstart-onboard-iot-hub.md)
-- Usare la Guida introduttiva a [configurare la soluzione](quickstart-configure-your-solution.md)
-- Comprendere [i metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md)
-- Selezionare e distribuire un [agente protezione](select-deploy-agent.md)
 - Altre informazioni sul servizio dal [ASC per domande frequenti su IoT](resources-frequently-asked-questions.md)
