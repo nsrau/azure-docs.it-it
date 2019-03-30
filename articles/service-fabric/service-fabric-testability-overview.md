@@ -4,7 +4,7 @@ description: Questo articolo descrive il servizio di analisi degli errori di Ser
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 1f064276-293a-4989-a513-e0d0b9fdf703
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: a4ddfc17a81a6816bc797bab4c3b5a8b2fc4334e
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 3581550779b2387515b4f300d211b4e0a894edc7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425239"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662354"
 ---
 # <a name="introduction-to-the-fault-analysis-service"></a>Introduzione al servizio di analisi degli errori
 Il servizio di analisi degli errori è progettato per testare servizi basati su Microsoft Azure Service Fabric. Con il servizio di analisi degli errori è possibile causare errori significativi ed eseguire scenari di test completi delle applicazioni. Tali errori e scenari verificano e convalidano i numerosi stati e le transizioni sperimentate da un servizio per la relativa durata, il tutto in modo controllato, sicuro e coerente.
@@ -46,9 +46,9 @@ Quando viene avviato uno scenario di test o un'azione di errore, viene inviato a
 ## <a name="testing-distributed-systems"></a>Test dei sistemi distribuiti
 Infrastruttura di servizi rende molto più semplice il processo di scrittura e gestione delle applicazioni scalabili distribuite. Allo stesso modo, il servizio di analisi degli errori semplifica il test di un'applicazione distribuita. Esistono tre problemi principali che devono essere risolti durante il test:
 
-1. La simulazione e la generazione di errori che potrebbero verificarsi negli scenari reali: uno degli aspetti importanti di Service Fabric è che consente alle applicazioni distribuite di correggere vari errori. Tuttavia, per verificare che l'applicazione sia in grado di correggere questi errori, è necessario un meccanismo per simulare e generare questi errori reali in un ambiente di test controllato.
-1. La capacità di generare errori correlati: gli errori di base nel sistema, ad esempio gli errori di rete e gli errori dei computer, sono facili da riprodurre singolarmente. Generare un numero significativo di scenari che possono verificarsi nel mondo reale in seguito alle interazioni di questi singoli errori non è semplice.
-1. L'esperienza unificata tra vari livelli di sviluppo e distribuzione: esistono molti sistemi di fault injection che consentono di generare diversi tipi di errori. Tuttavia, quando si passa da uno scenario di sviluppo in un ambiente di piccole dimensioni all'esecuzione degli stessi test in ambienti di test di grandi dimensioni per usarli nella produzione, l'esperienza è insoddisfacente.
+1. Simulazione e generazione di errori che potrebbero verificarsi in scenari reali: Uno degli aspetti importanti di Service Fabric è che consente alle applicazioni distribuite di correggere vari errori. Tuttavia, per verificare che l'applicazione sia in grado di correggere questi errori, è necessario un meccanismo per simulare e generare questi errori reali in un ambiente di test controllato.
+1. La possibilità di generare errori correlati: Gli errori di base nel sistema, ad esempio errori di rete e gli errori di computer, sono facili da riprodurre singolarmente. Generare un numero significativo di scenari che possono verificarsi nel mondo reale in seguito alle interazioni di questi singoli errori non è semplice.
+1. Esperienza unificata tra vari livelli di sviluppo e distribuzione: Esistono molti sistemi di fault injection che possono eseguire diversi tipi di errori. Tuttavia, quando si passa da uno scenario di sviluppo in un ambiente di piccole dimensioni all'esecuzione degli stessi test in ambienti di test di grandi dimensioni per usarli nella produzione, l'esperienza è insoddisfacente.
 
 Sebbene esistano numerosi meccanismi per risolvere questi problemi, manca ancora un sistema in grado di eseguire le stesse operazioni con le garanzie richieste, direttamente da un ambiente di sviluppo di piccole dimensioni ai test nei cluster di produzione. Il servizio di analisi degli errori consente agli sviluppatori di applicazioni di concentrarsi sul test della logica di business. Il servizio di analisi degli errori offre tutte le funzionalità necessarie per testare l'interazione del servizio con il sistema distribuito sottostante.
 

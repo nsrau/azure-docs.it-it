@@ -4,7 +4,7 @@ description: Descrive i comandi sfctl mesh service dell'interfaccia della riga d
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: 6c40cf2340568e704a5c76ad367c07c85826943b
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: e8b735780f4ed3402845d9d401f8e37701b9a1a6
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53282917"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667583"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 Consente di ottenere i dettagli del servizio ed elencare i servizi di una risorsa dell'applicazione.

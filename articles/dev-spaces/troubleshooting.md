@@ -8,13 +8,13 @@ ms.author: zarhoads
 ms.date: 09/11/2018
 ms.topic: conceptual
 description: Sviluppo rapido Kubernetes con contenitori e microservizi in Azure
-keywords: 'Docker, Kubernetes, Azure, servizio contenitore di AZURE, Azure Kubernetes Service, contenitori, Helm, rete mesh di servizi, routing mesh del servizio, kubectl, k8s '
-ms.openlocfilehash: eff7f88ec6cbf8064df42fa3b22d61bb44baa451
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+keywords: 'Docker, Kubernetes, Azure, AKS, servizio Azure Kubernetes, contenitori, Helm, rete mesh di servizi, routing rete mesh di servizi, kubectl, k8s '
+ms.openlocfilehash: 5dd77d85e06a821d8dd359174bb5de6bca8b4d61
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339585"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669777"
 ---
 # <a name="troubleshooting-guide"></a>Guida per la risoluzione dei problemi
 
@@ -316,3 +316,12 @@ configurations:
     build:
       dockerfile: Dockerfile.develop
 ```
+
+## <a name="error-internal-watch-failed-watch-enospc-when-attaching-debugging-to-a-nodejs-application"></a>Errore "watch interno non è riuscita: guarda ENOSPC" quando si collega il debug di un'applicazione Node. js
+
+### <a name="reason"></a>Motivo
+
+Il nodo che esegue il pod con l'applicazione Node. js si sta tentando di connettersi a un debugger ha superato il *fs.inotify.max_user_watches* valore. In alcuni casi [il valore predefinito *fs.inotify.max_user_watches* potrebbe essere troppo piccola per la gestione connessione di un debugger direttamente a un pod](https://github.com/Azure/AKS/issues/772).
+
+### <a name="try"></a>Prova
+Soluzione alternativa temporanea per risolvere questo problema consiste nell'aumentare il valore di *fs.inotify.max_user_watches* in ogni nodo del cluster e riavviare il nodo rendere effettive le modifiche.
