@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816904"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652451"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Distribuire le risorse con i modelli di Azure Resource Manager e il portale di Azure
 
@@ -134,7 +134,8 @@ Il portale consente di salvare un modello nel proprio account Azure e di ridistr
    ![Distribuire il modello salvato](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](./resource-group-audit.md).
-* Per risolvere gli errori di distribuzione, vedere [View deployment operations](./resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
-* Per esportare un modello da un gruppo di risorse o di distribuzione, vedere [esportazione di Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* Per implementare in modo sicuro il servizio in più aree, vedere [Azure Deployment Manager](./deployment-manager-overview.md).
+
+- Per visualizzare i log di controllo, vedere [Operazioni di controllo con Resource Manager](./resource-group-audit.md).
+- Per risolvere gli errori di distribuzione, vedere [View deployment operations](./resource-manager-deployment-operations.md) (Visualizzare le operazioni di distribuzione).
+- Per esportare un modello da un gruppo di risorse o di distribuzione, vedere [esportazione di Azure Resource Manager templates](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Per implementare in modo sicuro il servizio in più aree, vedere [Azure Deployment Manager](./deployment-manager-overview.md).

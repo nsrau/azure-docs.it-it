@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185452"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652570"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedura: Fornire attestazioni facoltative per l'applicazione Azure AD (anteprima pubblica)
 
@@ -50,7 +50,7 @@ Uno degli obiettivi dell'[endpoint Azure AD v2.0](active-directory-appmodel-v2-o
 
 ## <a name="standard-optional-claims-set"></a>Set di attestazioni facoltative standard
 
-Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito. Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) più avanti in questo articolo. Si noti che quando si aggiungono attestazioni al **token di accesso**, ciò si applica ai token di accesso richiesti *per* l'applicazione (un'API web), non quelli richiesti *dall*'applicazione. Ciò garantisce che, indipendentemente dal client che accede all'API, il token di accesso usato per l'autenticazione nell'API contenga i dati corretti.
+Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito. Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions) più avanti in questo articolo. Si noti che quando si aggiungono attestazioni al **token di accesso**, ciò si applica ai token di accesso richiesti *per* l'applicazione (un'API web), non quelli richiesti *dall*'applicazione. Ciò garantisce che, indipendentemente dal client che accede all'API, il token di accesso usato per l'autenticazione nell'API contenga i dati corretti.
 
 > [!NOTE]
 > La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token. Inoltre, mentre le attestazioni facoltative sono attualmente supportate solo per gli utenti AAD, è in corso l'aggiunta del supporto per l'account del servizio gestito. Quando l'account del servizio gestito dispone del supporto per le attestazioni facoltative nell'endpoint v2.0, la colonna Tipo di utente indicherà se è disponibile un'attestazione per un utente AAD o dell'account del servizio gestito. 
@@ -103,7 +103,7 @@ Alcuni attestazioni facoltative possono essere configurate per modificare il mod
 
 **Tabella 4: valori per la configurazione di attestazioni facoltative**
 
-| Nome proprietà  | Nome proprietà aggiuntiva | Descrizione |
+| Nome proprietà  | Nome proprietà aggiuntiva | DESCRIZIONE |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Utilizzabile per le risposte SAML e JWT e per i token v1.0 e v2.0. |
 |                | `include_externally_authenticated_upn`  | Include l'UPN guest così come è archiviato nel tenant della risorsa. Ad esempio: `foo_hometenant.com#EXT#@resourcetenant.com` |             

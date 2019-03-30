@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580704"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649374"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: Configurare gli agenti di sicurezza
 
@@ -34,7 +34,7 @@ Questo articolo illustra Centro sicurezza di AZURE per l'agente di sicurezza IoT
 > * Modificare il comportamento dell'agente, modificando le proprietà dei dispositivi gemelli
 > * Individuare la configurazione predefinita
 
-## <a name="agents"></a>Agenti
+## <a name="agents"></a>Agents
 
 Centro sicurezza di AZURE per gli agenti di sicurezza IoT raccogliere dati dai dispositivi IoT ed eseguire azioni di sicurezza per ridurre le vulnerabilità rilevate. Configurazione dell'agente protezione è controllabile tramite un set di proprietà del modulo gemello che è possibile personalizzare. In generale, gli aggiornamenti secondari a queste proprietà sono poco frequenti.  
 
@@ -42,7 +42,7 @@ Centro sicurezza di AZURE per l'oggetto di configurazione dispositivo gemello de
 
 Queste configurazioni consentono di personalizzare l'agente per ogni scenario è richiesto. Ad esempio, automaticamente esclusione di alcuni eventi o mantenerli consumo di energia elettrica per un livello minimo sono possibili mediante la configurazione di queste proprietà.  
 
-Usare il Centro sicurezza di AZURE per la configurazione dell'agente di sicurezza IoT [schema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) per apportare modifiche.  
+Usare il Centro sicurezza di AZURE per la configurazione dell'agente di sicurezza IoT [schema](https://aka.ms/iot-security-github-module-schema) per apportare modifiche.  
 
 ## <a name="configuration-objects"></a>Oggetti di configurazione 
 
@@ -64,7 +64,7 @@ L'agente non verrà avviate se l'oggetto di configurazione corrisponde allo sche
 
 ## <a name="configuration-schema-and-validation"></a>Schema di configurazione e convalida 
 
-Assicurarsi di convalidare la configurazione dell'agente a fronte di questo [schema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). Un agente non verrà avviate se l'oggetto di configurazione corrisponde allo schema.
+Assicurarsi di convalidare la configurazione dell'agente a fronte di questo [schema](https://aka.ms/iot-security-github-module-schema). Un agente non verrà avviate se l'oggetto di configurazione corrisponde allo schema.
 
  
 Se, durante l'esecuzione dell'agente, l'oggetto di configurazione viene modificato in una configurazione non valido (la configurazione corrisponde allo schema), l'agente ignorerà la configurazione non è valida e continuerà a usare la configurazione corrente. 
@@ -95,7 +95,7 @@ Per usare un valore di proprietà predefinito, rimuovere la proprietà dell'ogge
     }, 
     ```
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 ### <a name="using-a-default-value"></a>Utilizza un valore predefinito
 
@@ -107,7 +107,7 @@ Nella tabella seguente contiene le proprietà controllabile del Centro sicurezza
 
 I valori predefiniti sono disponibili nello schema appropriata [Github](https://aka.ms/iot-security-module-default).
 
-| Nome| Stato | Valori validi| Valori predefiniti| DESCRIZIONE |
+| NOME| Stato | Valori validi| Valori predefiniti| DESCRIZIONE |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|Richiesto: false |Valori validi:  Durata in formato ISO 8601 |Valore predefinito: PT7M |Tempo massimo prima dei messaggi con priorità alta vengono inviati.|
 |lowPriorityMessageFrequency |Richiesto: false|Valori validi:  Durata in formato ISO 8601 |Valore predefinito: PT5H |Tempo massimo prima dei messaggi con priorità bassa vengono inviati.| 
@@ -118,22 +118,22 @@ I valori predefiniti sono disponibili nello schema appropriata [Github](https://
 
 ### <a name="supported-security-events"></a>Eventi di sicurezza supportate
 
-|Nome evento| PropertyName | Valore predefinito| Evento di snapshot| Stato dei dettagli  |
+|Nome evento| PropertyName | Default Value| Evento di snapshot| Stato dei dettagli  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|Evento di diagnostica|eventPriorityDiagnostic| Disattivato| Falso| Gli eventi di diagnostica correlati all'agente. Usare questo evento per la registrazione dettagliata.| 
-|Errore di configurazione |eventPriorityConfigurationError |Basso |Falso |Agente non è riuscito ad analizzare la configurazione. Verificare la configurazione a fronte dello schema.| 
-|Statistiche di eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True|Le statistiche di eventi correlati all'agente. |
-|Statistiche relative ai messaggi|eventPriorityMessageStatistics |Basso |True |Statistiche relative ai messaggi correlati all'agente. |
-|Componenti hardware connessi|eventPriorityConnectedHardware |Basso |True |Snapshot di tutti i componenti hardware connessi al dispositivo.|
-|Porte in ascolto|eventPriorityListeningPorts |Alto |True |Snapshot di tutte le porte in ascolto sul dispositivo.|
-|Crea processo |eventPriorityProcessCreate |Basso |Falso |I controlli di elaborano la creazione del dispositivo.|
-|Processo interrotto|eventPriorityProcessTerminate |Basso |Falso |I controlli di chiusura sul dispositivo del processo.| 
-|Informazioni di sistema |eventPrioritySystemInformation |Basso |True |Un'istantanea delle informazioni di sistema (ad esempio: Sistema operativo o CPU).| 
-|Utenti locali| eventPriorityLocalUsers |Alto |True|Uno snapshot degli utenti locali registrati all'interno del sistema. |
-|Account di accesso|  eventPriorityLogin |Alto|Falso|Controllare gli eventi di accesso al dispositivo (accessi locali e remoti).|
-|Crea connessione |eventPriorityConnectionCreate|Basso|Falso|Consente di controllare le connessioni TCP create da e verso il dispositivo. |
-|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True|Snapshot della configurazione del firewall dispositivo (regole del firewall). |
-|Linea di base del sistema operativo| eventPriorityOSBaseline| Basso|True|Snapshot della linea di base del sistema operativo dispositivo controllare.|
+|Evento di diagnostica|eventPriorityDiagnostic| Off| False| Gli eventi di diagnostica correlati all'agente. Usare questo evento per la registrazione dettagliata.| 
+|Errore di configurazione |eventPriorityConfigurationError |Basso |False |Agente non è riuscito ad analizzare la configurazione. Verificare la configurazione a fronte dello schema.| 
+|Statistiche di eventi eliminati |eventPriorityDroppedEventsStatistics |Basso |True |Le statistiche di eventi correlati all'agente. |
+|Statistiche relative ai messaggi|eventPriorityMessageStatistics |Basso |True  |Statistiche relative ai messaggi correlati all'agente. |
+|Componenti hardware connessi|eventPriorityConnectedHardware |Basso |True  |Snapshot di tutti i componenti hardware connessi al dispositivo.|
+|Porte in ascolto|eventPriorityListeningPorts |Alto |True  |Snapshot di tutte le porte in ascolto sul dispositivo.|
+|Crea processo |eventPriorityProcessCreate |Basso |False |I controlli di elaborano la creazione del dispositivo.|
+|Processo interrotto|eventPriorityProcessTerminate |Basso |False |I controlli di chiusura sul dispositivo del processo.| 
+|Informazioni di sistema |eventPrioritySystemInformation |Basso |True  |Un'istantanea delle informazioni di sistema (ad esempio: Sistema operativo o CPU).| 
+|Utenti locali| eventPriorityLocalUsers |Alto |True |Uno snapshot degli utenti locali registrati all'interno del sistema. |
+|Login|  eventPriorityLogin |Alto|False|Controllare gli eventi di accesso al dispositivo (accessi locali e remoti).|
+|Crea connessione |eventPriorityConnectionCreate|Basso|False|Consente di controllare le connessioni TCP create da e verso il dispositivo. |
+|Configurazione del firewall| eventPriorityFirewallConfiguration|Basso|True |Snapshot della configurazione del firewall dispositivo (regole del firewall). |
+|Linea di base del sistema operativo| eventPriorityOSBaseline| Basso|True |Snapshot della linea di base del sistema operativo dispositivo controllare.|
  
 
 ## <a name="next-steps"></a>Passaggi successivi

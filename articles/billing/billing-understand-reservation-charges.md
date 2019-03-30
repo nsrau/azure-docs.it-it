@@ -1,6 +1,6 @@
 ---
-title: Informazioni sullo sconto sulle prenotazioni di Azure | Microsoft Docs
-description: Informazioni su come viene applicato ai database SQL in esecuzione lo sconto sulla prenotazione.
+title: Comprendere lo sconto di prenotazione per i database SQL di Azure | Microsoft Docs
+description: Informazioni su come viene applicato uno sconto di prenotazione all'esecuzione di database SQL di Azure.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845460"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649442"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Informazioni su come viene applicato ai database SQL lo sconto sulla prenotazione
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Informazioni su come viene applicato uno sconto di prenotazione per i database SQL di Azure
 
 Dopo avere acquistato capacità riservata per il database SQL di Azure, lo sconto sulla prenotazione viene automaticamente applicato ai database SQL che corrispondono agli attributi e alla quantità della prenotazione. Una prenotazione comprende i costi delle risorse di calcolo del database SQL. Vengono addebitate le tariffe normali per software, archiviazione e rete. È possibile coprire i costi di licenza per i database SQL con il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -54,6 +54,6 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Informazioni sull'utilizzo della prenotazione per sottoscrizioni CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 
 Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872647"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648847"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Visualizzare e scaricare l'utilizzo di Azure e i costi
 
@@ -28,7 +28,7 @@ Se si è un cliente con contratto Enterprise Agreement o avere un [contratto di 
 
 Solo determinati ruoli dispongono dell'autorizzazione per ottenere le informazioni sull'utilizzo di Azure, ad esempio l'Account amministratore o amministratore dell'organizzazione. Per altre informazioni sull'accesso alle informazioni di fatturazione, vedere [Manage access to Azure billing using roles](billing-manage-access.md) (Gestire l'accesso alla fatturazione di Azure usando i ruoli).
 
-Se si dispone di un [contratto di Microsoft dal cliente](#Check-your-access-to-a-Microsoft-Customer-Agreement), è necessario essere un profilo di fatturazione proprietario, collaboratore, lettore, o manager per visualizzare l'utilizzo di Azure e i costi della fattura. Per altre informazioni sui ruoli di fatturazione per i contratti dei clienti Microsoft, vedere [attività e ruoli del profilo di fatturazione](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Se si dispone di un [contratto di Microsoft dal cliente](#check-your-access-to-a-microsoft-customer-agreement), è necessario essere un profilo di fatturazione proprietario, collaboratore, lettore, o manager per visualizzare l'utilizzo di Azure e i costi della fattura. Per altre informazioni sui ruoli di fatturazione per i contratti dei clienti Microsoft, vedere [attività e ruoli del profilo di fatturazione](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Scaricare i dati di utilizzo dal Centro account (CSV)
 

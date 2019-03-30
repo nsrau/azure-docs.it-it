@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo | Microsoft Docs
+title: Informazioni sull'utilizzo di prenotazioni di Azure per la sottoscrizione con pagamento a consumo | Microsoft Docs
 description: Informazioni su come leggere l'utilizzo per identificare come viene applicata la prenotazione di Azure per la sottoscrizione con pagamento in base al consumo.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883781"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652536"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Informazioni sull'utilizzo della prenotazione di Azure per la sottoscrizione con pagamento in base al consumo
 
@@ -64,7 +64,7 @@ Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazion
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilizzo delle prenotazioni di capacità riservata del database SQL e Cosmos DB
 
-Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere il report di utilizzo. È possibile seguire questi stessi passaggi anche per l'utilizzo in Azure Cosmos DB. 
+Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere il report di utilizzo. È possibile seguire questi stessi passaggi anche per l'utilizzo in Azure Cosmos DB.
 
 Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
@@ -93,6 +93,10 @@ Applicare un filtro in **Informazioni aggiuntive** e digitare l'**ID prenotazion
 2. **ConsumptionMeter** è l'ID contatore per la risorsa database SQL.
 3. **ID contatore** è il contatore della prenotazione. Il costo di questo contatore è $ 0. Questo ID contatore è presente nel file CSV per qualsiasi risorsa database SQL idonea per lo sconto sulla prenotazione.
 
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
@@ -104,9 +108,3 @@ Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti
 - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
-
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-

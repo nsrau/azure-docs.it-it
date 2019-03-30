@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104489"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652587"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Criteri degli endpoint di servizio di rete virtuale (anteprima)
 
@@ -145,7 +145,7 @@ I criteri degli endpoint di servizio di rete virtuale offrono i vantaggi seguent
 - **Reti virtuali multiple, connesse o con peering**: per filtrare il traffico nelle reti virtuali con peering, i criteri degli endpoint devono essere applicati individualmente a tali reti virtuali.
 - **Filtro del traffico Internet con appliance di rete o Firewall di Azure**: filtrare il traffico dei servizi di Azure con i criteri sugli endpoint e filtrare il resto del traffico Internet o di Azure tramite appliance o Firewall di Azure. 
 - **Filtro del traffico nei servizi di Azure distribuiti nelle reti virtuali**: durante l'anteprima, i criteri degli endpoint di servizio non sono supportati per i servizi di Azure gestiti distribuiti nella rete virtuale. 
- Per i servizi specifici, vedere [Limitazioni](#Limitations).
+ Per i servizi specifici, vedere [Limitazioni](#limitations).
 - **Filtro del traffico dall'ambiente locale ai servizi di Azure**: i criteri degli endpoint di servizio si applicano solo al traffico dalle subnet associate ai criteri. Per consentire l'accesso a risorse dei servizi di Azure specifiche dall'ambiente locale, il traffico deve essere filtrato tramite firewall o appliance virtuali di rete.
 
 ## <a name="logging-and-troubleshooting"></a>Registrazione e risoluzione dei problemi

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399982"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648640"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
-Dopo che si acquista una prenotazione di Azure, potrebbe essere necessario applicare la prenotazione a una sottoscrizione diversa, modificare chi può gestire la prenotazione, o modificare l'ambito della prenotazione. È inoltre possibile dividere una prenotazione in due prenotazioni per applicare alcune delle istanze acquistate a un'altra sottoscrizione.
+Dopo l'acquisto di una prenotazione per Azure, potrebbe essere necessario applicare la prenotazione a una sottoscrizione diversa, modificare chi può gestire la prenotazione, o modificare l'ambito della prenotazione. È inoltre possibile dividere una prenotazione in due prenotazioni per applicare alcune delle istanze acquistate a un'altra sottoscrizione.
 
 Se si acquistano le istanze di macchina virtuale riservate di Azure, è possibile modificare l'impostazione di ottimizzazione per la prenotazione. Lo sconto della prenotazione può essere applicato alle macchine virtuali nella stessa serie oppure è possibile riservare capacità del data center per una dimensione di macchina virtuale specifica.
 
@@ -123,12 +123,20 @@ Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
-- [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
+- [Quali sono le prenotazioni per Azure?](billing-save-compute-costs-reservations.md)
+
+Acquista un piano di servizio:
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Pagare in anticipo le risorse di Azure Cosmos DB con capacità riservata di Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Acquista un piano software:
+- [Pagare in anticipo per i piani software Red Hat dalle prenotazioni di Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Pagare in anticipo per i piani software SUSE dalle prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Comprendere lo sconto e utilizzo:
 - [Informazioni su come viene applicato lo sconto sulla prenotazione di macchine virtuali](billing-understand-vm-reservation-charges.md)
+- [Informazioni su come viene applicato lo sconto relativo piano software Red Hat Enterprise Linux](../billing/billing-understand-rhel-reservation-charges.md)
 - [Informazioni su come viene applicato lo sconto relativo al piano software SUSE Linux Enterprise](../billing/billing-understand-suse-reservation-charges.md)
 - [Informazioni su come vengono applicati gli altri sconti sulla prenotazione](billing-understand-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)

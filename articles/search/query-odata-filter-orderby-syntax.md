@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ab98c3be75fb59603be66ee84e0d288de56cdc91
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578408"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648504"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintassi delle espressioni OData filter e order-by in Ricerca di Azure
 
@@ -84,9 +84,11 @@ POST /indexes/hotels/docs/search?api-version=2017-11-11
 
 - La funzione `search.in` verifica se il campo di una determinata stringa è uguale a quello di un determinato elenco di valori. Può essere usata anche in any o in all per confrontare un singolo valore di un campo di una raccolta di stringhe con un determinato elenco di valori. Per determinare l'uguaglianza tra il campo e ogni valore dell'elenco viene applicata la distinzione tra minuscole e maiuscole, come per l'operatore `eq`. Un'espressione come `search.in(myfield, 'a, b, c')` equivale quindi a `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`, tranne per il fatto che `search.in` garantisce prestazioni di gran lunga migliori. 
 
-  Il primo parametro della funzione `search.in` è il riferimento di campo di tipo stringa (o una variabile di intervallo in un campo di una raccolta di stringhe se `search.in` viene usata in un'espressione `any` o `all`). Il secondo parametro è una stringa che contiene l'elenco di valori, separati da spazi e/o virgole. Se è necessario usare separatori diversi da spazi e virgole perché i valori includono tali caratteri, è possibile specificare un terzo parametro facoltativo per `search.in`. 
-
-  Il terzo parametro è una stringa in cui ogni carattere della stringa o ogni subset di questa stringa viene considerato come separatore durante l'analisi dell'elenco di valori nel secondo parametro.
+   Il primo parametro della funzione `search.in` è il riferimento di campo di tipo stringa (o una variabile di intervallo in un campo di una raccolta di stringhe se `search.in` viene usata in un'espressione `any` o `all`). 
+  
+   Il secondo parametro è una stringa che contiene l'elenco di valori, separati da spazi e/o virgole. 
+  
+   Il terzo parametro è una stringa in cui ogni carattere della stringa o subset di questa stringa viene considerato come un separatore per analizzare l'elenco di valori nel secondo parametro. Se è necessario usare separatori diversi da spazi e virgole perché i valori includono tali caratteri, è possibile specificare un terzo parametro facoltativo per `search.in`. 
 
   > [!NOTE]   
   > Alcuni scenari richiedono di confrontare un campo con un numero elevato di valori costanti. Ad esempio, l'implementazione della limitazione per motivi di sicurezza con i filtri potrebbe richiedere di confrontare il campo dell'ID del documento con un elenco di ID per cui il richiedente ottiene l'accesso in lettura. In scenari come questo è consigliabile usare la funzione `search.in` invece di una disgiunzione più complessa di espressioni di uguaglianza. Usare, ad esempio, `search.in(Id, '123, 456, ...')` invece di `Id eq 123 or Id eq 456 or ....`. 
@@ -207,7 +209,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Trovare tutti gli alberghi con nome uguale a 'Motel rocca' o 'hotel Budget'). Frasi contengono spazi, che è un delimitatore di impostazione predefinita. Per specificare un override di delimitatore, racchiudere il nuovo delimitatore tra virgolette singole come parte dell'espressione di filtro:  
+Trovare tutti gli alberghi con nome uguale a 'Motel rocca' o 'hotel Budget'). Frasi contengono spazi, che è un delimitatore di impostazione predefinita. È possibile specicfy un delimitatore alternativo tra virgolette singole come terzo parametro di stringa:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -225,7 +227,7 @@ Trovare tutti gli alberghi con il tag "wifi" o "pool":
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
 ```
 
-Trovare una corrispondenza su più tag, 'towel riscaldato rack' o 'asciugacapelli incluso'. Ricordarsi di specificare un delimitatore alternativo quando il delimitatore predefinito è praticabile. 
+Trovare una corrispondenza in frasi all'interno di una raccolta, ad esempio 'towel riscaldato rack' o 'asciugacapelli incluso' nei tag. 
 
 ```
 $filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
@@ -316,7 +318,7 @@ $orderby=search.score() desc,rating desc,geo.distance(location, geography'POINT(
 
 -   `any/all` con espressioni lambda arbitrarie  
 
-## <a name="see-also"></a>Vedere anche  
+## <a name="see-also"></a>Vedere anche   
 
 + [Navigazione sfaccettata nella ricerca di Azure](search-faceted-navigation.md) 
 + [Filtri in Ricerca di Azure](search-filters.md) 

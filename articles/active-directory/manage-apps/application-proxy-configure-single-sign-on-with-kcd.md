@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: H1Hack27Feb2017, it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c7744ba4ca37a2a496c75a50f274be9bf431cc5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3c2461240b398a2b23bb2b2aedc524277d6b9771
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286585"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652519"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Delega vincolata Kerberos per l'accesso Single Sign-On alle app con il proxy di applicazione
 
@@ -82,7 +82,7 @@ Get-ADComputer sharepointserviceaccount -Properties PrincipalsAllowedToDelegateT
 2. Quando l'applicazione viene visualizzata nell'elenco delle applicazioni aziendali, selezionarla e fare clic su **Single Sign-On**.
 3. Impostare la modalità Single Sign-On su **Autenticazione integrata di Windows**.  
 4. Immettere l’ **SPN dell'applicazione interna** del server dell'applicazione. In questo esempio l'SPN per l'applicazione pubblicata è http/www.contoso.com. Questo nome SPN deve essere nell'elenco dei servizi a cui il connettore può presentare credenziali delegate. 
-5. Scegliere l'**identità di accesso delegato** che il connettore userà per conto degli utenti. Per altre informazioni, vedere [Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche](#Working-with-different-on-premises-and-cloud-identities)
+5. Scegliere l'**identità di accesso delegato** che il connettore userà per conto degli utenti. Per altre informazioni, vedere [Utilizzo dell'accesso Single Sign-On quando le identità cloud e locali non sono identiche](#working-with-different-on-premises-and-cloud-identities)
 
    ![Configurazione avanzata dell'applicazione](./media/application-proxy-configure-single-sign-on-with-kcd/cwap_auth2.png)  
 

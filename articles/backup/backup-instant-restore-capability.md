@@ -8,17 +8,17 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: sogup
-ms.openlocfilehash: 21aa01ec8382341de34cca743b9e088598872659
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1f96c47e993e9b3d123972aba8eefc54b1d5cdfa
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578901"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652672"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Ottenere prestazioni migliori per backup e ripristino con la funzionalità Ripristino istantaneo di Backup di Azure
 
 > [!NOTE]
-> In base al feedback degli utenti lo **stack di backup di macchine virtuali V2** viene rinominato **Ripristino istantaneo** per evitare confusione con la funzionalità Azure Stack.
+> In base al feedback degli utenti lo **stack di backup di macchine virtuali V2** viene rinominato **Ripristino istantaneo** per evitare confusione con la funzionalità Azure Stack.<br/><br/> A questo punto, tutti gli utenti Azure backup sono stati aggiornati a **ripristino istantaneo**.
 
 Il nuovo modello per Ripristino istantaneo offre i miglioramenti delle funzionalità seguenti:
 
@@ -60,15 +60,25 @@ Gli snapshot incrementali vengono archiviati nell'account di archiviazione della
 >[!NOTE]
 > La conservazione degli snapshot è stato risolto per 5 giorni per i criteri ogni settimana.
 
-## <a name="configure-snapshot-retention-using-the-azure-portal"></a>Configurare la conservazione degli snapshot tramite il portale di Azure
+## <a name="configure-snapshot-retention"></a>Configurare la conservazione degli snapshot
 
-**Tutti i backup gli utenti di Azure a questo punto sono stati aggiornati per il ripristino immediato**.
+### <a name="using-azure-portal"></a>Uso del portale di Azure
 
 Nel portale di Azure, è possibile visualizzare un campo aggiunto nel **criteri di Backup di macchine Virtuali** pannello sotto il **ripristino istantaneo** sezione. È possibile cambiare la durata della conservazione degli snapshot nel pannello **Criteri di backup di macchine virtuali** per tutte le macchine virtuali associate al criterio di backup specifico.
 
 ![Funzionalità Ripristino istantaneo](./media/backup-azure-vms/instant-restore-capability.png)
 
-Per configurare la conservazione degli snapshot tramite Powershell, vedere [questo documento](backup-azure-vms-automation.md#configuring-instant-restore-snapshot-retention).
+### <a name="using-powershell"></a>Tramite PowerShell
+
+>[!NOTE]
+> Da Az PowerShell versione 1.6.0 e versioni successive, è possibile aggiornare il periodo di conservazione snapshot di ripristino immediato nel criterio tramite PowerShell
+
+```powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=5
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+```
+Il periodo di conservazione dello snapshot predefinita per ogni criterio è impostato su 2 giorni. Utente può modificare il valore minimo pari a 1 e un massimo di 5 giorni. Per i criteri ogni settimana, il periodo di conservazione dello snapshot è stato risolto per 5 giorni.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240168"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648820"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Rilevare e risolvere i problemi di disconnessione per l'hub IoT di Azure
 
@@ -32,7 +32,7 @@ Per registrare gli eventi e gli errori di connessione dei dispositivi, attivare 
 1. Selezionare **Impostazioni di diagnostica**.
 1. Selezionare **Attiva diagnostica**.
 1. Abilitare la raccolta dei log **Connessioni**.
-1. Per semplificare l'analisi, è necessario attivare **Invia a Log Analytics** ([vedere i prezzi](https://azure.microsoft.com/pricing/details/log-analytics/)). Vedere l'esempio sotto [Risolvere gli errori di connettività](#Resolve-connectivity-errors).
+1. Per semplificare l'analisi, è necessario attivare **Invia a Log Analytics** ([vedere i prezzi](https://azure.microsoft.com/pricing/details/log-analytics/)). Vedere l'esempio sotto [Risolvere gli errori di connettività](#resolve-connectivity-errors).
 
    ![Impostazioni consigliate][2]
 
@@ -40,15 +40,14 @@ Per altre informazioni, vedere [Monitorare l'integrità dell'hub IoT di Azure ed
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Impostare avvisi per la metrica di conteggio dei _dispositivi connessi_
 
-Per ricevere avvisi quando i dispositivi si disconnettono, configurare gli avvisi per la metrica **Dispositivi connessi**.
+Per ottenere avvisi quando disconnettere i dispositivi, configurare avvisi per i **connessi dispositivi (anteprima)** metrica.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Passare all'hub IoT.
-1. Selezionare **Avvisi (versione classica)**.
-1. Selezionare **Aggiungi avviso per la metrica (versione classica)**.
-1. Compilare il modulo e selezionare **OK**.
-
-   ![Avviso per la metrica consigliato][3]
+1. Selezionare **Avvisi**.
+1. Selezionare **nuova regola di avviso**.
+1. Selezionare **Aggiungi condizione**, quindi selezionare "Connesso i dispositivi (anteprima)".
+1. Completare l'impostazione di soglie desiderate e opzioni di avviso da richieste seguenti.
 
 Per altre informazioni, vedere [Cosa sono gli avvisi classici in Microsoft Azure?](../azure-monitor/platform/alerts-overview.md).
 

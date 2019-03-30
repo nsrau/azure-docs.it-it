@@ -14,17 +14,16 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 8dc0a003a12eb0aca28c6a3238e2119dc449d661
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6cfe9b61d9bbb088e827386b2195bba21333937e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309419"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649087"
 ---
 # <a name="create-a-self-test-client-to-pre-validate-an-azure-virtual-machine-image"></a>Creare un client di verifica automatica per la convalida preliminare dell'immagine di una macchina virtuale di Azure
 
 Usare questo articolo come guida per la creazione di un servizio client che utilizza l'API di verifica automatica. È possibile usare l'API di verifica automatica per preconvalidare una macchina virtuale e assicurarsi che soddisfi i requisiti di pubblicazione di Azure Marketplace più recenti. Il servizio client consente di testare una macchina virtuale prima di inviare l'offerta per la certificazione Microsoft.
-
 
 ## <a name="development-and-testing-overview"></a>Panoramica di sviluppo e test
 
@@ -41,13 +40,11 @@ I passaggi principali per la creazione di un client di verifica automatica sono:
 
 Dopo aver creato il client, è possibile eseguire il test nella macchina virtuale.
 
-
 ### <a name="self-test-client-authorization"></a>Autorizzazione del client di verifica automatica
 
 Il diagramma seguente mostra il funzionamento dell'autorizzazione per le chiamate da servizio a servizio usando le credenziali del client (segreto condiviso o certificato).
 
 ![Processo di autorizzazione client](./media/stclient-dev-process.png)
-
 
 ## <a name="the-self-test-client-api"></a>API client di verifica automatica
 
@@ -67,7 +64,6 @@ Request body:    The Request body parameters should use the following JSON forma
                    "PortNo":"22",
                    "CompanyName":"ABCD",
                  }
-
 ```
 
 La tabella seguente descrive i campi dell'API.
@@ -83,11 +79,9 @@ La tabella seguente descrive i campi dell'API.
 |  PortNo            |  Numero della porta aperta per la connessione alla macchina virtuale. Il numero della porta in genere è `22` per Linux e `5986` per Windows.          |
 |  |  |
 
-
 ## <a name="consuming-the-api"></a>Utilizzo dell'API
 
 È possibile utilizzare l'API di verifica automatica con PowerShell o cURL.
-
 
 ### <a name="use-powershell-to-consume-the-api-on-the-linux-os"></a>Utilizzare l'API nel sistema operativo Linux con PowerShell
 
@@ -112,7 +106,7 @@ $Body = @{
     "CompanyName" = "ABCD"
 
 } | ConvertTo-Json
-$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers; 
+$res = Invoke-WebRequest -Method "Post" -Uri $uri -Body $Body -ContentType "application/json" –Headers $headers;
 $Content = $res | ConvertFrom-Json
 ```
 La schermata seguente mostra un esempio per chiamare l'API in PowerShell.
@@ -128,7 +122,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -186,7 +180,7 @@ $testresult = ConvertFrom-Json –InputObject (ConvertFrom-Json –InputObject $
   Write-Host "OSVersion: $($testresult.OSVersion)"
   Write-Host "Overall Test Result: $($testresult.TestResult)"
 
-For ($i=0; $i -lt $testresult.Tests.Length; $i++) 
+For ($i=0; $i -lt $testresult.Tests.Length; $i++)
 {
     Write-Host "TestID: $($testresult.Tests[$i].TestID)"
     Write-Host "TestCaseName: $($testresult.Tests[$i].TestCaseName)"
@@ -213,12 +207,12 @@ Per chiamare l'API con cURL, seguire questa procedura:
 2. Il metodo è POST e il tipo di contenuto è JSON, come illustrato nel frammento di codice seguente.
 
 ```
-CURL POST -H "Content-Type:application/json" 
+CURL POST -H "Content-Type:application/json"
 -H "Authorization: Bearer XXXXXX-Token-XXXXXXXX”
-https://isvapp.azurewebsites.net/selftest-vm 
+https://isvapp.azurewebsites.net/selftest-vm
 -d '{ "DNSName":"XXXX.westus.cloudapp.azure.com", "User":"XXX", "Password":"XXXX@123456", "OS":"Linux", "PortNo":"22", "CompanyName":"ABCD"}'
-
 ```
+
 La schermata seguente mostra un esempio dell'uso di curl per chiamare l'API.
 
 ![Chiamare l'API usando il comando curl](./media/stclient-consume-api-curl.png)
@@ -242,7 +236,7 @@ Seguire questa procedura per scegliere il tenant di Azure AD in cui si vuole cre
    Nei passaggi seguenti può essere necessario il nome del tenant (o della directory) oppure l'ID del tenant (o della directory).
 
    **Per ottenere le informazioni sul tenant:**
-  
+
    Nella **Panoramica di Azure Active Directory** cercare "Proprietà" e quindi selezionare **Proprietà**. Usare la schermata seguente come esempio:
 
    - **Nome** -Nome del tenant o della directory
@@ -284,7 +278,7 @@ Seguire questa procedura per registrare l'app client.
 14. Fare clic su **Seleziona**.
 15. Selezionare **Operazione completata**.
 16. In **Impostazioni** selezionare **Proprietà**.
-17. In **Proprietà** scorrere verso il basso fino a **Multi-tenant**. Selezionare **Sì**.  
+17. In **Proprietà** scorrere verso il basso fino a **Multi-tenant**. Selezionare **Sì**.
 
     ![Configurare il supporto multi-tenant per l'app](./media/stclient-yes-multitenant.png)
 
@@ -319,6 +313,7 @@ Per creare e ottenere un token tramite l'API REST di OAuth, è possibile usare u
 Method Type : POST
 Base Url: https://login.microsoftonline.com/common/oauth2/token
 ```
+
 Passare i parametri seguenti nel corpo della richiesta:
 
 ```
@@ -364,7 +359,7 @@ La schermata seguente illustra un esempio dell'uso del comando curl per ottenere
 
 Per richiedere token a Auth0 per qualsiasi applicazione autorizzata, eseguire un'operazione POST sull'endpoint [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) con un payload nel formato seguente:
 
-```
+```csharp
 string clientId = "Your Application Id";
 string clientSecret = "Your Application Secret";
 string audience = "https://management.core.windows.net";
@@ -387,7 +382,7 @@ var token = JObject.Parse(content)["access_token"];
 
 Per richiedere token a Auth0 per qualsiasi applicazione autorizzata, eseguire un'operazione POST sull'endpoint [https://soamtenant.auth0.com/oauth/token](https://soamtenant.auth0.com/oauth/token) con un payload nel formato seguente:
 
-```
+```powershell
 $clientId = "Application Id of AD Client APP";
 $clientSecret = "Secret Key of AD Client APP “
 $audience = "https://management.core.windows.net";
@@ -402,14 +397,13 @@ resp = Invoke-WebRequest -Method Post -Uri $authority -Headers $headers -Content
 
 $token = $resp.Content | ConvertFrom-Json
 $token.AccessToken
-
 ```
 
 ## <a name="pass-the-client-app-token-to-the-api"></a>Passare il token dell'app client all'API
 
 Passare il token all'API di verifica automatica usando il codice seguente nell'intestazione dell'autorizzazione:
 
-```
+```powershell
 $redirectUri = ‘https://isvapp.azurewebsites.net/selftest-vm’
 $accesstoken = ‘place your token here’
 
@@ -426,9 +420,8 @@ $Body =
 
 $result=Invoke-WebRequest -Method Post -Uri $redirectUri -Headers $headers -ContentType 'application/json' -Body $Body
 $result
-echo 'Test Results:'
+Write-Output 'Test Results:'
 $result.Content
-
 ```
 
 ## <a name="test-your-self-test-client"></a>Testare il client di verifica automatica
@@ -445,7 +438,7 @@ I frammenti di codice seguenti mostrano mostra i risultati del test in formato J
 
 **Risultati del test per una macchina virtuale Windows:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
@@ -484,7 +477,7 @@ I frammenti di codice seguenti mostrano mostra i risultati del test in formato J
 
 **Risultati del test per una macchina virtuale Linux:**
 
-```
+```json
 {
   "SchemaVersion": 1,
   "AppCertificationCategory": "Microsoft Single VM Certification",
