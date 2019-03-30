@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210510"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665050"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gestire le impostazioni per la verifica in due passaggi
 Questo articolo risponde a domande su come aggiornare le impostazioni della verifica in due passaggi o della Multi-Factor Authentication. Se si sono verificati problemi di accesso all'account, vedere le informazioni relative ai [problemi con la verifica in due passaggi](multi-factor-authentication-end-user-troubleshoot.md) che potrebbero essere utili.
@@ -50,7 +50,7 @@ Se facendo clic su questo collegamento non si ottiene il risultato desiderato, �
     ![Verifica](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Si desidera modificare il numero di telefono o aggiungere un numero secondario
-È importante configurare un numero di telefono di autenticazione secondario.  Poiché il numero di telefono primario e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è l'unico modo che consente di accedere di nuovo all'account in caso di perdita o furto del telefono.
+È importante configurare un numero di telefono di autenticazione secondario.  Poiché il numero di telefono principale e l'app per dispositivi mobili si trovano probabilmente sullo stesso telefono, il numero di telefono secondario è il modo più rapido sarà possibile rientrare nel proprio account, se il telefono viene smarrito o rubato.
 
 > [!NOTE]
 > Se non si ha accesso al proprio numero di telefono principale e si ha bisogno di assistenza per accedere al proprio account, vedere l'articolo [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) (Informazioni sulla verifica in due passaggi).  

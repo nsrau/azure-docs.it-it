@@ -4,7 +4,7 @@ description: Informazioni su come aggiornare la configurazione di un cluster aut
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857876"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665603"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Aggiornare la configurazione di un cluster autonomo 
 
@@ -73,13 +73,13 @@ Per l'autenticazione tra i nodi del cluster viene usato un certificato del clust
 
 Sono supportate quattro opzioni:  
 
-* Aggiornamento certificato singolo: il percorso di aggiornamento è "Certificato (primario)-> Certificato B (primario)-> Certificato C (primario)->...".
+* Aggiornamento certificato singolo: Il percorso di aggiornamento è certificato A (primario) -> certificato B (primario) -> certificato C (primario) ->...
 
-* Aggiornamento certificato doppio: il percorso di aggiornamento è "Certificato A (primario) -> Certificato A (primario) e B (secondario) -> Certificato B (primario) -> Certificato B (primario) e C (secondario) -> Certificato C (primario) ->...".
+* Aggiornamento certificato doppio: Il percorso di aggiornamento è certificato A (primario) -> certificato A (primario) e B (secondario) -> certificato B (primario) -> certificato B (primario) e C (secondario) -> certificato C (primario) ->...
 
-* Aggiornamento del tipo di certificato: configurazione dei certificati basati su identificazione personale <-> configurazione dei certificati basati su CommonName. Ad esempio, identificazione personale del certificato A (primario) e identificazione personale B (secondario) -> CommonName del certificato C.
+* Aggiornamento di tipo certificato: Configurazione di certificati basati su CommonName configurazione <> – basati su identificazione personale del certificato. Ad esempio, identificazione personale del certificato A (primario) e identificazione personale B (secondario) -> CommonName del certificato C.
 
-* Aggiornamento dell'identificazione personale dell'autorità di certificazione: il percorso di aggiornamento è "Certificato CN=A,IssuerThumbprint=IT1 (primario) -> Certificato CN=A,IssuerThumbprint=IT1,IT2 (primario) -> Certificato CN=A,IssuerThumbprint=IT2 (primario)".
+* Aggiornamento dell'identificazione personale dell'autorità emittente del certificato: Il percorso di aggiornamento è certificato CN = A, IssuerThumbprint CN=a,issuerthumbprint=IT1 (primario) -> certificato CN=A,ISSUERTHUMBPRINT=IT1,IT2 = A, IssuerThumbprint CN=a,issuerthumbprint=IT1, IT2 (primario) -> certificato CN=A,ISSUERTHUMBPRINT=IT1,IT2 = A, IssuerThumbprint CN=a,issuerthumbprint=it2 (primario).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
