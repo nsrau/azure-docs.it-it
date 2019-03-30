@@ -4,7 +4,7 @@ description: Descrive i comandi dell'interfaccia della riga di comando di Servic
 services: service-fabric
 documentationcenter: na
 author: Christina-Kang
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 12/06/2018
 ms.author: bikang
-ms.openlocfilehash: a8ac3899b6ae80668c4472f24b508ba6ba7e2644
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: 04080d75042bfa8a07533336936165e0abef051b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53275313"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664133"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 Consente di eseguire query e inviare comandi al servizio di gestione di ripristino.

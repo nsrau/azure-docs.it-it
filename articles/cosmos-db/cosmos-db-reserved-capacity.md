@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 80c35d8417fefa2873cbef9886f56ccfa3920624
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0e0d1cd98f27ef40681e37a55f7021bf102fda21
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409466"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664269"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Ottimizzare il costo con la capacità riservata in Azure Cosmos DB
 
@@ -20,7 +20,7 @@ La capacità riservata di Azure Cosmos DB permette di risparmiare grazie al paga
 
 La capacità riservata di Azure Cosmos DB consente di ridurre in modo significativo i costi di Cosmos DB, fino al 65% rispetto ai prezzi normali, con un impegno anticipato di un anno o di tre anni. La capacità riservata permette di ottenere uno sconto a livello di fatturazione e non ha alcuna ripercussione sullo stato di runtime delle risorse di Azure Cosmos DB.
 
-La capacità riservata di Azure Cosmos DB copre la velocità effettiva con provisioning relativa alle risorse. Non copre i costi di archiviazione e rete. Non appena si acquista una prenotazione, i costi per la velocità effettiva che corrispondono agli attributi della prenotazione non vengono più addebitati alle tariffe con pagamento in base al consumo. Per altre informazioni sulle prenotazioni, vedere l'articolo [Informazioni sulle prenotazioni di Azure](../billing/billing-save-compute-costs-reservations.md). 
+La capacità riservata di Azure Cosmos DB copre la velocità effettiva con provisioning relativa alle risorse. Non copre i costi di archiviazione e rete. Non appena si acquista una prenotazione, i costi per la velocità effettiva che corrispondono agli attributi della prenotazione non vengono più addebitati alle tariffe con pagamento in base al consumo. Per altre informazioni sulle prenotazioni, vedere l'articolo [Informazioni sulle prenotazioni di Azure](../billing/billing-save-compute-costs-reservations.md).
 
 È possibile acquistare capacità riservata di Azure Cosmos DB dal [portale di Azure](https://portal.azure.com). Per acquistare capacità riservata:
 
@@ -48,7 +48,7 @@ Le dimensioni della prenotazione devono essere basate sulla quantità totale di 
 
 4. Compilare i campi obbligatori come descritto nella tabella seguente:
 
-   ![Compilare il modulo per la capacità riservata](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png) 
+   ![Compilare il modulo per la capacità riservata](./media/cosmos-db-reserved-capacity/fill_reserved_capacity_form.png)
 
    |Campo  |DESCRIZIONE  |
    |---------|---------|
@@ -61,17 +61,17 @@ Le dimensioni della prenotazione devono essere basate sulla quantità totale di 
 
 5. Esaminare lo sconto e il prezzo della prenotazione nella sezione **Costi**. Il prezzo della prenotazione si applica alle risorse di Azure Cosmos DB con velocità effettiva di cui è stato effettuato il provisioning in tutte le aree.  
 
-6. Selezionare **Acquisto**. Se l'acquisto ha esito positivo, viene visualizzata la pagina seguente: 
+6. Selezionare **Acquisto**. Se l'acquisto ha esito positivo, viene visualizzata la pagina seguente:
 
-   ![Compilare il modulo per la capacità riservata](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png) 
+   ![Compilare il modulo per la capacità riservata](./media/cosmos-db-reserved-capacity/reserved_capacity_successful.png)
 
-Dopo l'acquisto, una prenotazione viene applicata immediatamente a tutte le risorse esistenti di Azure Cosmos DB che corrispondono ai termini della prenotazione. Se non ci sono risorse di Azure Cosmos DB esistenti, la prenotazione verrà applicata quando si distribuisce una nuova istanza di Cosmos DB che corrisponde ai termini della prenotazione. In entrambi i casi, il periodo della prenotazione inizia immediatamente dopo l'acquisto. 
+Dopo l'acquisto, una prenotazione viene applicata immediatamente a tutte le risorse esistenti di Azure Cosmos DB che corrispondono ai termini della prenotazione. Se non ci sono risorse di Azure Cosmos DB esistenti, la prenotazione verrà applicata quando si distribuisce una nuova istanza di Cosmos DB che corrisponde ai termini della prenotazione. In entrambi i casi, il periodo della prenotazione inizia immediatamente dopo l'acquisto.
 
 Quando la prenotazione scade, le istanze di Azure Cosmos DB continuano a essere eseguite e vengono fatturate alle normali tariffe con pagamento in base al consumo.
 
 ## <a name="cancellation-and-exchanges"></a>L'annullamento e scambi
 
-Per informazioni su come identificare la capacità riservata a destra, vedere [informazioni su come viene applicato lo sconto di prenotazione ad Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). Nell'evento, è necessario annullare o scambiare una prenotazione di Azure Cosmos DB, contattare il team di Azure Cosmos DB `AskCosmosDB@microsoft.com`.
+Per informazioni su come identificare la capacità riservata a destra, vedere [informazioni su come viene applicato lo sconto di prenotazione ad Azure Cosmos DB](../billing/billing-understand-cosmosdb-reservation-charges.md). Se è necessario annullare o scambiare una prenotazione di Azure Cosmos DB, vedere [scambi di prenotazione e rimborsi](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -90,4 +90,3 @@ Lo sconto per la prenotazione si applica automaticamente alle risorse di Azure C
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
 
 In caso di domande o per assistenza, [creare una richiesta di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

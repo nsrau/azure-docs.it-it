@@ -41,7 +41,7 @@ items:
   - name: Proteggere gli artefatti
     href: resource-manager-tutorial-secure-artifacts.md
   - name: Usare procedure di distribuzione sicure
-    displayName: azure deployment manager
+    displayName: adm
     href: deployment-manager-tutorial.md
   - name: Risoluzione dei problemi relativi alla distribuzione di modelli
     href: resource-manager-tutorial-troubleshoot.md
@@ -63,6 +63,7 @@ items:
   - name: Provider e tipi di risorse
     href: resource-manager-supported-services.md
   - name: Deployment Manager
+    displayName: adm
     href: deployment-manager-overview.md
   - name: Modalità di distribuzione
     href: deployment-modes.md
@@ -77,6 +78,7 @@ items:
     - name: Creare il modello
       href: how-to-create-template.md
     - name: Creare gruppi di risorse e risorse nella sottoscrizione
+      displayName: subscription level deployment
       href: deploy-to-subscription.md
     - name: Definire le dipendenze delle risorse
       href: resource-group-define-dependencies.md
@@ -95,12 +97,16 @@ items:
   - name: Distribuire modelli
     items:
     - name: Distribuire - portale
+      displayName: deployment
       href: resource-group-template-deploy-portal.md
     - name: Distribuire - interfaccia della riga di comando
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-cli.md
     - name: Distribuire - PowerShell
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy.md
     - name: Distribuire - API REST
+      displayName: deployment,rollback on error,redeploy
       href: resource-group-template-deploy-rest.md
     - name: Proteggere i modelli tramite token di firma di accesso condiviso
       items:
@@ -249,9 +255,9 @@ items:
     href: resource-manager-personal-data.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager
-ms.openlocfilehash: c84e93cbc0a74ca59a2f25e467780378ee3d1e19
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 90218638e4d4a11c0ab6f3a6a1b6513bc1f7b5e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372149"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648623"

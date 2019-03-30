@@ -4,7 +4,7 @@ description: I cluster di Service Fabric vengono eseguiti in Windows Server e Li
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: a968b173357bf8bcb83990b891f38306895b4ca8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966572"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670473"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Panoramica dei cluster di Service Fabric in Azure
 Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una VM che fa parte di un cluster è chiamato nodo del cluster. I cluster possono essere ridimensionati fino a migliaia di nodi. Se si aggiungono nuovi nodi al cluster, Service Fabric ribilancia le repliche e le istanze di partizione del servizio nel numero incrementato di nodi. Le prestazioni complessive dell'applicazione migliorano e la contesa per l'accesso alla memoria si riduce. Se i nodi del cluster non vengono usati in modo efficiente, è possibile ridurre il numero di nodi del cluster. Service Fabric ribilancia di nuovo le repliche e le istanze di partizione nel numero ridotto di nodi per usare al meglio l'hardware in ogni nodo.
@@ -66,7 +66,7 @@ Ogni tipo di nodo del cluster è supportato da un [account di archiviazione di A
 Un cluster di Service Fabric è una risorsa di cui si è proprietari.  È responsabilità dell'utente proteggere i cluster per evitare che utenti non autorizzati si connettano a essi. Un cluster sicuro è particolarmente importante quando si eseguono carichi di lavoro nel cluster. 
 
 ### <a name="node-to-node-security"></a>Sicurezza da nodo a nodo
-La sicurezza da nodo a nodo protegge la comunicazione tra le macchine virtuali o i computer di un cluster. Questo scenario di sicurezza assicura che solo i computer autorizzati a connettersi al cluster possano partecipare all'hosting di applicazioni e servizi nel cluster. Service Fabric usa certificati X.509 per proteggere un cluster e fornire le funzionalità di sicurezza dell'applicazione.  Un certificato cluster è necessario per proteggere il traffico del cluster e fornire l'autenticazione per il cluster e il server.  I certificati autofirmati possono essere usati per i cluster di test, ma per proteggere i cluster di produzione occorre usare un certificato di un'Autorità di certificazione attendibile.
+La sicurezza da nodo a nodo protegge le comunicazioni tra le macchine virtuali o i computer di un cluster. Questo scenario di sicurezza assicura che solo i computer autorizzati a connettersi al cluster possano partecipare all'hosting di applicazioni e servizi nel cluster. Service Fabric usa certificati X.509 per proteggere un cluster e fornire le funzionalità di sicurezza dell'applicazione.  Un certificato cluster è necessario per proteggere il traffico del cluster e fornire l'autenticazione per il cluster e il server.  I certificati autofirmati possono essere usati per i cluster di test, ma per proteggere i cluster di produzione occorre usare un certificato di un'Autorità di certificazione attendibile.
 
 Per altre informazioni, vedere [Sicurezza da nodo a nodo](service-fabric-cluster-security.md#node-to-node-security)
 

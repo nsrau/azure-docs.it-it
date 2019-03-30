@@ -4,7 +4,7 @@ description: Informazioni su come configurare i log di monitoraggio di Azure per
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483166"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670507"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurare i log di monitoraggio di Azure per un cluster
 
-Log di monitoraggio di Azure è consigliabile monitorare gli eventi a livello di cluster. È possibile configurare l'area di lavoro di Log Analytics tramite Azure Resource Manager, PowerShell o Azure Marketplace. Se si gestisce un modello di Resource Manager aggiornato della distribuzione per un uso futuro, utilizzare lo stesso modello per configurare l'ambiente di log di monitoraggio di Azure. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta eseguendo la distribuzione, eseguire la distribuzione usando PowerShell o il modello di Resource Manager.
+I log di Monitoraggio di Azure sono consigliati per il monitoraggio di eventi a livello di cluster. È possibile configurare l'area di lavoro di Log Analytics tramite Azure Resource Manager, PowerShell o Azure Marketplace. Se si gestisce un modello di Resource Manager aggiornato della distribuzione per un uso futuro, utilizzare lo stesso modello per configurare l'ambiente di log di monitoraggio di Azure. La distribuzione tramite Marketplace è più semplice se è già disponibile un cluster distribuito, con il servizio di diagnostica abilitato. Se non si ha accesso a livello di sottoscrizione nell'account in cui si sta eseguendo la distribuzione, eseguire la distribuzione usando PowerShell o il modello di Resource Manager.
 
 > [!NOTE]
-> Per configurare i log di monitoraggio di Azure per monitorare il cluster, è necessario per la diagnostica è abilitata per visualizzare gli eventi a livello di cluster o a livello di piattaforma. Fare riferimento alle procedure per la [configurazione della diagnostica nei cluster Windows](service-fabric-diagnostics-event-aggregation-wad.md) e la [configurazione della diagnostica nei cluster Linux](service-fabric-diagnostics-event-aggregation-lad.md) per altre informazioni.
+> Per configurare i log di monitoraggio di Azure per monitorare il cluster, è necessario per la diagnostica è abilitata per visualizzare gli eventi a livello di cluster o a livello di piattaforma. Fare riferimento alle procedure per la [configurazione della diagnostica nei cluster Windows](service-fabric-diagnostics-event-aggregation-wad.md) e la [configurazione della diagnostica nei cluster Linux](service-fabric-diagnostics-oms-syslog.md) per altre informazioni.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Se si intende aggiungere un'area di lavoro di Log Analytics dopo aver distribuit
 Se si usa Windows, continuare con la procedura seguente per connettere i log di monitoraggio di Azure nell'account di archiviazione in cui sono archiviati gli eventi cluster. 
 
 >[!NOTE]
->L'abilitazione di questa esperienza per i cluster Linux non è ancora disponibile. 
+>La soluzione Service Fabric Analitica è supportata solo per i cluster di Windows. Per i cluster Linux, vedere l'articolo sulla [come configurare i log di monitoraggio di Azure per i cluster Linux](service-fabric-diagnostics-oms-syslog.md).  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Connettere l'area di lavoro di Log Analytics al cluster 
 

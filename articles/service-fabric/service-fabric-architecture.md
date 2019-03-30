@@ -4,7 +4,7 @@ description: Service Fabric è una piattaforma di sistemi distribuiti che consen
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
-manager: timlt
+manager: chackdan
 editor: rishirsinha
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 5e69d4b09261c90fd3c33e60645fe484b816e369
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209971"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664591"
 ---
 # <a name="service-fabric-architecture"></a>Architettura di Service Fabric
 Service Fabric è costituito da sottosistemi a più livelli. Tali sottosistemi consentono di scrivere applicazioni con le caratteristiche seguenti:
@@ -51,9 +51,9 @@ Il sottosistema di affidabilità offre il meccanismo che consente l'elevata disp
 ## <a name="management-subsystem"></a>Sottosistema di gestione
 Il sottosistema di gestione offre una gestione del ciclo di vita dell'applicazione e dei servizi end-to-end. I cmdlet di PowerShell e le API amministrative consentono di effettuare il provisioning, la distribuzione, l'applicazione di patch, l'aggiornamento e il deprovisioning di applicazioni senza perdita di disponibilità. A tale scopo, il sottosistema di gestione usa i servizi seguenti:
 
-* **Cluster Manager**: servizio primario che interagisce con Gestione failover dai componenti di affidabilità per posizionare le applicazioni nei nodi in base ai vincoli di posizionamento dei servizi. Resource Manager nei sottosistemi di failover garantisce che i vincoli non vengano mai violati. Cluster Manager gestisce il ciclo di vita delle applicazioni dal provisioning al deprovisioning. Si integra con Health Manager per garantire che durante gli aggiornamenti la disponibilità delle applicazioni non vada perduta dal punto di vista dell'integrità semantica.
-* **Health Manager**: questo servizio consente il monitoraggio dell'integrità di applicazioni e servizi ed entità del cluster. Le entità del cluster, ad esempio nodi, partizioni di servizi e repliche, possono segnalare informazioni sull'integrità, che vengono quindi aggregate nell'archivio integrità centralizzato. Queste informazioni sull'integrità forniscono uno snapshot dell'integrità globale in un determinato momento per i servizi e i nodi distribuiti in più nodi del cluster, consentendo così di intraprendere le azioni correttive necessarie. Le API di query sull'integrità consentono di eseguire query sugli eventi di integrità segnalati al sottosistema di integrità. Queste API restituiscono dati sull'integrità non elaborati archiviati nell'archivio integrità oppure restituiscono i dati sull'integrità interpretati e aggregati per una specifica entità del cluster.
-* **Archivio immagini**: questo servizio consente l'archiviazione e la distribuzione di file binari delle applicazioni. Offre un semplice archivio di file distribuito in cui vengono caricate o da cui vengono scaricate le applicazioni.
+* **Gestione cluster di**: Si tratta del servizio primario che interagisce con la gestione Failover dall'affidabilità per posizionare le applicazioni nei nodi in base ai vincoli di posizionamento del servizio. Resource Manager nei sottosistemi di failover garantisce che i vincoli non vengano mai violati. Cluster Manager gestisce il ciclo di vita delle applicazioni dal provisioning al deprovisioning. Si integra con Health Manager per garantire che durante gli aggiornamenti la disponibilità delle applicazioni non vada perduta dal punto di vista dell'integrità semantica.
+* **Gestore integrità**: Questo servizio consente il monitoraggio dell'integrità di applicazioni, servizi e le entità del cluster. Le entità del cluster, ad esempio nodi, partizioni di servizi e repliche, possono segnalare informazioni sull'integrità, che vengono quindi aggregate nell'archivio integrità centralizzato. Queste informazioni sull'integrità forniscono uno snapshot dell'integrità globale in un determinato momento per i servizi e i nodi distribuiti in più nodi del cluster, consentendo così di intraprendere le azioni correttive necessarie. Le API di query sull'integrità consentono di eseguire query sugli eventi di integrità segnalati al sottosistema di integrità. Queste API restituiscono dati sull'integrità non elaborati archiviati nell'archivio integrità oppure restituiscono i dati sull'integrità interpretati e aggregati per una specifica entità del cluster.
+* **Image Store**: Questo servizio offre archiviazione e la distribuzione dei file binari dell'applicazione. Offre un semplice archivio di file distribuito in cui vengono caricate o da cui vengono scaricate le applicazioni.
 
 ## <a name="hosting-subsystem"></a>Sottosistema di hosting
 Cluster Manager indica al sottosistema di hosting (in esecuzione in ogni nodo) i servizi che devono essere gestiti per un determinato nodo. Il sottosistema di hosting gestisce quindi il ciclo di vita dell'applicazione in tale nodo. Interagisce con i componenti di affidabilità e integrità per garantire che le repliche siano posizionate correttamente e siano integre.

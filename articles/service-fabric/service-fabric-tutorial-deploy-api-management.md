@@ -3,8 +3,8 @@ title: Integrare Gestione API con Service Fabric in Azure | Microsoft Docs
 description: Informazioni su come iniziare a usare rapidamente Gestione API di Azure e instradare il traffico a un servizio back-end in Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/26/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 813a81e3812f9bb95ab11deec35adc6c05f1b58e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 84c7a39e121c3c41a0e57609efa076ce329aa331
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312224"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669232"
 ---
 # <a name="integrate-api-management-with-service-fabric-in-azure"></a>Integrare Gestione API con Service Fabric in Azure
 

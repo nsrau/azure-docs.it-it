@@ -4,7 +4,7 @@ description: Applicazione per automatizzare l'applicazione di patch ai sistemi o
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285153"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668195"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Applicare patch al sistema operativo Linux nel cluster di Service Fabric
 
@@ -41,13 +41,13 @@ L'app Patch Orchestration offre le funzionalità seguenti:
 
 Patch Orchestration Application è costituita dai sottocomponenti seguenti:
 
-- **Coordinator Service**: il servizio con stato è responsabile per:
+- **Coordinator Service**: il servizio con stato è responsabile di quanto segue:
     - Il coordinamento del processo di aggiornamento del sistema operativo nell'intero cluster.
     - L'archiviazione del risultato delle operazioni completate di aggiornamento del sistema operativo.
-- **Node Agent Service**: è un servizio senza stato che viene eseguito in tutti i nodi di cluster di Service Fabric. Il servizio è responsabile per:
+- **Node Agent Service**: è un servizio senza stato che viene eseguito in tutti i nodi del cluster di Service Fabric. Il servizio è responsabile per:
     - Il bootstrap del daemon dell'agente del nodo in Linux.
     - Monitoraggio del servizio daemon.
-- **Daemon dell'agente del nodo**: questo servizio daemon Linux viene eseguito con un privilegio di livello superiore (radice). Il Node Agent Service e il Coordinator Service vengono invece eseguiti con un privilegio di livello inferiore. Il servizio è responsabile dell'esecuzione dei processi di aggiornamento seguenti in tutti i nodi del cluster:
+- **Daemon dell'agente del nodo**: Questo servizio daemon Linux viene eseguito con un privilegio di livello superiore (radice). Il Node Agent Service e il Coordinator Service vengono invece eseguiti con un privilegio di livello inferiore. Il servizio è responsabile dell'esecuzione dei processi di aggiornamento seguenti in tutti i nodi del cluster:
     - Disabilitazione dell'aggiornamento automatico del sistema operativo nel nodo.
     - Download e installazione dell'aggiornamento del sistema operativo in base al criterio specificato dall'utente.
     - Riavvio della macchina dopo l'installazione dell'aggiornamento del sistema operativo se necessario.
@@ -131,10 +131,10 @@ Il comportamento di Patch Orchestration App può essere configurato per soddisfa
 |:-|-|-|
 |MaxResultsToCache    |long                              | Numero massimo di risultati dell'aggiornamento memorizzabili nella cache. <br>Il valore predefinito è 3000 presumendo che il: <br> - Numero di nodi sia 20. <br> - Numero di aggiornamenti eseguiti su un nodo per ogni mese sia pari a cinque. <br> - Numero di risultati per ogni operazione sia pari a 10. <br> - I risultati per gli ultimi tre mesi debbano essere archiviati. |
 |TaskApprovalPolicy   |Enum <br> {NodeWise, UpgradeDomainWise}                          |TaskApprovalPolicy indica i criteri che devono essere usati dal Coordinator Service per installare gli aggiornamenti nei nodi del cluster di Service Fabric.<br>                         I valori consentiti sono i seguenti: <br>                                                           <b>NodeWise</b>. Gli aggiornamenti vengono installati un nodo alla volta. <br>                                                           <b>UpgradeDomainWise</b>. Gli aggiornamenti vengono installati un dominio di aggiornamento alla volta. (Possono esser aggiornati al massimo tutti i nodi appartenenti a un dominio di aggiornamento).
-| UpdateOperationTimeOutInMinutes | int <br>(Predefinito: 180)                   | Specifica il timeout per qualsiasi operazione di aggiornamento (download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
-| RescheduleCount      | int <br> Predefinito: 5                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento del sistema operativo quando un'operazione continua ad avere esito negativo.          |
-| RescheduleTimeInMinutes  | int <br>Predefinito: 30 | L'intervallo con cui il servizio ripianifica l'aggiornamento del sistema operativo se il problema persiste. |
-| UpdateFrequency           | Stringa separata da virgole Predefinito: "Weekly, Wednesday, 7:00:00"     | La frequenza per l'installazione di aggiornamenti del sistema operativo nel cluster. Il formato e i valori possibili sono: <br>-   Monthly, DD, HH:MM:SS, ad esempio Monthly, 5, 12:22:32. <br> -   Weekly, DAY, HH:MM:SS, ad esempio Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None indica che l'aggiornamento non deve essere eseguito.  <br><br> Tutti gli orari sono in formato UTC.|
+| UpdateOperationTimeOutInMinutes | Int <br>(Valore predefinito: 180)                   | Specifica il timeout per qualsiasi operazione di aggiornamento (download o installazione). L'operazione viene interrotta se non viene completata entro il timeout specificato.       |
+| RescheduleCount      | Int <br> (Valore predefinito: 5)                  | Il numero massimo di volte in cui il servizio ripianifica l'aggiornamento del sistema operativo quando un'operazione continua ad avere esito negativo.          |
+| RescheduleTimeInMinutes  | Int <br>(Valore predefinito: 30) | L'intervallo con cui il servizio ripianifica l'aggiornamento del sistema operativo se il problema persiste. |
+| UpdateFrequency           | Stringa separata da virgole (Valore predefinito: "Weekly, Wednesday, 7:00:00")     | La frequenza per l'installazione di aggiornamenti del sistema operativo nel cluster. Il formato e i valori possibili sono: <br>-   Monthly, DD, HH:MM:SS, ad esempio Monthly, 5, 12:22:32. <br> -   Weekly, DAY, HH:MM:SS, ad esempio Weekly, Tuesday, 12:22:32.  <br> -   Daily, HH:MM:SS, ad esempio, Daily, 12:22:32.  <br> - None indica che l'aggiornamento non deve essere eseguito.  <br><br> Tutti gli orari sono in formato UTC.|
 | UpdateClassification | Stringa separata da virgole (Predefinito: "securityupdates") | Tipo di aggiornamenti che devono essere installati nei nodi del cluster. I valori accettabili sono securityupdates, all. <br> - securityupdates - vengono installati solo gli aggiornamenti della sicurezza <br> - all - vengono installati tutti gli aggiornamenti disponibili da apt.|
 | ApprovedPatches | Stringa separata da virgole (Predefinito: "") | Si tratta dell'elenco di aggiornamenti approvati che devono essere installati nei nodi del cluster. L'elenco delimitato da virgole contiene pacchetti approvati e, facoltativamente, la versione di destinazione desiderata.<br> Ad esempio: "apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.194, libsystemd0 >= 229-4ubuntu16" <br> installerebbe <br> - apt-utils con versione 1.2.10ubuntu1, se disponibile in apt-cache. Se quella versione specifica non è disponibile, non viene eseguita alcuna operazione. <br> -python3 jwt aggiorna alla versione più recente disponibile. Se il pacchetto non è presente, non viene eseguita alcuna operazione. <br> -apt trasporto https aggiorna alla versione più recente, ovvero precedente la 1.2.194. Se questa versione non è presente, non viene eseguita alcuna operazione. <br> - libsystemd0 aggiorna alla versione più recente, ovvero 229-4ubuntu16 o successiva. Se questa versione non esiste, non viene eseguita alcuna operazione.|
 | RejectedPatches | Stringa separata da virgole (Predefinito: "") | Si tratta dell'elenco di aggiornamenti che non devono essere installati nei nodi del cluster. <br> Ad esempio: "bash, sudo" <br> esclude bash, sudo dalla ricezione di aggiornamenti. |
@@ -305,7 +305,7 @@ R. Il tempo impiegato da Patch Orchestration App dipende principalmente dai segu
 
 D: **In che modo Patch Orchestration App decide quali aggiornamenti sono gli aggiornamenti della sicurezza.**
 
-R. Patch Orchestration App usa la logica specifica della distribuzione per determinare quali aggiornamenti tra quelli disponibili sono gli aggiornamenti della sicurezza. Ad esempio: In ubuntu l'app ricerca di aggiornamenti dagli archivi $RELEASE-security, $RELEASE-updates ($RELEASE = xenial o la versione della release Linux Standard Base). 
+R. Patch Orchestration App usa la logica specifica della distribuzione per determinare quali aggiornamenti tra quelli disponibili sono gli aggiornamenti della sicurezza. Ad esempio:  In ubuntu l'app ricerca di aggiornamenti dagli archivi $RELEASE-security, $RELEASE-aggiornamenti ($RELEASE = xenial o la versione di rilascio di base standard di linux). 
 
  
 D: **Come è possibile bloccare una versione specifica del pacchetto?**

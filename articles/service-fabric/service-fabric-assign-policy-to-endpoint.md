@@ -3,8 +3,8 @@ title: Assegnare criteri di accesso agli endpoint di servizio di Azure Service F
 description: Informazioni su come assegnare criteri di accesso di sicurezza agli endpoint HTTP o HTTPS nel servizio di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: dac15f0b96e9e295f92f250fe387e5b6ba9ae000
-ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
-ms.translationtype: HT
+ms.author: atsenthi
+ms.openlocfilehash: 3e892e443f5e3309add48f939f26ba14eaf5a51b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/12/2018
-ms.locfileid: "51567605"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670405"
 ---
 # <a name="assign-a-security-access-policy-for-http-and-https-endpoints"></a>Assegnare un criterio di accesso di sicurezza per gli endpoint HTTP e HTTPS
 Se si applicano criteri run-as e il manifesto del servizio dichiara le risorse di endpoint HTTP, è necessario specificare **SecurityAccessPolicy**.  **SecurityAccessPolicy** assicura che le porte allocate a questi endpoint siano limitate all'account utente usato per l'esecuzione del servizio. In caso contrario, **http.sys** non ha accesso al servizio e le chiamate del client hanno esito negativo. L'esempio seguente applica l'account Customer1 a un endpoint denominato **EndpointName**, a cui assegna diritti di accesso completi.
@@ -48,7 +48,8 @@ Per un endpoint HTTPS, indicare anche il nome del certificato da restituire al c
 > Quando si usa HTTPS, non usare la stessa porta e lo stesso certificato per diverse istanze del servizio (indipendenti dall'applicazione) distribuite nello stesso nodo. L'aggiornamento di due servizi diversi mediante la stessa porta in istanze dell'applicazione diverse comporterà un errore di aggiornamento. Per altre informazioni, vedere [Aggiornamento di più applicazioni con endpoint HTTPS](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 > 
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged--> Per i passaggi successivi leggere gli articoli seguenti:
+<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+Per i passaggi successivi, leggere gli articoli seguenti:
 * [Informazioni sul modello applicativo](service-fabric-application-model.md)
 * [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md)
 * [Distribuire un'applicazione](service-fabric-deploy-remove-applications.md)

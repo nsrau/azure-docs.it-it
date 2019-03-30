@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100071"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665492"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Caricamento del livello Standard di Centro sicurezza di Azure per la sicurezza avanzata
 Eseguire l'aggiornamento al livello Standard di Centro sicurezza di Azure per la sicurezza avanzata per sfruttare i vantaggi della gestione della sicurezza avanzata e la protezione dalle minacce per i carichi di lavoro cloud ibridi.  È possibile provare gratuitamente il livello Standard. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/) del Centro sicurezza.
@@ -33,7 +33,7 @@ Il livello Standard del Centro sicurezza include:
 ## <a name="detecting-unprotected-resources"></a>Rilevamento delle risorse non protette     
 Il Centro sicurezza rileva automaticamente le sottoscrizioni o le aree di lavoro di Azure non abilitate per il livello Standard del Centro sicurezza di Azure. Sono incluse le sottoscrizioni Azure che usano il livello Gratuito del Centro di sicurezza e le aree di lavoro che non dispongono della soluzione di sicurezza abilitata.
 
-È possibile aggiornare una sottoscrizione completa di Azure al piano Standard, che viene ereditata da tutte le risorse all'interno della sottoscrizione oppure definire un criterio univoco per l'aggiornamento di un solo gruppo specifico di risorse. Se le impostazioni dei criteri del gruppo di risorse sono univoche, il Centro sicurezza di Azure non eseguirà l'override dei criteri di prezzi quando si aggiorna la sottoscrizione al livello Standard. Applicazione dello Standard a una sottoscrizione di livello si applica a tutte le risorse supportate nella sottoscrizione. Applicazione dello Standard a livelli a un'area di lavoro si applica a tutte le risorse di creazione di report all'area di lavoro.
+È possibile eseguire l'aggiornamento di un'intera sottoscrizione di Azure al livello Standard, che viene ereditato da tutte le risorse supportate all'interno della sottoscrizione. Applicazione dello Standard a livelli a un'area di lavoro si applica a tutte le risorse di creazione di report all'area di lavoro.
 
 > [!NOTE]
 > Si consiglia di gestire i costi e limitare la quantità di dati raccolti per una soluzione limitandola a un determinato set di agenti. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) consente di applicare un ambito alla soluzione e avere come target un sottoinsieme di computer nell'area di lavoro.  Se si usa una soluzione di targeting, il Centro sicurezza di Azure elenca l'area di lavoro come priva di una soluzione.
