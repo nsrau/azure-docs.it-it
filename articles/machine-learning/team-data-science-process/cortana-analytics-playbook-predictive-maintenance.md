@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870147"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650479"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guida di Azure AI per soluzioni di manutenzione predittiva
 
@@ -31,10 +31,10 @@ Nella prima metà della guida vengono descritti i problemi aziendali tipici, i v
 
 | Iniziare da... | Se si è... |
 |:---------------|:---------------|
-| [Casi aziendali per la manutenzione predittiva](#Business-case-for-predictive-maintenance) |un Business Decision Maker (BDM) che vuole ridurre i tempi di inattività e i costi operativi e ottimizzare l'uso delle apparecchiature |
-| [Data science per la manutenzione predittiva](#Data-Science-for-predictive-maintenance) |un Technical Decision Maker (TDM) interessato alla valutazione delle tecnologie PdM per comprendere gli specifici requisiti di elaborazione dei dati e dell'intelligenza artificiale per la manutenzione predittiva |
-| [Modelli di soluzioni per la manutenzione predittiva](#Solution-templates-for-predictive-maintenance)|un progettista software o uno sviluppatore di intelligenza artificiale che vuole preparare rapidamente una demo o un modello di verifica |
-| [Risorse di formazione per la manutenzione predittiva](#Training-resources-for-predictive-maintenance) | un professionista che ricopre uno o più dei ruoli precedenti e si è interessati ad apprendere i concetti fondamentali alla base della data science, gli strumenti e le tecniche.
+| [Casi aziendali per la manutenzione predittiva](#business-case-for-predictive-maintenance) |un Business Decision Maker (BDM) che vuole ridurre i tempi di inattività e i costi operativi e ottimizzare l'uso delle apparecchiature |
+| [Data science per la manutenzione predittiva](#data-science-for-predictive-maintenance) |un Technical Decision Maker (TDM) interessato alla valutazione delle tecnologie PdM per comprendere gli specifici requisiti di elaborazione dei dati e dell'intelligenza artificiale per la manutenzione predittiva |
+| [Modelli di soluzioni per la manutenzione predittiva](#solution-templates-for-predictive-maintenance)|un progettista software o uno sviluppatore di intelligenza artificiale che vuole preparare rapidamente una demo o un modello di verifica |
+| [Risorse di formazione per la manutenzione predittiva](#training-resources-for-predictive-maintenance) | un professionista che ricopre uno o più dei ruoli precedenti e si è interessati ad apprendere i concetti fondamentali alla base della data science, gli strumenti e le tecniche.
 
 ### <a name="prerequisite-knowledge"></a>Conoscenze richieste
 Il contenuto per i BDM non prevede alcuna conoscenza precedente della data science da parte del lettore. Per il contenuto per i TDM, sono utili conoscenze di base di statistica e data science. È inoltre consigliabile la conoscenza dei servizi dati e di intelligenza artificiale di Azure, Python, R, XML e JSON. Le tecniche di intelligenza artificiale sono implementate in pacchetti Python e R. I modelli di soluzioni sono implementati mediante servizi di Azure, strumenti di sviluppo e SDK.
@@ -78,7 +78,7 @@ Questi obiettivi sono i punti di partenza per consentire a:
 
 - Il problema deve essere di natura predittiva, ovvero deve essere necessario prevedere un esito o un risultato. Il problema deve anche prevedere un chiaro percorso di azione per impedire i guasti quando vengono rilevati.
 - Il problema deve includere un record della cronologia operativa dell'apparecchiatura che contenga _sia i risultati positivi che quelli negativi_. Nell'ambito di questi record deve inoltre essere disponibile il set di azioni eseguite per attenuare i risultati negativi. Sono anche importanti segnalazioni di errori, log di manutenzione relativi alla degradazione delle prestazioni, riparazioni e log delle sostituzioni. È inoltre utile disporre di informazioni sulle riparazioni e record delle sostituzioni.
-- La cronologia registrata deve essere rispecchiata in dati _pertinenti_ di qualità _sufficiente_ per supportare il caso d'uso. Per altre informazioni sulla pertinenza e sufficienza dei dati, vedere [Requisiti dei dati per la manutenzione predittiva](#Data-requirements-for-predictive-maintenance).
+- La cronologia registrata deve essere rispecchiata in dati _pertinenti_ di qualità _sufficiente_ per supportare il caso d'uso. Per altre informazioni sulla pertinenza e sufficienza dei dati, vedere [Requisiti dei dati per la manutenzione predittiva](#data-requirements-for-predictive-maintenance).
 - Infine, l'azienda deve disporre di esperti del settore con una conoscenza precisa del problema. Devono essere consapevoli dei processi interni e delle procedure consigliate per essere in grado di aiutare l'analista a comprendere e interpretare i dati. Devono inoltre poter apportare le modifiche necessarie ai processi aziendali esistenti per contribuire a raccogliere i dati corretti per i problemi, se necessario.
 
 ## <a name="sample-pdm-use-cases"></a>Casi d'uso PdM di esempio
@@ -103,10 +103,10 @@ Nella sezione successiva viene descritto in modo dettagliato come realizzare i v
 
 ## <a name="data-science-for-predictive-maintenance"></a>Data science per la manutenzione predittiva
 
-In questa sezione vengono fornite indicazioni generali sui principi della data science e sulle procedure per PdM. L'obiettivo della sezione è consentire a TDM, progettisti di soluzioni o sviluppatori di comprendere i prerequisiti e il processo per la creazione di applicazioni di intelligenza artificiale end-to-end per PdM. Durante la lettura di questa sezione, è possibile esaminare le demo e i modelli di verifica elencati in [Modelli di soluzioni per la manutenzione predittiva](#Solution-templates-for-predictive-maintenance). Sarà quindi possibile usare tali principi e procedure consigliate per implementare la propria soluzione PdM in Azure.
+In questa sezione vengono fornite indicazioni generali sui principi della data science e sulle procedure per PdM. L'obiettivo della sezione è consentire a TDM, progettisti di soluzioni o sviluppatori di comprendere i prerequisiti e il processo per la creazione di applicazioni di intelligenza artificiale end-to-end per PdM. Durante la lettura di questa sezione, è possibile esaminare le demo e i modelli di verifica elencati in [Modelli di soluzioni per la manutenzione predittiva](#solution-templates-for-predictive-maintenance). Sarà quindi possibile usare tali principi e procedure consigliate per implementare la propria soluzione PdM in Azure.
 
 > [!NOTE]
-> Lo scopo di questa guida non è insegnare al lettore la data science. Numerose risorse utili per un approfondimento sono disponibili nella sezione relativa alle [risorse di formazione per la manutenzione predittiva](#Training-resources-for-predictive-maintenance). I [modelli di soluzioni](#Solution-templates-for-predictive-maintenance) elencati nella guida illustrano alcune di queste tecniche di intelligenza artificiale per specifici problemi PdM.
+> Lo scopo di questa guida non è insegnare al lettore la data science. Numerose risorse utili per un approfondimento sono disponibili nella sezione relativa alle [risorse di formazione per la manutenzione predittiva](#training-resources-for-predictive-maintenance). I [modelli di soluzioni](#solution-templates-for-predictive-maintenance) elencati nella guida illustrano alcune di queste tecniche di intelligenza artificiale per specifici problemi PdM.
 
 ## <a name="data-requirements-for-predictive-maintenance"></a>Requisiti dei dati per la manutenzione predittiva
 
@@ -114,10 +114,10 @@ Il successo di qualsiasi apprendimento dipende (a) dalla qualità di ciò che vi
 
 ### <a name="relevant-data"></a>Dati pertinenti
 
-Innanzitutto, i dati deve essere _pertinenti per il problema_. Si consideri il caso d'uso relativo ai _guasti delle ruote_ descritto in precedenza: i dati di training devono contenere caratteristiche correlate alle operazioni delle ruote. Se il problema fosse quello di stimare i guasti del _sistema di trazione_, i dati di training dovrebbero includere tutti i vari componenti per il sistema di trazione. Il primo caso riguarda un componente specifico, mentre il secondo caso riguarda il guasto di un sottosistema di maggiori dimensioni. La raccomandazione generale è quella di progettare sistemi previsionali per componenti specifici anziché per sottosistemi di maggiori dimensioni, poiché per questi ultimi i dati saranno più distribuiti. Gli esperti del settore (vedere [Qualificazione dei problemi per la manutenzione predittiva](#Qualifying-problems-for-predictive-maintenance)) devono fornire supporto per la selezione dei subset di dati più rilevanti per l'analisi. Le origini dati pertinenti sono descritte più in dettaglio nella sezione [Preparazione dei dati per la manutenzione predittiva](#Data-preparation-for-predictive-maintenance).
+Innanzitutto, i dati deve essere _pertinenti per il problema_. Si consideri il caso d'uso relativo ai _guasti delle ruote_ descritto in precedenza: i dati di training devono contenere caratteristiche correlate alle operazioni delle ruote. Se il problema fosse quello di stimare i guasti del _sistema di trazione_, i dati di training dovrebbero includere tutti i vari componenti per il sistema di trazione. Il primo caso riguarda un componente specifico, mentre il secondo caso riguarda il guasto di un sottosistema di maggiori dimensioni. La raccomandazione generale è quella di progettare sistemi previsionali per componenti specifici anziché per sottosistemi di maggiori dimensioni, poiché per questi ultimi i dati saranno più distribuiti. Gli esperti del settore (vedere [Qualificazione dei problemi per la manutenzione predittiva](#qualifying-problems-for-predictive-maintenance)) devono fornire supporto per la selezione dei subset di dati più rilevanti per l'analisi. Le origini dati pertinenti sono descritte più in dettaglio nella sezione [Preparazione dei dati per la manutenzione predittiva](#data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Dati sufficienti
-In merito ai dati della cronologia degli errori, vi sono due domande frequenti: (1) "Quanti eventi di errore sono necessari per eseguire il training di un modello?" (2) "Quanti record vengono considerati sufficienti?" Non esistono risposte definitive, ma solo regole empiriche. Per il punto (1), maggiore è il numero di eventi di errore, migliore sarà il modello. Per il punto (2), il numero esatto di eventi di errore dipende dai dati e dal contesto del problema da risolvere. D'altra parte, se un macchinario presenta guasti con una frequenza eccessiva, l'azienda lo sostituirà, riducendo le istanze dei guasti. Anche in questo caso, le indicazioni dagli esperti del settore sono importanti. Sono comunque disponibili metodi per affrontare il problema degli _eventi rari_. Tali metodi sono descritti nella sezione [Gestione di dati sbilanciati](#Handling-imbalanced-data).
+In merito ai dati della cronologia degli errori, vi sono due domande frequenti: (1) "Quanti eventi di errore sono necessari per eseguire il training di un modello?" (2) "Quanti record vengono considerati sufficienti?" Non esistono risposte definitive, ma solo regole empiriche. Per il punto (1), maggiore è il numero di eventi di errore, migliore sarà il modello. Per il punto (2), il numero esatto di eventi di errore dipende dai dati e dal contesto del problema da risolvere. D'altra parte, se un macchinario presenta guasti con una frequenza eccessiva, l'azienda lo sostituirà, riducendo le istanze dei guasti. Anche in questo caso, le indicazioni dagli esperti del settore sono importanti. Sono comunque disponibili metodi per affrontare il problema degli _eventi rari_. Tali metodi sono descritti nella sezione [Gestione di dati sbilanciati](#handling-imbalanced-data).
 
 ### <a name="quality-data"></a>Dati di qualità
 La qualità dei dati è di importanza critica: ogni valore di attributo del predittore deve essere _accurato_ in combinazione con il valore della variabile di destinazione. La qualità dei dati è un'area che è oggetto di studi approfonditi nei campi della statistica e della gestione dei dati, pertanto non rientra nell'ambito di questa guida.
@@ -151,7 +151,7 @@ I dati di streaming basati su sensori (o di altro tipo) dell'apparecchiatura dur
 #### <a name="static-feature-data"></a>Dati sulle caratteristiche statiche
 Le caratteristiche statiche sono i metadati sulle apparecchiature. Alcuni esempi sono la marca dell'apparecchiatura, il modello, la data di fabbricazione, la data di avvio del servizio, la posizione del sistema e altre specifiche tecniche.
 
-Esempi di dati pertinenti per i [casi d'uso PdM di esempio](#Sample-PdM-use-cases) sono riportati nella tabella seguente:
+Esempi di dati pertinenti per i [casi d'uso PdM di esempio](#sample-pdm-use-cases) sono riportati nella tabella seguente:
 
 | Caso d'uso | Esempi di dati pertinenti |
 |:---------|---------------------------|
@@ -186,7 +186,7 @@ Per i dati statici
 
 Altri passaggi di pre-elaborazione dei dati includono la _gestione dei valori mancanti_ e la _normalizzazione_ dei valori degli attributi. Una discussione dettagliata esula dall'ambito di questa guida. Vedere la sezione successiva per alcuni riferimenti utili.
 
-Dopo avere predisposto queste origini dati pre-elaborate, la trasformazione finale prima della progettazione delle funzioni consiste nel creare un join delle tabelle precedenti in base all'identificatore dell'asset e al timestamp. La tabella risultante deve contenere valori null per la colonna del guasto quando la macchina è in condizioni normali. Questi valori null possono essere attribuiti con un indicatore per il funzionamento normale. Usare questa colonna dei guasti per creare _etichette per il modello predittivo_. Per altre informazioni, vedere la sezione sulle [tecniche di modellazione per la manutenzione predittiva](#Modeling-techniques-for-predictive-maintenance).
+Dopo avere predisposto queste origini dati pre-elaborate, la trasformazione finale prima della progettazione delle funzioni consiste nel creare un join delle tabelle precedenti in base all'identificatore dell'asset e al timestamp. La tabella risultante deve contenere valori null per la colonna del guasto quando la macchina è in condizioni normali. Questi valori null possono essere attribuiti con un indicatore per il funzionamento normale. Usare questa colonna dei guasti per creare _etichette per il modello predittivo_. Per altre informazioni, vedere la sezione sulle [tecniche di modellazione per la manutenzione predittiva](#modeling-techniques-for-predictive-maintenance).
 
 ## <a name="feature-engineering"></a>Progettazione delle funzioni
 La progettazione delle funzioni è il primo passaggio prima della modellazione dei dati. Il suo ruolo nel processo di data science è [descritto in questo articolo](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features). Una _funzione_ è un attributo predittivo per il modello, ad esempio temperatura, pressione, vibrazione e così via. Per PdM, la progettazione delle funzioni comporta l'astrazione dell'integrità di una macchina a partire da dati cronologici raccolti per un periodo di tempo considerevole. In questo senso, è diversa da attività simili come il monitoraggio remoto, il rilevamento delle anomalie e il rilevamento degli errori. 
@@ -205,7 +205,7 @@ Per ogni record di un asset, viene scelta una finestra con dimensione "W" che co
 
 ![Figura 1. Funzioni di aggregazione in sequenza](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) Figura 1. Funzioni di aggregazione in sequenza
 
-Alcuni esempi di funzioni di aggregazione in sequenza in una finestra temporale sono il conteggio, la media, le misure CUMESUM (somma cumulativa) e i valori minimo e massimo. Inoltre, spesso vengono usati la varianza, la deviazione standard e il numero di outlier oltre N deviazioni standard. Alcuni esempi di aggregazioni che possono essere applicate per i [casi d'uso](#Sample-PdM-use-cases) presentati in questa guida sono elencati di seguito. 
+Alcuni esempi di funzioni di aggregazione in sequenza in una finestra temporale sono il conteggio, la media, le misure CUMESUM (somma cumulativa) e i valori minimo e massimo. Inoltre, spesso vengono usati la varianza, la deviazione standard e il numero di outlier oltre N deviazioni standard. Alcuni esempi di aggregazioni che possono essere applicate per i [casi d'uso](#sample-pdm-use-cases) presentati in questa guida sono elencati di seguito. 
 - _Ritardi dei voli_: numero di codici di errore nell'ultimo giorno/settimana.
 - _Guasti di componenti del motore di un aereo_: medie mobili, deviazione standard e somma per il giorno/settimana precedente e così via. Questa metrica deve essere determinata in collaborazione con l'esperto del settore aziendale.
 - _Guasti degli sportelli bancomat_: medie mobili, mediana, intervallo, deviazioni standard, numero di outlier oltre tre deviazioni standard, funzioni CUMESUM superiore e inferiore.
@@ -325,7 +325,7 @@ Quando le serie temporali sono fisse e facili da stimare, sia l'approccio casual
 ### <a name="time-dependent-split"></a>Suddivisione dipendente dal tempo
 In questa sezione sono descritte le procedure consigliate per l'implementazione della suddivisione dipendente dal tempo. Una suddivisione bidirezionale dipendente dal tempo tra set di training e di test è descritta di seguito.
 
-Si supponga di avere un flusso di eventi con timestamp, ad esempio le misurazioni da diversi sensori. Definire le funzioni e le etichette degli esempi di training e test in base a intervalli di tempo che contengono più eventi. Ad esempio, per la classificazione binaria, creare le funzioni in base agli eventi passati e le etichette in base agli eventi futuri entro "X" unità di tempo future (consultare le sezioni relative a [progettazione delle funzioni](#Feature-engineering) e tecniche di modellazione). Quindi, l'intervallo di tempo dell'assegnazione di etichette è successivo all'intervallo di tempo delle relative funzioni.
+Si supponga di avere un flusso di eventi con timestamp, ad esempio le misurazioni da diversi sensori. Definire le funzioni e le etichette degli esempi di training e test in base a intervalli di tempo che contengono più eventi. Ad esempio, per la classificazione binaria, creare le funzioni in base agli eventi passati e le etichette in base agli eventi futuri entro "X" unità di tempo future (consultare le sezioni relative a [progettazione delle funzioni](#feature-engineering) e tecniche di modellazione). Quindi, l'intervallo di tempo dell'assegnazione di etichette è successivo all'intervallo di tempo delle relative funzioni.
 
 Per la suddivisione dipendente dal tempo, selezionare un _tempo limite per il training T<sub>c</sub>_ in cui eseguire il training di un modello, con iperparametri ottimizzati usando dati cronologici fino a T<sub>c</sub>. Per impedire la perdita delle etichette future che si trovano oltre T<sub>c</sub> nei dati di training, scegliere l'ultimo intervallo di tempo per l'assegnazione di etichette agli esempi di training impostando X unità prima di T<sub>c</sub>. Nell'esempio illustrato nella figura 7, ogni quadratino rappresenta un record nel set di dati in cui le funzioni e le etichette vengono calcolate come descritto in precedenza. La figura mostra i record che dovranno essere inseriti nei set di training e di test per X=2 e W=3:
 
@@ -352,7 +352,7 @@ In caso di sbilanciamento delle classi nei dati, le prestazioni della maggior pa
 - Punteggi F1
 - Costo ROC (Receiver Operating Characteristics) rettificato
 
-Per altre informazioni su queste metriche, vedere [Valutazione del modello](#Model-evaluation).
+Per altre informazioni su queste metriche, vedere [Valutazione del modello](#model-evaluation).
 
 Sono tuttavia disponibili alcuni metodi che consentono di ovviar al problema dello sbilanciamento di classi. I due principali sono le _tecniche di campionamento_ e l'_apprendimento suscettibile alla variazione dei costi_.
 

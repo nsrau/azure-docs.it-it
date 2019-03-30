@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620118"
+ms.locfileid: "58652219"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminare un insieme di credenziali dei servizi di ripristino
 
@@ -108,7 +108,7 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 
 
 3. Nelle **Interrompi Backup** > **scegliere un'opzione**, selezionare **Elimina dati di Backup**.
-4. Digitare il nome dell'elemento e scegliere **Interrompi backup**. 
+4. Digitare il nome dell'elemento e scegliere **Interrompi backup**.
    - In questo modo si verifica che si desidera eliminare l'elemento.
    - Il **Interrompi Backup** pulsante attiva dopo la verifica.
    - Se si mantenere e non eliminare i dati, sarà possibile eliminare l'insieme di credenziali.
@@ -126,7 +126,7 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
 ### <a name="remove-backup-infrastructure-servers"></a>Rimuovere i server di infrastruttura di backup
 
 1. Nel menu del dashboard dell'insieme di credenziali fare clic su **infrastruttura di Backup**.
-2. Fare clic su **server di gestione Backup** per visualizzare i server. 
+2. Fare clic su **server di gestione Backup** per visualizzare i server.
 
     ![Selezionare l'insieme di credenziali per aprire il relativo dashboard](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Questa procedura viene fornito un esempio che illustra come rimuovere i dati di 
     ![Selezionare il tipo di backup](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . Nelle **Interrompi Backup** > **scegliere un'opzione**, selezionare **Elimina dati di Backup**.
-4. Digitare il nome dell'elemento e scegliere **Interrompi backup**. 
+4. Digitare il nome dell'elemento e scegliere **Interrompi backup**.
    - In questo modo si verifica che si desidera eliminare l'elemento.
    - Il **Interrompi Backup** pulsante attiva dopo la verifica.
    - Se si mantenere e non eliminare i dati, sarà possibile eliminare l'insieme di credenziali.

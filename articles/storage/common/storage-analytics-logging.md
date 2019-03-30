@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351325"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652060"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registrazione analitica dell'archiviazione Azure
 
@@ -27,7 +27,6 @@ Analisi archiviazione registra informazioni dettagliate sulle richieste riuscite
 >  La registrazione Analitica dell'archiviazione è attualmente disponibile solo per i servizi Blob, coda e tabella. Tuttavia, l'account di archiviazione premium non è supportato.
 
 ## <a name="requests-logged-in-logging"></a>Richieste registrate durante la registrazione
-
 ### <a name="logging-authenticated-requests"></a>Registrazione delle richieste autenticate
 
  Vengono registrati i seguenti tipi di richieste autenticate:
@@ -63,13 +62,13 @@ Se si dispone di un volume elevato di dati con più file di log per ogni ora, è
 
 La maggior parte degli strumenti di esplorazione di archiviazione consentono di visualizzare i metadati dei BLOB; è anche possibile leggere queste informazioni usando PowerShell o a livello di codice. Il frammento di PowerShell seguente è riportato un esempio di filtro nell'elenco di BLOB di log in base al nome per specificare un'ora e dai metadati per identificare soltanto i log che contengono **scrivere** operazioni.  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ Nel portale di Azure, usare il **delle impostazioni di diagnostica (versione cla
 
  Il seguente comando attiva la registrazione per la lettura, scrittura ed eliminazione delle richieste nel servizio di Accodamento nell'account di archiviazione predefinito con la conservazione di cinque giorni:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  Il seguente comando Disattiva la registrazione per il servizio tabelle nell'account di archiviazione predefinito:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Per informazioni su come configurare i cmdlet di Azure PowerShell per usare la sottoscrizione di Azure e su come selezionare l'account di archiviazione predefinito da utilizzare, vedere [Come installare e configurare Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Abilitare la registrazione a livello di codice di archiviazione  
+
  Oltre a usare il portale di Azure o i cmdlet di PowerShell di Azure per controllare registrazione archiviazione, è anche possibile usare una delle API di archiviazione di Azure. Ad esempio, se si usa un linguaggio .NET è possibile usare la libreria Client di archiviazione.  
 
  Le classi **CloudBlobClient**, **CloudQueueClient**, e **CloudTableClient** dispongono tutte di metodi, ad esempio **SetServiceProperties** e **SetServicePropertiesAsync** che accettano un **ServiceProperties** oggetto come parametro. È possibile usare la **ServiceProperties** oggetto per configurare registrazione archiviazione. Il seguente, ad esempio, C# frammento di codice viene illustrato come modificare il periodo di memorizzazione per la registrazione della coda e ciò che viene registrato:  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  Nell'esempio seguente viene illustrato come è possibile scaricare i dati di log del servizio di Accodamento per le ore a partire da 09 AM, AM 10 e 11 AM 20 maggio 2014. Il **/S** parametro fa in modo che AzCopy compilare una struttura di cartelle locali basata su date e ore nei nomi dei file di log; il **/V** parametro fa in modo che AzCopy per produrre un output dettagliato; il **/Y** parametro fa in modo che AzCopy sovrascrivere eventuali file locali. Sostituire **< yourstorageaccount\>**  con il nome dell'account di archiviazione e sostituisci **< yourstoragekey\>**  con la chiave di account di archiviazione.  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  Una volta scaricati i dati dei log, è possibile visualizzare le voci di log nei file. Questi file di log usano un formato di testo delimitato che molti log la lettura di strumenti sono in grado di analizzare, incluso Microsoft Message Analyzer (per altre informazioni, vedere la Guida [monitoraggio, diagnosi e risoluzione dei problemi di archiviazione di Microsoft Azure](storage-monitoring-diagnosing-troubleshooting.md)). Altri strumenti dispongono di funzionalità differenti per la formattazione, filtraggio, ordinamento e la ricerca dei contenuti dei file di log. Per altre informazioni sulla registrazione archiviazione formato file di log e sul contenuto, vedere [il formato di Log di archiviazione Analitica](/rest/api/storageservices/storage-analytics-log-format) e [archiviazione Analitica registrazione minima delle operazioni e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 * [Formato log Analisi archiviazione](/rest/api/storageservices/storage-analytics-log-format)
 * [Operazioni registrate di Analisi archiviazione e messaggi di stato](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Metriche di Analitica di archiviazione (versione classica)](storage-analytics-metrics.md)

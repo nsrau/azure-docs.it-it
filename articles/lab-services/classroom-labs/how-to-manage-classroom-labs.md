@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962826"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651124"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -37,9 +37,9 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 
         ![Creare un lab per le classi](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. Nella pagina **Select virtual machine specifications** (Seleziona le specifiche delle macchine virtuali) eseguire le operazioni seguenti:
-    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. 
+    1. Selezionare le **dimensioni** per le macchine virtuali create nel lab. Attualmente **piccola**, **medium**, **grandi**, e **GPU** dimensioni consentite.
     2. Selezionare l'**area** in cui si vogliono creare le macchine virtuali. 
-    3. Selezionare l'**immagine della macchina virtuale** da usare per creare macchine virtuali nel lab. 
+    3. Selezionare l'**immagine della macchina virtuale** da usare per creare macchine virtuali nel lab. Se si seleziona un'immagine Linux, viene visualizzata un'opzione per abilitare connessione desktop remoto per tale. Per informazioni dettagliate, vedere [abilitare connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
     4. Selezionare **Avanti**.
 
         ![Immettere le specifiche delle macchine virtuali](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
     ![Pagina di configurazione del modello al termine dell'operazione](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. I passaggi seguenti sono facoltativi in questa esercitazione: 
     1. Avviare la macchina virtuale modello selezionando **Start** (Avvia).
-    2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). 
+    2. Connettersi alla macchina virtuale modello selezionando **Connect** (Connetti). Se è un modello Linux VM, è scegliere se si desidera connettersi tramite RDP o SSH (se RDP è abilitato).
     3. Installare e configurare il software nella macchina virtuale modello. 
     4. **Arrestare** la VM.  
     5. Immettere una **descrizione** per il modello.

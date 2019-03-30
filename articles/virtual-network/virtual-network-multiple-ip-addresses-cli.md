@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: jimdial
-ms.openlocfilehash: 5606fb2f01a79a517279809d6da21ec865ee8b0d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b693500e785d41b2ad3339e26dd9fd3505891bc0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58110138"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648334"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli"></a>Assegnare più indirizzi IP alle macchine virtuali usando l'interfaccia della riga di comando di Azure
 
@@ -165,7 +165,7 @@ Aggiungere gli indirizzi IP privati al sistema operativo della macchina virtuale
 
 ## <a name="add"></a>Aggiungere indirizzi IP a una macchina virtuale
 
-È possibile aggiungere ulteriori indirizzi IP privati e pubblici a un'interfaccia di rete di Azure esistente completando la procedura seguente. Gli esempi si basano sullo [scenario](#Scenario) descritto in questo articolo.
+È possibile aggiungere ulteriori indirizzi IP privati e pubblici a un'interfaccia di rete di Azure esistente completando la procedura seguente. Gli esempi si basano sullo [scenario](#scenario) descritto in questo articolo.
 
 1. Aprire una shell dei comandi e completare i passaggi rimanenti in questa sezione all'interno di una singola sessione. Se l'interfaccia della riga di comando di Azure non è installata e configurata, completare la procedura riportata nell'articolo [Installazione dell'interfaccia della riga di comando di Azure](/cli/azure/install-az-cli2?toc=%2fazure%2fvirtual-network%2ftoc.json) e accedere all'account Azure con il comando `az-login`.
 

@@ -1,24 +1,27 @@
 ---
 title: Connettersi all'anteprima del Desktop virtuale Windows con Windows 7 e Windows 10 - Azure
-description: Come connettersi al client di anteprima di Desktop virtuale Windows con Windows 7 o Windows 10.
+description: Come connettersi al servizio di anteprima di Desktop virtuale Windows con Windows 7 o Windows 10.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 03/27/2019
 ms.author: helohr
-ms.openlocfilehash: 644a1d650384f151d9c43b9efa5f47532c58ce14
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8b5a649d767dae9ae9c0fb077f550451a7f83601
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399738"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630374"
 ---
 # <a name="connect-with-windows-7-and-windows-10"></a>Connettersi con Windows 7 e Windows 10
 
 > Si applica a Windows 7 e Windows 10.
 
 È disponibile un client scaricabile che consente di accedere alle risorse di anteprima di Desktop virtuale Windows da dispositivi che eseguono Windows 7 e Windows 10.
+
+> [!IMPORTANT]
+> Non usare **RemoteApp e Desktop. le connessioni (RADC)** oppure **connessione Desktop remoto (MSTSC)** per accedere alle risorse di Desktop virtuale Windows, poiché Windows Desktop virtuale non supporta i due client.
 
 ## <a name="install-the-client"></a>Installazione del client
 
@@ -30,21 +33,17 @@ Ottiene l'elenco delle risorse disponibili per l'utente dal proprio computer loc
 
 Per sottoscrivere un feed:
 
-1. Avviare il client dall'elenco di tutte le app, cercare di Desktop remoto.
-2. Selezionare un account aziendale o dell'istituto di istruzione nella pagina principale. Ciò viene eseguita la sottoscrizione con l'impostazione predefinita l'URL del feed.
-   - È anche possibile fornire un URL diverso, se necessario con la **in alternativa, usare un URL** opzione.
-3. Accedere con l'account utente.
-
-> [!NOTE]
-> Se l'amministratore ha configurato il rilevamento di posta elettronica, il client eseguirà automaticamente la ricerca del feed URL quando si immesse l'indirizzo di posta elettronica.
+1. Avviare il client dall'elenco di tutte le app, cercare per **Desktop remoto**.
+1. Selezionare **"Subscribe"** nella pagina principale per connettersi al servizio e recuperare le risorse.
+1. **Accedi** con l'account utente quando richiesto.
 
 Dopo l'autenticazione, viene visualizzato un elenco di risorse disponibili.
 
 È possibile avviare le risorse da uno dei due metodi.
 
-- Passare alla pagina principale del client e selezionare una risorsa.
+- Dalla pagina principale del client, fare doppio clic su una risorsa di per avviarla.
 - Avviare una risorsa, come si farebbe normalmente le altre App dal Menu Start.
-  -  È anche possibile cercare le app nella barra di ricerca.
+  - È anche possibile cercare le app nella barra di ricerca.
 
 ## <a name="update-the-client"></a>Aggiornare il client
 

@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577111"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650462"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Aggiungere suggester a un indice per typeahead in ricerca di Azure
 
@@ -77,7 +77,7 @@ Dopo la creazione di un componente di suggerimento, aggiungere il [API per i sug
 
 ### <a name="use-the-net-sdk"></a>Usare .NET SDK
 
-In C#, definire un [classe dello strumento suggerimenti](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Un componente di suggerimento è una raccolta che può accettare solo un elemento. Assicurarsi di aggiungere `using System.Collections.Generic;` in modo che sia possibile creare un elenco di oggetti. 
+In C#, definire un [oggetto suggerimento](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` è una raccolta, ma può richiedere solo un elemento. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -98,7 +98,7 @@ private static void CreateHotelsIndex(SearchServiceClient serviceClient)
 }
 ```
 
-## <a name="property-reference"></a>Riferimento alla proprietà
+## <a name="property-reference"></a>Informazioni di riferimento sulle proprietà
 
 I punti principali da notare sui componenti per il suggerimento è che ci sia un nome (suggesters viene fatto riferimento in base al nome in una richiesta), un searchMode (attualmente solo una, "analyzingInfixMatching") e l'elenco dei campi per cui è abilitato typeahead. 
 

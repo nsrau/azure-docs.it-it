@@ -4,17 +4,17 @@ description: Informazioni sulle opzioni di blocco per proteggere le risorse dura
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855408"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630728"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -56,11 +56,56 @@ In virtù del controllo degli accessi in base al ruolo, alle risorse artefatto v
 > [!IMPORTANT]
 > Azure Resource Manager memorizza nella cache i dettagli di assegnazione di ruolo per un massimo di 30 minuti. Di conseguenza, le azioni di negazione assegnazioni per le risorse del progetto potrebbero non essere completamente attive con effetto immediato. Durante questo periodo di tempo, potrebbe essere possibile eliminare una risorsa che deve essere protetta da blocchi di progetto.
 
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Escludere un'entità da un'assegnazione di negazione
+
+In alcuni scenari di progettazione e la protezione, potrebbe essere necessario escludere un'entità dal [Nega assegnazione](../../../role-based-access-control/deny-assignments.md) crea l'assegnazione di progetto. Questa operazione viene eseguita nell'API REST mediante l'aggiunta di un massimo di cinque valori per il **excludedPrincipals** matrici nel **blocchi** proprietà quando [creando l'assegnazione](/rest/api/blueprints/assignments/createorupdate).
+Questo è un esempio di un corpo della richiesta che include **excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Seguire le [proteggere le nuove risorse](../tutorials/protect-new-resources.md) esercitazione.
-- Scopri le [ciclo di vita del progetto](lifecycle.md).
+- Informazioni sul [ciclo di vita del progetto](lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](parameters.md).
-- Informazioni su come personalizzare il [blueprint ordine sequenziazione](sequencing-order.md).
-- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md).
-- Risolvere i problemi durante l'assegnazione di un progetto con [risoluzione dei problemi generali](../troubleshoot/general.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
+- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

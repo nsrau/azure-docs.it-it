@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309538"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652349"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definire filtri account e filtri asset  
 
@@ -58,7 +58,7 @@ Utilizzare le seguenti proprietà per descrivere i filtri.
 |NOME|DESCRIZIONE|
 |---|---|
 |firstQuality|La prima velocità in bit di qualità del filtro.|
-|presentationTimeRange|L’intervallo di tempo di presentazione. Questa proprietà viene utilizzata per filtrare i punti di inizio/fine del manifesto, la lunghezza della finestra di presentazione e la posizione iniziale live. <br/>Per altre informazioni, vedere [Intervallo di tempo di presentazione](#PresentationTimeRange).|
+|presentationTimeRange|L’intervallo di tempo di presentazione. Questa proprietà viene utilizzata per filtrare i punti di inizio/fine del manifesto, la lunghezza della finestra di presentazione e la posizione iniziale live. <br/>Per altre informazioni, vedere [Intervallo di tempo di presentazione](#presentationtimerange).|
 |brani|Le condizioni di selezione dei brani. Per ulteriori informazioni, vedere [brani](#tracks)|
 
 ### <a name="presentationtimerange"></a>presentationTimeRange

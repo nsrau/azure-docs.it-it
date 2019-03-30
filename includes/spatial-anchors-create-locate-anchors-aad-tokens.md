@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: cde1d8fbc41537c616f28787528f146cc6b09789
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c06b94d179f9f5a17a652cf32bd560cc9b5f8e4f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57907697"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632420"
 ---
 ### <a name="azure-active-directory-authentication"></a>Autenticazione di Azure Active Directory
 
-Gli ancoraggi spaziali Azure consente inoltre l'autenticazione con token di Azure Active Directory utente delle applicazioni. Ad esempio, è possibile utilizzare i token di AAD per l'integrazione con ASA. Se l'organizzazione gestisce gli utenti in AAD, è possibile fornire un token AAD utente in Azure spaziali Anchor SDK. In questo modo consente l'autenticazione direttamente nel servizio ASA per un account che fa parte dello stesso tenant AAD.
+Gli ancoraggi spaziali Azure consente inoltre l'autenticazione con token di Azure AD (Active Directory) utente delle applicazioni. Ad esempio, è possibile utilizzare i token di Azure AD per l'integrazione con Azure spaziali ancoraggi. Se l'organizzazione gestisce gli utenti in Azure AD, è possibile fornire un token di Azure AD dell'utente in Azure spaziali Anchor SDK. In questo modo consente l'autenticazione direttamente nel servizio di Azure gli ancoraggi spaziali per un account che fa parte dello stesso tenant di Azure AD.

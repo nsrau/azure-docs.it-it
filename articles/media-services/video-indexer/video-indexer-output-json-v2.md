@@ -9,17 +9,14 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c0eedc32ee96c94b8b3621afc0ee211ed2ff19f5
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314876"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650083"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Esaminare l'output di Video Indexer generato dall'API v2
-
-> [!Note]
-> L'API Video Indexer v1 è stata deprecata l'1 agosto 2018. È ora necessario usare l'API Video Indexer v2. <br/>Per le attività di sviluppo con le API Video Indexer v2, fare riferimento alle istruzioni disponibili [qui](https://api-portal.videoindexer.ai/). 
 
 Quando si chiama l'API **Get Video Index** (Ottieni indice video) e lo stato della risposta è OK, viene restituito un output JSON dettagliato come contenuto della risposta. Il contenuto JSON include le informazioni dettagliate sul video specificato. Le informazioni dettagliate includono dimensioni come trascrizioni, OCR, volti, argomenti, blocchi e così via. Le dimensioni comprendono istanze di intervalli di tempo che indicano la presenza di ogni dimensione nel video.  
 
@@ -163,7 +160,7 @@ Un volto può avere un ID, un nome, un'anteprima, altri metadati e un elenco del
 |Etichette|Dimensione [labels](#labels).|
 |shots|Dimensione [shots](#shots).|
 |brands|Dimensione [brands](#brands).|
-|audioEffects|Dimensione [audioEffects](#audioEffects).|
+|audioEffects|Dimensione [audioEffects](#audioeffects).|
 |sentiments|Dimensione [sentiments](#sentiments).|
 |visualContentModeration|Dimensione [visualContentModeration](#visualcontentmoderation).|
 |textualContentModeration|Dimensione [textualContentModeration](#textualcontentmoderation).|
@@ -550,7 +547,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |SpeakerLongestMonolog|Monologo più lungo della voce. Se la voce comprende periodi di silenzio all'interno del monologo, questi vengono inclusi. I periodi di silenzio all'inizio e alla fine del monologo vengono rimossi.| 
 |SpeakerTalkToListenRatio|Il calcolo è basato sul tempo impiegato per il monologo della voce (senza i periodi di silenzio intermedi) diviso per il tempo totale del video. Il tempo viene arrotondato alla terza posizione decimale.|
 
-#### <a name="audioeffects"></a>audioEffects
+#### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
 |NOME|DESCRIZIONE|
 |---|---|

@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076276"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649640"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
 
@@ -101,7 +101,7 @@ L'output è un oggetto JSON di tutti gli endpoint a cui il servizio e il disposi
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Endpoint di streaming del dispositivo facenti parte dell'elenco elementi consentiti
 
-Come accennato [precedentemente](#Overview), il dispositivo crea una connessione in uscita all'endpoint di streaming dell'hub IoT durante il processo di avvio dei flussi dispositivo. I firewall nel dispositivo o nella relativa rete devono consentire la connettività in uscita al gateway di streaming tramite la porta 443 (la comunicazione avviene su una connessione WebSocket crittografata con TLS).
+Come accennato [precedentemente](#overview), il dispositivo crea una connessione in uscita all'endpoint di streaming dell'hub IoT durante il processo di avvio dei flussi dispositivo. I firewall nel dispositivo o nella relativa rete devono consentire la connettività in uscita al gateway di streaming tramite la porta 443 (la comunicazione avviene su una connessione WebSocket crittografata con TLS).
 
 Il nome host dell'endpoint di streaming del dispositivo è reperibile nel portale dell'hub IoT nella scheda Panoramica. ![Testo alternativo](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Endpoint di flusso dispositivo")
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 5842c5edd0402d61f564ab15e34e8f69c0e718d7
-ms.sourcegitcommit: e7312c5653693041f3cbfda5d784f034a7a1a8f1
-ms.translationtype: HT
+ms.openlocfilehash: daddb859c6bfc6309ef833c6c6c3ea43c70f1889
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54213451"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652281"
 ---
 #  <a name="cannot-rdp-to-azure-virtual-machines-because-the-dhcp-client-service-is-disabled"></a>Non è possibile stabilire una connessione RDP a Macchine virtuali di Azure perché il servizio Client DHCP è disabilitato
 
@@ -27,7 +27,6 @@ Questo articolo descrive un problema che impedisce di stabilire una connessione 
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
 
 ## <a name="symptoms"></a>Sintomi
-
 Non è possibile stabilire una connessione RDP a una macchina virtuale in Azure perché il servizio Client DHCP è disabilitato nella macchina virtuale. Controllando lo screenshot in [Diagnostica di avvio](../troubleshooting/boot-diagnostics.md) nel portale di Azure, si vede che la macchina virtuale viene avviata normalmente e attende le credenziali nella schermata di accesso. Si visualizzano in modalità remota i log eventi nella macchina virtuale usando il Visualizzatore eventi. Si noterà che il servizio Client DHCP non è avviato o restituisce un errore di avvio. Di seguito è riportato un log di esempio:
 
 **Nome del log**: Sistema </br>
@@ -98,7 +97,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 1. Connettersi alla [console seriale](serial-console-windows.md) e aprire un'istanza di PowerShell.
 2. Scaricare lo strumento di monitoraggio del processo eseguendo lo script seguente:
 
-   ```
+   ```powershell
    remove-module psreadline
    $source = "https://download.sysinternals.com/files/ProcessMonitor.zip"
    $destination = "c:\temp\ProcessMonitor.zip"
@@ -167,6 +166,7 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 3. Provare a connettersi alla macchina virtuale usando Desktop remoto.
 
 #### <a name="dhcp-client-service-crashes-or-hangs"></a>Il servizio Client DHCP si arresta in modo anomalo o è bloccato
+
 1. Se il servizio è bloccato in stato di **avvio** o di **arresto**, provare ad arrestare il servizio:
 
         sc stop DHCP
@@ -205,5 +205,3 @@ Per risolvere il problema, usare il controllo seriale per abilitare il DHCP o [r
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se si necessita ancora di assistenza, [contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per la risoluzione del problema.
-
-

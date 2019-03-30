@@ -1,6 +1,6 @@
 ---
-title: Trasmettere i log di diagnostica di Azure a Log Analytics
-description: Informazioni su come trasmettere log di diagnostica di Azure a un'area di lavoro di Log Analytics.
+title: Log di diagnostica Azure Stream all'area di lavoro di Log Analitica in Monitoraggio di Azure
+description: Informazioni su come trasmettere log di diagnostica di Azure a un'area di lavoro di Log Analitica in Monitoraggio di Azure.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351552"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630796"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Trasmettere i log di diagnostica di Azure a Log Analytics
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Log di diagnostica Azure Stream all'area di lavoro di Log Analitica in Monitoraggio di Azure
 
-**[I log di diagnostica Azure](diagnostic-logs-overview.md)** possono essere trasmessi quasi in tempo reale ad Azure Log Analytics usando il portale, i cmdlet PowerShell o l'interfaccia della riga di comando di Azure.
+**[Log di diagnostica di Azure](diagnostic-logs-overview.md)**  possono essere trasmessi quasi in tempo reale per un'area di lavoro di Log Analitica in Monitoraggio di Azure usando il portale, i cmdlet di PowerShell o CLI di Azure.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Che cosa si può fare con i log di diagnostica in Log Analytics
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>Operazioni eseguibili con diagnostica di log in un'area di lavoro di Log Analitica
 
-Log Analytics di Azure è uno strumento di analisi e ricerca log flessibile che consente di conoscere i dati di registro non elaborati generati da risorse di Azure. Le funzionalità includono:
+Monitoraggio di Azure fornisce uno strumento di Progettazione query e analitica log flessibile che consente di approfondire i dati di log non elaborati generati dalle risorse di Azure. Le funzionalità includono:
 
-* **Ricerca log**: scrivere query avanzate sui dati di registro, correlare i log da varie origini e persino generare grafici che possono essere aggiunti al dashboard di Azure.
-* **Avvisi**: rilevare quando uno o più eventi corrispondano a una particolare query e vengono notificati con una mail o una chiamata webhook.
-* **Soluzioni**: usare le viste predefinite e i dashboard che forniscono informazioni dettagliate e immediate sui dati di registro.
+* **Query di log** -scrittura di query avanzate su dati del registro, correlare i log da diverse origini e generano grafici che possono essere aggiunti al dashboard di Azure.
+* **Avvisi** -rilevare quando uno o più eventi corrispondano a una particolare query e vengono notificati con una chiamata di posta elettronica o webhook tramite avvisi di monitoraggio di Azure.
 * **Analisi avanzata**: applicare algoritmi di machine learning e criteri di ricerca per identificare i possibili problemi risultanti dai log.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Abilitare la trasmissione dei log di diagnostica a Log Analytics
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Abilitare lo streaming dei log di diagnostica all'area di lavoro di Log Analitica
 
 È possibile abilitare la trasmissione dei log di diagnostica a livello di codice tramite il portale o tramite le [API REST di Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). In entrambi i casi, si crea un'impostazione di diagnostica in cui specificare un'area di lavoro di Log Analytics, le categorie di log e le metriche da inviare all'area di lavoro. Una **categoria di log** di diagnostica è un tipo di log che una risorsa può fornire.
 
@@ -42,9 +41,8 @@ L'area di lavoro di Log Analytics non deve trovarsi nella stessa sottoscrizione 
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Eseguire lo streaming dei log di diagnostica usando il portale
-1. Nel portale passare a Monitoraggio di Azure e fare clic su **Impostazioni di diagnostica**
+1. Nel portale, passare a monitoraggio di Azure e fare clic su **le impostazioni di diagnostica** nel **impostazioni** menu.
 
-    ![Sezione relativa al monitoraggio di Monitoraggio di Azure](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Facoltativamente filtrare l'elenco in base al tipo di risorsa o al gruppo di risorse, quindi fare clic sulla risorsa per cui si vuole specificare un'impostazione di diagnostica.
 
@@ -97,9 +95,9 @@ az monitor diagnostic-settings create --name <diagnostic name> \
 
 L'argomento `--resource-group` è obbligatorio solo se `--workspace` non è un ID oggetto.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>Come eseguire query sui dati in Log Analytics
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>Come si eseguono query i dati da un'area di lavoro di Log Analitica?
 
-Nel pannello Ricerca log del portale o nell'esperienza Analisi avanzata come parte di Log Analytics, è possibile eseguire query sui log di diagnostica come parte della soluzione di gestione dei log sotto la tabella AzureDiagnostics. Sono anche disponibili [diverse soluzioni per le risorse di Azure](../../azure-monitor/insights/solutions.md) che è possibile installare per ottenere informazioni dettagliate e immediate per i dati di log inviati in Log Analytics.
+Nel pannello del log nel portale di monitoraggio di Azure, è possibile eseguire una query dei log di diagnostica come parte della soluzione gestione dei Log sotto la tabella AzureDiagnostics. Esistono inoltre [diverse soluzioni di monitoraggio per risorse di Azure](../../azure-monitor/insights/solutions.md) è possibile installare per ottenere informazioni dettagliate immediate sui dati di log inviati in Monitoraggio di Azure.
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitazioni note: limite di colonna in AzureDiagnostics
 Poiché molte risorse inviare tutti i tipi di dati vengono inviati alla stessa tabella (_AzureDiagnostics_), lo schema della tabella è il set degli schemi di tutti i tipi di dati diversi raccolti con privilegi avanzati. Ad esempio, se è stato creato le impostazioni di diagnostica per la raccolta di tipi di dati seguenti, tutti inviati alla stessa area di lavoro:

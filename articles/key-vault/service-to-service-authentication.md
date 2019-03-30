@@ -10,12 +10,12 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 ms.service: key-vault
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b7532dc910fae84733c04d4e16ac93a5cd0f11c8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 642c30c4df233476a8f649f7b5f30d0538b0e83f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097907"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629861"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -101,7 +101,7 @@ Per usare l'interfaccia della riga di comando di Azure per lo sviluppo locale:
 
 Usare `az account get-access-token` per verificare l'accesso.  Se si verifica un errore, verificare che il passaggio 1 sia stato completato correttamente. 
 
-Se l'interfaccia della riga di comando di Azure non è installata nella directory predefinita, è possibile che venga visualizzato un errore indicante che `AzureServiceTokenProvider` non trova il percorso dell'interfaccia.  Usare la variabile di ambiente **AzureCLIPath** per definire la cartella di installazione dell'interfaccia della riga di comando di Azure. `AzureServiceTokenProvider` aggiunge la directory specificata nella variabile di ambiente **AzureCLIPath** alla variabile di ambiente **Path**, quando è necessario.
+Se l'interfaccia della riga di comando di Azure non è installata nella directory predefinita, è possibile che venga visualizzato un errore indicante che `AzureServiceTokenProvider` non trova il percorso dell'interfaccia.  Usare la **AzureCLIPath** variabile di ambiente per definire la cartella di installazione della riga di comando di Azure. `AzureServiceTokenProvider` aggiunge la directory specificata nella variabile di ambiente **AzureCLIPath** alla variabile di ambiente **Path**, quando è necessario.
 
 Se è stato eseguito l'accesso all'interfaccia della riga di comando di Azure con più account o l'account ha accesso a più sottoscrizioni, è necessario specificare la sottoscrizione specifica da usare.  A tale scopo, usare:
 

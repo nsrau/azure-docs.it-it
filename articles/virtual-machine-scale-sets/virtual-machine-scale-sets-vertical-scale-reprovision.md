@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579751"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648266"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Scalabilità verticale automatica con set di scalabilità di macchine virtuali
 
@@ -98,6 +98,7 @@ La prima operazione da eseguire è creare un account di Automazione di Azure che
 * [Autenticare runbook con account RunAs di Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importare i runbook di ridimensionamento verticale di Automazione di Azure nella sottoscrizione
+
 I runbook necessari per la scalabilità verticale del set di scalabilità di macchine virtuali sono già stati pubblicati nella raccolta di runbook di Automazione di Azure. Per importarli nella sottoscrizione seguire la procedura descritta in questo articolo:
 
 * [Raccolte di runbook e moduli per l'automazione di Azure](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ I runbook da importare sono visualizzati nell'immagine seguente: Selezionare il 
 ![Raccolta di runbook][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Aggiungere un webhook al runbook
+
 Dopo aver importato i runbook, aggiungere un webhook al runbook in modo che possa essere attivato da un avviso di un set di scalabilità di macchine virtuali. Informazioni dettagliate sulla creazione di un webhook per il runbook sono disponibili in questo articolo:
 
 * [Webhook di Automazione di Azure](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Dopo aver importato i runbook, aggiungere un webhook al runbook in modo che poss
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Aggiungere un avviso al set di scalabilità di macchine virtuali
+
 Di seguito è riportato uno script di PowerShell che mostra come aggiungere un avviso a un set di scalabilità di macchine virtuali. Vedere l'articolo seguente per ottenere il nome della metrica in base alla quale attivare l'avviso: [Metriche comuni per la scalabilità automatica di Monitoraggio di Azure](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -159,7 +162,8 @@ Per altre informazioni su come creare gli avvisi, vedere gli articoli seguenti:
 * [Esempi di avvio rapido con PowerShell per Monitoraggio di Azure](../azure-monitor/platform/powershell-quickstart-samples.md)
 * [Esempi di avvio rapido dell'interfaccia della riga di comando multipiattaforma per Monitoraggio di Azure](../azure-monitor/platform/cli-samples.md)
 
-## <a name="summary"></a>Riepilogo
+## <a name="summary"></a>Summary
+
 Questo articolo ha illustrato semplici esempi di ridimensionamento verticale. Con questi blocchi predefiniti, ovvero account di automazione, runbook, webhook e avvisi, è possibile connettere una vasta gamma di eventi con un set di azioni personalizzato.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

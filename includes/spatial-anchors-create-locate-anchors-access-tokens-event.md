@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: f1fa68b7ee51d66987800a1236466cf820afdc4c
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: a673f02af9d92b7135e47961f13e0899a1f0e02f
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56751864"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632425"
 ---
-Se non viene impostato un token di accesso, è necessario gestire l'evento TokenRequired o implementare il metodo tokenRequired sul protocollo delegato.
+Se non viene impostato un token di accesso, è necessario gestire il `TokenRequired` evento o implementare il `tokenRequired` metodo sul protocollo delegato.
 
 È possibile gestire in modo sincrono l'evento impostando la proprietà negli argomenti dell'evento.

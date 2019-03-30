@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/05/2018
+ms.date: 03/28/2018
 ms.author: genli
-ms.openlocfilehash: 9f600dbf27fec036b9a80a5a6fb11c5bc50cc915
-ms.sourcegitcommit: 2469b30e00cbb25efd98e696b7dbf51253767a05
-ms.translationtype: HT
+ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52994188"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630461"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Risoluzione dei problemi: problemi di connessione da punto a sito di Azure
 
@@ -217,7 +217,7 @@ Se il certificato ha superato il 50% del ciclo di vita, ne viene eseguito il rol
 
 ### <a name="solution"></a>Soluzione
 
-Per risolvere questo problema, ridistribuire il pacchetto da punto a sito in tutti i client.
+Per risolvere questo problema, scaricare di nuovo e ridistribuire il punto al pacchetto del sito in tutti i client.
 
 ## <a name="too-many-vpn-clients-connected-at-once"></a>Troppi client VPN connessi contemporaneamente
 

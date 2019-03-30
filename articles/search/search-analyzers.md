@@ -9,12 +9,12 @@ ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e3738980206277587ca367339d75da4f3faa643a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578765"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651822"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizzatori per elaborazione del testo in Ricerca di Azure
 
@@ -58,7 +58,7 @@ Alcuni analizzatori predefiniti, ad esempio, **Pattern** o **Stop**, supportano 
 
 Non è consentita l'assegnazione di **analizzatore** oppure **indexAnalyzer** a un campo che è già stato creato fisicamente. Per eventuali chiarimenti, esaminare la tabella seguente per una suddivisione di quali azioni richiedono la ricompilazione e perché.
  
- | Scenario | Impatto | Istruzioni |
+ | Scenario | Impatto | Passaggi |
  |----------|--------|-------|
  | Aggiungere un nuovo campo | Minimo | Se il campo non esiste ancora nello schema, non occorre alcuna revisione perché il campo non è ancora presente fisicamente nell'indice. È possibile usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per aggiungere un nuovo campo a un indice esistente, e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo.|
  | Aggiungere un **analizzatore** o **indexAnalyzer** a un campo indicizzato esistente. | [rebuild](search-howto-reindex.md) | L'indice invertito per il campo deve essere ricreato da zero e il contenuto per questi campi deve essere reindicizzato. <br/> <br/>Per gli indici in fase di sviluppo, [eliminare](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [creare](https://docs.microsoft.com/rest/api/searchservice/create-index) l'indice per selezionare la nuova definizione di campo. <br/> <br/>Per gli indici nell'ambiente di produzione, è possibile posticipare la ricompilazione mediante la creazione di un nuovo campo per fornire la definizione modificata e iniziare a usarla al posto di quella precedente. Usare [Aggiornare un indice](https://docs.microsoft.com/rest/api/searchservice/update-index) per incorporare il nuovo campo e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per compilarlo. In un secondo momento, nell'ambito della manutenzione pianificata dell'indice, sarà possibile pulire l'indice per rimuovere i campi obsoleti. |
@@ -291,7 +291,7 @@ Qualsiasi analizzatore che viene usato come-è, senza alcuna configurazione, vie
 
 In questo esempio assegna gli analizzatori Microsoft English e francese ai campi di descrizione. È un frammento di codice eseguito da una definizione dell'indice degli hotel, creazione tramite la classe Hotel nel file hotels.cs di dimensioni maggiori di [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) esempio.
 
-Chiamare [analizzatore](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specificando la [classe AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) che fornisce tutti gli analizzatori text in ricerca di Azure è supportati.
+Chiamare [analizzatore](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), specificando la [AnalyzerName](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) tipo che fornisce un analizzatore di testo è supportato in ricerca di Azure.
 
 ```csharp
     public partial class Hotel
@@ -317,7 +317,7 @@ Chiamare [analizzatore](https://docs.microsoft.com/dotnet/api/microsoft.azure.se
 
 Quando è necessaria la personalizzazione o configurazione, è necessario aggiungere un costrutto di analizzatore a un indice. Dopo averlo definito, è possibile aggiungere la definizione del campo come illustrato nell'esempio precedente.
 
-Uso [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) per creare l'oggetto. Per altri esempi, vedere [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+Creare un [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) oggetto. Per altri esempi, vedere [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
 
 ```csharp
 {
@@ -351,7 +351,7 @@ Uso [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.searc
 
 + [Fare un confronto degli analizzatori standard e in lingua inglese](https://alice.unearth.ai/) su riquadri adiacenti in questo sito Web demo. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
  [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 

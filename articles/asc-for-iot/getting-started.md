@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1186b362cf8f59f24020ae9afa3526e2e27b1794
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575216"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648317"
 ---
 # <a name="get-started-with-azure-security-center-asc-for-iot"></a>Iniziare con Azure Security Center (Centro sicurezza di AZURE) per IoT 
 
@@ -53,7 +53,7 @@ Per abilitare il monitoraggio del dispositivo gestione delle identità, disposit
 
 1. [Abilita Centro sicurezza di AZURE per il servizio IoT sull'IoT Hub](quickstart-onboard-iot-hub.md)
 1. Se l'IoT Hub non sono presenti dispositivi registrati, [registrare un nuovo dispositivo](https://docs.microsoft.com/azure/iot-accelerators/quickstart-device-simulation-deploy).
-1. [Creare un modulo di protezione ascforiot](quickstart-create-security-twin.md) per i dispositivi. 
+1. [Creare un modulo di protezione azureiotsecurity per i dispositivi](quickstart-create-security-twin.md) per i dispositivi. 
 1. Definiscono il comportamento normale di dispositivo e sistema attraverso [avvisi personalizzati](quickstart-create-custom-alerts.md). 
 1. Eseguire test per verificare lo stato del servizio e dispositivo di sistema. 
 1. Esplorare [alerts](concept-security-alerts.md), [raccomandazioni](concept-recommendations.md), e [approfondimento usando Log Analitica](how-to-security-data-access.md) usando l'IoT Hub. 
@@ -69,8 +69,7 @@ Assicurarsi di usare Centro sicurezza di AZURE per le funzionalità di sicurezza
 1. Per installare l'agente in un dispositivo simulato Azure anziché eseguire l'installazione in un dispositivo effettivo [selezione di una macchina virtuale di Azure nuova (VM)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) in una zona di disponibilità. 
 1. [Distribuire un Centro sicurezza di AZURE per l'agente di sicurezza IoT](how-to-deploy-linux-cs.md) sul dispositivo IoT o nuova macchina virtuale.
 1. Seguire le istruzioni relative [trigger_events](https://aka.ms/iot-security-github-trigger-events) per eseguire una simulazione di un attacco innocuo.
-1. Verificare di Centro sicurezza di AZURE per IoT gli avvisi in risposta all'attacco simulato nel passaggio precedente. 
-    - Iniziare verifica cinque minuti dopo l'esecuzione dello script.
+1. Verificare di Centro sicurezza di AZURE per IoT gli avvisi in risposta all'attacco simulato nel passaggio precedente. Iniziare verifica cinque minuti dopo l'esecuzione dello script.
 1. Esplorare [alerts](concept-security-alerts.md), [raccomandazioni](concept-recommendations.md), e [approfondimento usando Log Analitica](how-to-security-data-access.md) usando l'IoT Hub. 
 
 ## <a name="next-steps"></a>Passaggi successivi

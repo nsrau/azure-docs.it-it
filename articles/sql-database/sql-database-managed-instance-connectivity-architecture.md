@@ -4,7 +4,7 @@ description: Informazioni sulle comunicazioni istanza Database SQL di Azure gest
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
+ms.custom: fasttrack-edit
 ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621550"
+ms.locfileid: "58651313"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Architettura della connettività per un'istanza gestita di Database SQL di Azure 
 
@@ -97,20 +97,21 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="mandatory-inbound-security-rules"></a>Regole di sicurezza in ingresso obbligatorie
 
-| Attività       |Porta                        |Protocollo|Target           |Destinazione|Azione|
+| NOME       |Porta                        |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|gestione  |9000, 9003, 1438, 1440, 1452|TCP     |Tutte              |Tutte        |Consenti |
-|mi_subnet   |Tutte                         |Tutte     |MI SUBNET        |Tutte        |Consenti |
-|health_probe|Tutte                         |Tutte     |AzureLoadBalancer|Tutte        |Consenti |
+|management  |9000, 9003, 1438, 1440, 1452|TCP     |Qualsiasi              |Qualsiasi        |CONSENTI |
+|mi_subnet   |Qualsiasi                         |Qualsiasi     |MI SUBNET        |Qualsiasi        |CONSENTI |
+|health_probe|Qualsiasi                         |Qualsiasi     |AzureLoadBalancer|Qualsiasi        |CONSENTI |
 
 ### <a name="mandatory-outbound-security-rules"></a>Regole di sicurezza in uscita obbligatorie
 
-| Attività       |Porta          |Protocollo|Target           |Destinazione|Azione|
+| NOME       |Porta          |Protocollo|Source (Sorgente)           |Destination|Azione|
 |------------|--------------|--------|-----------------|-----------|------|
-|gestione  |80, 443, 12000|TCP     |Tutte              |AzureCloud  |Consenti |
-|mi_subnet   |Tutte           |Tutte     |Tutte              |MI SUBNET *  |Consenti |
+|management  |80, 443, 12000|TCP     |Qualsiasi              |AzureCloud  |CONSENTI |
+|mi_subnet   |Qualsiasi           |Qualsiasi     |Qualsiasi              |MI SUBNET *  |CONSENTI |
 
-> Assicurarsi che sia presente solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 80, 443, 12000. Provisioning dell'istanza gestita tramite distribuzioni ARM può non riuscire se le regole in ingresso e di output vengono configurate separatamente per ogni porte. 
+> [!IMPORTANT]
+> Assicurarsi che ci sia solo una regola in ingresso per le porte 9000, 9003, 1438, 1440, 1452 e una regola in uscita per le porte 80, 443, 12000. Provisioning dell'istanza gestita tramite distribuzioni ARM avrà esito negativo se le regole in ingresso e di output vengono configurate separatamente per ogni porta. Se queste porte sono regole distinte, la distribuzione avrà esito negativo con codice di errore `VnetSubnetConflictWithIntendedPolicy`
 
 \* SUBNET MI fa riferimento all'intervallo di indirizzi IP per la subnet in 10.x.x.x/y il form. È possibile trovare queste informazioni nel portale di Azure, nelle proprietà di subnet.
 
@@ -122,7 +123,7 @@ Distribuire un'istanza gestita in una subnet dedicata all'interno della rete vir
 
 ### <a name="user-defined-routes"></a>route definite dall'utente
 
-|Attività|Prefisso indirizzo|Hop successivo|
+|NOME|Prefisso indirizzo|Hop successivo|
 |----|--------------|-------|
 |subnet_to_vnetlocal|[mi_subnet]|Rete virtuale|
 |mi-0-5-next-hop-internet|0.0.0.0/5|Internet|

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521466"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661787"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
@@ -39,7 +39,7 @@ Questo articolo illustra non solo l'architettura della connettività del databas
 >
 > Se non è stato possibile stabilire le connessioni degli endpoint di servizio al server di Azure SQL e si sospetta di essere interessati da questa modifica, verificare che il tipo di connessione sia esplicitamente impostato su `Redirect`. In tal caso, è necessario aprire le regole del firewall e i gruppi di sicurezza di rete della macchina virtuale a tutti gli indirizzi IP di Azure dell'area appartenenti al [tag di servizio](../virtual-network/security-overview.md#service-tags) Sql per le porte 11000-12000. Se non è possibile, impostare in modo esplicito il server su `Proxy`.
 > [!NOTE]
-> Questo argomento si applica ai server di database SQL di Azure che ospitano database singoli, pool elastici e database di SQL Data Warehouse. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
+> In questo argomento si applica ai server di Database SQL di Azure che ospita i database singoli e pool elastici, database SQL Data Warehouse, Database di Azure per MySQL, Database di Azure per MariaDB e Database di Azure per PostgreSQL. Per semplicità, Database SQL viene usato quando si fa riferimento al Database SQL, SQL Data Warehouse, Database di Azure per MySQL, Database di Azure per MariaDB e Database di Azure per PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 

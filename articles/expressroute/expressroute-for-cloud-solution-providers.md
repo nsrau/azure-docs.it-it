@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/10/2016
 ms.author: richcar
 ms.custom: seodec18
-ms.openlocfilehash: 842654f860a94481b53ebf9732fc4ed8be24cf4a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: a03ab7bbdadad2728f54127583583c22bd2ec07a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53077512"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650377"
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute per Cloud Solution Provider (CSP)
 Microsoft fornisce servizi su vasta scala per consentire a rivenditori e distributori tradizionali (CSP) di effettuare rapidamente il provisioning di nuovi servizi e soluzioni per i clienti senza dover investire nello sviluppo di questi nuovi servizi. Per offrire al Cloud Solution Provider (CSP) la possibilità di gestire direttamente questi nuovi servizi, Microsoft fornisce programmi e API che consentono al CSP di gestire le risorse di Microsoft Azure per conto dei clienti. Una di queste risorse è ExpressRoute. ExpressRoute consente al CSP di connettere le risorse esistenti dei clienti ai servizi di Azure. ExpressRoute è un collegamento delle comunicazioni privato a velocità elevata ai servizi in Azure. 
@@ -75,7 +75,7 @@ ExpressRoute supporta le velocità di rete comprese tra 50 MB/s e 10 GB/s. Ciò 
 ExpressRoute supporta la connessione di più reti virtuali a un solo circuito ExpressRoute per un miglior utilizzo delle connessioni con velocità più elevata. Un solo circuito ExpressRoute può essere condiviso tra più sottoscrizioni di Azure di proprietà dello stesso cliente.
 
 ## <a name="configuring-expressroute"></a>Configurazione di ExpressRoute
-ExpressRoute può essere configurato per supportare tre tipi di traffico ([domini di routing](#ExpressRoute-routing-domains)) su un solo circuito ExpressRoute. Questo traffico viene separato nel peer Microsoft, nel peer pubblico di Azure e nel peer privato. È possibile scegliere uno o tutti i tipi di traffico da inviare tramite un solo circuito di ExpressRoute o usare più circuiti ExpressRoute a seconda delle dimensioni del circuito ExpressRoute e dell'isolamento richiesto dal cliente. Il comportamento di sicurezza del cliente potrebbe non consentire al traffico pubblico e al traffico privato di passare per lo stesso circuito.
+ExpressRoute può essere configurato per supportare tre tipi di traffico ([domini di routing](#expressroute-routing-domains)) su un solo circuito ExpressRoute. Questo traffico viene separato nel peer Microsoft, nel peer pubblico di Azure e nel peer privato. È possibile scegliere uno o tutti i tipi di traffico da inviare tramite un solo circuito di ExpressRoute o usare più circuiti ExpressRoute a seconda delle dimensioni del circuito ExpressRoute e dell'isolamento richiesto dal cliente. Il comportamento di sicurezza del cliente potrebbe non consentire al traffico pubblico e al traffico privato di passare per lo stesso circuito.
 
 ### <a name="connect-through-model"></a>Modello di connessione indiretta
 In una configurazione di connessione indiretta l'utente sarà responsabile di tutti i fondamenti della rete per connettere le risorse dei data center dei clienti alle sottoscrizioni ospitate in Azure. Ogni cliente che vuole usare le funzionalità di Azure dovrà avere la propria connessione ExpressRoute, che verrà gestita dall'utente. L'utente userà gli stessi metodi che userebbe il cliente per ottenere il circuito ExpressRoute. L'utente seguirà la stessa procedura indicata nell'articolo [Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito](expressroute-workflows.md) . L'utente configurerà quindi le route BGP (Border Gateway Protocol) per controllare il traffico che scorre tra la rete locale e la rete virtuale di Azure.
@@ -114,7 +114,7 @@ La tabella di route predefinita include le route seguenti:
 ### <a name="user-defined-routing-udr"></a>Routing definito dall'utente
 Le route definite dall'utente consentono di controllare il traffico in uscita dalla subnet assegnata ad altre subnet nella rete virtuale o su uno degli altri gateway predefiniti (ExpressRoute, Internet o VPN). La tabella di routing di sistema predefinita può essere sostituita con una tabella di routing definita dall'utente che sostituisce la tabella di routing predefinita con route personalizzate. Con il routing definito dall'utente, i clienti possono creare route specifiche alle appliance, ad esempio firewall o appliance per il rilevamento di intrusioni, o bloccare l'accesso a subnet specifiche dalla subnet che ospita la route definita dall'utente. Per una panoramica delle route definite dall'utente, vedere [qui](../virtual-network/virtual-networks-udr-overview.md). 
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 A seconda del modello in uso, connessione diretta o connessione indiretta, il cliente definisce i criteri di sicurezza nella rete virtuale o fornisce i requisiti dei criteri di sicurezza al CSP per definirli per le reti virtuali. Possono essere definiti i criteri di sicurezza seguenti:
 
 1. **Isolamento del cliente** : la piattaforma Azure fornisce l'isolamento del cliente archiviando l'ID cliente e le informazioni sulla rete virtuale in un database sicuro, che viene usato per incapsulare il traffico di ogni cliente in un tunnel GRE.

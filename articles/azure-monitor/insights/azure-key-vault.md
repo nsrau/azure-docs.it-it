@@ -1,32 +1,32 @@
 ---
-title: Soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics | Documentazione Microsoft
-description: È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log dell'Insieme di credenziali delle chiavi di Azure.
+title: Soluzione Azure Key Vault in Monitoraggio di Azure | Microsoft Docs
+description: È possibile usare la soluzione Azure Key Vault in Monitoraggio di Azure per esaminare i log di Azure Key Vault.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: bwren
+manager: carmonm
 editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/09/2017
-ms.author: richrund
-ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.author: bwren
+ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078766"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629280"
 ---
-# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Soluzione di Azure Key Vault Analytics in Log Analytics
+# <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Soluzione Analitica insieme di credenziali delle chiavi di Azure in Monitoraggio di Azure
 
 ![Simbolo di Key Vault](media/azure-key-vault/key-vault-analytics-symbol.png)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-È possibile usare la soluzione Insieme di credenziali delle chiavi di Azure in Log Analytics per esaminare i log AuditEvent dell'Insieme di credenziali delle chiavi di Azure.
+È possibile usare la soluzione Azure Key Vault in Monitoraggio di Azure per esaminare i log AuditEvent dell'insieme di credenziali chiave di Azure.
 
 Per usare la soluzione, è necessario abilitare la registrazione diagnostica di Azure Key Vault e indirizzare la diagnostica a un'area di lavoro di Log Analytics. Non è necessario inserire i log nell'Archiviazione BLOB di Azure.
 
@@ -38,23 +38,23 @@ Per usare la soluzione, è necessario abilitare la registrazione diagnostica di 
 ## <a name="install-and-configure-the-solution"></a>Installare e configurare la soluzione
 Usare le istruzioni seguenti per installare e configurare la soluzione Insieme di credenziali delle chiavi di Azure:
 
-1. Abilitare la soluzione Azure Key Vault da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md).
+1. Usare la procedura descritta nel [soluzioni di monitoraggio di Azure aggiungere dalla raccolta soluzioni](../../azure-monitor/insights/solutions.md) per aggiungere la soluzione Azure Key Vault per l'area di lavoro di Log Analitica.
 2. Abilitare la registrazione diagnostica per le risorse di Key Vault da monitorare, usando il [portale](#enable-key-vault-diagnostics-in-the-portal) o [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Abilitare la diagnostica di Key Vault nel portale
 
 1. Nel portale di Azure passare alla risorsa Key Vault da monitorare
-2. Selezionare *Log di diagnostica* per aprire la pagina seguente
+2. Selezionare *delle impostazioni di diagnostica* per aprire la pagina seguente
 
    ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Fare clic su *Attiva diagnostica* per aprire la pagina seguente
 
    ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
-4. Per attivare la diagnostica, fare clic su *Attivato* in *Stato*
+4. Assegnare un nome per l'impostazione di diagnostica.
 5. Selezionare la casella di controllo *Send to Log Analytics* (Invia a Log Analytics)
 6. Selezionare un'area di lavoro Log Analytics esistente o creare una
 7. Per abilitare i log *AuditEvent*, fare clic sulla casella di controllo in Log
-8. Fare clic su *Salva* per abilitare la registrazione della diagnostica per Log Analytics
+8. Fare clic su *salvare* per abilitare la registrazione di diagnostica all'area di lavoro di Log Analitica.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Abilitare la diagnostica di Key Vault utilizzando PowerShell
 Il seguente script PowerShell contiene un esempio su come utilizzare `Set-AzDiagnosticSetting` per abilitare la registrazione della diagnostica per Key Vault:
@@ -79,11 +79,11 @@ La tabella seguente illustra i metodi di raccolta dei dati e altri dettagli sull
 | Azure |  |  |&#8226; |  |  | all'arrivo |
 
 ## <a name="use-azure-key-vault"></a>Usare l'Insieme di credenziali delle chiavi di Azure
-Dopo aver [installato la soluzione](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), è possibile visualizzare i dati Key Vault facendo clic sul riquadro **Azure Key Vault** dalla pagina **Panoramica** di Log Analytics.
+Dopo aver [installare la soluzione](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), visualizzare i dati Key Vault facendo il **Analitica insieme di credenziali delle chiavi** riquadro di monitoraggio di Azure **Panoramica** pagina. Aprire questa pagina dal menu **Monitoraggio di Azure** facendo clic su **Altro** sotto la sezione **Informazioni dettagliate**. 
 
 ![Immagine del riquadro Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
-Dopo avere selezionato il riquadro **Panoramica**, è possibile visualizzare i riepiloghi dei log e quindi analizzare i dettagli per le categorie seguenti:
+Dopo aver selezionato il **Analitica dell'insieme di credenziali chiave** riquadro, è possibile visualizzare i riepiloghi dei log e quindi analizzare i dettagli per le categorie seguenti:
 
 * Volume di tutte le operazioni dell'insieme di credenziali delle chiavi nel tempo
 * Volumi di operazioni non riuscite nel tempo
@@ -95,12 +95,12 @@ Dopo avere selezionato il riquadro **Panoramica**, è possibile visualizzare i r
 ![Immagine del dashboard dell'Insieme di credenziali delle chiavi di Azure](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Per visualizzare i dettagli per un'operazione
-1. Nella pagina **Panoramica** fare clic sul riquadro **Insieme di credenziali delle chiavi di Azure**.
+1. Nel **Overview** fare clic sul **Analitica dell'insieme di credenziali chiave** riquadro.
 2. Nel dashboard **Insieme di credenziali delle chiavi di Azure** esaminare le informazioni di riepilogo in uno dei pannelli, quindi fare clic su un pannello per visualizzare le informazioni dettagliate corrispondenti nella pagina di ricerca di log.
 
     In una pagina di ricerca di log qualsiasi è possibile visualizzare i risultati in base all'ora, ai dettagli e alla cronologia di ricerca. È anche possibile filtrare per facet in modo da limitare i risultati.
 
-## <a name="log-analytics-records"></a>Record di Log Analytics
+## <a name="azure-monitor-log-records"></a>Record di log di Monitoraggio di Azure
 La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con tipo **KeyVaults**, raccolti dai [log AuditEvent](../../key-vault/key-vault-logging.md) in Diagnostica di Azure.  Le proprietà per questi record sono disponibili nella tabella seguente:  
 
 | Proprietà | DESCRIZIONE |
@@ -113,7 +113,7 @@ La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con 
 | DurationMs |Tempo impiegato per soddisfare la richiesta API REST, in millisecondi. Il tempo non include la latenza di rete, quindi il tempo misurato sul lato client potrebbe non corrispondere a questo valore. |
 | httpStatusCode_d |Codice di stato HTTP restituito dalla richiesta (ad esempio *200*) |
 | id_s |ID univoco della richiesta |
-| identity_claim_appid_g | GUID per l'ID applicazione |
+| identity_claim_appid_g | GUID per l'ID dell'applicazione |
 | OperationName |Nome dell'operazione, come illustrato in [Registrazione dell'Insieme di credenziali delle chiavi di Azure](../../key-vault/key-vault-logging.md) |
 | OperationVersion |Versione dell'API REST richiesta dal client (ad esempio *2015-06-01*) |
 | requestUri_s |URI della richiesta |
@@ -128,15 +128,15 @@ La soluzione Insieme di credenziali delle chiavi di Azure analizza i record con 
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migrazione dalla soluzione Key Vault precedente
 Nel gennaio 2017, il metodo supportato per l'invio dei log da Key Vault a Log Analytics è cambiato. In questo modo si otterranno i vantaggi seguenti:
-+ I log vengono scritti direttamente in Log Analytics senza la necessità di utilizzare un account di archiviazione
++ I log vengono scritti direttamente a un'area di lavoro di Log Analitica senza la necessità di usare un account di archiviazione
 + Minore latenza dal momento in cui i log vengono generati essendo immediatamente disponibili in Log Analytics
 + Meno passaggi di configurazione
 + Un formato comune per tutti i tipi di diagnostica di Azure
 
 Per utilizzare la soluzione aggiornata:
 
-1. [Configurare la diagnostica in modo che venga inviata direttamente a Log Analytics da Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
-2. Abilitare la soluzione Azure Key Vault seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../../azure-monitor/insights/solutions.md)
+1. [Configurare la diagnostica per essere inviati direttamente a un'area di lavoro di Analitica di Log da Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
+2. Abilitare la soluzione Azure Key Vault usando la procedura descritta in [soluzioni di monitoraggio di Azure aggiungere dalla raccolta soluzioni](../../azure-monitor/insights/solutions.md)
 3. Aggiornare tutte le query salvate, i dashboard o gli avvisi per utilizzare il nuovo tipo di dati
    + Il tipo è cambiato da KeyVaults ad AzureDiagnostics. È possibile utilizzare ResourceType per filtrare i log di Key Vault.
    + Invece di: `KeyVaults`, utilizzare i campi `AzureDiagnostics | where ResourceType'=="VAULTS"`:
@@ -153,4 +153,4 @@ I dati raccolti prima della modifica non sono visibili nella nuova soluzione. È
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Usare le [Ricerche nei log in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) per visualizzare i dati dettagliati per l'Insieme di credenziali delle chiavi di Azure.
+* Uso [query di Log in Monitoraggio di Azure](../../azure-monitor/log-query/log-query-overview.md) per visualizzare i dati dettagliati di Azure Key Vault.

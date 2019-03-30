@@ -1,5 +1,5 @@
 ---
-title: Informazioni sull'utilizzo delle prenotazioni di Azure per l'iscrizione Enterprise | Microsoft Docs
+title: Informazioni sull'utilizzo di prenotazioni di Azure per Enterprise | Microsoft Docs
 description: Informazioni su come leggere l'utilizzo per comprendere come viene applicata la prenotazione di Azure per l'iscrizione Enterprise.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857692"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648300"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informazioni sull'utilizzo della prenotazione di Azure per l'iscrizione Enterprise
 
@@ -53,7 +53,7 @@ La parte hardware della VM è coperta perché la VM distribuita corrisponde agli
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilizzo delle prenotazioni di capacità riservata del database SQL e Cosmos DB
 
-Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere il report di utilizzo. È possibile seguire questi stessi passaggi anche per l'utilizzo in Azure Cosmos DB. 
+Le sezioni seguenti usano il database SQL di Azure come esempio per descrivere il report di utilizzo. È possibile seguire questi stessi passaggi anche per l'utilizzo in Azure Cosmos DB.
 
 Si presuppone che sia eseguito un database SQL di quarta generazione nell'area Stati Uniti orientali e che le informazioni sulla prenotazione siano simili a quelle della tabella seguente:
 
@@ -64,7 +64,7 @@ Si presuppone che sia eseguito un database SQL di quarta generazione nell'area S
 |Prodotto| Database SQL Gen4 (2 core)|
 |Region | eastus |
 
-### <a name="usage-in-csv-file"></a>Utilizzo in un file con estensione csv 
+### <a name="usage-in-csv-file"></a>Utilizzo in un file con estensione csv
 
 Applicare un filtro in **Informazioni aggiuntive**, digitare un valore in **ID prenotazione** e scegliere la **categoria del contatore** necessaria: database SQL di Azure o Azure Cosmos DB. Lo screenshot seguente illustra i campi correlati alla prenotazione.
 
@@ -81,19 +81,20 @@ L'utilizzo della prenotazione di Azure viene visualizzato anche nella sezione di
 1. Non vengono addebitati costi per il componente hardware della macchina virtuale, perché è coperto dalla prenotazione. Per una prenotazione del database SQL, viene visualizzata una riga con **Nome servizio** per l'utilizzo della capacità riservata del database SQL di Azure.
 2. In questo esempio non si ha il Vantaggio Azure Hybrid, quindi il software Windows usato con la macchina virtuale viene addebitato.
 
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
+
+Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulle prenotazioni di Azure, vedere gli articoli seguenti:
 
 - [Informazioni sulle prenotazioni di Azure](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md) 
+- [Pagare in anticipo le risorse di calcolo del database SQL con capacità riservata del database SQL di Azure](../sql-database/sql-database-reserved-capacity.md)
 - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)
 - [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
 - [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
 - [Costi del software Windows non inclusi nelle prenotazioni](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
-
-Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 

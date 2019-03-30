@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 7e1229ceaa2ae7113c95cfb202a84c56a3e53d61
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620135"
+ms.locfileid: "58650156"
 ---
 # <a name="send-security-messages-sdk"></a>Inviare messaggi di sicurezza SDK
 
@@ -92,7 +92,7 @@ Inviare i messaggi di sicurezza senza usare il Centro sicurezza di AZURE per l'a
 
 Per inviare i dati del dispositivo dai dispositivi per l'elaborazione dal Centro sicurezza di AZURE per IoT, usare una delle seguenti API per contrassegnare i messaggi per il routing corretto al Centro sicurezza di AZURE per IoT elabora la pipeline. I messaggi inviati in questo modo verranno elaborati e visualizzati come informazioni di sicurezza nel Centro sicurezza di AZURE per IoT all'interno sia dell'IoT Hub o di Centro sicurezza di Azure. 
 
-Tutti i dati che viene inviati, anche se contrassegnati con l'intestazione corretto, è necessario inoltre rispettare le [Centro sicurezza di AZURE per lo schema di messaggio IoT](https://github.com/Azure/ASC-for-IoT-Schemas). 
+Tutti i dati che viene inviati, anche se contrassegnati con l'intestazione corretto, è necessario inoltre rispettare le [Centro sicurezza di AZURE per lo schema di messaggio IoT](https://aka.ms/iot-security-schemas). 
 
 ### <a name="send-security-message-api"></a>Sicurezza messaggio API di invio
 

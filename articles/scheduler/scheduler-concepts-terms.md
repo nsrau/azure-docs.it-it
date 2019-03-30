@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887052"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651270"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Concetti, terminologia ed entità di Utilità di pianificazione di Azure
 
@@ -143,7 +143,7 @@ Nell’oggetto **startTime**, è possibile specificare l'ora di inizio e una dif
 
 ## <a name="action"></a>action
 
-Il processo di Utilità di pianificazione di Microsoft Azure esegue un'**azione** primaria in base alla pianificazione specificata. Utilità di pianificazione di Microsoft Azure supporta azioni della coda del bus di servizio, dell'argomento del bus di servizio, della coda di archiviazione e HTTP. Se l'**azione** primaria ha esito negativo, Utilità di pianificazione di Microsoft Azure può eseguire una [**errorAction**](#errorAction) secondaria che gestisce l'errore. L’oggetto dell’**azione** descrive questi elementi:
+Il processo di Utilità di pianificazione di Microsoft Azure esegue un'**azione** primaria in base alla pianificazione specificata. Utilità di pianificazione di Microsoft Azure supporta azioni della coda del bus di servizio, dell'argomento del bus di servizio, della coda di archiviazione e HTTP. Se l'**azione** primaria ha esito negativo, Utilità di pianificazione di Microsoft Azure può eseguire una [**errorAction**](#erroraction) secondaria che gestisce l'errore. L’oggetto dell’**azione** descrive questi elementi:
 
 * Tipo di servizio dell'azione
 * Dettagli dell'azione

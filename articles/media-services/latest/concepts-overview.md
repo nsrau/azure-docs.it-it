@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d8790eac93b288d5d5254f188fe5c901b5d5df14
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 8f21374ae5da76c9954acc5227f593ab4be19ce9
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351491"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630545"
 ---
 # <a name="media-services-concepts"></a>Concetti relativi a servizi multimediali
 
@@ -30,7 +30,7 @@ Questo argomento offre una breve panoramica dei concetti di servizi multimediali
 
 Per avviare la gestione, la crittografia, la codifica, l'analisi e lo streaming di contenuti multimediali in Azure, è necessario creare un account servizi multimediali e caricare i file digitali in **asset**.
 
-- [Memorizzazione e caricamento nel cloud](storage-account-concept.md)
+- [Caricamento e archiviazione nel cloud](storage-account-concept.md)
 - [Concetto di asset](assets-concept.md)
 
 ## <a name="encoding"></a>Codifica
@@ -80,7 +80,7 @@ L'immagine seguente illustra il flusso di lavoro di protezione dei contenuti di 
 - [Criteri di streaming](streaming-policy-concept.md)
 - [Criteri di chiave simmetrica](content-key-policy-concept.md)
 - [Protezione del contenuto](content-protection-overview.md)
-- [Grazie ai manifesti dinamici](filters-dynamic-manifest-overview.md)
+- [Manifesti dinamici](filters-dynamic-manifest-overview.md)
 - [Filtri](filters-concept.md)
 
 ## <a name="live-streaming"></a>Streaming live
@@ -102,6 +102,11 @@ Per visualizzare lo stato di avanzamento del processo, è consigliabile usare **
 
 - [Gestione degli eventi di griglia di eventi](reacting-to-media-services-events.md)
 - [Schemi](media-services-event-schemas.md)
+
+### <a name="azure-monitor"></a>Monitoraggio di Azure
+
+Monitorare le metriche e log di diagnostica che consentono di comprendere come le applicazioni eseguono con monitoraggio di Azure.
+
 - [Le metriche e log di diagnostica](media-services-metrics-diagnostic-logs.md)
 - [Schemi dei log di diagnostica](media-services-diagnostic-logs-schema.md)
 
@@ -113,4 +118,9 @@ Per visualizzare lo stato di avanzamento del processo, è consigliabile usare **
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire il caricamento, la codifica e lo streaming con Servizi multimediali](stream-files-tutorial-with-api.md)
+* [Codificare file remoto e il flusso video-REST](stream-files-tutorial-with-rest.md)
+* [Codificare file caricato e il flusso video - .NET](stream-files-tutorial-with-api.md)
+* [Stream live - .NET](stream-live-tutorial-with-api.md)
+* [Analizzare i video - .NET](analyze-videos-tutorial-with-api.md)
+* [Crittografia dinamica AES-128 - .NET](protect-with-aes128.md)
+* [La crittografia dinamica con DRM multiplo - .NET](protect-with-drm.md) 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385042"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649969"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Eseguire la migrazione dal servizio Azure Container (ACS) al servizio Azure Kubernetes
 
@@ -35,7 +35,7 @@ ACS e servizio Azure Kubernetes differiscono in alcune aree chiave che influisco
 
 ### <a name="differences-between-kubernetes-versions"></a>Differenze tra le versioni di Kubernetes
 
-Se si esegue la migrazione a una versione più recente di Kubernetes (es: da 1.7.x a 1.9.x), esistono alcune modifiche all'API k8s che richiederanno l'attenzione dell'utente.
+Se si esegue la migrazione a una versione più recente di Kubernetes (ad esempio: 1.7.x a 1.9.x), esistono alcune modifiche all'API k8s che richiederà l'attenzione dell'utente.
 
 * [Eseguire la migrazione di un ThirdPartyResource a CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/)
 * [Modifiche ai carichi di lavoro API nella versione 1.8 e 1.9](https://kubernetes.io/docs/reference/workloads-18-19/).
@@ -51,7 +51,7 @@ Esempio:
 | NOME | Conteggio | Dimensioni macchina virtuale | Sistema operativo |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 |  Windows |
+| agentpool1 | 1 | Standard_D2_v2 | Windows |
 
 Poiché le macchine virtuali aggiuntive verranno distribuite nella sottoscrizione durante la migrazione, è necessario verificare che i limiti e le quote siano sufficienti per tali risorse. È possibile ottenere più informazioni esaminando [Sottoscrizione di Azure e limiti dei servizi](https://docs.microsoft.com/azure/azure-subscription-service-limits). Per controllare le quote correnti, andare sul [Pannello delle sottoscrizioni](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) nel portale di Azure, selezionare la sottoscrizione, quindi selezionare `Usage + quotas`.
 
@@ -91,12 +91,12 @@ Esistono molteplici fattori da considerare se si sta migrando volumi persistenti
 7. Convalida
 8. Indirizzare il traffico verso il cluster servizio Azure Kubernetes
 
-> **Importante**: se si sceglie di non disattivare le scritture, è necessario replicare i dati alla nuova distribuzione, in quanto mancherebbero i dati scritti dopo lo snapshot del disco
+> **Importante**: Se sceglie di non disattivare scritture, è necessario replicare i dati alla nuova distribuzione, come si saranno manchino i dati scritti dopo lo snapshot del disco
 
 Sono disponibili strumenti open source che consentono di creare dischi gestiti ed eseguire la migrazione dei volumi tra i cluster Kubernetes.
 
 * [noelbundick/azure-cli-disco-extension](https://github.com/noelbundick/azure-cli-disk-copy-extension): copiare e convertire i dischi in gruppi di risorse e aree di Azure
-* [yaron2/azure-kube-cli](https://github.com/yaron2/azure-kube-cli): enumerare i volumi Kubernetes ACS e eseguire la migrazione a un cluster AKS
+* [yaron2/azure-kube-cli](https://github.com/yaron2/azure-kube-cli): enumerare i volumi Kubernetes ACS e eseguire la migrazione a un cluster servizio Azure Kubernetes
 
 #### <a name="azure-files"></a>File di Azure
 
@@ -144,7 +144,7 @@ Apportare eventuali modifiche necessarie alle definizioni di YAML. Ad esempio: s
 
 ### <a name="3-optional-migrate-volumes"></a>3. (Facoltativo) Eseguire la migrazione di volumi
 
-Eseguire la migrazione di volumi dal cluster ACS nel cluster servizio Azure Kubernetes. Altre informazioni sono reperibili nella sezione [Migrazione di volumi persistenti](#Migrating-Persistent-Volumes).
+Eseguire la migrazione di volumi dal cluster ACS nel cluster servizio Azure Kubernetes. Altre informazioni sono reperibili nella sezione [Migrazione di volumi persistenti](#migrating-persistent-volumes).
 
 ### <a name="4-deploy-applications"></a>4. Distribuire applicazioni
 

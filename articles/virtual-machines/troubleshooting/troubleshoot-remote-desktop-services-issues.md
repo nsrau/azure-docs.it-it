@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 8dc3dcbe3a84a0c35c1e3fc6e367c63393bebb70
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c9accf09da240f6d3235edd3c9da1876529d8654
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003149"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650743"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Servizi Desktop remoto non si avvia in una macchina virtuale di Azure
 
@@ -99,15 +99,15 @@ Per risolvere questo problema, usare la console seriale oppure [riparare la macc
 
     |  Tipi di errore |  Suggerimento |
     |---|---|
-    |5- ACCESS DENIED |Vedere [Il servizio TermService viene arrestato a causa di un errore di accesso negato](#termService-service-is-stopped-because-of-an-access-denied-problem). |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Vedere [Il servizio TermService è disabilitato](#termService-service-is-disabled).  |  
-    |1058 - ERROR_SERVICE_DISABLED  |Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termService-service-crashes-or-hangs).  |
+    |5- ACCESS DENIED |Vedere [Il servizio TermService viene arrestato a causa di un errore di accesso negato](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Vedere [Il servizio TermService è disabilitato](#termservice-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termservice-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.|
-    |1067 - ERROR_PROCESS_ABORTED  |Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termService-service-crashes-or-hangs).  |
+    |1067 - ERROR_PROCESS_ABORTED  |Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termservice-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |Vedere [Il servizio TermService non funziona a causa di un errore di accesso](#termService-service-fails-because-of-logon-failure) |
-    |1070 - ERROR_SERVICE_START_HANG   | Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termService-service-crashes-or-hangs). |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | Vedere [Il servizio TermService è disabilitato](#termService-service-is-disabled).  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Vedere [Il servizio TermService non funziona a causa di un errore di accesso](#termservice-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | Vedere [Il servizio TermService si arresta in modo anomalo o si interrompe](#termservice-service-crashes-or-hangs). |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | Vedere [Il servizio TermService è disabilitato](#termservice-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema. |
     |1753   |[Contattare il supporto tecnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) per ottenere una rapida risoluzione del problema.   |
     

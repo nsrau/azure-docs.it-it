@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/12/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fa448975a5275e5aab4dc82b75433d188422e507
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ee987448f9f6d95e6f97317bec2f696e734cba20
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553724"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632775"
 ---
 #### <a name="expressroute-limits"></a>Limiti di ExpressRoute
 I limiti seguenti si applicano alle risorse di Azure ExpressRoute per ogni sottoscrizione.
@@ -24,6 +24,7 @@ I limiti seguenti si applicano alle risorse di Azure ExpressRoute per ogni sotto
 | Circuiti ExpressRoute per area per sottoscrizione, con Azure Resource Manager |10 |
 | Numero massimo di route per il peering privato di Azure con ExpressRoute Standard |4.000 |
 | Numero massimo di route per il peering privato di Azure con il componente aggiuntivo ExpressRoute Premium |10,000 |
+| Numero massimo di route per il peering privato di Azure dallo spazio degli indirizzi della rete virtuale per una connessione ExpressRoute |200 | 
 | Numero massimo di route per il peering di Microsoft Azure con ExpressRoute Standard |200 |
 | Numero massimo di route per il peering di Microsoft Azure con il componente aggiuntivo ExpressRoute Premium |200 |
 | Numero massimo di circuiti ExpressRoute collegati alla stessa rete virtuale in diverse posizioni di peering |4 |

@@ -8,25 +8,25 @@ ms.topic: include
 ms.date: 04/04/2018
 ms.author: heidist
 ms.custom: include file
-ms.openlocfilehash: fc0451aa89da9b84a5a01a0762425f7533dded3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 30c6fc189ebcd497a214828f65213a55cefdf03f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553765"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632899"
 ---
 L'archiviazione è vincolata dallo spazio su disco o da un limite rigido al *numero massimo* di indici, documenti o altre risorse di alto livello, a seconda di quale venga raggiunto per primo. Nella tabella seguente vengono documentati i limiti relativi all'archiviazione. Per i limiti massimi per gli indici, documenti e altri oggetti, vedere [limiti per singola risorsa](../articles/search/search-limits-quotas-capacity.md#index-limits).
 
-| Risorsa | Gratuito | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> |
-| -------- | --- | --- | --- | --- | --- | --- |
-| Contratto di servizio (SLA)<sup>3</sup>  |No  |Sì |Sì |Sì |Sì |Sì |
-| Archiviazione per partizione |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Partizioni per servizio |N/D |1 |12 |12 |12 |3 |
-| Dimensioni della partizione |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |
-| Repliche |N/D |3 |12 |12 |12 |12 |
+| Risorsa | Gratuito | Basic<sup>1</sup> | S1 | S2 | S3 | S3&nbsp;HD<sup>2</sup> | L1 | L2 |
+| -------- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Contratto di servizio (SLA)<sup>3</sup>  |No  |Sì |Sì |Sì |Sì |Sì |Sì |Sì |
+| Archiviazione per partizione |50 MB |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Partizioni per servizio |N/D |1 |12 |12 |12 |3 |12 |12 |
+| Dimensioni della partizione |N/D |2 GB |25 GB |100 GB |200 GB |200 GB |1 TB |2 TB |
+| Repliche |N/D |3 |12 |12 |12 |12 |12 |12 |
 
-<sup>1</sup>basic ha una partizione fissa. Questo livello, unità di ricerca aggiuntive vengono utilizzate per l'allocazione di più repliche per i carichi di lavoro maggiore di query.
+<sup>1</sup> Il livello Basic ha una partizione fissa. Questo livello, unità di ricerca aggiuntive vengono utilizzate per l'allocazione di più repliche per i carichi di lavoro maggiore di query.
 
-<sup>2</sup>S3 HD prevede un limite rigido di tre partizioni, che è inferiore rispetto al limite della partizione per il livello S3. Il limite minore di partizioni viene imposto perché il numero di indici per S3 HD è significativamente superiore. Dato che sono presenti limiti del servizio per entrambe le risorse di calcolo (archiviazione ed elaborazione) e per il contenuto (indici e documenti), il limite relativo al contenuto viene raggiunto per primo.
+<sup>2</sup> S3 HD prevede un limite rigido di tre partizioni, che è inferiore rispetto al limite della partizione per il livello S3. Il limite minore di partizioni viene imposto perché il numero di indici per S3 HD è significativamente superiore. Dato che sono presenti limiti del servizio per entrambe le risorse di calcolo (archiviazione ed elaborazione) e per il contenuto (indici e documenti), il limite relativo al contenuto viene raggiunto per primo.
 
-<sup>3</sup>contratti di servizio vengono offerti per i servizi fatturabili su risorse dedicate. Per i servizi gratuiti e le funzionalità di anteprima non sono previsti contratti di servizio. Per i servizi fatturabili, i contratti di servizio diventano effettivi quando viene effettuato il provisioning di una ridondanza sufficiente per il servizio. Due o più repliche sono necessari per i contratti di servizio di query (lettura). Tre o più repliche sono necessari per i contratti di servizio (lettura e scrittura) di indicizzazione e query. Il numero di partizioni non è un fattore di contratto di servizio. 
+<sup>3</sup> contratti di servizio vengono offerti per i servizi fatturabili su risorse dedicate. Per i servizi gratuiti e le funzionalità di anteprima non sono previsti contratti di servizio. Per i servizi fatturabili, i contratti di servizio diventano effettivi quando viene effettuato il provisioning di una ridondanza sufficiente per il servizio. Due o più repliche sono necessari per i contratti di servizio di query (lettura). Tre o più repliche sono necessari per i contratti di servizio (lettura e scrittura) di indicizzazione e query. Il numero di partizioni non è un fattore di contratto di servizio. 

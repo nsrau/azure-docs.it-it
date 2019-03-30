@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/29/2019
 ms.author: alkohli
-ms.openlocfilehash: 9b0e94deda205497cda4ebf383f302c6c3bb896a
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: a3096729b2430adf0fd884fc03e3b051b17f5b51
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403596"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660461"
 ---
 # <a name="manage-an-azure-data-box-edge-device-via-windows-powershell"></a>Gestire un dispositivo perimetrale di casella dei dati di Azure tramite Windows PowerShell
 
@@ -43,6 +43,20 @@ Questo articolo include le seguenti procedure:
 ## <a name="upload-certificate"></a>Caricamento del certificato
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
+
+È anche possibile caricare i certificati di IoT Edge per abilitare una connessione sicura tra il dispositivo IoT Edge e i dispositivi downstream che si connetta a esso. Esistono tre certificati di IoT Edge (*PEM* formato) che è necessario installare:
+
+- Certificato CA radice o il proprietario della CA
+- Certificato CA del dispositivo
+- Certificato di chiave dispositivo
+
+Nell'esempio seguente viene illustrato l'utilizzo di questo cmdlet per installare i certificati di IoT Edge:
+
+```
+Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username/password"
+```
+
+Per altre informazioni sui certificati, vedere [certificati Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) oppure [installare certificati in un gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway#install-certificates-on-the-gateway).
 
 ## <a name="view-device-information"></a>Informazioni sul dispositivo di visualizzazione
  
