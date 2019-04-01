@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519715"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670218"
 documentType: LandingData
 title: Documentazione su Servizi multimediali di Azure
 metadata:
@@ -30,22 +30,27 @@ sections:
     columns: 2
     items:
     - href: /azure/media-services/latest/
-      html: <p>Informazioni su come eseguire la codifica, lo streaming on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali v3.</p>
+      html: <p>Codificare, creare pacchetti e proteggere il contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3.</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Servizi multimediali di Azure v3
     - href: /azure/media-services/video-indexer/
-      html: <p>Informazioni su come estrarre informazioni dettagliate da file audio e video con Video Indexer.</p>
+      html: <p>Estrarre informazioni dettagliate da file audio e video con Video Indexer.</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: Video Indexer
     - href: /azure/media-services/previous/
-      html: <p>Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. Esplorare l'ultima versione, Servizi multimediali v3.</p>
+      html: <p>Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. </p>
       image:
-        src: media/index/AMSIcons-media_servicesV2.svg
+        src: 
       title: Servizi multimediali di Azure v2 (legacy)
     - href: /azure/cdn/
-      html: <p>Informazioni su come usare la rete CDN per memorizzare nella cache oggetti statici e accelerare il contenuto dinamico non memorizzabile nella cache.</p>
+      html: <p>Usare la rete CDN per memorizzare nella cache oggetti statici e accelerare il contenuto dinamico non memorizzabile nella cache.</p>
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: RETE CDN
+    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+      html: <p>Riprodurre contenuti multimediali da Servizi multimediali di Microsoft Azure su una vasta gamma di browser e dispositivi.</p>
+      image:
+        src: 
+      title: Azure Media Player

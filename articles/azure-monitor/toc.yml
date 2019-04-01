@@ -7,7 +7,7 @@ items:
     href: overview.md
   - name: Modifiche della terminologia
     href: azure-monitor-rebrand.md
-- name: Guide introduttive
+- name: Guide di avvio rapido
   items:
   - name: APPLICAZIONI
     items:
@@ -298,6 +298,8 @@ items:
             href: app/snapshot-debugger-appservice.md
           - name: Abilitare Snapshot Debugger per altri ambienti
             href: app/snapshot-debugger-vm.md
+          - name: Aggiornare Snapshot Debugger
+            href: app/snapshot-debugger-upgrade.md
           - name: Risoluzione dei problemi di Snapshot Debugger
             href: app/snapshot-debugger-troubleshoot.md
         - name: Diagnostica
@@ -825,6 +827,14 @@ items:
           href: platform/alerts-managing-alert-states.md
         - name: Gestire gli avvisi di altri servizi di monitoraggio
           href: platform/alerts-managing-nagios-zabbix-scom.md
+      - name: Eseguire la migrazione di avvisi classici
+        items:
+        - name: Usare lo strumento di migrazione
+          href: platform/alerts-using-migration-tool.md
+        - name: Preparare la migrazione
+          href: platform/alerts-prepare-migration.md
+        - name: Informazioni sullo strumento di migrazione
+          href: platform/alerts-understand-migration.md
     - name: Autoscale
       items:
       - name: Procedura dettagliata sulla scalabilità automatica
@@ -931,7 +941,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Application Insights
     items:
@@ -1040,15 +1050,15 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Video
     href: https://azure.microsoft.com/resources/videos/index/?services=monitor
-  - name: Modelli di Guida introduttiva
+  - name: Modelli di Guida di avvio rapido
     href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
   - name: Stack Overflow
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: c0ef35bb91ec796e818f7b263ffe171789d986ba
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 48ea888b5c21bc2c689d93684b4dbae7eaee1ed8
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577044"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629423"

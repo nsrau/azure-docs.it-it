@@ -11,7 +11,7 @@ items:
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
-- name: Guide introduttive
+- name: Guide di avvio rapido
   items:
   - name: Creare un cluster Apache Spark - Portale
     href: apache-spark-jupyter-spark-sql-use-portal.md
@@ -36,6 +36,8 @@ items:
     href: apache-spark-ipython-notebook-machine-learning.md
   - name: Creare un'app Apache Spark in IntelliJ
     href: apache-spark-create-standalone-application.md
+  - name: Monitorare la disponibilità dei cluster con i log di Ambari e di Monitoraggio di Azure
+    href: ../hdinsight-cluster-availability.md
 - name: Procedure
   items:
   - name: Usare l'archiviazione cluster
@@ -395,7 +397,7 @@ items:
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
@@ -440,9 +442,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: f2a818ce9777cd28b844f584cb272ab01bce2753
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9775c1da15b5ac5e675e84487006339b1c9701ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448785"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670171"

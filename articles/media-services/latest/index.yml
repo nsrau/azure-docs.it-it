@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d4e80fd18de40c7df806f0a72612cec7bb71e2d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339182"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663648"
 documentType: LandingData
 title: Documentazione di Servizi multimediali di Azure v3
 metadata:
   document_id: 
   title: Documentazione di Servizi multimediali di Azure v3 - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  description: Informazioni su come eseguire lo streaming su richiesta, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+  description: Informazioni su come trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
   services: media-services
   author: Juliako
   manager: femila
@@ -21,25 +21,19 @@ metadata:
   ms.date: 03/20/2019
   ms.author: juliako
 abstract:
-  description: Informazioni su come eseguire lo streaming di video on demand, la trasmissione live e l'analisi dei video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti. <br/> Gli SDK sono basati sulla <a href="https://aka.ms/ams-v3-rest-sdk">specifica OpenAPI (Swagger) per Servizi multimediali v3</a>.
+  description: Informazioni su come codificare e creare pacchetti del contenuto, trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3. Esercitazioni, informazioni di riferimento sulle API e altri documenti mostrano come fornire in modo sicuro flussi su audio o video live e on demand a milioni di utenti. <br/> Gli SDK sono basati sulla <a href="https://aka.ms/ams-v3-rest-sdk">specifica OpenAPI (Swagger) per Servizi multimediali v3</a>.
 sections:
-- items:
+- title: 
+  items:
   - type: list
     style: cards
-    className: cardsM
-    columns: 2
+    className: cardsD
     items:
-    - image:
-        src: 
-      html: <p>Informazioni sui concetti fondamentali di Servizi multimediali.</p>
-      href: /azure/media-services/latest/concepts-overview/
-      title: Informazioni sui concetti
-    - image:
-        src: 
-      html: <p>Non è attualmente possibile gestire risorse v3 con il portale di Azure. Usare l'API REST, l'interfaccia della riga di comando o uno degli SDK supportati.</p>
-      href: /azure/media-services/latest/developers-guide/
-      title: Sviluppare con l'API v3
-- title: Guide introduttive di 5 minuti
+    - title: Informazioni sui concetti
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Caricamento e archiviazione nel cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Codifica</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analisi di contenuti multimediali</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Creazione di pacchetti</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protezione</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Streaming live</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Client di Media Player</a></p>
+    - title: Sviluppare con l'API v3
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Iniziare a sviluppare con gli SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Sviluppare con REST</a></p>
+- title: Guide di avvio rapido di 5 minuti
   items:
   - type: paragraph
     text: 'Informazioni su come creare un account di Servizi multimediali, avviare la codifica dei video e usare Azure Media Player per riprodurli:'
@@ -47,32 +41,60 @@ sections:
     style: icon48
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Eseguire lo streaming di file video
+        src: media/index/dotnet.svg
+      text: Codificare e trasmettere con .NET
       href: /azure/media-services/latest/stream-files-dotnet-quickstart
+    - image:
+        src: media/index/cli.svg
+      text: Codificare e trasmettere con l'interfaccia della riga di comando
+      href: /azure/media-services/latest/stream-files-cli-quickstart
+    - image:
+        src: media/index/logo_nodejs.svg
+      text: Codificare e trasmettere con Node.js
+      href: /azure/media-services/latest/stream-files-nodejs-quickstart
 - title: Esercitazioni dettagliate
   items:
   - type: paragraph
     text: "Informazioni su come eseguire lo streaming di file on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali v3:"
   - type: list
-    style: icon48
+    style: cards
+    className: cardsM
+    columns: 1
     items:
     - image:
-        src: media/index/AMSIcons-encoding.svg
-      text: Caricare, codificare ed eseguire lo streaming dei video
+        src: media/index/dotnet.svg
+      html: <p>L'esercitazione descrive come caricare un file video locale, codificare il file caricato e trasmettere il contenuto codificato in streaming.<p/>
       href: /azure/media-services/latest/stream-files-tutorial-with-api
+      title: Codificare il file caricato e trasmettere il video in streaming
     - image:
-        src: media/index/AMSIcons-live.svg
-      text: Broadcast live
+        src: media/index/dotnet.svg
+      html: <p>L'esercitazione illustra come eseguire la configurazione per un evento live. Spiega quindi come usare .NET per creare un evento live di tipo pass-through.</p>
       href: /azure/media-services/latest/stream-live-tutorial-with-api
+      title: Trasmettere live
     - image:
-        src: media/index/AMSIcons-media_analytics.svg
-      text: Analizzare i video
+        src: media/index/dotnet.svg
+      html: <p>Questa esercitazione illustra come analizzare i video usando l'API di Servizi multimediali di Azure.</p>
       href: /azure/media-services/latest/analyze-videos-tutorial-with-api
+      title: Analizzare i video
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Informazioni su come configurare e usare le API di Servizi multimediali per crittografare in modo dinamico il contenuto con AES-128.</p>
+      href: /azure/media-services/latest/protect-with-aes128
+      title: Crittografare in modo dinamico il contenuto con AES-128
+    - image:
+        src: media/index/dotnet.svg
+      html: <p>Informazioni su come configurare e usare le API di Servizi multimediali per crittografare in modo dinamico il contenuto con più tecnologie DRM (PlayReady, Widevine e FairPlay).</p>
+      href: /azure/media-services/latest/protect-with-drm
+      title: Crittografare in modo dinamico il contenuto con più tecnologie DRM
+    - image:
+        src: media/index/rest.svg
+      html: <p>L'esercitazione mostra come codificare un file remoto basato su URL e trasmettere il video in streaming.</p>
+      href: /azure/media-services/latest/stream-files-tutorial-with-rest
+      title: Codificare il file remoto e trasmettere il video in streaming
 - title: Esempi
   items:
   - type: paragraph
-    text: "Esempi che illustrano come usare le API per eseguire lo streaming di video on demand, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali v3:"
+    text: 'Gli esempi di GitHub seguenti illustrano come usare le API per trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali v3:'
   - type: list
     style: icon48
     items:
@@ -96,7 +118,7 @@ sections:
         src: media/index/logo_nodejs.svg
       text: Node .js
       href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
-- title: riferimento
+- title: Informazioni di riferimento
   items:
   - type: paragraph
     text: ''

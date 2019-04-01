@@ -5,7 +5,7 @@ items:
   items:
   - name: Informazioni su Servizi multimediali
     href: media-services-overview.md
-- name: Guide introduttive
+- name: Guide di avvio rapido
   items:
   - name: Eseguire lo streaming di file video - .NET
     href: stream-files-dotnet-quickstart.md
@@ -90,7 +90,7 @@ items:
           href: widevine-license-template-overview.md
         - name: Requisiti relativi alle licenze FairPlay
           href: fairplay-license-overview.md
-    - name: Endpoint di streaming
+    - name: Endpoint/origine di streaming
       displayName: origins, cdn
       href: streaming-endpoint-concept.md
     - name: Localizzatori di streaming
@@ -131,10 +131,8 @@ items:
     items:
     - name: Azure Media Player
       href: use-azure-media-player.md
-  - name: Entità di Servizi multimediali
-    items:
-    - name: Ordinamento, applicazione di filtri e organizzazione in pagine di entità
-      href: entities-overview.md
+  - name: Sviluppo con API versione 3
+    href: entities-overview.md
   - name: Indicazioni sulla migrazione dalla versione 2 alla versione 3
     href: migrate-from-v2-to-v3.md
 - name: Guide alle procedure
@@ -147,10 +145,17 @@ items:
       href: access-api-cli-how-to.md
     - name: Ridimensionare le Media Reserved Unit - Interfaccia della riga di comando
       href: media-reserved-units-cli-how-to.md
-    - name: Iniziare a sviluppare
+    - name: Sviluppare con REST
+      items:
+      - name: Connettersi con Postman
+        href: media-rest-apis-with-postman.md
+    - name: Sviluppare con gli SDK
       href: developers-guide.md
-    - name: Configurare Postman
-      href: media-rest-apis-with-postman.md
+      items:
+      - name: Connettersi con .NET
+        href: configure-connect-dotnet-howto.md
+      - name: Connettersi con Node. js
+        href: configure-connect-nodejs-howto.md
   - name: Caricare contenuti
     items:
     - name: Da HTTPS - .NET
@@ -204,7 +209,7 @@ items:
       href: filters-dynamic-manifest-rest-howto.md
     - name: Con l'interfaccia della riga di comando
       href: filters-dynamic-manifest-cli-howto.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Specifica OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
@@ -260,9 +265,9 @@ items:
     href: frequently-asked-questions.md
   - name: Aree e cloud di Azure
     href: azure-clouds-regions.md
-ms.openlocfilehash: 6b4d60510fa285290d92d7e9d6a7c5c2166bcd3f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 4f40fc3241dd0df881c7777d3e47a8976a364dc5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578703"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755436"

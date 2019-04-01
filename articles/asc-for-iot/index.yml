@@ -1,15 +1,15 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: fad8ecd0658b2a00f249e8b218bab1dbdaf83187
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578221"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757333"
 documentType: LandingData
 title: Documentazione dell'anteprima del Centro sicurezza di Azure per IoT
 metadata:
   title: Documentazione dell'anteprima del Centro sicurezza di Azure per IoT - Esercitazioni, guide di avvio rapido | Microsoft Docs
-  meta.description: ASC for IoT unifies your security management and enables advanced threat protection across your IoT solution.
+  meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
   services: ascforiot
   author: mlottner
   manager: barbkess
@@ -22,7 +22,7 @@ metadata:
 abstract:
   description: Usare l'anteprima del Centro sicurezza di Azure per IoT per estendere l'attuale visibilità della cybersecurity all'intera soluzione IoT. Offre un quadro panoramico completo sulla sicurezza di tutte le risorse correlate ad Azure. Le opzioni per la distribuzione rapida e la piena integrazione con i moduli gemelli nell'hub IoT assicurano un'ampia gamma di opzioni di personalizzazione e l'integrazione immediata con gli attuali strumenti di gestione dei dispositivi. 
 sections:
-- title: Guide introduttive di 5 minuti
+- title: Guide di avvio rapido di 5 minuti
   items:
   - type: paragraph
     text: Informazioni su come abilitare l'hub IoT nel Centro sicurezza di Azure per IoT, installare gli agenti del Centro sicurezza di Azure per IoT e ottenere visibilità nei dati e nelle potenziali minacce.
@@ -58,7 +58,7 @@ sections:
         href: https://docs.microsoft.com/learn/azure
   - type: paragraph
     text: <a href="/learn/browse/?term=security">Altre risorse di apprendimento interattivo</a>
-- title: riferimento
+- title: Informazioni di riferimento
   items:
   - type: list
     style: cards
