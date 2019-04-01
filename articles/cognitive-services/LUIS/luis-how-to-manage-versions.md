@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 03/29/2019
 ms.author: diberry
-ms.openlocfilehash: f615a07352faccc8096752e5ba60360144834907
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: dfe23baa67c87b04a65630611ef71758beda268d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338242"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754895"
 ---
 # <a name="use-versions-to-edit-and-test-without-impacting-staging-or-production-apps"></a>Usare le versioni per eseguire modifiche e test senza conseguenze per le app di staging o produzione
 
@@ -59,7 +59,7 @@ Selezionare una versione dall'elenco, quindi selezionare **Attiva** nella barra 
 
 ### <a name="import-errors"></a>Errori di importazione
 
-* Errori di tokenizer: Se si verifica una **errore tokenizer** durante l'importazione, si sta cercando di importare una versione che utilizza una diversa [tokenizer](luis-language-support.md#custom-tokenizer-versions) rispetto a quella dell'app è attualmente utilizzata. Per risolvere questo problema, sono disponibili due opzioni. Visualizzare [eseguire la migrazione tra versioni diverse di tokenizer](luis-language-support.md#migrating-between-tokenizer-versions) per altre informazioni.
+* Errori di tokenizer: Se si verifica una **errore tokenizer** durante l'importazione, si sta cercando di importare una versione che utilizza una diversa [tokenizer](luis-language-support.md#custom-tokenizer-versions) rispetto a quella dell'app è attualmente utilizzata. Per risolvere questo problema, vedere [eseguire la migrazione tra versioni diverse di tokenizer](luis-language-support.md#migrating-between-tokenizer-versions).
 
 <a name = "export-version"></a>
 
