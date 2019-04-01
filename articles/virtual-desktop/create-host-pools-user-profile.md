@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403715"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628993"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurare una condivisione di profilo utente per un pool di host
 
 Il servizio di Windows Virtual Desktop Preview offre contenitori profilo FSLogix come soluzione consigliata per l'utente del profilo. Non è consigliabile usare la soluzione disco profili utente (UPD) e nelle versioni future di Windows Desktop virtuale verrà deprecato.
 
-In questa sezione indicano come configurare una condivisione di contenitore FSLogix profilo per un pool di host.
+In questa sezione indicano come configurare una condivisione di contenitore FSLogix profilo per un pool di host. Per la documentazione generale relativa FSLogix, vedere la [FSLogix sito](https://docs.fslogix.com/).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Creare una nuova macchina virtuale che verrà utilizzato come una condivisione file
 
@@ -48,14 +48,14 @@ Ecco le istruzioni generali su come preparare una macchina virtuale da usare com
 6. Cercare il gruppo di sicurezza a cui è stato aggiunto macchine virtuali host sessione e quindi verificare che tale gruppo abbia **controllo completo**.
 7. Dopo aver aggiunto il gruppo di sicurezza, fare clic su nella cartella, selezionare **delle proprietà**, selezionare **condivisione**, quindi copiare il **percorso di rete** da utilizzare per un uso successivo.
 
-Per le procedure consigliate sulle autorizzazioni, vedere gli argomenti seguenti [FSLogix documentazione](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
+Per altre informazioni sulle autorizzazioni, vedere la [FSLogix documentazione](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Configurare il contenitore di profilo FSLogix
 
 Per configurare le macchine virtuali con il software FSLogix, eseguire le operazioni seguenti in ogni computer registrato per il pool di host:
 
 1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
-2. Avviare un browser internet e passare al seguente [collegamento](https://go.microsoft.com/fwlink/?linkid=2084562) per scaricare l'agente FSLogix. Durante l'anteprima pubblica di Desktop virtuale Windows, si otterrà un codice di licenza per attivare il software FSLogix. La chiave è il file LicenseKey.txt incluso nel file con estensione zip FSLogix dell'agente.
+2. Avviare un browser internet e passare a [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2084562) per scaricare l'agente FSLogix. Durante l'anteprima pubblica di Desktop virtuale Windows, si otterrà un codice di licenza per attivare il software FSLogix. La chiave è il file LicenseKey.txt incluso nel file con estensione zip FSLogix dell'agente.
 3. Installare l'agente FSLogix.
 4. Passare a **Program Files** > **FSLogix** > **app** per confermare l'agente installato.
 5. Dal menu start, eseguire **RegEdit** come amministratore. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\profili**
@@ -65,7 +65,7 @@ Per configurare le macchine virtuali con il software FSLogix, eseguire le operaz
 |---------------------|--------------------|-----------------------------------|
 | Attivato             | DWORD              | 1                                 |
 | VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file" |
-| VolumeType          | string             |  VHDX                              |
+| VolumeType          | string             | VHDX                              |
 | SizeInMBs           | DWORD              | "numero intero per le dimensioni del profilo"     |
 | IsDynamic           | DWORD              | 1                                 |
 | LockedRetryCount    | DWORD              | 1                                 |
