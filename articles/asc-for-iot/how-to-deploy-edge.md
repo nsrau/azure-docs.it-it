@@ -1,6 +1,6 @@
 ---
-title: Distribuire un Centro sicurezza di AZURE per il modulo di IoT Edge | Microsoft Docs
-description: Informazioni su come distribuire Centro sicurezza di AZURE per l'agente di sicurezza IoT in dispositivi perimetrali IoT.
+title: Distribuire il Centro sicurezza di Azure per il modulo di IoT Edge | Microsoft Docs
+description: Informazioni su come distribuire il Centro sicurezza di Azure per l'agente di sicurezza IoT in dispositivi perimetrali IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 87094b265a0c30c0349d64e4b956224525c04f74
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2a201fe649d52ad9604c7ac6675b26d60e7f2dd1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580494"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754771"
 ---
 # <a name="deploy-security-module-on-your-iot-edge-device"></a>Distribuire un modulo di sicurezza nel dispositivo IoT Edge
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Centro sicurezza di AZURE per IoT **azureiotsecurity** modulo offre una soluzione di sicurezza completa per il dispositivo IoT Edge.
+Azure Security Center (Centro sicurezza di AZURE) per IoT **azureiotsecurity** modulo offre una soluzione di sicurezza completa per il dispositivo IoT Edge.
 Modulo di sicurezza raccoglie, aggrega e analizza i dati di sicurezza non elaborati dal sistema del sistema operativo e un contenitore in avvisi e raccomandazioni sulla sicurezza utili.
 Per altre informazioni, vedere [modulo di sicurezza per IoT Edge](security-edge-architecture.md).
 
@@ -55,7 +55,7 @@ Usare la procedura seguente per distribuire un Centro sicurezza di AZURE per il 
 
    ![](media/howto/edge_onboarding_7.png)
 
-1. Fare clic su **Crea**.
+1. Fare clic su **Create**(Crea).
 
 1. Scegliere il **abbonamento**, **dell'IoT Hub** e **nome del dispositivo IoT Edge**, quindi fare clic su **Create**.
 

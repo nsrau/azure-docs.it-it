@@ -7,23 +7,25 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: c1e4803698525f0d084fadac14e3952b951ecae6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58164443"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755268"
 ---
-# <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali nel portale di Azure
+# <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Visualizzare in anteprima: creare e configurare un cluster di servizi di Kubernetes di Azure (AKS) per usare i nodi virtuali nel portale di Azure
 
 Per distribuire rapidamente i carichi di lavoro in un cluster del servizio Azure Kubernetes è possibile usare nodi virtuali. I nodi virtuali consentono di effettuare rapidamente il provisioning dei pod applicando al tempo di esecuzione una tariffa al secondo. In uno scenario di ridimensionamento non è necessario attendere che la funzione di scalabilità automatica del cluster del servizio Azure Kubernetes distribuisca i nodi di calcolo delle macchine virtuali per eseguire pod aggiuntivi. Questo articolo illustra come creare e configurare le risorse della rete virtuale e un cluster del servizio Azure Kubernetes con nodi virtuali abilitati.
 
 > [!IMPORTANT]
-> I nodi virtuali del servizio Azure Kubernetes sono attualmente disponibili in **anteprima**. Le anteprime vengono rese disponibili per l'utente a condizione che si accettino le [condizioni d'uso aggiuntive](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
+> Funzionalità di anteprima del servizio contenitore di AZURE sono self-service e fornire il consenso esplicito. Le anteprime sono fornite per raccogliere commenti e suggerimenti e bug dalla community. Tuttavia, non sono supportati dal supporto tecnico di Azure. Se si crea un cluster o aggiungere queste funzionalità in cluster esistenti, tale cluster non è supportato fino a quando la funzionalità non è più disponibile in anteprima e passano a livello generale (GA).
+>
+> Se si verificano problemi con funzionalità di anteprima [segnalare un problema nel repository GitHub di AKS] [ aks-github] con il nome della funzionalità Anteprima nel titolo del bug.
 
-## <a name="preview-limitations"></a>Limiti di anteprima
+## <a name="regional-availability"></a>Disponibilità internazionale
 
-Quando questa funzionalità è disponibile in anteprima, le aree seguenti sono supportate per le distribuzioni:
+Per distribuzioni a nodo virtuale sono supportate le aree seguenti:
 
 * Australia orientale (australiaeast)
 * Stati Uniti orientali (eastus)
@@ -182,6 +184,8 @@ I nodi virtuali sono un componente di una soluzione di scalabilità nel servizio
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa] (Usare la scalabilità automatica orizzontale dei pod di Kubernetes)
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler] (Usare la scalabilità automatica dei cluster di Kubernetes)
+- [Estrarre l'esempio di scalabilità automatica per i nodi virtuali][virtual-node-autoscale]
+- [Per ulteriori informazioni su Virtual Kubelet libreria open source][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
@@ -190,6 +194,9 @@ I nodi virtuali sono un componente di una soluzione di scalabilità nel servizio
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [azure-cni]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
+[aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -198,4 +205,3 @@ I nodi virtuali sono un componente di una soluzione di scalabilità nel servizio
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
 [acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
-

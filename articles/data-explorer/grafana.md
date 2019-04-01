@@ -3,17 +3,17 @@ title: Visualizzare i dati da Esplora dati di Azure in Grafana
 description: In questa procedura viene descritto come configurare Esplora dati di Azure come origine dati per Grafana e quindi come visualizzare i dati da un cluster di esempio.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
-ms.openlocfilehash: 141859d155383b01cfea998c6b7158848517eac2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c77475c052ab3ce74563aba6e4c75a50c7e41bcc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531953"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758272"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualizzare i dati da Esplora dati di Azure in Grafana
 

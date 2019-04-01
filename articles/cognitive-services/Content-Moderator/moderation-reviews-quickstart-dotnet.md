@@ -1,5 +1,5 @@
 ---
-title: 'Guida introduttiva: Creare revisioni usando .NET - Content Moderator'
+title: Creare revisioni usando .NET - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Come creare revisioni usando Content Moderator SDK di Azure per .NET.
 services: cognitive-services
@@ -7,40 +7,32 @@ author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: quickstart
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: d6563441285380d0fea468caaacb0130cb259976
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 153d42bf4ce4322536d6837be3058d1f9bfb49a2
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884355"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758636"
 ---
-# <a name="quickstart-create-reviews-using-net"></a>Avvio rapido: Creare revisioni usando .NET
+# <a name="create-human-reviews-net"></a>Creazione di revisione umana (.NET)
 
-Questo articolo contiene informazioni ed esempi di codice per iniziare a usare l'[SDK di Content Moderator per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) allo scopo di:
- 
+Le verifiche di archiviano e visualizzare il contenuto da moderatori umani per valutare. Quando un utente ha completato un'analisi, i risultati vengono inviati a un endpoint di callback specificati. Questa guida fornisce informazioni e gli esempi di codice che consentono di iniziare a usare il [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) per:
+
 - Creare un set di revisioni per moderatori umani
 - Ottenere lo stato delle revisioni esistenti per i moderatori umani
 
-Prima di essere pianificato per la revisione umana, il contenuto passa in genere attraverso alcune funzioni di moderazione automatizzate. Questo articolo descrive solo come creare la revisione per la moderazione eseguita da umani. Per uno scenario più complesso, vedere le esercitazioni [Moderazione dei contenuti di Facebook](facebook-post-moderation.md) e [Moderare immagini di prodotti per l'e-commerce](ecommerce-retail-catalog-moderation.md).
+## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si abbia già familiarità con Visual Studio e C#.
-
-## <a name="sign-up-for-content-moderator"></a>Iscriversi a Content Moderator
-
-Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria una chiave di sottoscrizione. Seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione a Content Moderator e ottenere la chiave.
-
-## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Effettuare l'iscrizione per un account dello strumento di revisione se non è stata effettuata nel passaggio precedente
-
-Se è stato ottenuto il Content Moderator dal portale di Azure, [effettuare anche l'iscrizione per l'account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e creare un team di revisione. Sono necessari l'ID del team e lo strumento di revisione per chiamare l'API di revisione in modo che avvi un processo e visualizzi le revisioni nello strumento stesso.
+- Accedi o crea un account su Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) sito.
 
 ## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Verificare che la chiave API possa chiamare l'API di verifica per la creazione della revisione
 
-Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure. 
+Dopo aver completato i passaggi precedenti, si potrebbero avere due chiavi di Content Moderator se la procedura è stata avviata dal portale di Azure.
 
-Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
+Se si prevede di usare la chiave API fornita da Azure nell'esempio di SDK, seguire i passaggi indicati nella sezione [Usare la chiave di Azure con l'API di revisione](./review-tool-user-guide/configure.md#use-your-azure-account-with-the-review-apis) per consentire all'applicazione di chiamare l'API di revisione e creare revisioni.
 
 Se si usa la chiave di prova gratuita generata dallo strumento di revisione, l'account dello strumento di revisione conosce già la chiave e di conseguenza non sono necessari passaggi aggiuntivi.
 
@@ -64,14 +56,17 @@ Installare i pacchetti NuGet seguenti:
 
 Modificare le istruzioni using del programma.
 
-    using Microsoft.Azure.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator;
-    using Microsoft.CognitiveServices.ContentModerator.Models;
-    using Newtonsoft.Json;
-    using System;
-    using System.Collections.Generic;
-    using System.IO;
-    using System.Threading;
+
+```csharp
+using Microsoft.Azure.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator;
+using Microsoft.CognitiveServices.ContentModerator.Models;
+using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading;
+```
 
 ### <a name="create-the-content-moderator-client"></a>Creare il client di Content Moderator
 
@@ -80,55 +75,56 @@ Aggiungere il codice seguente per creare un client di Content Moderator per la s
 > [!IMPORTANT]
 > Aggiornare i campi **AzureRegion** e **CMSubscriptionKey** con i valori di identificatore di area e chiave di sottoscrizione.
 
+```csharp
+/// <summary>
+/// Wraps the creation and configuration of a Content Moderator client.
+/// </summary>
+/// <remarks>This class library contains insecure code. If you adapt this
+/// code for use in production, use a secure method of storing and using
+/// your Content Moderator subscription key.</remarks>
+public static class Clients
+{
+    /// <summary>
+    /// The region/location for your Content Moderator account,
+    /// for example, westus.
+    /// </summary>
+    private static readonly string AzureRegion = "YOUR API REGION";
 
     /// <summary>
-    /// Wraps the creation and configuration of a Content Moderator client.
+    /// The base URL fragment for Content Moderator calls.
     /// </summary>
-    /// <remarks>This class library contains insecure code. If you adapt this 
-    /// code for use in production, use a secure method of storing and using
-    /// your Content Moderator subscription key.</remarks>
-    public static class Clients
+    private static readonly string AzureBaseURL =
+        $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+    /// <summary>
+    /// Your Content Moderator subscription key.
+    /// </summary>
+    private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+    /// <summary>
+    /// Returns a new Content Moderator client for your subscription.
+    /// </summary>
+    /// <returns>The new client.</returns>
+    /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+    /// When you have finished using the client,
+    /// you should dispose of it either directly or indirectly. </remarks>
+    public static ContentModeratorClient NewClient()
     {
-        /// <summary>
-        /// The region/location for your Content Moderator account, 
-        /// for example, westus.
-        /// </summary>
-        private static readonly string AzureRegion = "YOUR API REGION";
+        // Create and initialize an instance of the Content Moderator API wrapper.
+        ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
 
-        /// <summary>
-        /// The base URL fragment for Content Moderator calls.
-        /// </summary>
-        private static readonly string AzureBaseURL =
-            $"https://{AzureRegion}.api.cognitive.microsoft.com";
-
-        /// <summary>
-        /// Your Content Moderator subscription key.
-        /// </summary>
-        private static readonly string CMSubscriptionKey = "YOUR API KEY";
-
-        /// <summary>
-        /// Returns a new Content Moderator client for your subscription.
-        /// </summary>
-        /// <returns>The new client.</returns>
-        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
-        /// When you have finished using the client,
-        /// you should dispose of it either directly or indirectly. </remarks>
-        public static ContentModeratorClient NewClient()
-        {
-            // Create and initialize an instance of the Content Moderator API wrapper.
-            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
-
-            client.Endpoint = AzureBaseURL;
-            return client;
-        }
+        client.Endpoint = AzureBaseURL;
+        return client;
     }
+}
+```
 
 ## <a name="create-a-class-to-associate-internal-content-information-with-a-review-id"></a>Creare una classe per associare le informazioni sul contenuto interno a un ID revisione
 
-Aggiungere la classe seguente alla classe **Program**.
-Usare questa classe per associare l'ID di revisione all'ID contenuto interno per l'elemento.
+Aggiungere la classe seguente alla classe **Program**. Usare questa classe per associare l'ID di revisione all'ID contenuto interno per l'elemento.
 
-    /// <summary>
+```csharp
+/// <summary>
     /// Associates the review ID (assigned by the service) to the internal
     /// content ID of the item.
     /// </summary>
@@ -154,17 +150,19 @@ Usare questa classe per associare l'ID di revisione all'ID contenuto interno per
         /// </summary>
         public string ReviewId;
     }
+```
 
 ### <a name="initialize-application-specific-settings"></a>Inizializzare le impostazioni specifiche dell'applicazione
 
 > [!NOTE]
-> La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS). Se questo limite viene superato, l'SDK genera un'eccezione con un codice di errore 429. 
+> La chiave del servizio Content Moderator ha un limite di frequenza di richieste al secondo (RPS). Se questo limite viene superato, l'SDK genera un'eccezione con un codice di errore 429.
 >
-> Una chiave di livello gratuito prevede un limite di frequenza di richieste al secondo pari a uno.
+> Una chiave di livello gratuito prevede un unico limite di frequenza RPS.
 
-#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Aggiungere le costanti seguenti alla classe **Program** in Program.cs.
-    
-    /// <summary>
+#### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Aggiungere le costanti seguenti per il **programma** classe nel file Program.cs
+
+```csharp
+/// <summary>
     /// The minimum amount of time, in milliseconds, to wait between calls
     /// to the Image List API.
     /// </summary>
@@ -181,8 +179,9 @@ Usare questa classe per associare l'ID di revisione all'ID contenuto interno per
     /// </summary>
     /// <remarks>Relative paths are relative to the execution directory.</remarks>
     private const string OutputFile = "OutputLog.txt";
+```
 
-#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Aggiungere le costanti e i campi statici seguenti alla classe **Program** in Program.cs.
+#### <a name="add-the-following-constants-and-static-fields-to-the-program-class-in-programcs"></a>Aggiungere le seguenti costanti e i campi statici per la **programma** classe nel file Program.cs
 
 Aggiornare questi valori in modo che contengano informazioni specifiche per la sottoscrizione e i team.
 
@@ -191,86 +190,92 @@ Aggiornare questi valori in modo che contengano informazioni specifiche per la s
 >
 > Il nome del team è il valore del campo **ID** nella sezione **API**.
 
-    /// <summary>
-    /// The name of the team to assign the review to.
-    /// </summary>
-    /// <remarks>This must be the team name you used to create your 
-    /// Content Moderator account. You can retrieve your team name from
-    /// the Content Moderator web site. Your team name is the Id associated 
-    /// with your subscription.</remarks>
-    private const string TeamName = "YOUR REVIEW TEAM ID";
+```csharp
+/// <summary>
+/// The name of the team to assign the review to.
+/// </summary>
+/// <remarks>This must be the team name you used to create your
+/// Content Moderator account. You can retrieve your team name from
+/// the Content Moderator web site. Your team name is the Id associated
+/// with your subscription.</remarks>
+private const string TeamName = "YOUR REVIEW TEAM ID";
 
-    /// <summary>
-    /// The optional name of the subteam to assign the review to.
-    /// </summary>
-    private const string Subteam = null;
+/// <summary>
+/// The optional name of the subteam to assign the review to.
+/// </summary>
+private const string Subteam = null;
 
-    /// <summary>
-    /// The callback endpoint for completed reviews.
-    /// </summary>
-    /// <remarks>Reviews show up for reviewers on your team. 
-    /// As reviewers complete reviews, results are sent to the
-    /// callback endpoint using an HTTP POST request.</remarks>
-    private const string CallbackEndpoint = "YOUR API ENDPOINT";
+/// <summary>
+/// The callback endpoint for completed reviews.
+/// </summary>
+/// <remarks>Reviews show up for reviewers on your team. 
+/// As reviewers complete reviews, results are sent to the
+/// callback endpoint using an HTTP POST request.</remarks>
+private const string CallbackEndpoint = "YOUR API ENDPOINT";
 
-    /// <summary>
-    /// The media type for the item to review.
-    /// </summary>
-    /// <remarks>Valid values are "image", "text", and "video".</remarks>
-    private const string MediaType = "image";
+/// <summary>
+/// The media type for the item to review.
+/// </summary>
+/// <remarks>Valid values are "image", "text", and "video".</remarks>
+private const string MediaType = "image";
 
-    /// <summary>
-    /// The URLs of the images to create review jobs for.
-    /// </summary>
-    private static readonly string[] ImageUrls = new string[] {
-        "https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg"
-        // add more if you want
-    };
+/// <summary>
+/// The URLs of the images to create review jobs for.
+/// </summary>
+private static readonly string[] ImageUrls = new string[] {
+    "https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg"
+    // add more if you want
+};
 
-    /// <summary>
-    /// The metadata key to initially add to each review item.
-    /// </summary>
-    private const string MetadataKey = "sc";
+/// <summary>
+/// The metadata key to initially add to each review item.
+/// </summary>
+private const string MetadataKey = "sc";
 
-    /// <summary>
-    /// The metadata value to initially add to each review item.
-    /// </summary>
-    private const string MetadataValue = "true";
+/// <summary>
+/// The metadata value to initially add to each review item.
+/// </summary>
+private const string MetadataValue = "true";
+```
 
-#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Aggiungere i campi statici seguenti alla classe **Program** in Program.cs.
+#### <a name="add-the-following-static-fields-to-the-program-class-in-programcs"></a>Aggiungere i campi statici seguenti per il **programma** classe nel file Program.cs
 
 Usare questi campi per tenere traccia dello stato dell'applicazione.
 
-    /// <summary>
-    /// A static reference to the text writer to use for logging.
-    /// </summary>
-    private static TextWriter writer;
+```csharp
+/// <summary>
+/// A static reference to the text writer to use for logging.
+/// </summary>
+private static TextWriter writer;
 
-    /// <summary>
-    /// The cached review information, associating a local content ID
-    /// to the created review ID for each item.
-    /// </summary>
-    private static List<ReviewItem> reviewItems =
-        new List<ReviewItem>();
+/// <summary>
+/// The cached review information, associating a local content ID
+/// to the created review ID for each item.
+/// </summary>
+private static List<ReviewItem> reviewItems =
+    new List<ReviewItem>();
+```
 
 ## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Creare un metodo per scrivere messaggi nel file di log
 
-Aggiungere il metodo seguente alla classe **Program**. 
+Aggiungere il metodo seguente alla classe **Program**.
 
-    /// <summary>
-    /// Writes a message to the log file, and optionally to the console.
-    /// </summary>
-    /// <param name="message">The message.</param>
-    /// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
-    private static void WriteLine(string message = null, bool echo = false)
+```csharp
+/// <summary>
+/// Writes a message to the log file, and optionally to the console.
+/// </summary>
+/// <param name="message">The message.</param>
+/// <param name="echo">if set to <c>true</c>, write the message to the console.</param>
+private static void WriteLine(string message = null, bool echo = false)
+{
+    writer.WriteLine(message ?? String.Empty);
+
+    if (echo)
     {
-        writer.WriteLine(message ?? String.Empty);
-
-        if (echo)
-        {
-            Console.WriteLine(message ?? String.Empty);
-        }
+        Console.WriteLine(message ?? String.Empty);
     }
+}
+```
 
 ## <a name="create-a-method-to-create-a-set-of-reviews"></a>Creare un metodo per creare un set di revisioni
 
@@ -278,76 +283,78 @@ Per identificare immagini, testo o video in arrivo da esaminare, si dispone in g
 
 Aggiungere il metodo seguente alla classe **Program**.
 
-    /// <summary>
-    /// Create the reviews using the fixed list of images.
-    /// </summary>
-    /// <param name="client">The Content Moderator client.</param>
-    private static void CreateReviews(ContentModeratorClient client)
+```csharp
+/// <summary>
+/// Create the reviews using the fixed list of images.
+/// </summary>
+/// <param name="client">The Content Moderator client.</param>
+private static void CreateReviews(ContentModeratorClient client)
+{
+    WriteLine(null, true);
+    WriteLine("Creating reviews for the following images:", true);
+
+    // Create the structure to hold the request body information.
+    List<CreateReviewBodyItem> requestInfo =
+        new List<CreateReviewBodyItem>();
+
+    // Create some standard metadata to add to each item.
+    List<CreateReviewBodyItemMetadataItem> metadata =
+        new List<CreateReviewBodyItemMetadataItem>(
+        new CreateReviewBodyItemMetadataItem[] {
+            new CreateReviewBodyItemMetadataItem(
+                MetadataKey, MetadataValue)
+        });
+
+    // Populate the request body information and the initial cached review information.
+    for (int i = 0; i < ImageUrls.Length; i++)
     {
-        WriteLine(null, true);
-        WriteLine("Creating reviews for the following images:", true);
-
-        // Create the structure to hold the request body information.
-        List<CreateReviewBodyItem> requestInfo =
-            new List<CreateReviewBodyItem>();
-
-        // Create some standard metadata to add to each item.
-        List<CreateReviewBodyItemMetadataItem> metadata =
-            new List<CreateReviewBodyItemMetadataItem>(
-            new CreateReviewBodyItemMetadataItem[] {
-                new CreateReviewBodyItemMetadataItem(
-                    MetadataKey, MetadataValue)
-            });
-
-        // Populate the request body information and the initial cached review information.
-        for (int i = 0; i < ImageUrls.Length; i++)
+        // Cache the local information with which to create the review.
+        var itemInfo = new ReviewItem()
         {
-            // Cache the local information with which to create the review.
-            var itemInfo = new ReviewItem()
-            {
-                Type = MediaType,
-                ContentId = i.ToString(),
-                Url = ImageUrls[i],
-                ReviewId = null
-            };
+            Type = MediaType,
+            ContentId = i.ToString(),
+            Url = ImageUrls[i],
+            ReviewId = null
+        };
 
-            WriteLine($" - {itemInfo.Url}; with id = {itemInfo.ContentId}.", true);
+        WriteLine($" - {itemInfo.Url}; with id = {itemInfo.ContentId}.", true);
 
-            // Add the item informaton to the request information.
-            requestInfo.Add(new CreateReviewBodyItem(
-                itemInfo.Type, itemInfo.Url, itemInfo.ContentId,
-                CallbackEndpoint, metadata));
+        // Add the item informaton to the request information.
+        requestInfo.Add(new CreateReviewBodyItem(
+            itemInfo.Type, itemInfo.Url, itemInfo.ContentId,
+            CallbackEndpoint, metadata));
 
-            // Cache the review creation information.
-            reviewItems.Add(itemInfo);
-        }
-
-        var reviewResponse = client.Reviews.CreateReviewsWithHttpMessagesAsync(
-            "application/json", TeamName, requestInfo);
-
-        // Update the local cache to associate the created review IDs with
-        // the associated content.
-        var reviewIds = reviewResponse.Result.Body;
-        for (int i = 0; i < reviewIds.Count; i++)
-        {
-            Program.reviewItems[i].ReviewId = reviewIds[i];
-        }
-
-        WriteLine(JsonConvert.SerializeObject(
-        reviewIds, Formatting.Indented));
-
-        Thread.Sleep(throttleRate);
+        // Cache the review creation information.
+        reviewItems.Add(itemInfo);
     }
+
+    var reviewResponse = client.Reviews.CreateReviewsWithHttpMessagesAsync(
+        "application/json", TeamName, requestInfo);
+
+    // Update the local cache to associate the created review IDs with
+    // the associated content.
+    var reviewIds = reviewResponse.Result.Body;
+    for (int i = 0; i < reviewIds.Count; i++)
+    {
+        Program.reviewItems[i].ReviewId = reviewIds[i];
+    }
+
+    WriteLine(JsonConvert.SerializeObject(
+    reviewIds, Formatting.Indented));
+
+    Thread.Sleep(throttleRate);
+}
+```
 
 ## <a name="create-a-method-to-get-the-status-of-existing-reviews"></a>Creare un metodo per ottenere lo stato delle revisioni esistenti
 
-Aggiungere il metodo seguente alla classe **Program**. 
+Aggiungere il metodo seguente alla classe **Program**.
 
 > [!Note]
-> Impostare in pratica l'URL di callback `CallbackEndpoint` sull'URL che riceve i risultati della revisione manuale (tramite una richiesta HTTP POST).
-> È possibile modificare questo metodo per verificare lo stato delle revisioni in sospeso.
+> Impostare in pratica l'URL di callback `CallbackEndpoint` sull'URL che riceve i risultati della revisione manuale (tramite una richiesta HTTP POST). È possibile modificare questo metodo per verificare lo stato delle revisioni in sospeso.
 
-    /// <summary>
+```csharp
+/// <summary>
     /// Gets the review details from the server.
     /// </summary>
     /// <param name="client">The Content Moderator client.</param>
@@ -369,53 +376,58 @@ Aggiungere il metodo seguente alla classe **Program**.
             Thread.Sleep(throttleRate);
         }
     }
+```
 
 ## <a name="add-code-to-create-a-set-of-reviews-and-check-its-status"></a>Aggiungere codice per creare un set di revisioni e verificarne lo stato
 
 Aggiungere il codice seguente al metodo **Main**.
 
-Questo codice simula molte operazioni eseguite nella definizione e nella gestione dell'elenco nonché nell'uso dell'elenco per filtrare le immagini. Le funzionalità di registrazione consentono di visualizzare gli oggetti di risposta generati dalle chiamate SDK al servizio Content Moderator.
+Questo codice simula molte operazioni eseguite nella definizione e nella gestione dell'elenco nonché nell'uso dell'elenco per filtrare le immagini. Le funzionalità di registrazione consentono di visualizzare gli oggetti di risposta generati dalle chiamate SDK al servizio mModerator contenuto.
 
-    using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
+```csharp
+using (TextWriter outputWriter = new StreamWriter(OutputFile, false))
+{
+    writer = outputWriter;
+    using (var client = Clients.NewClient())
     {
-        writer = outputWriter;
-        using (var client = Clients.NewClient())
-        {
-            CreateReviews(client);
-            GetReviewDetails(client);
+        CreateReviews(client);
+        GetReviewDetails(client);
 
-            Console.WriteLine();
-            Console.WriteLine("Perform manual reviews on the Content Moderator site.");
-            Console.WriteLine("Then, press any key to continue.");
-            Console.ReadKey();
+        Console.WriteLine();
+        Console.WriteLine("Perform manual reviews on the Content Moderator site.");
+        Console.WriteLine("Then, press any key to continue.");
+        Console.ReadKey();
 
-            Console.WriteLine();
-            Console.WriteLine($"Waiting {latencyDelay} seconds for results to propigate.");
-            Thread.Sleep(latencyDelay * 1000);
+        Console.WriteLine();
+        Console.WriteLine($"Waiting {latencyDelay} seconds for results to propigate.");
+        Thread.Sleep(latencyDelay * 1000);
 
-            GetReviewDetails(client);
-        }
-
-        writer = null;
-        outputWriter.Flush();
-        outputWriter.Close();
+        GetReviewDetails(client);
     }
 
-    Console.WriteLine();
-    Console.WriteLine("Press any key to exit...");
-    Console.ReadKey();
+    writer = null;
+    outputWriter.Flush();
+    outputWriter.Close();
+}
+
+Console.WriteLine();
+Console.WriteLine("Press any key to exit...");
+Console.ReadKey();
+```
 
 ## <a name="run-the-program-and-review-the-output"></a>Eseguire il programma ed esaminare l'output
 
 Viene visualizzato l'output di esempio seguente:
 
-    Creating reviews for the following images:
+```console
+Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
 
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Pending.
+```
 
-Accedere allo strumento di revisione di Content Moderator per visualizzare la revisione delle immagini in sospeso con l'etichetta **sc** impostata su **true**. Vengono anche visualizzati i tag **a** e **r** predefiniti e tutti i tag personalizzati definiti nello strumento di revisione. 
+Accedere allo strumento di revisione di Content Moderator per visualizzare la revisione delle immagini in sospeso con l'etichetta **sc** impostata su **true**. Vengono anche visualizzati i tag **a** e **r** predefiniti e tutti i tag personalizzati definiti nello strumento di revisione.
 
 Fare clic su **Next** (Avanti) per inviare.
 
@@ -423,12 +435,14 @@ Fare clic su **Next** (Avanti) per inviare.
 
 Premere quindi un tasto qualsiasi per continuare.
 
-    Waiting 45 seconds for results to propagate.
+```console
+Waiting 45 seconds for results to propagate.
 
     Getting review details:
     Review 201712i46950138c61a4740b118a43cac33f434 for item ID 0 is Complete.
 
     Press any key to exit...
+```
 
 ## <a name="check-out-the-following-output-in-the-log-file"></a>Controllare l'output seguente nel file di log
 
@@ -437,7 +451,8 @@ Premere quindi un tasto qualsiasi per continuare.
 
 Gli ID revisione e gli URL di contenuto dell'immagine sono diversi ogni volta che si esegue l'applicazione e quando una revisione è completata il campo `reviewerResultTags` riflette il modo in cui il revisore ha contrassegnato l'elemento.
 
-    Creating reviews for the following images:
+```json
+Creating reviews for the following images:
         - https://moderatorsampleimages.blob.core.windows.net/samples/sample1.jpg; with id = 0.
     [
         "201712i46950138c61a4740b118a43cac33f434",
@@ -453,8 +468,8 @@ Gli ID revisione e gli URL di contenuto dell'immagine sono diversi ogni volta ch
         "createdBy": "{teamname}",
         "metadata": [
         {
-            "key": "sc",
-            "value": "true"
+              "key": "sc",
+              "value": "true"
         }
         ],
         "type": "Image",
@@ -471,23 +486,23 @@ Gli ID revisione e gli URL di contenuto dell'immagine sono diversi ogni volta ch
         "status": "Complete",
         "reviewerResultTags": [
         {
-            "key": "a",
-            "value": "False"
+              "key": "a",
+              "value": "False"
         },
         {
-            "key": "r",
-            "value": "True"
+              "key": "r",
+              "value": "True"
         },
         {
-            "key": "sc",
-            "value": "True"
+              "key": "sc",
+              "value": "True"
         }
         ],
         "createdBy": "{teamname}",
         "metadata": [
         {
-            "key": "sc",
-            "value": "true"
+              "key": "sc",
+              "value": "true"
         }
         ],
         "type": "Image",
@@ -495,28 +510,30 @@ Gli ID revisione e gli URL di contenuto dell'immagine sono diversi ogni volta ch
         "contentId": "0",
         "callbackEndpoint": "{callbackUrl}"
     }
+```
 
 ## <a name="your-callback-url-if-provided-receives-this-response"></a>L'URL di callback, se specificato, riceve la risposta
 
 Viene visualizzata una risposta simile all'esempio seguente:
 
-    {
-        "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
-        "ModifiedOn": "2018-01-06T05:04:40.5525865Z",
-        "ModifiedBy": "yourusername",
-        "CallBackType": "Review",
-        "ContentId": "0",
-        "ContentType": "Image",
-        "Metadata": {
-            "sc": "true"
-            },
-        "ReviewerResultTags": {
-            "a": "False",
-            "r": "False",
-        }
+```json
+{
+    "ReviewId": "201801i48a2937e679a41c7966e838c92f5e649",
+    "ModifiedOn": "2018-01-06T05:04:40.5525865Z",
+    "ModifiedBy": "yourusername",
+    "CallBackType": "Review",
+    "ContentId": "0",
+    "ContentType": "Image",
+    "Metadata": {
+        "sc": "true"
+        },
+    "ReviewerResultTags": {
+        "a": "False",
+        "r": "False",
     }
-
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Consultare questa e altre guide introduttive di Content Moderator .NET per usare [Content Moderator SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e la [soluzione Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) prima di iniziare a implementare l'integrazione.
+Ottenere il [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) e scaricare la [soluzione di Visual Studio](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) per questa e altre guide introduttive di Content Moderator per .NET e iniziare a usare l'integrazione.

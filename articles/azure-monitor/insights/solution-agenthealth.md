@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983381"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757957"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Soluzione Integrità agente in Azure
-La soluzione integrità agente in Azure consente di comprendere, per tutti gli agenti che fanno riferimento direttamente per l'area di lavoro di Log Analitica o di un gruppo di gestione di System Center Operations Manager connesso a monitoraggio di Azure, ovvero che non risponde e l'invio di operativa dati.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Soluzione integrità agente in Monitoraggio di Azure
+La soluzione integrità agente in Azure consente di comprendere, per tutti gli agenti che fanno riferimento direttamente all'area di lavoro di Log Analitica in Monitoraggio di Azure o un gruppo di gestione di System Center Operations Manager connesso a monitoraggio di Azure, che sono non risponde e invio dati operativi.  È anche possibile tenere traccia del numero di agenti distribuiti, della rispettiva ubicazione ed eseguire altre query per rimanere aggiornati sulla distribuzione degli agenti distribuiti in Azure, in altri ambienti cloud o in locale.    
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di distribuire questa soluzione, assicurarsi che sia attualmente supportato l'invio di report da parte degli [agenti di Windows](../../log-analytics/log-analytics-windows-agent.md) all'area di lavoro di Log Analytics o a un [gruppo di gestione di Operations Manager](../../azure-monitor/platform/om-agents.md) integrato con l'area di lavoro.
@@ -62,8 +62,8 @@ Fare clic sul riquadro **Integrità agente** per aprire il dashboard di **Integr
 | Distribution by OS Type (Distribuzione per tipo di sistema operativo) | Indicazione del numero di agenti di Windows e Linux disponibili nell'ambiente.|
 | Distribution by Agent Version (Distribuzione per versione dell'agente) | Indicazione delle diverse versioni dell'agente installate nell'ambiente e conteggio di ogni versione.|
 | Distribution by Agent Category (Distribuzione per categoria dell'agente) | Indicazione delle diverse categorie di agenti che inviano eventi di heartbeat, ovvero agenti diretti, agenti OpsMgr o un server di gestione di OpsMgr.|
-| Distribution by Management Group (Distribuzione per gruppo di gestione) | Indicazione dei diversi gruppi di gestione di SCOM disponibili nell'ambiente.|
-| Geo-location of Agents (Posizione geografica degli agenti) | Indicazione dei diversi paesi in cui sono presenti agenti e conteggio totale del numero di agenti installati in ogni paese.|
+| Distribuzione per gruppo di gestione | Indicazione dei diversi gruppi di gestione di Operations Manager nell'ambiente in uso.|
+| Posizione geografica degli agenti | Indicazione dei diversi paesi in cui sono presenti agenti e conteggio totale del numero di agenti installati in ogni paese.|
 | Count of Gateways Installed (Conteggio dei gateway installati) | Numero di server in cui è installato il gateway Log Analytics ed elenco dei server.|
 
 ![Esempio di dashboard della soluzione Integrità agente](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
@@ -117,4 +117,4 @@ La tabella seguente contiene esempi di ricerche nei log per i record raccolti da
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Scopri [gli avvisi in Monitoraggio di Azure](../platform/alerts-overview.md) per informazioni dettagliate sulla generazione di avvisi di Log Analitica. 
+* Scopri [gli avvisi in Monitoraggio di Azure](../platform/alerts-overview.md) per informazioni dettagliate sulla generazione di avvisi da query di log. 

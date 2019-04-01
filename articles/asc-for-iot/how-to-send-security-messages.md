@@ -1,6 +1,6 @@
 ---
-title: Invio di messaggi di sicurezza al Centro sicurezza di AZURE per l'anteprima di IoT | Microsoft Docs
-description: Informazioni su come inviare i messaggi di sicurezza mediante Centro sicurezza di AZURE per IoT.
+title: Invio di messaggi di sicurezza al Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
+description: Informazioni su come inviare i messaggi di sicurezza usando il Centro sicurezza di Azure per IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650156"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754780"
 ---
 # <a name="send-security-messages-sdk"></a>Inviare messaggi di sicurezza SDK
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questa guida illustra Centro sicurezza di AZURE per le funzionalità del servizio IoT quando si sceglie di raccogliere e inviare i messaggi di sicurezza il dispositivo senza l'utilizzo di un Centro sicurezza di AZURE per l'agente di IoT e spiega come eseguire questa operazione.  
+Questa guida illustra Azure Security Center (Centro sicurezza di AZURE) per le funzionalità del servizio IoT quando si sceglie di raccogliere e inviare i messaggi di sicurezza il dispositivo senza l'utilizzo di un Centro sicurezza di AZURE per l'agente di IoT e spiega come eseguire questa operazione.  
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]

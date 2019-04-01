@@ -4,17 +4,17 @@ description: Informazioni su come un manifesto della distribuzione dichiara qual
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099971"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758074"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Informazioni su come distribuire moduli e definire route in IoT Edge
 
@@ -58,14 +58,14 @@ I manifesti di distribuzione seguono questa struttura:
                 // includes the routing information between modules, and to IoT Hub
             }
         },
-        "{module1}": {  // optional
+        "module1": {  // optional
             "properties.desired": {
-                // desired properties of {module1}
+                // desired properties of module1
             }
         },
-        "{module2}": {  // optional
+        "module2": {  // optional
             "properties.desired": {
-                // desired properties of {module2}
+                // desired properties of module2
             }
         },
         ...
@@ -75,9 +75,9 @@ I manifesti di distribuzione seguono questa struttura:
 
 ## <a name="configure-modules"></a>Configurare i moduli
 
-È necessario indicare al runtime di IoT Edge come installare i moduli nella distribuzione. L'agente IoT Edge è il componente di runtime che gestisce l'installazione, gli aggiornamenti e i rapporti di stato di un dispositivo IoT Edge. Pertanto, il modulo gemello richiede la configurazione e le informazioni di gestione di tutti i moduli. Queste informazioni includono anche i parametri di configurazione dell'agente di Edge. 
+È necessario indicare al runtime di IoT Edge come installare i moduli nella distribuzione. L'agente IoT Edge è il componente di runtime che gestisce l'installazione, gli aggiornamenti e i rapporti di stato di un dispositivo IoT Edge. Pertanto, il modulo gemello richiede la configurazione e le informazioni di gestione di tutti i moduli. Queste informazioni includono i parametri di configurazione per l'agente di IoT Edge stesso. 
 
-Per un elenco completo delle proprietà che possono o devono essere incluse, vedere [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Proprietà dell'agente di Edge e dell'hub di Edge).
+Per un elenco completo delle proprietà che possono o devono essere inclusi, vedere [delle proprietà dell'agente di IoT Edge e hub di IoT Edge](module-edgeagent-edgehub.md).
 
 Le proprietà di $edgeAgent seguono questa struttura:
 
@@ -101,10 +101,10 @@ Le proprietà di $edgeAgent seguono questa struttura:
             }
         },
         "modules": {
-            "{module1}": { // optional
+            "module1": { // optional
                 // configuration and management details
             },
-            "{module2}": { // optional
+            "module2": { // optional
                 // configuration and management details
             }
         }
@@ -122,8 +122,8 @@ Le route vengono dichiarate nelle proprietà desiderate di **$edgeHub** con la s
 "$edgeHub": {
     "properties.desired": {
         "routes": {
-            "{route1}": "FROM <source> WHERE <condition> INTO <sink>",
-            "{route2}": "FROM <source> WHERE <condition> INTO <sink>"
+            "route1": "FROM <source> WHERE <condition> INTO <sink>",
+            "route2": "FROM <source> WHERE <condition> INTO <sink>"
         },
     }
 }
@@ -132,21 +132,21 @@ Le route vengono dichiarate nelle proprietà desiderate di **$edgeHub** con la s
 Per ogni route è necessaria un'origine e un sink, mentre la condizione è un elemento facoltativo che è possibile usare per filtrare i messaggi. 
 
 
-### <a name="source"></a>Sorgente
+### <a name="source"></a>Source (Sorgente)
 
 L'origine specifica da dove provengono i messaggi. IoT Edge può indirizzare i messaggi da dispositivi foglia o moduli.
 
 La proprietà di origine può essere uno dei valori seguenti:
 
-| Sorgente | DESCRIZIONE |
+| Source (Sorgente) | DESCRIZIONE |
 | ------ | ----------- |
 | `/*` | Tutte le notifiche da dispositivo a cloud o dei dispositivi gemelli le notifiche da qualsiasi dispositivo foglia o modulo |
 | `/twinChangeNotifications` | Qualsiasi modifica gemella (proprietà segnalate) provenienti da qualsiasi dispositivo foglia o modulo |
 | `/messages/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un dispositivo foglia o modulo con o senza output |
 | `/messages/modules/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un modulo con o senza output |
-| `/messages/modules/{moduleId}/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un modulo specifico con o senza output |
-| `/messages/modules/{moduleId}/outputs/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un modulo specifico con output |
-| `/messages/modules/{moduleId}/outputs/{output}` | Qualsiasi messaggio da dispositivo a cloud inviato da un modulo specifico con un output specifico |
+| `/messages/modules/<moduleId>/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un modulo specifico con o senza output |
+| `/messages/modules/<moduleId>/outputs/*` | Qualsiasi messaggio da dispositivo a cloud inviato da un modulo specifico con output |
+| `/messages/modules/<moduleId>/outputs/<output>` | Qualsiasi messaggio da dispositivo a cloud inviato da un modulo specifico con un output specifico |
 
 ### <a name="condition"></a>Condizione
 La condizione è facoltativa in una dichiarazione di route. Se si intende passare tutti i messaggi dal sink all'origine, escludere interamente la clausola **WHERE**. In alternativa è possibile usare il [linguaggio di query di hub IoT](../iot-hub/iot-hub-devguide-routing-query-syntax.md) per filtrare alcuni messaggi o tipi di messaggio che soddisfano la condizione. Le route di IoT Edge non supportano i messaggi di filtro in base a tag o proprietà gemelli. 
@@ -175,11 +175,11 @@ La proprietà sink può essere uno dei valori seguenti:
 | Sink | DESCRIZIONE |
 | ---- | ----------- |
 | `$upstream` | Inviare il messaggio all'hub IoT |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Inviare il messaggio a un input specifico di un modulo specifico |
+| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Inviare il messaggio a un input specifico di un modulo specifico |
 
-IoT Edge offre garanzie di tipo at-least-once. L'hub di Edge archivia i messaggi in locale nel caso in cui una route non riesca a recapitare il messaggio al relativo sink. Ad esempio, se l'hub di Edge non riesce a connettersi all'hub IoT o il modulo di destinazione non è connesso.
+IoT Edge offre garanzie di tipo at-least-once. Hub di IoT Edge archivia i messaggi in locale nel caso in cui una route non possa recapitare il messaggio al relativo sink. Ad esempio, se non è possibile connettersi all'hub IoT Edge per l'IoT Hub o il modulo di destinazione non è connesso.
 
-L'hub di Edge archivia i messaggi fino all'ora specificata nella proprietà `storeAndForwardConfiguration.timeToLiveSecs` delle [proprietà desiderate dell'hub di Edge](module-edgeagent-edgehub.md).
+Hub di IoT Edge archivia i messaggi fino all'ora specificata nella `storeAndForwardConfiguration.timeToLiveSecs` proprietà del [le proprietà desiderate dell'hub di IoT Edge](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Definire o aggiornare le proprietà desiderate 
 
@@ -207,7 +207,7 @@ L'esempio seguente mostra come viene visualizzato un documento del manifesto di 
             "registryCredentials": {
               "ContosoRegistry": {
                 "username": "myacr",
-                "password": "{password}",
+                "password": "<password>",
                 "address": "myacr.azurecr.io"
               }
             }
@@ -273,6 +273,6 @@ L'esempio seguente mostra come viene visualizzato un documento del manifesto di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per un elenco completo delle proprietà che possono o devono essere incluse in $edgeAgent e $edgeHub, vedere [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Proprietà dell'agente di Edge e dell'hub di Edge).
+* Per un elenco completo delle proprietà che possono o devono essere inclusi in $edgeAgent e $edgeHub, vedere [delle proprietà dell'agente di IoT Edge e hub di IoT Edge](module-edgeagent-edgehub.md).
 
 * Dopo aver appreso come usare i moduli IoT Edge, passare alla pagina [Informazioni sui requisiti e gli strumenti per sviluppare moduli di IoT Edge](module-development.md).

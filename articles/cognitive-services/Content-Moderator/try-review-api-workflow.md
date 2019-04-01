@@ -1,207 +1,142 @@
 ---
-title: Flussi di lavoro di moderazione del contenuto dalla console per le API - Content Moderator
+title: Definire i flussi di lavoro di moderazione con la console di API REST - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Usare le operazioni di flusso di lavoro in Azure Content Moderator per creare o aggiornare un flusso di lavoro oppure ottenere i dettagli del flusso di lavoro tramite l'API di revisione.
+description: È possibile utilizzare le API di Azure contenuto Moderator revisione per definire i flussi di lavoro personalizzati e le soglie in base a criteri di contenuto.
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
-ms.topic: conceptual
-ms.date: 01/10/2019
+ms.topic: article
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 1c18544a0fd135eb546660c442b865bf1249dfe5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e150b1321f2fbd348e737222c752203281503643
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55883084"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756592"
 ---
-# <a name="workflows-from-the-api-console"></a>Flussi di lavoro dalla console per le API
+# <a name="define-and-use-moderation-workflows-rest"></a>Definire e usare i flussi di lavoro di moderazione (REST)
 
-Usare le [operazioni workflow](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) in Azure Content Moderator per creare o aggiornare un flusso di lavoro o ottenere i dettagli del flusso di lavoro usando l'API di revisione. Usando questa API è possibile definire espressioni semplici, complesse e anche annidate. I flussi di lavoro vengono visualizzati nello strumento di revisione per consentire al team di usarli. I flussi di lavoro vengono usati anche dalle operazioni Job dell'API di revisione.
+I flussi di lavoro sono filtri personalizzati basati sul cloud che è possibile usare per gestire il contenuto in modo più efficiente. I flussi di lavoro possono connettersi a un'ampia gamma di servizi per filtrare il contenuto in modi diversi e quindi intraprendere l'azione appropriata. Questa guida illustra come usare il flusso di lavoro le API REST, tramite la console API, creare e usare i flussi di lavoro. Dopo aver appreso la struttura delle API, è possibile trasferire facilmente queste chiamate a qualsiasi piattaforma compatibile con REST.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Andare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). Se non è già stato fatto, iscriversi. 
-2. Nello strumento di revisione, in **Settings** (Impostazioni) selezionare la scheda **Workflows** (Flussi di lavoro), come illustrato nell'[esercitazione sui flussi di lavoro](Review-Tool-User-Guide/Workflows.md) dello strumento di revisione.
-
-### <a name="browse-to-the-workflows-screen"></a>Passare alla schermata Workflows (Flussi di lavoro)
-
-Nel dashboard di Content Moderator selezionare **Review** (Revisione) > **Settings** (Impostazioni) > **Workflows** (Flussi di lavoro). Viene visualizzato un flusso di lavoro predefinito.
-
-  ![Flusso di lavoro predefinito](images/default-workflow-listed.PNG)
-
-### <a name="get-the-json-definition-of-the-default-workflow"></a>Ottenere la definizione JSON del flusso di lavoro predefinito
-
-Selezionare l'opzione **Edit** (Modifica) per il flusso di lavoro e quindi selezionare la scheda **JSON**. Viene visualizzata l'espressione JSON seguente:
-
-    {
-        "Type": "Logic",
-        "If": {
-            "ConnectorName": "moderator",
-            "OutputName": "isAdult",
-            "Operator": "eq",
-            "Value": "true",
-            "Type": "Condition"
-            },
-        "Then": {
-        "Perform": [
-        {
-            "Name": "createreview",
-            "CallbackEndpoint": null,
-            "Tags": []
-        }
-        ],
-        "Type": "Actions"
-        }
-    }
-
-## <a name="get-workflow-details"></a>Ottenere i dettagli del flusso di lavoro
-
-Usare l'operazione **Workflow - Get** (Flusso di lavoro - Acquisizione) per ottenere i dettagli del flusso di lavoro predefinito esistente.
-
-Nello strumento di revisione andare alla sezione [Credentials](Review-Tool-User-Guide/credentials.md#the-review-tool) (Credenziali).
-
-### <a name="browse-to-the-api-reference"></a>Passare al riferimento API
-
-1. Nella visualizzazione **Credentials** (Credenziali) selezionare [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) (Informazioni di riferimento per l'API). 
-2. Quando si apre la pagina **Workflow - Create Or Update** (Flusso di lavoro - Creazione o aggiornamento), andare alle informazioni di riferimento [Workflow - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58) (Flusso di lavoro - Acquisizione).
-
-### <a name="select-your-region"></a>Selezionare l'area
-
-Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.
-
-  ![Selezione dell'area in Workflow - Get (Flusso di lavoro - Acquisizione)](images/test-drive-region.png)
-
-  Viene aperta la console dell'API **Workflow - Get** (Flusso di lavoro - Acquisizione).
-
-### <a name="enter-parameters"></a>Immettere i parametri
-
-Immettere i valori per **team**, **workflowname** e **Ocp-Apim-Subscription-Key** (la chiave di sottoscrizione):
-
-- **team**: l'ID team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: il nome del flusso di lavoro. Usare `default`.
-- **Ocp-Apim-Subscription-Key**: Disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
-
-  ![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
-
-### <a name="submit-your-request"></a>Inviare la richiesta
-  
-Selezionare **Send** (Invia). Se l'operazione viene completata correttamente, lo **stato della risposta** è `200 OK` e la casella **Response content** (Contenuto della risposta) visualizza il flusso di lavoro JSON seguente:
-
-    {
-        "Name": "default",
-        "Description": "Default",
-        "Type": "Image",
-        "Expression": {
-        "If": {
-            "ConnectorName": "moderator",
-            "OutputName": "isadult",
-            "Operator": "eq",
-            "Value": "true",
-            "AlternateInput": null,
-            "Type": "Condition"
-            },
-        "Then": {
-            "Perform": [{
-                "Name": "createreview",
-                "Subteam": null,
-                "CallbackEndpoint": null,
-                "Tags": []
-            }],
-            "Type": "Actions"
-            },
-            "Else": null,
-            "Type": "Logic"
-            }
-    }
-
+- Accedi o crea un account su Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) sito.
 
 ## <a name="create-a-workflow"></a>Creare un flusso di lavoro
 
-Nello strumento di revisione andare alla sezione [Credentials](Review-Tool-User-Guide/credentials.md#the-review-tool) (Credenziali).
+Per creare o aggiornare un flusso di lavoro, passare al **[flusso di lavoro - creare o aggiornare](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59)** API pagina di riferimento e selezionare il pulsante per la propria chiave area (è possibile trovarlo nell'URL dell'Endpoint sul **credenziali**  della pagina la [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/)). Verrà avviata la console API, in cui è possibile facilmente costruire ed eseguire chiamate all'API REST.
 
-### <a name="browse-to-the-api-reference"></a>Passare al riferimento API
+![Selezione dell'area nella pagina Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/test-drive-region.png)
 
-Nella visualizzazione **Credentials** (Credenziali) selezionare [API reference](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) (Informazioni di riferimento per l'API). Viene aperta la pagina **Workflow - Create Or Update** (Flusso di lavoro - Creazione o aggiornamento).
+### <a name="enter-rest-call-parameters"></a>Immettere i parametri di chiamata REST
 
-### <a name="select-your-region"></a>Selezionare l'area
+Immettere i valori relativi **team**, **workflowname**, e **Ocp-Apim-Subscription-Key**:
 
-Per **Open API testing console** (Apri console di test dell'API) selezionare l'area che identifica con maggiore precisione la propria posizione.
+- **team**: L'ID team creato quando si configura il [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) account (trovato nel **Id** campo nella schermata di credenziali dello strumento di revisione).
+- **workflowname**: Il nome di un nuovo flusso di lavoro da aggiungere (o un nome esistente, se si desidera aggiornare un flusso di lavoro esistente).
+- **Ocp-Apim-Subscription-Key**: La chiave di Content Moderator. È possibile trovarlo nel **le impostazioni** scheda della finestra di [strumento di revisione](https://contentmoderator.cognitive.microsoft.com).
 
-  ![Selezione dell'area nella pagina Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/test-drive-region.png)
+![Parametri di query e intestazioni nella console Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/workflow-console-parameters.PNG)
 
-  Viene aperta la console dell'API **Workflow - Create Or Update** (Flusso di lavoro - Creazione o aggiornamento).
+### <a name="enter-a-workflow-definition"></a>Immettere una definizione del flusso di lavoro
 
-### <a name="enter-parameters"></a>Immettere i parametri
+1. Modificare il **corpo della richiesta** finestra di immettere la richiesta JSON con i dettagli per **descrizione** e **tipo** (sia `Image` o `Text`).
+2. Per la **espressione**, copiare l'espressione JSON del flusso di lavoro. La stringa JSON finale dovrebbe essere simile al seguente:
 
-Immettere i valori per **team**, **workflowname** e **Ocp-Apim-Subscription-Key** (la chiave di sottoscrizione):
-
-- **team**: l'ID team creato quando è stato configurato l'[account dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com/). 
-- **workflowname**: il nome del nuovo flusso di lavoro.
-- **Ocp-Apim-Subscription-Key**: Disponibile nella scheda **Impostazioni**. Per altre informazioni, vedere la [panoramica](overview.md).
-
-  ![Parametri di query e intestazioni nella console Workflow - Create Or Update (Flusso di lavoro - Creazione o aggiornamento)](images/workflow-console-parameters.PNG)
-
-### <a name="enter-the-workflow-definition"></a>Immettere la definizione del flusso di lavoro
-
-1. Modificare la casella **Request body** (Corpo della richiesta) per immettere la richiesta JSON con i dettagli per **Description** e **Type** (Image o Text). 
-2. Per **Expression**, copiare l'espressione del flusso di lavoro predefinito della sezione precedente, come illustrato qui:
-
+```json
+{
+  "Description":"<A description for the Workflow>",
+  "Type":"Text",
+  "Expression":{
+    "Type":"Logic",
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isAdult",
+      "Operator":"eq",
+      "Value":"true",
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
         {
-            "Description": "Default workflow from API console",
-            "Type": "Image",
-            "Expression": 
-                // Copy the default workflow expression from the preceding section
-        }
+          "Name":"createreview",
+          "CallbackEndpoint":null,
+          "Tags":[
 
-    Il corpo della richiesta sarà simile alla richiesta JSON seguente:
-
-        {
-            "Description": "Default workflow from API console",
-            "Type": "Image",
-            "Expression": {
-                "Type": "Logic",
-                "If": {
-                    "ConnectorName": "moderator",
-                    "OutputName": "isAdult",
-                    "Operator": "eq",
-                    "Value": "true",
-                    "Type": "Condition"
-                    },
-                "Then": {
-                "Perform": [
-                {
-                    "Name": "createreview",
-                    "CallbackEndpoint": null,
-                    "Tags": [ ]
-                }
-                ],
-                "Type": "Actions"
-                }
-            }
+          ]
         }
- 
+      ],
+      "Type":"Actions"
+    }
+  }
+}
+```
+
+> [!NOTE]
+> È possibile definire le espressioni semplici, complesse e persino annidate per flussi di lavoro usando questa API. Il [flusso di lavoro - creare o aggiornare](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b46b3f9b0711b43c4c59) documentazione contiene esempi di logica più complessa.
+
 ### <a name="submit-your-request"></a>Inviare la richiesta
   
 Selezionare **Send** (Invia). Se l'operazione viene completata correttamente, lo **stato della risposta** è `200 OK` e la casella **Response content** (Contenuto della risposta) visualizza `true`.
 
-### <a name="check-out-the-new-workflow"></a>Controllare il nuovo flusso di lavoro
+### <a name="examine-the-new-workflow"></a>Esaminare il nuovo flusso di lavoro
 
-Nello strumento di revisione selezionare**Review** (Revisione) > **Settings** (Impostazioni) > **Workflows** (Flussi di lavoro). Il nuovo flusso di lavoro viene visualizzato ed è pronto per essere usato.
+Nel [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/), selezionare **impostazioni** > **i flussi di lavoro**. Il nuovo flusso di lavoro dovrebbe essere visualizzato nell'elenco.
 
-  ![Esaminare l'elenco di strumenti dei flussi di lavoro](images/workflow-console-new-workflow.PNG)
-  
-### <a name="review-your-new-workflow-details"></a>Esaminare i dettagli del nuovo flusso di lavoro
+![Esaminare l'elenco di strumenti dei flussi di lavoro](images/workflow-console-new-workflow.PNG)
 
-1. Selezionare l'opzione **Edit** (Modifica) per il flusso di lavoro e quindi selezionare le schede **Designer** (Finestra di progettazione) e **JSON**.
+Selezionare il **Edit** l'opzione del flusso di lavoro e passare al **progettazione** scheda. In questo caso, è possibile visualizzare una rappresentazione intuitiva della logica di JSON.
 
-   ![Scheda Designer (Finestra di progettazione) per un flusso di lavoro selezionato](images/workflow-console-new-workflow-designer.PNG)
+![Scheda Designer (Finestra di progettazione) per un flusso di lavoro selezionato](images/workflow-console-new-workflow-designer.PNG)
 
-2. Per vedere la visualizzazione JSON del flusso di lavoro, selezionare la scheda **JSON**.
+## <a name="get-workflow-details"></a>Ottenere i dettagli del flusso di lavoro
+
+Per recuperare informazioni dettagliate su un flusso di lavoro esistente, passare al **[flusso di lavoro - Get](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/5813b44b3f9b0711b43c4c58)** API pagina di riferimento e selezionare il pulsante per la propria area (l'area in cui la chiave viene amministrata).
+
+![Selezione dell'area in Workflow - Get (Flusso di lavoro - Acquisizione)](images/test-drive-region.png)
+
+Immettere i parametri di chiamata REST come nella sezione precedente. Assicurarsi che questa volta **workflowname** è il nome di un flusso di lavoro esistente.
+
+![Ottenere parametri di query e intestazioni](images/workflow-get-default.PNG)
+
+Selezionare **Send** (Invia). Se l'operazione ha esito positivo, il **stato della risposta** viene `200 OK`e il **contenuto della risposta** il flusso di lavoro viene visualizzata la finestra in formato JSON, simile al seguente:
+
+```json
+{
+  "Name":"default",
+  "Description":"Default",
+  "Type":"Image",
+  "Expression":{
+    "If":{
+      "ConnectorName":"moderator",
+      "OutputName":"isadult",
+      "Operator":"eq",
+      "Value":"true",
+      "AlternateInput":null,
+      "Type":"Condition"
+    },
+    "Then":{
+      "Perform":[
+        {
+          "Name":"createreview",
+          "Subteam":null,
+          "CallbackEndpoint":null,
+          "Tags":[
+
+          ]
+        }
+      ],
+      "Type":"Actions"
+    },
+    "Else":null,
+    "Type":"Logic"
+  }
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per esempi di flussi di lavoro più complessi, vedere la [panoramica dei flussi di lavoro](workflow-api.md).
-* Informazioni su come usare i flussi di lavoro con i [processi di moderazione del contenuto](try-review-api-job.md).
+- Informazioni su come usare i flussi di lavoro con i [processi di moderazione del contenuto](try-review-api-job.md).

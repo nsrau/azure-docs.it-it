@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864299"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757767"
 ---
 # <a name="learn-text-moderation-concepts"></a>Informazioni sui concetti di moderazione del testo
 
@@ -26,7 +26,7 @@ La risposta del servizio include le informazioni seguenti:
 
 - Contenuto volgare: corrispondenza dei termini all'elenco integrato di termini volgari in varie lingue
 - Classificazione: classificazione automatica in tre categorie
-- Informazioni personali
+- Dati personali
 - Testo corretto automaticamente
 - Testo originale
 - Linguaggio
@@ -75,7 +75,7 @@ L'estratto seguente nell'estratto JSON mostra un esempio dell'output:
 - `Score` è compreso tra 0 e 1. Maggiore è il punteggio, più alto è il modello che prevede che la categoria possa essere applicabile. Questa funzionalità si basa su un modello statistico e non su risultati codificati manualmente. Si consiglia di eseguire i test con i propri contenuti per determinare come ogni categoria si allinei alle proprie esigenze.
 - `ReviewRecommended` è true o false a seconda delle soglie interne del punteggio. I clienti devono valutare se usare questo valore o optare per le soglie personalizzate in base ai propri criteri relativi ai contenuti.
 
-## <a name="personally-identifiable-information-pii"></a>Informazioni personali
+## <a name="personal-data"></a>Dati personali
 
 La funzionalità Informazioni personali rileva la possibile presenza di queste informazioni:
 

@@ -3,16 +3,16 @@ title: 'Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Ku
 description: Configurare Jenkins per l'integrazione continua (CI) da GitHub e la distribuzione continua (CD) nel servizio Azure Kubernetes (AKS)
 services: container-service
 ms.service: container-service
-author: iainfoulds
-ms.author: iainfou
+author: zr-msft
+ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 470ba6df76741dd5c9e9eed055cd7848d341082f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 703aa081c8acf41f9206e2b0ccff45571367d2e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188454"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756069"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Esercitazione: Eseguire la distribuzione da GitHub nel servizio Azure Kubernetes (AKS) con integrazione continua e distribuzione continua di Jenkins
 
@@ -212,8 +212,8 @@ Tornare nella parte sinistra del portale di Jenkins, fare clic su **Credentials*
 
 Verificare che il tipo di credenziali sia **Username with password** (Nome utente con password) e immettere gli elementi seguenti:
 
-- **Nome utente** - *appId* dell'entità servizio creata per l'autenticazione con il Registro contenitori di Azure.
-- **Password** - *password* dell'entità utente creata per l'autenticazione con il Registro contenitori di Azure.
+- **Nome utente** - *appId* dell'entità servizio creata per l'autenticazione con il Registro Azure Container.
+- **Password** - *password* dell'entità utente creata per l'autenticazione con il Registro Azure Container.
 - **ID** - identificatore di credenziali, ad esempio *acr-credentials*
 
 Al termine, il modulo delle credenziali è analogo all'esempio seguente:
@@ -227,15 +227,15 @@ Fare clic su **OK** e tornare al portale di Jenkins.
 Nella home page del portale di Jenkins selezionare **New item** (Nuovo elemento) nella parte sinistra:
 
 1. Immettere *azure-vote* come nome del processo. Scegliere **Freestyle project** (Progetto Freestyle) e quindi selezionare **OK**
-1. Nella sezione **General** (Generale) selezionare **GitHub project** (Progetto GirHub) e immettere l'URL della copia del repository creata tramite fork, ad esempio *https://github.com/\<your-github-account\>/azure-voting-app-redis*
-1. Nella sezione **Source code management** (Gestione del codice sorgente) selezionare **Git** e immettere l'URL *.git* del repository con fork, ad esempio *https://github.com/\<your-github-account\>/azure-voting-app-redis.git*
+1. Sotto il **generali** sezione, selezionare **progetto GitHub** e immettere l'URL del repository con fork, ad esempio *https:\//github.com/\<your github account--\>/azure-voting-app-redis*
+1. Sotto il **gestione del codice di origine** selezionare **Git**, immettere il repository con fork *GIT* URL, ad esempio *https:\//github.com/\<your github account--\>/azure-voting-app-redis.git*
 
 1. Nella sezione **Build Triggers** (Trigger di compilazione) selezionare **GitHub hook trigger for GITScm polling** (Trigger di hook GitHub per polling GITScm).
 1. In **Build Environment** (Ambiente di compilazione) selezionare **Use secret texts or files** (Usa testi o file segreti).
 1. In **Bindings** (Associazioni) selezionare **Add** (Aggiungi) > **Username and password (separated)** (Nome utente e password separati).
-    - Immettere `ACR_ID` per **Username Variable** (Variabile nome utente) e `ACR_PASSWORD` per **Password Variable** (Variabile password).
+   - Immettere `ACR_ID` per **Username Variable** (Variabile nome utente) e `ACR_PASSWORD` per **Password Variable** (Variabile password).
 
-    ![Associazioni di Jenkins](media/aks-jenkins/bindings.png)
+     ![Associazioni di Jenkins](media/aks-jenkins/bindings.png)
 
 1. Aggiungere un'**istruzione di compilazione** di tipo **Execute shell** (Esegui shell) e usare il testo seguente. Questo script compila una nuova immagine del contenitore e la inserisce nel registro di ACR.
 

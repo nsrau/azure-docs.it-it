@@ -1,6 +1,6 @@
 ---
-title: La comprensione di Centro sicurezza di AZURE per il modulo di sicurezza IoT per IoT Edge | Microsoft Docs
-description: Comprendere l'architettura e le funzionalità del Centro sicurezza di AZURE per IoT modulo di protezione di IoT Edge.
+title: Informazioni sul Centro sicurezza di Azure per IoT modulo di sicurezza per IoT Edge | Microsoft Docs
+description: Comprendere l'architettura e le funzionalità del Centro sicurezza di Azure per IoT modulo di protezione di IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 68117370e21c7b667bde5447cef510a4e7c77df0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 11eadc70f6da20fdc9b837dfad45705278dd2d27
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580764"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756706"
 ---
 # <a name="azure-iot-edge-security-module"></a>Modulo di sicurezza di Azure IoT Edge
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per worklo§1ads di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/) offre potenti funzionalità per gestire ed eseguire flussi di lavoro aziendali nei dispositivi perimetrali.
 La parte principale di IoT Edge svolge negli ambienti IoT lo rendono particolarmente interessanti per gli attori dannosi.
 
-Centro sicurezza di AZURE per il modulo di sicurezza IoT offre una soluzione di sicurezza completa per l'IoT Edge dispositivi.
+Azure Security Center (Centro sicurezza di AZURE) per il modulo di sicurezza IoT offre una soluzione di sicurezza completa per l'IoT Edge dispositivi.
 Centro sicurezza di AZURE per il modulo di IoT raccoglie, aggrega e analizza i dati di sicurezza non elaborati dal sistema operativo e system del contenitore in avvisi e raccomandazioni sulla sicurezza utili.
 
 Analogamente al Centro sicurezza di AZURE per IoT gli agenti di protezione per i dispositivi IoT, il Centro sicurezza di AZURE per il modulo di IoT Edge è altamente personalizzabile tramite il modulo gemello.

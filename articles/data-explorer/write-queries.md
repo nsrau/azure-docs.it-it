@@ -3,17 +3,17 @@ title: Scrivere query per Esplora dati di Azure
 description: In questa procedura viene descritto come eseguire query di base e più avanzate per Esplora dati di Azure.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0a2b56164662a13d8254d8956712077e5f8a83a9
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52961521"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758702"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Scrivere query per Esplora dati di Azure
 

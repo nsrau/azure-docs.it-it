@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f0959ff8b8ea5ce8d5516d25fdf0faf29dbcd994
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578884"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629605"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e ripristino di macchine virtuali di Azure con PowerShell
 
@@ -62,7 +62,7 @@ Per iniziare:
 3. Accedere all'account Azure tramite **Connect-AzAccount**. Questo cmdlet visualizza una pagina Web che richiede le credenziali dell'account:
 
     * In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzAccount**, usando il parametro **-Credential**.
-    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio: **Connect-AzAccount -Tenant "fabrikam.com"**
+    * Se si è un partner CSP che opera per conto di un tenant, è necessario specificare il cliente come tenant usando l'ID tenant o il nome di dominio primario del tenant. Ad esempio:  **Connect-AzAccount -Tenant "fabrikam.com"**
 
 4. Associare la sottoscrizione che si vuole usare all'account perché un account può avere molte sottoscrizioni:
 
@@ -184,10 +184,18 @@ I criteri di protezione del backup sono associati almeno a un criterio di conser
 - Il cmdlet [New-AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupprotectionpolicy) crea un oggetto di PowerShell che contiene le informazioni relative ai criteri di backup.
 - Gli oggetti Criteri di conservazione e pianificazione vengono usati come input al cmdlet New-AzRecoveryServicesBackupProtectionPolicy.
 
-Nell'esempio seguente i criteri di pianificazione e i criteri di conservazione vengono archiviati nelle variabili. L'esempio usa tali variabili per definire i parametri durante la creazione di un criterio di protezione, *NewPolicy*.
+Per impostazione predefinita, un'ora di inizio è definita nell'oggetto Criteri di pianificazione. Usare l'esempio seguente per modificare l'ora di inizio all'ora di inizio desiderata. L'ora di inizio deve essere anche in formato UTC. L'esempio seguente si presuppone che l'ora di inizio desiderata è 01 12:00:00 AM UTC per i backup giornalieri.
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "AzureVM"
+$UtcTime = Get-Date -Date "2019-03-20 01:00:00Z"
+$UtcTime = $UtcTime.ToUniversalTime()
+$schpol.ScheduleRunTimes[0] = $UtcTime
+```
+
+Nell'esempio seguente i criteri di pianificazione e i criteri di conservazione vengono archiviati nelle variabili. L'esempio usa tali variabili per definire i parametri durante la creazione di un criterio di protezione, *NewPolicy*.
+
+```powershell
 $retPol = Get-AzRecoveryServicesBackupRetentionPolicyObject -WorkloadType "AzureVM"
 New-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy" -WorkloadType "AzureVM" -RetentionPolicy $retPol -SchedulePolicy $schPol
 ```
@@ -200,7 +208,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 ```
 
-### <a name="enable-protection"></a>Abilita protezione
+### <a name="enable-protection"></a>Abilitare la protezione
 
 Dopo aver definito i criteri di protezione è necessario abilitarli per un elemento. Uso [Enable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) per abilitare la protezione. Per abilitare la protezione sono necessari due oggetti, l'elemento e i criteri. Dopo aver associato i criteri all'insieme di credenziali, il flusso di lavoro di backup verrà attivato al momento definito nella pianificazione dei criteri.
 

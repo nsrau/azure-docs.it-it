@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul Centro sicurezza di AZURE di costi IoT Preview | Microsoft Docs
-description: Scopri i costi associati Centro sicurezza di AZURE per IoT e come è possibile controllarle.
+title: Comprendere il Centro sicurezza di Azure per IoT ha un costo Preview | Microsoft Docs
+description: Scopri i costi associati Centro sicurezza di Azure per IoT e come è possibile controllarle.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580659"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758048"
 ---
-# <a name="pricing-and-associated-costs"></a>Costi associati e dei prezzi
+# <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questo articolo illustra Centro sicurezza di AZURE per il modello di determinazione prezzi di IoT, riepiloga tutti i costi associati e illustra come gestirli.
+Questo articolo illustra Azure Security Center (Centro sicurezza di AZURE) per il modello di determinazione prezzi di IoT, riepiloga tutti i costi associati e illustra come gestirli.
 
 ## <a name="pricing"></a>Prezzi
 
@@ -62,7 +62,7 @@ Per modificare le impostazioni:
 
 Nella tabella seguente fornisce un riepilogo dei costi associati e le implicazioni di ogni opzione.
 
-|     | Utilizzo | Commento |
+|     | Uso | Comment |
 | --- | --- | --- |
 | **Utilizzo di quota dell'IoT Hub** |  |
 | [Esportare dispositivi](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) processo (esportazione dei dispositivi gemelli) | Una volta al giorno | Disabilitare _twin raccolta di metadati_ |
@@ -82,7 +82,7 @@ Nella tabella seguente fornisce un riepilogo dei costi associati e le implicazio
 | | I dettagli sui [alert](concept-security-alerts.md) e [raccomandazione](concept-recommendations.md) indagini non sono disponibili |
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 
 - Accesso di [i dati di sicurezza non elaborati](how-to-security-data-access.md)
 - [Provare a utilizzare un dispositivo](how-to-investigate-device.md)

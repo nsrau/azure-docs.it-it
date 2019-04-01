@@ -12,14 +12,14 @@ ms.topic: article
 ms.custom: ''
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 5fe66634d4f95ba84d13a3d355f28afbedf0f7f0
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: a9de15530981e14e664df605cb3274c9e754ef0d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58012643"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755479"
 ---
-# <a name="how-to-encode-with-a-custom-transform-by-using-rest"></a>Come codificare con una trasformazione personalizzata usando REST
+# <a name="how-to-encode-with-a-custom-transform---rest"></a>Come codificare con una trasformazione personalizzata - REST
 
 Durante la codifica con servizi multimediali di Azure, è possibile iniziare a usare rapidamente uno dei consigliati predefiniti incorporati, basati sulle procedure consigliate del settore, come illustrato nel [Streaming i file](stream-files-tutorial-with-rest.md#create-a-transform) esercitazione. È anche possibile creare un set di impostazioni per i requisiti specifici di uno scenario o un dispositivo di destinazione personalizzato.
 

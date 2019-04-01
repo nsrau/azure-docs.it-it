@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56ad57255f07c93c1bf5f981db07ad4ba57806d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665662"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757633"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -147,7 +147,7 @@ Per altre informazioni sulla nuova **log di controllo** pagina, vedere [report d
 **Categoria di servizio:** Accesso condizionale  
 **Funzionalità del prodotto:** Protezione e sicurezza delle identità
 
-Per evitare che gli amministratori che bloccano accidentalmente i propri tenant mediante criteri di accesso condizionale configurati in modo errati, abbiamo creato indicazioni aggiornate e nuovi avvisi nel portale di Azure. Per altre informazioni sulle nuove informazioni, vedere [quali sono le dipendenze dei servizi nell'accesso condizionale di Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+Per evitare che gli amministratori che bloccano accidentalmente i propri tenant mediante criteri di accesso condizionale configurati in modo errati, abbiamo creato indicazioni aggiornate e nuovi avvisi nel portale di Azure. Per altre informazioni sulle nuove informazioni, vedere [quali sono le dipendenze dei servizi nell'accesso condizionale di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 

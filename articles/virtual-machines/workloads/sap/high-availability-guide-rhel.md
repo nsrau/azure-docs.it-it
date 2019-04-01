@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 931727eff0de104ea57930abb1d3739fa086967a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b8f4fdb3ab3e1107a8753db14dcbb68c6d97a104
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226658"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652502"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Disponibilità elevata delle macchine virtuali di Azure per SAP NetWeaver in Red Hat Enterprise Linux
 
@@ -231,9 +231,9 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    </code></pre>
 
 1. **[A]** Creare le directory condivise
@@ -330,7 +330,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create vip_<b>NW1</b>_ASCS IPaddr2 \
-     ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.7</b> cidr_netmask=<b>24</b> \
      --group g-<b>NW1</b>_ASCS
    
    sudo pcs resource create nc_<b>NW1</b>_ASCS azure-lb port=620<b>00</b> \
@@ -355,7 +355,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[1]** Installare SAP NetWeaver ASCS  
 
-   Installare SAP NetWeaver ASCS come root nel primo nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end di bilanciamento del carico per l'istanza ASCS, ad esempio <b>nw1-ascs</b>, <b>10.0.0.11</b> e il numero di istanza usato per il probe del bilanciamento del carico, ad esempio <b>00</b>.
+   Installare SAP NetWeaver ASCS come root nel primo nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end di bilanciamento del carico per l'istanza ASCS, ad esempio <b>nw1-ascs</b>, <b>10.0.0.7</b> e il numero di istanza usato per il probe del bilanciamento del carico, ad esempio <b>00</b>.
 
    È possibile usare il parametro sapinst SAPINST_REMOTE_ACCESS_USER per consentire a un utente non ROOT di connettersi a sapinst.
 
@@ -382,7 +382,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create vip_<b>NW1</b>_AERS IPaddr2 \
-     ip=<b>10.0.0.12</b> cidr_netmask=<b>24</b> \
+     ip=<b>10.0.0.8</b> cidr_netmask=<b>24</b> \
     --group g-<b>NW1</b>_AERS
    
    sudo pcs resource create nc_<b>NW1</b>_AERS azure-lb port=621<b>02</b> \
@@ -411,7 +411,7 @@ Gli elementi seguenti sono preceduti dall'indicazione **[A]** - applicabile a tu
 
 1. **[2]** Installare SAP NetWeaver ERS  
 
-   Installare SAP NetWeaver ERS come root nel secondo nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end di bilanciamento del carico per ERS, ad esempio <b>nw1-aers</b>, <b>10.0.0.12</b> e il numero di istanza usato per il probe del bilanciamento del carico, ad esempio <b>02</b>.
+   Installare SAP NetWeaver ERS come root nel secondo nodo usando un nome host virtuale mappato all'indirizzo IP della configurazione front-end di bilanciamento del carico per ERS, ad esempio <b>nw1-aers</b>, <b>10.0.0.8</b> e il numero di istanza usato per il probe del bilanciamento del carico, ad esempio <b>02</b>.
 
    È possibile usare il parametro sapinst SAPINST_REMOTE_ACCESS_USER per consentire a un utente non ROOT di connettersi a sapinst.
 
@@ -576,14 +576,11 @@ I passaggi seguenti presuppongono che il server applicazioni venga installato in
    <b>10.0.0.41 glust-1</b>
    <b>10.0.0.42 glust-2</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS
-   <b>10.0.0.11 nw1-ascs</b>
+   <b>10.0.0.7 nw1-ascs</b>
    # IP address of the load balancer frontend configuration for SAP NetWeaver ASCS ERS
-   <b>10.0.0.12 nw1-aers</b>
+   <b>10.0.0.8 nw1-aers</b>
    # IP address of the load balancer frontend configuration for database
    <b>10.0.0.13 nw1-db</b>
-   # IP address of all application servers
-   <b>10.0.0.8 nw1-di-0</b>
-   <b>10.0.0.7 nw1-di-1</b>
    </code></pre>
 
 1. Creare la directory sapmnt

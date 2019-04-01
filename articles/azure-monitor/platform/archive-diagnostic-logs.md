@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313342"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629338"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archiviare i log di diagnostica di Azure
 
@@ -33,7 +33,7 @@ Prima di iniziare, è necessario [creare un account di archiviazione](../../stor
 
 ## <a name="diagnostic-settings"></a>Impostazioni di diagnostica
 
-Per archiviare i log di diagnostica usando uno dei metodi indicati di seguito, definire una **impostazione di diagnostica** per una risorsa specifica. Un'impostazione di diagnostica per una risorsa definisce le categorie dei log e di dati di metrica inviati a una destinazione (account di archiviazione, spazio dei nomi di Hub eventi o Log Analytics). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi di ogni categoria di log e dati di metrica archiviati in un account di archiviazione. Se un criterio di conservazione è impostato su zero, gli eventi per tale categoria di log vengono archiviati per un periodo illimitato (per sempre). Diversamente, un criterio di conservazione può essere qualsiasi numero di giorni compreso tra 1 e 2147483647. [Altre informazioni sulle impostazioni di diagnostica sono disponibili qui](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione. 
+Per archiviare i log di diagnostica usando uno dei metodi indicati di seguito, definire una **impostazione di diagnostica** per una risorsa specifica. Un'impostazione di diagnostica per una risorsa definisce le categorie di log e dati di metrica inviati a una destinazione (account di archiviazione, lo spazio dei nomi di hub eventi o dell'area di lavoro di Log Analitica). Definisce anche i criteri di conservazione (numero di giorni di conservazione) per gli eventi di ogni categoria di log e dati di metrica archiviati in un account di archiviazione. Se un criterio di conservazione è impostato su zero, gli eventi per tale categoria di log vengono archiviati per un periodo illimitato (per sempre). Diversamente, un criterio di conservazione può essere qualsiasi numero di giorni compreso tra 1 e 2147483647. [Altre informazioni sulle impostazioni di diagnostica sono disponibili qui](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). I criteri di conservazione vengono applicati su base giornaliera. Al termine della giornata, i log relativi a tale giornata non rientrano quindi più nei criteri di conservazione e verranno eliminati. Se, ad esempio, è presente un criterio di conservazione di un giorno, all'inizio della giornata vengono eliminati i log relativi al giorno precedente. Il processo di eliminazione inizia a mezzanotte UTC, ma si noti che possono essere necessarie fino a 24 ore per l'eliminazione dei log dall'account di archiviazione. 
 
 > [!NOTE]
 > L'invio delle metriche multidimensionali tramite impostazioni di diagnostica non è attualmente supportato. Le metriche con dimensioni sono esportate come metriche a singola dimensione di tipo flat e aggregate a livello di valori di dimensione.

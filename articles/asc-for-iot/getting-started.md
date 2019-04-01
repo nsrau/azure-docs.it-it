@@ -1,6 +1,6 @@
 ---
 title: Iniziare a usare Azure Security Center (Centro sicurezza di AZURE) per l'anteprima di IoT | Microsoft Docs
-description: Introduzione a comprendere il flusso di lavoro base del Centro sicurezza di AZURE per le funzionalità di IoT e del servizio.
+description: Introduzione a comprendere il flusso di lavoro base del Centro sicurezza di Azure per le funzionalità di IoT e del servizio.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 37815c1f1afe3e4c99e2fe171b21857a2018f709
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 23b15b92c844af85f2e1279e531c38ac7d517423
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648317"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755120"
 ---
-# <a name="get-started-with-azure-security-center-asc-for-iot"></a>Iniziare con Azure Security Center (Centro sicurezza di AZURE) per IoT 
+# <a name="get-started-with-azure-security-center-for-iot"></a>Introduzione a Centro sicurezza di Azure per IoT 
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Centro sicurezza di AZURE per il servizio IoT e spiega come iniziare a usare [consentendo al servizio](quickstart-onboard-iot-hub.md). 
+Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti di Centro sicurezza di Azure (ASC) per il servizio IoT e spiega come iniziare a usare [consentendo al servizio](quickstart-onboard-iot-hub.md). 
 
 Centro sicurezza di AZURE per IoT possono essere integrate perfettamente in IoT Hub per l'analisi di sicurezza della configurazione dell'hub IoT, identità del dispositivo e hub-device i modelli di comunicazione.
 Per la funzionalità di sicurezza avanzate, Centro sicurezza di AZURE per IoT fornisce basata su agenti di raccolta dei dati di sicurezza dai dispositivi IoT.

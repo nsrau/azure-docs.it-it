@@ -1,6 +1,6 @@
 ---
-title: Guida all'installazione e la distribuzione Linux C# agente del Centro sicurezza di AZURE per l'anteprima di IoT | Microsoft Docs
-description: Informazioni su come installare il Centro sicurezza di AZURE per l'agente di IoT in Linux sia a 32 e 64 bit.
+title: Guida all'installazione e la distribuzione Linux C# agente del Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
+description: Informazioni su come installare il Centro sicurezza di Azure per l'agente di IoT in Linux sia a 32 e 64 bit.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: d6b4e6065b0ef198ad583b3760124730e658fe0b
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: be4c663d3a1e99ef67cbbbc2f39b315f1080125c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619909"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758341"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>Distribuire Centro sicurezza di AZURE per IoT C#-agente di protezione per Linux basato su
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire il Centro sicurezza di Azure per IoT C#-agente di protezione per Linux basato su
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questa guida illustra come installare e distribuire il Centro sicurezza di AZURE per IoT C#-agente di protezione basato su in Linux.
+Questa guida illustra come installare e distribuire il Centro sicurezza di Azure (ASC) per IoT C#-agente di protezione basato su in Linux.
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]
 > * Installa
-> * Verifica distribuzione
+> * Verificare la distribuzione
 > * Disinstallare l'agente
-> * Risoluzione dei problemi 
+> * Risolvere problemi 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -84,7 +84,7 @@ Per disinstallare l'agente, eseguire lo script con il parametro – u: `./Instal
 > [!NOTE]
 > Disinstallazione non rimuove gli eventuali prerequisiti mancanti che sono stati installati durante l'installazione.
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi  
+## <a name="troubleshooting"></a>risoluzione dei problemi  
 
 1. Controllare lo stato della distribuzione eseguendo:
 

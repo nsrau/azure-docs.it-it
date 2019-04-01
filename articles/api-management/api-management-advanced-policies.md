@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401920"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756599"
 ---
 # <a name="api-management-advanced-policies"></a>Criteri avanzati di gestione API
 
@@ -253,7 +253,7 @@ Questo criterio a livello di operazione non inoltra le richieste al servizio bac
 
 | Attributo                               | DESCRIZIONE                                                                                                      | Obbligatorio | Predefinito     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="integer"                       | Intervallo di timeout in secondi prima che la chiamata al servizio back-end abbia esito negativo. Valore minimo è 0 secondi. I valori massimi è 240 secondi.| No        | 240 secondi |
+| timeout="integer"                       | La quantità di tempo in secondi di attesa per le intestazioni di risposta HTTP da restituire dal servizio back-end prima di un errore di timeout viene generata. Valore minimo è 0 secondi. I valori superiori a 240 secondi potrebbe non essere rispettate come l'infrastruttura di rete sottostante possono eliminare le connessioni inattive dopo questo periodo di tempo. | No        | Nessuna |
 | follow-redirects="true &#124; false"    | Specifica se i reindirizzamenti dal servizio back-end sono seguiti dal gateway o restituiti al chiamante.      | No        | false       |
 | buffer-request-body="true &#124; false" | Quando è impostata su "true" richiesta viene memorizzato nel buffer e verranno utilizzato sui [ripetere](api-management-advanced-policies.md#Retry). | No        | false       |
 

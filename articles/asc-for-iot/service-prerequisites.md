@@ -1,6 +1,6 @@
 ---
-title: Centro sicurezza di AZURE per IoT prerequisiti Preview | Microsoft Docs
-description: Dettagli di tutto il necessario per iniziare a usare Centro sicurezza di AZURE per i prerequisiti del servizio IoT.
+title: Il Centro sicurezza di Azure per IoT prerequisiti Preview | Microsoft Docs
+description: Dettagli di tutti gli elementi necessari per iniziare con il Centro sicurezza di Azure per i prerequisiti del servizio IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5293fe6a8d4a8a44a89890af1c259e2b4b2b7827
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574745"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755083"
 ---
-# <a name="asc-for-iot-prerequisites"></a>Centro sicurezza di AZURE per IoT prerequisiti
+# <a name="azure-security-center-for-iot-prerequisites"></a>Il Centro sicurezza di Azure per IoT prerequisiti
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Centro sicurezza di AZURE per IoT servizio, ciò che occorre per iniziare e concetti di base per consentire di comprendere il servizio. 
+Questo articolo fornisce una spiegazione dei diversi blocchi predefiniti del Azure Security Center (ASC) per IoT servizio, ciò che occorre per iniziare e concetti di base per consentire di comprendere il servizio. 
 
 ## <a name="minimum-requirements"></a>Requisiti minimi
 
@@ -46,7 +46,7 @@ Centro sicurezza di AZURE per informazioni dettagliate IoT e i report sono dispo
 Centro sicurezza di AZURE per IoT è attualmente supportata per gli hub IoT nelle aree di Azure seguenti:
   - Stati Uniti centrali
   - Europa settentrionale
-  - Asia sudorientale
+  - Asia sud-orientale
 
 ## <a name="wheres-my-iot-hub"></a>Dove si trova l'Hub IoT?
 
@@ -62,7 +62,7 @@ Controllare la posizione dell'IoT Hub per verificare la disponibilità del servi
 Centro sicurezza di AZURE per gli agenti IoT supporta un elenco in continua crescita di dispositivi e piattaforme. Vedere le [elenco di piattaforme supportate](how-to-deploy-agent.md) per controllare la libreria di dispositivo esistente o pianificato.  
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Panoramica](overview.md)
+- [Overview](overview.md)
 - [Abilitare il servizio](quickstart-onboard-iot-hub.md)
 - [Centro sicurezza di AZURE per IoT domande frequenti](resources-frequently-asked-questions.md)
 - [La comprensione di Centro sicurezza di AZURE per gli avvisi di IoT](concept-security-alerts.md)

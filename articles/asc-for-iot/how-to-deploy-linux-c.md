@@ -1,6 +1,6 @@
 ---
-title: Come installare e distribuire l'agente Linux C del Centro sicurezza di AZURE per l'agente di IoT Preview | Microsoft Docs
-description: Informazioni su come installare il Centro sicurezza di AZURE per l'agente di IoT in Linux sia a 32 e 64 bit.
+title: Come installare e distribuire l'agente Linux C del Centro sicurezza di Azure per l'agente di IoT Preview | Microsoft Docs
+description: Informazioni su come installare il Centro sicurezza di Azure per l'agente di IoT in Linux sia a 32 e 64 bit.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 2b18a09e5b79e7b3d3ea837e937397ac92491f9f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 147813ae096114b4dfc1a20d2e0a70639aa82445
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619850"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754444"
 ---
-# <a name="deploy-asc-for-iot-c-based-security-agent-for-linux"></a>Distribuire Centro sicurezza di AZURE per l'agente protezione basata su IoT C per Linux
+# <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Distribuire il Centro sicurezza di Azure per l'agente protezione basata su IoT C per Linux
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questa guida illustra come installare e distribuire il Centro sicurezza di AZURE per l'agente protezione basata su IoT C in Linux.
+Questa guida illustra come installare e distribuire Azure Security Center (ASC) per l'agente protezione basata su IoT C in Linux.
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]
 > * Installa
-> * Verifica distribuzione
+> * Verificare la distribuzione
 > * Disinstallare l'agente
-> * Risoluzione dei problemi 
+> * Risolvere problemi 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -87,7 +87,7 @@ Per disinstallare l'agente, eseguire lo script con--Disinstalla parametro:
 
     ./InstallSecurityAgent.sh -–uninstall
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 Controllare lo stato della distribuzione eseguendo:
 
     systemctl status ASCIoTAgent.service

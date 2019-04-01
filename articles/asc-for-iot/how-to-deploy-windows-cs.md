@@ -1,6 +1,6 @@
 ---
-title: Installazione di Windows del Centro sicurezza di AZURE per l'agente di IoT anteprima | Microsoft Docs
-description: Informazioni su come installare Centro sicurezza di AZURE per l'agente di IoT in dispositivi Windows a 32 o 64 bit.
+title: Installazione di Windows del Centro sicurezza di Azure per l'agente di IoT anteprima | Microsoft Docs
+description: Informazioni su come installare il Centro sicurezza di Azure per l'agente di IoT in dispositivi Windows a 32 o 64 bit.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,27 +14,27 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 5c3293746fcc52570e708fd4bfab446981d49c24
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 7e3cb1f44711a8eedb248320db8bce5dfd0eaf0c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621831"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754597"
 ---
-# <a name="deploy-an-asc-for-iot-c-based-security-agent-for-windows"></a>Distribuire un Centro sicurezza di AZURE per IoT C#-agente di protezione per Windows basato su
+# <a name="deploy-an-azure-security-center-for-iot-c-based-security-agent-for-windows"></a>Distribuire un centro di sicurezza di Azure per IoT C#-agente di protezione per Windows basato su
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questa guida illustra come installare il Centro sicurezza di AZURE per IoT C#-basato su agente protezione in Windows.
+Questa guida illustra come installare il Centro sicurezza di Azure (ASC) per IoT C#-basato su agente protezione in Windows.
 
 Questa guida illustra come eseguire queste operazioni: 
 > [!div class="checklist"]
 > * Installa
-> * Verifica distribuzione
+> * Verificare la distribuzione
 > * Disinstallare l'agente
-> * Risoluzione dei problemi 
+> * Risolvere problemi 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -61,7 +61,7 @@ Per installare l'agente protezione, eseguire le operazioni seguenti:
     .\InstallSecurityAgent.ps1 -Install -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -cl <certificate location kind>
     ```
     
-    Ad esempio:
+    Ad esempio: 
     
     ```
     .\InstallSecurityAgent.ps1 -Install -aui Device -aum SymmetricKey -f c:\Temp\Key.txt -hn MyIotHub.azure-devices.net -di Mydevice1 -cl store
@@ -98,7 +98,7 @@ Per disinstallare l'agente:
     .\InstallSecurityAgent.ps1 -Uninstall
     ``` 
 
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 Se l'agente non viene avviato, abilitare la registrazione (la registrazione viene *disattivata* per impostazione predefinita) per ottenere altre informazioni.
 
@@ -125,7 +125,7 @@ Per abilitare la registrazione:
      Restart-Service "ASC IoT Agent"
      ```
      
-   o
+   oppure
 
     **CMD**
      ```

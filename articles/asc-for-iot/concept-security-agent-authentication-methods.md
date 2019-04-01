@@ -1,6 +1,6 @@
 ---
-title: Metodi di autenticazione per Centro sicurezza di AZURE per l'anteprima di IoT | Microsoft Docs
-description: Informazioni sui metodi di autenticazione diversi disponibili quando si usa il Centro sicurezza di AZURE per il servizio IoT.
+title: Metodi di autenticazione per il Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
+description: Informazioni sui metodi di autenticazione diversi disponibili quando si usa il Centro sicurezza di Azure per il servizio IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,22 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 2ace8ffd82efe70251b48e20593906986173cbb0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ec87c2b65728d8ac29daa90de36271e24cd85c0e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577801"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758390"
 ---
 # <a name="security-agent-authentication-methods"></a>Metodi di autenticazione di sicurezza dell'agente 
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo illustra i diversi metodi di autenticazione che è possibile usare con l'agente AzureIoTSecurity per eseguire l'autenticazione con l'IoT Hub.
 
-Per ogni dispositivo eseguito l'onboarding a Centro sicurezza di AZURE per IoT nell'IoT Hub, è necessario un modulo di protezione. Per autenticare il dispositivo, Centro sicurezza di AZURE per IoT possono usare uno dei due metodi. Scegliere il metodo adatto per la soluzione IoT esistente. 
+Per ogni dispositivo di onboarding per Azure Security Center (Centro sicurezza di AZURE) per IoT nell'IoT Hub, è necessario un modulo di protezione. Per autenticare il dispositivo, Centro sicurezza di AZURE per IoT possono usare uno dei due metodi. Scegliere il metodo adatto per la soluzione IoT esistente. 
 
 > [!div class="checklist"]
 > * Opzione di modulo di protezione
@@ -111,7 +111,7 @@ Modificare _LocalConfiguration.json_ con i parametri seguenti:
 }
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 - [Panoramica degli agenti protezione](security-agent-architecture.md)
 - [Distribuire l'agente protezione](how-to-deploy-agent.md)
 - [Accedere ai dati di sicurezza non elaborati](how-to-security-data-access.md)

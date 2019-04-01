@@ -1,6 +1,6 @@
 ---
-title: Accesso ai dati tramite Centro sicurezza di AZURE per l'anteprima di IoT | Microsoft Docs
-description: Informazioni su come accedere ai dati di avviso e indicazioni di sicurezza quando si usa Centro sicurezza di AZURE per IoT.
+title: L'accesso ai dati usando il Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
+description: Informazioni su come accedere ai dati di avviso e indicazioni di sicurezza quando si usa il Centro sicurezza di Azure per IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: d81a8973772879f4f4b143701a1f4be3ecad95d9
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576640"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758532"
 ---
 # <a name="access-your-security-data"></a>Accedere ai dati di sicurezza 
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Centro sicurezza di AZURE per IoT vengono archiviati gli avvisi di sicurezza, raccomandazioni e i dati di sicurezza non elaborato (se si sceglie di salvare il file) nell'area di lavoro di Log Analitica.
+Il Centro sicurezza di Azure (ASC) per IoT vengono archiviati gli avvisi di sicurezza, raccomandazioni e i dati di sicurezza non elaborato (se si sceglie di salvare il file) nell'area di lavoro di Log Analitica.
 
 ## <a name="log-analytics"></a>Log Analytics
 
@@ -92,12 +92,12 @@ SecurityAlert
     DisplayName
 ```
 
-| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Count |
+| IoTHubId                                                                                                       | deviceId      | AlertSeverity | DisplayName                           | Conteggio |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------|---------------------------------------|-----|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Attacco di forza bruta ha avuto esito positivo           | 9   |   
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | Tentativo di accesso locale sul dispositivo non è riuscito  | 242 |    
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media        | Tentativo di accesso locale sul dispositivo non è riuscito  | 242 |    
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | Eseguito correttamente l'accesso locale sul dispositivo      | 31  |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | Operazioni di crittografia moneta Miner                     | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media        | Operazioni di crittografia moneta Miner                     | 4   |
 
 ### <a name="iot-hub-summary"></a>Riepilogo dell'hub IoT
 
@@ -119,9 +119,9 @@ SecurityAlert
 | IoTHubId                                                                                                       | AlertSeverity | DisplayName                           | CntDevices |
 |----------------------------------------------------------------------------------------------------------------|---------------|---------------------------------------|------------|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Attacco di forza bruta ha avuto esito positivo           | 1          |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Medio        | Tentativo di accesso locale sul dispositivo non è riuscito  | 1          | 
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Media        | Tentativo di accesso locale sul dispositivo non è riuscito  | 1          | 
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Alto          | Eseguito correttamente l'accesso locale sul dispositivo      | 1          |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Medio        | Operazioni di crittografia moneta Miner                     | 1          |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | Media        | Operazioni di crittografia moneta Miner                     | 1          |
 
 ## <a name="security-recommendations"></a>Suggerimenti per la sicurezza
 
@@ -151,8 +151,8 @@ SecurityRecommendation
     
 | TimeGenerated | IoTHubId | deviceId | RecommendationSeverity | RecommendationState | RecommendationDisplayName | DESCRIZIONE | RecommendationAdditionalData |
 |---------------|----------|----------|------------------------|---------------------|---------------------------|-------------|------------------------------|
-| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio | Attiva | Regola di firewall permissivi nella catena di input è stata trovata | È stata trovata una regola del firewall contenente un modello permissivo per un'ampia gamma di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
-| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio | Attiva | Regola di firewall permissivi nella catena di input è stata trovata | È stata trovata una regola del firewall contenente un modello permissivo per un'ampia gamma di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:21:06.060 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media | Attivo | Regola di firewall permissivi nella catena di input è stata trovata | È stata rilevata una regola del firewall che contiene un criterio permissivo per un intervallo ampio di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
+| 2019-03-22T10:50:27.237 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media | Attivo | Regola di firewall permissivi nella catena di input è stata trovata | È stata rilevata una regola del firewall che contiene un criterio permissivo per un intervallo ampio di indirizzi IP o porte | {"Rules":"[{\"SourceAddress\":\"\",\"SourcePort\":\"\",\"DestinationAddress\":\"\",\"DestinationPort\":\"1337\"}]"} |
 
 ### <a name="device-summary"></a>Riepilogo del dispositivo
 
@@ -169,12 +169,12 @@ SecurityRecommendation
 | summarize Cnt=count() by IoTHubId, DeviceId, RecommendationSeverity
 ```
 
-| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | Count |
+| IoTHubId                                                                                                       | deviceId      | RecommendationSeverity | Conteggio |
 |----------------------------------------------------------------------------------------------------------------|---------------|------------------------|-----|
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | 2   |    
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | 1 |  
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media        | 1 |  
 | /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Alto          | 1  |
-| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Medio        | 4   |
+| /subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Devices/IotHubs/<iot_hub> | < nome_periferica > | Media        | 4   |
 
 
 ## <a name="next-steps"></a>Passaggi successivi

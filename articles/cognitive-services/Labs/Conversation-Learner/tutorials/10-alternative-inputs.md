@@ -31,7 +31,7 @@ Per questa esercitazione è necessario che il bot di esercitazione generale sia 
     npm run tutorial-general
 
 ## <a name="details"></a>Dettagli
-Gli input alternativi sono espressioni alternative, semanticamente equivalenti, che potrebbero essere usate dall'utente in un determinato punto di un dialogo di training. Questi input alternativi consentono di specificare in modo più compatto le varianti delle espressioni senza dover elencare ogni variante nei dialoghi di training separati.
+Gli input alternativi sono espressioni alternative, semanticamente equivalenti, che potrebbero essere usate dall'utente in un determinato punto di un dialogo di training. Questi input alternativi consentono di specificare in modo più compatto le varianti delle espressioni senza dover elencare ogni variante in dialoghi di training separati.
 
 ## <a name="steps"></a>Passaggi
 
@@ -55,7 +55,7 @@ A questo punto è possibile creare tre azioni.
 ### <a name="create-the-first-action"></a>Creare la prima azione
 
 1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. NeI campo "Bot's response..." (Risposta del bot...) digitare "Which city?".
+2. NeI campo "Bot's response" (Risposta del bot) digitare "Which city?".
 3. Nel campo "Expected Entity in User reply..." (Entità prevista nella risposta utente...) digitare "city".
 4. Nel campo "Disqualifying Entities" (Entità non qualificanti) digitare "city".
 5. Fare clic sul pulsante "Create" (Crea).
@@ -65,7 +65,7 @@ A questo punto è possibile creare tre azioni.
 ### <a name="create-the-second-action"></a>Creare la seconda azione
 
 1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. Nel campo "Bot's response..." (Risposta del bot...) digitare "The weather in the $city is probably sunny".
+2. NeI campo "Bot's response" (Risposta del bot) digitare "The weather in the $city is probably sunny".
 3. Fare clic sul pulsante "Create" (Crea).
 
 ![](../media/T10_action_create_2.png)
@@ -73,7 +73,7 @@ A questo punto è possibile creare tre azioni.
 ### <a name="create-the-third-action"></a>Creare la terza azione
 
 1. Nel riquadro a sinistra fare clic su "Actions" (Azioni), quindi sul pulsante "New Action" (Nuova azione).
-2. NeI campo "Bot's response..." (Risposta del bot...) digitare "Try asking for the weather".
+2. NeI campo "Bot's response" (Risposta del bot) digitare "Try asking for the weather".
 3. Nel campo "Disqualifying Entities" (Entità non qualificanti) digitare "city".
 4. Fare clic sul pulsante "Create" (Crea).
 
@@ -146,7 +146,7 @@ Ora si eseguirà altro training mediante la creazione di un altro dialogo di tra
 
 ### <a name="testing-the-model"></a>Test del modello
 
-1. Nel riquadro a sinistra fare clic su "Log Dialogs" (Dialoghi di log), quindi su "New Log Dialog" (Nuovo dialogo di log).
+1. Nel riquadro a sinistra fare clic su "Log Dialogs" (Dialoghi registrati), quindi su "New Log Dialog" (Nuovo dialogo registrato).
 2. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "help me".
 3. Nel pannello della chat dove è indicato "Type your message..." (Digita il tuo messaggio...) digitare "forecast for Denver".
 

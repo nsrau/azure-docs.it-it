@@ -1,6 +1,6 @@
 ---
-title: Centro sicurezza di AZURE per la Guida alle indagini sui dispositivi IoT Preview | Microsoft Docs
-description: Questa Guida alle procedure spiega come usare Centro sicurezza di AZURE per IoT per analizzare un dispositivo IoT sospetto usando Log Analitica.
+title: Il Centro sicurezza di Azure per la Guida alle indagini sui dispositivi IoT Preview | Microsoft Docs
+description: Questa Guida alle procedure spiega come usare il Centro sicurezza di Azure per IoT per analizzare un dispositivo IoT sospetto usando Log Analitica.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580539"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755250"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Provare a utilizzare un dispositivo IoT sospetto
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Centro sicurezza di AZURE per gli avvisi del servizio IoT e l'evidenza forniscono indiscutibilmente quando i dispositivi IoT sono sospetta di coinvolgimento in attività sospette o quando le indicazioni presenti che un dispositivo sia compromesso. 
+Il Centro sicurezza di Azure (ASC) per l'evidenza e gli avvisi del servizio IoT offrono indiscutibilmente quando i dispositivi IoT sono sospetta di coinvolgimento in attività sospette o quando le indicazioni presenti che un dispositivo sia compromesso. 
 
 In questa Guida, usare i suggerimenti di indagine forniti per aiutare a determinare potenziali rischi per l'organizzazione, decidere come correggere e scoprire i sistemi migliori per impedire attacchi simili in futuro.  
 
@@ -45,7 +45,7 @@ Per individuare l'area di lavoro di Log Analitica per l'archiviazione dei dati:
 1. Aprire l'hub IoT, 
 1. Fare clic su **sicurezza**, quindi selezionare **impostazioni**.
 1. Modificare i dettagli di configurazione dell'area di lavoro di Log Analitica. 
-1. Fare clic su **Salva**. 
+1. Fare clic su **Save**. 
 
 In seguito la configurazione, eseguire le operazioni seguenti per accedere ai dati archiviati nell'area di lavoro di Log Analitica:
 

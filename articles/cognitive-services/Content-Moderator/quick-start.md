@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: cfaf0bf20449262fcebb6cefc1b0a499c6190ae8
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: d1c65b590fd68f68fdaeb110c0fd00e0c5a6649a
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861171"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756460"
 ---
-# <a name="quickstart-try-content-moderator-on-the-web"></a>Avvio rapido: Provare Content Moderator sul Web
+# <a name="quickstart-try-content-moderator-on-the-web"></a>Guida introduttiva: Provare Content Moderator sul Web
 
 In questo avvio rapido si userà lo strumento di revisione di Content Moderator online per testare le funzionalità di base di Content Moderator senza dover scrivere codice. Se si vuole integrare questo servizio nell'app più rapidamente, vedere le altre guide introduttive elencate nella sezione [Passaggi successivi](#next-steps).
 
@@ -69,5 +69,5 @@ In alternativa, continuare con i passaggi successivi per iniziare a usare le API
 
 In questa sezione vengono fornite informazioni su come usare le API di moderazione nell'app.
 - Implementare la moderazione delle immagini. Usare la [console API](try-image-api.md) oppure usare la [guida introduttiva per C#](image-moderation-quickstart-dotnet.md) per analizzare le immagini e rilevare potenziali contenuti spinti e per adulti usando tag, punteggi di attendibilità e altre informazioni estratte.
-- Implementare la moderazione del testo. Usare la [console API](try-text-api.md) oppure usare la [guida introduttiva per C#](text-moderation-quickstart-dotnet.md) per analizzare il contenuto di testo per rilevare potenziali contenuti volgari, una classificazione del testo indesiderato automatica (anteprima) e informazioni personali. 
+- Implementare la moderazione del testo. Usare la [console API](try-text-api.md) oppure utilizzare il [ C# Guida introduttiva](text-moderation-quickstart-dotnet.md) per analizzare il contenuto di testo per contenuto potenzialmente volgare, la classificazione di testo non desiderato assistita da computer (anteprima) e i dati personali.
 - Implementare la moderazione video. Seguire la [Guida pratica alla moderazione video per C#](video-moderation-api.md) per analizzare i video e rilevare potenziali contenuti spinti e per adulti. 

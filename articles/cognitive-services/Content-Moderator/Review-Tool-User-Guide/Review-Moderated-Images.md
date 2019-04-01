@@ -1,5 +1,5 @@
 ---
-title: Esaminare le immagini con tag - Content Moderator
+title: Usare le verifiche del contenuto tramite lo strumento di revisione - Content Moderator
 titlesuffix: Azure Cognitive Services
 description: Lo strumento di revisione consente ai moderatori umani di rivedere le immagini all'interno di un portale Web.
 services: cognitive-services
@@ -8,39 +8,52 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: article
-ms.date: 01/10/2019
+ms.date: 03/15/2019
 ms.author: sajagtap
-ms.openlocfilehash: e096e65e3016f33361f772a75ab8f71603970a5f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a482ecf4a0d321525ab7e392695d2c4c0eebeadc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096606"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758497"
 ---
-# <a name="let-human-reviewers-review-images"></a>Far verificare le immagini ai revisori
+# <a name="create-human-reviews"></a>Creazione di revisione umana
 
-Dopo aver eseguito la registrazione alla moderazione dei contenuti e aver ottenuto una chiave di sottoscrizione, è possibile provare le funzionalità della revisione delle immagini.
+In questa guida si apprenderà come configurare [esamina](../review-api.md#reviews) sul sito Web dello strumento di revisione. Le verifiche di archiviano e visualizzare il contenuto da moderatori umani per valutare. I moderatori possono modificare i tag applicati e applicare i propri tag personalizzati come appropriato. Quando un utente ha completato un'analisi, i risultati vengono inviati a un endpoint di callback specificati e il contenuto viene rimosso dal sito.
 
-1. Aprire lo [strumento di revisione umana](https://contentmoderator.cognitive.microsoft.com/) ed eseguire l'accesso. 
-2. Fare clic sulla scheda Try (Prova) e caricare alcune immagini da rivedere.
-3. Fare clic sulla scheda Review (Revisione) e selezionare Image (Immagine).
+## <a name="prerequisites"></a>Prerequisiti
 
-   ![Finestra del browser Chrome che mostra lo strumento di revisione con l'opzione per la revisione di immagini evidenziata](images/review-images-1.png)
+- Accedi o crea un account su Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) sito.
 
-   Le immagini vengono visualizzate con le etichette assegnate dallo strumento di revisione. Durante la revisione le immagini non sono disponibili per gli altri revisori del team.
+## <a name="image-reviews"></a>Revisioni di immagini
 
-4. Spostare il dispositivo di scorrimento relativo al numero di revisioni da visualizzare (1) per modificare il numero di immagini visualizzate sullo schermo. Fare clic sui pulsanti con o senza tag (2) per ordinare le immagini di conseguenza. Fare clic su un tag (3) per attivarlo o disattivarlo.
+1. Andare alla [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/), selezionare la **provare** scheda e caricare alcune immagini per esaminare.
+1. Dopo che le immagini caricate hanno terminato l'elaborazione, passare al **revisione** scheda e selezionare **immagine**.
 
-   ![Finestra del browser Chrome che mostra lo strumento di revisione con immagini contrassegnate da tag per la revisione](images/review-images-2.png)
- 
-5. Per visualizzare più informazioni su un'immagine, fare clic sui puntini di sospensione su un'anteprima e quindi sull'opzione **View details** (Visualizza dettagli). Per assegnare l'immagine a un sottoteam, selezionare l'opzione **Move to** (Sposta in).
- 
-   ![Un'immagine con l'opzione per visualizzazione dei dettagli evidenziata](images/review-images-3.png)
+    ![Finestra del browser Chrome che mostra lo strumento di revisione con l'opzione per la revisione di immagini evidenziata](images/review-images-1.png)
 
-6. Leggere le informazioni sulla moderazione delle immagini nella pagina dei dettagli.
+    Le immagini vengono visualizzati con le etichette che sono state assegnate dal processo di moderazione automatica. Le immagini di che aver inviato tramite lo strumento di revisione non sono visibili agli altri revisori.
 
-   ![Un'immagine con i dettagli sulla moderazione elencati in un riquadro separato](images/review-images-4.png)
- 
-7. Dopo aver rivisto e aggiornato le assegnazioni dei tag in base alle esigenze, fare clic su **Next** (Avanti) per inviare le revisioni.
+1. Facoltativamente, spostare il **verifiche da visualizzare** slider (1) per modificare il numero di immagini che vengono visualizzati sullo schermo. Fare clic sui **tagged** o **senza tag** pulsanti (2) per ordinare le immagini di conseguenza. Fare clic su un pannello tag (3) per attivare/disattivare o disattivare.
 
-Dopo l'invio l'utente ha a disposizione cinque secondi per fare clic sul pulsante **Prev** (Indietro) per tornare alla schermata precedente e rivedere di nuovo le immagini. Successivamente, le immagini non saranno più disponibili nella coda di invio e il pulsante **Prev** (Indietro) non sarà più disponibile.
+    ![Finestra del browser Chrome che mostra lo strumento di revisione con immagini contrassegnate da tag per la revisione](images/review-images-2.png)
+
+1. Per altre informazioni su un'immagine, fare clic sui puntini di sospensione in anteprima e selezionare **visualizzare i dettagli**. È possibile assegnare un'immagine a un Sub-team con il **spostarne** opzione (vedere la [Team](./configure.md#manage-team-and-subteams) sezione per altre informazioni su sottoteam).
+
+    ![Un'immagine con l'opzione per visualizzazione dei dettagli evidenziata](images/review-images-3.png)
+
+1. Leggere le informazioni sulla moderazione delle immagini nella pagina dei dettagli.
+
+    ![Un'immagine con i dettagli sulla moderazione elencati in un riquadro separato](images/review-images-4.png)
+
+1. Dopo aver rivisto e aggiornato le assegnazioni dei tag in base alle esigenze, fare clic su **Next** (Avanti) per inviare le revisioni. Dopo l'invio l'utente ha a disposizione cinque secondi per fare clic sul pulsante **Prev** (Indietro) per tornare alla schermata precedente e rivedere di nuovo le immagini. Successivamente, le immagini non saranno più disponibili nella coda di invio e il pulsante **Prev** (Indietro) non sarà più disponibile.
+
+## <a name="text-reviews"></a>Revisioni di testi
+
+Testo esamina un funzionamento simile alle revisioni di immagini. Invece di caricare il contenuto, sufficiente scrivere o incollare testo (fino a 1.024 caratteri). Quindi, Content Moderator analizza il testo e applica tag (oltre alle informazioni di moderazione, ad esempio il contenuto volgare e i dati personali). Nelle revisioni di testi, è possibile attivare o disattivare i tag applicati e/o applicare tag personalizzati prima di inviare la revisione.
+
+![Screenshot dello strumento di revisione che mostra il testo contrassegnato in una finestra del browser Chrome](../images/reviewresults_text.png)
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questa Guida, si è appreso come configurare e usare le verifiche di Content Moderator [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). Successivamente, vedere la [Guida all'API REST](../try-review-api-review.md) o il [Guida di .NET SDK](../moderation-reviews-quickstart-dotnet.md) per imparare a creare le verifiche a livello di codice.

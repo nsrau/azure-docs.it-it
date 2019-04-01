@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2018
 ms.author: juliako
-ms.openlocfilehash: 24ee0083ec79265f0ac4dfc0a2e235bc72522831
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: cecfd0fafd17e9c463e0c0a74f1e30290a53d82f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55813892"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758195"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Configurare Postman per le chiamate API REST di Servizi multimediali
 
@@ -89,6 +89,13 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 
     ![Ottenere il token AAD](./media/develop-with-postman/postman-get-aad-auth-token.png)
 
+## <a name="see-also"></a>Vedere anche 
+
+- [Caricare file in un account di Servizi multimediali - REST](upload-files-rest-how-to.md)
+- [Creare filtri con Servizi multimediali - REST](filters-dynamic-manifest-rest-howto.md)
+- [API REST basate su Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Streaming di file con REST](stream-files-tutorial-with-rest.md).  
+- [Streaming di file con REST](stream-files-tutorial-with-rest.md).  
+- [Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - REST](stream-files-tutorial-with-rest.md)

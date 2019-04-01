@@ -8,19 +8,21 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/22/2019
-ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.date: 03/29/2019
+ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337583"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755697"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Eseguire l'autenticazione e accedere alle risorse con le identità gestite nelle App per la logica di Azure
 
 Per accedere alle risorse in altri tenant di Azure Active Directory (Azure AD) ed eseguire l'autenticazione dell'identità senza eseguire l'accesso, l'app per la logica può usare un'[identità gestita](../active-directory/managed-identities-azure-resources/overview.md) (in precedenza denominata identità del servizio gestita) invece di credenziali o segreti. Azure gestisce questa identità per l'utente e consente di proteggere le proprie credenziali perché non è necessario fornire o ruotare i segreti. Questo articolo illustra come configurare e usare un'identità gestita assegnata dal sistema per l'app per la logica. Per altre informazioni sulle identità gestite, vedere [Informazioni sulle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 > [!NOTE]
+> App per la logica possa usare identità gestite solo con i connettori che supportano identità gestite. Attualmente, solo il connettore HTTP supporta le identità gestite.
+>
 > In ogni sottoscrizione di Azure si possono attualmente avere fino a 10 flussi di lavoro di app per la logica con identità gestite assegnate dal sistema.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -148,7 +150,7 @@ Per fornire l'accesso a un'altra risorsa di Azure per l'identità gestita assegn
 
 Dopo aver configurato l'app per la logica con un'identità gestita assegnata dal sistema e assegnato l'accesso alla risorsa desiderata per l'identità, è ora possibile usare tale identità per l'autenticazione. È possibile, ad esempio, usare un'azione HTTP in modo che l'app per la logica possa inviare una richiesta HTTP o richiamare la risorsa. 
 
-1. Nell'app per la logica, aggiungere l'azione **HTTP**. 
+1. Nell'app per la logica, aggiungere l'azione **HTTP**.
 
 1. Fornire i dettagli necessari per quell'azione, come la richiesta **Metodo** e la posizione **URI** della risorsa che si desidera chiamare.
 
@@ -158,7 +160,7 @@ Dopo aver configurato l'app per la logica con un'identità gestita assegnata dal
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
 
-1. Nell'azione "HTTP" scegliere **Mostra opzioni avanzate**. 
+1. Nell'azione "HTTP" scegliere **Mostra opzioni avanzate**.
 
 1. Nell'elenco **Autenticazione** selezionare **Identità gestita**. Dopo aver selezionato questa autenticazione viene visualizzata la proprietà **Destinatari** con il valore risorsa ID predefinito:
 
@@ -176,7 +178,7 @@ Dopo aver configurato l'app per la logica con un'identità gestita assegnata dal
 
 ## <a name="remove-managed-identity"></a>Rimuovere l’identità gestita
 
-Per disabilitare un'identità gestita assegnata dal sistema nell'app per la logica, è possibile eseguire passaggi simili a quelli con cui è stata configurata l'identità tramite il portale di Azure, i modelli di distribuzione di Azure Resource Manager o Azure PowerShell. 
+Per disabilitare un'identità gestita assegnata dal sistema nell'app per la logica, è possibile eseguire passaggi simili a quelli con cui è stata configurata l'identità tramite il portale di Azure, i modelli di distribuzione di Azure Resource Manager o Azure PowerShell.
 
 Quando si elimina l'app per la logica, Azure rimuove automaticamente l'identità assegnata dal sistema dell'app per la logica di Azure AD.
 
@@ -194,7 +196,7 @@ Per rimuovere un'identità gestita assegnata dal sistema per l'app per la logica
 
 ### <a name="deployment-template"></a>Modello di distribuzione
 
-Se l'identità gestita assegnata dal sistema dell'app per la logica è stata creata con un modello di distribuzione Azure Resource Manager, impostare la proprietà `"type"` dell'elemento `"identity"` su `"None"`. Questa azione elimina anche l'ID entità di sicurezza da Azure AD. 
+Se l'identità gestita assegnata dal sistema dell'app per la logica è stata creata con un modello di distribuzione Azure Resource Manager, impostare la proprietà `"type"` dell'elemento `"identity"` su `"None"`. Questa azione elimina anche l'ID entità di sicurezza da Azure AD.
 
 ```json
 "identity": {

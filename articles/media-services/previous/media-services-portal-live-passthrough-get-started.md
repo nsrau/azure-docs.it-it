@@ -1,5 +1,5 @@
 ---
-title: Eseguire lo streaming live con codificatori locali usando il portale di Azure | Microsoft Docs
+title: Lo streaming Live con codificatori locali tramite il portale di Azure | Microsoft Docs
 description: Questa esercitazione illustra come creare un canale configurato per la distribuzione pass-through.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258702"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758511"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Come eseguire lo streaming live con codificatori locali tramite il portale di Azure
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Eseguire lo streaming live con codificatori locali tramite il portale di Azure
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ Per completare l'esercitazione è necessario quanto segue:
 * [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Scenario comune di streaming live
+
 I passaggi seguenti descrivono le attività previste per la creazione di applicazioni di streaming live comuni che usano canali configurati per la distribuzione pass-through. Questa esercitazione illustra come creare e gestire un canale pass-through e gli eventi live.
 
->[!NOTE]
->Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
+> [!NOTE]
+> Verificare che l'endpoint di streaming da cui si vuole trasmettere il contenuto sia nello stato **In esecuzione**. 
     
-1. Connettere una videocamera a un computer. Avviare e configurare un codificatore live locale che genera un flusso in formato RTMP o MP4 frammentato a più bitrate. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connettere una videocamera a un computer. <br/>Per alcune idee per la configurazione, vedere [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Configurazione semplice e portabile di attrezzature video per eventi).
+1. Avviare e configurare un codificatore live locale che genera un flusso in formato RTMP o MP4 frammentato a più bitrate. Per altre informazioni, vedere l'argomento relativo a [codificatori live e supporto RTMP di Servizi multimediali di Azure](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Vedere anche questo blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Produzione di streaming live con OBS).
    
     Questa operazione può essere eseguita anche dopo la creazione del canale.
-2. Creare e avviare un canale pass-through.
-3. Recuperare l'URL di inserimento del canale. 
+1. Creare e avviare un canale pass-through.
+1. Recuperare l'URL di inserimento del canale. 
    
     L'URL di inserimento viene usato dal codificatore live per inviare il flusso al canale.
-4. Recuperare l'URL di anteprima del canale. 
+1. Recuperare l'URL di anteprima del canale. 
    
     Usare questo URL per verificare che il canale riceva correttamente il flusso live.
-5. Creare un programma o un evento live. 
+1. Creare un programma o un evento live. 
    
     Quando si crea un evento live usando il portale di Azure, viene creato automaticamente anche un asset. 
 
-6. Avviare il programma o l'evento quando si è pronti ad avviare lo streaming e l'archiviazione.
-7. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
-8. Arrestare il programma o l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
-9. Eliminare il programma o l'evento e, facoltativamente, l'asset.     
+1. Avviare il programma o l'evento quando si è pronti ad avviare lo streaming e l'archiviazione.
+1. Facoltativamente, il codificatore live può ricevere il segnale per l'avvio di un annuncio. L'annuncio viene inserito nel flusso di output.
+1. Arrestare il programma o l'evento ogni volta che si vuole arrestare lo streaming e l'archiviazione dell'evento.
+1. Eliminare il programma o l'evento e, facoltativamente, l'asset.     
 
 > [!IMPORTANT]
 > Per informazioni su considerazioni e concetti relativi allo streaming live con codificatori locali e canali pass-through, vedere [Streaming live con codificatori locali che creano flussi a bitrate multipli](media-services-live-streaming-with-onprem-encoders.md).

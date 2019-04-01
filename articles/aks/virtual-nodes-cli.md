@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: a04dbd42e09ad8ec352af74950b6d71425a84a9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 841e00825b243d883303121022918efd51397f04
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177671"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757426"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Visualizzare in anteprima: creare e configurare un cluster di servizi di Kubernetes di Azure (AKS) per usare i nodi virtuali tramite la CLI di Azure
 
@@ -47,9 +47,9 @@ Se il provider viene visualizzato come *NotRegistered*, registrare il provider u
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="preview-limitations"></a>Limiti di anteprima
+## <a name="regional-availability-limitations"></a>Limitazioni di disponibilità a livello di area
 
-Quando questa funzionalità è disponibile in anteprima, le aree seguenti sono supportate per le distribuzioni:
+Per distribuzioni a nodo virtuale sono supportate le aree seguenti:
 
 * Australia orientale (australiaeast)
 * Stati Uniti orientali (eastus)
@@ -331,6 +331,8 @@ I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel s
 
 - [Use the Kubernetes horizontal pod autoscaler][aks-hpa] (Usare la scalabilità automatica orizzontale dei pod di Kubernetes)
 - [Use the Kubernetes cluster autoscaler][aks-cluster-autoscaler] (Usare la scalabilità automatica dei cluster di Kubernetes)
+- [Estrarre l'esempio di scalabilità automatica per i nodi virtuali][virtual-node-autoscale]
+- [Per ulteriori informazioni su Virtual Kubelet libreria open source][virtual-kubelet-repo]
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -338,6 +340,8 @@ I nodi virtuali sono spesso un componente di una soluzione di scalabilità nel s
 [node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [aks-github]: https://github.com/azure/aks/issues]
+[virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
+[virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli

@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472807"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755519"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sicurezza e autenticazione di Griglia di eventi 
 
@@ -41,7 +41,9 @@ Se si usa un altro tipo di endpoint, ad esempio un trigger HTTP basato su una fu
 
    A partire dalla versione 2018-05-01-preview, Griglia di eventi supporta un handshake di convalida manuale. Se si sta creando una sottoscrizione di eventi con un SDK o uno strumento che usa l'API 2018-05-01-preview o versione successiva, Griglia di eventi invia una proprietà `validationUrl` nella parte di dati dell'evento di convalida della sottoscrizione. Per completare l'handshake, trovare l'URL nei dati dell'evento e inviare manualmente una richiesta GET a tali dati. È possibile usare un client REST o un Web browser.
 
-   L'URL specificato è valido per 5 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 10 minuti, lo stato di provisioning è impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
+   L'URL specificato è valido per 5 minuti. Durante questo periodo, lo stato di provisioning della sottoscrizione di eventi è `AwaitingManualAction`. Se si non completata la convalida manuale entro 5 minuti, lo stato di provisioning è impostato su `Failed`. È possibile creare la sottoscrizione all'evento nuovamente prima di avviare la convalida manuale.
+
+    Questo meccanismo di autenticazione richiede anche l'endpoint di webhook per restituire un codice di stato HTTP 200, in modo che sappia che è stata accettata la richiesta POST per l'evento di convalida prima che possa essere inviato in modalità di convalida manuale. In altre parole, se l'endpoint restituisce 200, ma non restituisce nuovamente una risposta di convalida a livello di codice, la modalità viene passata alla modalità di convalida manuale. Se è presente una richiesta GET nell'URL di convalida entro 5 minuti, viene considerato l'handshake di convalida abbia esito positivo.
 
 ### <a name="validation-details"></a>Dettagli di convalida
 

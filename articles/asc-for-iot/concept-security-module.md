@@ -1,6 +1,6 @@
 ---
-title: Informazioni sul Centro sicurezza di AZURE di sicurezza IoT moduli gemelli Preview | Microsoft Docs
-description: Scopri il concetto di moduli gemelli di sicurezza e su come vengono usati nel Centro sicurezza di AZURE per IoT.
+title: Comprendere il Centro sicurezza di Azure per il modulo di sicurezza IoT gemelli Preview | Microsoft Docs
+description: Scopri il concetto di moduli gemelli di sicurezza e su come vengono usati nel Centro sicurezza di Azure per IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579377"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758400"
 ---
 # <a name="security-module"></a>Modulo di sicurezza
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Questo articolo illustra come Centro sicurezza di AZURE per IoT Usa i moduli e ai dispositivi gemelli. 
+Questo articolo illustra come Azure Security Center (Centro sicurezza di AZURE) per IoT Usa i moduli e ai dispositivi gemelli. 
 
 ## <a name="device-twins"></a>Dispositivi gemelli
 
@@ -46,7 +46,7 @@ Le proprietà di sicurezza di dispositivi vengono gestite in un modulo gemello s
 Visualizzare [crea dispositivo gemello del modulo security](quickstart-create-security-twin.md) e [configurare gli agenti di protezione](how-to-agent-configuration.md) per imparare a creare, personalizzare e configurare il dispositivo gemello. Visualizzare [moduli gemelli Understanding](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-module-twins) per approfondire il concetto di moduli gemelli nell'IoT Hub. 
  
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedere anche 
 - [Centro sicurezza di AZURE per l'anteprima di IoT](overview.md)
 - [Distribuire gli agenti protezione](how-to-deploy-agent.md)
 - [Metodi di autenticazione di sicurezza dell'agente](concept-security-agent-authentication-methods.md)

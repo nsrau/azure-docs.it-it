@@ -29,15 +29,27 @@ items:
   items:
   - name: Account di archiviazione
     href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Authorization
-    href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+  - name: Security
     items:
-    - name: Eseguire l'autenticazione con Azure AD
-      href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Autorizzare con la chiave condivisa
-      href: /rest/api/storageservices/authorize-with-shared-key
-    - name: Autorizzare con la firma di accesso condiviso
-      href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Authorization
+      href: ../common/storage-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      items:
+      - name: Eseguire l'autenticazione con Azure AD
+        href: ../common/storage-auth-aad.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Autorizzare con la chiave condivisa
+        href: /rest/api/storageservices/authorize-with-shared-key
+      - name: Autorizzare con la firma di accesso condiviso
+        href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Guida alla sicurezza
+      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Crittografia per i dati inattivi
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Crittografia dei dati inattivi con le chiavi clienti
+      href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Advanced Threat Protection
+      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+    - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
+      href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Ridondanza dei dati
     href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     items:
@@ -51,18 +63,6 @@ items:
       href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Progettazione di app HA con RA-GRS
       href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Security
-    items:
-    - name: Guida alla sicurezza
-      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Crittografia per i dati inattivi
-      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Crittografia dei dati inattivi con le chiavi clienti
-      href: ../common/storage-service-encryption-customer-managed-keys.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Advanced Threat Protection
-      href: ../common/storage-advanced-threat-protection.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Abilitare la connessione TLS sicura per il client di Archiviazione di Azure
-      href: ../common/storage-security-tls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Prestazioni e ridimensionamento
     items:
     - name: Obiettivi di scalabilità e prestazioni
@@ -99,36 +99,36 @@ items:
       href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Aggiornare un account di archiviazione
       href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-  - name: Autorizzare l'accesso ai dati della coda
-    items:
-    - name: Opzioni di autorizzazione per gli utenti
-      items:
-      - name: Portale
-        href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Interfaccia della riga di comando o PowerShell
-        href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
-      items:
-      - name: Portale
-        href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: CLI
-        href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: PowerShell
-        href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Eseguire l'autenticazione con Azure AD
-      items:
-      - name: Eseguire l'autenticazione da un'applicazione
-        href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Eseguire l'autenticazione con le identità gestite
-        href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-    - name: Autorizzare con la chiave condivisa
-      items:
-      - name: Configurare le stringhe di connessione
-        href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
-      - name: Usare l'API REST di Archiviazione di Azure
-        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Proteggere
     items:
+    - name: Autorizzare l'accesso ai dati della coda
+      items:
+      - name: Opzioni di autorizzazione per gli utenti
+        items:
+        - name: Portale
+          href: ../common/storage-access-blobs-queues-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Interfaccia della riga di comando o PowerShell
+          href: ../common/storage-auth-aad-script.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Gestire i diritti di accesso con il controllo degli accessi in base al ruolo
+        items:
+        - name: Portale
+          href: ../common/storage-auth-aad-rbac-portal.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: CLI
+          href: ../common/storage-auth-aad-rbac-cli.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: PowerShell
+          href: ../common/storage-auth-aad-rbac-powershell.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Eseguire l'autenticazione con Azure AD
+        items:
+        - name: Eseguire l'autenticazione da un'applicazione
+          href: ../common/storage-auth-aad-app.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Eseguire l'autenticazione con le identità gestite
+          href: ../common/storage-auth-aad-msi.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+      - name: Autorizzare con la chiave condivisa
+        items:
+        - name: Configurare le stringhe di connessione
+          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Usare l'API REST di Archiviazione di Azure
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Configurare i firewall e le reti virtuali
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: crittografia lato client
@@ -278,9 +278,9 @@ items:
       href: https://github.com/Azure/azure-storage-ios
   - name: Offerte di conformità
     href: ../common/storage-compliance-offerings.md
-ms.openlocfilehash: 70fc5b2b14aaad98a1d412a8b5a56763b4652d7d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 0aaac348743077c15fd1b25416e7509adeee3d56
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446304"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754712"

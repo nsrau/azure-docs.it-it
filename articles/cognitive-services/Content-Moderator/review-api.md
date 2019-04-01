@@ -1,186 +1,76 @@
 ---
-title: Processi di moderazione e revisioni human-in-the-loop - Content Moderator
+title: Flussi di lavoro, revisioni e i concetti di processi - Content Moderator
 titlesuffix: Azure Cognitive Services
-description: Combinare funzionalità di moderazione automatica e human-in-the-loop usando l'API di revisione di Azure Content Moderator per ottenere risultati ottimali per l'azienda.
+description: Informazioni sulle revisioni dei flussi di lavoro e processi
 services: cognitive-services
 author: sanjeev3
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 21d71110853c5f18b0b5f0b51d30110eb45ff54a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c1d4ef640e2ae072dacba7a665b6689e3224c55c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862701"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756303"
 ---
-# <a name="content-moderation-jobs-and-reviews"></a>Revisioni e processi di moderazione del contenuto
+# <a name="content-moderation-reviews-workflows-and-jobs"></a>Le verifiche di moderazione dei contenuti, i flussi di lavoro e processi
 
-Combinare funzionalità di moderazione automatica e human-in-the-loop usando l'[API di revisione](https://westus.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/580519483f9b0709fc47f9c5) di Azure Content Moderator per ottenere risultati ottimali per l'azienda.
+Content Moderator combina moderazione assistita da computer con funzionalità human-in-the-loop per creare un processo di moderazione ottimale per scenari reali. Ciò avviene tramite basato su cloud [strumento di revisione](https://contentmoderator.cognitive.microsoft.com). In questa guida si apprenderà i concetti di base dello strumento di revisione: processi, i flussi di lavoro e le revisioni.
 
-L'API di revisione consente di includere la supervisione umana nel processo di moderazione del contenuto nei modi seguenti:
+## <a name="reviews"></a>Revisioni
 
-* Le operazioni `Job` vengono usate per avviare la creazione di revisione umana e moderazione automatica in un unico passaggio.
-* Le operazioni `Review` vengono usate per la creazione della revisione umana, al di fuori del passaggio di moderazione.
-* Le operazioni `Workflow` vengono usate per gestire i flussi di lavoro che automatizzano l'analisi con soglie per la creazione della revisione.
+In una revisione, il contenuto viene caricato per lo strumento di revisione e viene visualizzato sotto il **esaminare** scheda. A questo punto, gli utenti possono modificare i tag applicati e applicare i propri tag personalizzati come appropriato. Quando un utente invia una recensione, i risultati vengono inviati a un endpoint di callback specificati e il contenuto viene rimosso dal sito.
 
-Le operazioni `Job` e `Review` accettano gli endpoint callback per la ricezione dello stato e dei risultati.
+![Sito Web dello strumento di revisione aprire in un browser, nella scheda verifica](./Review-Tool-user-Guide/images/image-workflow-review.png)
 
-Questo articolo illustra le operazioni `Job` e `Review`. Vedere [Panoramica dei flussi di lavoro](workflow-api.md) per informazioni su come creare, modificare e ottenere le definizioni dei flussi di lavoro.
+Vedere le [manuale dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) Introduzione alla creazione di recensioni, o vedere la [Guida all'API REST](./try-review-api-review.md) per imparare a eseguire questa operazione a livello di codice.
 
-## <a name="job-operations"></a>Operazioni di processo
+## <a name="workflows"></a>Flussi di lavoro
 
-### <a name="start-a-job"></a>Avviare un processo
-Usare l'operazione `Job.Create` per avviare un processo di creazione di revisione umana e moderazione. Content Moderator analizza il contenuto e valuta il flusso di lavoro designato. In base ai risultati del flusso di lavoro, crea le revisioni o ignora il passaggio. Invia anche i tag post-moderazione e post-revisione all'endpoint callback.
+Un flusso di lavoro è un filtro personalizzato basato sul cloud per il contenuto. I flussi di lavoro possono connettersi a un'ampia gamma di servizi per filtrare il contenuto in modi diversi e quindi intraprendere l'azione appropriata. Con il connettore di Content Moderator, un flusso di lavoro può automaticamente applicare i tag di moderazione e creare verifiche con contenuto inviato.
 
-Gli input includono le informazioni seguenti:
+### <a name="view-workflows"></a>Flussi di lavoro di visualizzazione
 
-- ID del team di revisione.
-- Contenuto da moderare.
-- Nome del flusso di lavoro. Quello predefinito è il flusso di lavoro "default".
-- Punto di callback API per le notifiche.
- 
-La risposta seguente mostra l'identificatore del processo avviato. Usare l'identificatore del processo per ottenere lo stato del processo e ricevere informazioni dettagliate.
+Per i flussi di lavoro esistente, vedere la [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **impostazioni** > **i flussi di lavoro**.
 
-    {
-        "JobId": "2018014caceddebfe9446fab29056fd8d31ffe"
-    }
+![Flusso di lavoro predefinito](images/default-workflow-listed.PNG)
 
-### <a name="get-job-status"></a>Ottenere lo stato di processo
+I flussi di lavoro possono essere descritti completamente sotto forma di stringhe JSON, che li rende accessibili a livello di codice. Se si seleziona il **Edit** l'opzione del flusso di lavoro e quindi selezionare la **JSON** scheda, si noterà un'espressione JSON simile al seguente:
 
-Usare l'operazione `Job.Get` e l'identificatore del processo per ottenere i dettagli di un processo in esecuzione o completato. L'operazione viene immediatamente restituita mentre il processo di moderazione viene eseguito in modo asincrono. I risultati vengono restituiti tramite l'endpoint callback.
-
-Gli input includono le informazioni seguenti:
-
-- ID del team di revisione: Identificatore del processo restituito dall'operazione precedente
-
-La risposta include le informazioni seguenti:
-
-- Identificatore della revisione creata. Usare questo ID per ottenere i risultati della revisione finale.
-- Stato del processo (in corso o completato): Tag di moderazione assegnati (coppie chiave-valore).
-- Report di esecuzione del processo.
- 
- 
-        {
-            "Id": "2018014caceddebfe9446fab29056fd8d31ffe",
-            "TeamName": "some team name",
-            "Status": "Complete",
-            "WorkflowId": "OCR",
-            "Type": "Image",
-            "CallBackEndpoint": "",
-            "ReviewId": "201801i28fc0f7cbf424447846e509af853ea54",
-            "ResultMetaData":[
-            {
-            "Key": "hasText",
-            "Value": "True"
-            },
-            {
-            "Key": "ocrText",
-            "Value": "IF WE DID \r\nALL \r\nTHE THINGS \r\nWE ARE \r\nCAPABLE \r\nOF DOING, \r\nWE WOULD \r\nLITERALLY \r\nASTOUND \r\nOURSELVE \r\n"
-            }
-            ],
-            "JobExecutionReport": [
-            {
-                "Ts": "2018-01-07T00:38:29.3238715",
-                "Msg": "Posted results to the Callbackendpoint: https://requestb.in/vxke1mvx"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.2928416",
-                "Msg": "Job marked completed and job content has been removed"
-                },
-                {
-                "Ts": "2018-01-07T00:38:29.0856472",
-                "Msg": "Execution Complete"
-                },
-            {
-                "Ts": "2018-01-07T00:38:26.7714671",
-                "Msg": "Successfully got hasText response from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:26.4181346",
-                "Msg": "Getting hasText from Moderator"
-                },
-                {
-                "Ts": "2018-01-07T00:38:25.5122828",
-                "Msg": "Starting Execution - Try 1"
-                }
-            ]
-        }
- 
-![Revisione di immagini per moderatori umani](images/ocr-sample-image.PNG)
-
-## <a name="review-operations"></a>Operazioni Review
-
-### <a name="create-reviews"></a>Creare le revisioni
-
-Usare l'operazione `Review.Create` per creare le revisioni umane. È possibile moderarle altrove o usare la logica personalizzata per assegnare i tag di moderazione.
-
-Gli input per questa operazione includono:
-
-- Contenuto da esaminare.
-- Tag assegnati (coppie chiave-valore) per la revisione da parte di moderatori umani.
-
-La risposta seguente mostra l'identificatore della revisione:
-
-    [
-        "201712i46950138c61a4740b118a43cac33f434",
-    ]
-
-
-### <a name="get-review-status"></a>Ottenere lo stato della revisione
-Usare l'operazione `Review.Get` per ottenere i risultati al termine di una revisione umana dell'immagine moderata. Si riceve una notifica tramite l'endpoint callback specificato. 
-
-L'operazione restituisce due set di tag: 
-
-* I tag assegnati dal servizio di moderazione
-* I tag al termine della revisione umana
-
-Gli input includono almeno:
-
-- Nome del team di revisione
-- Identificatore della revisione restituito dall'operazione precedente
-
-La risposta include le informazioni seguenti:
-
-- Stato della revisione
-- Tag (coppie chiave-valore) confermati dal revisore umano
-- Tag (coppie chiave-valore) assegnati dal servizio di moderazione
-
-Nella risposta di esempio seguente vengono visualizzati sia i tag assegnati dal revisore (**reviewerResultTags**) che i tag iniziali (**metadata**):
-
-    {
-        "reviewId": "201712i46950138c61a4740b118a43cac33f434",
-        "subTeam": "public",
-        "status": "Complete",
-        "reviewerResultTags": [
-        {
-            "key": "a",
-            "value": "False"
+```json
+{
+    "Type": "Logic",
+    "If": {
+        "ConnectorName": "moderator",
+        "OutputName": "isAdult",
+        "Operator": "eq",
+        "Value": "true",
+        "Type": "Condition"
         },
-        {
-            "key": "r",
-            "value": "True"
-        },
-        {
-            "key": "sc",
-            "value": "True"
-        }
-        ],
-        "createdBy": "{teamname}",
-        "metadata": [
-        {
-            "key": "sc",
-            "value": "true"
-        }
-        ],
-        "type": "Image",
-        "content": "https://reviewcontentprod.blob.core.windows.net/{teamname}/IMG_201712i46950138c61a4740b118a43cac33f434",
-        "contentId": "0",
-        "callbackEndpoint": "{callbackUrl}"
+    "Then": {
+    "Perform": [
+    {
+        "Name": "createreview",
+        "CallbackEndpoint": null,
+        "Tags": []
     }
+    ],
+    "Type": "Actions"
+    }
+}
+```
+
+Vedere il [manuale dello strumento di revisione](./review-tool-user-guide/workflows.md) per iniziare a creare e usare i flussi di lavoro o visualizzare i [Guida all'API REST](./try-review-api-workflow.md) per imparare a eseguire questa operazione a livello di codice.
+
+## <a name="jobs"></a>Processi
+
+Un processo di moderazione funziona come una specie di wrapper per la funzionalità di moderazione dei contenuti, i flussi di lavoro e le revisioni. Il processo analizza i contenuti mediante la moderazione di immagini Content Moderator, API o l'API di moderazione di testo e quindi viene confrontato con il flusso di lavoro designato. Basate sui risultati del flusso di lavoro, può o non è stato possibile creare una revisione per il contenuto di [strumento di revisione](./review-tool-user-guide/human-in-the-loop.md). Anche se entrambe le revisioni e i flussi di lavoro possono essere creati e configurati con le rispettive API, il processo di API consente di ottenere un report dettagliato dell'intero processo (che può essere inviato a un endpoint di callback specificato).
+
+Vedere le [Guida all'API REST](./try-review-api-job.md) per iniziare a usare i processi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

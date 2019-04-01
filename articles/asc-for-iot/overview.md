@@ -1,6 +1,6 @@
 ---
-title: What ' s Centro sicurezza di AZURE per l'anteprima di IoT | Microsoft Docs
-description: Informazioni su Centro sicurezza di AZURE per servizi e le funzionalità di IoT.
+title: Che cos'è il Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
+description: Informazioni su Centro sicurezza di Azure per servizi e le funzionalità di IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 46107797acad52e3df82d341750c52f99c81d63e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 21737017c5087d25e36aec9701d3b4c5ddcb54e8
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578816"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757587"
 ---
-# <a name="introducing-asc-for-iot"></a>Introduzione a Centro sicurezza di AZURE per IoT
+# <a name="introducing-azure-security-center-for-iot"></a>Introduzione a Centro sicurezza di Azure per IoT
 
 > [!IMPORTANT]
-> Centro sicurezza di AZURE per IoT è attualmente in anteprima pubblica.
+> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="secure-your-azure-iot-solution"></a>Proteggere la soluzione IoT di Azure 
@@ -35,7 +35,7 @@ Unificare la gestione della sicurezza e abilitare l'analisi delle minacce to end
 
 Internet delle cose rapidamente sta trasformando il mondo. Con la possibilità di rilevare informazioni dettagliate dai dispositivi connessi e sistemi back-end, è ora possibile trasformare le informazioni dettagliate sulle applicazioni e servizi avanzati per consentire alle organizzazioni di ottenere raggiunge livelli impareggiabili operative e aziendali Prestazione. Tuttavia, come miliardi di nuovi dispositivi sono connessi a internet e integrate nella nostra vita quotidiana e le nostre attività; i team di operazioni di sicurezza necessario garantire che le proprie strategie di sicurezza si evolvono in modo sufficientemente rapido per soddisfare queste nuove superfici di attacco. Come qualsiasi altro sistema, protezione della soluzione IoT necessitano di protezione in ogni fase dell'implementazione. 
 
-Centro sicurezza di AZURE per IoT semplifica la protezione di carichi di lavoro ibrido offrendo visibilità unificata e controllo, la prevenzione delle minacce adattiva e il rilevamento delle minacce intelligente e risposta su carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. 
+Il Centro sicurezza di Azure (ASC) per IoT semplifica la protezione di carichi di lavoro ibrido offrendo visibilità unificata e controllo, la prevenzione delle minacce adattiva e il rilevamento delle minacce intelligente e risposta su carichi di lavoro in esecuzione in dispositivi perimetrali, in locale, in Azure e in altri cloud. 
 
 ![Centro sicurezza di AZURE per l'architettura di IoT](./media/architecture/asc-for-iot-architecture.png)
 

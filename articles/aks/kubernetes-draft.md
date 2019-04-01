@@ -2,17 +2,17 @@
 title: Usare Draft con il servizio Azure Container e con Registro Azure Container
 description: Usare Draft con il servizio Azure Container e con Registro Azure Container
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
-ms.author: iainfou
-ms.openlocfilehash: 5169b8856155df5e62b1e85d291ce6c1b54c8a87
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: zarhoads
+ms.openlocfilehash: 462cfd6ec0a6b25f85dda0245dd4f5feed7cb712
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011939"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755656"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Usare Draft con il servizio Azure Kubernetes
 

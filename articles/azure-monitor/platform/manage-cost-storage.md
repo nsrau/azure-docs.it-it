@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295675"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755807"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>Gestire l'utilizzo e i costi per Log Analytics
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gestire l'utilizzo e costi per Log Analitica in Monitoraggio di Azure
 
 > [!NOTE]
 > Questo articolo descrive come controllare i costi in Log Analytics impostando il periodo di conservazione dei dati.  Per le informazioni correlate, vedere gli articoli seguenti.
 > - [Analizzare l'utilizzo dei dati in Log Analytics](manage-cost-storage.md) descrive l'analisi e gli avvisi per l'utilizzo dei dati.
 > - [Monitoraggio dell'utilizzo e dei costi stimati](usage-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione dei prezzi. Illustra inoltre come modificare il modello di prezzi.
 
-Log Analytics è un servizio progettato per offrire scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di grandi quantità di dati al giorno da qualsiasi origine aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
+Log Analitica in Monitoraggio di Azure è progettato per scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di enormi quantità di dati al giorno da qualsiasi origine in ambito aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
 
 In questo articolo viene esaminato come monitorare in modo proattivo il volume dei dati e l'aumento dello spazio di archiviazione e definire i limiti per controllare i costi associati. 
 
@@ -114,8 +114,6 @@ Se l'area di lavoro di Log Analytics ha accesso ai piani tariffari esistenti, mo
 
 Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è necessario [modificare il modello di prezzi di monitoraggio dell’abbonamento in Monitoraggio di Azure](usage-estimated-costs.md#moving-to-the-new-pricing-model) che modificherà il piano tariffario di tutte le aree di lavoro in tale abbonamento.
 
-> [!NOTE]
-> Se l'area di lavoro è collegata a un account di Automazione, prima di poter selezionare il piano tariffario *Standalone (Per GB)* (Autonomo - per GB), è necessario eliminare eventuali soluzioni di **Automazione e controllo** e scollegare l'account di Automazione. Nel pannello dell'area di lavoro in **Generale** fare clic su **Soluzioni** per visualizzare ed eliminare le soluzioni. Per scollegare l'account di Automazione, fare clic sul nome dell'account di Automazione nel pannello **Piano tariffario**.
 
 > [!NOTE]
 > Per ulteriori informazioni sulle [impostando il piano tariffario tramite ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) e assicurarsi che la distribuzione ARM riuscirà indipendentemente dal fatto che la sottoscrizione è nel preesistente o nuovo modello di determinazione prezzi. 

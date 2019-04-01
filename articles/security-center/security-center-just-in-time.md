@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199835"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758307"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gestire l'accesso alle macchine virtuali con la funzionalità JIT (Just-in-Time)
 
@@ -162,9 +162,13 @@ Nel portale di Azure, quando si prova a connettersi a una macchina virtuale, Azu
 
   ![prompt jit](./media/security-center-just-in-time/jit-prompt.png)
 
-- Se si dispone di un criterio JIT configurato nella macchina virtuale, è possibile fare clic su **Richiedi accesso** per abilitare l'accesso in base ai criteri JIT impostati per la macchina virtuale.
+- Se si dispone di un criterio JIT configurato nella macchina virtuale, è possibile fare clic su **Richiedi accesso** per abilitare l'accesso in base ai criteri JIT impostati per la macchina virtuale. È richiesto l'accesso con i parametri predefiniti seguenti:
+    - **IP di origine**: 'Any' (*) (non può essere modificato)
+    - **intervallo di tempo**: 3 ore (non può essere modificato)
+    - **numero di porta** RDP porta 22 per Linux / porta 3389 per Windows (è possibile modificare il numero di porta la **Connetti a macchina virtuale** nella finestra di dialogo.)
 
-  ![richiesta di accesso jit](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![richiesta di accesso jit](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>Controllo sulle attività di accesso JIT
 
