@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268788"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630607"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schemi di Griglia di eventi di Azure per gli eventi di Servizi multimediali
 
@@ -84,7 +84,12 @@ Vedere gli [esempi di schema](#event-schema-examples) seguenti.
 
 ### <a name="track-level-events"></a>Eventi a livello di traccia
 
-Gli eventi a livello di traccia vengono generati per singola traccia. I tipi di evento di traccia sono i seguenti:
+Gli eventi a livello di traccia vengono generati per singola traccia. 
+
+> [!NOTE]
+> Tutti gli eventi a livello di traccia vengono generati dopo aver connesso un codificatore live.
+
+I tipi di eventi a livello di traccia sono:
 
 | Tipo evento | DESCRIZIONE |
 | ---------- | ----------- |
@@ -92,7 +97,7 @@ Gli eventi a livello di traccia vengono generati per singola traccia. I tipi di 
 | Microsoft.Media.LiveEventIncomingStreamReceived | Il server dei contenuti multimediali riceve il primo blocco di dati per ogni traccia nel flusso o nella connessione. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Il server dei contenuti multimediali rileva che i flussi audio e video non sono sincronizzati. Usare come avviso per evitare che ciò abbia impatto sull'esperienza dell'utente. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Il server dei contenuti multimediali rileva che uno dei due flussi video provenienti dal codificatore esterno non è sincronizzato. Usare come avviso per evitare che ciò abbia impatto sull'esperienza dell'utente. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Pubblicato ogni 20 secondi per ogni traccia quando l'evento live è in esecuzione. Presenta un riepilogo dell'integrità dell'inserimento. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Pubblicato ogni 20 secondi per ogni traccia quando l'evento live è in esecuzione. Presenta un riepilogo dell'integrità dell'inserimento.<br/><br/>Dopo che il codificatore è stato connesso inizialmente, l'evento heartbeat continua a generare ogni 20 secondo se il codificatore è ancora connesso o meno. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Il server dei contenuti multimediali rileva discontinuità nella traccia in ingresso. |
 
 Vedere gli [esempi di schema](#event-schema-examples) seguenti.

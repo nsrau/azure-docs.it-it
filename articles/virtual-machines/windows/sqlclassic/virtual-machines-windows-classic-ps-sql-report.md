@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445637"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650275"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usare PowerShell per creare una macchina virtuale di Azure con un server di report in modalità nativa
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ Un certificato autofirmato viene creato nella macchina virtuale quando viene ese
    4. Selezionare il **computer locale** da gestire e quindi fare clic su **Fine**.
    5. Fare clic su **OK**, espandere i nodi **Certificati - Personale** e quindi fare clic su **Certificati**. Il nome del certificato è costituito dal nome DNS della macchina virtuale e termina con **cloudapp.net**. Fare clic con il pulsante destro del mouse sul nome del certificato e scegliere **Copia**.
    6. Espandere il nodo **Autorità di certificazione radice attendibili**, fare clic con il pulsante destro del mouse su **Certificati** e quindi scegliere **Incolla**.
-   7. Per convalidare, fare doppio clic sul nome del certificato in **Autorità di certificazione radice attendibili** e, se non si sono verificati errori, il certificato è visibile. Se si vuole usare lo script HTTPS incluso in questo argomento per configurare il server di report, è necessario specificare il valore di **Identificazione personale** dei certificati come parametro dello script. **Per ottenere il valore di identificazione personale**, seguire questa procedura. È disponibile anche un esempio di PowerShell per recuperare l'identificazione personale nella sezione [Usare lo script per configurare il server di report e HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   7. Per convalidare, fare doppio clic sul nome del certificato in **Autorità di certificazione radice attendibili** e, se non si sono verificati errori, il certificato è visibile. Se si vuole usare lo script HTTPS incluso in questo argomento per configurare il server di report, è necessario specificare il valore di **Identificazione personale** dei certificati come parametro dello script. **Per ottenere il valore di identificazione personale**, seguire questa procedura. È disponibile anche un esempio di PowerShell per recuperare l'identificazione personale nella sezione [Usare lo script per configurare il server di report e HTTPS](#use-script-to-configure-the-report-server-and-https).
       
       1. Fare doppio clic sul nome del certificato, ad esempio ssrsnativecloud.cloudapp.net.
       2. Fare clic sulla scheda **Dettagli** .

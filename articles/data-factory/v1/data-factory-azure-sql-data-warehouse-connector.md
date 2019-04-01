@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 905d084b46919ad945cf44f5517b95d5321ee3de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dfd0443dafbc4fcc221937f248bf6d2f292b528f
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58116199"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651752"
 ---
 # <a name="copy-data-to-and-from-azure-sql-data-warehouse-using-azure-data-factory"></a>Copiare dati da e in Azure SQL Data Warehouse tramite Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -170,7 +170,7 @@ GO
 * Se il formato dei dati di origine è **BLOB di Azure o Azure Data Lake Store** e compatibile con PolyBase, è possibile eseguire la copia direttamente in Azure SQL Data Warehouse usando PolyBase. Vedere **[Copia diretta tramite PolyBase](#direct-copy-using-polybase)** con i relativi dettagli.
 * Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, è possibile usare la funzione **[copia di staging tramite PolyBase](#staged-copy-using-polybase)**. Viene inoltre generata una migliore velocità effettiva tramite la conversione automatica dei dati nel formato compatibile con PolyBase e l'archiviazione dei dati in Archiviazione BLOB di Azure. Vengono quindi caricati i dati in SQL Data Warehouse.
 
-Impostare la proprietà `allowPolyBase` su **true**, come illustrato nell'esempio seguente per Azure Data Factory, per usare PolyBase per copiare i dati in Azure SQL Data Warehouse. Quando si imposta allowPolyBase su true, è possibile specificare proprietà specifiche di PolyBase usando il gruppo di proprietà `polyBaseSettings`. Per informazioni dettagliate sulle proprietà che è possibile usare con polyBaseSettings, vedere la sezione [SqlDWSink](#SqlDWSink) .
+Impostare la proprietà `allowPolyBase` su **true**, come illustrato nell'esempio seguente per Azure Data Factory, per usare PolyBase per copiare i dati in Azure SQL Data Warehouse. Quando si imposta allowPolyBase su true, è possibile specificare proprietà specifiche di PolyBase usando il gruppo di proprietà `polyBaseSettings`. Per informazioni dettagliate sulle proprietà che è possibile usare con polyBaseSettings, vedere la sezione [SqlDWSink](#sqldwsink) .
 
 ```JSON
 "sink": {

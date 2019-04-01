@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: 711e51a075ce25ef3aa3c9c7e8784c914c8d0581
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982268"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670836"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -54,7 +54,7 @@ Il database SQL offre prestazioni prevedibili con più tipi di risorse, livelli 
 
 ## <a name="scalable-performance-and-pools"></a>Prestazioni e pool scalabili
 
-- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. Il database SQL offre risorse di calcolo, memoria e archiviazione diverse a seconda delle esigenze e la possibilità di [ridimensionare le risorse dei database singoli](sql-database-single-database-scale.md) aumentando e riducendo le prestazioni in modo dinamico. Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) (anteprima) per il database singolo consente di ridimensionare fino a 100 TB, con funzionalità di backup e ripristino rapidi.
+- I database singoli sono database isolati dagli altri e portatili, ognuno con una quantità garantita di risorse di calcolo, memoria e archiviazione. Il database SQL offre risorse di calcolo, memoria e archiviazione diverse a seconda delle esigenze e la possibilità di [ridimensionare le risorse dei database singoli](sql-database-single-database-scale.md) aumentando e riducendo le prestazioni in modo dinamico. Il [livello di servizio con iperscalabilità](sql-database-service-tier-hyperscale.md) (anteprima) per il database singolo consente di ridimensionare fino a 100 TB, con funzionalità di backup e ripristino rapidi.
 - Con i pool elastici, è possibile creare nuovi database o spostare i database singoli in un pool di risorse per ottimizzare l'uso delle risorse, risparmiare denaro e avere la possibilità di [ridimensionare le risorse dei pool elastici](sql-database-elastic-pool-scale.md) aumentando e riducendo le prestazioni in modo dinamico.
 - Con le istanze gestite, ogni istanza è isolata dalle altre con risorse garantite. In un'istanza gestita i database dell'istanza condividono un set di risorse e la possibilità di [ridimensionare le risorse dell'istanza gestita](sql-database-managed-instance-resource-limits.md) aumentando e riducendo le prestazioni in modo dinamico.
 
@@ -70,7 +70,7 @@ Il database SQL offre due modelli di acquisto:
 - Il [modello di acquisto basato su vCore](sql-database-service-tiers-vcore.md) consente di scegliere il numero di vCore, la quantità di memoria e la quantità e la velocità della risorsa di archiviazione. Il modello di acquisto basato su vCore offre inoltre la possibilità di usare [Vantaggio Azure Hybrid per SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) per un risparmio in termini di costi. Per altre informazioni su Vantaggio Azure Hybrid, vedere le [domande frequenti](#sql-database-frequently-asked-questions-faq).
 
   > [!IMPORTANT]
-  > Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) per database singoli è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database Hyperscale. Non è possibile aggiornare un database Hyperscale ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio Hyperscale.
+  > Il [livello di servizio Hyperscale](sql-database-service-tier-hyperscale.md) per database singoli è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
 
 ### <a name="elastic-pools-to-maximize-resource-utilization"></a>I pool elastici ottimizzano l'utilizzo delle risorse
 
@@ -95,13 +95,21 @@ Si usano gli strumenti [predefinite di monitoraggio delle prestazioni](sql-datab
 
 - **Archiviazione di Azure**: per l'archiviazione di enormi quantità di dati di telemetria a un costo conveniente
 - **Hub eventi di Azure**: per l'integrazione dei dati di telemetria di database SQL con soluzioni di monitoraggio personalizzate o pipeline attive
-- **Azure Log Analytics**: per usare una soluzione di monitoraggio incorporata con funzionalità di report, avviso e mitigazione.
+- **Log di Monitoraggio di Azure**: per usare una soluzione di monitoraggio incorporata con funzionalità di report, avviso e mitigazione.
 
     ![architettura](./media/sql-database-metrics-diag-logging/architecture.png)
 
 ## <a name="availability-capabilities"></a>Funzionalità per la disponibilità
 
-Il settore di Azure che ha una accordo sul livello di disponibilità del servizio del 99,99% [(SLA)](https://azure.microsoft.com/support/legal/sla/), fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'applicazione in esecuzione 24 ore su 24, 7 giorni su 7. La piattaforma Azure gestisce completamente ogni database e garantisce l'assenza di perdita di dati e una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori hardware, software o di rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. La disponibilità standard viene ottenuta separando i livelli di calcolo e archiviazione. La disponibilità Premium viene ottenuta integrando le risorse di calcolo e archiviazione in un singolo nodo per le prestazioni e quindi implementando una tecnologia simile ai gruppi di disponibilità AlwaysOn a livello sottostante. Per una descrizione completa delle funzionalità a disponibilità elevata del database SQL di Azure, vedere la [disponibilità del database SQL](sql-database-high-availability.md). Il database SQL offre anche funzionalità di [continuità aziendale e scalabilità globale](sql-database-business-continuity.md) incorporate, tra le quali:
+In un ambiente di SQL Server tradizionali, sarebbe necessario in genere (almeno) 2 macchine impostate localmente con esatte (in modo sincrono gestite) copie dei dati (con funzionalità quali gruppi di disponibilità AlwaysOn o istanze del Cluster di Failover) per la protezione da un Errore di un computer o singolo componente.  Ciò garantisce la disponibilità elevata ma non offre protezione contro un disastro naturale eliminazione definitiva del data center.
+ 
+Ripristino di emergenza si presuppone che un evento catastrofico saranno geograficamente localizzati sufficiente avere un altro computer o un set di macchine con una copia dei dati a portata di mano.  In SQL Server, è possibile usare gruppi di disponibilità AlwaysOn in esecuzione in modalità asincrona per ottenere questa funzionalità.  La velocità della luce problemi in genere significa che gli utenti non si desidera attendere che la replica che a portata di mano prima del commit di una transazione, pertanto è possibile che la perdita di dati quando si esegue l'operazione di failover non pianificati.
+
+I database nel servizio critico di business e premium piani già [eseguire un'operazione molto simile](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) per la sincronizzazione di un gruppo di disponibilità. I database nei livelli di servizio inferiore offrono ridondanza tramite archiviazione con un [meccanismo diversi ma equivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). È disponibile per la logica che protegge da errori un singolo computer.  La funzionalità di replica geografica attiva offre la possibilità di proteggersi da emergenza in cui viene eliminato definitivamente un'intera area.
+
+Le zone di disponibilità di Azure è riprodurre il problema di disponibilità elevata.  Tenta di evitare l'interruzione del servizio di compilazione all'interno di una singola area di un singolo data center.  Pertanto, desidera proteggersi contro la perdita dell'alimentazione o di rete a una compilazione. In SQL Azure, questo metodo funziona inserendo le diverse repliche in diverse zone di disponibilità (differenti edifici, in modo efficace) e l'utilizzo in caso contrario, come indicato in precedenza. 
+
+In effetti, contratto di servizio disponibilità al 99,99% leader di Azure del settore [(SLA)](https://azure.microsoft.com/support/legal/sla/), fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'app in esecuzione 24 e 7 giorni. La piattaforma Azure gestisce completamente ogni database e garantisce l'assenza di perdita di dati e una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori hardware, software o di rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. La disponibilità standard viene ottenuta separando i livelli di calcolo e archiviazione. La disponibilità Premium viene ottenuta integrando le risorse di calcolo e archiviazione in un singolo nodo per le prestazioni e quindi implementando una tecnologia simile ai gruppi di disponibilità AlwaysOn a livello sottostante. Per una descrizione completa delle funzionalità a disponibilità elevata del database SQL di Azure, vedere la [disponibilità del database SQL](sql-database-high-availability.md). Il database SQL offre anche funzionalità di [continuità aziendale e scalabilità globale](sql-database-business-continuity.md) incorporate, tra le quali:
 
 - **[Backup automatici](sql-database-automated-backups.md)**:
 
@@ -141,11 +149,14 @@ Nel [database SQL sono disponibili](sql-database-automatic-tuning.md) due contes
 
 ### <a name="adaptive-query-processing"></a>Elaborazione di query adattiva
 
-Al database SQL è stato aggiunto anche il gruppo di funzionalità di [elaborazione di query adattiva](/sql/relational-databases/performance/adaptive-query-processing), inclusi l'esecuzione interleaved per le funzioni con valori di tabella con più istruzioni, i commenti della concessione di memoria in modalità batch e i join adattivi in modalità batch. Ognuna di queste funzionalità di elaborazione di query adattiva applica tecniche di "apprendimento e adattamento" simili e consente di agevolare ulteriormente la risoluzione dei problemi di prestazioni correlati a problemi di ottimizzazione delle query storicamente difficili da gestire.
+Al database SQL è stato aggiunto anche il gruppo di funzionalità di [elaborazione di query adattiva](/sql/relational-databases/performance/intelligent-query-processing), inclusi l'esecuzione interleaved per le funzioni con valori di tabella con più istruzioni, i commenti della concessione di memoria in modalità batch e i join adattivi in modalità batch. Ognuna di queste funzionalità di elaborazione di query adattiva applica tecniche di "apprendimento e adattamento" simili e consente di agevolare ulteriormente la risoluzione dei problemi di prestazioni correlati a problemi di ottimizzazione delle query storicamente difficili da gestire.
 
 ## <a name="advanced-security-and-compliance"></a>Sicurezza e conformità avanzate
 
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
+
+> [!IMPORTANT]
+> Database SQL di Azure (tutte le opzioni di distribuzione), ha ottenuto la certificazione per numerosi standard di conformità. Per ulteriori informazioni, vedere il [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [certificazioni di conformità del database SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
@@ -234,7 +245,7 @@ I clienti di database SQL possono beneficiare dei diritti seguenti associati al 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Comunicare con il team di progettazione di SQL Server
 
 - [DBA Stack Exchange](https://dba.stackexchange.com/questions/tagged/sql-server): per domande relative all'amministrazione dei database
-- [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-server): per domande relative allo sviluppo
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/sql-server): per domande relative allo sviluppo
 - [Forum MSDN](https://social.msdn.microsoft.com/Forums/home?category=sqlserver): per domande tecniche
 - [Commenti e suggerimenti](https://aka.ms/sqlfeedback): per segnalare bug e richiedere funzionalità
 - [Reddit](https://www.reddit.com/r/SQLServer/): per comunicazioni su SQL Server

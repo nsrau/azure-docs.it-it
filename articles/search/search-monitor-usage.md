@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 14f1a92f701eaedd98b825316ebf213f7c144920
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d7084a42f64234cff4e5e2742ed3d27a3fd00e1e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56959460"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652298"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Monitorare l'utilizzo delle risorse e l'attività di query in ricerca di Azure
 
@@ -98,7 +98,7 @@ La registrazione viene abilitata dopo il salvataggio del profilo. I contenitori 
 
 È richiesta un'ora prima che i contenitori vengano visualizzati nell'archivio BLOB. È presente un BLOB ogni ora per ciascun contenitore. 
 
-È possibile usare [Visual Studio Code](#Download-and-open-in-Visual-Studio-Code) o un altro editor JSON per visualizzare i file. 
+È possibile usare [Visual Studio Code](#download-and-open-in-visual-studio-code) o un altro editor JSON per visualizzare i file. 
 
 ### <a name="example-path"></a>Percorso di esempio
 

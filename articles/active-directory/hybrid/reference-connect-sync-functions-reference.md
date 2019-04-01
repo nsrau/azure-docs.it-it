@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1a40399ab0e27be5ba9dd01f2647bd5b8ccf10e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b33e993dbddc9c1567a1a6f7d3dca28af240a000
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202507"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650666"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -51,19 +51,20 @@ I tipi vengono espressi con la sintassi seguente:
 Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con gli attributi multivalore. Le funzioni con **bin**, **str** e **ref** operano con gli attributi a valore singolo e multivalore.
 
 ## <a name="functions-reference"></a>Riferimento alle funzioni
+
 | Elenco di funzioni |  |  |  |  |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Certificate** | | | | |
 | [CertExtensionOids](#certextensionoids) |[CertFormat](#certformat) |[CertFriendlyName](#certfriendlyname) |[CertHashString](#certhashstring) | |
 | [CertIssuer](#certissuer) |[CertIssuerDN](#certissuerdn) |[CertIssuerOid](#certissueroid) |[CertKeyAlgorithm](#certkeyalgorithm) | |
 | [CertKeyAlgorithmParams](#certkeyalgorithmparams) |[CertNameInfo](#certnameinfo) |[CertNotAfter](#certnotafter) |[CertNotBefore](#certnotbefore) | |
 | [CertPublicKeyOid](#certpublickeyoid) |[CertPublicKeyParametersOid](#certpublickeyparametersoid) |[CertSerialNumber](#certserialnumber) |[CertSignatureAlgorithmOid](#certsignaturealgorithmoid) | |
 | [CertSubject](#certsubject) |[CertSubjectNameDN](#certsubjectnamedn) |[CertSubjectNameOid](#certsubjectnameoid) |[CertThumbprint](#certthumbprint) | |
-[ CertVersion](#certversion) |[IsCert](#iscert) | | | |
+[CertVersion](#certversion) |[IsCert](#iscert) | | | |
 | **Conversione** | | | | |
 | [CBool](#cbool) |[CDate](#cdate) |[CGuid](#cguid) |[ConvertFromBase64](#convertfrombase64) | |
 | [ConvertToBase64](#converttobase64) |[ConvertFromUTF8Hex](#convertfromutf8hex) |[ConvertToUTF8Hex](#converttoutf8hex) |[CNum](#cnum) | |
-| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#StringFromGuid) |[StringFromSid](#stringfromsid) | |
+| [CRef](#cref) |[CStr](#cstr) |[StringFromGuid](#stringfromguid) |[StringFromSid](#stringfromsid) | |
 | **Data/Ora** | | | | |
 | [DateAdd](#dateadd) |[DateFromNum](#datefromnum) |[FormatDateTime](#formatdatetime) |[Now](#now) | |
 | [NumFromDate](#numfromdate) | | | | |

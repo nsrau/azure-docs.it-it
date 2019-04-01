@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: monhaber
-ms.openlocfilehash: 276b2815b36f05aa49183681b6c9e622155938e9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 79faab0dcf2dd4c5592fe0543fa63f2538facf36
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401142"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664013"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Domande frequenti sul Centro sicurezza di Azure
 Queste FAQ rispondono alle domande sul Centro sicurezza di Azure, un servizio che consente di prevenire, rilevare e rispondere alle minacce con visibilità e controllo maggiori sulla sicurezza delle risorse di Microsoft Azure.
@@ -43,6 +43,9 @@ Il Centro sicurezza è disponibile in due livelli:
 Il **livello gratuito** permette di conoscere lo stato di protezione delle risorse di Azure, i criteri di sicurezza di base, i consigli sulla sicurezza e l'aspetto di integrazione con i prodotti e i servizi dei partner.
 
 Il **livello standard** aggiunge funzionalità avanzate per il rilevamento delle minacce, tra cui intelligence per le minacce, analisi del comportamento, rilevamento delle anomalie, eventi imprevisti per la sicurezza e report di valutazione delle minacce. È possibile avviare una versione di valutazione gratuita di livello Standard. Per eseguire l'aggiornamento, selezionare il [piano tariffario](https://docs.microsoft.com/azure/security-center/security-center-pricing) nei criteri di sicurezza. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/).
+
+### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>Come è possibile tenere traccia sugli utenti dell'organizzazione eseguite modifiche al piano tariffario nel Centro sicurezza di Azure
+Quando una sottoscrizione di Azure può avere più amministratori con autorizzazioni per modificare il piano tariffario, un utente potrebbe voler sapere chi ha eseguito la modifica del piano tariffario. Per usarlo, è possibile usare i Log attività di Azure. Vedere altre istruzioni [qui](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)
 
 ## <a name="permissions"></a>Autorizzazioni
 Il Centro sicurezza di Azure usa il [controllo degli accessi in base al ruolo](../role-based-access-control/role-assignments-portal.md), con [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure.
@@ -116,22 +119,22 @@ Per selezionare l'area di lavoro di Log Analytics esistente:
    - Selezionare **Annulla** per annullare l'operazione.
 
 ### Cosa accade se Microsoft Monitoring Agent è stato già installata come estensione nella macchina virtuale?<a name="mmaextensioninstalled"></a>
-Quando l'agente di monitoraggio viene installato come un'estensione, la configurazione dell'estensione consente di segnalare a una singola area di lavoro. Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Centro sicurezza verranno archiviati i dati di sicurezza da una macchina virtuale in un'area di lavoro è già connessa, condizione che la "sicurezza" o "securityFree" soluzione installato su di esso. Il Centro sicurezza può aggiornare la versione dell'estensione alla versione più recente di questo processo.
+Quando l'agente di monitoraggio viene installato come un'estensione, la configurazione dell'estensione consente di segnalare a una singola area di lavoro. Il Centro sicurezza non esegue l'override delle connessioni esistenti alle aree di lavoro degli utenti. Il Centro sicurezza archivia i dati di sicurezza da una macchina virtuale in un'area di lavoro è già connessa, condizione che la soluzione "Sicurezza" o "SecurityCenterFree" è stata installata. Il Centro sicurezza può aggiornare la versione dell'estensione alla versione più recente di questo processo.
 
 Per altre informazioni, vedere [provisioning automatico in caso di installazione di un agente preesistenti](security-center-enable-data-collection.md#preexisting).
 
 
-### Cosa accade se Microsoft Monitoring Agent installati direttamente nel computer, ma non come estensione (agente diretto)?<a name="directagentinstalled"></a>
+### Cosa accade se Microsoft Monitoring Agent è installato direttamente nel computer, ma non come estensione (agente diretto)?<a name="directagentinstalled"></a>
 Se Microsoft Monitoring Agent è installata direttamente nella macchina virtuale (non come estensione di Azure), il Centro sicurezza installerà l'estensione Microsoft Monitoring Agent e può eseguire l'aggiornamento di Microsoft Monitoring agent alla versione più recente.
 L'agente installato continuerà a segnalare per le aree di lavoro già configurati e indicherà inoltre all'area di lavoro configurata nel Centro sicurezza (multihosting è supportata).
-Se l'area di lavoro configurata è un'area di lavoro utente (non del Centro sicurezza predefinita dell'area di lavoro), è necessario installare la "protezione / soluzione"securityFree"su di esso per il Centro sicurezza avviare l'elaborazione eventi da macchine virtuali e computer di creazione di report all'area di lavoro.
+Se l'area di lavoro configurata è un'area di lavoro utente (non del Centro sicurezza predefinita dell'area di lavoro), è necessario installare la "protezione / soluzione"SecurityCenterFree"su di esso per il Centro sicurezza avviare l'elaborazione eventi delle macchine virtuali e dei computer reporting a quella area di lavoro.
 
 Per le macchine esistenti su onboarding di sottoscrizioni al Centro sicurezza prima 2019-03-17, quando viene rilevato un agente esistente, non verrà installata l'estensione Microsoft Monitoring Agent e il computer non sarà interessato. Per questi computer, vedere la raccomandazione "Risolvi problemi di integrità dell'agente nei computer di monitoraggio" per risolvere i problemi di installazione dell'agente in questi computer
 
  Per altre informazioni, vedere la sezione successiva [Cosa accade se un agente diretto OMS o SCOM è già installato nella macchina virtuale?](#scomomsinstalled).
 
-### Cosa accade se un agente SCOM è già installato nella macchina virtuale?<a name="scomomsinstalled"></a>
-Il Centro sicurezza verrà installato il Microsoft Monitoring Agent estensione side-by-side a SCOM esistente. L'agente SCOM esistente continuerà a segnalare al server SCOM normalmente. Si noti che l'agente SCOM e Microsoft Monitoring Agent condividono comuni librerie run-time, che verranno aggiornate alla versione più recente durante questo processo.
+### Cosa accade se un agente di System Center Operations Manager (SCOM) è già installato nella macchina virtuale?<a name="scomomsinstalled"></a>
+Il Centro sicurezza verrà installato il Microsoft Monitoring Agent estensione side-by-side per l'agente di System Center Operations Manager esistente. L'agente SCOM esistente continuerà a segnalare al server di System Center Operations Manager normalmente. Si noti che l'agente di System Center Operations Manager e Microsoft Monitoring Agent condividere comuni librerie run-time, che verranno aggiornate alla versione più recente durante questo processo. Si noti che se System Center Operations Manager è installata la versione dell'agente 2012, non abilitare il provisioning in automatico (funzionalità di gestibilità potrebbero andare perse se il server di System Center Operations Manager è anche versione 2012).
 
 ### <a name="what-is-the-impact-of-removing-these-extensions"></a>Qual è l'impatto della rimozione delle estensioni?
 Se si rimuove l'estensione Microsoft Monitoring, il Centro sicurezza non potrà raccogliere i dati di sicurezza dalla VM e alcune raccomandazioni e alcuni avvisi di sicurezza non saranno disponibili. Entro 24 ore il Centro sicurezza determina che nella VM non è presente l'estensione e la reinstalla.
@@ -156,7 +159,7 @@ Se si rimuove l'estensione Microsoft Monitoring, il Centro sicurezza non potrà 
 È possibile rifiutare esplicitamente il provisioning automatico se si applicano le condizioni seguenti:
 
 - L'installazione automatica dell'agente da parte del Centro sicurezza si applica all'intera sottoscrizione.  Non è possibile applicare l'installazione automatica a un sottoinsieme di macchine virtuali. Se sono presenti macchine virtuali critiche in cui Microsoft Monitoring Agent non può essere installato, sarà necessario rifiutare esplicitamente il provisioning automatico.
-- L'installazione dell'estensione Microsoft Monitoring Agent aggiorna la versione dell'agente. Questa condizione si applica a un agente diretto e a un agente SCOM. Se la versione dell'agente SCOM installato è la 2012 e l'agente viene aggiornato, le capacità di gestibilità potrebbero andare perse se anche la versione del server SCOM è la 2012. È consigliabile prendere in considerazione di rifiutare esplicitamente il provisioning automatico se la versione dell'agente SCOM installato è la 2012.
+- Installazione dell'estensione Microsoft Monitoring Agent (MMA) aggiorna la versione dell'agente. Questo vale per un agente diretto e un agente SCOM (in quest'ultimo di SCOM e MMA condividono comuni librerie di runtime - che verranno aggiornate nel processo). Se la versione dell'agente SCOM installato è la 2012 e l'agente viene aggiornato, le capacità di gestibilità potrebbero andare perse se anche la versione del server SCOM è la 2012. È consigliabile prendere in considerazione di rifiutare esplicitamente il provisioning automatico se la versione dell'agente SCOM installato è la 2012.
 - Se si dispone di un'area di lavoro personalizzata esterna alla sottoscrizione (un'area di lavoro centralizzata), è consigliabile rifiutare esplicitamente il provisioning automatico. È possibile installare manualmente l'estensione Microsoft Monitoring Agent e connetterla all'area di lavoro senza che il Centro sicurezza esegua l'override della connessione.
 - Se si vuole evitare di creare più aree di lavoro per sottoscrizione e si dispone di un'area di lavoro personalizzata all'interno della sottoscrizione, sono disponibili due opzioni:
 
@@ -224,9 +227,9 @@ I dati raccolti dall'agente vengono archiviati in un'area di lavoro di Log Analy
 ## I clienti di log di monitoraggio di Azure esistente<a name="existingloganalyticscust"></a>
 
 ### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Il Centro sicurezza esegue l'override di eventuali connessioni esistenti tra le macchine virtuali e le aree di lavoro?
-Se in una VM è già installato Microsoft Monitoring Agent come estensione di Azure, il Centro sicurezza non esegue l'override della connessione all'area di lavoro esistente. Il Centro sicurezza usa l'area di lavoro esistente.
+Se in una VM è già installato Microsoft Monitoring Agent come estensione di Azure, il Centro sicurezza non esegue l'override della connessione all'area di lavoro esistente. Il Centro sicurezza usa l'area di lavoro esistente. La macchina virtuale verrà protetti condizione che la soluzione "Sicurezza" o "SecurityCenterFree" è stata installata in area di lavoro che fa riferimento a. 
 
-Una soluzione del Centro sicurezza viene installata nell'area di lavoro, se non è già presente, e la soluzione viene applicata solo alle VM rilevanti. Quando viene aggiunta, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) consente di applicare un ambito alle soluzioni.
+Una soluzione del Centro sicurezza viene installata nell'area di lavoro selezionato nella schermata di raccolta dati se non già presente, e la soluzione viene applicata solo alle VM rilevanti. Quando viene aggiunta, la soluzione viene automaticamente distribuita per impostazione predefinita a tutti gli agenti di Windows e Linux connessi all'area di lavoro di Log Analytics. Il [targeting della soluzione](../operations-management-suite/operations-management-suite-solution-targeting.md) consente di applicare un ambito alle soluzioni.
 
 Se Microsoft Monitoring Agent è installato direttamente sulla macchina virtuale, non come estensione di Azure, il Centro sicurezza non lo installerà e il monitoraggio della sicurezza sarà limitato.
 

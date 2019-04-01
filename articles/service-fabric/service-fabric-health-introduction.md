@@ -4,7 +4,7 @@ description: Introduzione al modello di monitoraggio dell'integrità di Azure Se
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 1d979210-b1eb-4022-be24-799fd9d8e003
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 87081398e844f1e2b085a7e12c2b7aafce330ec9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d0ef9f34d6b657a063e50b0f144197c41905e809
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193765"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667447"
 ---
 # <a name="introduction-to-service-fabric-health-monitoring"></a>Introduzione al monitoraggio dell'integrità di Service Fabric
 Con Azure Service Fabric è stato introdotto un modello di integrità che offre funzionalità di valutazione e reporting dell'integrità dettagliate, flessibili ed estendibili. Il modello include il monitoraggio quasi in tempo reale dello stato del cluster e dei servizi in esso eseguiti. Questo consente di ottenere facilmente informazioni relative all'integrità e correggere i potenziali problemi prima che si propaghino a catena e causino un numero elevato di interruzioni. Nel modello tipico i servizi inviano report basati sulla situazione locale e le informazioni vengono aggregate per fornire una panoramica generale a livello di cluster.

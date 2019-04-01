@@ -4,7 +4,7 @@ description: Panoramica concettuale per la migrazione di applicazioni da Servizi
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669453"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Informazioni sulle differenze tra Servizi cloud e Service Fabric che è opportuno conoscere prima di procedere alla migrazione di applicazioni.
 Microsoft Azure Service Fabric è la piattaforma di applicazioni cloud di nuova generazione per applicazioni distribuite con livelli di scalabilità e affidabilità elevati. Introduce molte nuove funzionalità per la creazione di pacchetti, la distribuzione, l'aggiornamento e la gestione di applicazioni cloud distribuite. 
@@ -29,11 +29,11 @@ Questa è una guida introduttiva alla migrazione di applicazioni da Servizi clou
 ## <a name="applications-and-infrastructure"></a>Applicazioni e infrastruttura
 Una differenza fondamentale tra Servizi cloud e Service Fabric è la relazione tra macchine virtuali, carichi di lavoro e applicazioni. Per carico di lavoro in questo caso si intente il codice scritto dall'utente per eseguire un'attività specifica o fornire un servizio.
 
-* **Servizi cloud viene usato per la distribuzione di applicazioni come macchine virtuali.** Il codice scritto dall'utente è strettamente accoppiato a un'istanza di macchina virtuale, ad esempio un ruolo di lavoro o Web. Per distribuire un carico di lavoro in Servizi Cloud, distribuire una o più istanze di VM che eseguono il carico di lavoro. Non essendoci una separazione tra applicazioni e VM, non esiste una definizione formale di applicazione. Un'applicazione può essere considerata come un set di istanze del ruolo di lavoro o Web all'interno di una distribuzione di Servizi cloud o come un'intera distribuzione di Servizi cloud. In questo esempio un'applicazione viene illustrata come un set di istanze del ruolo.
+* **Servizi cloud viene usato per la distribuzione di applicazioni come macchine virtuali.**  Il codice scritto dall'utente è strettamente accoppiato a un'istanza di macchina virtuale, ad esempio un ruolo di lavoro o Web. Per distribuire un carico di lavoro in Servizi Cloud, distribuire una o più istanze di VM che eseguono il carico di lavoro. Non essendoci una separazione tra applicazioni e VM, non esiste una definizione formale di applicazione. Un'applicazione può essere considerata come un set di istanze del ruolo di lavoro o Web all'interno di una distribuzione di Servizi cloud o come un'intera distribuzione di Servizi cloud. In questo esempio un'applicazione viene illustrata come un set di istanze del ruolo.
 
 ![Applicazioni e topologia di Servizi cloud][1]
 
-* **Service Fabric viene usato per la distribuzione di applicazioni in macchine virtuali esistenti o nei computer che eseguono Service Fabric in Windows o Linux.** I servizi scritti dall'utente sono completamente disaccoppiati dall'infrastruttura sottostante, che è astratta dalla piattaforma di applicazioni di Service Fabric, consentendo la distribuzione di un'applicazione in più ambienti. Un carico di lavoro in Service Fabric è detto "servizio" e uno o più servizi sono raggruppati in un'applicazione definita formalmente che viene eseguita sulla piattaforma di applicazioni di Service Fabric. Più applicazioni possono essere distribuite in un singolo cluster di Service Fabric.
+* **Service Fabric viene usato per la distribuzione di applicazioni in macchine virtuali esistenti o nei computer che eseguono Service Fabric in Windows o Linux.**  I servizi scritti dall'utente sono completamente disaccoppiati dall'infrastruttura sottostante, che è astratta dalla piattaforma di applicazioni di Service Fabric, consentendo la distribuzione di un'applicazione in più ambienti. Un carico di lavoro in Service Fabric è detto "servizio" e uno o più servizi sono raggruppati in un'applicazione definita formalmente che viene eseguita sulla piattaforma di applicazioni di Service Fabric. Più applicazioni possono essere distribuite in un singolo cluster di Service Fabric.
 
 ![Applicazioni e topologia di Service Fabric][2]
 
@@ -73,7 +73,7 @@ Con la comunicazione diretta i livelli possono comunicare direttamente tramite l
 
  La comunicazione diretta è un modello di comunicazione comune in Service Fabric. La differenza principale tra Service Fabric e Servizi cloud è che in Servizi cloud ci si connette a una macchina virtuale, mentre in Service Fabric ci si connette a un servizio. Questa è una distinzione importante per due motivi:
 
-* I servizi di Service Fabric non sono associati alle macchine virtuali che li ospitano. I servizi possono spostarsi all'interno del cluster e, in effetti, è previsto che si spostino per vari motivi, ovvero per bilanciamento delle risorse, failover, aggiornamenti di applicazioni e infrastruttura e vincoli di bilanciamento di carico o selezione. Ciò significa che l'indirizzo di un'istanza del servizio può cambiare in qualsiasi momento. 
+* Servizi di Service Fabric non sono associati alle macchine virtuali che ospitano. i servizi possono spostarsi all'interno del cluster, mentre in realtà, verranno inseriti spostino per vari motivi: Bilanciamento delle risorse, failover, gli aggiornamenti dell'applicazione e l'infrastruttura e vincoli di posizionamento o di carico. Ciò significa che l'indirizzo di un'istanza del servizio può cambiare in qualsiasi momento. 
 * Una macchina virtuale in Service Fabric può ospitare più servizi, ognuno con un endpoint univoco.
 
 Service Fabric fornisce un meccanismo di individuazione del servizio, detto Naming Service, che può essere usato per risolvere gli indirizzi degli endpoint dei servizi. 
@@ -89,7 +89,7 @@ Lo stesso modello di comunicazione può essere usato in Service Fabric. Può ess
 
 ![Comunicazione diretta di Service Fabric][8]
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 Il percorso di migrazione più semplice da Servizi cloud a Service Fabric consiste nel sostituire solo la distribuzione di Servizi cloud con un'applicazione di Service Fabric, conservando approssimativamente la stessa l'architettura complessiva. L'articolo seguente fornisce una guida per convertire un ruolo di lavoro o Web in un servizio di Service Fabric senza stato.
 
 * [Migrazione semplice: convertire un ruolo di lavoro o Web a un servizio di Service Fabric senza stato](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
