@@ -8,40 +8,37 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: andrl
 ms.custom: seodec18
-ms.openlocfilehash: f122d60a4f4df011a0adbe7806e70ae173222641
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295097"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762583"
 ---
-# <a name="modeling-document-data-for-nosql-databases"></a>Modellazione dei dati di un documento per un database NoSQL
+# <a name="data-modeling-in-azure-cosmos-db"></a>Modellazione dei dati in Azure Cosmos DB
 
-Anche se con i database privi di schema, come Azure Cosmos DB, è facilissimo accettare le modifiche apportate al modello di dati, è consigliabile valutare bene tutto ciò che riguarda i dati.
+Anche se i database privi di schema, come Azure Cosmos DB, è estremamente facile archiviare ed eseguire query sui dati strutturati e semi-strutturati, è consigliabile dedicare alcuni evoluzioni ora il modello di dati per ottenere il massimo del servizio in termini di prestazioni e scalabilità e più basso costo.
 
-Come verranno archiviati i dati? In che modo l'applicazione recupererà i dati e ne eseguirà la query? L'applicazione esegue un'intensa attività di lettura o un'intensa attività di scrittura?
+Come verranno archiviati i dati? In che modo l'applicazione recupererà i dati e ne eseguirà la query? È l'applicazione con intensa attività di lettura o scrittura-con intensa attività?
 
 Dopo la lettura di questo articolo, si potrà rispondere alle domande seguenti:
 
-* Come si deve considerare un documento in un database di documenti?
 * Cos'è la modellazione dei dati e perché è importante?
-* Come si distingue la modellazione dei dati in un database di documenti da quella in un database relazionale?
+* Come è diverso rispetto a un database relazionale di modellazione dei dati in Azure Cosmos DB?
 * Come si esprimono le relazioni tra i dati in un database non relazionale?
 * Quando si incorporano i dati e quando si creano i collegamenti ai dati?
 
 ## <a name="embedding-data"></a>Incorporamento dei dati
 
-Quando si inizia a modellare i dati in un archivio documenti, ad esempio Cosmos DB, cercare di considerare le entità come **documenti autosufficienti** rappresentati in JSON.
+Quando si inizia a modellare i dati in Azure Cosmos DB cercare di considerare le entità come **self-contained elementi** rappresentate da documenti JSON.
 
-Prima di proseguire, è consigliabile fare un passo indietro e vedere come eseguire una modellazione in un database relazionale, un argomento con cui molti hanno già familiarità. L'esempio seguente mostra come una persona possa essere archiviata in un database relazionale.
+Per il confronto, prima vediamo come è possibile modellare i dati in un database relazionale. L'esempio seguente mostra come una persona possa essere archiviata in un database relazionale.
 
 ![Database relazionale](./media/sql-api-modeling-data/relational-data-model.png)
 
-Quando si lavora con i database relazionali, tutti hanno imparato ormai da anni a normalizzare, normalizzare, normalizzare.
+Quando si lavora con i database relazionali, la strategia consiste nel normalizzare tutti i dati. Normalizzazione dei dati in genere prende un'entità, ad esempio una persona e suddividendola in componenti discreti. Nell'esempio precedente, una persona può avere più record di dettagli contatto, oltre a più record di indirizzo. I dettagli dei contatti possono essere ulteriormente suddivisi estraendo comuni campi, ad esempio un tipo. Lo stesso vale per indirizzo, ogni record può essere di tipo *casa* oppure *Business*.
 
-La normalizzazione dei dati implica di solito la suddivisione di un'entità, ad esempio una persona, in porzioni di dati discrete. Nell'esempio precedente, una persona può avere più record di dettagli contatto e più record di indirizzi. È possibile andare oltre e suddividere i dettagli contatto estraendo anche i campi comuni come tipo. Stesso indirizzo, ogni record qui ha un tipo, ad esempio *casa* oppure *Business*.
-
-Il presupposto principale quando si normalizzano i dati è **evitare di archiviare i dati ridondanti** in ogni record e fare invece riferimento ai dati. In questo esempio, per leggere una persona, con tutti i dettagli contatto e gli indirizzi, è necessario usare i JOIN per aggregare in modo efficace i dati in fase di esecuzione.
+Il presupposto principale quando si normalizzano i dati è **evitare di archiviare i dati ridondanti** in ogni record e fare invece riferimento ai dati. In questo esempio, per leggere una persona, con tutti i dettagli di contatto e indirizzi, è necessario usare join in modo efficace comporre nuovamente (o denormalizzazione) i dati in fase di esecuzione.
 
     SELECT p.FirstName, p.LastName, a.City, cd.Detail
     FROM Person p
@@ -51,7 +48,7 @@ Il presupposto principale quando si normalizzano i dati è **evitare di archivia
 
 Per aggiornare una singola persona con i dettagli contatto e gli indirizzi, è necessario eseguire operazioni di scrittura in più tabelle.
 
-Ora si esaminerà come si modellano gli stessi dati come entità autosufficiente in un database di documenti.
+Ora diamo un'occhiata a come si modellano gli stessi dati come entità autosufficiente in Azure Cosmos DB.
 
     {
         "id": "1",
@@ -72,10 +69,10 @@ Ora si esaminerà come si modellano gli stessi dati come entità autosufficiente
         ]
     }
 
-Con questo approccio si è ora **denormalizzato** il record della persona, in cui sono state **incorporate** tutte le informazioni relative alla persona, ad esempio i dati di contatto e gli indirizzi, in un singolo documento JSON.
+Usa l'approccio sopra è dispone **denormalizzati** il record della persona, da **incorporamento** tutte le informazioni correlate a questa persona, ad esempio i dettagli di contatto e gli indirizzi, in un *singolo JSON* documento.
 Inoltre, dal momento che non esistono limiti imposti da uno schema fisso, abbiamo la flessibilità necessaria, ad esempio, per avere dettagli contatto di forme completamente diverse.
 
-Il recupero del record completo di una persona dal database richiede ora una sola operazione di lettura in una sola raccolta e per un solo documento. Anche l'aggiornamento del record di una persona, con i dettagli contatto e gli indirizzi, richiede una sola operazione di scrittura in un solo documento.
+Il recupero di un record completo persona dal database è ora un **singola operazione di lettura** su un singolo contenitore e per un singolo elemento. L'aggiornamento di record di una persona, con i dettagli di contatto e gli indirizzi, è anche un **singola operazione di scrittura** rispetto a un singolo elemento.
 
 Denormalizzando i dati, è possibile che l'applicazione debba eseguire meno query e aggiornamenti per completare le comuni operazioni.
 
@@ -86,15 +83,15 @@ In generale, usare i modelli di dati incorporati quando:
 * Esistono **contenuti** le relazioni tra entità.
 * Esistono relazioni **one-to-few** tra le entità.
 * Esistono dati incorporati che **cambiano raramente**.
-* Esistono dati incorporati che non aumenteranno **senza limiti**.
-* Esistono dati incorporati che sono parte **integrante** dei dati in un documento.
+* Non ci sono dati incorporati che non aumenteranno **senza associazione**.
+* Non ci sono dati incorporati che è **sottoposti a query frequentemente insieme**.
 
 > [!NOTE]
 > I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.
 
 ### <a name="when-not-to-embed"></a>Quando non eseguire l'incorporamento
 
-In linea generale in un database di documenti si denormalizza tutto e si incorporano tutti i dati in un solo documento. Questo modo di procedere, tuttavia, può creare situazioni che è consigliabile evitare.
+Anche se la regola generale in Azure Cosmos DB è denormalizzare tutti gli elementi e incorporare tutti i dati in un singolo elemento, questo può causare situazioni che deve essere evitata.
 
 Consideriamo questo frammento JSON.
 
@@ -114,13 +111,13 @@ Consideriamo questo frammento JSON.
         ]
     }
 
-Questo potrebbe essere l'aspetto di un'entità post con commenti incorporati, se si modellasse un tipico sistema di blog, o CMS. Il problema di questo esempio è che la matrice di commenti non è **limitata**, vale a dire che non esiste in pratica un limite al numero di commenti per i singoli post. Questo sarà un problema qualora le dimensioni del documento aumentassero considerevolmente.
+Questo potrebbe essere l'aspetto di un'entità post con commenti incorporati, se si modellasse un tipico sistema di blog, o CMS. Il problema di questo esempio è che la matrice di commenti non è **limitata**, vale a dire che non esiste in pratica un limite al numero di commenti per i singoli post. Questo può diventare un problema perché le dimensioni dell'elemento è stato possibile raggiungere dimensioni all'infinito.
 
-Quando le dimensioni del documento aumentano, diventa più difficile trasmettere i dati nella rete come anche leggere e aggiornare il documento.
+Con la possibilità di trasmettere i dati tramite la rete, nonché leggere e aggiornare l'elemento, in modo scalabile, di aumentare le dimensioni dell'elemento sarà interessata.
 
-In questo caso, è meglio prendere in considerazione il modello seguente.
+In questo caso, sarebbe meglio prendere in considerazione il seguente modello di dati.
 
-    Post document:
+    Post item:
     {
         "id": "1",
         "name": "What's new in the coolest Cloud",
@@ -132,7 +129,7 @@ In questo caso, è meglio prendere in considerazione il modello seguente.
         ]
     }
 
-    Comment documents:
+    Comment items:
     {
         "postId": "1"
         "comments": [
@@ -151,9 +148,9 @@ In questo caso, è meglio prendere in considerazione il modello seguente.
         ]
     }
 
-Questo modello ha i tre commenti più recenti incorporati nel post, che questa volta è una matrice con un limite fisso. Gli altri commenti sono raggruppati in batch di 100 commenti e archiviati in documenti separati. La dimensione scelta per il batch è 100 perché l'applicazione fittizia consente all'utente di caricare 100 commenti per volta.  
+Questo modello include i tre commenti più recenti incorporati nel contenitore post, ovvero una matrice con un set fisso di attributi. Gli altri commenti sono raggruppati in batch di 100 commenti e archiviati come elementi separati. La dimensione scelta per il batch è 100 perché l'applicazione fittizia consente all'utente di caricare 100 commenti per volta.  
 
-Un altro caso in cui non è consigliabile ricorrere all'incorporamento dei dati è quando i dati incorporati vengono usati spesso nei documenti e cambiano spesso.
+Un altro caso in cui incorporare i dati non sono una buona idea è quando i dati incorporati vengono usati spesso nei elementi e cambiano spesso.
 
 Consideriamo questo frammento JSON.
 

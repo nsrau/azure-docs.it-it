@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838018"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805573"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -67,11 +67,11 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Gli artefatti aggiunti al progetto che hanno opzioni dei parametri mostrano l'indicazione **X di Y parametri popolati** nella colonna **Parametri**. Fare clic sulla riga dell'artefatto per modificarne i parametri.
 
-   ![Parametri di progetto](../media/parameters/parameter-column.png)
+   ![Parametri del progetto in una definizione di progetto](../media/parameters/parameter-column.png)
 
 1. La pagina **Modifica artefatto** mostra le opzioni del valore appropriate per l'artefatto selezionato. Ogni parametro dell'artefatto ha un titolo, una casella del valore e una casella di controllo. Deselezionare la casella di controllo per renderlo un **parametro statico**. Nell'esempio seguente, solo _Località_ è un **parametro statico** perché la casella è deselezionata, mentre è selezionata in _Nome gruppo di risorse_.
 
-   ![Parametri di progetto statici](../media/parameters/static-parameter.png)
+   ![Parametri statici del progetto in un elemento di progetto](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Impostazione dei parametri statici dall'API REST
 
@@ -182,7 +182,7 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 1. Nel **Assign blueprint** pagina, trovare il **parametri dell'elemento** sezione. Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
 
-   ![Parametro dinamico del progetto](../media/parameters/dynamic-parameter.png)
+   ![Parametro dinamico del progetto durante l'assegnazione progetto](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Impostazione dei parametri dinamici dall'API REST
 
@@ -241,8 +241,8 @@ Gli artefatti per un gruppo di risorse sono definiti con un nome di modello e le
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri le [ciclo di vita del progetto](lifecycle.md).
-- Informazioni su come personalizzare il [blueprint ordine sequenziazione](sequencing-order.md).
-- Scopri come rendere sfrutta [blueprint blocco delle risorse](resource-locking.md).
-- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md).
-- Risolvere i problemi durante l'assegnazione di un progetto con [risoluzione dei problemi generali](../troubleshoot/general.md).
+- Informazioni sul [ciclo di vita del progetto](lifecycle.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).
+- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

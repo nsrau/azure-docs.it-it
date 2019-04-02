@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: celested
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee35fbfff676e8618a4e5ae02086193c503f482
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bb193119186c2cf9e758f8c74f99f18c5fb389b8
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56170823"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792519"
 ---
 # <a name="create-an-unattended-installation-script-for-the-azure-ad-application-proxy-connector"></a>Creare uno script di installazione automatica per il connettore del proxy di applicazione di Azure AD
 
@@ -34,7 +34,7 @@ Questa funzionalità è utile quando si vuole:
 * Integrare l'installazione e la registrazione del connettore come parte di un'altra procedura.
 * Creare un'immagine server standard che contiene i bit del connettore, ma che non è registrata.
 
-Per il corretto funzionamento del [connettore del proxy di applicazione](application-proxy-connectors.md), è necessario registrarlo nella directory di Azure AD usando un nome utente e una password di amministratore globale. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup, ma in alternativa è possibile usare PowerShell per automatizzare il processo.
+Per il [connettore Proxy di applicazione](application-proxy-connectors.md) per funzionare, deve essere registrato con la directory di Azure AD tramite un amministratore dell'applicazione e una password. Queste informazioni vengono in genere immesse durante l'installazione del connettore in una finestra di dialogo popup, ma in alternativa è possibile usare PowerShell per automatizzare il processo.
 
 Per l'installazione automatica sono previsti due passaggi. In primo luogo, installare il connettore. In secondo luogo, registrare il connettore in Azure AD. 
 

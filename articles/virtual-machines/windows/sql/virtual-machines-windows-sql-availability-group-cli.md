@@ -14,15 +14,15 @@ ms.workload: iaas-sql-server
 ms.date: 02/12/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 8af860293fc332437d67ff4db63d7686be7efff0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 1c5c5f4c8125f801edc89d47851871d8eb06a2f9
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765272"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762872"
 ---
 # <a name="use-azure-sql-vm-cli-to-configure-always-on-availability-group-for-sql-server-on-an-azure-vm"></a>Usare VM di SQL Azure CLI per configurare gruppi di disponibilità AlwaysOn per SQL Server in una VM di Azure
-Questo articolo descrive come usare [macchina virtuale di SQL Azure CLI](https://docs.microsoft.com/mt-mt/cli/azure/ext/sqlvm-preview/sqlvm?view=azure-cli-2018-03-01-hybrid) per distribuire un Cluster di Failover di Windows (WSFC) e aggiungere le macchine virtuali di SQL Server al cluster, nonché per creare il bilanciamento del carico interno e il listener per un gruppo di disponibilità Always On.  La distribuzione effettiva del gruppo di disponibilità Always On viene comunque eseguita manualmente tramite SQL Server Management Studio (SSMS). 
+Questo articolo descrive come usare [macchina virtuale di SQL Azure CLI](/cli/azure/sql/vm?view=azure-cli-latest/) per distribuire un Cluster di Failover di Windows (WSFC) e aggiungere le macchine virtuali di SQL Server al cluster, nonché per creare il bilanciamento del carico interno e il listener per un gruppo di disponibilità Always On.  La distribuzione effettiva del gruppo di disponibilità Always On viene comunque eseguita manualmente tramite SQL Server Management Studio (SSMS). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per automatizzare l'installazione di un gruppo disponibilità Always On tramite CLI della macchina virtuale di Azure SQL, è necessario disporre già i prerequisiti seguenti: 
@@ -42,7 +42,7 @@ Le autorizzazioni di account seguenti sono necessari per configurare il gruppo d
 Il cluster è necessario un account di archiviazione da usare come il cloud di controllo. È possibile usare qualsiasi account di archiviazione esistente oppure è possibile creare un nuovo account di archiviazione. Se si desidera usare un account di archiviazione esistente, passare direttamente alla sezione successiva. 
 
 Il frammento di codice seguente crea l'account di archiviazione: 
-```cli
+```azurecli
 # Create the storage account
 # example: az storage account create -n 'cloudwitness' -g SQLVM-RG -l 'West US' `
 #  --sku Standard_LRS --kind StorageV2 --access-tier Hot --https-only true
@@ -58,7 +58,7 @@ az storage account create -n <name> -g <resource group name> -l <region ex:eastu
 La macchina virtuale di SQL Azure CLI [gruppo di macchine virtuali sql az](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) comando gruppo gestisce i metadati del servizio Windows Failover Cluster (WSFC) che ospita il gruppo di disponibilità. I metadati del cluster sono inclusi il dominio di Active Directory, account del cluster, gli account di archiviazione da usare come il cloud di controllo e la versione di SQL Server. Uso [creare il gruppo di macchine virtuali di az sql](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) per definire i metadati per il cluster WSFC in modo che quando viene aggiunta la prima VM SQL Server, viene creato il cluster, come definito. 
 
 Il frammento di codice seguente definisce i metadati per il cluster:
-```cli
+```azurecli
 # Define the cluster metadata
 # example: az sql vm group create -n Cluster -l 'West US' -g SQLVM-RG `
 #  --image-offer SQL2017-WS2016 --image-sku Enterprise --domain-fqdn domain.com `
@@ -79,7 +79,7 @@ Aggiungere la prima VM SQL Server al cluster crea il cluster. Il [az sql vm aggi
 
 Il frammento di codice seguente crea il cluster e aggiungervi la prima VM SQL Server: 
 
-```cli
+```azurecli
 # Add SQL Server VMs to cluster
 # example: az sql vm add-to-group -n SQLVM1 -g SQLVM-RG --sqlvm-group Cluster `
 #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
@@ -105,7 +105,7 @@ Always On listener gruppo di disponibilità (AG) richiede un interno Azure (bila
 
 Il frammento di codice seguente consente di creare il bilanciamento del carico interno:
 
-```cli
+```azurecli
 # Create the Internal Load Balancer
 # example: az network lb create --name sqlILB -g SQLVM-RG --sku Standard `
 # --vnet-name SQLVMvNet --subnet default
@@ -118,7 +118,7 @@ az network lb create --name sqlILB -g <resource group name> --sku Standard `
   > La risorsa IP pubblico per ogni VM di SQL Server deve avere uno SKU standard per essere compatibile con il Load Balancer Standard. Per determinare lo SKU della risorsa IP pubblico della VM, passare a **Gruppo di risorse**, selezionare la risorsa **Indirizzo IP pubblico** per la VM di SQL Server desiderata e individuare il valore sotto **SKU**  nel pannello **Panoramica**.  
 
 ## <a name="step-6---create-availability-group-listener"></a>Passaggio 6: creare listener del gruppo di disponibilità
-Dopo aver creato manualmente il gruppo di disponibilità, è possibile creare il listener usando [az sql vm listener gruppo di disponibilità-](https://docs.microsoft.com/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
+Dopo aver creato manualmente il gruppo di disponibilità, è possibile creare il listener usando [az sql vm listener gruppo di disponibilità-](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-latest#az-sql-vm-group-ag-listener-create). 
 
 
 - Il **ID risorsa della subnet** JE hodnotou `/subnets/<subnetname>` aggiunto all'ID risorsa della risorsa della rete virtuale. Per identificare l'ID risorsa della subnet, eseguire le operazioni seguenti:
@@ -133,7 +133,7 @@ Dopo aver creato manualmente il gruppo di disponibilità, è possibile creare il
 
 Il frammento di codice seguente verrà creato il listener del gruppo di disponibilità:
 
-```cli
+```azurecli
 # Create the AG listener
 # example: az sql vm group ag-listener create -n AGListener -g SQLVM-RG `
 #  --ag-name SQLAG --group-name Cluster --ip-address 10.0.0.27 `
@@ -145,70 +145,69 @@ az sql vm group ag-listener create -n <listener name> -g <resource group name> `
   --ag-name <availability group name> --group-name <cluster name> --ip-address <ag listener IP address> `
   --load-balancer <lbname> --probe-port <Load Balancer probe port, default 59999>  `
   --subnet <subnet resource id> `
-  --sqlvms <names of SQL VM’s hosting AG replicas ex: sqlvm1 sqlvm2>
+  --sqlvms <names of SQL VM's hosting AG replicas ex: sqlvm1 sqlvm2>
 ```
-## <a name="modify-number-of-replicas-in-availability-group"></a>Modifica numero di repliche nel gruppo di disponibilità
-È presente un ulteriore livello di complessità durante la distribuzione di un gruppo di disponibilità per macchine virtuali di SQL Server ospitato in Azure, come le risorse vengono ora gestite dal provider di risorse e dal `virtual machine group`. Di conseguenza, durante l'aggiunta o rimozione di repliche per il gruppo di disponibilità, è presente un ulteriore passaggio dell'aggiornamento dei metadati di listener con informazioni sulle macchine virtuali di SQL Server. Pertanto, quando si aggiungono ulteriori repliche di VM di SQL Server al gruppo di disponibilità, è necessario usare anche il [az aglistener sqlvm aggiungere-sqlvm](/cli/azure/ext/sqlvm-preview/sqlvm/aglistener?view=azure-cli-2018-03-01-hybrid#ext-sqlvm-preview-az-sqlvm-aglistener-add-sqlvm) comando per aggiungere la macchina virtuale di SQL Server per i metadati del listener. Analogamente, quando si rimuovono le repliche dal gruppo di disponibilità, è necessario usare anche il [remove listener di gruppi di disponibilità sqlvm di az-sqlvm](/cli/azure/ext/sqlvm-preview/sqlvm/aglistener?view=azure-cli-2018-03-01-hybrid#ext-sqlvm-preview-az-sqlvm-aglistener-remove-sqlvm) per rimuovere i metadati della macchina virtuale di SQL Server dal listener. 
 
-### <a name="adding-a-replica"></a>Aggiunta di una replica
+## <a name="modify-number-of-replicas-in-availability-group"></a>Modifica numero di repliche nel gruppo di disponibilità
+È presente un ulteriore livello di complessità durante la distribuzione di un gruppo di disponibilità per macchine virtuali di SQL Server ospitato in Azure, come le risorse vengono ora gestite dal provider di risorse e dal `virtual machine group`. Di conseguenza, durante l'aggiunta o rimozione di repliche per il gruppo di disponibilità, è presente un ulteriore passaggio dell'aggiornamento dei metadati di listener con informazioni sulle macchine virtuali di SQL Server. Pertanto, quando si modifica il numero di repliche del gruppo di disponibilità, è necessario usare anche il [aggiornamento del listener del gruppo di disponibilità del gruppo della macchina virtuale sql az](/cli/azure/sql/vm/group/ag-listener?view=azure-cli-2018-03-01-hybrid#az-sql-vm-group-ag-listener-update) comando per aggiornare il listener con i metadati delle macchine virtuali di SQL Server. 
+
+
+### <a name="add-a-replica"></a>Aggiungere una replica
+
 Per aggiungere una nuova replica al gruppo di disponibilità, eseguire le operazioni seguenti:
 
-1. Aggiungere la macchina virtuale di SQL Server al cluster: 
+1. Aggiungere la macchina virtuale di SQL Server al cluster:
+   ```azurecli
+   # Add SQL Server VM to the Cluster
+   # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
+   # -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
 
-    ```cli
-    # Add SQL Server VM to the Cluster
-    # example: az sql vm add-to-group -n SQLVM3 -g SQLVM-RG --sqlvm-group Cluster `
-    #  -b Str0ngAzur3P@ssword! -p Str0ngAzur3P@ssword! -s Str0ngAzur3P@ssword!
-
-    az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
-    -b <bootstrap account password> -p <operator account password> -s <service account password>
-    ```
+   az sql vm add-to-group -n <VM3 Name> -g <Resource Group Name> --sqlvm-group <cluster name> `
+   -b <bootstrap account password> -p <operator account password> -s <service account password>
+   ```
 1. Usare SQL Server Management Studio (SSMS) per aggiungere l'istanza di SQL Server come replica all'interno del gruppo di disponibilità.
-1. Aggiungere le non di metadati di VM di SQL Server il listener:
-    ```cli
-    # Add SQL VM metadata to cluster
-    # example: az sqlvm aglistener add-sqlvm  --group-name Cluster`
-    # --name AGListener` --resource-group SQLVM-RG `
-    #--sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
-    
-    az sqlvm aglistener add-sqlvm --group-name <Cluster name> `
-    --name <AG Listener name> --resource-group <RG group name> `
-    --sqlvm-rid <SQL VM resource ID>
-    ```
+1. Aggiungere i metadati di macchina virtuale SQL Server per il listener:
+   ```azurecli
+   # Update the listener metadata with the new VM
+   # example: az sql vm group ag-listener update -n AGListener `
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2 sqlvm3
 
-### <a name="removing-a-replica"></a>Rimozione di una replica
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs, along with new SQL VM>
+   ```
+
+### <a name="remove-a-replica"></a>Rimozione di una replica
+
 Per rimuovere una replica dal gruppo di disponibilità, eseguire le operazioni seguenti:
 
 1. Rimuovere la replica dal gruppo di disponibilità tramite SQL Server Management Studio (SSMS). 
 1. Rimuovere i metadati di macchina virtuale SQL Server dal listener:
-    ```cli
-    #Remove SQL VM metadata from listener
-    # example: az sqlvm aglistener remove-sqlvm --group-name Cluster `
-    --name AGListener` --resource-group SQLVM-RG `
-    --sqlvm-rid /subscriptions/a1a1-1a11a/resourceGroups/SQLVM-RG/providers/Microsoft.Compute/virtualMachines/SQLVM3
-    
-    az sqlvm aglistener remove-sqlvm --group-name <Cluster name> `
-    --name <AG Listener name> --resource-group <RG group name> `
-    --sqlvm-rid <SQL VM resource ID>
-    ``` 
-1. Rimuovere la macchina virtuale di SQL Server dai metadati del cluster:
+   ```azurecli
+   # Update the listener metadata by removing the VM from the SQLVMs list
+   # example: az sql vm group ag-listener update -n AGListener `
+   # -g sqlvm-rg --group-name Cluster --sqlvms sqlvm1 sqlvm2
 
-    ```cli
-    # Remove SQL VM from cluster metadata
-    #example: az sqlvm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
-    
-    az sqlvm remove from group --name <SQL VM name> --resource-group <RG name> 
-    ```
+   az sql vm group ag-listener update -n <Listener> `
+   -g <RG name> --group-name <cluster name> --sqlvms <SQL VMs that remain>
+   ```
+1. Rimuovere la macchina virtuale di SQL Server dal cluster:
+   ```azurecli
+   # Remove SQL VM from cluster
+   # example: az sql vm remove-from-group --name SQLVM3 --resource-group SQLVM-RG
+
+   az sql vm remove-from-group --name <SQL VM name> --resource-group <RG name> 
+   ```
 
 ## <a name="remove-availability-group-listener"></a>Rimuovere il listener del gruppo di disponibilità
 Se in un secondo momento è necessario rimuovere il listener del gruppo di disponibilità configurati con CLI di Azure, è necessario passare attraverso il provider di risorse di VM di SQL. Poiché il listener è stato registrato tramite il provider di risorse di macchine virtuali SQL, eliminarlo semplicemente tramite SQL Server Management Studio non è sufficiente. In realtà eliminarlo tramite il provider di risorse di VM di SQL tramite la CLI di Azure. Questa operazione rimuove i metadati del listener AG dal provider di risorse di macchine virtuali SQL ed elimina fisicamente il listener dal gruppo di disponibilità. 
 
 Il frammento di codice seguente elimina il listener del gruppo di disponibilità SQL sia dal provider di risorse SQL che dal gruppo di disponibilità: 
 
-```cli
+```azurecli
 # Remove the AG listener
-# example: az sqlvm aglistener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
-az sqlvm aglistener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
+# example: az sql vm group ag-listener delete --group-name Cluster --name AGListener --resource-group SQLVM-RG
+
+az sql vm group ag-listener delete --group-name <cluster name> --name <listener name > --resource-group <resource group name>
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

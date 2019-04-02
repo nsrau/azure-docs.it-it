@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/11/2018
+ms.date: 04/01/2019
 ms.author: banders
-ms.openlocfilehash: 1fb5ad056c1b8a331034cab12fa3420ba310bb95
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a17821cc69900c7f24375cbf06a61811bbd52d1
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852339"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762243"
 ---
 # <a name="submit-a-request-to-pay-azure-subscription-by-invoice"></a>Inviare una richiesta per pagare una sottoscrizione di Azure tramite fattura
 
@@ -36,17 +36,39 @@ ms.locfileid: "57852339"
 
     ![pulsante di guida e supporto tecnico](./media/billing-how-to-pay-by-invoice/helpandsupport.png)
 
-1. Selezionare **Fatturazione** come tipo di problema, selezionare la sottoscrizione che si intende pagare con fattura, selezionare un piano di supporto e quindi fare clic su **Avanti**.
+2. Selezionare **Fatturazione** come tipo di problema, selezionare la sottoscrizione che si intende pagare con fattura, selezionare un piano di supporto e quindi fare clic su **Avanti**.
 
-1. Selezionare **l'opzione di pagamento** con fattura nella casella **Tipo di problema**.
+3. Selezionare **l'opzione di pagamento** con fattura nella casella **Tipo di problema**.
 
-1. Immettere le informazioni seguenti nella casella **Dettagli** e quindi selezionare **Avanti**.
+ 4. Immettere le informazioni seguenti nella casella **Dettagli** e quindi selezionare **Avanti**.
 
-    * Nome della società
-    * Indirizzo di fatturazione
-    * [Indirizzo di posta elettronica dell'amministratore dell'account](../role-based-access-control/classic-administrators.md#view-the-account-administrator)
+         New or existing customer:
+         If existing, current payment method:
+         Order ID (requesting for invoice option): 
+         Account Admins Live ID (or Org ID) (should be company domain):
+         Commerce Account ID: 
+         Company Name (as registered under VAT or Government Website): 
+         Company Address (as registered under VAT or Government Website): 
+         Company Website:
+         Country: 
+         TAX ID/ VAT ID:
+         Company Established on (Year):
+         Any prior business with Microsoft: 
+         Contact Name:
+         Contact Phone:
+         Contact Email:
+         Justification on why you prefer Invoice option over credit card: 
+    
+        For cores increase, provide the following additional information:
+    
+         (Old quota) Existing Cores:
+         (New quota) Requested cores:
+         Specific region & series of Subscription: 
+ 
+    - Il **nome società** e **aziendale indirizzo** deve corrispondere con le informazioni fornite per l'account di Azure.  Per visualizzare o aggiornare le informazioni, vedere [modificare le informazioni del profilo account di Azure](billing-how-to-change-azure-account-profile.md).
+    - È necessario aggiungere il contatto di fatturazione nel portale di Azure prima che il limite di credito potrà essere approvato. I dettagli di contatto devono essere correlati al reparto di contabilità fornitori o finanziari dell'azienda. Per aggiornare il contatto di fatturazione, visitare il [centro Account Azure](https://account.azure.com/Profile).
 
-1. Verificare le informazioni di contatto e il metodo di contatto preferito e quindi fare clic su **Crea**.
+5. Verificare le informazioni di contatto e il metodo di contatto preferito e quindi fare clic su **Crea**.
 
 Se è necessario eseguire una verifica del credito per la quantità di credito necessario, l'utente riceve una richiesta di verifica del credito. Dopo l'invio, la richiesta di verifica del credito può richiedere 5-7 giorni per essere elaborata.
 

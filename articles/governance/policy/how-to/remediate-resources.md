@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816567"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802559"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -139,11 +139,11 @@ Per creare un'**attività di correzione**, seguire questa procedura:
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
-   ![Ricerca di criteri](../media/remediate-resources/search-policy.png)
+   ![Ricerca per i criteri in tutti i servizi](../media/remediate-resources/search-policy.png)
 
 1. Nella parte sinistra della pagina di Criteri di Azure selezionare **Correzione**.
 
-   ![Selezionare la correzione](../media/remediate-resources/select-remediation.png)
+   ![Selezionare monitoraggio e aggiornamento nella pagina dei criteri](../media/remediate-resources/select-remediation.png)
 
 1. Tutte le assegnazioni dei criteri **deployIfNotExists** con risorse non conformi vengono incluse nella scheda **Criteri da correggere** nella tabella di dati. Fare clic sui criteri con risorse non conformi. Verrà visualizzata la pagina **Nuova attività di correzione**.
 
@@ -152,11 +152,11 @@ Per creare un'**attività di correzione**, seguire questa procedura:
 
 1. Nella pagina **Nuova attività di correzione** filtrare le risorse da correggere facendo clic sui puntini di sospensione di **Ambito** per selezionare le risorse figlio da cui sono stati assegnati i criteri (fino ai singoli oggetti risorsa). Usare inoltre il menu a discesa **Percorsi** per filtrare ulteriormente le risorse. Verranno corrette solo le risorse elencate nella tabella.
 
-   ![Correggere - selezionare la risorse](../media/remediate-resources/select-resources.png)
+   ![Monitora e aggiorna, selezionare le risorse da risolvere](../media/remediate-resources/select-resources.png)
 
 1. Avviare l'attività di correzione dopo che le risorse sono state filtrate facendo clic su **Correggi**. Verrà aperta la scheda **Attività di correzione** della pagina di conformità dei criteri per mostrare lo stato di avanzamento delle attività.
 
-   ![Correggere - avanzamento delle attività](../media/remediate-resources/task-progress.png)
+   ![Monitora e Aggiorna - stato di avanzamento dell'attività di monitoraggio e aggiornamento](../media/remediate-resources/task-progress.png)
 
 1. Fare clic sull'**attività di correzione** nella pagina di conformità dei criteri per visualizzare i dettagli sull'avanzamento. Il filtro usato per l'attività viene visualizzato insieme a un elenco delle risorse da correggere.
 

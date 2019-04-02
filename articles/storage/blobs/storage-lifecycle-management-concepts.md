@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
-ms.openlocfilehash: df38fd30c1bfba4993e9992783a130262a703370
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e6f4f1feb5c1c78e78ff5d71b08a0e8a40537d13
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579513"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803262"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di archiviazione Blob di Azure
 
@@ -42,12 +42,12 @@ La funzionalità di gestione del ciclo di vita è disponibile in tutte le aree p
 
 ## <a name="add-or-remove-a-policy"></a>Aggiungere o rimuovere un criterio 
 
-È possibile aggiungere, modificare o rimuovere un criterio usando il portale di Azure [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), la CLI di Azure, le API REST o uno strumento client. Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
+È possibile aggiungere, modificare o rimuovere un criterio usando il portale di Azure [Azure PowerShell](https://github.com/Azure/azure-powershell/releases), la CLI di Azure [le API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/managementpolicies), o uno strumento client. Questo articolo illustra come gestire i criteri usando il portale e i metodi di PowerShell.  
 
 > [!NOTE]
 > Se per l'account di archiviazione si abilitano regole firewall, è possibile che le richieste di gestione del ciclo di vita vengano bloccate. È possibile sbloccare queste richieste specificando eccezioni. Per altre informazioni, vedere la sezione Eccezioni in [Configurare i firewall e le reti virtuali](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-### <a name="azure-portal"></a>portale di Azure
+### <a name="azure-portal"></a>Portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
@@ -82,7 +82,7 @@ $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -Stora
 ```
 
 
-## <a name="policy"></a>Criterio
+## <a name="policy"></a>Policy
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -107,18 +107,18 @@ I criteri di gestione del ciclo di vita sono una raccolta di regole in un docume
 
 Un criterio è una raccolta di regole:
 
-| Nome parametro | Tipo di parametro | Notes |
+| Nome parametro | Tipo di parametro | Note |
 |----------------|----------------|-------|
 | regole          | Una matrice di oggetti regola | È necessaria almeno una regola in un criterio. È possibile definire fino a 100 regole in un criterio.|
 
 Ogni regola all'interno del criterio ha diversi parametri:
 
-| Nome parametro | Tipo di parametro | Notes | Obbligatorio |
+| Nome parametro | Tipo di parametro | Note | Obbligatorio |
 |----------------|----------------|-------|----------|
-| nome           | Stringa |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True |
-| abilitate | Booleano | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | Falso | 
-| tipo           | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True |
-| definizione     | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
+| name           | string |Nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole.  Il nome deve essere univoco nel criterio. | True  |
+| Enabled | Boolean | Un valore booleano facoltativo per consentire una regola affinché sia temporanea è disabilitata. Valore predefinito è true se non è impostata. | False | 
+| type           | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle`. | True  |
+| Definizione     | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True  |
 
 ## <a name="rules"></a>Regole
 
@@ -167,12 +167,12 @@ I filtri limitano le azioni della regola a un sottoinsieme di BLOB all'interno d
 
 Filtri validi includono:
 
-| Nome filtro | Tipo filtro | Notes | Obbligatorio |
+| Nome filtro | Tipo di filtro | Note | Obbligatorio |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Una matrice di valori di enumerazione predefiniti. | La versione corrente supporta `blockBlob`. | Sì |
-| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire prefissi fino a 10. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si vogliono cercare tutti i BLOB sotto "https://myaccount.blob.core.windows.net/container1/foo/..." per una regola, prefixMatch è `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB nell'account di archiviazione.  | N. |
+| prefixMatch | Una matrice di stringhe per i prefissi corrispondenti. Ogni regola può definire prefissi fino a 10. Una stringa di prefisso deve iniziare con un nome di contenitore. Se ad esempio si vogliono cercare tutti i BLOB sotto "https://myaccount.blob.core.windows.net/container1/foo/..." per una regola, prefixMatch è `container1/foo`. | Se non si definisce prefixMatch, la regola si applica a tutti i BLOB nell'account di archiviazione.  | No  |
 
-### <a name="rule-actions"></a>Azioni regola
+### <a name="rule-actions"></a>Azioni della regola
 
 Le azioni vengono applicate ai BLOB filtrati quando viene soddisfatta la condizione di esecuzione.
 
@@ -180,9 +180,9 @@ Gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazione 
 
 | Azione        | BLOB di base                                   | Snapshot      |
 |---------------|---------------------------------------------|---------------|
-| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportato |
-| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportato |
-| elimina        | Supportato                                   | Supportato     |
+| tierToCool    | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente         | Non supportate |
+| tierToArchive | Supporta i BLOB attualmente al livello di archiviazione ad accesso frequente o sporadico | Non supportate |
+| delete        | Supportato                                   | Supportato     |
 
 >[!NOTE] 
 >Se nello stesso BLOB è stata definita più di un'azione, la gestione del ciclo di vita applica al BLOB l'azione meno costosa. Ad esempio, l'azione `delete` è meno costosa dell'azione `tierToArchive`. L'azione `tierToArchive` è meno costosa dell'azione `tierToCool`.

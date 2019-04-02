@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447746"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793639"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Monitorare le API con Gestione API di Azure, Hub eventi e Moesif
 Il [servizio Gestione API](api-management-key-concepts.md) offre molte capacità per migliorare l'elaborazione di richieste HTTP inviate all'API HTTP. L'esistenza di richieste e risposte è tuttavia temporanea. La richiesta viene effettuata e passa attraverso al servizio Gestione API fino all'API back-end. L'API elabora la richiesta e una risposta viene restituita al consumer dell'API. Il servizio Gestione API mantiene alcune statistiche importanti sulle API da visualizzare nel dashboard del portale di Azure, ma eventuali altri dettagli verranno eliminati.
@@ -47,7 +47,7 @@ Un hub eventi accetta i dati evento sotto forma di semplice stringa. I contenuti
 
 Un'opzione alternativa consiste nell'usare il tipo di dati multimediali `application/http` , come illustrato nella specifica HTTP [RFC 7230](https://tools.ietf.org/html/rfc7230). Questo tipo di dati multimediali usa esattamente lo stesso formato adottato per inviare effettivamente i messaggi HTTP in rete, ma l'intero messaggio può essere inserito nel corpo di un'altra richiesta HTTP. In questo caso il corpo verrà usato come messaggio da inviare all'Hub eventi. Il parser disponibile nelle librerie [Microsoft ASP.NET Web API 2.2 Client](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) può essere usato per analizzare questo formato e convertirlo negli oggetti `HttpRequestMessage` e `HttpResponseMessage` nativi.
 
-Per potere creare questo messaggio, è necessario sfruttare le [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx) basate su C# disponibili in Gestione API di Azure. Ecco il criterio che invia un messaggio di richiesta HTTP all'Hub eventi di Azure.
+Per potere creare questo messaggio, è necessario sfruttare le [espressioni di criteri](/azure/api-management/api-management-policy-expressions) basate su C# disponibili in Gestione API di Azure. Ecco il criterio che invia un messaggio di richiesta HTTP all'Hub eventi di Azure.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -315,4 +315,4 @@ Il servizio Gestione API di Azure è la posizione ideale per acquisire il traffi
 * Altre informazioni sull'integrazione di Gestione API e Hub eventi
   * [Come registrare eventi nell'Hub eventi di Azure in Gestione API di Azure](api-management-howto-log-event-hubs.md)
   * [Informazioni di riferimento per l'entità logger](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [Informazioni di riferimento per i criteri log-to-event](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [Informazioni di riferimento per i criteri log-to-event](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

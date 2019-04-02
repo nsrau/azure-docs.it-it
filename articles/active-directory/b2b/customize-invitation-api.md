@@ -11,18 +11,19 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 610d81912ac0244f25bc39c41690ab7e7ea8897c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17b472b647dd27306ca95345e49dfeb3aee60665
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58111311"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793385"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API e personalizzazione per Collaborazione B2B di Azure Active Directory
 
 Molti clienti hanno manifestato il desiderio di poter personalizzare il processo di invito in modo più adatto alla propria organizzazione. Con l'API, è possibile farlo. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Funzionalità dell'API di invito
+
 L'API offre le funzionalità seguenti:
 
 1. Invitare un utente esterno con *qualsiasi* indirizzo di posta elettronica.
@@ -68,21 +69,25 @@ L'API offre le funzionalità seguenti:
 
 
 ## <a name="authorization-model"></a>Modello di autorizzazione
+
 L'API può essere eseguita nelle modalità di autorizzazione seguenti:
 
 ### <a name="app--user-mode"></a>Modalità app + utente
+
 In questa modalità, chiunque usi l'API deve disporre delle autorizzazioni per creare gli inviti B2B.
 
 ### <a name="app-only-mode"></a>Modalità solo app
+
 In un contesto di solo app l'invito viene inviato solo se nell'app è presente l'ambito User.Invite.All.
 
 Per altre informazioni, fare riferimento a: https://developer.microsoft.com/graph/docs/authorization/permission_scopes
 
 
 ## <a name="powershell"></a>PowerShell
+
 È possibile usare PowerShell per aggiungere e invitare facilmente utenti esterni a un'organizzazione. Creare un invito tramite il cmdlet:
 
-```
+```powershell
 New-AzureADMSInvitation
 ```
 
@@ -102,7 +107,8 @@ Dopo aver inviato un invito a un utente esterno, è possibile usare il cmdlet **
 
 È possibile usare l'opzione **Filter** per filtrare i risultati in base a **UserState**. L'esempio seguente mostra come filtrare i risultati per mostrare solo gli utenti in attesa di invito. L'esempio mostra anche l'opzione **Format-List** che consente di specificare le proprietà da visualizzare. 
  
-```
+
+```powershell
 Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
 ```
 
@@ -119,4 +125,3 @@ Eseguire il check-out del riferimento all'API di invito in [https://developer.mi
 - [Elementi del messaggio di posta elettronica di invito per la Collaborazione B2B](invitation-email-elements.md)
 - [Riscatto dell'invito di Collaborazione B2B](redemption-experience.md)
 - [Aggiungere gli utenti per la Collaborazione B2B senza un invito](add-user-without-invite.md)
-

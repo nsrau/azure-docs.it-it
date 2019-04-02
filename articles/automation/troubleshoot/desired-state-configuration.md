@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a2ec36a99b2940fa662b0d9bd16b06777684db2f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c8afa671a323e37a99be8b5a43d0a4823fe1877a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448063"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58800877"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>Risolvere i problemi della configurazione dello stato desiderato (DSC)
 
@@ -28,18 +28,18 @@ Questo articolo contiene informazioni sulla risoluzione dei problemi della confi
 
 Quando si tenta di eliminare una configurazione DSC dal portale, viene visualizzato l'errore seguente:
 
-```
+```error
 An error occured while deleteing the DSC configuration '<name>'.  Error-details: The arguement configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
 ```
 
 #### <a name="cause"></a>Causa
 
-Si tratta di un problema temporaneo che è pianificato per essere risolto.
+Questo errore è un problema temporaneo che è pianificato per essere risolto.
 
 #### <a name="resolution"></a>Risoluzione
 
 * Usare il Cmdlet di Az "Remove-AzAutomationDscConfiguration" per eliminare la configurazione.
-* La documentazione relativa a questo cmdlet non è ancora stata aggiornata.  Fino ad allora, consultare la documentazione per il modulo AzureRM.
+* La documentazione relativa a questo cmdlet non è stata ancora aggiornata.  Fino ad allora, consultare la documentazione per il modulo AzureRM.
   * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-not-found"></a>Scenario: lo stato del nodo indica che non è riuscito con errore "Non trovato"
@@ -48,7 +48,7 @@ Si tratta di un problema temporaneo che è pianificato per essere risolto.
 
 Un report del nodo indica lo stato **non riuscito** e contiene l'errore seguente:
 
-```
+```error
 The attempt to get the action from server https://<url>//accounts/<account-id>/Nodes(AgentId=<agent-id>)/GetDscAction failed because a valid configuration <guid> cannot be found.
 ```
 
@@ -58,11 +58,11 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 
 #### <a name="resolution"></a>Risoluzione
 
-* Assicurarsi di assegnare al nodo un "nome di configurazione di nodo" e non un "nome di configurazione".
+* Assicurarsi che si sta assegnando il nodo con "nome di configurazione nodo" e non la "configurazione name".
 * È possibile assegnare a un nodo una configurazione di nodo usando il portale di Azure o un cmdlet di PowerShell.
 
-  * Per assegnare a un nodo una configurazione nodo mediante il portale di Azure, aprire il riquadro **Nodi DSC**, selezionare un nodo e quindi fare clic sul pulsante **Assegna configurazione nodo**.  
-  * Per assegnare a un nodo una configurazione nodo mediante PowerShell, usare il cmdlet **Set-AzureRmAutomationDscNode** .
+  * Per assegnare una configurazione nodo a nodo mediante il portale di Azure, aprire il **nodi DSC** pagina, quindi selezionare un nodo e fare clic su **assegna configurazione nodo** pulsante.  
+  * Per assegnare una configurazione nodo a nodo mediante il cmdlet di PowerShell, usare **Set-AzureRmAutomationDscNode** cmdlet
 
 ### <a name="no-mof-files"></a>Scenario: non sono state generate configurazioni di nodo (file con estensione mof) durante la compilazione di una configurazione
 
@@ -70,7 +70,7 @@ Questo errore si verifica in genere quando al nodo viene assegnato un nome di co
 
 Il processo di compilazione DSC viene sospeso con l'errore seguente:
 
-```
+```error
 Compilation completed successfully, but no node configuration.mofs were generated.
 ```
 
@@ -82,7 +82,7 @@ Quando l'espressione che segue la parola chiave **Node** nella configurazione DS
 
 una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
-* Verificare che l'espressione accanto alla parola chiave **Node** nella definizione di configurazione non restituisca $null.
+* Assicurarsi che l'espressione accanto al **nodo** parola chiave nella definizione della configurazione non è la valutazione degli $null.
 * Se durante la compilazione della configurazione si passano dei dati di configurazione, verificare di specificare i valori previsti necessari per la configurazione da [ConfigurationData](../automation-dsc-compile.md#configurationdata).
 
 ### <a name="dsc-in-progress"></a>Scenario: il report relativo al nodo DSC rimane bloccato nello stato "In corso"
@@ -91,7 +91,7 @@ una qualsiasi delle soluzioni seguenti consente di correggere il problema:
 
 L'output dell'agente DSC è il seguente:
 
-```
+```error
 No instance found with given property values
 ```
 
@@ -101,7 +101,7 @@ No instance found with given property values
 
 #### <a name="resolution"></a>Risoluzione
 
-Per risolvere il problema, seguire le istruzioni riportate nell'articolo [Limitazioni e problemi noti di DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc).
+Per risolvere il problema, seguire le istruzioni riportate nel [limitazioni e problemi noti di DSC](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) articolo.
 
 ### <a name="issue-using-credential"></a>Scenario: non è possibile usare le credenziali in una configurazione DSC
 
@@ -109,21 +109,21 @@ Per risolvere il problema, seguire le istruzioni riportate nell'articolo [Limita
 
 Il processo di compilazione DSC è stato sospeso con l'errore seguente:
 
-```
+```error
 System.InvalidOperationException error processing property 'Credential' of type <some resource name>: Converting and storing an encrypted password as plaintext is allowed only if PSDscAllowPlainTextPassword is set to true.
 ```
 
 #### <a name="cause"></a>Causa
 
-In una configurazione sono state usate credenziali, ma non è stato passato l'oggetto **ConfigurationData** corretto per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione nodo.
+Usa una credenziale in una configurazione ma non è stato corretto **ConfigurationData** per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione nodo.
 
 #### <a name="resolution"></a>Risoluzione
 
-* Verificare di passare l'oggetto **ConfigurationData** corretto per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione nodo indicata nella configurazione. Per altre informazioni, vedere la sezione relativa agli [asset in Automation DSC per Azure](../automation-dsc-compile.md#assets).
+* Assicurarsi di passare in appropriate **ConfigurationData** per impostare **PSDscAllowPlainTextPassword** su true per ogni configurazione nodo che viene indicata nella configurazione. Per altre informazioni, vedere la sezione relativa agli [asset in Automation DSC per Azure](../automation-dsc-compile.md#assets).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema che si riscontra non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ricevere assistenza:
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.

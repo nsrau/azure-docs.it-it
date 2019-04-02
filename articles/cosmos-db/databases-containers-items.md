@@ -1,39 +1,39 @@
 ---
 title: Utilizzo dei database, dei contenitori e degli elementi di Azure Cosmos DB
 description: Questo articolo descrive come creare e usare i database, i contenitori e gli elementi di Azure Cosmos DB
-author: dharmas-cosmos
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: dharmas
+ms.date: 03/31/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: c7288b112ce2fd062a67cb673a1efa6028ec7d57
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888520"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762906"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Usare database, contenitori ed elementi
 
-Dopo aver creato un [account Azure Cosmos DB](account-overview.md) nella sottoscrizione di Azure, è possibile gestire i dati nell'account creando database, contenitori ed elementi. Questo articolo descrive ognuna di queste entità: database, contenitori ed elementi. L'immagine seguente mostra la gerarchia di entità diverse in un account Azure Cosmos DB:
+Dopo aver creato un [account Azure Cosmos](account-overview.md) nella sottoscrizione di Azure, è possibile gestire i dati nell'account tramite la creazione di database, i contenitori e gli elementi. Questo articolo descrive ognuna di queste entità: database, contenitori ed elementi. L'immagine seguente mostra la gerarchia di entità diverse in un account Azure Cosmos DB:
 
 ![Entità dell'account Azure Cosmos DB](./media/databases-containers-items/cosmos-entities.png)
 
 ## <a name="azure-cosmos-databases"></a>Database Azure Cosmos DB
 
-È possibile creare uno o più database Azure Cosmos DB con il proprio account. Un database è analogo a uno spazio dei nomi, è l'unità di gestione di un set di contenitori di Azure Cosmos DB. La tabella seguente illustra il mapping di un database Azure Cosmos DB a varie entità specifiche dell'API:
+È possibile creare uno o più database Azure Cosmos DB con il proprio account. Un database è analogo a uno spazio dei nomi. È l'unità di gestione per un set di contenitori di Azure Cosmos. La tabella seguente illustra il mapping di un database Azure Cosmos DB a varie entità specifiche dell'API:
 
 | **Entità di Azure Cosmos DB** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- |
 |Database Azure Cosmos DB | Database | Keyspace | Database | Database | ND |
 
 > [!NOTE]
-> Con gli account di API Tabella, quando si crea la prima tabella viene creato automaticamente un database predefinito nell'account Azure Cosmos.
+> Con gli account API di tabella, quando si crea la prima tabella, un database predefinito viene automaticamente creato all'interno dell'account Azure Cosmos.
 
 ### <a name="operations-on-an-azure-cosmos-database"></a>Operazioni su un database Azure Cosmos DB
 
-È possibile interagire con un database Azure Cosmos DB usando le API di Azure Cosmos DB seguenti:
+È possibile interagire con un database Cosmos Azure con le API di Azure Cosmos come indicato di seguito:
 
 | **operazione** | **Interfaccia della riga di comando di Azure**|**API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -45,25 +45,25 @@ Dopo aver creato un [account Azure Cosmos DB](account-overview.md) nella sottosc
 
 ## <a name="azure-cosmos-containers"></a>Contenitori Azure Cosmos DB
 
-Un contenitore Azure Cosmos DB è l'unità di scalabilità sia per velocità effettiva con provisioning che è per l'archiviazione degli elementi. Un contenitore viene partizionato orizzontalmente e successivamente replicato in più aree. Gli elementi che si aggiungono al contenitore e la velocità effettiva con provisioning vengono automaticamente distribuiti in un set di partizioni logiche basato su una chiave di partizione. Per altre informazioni sul partizionamento e sulla chiave di partizione, vedere l'articolo sulle [partizioni logiche](partition-data.md). 
+Un contenitore di Azure Cosmos è l'unità di scalabilità per l'archiviazione e velocità effettiva con provisioning. Un contenitore viene partizionato orizzontalmente e successivamente replicato in più aree. Gli elementi che si aggiungono al contenitore e la velocità effettiva con provisioning vengono automaticamente distribuiti in un set di partizioni logiche basato su una chiave di partizione. Per altre informazioni sul partizionamento e le chiavi di partizione, vedere [ciò](partition-data.md) articolo. 
 
 Quando si crea un contenitore Azure Cosmos DB, si configura la velocità effettiva in uno dei modi seguenti:
 
-* Modalità **Velocità effettiva con provisioning dedicata**: la velocità effettiva con provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di servizio. Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva in un contenitore Azure Cosmos DB](how-to-provision-container-throughput.md).
+* Modalità **Velocità effettiva con provisioning dedicata**: La velocità effettiva di provisioning in un contenitore è riservata esclusivamente per tale contenitore e supportata da contratti di servizio. Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva in un contenitore Azure Cosmos DB](how-to-provision-container-throughput.md).
 
-* Modalità **Velocità effettiva con provisioning condivisa**: questi contenitori condividono la velocità effettiva con provisioning con altri contenitori nello stesso database (esclusi i contenitori che sono stati configurati con velocità effettiva con provisioning dedicata). In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "condivisi". Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva per un database in Azure Cosmos DB](how-to-provision-database-throughput.md).
+* Modalità **Velocità effettiva con provisioning condivisa**: Questi contenitori condividono la velocità effettiva con provisioning con altri contenitori nello stesso database (escluse tali contenitori che sono state configurate con velocità effettiva di provisioning dedicata). In altre parole, la velocità effettiva con provisioning nel database verrà condivisi tra tutti i contenitori "velocità effettiva condiviso". Per altre informazioni, vedere l'articolo su [come effettuare il provisioning della velocità effettiva per un database in Azure Cosmos DB](how-to-provision-database-throughput.md).
 
 Un contenitore Azure Cosmos può scalare in modo elastico, a prescindere che si creino contenitori con la modalità di velocità effettiva con provisioning "condivisa" o "dedicata".
 
-Un contenitore Azure Cosmos DB è un contenitore di elementi completamente senza schema. Gli elementi all'interno di un contenitore possono avere schemi arbitrari. Due elementi che rappresentano una persona e un'automobile, ad esempio, possono trovarsi nello stesso contenitore. Per impostazione predefinita, tutti gli elementi che si aggiungono a un contenitore vengono automaticamente indicizzati senza che venga richiesta alcuna gestione dello schema o dell'indice esplicita. È possibile personalizzare il comportamento di indicizzazione configurando i criteri di indicizzazione in un contenitore. 
+Un contenitore Azure Cosmos DB è un contenitore di elementi completamente senza schema. Gli elementi all'interno di un contenitore possono avere schemi arbitrari. Ad esempio, un elemento che rappresenta una persona, un elemento che rappresenta un'automobile può essere inserito nel *nello stesso contenitore*. Per impostazione predefinita, tutti gli elementi che si aggiungono a un contenitore vengono automaticamente indicizzati senza che venga richiesta alcuna gestione dello schema o dell'indice esplicita. È possibile personalizzare il comportamento di indicizzazione configurando il [criteri di indicizzazione](index-overview.md) in un contenitore. 
 
-È possibile impostare la durata (TTL, Time To Live) in alcuni elementi all'interno di un contenitore Azure Cosmos DB o per l'intero contenitore in modo che tali elementi vengano eliminati dal sistema in modo graduale. Azure Cosmos DB eliminerà automaticamente gli elementi alla scadenza. Garantisce anche che una query eseguita sul contenitore non restituisca elementi scaduti entro un limite fisso. Per altre informazioni, vedere [How to configure TTL on your container](how-to-time-to-live.md) (Come configurare TTL nel contenitore).
+È possibile impostare [durata (TTL)](time-to-live.md) sugli elementi selezionati all'interno di un contenitore Cosmos Azure o per l'intero contenitore normalmente eliminare tali elementi all'esterno del sistema. Azure Cosmos DB eliminerà automaticamente gli elementi alla scadenza. Garantisce anche che una query eseguita sul contenitore non restituisca elementi scaduti entro un limite fisso. Per altre informazioni, vedere [How to configure TTL on your container](how-to-time-to-live.md) (Come configurare TTL nel contenitore).
 
-Usando il feed di modifiche, è possibile sottoscrivere il registro operazioni che viene gestito per ogni partizione logica del contenitore. Il feed di modifiche offre il registro di tutti gli aggiornamenti eseguiti sul contenitore insieme alle immagini precedente e successiva degli elementi. Vedere [How to build reactive applications using change feed](change-feed.md) (Come creare applicazioni reattive usando il feed di modifiche). È possibile anche configurare la durata di conservazione del feed di modifiche applicando i criteri del feed di modifiche al contenitore. 
+Usando [Feed di modifiche](change-feed.md), è possibile sottoscrivere i log operazioni gestito per ogni partizione logiche del contenitore. Il feed di modifiche offre il registro di tutti gli aggiornamenti eseguiti sul contenitore insieme alle immagini precedente e successiva degli elementi. Visualizzare [come creare applicazioni reattive con Feed delle modifiche](serverless-computing-database.md). È anche possibile configurare la durata della conservazione per il Feed di modifica usando il criterio per il contenitore di feed di modifiche. 
 
-È possibile registrare stored procedure, trigger, funzioni definite dall'utente (UDF) e le procedure di tipo merge con il contenitore Azure Cosmos DB. 
+È possibile registrare [stored procedure, trigger, funzioni definite dall'utente (UDF)](stored-procedures-triggers-udfs.md) e [merge procedure](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) dal contenitore di Azure Cosmos. 
 
-È possibile specificare una chiave univoca nel contenitore Azure Cosmos DB. Se si crea una chiave univoca, si ha la sicurezza che uno o più valori siano univoci per ogni chiave di partizione logica. Dopo avere creato un contenitore con criteri di chiave univoca, non è infatti possibile creare o aggiornare elementi con valori che duplicano quelli specificati dal vincolo di chiave univoca. Per altre informazioni, vedere [Unique key constraints](unique-keys.md) (Vincoli di chiave univoca).
+È possibile specificare una [vincolo di chiave univoca](unique-keys.md) del contenitore di Azure Cosmos. Se si crea una chiave univoca, si ha la sicurezza che uno o più valori siano univoci per ogni chiave di partizione logica. Dopo avere creato un contenitore con criteri di chiave univoca, non è infatti possibile creare o aggiornare elementi con valori che duplicano quelli specificati dal vincolo di chiave univoca. Per altre informazioni, vedere [Unique key constraints](unique-keys.md) (Vincoli di chiave univoca).
 
 Un contenitore Azure Cosmos DB è specializzato in entità specifiche dell'API come indicato di seguito:
 
@@ -73,19 +73,19 @@ Un contenitore Azure Cosmos DB è specializzato in entità specifiche dell'API c
 
 ### <a name="properties-of-an-azure-cosmos-container"></a>Proprietà di un contenitore Azure Cosmos DB
 
-Un contenitore Azure Cosmos DB dispone di un set di proprietà definite dal sistema. A seconda della scelta dell'API, alcune di queste proprietà potrebbero non essere esposte direttamente. La tabella seguente illustra l'elenco delle proprietà definite dal sistema supportate:
+Un contenitore Cosmos Azure ha un set di proprietà definito dal sistema. A seconda della scelta dell'API, alcune di queste proprietà potrebbero non essere esposte direttamente. La tabella seguente descrive l'elenco delle proprietà definito dal sistema:
 
-| **Proprietà definita dal sistema** | **Generata dal sistema o impostabile dall'utente** | **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
+| **Proprietà definita dal sistema** | **Sistema generato o configurabile dall'utente** | **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |_rid | Generata dal sistema | Identificatore univoco di contenitore | Sì | No  | No  | No  | No  |
 |_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No  | No  | No  | No  |
 |_ts | Generata dal sistema | Ultimo timestamp aggiornato del contenitore | Sì | No  | No  | No  | No  |
 |_self | Generata dal sistema | URI indirizzabile del contenitore | Sì | No  | No  | No  | No  |
 |id | Configurabile dall'utente | Nome univoco definito dall'utente del contenitore | Sì | Sì | Sì | Sì | Sì |
-|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, la precisione e il modello di coerenza. | Sì | No  | No  | No  | Sì |
+|indexingPolicy | Configurabile dall'utente | Offre la possibilità di modificare il percorso di indice, tipo di indice e modalità di indicizzazione. | Sì | No  | No  | No  | Sì |
 |TimeToLive | Configurabile dall'utente | Offre la possibilità di eliminare elementi automaticamente da un contenitore dopo un determinato periodo di tempo. Per altri dettagli, vedere l'articolo sulla funzionalità [TTL](time-to-live.md). | Sì | No  | No  | No  | Sì |
-|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per altri dettagli, vedere l'articolo sul [feed di modifiche](change-feed.md). | Sì | No  | No  | No  | Sì |
-|uniqueKeyPolicy | Configurabile dall'utente | Con le chiavi univoche si garantisce l'univocità di uno o più valori all'interno di una partizione logica. Per altre informazioni, vedere l'articolo sulle [chiavi univoche](unique-keys.md). | Sì | No  | No  | No  | Sì |
+|changeFeedPolicy | Configurabile dall'utente | Usato per leggere le modifiche apportate a elementi in un contenitore. Per altre informazioni, vedere la [Feed di modifiche](change-feed.md) articolo. | Sì | No  | No  | No  | Sì |
+|uniqueKeyPolicy | Configurabile dall'utente | Usato per garantire l'univocità di uno o più valori all'interno di una partizione logica. Per altre informazioni, vedere la [vincoli di chiave univoca](unique-keys.md) articolo. | Sì | No  | No  | No  | Sì |
 
 ### <a name="operations-on-an-azure-cosmos-container"></a>Operazioni su un contenitore Azure Cosmos DB
 
@@ -93,7 +93,7 @@ Un contenitore Azure Cosmos DB supporta le operazioni seguenti che usano una del
 
 | **operazione** | **Interfaccia della riga di comando di Azure** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- |
-| Enumerare i contenitori in un database | Sì* | Sì | Sì | Sì | ND | ND |
+| Enumerare i contenitori in un database | Sì | Sì | Sì | Sì | ND | ND |
 | Leggere un contenitore | Sì | Sì | Sì | Sì | ND | ND |
 | Creare un nuovo contenitore | Sì | Sì | Sì | Sì | ND | ND |
 | Aggiornare il contenitore | Sì | Sì | Sì | Sì | ND | ND |
@@ -111,11 +111,11 @@ A seconda della scelta dell'API, un elemento Azure Cosmos DB può rappresentare 
 
 Ogni elemento Azure Cosmos DB dispone delle proprietà definite dal sistema seguenti. A seconda della scelta dell'API, alcune di queste proprietà potrebbero non essere esposte direttamente.
 
-|**Proprietà definita dal sistema** | **Generata dal sistema o impostabile dall'utente**| **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
+|**Proprietà definita dal sistema** | **Sistema generato o configurabile dall'utente**| **Scopo** | **API SQL** | **API Cassandra** | **API di Azure Cosmos DB per MongoDB** | **API Gremlin** | **API di tabella** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 |_id | Generata dal sistema | Identificatore univoco di elemento | Sì | No  | No  | No  | No  |
 |_etag | Generata dal sistema | Tag di entità usato per il controllo della concorrenza ottimistica | Sì | No  | No  | No  | No  |
-|_ts | Generata dal sistema | Ultimo timestamp aggiornato dell'elemento | Sì | No  | No  | No  | No  |
+|_ts | Generata dal sistema | Il timestamp dell'ultimo aggiornamento dell'elemento | Sì | No  | No  | No  | No  |
 |_self | Generata dal sistema | URI indirizzabile dell'elemento | Sì | No  | No  | No  | No  |
 |id | È possibile usare il | Nome univoco definito dall'utente all'interno di una partizione logica. Se l'utente non specifica l'id, il sistema ne genererà uno automaticamente. | Sì | Sì | Sì | Sì | Sì |
 |Proprietà definite dall'utente arbitrarie | Route definite dall'utente | Proprietà definite dall'utente rappresentate nella rappresentazione nativa dell'API (JSON, BSON, CQL e così via) | Sì | Sì | Sì | Sì | Sì |
@@ -130,7 +130,7 @@ Un elemento Azure Cosmos DB supporta le operazioni seguenti che possono essere e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È ora possibile imparare come effettuare il provisioning della velocità effettiva nell'account Azure Cosmos DB o vedere altri concetti:
+È ora possibile apprendere i concetti seguenti:
 
 * [Come configurare la velocità effettiva con provisioning in un database di Azure Cosmos](how-to-provision-database-throughput.md)
 * [Come configurare la velocità effettiva con provisioning in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)

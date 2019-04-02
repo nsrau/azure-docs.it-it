@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445992"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793969"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure
 ## <a name="overview"></a>Panoramica
@@ -269,7 +269,7 @@ Per caricare rapidamente un singolo BLOB di grandi dimensioni, l'applicazione cl
 * C++: Usare il metodo blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Caricamento rapido di più BLOB
-Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della redazione di questo documento, un account di archiviazione con ridondanza locale basato negli Stati Uniti supporta fino a 20 Gbps in ingresso, un valore molto più alto della velocità effettiva supportata da un singolo BLOB.  [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.  
+Per caricare rapidamente più BLOB, caricarli in parallelo. È una procedura più rapida rispetto al caricamento dei singoli BLOB con caricamenti di blocchi paralleli perché distribuisce il caricamento su più partizioni del servizio di archiviazione. Un singolo BLOB supporta una velocità effettiva di soli 60 MB/secondo (circa 480 Mbps). Al momento della scrittura, un account di archiviazione con ridondanza locale con basato negli Stati Uniti supporta fino a 20 Gbps in ingresso, è molto più rispetto alla velocità effettiva supportata da un singolo blob.  [AzCopy](#subheading18) esegue i caricamenti in parallelo per impostazione predefinita ed è consigliato per questo scenario.  
 
 ### <a name="subheading23"></a>Scelta del tipo di BLOB corretto
 Archiviazione di Azure supporta due tipi di BLOB: BLOB di *pagine* e BLOB in *blocchi*. Per un determinato scenario di utilizzo, la scelta del tipo di BLOB influisce sulle prestazioni e sulla scalabilità della soluzione. I BLOB in blocchi sono appropriati quando si vogliono caricare grandi quantità di dati in modo efficace: ad esempio nel caso di un'applicazione client che necessita di caricare foto o video nell'archiviazione BLOB. I BLOB di pagine sono appropriati quando l'applicazione deve eseguire scritture casuali sui dati: ad esempio, i dischi rigidi virtuali di Azure vengono archiviati come BLOB di pagine.  
@@ -297,9 +297,7 @@ A partire dalla versione del servizio di archiviazione 2013-08-15, il servizio t
 Per altre informazioni, vedere il post [Tabelle di Microsoft Azure: introduzione a JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) e al [formato Payload per operazioni del servizio tabelle](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Disattivazione di Nagle
-L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). In Archiviazione di Azure l'algoritmo Nagle ha un impatto negativo sulle prestazioni delle richieste ai servizi tabelle e di accodamento e, se possibile, dovrebbe essere disabilitato.  
-
-Per altre informazioni, vedere il post del blog relativo al [comportamento dell'algoritmo Nagle nei confronti delle piccole richieste](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx), che spiega il motivo per cui questo algoritmo interagisce in modo poco efficace con le richieste relative a tabelle e code e che mostra come disabilitarlo nell'applicazione client.  
+L'algoritmo Nagle viene spesso implementato nelle reti TCP/IP come strumento per migliorare le prestazioni di rete. Tuttavia, non è la soluzione ottimale in tutti gli scenari (ad esempio, gli ambienti ad alta interazione). In Archiviazione di Azure l'algoritmo Nagle ha un impatto negativo sulle prestazioni delle richieste ai servizi tabelle e di accodamento e, se possibile, dovrebbe essere disabilitato.
 
 ### <a name="schema"></a>SCHEMA
 La modalità con cui vengono rappresentati i dati e vengono eseguite query su di essi è il fattore singolo più importante che influisce sulle prestazioni del servizio tabelle. Ogni applicazione è diversa, ma in questa sezione vengono descritte alcune procedure comprovate generali relative a:  
@@ -373,7 +371,7 @@ Usare le operazioni della tabella **Upsert** quando possibile. Esistono due tipi
 ##### <a name="subheading37"></a>Archiviazione di serie di dati in una singola entità
 A volte un'applicazione archivia una serie di dati richiesti di frequente per recuperarli tutti simultaneamente: ad esempio, un'applicazione può tenere traccia dell'utilizzo della CPU nel tempo per tracciare un grafico in sequenza dei dati relativo alle ultime 24 ore. Un approccio prevede un'entità di tabella all'ora, in cui ogni entità rappresenta un'ora specifica e archivia l'utilizzo della CPU per quell'ora. Per tracciare questi dati, l'applicazione deve recuperare le entità che comprendono i dati delle ultime 24 ore.  
 
-In alternativa, l'applicazione può archiviare l'utilizzo della CPU per ciascuna ora sotto forma di proprietà separata di una singola entità: per aggiornare le singole ore, l'applicazione può usare una singola chiamata **InsertOrMerge Upsert** per aggiornare il valore per l'ora più recente. Per tracciare i dati, l'applicazione deve recuperare solo una singola entità invece di 24, aumentando l'efficacia della query (vedere la trattazione precedente sull'[ambito delle query](#subheading30)).
+In alternativa, l'applicazione può archiviare l'utilizzo della CPU per ciascuna ora sotto forma di proprietà separata di una singola entità: per aggiornare le singole ore, l'applicazione può usare una singola chiamata **InsertOrMerge Upsert** per aggiornare il valore per l'ora più recente. Per tracciare i dati, l'applicazione deve solo recuperare una singola entità invece di 24, aumentando un'efficiente delle query (vedere la discussione precedente sul [ambito query](#subheading30)).
 
 ##### <a name="subheading38"></a>Archiviazione di dati strutturati in BLOB
 A volte sembra che i dati strutturati debbano essere inseriti nelle tabelle, tuttavia gli intervalli delle entità vengono sempre recuperati insieme e possono essere inseriti in batch.  Per spiegarlo efficacemente, si prenda l'esempio di un file di log.  In questo caso è possibile creare in batch e inserire diversi minuti di log. Questi minuti di log vengono anche recuperati tutti in una volta.  Per motivi di prestazioni, si consiglia in questo caso di usare i BLOB invece delle tabelle perché consentono di ridurre significativamente il numero di oggetti scritti/restituiti e, di solito, anche il numero di richieste che occorre effettuare.  
@@ -390,7 +388,7 @@ Una singola coda può elaborare circa 2.000 messaggi (da 1 KB ciascuno) al secon
 Vedere la sezione nella configurazione della tabella che descrive l'algoritmo Nagle. Questo algoritmo in genere ha un effetto negativo sulle prestazioni delle richieste relative alle code ed è opportuno disabilitarlo.  
 
 ### <a name="subheading41"></a>Dimensioni del messaggio
-Le prestazioni e la scalabilità della coda diminuiscono con l'aumentare delle dimensioni del messaggio. In un messaggio è consigliabile inserire solo le informazioni richieste dal ricevitore.  
+Scalabilità e prestazioni coda diminuire man mano che aumenta le dimensioni di messaggio. In un messaggio è consigliabile inserire solo le informazioni richieste dal ricevitore.  
 
 ### <a name="subheading42"></a>Recupero in batch
 È possibile recuperare fino a 32 messaggi da una coda in una singola operazione. Questo può ridurre il numero di round trip dall'applicazione client, particolarmente utile per gli ambienti con latenza elevata, come i dispositivi mobili.  
@@ -401,7 +399,7 @@ La maggior parte delle applicazioni esegue il polling dei messaggi da una coda, 
 Per informazioni aggiornate sui costi, vedere [Prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-È possibile usare **UpdateMessage** per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. Si tratta di una funzionalità potente, ma occorre ricordare che ogni operazione **UpdateMessage** viene presa in considerazione per il calcolo dell'obiettivo di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. Con l'operazione **UpdateMessage** , l'applicazione può salvare lo stato del processo nel messaggio e continuare il lavoro invece di riaccodare il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.  
+È possibile usare **UpdateMessage** per aumentare il timeout di invisibilità o aggiornare le informazioni di stato di un messaggio. Si tratta di una funzionalità potente, ma occorre ricordare che ogni operazione **UpdateMessage** viene presa in considerazione per il calcolo dell'obiettivo di scalabilità. Tuttavia, può essere un approccio più efficace rispetto al passaggio di un processo da una coda alla successiva mediante un flusso di lavoro man mano che i singoli passaggi del processo vengono completati. Usando il **UpdateMessage** operazione consente all'applicazione di salvare lo stato del processo per il messaggio e continuare il lavoro, anziché requeuing il messaggio per il passaggio successivo del processo ogni volta che viene completato un passaggio.  
 
 Per altre informazioni, vedere l'articolo [Procedura: Modificare il contenuto di un messaggio in coda](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

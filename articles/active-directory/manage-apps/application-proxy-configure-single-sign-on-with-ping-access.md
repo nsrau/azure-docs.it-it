@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f236c6a78edeb04a69685bf27c99997ed470f498
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652332"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791524"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticazione basata su intestazione per l'accesso Single Sign-On con il proxy di applicazione e PingAccess
 
@@ -54,7 +54,7 @@ Se il proxy di applicazione è già attivato e si ha già un connettore installa
 
 Il connettore del proxy di applicazione è un servizio di Windows Server che indirizza il traffico dai dipendenti remoti alle app pubblicate. Per istruzioni di installazione più dettagliate, vedere [Abilitare il proxy di applicazione nel portale di Azure](application-proxy-add-on-premises-application.md).
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
+1. Accedi per il [portale di Azure](https://portal.azure.com) come amministratore dell'applicazione.
 2. Selezionare **Azure Active Directory** > **Proxy dell'applicazione**.
 3. Selezionare **Download Connector** (Scarica il connettore) per avviare il download del connettore del proxy di applicazione. Seguire le istruzioni di installazione.
 
@@ -69,7 +69,7 @@ Nel portale di Azure è necessario eseguire due azioni. Per prima cosa, si pubbl
 
 Seguire questi passaggi per pubblicare l'app. Per una descrizione più dettagliata dei passaggi 1-8, vedere [Pubblicare applicazioni mediante il proxy di applicazione AD Azure](application-proxy-add-on-premises-application.md).
 
-1. Se non lo si è fatto nell'ultima sezione, accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
+1. Se non è stato fatto nell'ultima sezione, accedere al [portale di Azure](https://portal.azure.com) come amministratore dell'applicazione.
 2. Selezionare **Azure Active Directory** > **Applicazioni aziendali**.
 3. Selezionare **Aggiungi** nella parte superiore del pannello.
 4. Selezionare **Applicazione locale**.
@@ -153,7 +153,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 }
 ```
 Questo esempio usa il [portale di Azure](https://portal.azure.com) per aggiornare il campo *acceptedMappedClaims*:
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
+1. Accedi per il [portale di Azure](https://portal.azure.com) come amministratore dell'applicazione.
 2. Passare ad **Azure Active Directory** > **Registrazioni per l'app**.
 3. Selezionare l'applicazione > **Manifesto**.
 4. Selezionare **Modifica**, cercare il campo *acceptedMappedClaims* e impostare il valore su **true**.

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661225"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791746"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
 
@@ -104,8 +104,7 @@ Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di co
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
-In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto.
-Qui si trovano i file di log:
+In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log, visitare [portale di Azure](https://portal.azure.com) e visualizzare l'area di lavoro e selezionare **dell'area di lavoro > esperimento > esecuzione > log**.
 
 ## <a name="resource-quotas"></a>Quote di risorse
 

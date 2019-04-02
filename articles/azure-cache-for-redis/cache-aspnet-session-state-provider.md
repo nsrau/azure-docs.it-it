@@ -14,24 +14,27 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/01/2017
 ms.author: yegu
-ms.openlocfilehash: 3b10a471aafc4799fde8cb2e42b7c21c8d1eb9c4
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 4a51040ecdbf22af03ce1e6edaaa0ff577bbc076
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232067"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793238"
 ---
 # <a name="aspnet-session-state-provider-for-azure-cache-for-redis"></a>Provider di stato sessione ASP.NET per Cache Redis di Azure
+
 Cache Redis di Azure include un provider di stato della sessione che consente di archiviare lo stato della sessione in memoria con Cache Redis di Azure anziché in un database di SQL Server. Per usare il provider di stato della sessione di memorizzazione nella cache, configurare innanzitutto la cache e quindi l'applicazione ASP.NET per la cache usando il pacchetto NuGet dello stato della sessione per Cache Redis di Azure.
 
 In un'app reale per il cloud spesso non è facile evitare di archiviare qualche forma di stato per una sessione utente, ma alcuni approcci hanno più effetto di altri sulle prestazioni e sulla scalabilità. Se è necessario archiviare lo stato, la soluzione migliore è mantenere piccola la quantità di stato e archiviarla nei cookie. Se non è fattibile, la seconda miglior soluzione è usare lo stato della sessione ASP.NET con un provider per la cache distribuita in memoria. La soluzione peggiore dal punto di vista delle prestazioni e della scalabilità è usare un provider di stato della sessione supportato da un database. Questo argomento fornisce indicazioni sull'uso del provider di stato della sessione ASP.NET per Cache Redis di Azure. Per informazioni sulle altre opzioni dello stato sessione, vedere [Opzioni dello stato della sessione ASP.NET](#aspnet-session-state-options).
 
 ## <a name="store-aspnet-session-state-in-the-cache"></a>Archiviare lo stato della sessione ASP.NET nella cache
+
 Per configurare un'applicazione client in Visual Studio con il pacchetto NuGet Azure Cache for Redis Session State, fare clic su **Gestione pacchetti NuGet** e quindi su **Console di Gestione pacchetti** dal menu **Strumenti**.
 
 Eseguire questo comando nella finestra `Package Manager Console`.
     
-```
+
+```powershell
 Install-Package Microsoft.Web.RedisSessionStateProvider
 ```
 
@@ -123,6 +126,7 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 > 
 
 ## <a name="aspnet-session-state-options"></a>Opzioni dello stato della sessione ASP.NET
+
 * Provider di stato della sessione in memoria: questo provider archivia lo stato della sessione in memoria. Il vantaggio di usare questo provider è che è semplice e veloce. Non è però possibile ridimensionare le app Web se si usa il provider in memoria perché non viene distribuito.
 * Provider di stato della sessione SQL Server: questo provider archivia lo stato della sessione in SQL Server. Usare questo provider per archiviare lo stato della sessione in una risorsa di archiviazione persistente. È possibile ridimensionare l'app Web, ma l'uso di SQL Server per la sessione ha effetto sulle prestazioni dell'app Web. È inoltre possibile usare questo provider con una [configurazione di OLTP In memoria](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2017/11/28/asp-net-session-state-with-sql-server-in-memory-oltp/) per migliorare le prestazioni.
 * Provider di stato della sessione in memoria distribuito, ad esempio provider di stato della sessione di Cache Redis di Azure, che offre il meglio di entrambe le soluzioni. L'app Web può avere un provider di stato della sessione semplice, veloce e scalabile. Dal momento che questo provider archivia lo stato della sessione in una cache, l'app deve tenere in considerazione tutte le caratteristiche associate quando comunica con una cache in memoria distribuita, ad esempio in caso di errori di rete temporanei. Per le procedure consigliate sull'uso della cache, vedere [Informazioni aggiuntive sulla memorizzazione nella cache](../best-practices-caching.md) in Microsoft Patterns & Practices e [Azure Cloud Application Design and Implementation Guidance](https://github.com/mspnp/azure-guidance) (Guida alla progettazione e all'implementazione delle applicazioni cloud di Azure).
@@ -130,5 +134,5 @@ Dopo l'esecuzione di questi passaggi, l'applicazione è configurata per l'uso de
 Per altre informazioni sullo stato della sessione e altre procedure consigliate, vedere [Procedure consigliate per lo sviluppo Web (compilazione di app reali per il cloud con Azure)](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/web-development-best-practices).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Vedere [Provider di cache di output ASP.NET per Cache Redis di Azure](cache-aspnet-output-cache-provider.md).
 
+Vedere [Provider di cache di output ASP.NET per Cache Redis di Azure](cache-aspnet-output-cache-provider.md).

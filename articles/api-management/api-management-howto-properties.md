@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082705"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791627"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Come usare i valori denominati nei criteri di Gestione API di Azure
 I criteri di Gestione API sono una potente funzionalità del sistema che consentono al portale di Azure di modificare il comportamento dell'API tramite la configurazione. I criteri sono una raccolta di istruzioni che vengono eseguite in modo sequenziale sulla richiesta o la risposta di un'API. Le istruzioni dei criteri possono essere costruite usando valori di testo letterali, espressioni di criteri e valori denominati. 
@@ -34,7 +34,7 @@ Ogni istanza del servizio Gestione API dispone di una raccolta di proprietà di 
 
 ![Valori denominati](./media/api-management-howto-properties/named-values.png)
 
-I valori delle proprietà possono contenere stringhe letterali ed [espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx). Ad esempio, il valore di `ExpressionProperty` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. La proprietà `ContosoHeaderValue` è contrassegnata come un segreto, quindi il valore corrispondente non viene visualizzato.
+I valori delle proprietà possono contenere stringhe letterali ed [espressioni di criteri](/azure/api-management/api-management-policy-expressions). Ad esempio, il valore di `ExpressionProperty` è un'espressione di criteri che restituisce una stringa contenente la data e l'ora correnti. La proprietà `ContosoHeaderValue` è contrassegnata come un segreto, quindi il valore corrispondente non viene visualizzato.
 
 | NOME | Valore | Segreto | Tag |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ I valori delle proprietà possono contenere stringhe letterali ed [espressioni d
 
 Dopo aver creato la proprietà, è possibile modificarla facendo clic sulla proprietà. Se si modifica il nome della proprietà, tutti i criteri che fanno riferimento a tale proprietà vengono aggiornati automaticamente con il nuovo nome.
 
-Per informazioni sulla modifica di una proprietà tramite l'API REST, vedere la [pagina relativa alla modifica di una proprietà tramite l'API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch).
+Per informazioni sulla modifica di una proprietà tramite l'API REST, vedere la [pagina relativa alla modifica di una proprietà tramite l'API REST](/rest/api/apimanagement/property?Patch).
 
 ## <a name="to-delete-a-property"></a>Per eliminare una proprietà
 
@@ -66,7 +66,7 @@ Per eliminare una proprietà, fare clic su **Delete** accanto alla proprietà da
 > 
 > 
 
-Per informazioni sull'eliminazione di una proprietà tramite l'API REST, vedere la [pagina relativa all'eliminazione di una proprietà tramite l'API REST](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete).
+Per informazioni sull'eliminazione di una proprietà tramite l'API REST, vedere la [pagina relativa all'eliminazione di una proprietà tramite l'API REST](/rest/api/apimanagement/property?Delete).
 
 ## <a name="to-search-and-filter-named-values"></a>Per cercare e filtrare valori denominati
 
@@ -111,8 +111,8 @@ Sebbene i valori delle proprietà possano contenere espressioni di criteri, non 
 ## <a name="next-steps"></a>Passaggi successivi
 * Ulteriori informazioni sull'uso dei criteri
   * [Criteri in Gestione API](api-management-howto-policies.md)
-  * [Riferimento ai criteri](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Espressioni di criteri](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [Riferimento ai criteri](/azure/api-management/api-management-policies)
+  * [Espressioni di criteri](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

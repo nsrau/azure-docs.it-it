@@ -1,42 +1,42 @@
 ---
-title: Rilevamento delle minacce - Database SQL di Azure | Microsoft Docs
-description: La funzionalità Rilevamento delle minacce rileva le attività di database anomale che indicano la presenza di potenziali minacce alla sicurezza nel database SQL di Azure.
+title: Advanced Threat Protection - Database SQL di Azure | Microsoft Docs
+description: Advanced Threat Protection rileva attività di database anomale che indicano potenziali minacce alla sicurezza in Database SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: rmatchoro
+author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/31/2019
+ms.openlocfilehash: 710a94c919f4262c3f572f28d03c79b77e658287
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001886"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793906"
 ---
-# <a name="azure-sql-database-threat-detection"></a>Rilevamento delle minacce per il database SQL di Azure
+# <a name="advanced-threat-protection-for-azure-sql-database"></a>Advanced Threat Protection per il database SQL di Azure
 
-La funzionalità Rilevamento delle minacce per il [database SQL di Azure](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
+Advanced Threat Protection per [Database SQL di Azure](sql-database-technical-overview.md) e [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database.
 
-Rilevamento delle minacce fa parte dell'offerta [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md), un pacchetto unificato per le funzionalità di sicurezza avanzate SQL. È possibile accedere e gestire Rilevamento delle minacce tramite il portale centrale Sicurezza dei dati avanzata SQL.
+Advanced Threat Protection fa parte del [protezione dati avanzata](sql-database-advanced-data-security.md) (ADS) offerta, che è un pacchetto unificato per la funzionalità di sicurezza avanzate SQL. Advanced Threat Protection possono essere accessibili e gestite tramite il portale di annunci pubblicitari SQL centrale.
 
 > [!NOTE]
 > Questo argomento è applicabile al server SQL di Azure e ai database SQL e di SQL Data Warehouse creati nel server SQL di Azure. Per semplicità, "database SQL" viene usato per fare riferimento sia al database SQL che al database di SQL Data Warehouse.
 
-## <a name="what-is-threat-detection"></a>Introduzione alla funzionalità di rilevamento delle minacce
+## <a name="what-is-advanced-threat-protection"></a>Che cos'è Advanced Threat Protection
 
-Il rilevamento delle minacce offre un nuovo livello di protezione, che consente ai clienti di rilevare e rispondere alle minacce potenziali non appena si verificano, fornendo avvisi di sicurezza sulle attività anomale. Gli utenti ricevono un avviso in caso di attività di database sospetta, potenziali vulnerabilità e attacchi SQL injection, nonché in caso di modelli di query e accesso ai database anomali. Il rilevamento delle minacce integra gli avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), pertanto vengono forniti i dettagli relativi alle attività sospette e viene consigliata l'azione da intraprendere per analizzare e mitigare la minaccia. Il rilevamento delle minacce rende più semplice affrontare le minacce potenziali al database, senza dover essere esperti della sicurezza o gestire sistemi di controllo di sicurezza avanzati.
+ Advanced Threat Protection offre un nuovo livello di sicurezza, che consente ai clienti di rilevare e rispondere alle minacce potenziali appena si verificano, fornendo avvisi di sicurezza sulle attività anomale. Gli utenti ricevono un avviso in caso di attività di database sospetta, potenziali vulnerabilità e attacchi SQL injection, nonché in caso di modelli di query e accesso ai database anomali. Advanced Threat Protection si integra gli avvisi con [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), che includono i dettagli delle attività sospette e consigliano azioni analizzare e ridurre la minaccia. Advanced Threat Protection rende più semplice affrontare le minacce potenziali al database senza dover essere esperti della sicurezza o gestire sistemi di monitoraggio di sicurezza avanzate.
 
 Per un'esperienza di analisi completa, è consigliabile abilitare l'[azione di controllo del database SQL](sql-database-auditing.md), che scrive gli eventi del database in un log di controllo nell'account di archiviazione di Azure.  
 
-## <a name="threat-detection-alerts"></a>Avvisi di rilevamento delle minacce
+## <a name="advanced-threat-protection-alerts"></a>Avvisi di Advanced Threat Protection
 
-Il rilevamento delle minacce per il database SQL di Azure rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database e può attivare i tipi di avvisi seguenti:
+Advanced Threat Protection per il Database SQL di Azure rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e può attivare gli avvisi seguenti:
 
 - **Vulnerabilità agli attacchi SQL injection**: questo avviso viene attivato quando un'applicazione genera un'istruzione SQL non corretta nel database. L'avviso potrebbe indicare una possibile vulnerabilità ad attacchi SQL injection. Ci sono due possibili motivi per la generazione di un'istruzione non corretta:
 
@@ -65,21 +65,21 @@ Si riceverà una notifica tramite posta elettronica al rilevamento di attività 
 
    ![Avviso specifico](./media/sql-database-threat-detection/specific_alert.png)
 
-## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Esplorare gli avvisi di rilevamento delle minacce per il database tramite il portale di Azure
+## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>Esplorare gli avvisi di Advanced Threat Protection per il database nel portale di Azure
 
-Rilevamento delle minacce integra i suoi avvisi con il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). Un riquadro sul rilevamento minacce live di SQL all'interno dei pannelli del database e di Sicurezza dei dati avanzata di SQL nel portale di Azure tiene traccia dello stato delle minacce attive.
+Advanced Threat Protection integra i suoi avvisi con [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/). I riquadri animati SQL Advanced Threat Protection nel database e nei pannelli di annunci di SQL nel portale di Azure di tenere traccia dello stato delle minacce attive.
 
-Fare clic su **Avviso rilevamento minacce**per avviare la pagina degli avvisi del Centro sicurezza di Azure e ottenere una panoramica delle minacce SQL attive rilevate nel database o nel data warehouse.
+Fare clic su **avviso di Advanced Threat Protection** per avviare il Centro sicurezza di Azure gli avvisi di pagina e ottenere una panoramica delle minacce SQL attive rilevate nel database o data warehouse.
 
-   ![Avviso di rilevamento minacce](./media/sql-database-threat-detection/threat_detection_alert.png)
+   ![Avviso di protezione dalle minacce avanzata](./media/sql-database-threat-detection/threat_detection_alert.png)
 
-   ![Avviso di rilevamento minacce2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
+   ![Advanced Threat Protection alert2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sul [rilevamento delle minacce nei database singoli e in pool](sql-database-threat-detection.md).
-- Altre informazioni su [Rilevamento delle minacce in istanza gestita](sql-database-managed-instance-threat-detection.md).
-- Altre informazioni su [Sicurezza dei dati avanzata](sql-database-advanced-data-security.md).
+- Altre informazioni sulle [Advanced Threat Protection nel database singoli e pool](sql-database-threat-detection.md).
+- Altre informazioni sulle [Advanced Threat Protection in istanza gestita](sql-database-managed-instance-threat-detection.md).
+- Altre informazioni sulle [protezione dati avanzata](sql-database-advanced-data-security.md).
 - Altre informazioni sul [controllo del database SQL di Azure](sql-database-auditing.md)
 - Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Per altre informazioni sui prezzi, visitare la [pagina relativa ai prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/)  

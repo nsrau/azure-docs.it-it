@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: fee5a025b97343936a002156e4cb895c91e04405
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 506f623fe928cf122a16630844996c981cc20e9e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55821338"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791729"
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET tabella per Azure Cosmos DB: download e note sulla versione
+
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
 > * [.NET Standard](table-sdk-dotnet-standard.md)
@@ -38,32 +39,40 @@ ms.locfileid: "55821338"
 ## <a name="release-notes"></a>Note sulla versione
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+
 * Correzioni di bug
 
 ### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
 * È stato aggiunto il supporto per la scrittura in più aree
 * Sono state corrette le dipendenze dei pacchetti NuGet da Microsoft.Azure.DocumentDB, Microsoft.OData.Core, Microsoft.OData.Edm, Microsoft.Spatial
 
 ### <a name="a-name113113"></a><a name="1.1.3"/>1.1.3
+
 * Dipendenze risolte dei pacchetti NuGet in Microsoft.Azure.Storage.Common e Microsoft.Azure.DocumentDB.
 * Correzioni di bug nella serializzazione di tabella quando JsonConvert.DefaultSettings sono configurati.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
+
 * È stata aggiunta la convalida per ETag in formato non valido in modalità diretta.
 * È stato corretto il bug relativo alle query LINQ in modalità gateway.
 * Le API sincrone vengono ora eseguite sul pool di thread con SynchronizationContext.
 
 ### <a name="a-name110110"></a><a name="1.1.0"/>1.1.0
+
 * Aggiunta di TableQueryMaxItemCount, TableQueryEnableScan, TableQueryMaxDegreeOfParallelism e TableQueryContinuationTokenLimitInKb a TableRequestOptions
 * Correzioni di bug
 
 ### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+
 * Versione con disponibilità generale
 
 ### <a name="a-name010-preview090-preview"></a><a name="0.1.0-preview"/>0.9.0-preview
+
 * Versione di anteprima iniziale
 
 ## <a name="release-and-retirement-dates"></a>Date di rilascio e di ritiro
+
 Microsoft invia una notifica almeno **12 mesi** prima del ritiro di un SDK per agevolare la transizione a una versione più recente o supportata.
 
 Il pacchetto di anteprima [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) è stato deprecato e sostituito dal pacchetto [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). L'SDK WindowsAzure.Storage-PremiumTable verrà ritirato il 15 novembre 2018. Da quella data, le richieste all'SDK ritirato non saranno consentite. La libreria `Microsoft.Azure.CosmosDB.Table` è attualmente disponibile solo per .NET Standard. Non è ancora disponibile per .NET Core.
@@ -95,9 +104,11 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 Quando si tenta di usare il pacchetto NuGet Microsoft.Azure.CosmosDB.Table, sono disponibili due opzioni per risolvere il problema:
 
 * Usare la console di gestione pacchetti per installare il pacchetto Microsoft.Azure.CosmosDB.Table e le relative dipendenze. A tale scopo, digitare quanto segue nella console di gestione pacchetti per la soluzione. 
-    ```
+
+    ```powershell
     Install-Package Microsoft.Azure.CosmosDB.Table -IncludePrerelease
     ```
+
     
 * Usando lo strumento di gestione pacchetti NuGet preferito, installare il pacchetto Microsoft.Azure.Storage.Common NuGet prima di installare Microsoft.Azure.CosmosDB.Table.
 
@@ -106,4 +117,5 @@ Quando si tenta di usare il pacchetto NuGet Microsoft.Azure.CosmosDB.Table, sono
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="see-also"></a>Vedere anche 
+
 Per altre informazioni sull'API Table di Azure Cosmos DB, vedere [Introduzione ad Azure Cosmos DB: API Table](table-introduction.md). 

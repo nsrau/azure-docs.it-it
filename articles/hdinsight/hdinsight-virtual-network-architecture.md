@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759475"
+ms.locfileid: "58762923"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Architettura di rete virtuale di Azure HDInsight
 
@@ -31,8 +31,6 @@ I cluster HDInsight di Azure hanno tipi diversi di macchine virtuali o i nodi. O
 | Nodo area | Per il tipo di cluster HBase, il nodo di area (detto anche un nodo di dati) viene eseguito il Server di area. Server di area servono e gestire una parte dei dati gestiti da HBase. I nodi di area possono essere aggiunto o rimosso dal cluster scalabilità capacità di elaborazione e la gestione dei costi.|
 | Nodo nimbus | Per il tipo di cluster Storm, il nodo Nimbus offre funzionalità simili al nodo Head. Il nodo Nimbus Assegna attività agli altri nodi nel cluster tramite Zookeeper, che coordina l'esecuzione di topologie Storm. |
 | Nodi Supervisor | Per il tipo di cluster Storm, il nodo Supervisore esegue le istruzioni fornite dal nodo Nimbus per eseguire l'elaborazione desiderato. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase e i tipi di cluster R Server
 
 ## <a name="basic-virtual-network-resources"></a>Risorse di rete virtuale di base
 

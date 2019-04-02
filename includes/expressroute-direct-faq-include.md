@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825840"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807687"
 ---
 ### <a name="what-is-expressroute-direct"></a>Che cos'è ExpressRoute Direct?
 
@@ -52,6 +52,6 @@ ExpressRoute Direct fornisce ai clienti coppie di porte dirette da 100 Gbps nell
 
 Per la coppia di porte di ExpressRoute Direct verrà fatturato un importo fisso. I circuiti standard saranno inclusi senza ore aggiuntive, mentre per quelli premium è previsto un piccolo addebito aggiuntivo. Il traffico in uscita verrà fatturato in base ai singoli circuiti a seconda della zona in cui si trova la località di peering.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>Quando avviene la fatturazione per le coppie di porte di ExpressRoute Direct?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>Non avviare fatturazione vengono eseguiti per le coppie di porta diretta di ExpressRoute?
 
 Le coppie di porte di ExpressRoute Direct vengono fatturate 45 giorni dopo la creazione della risorsa di ExpressRoute Direct o quando uno o entrambi i collegamenti vengono abilitati, a seconda della condizione che si verifica prima. Il periodo di prova di 45 giorni è garantito per consentire ai clienti di completare il processo di Cross Connection con il provider del servizio di condivisione del percorso.

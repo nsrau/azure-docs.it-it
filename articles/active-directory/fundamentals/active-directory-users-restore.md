@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 04/01/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b98cc0141954a079b848bd9639b081499819b8ce
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d69bd931f2f8c72fd1e6fc79c16662ea367617d6
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877004"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802015"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Ripristinare o rimuovere un utente eliminato di recente con Azure Active Directory
 Dopo aver eliminato un utente, l'account rimane in uno stato di sospensione per 30 giorni. Durante tale intervallo di 30 giorni, l'account utente può essere ripristinato, con tutte le relative proprietà. Dopo il superamento di tale periodo di 30 giorni, l'utente viene automaticamente e definitivamente eliminato.
@@ -43,7 +43,7 @@ Per ripristinare o eliminare definitivamente gli utenti, è necessario avere uno
 È possibile visualizzare tutti gli utenti che sono stati eliminati negli ultimi 30 giorni e che possono essere ripristinati.
 
 ### <a name="to-view-your-restorable-users"></a>Per visualizzare gli utenti ripristinabili
-1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
+1. Accedi per il [portale di Azure](https://portal.azure.com/) usando un account amministratore globale per l'organizzazione.
 
 2. Selezionare **Azure Active Directory**, **Utenti** e quindi selezionare **Utenti eliminati**.
 
@@ -52,7 +52,11 @@ Per ripristinare o eliminare definitivamente gli utenti, è necessario avere uno
     ![Pagina Utenti - Utenti eliminati con gli utenti che possono essere ancora ripristinati](media/active-directory-users-restore/users-deleted-users-view-restorable.png)
 
 ## <a name="restore-a-recently-deleted-user"></a>Ripristinare un utente eliminato di recente
-Mentre un account utente è sospeso, tutte le informazioni di directory correlate vengono mantenute. Quando si ripristina un utente, vengono ripristinate anche queste informazioni di directory.
+
+Quando viene eliminato un account utente dell'organizzazione, l'account è in uno stato sospeso e viene mantenute tutte le informazioni correlate dell'organizzazione. Quando si ripristina un utente, viene ripristinate anche queste informazioni dell'organizzazione.
+
+> [!Note]
+> Una volta che un utente viene ripristinato, anche se sono non disponibili postazioni per le licenze vengono ripristinate anche le licenze assegnate all'utente al momento dell'eliminazione. Se quindi utilizzano più di acquistate più licenze, l'organizzazione potrebbe essere temporaneamente non conformi per l'utilizzo delle licenze.
 
 ### <a name="to-restore-a-user"></a>Per ripristinare un utente
 1. Nella pagina **Utenti - Utenti eliminati** cercare e selezionare uno degli utenti disponibili. Ad esempio, _Mary Parker_.
@@ -62,7 +66,7 @@ Mentre un account utente è sospeso, tutte le informazioni di directory correlat
     ![Pagina Utenti - Utenti eliminati, con l'opzione Ripristina utente evidenziata](media/active-directory-users-restore/users-deleted-users-restore-user.png)
 
 ## <a name="permanently-delete-a-user"></a>eliminare in modo definitivo un utente
-È possibile eliminare definitivamente un utente dalla directory senza aspettare i 30 giorni per l'eliminazione automatica. Un utente eliminato in modo permanente non può essere ripristinato né dall'utente, né da un altro amministratore, né dal supporto tecnico Microsoft.
+È possibile eliminare definitivamente un utente dell'organizzazione senza tempi di attesa di 30 giorni per l'eliminazione automatica. Un utente eliminato in modo permanente non può essere ripristinato né dall'utente, né da un altro amministratore, né dal supporto tecnico Microsoft.
 
 >[!Note]
 >Se si elimina definitivamente un utente per errore, sarà necessario creare un nuovo utente e immettere manualmente tutte le informazioni precedenti. Per altre informazioni sulla creazione di un utente, vedere [Aggiungere o eliminare utenti](add-users-azure-active-directory.md).
@@ -84,6 +88,6 @@ Dopo aver ripristinato o eliminato gli utenti, è possibile eseguire i processi 
 
 - [Aggiungere o modificare le informazioni sul profilo utente](active-directory-users-profile-azure-portal.md)
 
-- [Aggiungere utenti guest da un'altra directory](../b2b/what-is-b2b.md) 
+- [Aggiungere utenti guest da un'altra organizzazione](../b2b/what-is-b2b.md)
 
-Per altre informazioni sulle altre azioni di gestione disponibili, vedere [Documentazione sulla gestione degli utenti in Azure Active Directory](../users-groups-roles/index.yml).
+Per altre informazioni sulle altre attività di gestione utente disponibili, [documentazione di gestione di Azure AD dell'utente](../users-groups-roles/index.yml).

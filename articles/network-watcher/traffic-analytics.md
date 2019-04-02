@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: d4c3ab7e33d3d4bd8d5d5ee15c8264d1d41c858e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58081067"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805058"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -64,6 +64,7 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * Stati Uniti centrali
 * Stati Uniti occidentali
 * Stati Uniti occidentali 2
+* Francia centrale
 * Europa occidentale
 * Europa settentrionale
 * Brasile meridionale
@@ -71,20 +72,26 @@ Analisi del traffico esamina i log dei flussi dei gruppi di sicurezza di rete e 
 * Regno Unito meridionale
 * Australia orientale
 * Australia sud-orientale
+* Asia orientale
 * Asia sud-orientale
+* Corea del Sud centrale
 * India centrale
 * India meridionale
 * Giappone orientale 
+* Giappone occidentale
 * US Gov Virginia
 
 L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
 * Canada centrale
 * Stati Uniti centro-occidentali
+* Stati Uniti occidentali 2
 * Stati Uniti orientali
+* Francia centrale
 * Europa occidentale
 * Regno Unito meridionale
 * Australia sud-orientale
 * Asia sud-orientale
+* Corea del Sud centrale
 * India centrale
 * Giappone orientale
 * US Gov Virginia

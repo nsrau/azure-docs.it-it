@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314127"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802746"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -46,7 +46,7 @@ Per visualizzare i dettagli di conformità, seguire questa procedura:
 
 1. Il **dettagli di conformità** riquadro vengono visualizzate informazioni rispetto alla valutazione più recente della risorsa per l'assegnazione di criteri corrente. In questo esempio, il campo **Microsoft.Sql/servers/version** risulta _12.0_ mentre la definizione di criteri previsto _14.0_. Se la risorsa non conforme per diversi motivi, ognuno è elencato in questo riquadro.
 
-   ![Riquadro dei dettagli di conformità](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Riquadro dei dettagli di conformità e i motivi per la mancata conformità](../media/determine-non-compliance/compliance-details-pane.png)
 
    Per un **auditIfNotExists** oppure **deployIfNotExists** definizione dei criteri, i dettagli includono il **details.type** proprietà e le eventuali proprietà facoltative. Per un elenco, vedere [proprietà auditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [deployIfNotExists proprietà](../concepts/effects.md#deployifnotexists-properties). **Ultima valutazione resource** è delle risorse correlata di **dettagli** sezione della definizione.
 
@@ -118,11 +118,11 @@ Come parte di una nuova **versione di anteprima pubblica**, gli ultimi 14 giorni
 
 1. Selezionare la scheda **Cronologia modifiche (anteprima)** nella pagina **Conformità risorsa**. Verrà visualizzato un elenco delle eventuali modifiche rilevate.
 
-   ![Scheda della cronologia modifiche dei criteri](../media/determine-non-compliance/change-history-tab.png)
+   ![Scheda Cronologia modifiche dei criteri nella pagina relativa alla conformità risorsa](../media/determine-non-compliance/change-history-tab.png)
 
 1. Selezionare una delle modifiche rilevate. Il _diff visual_ per la risorsa viene presentata nella **cronologia delle modifiche** pagina.
 
-   ![Diff visivo nella cronologia modifiche dei criteri](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Diff Visual cronologia modifiche di criteri nella pagina cronologia modifiche](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Sono state rilevate le modifiche potrebbero non essere correlate per lo stato di conformità corrente della risorsa.
 

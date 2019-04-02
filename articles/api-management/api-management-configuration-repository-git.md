@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851347"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793272"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Come salvare e configurare la configurazione del servizio Gestione API tramite Git
 
@@ -57,7 +57,7 @@ Per visualizzare e configurare le impostazioni di configurazione di Git, è poss
 >
 >
 
-Per informazioni sull'abilitazione o la disabilitazione dell'accesso a Git mediante l'API REST, vedere la [pagina relativa a questo argomento](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit).
+Per informazioni sull'abilitazione o la disabilitazione dell'accesso a Git mediante l'API REST, vedere la [pagina relativa a questo argomento](/rest/api/apimanagement/tenantaccess?EnableGit).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Per salvare la configurazione del servizio nel repository Git
 
@@ -69,7 +69,7 @@ Dopo qualche secondo la configurazione viene salvata e viene visualizzato lo sta
 
 Dopo che la configurazione è stata salvata nel repository, può essere clonata.
 
-Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa all'esecuzione del commit di uno snapshot della configurazione tramite l'API REST](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot).
+Per informazioni sull'esecuzione di questa operazione tramite l'API REST, vedere la [pagina relativa all'esecuzione del commit di uno snapshot della configurazione tramite l'API REST](/rest/api/apimanagement/tenantaccess?CommitSnapshot).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Per clonare il repository nel computer locale
 
@@ -266,7 +266,7 @@ Per informazioni su altri metodi di gestione dell'istanza del servizio, vedere:
   * [Informazioni di riferimento sui cmdlet di PowerShell per la distribuzione dei servizi](https://docs.microsoft.com/powershell/module/wds)
   * [Informazioni di riferimento sui cmdlet di PowerShell per la gestione dei servizi](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Gestire l'istanza del servizio tramite l'API REST
-  * [Informazioni di riferimento sull'API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [Informazioni di riferimento sull'API REST di Gestione API](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: ef408022174bc53300626b71f28bafe0561dc343
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 07865b2120aa91381d3711688e1a5c8e3187fab3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486241"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793381"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteggere i servizi RESTful tramite l'autenticazione di base HTTP
 
@@ -28,11 +28,13 @@ Questo articolo illustra come aggiungere l'autenticazione di base HTTP al serviz
 Per altre informazioni, vedere [Basic authentication in ASP.NET web API](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication) (Autenticazione di base nell'API Web ASP.NET).
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Completare i passaggi nell'articolo [Integrare scambi di attestazioni API REST nei percorsi utente di Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md).
 
 ## <a name="step-1-add-authentication-support"></a>Passaggio 1: Aggiungere il supporto per l'autenticazione
 
 ### <a name="step-11-add-application-settings-to-your-projects-webconfig-file"></a>Passaggio 1.1: Aggiungere le impostazioni dell'applicazione al file web.config del progetto
+
 1. Aprire il progetto di Visual Studio creato in precedenza.
 
 2. Aggiungere le impostazioni dell'applicazione seguenti al file web.config nell'elemento `appSettings`:
@@ -55,15 +57,17 @@ Completare i passaggi nell'articolo [Integrare scambi di attestazioni API REST n
     ```
 
 ### <a name="step-12-install-owin-libraries"></a>Passaggio 1.2: Installare le librerie OWIN
+
 Per iniziare, aggiungere i pacchetti NuGet del middleware OWIN al progetto usando la Console di Gestione pacchetti di Visual Studio:
 
-```
+```powershell
 PM> Install-Package Microsoft.Owin
 PM> Install-Package Owin
 PM> Install-Package Microsoft.Owin.Host.SystemWeb
 ```
 
 ### <a name="step-13-add-an-authentication-middleware-class"></a>Passaggio 1.3: Aggiungere una classe del middleware di autenticazione
+
 Aggiungere la classe `ClientAuthMiddleware.cs` nella cartella *App_Start*. A tale scopo, procedere come segue:
 
 1. Fare clic con il pulsante destro del mouse sulla cartella *App_Start*, scegliere **Aggiungi** e quindi selezionare **Classe**.
@@ -187,6 +191,7 @@ Aggiungere la classe `ClientAuthMiddleware.cs` nella cartella *App_Start*. A tal
     ```
 
 ### <a name="step-14-add-an-owin-startup-class"></a>Passaggio 1.4: Aggiungere una classe di avvio OWIN
+
 Aggiungere una classe di avvio OWIN denominata `Startup.cs` all'API. A tale scopo, procedere come segue:
 1. Fare clic con il pulsante destro del mouse sul progetto, scegliere **Aggiungi** > **Nuovo elemento** e cercare **OWIN**.
 
@@ -212,17 +217,21 @@ Aggiungere una classe di avvio OWIN denominata `Startup.cs` all'API. A tale scop
     ```
 
 ### <a name="step-15-protect-the-identity-api-class"></a>Passaggio 1.5: Proteggere la classe dell'API di identità
+
 Aprire Controllers\IdentityController.cs e aggiungere il tag `[Authorize]` alla classe del controller. Questo tag limita l'accesso al controller agli utenti che soddisfano i requisiti di autorizzazione.
 
 ![Aggiungere il tag Authorize al controller](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-authorize.png)
 
 ## <a name="step-2-publish-to-azure"></a>Passaggio 2: Pubblicazione in Azure
+
 Per pubblicare il progetto, in Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **Contoso.AADB2C.API** e quindi selezionare **Pubblica**.
 
 ## <a name="step-3-add-the-restful-services-app-id-and-app-secret-to-azure-ad-b2c"></a>Passaggio 3: Aggiungere ID e segreto dell'app dei servizi RESTful ad Azure AD B2C
+
 Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto client, è necessario archiviare le credenziali nel tenant di Azure AD B2C. I criteri personalizzati forniscono le credenziali quando richiamano i servizi RESTful.
 
 ### <a name="step-31-add-a-restful-services-client-id"></a>Passaggio 3.1: Aggiungere un ID client dei servizi RESTful
+
 1. Nel tenant di Azure AD B2C selezionare **Impostazioni di Azure AD B2C** > **Framework dell'esperienza di gestione delle identità**.
 
 
@@ -244,6 +253,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 9. Verificare di avere creato la chiave `B2C_1A_B2cRestClientId`.
 
 ### <a name="step-32-add-a-restful-services-client-secret"></a>Passaggio 3.2: Aggiungere un segreto client dei servizi RESTful
+
 1. Nel tenant di Azure AD B2C selezionare **Impostazioni di Azure AD B2C** > **Framework dell'esperienza di gestione delle identità**.
 
 2. Selezionare **Chiavi dei criteri** per visualizzare le chiavi disponibili nel tenant.
@@ -264,6 +274,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 9. Verificare di avere creato la chiave `B2C_1A_B2cRestClientSecret`.
 
 ## <a name="step-4-change-the-technical-profile-to-support-basic-authentication-in-your-extension-policy"></a>Passaggio 4: Modificare il profilo tecnico per supportare l'autenticazione di base nei criteri di estensione
+
 1. Aprire il file dei criteri di estensione (TrustFrameworkExtensions.xml) nella directory di lavoro.
 
 2. Cercare il nodo `<TechnicalProfile>` che include `Id="REST-API-SignUp"`.
@@ -271,6 +282,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 3. Individuare l'elemento `<Metadata>`.
 
 4. Modificare *AuthenticationType* impostando *Basic*, come segue:
+
     ```xml
     <Item Key="AuthenticationType">Basic</Item>
     ```
@@ -283,6 +295,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
         <Key Id="BasicAuthenticationPassword" StorageReferenceId="B2C_1A_B2cRestClientSecret" />
     </CryptographicKeys>
     ```
+
     Dopo aver aggiunto il frammento di codice, il profilo tecnico dovrebbe essere simile al codice XML seguente:
     
     ![Aggiungere gli elementi XML dell'autenticazione di base](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-secure-basic-add-1.png)
@@ -302,6 +315,7 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
 6. Caricare il file *TrustFrameworkExtensions.xml* e assicurarsi che superi la convalida.
 
 ## <a name="step-6-test-the-custom-policy-by-using-run-now"></a>Passaggio 6: Testare i criteri personalizzati tramite Esegui adesso
+
 1. Aprire **Impostazioni di Azure AD B2C** e quindi selezionare **Framework dell'esperienza di gestione delle identità**.
 
     >[!NOTE]
@@ -339,9 +353,10 @@ Dopo aver protetto il servizio RESTful con ID client (nomeutente) e segreto clie
     ```
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(Facoltativo) Scaricare i file e il codice dei criteri completi
+
 * Dopo aver completato la procedura [Introduzione ai criteri personalizzati](active-directory-b2c-get-started-custom.md), è consigliabile usare file di criteri personalizzati per definire scenari specifici. Per riferimento, sono disponibili [file di criteri di esempio](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-basic).
 * È possibile scaricare il codice completo da [Sample Visual Studio solution for reference](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API) (Soluzione di Visual Studio di esempio per riferimento).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Usare i certificati client per proteggere l'API RESTful](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
 
+* [Usare i certificati client per proteggere l'API RESTful](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)

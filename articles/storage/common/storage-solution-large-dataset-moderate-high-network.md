@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496894"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805583"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Trasferimento dei dati per set di dati di grandi dimensioni con larghezza di banda da rete da moderata a elevata
  
@@ -62,7 +62,7 @@ Le tabelle seguenti riepilogano le differenze nelle funzionalità chiave per le 
 
 Se si usa il trasferimento dei dati offline, usare la tabella seguente per conoscere le differenze nelle funzionalità chiave.
 
-|                                     |    Data Box Disk (anteprima)    |    Data Box                                      |    Data Box Heavy (anteprima)              |    Importazione/Esportazione                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Importazione/Esportazione                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Dimensioni dei dati                        |    Fino a 35 TB                 |    Fino a 80 TB per dispositivo                       |    Fino a 800 TB per dispositivo               |    Variabile                            |
 |    Tipo di dati                        |    BLOB di Azure                  |    BLOB di Azure<br>File di Azure                    |    BLOB di Azure<br>File di Azure            |    BLOB di Azure<br>File di Azure          |
@@ -83,7 +83,7 @@ Se si usa il trasferimento dei dati online, usare la tabella nella sezione segue
 
 ### <a name="high-network-bandwidth"></a>Larghezza di banda di rete elevata
 
-|                                     |    Strumenti AzCopy, <br>Azure PowerShell, <br>Interfaccia della riga di comando di Azure             |    API REST, SDK di Archiviazione di Azure                   |    Data Box Gateway o Data Box Edge (anteprima)           |    Data factory di Azure                                            |
+|                                     |    Strumenti AzCopy, <br>Azure PowerShell, <br>Interfaccia della riga di comando di Azure             |    API REST, SDK di Archiviazione di Azure                   |    Gateway di dati finestra o bordo casella dei dati          |    Data factory di Azure                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo di dati                  |    BLOB di Azure, file di Azure, tabelle di Azure    |    BLOB di Azure, file di Azure, tabelle di Azure    |    BLOB di Azure, file di Azure                           |   Supporta più di 70 connettori dati per archivi e formati dati    |
 |    Fattore di forma                |    Strumenti da riga di comando                        |    Interfaccia programmatica                    |    Microsoft fornisce un dispositivo <br>fisico o virtuale     |    Servizio nel portale di Azure                                            |

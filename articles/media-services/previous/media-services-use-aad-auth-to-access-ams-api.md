@@ -11,25 +11,28 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b6071bef4e4bbd9aaca3f587e5dfa584831d082e
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: d80a58f1886ecc1ca2a735881fc5822f2fc0c53b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58316875"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802491"
 ---
 # <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD  
- 
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
+
 L'API di Servizi multimediali di Azure è di tipo RESTful. È possibile usarla per eseguire operazioni sulle risorse multimediali tramite un'API REST o tramite gli SDK client disponibili. Servizi multimediali di Azure offre un SDK client di Servizi multimediali per Microsoft .NET. Per essere autorizzati ad accedere alle risorse e all'API di Servizi multimediali, è innanzitutto necessario essere autenticati. 
 
 Servizi multimediali supporta l'[autenticazione basata su Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md). Il servizio REST di Servizi multimediali di Azure richiede che l'utente o l'applicazione che invia le richieste all'API REST abbia almeno il ruolo di **Collaboratore** o **Proprietario** per poter accedere alle risorse. Per altre informazioni, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../../role-based-access-control/overview.md).  
 
-> [!IMPORTANT]
-> Attualmente, Servizi multimediali supporta il modello di autenticazione del Servizio di controllo di accesso Azure. L'autorizzazione di Controllo di accesso, tuttavia, verrà dichiarata deprecata il 1° giugno 2018. È consigliabile eseguire la migrazione all'autenticazione di Azure AD il più presto possibile.
-
 Questo documento offre una panoramica su come accedere all'API di Servizi multimediali tramite l'API REST o .NET.
+
+> [!NOTE]
+> Autorizzazione di controllo di accesso è stato deprecato il 1 giugno 2018.
 
 ## <a name="access-control"></a>Controllo di accesso
 

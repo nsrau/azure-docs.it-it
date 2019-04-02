@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880450"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791644"
 ---
 # <a name="azure-data-box-disk-limits"></a>Limiti di Azure Data Box Disk
 
@@ -50,11 +50,11 @@ Per informazioni aggiornate su limiti del servizio Archiviazione di Azure e le p
 - Ogni file scritto nelle condivisioni *BlockBlob* e *PageBlob* viene caricato come BLOB in blocchi e BLOB di pagine rispettivamente.
 - Una gerarchia di directory vuota (senza alcun file) creata nelle cartelle *BlockBlob* e *PageBlob* non viene caricata.
 - Se si verificano errori durante il caricamento dei dati in Azure, viene creato un log degli errori nell'account di archiviazione di destinazione. Il percorso del log degli errori è disponibile nel portale quando il caricamento è completo ed è possibile esaminare il log per eseguire azioni correttive. Non eliminare i dati dall'origine senza verificare i dati caricati.
-- Se i dischi gestiti è stato specificato nell'ordine, esaminare le considerazioni aggiuntive seguenti:
+- Se si sono specificati i dischi gestiti nell'ordine, esaminare le considerazioni aggiuntive seguenti:
 
-    - Si può avere solo un disco gestito con un nome specificato in un gruppo di risorse tra tutte le cartelle creati in precedenza e tra tutti i Data Box Disk. Ciò implica che i dischi rigidi virtuali caricati nelle cartelle creati in precedenza devono avere nomi univoci. Assicurarsi che il nome specificato non corrisponde un disco gestito esistente già in un gruppo di risorse. Se i dischi rigidi virtuali hanno nomi stesso, solo un disco rigido virtuale viene convertito in un disco gestito con lo stesso nome. I dischi rigidi virtuali vengono caricati come BLOB di pagine nell'account di archiviazione di staging.
-    - Copiare sempre i dischi rigidi virtuali in una delle cartelle creati in precedenza. Se si copiano i dischi rigidi virtuali di fuori di queste cartelle o in una cartella che è stato creato, i dischi rigidi virtuali vengono caricati in account di archiviazione di Azure come BLOB di pagine e dischi non gestiti.
-    - È possibile caricare solo i dischi rigidi virtuali fissi per creare dischi gestiti. Dinamica dischi rigidi virtuali differenze VHD o VHDX file non sono supportati.
+    - In tutte le cartelle create preventivamente e in Data Box Disk può essere presente un solo disco gestito con un determinato nome in un gruppo di risorse. I dischi rigidi virtuali caricati nelle cartelle create preventivamente devono quindi avere nomi univoci. Verificare che il nome assegnato non corrisponda a un disco gestito già esistente in un gruppo di risorse. Se i dischi rigidi virtuali hanno lo stesso nome, un solo disco rigido virtuale verrà convertito in un disco gestito con tale nome. Gli altri dischi rigidi virtuali verranno caricati come BLOB di pagine nell'account di archiviazione di staging.
+    - Copiare sempre i dischi rigidi virtuali in una delle cartelle create preventivamente. Se vengono copiati all'esterno di queste cartelle o in una cartella creata dall'utente, i dischi rigidi virtuali verranno caricati nell'account di archiviazione di Azure come BLOB di pagine e non come dischi gestiti.
+    - Per la creazione di dischi gestiti possono essere caricati solo dischi rigidi virtuali a dimensione fissa. I dischi rigidi virtuali dinamici o differenze e i file VHDX non sono supportati.
 
 ## <a name="azure-storage-account-size-limits"></a>Limiti delle dimensioni dell'account di archiviazione di Azure
 
@@ -93,4 +93,4 @@ Di seguito vengono indicate le dimensioni degli oggetti Azure che possono essere
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Rivedere i [requisiti di sistema di Data Box](data-box-system-requirements.md)
+- Revisione [requisiti di sistema di Data Box Disk](data-box-disk-system-requirements.md)

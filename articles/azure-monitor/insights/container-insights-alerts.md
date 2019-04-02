@@ -11,26 +11,28 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: magoedte
-ms.openlocfilehash: e6fdb0d57a44578647c1f16dc76c557296f20ddb
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 5bb0a727adcfb35b5d840a063b6fdb478d150953
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886775"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804825"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>Come impostare gli avvisi per problemi di prestazioni in Monitoraggio di Azure per contenitori
 Monitoraggio di Azure per i contenitori monitora le prestazioni dei carichi di lavoro dei contenitori distribuiti in Istanze di Azure Container o in cluster Kubernetes gestiti ospitati nel servizio Azure Kubernetes. 
 
 Questo articolo descrive come abilitare gli avvisi per le situazioni seguenti:
 
-* Quando utilizzo di CPU e memoria nei nodi del cluster o supera la soglia definita.
+* Utilizzo della CPU o memoria nei nodi del cluster quando supera la soglia definita.
 * Utilizzo della CPU o memoria in uno qualsiasi dei contenitori all'interno di un controller quando supera la soglia definita rispetto al limite impostato sulla risorsa corrispondente.
+* **Non pronto** conta nodo stato
+* Conteggio della fase di POD di **Failed**, **in sospeso**, **sconosciuto**, **esecuzione**, o **Succeeded**
 
-Per generare un avviso quando l'utilizzo della CPU o memoria è elevato per un cluster o un controller, si crea una regola di avviso di misurazione delle metriche che si basa su query di log specificata. La query confronta un valore datetime a quella attuale utilizzando l'operatore di ora e torna un'ora. Tutte le date archiviate da Monitoraggio di Azure per i contenitori sono in formato UTC.
+Per generare un avviso quando CPU o memoria utilizzo è elevato nei nodi del cluster, è possibile creare un avviso di metrica o una regola di avviso di misurazione delle metriche mediante le query di log specificate. Mentre gli avvisi delle metriche hanno una latenza più bassa rispetto agli avvisi di log, un avviso del log offre l'esecuzione di query avanzate e complessità rispetto a un avviso di metrica. Per gli avvisi del log, le query confrontare un valore datetime a quella attuale utilizzando l'operatore di ora e ritorna un'ora. Tutte le date archiviate da Monitoraggio di Azure per i contenitori sono in formato UTC.
 
-Prima di iniziare, se non ha familiarità con gli avvisi in Monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure](../platform/alerts-overview.md). Per altre informazioni sugli avvisi usando le query di log, vedere [Avvisi del log in Monitoraggio di Azure](../platform/alerts-unified-log.md)
+Prima di iniziare, se non ha familiarità con gli avvisi in Monitoraggio di Azure, vedere [panoramica degli avvisi in Microsoft Azure](../platform/alerts-overview.md). Per altre informazioni sugli avvisi usando le query di log, vedere [gli avvisi del Log in Monitoraggio di Azure](../platform/alerts-unified-log.md). Per altre informazioni sugli avvisi delle metriche, vedere [gli avvisi delle metriche in Monitoraggio di Azure](../platform/alerts-metric-overview.md).
 
 ## <a name="resource-utilization-log-search-queries"></a>Query di ricerca log di utilizzo delle risorse
 Le query in questa sezione vengono fornite per supportare ogni scenario di avvisi. Le query sono necessari per il passaggio 7 nel [crea avviso](#create-alert-rule) sezione riportata di seguito.  
@@ -187,6 +189,72 @@ KubePodInventory
 | project Computer, ContainerName, TimeGenerated, UsagePercent = UsageValue * 100.0 / LimitValue
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize) , ContainerName
 ```
+
+La query seguente restituisce tutti i nodi e count con stato **pronti** e **non pronto**.
+
+```kusto
+let endDateTime = now();
+let startDateTime = ago(1h);
+let trendBinSize = 1m;
+let clusterName = '<your-cluster-name>';
+KubeNodeInventory
+| where TimeGenerated < endDateTime
+| where TimeGenerated >= startDateTime
+| distinct ClusterName, Computer, TimeGenerated
+| summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName, Computer
+| join hint.strategy=broadcast kind=inner (
+    KubeNodeInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | summarize TotalCount = count(), ReadyCount = sumif(1, Status contains ('Ready'))
+                by ClusterName, Computer,  bin(TimeGenerated, trendBinSize)
+    | extend NotReadyCount = TotalCount - ReadyCount
+) on ClusterName, Computer, TimeGenerated
+| project   TimeGenerated,
+            ClusterName,
+            Computer,
+            ReadyCount = todouble(ReadyCount) / ClusterSnapshotCount,
+            NotReadyCount = todouble(NotReadyCount) / ClusterSnapshotCount
+| order by ClusterName asc, Computer asc, TimeGenerated desc
+```
+La query seguente restituisce fase pod conta basato su tutte le fasi - **Failed**, **in sospeso**, **sconosciuto**, **esecuzione**, o **Ha avuto esito positivo**.  
+
+```kusto
+let endDateTime = now();
+    let startDateTime = ago(1h);
+    let trendBinSize = 1m;
+    let clusterName = '<your-cluster-name>';
+    KubePodInventory
+    | where TimeGenerated < endDateTime
+    | where TimeGenerated >= startDateTime
+    | where ClusterName == clusterName
+    | distinct ClusterName, TimeGenerated
+    | summarize ClusterSnapshotCount = count() by bin(TimeGenerated, trendBinSize), ClusterName
+    | join hint.strategy=broadcast (
+        KubePodInventory
+        | where TimeGenerated < endDateTime
+        | where TimeGenerated >= startDateTime
+        | distinct ClusterName, Computer, PodUid, TimeGenerated, PodStatus
+        | summarize TotalCount = count(),
+                    PendingCount = sumif(1, PodStatus =~ 'Pending'),
+                    RunningCount = sumif(1, PodStatus =~ 'Running'),
+                    SucceededCount = sumif(1, PodStatus =~ 'Succeeded'),
+                    FailedCount = sumif(1, PodStatus =~ 'Failed')
+                 by ClusterName, bin(TimeGenerated, trendBinSize)
+    ) on ClusterName, TimeGenerated
+    | extend UnknownCount = TotalCount - PendingCount - RunningCount - SucceededCount - FailedCount
+    | project TimeGenerated,
+              TotalCount = todouble(TotalCount) / ClusterSnapshotCount,
+              PendingCount = todouble(PendingCount) / ClusterSnapshotCount,
+              RunningCount = todouble(RunningCount) / ClusterSnapshotCount,
+              SucceededCount = todouble(SucceededCount) / ClusterSnapshotCount,
+              FailedCount = todouble(FailedCount) / ClusterSnapshotCount,
+              UnknownCount = todouble(UnknownCount) / ClusterSnapshotCount
+| summarize AggregatedValue = avg(PendingCount) by bin(TimeGenerated, trendBinSize)
+```
+
+>[!NOTE]
+>Per generare un avviso, ad esempio su alcune fasi di pod **in sospeso**, **Failed**, o **sconosciuto**, è necessario modificare l'ultima riga della query. Ad esempio per inviare avvisi sullo *FailedCount* `| summarize AggregatedValue = avg(FailedCount) by bin(TimeGenerated, trendBinSize)`.  
 
 ## <a name="create-alert-rule"></a>Creare la regola di avviso
 Eseguire la procedura seguente per creare un avviso di Log in Monitoraggio di Azure usando una delle regole di ricerca di log specificate in precedenza.  

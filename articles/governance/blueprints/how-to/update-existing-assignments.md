@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999855"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805755"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -32,17 +32,17 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Scegliere il **aggiornare l'assegnazione** pulsante o l'assegnazione di progetto e scegliere **aggiornare l'assegnazione**.
 
-   ![Aggiorna assegnazione](../media/update-existing-assignments/update-assignment.png)
+   ![Aggiornare un'assegnazione di progetto esistente](../media/update-existing-assignments/update-assignment.png)
 
 1. Il **Assign blueprint** pagina caricherà precompilato con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
-   ![Assegnazione aggiornata - bloccata](../media/update-existing-assignments/updated-assignment.png)
+   ![Aggiornata un'assegnazione di progetto esistente - modificare la modalità di blocco](../media/update-existing-assignments/updated-assignment.png)
 
 1. Esplorare i dettagli sulle altre **gli operatori di assegnazione** usando l'elenco a discesa. La tabella di **le risorse gestite** aggiornamenti dall'operazione di assegnazione selezionato.
 
-   ![Operazioni di assegnazione](../media/update-existing-assignments/assignment-operations.png)
+   ![Operatori di assegnazione di un'assegnazione progetto](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Regole per l'aggiornamento delle assegnazioni
 
@@ -69,8 +69,8 @@ Non è previsto alcun limite al numero di volte che è possibile aggiornare un'a
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Scopri le [ciclo di vita del progetto](../concepts/lifecycle.md).
+- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md).
-- Informazioni su come personalizzare il [blueprint ordine sequenziazione](../concepts/sequencing-order.md).
-- Scopri come rendere sfrutta [blueprint blocco delle risorse](../concepts/resource-locking.md).
-- Risolvere i problemi durante l'assegnazione di un progetto con [risoluzione dei problemi generali](../troubleshoot/general.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](../concepts/sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](../concepts/resource-locking.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213297"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805364"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creare una macchina virtuale Linux con rete accelerata
 
@@ -42,13 +42,16 @@ I vantaggi della funzionalità rete accelerata si applicano solo alla VM in cui 
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 Le distribuzioni seguenti sono supportate in modo nativo dalla raccolta di Azure: 
-* **Ubuntu 16.04+** 
-* **SLES 12 SP3** 
-* **RHEL 7.4**
-* **CentOS 7.4**
+* **Ubuntu 14.04 con il kernel linux di azure**
+* **Ubuntu 16.04 o versione successiva** 
+* **SLES12 SP3 o versione successiva** 
+* **RHEL 7.4 o successive**
+* **CentOS 7.4 o successive**
 * **CoreOS Linux**
 * **Debian "Stretch" con kernel backport**
-* **Oracle Linux 7.4**
+* **Oracle Linux 7.4 e versioni successive con Red Hat compatibili del Kernel (RHCK)**
+* **Oracle Linux 7.5 e versioni successive con UEK versione 5**
+* **FreeBSD 10.4, 11.1 & 12.0**
 
 ## <a name="limitations-and-constraints"></a>Limiti e vincoli
 

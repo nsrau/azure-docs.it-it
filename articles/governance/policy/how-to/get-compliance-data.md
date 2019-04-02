@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535213"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802955"
 ---
-# <a name="getting-compliance-data"></a>Ottenere dati sulla conformità
+# <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
 Uno dei maggiori vantaggi di Criteri di Azure è rappresentato dalle informazioni dettagliate e dai controlli che offre sulle risorse in una sottoscrizione o in un [gruppo di gestione](../../management-groups/overview.md) di sottoscrizioni. Questi controlli possono essere esercitati in molti modi diversi, ad esempio impedendo la creazione di risorse nel percorso errato, imponendo un uso dei tag coerente e comune o controllando che per le risorse esistenti ci siano configurazioni e impostazioni appropriate. In tutti i casi i dati vengono generati da Criteri per consentire di comprendere lo stato di conformità dell'ambiente in uso.
 
@@ -120,27 +120,27 @@ I criteri usano i campi **tipo** e **nome** nella definizione per determinare se
 La percentuale di conformità viene determinata dividendo le risorse **conformi** per il  _totale delle risorse_.
 Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non conformi** e **in conflitto**. I valori di conformità complessiva corrispondono alla somma delle risorse distinte **conformi** divisa per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**. La conformità complessiva delle risorse è pari al 95% (19 su 20).
 
-![Esempio semplice di conformità](../media/getting-compliance-data/simple-compliance.png)
+![Esempio di conformità dei criteri dalla pagina relativa alla conformità](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portale
 
 Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni.
 La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
 
-![Pagina Criteri - Conformità](../media/getting-compliance-data/compliance-page.png)
+![Esempio di pagina di conformità dei criteri](../media/getting-compliance-data/compliance-page.png)
 
 Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambiti, la tabella include l'ambito di ogni assegnazione e il tipo di definizione assegnato. È anche indicato il numero di risorse non conformi e di criteri non conformi per ogni assegnazione. Quando si fa clic su un criterio o su un'iniziativa nella tabella, viene fornita un'analisi più approfondita della conformità per quella particolare assegnazione.
 
-![Dettagli della conformità ai criteri](../media/getting-compliance-data/compliance-details.png)
+![Esempio di pagina dei dettagli di conformità dei criteri](../media/getting-compliance-data/compliance-details.png)
 
 L'elenco delle risorse nella scheda **Conformità risorsa** mostra lo stato di valutazione delle risorse esistenti per l'assegnazione corrente. Il valore predefinito della scheda è **Non conforme**, ma è possibile applicare un filtro.
 Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione di una risorsa sono visualizzati nella scheda **Eventi**.
 
-![Eventi di conformità ai criteri](../media/getting-compliance-data/compliance-events.png)
+![Esempio di eventi di conformità dei criteri](../media/getting-compliance-data/compliance-events.png)
 
 Fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono raccogliere maggiori dettagli e selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
 
-![Log attività della conformità ai criteri](../media/getting-compliance-data/compliance-activitylog.png)
+![Esempio di Log attività di conformità dei criteri](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Comprendere mancata conformità
 

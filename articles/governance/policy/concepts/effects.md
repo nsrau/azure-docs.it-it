@@ -4,17 +4,17 @@ description: La definizione di Criteri di Azure ha diversi effetti che determina
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 6c6fbde8ff803a053f8c34765ce95d3981a57c52
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ae9c9c5ed8b951760ddac3034c617a13ebe35006
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551219"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802644"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -180,9 +180,10 @@ La proprietà **details** degli effetti AuditIfNotExists ha tutte le sottopropri
 
 - **Type** [obbligatorio]
   - Specifica il tipo della risorsa correlata a cui corrispondere.
-  - Inizia cercando di recuperare una risorsa sottostante la risorsa della condizione **if**, quindi esegue una query all'interno dello stesso gruppo di risorse come risorsa della condizione **if**.
+  - Se **details.type** è un tipo di risorsa di sotto il **se** condizione di risorse, i criteri di query per le risorse di questo **tipo** all'interno dell'ambito della risorsa valutata. In caso contrario, query di criteri nello stesso gruppo di risorse della risorsa valutata.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
+  - Quando la condizione di valori per **if.field.type** e **then.details.type** corrispondono, quindi **Name** diventa _obbligatorio_ e deve essere `[field('name')]`. Tuttavia, un' [audit](#audit) effettive devono essere considerate invece.
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
@@ -253,6 +254,7 @@ La proprietà **details** degli effetti DeployIfNotExists ha tutte le sottopropr
   - Inizia cercando di recuperare una risorsa sottostante la risorsa della condizione **if**, quindi esegue una query all'interno dello stesso gruppo di risorse come risorsa della condizione **if**.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
+  - Quando la condizione di valori per **if.field.type** e **then.details.type** corrispondono, quindi **Name** diventa _obbligatorio_ e deve essere `[field('name')]`.
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.

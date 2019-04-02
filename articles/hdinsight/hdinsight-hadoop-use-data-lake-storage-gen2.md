@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338395"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802542"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Usare Azure Data Lake Storage Gen2 con cluster Azure HDInsight
 
@@ -44,7 +44,7 @@ Creare un account di archiviazione di Azure Data Lake Storage Gen2. Assicurarsi 
 
 ### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configurare le autorizzazioni per l'identità gestita per l'account Data Lake Storage Gen2
 
-Assegnare l'identità gestita al ruolo **Proprietario dei dati del BLOB di archiviazione (anteprima)** nell'account di archiviazione. Per altre informazioni, vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](../storage/common/storage-auth-aad-rbac.md).
+Assegnare l'identità gestita per il **proprietario dei dati Blob di archiviazione** ruolo nell'account di archiviazione. Per altre informazioni, vedere [Gestire i diritti di accesso a dati di code e BLOB di Azure con il controllo degli accessi in base al ruolo (anteprima)](../storage/common/storage-auth-aad-rbac.md).
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'account di archiviazione.
 1. Selezionare l'account di archiviazione, quindi selezionare **controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'account. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo.
@@ -52,7 +52,7 @@ Assegnare l'identità gestita al ruolo **Proprietario dei dati del BLOB di archi
     ![Screenshot che mostra le impostazioni di controllo di accesso per l'archiviazione](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
 1. Selezionare il **+ Aggiungi assegnazione di ruolo** pulsante per aggiungere un nuovo ruolo.
-1. Nella finestra **Aggiungi assegnazione di ruolo** selezionare il ruolo **Proprietario dei dati del BLOB di archiviazione (anteprima)**. Selezionare quindi la sottoscrizione a cui sono associati l'identità gestita e l'account di archiviazione. Individuare l'identità gestita assegnata dall'utente creata in precedenza. Infine, selezionare l'identità gestita e verrà elencato sotto **i membri selezionati**.
+1. Nel **aggiungere un'assegnazione di ruolo** finestra, seleziona la **proprietario dei dati Blob di archiviazione** ruolo. Selezionare quindi la sottoscrizione a cui sono associati l'identità gestita e l'account di archiviazione. Individuare l'identità gestita assegnata dall'utente creata in precedenza. Infine, selezionare l'identità gestita e verrà elencato sotto **i membri selezionati**.
     
     ![Screenshot che mostra come assegnare un ruolo di controllo degli accessi in base al ruolo](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
@@ -102,7 +102,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-Successivamente, accedere al portale. Aggiungere la nuova identità gestita assegnata dall'utente per il **collaboratore ai dati di archiviazione Blob (anteprima)** ruolo nell'account di archiviazione, come descritto nel passaggio 3 nella sezione [usando il portale di Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+Successivamente, accedere al portale. Aggiungere la nuova identità gestita assegnata dall'utente per il **collaboratore ai dati di archiviazione Blob** ruolo nell'account di archiviazione, come descritto nel passaggio 3 nella sezione [usando il portale di Azure](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Dopo aver assegnato il ruolo per l'identità gestito assegnata dall'utente, è possibile distribuire il modello usando il frammento di codice seguente.
 

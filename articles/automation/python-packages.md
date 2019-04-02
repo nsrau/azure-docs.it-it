@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 81ce9cb2667ce9f21d7c18a92e417e47768d7efb
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: b53e07d6086f2a02fd1bbd158ffc09dc95b0c377
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407938"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801284"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Gestire pacchetti Python 2 in Automazione di Azure
 
@@ -42,7 +42,7 @@ Automazione di Azure non viene risolto le dipendenze per i pacchetti python dura
 
 In un Windows 64-bit computer con [Python 2.7](https://www.python.org/downloads/release/latest/python2) e [pip](https://pip.pypa.io/en/stable/) installato, eseguire il comando seguente per scaricare un pacchetto e tutte le relative dipendenze:
 
-```
+```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 4ca42e34dcf215fe45d1f25adb9509034c6144d2
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335845"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803526"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guida dello sviluppatore Java per il servizio app in Linux
 
@@ -154,6 +154,14 @@ Gli sviluppatori Spring Boot possono usare l'[utilità di avvio Spring Boot per 
 ### <a name="configure-tlsssl"></a>Configurare TLS/SSL
 
 Seguire le istruzioni illustrate in [Associare un certificato SSL personalizzato esistente](/azure/app-service/app-service-web-tutorial-custom-ssl) per caricare un certificato SSL esistente e associarlo al nome di dominio dell'applicazione. Per impostazione predefinita, l'applicazione consentirà ancora le connessioni HTTP. Seguire i passaggi specifici dell'esercitazione per applicare SSL e TLS.
+
+### <a name="use-keyvault-references"></a>Usare i riferimenti di Key Vault
+
+[Azure Key Vault](../../key-vault/key-vault-overview.md) consente una gestione centralizzata segreto con la cronologia di controllo e i criteri di accesso. È possibile archiviare segreti (ad esempio le password o le stringhe di connessione) in Key Vault e accedere a questi segreti dell'applicazione tramite le variabili di ambiente.
+
+In primo luogo, seguire le istruzioni relative [concedere all'app l'accesso a Key Vault](../app-service-key-vault-references.md#granting-your-app-access-to-key-vault) e [effettua un riferimento KeyVault per il segreto in un'impostazione dell'applicazione](../app-service-key-vault-references.md#reference-syntax). È possibile convalidare che il riferimento alla chiave privata viene risolto mediante la stampa la variabile di ambiente durante l'accesso in modalità remota il terminale di servizio App.
+
+Per inserire questi segreti nel file di configurazione Spring o Tomcat, usare la sintassi di inserimento variabile di ambiente (`${MY_ENV_VAR}`). Per i file di configurazione Spring, vedere la documentazione sulla [esternalizzati configurazioni](https://docs.spring.io/spring-boot/docs/current/reference/html/boot-features-external-config.html).
 
 ## <a name="data-sources"></a>Origini dati
 

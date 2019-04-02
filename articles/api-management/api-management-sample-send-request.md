@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970179"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792485"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso di servizi esterni dal servizio Gestione API di Azure
 I criteri disponibili nel servizio Gestione API di Azure possono essere usati per una vasta gamma di attività basate esclusivamente su richieste in ingresso, risposte in uscita e informazioni di configurazione di base. Tuttavia, la possibilità di interagire con i servizi esterni dai criteri di Gestione API offre molte altre opportunità.
@@ -27,7 +27,7 @@ I criteri disponibili nel servizio Gestione API di Azure possono essere usati pe
 In precedenza è stata analizzata l'interazione con il [servizio Hub eventi di Azure per la registrazione, il monitoraggio e l'analisi](api-management-log-to-eventhub-sample.md). In questo articolo vengono descritti i criteri che consentono di interagire con qualsiasi servizio esterno basato su HTTP. Questi criteri possono essere usati per l'attivazione di eventi remoti o per il recupero di informazioni che vengono usate per gestire la richiesta e la risposta originali.
 
 ## <a name="send-one-way-request"></a>Send-One-Way-Request
-Probabilmente l'interazione esterna più semplice è lo stile fire-and-forget della richiesta, che consente a un servizio esterno di ricevere una notifica se si verifica un evento importante. È possibile usare il criterio di flusso di controllo `choose` per rilevare qualsiasi tipo di condizione cui si è interessati.  Se la condizione è soddisfatta, è possibile inviare una richiesta HTTP esterna usando i criteri [send-one-way-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Può trattarsi di una richiesta a un sistema di messaggistica, ad esempio Hipchat o Slack, o a un'API di posta elettronica, ad esempio SendGrid o MailChimp, o per eventi che richiedono interventi di supporto critico, ad esempio PagerDuty. Tutti questi sistemi di messaggistica dispongono di API HTTP semplici che è possibile richiamare.
+Probabilmente l'interazione esterna più semplice è lo stile fire-and-forget della richiesta, che consente a un servizio esterno di ricevere una notifica se si verifica un evento importante. È possibile usare il criterio di flusso di controllo `choose` per rilevare qualsiasi tipo di condizione cui si è interessati.  Se la condizione è soddisfatta, è possibile inviare una richiesta HTTP esterna usando i criteri [send-one-way-request](/azure/api-management/api-management-advanced-policies#SendOneWayRequest). Può trattarsi di una richiesta a un sistema di messaggistica, ad esempio Hipchat o Slack, o a un'API di posta elettronica, ad esempio SendGrid o MailChimp, o per eventi che richiedono interventi di supporto critico, ad esempio PagerDuty. Tutti questi sistemi di messaggistica dispongono di API HTTP semplici che è possibile richiamare.
 
 ### <a name="alerting-with-slack"></a>Avvisi con Slack
 L'esempio seguente illustra come inviare un messaggio a una chat di Slack, se il codice di stato della risposta HTTP è maggiore o uguale a 500. Un errore di intervallo 500 indica un problema con l'API back-end che il client dell'API non può risolvere automaticamente. In genere richiede un intervento da parte di Gestione API.  
@@ -62,7 +62,7 @@ In Slack sono disponibili gli hook Web in ingresso. Quando si configura un webho
 ![Hook Web di Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>Lo stile di richiesta fire-and-forget è sufficientemente efficace?
-Quando si usa uno stile di richiesta fire-and-forget è necessario tenere presenti alcuni svantaggi. Se per qualche motivo la richiesta ha esito negativo, l'errore non viene segnalato. In questo caso, la complessità di disporre di un sistema secondario di segnalazione dell'errore e il costo aggiuntivo delle prestazioni per l'attesa della risposta non sono garantiti. Per gli scenari in cui è fondamentale verificare la risposta, i criteri [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) rappresentano un'opzione migliore.
+Quando si usa uno stile di richiesta fire-and-forget è necessario tenere presenti alcuni svantaggi. Se per qualche motivo la richiesta ha esito negativo, l'errore non viene segnalato. In questo caso, la complessità di disporre di un sistema secondario di segnalazione dell'errore e il costo aggiuntivo delle prestazioni per l'attesa della risposta non sono garantiti. Per gli scenari in cui è fondamentale verificare la risposta, i criteri [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) rappresentano un'opzione migliore.
 
 ## <a name="send-request"></a>send-request
 I criteri `send-request` consentono l'utilizzo di un servizio esterno per eseguire funzioni di elaborazione complesse e restituire dati al servizio Gestione API, che può essere usato per un'elaborazione successiva dei criteri.
@@ -209,7 +209,7 @@ Quando le informazioni sono disponibili, è possibile inviare richieste a tutti 
 Queste richieste vengono eseguite in sequenza, ma non si tratta della situazione ideale. 
 
 ### <a name="responding"></a>Invio delle risposte
-Per costruire la risposta composita, è possibile usare i criteri [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). L'elemento `set-body` può usare un'espressione per creare un nuovo oggetto `JObject` con tutte le rappresentazioni di componenti incorporate come proprietà.
+Per costruire la risposta composita, è possibile usare i criteri [return-response](/azure/api-management/api-management-advanced-policies#ReturnResponse). L'elemento `set-body` può usare un'espressione per creare un nuovo oggetto `JObject` con tutte le rappresentazioni di componenti incorporate come proprietà.
 
 ```xml
 <return-response response-variable-name="existing response variable">

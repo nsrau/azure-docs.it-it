@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 225065e35e40c06d324bee89fa65a765a2727233
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123760"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793493"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorizzazioni e consenso nell'endpoint v2.0 di Azure Active Directory
 
@@ -260,7 +260,7 @@ Per altre informazioni sul protocollo OAuth 2.0 e su come ottenere i token di ac
 
 È possibile usare l'ambito `/.default` per consentire la migrazione delle app dall'endpoint v1.0 all'endpoint v2.0. Si tratta di un ambito predefinito per ogni applicazione che fa riferimento all'elenco statico di autorizzazioni configurate nella registrazione dell'applicazione. Un valore `scope` di `https://graph.microsoft.com/.default` è funzionalmente identico a `resource=https://graph.microsoft.com` degli endpoint v1.0, vale a dire che richiede un token con gli ambiti in Microsoft Graph per cui l'applicazione è registrata nel portale di Azure.
 
-L'ambito /.default può essere usato in qualsiasi flusso di OAuth 2.0, ma è particolarmente richiesto nel [flusso On-Behalf-Of](v2-oauth2-on-behalf-of-flow .md) e nel [flusso di credenziali client](v2-oauth2-client-creds-grant-flow.md).  
+L'ambito /.default può essere usato in qualsiasi flusso di OAuth 2.0, ma è particolarmente necessario nel [flusso On-Behalf-Of](v2-oauth2-on-behalf-of-flow.md) e [flusso di credenziali client](v2-oauth2-client-creds-grant-flow.md).  
 
 > [!NOTE]
 > I client non possono combinare consenso statico (`/.default`) e consenso dinamico in una singola richiesta. Di conseguenza, `scope=https://graph.microsoft.com/.default+mail.read` comporterà un errore dovuto alla combinazione dei tipi di ambito.

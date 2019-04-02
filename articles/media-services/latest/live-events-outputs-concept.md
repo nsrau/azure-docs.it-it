@@ -11,26 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189360"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762355"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventi live e output live
 
-Servizi multimediali di Azure consente di offrire eventi live per i clienti nel cloud di Azure. Per configurare gli eventi di streaming live in Servizi multimediali v3, è necessario conoscere i concetti illustrati in questo articolo:
-
-* [Eventi live](#live-events)
-* Tipi di evento live
-* Confronto tra tipi di eventi live
-* [Opzioni di creazione di eventi live](#live-event-creation-options)
-* [URL di inserimento di eventi live](#live-event-ingest-urls)
-* [URL di anteprima di un evento live](#live-event-preview-url)
-* [Output live](#live-outputs).
+Servizi multimediali di Azure consente di offrire eventi live per i clienti nel cloud di Azure. Per configurare gli eventi di streaming live in servizi multimediali v3, è necessario comprendere i concetti illustrati in questo articolo. <br/>L'elenco delle sezioni è disponibile a destra della pagina.
 
 ## <a name="live-events"></a>Eventi live
 
@@ -62,10 +54,10 @@ Quando si usa la codifica live con Servizi multimediali, è possibile configurar
 
 È possibile inviare il feed di contributi a risoluzioni fino a 1080p e a una frequenza pari a 30 fotogrammi al secondo, con codec video H.264/AVC e codec audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Vedere l'articolo [Confronto tra tipi di eventi live](live-event-types-comparison.md) per altri dettagli.
 
-Quando si usa la codifica live (evento Live impostato sullo **Standard**), il set di impostazioni di codifica definisce come viene codificato il flusso in ingresso a più velocità in bit o livelli. Per informazioni, vedere [predefiniti di sistema](live-event-types-comparison.md#system-presets).
+Quando si usa la codifica live (evento Live impostato su **Standard**), il set di impostazioni di codifica definisce come viene codificato il flusso in ingresso con velocità in bit o livelli diversi. Per altre informazioni, vedere [Set di impostazioni di sistema](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Attualmente, l'unico set di impostazioni valore consentito per il tipo di evento in tempo reale Standard è *Default720p*. Se è necessario usare impostazioni codifica live personalizzato, contattare il amshelp@microsoft.com. È necessario specificare la tabella desiderata di risoluzione e velocità in bit. Verificare che vi sia un solo a 720p e al massimo 6 livelli.
+> Attualmente, l'unico set di impostazioni consentito per il tipo di evento Live Standard ha valore *Default720p*. Se è necessario usare un set di impostazioni di codifica live personalizzato, contattare amshelp@microsoft.com. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli.
 
 ## <a name="live-event-creation-options"></a>Opzioni di creazione di eventi live
 
@@ -132,6 +124,10 @@ Una volta che l'**evento live** inizia a ricevere il feed di contributi, è poss
 
 > [!IMPORTANT]
 > Assicurarsi che il video raggiunga l'URL di anteprima prima di continuare.
+
+## <a name="live-event-long-running-operations"></a>Operazioni con esecuzione prolungata eventi in tempo reale
+
+Per informazioni dettagliate, vedere [operazioni a esecuzione prolungata](entities-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Output live
 

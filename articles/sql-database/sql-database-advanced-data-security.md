@@ -6,17 +6,17 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: conceptual
-author: ronitr
-ms.author: ronitr
+author: monhaber
+ms.author: monhaber
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/04/2019
-ms.openlocfilehash: 388a1a2ff70f4d00e66511811bffdb76806ed713
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.date: 03/31/2019
+ms.openlocfilehash: a078ac38cef5b395a19481188c474c7f908160d5
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55735214"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791610"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Sicurezza dei dati avanzata per il database SQL di Azure
 
@@ -24,11 +24,11 @@ Sicurezza dei dati avanzata è un pacchetto unificato che include le funzionalit
 
 ## <a name="overview"></a>Panoramica
 
-Sicurezza dei dati avanzata offre una serie di funzionalità di sicurezza SQL avanzate, tra cui Individuazione dati e classificazione, Valutazione della vulnerabilità e Rilevamento delle minacce.
+Protezione avanzata dei dati (ADS) fornisce un set di funzionalità di sicurezza SQL avanzate, tra cui individuazione dati e classificazione, valutazione della vulnerabilità e Advanced Threat Protection.
 
 - [Individuazione dati e classificazione](sql-database-data-discovery-and-classification.md) (attualmente in anteprima) offre funzionalità integrate nel database SQL di Azure per l'individuazione, la classificazione, l'aggiunta di etichette e la protezione dei dati sensibili presenti nei database. Consente di visualizzare lo stato di classificazione del database e di tenere traccia dell'accesso ai dati sensibili all'interno del database e all'esterno di questo ambito.
 - [Valutazione della vulnerabilità](sql-vulnerability-assessment.md) è un servizio semplice da configurare che consente di individuare, tenere traccia e risolvere potenziali vulnerabilità del database. Consente di visualizzare lo stato di sicurezza e prevede passaggi utili per risolvere i problemi di sicurezza e migliorare la protezione del database.
-- [Rilevamento delle minacce](sql-database-threat-detection-overview.md) rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare il database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Gli avvisi di rilevamento delle minacce forniscono dettagli sull'attività sospetta e consigliano azioni per l'analisi e la mitigazione della minaccia.
+- [Advanced Threat Protection](sql-database-threat-detection-overview.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Advanced Threat Protection avvisi forniscono i dettagli delle attività sospette e consigliano azioni analizzare e ridurre la minaccia.
 
 Abilitare SQL Advanced Data Security una volta per abilitare tutte le funzionalità incluse. Con un solo clic, è possibile abilitare ADS per tutti i database nel server di database SQL o nell'istanza gestita. Per abilitare o gestire le impostazioni di Sicurezza dei dati avanzata è necessario il ruolo di [gestore della sicurezza SQL](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-security-manager), il ruolo di amministratore del database SQL o il ruolo di amministratore di SQL Server. 
 
@@ -40,42 +40,35 @@ I passaggi seguenti consentono di iniziare a usare Advanced Data Security.
 
 ## <a name="1-enable-ads"></a>1. Abilitare ADS
 
-Abilitare ADS passando a **Sicurezza dei dati avanzata** sotto il titolo **Sicurezza** per il server di database SQL o l'istanza gestita. Per abilitare ADS per tutti i database nel server di database o istanza gestita, fare clic su **Abilita Sicurezza dei dati avanzata nel server**.
+Abilitare ADS passando a **Advanced Data Security** sotto il titolo **Sicurezza** per il server di database SQL o l'istanza gestita. Per abilitare ADS per tutti i database nel server di database o istanza gestita, fare clic su **Enable Advanced Data Security on the server** (Abilitare Advanced Data Security nel server).
 
-![Abilitare ADS](./media/sql-advanced-protection/enable_atp.png) 
+> [!NOTE]
+> Un account di archiviazione viene automaticamente creato e configurato per archiviare le **valutazione della vulnerabilità** analizzare i risultati. Se è già stato abilitato annunci per un altro server nello stesso gruppo di risorse e area, viene utilizzato l'account di archiviazione esistente.
+
+![Abilitare ADS](./media/sql-advanced-protection/enable_ads.png) 
 
 > [!NOTE]
 > Il costo di Advanced Data Security è allineato al prezzo del livello Standard del Centro sicurezza di Azure per ogni nodo, dove un nodo è l'intero server di database SQL o l'istanza gestita. Si paga solo una volta per proteggere tutti i database sul server di database o istanza gestita con ADS. È possibile provare Advanced Data Security con una versione di valutazione gratuita.
 
-## <a name="2-configure-vulnerability-assessment"></a>2. Configurare Valutazione della vulnerabilità
+## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Avviare la classificazione dei dati, il rilevamento delle vulnerabilità e l'analisi degli avvisi di minaccia
 
-Per iniziare a usare Valutazione della vulnerabilità, è necessario configurare un account di archiviazione in cui salvare i risultati dell'analisi. A tale scopo fare clic sulla scheda Valutazione della vulnerabilità.
+Fare clic sulla scheda **Individuazione dati e classificazione** per visualizzare le colonne sensibili consigliate e per classificare i dati con etichette di riservatezza persistenti. Fare clic sulla scheda **Valutazione della vulnerabilità** per visualizzare e gestire le analisi e i report sulle vulnerabilità e tenere traccia del livello di sicurezza. Se sono stati ricevuti avvisi di sicurezza, scegliere il **Advanced Threat Protection** scheda per visualizzare i dettagli degli avvisi e per visualizzare un report consolidato per tutti gli avvisi nella sottoscrizione di Azure tramite la pagina degli avvisi di sicurezza Centro sicurezza di Azure .
 
-![Configurare Valutazione della vulnerabilità](./media/sql-advanced-protection/configure_va.png) 
+## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Gestire le impostazioni di ADS sul server di database SQL o istanza gestita
 
-Selezionare o creare un account di archiviazione per salvare i risultati dell'analisi. È anche possibile attivare analisi ricorrenti periodiche per configurare Valutazione della vulnerabilità per l'esecuzione di analisi automatiche una volta a settimana. Verrà inviato un riepilogo dei risultati di analisi agli indirizzi di posta elettronica forniti.
-
-![Impostazioni di Valutazione della vulnerabilità](./media/sql-advanced-protection/va_settings.png) 
-
-## <a name="3-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>3. Avviare la classificazione dei dati, il rilevamento delle vulnerabilità e l'analisi degli avvisi di minaccia
-
-Fare clic sulla scheda **Individuazione dati e classificazione** per visualizzare le colonne sensibili consigliate e per classificare i dati con etichette di riservatezza persistenti. Fare clic sulla scheda **Valutazione della vulnerabilità** per visualizzare e gestire le analisi e i report sulle vulnerabilità e tenere traccia del livello di sicurezza. Se sono stati ricevuti avvisi di sicurezza, fare clic sulla scheda **Rilevamento minacce** per visualizzarne i dettagli e per esaminare un report consolidato di tutti gli avvisi nella sottoscrizione di Azure tramite la pagina degli avvisi di sicurezza nel Centro sicurezza di Azure.
-
-## <a name="4-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>4. Gestire le impostazioni di ADS sul server di database SQL o istanza gestita
-
-Per visualizzare e gestire le impostazioni di Sicurezza dei dati avanzata, passare a **Sicurezza dei dati avanzata** sotto l'intestazione **Sicurezza** per l'istanza gestita o il server di database SQL. In questa pagina è possibile abilitare o disabilitare Sicurezza dei dati avanzata e modificare le impostazioni di rilevamento delle minacce per l'intera istanza gestita o l'intero server di database SQL.
+Per visualizzare e gestire le impostazioni di Sicurezza dei dati avanzata, passare a **Sicurezza dei dati avanzata** sotto l'intestazione **Sicurezza** per l'istanza gestita o il server di database SQL. In questa pagina, è possibile abilitare o disabilitare gli annunci e modificare una vulnerabilità della valutazione e le impostazioni di Advanced Threat Protection per l'intero server di Database SQL o istanza gestita.
 
 ![Impostazioni del server](./media/sql-advanced-protection/server_settings.png) 
 
-## <a name="5-manage-ads-settings-for-a-sql-database"></a>5. Gestire le impostazioni di Advanced Data Security per un database SQL
+## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Gestire le impostazioni di Advanced Data Security per un database SQL
 
-Per eseguire l'override delle impostazioni di Sicurezza dei dati avanzata per uno specifico database, selezionare la casella di controllo **Abilita Sicurezza dei dati avanzata al livello del database**. Usare questa opzione solo se è impostato un requisito specifico per ricevere avvisi di rilevamento minacce separati per il singolo database, in sostituzione o in aggiunta agli avvisi ricevuti per tutti i database nel server di database o istanza gestita. 
+Per eseguire l'override delle impostazioni di Sicurezza dei dati avanzata per uno specifico database, selezionare la casella di controllo **Abilita Sicurezza dei dati avanzata al livello del database**. Usare questa opzione solo se si dispone di un requisito specifico per ricevere avvisi di Advanced Threat Protection separati o i risultati della valutazione delle vulnerabilità per i singoli database, anziché o oltre agli avvisi e i risultati ricevuti per tutti i database sul server di database o istanza gestita.
 
-Dopo avere selezionato la casella di controllo, fare clic su **Impostazioni di Rilevamento minacce per questo database** e configurare le impostazioni pertinenti per questo database.
+Dopo aver selezionato la casella di controllo, è quindi possibile configurare le impostazioni rilevanti per questo database.
+ 
+![Impostazioni di database e di Advanced Threat Protection](./media/sql-advanced-protection/database_threat_detection_settings.png) 
 
-![Impostazioni di rilevamento delle minacce e del database](./media/sql-advanced-protection/database_threat_detection_settings.png) 
-
-Dal riquadro del database di Sicurezza dei dati avanzata è possibile raggiungere anche le impostazioni di sicurezza avanzata per il server di database o l'istanza gestita. Fare clic su **Impostazioni** nel riquadro principale di Sicurezza dei dati avanzata e fare clic su **Visualizza le impostazioni del server di Sicurezza dei dati avanzata**. 
+Dal riquadro del database di Sicurezza dei dati avanzata è possibile raggiungere anche le impostazioni di sicurezza avanzata per il server di database o l'istanza gestita. Fare clic su **Impostazioni** nel riquadro principale di Advanced Data Security e fare clic su **View Advanced Data Security server settings** (Visualizza le impostazioni del server di Advanced Data Security). 
 
 ![Impostazioni database](./media/sql-advanced-protection/database_settings.png) 
 
@@ -83,5 +76,5 @@ Dal riquadro del database di Sicurezza dei dati avanzata è possibile raggiunger
 
 - Altre informazioni su [Individuazione dati e classificazione](sql-database-data-discovery-and-classification.md) 
 - Altre informazioni su [Valutazione della vulnerabilità](sql-vulnerability-assessment.md) 
-- Altre informazioni su [Rilevamento delle minacce](sql-database-threat-detection.md)
-- Altre informazioni sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- Altre informazioni su [Advanced Threat Protection](sql-database-threat-detection.md)
+- Altre informazioni su [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)

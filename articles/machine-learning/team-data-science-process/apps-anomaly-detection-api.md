@@ -11,14 +11,18 @@ ms.topic: article
 ms.date: 06/05/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=alokkirpal, previous-ms.author=alok
-ms.openlocfilehash: e5f428062155ea732dce785955ac76011f3e4678
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b67028562a2c377e1dd99635bdf04cad14782341
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899350"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793136"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API di rilevamento delle anomalie di Machine Learning
+
+> [!NOTE]
+> Questo elemento è in fase di manutenzione. Si consiglia di usare la [servizio API rilevatore di anomalie](https://azure.microsoft.com/en-us/services/cognitive-services/anomaly-detector/) basate su algoritmi una raccolta di Machine Learning in servizi cognitivi per rilevare le anomalie di business, operational e le metriche di IoT di Azure.
+
 ## <a name="overview"></a>Panoramica
 [API di rilevamento delle anomalie](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) è un esempio compilato con Azure Machine Learning che consente di rilevare anomalie nei dati della serie temporale con i valori numerici disposti in modo uniforme nel tempo.
 

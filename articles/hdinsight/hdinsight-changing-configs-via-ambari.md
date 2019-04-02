@@ -1,19 +1,19 @@
 ---
 title: Ottimizzare le configurazioni cluster con Apache Ambari - Azure HDInsight
 description: Usare l'interfaccia utente Web Apache Ambari per configurare e ottimizzare i cluster HDInsight.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722924"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805381"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Usare Apache Ambari per ottimizzare le configurazioni cluster HDInsight
 
@@ -51,7 +51,7 @@ Per modificare le dimensioni dell'heap Java NameNode:
 
     ![Modificare le dimensioni dell'heap Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. Le dimensioni dell'heap Java NameNode passano da 1 GB a 2 GB.
+1. Le dimensioni dell'heap NameNode Java viene modificata a 1 GB da 2 GB.
 
     ![Dimensioni dell'heap Java NameNode modificate](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Una query Hive viene eseguita in una o più fasi. Se le fasi indipendenti posson
 
 1.  Per abilitare l'esecuzione della query parallela, passare alla scheda **Config** (Configurazioni) di Hive e cercare la proprietà `hive.exec.parallel`. Il valore predefinito è False. Impostare il valore su true e quindi premere **INVIO** per salvare il valore.
  
-1.  Per limitare il numero di processi da eseguire in parallelo, modificare la proprietà `hive.exec.parallel.thread.number`. Il valore predefinito è 8.
+1.  Per limitare il numero di processi da eseguire in parallelo, modificare il `hive.exec.parallel.thread.number` proprietà. Il valore predefinito è 8.
 
     ![Esecuzione parallela di Hive](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -179,7 +179,7 @@ I tipi di compressione disponibili sono:
 | Format | Strumento | Algoritmo | Estensione file | Divisibile |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | gz | No  |
-| Bzip2 | Bzip2 | Bzip2 |bz2 | Yes |
+| Bzip2 | Bzip2 | Bzip2 |bz2 | Sì |
 | LZO | Lzop | LZO | lzo | Sì, se indicizzato |
 | Snappy | N/D | Snappy | Snappy | No  |
 
@@ -282,7 +282,7 @@ Raccomandazioni aggiuntive per ottimizzare il motore di esecuzione Hive:
 | Impostazione | Consigliato | Impostazione predefinita di HDInsight |
 | -- | -- | -- |
 | `hive.mapjoin.hybridgrace.hashtable` | True = più sicuro, più lento; false = più veloce | false |
-| `tez.am.resource.memory.mb` | Limite superiore di 4 GB nella maggior parte dei casi | Ottimizzazione automatica |
+| `tez.am.resource.memory.mb` | Limite superiore di 4 GB per la maggior parte | Ottimizzazione automatica |
 | `tez.session.am.dag.submit.timeout.secs` | 300+ | 300 |
 | `tez.am.container.idle.release-timeout-min.millis` | 20000+ | 10000 |
 | `tez.am.container.idle.release-timeout-max.millis` | 40000+ | 20000 |
@@ -295,7 +295,7 @@ Le proprietà di [Apache Pig](https://pig.apache.org/) possono essere modificate
 
 1. Trovare, rimuovere il commento e cambiare il valore della proprietà che si vuole modificare.
 
-1. Selezionare **Save** (Salva) nell'angolo in alto a destra della finestra per salvare il nuovo valore. Alcune proprietà possono richiedere un riavvio del servizio.
+1. Selezionare **salvare** sul lato superiore destro della finestra per salvare il nuovo valore. Alcune proprietà possono richiedere un riavvio del servizio.
 
     ![Proprietà Pig avanzate](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  

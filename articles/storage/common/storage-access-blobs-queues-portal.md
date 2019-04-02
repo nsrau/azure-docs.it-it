@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444714"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801134"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usare il portale di Azure per accedere ai dati di accodamento o blob
 
@@ -47,11 +47,11 @@ Il **lettore** assegnazione di ruolo o un'altra assegnazione di ruolo di Azure R
 
 I ruoli predefiniti che supportano l'accesso ai dati di accodamento o blob includono:
 
-- [Proprietario dei dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): Per POSIX controllo di accesso per Azure Data Lake Storage Gen2 (anteprima).
-- [Collaboratore ai dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Autorizzazioni di lettura, scrittura ed eliminazione per i BLOB.
-- [Lettore di dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Autorizzazioni di sola lettura per i BLOB.
-- [Collaboratore ai dati di archiviazione coda](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Autorizzazioni di lettura, scrittura ed eliminazione per le code.
-- [Lettore di dati di archiviazione coda](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Autorizzazioni di sola lettura per le code.
+- [Proprietario dei dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Per POSIX controllo di accesso per Azure Data Lake Storage Gen2 (anteprima).
+- [Collaboratore ai dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Autorizzazioni di lettura, scrittura ed eliminazione per i BLOB.
+- [Lettore di dati Blob di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Autorizzazioni di sola lettura per i BLOB.
+- [Collaboratore ai dati di archiviazione coda](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Autorizzazioni di lettura, scrittura ed eliminazione per le code.
+- [Lettore di dati di archiviazione coda](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Autorizzazioni di sola lettura per le code.
     
 Ruoli personalizzati possono supportare diverse combinazioni delle stesse autorizzazioni fornite per i ruoli predefiniti. Per altre informazioni sulla creazione di ruoli personalizzati, vedere [ruoli personalizzati per le risorse di Azure](../../role-based-access-control/custom-roles.md) e [comprendere le definizioni di ruolo per le risorse di Azure](../../role-based-access-control/role-definitions.md).
 

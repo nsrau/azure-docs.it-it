@@ -1,17 +1,17 @@
 ---
-title: Come modificare, eliminare o gestire i gruppi di gestione in Azure - Governance di Azure
+title: Come modificare, eliminare o gestire i gruppi di gestione - Governance di Azure
 description: Informazioni su come visualizzare, gestire, aggiornare ed eliminare la gerarchia dei gruppi di gestione.
 author: rthorn17
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622060"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801771"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Gestire le risorse con i gruppi di gestione
 
@@ -37,11 +37,11 @@ I gruppi di gestione offrono gestione di livello aziendale su larga scala, indip
 
 1. Selezionare l'opzione **Rinomina gruppo** nella parte superiore della pagina.
 
-   ![Opzione Rinomina gruppo](./media/detail_action_small.png)
+   ![Opzione Rinomina gruppo nella pagina di gruppo di gestione](./media/detail_action_small.png)
 
 1. All'apertura del menu, immettere il nuovo nome che si vuole visualizzare.
 
-   ![Riquadro Rinomina gruppo](./media/rename_context.png)
+   ![Riquadro Rinomina gruppo per rinominare il gruppo di gestione](./media/rename_context.png)
 
 1. Selezionare **Salva**.
 
@@ -223,7 +223,7 @@ Per controllare quali autorizzazioni sono disponibili nel portale di Azure, sele
 
 1. Selezionare nell'elenco la sottoscrizione con l'ID corretto.
 
-   ![Elementi figlio](./media/add_context_sub.png)
+   ![Sottoscrizioni disponibili per aggiungere a un gruppo di gestione](./media/add_context_sub.png)
 
 1. Selezionare "Salva".
 
@@ -237,13 +237,13 @@ Per controllare quali autorizzazioni sono disponibili nel portale di Azure, sele
 
 1. Selezionare i puntini di sospensione in fondo alla riga della sottoscrizione che si vuole spostare.
 
-   ![Opzione Sposta](./media/move_small.png)
+   ![Opzione di spostamento in un gruppo di gestione](./media/move_small.png)
 
 1. Selezionare **Sposta**.
 
 1. Nel menu visualizzato selezionare il **Gruppo di gestione padre**.
 
-   ![Riquadro Sposta](./media/move_small_context.png)
+   ![Riquadro di spostamento per modificare il gruppo padre](./media/move_small_context.png)
 
 1. Selezionare **Salva**.
 
@@ -294,7 +294,7 @@ Quando si sposta un gruppo di gestione padre, la gerarchia in tale gruppo si spo
    - Selezionando la prima opzione verrà creato un nuovo gruppo di gestione.
    - Selezionando la seconda, verrà visualizzato un elenco a discesa di tutti i gruppi di gestione a cui è possibile spostare questo gruppo di gestione.  
 
-   ![spostamento](./media/add_context_MG.png)
+   ![Spostare un gruppo di gestione al gruppo nuovo o esistente](./media/add_context_MG.png)
 
 1. Selezionare **Salva**.
 

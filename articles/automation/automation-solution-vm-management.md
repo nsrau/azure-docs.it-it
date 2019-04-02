@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902247"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762940"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Soluzione Avvio/Arresto di macchine virtuali durante gli orari di minore attività in Automazione di Azure
 
 Avviare/arrestare VM durante orari di minore attività soluzione avvia e arresta le macchine virtuali di Azure in base a pianificazioni definite dall'utente, fornisce informazioni dettagliate tramite i log di monitoraggio di Azure e invia messaggi di posta elettronica facoltativi usando [gruppi di azioni](../azure-monitor/platform/action-groups.md). Supporta sia Azure Resource Manager che le macchine virtuali classiche per la maggior parte degli scenari.
+
+> [!NOTE]
+> Le macchine virtuali di avvio/arresto l'orario di ufficio soluzione è stata testata con i moduli di Azure che vengono importati nell'Account di automazione quando si distribuisce la soluzione. La soluzione attualmente non funziona con le versioni più recenti del modulo Azure. Questo problema riguarda solo l'Account di automazione usato per eseguire l'avviare/arrestare VM durante la soluzione di orari di minore attività. È possibile usare comunque le versioni più recenti del modulo Azure in altri account di automazione, come descritto in [come aggiornare i moduli di Azure PowerShell in automazione di Azure](automation-update-azure-modules.md)
 
 Questa soluzione fornisce un'opzione di automazione decentralizzata a basso costo per gli utenti che vogliono ottimizzare i costi delle macchine virtuali. Con questa soluzione, è possibile:
 

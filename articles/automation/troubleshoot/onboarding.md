@@ -4,16 +4,16 @@ description: Informazioni su come risolvere problemi di onboarding delle soluzio
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/25/2019
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: ac11b1a2b625d1fc7b62130580d1f188ead21051
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: eaafee304f606ae4d511a6cea1824c26db838635
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342729"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802032"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Risoluzione di problemi di onboarding delle soluzioni
 
@@ -25,19 +25,23 @@ Durante l'onboarding di soluzioni quali Gestione aggiornamenti, Rilevamento modi
 
 #### <a name="issue"></a>Problema
 
-Quando si tenta di eseguire l'onboarding di una macchina virtuale in una soluzione, viene visualizzato il messaggio seguente:
+Quando si tenta di caricare una macchina virtuale a una soluzione, viene visualizzato uno dei seguenti messaggi:
 
-```
+```error
 The solution cannot be enabled due to missing permissions for the virtual machine or deployments
+```
+
+```error
+The solution cannot be enabled on this VM because the permission to read the workspace is missing
 ```
 
 #### <a name="cause"></a>Causa
 
-Questo errore è causato da autorizzazioni non corrette o mancanti nella macchina virtuale o per l'utente.
+Questo errore è causato da autorizzazioni non corrette oppure mancante nella macchina virtuale, l'area di lavoro, o per l'utente.
 
 #### <a name="resolution"></a>Risoluzione
 
-Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione.
+Assicurarsi di disporre delle autorizzazioni corrette per eseguire l'onboarding della macchina virtuale. Verificare quali [autorizzazioni sono necessarie per eseguire l'onboarding delle macchine virtuali](../automation-role-based-access-control.md#onboarding) e ripetere l'operazione. Se viene visualizzato l'errore `The solution cannot be enabled on this VM because the permission to read the workspace is missing`, assicurarsi di aver la `Microsoft.OperationalInsights/workspaces/read` dell'autorizzazione per essere in grado di verificare se la macchina virtuale è caricata in un'area di lavoro.
 
 ### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
@@ -73,17 +77,17 @@ Per poter distribuire la soluzione, è necessario provare a modificare i criteri
   * Ridefinendo la destinazione dei criteri per una risorsa specifica (ad esempio un account di Automazione di Azure specifico).
   * Modificando il set di risorse per il quale il criterio specifico è stato configurato per negare l'autorizzazione.
 
-Controllare le notifiche nell'angolo inferiore destro del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **Distribuzioni** in **Impostazioni** per visualizzare la distribuzione non riuscita. Per altre informazioni su Criteri di Azure, vedere: [Panoramica dei criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
+Controllare le notifiche nell'angolo in alto a destra del portale di Azure o passare al gruppo di risorse che contiene l'account di automazione e selezionare **distribuzioni** sotto **impostazioni** per visualizzare la non riuscita distribuzione. Per altre informazioni su Criteri di Azure, vedere: [Panoramica dei criteri di Azure](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Errori delle estensioni di MMA
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
-Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di Log Analytics per Linux. Si tratta di estensioni della macchina virtuale installate dall'agente guest della macchina virtuale responsabile della comunicazione con l'area di lavoro di Log Analytics configurata; lo scopo è coordinare successivamente il download di file binari e di altri file da cui dipende la soluzione di cui si sta eseguendo l'onboarding, una volta cominciata l'esecuzione.
+Quando si distribuisce una soluzione, vengono distribuite anche varie risorse correlate. Una di queste risorse è l'estensione Microsoft Monitoring Agent o l'agente di Log Analytics per Linux. Si tratta di estensioni di macchine virtuali installato dall'agente Guest della macchina virtuale che è responsabile della comunicazione con l'area di lavoro configurata di Log Analitica, allo scopo di coordinamento successive del download dei file binari e altri file che il soluzione sei dipendono dal processo di onboarding una volta avviata l'esecuzione.
 In genere gli errori di installazione dell'estensione MMA o dell'agente di Log Analytics per Linux vengono notificati nell'Hub di notifica. Facendo clic sulla notifica vengono visualizzate altre informazioni sull'errore specifico. Si possono visualizzare altri dettagli sugli errori di distribuzione che si sono verificati anche accedendo alla risorsa Gruppi di risorse e quindi all'elemento Distribuzioni al suo interno.
 L'installazione dell'estensione MMA o dell'agente di Log Analytics per Linux può non riuscire per diverse ragioni e la procedura per risolvere gli errori varia a seconda del problema. Di seguito vengono riportate le procedure per la risoluzione di problemi specifici.
 
-Nella sezione seguente vengono descritti diversi problemi che possono verificarsi durante l'onboarding che causano errori nella distribuzione dell'estensione MMA.
+La sezione seguente descrive i vari problemi che possono riscontrare durante l'onboarding che causano un errore nella distribuzione dell'estensione MMA.
 
 ### <a name="webclient-exception"></a>Scenario: È stata generata un'eccezione durante una richiesta WebClient
 
@@ -105,7 +109,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 Alcune cause possibili di questo errore sono:
 
-* Nella VM c'è un proxy configurato che consente solo porte specifiche.
+* È un proxy configurato nella macchina virtuale, che consente solo le porte specifiche.
 
 * Un'impostazione del firewall ha bloccato l'accesso alle porte e agli indirizzi necessari.
 
@@ -113,9 +117,9 @@ Alcune cause possibili di questo errore sono:
 
 Assicurarsi di avere le porte e gli indirizzi aperti per la comunicazione. Per un elenco di porte e indirizzi, vedere [Planning your network](../automation-hybrid-runbook-worker.md#network-planning) (Pianificazione della rete).
 
-### <a name="transient-environment-issue"></a>Scenario: L'installazione non è riuscita a causa di problemi di ambiente temporanei
+### <a name="transient-environment-issue"></a>Scenario: Installazione non riuscita a causa di problemi di un ambiente temporaneo
 
-L'installazione dell'estensione Microsoft Monitoring Agent non è riuscita durante la distribuzione a causa di un'altra installazione o di un'azione che l'hanno bloccata
+L'installazione dell'estensione Microsoft Monitoring Agent non è riuscita durante la distribuzione a causa di un'altra installazione o operazione blocca l'installazione
 
 #### <a name="issue"></a>Problema
 
@@ -138,7 +142,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 Alcune cause possibili di questo errore sono:
 
 * È in corso un'altra installazione
-* È stato attivato il riavvio del sistema durante la distribuzione dei modelli
+* Il sistema viene attivato per riavviare il computer durante la distribuzione modello
 
 #### <a name="resolution"></a>Risoluzione
 
@@ -150,7 +154,7 @@ L'installazione dell'estensione MMA non è stata completata a causa di un timeou
 
 #### <a name="issue"></a>Problema
 
-Di seguito è riportato un esempio di un messaggio di errore che può essere restituito:
+L'esempio seguente è un messaggio di errore che può essere restituito:
 
 ```error
 Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent, version 1.0.11081.4) with exception Command C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.11081.4\MMAExtensionInstall.exe of Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent has exited with Exit code: 15614
@@ -158,7 +162,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 #### <a name="cause"></a>Causa
 
-L'errore è causato dal fatto che la macchina virtuale è sottoposta a un carico di lavoro pesante durante l'installazione.
+Questo errore si verifica perché la macchina virtuale in corso con un carico pesante durante l'installazione.
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -166,7 +170,7 @@ Installare l'estensione MMA quando la macchina virtuale è sottoposta a un caric
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema che si riscontra non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ricevere assistenza:
+Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
 
 * Ottieni risposte dagli esperti di Azure tramite i [forum di Azure](https://azure.microsoft.com/support/forums/)
 * Collegarsi a [@AzureSupport](https://twitter.com/azuresupport), l'account Microsoft Azure ufficiale per il miglioramento dell'esperienza dei clienti che mette in contatto la community di Azure con le risorse corrette: risposte, supporto ed esperti.

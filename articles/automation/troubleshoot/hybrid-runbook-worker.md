@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/12/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 703f27dab6ca6252647ecb37d17d0f4faf045097
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: c33b9c1b6cc810c3ef2f8d2637d7ac3523e0d8f9
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268687"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803715"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Risolvere i problemi di ruoli di lavoro ibridi per runbook
 
@@ -124,7 +124,7 @@ Se viene visualizzato l'errore: **La classe specificata non esiste** nel log `/v
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
 ```
 
-## <a name="windows"></a> Windows
+## <a name="windows"></a>Windows
 
 Il ruolo di lavoro ibrido per runbook di Windows dipende da Microsoft Monitoring Agent per comunicare con l'account di Automazione di Azure per registrare il ruolo di lavoro, ricevere i processi del runbook e segnalare lo stato. Se la registrazione del ruolo di lavoro non riesce, ecco alcune possibili cause dell'errore:
 
@@ -194,7 +194,7 @@ Start-Service -Name HealthService
 
 Quando si prova ad aggiungere un ruolo di lavoro ibrido per runbook usando il cmdlet `Add-HybridRunbookWorker` viene visualizzato il messaggio seguente.
 
-```
+```error
 Machine is already registered to a different account
 ```
 

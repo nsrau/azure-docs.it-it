@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e89fe10768331f5b4099ce9a9e2204dd72aa0bff
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520922"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793465"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Riscrivere le intestazioni HTTP con il gateway applicazione (anteprima pubblica)
 
@@ -96,7 +96,7 @@ Questa funzionalità supporta la riscrittura delle intestazioni per le variabili
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | Restituisce l'elenco di modalità di crittografia supportate dal client          |
 | ciphers_used               | Restituisce la stringa di crittografia usata per una connessione SSL stabilita |
-| client_ip                  | Indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima il gateway applicazione e il client di origine, quindi *client_ip* restituirà l'indirizzo IP del proxy inverso. variabile tjsi è particolarmente utile negli scenari in cui i clienti desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione, in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
+| client_ip                  | Indirizzo IP del client da cui il gateway applicazione ha ricevuto la richiesta. Se è presente un proxy inverso prima il gateway applicazione e il client di origine, quindi *client_ip* restituirà l'indirizzo IP del proxy inverso. Questa variabile è particolarmente utile negli scenari in cui i clienti desidera riscrivere l'intestazione X-Forwarded-For impostata dal Gateway applicazione, in modo che l'intestazione contiene solo l'indirizzo IP senza le informazioni sulla porta. |
 | client_port                | Porta del client                                                  |
 | client_tcp_rtt             | Informazioni sulla connessione TCP client. Disponibile nei sistemi che supportano l'opzione di socket TCP_INFO |
 | client_user                | Quando si usa l'autenticazione HTTP, il nome utente fornito per l'autenticazione |

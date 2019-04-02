@@ -14,17 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 9e4989f61741d317e78a613c8c8fac312d1568c2
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: e393eb92e11dc8dc296f1dc5f1c0036566c285c5
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58666954"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792451"
 ---
 # <a name="troubleshoot-application-upgrades"></a>Risolvere i problemi relativi agli aggiornamenti delle applicazioni
+
 Questo articolo descrive alcuni dei problemi comuni relativi all'aggiornamento di un'applicazione di Azure Service Fabric e come risolverli.
 
 ## <a name="troubleshoot-a-failed-application-upgrade"></a>Risolvere i problemi relativi all'aggiornamento di un'applicazione non riuscito
+
 Se un aggiornamento ha esito negativo, l'output del comando **Get-ServiceFabricApplicationUpgrade** contiene alcune informazioni aggiuntive per il debug dell'errore.  L'elenco seguente specifica come si possono usare le informazioni aggiuntive:
 
 1. Identificare il tipo di errore.
@@ -34,6 +36,7 @@ Se un aggiornamento ha esito negativo, l'output del comando **Get-ServiceFabricA
 Queste informazioni sono disponibili nel momento in cui Service Fabric rileva l'errore, indipendentemente dal fatto che la proprietà **FailureAction** sia impostata per il rollback o la sospensione dell'aggiornamento.
 
 ### <a name="identify-the-failure-type"></a>Identificare il tipo di errore
+
 Nell'output di **Get-ServiceFabricApplicationUpgrade** l'elemento **FailureTimestampUtc** identifica il timestamp (in UTC) in corrispondenza del quale Service Fabric ha rilevato un errore di aggiornamento ed è stata attivata la proprietà **FailureAction**. **FailureReason** identifica una delle tre possibili cause generali dell'errore:
 
 1. UpgradeDomainTimeout: indica che uno specifico dominio di aggiornamento ha impiegato troppo tempo per il completamento e il valore di **UpgradeDomainTimeout** è scaduto.
@@ -43,11 +46,14 @@ Nell'output di **Get-ServiceFabricApplicationUpgrade** l'elemento **FailureTimes
 Queste voci sono visualizzate nell'output se l'aggiornamento ha esito negativo e viene avviato il rollback. A seconda del tipo di errore sono visualizzate informazioni aggiuntive.
 
 ### <a name="investigate-upgrade-timeouts"></a>Analizzare i timeout di aggiornamento
+
 Gli errori di timeout di aggiornamento si verificano più comunemente a causa di problemi di disponibilità dei servizi. L'output che segue questo paragrafo è tipico di aggiornamenti in cui le repliche o le istanze dei servizi non si avviano nella nuova versione del codice. Il campo **UpgradeDomainProgressAtFailure** acquisisce uno snapshot di eventuali processi di aggiornamento in sospeso al momento dell'errore.
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                : fabric:/DemoApp
 ApplicationTypeName            : DemoAppType
 TargetApplicationTypeVersion   : v2
@@ -90,11 +96,14 @@ Il valore corrente di **UpgradeState** è *RollingBackCompleted*, pertanto l'agg
 In rari casi, il campo **UpgradeDomainProgressAtFailure** può essere vuoto se l'aggiornamento complessivo raggiunge il timeout proprio mentre il sistema completa tutte le operazioni per il dominio di aggiornamento corrente. In questo caso, provare ad aumentare i valori dei parametri **UpgradeTimeout** e **UpgradeDomainTimeout** e a eseguire di nuovo l'aggiornamento.
 
 ### <a name="investigate-health-check-failures"></a>Analizzare gli errori di controllo dell'integrità
+
 Gli errori di controllo dell'integrità possono essere attivati da vari problemi che possono verificarsi dopo l'aggiornamento di tutti i nodi di un dominio di aggiornamento e dopo aver superato tutti i controlli di sicurezza. L'output che segue questo paragrafo è tipico di un errore di aggiornamento causato da controlli di integrità non riusciti. Il campo **UnhealthyEvaluations** acquisisce uno snapshot dei controlli di integrità non riusciti al momento dell'aggiornamento in base ai [criteri di integrità](service-fabric-health-introduction.md)specificati dall'utente.
 
+```powershell
+Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 ```
-PS D:\temp> Get-ServiceFabricApplicationUpgrade fabric:/DemoApp
 
+```Output
 ApplicationName                         : fabric:/DemoApp
 ApplicationTypeName                     : DemoAppType
 TargetApplicationTypeVersion            : v4
@@ -149,6 +158,7 @@ Per analizzare gli errori dei controlli di integrità è prima necessario conosc
 L'aggiornamento è stato sospeso contestualmente all'errore grazie all'impostazione di **FailureAction** per l'azione manuale all'avvio dell'aggiornamento. Questa modalità consente di analizzare il sistema nello stato di errore prima di eseguire altre azioni.
 
 ### <a name="recover-from-a-suspended-upgrade"></a>Eseguire il ripristino da un aggiornamento sospeso
+
 Con la proprietà **FailureAction**impostata per il rollback, non è necessario alcun ripristino in quanto l'aggiornamento esegue automaticamente il rollback in caso di errore. Con una proprietà **FailureAction**impostata per l'azione manuale invece sono disponibili diverse opzioni di ripristino:
 
 1.  attivare un rollback
@@ -161,9 +171,11 @@ Con la proprietà **FailureAction**impostata per il rollback, non è necessario 
 
 Il comando **Update-ServiceFabricApplicationUpgrade** può essere usato per riprendere l'aggiornamento in modalità monitorata con l'esecuzione sia dei controlli di sicurezza sia dei controlli di integrità.
 
+```powershell
+Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 ```
-PS D:\temp> Update-ServiceFabricApplicationUpgrade fabric:/DemoApp -UpgradeMode Monitored
 
+```Output
 UpgradeMode                             : Monitored
 ForceRestart                            :
 UpgradeReplicaSetCheckTimeout           :
@@ -179,14 +191,14 @@ MaxPercentUnhealthyReplicasPerPartition :
 MaxPercentUnhealthyServices             :
 MaxPercentUnhealthyDeployedApplications :
 ServiceTypeHealthPolicyMap              :
-
-PS D:\temp>
 ```
 
 L'aggiornamento continua dal dominio di aggiornamento in corrispondenza del quale è stato sospeso e userà gli stessi parametri di aggiornamento e criteri di integrità usati precedentemente. Se necessario, i parametri di aggiornamento e i criteri di integrità mostrati nell'output precedente possono essere modificati nello stesso comando alla ripresa dell'aggiornamento. In questo esempio l'aggiornamento è stato ripreso in modalità monitorata con i parametri e i criteri di integrità invariati.
 
 ## <a name="further-troubleshooting"></a>Risoluzione di altri problemi
+
 ### <a name="service-fabric-is-not-following-the-specified-health-policies"></a>Service Fabric non segue i criteri di integrità specificati
+
 Possibile causa 1:
 
 Service Fabric converte tutte le percentuali in numeri effettivi di entità (ad esempio repliche, partizioni e servizi) per la valutazione dell'integrità ed esegue sempre l'arrotondamento alle entità intere. Se ad esempio il valore massimo di *MaxPercentUnhealthyReplicasPerPartition* è 21% e ci sono cinque repliche, Service Fabric accetta un massimo di due repliche non integre, ovvero `Math.Ceiling (5*0.21)`. Perciò, i criteri di integrità devono essere impostati in modo da tenere conto di questo.
@@ -198,12 +210,15 @@ I criteri di integrità sono specificati in termini di percentuali dei servizi t
 Durante l'aggiornamento però D diventa integro mentre C diventa non integro. L'aggiornamento riesce comunque perché solo il 25% dei servizi non è integro. Tuttavia c'è la possibilità di errori imprevisti causati dalla non integrità di C invece di D. In questa situazione D dovrebbe essere modellato come tipo di servizio diverso rispetto ad A, B e C. Poiché i criteri di integrità sono specificati per tipo di servizio, è possibile applicare soglie di percentuali di non integrità diverse a servizi diversi. 
 
 ### <a name="i-did-not-specify-a-health-policy-for-application-upgrade-but-the-upgrade-still-fails-for-some-time-outs-that-i-never-specified"></a>Non sono stati specificati criteri di integrità per l'aggiornamento dell'applicazione, ma l'aggiornamento non riesce a causa di alcuni timeout che però non sono mai stati specificati.
+
 Se i criteri di integrità non vengono forniti alla richiesta di aggiornamento, vengono rilevati dal file *ApplicationManifest.xml* della versione dell'applicazione corrente. Ad esempio, se si aggiorna l'applicazione X dalla versione 1.0 alla versione 2.0, vengono usati i criteri di integrità specificati per la versione 1.0. Se devono essere usati criteri di integrità diversi per l'aggiornamento, specificarli nella chiamata API di aggiornamento dell'applicazione. I criteri specificati nella chiamata API si applicano soltanto durante l'aggiornamento. Una volta completato l'aggiornamento, vengono usati i criteri specificati nel file *ApplicationManifest.xml* .
 
 ### <a name="incorrect-time-outs-are-specified"></a>Sono stati specificati timeout non corretti
+
 Ci si potrebbe chiedere cosa succede quando i timeout sono impostati in modo incoerente. Ad esempio, può essere impostato un valore *UpgradeTimeout* inferiore al valore *UpgradeDomainTimeout*. viene restituito un errore. Si verificano errori se il valore di *UpgradeDomainTimeout* è inferiore alla somma di *HealthCheckWaitDuration* e *HealthCheckRetryTimeout* o se il valore di *UpgradeDomainTimeout* è inferiore alla somma di *HealthCheckWaitDuration* e *HealthCheckStableDuration*.
 
 ### <a name="my-upgrades-are-taking-too-long"></a>Gli aggiornamenti richiedono troppo tempo
+
 Il tempo per il completamento dell'aggiornamento dipende dai controlli di integrità e dai timeout specificati. I controlli di integrità e i timeout dipendono dal tempo necessario per copiare, distribuire e stabilizzare l'applicazione. L'uso di timeout eccessivamente rigidi può comportare un numero elevato di aggiornamenti non riusciti. È quindi consigliabile iniziare prudenzialmente con valori di timeout più lunghi.
 
 Segue un rapido ripasso sull'interazione dei timeout con i tempi di aggiornamento:
@@ -215,6 +230,7 @@ Un errore di aggiornamento non può verificarsi in tempi più rapidi della somma
 Il tempo di aggiornamento di un dominio di aggiornamento è limitato da *UpgradeDomainTimeout*.  Se i valori di *HealthCheckRetryTimeout* e *HealthCheckStableDuration* sono entrambi diversi da zero e l'integrità dell'applicazione continua a oscillare, si verifica il timeout dell'aggiornamento in *UpgradeDomainTimeout*. *UpgradeDomainTimeout* inizia il conto alla rovescia dopo l'avvio dell'aggiornamento del dominio di aggiornamento corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 [Esercitazione sull'aggiornamento di un'applicazione di Service Fabric tramite Visual Studio](service-fabric-application-upgrade-tutorial.md) descrive la procedura di aggiornamento di un'applicazione con Visual Studio.
 
 [Aggiornamento di un'applicazione di Service Fabric mediante PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) descrive la procedura di aggiornamento di un'applicazione tramite PowerShell.

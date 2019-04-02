@@ -14,15 +14,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 03/015/2019
+ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91228074e13453ce53c0b4a7606479d45e8a90ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40ed06bef45948068e3845e728d9c1d63ed62e71
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182779"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762804"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Utilizzo di Azure per l'hosting e l'esecuzione di scenari con carichi di lavoro SAP
 
@@ -36,14 +36,16 @@ L'hosting di scenari di carichi di lavoro SAP in Azure consente anche di creare 
 
 ## <a name="latest-changes"></a>Modifiche più recenti
 
+Versione di [controllare istanze Large di HANA di Azure tramite il portale di Azure](hana-li-portal.md)
+
+Versione di [disponibilità elevata per SAP NetWeaver in macchine virtuali di Azure su SUSE Linux Enterprise Server con file NetApp di Azure per le applicazioni SAP](high-availability-guide-suse-netapp-files.md)
+
+Chiarimenti sui **del sistema operativo Linux parametro net.ipv4.tcp_timestamps** impostazioni in combinazione con Azure il bilanciamento del carico.
+
 Pubblicazione di [SAP workload configurations with Azure Availability Zones](sap-ha-availability-zones.md) (Configurazioni del carico di lavoro SAP con le zone di disponibilità di Azure)
 
 Pubblicazione di [Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP](sap-deployment-checklist.md)
 
-Chiarimento in merito all'utilizzo e alla configurazione di [appliance virtuali di rete di Azure](https://azure.microsoft.com/solutions/network-appliances/) nei percorsi di comunicazione critici per la latenza dei sistemi SAP in:
-
-- [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 
 

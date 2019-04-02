@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182133"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793773"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Distribuire l'acceleratore di soluzioni di monitoraggio remoto tramite l'interfaccia della riga di comando
 
@@ -62,6 +62,8 @@ Questa sezione riepiloga le differenze principali tra una distribuzione di base 
 
 ### <a name="basic"></a>Basic
 
+È possibile eseguire una distribuzione di base da [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) o usando l'interfaccia della riga di comando.
+
 La distribuzione di base è orientata verso la presentazione della soluzione. Per ridurre i costi, tutti i microservizi vengono distribuiti in una singola macchina virtuale. Questa distribuzione non usa un'architettura pronta per l'ambiente di produzione.
 
 Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
@@ -80,6 +82,8 @@ Una distribuzione di base crea i servizi seguenti nella sottoscrizione di Azure:
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   Unità S1 – 1              | Archiviazione dei dati e abilitazione dell'analisi dettagliata dei dati di telemetria |
 
 ### <a name="standard"></a>Standard
+
+È possibile eseguire una distribuzione standard solo usando l'interfaccia della riga di comando.
 
 Una distribuzione standard è una distribuzione pronta per l'ambiente di produzione che uno sviluppatore può personalizzare ed estendere. Usare l'opzione di distribuzione standard quando si è pronti a personalizzare un'architettura per la produzione, creata per la scalabilità e l'estendibilità. I microservizi dell'applicazione vengono creati come contenitori Docker e distribuiti tramite il servizio Azure Kubernetes. L'agente di orchestrazione Kubernetes distribuisce, ridimensiona e gestisce i microservizi.
 
