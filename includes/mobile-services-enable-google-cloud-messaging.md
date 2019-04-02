@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836524"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488043"
 ---
 1. Passare a [Google Cloud Console](https://console.developers.google.com/cloud-resource-manager)ed eseguire l'accesso con le credenziali dell'account Google. 
 2. Selezionare **Crea progetto** sulla barra degli strumenti. 
    
     ![Creare un nuovo progetto](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. In **Project name** (Nome del progetto) immettere un nome per il progetto e fare clic su **Create** (Crea).
-4. Selezionare il pulsante **Alerts** (Avvisi) sulla barra degli strumenti e selezionare il progetto nell'elenco. Verrà visualizzato il dashboard del progetto. È anche possibile passare direttamente al dashboard tramite l'URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. Selezionare il pulsante **Alerts** (Avvisi) sulla barra degli strumenti e selezionare il progetto nell'elenco. Verrà visualizzato il dashboard del progetto. È anche possibile passare direttamente al dashboard tramite l'URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Selezionare il progetto negli avvisi](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Prendere nota del numero di progetto in **Project number** nel riquadro **Project info** (Informazioni sul progetto) del dashboard. 
@@ -51,5 +51,5 @@ ms.locfileid: "33836524"
 
     ![Copiare la chiave API](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    Questo valore della chiave dell'API verrà usato successivamente per abilitare Azure per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app. Per tornare al dashboard del progetto, usare l'URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    Questo valore della chiave dell'API verrà usato successivamente per abilitare Azure per l'autenticazione con GCM e l'invio di notifiche push per conto dell'app. Per tornare al dashboard del progetto, usare l'URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

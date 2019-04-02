@@ -13,19 +13,22 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 018392db2ffb510d41385d8e0af19635c35678e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 88113fee64251344bd84085caedc9dfccfa10933
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58003410"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351457"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Che cos'è Servizi multimediali di Azure v3?
 
 Servizi multimediali di Azure è una piattaforma basata su cloud che consente di creare soluzioni che offrono streaming video di alta qualità, migliorano accessibilità e distribuzione, analizzano il contenuto e molto altro ancora. Servizi multimediali consente agli sviluppatori di applicazioni, ai call center, alle agenzie governative o alle società di intrattenimento di creare applicazioni che offrono esperienze multimediali di qualità eccezionale a numerosi destinatari sui browser e sui dispositivi mobili moderni più diffusi. 
+
+> [!NOTE]
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
 
 ## <a name="what-can-i-do-with-media-services"></a>Cosa è possibile fare con Servizi multimediali?
 
@@ -74,24 +77,11 @@ Alcuni esempi sono
 
 Vedere l'esempio incluso in [Ottenere i criteri di chiave simmetrica - .NET](get-content-key-policy-dotnet-howto.md).
 
-## <a name="how-can-i-get-started-with-v3"></a>Come si procede per iniziare a usare v3?
-
-Per informazioni su come iniziare a sviluppare con l'API Servizi multimediali v3 usando diversi strumenti e SDK, vedere [Iniziare a sviluppare](developers-guide.md).
-
-## <a name="v3-content-map"></a>Mappa del contenuto v3
-
-Il contenuto di Servizi multimediali v3 è organizzato in base alla struttura seguente (riportata anche nell'indice):
-
-|Sezioni| DESCRIZIONE|
-|---|---|
-| Panoramica | Illustra le funzionalità di Servizi multimediali e le operazioni che è possibile eseguire con il servizio.|
-| Guide introduttive | Illustrano le istruzioni fondamentali di base per i nuovi clienti che vogliono provare rapidamente Servizi multimediali.|
-| Esercitazioni | Illustrano le procedure basate su scenari per alcune delle principali attività di Servizi multimediali.|
-| Esempi | Collegamenti a esempi di codice. |
-| Concetti | Contengono una spiegazione dettagliata delle [funzionalità e dei concetti di Servizi multimediali v3](concepts-overview.md). Prima di iniziare lo sviluppo, è consigliabile esaminare i concetti fondamentali descritti in questi argomenti.<br/><br/>* Caricamento e archiviazione nel cloud<br/>* Codifica<br/>* Analisi di contenuti multimediali<br/>* Creazione di pacchetti, distribuzione, protezione<br/>* Streaming live<br/>* Monitoraggio<br/>* Clienti più importanti<br/><br/>e altro ancora. |
-| Guide alle procedure | Illustrano come completare un'attività.|
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per scoprire quanto è semplice eseguire la codifica e lo streaming di file video, vedere l'articolo relativo allo [streaming di file](stream-files-dotnet-quickstart.md). 
+Come si procede per iniziare a usare v3? 
+
+> [!div class="nextstepaction"]
+> [Informazioni sui concetti fondamentali](concepts-overview.md)<br/>
+> [Sviluppare con l'API Servizi multimediali v3 usando gli SDK](developers-guide.md) 
 

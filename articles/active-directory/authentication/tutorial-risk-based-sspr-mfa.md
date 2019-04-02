@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e71247c9a6527bc7372af1a902028aae72bf4a73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 35039dc05103ac6528f668fd76e1372ed7cc0708
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162697"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370554"
 ---
 # <a name="tutorial-use-risk-events-to-trigger-multi-factor-authentication-and-password-changes"></a>Esercitazione: Usare eventi di rischio per attivare Multi-Factor Authentication e modifiche delle password
 
@@ -61,7 +61,7 @@ Azure AD Identity Protection include un criterio predefinito che può essere uti
    1. Con l'impostazione di questo criterio, tutti gli utenti dovranno registrare i metodi per prepararsi all'uso di Multi-Factor Authentication.
 1. Fare clic su **Save**.
 
-   ![Richiedere agli utenti di registrarsi per MFA al momento dell'accesso tramite Azure AD Identity Protection](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
+   ![Richiedere agli utenti di registrarsi per l'autenticazione a più fattori all'accesso](./media/tutorial-risk-based-sspr-mfa/risk-based-require-mfa-registration.png)
 
 ### <a name="enable-risk-based-password-changes"></a>Abilitare le modifiche delle password in base ai rischi
 
@@ -73,7 +73,7 @@ Microsoft collabora con ricercatori, forze dell'ordine, diversi team di sicurezz
 1. In **Accesso** scegliere **Consenti l'accesso** e quindi selezionare **Richiedi modifica password**.
 1. Fare clic su "Seleziona"
 1. Impostare Imponi criteri su **Sì**.
-1. Fare clic su **Save**
+1. Fare clic su **Save** (Salva).
 
 ### <a name="enable-risk-based-multi-factor-authentication"></a>Abilitare Multi-Factor Authentication in base ai rischi
 
@@ -85,7 +85,7 @@ La maggior parte degli utenti ha un comportamento normale monitorabile. In condi
 1. In **Accesso** scegliere **Consenti l'accesso** e quindi selezionare **Richiedi autenticazione a più fattori**.
 1. Fare clic su "Seleziona"
 1. Impostare Imponi criteri su **Sì**.
-1. Fare clic su **Save**
+1. Fare clic su **Save** (Salva).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

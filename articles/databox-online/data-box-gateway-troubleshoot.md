@@ -6,23 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 03/20/2019
 ms.author: alkohli
-ms.openlocfilehash: c07293971c4cadd8b7bccc608f69faa3baa19ba7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 86cd4190647586ec47519ca481f78267f8999cef
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100854"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402202"
 ---
 # <a name="troubleshoot-your-azure-data-box-gateway-issues"></a>Risolvere i problemi di Azure Data Box Gateway 
 
-Questo articolo descrive come risolvere i problemi in Azure Data Box Gateway. 
-
-> [!IMPORTANT]
-> - Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
-
-In questo articolo viene spiegato come:
+Questo articolo descrive come risolvere i problemi in Azure Data Box Gateway. In questo articolo viene spiegato come:
 
 > [!div class="checklist"]
 > * Eseguire la diagnostica
@@ -53,7 +48,7 @@ Per ottenere un pacchetto di supporto, usare la procedura seguente.
 
     ![Fare clic su Aggiungi utente](media/data-box-gateway-troubleshoot/collect-logs-1.png)
  
-2. Una volta completata la creazione del pacchetto di supporto, fare clic su **Scarica pacchetto per il supporto**. Un pacchetto compresso viene scaricato nel percorso selezionato. È possibile decomprimere il pacchetto e visualizzare i file di log del registro di sistema.
+2. Una volta completata la creazione del pacchetto di supporto, fare clic su **Scarica pacchetto per il supporto**. Un pacchetto compresso viene scaricato nel percorso selezionato. È possibile decomprimere il pacchetto.
 
     ![Fare clic su Aggiungi utente](media/data-box-gateway-troubleshoot/collect-logs-2.png)
 

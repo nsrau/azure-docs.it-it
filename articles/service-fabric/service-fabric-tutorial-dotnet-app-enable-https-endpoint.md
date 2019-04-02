@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/17/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 5308fc024a53fdbbef12b409622cc35adaea1e2e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7ba28014dfb2be4550407c20b4885feda3921f98
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857709"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316892"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
@@ -341,9 +341,9 @@ Nella sezione **ServiceManifestImport** di VotingWebPkg configurare quindi un cr
 
 ## <a name="run-the-application-locally"></a>Eseguire l'applicazione in locale
 
-In Esplora soluzioni selezionare l'applicazione **Voting** e impostare la proprietà **URL applicazione** su "<https://localhost:443>".
+In Esplora soluzioni selezionare l'applicazione **Voting** e impostare la proprietà **URL applicazione** su "https:\//localhost:443".
 
-Salvare tutti i file e premere F5 per eseguire l'applicazione in locale.  Al termine della distribuzione dell'applicazione, l'URL [https://localhost:443](https://localhost:443) verrà aperto in un Web browser. Se si usa un certificato autofirmato, verrà visualizzato un avviso che informa che la sicurezza del sito Web non è considerata attendibile dal PC.  Continuare e passare alla pagina Web.
+Salvare tutti i file e premere F5 per eseguire l'applicazione in locale.  Al termine della distribuzione dell'applicazione, l'URL https:\//localhost:443 verrà aperto in un Web browser. Se si usa un certificato autofirmato, verrà visualizzato un avviso che informa che la sicurezza del sito Web non è considerata attendibile dal PC.  Continuare e passare alla pagina Web.
 
 ![Applicazione di voto][image2]
 

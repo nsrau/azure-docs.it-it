@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: cb5ad8e4ff3d5a28fa38c7e8972e7e3e69d2762d
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136916"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58309641"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Esercitazione sul bake in Unity con Progetto Acustica
 Questa esercitazione descrive il bake con Progetto Acustica in Unity.
@@ -28,7 +28,7 @@ Requisiti software:
 ## <a name="open-the-project-acoustics-bake-window"></a>Aprire la finestra di bake di Progetto Acustica nell'editor
 Scegliere **Window > Acoustics** (Finestra > Acustica) dal menu di Unity:
 
-![Aprire la finestra Acoustics (Acustica)](media/window-acoustics.png)
+![Screenshot dell'editor Unity con l'opzione di menu della finestra Acoustics evidenziata](media/window-acoustics.png)
 
 ## <a name="create-a-navigation-mesh"></a>Creare una mesh di navigazione
 Progetto Acustica usa una mesh di navigazione per posizionare i punti di probe dell'ascoltatore per la simulazione. È possibile usare il [flusso di lavoro della mesh di navigazione](https://docs.unity3d.com/Manual/nav-BuildingNavMesh.html) di Unity o un altro pacchetto di modellazione 3D per progettare la mesh. 
@@ -68,15 +68,15 @@ Le parti della pagina della scheda sono:
 
 Se nella scena non sono selezionati elementi, l'aspetto della scheda Objects (Oggetti) sarà simile all'immagine seguente:
 
-![Scheda Objects (Oggetti) senza selezioni](media/objects-tab-no-selection-detail.png)
+![Screenshot della scheda Objects della finestra Acoustics](media/objects-tab-no-selection-detail.png)
 
 Se nella finestra della scena o della gerarchia sono selezionati elementi, l'aspetto sarà simile a quello dell'immagine seguente:
 
-![Scheda Objects (Oggetti) senza selezioni](media/objects-tab-selection-detail.png)
+![Screenshot della scheda Objects della finestra Acoustics con la selezione visualizzata](media/objects-tab-selection-detail.png)
 
 Se alcuni oggetti sono contrassegnati e altri no, la casella di controllo appropriata mostrerà un valore "misto":
 
-![Casella di controllo con valore misto](media/mixed-object-selection-detail.png)
+![Screenshot della scheda Objects della finestra Acoustics con l'icona di selezione mista evidenziata](media/mixed-object-selection-detail.png)
 
 Facendo clic sulla casella di controllo, tutti gli oggetti verranno contrassegnati e, facendo di nuovo clic, il contrassegno verrà rimosso da tutti gli oggetti.
 
@@ -89,10 +89,10 @@ I materiali acustici controllano la quantità di energia sonora riflessa da ogni
 
 Il tempo di riverbero di un determinato materiale in una stanza è inversamente proporzionale al coefficiente di assorbimento e la maggior parte dei materiali ha valori di assorbimento compresi tra 0,01 e 0,20. I materiali con coefficienti di assorbimento non compresi in questo intervallo sono molto assorbenti.
 
-![Grafico del tempo di riverbero](media/reverb-time-graph.png)
+![Grafico che mostra la correlazione negativa del tempo di riverbero con il coefficiente di assorbimento](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Informazioni di riferimento: Parti della scheda Materials (Materiali)
-![Dettaglio della scheda Materials (Materiali)](media/materials-tab-detail.png)
+![Screenshot della scheda Materials della finestra Acoustics in Unity](media/materials-tab-detail.png)
 
 1. Pulsante della scheda **Materials** (Materiali), usato per visualizzare questa pagina.
 2. Breve descrizione di che cosa fare quando si usa questa pagina.
@@ -117,23 +117,23 @@ A seconda delle dimensioni della scena e della velocità del computer, questi ca
 ### <a name="review-voxel-and-probe-placement"></a>Esaminare il posizionamento di voxel e probe
 Visualizzare in anteprima il posizionamento dei dati voxel e dei punti di probe per verificare che sia possibile effettuare il bake della scena. Una mesh di navigazione incompleta o una geometria acustica mancante o in eccesso sarà di solito rapidamente visibile nell'anteprima. Il posizionamento di voxel e probe può essere abilitato o disabilitato usando il menu Gizmos:
 
-![Menu Gizmos](media/gizmos-menu.png)
+![Screenshot del menu Gizmos in Unity](media/gizmos-menu.png)
 
 I voxel che contengono la geometria acustica sono mostrati come cubi verdi. Esplorare la scena e verificare che tutti gli elementi che devono costituire la geometria siano formati da voxel. Per visualizzare i voxel, la telecamera della scena deve trovarsi a non più di circa 5 metri dall'oggetto.
 
 Se si confrontano i voxel creati con risoluzione grossolana con quelli creati con risoluzione fine, si noterà che nel primo caso i voxel sono due volte più grandi.
 
-![Anteprima dei voxel](media/voxel-cubes-preview.png)
+![Screenshot dell'anteprima dei voxel con risoluzione grossolana nell'editor Unity](media/voxel-cubes-preview.png)
 
 I risultati della simulazione vengono interpolati tra le posizioni dei punti di probe dell'ascoltatore in runtime. Verificare che siano presenti punti di probe nei pressi di qualsiasi punto in cui è previsto che il giocatore si sposti nella scena.
 
-![Anteprima dei probe](media/probes-preview.png)
+![Screenshot dell'anteprima dei probe nell'editor Unity](media/probes-preview.png)
 
 ### <a name="take-care-with-scene-renames"></a>Prestare attenzione ai nomi delle scene
 Il nome della scena viene usato per connettere la scena ai file in cui sono archiviate la voxelizzazione e la posizione dei punti di probe. Se la scena viene rinominata dopo che i punti di probe sono stati calcolati, i dati di posizionamento e di assegnazione dei materiali vengono persi e devono essere eseguiti di nuovo.
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Informazioni di riferimento: Parti della scheda Probes (Probe)
-![Dettaglio della scheda Probes (Probe)](media/probes-tab-detail.png)
+![Screenshot della scheda Probes della finestra Acoustics in Unity](media/probes-tab-detail.png)
 
 1. Pulsante della scheda **Probes** (Probe) usato per visualizzare questa pagina
 2. Breve descrizione di che cosa fare quando si usa questa pagina
@@ -157,15 +157,15 @@ Anche se può sembrare semplice, le implicazioni per la simulazione acustica son
 * Le sorgenti sonore non possono trovarsi all'interno di voxel "pieni", ovvero voxel che contengono una geometria, perché il suono non viene udito. Collocare le sorgenti audio in modo che non siano all'interno dei voxel più grandi dell'impostazione Coarse (Grossolana) è più difficile che usare l'impostazione Fine (Fine).
 * I voxel più grandi si estenderanno maggiormente nei portali, come illustrato di seguito. La prima immagine è stata creata con la risoluzione grossolana, mentre la seconda rappresenta la stessa entrata con la risoluzione fine. Come indicato dai contrassegni di colore rosso, l'intrusione è considerevolmente minore nell'entrata con l'impostazione Fine (Fine). La linea blu è l'entrata definita dalla geometria, mentre la linea rossa è il portale acustico effettivo definito dalle dimensioni dei voxel. Le conseguenze di questa intrusione in una determinata situazione dipendono interamente da come i voxel sono allineati alla geometria del portale, il che è determinato dalle dimensioni e dalle posizioni degli oggetti nella scena.
 
-![Entrata grossolana](media/coarse-voxel-doorway.png)
+![Screenshot dei voxel con risoluzione grossolana nell'entrata](media/coarse-voxel-doorway.png)
 
-![Entrata fine](media/fine-voxel-doorway.png)
+![Screenshot dei voxel con risoluzione fine nell'entrata](media/fine-voxel-doorway.png)
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Effettuare il bake della scena con Azure Batch
 È possibile effettuare il bake della scena con un cluster di elaborazione nel cloud usando il servizio Azure Batch. Il plug-in Progetto Acustica di Unity si connette direttamente ad Azure Batch per creare un'istanza di un cluster di Azure Batch per ogni bake e gestire ed eliminare tale cluster. Nella scheda **Bake** immettere le credenziali di Azure, selezionare un tipo e una dimensione di computer cluster e fare clic su **Bake**.
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Informazioni di riferimento: parti della scheda Bake
-![Dettaglio della scheda Bake](media/bake-tab-details.png)
+![Screenshot della scheda Bake della finestra Acoustics in Unity](media/bake-tab-details.png)
 
 1. Pulsante della scheda Bake usato per visualizzare questa pagina.
 2. Breve descrizione di che cosa fare in questa pagina.
@@ -209,8 +209,8 @@ Ad esempio, nei test di Microsoft su un computer a 8 core con Intel Xeon E5-1660
 ### <a name="setup-docker"></a>Configurare Docker
 Installare e configurare Docker nel computer che elaborerà la simulazione:
 1. Installare il [set di strumenti di Docker](https://www.docker.com/products/docker-desktop).
-2. Accedere alle impostazioni di Docker, passare alle opzioni "Avanzate" e configurare le risorse con almeno 8 GB di RAM. Più CPU si riesce ad allocare a Docker, più velocemente sarà completato il bake. ![Impostazioni di Docker di esempio](media/docker-settings.png)
-3. Passare a "Shared Drives" ("Unità condivise") e attivare la condivisione per l'unità utilizzata per l'elaborazione.![DockerDriveSharing](media/docker-shared-drives.png)
+2. Accedere alle impostazioni di Docker, passare alle opzioni "Avanzate" e configurare le risorse con almeno 8 GB di RAM. Più CPU si riesce ad allocare a Docker, più velocemente sarà completato il bake. ![Screenshot delle impostazioni di esempio di Docker](media/docker-settings.png)
+3. Passare a "Shared Drives" ("Unità condivise") e attivare la condivisione per l'unità utilizzata per l'elaborazione.![Screenshot delle opzioni di Docker per le unità condivise](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Eseguire il bake locale
 1. Fare clic sul pulsante "Prepare Local Bake" ("Prepara bake locale") nella scheda **Bake** e selezionare la cartella in cui verranno salvati i file di input e gli script di esecuzione. Quindi è possibile eseguire il bake in qualsiasi computer, purché soddisfi i requisiti hardware minimi e abbia Docker installato, copiando la cartella in tale computer.
@@ -234,11 +234,11 @@ File di dati dell'editor:
 ## <a name="set-up-the-acoustics-lookup-table"></a>Configurare la tabella di ricerca dell'acustica
 Trascinare e rilasciare l'oggetto Prefab **Progetto Acustica** dal pannello del progetto alla scena:
 
-![Prefab Acoustics](media/acoustics-prefab.png)
+![Screenshot della scheda Prefab della finestra Acoustics in Unity](media/acoustics-prefab.png)
 
 Fare clic sull'oggetto gioco **ProjectAcoustics** e passare al relativo pannello inspector. Specificare il percorso del risultato del bake (il file con estensione ACE, in **Assets/AcousticsData**) trascinandolo nello script Acoustics Manager o facendo clic sul pulsante circolare accanto alla casella di testo.
 
-![Acoustics Manager](media/acoustics-manager.png)  
+![Screenshot della scheda Manager Prefab della finestra Acoustics in Unity](media/acoustics-manager.png)  
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Esaminare i [controlli di progettazione per Unity](unity-workflow.md)

@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 650bdc5cdf99645bc2be6c8e85737dacd10a6b27
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: 86fbf5801e9ff1c8bd9dead8be14aeeea1b58a29
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287382"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472481"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>Creare un database e un cluster di Esplora dati di Azure tramite PowerShell
 
@@ -25,20 +25,21 @@ ms.locfileid: "58287382"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-Questo argomento di avvio rapido descrive come creare un database e un cluster di Esplora dati di Azure tramite PowerShell.
-
-È possibile eseguire i cmdlet e gli script di PowerShell in Windows, Linux o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) per creare e configurare [Esplora dati di Azure](https://docs.microsoft.com/azure/kusto/ ).
-
-[**Az.Kusto**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto ). Con Azure PowerShell e **Az.Kusto**, è possibile eseguire le attività seguenti:
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo argomento di avvio rapido vengono creati un cluster e un database usando Powershell. È possibile eseguire i cmdlet e gli script di PowerShell in Windows, Linux o [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) con [Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto) per creare e configurare cluster e database di Esplora dati di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa guida introduttiva è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+Se si sceglie di installare e usare l'interfaccia della riga di comando di Azure in locale, per questa guida introduttiva è necessaria l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per controllare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-parameters"></a>Configurare i parametri
 
-I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud Shell. Se si esegue l'interfaccia della riga di comando in locale, seguire questa procedura per accedere ad Azure e impostare la sottoscrizione corrente:
+I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud Shell. Se si esegue l'interfaccia della riga di comando in locale, seguire i passaggi 1 e 2 per accedere ad Azure e impostare la sottoscrizione corrente:
 
 1. Eseguire questo comando per accedere ad Azure:
 
@@ -46,12 +47,12 @@ I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud S
     Connect-AzAccount
     ```
 
-2. Impostare la sottoscrizione in cui si vuole creare il cluster.
+1. Impostare la sottoscrizione in cui si vuole creare il cluster:
 
     ```azurepowershell-interactive
      Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     ```
-3. Installare il modulo Az.Kusto nel dispositivo:
+1. Quando si esegue l'interfaccia della riga di comando di Azure in locale o in Azure Cloud Shell, è necessario installare il modulo Az.Kusto nel proprio dispositivo:
     
     ```azurepowershell-interactive
      Install-Module -Name Az.Kusto  
@@ -73,7 +74,7 @@ I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud S
 
     Sono disponibili altri parametri facoltativi che è possibile usare, ad esempio la capacità del cluster.
 
-2. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
+1. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
 
     ```azurepowershell-interactive
     Get-AzKustoCluster -Name mykustocluster --ResourceGroupName testrg
@@ -97,7 +98,7 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
    | SoftDeletePeriod | *3650:00:00:00* | Periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. |
    | HotCachePeriod | *3650:00:00:00* | Periodo di tempo in cui i dati verranno conservati nella cache. |
 
-2. Eseguire il comando seguente per vedere il database creato:
+1. Eseguire il comando seguente per vedere il database creato:
 
     ```azurepowershell-interactive
     Get-AzKustoDatabase -ClusterName mykustocluster --ResourceGroupName testrg -Name mykustodatabase
@@ -116,7 +117,5 @@ A questo punto sono disponibili un cluster e un database.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Altri comandi Az.Kusto sono disponibili [**qui**](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto )
-
-> [!div class="nextstepaction"]
-> [Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)
+* [Altri comandi Az.Kusto](https://docs.microsoft.com/powershell/module/az.kusto/?view=azps-1.4.0#kusto)
+* [Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)](net-standard-ingest-data.md)

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 11/30/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 8362ae5e9647c023ff950a363f9ba7bfde37fdb6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 91cf0986241a40c48430d8305849c12864d645fb
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863322"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499557"
 ---
 # <a name="what-is-azure-container-instances"></a>Informazioni su Istanze di Azure Container
 
@@ -52,10 +52,11 @@ Alcune funzionalità attualmente sono limitate ai contenitori Linux:
 
 * Più contenitori per gruppo di contenitori
 * Montaggio di volumi ([File di Azure](container-instances-volume-azure-files.md), [emptyDir](container-instances-volume-emptydir.md), [GitRepo](container-instances-volume-gitrepo.md), [segreto](container-instances-volume-secret.md))
+* [Metriche di utilizzo delle risorse](container-instances-monitor.md) con Monitoraggio di Azure
 * [Distribuzione in una rete virtuale](container-instances-vnet.md) (anteprima)
 * [Risorse GPU](container-instances-gpu.md) (anteprima)
 
-Istanze di Azure Container supporta le immagini di Windows Server 2016 che si basano sulle versioni Long-Term Servicing Channel (LTSC). Le versioni Canale semestrale di Windows, come ad esempio 1709 e 1803, non sono supportate.
+Attualmente, Istanze di Azure Container supporta le immagini di Windows Server 2016 che si basano sulle versioni Long-Term Servicing Channel (LTSC). Le versioni Canale semestrale di Windows, come ad esempio 1709 e 1803, non sono supportate.
 
 ## <a name="co-scheduled-groups"></a>Gruppi con pianificazione condivisa
 

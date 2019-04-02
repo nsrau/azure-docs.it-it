@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite l'interfaccia della riga di comando"
+title: "Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure usando l'interfaccia della riga di comando di Azure"
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite l'interfaccia della riga di comando di Azure
 services: data-explorer
 author: radennis
@@ -7,15 +7,15 @@ ms.author: radennis
 ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 2/4/2019
-ms.openlocfilehash: ca4ffce1ae966d2bb8fb187c9b04938330969641
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 3/25/2019
+ms.openlocfilehash: 2a77671ca405a69ec87e335004a84acb2e649c2c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286330"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418653"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-the-cli"></a>Creare un database e un cluster di Esplora dati di Azure tramite l'interfaccia della riga di comando
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Creare un database e un cluster di Esplora dati di Azure usando l'interfaccia della riga di comando di Azure
 
 > [!div class="op_single_selector"]
 > * [Portale](create-cluster-database-portal.md)
@@ -23,9 +23,9 @@ ms.locfileid: "58286330"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+>
 
-Questa guida introduttiva descrive come creare un database e un cluster di Esplora dati di Azure tramite l'interfaccia della riga di comando di Azure.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo argomento di avvio rapido vengono creati un cluster e un database usando l'interfaccia della riga di comando di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -45,7 +45,7 @@ I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud S
     az login
     ```
 
-2. Impostare la sottoscrizione in cui si vuole creare il cluster. Sostituire `MyAzureSub` con il nome della sottoscrizione di Azure che si vuole usare:
+1. Impostare la sottoscrizione in cui si vuole creare il cluster. Sostituire `MyAzureSub` con il nome della sottoscrizione di Azure che si vuole usare:
 
     ```azurecli-interactive
     az account set --subscription MyAzureSub
@@ -67,7 +67,7 @@ I passaggi seguenti non sono necessari se si eseguono i comandi in Azure Cloud S
 
     Sono disponibili altri parametri facoltativi che è possibile usare, ad esempio la capacità del cluster.
 
-2. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
+1. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
 
     ```azurecli-interactive
     az kusto cluster show --name azureclitest --resource-group testrg
@@ -91,7 +91,7 @@ Se il risultato contiene `provisioningState` con il valore `Succeeded`, il clust
    | soft-delete-period | *3650:00:00:00* | Periodo di tempo in cui i dati verranno mantenuti disponibili in modo che sia possibile eseguire una query. |
    | hot-cache-period | *3650:00:00:00* | Periodo di tempo in cui i dati verranno conservati nella cache. |
 
-2. Eseguire il comando seguente per vedere il database creato:
+1. Eseguire il comando seguente per vedere il database creato:
 
     ```azurecli-interactive
     az kusto database show --name clidatabase --resource-group testrg --cluster-name azureclitest

@@ -13,16 +13,16 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246951"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402882"
 ---
-# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Avvio rapido: Introduzione all'anteprima di Azure Sentinel
+# <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Guida introduttiva: Introduzione all'anteprima di Azure Sentinel
 
 > [!IMPORTANT]
 > Azure Sentinel è attualmente in anteprima pubblica.
@@ -118,7 +118,22 @@ Si potrebbe voler creare una query che incorpora i dati da più origini. È poss
 
 È possibile creare dashboard diversi in base al ruolo della persona che sta esaminando i dati e a ciò che sta cercando. Ad esempio, si può creare un dashboard per l'amministratore di rete che include i dati del firewall. È anche possibile creare dashboard in base alla frequenza con cui si vogliono esaminare, se ci sono elementi che si vogliono controllare ogni giorno e altri che si vogliono controllare ogni ora. Ad esempio, si potrebbero esaminare gli accessi ad Azure AD ogni ora per cercare eventuali anomalie. 
 
+## <a name="create-new-detections"></a>Creare nuovi rilevamenti
 
+È possibile generare rilevamenti sulle [origini dati connesse ad Azure Sentinel](connect-data-sources.md) per analizzare le minacce nell'organizzazione.
+
+Quando si crea una nuova funzionalità di rilevamento, sfruttare i rilevamenti incorporati predisposti dai ricercatori di sicurezza Microsoft più adatti alle origini dati connesse.
+
+1. [Nella community di GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) andare alla cartella **Rilevamenti** e selezionare le cartelle pertinenti.
+   ![cartelle pertinenti](./media/qs-get-visibility/detection-folders.png)
+ 
+3.  Passare alla scheda **Analytics** e selezionare **aggiungi**.
+   ![creare una regola in Log Analytics](./media/qs-get-visibility/query-params.png)
+
+3.  Copiare tutti i parametri per la regola e fare clic su **Crea**.
+   ![creare la regola di avviso](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo argomento di avvio rapido si è appreso come iniziare a usare Azure Sentinel. Continuare con l'esercitazione su [come rilevare le minacce](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]

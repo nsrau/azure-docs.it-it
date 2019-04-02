@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201467"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439263"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Guida introduttiva: Accesso utenti e chiamata dell'API Microsoft Graph da un'app nativa iOS
 
@@ -44,7 +44,7 @@ Questa guida introduttiva contiene un esempio di codice che illustra come un'app
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Passaggio 1: Configurare l'applicazione
-> Per far funzionare l'esempio di codice di questa guida introduttiva, è necessario aggiungere un URL di risposta come `msal<AppId>://auth`, dove msal<AppId> è l'ID di questa applicazione.
+> Per far funzionare l'esempio di codice di questo argomento di avvio rapido, è necessario aggiungere un URL di risposta come `msal<AppId>://auth`, dove msal\<AppId> è l'ID di questa applicazione.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Apporta questa modifica per me]()
 >
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |Dove:||
 > |---------|---------|
-> | `forScopes` | Contiene gli ambiti richiesti, vale a dire [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user' |
+> | `forScopes` | Contiene gli ambiti richiesti, vale a dire `[ "user.read" ]` per Microsoft Graph o `[ "<Application ID URL>/scope" ]` per le API Web personalizzate (ovvero `api://<Application ID>/access_as_user`) |
 
 #### <a name="getting-an-access-token-silently"></a>Recupero di un token di accesso in modo silenzioso
 

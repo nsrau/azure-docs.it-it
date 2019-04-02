@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295811"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362051"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Esercitazione: Usare il servizio Machine Learning automatizzato per creare il proprio modello di regressione
 
@@ -67,22 +67,11 @@ Dopo aver completato i passaggi seguenti, eseguire il notebook **tutorials/regre
 
 ### <a name="server"></a>Usare il server notebook Jupyter personale
 
-Usare questa proceduta per creare un server notebook Jupyter locale nel computer in uso.  Al termine, eseguire il notebook **tutorials/regression-part2-automated-ml.ipynb**.
+Usare questa proceduta per creare un server notebook Jupyter locale nel computer in uso.  Assicurarsi di installare `matplotlib` e gli oggetti aggiuntivi `automl` e `notebooks` nell'ambiente.
 
-1. Completare la [guida introduttiva per Python in Azure Machine Learning](quickstart-create-workspace-with-python.md) per creare un ambiente Miniconda e creare un'area di lavoro.
-1. Installare i dati aggiuntivi `automl` e `notebooks` nell'ambiente con `pip install azureml-sdk[automl,notebooks]`.
-1. Installare `maplotlib` con `pip install maplotlib`.
-1. Clonare il [repository GitHub](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Avviare il server notebook dalla directory clonata.
-
-    ```shell
-    jupyter notebook
-    ```
+Al termine, eseguire il notebook **tutorials/regression-part2-automated-ml.ipynb**.
 
 ## <a name="start"></a>Configurare l'ambiente di sviluppo
 

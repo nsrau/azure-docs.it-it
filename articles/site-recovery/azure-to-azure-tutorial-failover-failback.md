@@ -1,33 +1,33 @@
 ---
-title: Eseguire il failover e il failback di macchine virtuali IaaS di Azure replicate in un'area di Azure secondaria per il ripristino di emergenza con il servizio Azure Site Recovery.
-description: Informazioni su come eseguire il failover e il failback di macchine virtuali di Azure replicate in un'area di Azure secondaria per il ripristino di emergenza con il servizio Azure Site Recovery.
+title: Eseguire il failover e riproteggere le VM di Azure replicate in un'area di Azure secondaria per il ripristino di emergenza con il servizio Azure Site Recovery
+description: Informazioni su come eseguire il failover e riproteggere le VM di Azure replicate in un'area di Azure secondaria per il ripristino di emergenza con il servizio Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ba1e65ca915c576d2424b166488b89baa92c24a9
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: c19e554571927efa907350df1f1fbbd8ff491c42
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729047"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58314757"
 ---
-# <a name="fail-over-and-reprotect-azure-vms-between-azure-regions"></a>Eseguire il failover e riproteggere le macchine virtuali di Azure tra aree di Azure
+# <a name="fail-over-and-reprotect-azure-vms-between-regions"></a>Eseguire il failover e riproteggere le VM di Azure tra aree
 
 Il servizio [Azure Site Recovery](site-recovery-overview.md) favorisce l'attuazione della strategia di ripristino di emergenza gestendo e coordinando le operazioni di replica, failover e failback di computer locali e macchine virtuali di Azure.
 
-Questa esercitazione descrive come eseguire il failover di una singola macchina virtuale di Azure in un'area di Azure secondaria. Dopo aver eseguito il failover, si esegue il failback nell'area primaria, non appena torna disponibile. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come eseguire il failover di una VM di Azure in un'area di Azure secondaria. Dopo aver eseguito il failover, si riproteggerà la VM. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Eseguire il failover della macchina virtuale di Azure
 > * Riproteggere la macchina virtuale secondaria di Azure in modo che possa essere replicata nell'area primaria.
 
 > [!NOTE]
-> In questa esercitazione l'utente viene guidato nella procedura di failover in un'area di destinazione, seguita dal failback, con una personalizzazione minima. Se si desidera approfondire i vari aspetti associati al failover, incluse considerazioni sulla rete, automazione o risoluzione dei problemi, vedere i documenti relativi alle procedure per le macchine virtuali di Azure.
+> Questa esercitazione contiene il percorso più semplice, con impostazioni predefinite e personalizzazione minima. Per scenari più complessi, usare gli articoli sulle procedure per le VM di Azure.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,18 +42,18 @@ Questa esercitazione descrive come eseguire il failover di una singola macchina 
 
 2. In **Failover** selezionare un **Punto di ripristino** in cui eseguire il failover. È possibile usare una delle opzioni seguenti.
 
-   * **Più recente** (impostazione predefinita): con questa opzione vengono elaborati tutti i dati presenti nel servizio Site Recovery e viene fornito il valore RPO (Recovery Point Objective) più basso.
-   * **Elaborato più recente**: con questa opzione la macchina virtuale viene ripristinata all'ultimo punto di ripristino elaborato dal servizio Site Recovery.
-   * **Personalizzato**: questa opzione consente di eseguire il failover in un determinato punto di ripristino ed è particolarmente utile per eseguire un failover di test.
+   * **Più recente** (impostazione predefinita): determina l'elaborazione di tutti i dati nel servizio Site Recovery e offre il valore RPO (Recovery Point Objective) più basso.
+   * **Elaborato più recente**: ripristina la macchina virtuale all'ultimo punto di ripristino che è stato elaborato dal servizio Site Recovery.
+   * **Personalizzato**: consente di eseguire il failover in un determinato punto di ripristino ed è particolarmente utile per eseguire un failover di test.
 
-3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Si noti che Site Recovery non esegue la pulizia dell'origine dopo il failover.
+3. Selezionare **Arrestare la macchina prima di iniziare il failover** se si vuole provare ad arrestare le macchine virtuali di origine tramite Site Recovery prima di attivare il failover. Il failover continua anche se l'arresto ha esito negativo. Site Recovery non esegue la pulizia dell'origine dopo il failover.
 
 4. Nella pagina **Processi** è possibile seguire lo stato di avanzamento del failover.
 
 5. Dopo il failover, convalidare la macchina virtuale eseguendo l'accesso ad essa. Per passare a un altro punto di ripristino per la macchina virtuale, è possibile usare l'opzione **Modifica punto di ripristino**.
 
 6. Quando la macchina virtuale sottoposta a failover è pronta, è possibile eseguire il **commit** del failover.
-   Questa operazione elimina tutti i punti di ripristino disponibili con il servizio. L'opzione **Modifica punto di ripristino** non è più disponibile.
+   Questa operazione elimina tutti i punti di ripristino disponibili con il servizio. Non sarà possibile modificare il punto di ripristino.
 
 ## <a name="reprotect-the-secondary-vm"></a>Riproteggere la macchina virtuale secondaria
 
@@ -64,13 +64,10 @@ Dopo aver eseguito il failover della macchina virtuale, è necessario proteggerl
 
    ![Fare clic con il pulsante destro del mouse per riproteggere](./media/azure-to-azure-tutorial-failover-failback/reprotect.png)
 
-2. Osservare come la direzione di protezione, dall'area secondaria a quella primaria, sia già selezionata.
-3. Rivedere le informazioni contenute in **Gruppo di risorse, Rete, Archiviazione e Set di disponibilità**. Eventuali risorse contrassegnate (nuove) verranno create nell'ambito dell'operazione di riprotezione.
+2. Verificare che la direzione di protezione, dall'area secondaria a quella primaria, sia già selezionata.
+3. Rivedere le informazioni contenute in **Gruppo di risorse, Rete, Archiviazione e Set di disponibilità**. Eventuali risorse contrassegnate come nuove verranno create nell'ambito dell'operazione di riprotezione.
 4. Fare clic su **OK** per avviare un processo di riprotezione. Con questo processo il sito di destinazione viene aggiornato con i dati più recenti e i valori delta vengono replicati nell'area primaria. La macchina virtuale si trova ora in uno stato protetto.
 
-> [!NOTE]
-> Vedere la [sezione procedurale](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection) per altri dettagli sul flusso di lavoro di riprotezione e cosa accade durante la riprotezione.
-
-
 ## <a name="next-steps"></a>Passaggi successivi
-- Leggere [come eseguire il failback](azure-to-azure-tutorial-failback.md).
+- Dopo la riprotezione, vedere come [eseguire il failback](azure-to-azure-tutorial-failback.md) nell'area primaria quando torna disponibile.
+- [Altre informazioni](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection) sul flusso di riprotezione.

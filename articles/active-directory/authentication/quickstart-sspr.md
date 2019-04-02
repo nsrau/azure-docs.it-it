@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095620"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371283"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Avvio rapido: Reimpostazione della password self-service
 
@@ -46,7 +46,7 @@ In questa guida introduttiva vengono presentate le procedure per configurare la 
       * **Codice dell'app per dispositivi mobili (anteprima)**
    * Fare clic su **Save**.
 
-     ![autenticazione][Authentication]
+     ![Scelta dei metodi di autenticazione per SSPR][Authentication]
 
 4. Nella pagina **Registrazione** effettuare le scelte seguenti:
    * Richiedere agli utenti di registrarsi all'accesso: **Sì**

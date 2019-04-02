@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: d4587b5268635691d55b51a7bf88bbe01df2a0c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871645"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519630"
 ---
 # <a name="what-are-the-speech-services"></a>Informazioni sui servizi Voce
 
@@ -39,9 +39,9 @@ Queste funzionalità costituiscono i servizi Voce di Azure. Per altre informazio
 
 Informazioni sulle novità relative ai servizi Voce di Azure.
 
+* Marzo 2019 - È ora disponibile un nuovo endpoint per la sintesi vocale che restituisce un elenco completo delle voci disponibili in aree specifiche. Per altre informazioni, vedere le [informazioni di riferimento sull'API di sintesi vocale (REST)](rest-text-to-speech.md).
 * Febbraio 2019 - Rilasciato Speech SDK 1.3.0 con supporto per [Unity (beta)](quickstart-csharp-unity.md). Aggiunta del supporto per la classe `AudioInput`, che consente di scegliere l'origine di flusso per l'audio. Per un elenco completo di miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 * Dicembre 2018 - Rilasciato Speech SDK 1.2.0 con supporto per [Python](quickstart-python.md) e [Node. js](quickstart-js-node.md), nonché Ubuntu 18.04 LTS. Per altre informazioni, vedere [Note sulla versione](releasenotes.md).
-* Dicembre 2018 - Aggiunta modelli di avvio rapido di sintesi vocale per [.NET Core](quickstart-dotnet-text-to-speech.md), [Python](quickstart-python-text-to-speech.md), [Node. js](quickstart-nodejs-text-to-speech.md). Altri esempi sono disponibili in [GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http).
 
 ## <a name="try-speech-services"></a>Provare i servizi Voce
 

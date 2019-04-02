@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111855"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316950"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Esercitazione: usare Apache Storm con Apache Kafka in HDInsight
 
@@ -129,7 +129,7 @@ Questa esercitazione include due topologie:
     >
     > Se non si usa il modello in questo documento per creare il cluster Storm, è necessario applicare manualmente l'azione script al cluster.
     >
-    > L'azione script si trova in `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` e viene applicata ai nodi supervisore e nimbus del cluster Storm. Per altre informazioni sull'uso di azioni script, vedere il documento [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) (Personalizzare HDInsight tramite azioni script).
+    > L'azione script si trova in [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) e viene applicata ai nodi supervisore e nimbus del cluster Storm. Per altre informazioni sull'uso di azioni script, vedere il documento [Customize HDInsight using script actions](hdinsight-hadoop-customize-cluster-linux.md) (Personalizzare HDInsight tramite azioni script).
 
 Le topologie vengono definite tramite [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux è stato introdotto in Storm 0.10.x e consente di separare la configurazione della topologia dal codice. Per le topologie che fanno uso del framework Flux, la topologia viene definita in un file YAML. Il file YAML può essere incluso come parte della topologia. Può essere anche un file autonomo usato quando si invia la topologia. Flux supporta anche la sostituzione delle variabili in fase di esecuzione, caratteristica che viene usata in questo esempio.
 

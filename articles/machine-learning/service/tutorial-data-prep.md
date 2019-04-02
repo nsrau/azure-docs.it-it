@@ -11,12 +11,12 @@ ms.author: MayMSFT
 ms.reviewer: trbye
 ms.date: 02/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca49cb65331373832b00b8489d731d51e8a8e004
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0ee49299dbbe8095ef98be51dc8619c28891abc5
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182915"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58361388"
 ---
 # <a name="tutorial-prepare-data-for-regression-modeling"></a>Esercitazione: preparare i dati per la modellazione basata sulla regressione
 
@@ -58,7 +58,7 @@ Dopo aver completato i passaggi seguenti, eseguire il notebook **tutorials/regre
 
 Usare questa proceduta per creare un server notebook Jupyter locale nel computer in uso.  Al termine, eseguire il notebook **tutorials/regression-part1-data-prep.ipynb**.
 
-1. Completare la [guida introduttiva per Python in Azure Machine Learning](quickstart-create-workspace-with-python.md) per creare un ambiente Miniconda.  Se si preferisce, è possibile ignorare la sezione **Creare un'area di lavoro**, ma sarà necessaria per la [seconda parte](tutorial-auto-train-models.md) di questa serie di esercitazioni.
+1. Completare i passaggi di installazione nella [[guida di avvio rapido per Python in Azure Machine Learning](quickstart-run-local-notebook.md) ](setup-create-workspace.md#python) per creare un ambiente Miniconda.  Se si preferisce, è possibile ignorare la sezione **Creare un'area di lavoro**, ma sarà necessaria per la [seconda parte](tutorial-auto-train-models.md) di questa serie di esercitazioni.
 1. Installare Data Prep SDK nell'ambiente con `pip install azureml-dataprep`.
 1. Clonare il [repository GitHub](https://aka.ms/aml-notebooks).
 
@@ -70,17 +70,18 @@ Usare questa proceduta per creare un server notebook Jupyter locale nel computer
 
     ```shell
     jupyter notebook
+    ```
 
-## <a name="start"></a>Set up your development environment
+## <a name="start"></a>Configurare l'ambiente di sviluppo
 
-All the setup for your development work can be accomplished in a Python notebook. Setup includes the following actions:
+Tutte le impostazioni per il lavoro di sviluppo possono essere eseguite in un notebook di Python. La configurazione include le azioni seguenti:
 
-* Install the SDK
-* Import Python packages
+* Installare l'SDK
+* Importazione di pacchetti Python
 
-### Install and import packages
+### <a name="install-and-import-packages"></a>Installare e importare pacchetti
 
-Use the following to install necessary packages if you don't already have them.
+Usare il comando seguente per installare i pacchetti necessari se non sono già installati.
 
 ```shell
 pip install azureml-dataprep

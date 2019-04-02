@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121265"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539361"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Esercitazione: Come usare cloud-init per personalizzare una macchina virtuale Linux in Azure al primo avvio
 
@@ -131,7 +131,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Testare l'app Web
-È ora possibile aprire un Web browser e immettere *http://<publicIpAddress>* nella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico dal processo di creazione della macchina virtuale. L'app Node.js viene visualizzata come illustrato nell'esempio seguente:
+È ora possibile aprire un Web browser e immettere *http:\/\/\<publicIpAddress>* nella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico dal processo di creazione della macchina virtuale. L'app Node.js viene visualizzata come illustrato nell'esempio seguente:
 
 ![Visualizzare il sito NGINX in esecuzione](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -262,7 +262,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Testare l'applicazione Web protetta
-È ora possibile aprire un Web browser e immettere *https://<publicIpAddress>* nella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico come illustrato nell'output del processo di creazione della macchina virtuale riportato in precedenza. Se è stato usato un certificato autofirmato, accettare l'avviso di sicurezza:
+È ora possibile aprire un Web browser e immettere *https:\/\/\<publicIpAddress>* nella barra degli indirizzi. Fornire il proprio indirizzo IP pubblico come illustrato nell'output del processo di creazione della macchina virtuale riportato in precedenza. Se è stato usato un certificato autofirmato, accettare l'avviso di sicurezza:
 
 ![Accettare l'avviso di sicurezza del Web browser](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: 9fde3befb147aeeab9419e08602552a970368cfe
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32714b3e5a5ed859716faef2ca660f8b2c90b089
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57844985"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402509"
 ---
 # <a name="tutorial-send-notifications-to-specific-users-by-using-azure-notification-hubs"></a>Esercitazione: Inviare notifiche a utenti specifici con Hub di notifica di Azure
 
@@ -53,13 +53,13 @@ Questa esercitazione si basa sull'hub notifica e sul processo di Visual Studio c
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
-## <a name="update-the-code-for-the-client-project"></a>Aggiornare il codice per il progetto client
+## <a name="update-the-code-for-the-uwp-client"></a>Aggiornare il codice per il client UWP
 
 In questa sezione viene aggiornato il codice nel progetto completato per l'[Esercitazione: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md). Il progetto deve essere già associato a Windows Store. Deve inoltre essere configurato per usare l'hub di notifica. In questa sezione si aggiungerà il codice per chiamare il nuovo back-end WebAPI e si userà tale codice per la registrazione e l'invio di notifiche.
 
 1. In Visual Studio aprire la soluzione creata per l'[Esercitazione: Inviare notifiche alle app della piattaforma UWP (Universal Windows Platform) con Hub di notifica di Azure](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
-2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **WindowsApp** e quindi scegliere **Gestisci pacchetti NuGet**.
-3. Sul lato sinistro fare clic su **Online**.
+2. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto UWP (Universal Windows Platform), quindi scegliere **Gestisci pacchetti NuGet**.
+3. Sul lato sinistro selezionare **Sfoglia**.
 4. Nella **casella di ricerca** digitare **Client Http**.
 5. Nell'elenco dei risultati fare clic su **System.Net.Http**, quindi su **Installa**. Completare l'installazione.
 6. Di nuovo nella **casella di ricerca** di NuGet digitare **Json.net**. Installare il pacchetto **Newtonsoft.json**, quindi chiudere la finestra di Gestione pacchetti NuGet.

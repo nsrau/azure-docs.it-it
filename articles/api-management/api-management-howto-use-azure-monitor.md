@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454805"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517947"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -184,7 +184,7 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | correlationId | stringa | Identificatore richiesta http univoco assegnato da Gestione API |
 | location | stringa | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
 | httpStatusCodeCategory | stringa | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
-| resourceId | stringa | "Id della risorsa di Gestione API /SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| resourceId | stringa | Id della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Proprietà della richiesta corrente |
 | statico | stringa | Metodo HTTP della richiesta in ingresso |
 | URL | stringa | URL della richiesta in ingresso |

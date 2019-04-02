@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136563"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311560"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Esercitazione sul bake in Unreal con Progetto Acustica
 Questo documento descrive il processo di invio di un bake dell'acustica con l'estensione dell'editor Unreal.
@@ -32,7 +32,7 @@ Per creare un bake, sono necessari cinque passaggi:
 
 Importare il pacchetto del plug-in Progetto Acustica nel progetto. Per informazioni, vedere l'argomento relativo all'[integrazione in Unreal](unreal-integration.md). Dopo aver integrato il plug-in, aprire l'interfaccia utente per l'acustica facendo clic sulla nuova icona della modalità di Acustica.
 
-![Aprire la modalità di Acustica](media/acoustics-mode.png)
+![Screenshot dell'opzione Acoustics Mode dell'editor Unreal](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Taggare gli attori per l'acustica
 
@@ -42,7 +42,7 @@ Selezionare uno o più oggetti in World Outliner (Struttura globale) oppure usar
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Informazioni di riferimento: parti della scheda Objects (Oggetti)
 
-![Dettagli della scheda Objects (Oggetti) di Unreal](media/unreal-objects-tab-details.png)
+![Screenshot della scheda Objects della finestra Acoustics in Unreal](media/unreal-objects-tab-details.png)
 
 1. Pulsanti di selezione della scheda, con la scheda **Objects** (Oggetti) selezionata. Usare questi pulsanti per scorrere i vari passaggi per effettuare un bake dell'acustica, dall'alto verso il basso.
 2. Breve descrizione di che cosa fare quando si usa questa pagina.
@@ -75,11 +75,11 @@ I materiali acustici controllano la quantità di energia sonora riflessa da ogni
 
 Il tempo di riverbero di un determinato materiale in una stanza è inversamente proporzionale al coefficiente di assorbimento e la maggior parte dei materiali ha valori di assorbimento compresi tra 0,01 e 0,20. I materiali con coefficienti di assorbimento superiori a questo intervallo sono molto assorbenti. Se ad esempio il suono di una stanza è troppo riverberante, cambiare il materiale acustico dei muri, del pavimento o del soffitto con un altro più assorbente. L'assegnazione del materiale acustico si applica a tutti gli attori che usano tale materiale della scena.
 
-![Grafico del tempo di riverbero](media/reverb-time-graph.png)
+![Grafico che mostra la correlazione negativa del tempo di riverbero con il coefficiente di assorbimento](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Informazioni di riferimento: Parti della scheda Materials (Materiali)
 
-![Dettagli della scheda Objects (Oggetti) di Unreal](media/unreal-materials-tab-details.png)
+![Screenshot della scheda Objects della finestra Acoustics in Unreal](media/unreal-materials-tab-details.png)
 
 1. Pulsante della scheda **Materials** (Materiali), usato per visualizzare questa pagina.
 2. Breve descrizione di che cosa fare quando si usa questa pagina.
@@ -94,7 +94,7 @@ Dopo aver assegnato i materiali, passare alla scheda **Probes** (Probe).
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Informazioni di riferimento: Parti della scheda Probes (Probe)
 
-![Dettaglio della scheda Probes (Probe)](media/unreal-probes-tab-details.png)
+![Screenshot della scheda Probes della finestra Acoustics in Unreal](media/unreal-probes-tab-details.png)
 
 1. Pulsante della scheda **Probes** (Probe) usato per visualizzare questa pagina
 2. Breve descrizione di che cosa fare quando si usa questa pagina
@@ -124,11 +124,11 @@ Dopo aver completato questi calcoli, è possibile visualizzare in anteprima sia 
 
 Al termine del calcolo dei probe, in World Outliner (Struttura globale) verrà visualizzato un nuovo attore denominato **AcousticsDebugRenderer**. Selezionando le caselle di controllo **Render Probes** (Esegui rendering probe) e **Render Voxels** (Esegui rendering voxel) si abiliterà la visualizzazione del debug all'interno del riquadro di visualizzazione dell'editor.
 
-![Renderer del debug per l'acustica](media/acoustics-debug-renderer.png)
+![Screenshot dell'attore Debug Renderer della finestra Acoustics nell'editor Unreal](media/acoustics-debug-renderer.png)
 
 Se non vengono visualizzati voxel o probe sovrapposti sul livello, verificare che nel riquadro di visualizzazione sia abilitato il rendering in tempo reale.
 
-![Abilitare il rendering in tempo reale](media/unreal-real-time-rendering.png)
+![Screenshot dell'opzione di rendering in tempo reale in Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Voxel
 
@@ -137,7 +137,7 @@ Spostarsi nella scena e verificare la presenza di voxel per la geometria che det
 
 Se si confrontano i voxel creati con risoluzione grossolana con quelli creati con risoluzione fine, si noterà che nel primo caso i voxel sono due volte più grandi.
 
-![Anteprima dei voxel](media/unreal-voxel-preview.png)
+![Screenshot dell'anteprima dei voxel di Progetto Acustica nell'editor Unreal](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Punti di probe
 
@@ -145,7 +145,7 @@ I punti di probe corrispondono alle possibili posizioni del giocatore. Durante i
 
 È importante controllare che esistano punti di probe ovunque è previsto che il giocatore si sposti nella scena. I punti di probe vengono inseriti nella mesh di navigazione dal motore di Progetto Acustica e non possono essere spostati o modificati. Verificare quindi che la mesh di navigazione copra tutte le possibili posizioni del giocatore esaminando i punti di probe.
 
-![Anteprima dei probe](media/unreal-probes-preview.png)
+![Screenshot dell'anteprima dei probe di Progetto Acustica nell'editor Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Risoluzione grossolana o fine
 
@@ -159,9 +159,9 @@ Anche se può sembrare semplice, le implicazioni per la simulazione acustica son
 * Le sorgenti sonore non possono trovarsi all'interno di voxel "pieni", ovvero voxel che contengono una geometria, perché il suono non viene udito. Posizionare le sorgenti sonore evitando che si trovino all'interno dei voxel più grandi della risoluzione grossolana è più difficile rispetto a quando viene usata la risoluzione fine.
 * I voxel più grandi si estenderanno maggiormente nei portali, come illustrato di seguito. La prima immagine è stata creata con la risoluzione grossolana, mentre la seconda rappresenta la stessa entrata con la risoluzione fine. Come indicato dai contrassegni di colore rosso, l'intrusione è considerevolmente minore nell'entrata con l'impostazione Fine (Fine). La linea blu è l'entrata definita dalla geometria, mentre la linea rossa è il portale acustico effettivo definito dalle dimensioni dei voxel. Le conseguenze di questa intrusione in una determinata situazione dipendono interamente da come i voxel sono allineati alla geometria del portale, il che è determinato dalle dimensioni e dalle posizioni degli oggetti nella scena.
 
-![Entrata grossolana](media/unreal-coarse-bake.png)
+![Screenshot dei voxel con risoluzione grossolana che riempiono un'entrata in Unreal](media/unreal-coarse-bake.png)
 
-![Entrata fine](media/unreal-fine-bake.png)
+![Screenshot dei voxel con risoluzione fine in un'entrata in Unreal](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Effettuare il bake del livello con Azure Batch
 
@@ -169,7 +169,7 @@ Anche se può sembrare semplice, le implicazioni per la simulazione acustica son
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Informazioni di riferimento: Parti della scheda Bake
 
-![Dettaglio della scheda Bake](media/unreal-bake-tab-details.png)
+![Screenshot della scheda Bake della finestra Acoustics in Unreal](media/unreal-bake-tab-details.png)
 
 1. Pulsante della scheda Bake usato per visualizzare questa pagina.
 2. Breve descrizione di che cosa fare in questa pagina.

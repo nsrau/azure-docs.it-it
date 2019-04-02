@@ -1,6 +1,6 @@
 ---
-title: Creare un indice nel codice tramite l'API .NET - Ricerca di Azure
-description: Informazioni su come creare un indice di ricerca full-text tramite l'SDK .NET della Ricerca di Azure e il codice di esempio C#.
+title: Creare un indice in C# - Ricerca di Azure
+description: Informazioni su come creare un indice di ricerca full-text in C# usando l'SDK .NET della Ricerca di Azure.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,32 +9,32 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287146"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370585"
 ---
-# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Avvio rapido: 1 - Creare un indice di Ricerca di Azure in C#
+# <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Guida introduttiva: 1 - Creare un indice di Ricerca di Azure in C#
 
 Questo articolo illustra il processo di creazione di un [indice di Ricerca di Azure](search-what-is-an-index.md) mediante C# e [.NET SDK](https://aka.ms/search-sdk). Questa è la prima lezione di un esercizio in tre parti per la creazione e il caricamento di un indice e l'esecuzione di query su tale indice. Per creare un indice, è necessario eseguire queste attività:
 
 > [!div class="checklist"]
 > * Creare un oggetto [`SearchServiceClient`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchserviceclient?view=azure-dotnet) da connettere a un servizio di ricerca.
-> * Creare un oggetto [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) da passare come parametro in `Indexes.Create`.
+> * Creare un oggetto [`Index`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) da passare come parametro a `Indexes.Create`.
 > * Chiamare il metodo `Indexes.Create` in `SearchServiceClient` per inviare `Index` a un servizio.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un servizio di Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
+[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
 
-Un endpoint dell'URL e una chiave API amministratore del servizio di ricerca. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+Ottenere l'endpoint dell'URL e una chiave API amministratore del servizio di ricerca. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
-  1. Ottenere l'URL nel portale di Azure nella pagina **Panoramica** del servizio di ricerca. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
+  1. Ottenere l'URL nella pagina **Panoramica** del servizio di ricerca nel portale di Azure. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
   2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo argomento di avvio rapido è stato creato un indice di Ricerca di Azure vuoto basato su uno schema che definisce i tipi e i comportamenti dei dati dei campi. L'argomento di avvio rapido successivo di questa serie illustrerà come caricare l'indice con contenuto disponibile per la ricerca.
+In questo argomento di avvio rapido è stato creato un indice di Ricerca di Azure vuoto basato su uno schema che definisce i tipi e i comportamenti dei dati dei campi. L'indice consiste essenzialmente in un nome e una raccolta di campi con attributo. Un indice più realistico includerebbe altri elementi, ad esempio [profili di punteggio](index-add-scoring-profiles.md), [strumenti suggerimenti](index-add-suggesters.md) per il supporto automatico, [sinonimi](search-synonyms.md)ed eventualmente [analizzatori personalizzati](index-add-custom-analyzers.md). È consigliabile rivedere queste funzionalità dopo aver compreso il flusso di lavoro di base.
+
+L'argomento di avvio rapido successivo di questa serie illustrerà come caricare l'indice con contenuto disponibile per la ricerca.
 
 > [!div class="nextstepaction"]
 > [Caricare dati in un indice di Ricerca di Azure tramite C#](search-import-data-dotnet.md)

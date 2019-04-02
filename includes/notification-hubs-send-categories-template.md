@@ -8,22 +8,26 @@ ms.topic: include
 ms.date: 03/30/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 19352df7abff23ed44521a11e7907c84c8c0327f
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ce8496596f25b85719b8a6dff849ebf0fc3e5dc3
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "33835834"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58405602"
 ---
 In questa sezione si invieranno notizie aggiornate come notifiche modello con tag da un'app console .NET. 
 
-1. In Visual Studio creare una nuova applicazione console in Visual C#:
+1. In Visual Studio creare una nuova applicazione console in Visual C#: a. Nel menu selezionare **File** > **Nuovo** > **Progetto**.
+    b. Espandere **Visual C#** e selezionare **Desktop Windows**. 
+    c. Selezionare **App console (.NET Framework)** nell'elenco di modelli. 
+    d. Immettere un **nome** per l'app. 
+    e. Selezionare una **cartella** per l'app.
+    f. Selezionare **OK** per creare il progetto. 
+2. Nel menu principale di Visual Studio scegliere **Strumenti**,  > **Gestione pacchetti NuGet** > **Console di Gestione pacchetti** e quindi immettere la stringa seguente nella finestra della console:
    
-      ![Collegamento all'app console][13]
-
-2. Dal menu principale di Visual Studio scegliere **Strumenti**,  > **Gestione pacchetti libreria** > **Console di Gestione pacchetti** e quindi immettere la stringa seguente nella finestra della console:
-   
-        Install-Package Microsoft.Azure.NotificationHubs
+    ```
+    Install-Package Microsoft.Azure.NotificationHubs
+    ```
    
 3. Selezionare **Enter** (Invio).  
     Questa azione aggiunge un riferimento ad Azure Notification Hubs SDK usando il [pacchetto NuGet Microsoft.Azure.NotificationHubs].

@@ -6,17 +6,17 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/01/2018
+ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: ddcaca46a2b8f9501337b3591d6ed666876e1de9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093770"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58399990"
 ---
-# <a name="tutorial-install-azure-data-box-edge-preview"></a>Esercitazione: Installare Azure Data Box Edge (anteprima)
+# <a name="tutorial-install-azure-data-box-edge"></a>Esercitazione: Installare Azure Data Box Edge
 
 Questa esercitazione descrive come installare un dispositivo fisico Data Box Edge. La procedura di installazione comporta il disimballaggio, il montaggio su rack e il collegamento del dispositivo. 
 
@@ -29,9 +29,6 @@ In questa esercitazione si apprenderà come:
 > * Montare su rack il dispositivo
 > * Cablare il dispositivo
 
-> [!IMPORTANT]
-> La soluzione Data Box Edge è disponibile in anteprima. Prima di ordinare e distribuire la soluzione, vedere [Condizioni di Azure per i servizi in anteprima](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## <a name="prerequisites"></a>Prerequisiti
 
 I prerequisiti per installare un dispositivo fisico sono i seguenti:
@@ -40,7 +37,7 @@ I prerequisiti per installare un dispositivo fisico sono i seguenti:
 
 Prima di iniziare, verificare che:
 
-* Siano stati completati tutti i passaggi descritti in [Preparare la distribuzione di Azure Data Box Edge (anteprima)](data-box-edge-deploy-prep.md).
+* Siano stati completati tutti i passaggi descritti in [Preparare la distribuzione di Azure Data Box Edge](data-box-edge-deploy-prep.md).
     * Sia stata creata una risorsa Data Box Edge per distribuire il dispositivo.
     * È stata generata la chiave di attivazione per attivare il dispositivo con la risorsa Data Box Edge.
 
@@ -75,38 +72,90 @@ Questo dispositivo viene fornito in una singola confezione. Completare la proced
 3. Disimballare la scatola. Dopo aver disimballato le due scatole, assicurarsi di avere a disposizione:
     - Un dispositivo Edge a singolo enclosure
     - Due cavi di alimentazione
-    - Un kit per il montaggio in rack con guide senza utensili (due guide laterali e componenti di montaggio inclusi)
+    - Gruppo kit di guide
+    - Opuscolo informativo su sicurezza, ambiente e normative
 
 In caso di mancato ricevimento di uno o più degli elementi elencati sopra, contattare il supporto tecnico di Data Box Edge. Il passaggio successivo consiste nel montare su rack il dispositivo.
 
 
 ## <a name="rack-the-device"></a>Montare su rack il dispositivo
 
-Il dispositivo deve essere installato su un rack standard da 19 pollici. Usare la procedura seguente per montare il dispositivo su un rack standard da 19 pollici con montanti anteriori e posteriori.
+Il dispositivo deve essere installato su un rack standard da 19 pollici. Usare la procedura seguente per montare il dispositivo su un rack standard da 19 pollici.
 
 > [!IMPORTANT]
 > I dispositivi Data Box Edge devono essere montati su rack per il corretto funzionamento.
 
 
-1. Tirare la leva di blocco anteriore per sbloccare la guida interna dal gruppo di slitte. Sbloccare il fermo e spingere la guida intermedia verso l'interno per tirare indietro la guida.  
-    A questo punto, le guide interna ed esterna dovrebbero separarsi.
+### <a name="prerequisites"></a>Prerequisiti
 
-    ![Installare le guide di montaggio su rack](./media/data-box-edge-deploy-install/rack-mount-rail-1.png)
+- Prima di iniziare, leggere le istruzioni per la sicurezza riportate nell'opuscolo informativo su sicurezza, ambiente e normative spedito con il dispositivo.
+- Iniziare a installare le guide nello spazio assegnato più vicino alla parte inferiore dello scaffale rack.
+- Per la configurazione di montaggio delle guide con utensili, sono necessarie otto viti: 10-32, 12-24, M5 o M6. Il diametro della testa delle viti deve essere inferiore a 10 mm.
 
-2. Installare le guide esterne sugli elementi verticali dell'armadio rack. Per un migliore orientamento, le guide a scorrimento sono contrassegnate con la dicitura **Front** e questa estremità deve essere a contatto con la parte anteriore dello chassis.    
-   1. Individuare i perni nella parte anteriore e posteriore del gruppo guida. Estendere la guida per posizionarla tra i montanti del rack. Prima di tutto, fissare la guida esterna sul retro del rack. Regolare la staffa di montaggio posteriore in modo da posizionarla all'interno dei fori di montaggio posteriori del rack.   
+### <a name="identify-the-rail-kit-contents"></a>Identificare il contenuto del kit di guide
 
-   2. Spingere e tenere premuta la leva sulla staffa posteriore per esporre i ganci metallici. Allineare e inserire la staffa posteriore nei fori di montaggio e quindi rilasciare la leva.
+Individuare i componenti per l'installazione del gruppo kit di guide:
+1. Due gruppi di guide scorrevoli A7 Dell ReadyRails II
+2. Due fascette a gancio e occhiello
 
-   3. Allineare la staffa anteriore con il foro di montaggio.
+![Identificare il contenuto dei kit di guide](./media/data-box-edge-deploy-install/identify-rail-kit-contents.png)
 
-   4. La staffa anteriore sarà ora fissata al rack. Se necessario, è possibile usare viti M5 X 10L per fissare le guide ai montanti. 
+### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Installare e rimuovere le guide senza utensili (rack a fori quadrati o rotondi)
 
-      ![Installare le guide di montaggio su rack](./media/data-box-edge-deploy-install/rack-mount-rail-2.png)
+1. Posizionare i terminali delle guide di sinistra e di destra con la dicitura **FRONT** rivolti verso l'interno e orientati in modo che ognuno si inserisca nei fori sul lato anteriore delle flange del rack.
+2. Allineare ogni terminale ai fori superiore e inferiore degli spazi unità desiderati.
+3. Agganciare l'estremità posteriore della guida finché non risulta completamente inserita nella flangia verticale del rack e il fermo non scatta in posizione. Ripetere questi passaggi per posizionare e inserire l'estremità anteriore nella flangia verticale del rack.
+4. Per rimuovere le guide, tirare il pulsante di rilascio del fermo al centro dell'estremità e disinserire ogni guida.
 
-3. Per fissare la guida interna allo chassis, verificare che i fori di apertura sulla guida interna siano allineati ai perni di posizionamento sul lato dello chassis. Assicurarsi che le teste dei perni di posizionamento dello chassis sporgano attraverso i fori a forma di buco della serratura nella guida interna. Tirare la guida verso la parte anteriore dello chassis finché non scatta in posizione con un clic. Ripetere l'operazione con l'altra guida interna. Spingere lo chassis con la guida interna nella slitta per completare l'installazione su rack.
+![Installare e rimuovere le guide senza utensili](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
-    ![Installare le guide di montaggio su rack](./media/data-box-edge-deploy-install/rack-mount-rail-3.png)
+### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Installare e rimuovere le guide con utensili (rack con fori filettati)
+
+1. Rimuovere i perni dalle staffe di montaggio anteriore e posteriore usando un cacciavite a punta piatta.
+2. Tirare e ruotare i sottogruppi del fermo delle guide per rimuoverli dalle staffe di montaggio.
+3. Fissare le guide di montaggio di sinistra e di destra alle flange verticali anteriori del rack con due coppie di viti.
+4. Far scorrere le staffe posteriori di sinistra e di destra in avanti contro le flange verticali posteriori del rack e fissarle con due coppie di viti.
+
+![Installare e rimuovere le guide con utensili](./media/data-box-edge-deploy-install/installing-removing-tooled-rails.png)
+
+### <a name="install-the-system-in-a-rack"></a>Installare il sistema in un rack
+
+1. Estrarre le guide di scorrimento interne dal rack finché non si bloccano in posizione.
+2. Individuare i distanziali posteriori delle guide su ogni lato del sistema e abbassarli nelle scanalature posteriori dei gruppi di scorrimento. Ruotare il sistema verso il basso finché tutti i distanziali delle guide non sono posizionati nelle scanalature.
+3. Spingere il sistema verso l'interno finché le leve di blocco non scattano in posizione.
+4. Premere i pulsanti di blocco scorrimento su entrambe le guide e far scorrere il sistema nel rack.
+
+![Installare il sistema in un rack](./media/data-box-edge-deploy-install/installing-system-rack.png)
+
+### <a name="remove-the-system-from-the-rack"></a>Rimuovere il sistema dal rack
+
+1. Individuare le leve di blocco sui lati delle guide interne.
+2. Sbloccare ogni leva ruotandola fino alla posizione di rilascio.
+3. Afferrare saldamente i lati del sistema e tirarlo in avanti finché i distanziali delle guide non si trovano nella parte anteriore delle scanalature. Sollevare il sistema all'esterno del rack e posizionarlo su una superficie piana.
+
+![Rimuovere il sistema dal rack](./media/data-box-edge-deploy-install/removing-system-rack.png)
+
+### <a name="engage-and-release-the-slam-latch"></a>Agganciare e rilasciare il fermo a scatto
+
+NOTA:  per i sistemi non dotati di fermo a scatto, fissare il sistema con viti come descritto nel passaggio 3 di questa procedura.
+
+1. Ponendosi di fronte, individuare il fermo a scatto su entrambi i lati del sistema.
+2. I fermi si agganciano automaticamente mentre il sistema viene inserito nel rack e vengono rilasciati tirandoli verso l'alto.
+3. Per fissare il sistema per la spedizione nel rack o per altri ambienti instabili, individuare la vite di fissaggio sotto ogni fermo e serrarla con un cacciavite a croce n. 2.
+
+![Agganciare e rilasciare il fermo a scatto](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
+
+### <a name="route-the-cables"></a>Sistemare i cavi
+
+> [!NOTE]
+>  Se non si è ordinato il braccio di gestione cavi (CMA, Cable Management Arm) opzionale, usare le due fascette a gancio e occhiello incluse nel kit di guide per sistemare i cavi sul retro del sistema.
+
+1. Individuare le staffe CMA esterne sui lati interni di entrambe le flange del rack.
+2. Avvolgere delicatamente i cavi tirandoli verso sinistra e verso destra dai connettori del sistema.
+3. Infilare le fascette a gancio e occhiello attraverso le fessure attrezzate delle staffe CMA esterne su ogni lato del sistema per fissare i fasci di cavi.
+
+
+![Sistemare i cavi](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>Cablare il dispositivo
 
@@ -121,13 +170,26 @@ Prima di iniziare a collegare il dispositivo, sono necessari gli elementi seguen
 - Accesso a due unità PDU (consigliato).
 
 > [!NOTE]
-> - Se si collega solo un'interfaccia di rete dati, si consiglia di usare un'interfaccia di rete 25-GbE come PORT 3, PORT 4, PORT 5 o PORT 6 per inviare dati ad Azure. 
+> - Se si connette una sola interfaccia di rete dati, per inviare dati ad Azure è consigliabile usare un'interfaccia di rete 25/10-GbE come PORT 3, PORT 4, PORT 5 o PORT 6. 
 > - Per ottenere prestazioni ottimali e per gestire volumi elevati di dati, prendere in considerazione il collegamento di tutte le porte dati.
-> - Connettere il dispositivo Edge alla rete del data center in modo che possa inserire dati dai server di origine dati. 
+> - Connettere il dispositivo Edge alla rete del data center in modo che possa inserire dati dai server di origine dati.
 
-Il dispositivo Edge ha 8 unità SSD NVMe. Il pannello anteriore è anche dotato di LED di stato e pulsanti di alimentazione. Il dispositivo include alimentatori ridondanti sulla parte posteriore. Il dispositivo è dotato di sei interfacce di rete: due interfacce da 1 Gbps e quattro da 25 Gbps. Il dispositivo è dotato di un controller BMC (Baseboard Management Controller). Identificare le varie porte nel backplane del dispositivo.
+Il dispositivo Edge ha 8 unità SSD NVMe. Il pannello anteriore è anche dotato di LED di stato e pulsanti di alimentazione. Il dispositivo include alimentatori ridondanti sulla parte posteriore. Il dispositivo ha sei interfacce di rete:
+
+- Due interfacce da 1 Gbps.
+- Quattro interfacce da 25 Gbps che possono anche essere usate come interfacce da 10 Gbps.
+- Un controller BMC (Baseboard Management Controller). 
+
+Identificare le varie porte nel backplane del dispositivo.
  
   ![Backplane del dispositivo cablato](./media/data-box-edge-deploy-install/backplane-cabled.png)
+
+Il dispositivo ha due schede di rete corrispondenti alle 6 porte: 
+
+ - QLogic FastLinQ 41264
+ - QLogic FastLinQ 41262
+
+Per un elenco completo dei cavi, dei commutatori e dei ricetrasmettitori supportati per tali schede di rete, vedere [Cavium FastlinQ 41000 Series Interoperability Matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/) (Matrice di interoperabilità di Cavium FastlinQ 41000 Series).
  
 Per collegare il dispositivo per l'alimentazione e la rete, completare i passaggi seguenti.
 
@@ -137,8 +199,7 @@ Per collegare il dispositivo per l'alimentazione e la rete, completare i passagg
 
 3. Collegare l'interfaccia di rete PORT 1 a 1 GbE al computer usato per configurare il dispositivo fisico. PORT 1 è l'interfaccia di gestione dedicata.
 
-4. Collegare una o più delle interfacce di rete PORT 2, PORT 3, PORT 4, PORT 5 o PORT 6 alla rete del data center/Internet. Se si collega l'interfaccia di rete PORT 2, usare il cavo di rete RJ-45. Per le interfacce di rete 25-GbE, usare i cavi di rame SFP+.  
-
+4. Collegare una o più delle interfacce di rete PORT 2, PORT 3, PORT 4, PORT 5 o PORT 6 alla rete del data center/Internet. Se si collega l'interfaccia di rete PORT 2, usare il cavo di rete RJ-45. Per le interfacce di rete 10/25-GbE, usare i cavi di rame SFP+.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 7f079c511a32cfcf0fa018d40abb737ad08f3821
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 01783aa12f586f61583b1503c796f9b523770104
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58138011"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310626"
 ---
 # <a name="project-acoustics-unity-design-tutorial"></a>Esercitazione sulla progettazione in Unity per Progetto Acustica
 Questa esercitazione descrive gli strumenti e il flusso di lavoro della progettazione per Progetto Acustica in Unity.
@@ -37,16 +37,16 @@ Progetto Acustica fornisce una serie di controlli di progettazione acustica spec
 ### <a name="adjust-distance-based-attenuation"></a>Regolare l'attenuazione basata sulla distanza
 Il DSP audio fornito dal plug-in di spazializzazione Unity di **Progetto Acustica** rispetta l'attenuazione basata sulla distanza per ogni sorgente predefinita nell'editor Unity. I controlli per l'attenuazione basata sulla distanza sono nel componente **Audio Source** (Sorgente audio) del pannello **Inspector** (Controllo) delle sorgenti sonore in **3D Sound Settings** (Impostazioni audio 3D):
 
-![Attenuazione della distanza](media/distance-attenuation.png)
+![Screenshot del riquadro di opzioni per l'attenuazione basata sulla distanza in Unity](media/distance-attenuation.png)
 
 I calcoli acustici vengono eseguiti in un'area "di simulazione", un riquadro centrato intorno alla posizione del lettore. Se un'origine audio è distante dal lettore, fuori da quest'area simulazione, solo la geometria all'interno del riquadro influirà sulla propagazione dell'audio, ad esempio causando occlusione, cosa che funziona ragionevolmente bene quando sono presenti elementi di occlusione in prossimità del lettore. Quando il lettore si trova invece in uno spazio aperto, ma gli elementi di occlusione sono vicino all'origine audio distante, la rimozione dell'effetto occlusione può risultare non realistica. La soluzione alternativa suggerita in questi casi è assicurarsi che l'attenuazione dell'audio diminuisca a 0 a circa 45 m, la distanza orizzontale predefinita dal lettore al lato del riquadro.
 
-![SpeakerMode](media/speaker-mode.png)
+![Screenshot del pannello di opzioni SpeakerMode in Unity](media/speaker-mode.png)
 
 ### <a name="adjust-occlusion-and-transmission"></a>Modificare occlusione e trasmissione
 Collegando lo script **AcousticsAdjust** a un'origine, è possibile regolare i parametri per tale origine. Per collegare lo script, fare clic su **Add Component** (Aggiungi componente) nella parte inferiore del pannello **Inspector** (Controllo) e passare a **Scripts > Acoustics Adjust** (Script > Regolazione acustica). Lo script ha sei controlli:
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Screenshot dello script AcousticsAdjust in Unity](media/acoustics-adjust.png)
 
 * **Enable Acoustics** (Abilita acustica): controlla se l'acustica è applicazione a questa sorgente. Se deselezionata, l'origine viene spazializzata con HRTF o tramite panoramica, ma non vi sarà alcuna acustica. Ciò significa che non vi sarà alcuna ostruzione, occlusione né parametri di riverbero dinamico, ad esempio livello e tempo di decadimento. Il riverbero viene comunque applicato con un livello e un tempo di decadimento fissi.
 * **Occlusion** (Occlusione): applicare un moltiplicatore al livello di dB di occlusione calcolato dal sistema acustico. Se questo moltiplicatore è maggiore di 1, l'occlusione sarà estrema; con i valori minori di 1, l'effetto di occlusione è più sottile; il valore 0 disattiva l'occlusione.
@@ -59,14 +59,14 @@ Collegando lo script **AcousticsAdjust** a un'origine, è possibile regolare i p
 
 Collegando lo script **AcousticsAdjustExperimental** a un'origine, è possibile regolare parametri sperimentali aggiuntivi per tale origine. Per collegare lo script, fare clic su **Add Component** (Aggiungi componente) nella parte inferiore del pannello **Inspector** (Controllo) e passare a **Scripts > Acoustics Adjust Experimental** (Script > Regolazione acustica sperimentale). Attualmente è disponibile un solo controllo sperimentale:
 
-![AcousticsAdjustExperimental](media/acoustics-adjust-experimental.png)
+![Screenshot dello script AcousticsAdjustExperimental in Unity](media/acoustics-adjust-experimental.png)
 
 * **Perceptual Distance Warp** (Distorsione della distanza percettiva): applicare una distorsione esponenziale alla distanza utilizzata per calcolare il rapporto segnale-riverbero. I livelli di riverbero vengno calcolati per tutto lo spazio e variano in modo uniforme con la distanza creando effetti adeguati di distanza percepita. L'alterazione dei valori maggiori di 1 comporta un'esagerazione dell'effetto dovuta all'aumento dei livelli di riverbero relativi alla distanza; ciò rende il suono "distante". L'alterazione dei valori inferiori a 1 rende la modifica del riverbero relativa alla distanza più tenue; ciò rende il suono più "presente".
 
 ## <a name="design-acoustics-for-all-sources"></a>Progettare l'acustica per tutte le sorgenti
 Per regolare i parametri per tutte le sorgenti, fare clic sulla barra del canale in **Audio Mixer** (Mixer audio) di Unity e regolare i parametri nell'effetto **Project Acoustics Mixer** (Mixer acustica di progetto).
 
-![Personalizzazione del mixer](media/mixer-parameters.png)
+![Screenshot del pannello di personalizzazioni Mixer di Progetto Acustica in Unity](media/mixer-parameters.png)
 
 * **Regolazione intensità riverbero**: consente di regolare la potenza di riverbero, nel database, in tutte le origini della scena in base alla distanza dell'ascoltatore. I valori positivi rendono un suono più riverberante, mentre i valori negativi lo rendono più secco.
 * **Scalabilità RT60**: moltiplicazione scalare per tempo di riverbero.
@@ -75,7 +75,7 @@ Per regolare i parametri per tutte le sorgenti, fare clic sulla barra del canale
 ## <a name="check-proper-sound-source-placement"></a>Verificare il corretto posizionamento delle sorgenti audio
 Le sorgenti audio poste all'interno dei voxel occupati non verranno sottoposte a trattamento acustico. Poiché i voxel si estendono oltre la geometria visibile della scena, è possibile posizionare una sorgente all'interno di un voxel quando appare non occlusa dalla geometria visiva. È possibile visualizzare i voxel di Progetto Acustica selezionando la casella di controllo della griglia di voxel nel menu **Gizmos**, nella parte superiore destra della vista **Scene** (Scena).
 
-![Menu Gizmos](media/gizmos-menu.png)  
+![Screenshot del menu Gizmos in Unity](media/gizmos-menu.png)  
 
 La visualizzazione dei voxel consente anche di determinare se ai componenti visivi del gioco è applicata una trasformazione. In questo caso, applicare la stessa trasformazione all'elemento GameObject che ospita **Acoustics Manager**.
 
@@ -84,11 +84,11 @@ La visualizzazione dei voxel consente anche di determinare se ai componenti visi
 
 Voxel della fase di progettazione:
 
-![VoxelsDesignTime](media/voxels-design-time.png)
+![Screenshot dei voxel di Progetto Acustica in fase di progettazione](media/voxels-design-time.png)
 
 Voxel di runtime:
 
-![VoxelsRuntime](media/voxels-runtime.png)
+![Screenshot dei voxel di Progetto Acustica in fase di esecuzione](media/voxels-runtime.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Esaminare i case study che evidenziano i concetti alla base del [processo di progettazione](design-process.md)

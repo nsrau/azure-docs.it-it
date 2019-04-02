@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un classificatore di carico di lavoro - T-SQL | Microsoft Docs'
+title: 'Guida introduttiva: Creare un classificatore di carico di lavoro - T-SQL | Microsoft Docs'
 description: Usare T-SQL per creare un classificatore di carico di lavoro con priorità alta
 services: sql-data-warehouse
 author: ronortloff
@@ -10,14 +10,14 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3355f9068d35f29483e257e5c236275f76a1c9d0
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 8ae9ad4d1101c3b42c46c51546ac82e5b4a134c8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008607"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519851"
 ---
-# <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Avvio rapido: Creare un classificatore di carico di lavoro con T-SQL (anteprima)
+# <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Guida introduttiva: Creare un classificatore di carico di lavoro con T-SQL (anteprima)
 
 In questa Guida introduttiva si creerà rapidamente un classificatore di carico di lavoro con priorità alta per il direttore generale dell'organizzazione. Il classificatore di carico di lavoro consentirà alle query del direttore generale di avere la precedenza su quelle con priorità inferiore nella coda.
 
@@ -51,7 +51,9 @@ END
 ;
 ```
 
-## <a name="create-theceo-user-in-mysampledatawarehouse"></a>Creare l’utente IlCEO in mySampleDataWarehouse
+## <a name="create-user"></a>Create user
+
+[Creare l'utente](/sql/t-sql/statements/create-user-transact-sql?view=azure-sqldw-latest) "TheCEO" in mySampleDataWarehouse
 
 ```sql
 IF NOT EXISTS (SELECT * FROM sys.database_principals WHERE name = 'THECEO')
@@ -61,7 +63,9 @@ END
 ;
 ```
 
-## <a name="create-a-workload-classifier-for-theceo-with-high-importance"></a>Creare un classificatore di carico di lavoro per IlCEO con priorità alta
+## <a name="create-a-workload-classifier"></a>Creare un classificatore del carico di lavoro
+
+Creare un [classificatore di carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) per "TheCEO" con priorità alta.
 
 ```sql
 DROP WORKLOAD CLASSIFIER [wgcTheCEO];

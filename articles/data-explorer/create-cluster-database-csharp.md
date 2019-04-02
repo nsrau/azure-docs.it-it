@@ -1,5 +1,5 @@
 ---
-title: 'Avvio rapido: Creare un database e un cluster di Esplora dati di Azure tramite C#'
+title: 'Guida introduttiva: Creare un database e un cluster di Esplora dati di Azure tramite C#'
 description: Informazioni su come creare un database e un cluster di Esplora dati di Azure tramite C#
 services: data-explorer
 author: oflipman
@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: d861eba6ce905ccaf0d08a08cdd9998a199889da
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287372"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417905"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creare un database e un cluster di Esplora dati di Azure tramite C#
 
@@ -25,20 +25,19 @@ ms.locfileid: "58287372"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-Questo argomento di avvio rapido descrive come creare un database e un cluster di Esplora dati di Azure tramite C#.
+Esplora dati di Azure è un servizio di analisi dei dati veloce e completamente gestito per l'analisi in tempo reale di volumi elevati di dati in streaming provenienti da applicazioni, siti Web, dispositivi IoT e altro ancora. Per usare Esplora dati di Azure, è necessario prima creare un cluster e quindi uno o più database al suo interno. Quindi si inseriscono (caricano) i dati in un database per poter eseguire query. In questo argomento di avvio rapido vengono creati un cluster e un database usando C#.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se Visual Studio 2017 non è ancora installato, è possibile scaricare e usare la versione **gratuita** di [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
+* Se Visual Studio 2017 non è stato installato, è possibile scaricare e usare la versione **gratuita** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Durante l'installazione di Visual Studio abilitare **Sviluppo di Azure**.
 
-- Per completare questa guida introduttiva è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* Se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="install-c-nuget"></a>Installare il pacchetto NuGet per C#
 
-- Sarà necessario il pacchetto NuGet per Esplora dati di Azure (Kusto) disponibile all'indirizzo seguente: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
-- Sarà necessario anche il NuGet Microsoft.IdentityModel.Clients.ActiveDirectory per l'autenticazione https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+1. Installare il [pacchetto NuGet Esplora dati di Azure (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
+1. Installare il [pacchetto NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) per l'autenticazione.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Creare il cluster di Esplora dati di Azure
 
@@ -72,10 +71,10 @@ Questo argomento di avvio rapido descrive come creare un database e un cluster d
    | resourceGroupName | *testrg* | Il nome del gruppo di risorse in cui verrà creato il cluster. |
 
     Sono disponibili altri parametri facoltativi che è possibile usare, ad esempio la capacità del cluster.
-    
-    Impostare "credentials" sulle proprie credenziali. Per altre informazioni, vedere https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet.
 
-2. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
+1. Impostare le [credenziali](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+
+1. Per verificare se il cluster è stato creato correttamente, eseguire il comando seguente:
 
     ```C#-interactive
     KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);

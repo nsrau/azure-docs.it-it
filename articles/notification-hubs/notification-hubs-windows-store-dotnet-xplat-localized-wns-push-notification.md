@@ -13,14 +13,14 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/04/2019
+ms.date: 03/22/2019
 ms.author: jowargo
-ms.openlocfilehash: b4f308e7053e000115f22abd291d934d90c11a94
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3880db813072ca0bcecf073a8db24b21c87189f
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57837593"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402712"
 ---
 # <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Esercitazione: Effettuare il push di notifiche localizzate alle app Windows con Hub di notifica di Azure
 
@@ -116,7 +116,7 @@ Per altre informazioni sui modelli, vedere l'articolo [Modelli](notification-hub
     {
         ApplicationData.Current.LocalSettings.Values["categories"] = string.Join(",", categories);
         ApplicationData.Current.LocalSettings.Values["locale"] = locale;
-        return await SubscribeToCategories(categories);
+        return await SubscribeToCategories(locale, categories);
     }
 
     public async Task<Registration> SubscribeToCategories(string locale, IEnumerable<string> categories = null)
@@ -190,7 +190,21 @@ Per altre informazioni sui modelli, vedere l'articolo [Modelli](notification-hub
     }
     ```
 
-## <a name="send-localized-notifications-from-your-back-end"></a>Inviare notifiche localizzate dal back-end
+
+
+## <a name="run-the-uwp-application"></a>Eseguire l'applicazione UWP
+
+1. Eseguire l'applicazione della piattaforma UWP (Universal Windows Platform). Attendere fino a visualizzare il messaggio **Registrazione completata**.
+
+    ![Registrazione e applicazione per dispositivi mobili](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
+2. Selezionare le **categorie** e le **impostazioni locali**, quindi fare clic su **Subscribe** (Sottoscrivi). L'app converte le categorie selezionate in tag e richiede una nuova registrazione del dispositivo per i tag selezionati dall'hub di notifica.
+
+    ![Applicazione per dispositivi mobili](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
+3. Viene visualizzato un messaggio di **conferma** per le **sottoscrizioni**.
+
+    ![Messaggio di sottoscrizione](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
+
+## <a name="update-console-app-to-send-localized-notifications"></a>Aggiornare l'app console per inviare le notifiche localizzate
 
 Quando si inviano notifiche modello è necessario fornire solo un set di proprietà. In questa esercitazione l'applicazione back-end invia il set di proprietà contenente la versione localizzata delle notizie correnti, ad esempio:
 
@@ -243,20 +257,10 @@ private static async void SendTemplateNotificationAsync()
 
 Questa semplice chiamata distribuisce la notizia localizzata a **tutti** i dispositivi, indipendentemente dalla piattaforma, in quanto Hub di notifica crea il payload nativo corretto e lo distribuisce a tutti i dispositivi che hanno sottoscritto un tag specifico.
 
-## <a name="test-the-app"></a>Testare l'app
+## <a name="run-console-app-to-send-localized-notification"></a>Eseguire l'app console per inviare notifiche localizzate
+Eseguire l'**app console** per inviare notifiche per ogni categoria e in ogni lingua supportata. Verificare che venga ricevuta solo una notifica per le categorie sottoscritte e che il messaggio sia relativo alle impostazioni locali selezionate.
 
-1. Eseguire l'applicazione di Universal Windows Store. Attendere fino a visualizzare il messaggio **Registrazione completata**.
-
-    ![Registrazione e applicazione per dispositivi mobili](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/registration-successful.png)
-2. Selezionare le **categorie** e le **impostazioni locali**, quindi fare clic su **Subscribe** (Sottoscrivi). L'app converte le categorie selezionate in tag e richiede una nuova registrazione del dispositivo per i tag selezionati dall'hub di notifica.
-
-    ![Applicazione per dispositivi mobili](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/mobile-app.png)
-3. Viene visualizzato un messaggio di **conferma** per le **sottoscrizioni**.
-
-    ![Messaggio di sottoscrizione](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/subscription-message.png)
-4. Dopo aver ricevuto un messaggio di conferma, eseguire la **app console** per inviare notifiche per ciascuna categoria e in ogni lingua supportata. Verificare che venga ricevuta solo una notifica per le categorie sottoscritte e che il messaggio sia relativo alle impostazioni locali selezionate.
-
-    ![Messaggi di notifica](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
+![Messaggi di notifica](./media/notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification/notifications.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

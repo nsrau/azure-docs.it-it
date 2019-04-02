@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/14/2019
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 7432cbf8fae098c0753641f2002b72eaab3ddbb4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff6475637b07f50aaea93caac85e65356bc9b96b
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851364"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317205"
 ---
 # <a name="tutorial-create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Esercitazione: Creare e distribuire un'applicazione con un servizio front-end API Web ASP.NET Core e un servizio back-end con stato
 
@@ -466,7 +466,7 @@ In questa esercitazione usare l'[API Web di ASP.NET Core](service-fabric-reliabl
         ],
 ```
 Per trovare la porta del proxy inverso usata nel cluster di sviluppo locale, visualizzare l'elemento **HttpApplicationGatewayEndpoint** nel manifesto del cluster di Service Fabric locale:
-1. Aprire una finestra del browser e passare a http://localhost:19080 per aprire lo strumento Service Fabric Explorer.
+1. Aprire una finestra del browser e passare a http:\//localhost:19080 per aprire lo strumento Service Fabric Explorer.
 2. Selezionare **Cluster -> Manifest**.
 3. Annotare la porta dell'elemento HttpApplicationGatewayEndpoint. Per impostazione predefinita, dovrebbe essere la 19081. Se non è la 19081, è necessario modificare la porta nel metodo GetProxyAddress del codice VotesController.cs seguente.
 

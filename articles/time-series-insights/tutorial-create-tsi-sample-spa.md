@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 9d18b1382bdb421afcc8aee92fd99b7ef0d09e32
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540147"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58312207"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Esercitazione: Creare un'app Web a singola pagina Azure Time Series Insights
 
@@ -54,7 +54,7 @@ Prima di compilare l'applicazione, è necessario registrarla con Azure AD. La re
    ---|---
    **Nome** | Specificare un nome di registrazione significativo.  
    **Tipo di applicazione** | Poiché si sta creando un'applicazione Web a pagina singola, lasciare "App Web/API".
-   **URL di accesso** | Immettere l'URL della home page/pagina di accesso dell'applicazione. Poiché l'applicazione verrà ospitata nel Servizio app di Azure (che si vedrà più avanti), è necessario usare un URL nel dominio "https://azurewebsites.net". In questo esempio il nome è basato sul nome di registrazione.
+   **URL di accesso** | Immettere l'URL della home page/pagina di accesso dell'applicazione. Poiché l'applicazione verrà ospitata nel Servizio app di Azure (che si vedrà più avanti), è necessario usare un URL nel dominio "https:\//azurewebsites.net". In questo esempio il nome è basato sul nome di registrazione.
 
    Al termine fare clic su **Crea** per creare la registrazione della nuova applicazione.
 

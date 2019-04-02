@@ -1,5 +1,5 @@
 ---
-title: "Avvio rapido: Uso di C# per chiamare l'API Analisi del testo"
+title: "Guida introduttiva: Uso di C# per chiamare l'API Analisi del testo"
 titleSuffix: Azure Cognitive Services
 description: Ottenere informazioni ed esempi di codice per iniziare a usare rapidamente l'API Analisi del testo.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: e960f662fda4272bbc9763eb04fdb739c4776af8
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189649"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371333"
 ---
-# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Avvio rapido: Uso di C# per chiamare il servizio cognitivo Analisi del testo
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Guida introduttiva: Uso di C# per chiamare il servizio cognitivo Analisi del testo
 <a name="HOLTop"></a>
 
 Questo articolo mostra come rilevare la lingua, analizzare il sentiment ed estrarre frasi chiave usando le  [API Analisi del testo](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. Il codice è stato scritto per lavorare su un'applicazione .NET Core, con riferimenti minimi a librerie esterne, in modo che sia possibile eseguirlo in Linux o MacOS.
@@ -35,7 +35,7 @@ Per la documentazione tecnica delle API, vedere le [definizioni delle API](//go.
 1. Fare clic con il pulsante destro del mouse sulla soluzione e scegliere **Manage NuGet Packages for Solution** (Gestisci pacchetti NuGet per la soluzione)
 1. Selezionare la casella di controllo **Include Prerelease** (Includi versione provvisoria).
 1. Selezionare la scheda **Sfoglia** e cercare **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**
-1. Selezionare il pacchetto NuGet e installarlo. Per il momento è consigliabile usare la versione 2.8.0 (3-18-2019), anziché la 3.0.0, finché non viene corretto un bug nel software.
+1. Selezionare il pacchetto NuGet e installarlo. Può essere necessario eseguire il downgrade alla versione 2.8.0 per il momento (al 18/03/2019) finché il codice di esempio non viene aggiornato con la versione 3.0.0.
 
 > [!Tip]
 >  Sebbene sia possibile chiamare direttamente gli [endpoint HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) da C#, Microsoft.Azure.CognitiveServices.Language SDK agevola la chiamata al servizio perché non rende più necessarie la serializzazione e la deserializzazione di JSON.
