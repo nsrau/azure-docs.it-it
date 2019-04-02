@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 9408134fa020a143a1b32d5b3600f6e19de7008e
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 3d20316903efde516ec99b0a548449297bdf1419
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663648"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805109"
 documentType: LandingData
 title: Documentazione di Servizi multimediali di Azure v3
 metadata:
   document_id: 
   title: Documentazione di Servizi multimediali di Azure v3 - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-  description: Informazioni su come trasmettere video on demand in streaming, trasmettere live e analizzare video con Servizi multimediali. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
+  description: Informazioni su come eseguire lo streaming su richiesta, la trasmissione in tempo reale e l'analisi dei video con Servizi multimediali. Esercitazioni, informazioni di riferimento sulle API e altro ancora.
   services: media-services
   author: Juliako
   manager: femila
@@ -27,13 +27,13 @@ sections:
   items:
   - type: list
     style: cards
-    className: cardsD
+    className: cardImageOuter
     items:
     - title: Informazioni sui concetti
-      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Caricamento e archiviazione nel cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Codifica</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analisi di contenuti multimediali</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Creazione di pacchetti</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protezione</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Streaming live</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Client di Media Player</a></p>
+      html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Caricamento e archiviazione nel cloud</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Monitoraggio</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Analisi di contenuti multimediali</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Creazione di pacchetti</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protezione</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Streaming live</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Client di Media Player</a></p>
     - title: Sviluppare con l'API v3
       html: <p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Iniziare a sviluppare con gli SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Sviluppare con REST</a></p>
-- title: Guide di avvio rapido di 5 minuti
+- title: Guide introduttive di 5 minuti
   items:
   - type: paragraph
     text: 'Informazioni su come creare un account di Servizi multimediali, avviare la codifica dei video e usare Azure Media Player per riprodurli:'
@@ -118,7 +118,7 @@ sections:
         src: media/index/logo_nodejs.svg
       text: Node .js
       href: https://github.com/Azure-Samples/media-services-v3-node-tutorials
-- title: Informazioni di riferimento
+- title: riferimento
   items:
   - type: paragraph
     text: ''
