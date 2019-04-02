@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862217"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403630"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Esercitazione: Integrazione di Azure Active Directory con Periscope Data
 
@@ -78,7 +78,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Periscope Dat
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On per Periscope Data](#configure-periscope-data-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Periscope Data](#create-periscope-data-test-user)**: per avere una controparte di Britta Simon in Periscope Data collegata alla rappresentazione dell'utente in Azure AD.
 6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -138,7 +138,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Periscope Data, seguire
 
     e. Copiare il valore di **Identifier** (Identificatore) per l'istanza e incollarlo nella casella di testo  **Identificatore (ID entità)** della sezione **Configurazione SAML di base** del portale di Azure.
 
-    f. Nel primo tag del file XML copiare il valore di **entityID** e incollarlo nella casella **Issuer**.
+    f. Individuare il primo tag del file XML, copiare il valore di **entityID** e incollarlo nella casella di testo **Issuer** (Emittente).
 
     g. Individuare il tag **IDPSSODescriptor** con protocollo SAML. In tale sezione individuare il tag **KeyDescriptor** con **use=signing**. Copiare il valore di **X509Certificate** e incollarlo nella casella di testo **Certificate** (Certificato).
 
@@ -148,9 +148,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Periscope Data, seguire
 
     ![Informazioni per la configurazione di Periscope Data](./media/periscope-data-tutorial/configure02.png)
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -173,7 +173,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Periscope Data.
 

@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370109"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802958"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -27,9 +27,9 @@ Anche se l'uso delle assegnazioni di ruolo Controllo degli accessi in base al ru
 
 Archiviazione di Azure offre tre ruoli Controllo degli accessi in base al ruolo predefiniti per l'archivio BLOB: 
 
-- [Proprietario dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Collaboratore ai dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Lettore dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [Proprietario dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Collaboratore ai dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Lettore dei dati del BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 Quando a un utente o a un'entità servizio vengono concesse autorizzazioni per i dati del controllo degli accessi in base al ruolo tramite uno di questi ruoli predefiniti o tramite un ruolo personalizzato, queste autorizzazioni vengono prima valutate durante l'autorizzazione di una richiesta. Se l'operazione richiesta viene autorizzata dalle assegnazioni con controllo degli accessi in base al ruolo del chiamante, l'autorizzazione viene immediatamente risolta e non vengono eseguiti controlli ACL aggiuntivi. In alternativa, se il chiamante non ha un'assegnazione con controllo degli accessi in base al ruolo o l'operazione della richiesta non corrisponde all'autorizzazione assegnata, vengono eseguiti controlli ACL per determinare se il chiamante è autorizzato a eseguire l'operazione richiesta.
 

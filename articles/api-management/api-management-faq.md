@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728569"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793306"
 ---
 # <a name="azure-api-management-faqs"></a>Domande frequenti su Gestione API di Azure
 Risposte alle domande comuni, modelli e procedure consigliate per Gestione API di Azure.
@@ -72,13 +72,13 @@ Esistono diverse opzioni per proteggere la connessione tra il gateway di Gestion
 Esistono diverse opzioni per copiare un'istanza di Gestione API in una nuova istanza. È possibile:
 
 * Usare la funzione di backup e ripristino di Gestione API. Per altre informazioni, vedere [Come implementare il ripristino di emergenza usando il backup e il ripristino dei servizi in Gestione API di Azure](api-management-howto-disaster-recovery-backup-restore.md).
-* Creare una propria funzionalità di backup e ripristino usando l'[API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx). Usare l'API REST per salvare e ripristinare le entità dall'istanza del servizio desiderata.
+* Creare una propria funzionalità di backup e ripristino usando l'[API REST di Gestione API](/rest/api/apimanagement/). Usare l'API REST per salvare e ripristinare le entità dall'istanza del servizio desiderata.
 * Scaricare la configurazione del servizio usando Git e quindi caricarla in una nuova istanza. Per altre informazioni, vedere [Come salvare e configurare la configurazione del servizio Gestione API tramite Git](api-management-configuration-repository-git.md).
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>È possibile gestire l'istanza di Gestione API a livello di codice?
 Sì, è possibile gestire Gestione API a livello di codice usando:
 
-* L'[API REST di Gestione API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+* L'[API REST di Gestione API](/rest/api/apimanagement/).
 * [Microsoft Azure ApiManagement Service Management Library SDK](https://aka.ms/apimsdk).
 * I cmdlet di PowerShell per la [distribuzione del servizio](https://docs.microsoft.com/powershell/module/wds) e per la [gestione del servizio](https://docs.microsoft.com/powershell/azure/servicemanagement/overview).
 
@@ -97,7 +97,7 @@ Ora il nuovo collaboratore aggiunto può usare i [cmdlet](https://docs.microsoft
 4. Usare l'URL per accedere al portale di amministrazione.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>Perché il criterio da aggiungere non è disponibile nell'editor dei criteri?
-Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](https://msdn.microsoft.com/library/azure/dn894080.aspx) (Criteri di Gestione API).
+Se il criterio che si vuole aggiungere è in grigio o ombreggiato nell'editor dei criteri, assicurarsi che l'ambito del criterio sia corretto. Ogni istruzione di criterio è progettata per essere usata in ambiti e sezioni dei criteri specifici. Per esaminare le sezioni dei criteri e gli ambiti di un criterio, vedere la sezione sull'utilizzo in [API Management policies](/azure/api-management/api-management-policies) (Criteri di Gestione API).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>Come si configurano più ambienti in una sola API?
 Per configurare più ambienti, ad esempio un ambiente di test e un ambiente di produzione, in una sola API, esistono due opzioni. È possibile:
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>Metodo di aggiornamento API diretto ####
-1. Creare un'entità di [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) usando Gestione API.       
+1. Creare un'entità di [back-end](/rest/api/apimanagement/) usando Gestione API.     
 2. Impostare la proprietà **skipCertificateChainValidation** su **true**.     
 3. Se non si vuole più consentire certificati autofirmati, eliminare l'entità di back-end o impostare la proprietà **skipCertificateChainValidation** su **false**.
 

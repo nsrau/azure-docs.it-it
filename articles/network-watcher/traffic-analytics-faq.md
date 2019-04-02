@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: fee22561bb0c341ed5c6e4dc49a8d7f8aa8efaf2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445192"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803216"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
@@ -72,6 +72,7 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 - Stati Uniti centrali
 - Stati Uniti occidentali
 - Stati Uniti occidentali 2
+- Francia centrale
 - Europa occidentale
 - Europa settentrionale
 - Brasile meridionale
@@ -79,20 +80,26 @@ Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbo
 - Regno Unito meridionale
 - Australia orientale
 - Australia sud-orientale 
+- Asia orientale
 - Asia sud-orientale
+- Corea del Sud centrale
 - India centrale
 - India meridionale
 - Giappone orientale
+- Giappone occidentale
 - US Gov Virginia
 
 L'area di lavoro di Log Analytics deve esistere nelle aree indicate di seguito:
 - Canada centrale
 - Stati Uniti centro-occidentali
+- Stati Uniti occidentali 2
 - Stati Uniti orientali
+- Francia centrale
 - Europa occidentale
 - Regno Unito meridionale
 - Australia sud-orientale
 - Asia sud-orientale 
+- Corea del Sud centrale
 - India centrale
 - Giappone orientale
 - US Gov Virginia
