@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: fd58bf9582663e64e1aefd8193d48d92f51dcd0e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 105996cf72e2a96a06a4478518e68765d3d158f5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165667"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516893"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Gateway 
 
 Questo articolo descrive come gestire le condivisioni in Azure Data Box Gateway. È possibile gestire Azure Data Box Gateway dal portale di Azure o dall'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, eliminare o aggiornare le condivisioni o per sincronizzare la chiave di archiviazione dell'account di archiviazione associato alle condivisioni.
-
-> [!IMPORTANT]
-> - Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
-
 
 ## <a name="about-shares"></a>Informazioni sulle condivisioni
 
@@ -88,6 +84,9 @@ L'elenco di condivisioni viene aggiornato per riflettere l'eliminazione.
 
 La funzionalità di aggiornamento consente di aggiornare il contenuto di una condivisione locale. Quando si aggiorna una condivisione, viene avviata una ricerca per trovare tutti gli oggetti Azure, inclusi BLOB e file che sono stati aggiunti al cloud dopo l'ultimo aggiornamento. Questi file aggiuntivi vengono quindi usati per aggiornare il contenuto della condivisione locale nel dispositivo. 
 
+> [!NOTE]
+> Le autorizzazioni e gli elenchi di controllo di accesso (ACL) non vengono mantenuti tra le operazioni di aggiornamento. 
+
 Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivisione.
 
 1.  Passare a **Condivisioni** nel portale di Azure. Fare clic sulla condivisione che si vuole aggiornare.
@@ -111,7 +110,7 @@ Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivision
 Se si verifica un errore, viene generato un avviso. L'avviso illustra in dettaglio la causa e i suggerimenti per correggere il problema. L'avviso contiene anche collegamenti a un file con il riepilogo completo degli errori, inclusi i file che non è stato possibile aggiornare o eliminare.
 
 >[!IMPORTANT]
-> In questa versione di anteprima, non aggiornare più di una singola condivisione alla volta.
+> In questa versione non aggiornare più di una singola condivisione alla volta.
 
 ## <a name="sync-storage-keys"></a>Sincronizzare le chiavi di archiviazione
 

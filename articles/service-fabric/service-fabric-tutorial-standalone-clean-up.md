@@ -3,7 +3,7 @@ title: Esercitazione sulla pulizia del cluster autonomo di Service Fabric - Azur
 description: In questa esercitazione viene illustrato come pulire il cluster autonomo
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: d92712200920f135e362e15e1d9536dc2342ebaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e3e618bfd141e5cf7159d8df5b2b59f0d17d000f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211090"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372200"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Esercitazione: Pulire il cluster autonomo
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Esercitazione: Eseguire la pulizia di un cluster autonomo
 
 I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS e viene installata un'applicazione al suo interno.
 

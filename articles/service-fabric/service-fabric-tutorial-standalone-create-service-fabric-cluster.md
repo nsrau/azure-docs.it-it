@@ -3,7 +3,7 @@ title: Esercitazione sull'installazione del client autonomo di Service Fabric - 
 description: In questa esercitazione viene illustrato come installare il client autonomo di Service Fabric nel cluster creato nell'esercitazione dell'articolo precedente.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9563faf5e72bdef2e43afe26d5e8ae0f3d1c67ad
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240342"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370415"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Esercitazione: Installare e creare cluster di Service Fabric
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Esercitazione: Installare e creare un cluster di Service Fabric
 
 I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS e viene installata un'applicazione al suo interno.
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Visualizzare Service Fabric Explorer
 
-È ora possibile connettersi al cluster con Service Fabric Explorer direttamente da uno dei computer con http://localhost:19080/Explorer/index.html o in modalità remota con http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
+È ora possibile connettersi al cluster con Service Fabric Explorer direttamente da uno dei computer con http:\//localhost:19080/Explorer/index.html oppure in remoto con http:\//<*IndirizzoIPComputer*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Aggiungere e rimuovere ruoli
 

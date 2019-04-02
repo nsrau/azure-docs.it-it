@@ -3,7 +3,7 @@ title: Esempio di script di Azure PowerShell - Aggiungere la certificazione dell
 description: Esempio di script di Azure PowerShell - Aggiungere la certificazione dell'applicazione a un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: be097f88f774df9e4a6429af444c6c742737f4c9
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d5e1540a347bb14e7479bc445afa98e220b5475a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31598711"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497062"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Aggiungere la certificazione dell'applicazione a un cluster di Service Fabric.
 
 Questo script di esempio crea un certificato autofirmato nell'insieme di credenziali delle chiavi di Azure e lo installa in tutti i nodi del cluster di Service Fabric. Il certificato viene scaricato anche in una cartella locale. Il nome del certificato scaricato è identico al nome del certificato nell'insieme di credenziali delle chiavi. Personalizzare i parametri in base alle esigenze.
 
-Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Connect-AzureRmAccount` per creare una connessione con Azure. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Se necessario, installare Azure PowerShell usando l'istruzione presente nella [Guida di Azure PowerShell](/powershell/azure/overview) e quindi eseguire `Connect-AzAccount` per creare una connessione con Azure. 
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -34,11 +36,11 @@ Se necessario, installare Azure PowerShell usando l'istruzione presente nella [G
 
 ## <a name="script-explanation"></a>Spiegazione dello script
 
-Lo script usa i seguenti comandi: ogni comando della tabella include collegamenti alla documentazione specifica del comando.
+Questo script usa i comandi seguenti: Ogni comando della tabella include collegamenti alla documentazione specifica del comando.
 
 | Comando | Note |
 |---|---|
-| [Add-AzureRmServiceFabricApplicationCertificate](/powershell/module/azurerm.servicefabric/Add-AzureRmServiceFabricApplicationCertificate) | Aggiungere un nuovo certificato di applicazione al set di scalabilità di macchine virtuali che costituisce il cluster.  |
+| [Add-AzServiceFabricApplicationCertificate](/powershell/module/az.servicefabric/Add-azServiceFabricApplicationCertificate) | Aggiungere un nuovo certificato di applicazione al set di scalabilità di macchine virtuali che costituisce il cluster.  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

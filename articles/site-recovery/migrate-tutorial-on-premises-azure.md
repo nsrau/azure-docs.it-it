@@ -2,17 +2,18 @@
 title: Eseguire la migrazione di computer locali ad Azure con Azure Site Recovery | Microsoft Docs
 description: Questo articolo illustra come eseguire la migrazione di computer locali ad Azure usando Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 12/27/2018
+ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: d5b229d96c0f63e27e36fb95122b36d3d8c128ac
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110308"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360368"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Eseguire la migrazione di computer locali ad Azure
 
@@ -37,7 +38,7 @@ Questa è la terza esercitazione di una serie. In questa esercitazione si presup
 Prima di iniziare è utile esaminare le architetture [VMware](vmware-azure-architecture.md) o [Hyper-V](hyper-v-azure-architecture.md) per il ripristino di emergenza.
 
 > [!TIP]
-> Per informazioni sulla migrazione di macchine virtuali VMware in Azure senza agenti, [fare clic qui ](https://aka.ms/migrateVMs-signup).
+> Se si vuole partecipare a nuova esperienza senza agente per la migrazione di VM VMware ad Azure, [vedere altre informazioni](https://aka.ms/migrateVMs-signup).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -113,7 +114,7 @@ Eseguire un failover per i computer di cui si vuole eseguire la migrazione.
 5. Assicurarsi che la macchina virtuale di Azure sia visualizzata in Azure come previsto.
 6. In **Elementi replicati** fare clic con il pulsante destro del mouse su macchina virtuale > **Completa la migrazione**. Vengono eseguite le operazioni seguenti:
 
-   - Il processo di migrazione viene completato, viene arrestata la replica per la macchina virtuale AWS e viene arrestata la fatturazione di Site Recovery per la macchina virtuale.
+   - Il processo di migrazione viene completato, viene arrestata la replica per la VM locale e viene interrotta la fatturazione di Site Recovery per la VM.
    - In questo passaggio vengono eliminati i dati di replica, ma non le macchine virtuali di cui è stata eseguita la migrazione.
 
      ![Completare la migrazione](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
@@ -128,7 +129,7 @@ In alcuni scenari il failover richiede un'ulteriore elaborazione il cui completa
 
 Dopo la migrazione di una macchina in Azure, è necessario completare una serie di passaggi.
 
-Alcuni passaggi possono essere automatizzati nell'ambito del processo di migrazione usando la funzionalità degli script di automazione integrata nei [piani di ripristino]( https://docs.microsoft.com/azure/site-recovery/site-recovery-runbook-automation)   
+Alcuni passaggi possono essere automatizzati nell'ambito del processo di migrazione usando la funzionalità degli script di automazione integrata nei [piani di ripristino](site-recovery-runbook-automation.md)   
 
 
 ### <a name="post-migration-steps-in-azure"></a>Passaggi post-migrazione in Azure
@@ -139,7 +140,7 @@ Alcuni passaggi possono essere automatizzati nell'ambito del processo di migrazi
     - Se si esegue la migrazione di macchine VMware e server fisici, il programma di installazione del Servizio Mobility installa nei computer Windows l'agente di macchine virtuali di Azure disponibile. Nelle macchine virtuali Linux si consiglia di installare l'agente dopo il failover.
     - Se si esegue la migrazione di macchine virtuali di Azure in un'area secondaria, prima della migrazione è necessario effettuare il provisioning dell'agente di macchine virtuali di Azure nella macchina virtuale.
     - Se si esegue la migrazione di macchine virtuali Hyper-V in Azure, dopo la migrazione è necessario installare l'agente di macchine virtuali di Azure nella macchina virtuale di Azure.
-- Rimuovere manualmente qualsiasi provider/agente di Site Recovery dalla macchina virtuale. Se si esegue la migrazione di macchine virtuali VMware o server fisici, [disinstallare il Servizio Mobility][vmware-azure-install-mobility-service.md#uninstall-mobility-service-on-a-windows-server-computer] dalla macchina virtuale di Azure.
+- Rimuovere manualmente qualsiasi provider/agente di Site Recovery dalla macchina virtuale. Se si esegue la migrazione di server fisici o VM VMware, disinstallare il servizio Mobility dalla VM.
 - Per una maggiore resilienza:
     - Proteggere i dati eseguendo il backup delle macchine virtuali di Azure con il servizio Backup di Azure. [Altre informazioni]( https://docs.microsoft.com/azure/backup/quick-backup-vm-portal)
     - Mantenere i carichi di lavoro in esecuzione e sempre disponibili eseguendo la replica delle macchine virtuali di Azure in un'area secondaria con Site Recovery. [Altre informazioni](azure-to-azure-quickstart.md)

@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 09/26/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: cf47919ead890f0ad0e89646dde26276ebfb1127
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109742"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517913"
 ---
-# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v-preview"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in Hyper-V (anteprima)
+# <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>Esercitazione: Effettuare il provisioning di Azure Data Box Gateway in Hyper-V
 
 ## <a name="overview"></a>Panoramica
 
@@ -31,9 +31,6 @@ In questa esercitazione si apprenderà come:
 > * Avviare il dispositivo virtuale e ottenere l'indirizzo IP
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
-
-> [!IMPORTANT]
-> - Data Box Gateway è in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -78,7 +75,7 @@ Per creare un dispositivo virtuale, è necessario quanto segue:
 * Console di gestione di Hyper-V di Microsoft in un client Microsoft Windows connesso all'host.
 * Verificare che l'hardware sottostante (sistema host) in cui si sta creando il dispositivo virtuale sia in grado di dedicare le risorse seguenti al dispositivo virtuale:
 
-    * Un minimo di 4 memorie centrali.
+    * Almeno 4 processori virtuali.
     * Almeno 8 GB di RAM.
     * Un'interfaccia di rete connessa alla rete in grado di indirizzare il traffico a Internet. 
     * Un disco del sistema operativo da 250 GB.
@@ -89,65 +86,67 @@ Per creare un dispositivo virtuale, è necessario quanto segue:
 Eseguire i passaggi seguenti per il provisioning di un dispositivo in hypervisor.
 
 1. Nell'host di Windows Server copiare l'immagine del dispositivo virtuale in un'unità locale. Si tratta dell'immagine VHDX scaricata tramite il portale di Azure. Prendere nota della posizione in cui è stata copiata l'immagine da usare più avanti nella procedura.
-2. Aprire **Server Manager**. Nell'angolo in alto a destra fare clic su **Strumenti** e scegliere **Console di gestione di Hyper-V**.
+2. Aprire **Server Manager**. Nell'angolo in alto a destra fare clic su **Strumenti** e selezionare **Console di gestione di Hyper-V**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
+    ![Selezionare Console di gestione di Hyper-V in Server Manager](./media/data-box-gateway-deploy-provision-hyperv/image1.png)  
   
 3. Nella **Console di gestione di Hyper-V**, nel riquadro dell'ambito, fare clic con il pulsante destro del mouse sul nodo del sistema per aprire il menu di scelta rapida e quindi fare clic su **Nuovo** > **Macchina virtuale**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
+   ![Creare una nuova macchina virtuale nella console di gestione di Hyper-V](./media/data-box-gateway-deploy-provision-hyperv/image2.png)
 4. Nella pagina **Before you begin** (Prima di iniziare) della Creazione guidata macchina virtuale fare clic su **Avanti**.
 5. Nella pagina **Impostazione nome e percorso** specificare un **Nome** da assegnare al dispositivo virtuale. Fare clic su **Avanti**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
+   ![Pagina Impostazione nome e percorso](./media/data-box-gateway-deploy-provision-hyperv/image3.png)
 6. Nella pagina **Impostazione generazione** scegliere **Generazione 2** per il tipo di immagine del dispositivo VHDX e fare clic su **Avanti**.    
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
+   ![Pagina Impostazione generazione](./media/data-box-gateway-deploy-provision-hyperv/image4.png)
 7. Nella pagina **Assegnazione memoria** specificare una **Memoria di avvio** di almeno **8192 MB**, non abilitare la memoria dinamica e quindi fare clic su **Avanti**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
+   ![Pagina Assegnazione memoria](./media/data-box-gateway-deploy-provision-hyperv/image5.png) 
 8. Nella pagina **Configurazione della rete** selezionare il commutatore virtuale connesso a Internet e quindi fare clic su **Avanti**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
+   ![Pagina Configurazione della rete](./media/data-box-gateway-deploy-provision-hyperv/image6.png)
 9. Nella pagina **Connessione disco rigido virtuale** scegliere **Usa disco rigido virtuale esistente**, specificare il percorso dell'immagine del dispositivo virtuale e quindi fare clic su **Avanti**.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
+   ![Pagina Connessione disco rigido virtuale](./media/data-box-gateway-deploy-provision-hyperv/image7.png)
 10. Esaminare la pagina **Riepilogo** e quindi fare clic su **Fine** per creare la macchina virtuale.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
-11. Per soddisfare i requisiti minimi, sono necessarie 4 memorie centrali. Per aggiungere 4 processori virtuali, selezionare il sistema host nella finestra **Console di gestione di Hyper-V**. Nel riquadro di destra sotto l'elenco di **macchine virtuali** individuare la macchina virtuale appena creata. Selezionare e fare clic con il pulsante destro del mouse sul nome della macchina, quindi selezionare **Impostazioni**.
+    ![Pagina Completamento della Creazione guidata macchina virtuale](./media/data-box-gateway-deploy-provision-hyperv/image8.png)
+11. Per soddisfare i requisiti minimi, sono necessari 4 processori virtuali. Per aggiungere 4 processori virtuali, selezionare il sistema host nella finestra **Console di gestione di Hyper-V**. Nel riquadro di destra sotto l'elenco di **macchine virtuali** individuare la macchina virtuale appena creata. Selezionare e fare clic con il pulsante destro del mouse sul nome della macchina, quindi selezionare **Impostazioni**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
+    ![Impostazioni della macchina virtuale](./media/data-box-gateway-deploy-provision-hyperv/image9.png)
 12. Nella pagina **Impostazioni**, nel riquadro di sinistra, fare clic su **Processore**. Nel riquadro di destra, impostare **Numero di processori virtuali** su 4 (o oltre). Fare clic su **Apply**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
+    ![Impostare il numero di processori virtuali nella pagina Impostazioni](./media/data-box-gateway-deploy-provision-hyperv/image10.png)
 13. Per soddisfare i requisiti minimi, è necessario anche aggiungere un disco dati virtuale da 2 TB. Nella pagina **Impostazioni** :
 
     1. Nel riquadro di sinistra selezionare **Controller SCSI**.
     2. Nel riquadro di destra selezionare **Disco rigido** e fare clic su **Aggiungi**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
+    ![Aggiungere un disco rigido nella pagina Impostazioni](./media/data-box-gateway-deploy-provision-hyperv/image11.png)
 14. Nella pagina **Disco rigido** selezionare l'opzione **Disco rigido virtuale** e fare clic su **Nuovo**. Viene avviata la **Creazione guidata disco rigido virtuale**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
+    ![Creazione guidata disco rigido virtuale](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
 1. Nella pagina **Before you begin** (Prima di iniziare) della Creazione guidata disco rigido virtuale fare clic su **Avanti**.
 2. Nella pagina **Selezione formato disco** accettare l'opzione di formato predefinita **VHDX**. Fare clic su **Avanti**.
    
 17. Nella pagina **Selezione tipo di disco** impostare il tipo di disco rigido virtuale su **A espansione dinamica** (consigliato). Il funzionamento di un disco **A dimensione fissa** è garantito, ma può comportare tempi lunghi di attesa. Si consiglia di non usare l'opzione **Differenze** . Fare clic su **Avanti**. 
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
+    ![Pagina Selezione tipo di disco](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. Nella pagina **Impostazione nome e percorso** fornire un **nome** e un **percorso** (anche accedendovi) da assegnare al disco dati. Fare clic su **Avanti**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. Nella pagina **Configurazione disco** selezionare l'opzione **Crea un nuovo disco rigido virtuale vuoto** e specificare la dimensione di **2 TB** (o superiore). 2 TB è il requisito minimo, ma è sempre possibile effettuare il provisioning di un disco più grande. Si noti che, una volta effettuato il provisioning del disco, non è possibile ridurlo.  Si può però espandere il disco aggiungendo un disco dati. Fare clic su **Avanti**.
+    ![Pagina Impostazione nome e percorso](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
+19. Nella pagina **Configurazione disco** selezionare l'opzione **Crea un nuovo disco rigido virtuale vuoto** e specificare la dimensione di **2 TB** (o superiore). 
+    
+    2 TB è il requisito minimo, ma è sempre possibile effettuare il provisioning di un disco più grande. Si noti che, una volta effettuato il provisioning del disco, non è possibile ridurlo. Il tentativo di ridurre il disco comporta la perdita di tutti i dati locali sul dispositivo. Si può però espandere il disco aggiungendo un disco dati. Fare clic su **Avanti**.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
+    ![Pagina Configurazione disco](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. Nella pagina **Riepilogo** esaminare i dettagli del disco dati virtuale e, se conformi alle proprie esigenze, fare clic su **Fine** per creare il disco. La procedura guidata viene chiusa e un disco rigido virtuale viene aggiunto al computer.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
+    ![Pagina Completamento della Creazione guidata disco rigido virtuale](./media/data-box-gateway-deploy-provision-hyperv/image16.png)
 21. Viene nuovamente visualizzata la pagina **Impostazioni**. Fare clic su **OK** per chiudere la pagina **Impostazioni** e tornare alla finestra Console di gestione di Hyper-V.
 
-    ![](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
+    ![Pagina Impostazioni](./media/data-box-gateway-deploy-provision-hyperv/image17.png)
 
 ## <a name="start-the-virtual-device-and-get-the-ip"></a>Avviare il dispositivo virtuale e ottenere l'IP
 Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connettersi.
@@ -155,12 +154,12 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
 #### <a name="to-start-the-virtual-device"></a>Per avviare il dispositivo virtuale
 1. Avviare il dispositivo virtuale.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
+   ![Avviare il dispositivo virtuale](./media/data-box-gateway-deploy-provision-hyperv/image18.png)
 2. Quando il dispositivo è in esecuzione, selezionarlo, fare clic con il pulsante destro del mouse e selezionare **Connetti**.
 
 3. Potrebbe essere necessario attendere 10-15 minuti prima che il dispositivo sia pronto. Un messaggio di stato viene visualizzato nella console per indicare l'avanzamento. Quando il dispositivo è pronto, passare ad **Azione**. Premere `Ctrl + Alt + Delete` per accedere al dispositivo virtuale. L'utente e la password predefiniti sono rispettivamente *EdgeUser* e *Password1*.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
+   ![Accedere al dispositivo virtuale](./media/data-box-gateway-deploy-provision-hyperv/image21.png)
    
 6. I passaggi da 5 a 7 devono essere eseguiti solo in caso di avvio in un ambiente non DHCP. In un ambiente DHCP, ignorare questi passaggi. Se il dispositivo è stato avviato in un ambiente non DHCP, viene visualizzato un messaggio.
     
@@ -172,15 +171,15 @@ Eseguire i passaggi seguenti per avviare il dispositivo virtuale a cui connetter
     
 9. Dopo aver completato l'installazione iniziale e avviato il dispositivo, viene visualizzato il relativo testo intestazione. Prendere nota dell'indirizzo IP e dell'URL visualizzati nel testo intestazione per gestire il dispositivo. Usare questo indirizzo IP per connettersi all'interfaccia utente Web del dispositivo virtuale e completare l'installazione locale e l'attivazione.
 
-   ![](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
+   ![Banner del dispositivo virtuale con URL di connessione e indirizzo IP](./media/data-box-gateway-deploy-provision-hyperv/image23.png)
       
 
 Se il dispositivo non soddisfa i requisiti minimi di configurazione, viene visualizzato un errore nel testo intestazione. Modificare la configurazione del dispositivo per garantire la presenza di risorse adeguate a soddisfare i requisiti minimi della macchina. È quindi possibile riavviare il dispositivo a cui connettersi. Vedere i requisiti minimi di configurazione in [Verificare che il sistema host soddisfi i requisiti minimi del dispositivo virtuale](#check-the-host-system).
 
-<!--If you face any other error during the initial configuration using the local web UI, refer to the following workflows:
+In presenza di altri errori durante la configurazione iniziale con l'interfaccia utente Web locale, vedere i flussi di lavoro seguenti:
 
-* Run diagnostic tests to [troubleshoot web UI setup](storsimple-ova-web-ui-admin.md#troubleshoot-web-ui-setup-errors).
-* [Generate log package and view log files](storsimple-ova-web-ui-admin.md#generate-a-log-package).-->
+- [Eseguire test diagnostici per risolvere i problemi relativi alla configurazione nell'interfaccia utente Web](data-box-gateway-troubleshoot.md#run-diagnostics).
+- [Generare un pacchetto di log e visualizzare i file di log](data-box-gateway-troubleshoot.md#collect-support-package).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

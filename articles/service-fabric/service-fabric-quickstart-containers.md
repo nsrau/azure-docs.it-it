@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804650"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482335"
 ---
-# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Avvio rapido: Distribuire contenitori Windows in Service Fabric
+# <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Guida introduttiva: Distribuire contenitori Windows in Service Fabric
 
 Azure Service Fabric è una piattaforma di sistemi distribuiti per la distribuzione e la gestione di microservizi e contenitori scalabili e affidabili.
 
@@ -105,7 +105,7 @@ Dopo avere specificato i valori per le variabili, premere **F5** per eseguire lo
 
 Dopo l'esecuzione dello script e la creazione del cluster, trovare `ClusterEndpoint` nell'output. Ad esempio: 
 
-```PowerShell
+```powershell
 ...
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```
@@ -149,7 +149,7 @@ Fare clic su **Pubblica**.
 
 Ogni applicazione nel cluster deve avere un nome univoco. Se è presente un conflitto di nomi, ridenominare il progetto di Visual Studio e distribuirlo di nuovo.
 
-Aprire un browser e passare all'indirizzo inserito nel campo **Endpoint connessione** nel passaggio precedente. Facoltativamente, è possibile anteporre l'identificatore di schema, `http://`, e accodare la porta, `:80`, all'URL. Ad esempio: http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Aprire un browser e passare all'indirizzo inserito nel campo **Endpoint connessione** nel passaggio precedente. Facoltativamente, è possibile anteporre l'identificatore di schema, `http://`, e accodare la porta, `:80`, all'URL. Ad esempio, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  Dovrebbe essere visualizzata la pagina Web predefinita di IIS: ![Pagina Web predefinita di IIS][iis-default]
 

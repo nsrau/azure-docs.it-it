@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57897801"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519834"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Edge
 
 Questo articolo descrive come gestire le condivisioni in Azure Data Box Edge. È possibile gestire Azure Data Box Edge dal portale di Azure o dall'interfaccia utente Web locale. Usare il portale di Azure per aggiungere, eliminare o aggiornare le condivisioni o per sincronizzare la chiave di archiviazione dell'account di archiviazione associato alle condivisioni.
-
-> [!IMPORTANT]
-> Data Box Edge è disponibile in anteprima. Rivedere le [condizioni del servizio per l'anteprima di Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) prima di ordinare e distribuire la soluzione.
-
 
 ## <a name="about-shares"></a>Informazioni sulle condivisioni
 
@@ -67,8 +63,10 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
         ![Aggiunta di una condivisione NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Fare clic su **Crea** per creare la condivisione. Viene ricevuta una notifica che indica che la creazione della condivisione è in corso. Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** viene aggiornato per includere la nuova condivisione.
- 
+7. Per accedere facilmente alle condivisioni dai moduli di calcolo Edge, usare il punto di montaggio locale. Selezionare **Usa la condivisione con il calcolo Edge** per montare automaticamente la condivisione dopo che è stata creata. Quando questa opzione è selezionata, inoltre, il modulo Edge può usare il calcolo con il punto di montaggio locale.
+
+8. Fare clic su **Crea** per creare la condivisione. Viene ricevuta una notifica che indica che la creazione della condivisione è in corso. Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** viene aggiornato per includere la nuova condivisione.
+
 ## <a name="add-a-local-share"></a>Aggiungere una condivisione locale
 
 1. Nel portale di Azure passare alla risorsa Data Box Edge e quindi scegliere **Gateway > Condivisioni**. Selezionare **+ Aggiungi condivisione** sulla barra dei comandi.
@@ -93,11 +91,56 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
     Viene visualizzata una notifica per indicare che la creazione della condivisione è in corso. Dopo aver creato la condivisione con le impostazioni specificate, il pannello **Condivisioni** viene aggiornato per includere la nuova condivisione.
 
-    ![Visualizzare gli aggiornamenti del pannello Condivisioni](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Visualizzare gli aggiornamenti del pannello Condivisioni](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Selezionare la condivisione per visualizzare il punto di montaggio locale per i moduli di calcolo Edge relativi a questa condivisione.
 
     ![Visualizzare i dettagli della condivisione locale](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+## <a name="mount-a-share"></a>Montare una condivisione
+
+Se si è creata una condivisione prima di configurare il calcolo nel dispositivo Data Box Edge, sarà necessario montare la condivisione. Per montare una condivisione, seguire questa procedura.
+
+
+1. Nel portale di Azure passare alla risorsa Data Box Edge e quindi scegliere **Gateway > Condivisioni**. Nell'elenco delle condivisioni selezionare la condivisione da montare. Per la condivisione selezionata, nella colonna **Usata per il calcolo** verrà visualizzato lo stato **Disabilitata**.
+
+    ![Selezionare condivisione](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Selezionare **Montaggio**.
+
+    ![Selezionare Montaggio](media/data-box-edge-manage-shares/select-mount.png)
+
+3. Alla richiesta di conferma selezionare **Sì**. La condivisione verrà montata.
+
+    ![Confermare il montaggio](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. Dopo il montaggio della condivisione, passare all'elenco delle condivisioni. Lo stato della condivisione visualizzato nella colonna **Usata per il calcolo** sarà **Abilitata**.
+
+    ![Condivisione montata](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Selezionare di nuovo la condivisione per visualizzarne il punto di montaggio locale. Il modulo di calcolo Edge usa questo punto di montaggio locale per la condivisione.
+
+    ![Punto di montaggio locale per la condivisione](media/data-box-edge-manage-shares/share-mountpoint.png)
+
+## <a name="unmount-a-share"></a>Smontare una condivisione
+
+Per smontare una condivisione, seguire questa procedura nel portale di Azure.
+
+1. Nel portale di Azure passare alla risorsa Data Box Edge e quindi scegliere **Gateway > Condivisioni**.
+
+    ![Selezionare condivisione](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. Nell'elenco delle condivisioni selezionare la condivisione da smontare. È opportuno assicurarsi che la condivisione che si smonta non venga usata da alcun modulo. Se la condivisione viene usata da un modulo, verranno rilevati problemi con il modulo corrispondente. Selezionare **Smonta**.
+
+    ![Selezionare Smonta](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. Alla richiesta di conferma selezionare **Sì**. La condivisione verrà smontata.
+
+    ![Confermare lo smontaggio](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. Dopo lo smontaggio della condivisione, passare all'elenco delle condivisioni. Lo stato della condivisione visualizzato nella colonna **Usata per il calcolo** sarà **Disabilitata**.
+
+    ![Condivisione smontata](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Eliminare una condivisione
 
@@ -123,7 +166,8 @@ L'elenco di condivisioni viene aggiornato in base all'eliminazione.
 La funzionalità di aggiornamento consente di aggiornare il contenuto di una condivisione. Quando si aggiorna una condivisione, viene avviata una ricerca per trovare tutti gli oggetti Azure, inclusi BLOB e file che sono stati aggiunti al cloud dopo l'ultimo aggiornamento. Questi file aggiuntivi vengono quindi scaricati per aggiornare il contenuto della condivisione nel dispositivo.
 
 > [!IMPORTANT]
-> Non è possibile aggiornare le condivisioni locali.
+> - Non è possibile aggiornare le condivisioni locali.
+> - Le autorizzazioni e gli elenchi di controllo di accesso (ACL) non vengono mantenuti tra le operazioni di aggiornamento. 
 
 Eseguire i passaggi seguenti nel portale di Azure per aggiornare una condivisione.
 

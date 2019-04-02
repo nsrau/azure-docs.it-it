@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58002080"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499031"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Gestione del calcolo in Azure Data Box Edge
 
@@ -32,7 +32,7 @@ In questo articolo viene spiegato come:
 
 ## <a name="manage-triggers"></a>Gestire i trigger
 
-Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud o sul dispositivo su cui si desidera intervenire. Ad esempio, un evento è quando si crea un file in una condivisione. I trigger sono la risposta agli eventi. I trigger consentono di eseguire una funzione ogni volta che si genera l'evento. In Azure Data Box Edge, i trigger possono essere in risposta a eventi del file o a una schedule (pianificazione).
+Gli eventi sono fenomeni che possono verificarsi all'interno dell'ambiente cloud o sul dispositivo su cui si desidera intervenire. Ad esempio, un evento è quando si crea un file in una condivisione. I trigger generano gli eventi. In Azure Data Box Edge, i trigger possono essere in risposta a eventi del file o a una schedule (pianificazione).
 
 - **File**: Questi trigger vengono inviati in risposta agli eventi del file, ad esempio la creazione di un file, la modifica di un file.
 - **Scheduled**: Questi trigger vengono inviati in risposta a una pianificazione che è possibile definire con una data di inizio, ora di inizio e l'intervallo di ripetizione.
@@ -132,6 +132,23 @@ Eseguire i passaggi seguenti nel portale di Azure per sincronizzare le chiavi di
      ![Selezionare Sì quando richiesto](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Uscire dalla finestra di dialogo dopo aver completato la sincronizzazione.
+
+## <a name="enable-a-network-interface-for-compute"></a>Abilitare un'interfaccia di rete per il calcolo
+
+Potrebbe essere necessario accedere a un modulo in esecuzione nel dispositivo Data Box Edge. Per accedere al modulo dall'esterno, si dovrà assegnare un indirizzo IP a un'interfaccia di rete nel dispositivo. È possibile gestire queste impostazioni di calcolo dall'interfaccia utente Web locale.
+
+Per configurare le impostazioni di calcolo, seguire questa procedura nell'interfaccia utente Web locale.
+
+1. Nell'interfaccia utente Web locale passare a **Configurazione > Impostazioni calcolo**.  
+
+2. **Abilitare** l'interfaccia di rete che si vuole usare per connettersi ai moduli di calcolo nel dispositivo. 
+
+    - Se si usano indirizzi IP statici, immettere un indirizzo IP per l'interfaccia di rete.
+    - Se si usa DHCP, gli indirizzi IP verranno assegnati automaticamente.
+
+3. Selezionare **Applica** per applicare le impostazioni.
+
+    ![Abilitare le impostazioni di calcolo](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

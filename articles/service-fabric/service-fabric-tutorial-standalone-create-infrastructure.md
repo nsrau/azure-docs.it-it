@@ -3,7 +3,7 @@ title: Esercitazione sulla creazione dell'infrastruttura per un cluster di Servi
 description: In questa esercitazione è illustrato come configurare l'infrastruttura di AWS per l'esecuzione di un cluster di Service Fabric.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 6b7d2223d33abb429ab5f59b14c80d43c70598dc
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9a0c56ecb20857b8fe2f5e55851e5d0d98ed3038
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209651"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369114"
 ---
-# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare l'infrastruttura di AWS per ospitare un cluster di Service Fabric
+# <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>Esercitazione: Creare l'infrastruttura AWS per ospitare un cluster di Service Fabric
 
 I cluster autonomi di Service Fabric offrono la possibilità di scegliere il proprio ambiente e creare un cluster come parte dell'approccio "qualsiasi sistema operativo, qualsiasi cloud" adottato da Service Fabric. In questa serie di esercitazioni viene creato un cluster autonomo ospitato in AWS e viene installata un'applicazione al suo interno.
 
@@ -36,7 +36,7 @@ Nella prima parte della serie si apprenderà come:
 > * Accedere a una delle istanze
 > * Preparare l'istanza per Service Fabric
 
-## <a name="prerequisites"></a>prerequisiti
+## <a name="prerequisites"></a>Prerequisiti
 
 Per completare l'esercitazione, è necessario un account AWS.  Se non si dispone ancora di un account, accedere alla [Console AWS](https://aws.amazon.com/) per crearne uno.
 
@@ -50,7 +50,7 @@ Selezionare **Launch Instance** (Avvia istanza), quindi nella schermata successi
 
 ![Selezione dell'istanza EC2][aws-ec2instance]
 
-Selezionare **t2.medium**, quindi **Next: Configure Instance Details** (Avanti: Configura dettagli dell'istanza), nella schermata successiva modificare il numero di istanze in `3` e infine selezionare **Advanced Details** (Dettagli avanzati) per espandere la sezione.
+Selezionare **t2.medium** e quindi **Next: Configure Instance Details** (Avanti: Configura dettagli dell'istanza), nella schermata successiva modificare il numero di istanze in `3` e infine selezionare **Advanced Details** (Dettagli avanzati) per espandere la sezione.
 
 Per connettere le macchine virtuali insieme in Service Fabric, le macchine virtuali che ospitano l'infrastruttura devono avere le stesse credenziali.  Esistono due modi comuni per ottenere credenziali coerenti: unirle tutte allo stesso dominio o impostare la stessa password di amministratore in ogni macchina virtuale.  Per questa esercitazione, viene usato uno script di dati utente per impostare le istanze EC2 in modo da avere tutte la stessa password.  In un ambiente di produzione è più sicuro unire gli host a un dominio Windows.
 

@@ -3,7 +3,7 @@ title: Creare un cluster di Service Fabric che esegue Windows in Azure | Microso
 description: In questa esercitazione si apprenderà come usare PowerShell per distribuire un cluster di Service Fabric che segue Windows in una rete virtuale di Azure e in un gruppo di sicurezza di rete.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ade7f86bc5a00c079a7ccbe719ae46043d692047
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225145"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498163"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Esercitazione: Distribuire un cluster di Service Fabric che esegue Windows in una rete virtuale di Azure
 
@@ -58,6 +58,7 @@ Prima di iniziare questa esercitazione:
 * Installare [Service Fabric SDK e il modulo PowerShell](service-fabric-get-started.md).
 * Installare il [modulo Azure PowerShell 4.1 o versioni successive](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 * Esaminare i concetti chiave dei [cluster di Azure](service-fabric-azure-clusters-overview.md).
+* [Pianificare e preparare](service-fabric-cluster-azure-deployment-preparation.md) la distribuzione di un cluster di produzione.
 
 Le procedure seguenti creano un cluster di Service Fabric a sette nodi. Usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per calcolare i costi legati all'esecuzione di un cluster di Service Fabric in Azure.
 
@@ -157,7 +158,7 @@ Nel file dei parametri [azuredeploy.parameters.json][parameters] vengono dichiar
 |clusterName|mysfcluster123| Nome del cluster. Può contenere solo lettere e numeri. La lunghezza deve essere compresa tra 3 e 23 caratteri.|
 |location|southcentralus| Località del cluster. |
 |certificateThumbprint|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore di identificazione personale SHA1 del certificato, ad esempio "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
-|certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato. </p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, Ad esempio, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato. </p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere l'URL del certificato, ad esempio "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>Il valore deve essere vuoto se si crea un certificato autofirmato o si specifica un file di certificato.</p><p>Per usare un certificato esistente precedentemente caricato in un insieme di credenziali delle chiavi, immettere il valore dell'insieme di credenziali di origine, ad esempio "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configurare l'autenticazione client di Azure Active Directory
@@ -179,9 +180,9 @@ Per semplificare la procedura di configurazione di Azure AD con un cluster di Se
 ### <a name="create-azure-ad-applications-and-assign-users-to-roles"></a>Creare applicazioni Azure AD e assegnare gli utenti ai ruoli
 Creare due applicazioni Azure AD per controllare l'accesso al cluster: un'applicazione Web e un'applicazione nativa. Dopo aver creato le applicazioni per rappresentare il cluster, assegnare gli utenti ai [ruoli supportati da Service Fabric](service-fabric-cluster-security-roles.md): sola lettura e amministratore.
 
-Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri. Specificare i nomi utente e le password per gli utenti. Ad esempio:
+Eseguire `SetupApplications.ps1` e indicare l'ID tenant, il nome del cluster e l'URL di risposta dell'applicazione Web come parametri. Specificare i nomi utente e le password per gli utenti. Ad esempio: 
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin
@@ -256,7 +257,7 @@ In [azuredeploy.json][template] configurare Azure AD nella sezione **Microsoft.S
 }
 ```
 
-Aggiungere i valori dei parametri nel file dei parametri [azuredeploy.parameters.json][parameters]. Ad esempio:
+Aggiungere i valori dei parametri nel file dei parametri [azuredeploy.parameters.json][parameters]. Ad esempio: 
 
 ```json
 "aadTenantId": {
