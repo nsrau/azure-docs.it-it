@@ -1,6 +1,6 @@
 ---
 title: Indice di progetti di esempio
-description: Indice degli esempi per Azure Blueprints
+description: Indice degli esempi di ambienti standard e conformità per la distribuzione con Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm

@@ -18,7 +18,7 @@ Ad esempio, è possibile applicare a un gruppo di gestione criteri che limitano 
 
 È possibile creare una struttura flessibile di gruppi di gestione e sottoscrizioni, in modo da organizzare le risorse in una gerarchia per la gestione unificata di accesso e criteri. Il diagramma seguente mostra un esempio di creazione di una gerarchia per la governance tramite gruppi di gestione.
 
-![albero](./media/tree.png)
+![Esempio di un albero gerarchico dei gruppi di gestione](./media/tree.png)
 
 Creare una gerarchia per poter applicare un criterio, ad esempio limitare le località delle VM all'area Stati Uniti occidentali nel gruppo "Produzione". Questo criterio erediterà da entrambe le sottoscrizioni EA all'interno del gruppo di gestione e verrà applicato a tutte le macchine virtuali all'interno delle sottoscrizioni. Questo criterio di sicurezza non potrà essere modificato dal proprietario della risorsa o della sottoscrizione e garantisce così una governance migliore.
 

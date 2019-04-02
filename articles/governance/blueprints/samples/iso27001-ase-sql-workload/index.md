@@ -1,5 +1,5 @@
 ---
-title: Esempio - Progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 - Panoramica
+title: Esempio - Progetto Carico di lavoro dell'ambiente del servizio app di Azure/SQL ISO 27001 - Panoramica
 description: Panoramica e architettura del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001.
 services: blueprints
 author: DCtheGeek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Panoramica del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 di Azure Blueprints
+# <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Panoramica del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001
 
 Il progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 offre un'infrastruttura aggiuntiva per il progetto di esempio [Servizi condivisi ISO 27001](../iso27001-shared/index.md).
 Questo progetto consente ai clienti di distribuire architetture basate su cloud che offrono soluzioni per scenari con requisiti di accreditamento o conformità.
@@ -23,7 +23,7 @@ Sono disponibili due progetti di esempio ISO 27001, questo e il progetto di esem
 
 Il progetto Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001 distribuisce una piattaforma sotto forma di ambiente Web basato su servizi. È possibile usare l'ambiente per ospitare più applicazioni Web, API Web e istanze di database SQL conformi agli standard ISO 27001. Questo progetto di esempio dipende da quello [Servizi condivisi ISO 27001](../iso27001-shared/index.md).
 
-![Struttura del progetto di esempio Carico di lavoro dell'ambiente del servizio app/database SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![Struttura del progetto di esempio Carico di lavoro dell'ambiente del servizio app di Azure/SQL ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 Questo ambiente è costituito da diversi servizi di Azure usati per offrire un'infrastruttura di carico di lavoro di livello aziendale sicura e completamente monitorata, basata sugli standard ISO 27001. L'ambiente è costituito da:
 

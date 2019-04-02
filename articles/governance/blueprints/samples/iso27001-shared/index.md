@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001 di Azure Blueprints
+# <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001
 
 Il progetto di esempio Servizi condivisi ISO 27001 offre un set di modelli di infrastrutture conformi e limiti di criteri utili per ottenere l'attestazione ISO 27001. Questo progetto consente ai clienti di distribuire architetture basate su cloud che offrono soluzioni per scenari con requisiti di accreditamento o conformità.
 

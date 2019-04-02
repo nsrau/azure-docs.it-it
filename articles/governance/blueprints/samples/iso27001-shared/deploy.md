@@ -8,20 +8,20 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f49951d0a2ec738df9946edc7f44820c2cde975f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202504"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804333"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Distribuire l'esempio di progetto di servizi condivisi di Azure progetti ISO 27001
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuire l'esempio di progetto di servizi condivisi di ISO 27001
 
 Per distribuire l'esempio di progetto di servizi condivisi di Azure progetti ISO 27001, è necessario effettuare i passaggi seguenti:
 
 > [!div class="checklist"]
 > - Creare un nuovo progetto dall'esempio
-> - Contrassegnare la copia dell'esempio di come **pubblicato**
+> - Contrassegnare la copia dell'esempio come **Pubblicata**
 > - Assegnare la copia del progetto a una sottoscrizione esistente
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
@@ -32,47 +32,47 @@ Innanzitutto, implementare l'esempio di progetto mediante la creazione di un nuo
 
 1. Selezionare **tutti i servizi** e cercare e selezionare **criterio** nel riquadro sinistro. Nel **criterio** pagina, selezionare **progetti**.
 
-1. Dal **Guida introduttiva** pagina a sinistra, seleziona il **Create** pulsante sotto _creare un progetto iniziale_.
+1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
 
 1. Trovare il **ISO 27001: Servizi condivisi** esempio di progetto in _altri esempi_ e selezionare **usare questo esempio**.
 
-1. Immettere il _nozioni di base_ dell'esempio di progetto:
+1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
    - **Nome progetto**: Specificare un nome per la copia dell'esempio di progetto di servizi condivisi di ISO 27001.
-   - **Percorso definizione**: Usare i puntini di sospensione e selezionare il gruppo di gestione per salvare la copia dell'esempio a.
+   - **Posizione della definizione**: Usare i puntini di sospensione e selezionare il gruppo di gestione per salvare la copia dell'esempio a.
 
-1. Selezionare il _artefatti_ della scheda nella parte superiore della pagina o **successiva: Gli artefatti** nella parte inferiore della pagina.
+1. Selezionare la scheda _Artefatti_ nella parte superiore della pagina oppure **Avanti: Elementi** nella parte inferiore della pagina.
 
-1. Esaminare l'elenco di elementi che costituiscono l'esempio di progetto. Molti degli elementi di parametri che verranno definiti in un secondo momento. Selezionare **Salva bozza** quando aver esaminato il codice di esempio di progetto.
+1. Esaminare l'elenco degli artefatti che costituiscono l'esempio di progetto. Molti degli elementi di parametri che verranno definiti in un secondo momento. Una volta esaminato l'esempio di progetto, selezionare **Salva bozza**.
 
-## <a name="publish-the-sample-copy"></a>Pubblicare la copia di esempio
+## <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 
-La copia dell'esempio di progetto è stata creata nell'ambiente in uso. Viene creato nel **bozza** modalità e deve essere **Published** prima che possa essere assegnato e distribuito. La copia dell'esempio di progetto può essere personalizzata con l'ambiente e alle esigenze, ma tale modifica potrebbe allontanano lo standard ISO 27001.
-
-1. Selezionare **tutti i servizi** e cercare e selezionare **criterio** nel riquadro sinistro. Nel **criterio** pagina, selezionare **progetti**.
-
-1. Selezionare il **Blueprint definizioni** pagina a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarlo.
-
-1. Selezionare **linee guida per la pubblicazione** nella parte superiore della pagina. Nella nuova pagina a destra, specificare una **versione** per la copia dell'esempio di progetto. Questa proprietà è utile se si apporta una modifica in un secondo momento. Fornire **modificare note** , ad esempio "prima versione pubblicato dall'esempio ISO 27001 blueprint". Quindi selezionare **pubblica** nella parte inferiore della pagina.
-
-## <a name="assign-the-sample-copy"></a>Assegnare la copia di esempio
-
-Dopo la copia dell'esempio di progetto è stato correttamente **Published**, può essere assegnato a una sottoscrizione all'interno del gruppo di gestione, è stata salvata. Questo passaggio è dove vengono specificati parametri per rendere univoca ciascuna distribuzione della copia dell'esempio di progetto.
+La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata con l'ambiente e alle esigenze, ma tale modifica potrebbe allontanano lo standard ISO 27001.
 
 1. Selezionare **tutti i servizi** e cercare e selezionare **criterio** nel riquadro sinistro. Nel **criterio** pagina, selezionare **progetti**.
 
-1. Selezionare il **Blueprint definizioni** pagina a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarlo.
+1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarlo.
 
-1. Selezionare **Assign blueprint** nella parte superiore della pagina di definizione di progetto.
+1. Selezionare **Pubblica progetto** nella parte superiore della pagina. Nella nuova pagina a destra, specificare una **versione** per la copia dell'esempio di progetto. Questa proprietà è utile se si apporta una modifica successivamente. Fornire **modificare note** , ad esempio "prima versione pubblicato dall'esempio ISO 27001 blueprint". Quindi selezionare **Pubblica** nella parte inferiore della pagina.
 
-1. Specificare i valori dei parametri per l'assegnazione di progetto:
+## <a name="assign-the-sample-copy"></a>Assegnare la copia dell'esempio
+
+Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente, è possibile assegnarla a una sottoscrizione all'interno del gruppo di gestione in cui è stata salvata. In questo passaggio vengono specificati i parametri che rendono univoca ogni distribuzione della copia dell'esempio di progetto.
+
+1. Selezionare **tutti i servizi** e cercare e selezionare **criterio** nel riquadro sinistro. Nel **criterio** pagina, selezionare **progetti**.
+
+1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarlo.
+
+1. Selezionare **Assegna progetto** nella parte superiore della pagina della definizione di progetto.
+
+1. Specificare i valori dei parametri per l'assegnazione del progetto:
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: Selezionare uno o più sottoscrizioni che si trovano nel gruppo di gestione salvato la copia dell'esempio al progetto. Se si seleziona più di una sottoscrizione, un'assegnazione verrà creata per ogni utilizzando i parametri immessi.
+     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ciascuna usando i parametri immessi.
      - **Nome dell'assegnazione**: Il nome è già popolato automaticamente in base al nome del progetto.
        Modificare in base alle esigenze o lasciare invariato.
-     - **Località**: Selezionare un'area per l'identità gestita da creare. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
+     - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
      - **Versione della definizione di progetto**: Selezionare una **Published** versione di una copia dell'esempio di progetto.
 
    - Blocca assegnazione
@@ -95,9 +95,9 @@ Dopo la copia dell'esempio di progetto è stato correttamente **Published**, pu�
 
    - Parametri dell'elemento
 
-     I parametri definiti in questa sezione si applicano all'elemento in cui è definito. Questi parametri sono [parametri dinamici](../../concepts/parameters.md#dynamic-parameters) poiché sono definiti durante l'assegnazione del progetto. Per un elenco completo o parametri dell'elemento e le relative descrizioni, vedere [tabella di parametri dell'elemento](#artifact-parameters-table).
+     I parametri definiti in questa sezione si applicano all'artefatto in cui sono definiti. Si tratta di [parametri dinamici](../../concepts/parameters.md#dynamic-parameters), in quanto vengono definiti durante l'assegnazione del progetto. Per un elenco completo o parametri dell'elemento e le relative descrizioni, vedere [tabella di parametri dell'elemento](#artifact-parameters-table).
 
-1. Dopo avere immesso tutti i parametri, selezionare **assegnare** nella parte inferiore della pagina. Viene creato l'assegnazione di progetto e dell'avvio della distribuzione dell'elemento. Distribuzione richiede circa un'ora. Per controllare lo stato della distribuzione, aprire l'assegnazione di progetto.
+1. Dopo avere immesso tutti i parametri, selezionare **Assegna** in fondo alla pagina. Viene creato l'assegnazione di progetto e dell'avvio della distribuzione dell'elemento. Distribuzione richiede circa un'ora. Per controllare lo stato della distribuzione, aprire l'assegnazione di progetto.
 
 > [!WARNING]
 > Il servizio di progetti di architetture di Azure e gli esempi di progetto predefinite siano **gratuito**. Risorse di Azure sono [i prezzi dipendono dal prodotto](https://azure.microsoft.com/en-us/pricing/). Usare la [calcolatore dei prezzi](https://azure.microsoft.com/pricing/calculator/) per stimare il costo delle risorse distribuite da questo esempio di progetto.
@@ -165,10 +165,10 @@ Ora che è stata esaminata la procedura per distribuire l'esempio di progetto di
 > [Progetto di servizi condivisi di ISO 27001 - Panoramica](./index.md)
 > [progetto di servizi condivisi di ISO 27001 - mapping di controllo](./control-mapping.md)
 
-Articoli di addizione su progetti e su come utilizzarle:
+Altri articoli sui progetti e su come usarli:
 
-- Scopri le [ciclo di vita del progetto](../../concepts/lifecycle.md).
+- Informazioni sul [ciclo di vita del progetto](../../concepts/lifecycle.md).
 - Informazioni su come usare [parametri statici e dinamici](../../concepts/parameters.md).
-- Informazioni su come personalizzare il [blueprint ordine sequenziazione](../../concepts/sequencing-order.md).
-- Scopri come rendere sfrutta [blueprint blocco delle risorse](../../concepts/resource-locking.md).
-- Informazioni su come [aggiornare le assegnazioni esistenti](../../how-to/update-existing-assignments.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](../../concepts/sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](../../concepts/resource-locking.md).
+- Informazioni su come [aggiornare assegnazioni esistenti](../../how-to/update-existing-assignments.md).
