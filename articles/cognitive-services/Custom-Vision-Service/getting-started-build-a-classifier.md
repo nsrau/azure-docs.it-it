@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088010"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886438"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Come creare un classificatore con Visione personalizzata
 
@@ -27,12 +27,12 @@ Per usare il Servizio visione artificiale personalizzato per la classificazione 
 - Un set di immagini con cui eseguire il training del classificatore. Per suggerimenti sulla scelta delle immagini, vedere di seguito.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creare risorse di Visione personalizzata nel portale di Azure
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creare le risorse di visione artificiale personalizzato nel portale di Azure
 Per usare il servizio Visione personalizzata, è necessario creare risorse di Training visione personalizzata e Stima nel [portale di Azure](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). Verrà creata una risorsa di training e stima. 
 
 ## <a name="create-a-new-project"></a>Creare un nuovo progetto
 
-Nel Web browser passare alla [pagina web Visione personalizzata](https://customvision.ai) e selezionare __Accedi__. Eseguire l'accesso con lo stesso account usato per accedere al portale di Azure.
+Nel Web browser passare alla [pagina web Visione personalizzata](https://customvision.ai) e selezionare __Accedi__. Accedere con lo stesso account usato per accedere al portale di Azure.
 
 ![Immagine della pagina di accesso](./media/browser-home.png)
 
@@ -43,8 +43,8 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 
 1. Immettere un nome e una descrizione per il progetto. Selezionare quindi un gruppo di risorse. Se l'account connesso è associato a un account Azure, l'elenco a discesa Gruppo di risorse visualizzerà tutti i gruppi di risorse di Azure che includono una risorsa Servizio visione artificiale personalizzato. 
 
-> [!NOTE]
-> Se non è disponibile nessun gruppo di risorse, verificare di avere eseguito l'accesso a [customvision.ai](https://customvision.ai) con lo stesso account usato per accedere al [portale di Azure](https://portal.azure.com/). Verificare inoltre di avere selezionato nel portale del servizio Visione personalizzata la stessa "Directory" di quella del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
+   > [!NOTE]
+   > Se nessun gruppo di risorse è disponibile, per confermare di aver effettuato [customvision.ai](https://customvision.ai) con lo stesso account è usato per accedere al [portale di Azure](https://portal.azure.com/). Verificare inoltre di avere selezionato nel portale del servizio Visione personalizzata la stessa "Directory" di quella del portale di Azure in cui si trovano le risorse di Visione personalizzata. In entrambi i siti è possibile selezionare la directory nel menu a discesa dell'account nell'angolo superiore destro dello schermo. 
 
 1. Selezionare __Classificazione__ in __Project Types__ (Tipi di progetto). In __Classification Types__ (Tipi di classificazione) scegliere quindi **Multilabel** (Multietichetta) o **Multiclass** (Multiclasse), a seconda del caso d'uso. La classificazione multietichetta applica un numero qualsiasi di tag a un'immagine (zero o più), mentre la classificazione multiclasse ordina le immagini in categorie singole (ogni immagine inviata verrà ordinata nel tag più probabile). Sarà possibile modificare il tipo di classificazione in un secondo momento, se necessario.
 
@@ -52,12 +52,12 @@ Nel Web browser passare alla [pagina web Visione personalizzata](https://customv
 
     |Domain|Scopo|
     |---|---|
-    |__Domande generiche__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico. |
-    |__Food__ (Cibo)|Ottimizzato per fotografie di piatti come nel menù di un ristorante. Se si vogliono classificare fotografie di singoli frutti o verdure, usare il dominio Food (Cibo).|
-    |__Landmarks__ (Luoghi di interesse)|Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Il dominio offre i migliori risultati quando il luogo di interesse è chiaramente visibile nella fotografia. Il dominio è efficace anche se il luogo è leggermente nascosto da utenti posti davanti.|
-    |__Retail__ (Vendita)|Ottimizzato per le immagini che si trovano in un catalogo di vendita o in un sito Web di vendita. Se si vogliono classificare con alta precisione vestiti, pantaloni e magliette o camicie, usare questo dominio.|
-    |__Adult__ (Adulti)|Ottimizzato per distinguere più in dettaglio contenuto per adulti e contenuto per non adulti. Ad esempio, se si vogliono bloccare le immagini che ritraggono persone in costume da bagno, questo dominio consente di creare appositamente un classificatore personalizzato.|
-    |__Domini compatti__| Ottimizzati per i vincoli di classificazione in tempo reale su dispositivi mobili. I modelli generati da domini compatti possono essere esportati per l'esecuzione in locale.|
+    |__Generico__| Ottimizzato per un'ampia gamma di attività di classificazione di immagini. Se nessuno degli altri domini risulta appropriato o si è in dubbio sul dominio da scegliere, selezionare il dominio generico. |
+    |__Food__|Ottimizzato per fotografie di piatti come nel menù di un ristorante. Se si vogliono classificare fotografie di singoli frutti o verdure, usare il dominio Food (Cibo).|
+    |__Punti di riferimento__|Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Il dominio offre i migliori risultati quando il luogo di interesse è chiaramente visibile nella fotografia. Il dominio è efficace anche se il luogo è leggermente nascosto da utenti posti davanti.|
+    |__Vendita al dettaglio__|Ottimizzato per le immagini che si trovano in un catalogo di vendita o in un sito Web di vendita. Se si vogliono classificare con alta precisione vestiti, pantaloni e magliette o camicie, usare questo dominio.|
+    |__Per adulti__|Ottimizzato per distinguere più in dettaglio contenuto per adulti e contenuto per non adulti. Ad esempio, se si vogliono bloccare le immagini che ritraggono persone in costume da bagno, questo dominio consente di creare appositamente un classificatore personalizzato.|
+    |__Domini di Compact__| Ottimizzati per i vincoli di classificazione in tempo reale su dispositivi mobili. I modelli generati da domini compatti possono essere esportati per l'esecuzione in locale.|
     
 1. Selezionare infine __Crea progetto__.
 
@@ -96,12 +96,7 @@ In questa sezione si caricheranno e si contrassegneranno manualmente le immagini
 
     ![L'indicatore di stato mostra tutte le attività completate.](./media/getting-started-build-a-classifier/add-images04.png)
 
-Per caricare un altro set di immagini, tornare all'inizio di questa sezione e ripetere i passaggi. A un certo punto del progetto, potrebbe essere necessario aggiungere _esempi negativi_ per rendere più preciso il classificatore. Gli esempi negativi sono quelli che non corrispondono a nessun altro tag. Quando si caricano queste immagini, applicarvi la speciale etichetta **Negative** (Negativa).
-
-> [!NOTE]
-> Il servizio Visione personalizzata supporta alcune operazioni di gestione automatica delle immagine negative. Se, ad esempio, si sta creando un classificatore di uva e banane e per la stima si invia l'immagine di una scarpa, il classificatore deve segnare un punteggio per quell'immagine più vicino possibile allo 0%, sia per l'uva che per le banane.
-> 
-> D'altra parte, nei casi in cui le immagini negative sono soltanto una variazione delle immagini usate nel training, è probabile che il modello classificherà le immagini negative come una classe con etichetta a causa delle molte analogie. Se, ad esempio, si ha un classificatore di arance e di pompelmi e si invia un'immagine di una clementina, è possibile che la clementina sia classificata come un'arancia perché molte sue caratteristiche sono simili a quelle delle arance. Se le immagini negative sono di questo tipo, è consigliabile creare uno o più tag aggiuntivi, ad esempio **Altro**, e assegnare un'etichetta alle immagini negative con questo tag durante il training per consentire al modello di distinguere meglio queste classi.
+Per caricare un altro set di immagini, tornare all'inizio di questa sezione e ripetere i passaggi.
 
 ## <a name="train-the-classifier"></a>Training del classificatore
 
@@ -138,5 +133,5 @@ Nel riquadro a sinistra è presente anche il pulsante **Elimina**, che consente 
 
 In questa guida è stato descritto come creare ed eseguire il training di un modello di classificazione immagini usando il sito Web di Visione personalizzata. È ora possibile ottenere altre informazioni sul processo iterativo per migliorare il modello.
 
-[Testare un modello e ripeterne il training](test-your-model.md)
+[Test e ripetere il training di un modello](test-your-model.md)
 

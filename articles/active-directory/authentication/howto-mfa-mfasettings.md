@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311765"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885996"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -34,7 +34,7 @@ Alcune di queste impostazioni si applicano al server MFA, ad Azure MFA o a entra
 | ------- | ----------- |
 | Blocco dell'account | Blocca temporaneamente gli account nel servizio di autenticazione a più fattori se si verificano troppi tentativi di autorizzazione negata di seguito. Questa funzionalità si applica solo agli utenti che effettuano l'autenticazione tramite PIN (server MFA). |
 | [Blocca/Sblocca utenti](#block-and-unblock-users) | Funzionalità usata per impedire a utenti specifici nel server MFA (locale) di ricevere richieste di Multi-Factor Authentication. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. |
-| [Avviso di illecito](#fraud-alert) | Permette di configurare le impostazioni correlate alla capacità degli utenti di segnalare le richieste di verifica illecite dal server MFA. |
+| [Avviso di illecito](#fraud-alert) | Configurare le impostazioni relative alla capacità degli utenti per segnalare le richieste di verifica illecito |
 | Notifiche | Abilita le notifiche degli eventi dal server MFA. |
 | [Token OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
 | [Impostazioni telefonata](#phone-call-settings) | Permette di configurare le impostazioni correlate a chiamate telefoniche e messaggi di saluto per gli ambienti cloud e locali. |
@@ -57,7 +57,7 @@ I report disponibili qui sono specifici per il server MFA (locale). Per i report
 
 ## <a name="block-and-unblock-users"></a>Bloccare e sbloccare utenti
 
-Usare la funzionalità per _bloccare/sbloccare utenti_ per evitare che gli utenti ricevano le richieste di autenticazione. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati. Questa funzionalità è specifica del server MFA (locale).
+Usare la funzionalità per _bloccare/sbloccare utenti_ per evitare che gli utenti ricevano le richieste di autenticazione. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti restano bloccati per 90 giorni dal momento in cui vengono bloccati.
 
 ### <a name="block-a-user"></a>Bloccare un utente
 
@@ -77,7 +77,7 @@ Usare la funzionalità per _bloccare/sbloccare utenti_ per evitare che gli utent
 
 ## <a name="fraud-alert"></a>Avviso di illecito
 
-Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle proprie risorse. Gli utenti possono segnalare i tentativi illeciti usando l'app per dispositivi mobili o il telefono. Questa funzionalità è specifica del server MFA (locale).
+Configurare la funzionalità di _avviso di illecito_ in modo che gli utenti possano segnalare i tentativi illeciti di accedere alle proprie risorse. Gli utenti possono segnalare i tentativi illeciti usando l'app per dispositivi mobili o il telefono.
 
 ### <a name="turn-on-fraud-alerts"></a>Attivare gli avvisi di illecito
 
@@ -391,4 +391,4 @@ Dopo aver abilitato la funzionalità Memorizza Multi-Factor Authentication, gli 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Modify Azure AD sign-in page branding](../fundamentals/customize-branding.md) (Modificare la personalizzazione della pagina di accesso di Azure AD)
+[Modifica personalizzazione pagina di accesso di Azure AD](../fundamentals/customize-branding.md)

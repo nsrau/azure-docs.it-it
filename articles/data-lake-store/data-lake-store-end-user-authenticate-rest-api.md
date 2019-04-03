@@ -3,20 +3,20 @@ title: "Autenticazione dell'utente finale: API REST con Gen1 di archiviazione di
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Azure Active Directory usando l'API REST
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: d5603bb6bbb56d1aebb719902c60de631a4f14f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: twooley
+ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58108189"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881444"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite API REST
 > [!div class="op_single_selector"]
@@ -86,6 +86,6 @@ Per altre informazioni sull'autenticazione utente interattiva, vedere [Flusso di
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo è stato descritto come usare l'autenticazione da servizio a servizio per eseguire l'autenticazione con Azure Data Lake Storage Gen1 usando l'API REST. È ora possibile leggere gli articoli seguenti per informazioni su come usare l'API REST in Azure Data Lake Storage Gen1.
 
-* [Operazioni di gestione di account in Data Lake Storage Gen1 con API REST](data-lake-store-get-started-rest-api.md)
-* [Operazioni dati in Data Lake Storage Gen1 con API REST](data-lake-store-data-operations-rest-api.md)
+* [Operazioni di gestione account in Data Lake archiviazione Gen1 usando l'API REST](data-lake-store-get-started-rest-api.md)
+* [Operazioni sui dati in Data Lake archiviazione Gen1 usando l'API REST](data-lake-store-data-operations-rest-api.md)
 

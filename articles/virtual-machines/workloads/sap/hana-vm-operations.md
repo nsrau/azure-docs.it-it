@@ -16,25 +16,25 @@ ms.workload: infrastructure
 ms.date: 12/04/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b1ed79e04bcca05dcb5308b844622e4dd413ce
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 6f60fdced25fdc594c28972f555bb28a9c629f21
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57410299"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878656"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure
 Questa guida contiene le indicazioni necessarie per configurare l'infrastruttura di Azure e gestire i sistemi SAP HANA distribuiti in macchine virtuali native di Azure. Il documento include anche informazioni sulla configurazione per lo scale-out di SAP HANA per lo SKU di VM M128s. Questo documento non deve sostituire la documentazione standard di SAP, che include:
 
 - [Guida all'amministrazione di SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [Guide all'installazione di SAP](https://service.sap.com/instguides)
-- [Note di SAP](https://sservice.sap.com/notes)
+- [Note su SAP](https://sservice.sap.com/notes)
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per usare questa guida sono necessarie conoscenze di base dei componenti di Azure seguenti:
 
 - [Macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
-- [Rete e reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
+- [La rete di Azure e le reti virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Archiviazione di Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
 Per altre informazioni su SAP NetWeaver e altri componenti SAP in Azure, vedere la sezione [SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) della [documentazione di Azure](https://docs.microsoft.com/azure/).
@@ -206,7 +206,7 @@ Quando si installano le macchine virtuali per l'esecuzione di SAP HANA, queste m
 >
 >
 
-Per le distribuzioni permanenti, è tuttavia necessario creare un'architettura di rete del data center virtuale in Azure. Con questa architettura è consigliabile separare il gateway di rete virtuale di Azure che si connette all'ambiente locale in una rete virtuale di Azure distinta. Questa rete virtuale separata deve ospitare tutto il traffico diretto all'ambiente locale o a Internet. Questo approccio consente di distribuire il software per il controllo e la registrazione del traffico che entra nel data center virtuale in Azure in questa rete virtuale dell'hub separata. Si avrà quindi una rete virtuale che ospita tutto il software e le configurazioni, correlata al traffico in ingresso e in uscita nella distribuzione di Azure.
+Per le distribuzioni permanenti, è tuttavia necessario creare un'architettura di rete del data center virtuale in Azure. Questa architettura si consiglia la separazione tra il Gateway di rete virtuale di Azure che si connette a un'istanza locale in una rete virtuale di Azure separato. Questa rete virtuale separata deve ospitare tutto il traffico che lascia l'azienda in locale o a internet. Questo approccio consente di distribuire il software per il controllo e la registrazione del traffico che entra nel data center virtuale in Azure in questa rete virtuale dell'hub separata. Si avrà quindi una rete virtuale che ospita tutto il software e le configurazioni, correlata al traffico in ingresso e in uscita nella distribuzione di Azure.
 
 Gli articoli [Data center virtuale di Microsoft Azure: una prospettiva di rete](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) e [Data center virtuale di Azure e piano di controllo aziendale](https://docs.microsoft.com/azure/architecture/vdc/) forniscono altre informazioni sull'approccio basato su data center virtuale e sulla struttura della rete virtuale di Azure correlata.
 
@@ -441,10 +441,10 @@ Come per lo scale-out di SAP HANA, la directory /hana/shared deve essere condivi
 
 ### <a name="links-to-dt-20-documentation"></a>Collegamenti alla documentazione di DT 2.0 
 
-- [SAP HANA Dynamic Tiering installation and update guide](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US) (Guida all'installazione e all'aggiornamento di SAP HANA Dynamic Tiering)
-- [SAP HANA Dynamic Tiering tutorials and resources](https://help.sap.com/viewer/fb9c3779f9d1412b8de6dd0788fa167b/2.0.03/en-US) (Esercitazioni e risorse di SAP HANA Dynamic Tiering)
-- [SAP HANA Dynamic Tiering PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/) (PoC di SAP HANA Dynamic Tiering)
-- [SAP HANA 2.0 SPS 02 dynamic tiering enhancements](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/) (Miglioramenti di SAP HANA 2.0 SPS 02 Dynamic Tiering)
+- [Guida all'installazione e aggiornamento SAP HANA dinamica la suddivisione in livelli](https://help.sap.com/viewer/88f82e0d010e4da1bc8963f18346f46e/2.0.03/en-US)
+- [Risorse ed esercitazioni di SAP HANA dinamica la suddivisione in livelli](https://help.sap.com/viewer/fb9c3779f9d1412b8de6dd0788fa167b/2.0.03/en-US)
+- [SAP HANA dinamica suddivisione in livelli dell'architettura PoC](https://blogs.sap.com/2017/12/08/sap-hana-dynamic-tiering-delivering-on-low-tco-with-impressive-performance/)
+- [Miglioramenti di suddivisione in livelli dinamici di SAP HANA 2.0 SPS 02](https://blogs.sap.com/2017/07/31/sap-hana-2.0-sps-02-dynamic-tiering-enhancements/)
 
 
 
@@ -457,7 +457,7 @@ I documenti seguenti descrivono come eseguire il backup e il ripristino della di
 
 - [Panoramica del backup di SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-guide)
 - [Backup di SAP HANA a livello di file](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-file-level)
-- [Backup degli snapshot di archiviazione di SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
+- [Backup degli snapshot di archiviazione SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-backup-storage-snapshots)
 
 
 ### <a name="start-and-restart-vms-that-contain-sap-hana"></a>Avviare e riavviare le macchine virtuali che contengono SAP HANA

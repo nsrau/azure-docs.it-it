@@ -3,21 +3,21 @@ title: Creare cluster HDInsight con Azure Data Lake Storage Gen1 come risorsa di
 description: Usare Azure PowerShell per creare e usare cluster HDInsight con Azure Data Lake Storage Gen1
 services: data-lake-store,hdinsight
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 8917af15-8e37-46cf-87ad-4e6d5d67ecdb
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 84bed7031307316545cc8e468196c6b12cde7bb7
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 9daa7fc15ecbb4065c8d26bb5cefa27f17f66f4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237062"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878265"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-as-default-storage-by-using-powershell"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 come risorsa di archiviazione predefinita usando PowerShell
 
@@ -254,8 +254,8 @@ Dopo avere stabilito la connessione,visualizzare l'elenco dei file in Data Lake 
 È anche possibile usare il comando `hdfs dfs -put` per caricare alcuni file in Data Lake Storage Gen1 e quindi usare `hdfs dfs -ls` per verificare se i file sono stati caricati correttamente.
 
 ## <a name="see-also"></a>Vedere anche 
-* [Usare Data Lake Storage Gen1 con cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
-* [Portale di Azure: Creare un cluster HDInsight per usare Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Usare Data Lake Storage Gen1 con i cluster Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)
+* [Portale di Azure: Creare un cluster HDInsight per usare Data Lake archiviazione Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 
 [makecert]: https://msdn.microsoft.com/library/windows/desktop/ff548309(v=vs.85).aspx
 [pvk2pfx]: https://msdn.microsoft.com/library/windows/desktop/ff550672(v=vs.85).aspx

@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Informazioni sui gruppi di sicurezza di rete e delle applicazioni. I gruppi di sicurezza consentono di filtrare il traffico di rete tra le risorse di Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
-ms.author: jdial
-ms.openlocfilehash: b90087221de71ca7f627b9ea1717b423cfcf457b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: malop;kumud
+ms.openlocfilehash: 9d45f3a7d20545ac7b66d27505078f21f06adddc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535717"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881852"
 ---
 # <a name="security-groups"></a>Gruppi di sicurezza
 <a name="network-security-groups"></a>
@@ -210,7 +210,7 @@ Per il traffico in uscita, Azure elabora prima le regole di un gruppo di sicurez
 Le regole di aggregazione applicate a un'interfaccia di rete possono essere verificate facilmente visualizzando le [regole di sicurezza effettive](virtual-network-network-interface.md#view-effective-security-rules) per un'interfaccia di rete. È anche possibile usare la funzionalità di [verifica del flusso IP](../network-watcher/diagnose-vm-network-traffic-filtering-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) in Azure Network Watcher per determinare se è consentita la comunicazione da o verso un'interfaccia di rete. La verifica del flusso IP indica se la comunicazione è consentita o negata e quale regola di sicurezza di rete consente o nega il traffico.
 
 > [!NOTE]
-> I gruppi di sicurezza di rete sono associati a subnet oppure a macchine virtuali e servizi cloud distribuiti con il modello di distribuzione classica, anziché a interfacce di rete nel modello di distribuzione Resource Manager. Per altre informazioni in proposito, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+> Gruppi di sicurezza di rete sono associati a subnet o alle macchine virtuali e servizi cloud distribuiti nel modello di distribuzione classica e a subnet o interfacce di rete nel modello di distribuzione Resource Manager. Per altre informazioni in proposito, vedere le [informazioni sui modelli di distribuzione di Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 > [!TIP]
 > A meno che non ci siano motivi specifici, è consigliabile associare un gruppo di sicurezza di rete a una subnet o a un'interfaccia di rete, ma non a entrambe. Dato che le regole di un gruppo di sicurezza di rete associato a una subnet possono entrare in conflitto con quelle di un gruppo di sicurezza di rete associato a un'interfaccia di rete, è possibile che si verifichino problemi di comunicazione imprevisti che devono essere risolti.

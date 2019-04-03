@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802797"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878724"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Elenco di controllo per la pianificazione e la distribuzione di carichi di lavoro SAP in Azure 
 
@@ -39,7 +39,7 @@ In questa fase viene pianificata una migrazione del carico di lavoro SAP nel clo
     2. Creazione e analisi di una matrice di assegnazione delle responsabilità, che definisce le responsabilità e le assegnazioni delle varie parti coinvolte. Iniziare in modo generale e passare quindi a livelli sempre più granulari attraverso le fasi di pianificazione e distribuzione preliminare
     2. Un'architettura di alto livello della soluzione
     3. Informazioni sulla scelta delle aree di Azure in cui eseguire la distribuzione. Per l'elenco delle aree di Azure, vedere [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). Per i servizi disponibili in ognuna delle aree di Azure, vedere l'articolo [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/)
-    4. Architettura di rete per la connessione dall'ambiente locale ad Azure. Per iniziare ad acquisire familiarità, vedere [Data center virtuale di Azure e piano di controllo aziendale](https://docs.microsoft.com/azure/architecture/vdc/)
+    4. Architettura per la connessione da locale ad Azure di rete. Per iniziare ad acquisire familiarità, vedere [Data center virtuale di Azure e piano di controllo aziendale](https://docs.microsoft.com/azure/architecture/vdc/)
     5. Principi di sicurezza per l'esecuzione di dati con impatto aziendale elevato in Azure. Per informazioni di riferimento, iniziare con [Documentazione sulla sicurezza di Azure](https://docs.microsoft.com/azure/security/)
 2.  Documento di progettazione tecnica, che contiene:
     1.  Un diagramma a blocchi della soluzione 
@@ -50,7 +50,7 @@ In questa fase viene pianificata una migrazione del carico di lavoro SAP nel clo
         2.  Nota di supporto SAP [2039619](https://launchpad.support.sap.com/#/notes/2039619). La nota definisce la matrice di supporto di Oracle in Azure. Tenere presente che Oracle supporta solo Windows e Oracle Linux come sistema operativo guest in Azure per carichi di lavoro SAP. Questa informativa sul supporto è applicabile per il livello applicazione SAP che esegue anche istanze di SAP. Oracle, tuttavia, non supporta la disponibilità elevata per SAP Central Services in Oracle Linux tramite Pacemaker. Se è necessaria la disponibilità elevata per ASCS in Oracle Linux, è necessario usare SIOS Protection Suite for Linux. Per i dati di certificazione SAP dettagliati, vedere la nota del supporto SAP [#1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610) (N. 1662610 - Dettagli di supporto per SIOS Protection Suite for Linux). Per Windows, la soluzione di failover del cluster di failover Windows con supporto SAP è supportata solo in combinazione con Oracle come livello DBMS. 
         3.  Nota di supporto SAP [2235581](https://launchpad.support.sap.com/#/notes/2235581) per ottenere la matrice di supporto SAP HANA nelle diverse versioni di sistema operativo
         4.  Le [istanze Large di HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) e le macchine virtuali di Azure supportate da SAP HANA sono elencate [qui](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
-        5.  [Product Availability Matrix (PAM) SAP](https://support.sap.com/en/)
+        5.  [SAP Product Availability Matrix](https://support.sap.com/en/)
         6.  Altre note SAP relative ad altri prodotti specifici di SAP  
     5.  È consigliabile rispettare rigorosamente la progettazione a 3 livelli per i sistemi di produzione SAP. La combinazione di server ASCS + APP nella stessa macchina virtuale non è consigliata.  L'uso di configurazioni di cluster multi-SID per SAP Central Services è supportato con Windows come sistema operativo guest in Azure. Queste configurazioni non sono invece supportate con i sistemi operativi Linux in Azure. Documentazione per il caso di Windows come sistema operativo guest sono reperibili negli articoli seguenti:
         1.  [Disponibilità elevata multi-SID dell'istanza SAP ASCS/SCS con Windows Server Failover Clustering e i dischi condivisi in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -72,13 +72,13 @@ In questa fase viene pianificata una migrazione del carico di lavoro SAP nel clo
     2.  Topologia di rete all'interno di Azure e assegnazione di diversi sistemi SAP
     3.  Struttura degli [accessi in base al ruolo](https://docs.microsoft.com/azure/role-based-access-control/overview) per i diversi team che gestiscono l'infrastruttura e le applicazioni SAP in Azure
     3.  Topologia dei gruppi di risorse 
-    4.  [Strategia di assegnazione dei tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
+    4.  [Strategia di assegnazione di tag](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
     5.  Convenzione di denominazione per le macchine virtuali e altri componenti e/o nomi logici dell'infrastruttura
 5.  Contratto di supporto tecnico Premier Microsoft: identificare il Microsoft Technical Account Manager (TAM). Per i requisiti del supporto di SAP, leggere la nota di supporto SAP [2015553](https://launchpad.support.sap.com/#/notes/2015553) 
 6.  Definire il numero di sottoscrizioni di Azure e la quota di core per le diverse sottoscrizioni. [Aprire richieste di supporto per aumentare le quote delle sottoscrizioni di Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) in base alle esigenze 
 7.  Piano di riduzione e migrazione dei dati per la migrazione dei dati SAP in Azure. Per i sistemi SAP NetWeaver, SAP include linee guida su come mantenere limitato il volume di un numero elevato di dati. SAP ha pubblicato [questa guida di approfondimento](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) sulla gestione dei dati nei sistemi SAP ERP. Alcuni contenuti, tuttavia, si applicano ai sistemi NetWeaver e S/4HANA in generale.
 8.  Definire l'approccio da adottare per la distribuzione automatizzata. L'obiettivo dell'automazione per le distribuzioni di infrastruttura in Azure è quello di distribuire in modo deterministico e ottenere risultati deterministici. Molti clienti usano script basati su Power Shell o sull'interfaccia della riga di comando. Esistono tuttavia varie tecnologie open source che possono essere usate per distribuire l'infrastruttura di Azure per SAP e anche installare il software SAP. Sono disponibili esempi in GitHub:
-    1.  [Distribuzioni SAP automatizzate nel cloud di Azure](https://github.com/Azure/sap-hana)
+    1.  [Distribuzioni SAP automatizzati nel Cloud di Azure](https://github.com/Azure/sap-hana)
     2.  [Installazione di SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Definire un piano per verificare con frequenza regolare la progettazione e la distribuzione insieme all'integratore di sistemi, a Microsoft e a eventuali altre parti coinvolte
 
@@ -87,7 +87,7 @@ In questa fase viene pianificata una migrazione del carico di lavoro SAP nel clo
  
 La fase pilota può essere eseguita prima della fase di pianificazione e preparazione del progetto o in parallelo con essa. Questa fase può anche usata per testare approcci e scelte di progettazione adottati durante la fase di pianificazione e preparazione. La fase pilota può essere estesa fino a diventare un vero e proprio modello di verifica. Durante una distribuzione pilota è consigliabile configurare e convalidare una soluzione completa di disponibilità elevata e ripristino di emergenza e la progettazione di un sistema di sicurezza. In alcuni casi, i clienti possono eseguire anche test di scalabilità in questa fase. Altri clienti usano la distribuzione dei sistemi sandbox SAP come fase pilota. Si presuppone quindi che sia stato identificato un sistema di cui eseguire la migrazione in Azure allo scopo di implementare una fase pilota.
 
-1. Ottimizzare il trasferimento dei dati in Azure. In base a quanto segnalato da alcuni clienti, il trasferimento attraverso [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) dal sistema locale è più rapido se il circuito Express dispone di larghezza di banda sufficiente. Per altri clienti, il passaggio attraverso Internet risulta più veloce
+1. Ottimizzare il trasferimento dei dati in Azure. Dipende molto dal trasferimento di casi dei clienti attraverso [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) in locale è stata più rapida se il circuito Express dispone di larghezza di banda sufficiente. Per altri clienti, il passaggio attraverso Internet risulta più veloce
 2. Nel caso di una migrazione di piattaforme SAP eterogenee, che implica un'esportazione e un'importazione dei dati del database, testare e ottimizzare le fasi di esportazione e importazione. Per le migrazioni di grandi dimensioni, con SQL Server come piattaforma di destinazione, sono disponibili consigli in [questo post di blog](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). È possibile adottare l'approccio di Migration Monitor/SWPM nel caso in cui non sia necessario un aggiornamento combinato delle versioni oppure usare il processo di [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) quando si combina la migrazione con un aggiornamento delle versioni SAP rispettando determinate combinazioni delle piattaforme DBMS di origine e destinazione, come descritto ad esempio in [Database Migration Option (DMO) of SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152) (Opzione di migrazione del database di SUM 2.0 SP03). 
    1.  Esportazione nell'origine, caricamento dei file di esportazione in Azure e prestazioni dell'importazione.  Ottimizzare la sovrapposizione tra esportazione e importazione
    2.  Valutare il volume del database tra la piattaforma di destinazione e quella di origine in modo da usare questa valutazione per il dimensionamento dell'infrastruttura    
@@ -159,7 +159,7 @@ La fase pilota può essere eseguita prima della fase di pianificazione e prepara
 6. Test delle prestazioni
    1.  Nei dati di SAP relativi alle tracce e alle misurazioni, confrontare i migliori 10 report online con l'implementazione corrente, se applicabile 
    2.  Nei dati di SAP relativi alle tracce e alle misurazioni, confrontare i migliori 10 processi batch con l'implementazione corrente, se applicabile 
-   3.  Nei dati di SAP relativi alle tracce e alle misurazioni, confrontare i trasferimenti dei dati nel sistema SAP attraverso le interfacce. Prestare particolare attenzione alle interfacce in cui è noto che il trasferimento avvenga tra posizioni diverse, ad esempio dal sistema locale ad Azure 
+   3.  Nei dati di SAP relativi alle tracce e alle misurazioni, confrontare i trasferimenti dei dati nel sistema SAP attraverso le interfacce. Concentrarsi sulle interfacce in cui si sa che il trasferimento venga indirizzato tra posizioni diverse, come passare da locale ad Azure 
 
 
 ## <a name="non-production-phase"></a>Fase non di produzione 
@@ -270,7 +270,7 @@ Le attività di questa fase riguardano principalmente il monitoraggio, il funzio
 ## <a name="next-steps"></a>Fasi successive
 Consultare la documentazione:
 
-- [Guida alla pianificazione e all'implementazione di Macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
-- [Distribuzione di Macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
+- [Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide)
+- [Distribuzione di Macchine virtuali di Microsoft Azure per SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/deployment-guide)
 - [Considerazioni sulla distribuzione DBMS di macchine virtuali di Azure per un carico di lavoro SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

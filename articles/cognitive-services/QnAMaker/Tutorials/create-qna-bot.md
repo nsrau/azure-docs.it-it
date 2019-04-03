@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095212"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879611"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Esercitazione: Creare un bot QnA con il servizio Azure Bot v3
 
@@ -25,7 +25,7 @@ Questa esercitazione illustra in modo guidato la compilazione di un bot QnA con 
 > [!Note] 
 > Questo argomento si riferisce alla versione 3 dell'SDK di Bot. La versione 4 è disponibile [qui](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
 
-**In questa esercitazione si imparerà come:**
+**In questa esercitazione si apprenderà come:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
@@ -105,6 +105,12 @@ Nel portale di Azure selezionare **Test in Web Chat** (Testa nella chat Web) per
 
 Il bot QnA risponde dalla knowledge base.
 
+## <a name="related-to-qna-maker-bots"></a>Correlati a Bot QnA Maker
+
+* Il bot della Guida di QnA Maker, usato nel portale di QnA Maker, è disponibile come una [esempio di bot](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![QnA Maker help bot icona è rossa robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Assistenza sanitario BOT](https://docs.microsoft.com/HealthBot/qna_model_howto) Usa QnA Maker come uno dei relativi [modelli di lingua](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Dopo aver terminato il bot dell'esercitazione, rimuovere il bot nel portale di Azure. I servizi bot includono:
@@ -118,9 +124,9 @@ Dopo aver terminato il bot dell'esercitazione, rimuovere il bot nel portale di A
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Concetto: knowledge base](../concepts/knowledge-base.md)
+> [Concetto: articolo della knowledge base](../concepts/knowledge-base.md)
 
 ## <a name="see-also"></a>Vedere anche 
 
 - [Gestire la knowledge base](https://qnamaker.ai)
-- [Abilitare i bot nei diversi canali](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [Abilitare il bot in canali differenti](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

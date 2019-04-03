@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094661"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883921"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Esercitazione su Integrazione log di Azure: Elaborare gli eventi di Azure Key Vault tramite Hub eventi
 
@@ -43,9 +43,9 @@ Le informazioni offerte consentono di comprendere i motivi di ogni passaggio. I 
 
 Per altre informazioni sui servizi citati in questa esercitazione, vedere: 
 
-- [Insieme di credenziali chiave Azure](../key-vault/key-vault-whatis.md)
+- [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Hub eventi di Azure](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Integrazione dei log di Azure](security-azure-log-integration-overview.md)
+- [Integrazione Log di Azure](security-azure-log-integration-overview.md)
 
 
 ## <a name="initial-setup"></a>Configurazione iniziale
@@ -89,13 +89,13 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
 1. Al termine dell'autenticazione, è connessi. Annotare l'ID e il nome della sottoscrizione, necessari per completare i passaggi successivi.
 
 1. Creare variabili per archiviare i valori che verranno usati successivamente. Immettere ognuna delle seguenti righe di PowerShell. Potrebbe essere necessario regolare i valori per adattarli all'ambiente.
-    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
-    - ```$location = 'West US'``` (Verrà usata questa variabile per passare la posizione in cui si devono creare le risorse. È possibile modificare questa variabile con qualsiasi località di propria scelta.
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (Il nome della sottoscrizione potrebbe essere diverso. È possibile visualizzarlo come parte dell'output del comando precedente.
+    - ```$location = 'West US'``` (Questa variabile verrà usata per passare il percorso in cui le risorse devono essere create. È possibile modificare questa variabile con qualsiasi località di propria scelta.
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` Si può indicare qualsiasi nome, ma deve contenere solo numeri e lettere minuscole.
-    - ``` $storageName = $name``` Questa variabile verrà usata per il nome dell'account di archiviazione.
-    - ```$rgname = $name ``` Questa variabile verrà usata per il nome del gruppo di risorse.
-    - ``` $eventHubNameSpaceName = $name``` Nome dello spazio dei nomi dell'hub eventi.
+    - ```$name = 'azlogtest' + $random``` (Il nome può contenere qualsiasi elemento, ma deve contenere solo lettere minuscole e numeri).
+    - ```$storageName = $name``` (Verrà utilizzata questa variabile per il nome di account di archiviazione).
+    - ```$rgname = $name``` (Verrà utilizzata questa variabile per il nome del gruppo di risorse).
+    - ```$eventHubNameSpaceName = $name``` (Si tratta del nome dello spazio dei nomi dell'hub eventi).
 1. Specificare la sottoscrizione che si userà:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -114,7 +114,7 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Ottenere l'ID della regola che verrà usato con il provider di informazioni:
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Ottenere tutte le possibili posizioni di Azure e aggiungere i nomi a una variabile che può essere usata in un passaggio successivo:
     
     a. ```$locationObjects = Get-AzLocation```    
@@ -128,7 +128,7 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
     Per altre informazioni sui profili log di Azure, vedere [Panoramica del log attività di Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> È possibile ricevere un messaggio di errore quando si tenta di creare un profilo di log. È quindi possibile esaminare la documentazione di Get-AzLogProfile e Remove-AzLogProfile. Se si esegue Get-AzLogProfile, verranno visualizzate informazioni sul profilo di log. È possibile eliminare il profilo di log esistente immettendo il comando ```Remove-AzLogProfile -name 'Log Profile Name' ```.
+> È possibile ricevere un messaggio di errore quando si tenta di creare un profilo di log. È quindi possibile esaminare la documentazione di Get-AzLogProfile e Remove-AzLogProfile. Se si esegue Get-AzLogProfile, verranno visualizzate informazioni sul profilo di log. È possibile eliminare il profilo di log esistente immettendo il comando ```Remove-AzLogProfile -name 'Log Profile Name'```.
 >
 >![Errore del profilo di Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -136,11 +136,11 @@ Per poter completare la procedura descritta in questo articolo, è necessario qu
 
 1. Creare l'insieme di credenziali delle chiavi:
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Configurare la registrazione per l'insieme di credenziali delle chiavi:
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## <a name="generate-log-activity"></a>Generare l'attività di log
 
@@ -157,7 +157,8 @@ Le richieste devono essere inviate a Key Vault per generare l'attività dei log.
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Impostare e leggere un segreto per generare voci di log aggiuntive:
     
-   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+   a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Segreto restituito](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -169,7 +170,7 @@ Dopo aver configurato tutti gli elementi necessari per la registrazione di Key V
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Eseguire il comando AzLog per ogni hub eventi:
 
@@ -180,6 +181,6 @@ Dopo circa un minuto di esecuzione degli ultimi comandi, verranno visualizzati i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Domande frequenti su Integrazione dei log di Azure](security-azure-log-integration-faq.md)
-- [Introduzione all'integrazione dei log di Azure](security-azure-log-integration-get-started.md)
-- [Integrare i log delle risorse di Azure nei sistemi SIEM](security-azure-log-integration-overview.md)
+- [Domande frequenti sull'integrazione dei log di Azure](security-azure-log-integration-faq.md)
+- [Introduzione a integrazione Log di Azure](security-azure-log-integration-get-started.md)
+- [Integrare i log dalle risorse di Azure nei sistemi SIEM](security-azure-log-integration-overview.md)

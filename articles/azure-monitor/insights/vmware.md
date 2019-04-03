@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
-ms.openlocfilehash: ece6c7048100a8204bfc067d9d57854b1d83c9b6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eac6a27c3bcf64462a9f3d9a57da6df736f30c78
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074914"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883276"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Soluzione monitoraggio VMware (deprecato) in Monitoraggio di Azure
 
@@ -186,20 +186,20 @@ Possono esserci diversi motivi:
 
 * L'host ESXi non esegue correttamente il pushing dei dati della VM che esegue l'agente OMS. Per eseguire un test, seguire questa procedura:
 
-  1. Per confermare, accedere all'host ESXi tramite connessione SSH ed eseguire il comando seguente: `nc -z ipaddressofVM 1514`
+  1. Per confermare, accedere all'host ESXi usando ssh ed eseguire il comando seguente: `nc -z ipaddressofVM 1514`
 
       Se il problema persiste, probabilmente le impostazioni di vSphere nella configurazione avanzata non sono corrette. Per informazioni sulla configurazione dell'host ESXi per l'inoltro nel SysLog, vedere come [configurare la raccolta nel SysLog](#configure-syslog-collection).
-  1. Se la porta SysLog è connessa, ma non vengono comunque visualizzati dati, ricaricare il SysLog dell'host ESXi usando la connessione SSH per eseguire il comando seguente: ` esxcli system syslog reload`
+  1. Se la porta syslog ha esito positivo, ma non vengono comunque visualizzati tutti i dati, quindi ricaricare il syslog dell'host ESXi usando ssh per eseguire il comando seguente: `esxcli system syslog reload`
 * La macchina virtuale con l'agente di Log Analytics non è impostata correttamente. Per effettuare un test, eseguire i passaggi seguenti:
 
-  1. Log Analytics è in ascolto sulla porta 1514. Per verificare che sia aperta, usare il comando seguente: `netstat -a | grep 1514`
+  1. Log Analytics è in ascolto sulla porta 1514. Per verificare che sia aperta, eseguire il comando seguente: `netstat -a | grep 1514`
   1. La porta `1514/tcp` dovrebbe risultare aperta. In caso contrario, verificare che l'agente OMS sia installato correttamente. Se non è possibile visualizzare le informazioni sulla porta SysLog nella VM, significa che non è aperta.
 
-     a. Verificare che l'agente di Log Analytics sia in esecuzione usando `ps -ef | grep oms`. Se non è in esecuzione, avviare il processo eseguendo il comando ` sudo /opt/microsoft/omsagent/bin/service_control start`
+    a. Verificare che l'agente di Log Analytics sia in esecuzione usando `ps -ef | grep oms`. Se non è in esecuzione, avviare il processo eseguendo il comando `sudo /opt/microsoft/omsagent/bin/service_control start`
 
      b. Aprire il file `/etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf` .
 
-     c. Verificare che l'impostazione di gruppo e utente sia valida e appropriata, come nella stringa seguente: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
+     c. Verificare che l'impostazione di gruppo e utente appropriata sia valido, in modo analogo a: `-rw-r--r-- 1 omsagent omiusers 677 Sep 20 16:46 vmware_esxi.conf`
 
      d. Se il file non esiste o l'impostazione di utente e gruppo non è corretta, provvedere all'azione correttiva come descritto in [Preparazione di un server Linux](#prepare-a-linux-server).
 

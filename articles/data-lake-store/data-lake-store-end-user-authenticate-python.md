@@ -3,20 +3,20 @@ title: "Autenticazione dell'utente finale: Python con Azure Data Lake archiviazi
 description: Informazioni su come ottenere l'autenticazione dell'utente finale con Azure Data Lake Storage Gen1 con Azure Active Directory tramite Python
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2e8859667e3a69f51ae23bab0487bf15d9eeeab6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 8b72604d7e736230911d0a0987b88d372be4ddf3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537185"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881280"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticazione dell'utente finale con Azure Data Lake Storage Gen1 tramite Python
 > [!div class="op_single_selector"]
@@ -118,6 +118,6 @@ Deprecato. Per altre informazioni, vedere [Autenticazione con Python SDK](https:
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo si è appreso come usare l'autenticazione dell'utente finale per eseguire l'autenticazione con Azure Data Lake Storage Gen1 usando Python. È ora possibile leggere gli articoli seguenti per informazioni su come usare Python in Azure Data Lake Storage Gen1.
 
-* [Operazioni di gestione di account in Data Lake Storage Gen1 con Phyton](data-lake-store-get-started-python.md)
-* [Operazioni dati in Data Lake Storage Gen1 con Python](data-lake-store-data-operations-python.md)
+* [Operazioni di gestione account in Data Lake archiviazione Gen1 con Python](data-lake-store-get-started-python.md)
+* [Operazioni sui dati in Data Lake archiviazione Gen1 con Python](data-lake-store-data-operations-python.md)
 

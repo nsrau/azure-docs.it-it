@@ -4,18 +4,18 @@ description: Informazioni sulle procedure consigliate per l'inserimento dati, la
 services: data-lake-store
 documentationcenter: ''
 author: sachinsbigdata
-manager: jhubbard
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: 53af7ff840f9d04f0e09010b72e9eefc32a8eadd
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 7e120980ed1379fb4ea18bca9f1e84938964cac5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961891"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882819"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Procedure consigliate per l'uso di Azure Data Lake Storage Gen1
 
@@ -101,9 +101,9 @@ Di seguito sono illustrate le tre principali opzioni consigliate per l'orchestra
 |  |Distcp  |Data factory di Azure  |AdlCopy  |
 |---------|---------|---------|---------|
 |**Limiti di scalabilità**     | Limiti definiti dai nodi di lavoro        | Limiti definiti dal numero massimo di unità di spostamento dei dati cloud        | Limiti definiti dalle unità di analisi        |
-|**Supporto per la copia delta**     |   Sì      | No          | No          |
+|**Supporta la copia delta**     |   Sì      | No          | No          |
 |**Orchestrazione predefinita**     |  No (usare i processi CRON o Oozie Airflow)       | Sì        | No (usare Automazione di Azure o Utilità di pianificazione di Windows)         |
-|**File system supportati**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosi, vedere [Connettori](../data-factory/connector-azure-blob-storage.md).         | Da ADL ad ADL, da WASB ad ADL (solo nella stessa area)        |
+|**File System supportati**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerosi, vedere [Connettori](../data-factory/connector-azure-blob-storage.md).         | Da ADL ad ADL, da WASB ad ADL (solo nella stessa area)        |
 |**Supporto del sistema operativo**     |Qualsiasi sistema operativo che esegue Hadoop         | N/D          | Windows 10         |
 
 ### <a name="use-distcp-for-data-movement-between-two-locations"></a>Usare Distcp per lo spostamento dei dati tra due posizioni
@@ -182,10 +182,10 @@ Nel caso comune di dati batch elaborati direttamente in database, come Hive o i 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica di Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Controllo di accesso di Azure Data Lake Storage Gen1](data-lake-store-access-control.md)
-* [Sicurezza di Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
+* [Controllo degli accessi in Azure Data Lake Store Gen1](data-lake-store-access-control.md)
+* [Sicurezza in Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 * [Ottimizzazione delle prestazioni di Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-guidance.md)
-* [Linee guida per l'ottimizzazione delle prestazioni per l'uso di Spark in HDInsight con Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-spark.md)
-* [Linee guida per l'ottimizzazione delle prestazioni per l'uso di Hive in HDInsight con Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-hive.md)
-* [Orchestrazione dei dati usando Azure Data Factory per Azure Data Lake Storage Gen1](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Creare cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Linee guida per l'uso di HDInsight Spark con Azure Data Lake archiviazione Gen1 l'ottimizzazione delle prestazioni](data-lake-store-performance-tuning-spark.md)
+* [Linee guida per l'uso di Hive di HDInsight con Azure Data Lake archiviazione Gen1 l'ottimizzazione delle prestazioni](data-lake-store-performance-tuning-hive.md)
+* [Orchestrazione dei dati usando Azure Data Factory di Azure Data Lake archiviazione Gen1](https://mix.office.com/watch/1oa7le7t2u4ka)
+* [Creare un cluster HDInsight con Data Lake archiviazione Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

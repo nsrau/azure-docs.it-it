@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319881"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877807"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>Creare la prima funzione di Azure con Java e IntelliJ (anteprima)
-
-> [!NOTE]
-> Java per Funzioni di Azure è attualmente in versione di anteprima.
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Creare la prima funzione di Azure con Java e IntelliJ
 
 Questo articolo illustra:
 - Come creare un progetto di funzione [senza server](https://azure.microsoft.com/overview/serverless-computing/) con IntelliJ IDEA e Apache Maven
@@ -55,8 +52,8 @@ Per sviluppare una funzione con Java e IntelliJ, installare il software seguente
 1. Nella finestra **Add Archetype** (Aggiungi archetipo) completare i campi come indicato di seguito:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Versione_: usare la versione più recente disponibile nel [repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Creare un progetto Maven dall'archetipo in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Versione_: Usare la versione più recente dal [il repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![creare un progetto Maven da archetipo in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Selezionare **OK**, quindi **Avanti**.
 1. Immettere i dettagli relativi al progetto corrente e selezionare **Finish** (Fine).
 
@@ -71,7 +68,7 @@ Maven crea i file di progetto in una nuova cartella a cui viene assegnato lo ste
 1. Aprire la barra degli strumenti **Maven Projects** (Progetti Maven).
 1. Espandere **Lifecycle** (Ciclo di vita) e quindi aprire **package** (pacchetto). La soluzione viene compilata e inserita in un pacchetto all'interno di una directory di destinazione appena creata.
 1. Espandere **Plugins** (Plugin)  > **azure-functions** e aprire **azure-functions:run** per avviare il runtime locale di Funzioni di Azure.  
-  ![Barra degli strumenti Maven per Funzioni di Azure](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![Barra degli strumenti di Maven per le funzioni di Azure](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. Dopo avere testato la funzione, chiudere la finestra di dialogo di esecuzione. Può essere attivo e in esecuzione in locale un solo host di funzioni alla volta.
 

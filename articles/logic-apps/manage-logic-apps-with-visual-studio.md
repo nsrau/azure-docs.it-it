@@ -1,26 +1,25 @@
 ---
-title: Gestire le app per la logica con Visual Studio - App per la logica di Azure | Microsoft Docs
+title: Gestire le App per la logica con Visual Studio - App per la logica di Azure
 description: Gestire le app per la logica e altri asset di Azure con Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/02/2019
+ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519732"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862744"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Gestire le app per la logica con Visual Studio
 
-Benché sia possibile creare, modificare, gestire e distribuire app per la logica nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, è anche possibile usare Visual Studio quando si vogliono aggiungere app per la logica al controllo del codice sorgente, pubblicare versioni diverse e creare modelli di [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) per ambienti di distribuzione differenti. Con Visual Studio Cloud Explorer, è possibile trovare e gestire app per la logica e altre risorse di Azure. Ad esempio, è possibile aprire, scaricare, modificare, eseguire, visualizzare la cronologia di esecuzione, disabilitare e abilitare app per la logica che sono già state distribuite nel portale di Azure. Se non si ha familiarità con l'uso di App per la logica di Azure in Visual Studio, scoprire come [creare app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Sebbene sia possibile creare, modificare, gestire e distribuire le App per la logica nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>, è anche possibile usare Visual Studio quando si desidera aggiungere delle App per la logica per il controllo del codice sorgente, pubblicare versioni diverse e creare [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) modelli per diversi ambienti di distribuzione. Con Visual Studio Cloud Explorer, è possibile trovare e gestire app per la logica e altre risorse di Azure. Ad esempio, è possibile aprire, scaricare, modificare, eseguire, visualizzare la cronologia di esecuzione, disabilitare e abilitare app per la logica che sono già state distribuite nel portale di Azure. Se non si ha familiarità con l'uso di App per la logica di Azure in Visual Studio, scoprire come [creare app per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Se si distribuisce o si pubblica un'app per la logica da Visual Studio, la versione di tale app nel portale di Azure verrà sovrascritta. Pertanto, se si apportano modifiche nel portale di Azure che si vuole mantenere, assicurarsi di [aggiornare l'app per la logica in Visual Studio](#refresh) dal portale di Azure prima di distribuirla o pubblicarla da Visual Studio.
@@ -33,22 +32,32 @@ Benché sia possibile creare, modificare, gestire e distribuire app per la logic
 
 * Scaricare e installare questi strumenti, se non sono già disponibili: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 o Visual Studio 2015 - Community Edition o versioni successive</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 o 2015 - Community edition o versione successiva</a>. 
   Questa guida introduttiva usa Visual Studio Community 2017, disponibile gratuitamente.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 o versioni successive)</a> e <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > Quando si installa Visual Studio 2019 o 2017, assicurarsi di selezionare il **sviluppo di Azure** carico di lavoro.
+    > Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    >
+    > In Visual Studio 2019, Cloud Explorer è possibile aprire la finestra di progettazione di App per la logica nel portale di Azure, ma ancora non è possibile aprire la finestra di progettazione di App per la logica incorporata.
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Strumenti App per la logica di Azure per Visual Studio 2017</a> o la <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">versione per Visual Studio 2015</a> 
-  
+    Per installare Cloud Explorer per Visual Studio 2015 [download di Cloud Explorer da Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 o versione successiva)</a> 
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * Strumenti App per la logica per la versione di Visual Studio da Azure:
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     È anche possibile scaricare e installare Strumenti App per la logica di Azure direttamente da Visual Studio Marketplace o <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">installare questa estensione da Visual Studio</a>. 
     Assicurarsi di riavviare Visual Studio al termine dell'installazione.
-
-* Cloud Explorer per Visual Studio 2017 o Visual Studio 2015
-
-  * Per Visual Studio 2017, eseguire il programma di installazione di Visual Studio e installare il **carico di lavoro Azure**. Per altre informazioni, vedere [gestire le risorse associate di accuonts Azure in Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
-
-  * Per Visual Studio 2015 [download di Cloud Explorer da Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-  Per altre informazioni, vedere [gestire le risorse associate agli account di Azure in Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Accesso al Web mentre si usa la finestra integrata Progettazione app per la logica
 
@@ -184,8 +193,9 @@ Per eliminare l'app per la logica dal portale di Azure, in Cloud Explorer aprire
 
 Quando si apre il progetto dell'app per la logica in Progettazione app per la logica, l'opzione per la selezione della sottoscrizione di Azure potrebbe non essere presente. L'app per la logica viene invece aperta con una sottoscrizione di Azure diversa da quella che si vuole usare. Questo comportamento si verifica perché, dopo aver aperto il file JSON di un'app per la logica, Visual Studio memorizza nella cache la prima sottoscrizione selezionata per un uso futuro. Per risolvere il problema, provare a eseguire uno di questi passaggi:
 
-* Rinominare il file JSON dell'app per la logica. La cache della sottoscrizione dipende dal nome del file. 
-* Per rimuovere le sottoscrizioni selezionate in precedenza per *tutte* le app per la logica nella soluzione, eliminare la cartella *nascosta* .vs nella directory della soluzione. In questa posizione sono archiviate le informazioni sulla sottoscrizione. 
+* Rinominare il file JSON dell'app per la logica. La cache della sottoscrizione dipende dal nome del file.
+
+* Per rimuovere le sottoscrizioni selezionate in precedenza per *tutti* App per la logica nella soluzione, eliminare la cartella di impostazioni Visual Studio di nascosta. (VS) nella directory della soluzione. In questa posizione sono archiviate le informazioni sulla sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.openlocfilehash: 123a24eb13de584d8e3b70d0d8b1173f583867c1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167546"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881427"
 ---
-# <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Creare la prima funzione con Java ed Eclipse (anteprima)
-
-> [!NOTE] 
-> Java per Funzioni di Azure è attualmente in versione di anteprima.
+# <a name="create-your-first-function-with-java-and-eclipse"></a>Creare la prima funzione con Java ed Eclipse 
 
 Questo articolo illustra come creare un progetto per funzioni [senza server](https://azure.microsoft.com/solutions/serverless/) con l'IDE Eclipse e Apache Maven, testarlo ed eseguirne il debug e infine distribuirlo in Funzioni di Azure. 
 
@@ -52,8 +49,8 @@ Per sviluppare un'app per le funzioni con Java ed Eclipse, è necessario che sia
 1. Selezionare **Add Archetype** (Aggiungi archetipo) e aggiungere le voci per [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype).
     - Archetype Group ID (ID gruppo archetipo): com.microsoft.azure
     - Archetype Artifact ID (ID artefatto archetipo): azure-functions-archetype
-    - Version (Versione): usare la versione più recente dal [repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Creare da Eclipse Maven](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
+    - Versione: Usare la versione più recente dal [il repository centrale](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![Maven Eclipse creare](media/functions-create-first-java-eclipse/functions-create-eclipse.png)  
 1. Fare clic su **OK**, immettere i dettagli per il progetto corrente e quindi fare clic su **Finish** (Fine).
 
 Maven crea i file di progetto in una nuova cartella denominata _artifactId_. Il codice generato nel progetto è una semplice funzione [attivata tramite HTTP](/azure/azure-functions/functions-bindings-http-webhook) che restituisce il corpo della richiesta di attivazione dell'HTTP.

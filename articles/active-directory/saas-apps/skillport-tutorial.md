@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0facd15d8bc0701448707f48b5a1e93fe3ac592c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 936ad2e49aaf449144296dd941a3fbc42719fe4f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200727"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879030"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Esercitazione: Integrazione di Azure Active Directory con Skillport
 
@@ -58,7 +58,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 ## <a name="adding-skillport-from-the-gallery"></a>Aggiunta di Skillport dalla raccolta
 Per configurare l'integrazione di Skillport in Azure AD, è necessario aggiungere Skillport dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Skillport dalla raccolta, seguire questa procedura:**
+**Per aggiungere Skillport dalla raccolta, seguire i passaggi seguenti:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -99,7 +99,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Skillport, è
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Skillport.
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Skillport, seguire questa procedura:**
+**Per configurare single sign-on di Azure con Skillport, seguire i passaggi seguenti:**
 
 1. Nella pagina di integrazione dell'applicazione **Skillport** del portale di Azure fare clic su **Single Sign-On**.
 
@@ -115,21 +115,21 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     a. Nella casella di testo **URL accesso** digitare l'URL:
       
-      Data center UE: `https://adfs.skillport.eu`
+      Data Center UE: `https://adfs.skillport.eu`
    
-      Data center USA: `https://sso.skillport.com`
+      Data Center degli Stati Uniti: `https://sso.skillport.com`
 
     b. Nella casella di testo **Identificatore** digitare l'URL:
       
-      Data center UE: `http://adfs.skillport.eu/adfs/services/trust`
+      Data Center UE: `http://adfs.skillport.eu/adfs/services/trust`
    
-      Data center USA: `https://sso.skillport.com`
+      Data Center degli Stati Uniti: `https://sso.skillport.com`
    
     c. Nella casella di testo **URL di risposta** digitare l'URL:
     
-      Data center UE: ` https://adfs.skillport.eu/adfs/ls/`
+      Data Center UE: `https://adfs.skillport.eu/adfs/ls/`
     
-      Data center USA: `https://sso.skillport.com/sp/ACS.saml2`
+      Data Center degli Stati Uniti: `https://sso.skillport.com/sp/ACS.saml2`
  
 1. Nella sezione **Certificato di firma SAML** fare clic su **XML metadati** e quindi salvare il file XML nel computer.
 
@@ -146,7 +146,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 ![Creare un utente di Azure AD][100]
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+**Per creare un utente test di Azure AD, seguire i passaggi seguenti:**
 
 1. Nel **portale di Azure** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro.
 
@@ -182,7 +182,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ![Assegna utente][200] 
 
-**Per assegnare Britta Simon a Skillport, seguire questa procedura:**
+**Per assegnare Britta Simon a Skillport, seguire i passaggi seguenti:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101772"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877381"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guida di Java Enterprise per il Servizio app di Azure in Linux
 
@@ -119,4 +119,5 @@ Il Servizio app di Azure include strumenti che aiutano a risolvere i problemi co
 
 -   Abilitare la registrazione facendo clic su **Log di diagnostica** nel riquadro di spostamento a sinistra. Fare clic su **File System** per impostare il periodo di conservazione e la quota di archiviazione, quindi salvare le modifiche. È possibile trovare questi log in `/home/LogFiles/`.
 -   [Usare il protocollo SSH per connettersi all'istanza dell'applicazione](app-service-linux-ssh-support.md) per visualizzare i log relativi all'applicazione in esecuzione.
--   Controllare i log di diagnostica nel pannello **Log di diagnostica** del portale di Azure o usando il comando dell'interfaccia della riga di comando di Azure: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
+-   I log di diagnostica di controllo di **log di diagnostica** pannello del portale o tramite il comando di Azure:
+`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

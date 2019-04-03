@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531320"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884925"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gestire gli aggiornamenti per più macchine virtuali
 
@@ -29,7 +29,6 @@ ms.locfileid: "57531320"
 
 Per usare Gestione aggiornamenti è necessario:
 
-- Creare un account RunAs di Automazione di Azure. Per informazioni su come crearne uno, vedere [Introduzione ad Automazione di Azure](automation-offering-get-started.md).
 - Una macchina virtuale o un computer con uno dei sistemi operativi supportati installato.
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
@@ -136,7 +135,7 @@ Nel riquadro **Nuova distribuzione di aggiornamenti** specificare le informazion
 
   ![Riquadro Nuova distribuzione di aggiornamenti](./media/manage-update-multi/update-select-computers.png)
 
-- **Classificazione aggiornamento**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-update-management.md#update-classifications). I tipi di classificazione sono:
+- **Classificazione aggiornamenti**: selezionare i tipi di software da includere nella distribuzione di aggiornamenti. Per una descrizione dei tipi di classificazione, vedere le [classificazioni degli aggiornamenti](automation-update-management.md#update-classifications). I tipi di classificazione sono:
   - Aggiornamenti critici
   - Aggiornamenti della sicurezza
   - Aggiornamenti cumulativi

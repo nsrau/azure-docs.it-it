@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449139"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879257"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedura: Eseguire la migrazione dal Servizio di controllo di accesso di Azure
 
@@ -101,9 +101,9 @@ Seguire i passaggi descritti in questa sezione per scoprire quali app saranno in
 
 ### <a name="check-which-applications-will-be-impacted"></a>Controllare quali applicazioni saranno interessate
 
-1. Usare lo spazio dei nomi del passaggio precedente e accedere a `https://<namespace>.accesscontrol.windows.net`
+1. Usare lo spazio dei nomi nel passaggio precedente e passare a `https://<namespace>.accesscontrol.windows.net`
 
-    Se ad esempio uno degli spazi dei nomi è contoso-test, passare a `https://contoso-test.accesscontrol.windows.net`
+    Ad esempio, se uno degli spazi dei nomi è contoso-test, passare a `https://contoso-test.accesscontrol.windows.net`
 
 1. In **Relazioni di attendibilità** selezionare **Applicazioni relying party** per visualizzare l'elenco di app che saranno interessate dal ritiro di ACS.
 1. Ripetere i passaggi 1 e 2 per qualsiasi altro spazio dei nomi ACS disponibile.
@@ -133,9 +133,9 @@ Ogni servizio cloud Microsoft che accetta token rilasciati da Controllo di acces
 | ------- | -------- |
 | Bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Inoltro del bus di servizio di Azure | [Eseguire la migrazione alle firme di accesso condiviso](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Cache gestita di Azure | [Eseguire la migrazione a Cache Redis di Azure](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Eseguire la migrazione alle API Servizi cognitivi](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Servizi BizTalk | [Eseguire la migrazione alla funzionalità app per la logica del servizio app di Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Cache gestita di Azure | [Eseguire la migrazione a Cache di Azure per Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Eseguire la migrazione per le API servizi cognitivi](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Servizi BizTalk | [Eseguire la migrazione della funzionalità App per la logica del servizio App di Azure](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
 | Servizi multimediali di Azure | [Eseguire la migrazione all'autenticazione di Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Backup di Azure | [Eseguire l'aggiornamento dell'agente di Backup di Azure](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
@@ -152,10 +152,10 @@ SharePoint 2013 e 2016 e SharePoint Online ai clienti hanno usato a lungo ACS pe
 
 | Funzionalità | Materiale sussidiario |
 | ------- | -------- |
-| Autenticazione degli utenti da Azure AD | In precedenza Azure AD non supportava i token SAML 1.1 richiesti da SharePoint per l'autenticazione e ACS veniva usato come intermediario per rendere SharePoint compatibile con i formati di token di Azure AD. A questo punto, è possibile [connettere SharePoint direttamente ad Azure AD usando l'app in locale per SharePoint della raccolta di app di Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Autenticazione degli utenti da Azure AD | In precedenza Azure AD non supportava i token SAML 1.1 richiesti da SharePoint per l'autenticazione e ACS veniva usato come intermediario per rendere SharePoint compatibile con i formati di token di Azure AD. A questo punto, è possibile [connettere SharePoint direttamente ad Azure AD usando la raccolta di App di Azure AD SharePoint in locale app](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticazione di App e l'autenticazione da server a server SharePoint in locale](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. | 
-| [Autorizzazione di attendibilità bassa per componenti aggiuntivi di SharePoint (ospitati da provider e da SharePoint)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |
-| [Ricerca ibrida su cloud di SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |
+| [Autorizzazione di attendibilità bassa per componenti aggiuntivi SharePoint (ospitati da provider e SharePoint ospitato)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |
+| [Ricerca ibrida su cloud SharePoint](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | Non interessata dal ritiro di ACS. Non è necessario apportare alcuna modifica. |
 
 ### <a name="web-applications-that-use-passive-authentication"></a>Applicazioni Web che usano l'autenticazione passiva
 
@@ -197,7 +197,7 @@ A livello generale, *Azure Active Directory è probabilmente la scelta migliore 
 | Account da altri sistemi di gestione delle identità aziendali |- Possibile tramite federazione con un tenant di Azure AD <br />- Supportato tramite federazione diretta | Possibile tramite la federazione con un tenant di Azure AD |
 | Account Microsoft per uso personale | Supportato | Supportato tramite il protocollo OAuth v2.0 di Azure AD, ma non tramite altri protocolli | 
 | Account Facebook, Google, Yahoo | Supportato | Non supportato in alcun modo |
-| **Compatibilità con protocolli e SDK** | | |
+| **Protocolli e compatibilità SDK** | | |
 | WIF | Supportato | Supportato ma sono disponibili istruzioni limitate |
 | WS-Federation | Supportato | Supportato |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
@@ -248,7 +248,7 @@ La tabella seguente confronta le funzionalità di Controllo di accesso rilevanti
 | Account da altri sistemi di gestione delle identità aziendali | Supportato tramite federazione diretta su WS-Federation | Supportato tramite federazione SAML con criteri personalizzati |
 | Account Microsoft per uso personale | Supportato | Supportato | 
 | Account Facebook, Google, Yahoo | Supportato | Facebook e Google supportati in modalità nativa, Yahoo supportato tramite la federazione di OpenID Connect con criteri personalizzati |
-| **Compatibilità con protocolli e SDK** | | |
+| **Protocolli e compatibilità SDK** | | |
 | Windows Identity Foundation (WIF) | Supportato | Non supportate |
 | WS-Federation | Supportato | Non supportate |
 | OAuth 2.0 | Supporto per la bozza 13 | Supporto per RFC 6749, la specifica più moderna |
@@ -332,8 +332,8 @@ Azure AD può essere usato anche per l'autenticazione S2S tramite l'implementazi
 Per indicazioni sull'implementazione di scenari S2S, vedere le risorse seguenti:
 
 - Sezione da servizio a servizio della [Guida per sviluppatori di Azure AD](https://aka.ms/aaddev)
-- [Esempio di codice Daemon che usa credenziali client per password semplice](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
-- [Esempio di codice Daemon che usa credenziali client per il certificato](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+- [Esempio di codice daemon usando le credenziali client di password semplici](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
+- [Esempio di codice daemon usando le credenziali del certificato client](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Eseguire la migrazione a Ping Identity o Auth0
 

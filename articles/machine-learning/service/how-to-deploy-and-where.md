@@ -1,5 +1,5 @@
 ---
-title: Distribuire modelli come servizi Web
+title: Come e dove distribuire i modelli
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come e dove distribuire i modelli del servizio Azure Machine Learning, inclusi Istanze di Azure Container, il servizio Azure Kubernetes, Azure IoT Edge e dispositivi FPGA.
 services: machine-learning
@@ -9,20 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622128"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878299"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Distribuire modelli con il servizio di Azure Machine Learning
 
-il SDK di Azure Machine Learning offre diversi modi per che distribuire il modello di training. In questo documento viene descritto come distribuire un modello come servizio Web nel cloud di Azure o nei dispositivi IoT Edge.
+In questo documento viene descritto come distribuire un modello come servizio Web nel cloud di Azure o nei dispositivi IoT Edge. 
 
-È possibile distribuire i modelli per le destinazioni di calcolo seguenti:
+## <a name="compute-targets-for-deployment"></a>Destinazioni di calcolo per la distribuzione
+
+Usare il SDK di Azure Machine Learning per distribuire il modello sottoposto a training nei percorsi seguenti:
 
 | Destinazione del calcolo | Tipo di distribuzione | DESCRIZIONE |
 | ----- | ----- | ----- |
@@ -30,7 +32,9 @@ il SDK di Azure Machine Learning offre diversi modi per che distribuire il model
 | [Azure Machine Learning di calcolo (amlcompute)](#azuremlcompute) | Inferenza del batch | Eseguire una stima in batch a risorse di calcolo senza server. Supporta le macchine virtuali con priorità bassa o normale. |
 | [Istanze di Azure Container](#aci) | Test | Soluzione ideale per lo sviluppo o il test. **Non è adatto per i carichi di lavoro di produzione.** |
 | [Azure IoT Edge](#iotedge) | (Anteprima) Modulo di IoT | Distribuzione di modelli nei dispositivi IoT. Inferenza nel dispositivo. |
-| [Dispositivo FPGA (Field-Programmable Gate Array)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
+| [Field-programmable Gate Array (FPGA)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
+
+## <a name="deployment-workflow"></a>Flusso di lavoro per la distribuzione
 
 Il processo di distribuzione di un modello è simile per tutte le destinazioni di calcolo:
 
@@ -46,7 +50,7 @@ Il video seguente illustra la distribuzione in istanze di contenitore di Azure:
 
 Per altre informazioni sui concetti relativi al flusso di lavoro di distribuzione, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Prerequisiti
+## <a name="prerequisites-for-deployment"></a>Prerequisiti per la distribuzione
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -216,7 +220,7 @@ Quando si raggiunge la fase di distribuzione, il processo varia leggermente a se
 | [Calcolo di Azure Machine Learning](#azuremlcompute) | Servizio Web (l'inferenza del Batch)| Eseguire una stima in batch a risorse di calcolo senza server. Supporta le macchine virtuali con priorità bassa o normale. |
 | [Istanze di Azure Container](#aci) | Servizio Web (sviluppo/test)| Soluzione ideale per lo sviluppo o il test. **Non è adatto per i carichi di lavoro di produzione.** |
 | [Azure IoT Edge](#iotedge) | (Anteprima) Modulo di IoT | Distribuzione di modelli nei dispositivi IoT. Inferenza nel dispositivo. |
-| [Dispositivo FPGA (Field-Programmable Gate Array)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
+| [Field-programmable Gate Array (FPGA)](#fpga) | (Anteprima) Servizio Web | Latenza estremamente bassa per inferenza in tempo reale. |
 
 > [!IMPORTANT]
 > La condivisione di risorse tra le origini (CORS) non è attualmente supportata quando si distribuisce un modello come servizio Web.
@@ -255,14 +259,14 @@ La creazione di un cluster servizio Azure Kubernetes si esegue una sola volta pe
 
 Il servizio Azure Kubernetes offre le funzionalità seguenti:
 
-* Ridimensionamento automatico
+* Scalabilità automatica
 * Registrazione
 * Raccolta di dati del modello
 * Tempi di risposta rapidi per i servizi Web
 * Terminazione TLS
-* Autenticazione
+* Authentication
 
-#### <a name="autoscaling"></a>Ridimensionamento automatico
+#### <a name="autoscaling"></a>Scalabilità automatica
 
 La scalabilità automatica può essere controllata definendo `autoscale_target_utilization`, `autoscale_min_replicas`, e `autoscale_max_replicas` per il servizio contenitore di AZURE al servizio web. Nell'esempio seguente viene illustrato come abilitare la scalabilità automatica:
 
@@ -349,7 +353,7 @@ aks_target.wait_for_completion(True)
 
 Per altre informazioni sulla creazione di un cluster del servizio contenitore di AZURE di fuori di Azure Machine Learning SDK, vedere gli articoli seguenti:
 
-* [Creare un cluster del servizio contenitore di AZURE](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Creare un cluster del servizio Azure Container](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Creare un cluster del servizio contenitore di AZURE (portale)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Distribuire l'immagine
@@ -609,11 +613,11 @@ Per altre informazioni, vedere la documentazione di riferimento per [WebService.
 
 * [Risoluzione dei problemi di distribuzione](how-to-troubleshoot-deployment.md)
 * [Proteggere i servizi Web di Azure Machine Learning con SSL](how-to-secure-web-service.md)
-* [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
-* [Come eseguire previsioni in batch](how-to-run-batch-predictions.md)
+* [Utilizzare un modello di Machine Learning distribuito come servizio web](how-to-consume-web-service.md)
+* [Come eseguire stime in batch](how-to-run-batch-predictions.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)
-* [SDK del servizio Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Usare il servizio Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)
-* [Best practices for building recommendation systems](https://github.com/Microsoft/Recommenders) (Procedure consigliate per creare sistemi di raccomandazione)
+* [Azure SDK per servizi Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usare il servizio di Azure Machine Learning con reti virtuali di Azure](how-to-enable-virtual-network.md)
+* [Le procedure consigliate per la creazione di sistemi di raccomandazione](https://github.com/Microsoft/Recommenders)
 * [Creare un'API per raccomandazioni in tempo reale in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

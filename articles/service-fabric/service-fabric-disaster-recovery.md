@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 0804095a9e12e91d6b0fa88b626b006b78bdf3a5
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670813"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883242"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Ripristino di emergenza in Azure Service Fabric
 Una parte fondamentale della distribuzione a disponibilità elevata consiste nel garantire la resistenza dei servizi a tutti i tipi di errori. Ciò è particolarmente importante per gli errori imprevisti e incontrollabili. Questo articolo descrive alcune modalità di errore comuni che possono generare situazioni di emergenza se non organizzate e gestite correttamente. Illustra anche le mitigazioni e le azioni da intraprendere in presenza di un'emergenza. L'obiettivo consiste nel limitare o eliminare il rischio di tempi di inattività o di perdita di dati quando si verificano errori, pianificati o imprevisti.
@@ -70,8 +70,8 @@ Si supponga, ad esempio, che un guasto all'alimentazione determini un errore in 
 I domini di aggiornamento sono utili per la creazione di aree in cui il software viene aggiornato nello stesso momento. Per questo motivo, i domini di aggiornamento spesso definiscono anche i limiti in cui software viene disattivato durante gli aggiornamenti pianificati. Gli aggiornamenti sia di Service Fabric che dei servizi seguono lo stesso modello. Per altre informazioni sulla distribuzione degli aggiornamenti, i domini di aggiornamento e il modello di integrità di Service Fabric che aiuta a impedire che eventuali modifiche accidentali abbiano ripercussioni sul cluster e sul servizio, vedere questi documenti:
 
  - [Aggiornamento dell'applicazione](service-fabric-application-upgrade.md)
- - [Esercitazione sull'aggiornamento di un'applicazione ](service-fabric-application-upgrade-tutorial.md)
- - [Service Fabric Health Model](service-fabric-health-introduction.md) (Modello di integrità di Service Fabric)
+ - [Esercitazione sull'aggiornamento dell'applicazione](service-fabric-application-upgrade-tutorial.md)
+ - [Modello di integrità di Service Fabric](service-fabric-health-introduction.md)
 
 È possibile visualizzare il layout del cluster usando la mappa del cluster disponibile in [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
@@ -98,7 +98,7 @@ Per i servizi con stato la situazione varia a seconda che il servizio abbia uno 
 2. Determinazione se la perdita del quorum è permanente o meno
    - Nella maggior parte dei casi gli errori sono temporanei. I processi, i nodi e le VM vengono riavviati e le partizioni di rete vengono corrette. In alcuni casi invece gli errori sono permanenti. 
      - Per i servizi senza stato persistente, un errore di uno o più quorum di repliche determina _immediatamente_ una perdita del quorum permanente. Quando Service Fabric rileva la perdita del quorum in un servizio non persistente con stato, passa immediatamente alla fase 3 dichiarando una (potenziale) perdita di dati. La dichiarazione di una perdita di dati è motivata dal fatto che Service Fabric è a conoscenza dell'inutilità di attendere che le repliche siano nuovamente disponibili, perché sarebbero comunque vuote.
-     - Per i servizi permanenti con stato, un errore di uno o più quorum di repliche fa sì che Service Fabric inizi ad attendere che le repliche tornino disponibili e il quorum venga ripristinato. Si verifica di conseguenza un'interruzione del servizio per tutte le _operazioni di scrittura_ alla partizione interessata (o "set di repliche") del servizio. Le operazioni di lettura restano invece ancora possibili con una minore garanzia di coerenza. La quantità di tempo predefinita in cui Service Fabric attende il ripristino del quorum è infinita, poiché il passaggio successivo è un evento di perdita di dati (potenziale) e comporta altri rischi. È possibile ignorare il valore predefinito di `QuorumLossWaitDuration` ma non è consigliato. In questa fase tutti gli sforzi dovrebbero invece essere rivolti a ripristinare le repliche interrotte. Questa operazione comporta il ripristino dei nodi interrotti e la garanzia che possano montare nuovamente le unità in cui hanno archiviato lo stato persistente locale. Se la perdita del quorum è causata da un errore di processo, Service Fabric tenta automaticamente di ricreare i processi e di riavviare le repliche in essi contenute. Se l'operazione non riesce, Service Fabric segnala errori di integrità. Se questi errori possono essere risolti, le repliche tornano in genere disponibili. In alcuni casi invece non possono tornare disponibili, ad esempio perché tutte le unità hanno generato errori o perché i computer sono rimasti in qualche modo fisicamente danneggiati. In questi casi ci si trova in presenza di un evento di perdita del quorum permanente. Per indicare a Service Fabric di smettere di attendere che le repliche tornino disponibili, un amministratore di cluster deve determinare quali partizioni di quali servizi sono interessate e chiamare l'API `Repair-ServiceFabricPartition -PartitionId` o ` System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)`.  Questa API consente di specificare l'ID della partizione da spostare fuori dalla perdita del quorum e inserirla nella perdita di dati potenziale.
+     - Per i servizi permanenti con stato, un errore di uno o più quorum di repliche fa sì che Service Fabric inizi ad attendere che le repliche tornino disponibili e il quorum venga ripristinato. Si verifica di conseguenza un'interruzione del servizio per tutte le _operazioni di scrittura_ alla partizione interessata (o "set di repliche") del servizio. Le operazioni di lettura restano invece ancora possibili con una minore garanzia di coerenza. La quantità di tempo predefinita in cui Service Fabric attende il ripristino del quorum è infinita, poiché il passaggio successivo è un evento di perdita di dati (potenziale) e comporta altri rischi. È possibile ignorare il valore predefinito di `QuorumLossWaitDuration` ma non è consigliato. In questa fase tutti gli sforzi dovrebbero invece essere rivolti a ripristinare le repliche interrotte. Questa operazione comporta il ripristino dei nodi interrotti e la garanzia che possano montare nuovamente le unità in cui hanno archiviato lo stato persistente locale. Se la perdita del quorum è causata da un errore di processo, Service Fabric tenta automaticamente di ricreare i processi e di riavviare le repliche in essi contenute. Se l'operazione non riesce, Service Fabric segnala errori di integrità. Se questi errori possono essere risolti, le repliche tornano in genere disponibili. In alcuni casi invece non possono tornare disponibili, ad esempio perché tutte le unità hanno generato errori o perché i computer sono rimasti in qualche modo fisicamente danneggiati. In questi casi ci si trova in presenza di un evento di perdita del quorum permanente. Per indicare a Service Fabric di smettere di attendere che le repliche tornino disponibili, un amministratore di cluster deve determinare quali partizioni di quali servizi sono interessate e chiamare l'API `Repair-ServiceFabricPartition -PartitionId` o `System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)`.  Questa API consente di specificare l'ID della partizione da spostare fuori dalla perdita del quorum e inserirla nella perdita di dati potenziale.
 
    > [!NOTE]
    > Non è _mai_ sicuro usare questa API diversamente dal modo per cui è stata studiata quando si ha a che fare con partizioni specifiche. 
@@ -140,7 +140,7 @@ Sia nei cluster di Service Fabric autonomi che in Azure il "tipo di nodo primari
 - Informazioni su come simulare diversi errori con il [framework di verificabilità](service-fabric-testability-overview.md)
 - Lettura di altre risorse sul ripristino di emergenza e sulla disponibilità elevata. Microsoft ha pubblicato molti documenti su questi argomenti. Sebbene alcuni di questi documenti si riferiscano a tecniche specifiche da applicare in altri prodotti, contengono anche molte procedure consigliate generali valide anche per Service Fabric:
   - [Elenco di controllo della disponibilità](../best-practices-availability-checklist.md)
-  - [Esercitazione nel ripristino di emergenza](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Un'esercitazione sul ripristino di emergenza](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Ripristino di emergenza e disponibilità elevata per le applicazioni Azure][dr-ha-guide]
 - Informazioni sulle [opzioni di supporto di Service Fabric](service-fabric-support.md)
 

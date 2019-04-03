@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: mjbrown
-ms.openlocfilehash: 822c4631c08da27ef7b92af2df5e5e0d04f063b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f2ad46e7738582f82edcef6b54ac8234901c887d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013890"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885333"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Esempi di query SQL per Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Questo articolo illustra alcuni esempi di query SQL usando semplici elementi JSO
 
 Creare due semplici elementi JSON ed eseguire query su tali dati. Prendere in considerazione due elementi JSON come le famiglie, inserire gli elementi JSON in un contenitore e successivamente eseguire una query sui dati. In questo caso è illustrato un semplice elemento JSON relativo alle famiglie Andersen e Wakefield: i genitori, i figli (e i loro animali domestici), l'indirizzo e le informazioni di registrazione. L'elemento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate.
 
-**Elemento 1**
+**Item1**
 
 ```JSON
 {
@@ -263,7 +263,7 @@ Verrà ora esaminato il ruolo di `$1` . La clausola `SELECT` deve creare un ogge
 La clausola FROM <from_specification> è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Per altre informazioni sulla sintassi, vedere [sintassi FROM](sql-api-query-reference.md#bk_from_clause). Una query come `SELECT * FROM Families` indica che l'intero contenitore Families è il database di origine in base al quale eseguire l'enumerazione. Invece di usare il nome del contenitore, è possibile usare uno speciale identificatore ROOT per rappresentare il contenitore.
 L'elenco seguente include le regole applicate per ogni query:
 
-* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Qui `f` è l'equivalente di `Families`. `AS` è una parola chiave facoltativa per eseguire l'aliasing dell'identificatore.  
+* È possibile effettuare l'aliasing del contenitore, come in `SELECT f.id FROM Families AS f` o semplicemente in `SELECT f.id FROM Families f`. Qui `f` è l'equivalente di `Families`. `AS` è l'identificatore di una parola chiave facoltativa per alias.  
 
 * Una volta eseguito l'aliasing, non sarà più possibile associare l'origine iniziale. Ad esempio, la sintassi di `SELECT Families.id FROM Families f` non è valida perché non è più possibile risolvere l'identificatore "Families".  
 
@@ -403,15 +403,15 @@ Oltre agli operatori binari e unari, sono consentiti anche i riferimenti di prop
 
 La tabella seguente illustra il risultato dei confronti di uguaglianza nell'API SQL tra due tipi JSON qualsiasi.
 
-| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **string** | **Oggetto** | **Array** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Boolean** | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined | Undefined |
-| **String** | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined | Undefined |
-| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** | Undefined |
-| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Ok** |
+| **Null** | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined | Undefined |
+| **string** | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined | Undefined |
+| **Oggetto** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK** |
 
 Per gli altri operatori di confronto, ad esempio >, >=, !=, < e <=, si applicano le regole seguenti:
 
@@ -446,7 +446,7 @@ La differenza principale tra l'uso di BETWEEN nell'API SQL e ANSI SQL consiste n
 ### <a name="logical-and-or-and-not-operators"></a>Operatori logici (AND, OR e NOT)
 Gli operatori logici funzionano con valori booleani. Le tabelle di veridicità logica per questi operatori sono illustrate di seguito.
 
-**Operator OR**
+**Operatore OR**
 
 | Oppure | True  | False | Undefined |
 | --- | --- | --- | --- |
@@ -462,7 +462,7 @@ Gli operatori logici funzionano con valori booleani. Le tabelle di veridicità l
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
-**Operatore NOT**
+**NOT (operatore)**
 
 | NOT |  |
 | --- | --- |
@@ -818,7 +818,7 @@ La parola chiave TOP può essere usata per limitare il numero di valori restitui
     [ 1 ]
 ```
 
-La tabella seguente mostra l'elenco delle funzioni di aggregazione supportate nell'API SQL. `SUM`e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN` e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null.
+La tabella seguente mostra l'elenco delle funzioni di aggregazione supportate nell'API SQL. `SUM` e `AVG` vengono eseguite su valori numerici, mentre `COUNT`, `MIN`, e `MAX` possono essere eseguite su numeri, stringhe, valori booleani e valori null.
 
 | Uso | DESCRIZIONE |
 |-------|-------------|
@@ -1409,7 +1409,7 @@ La differenza principale tra le funzioni di Cosmos DB rispetto ad ANSI SQL è ch
 
 Le funzioni di controllo del tipo consentono di controllare il tipo di un'espressione nell'ambito delle query SQL. Le funzioni di controllo del tipo possono essere usate per determinare rapidamente il tipo di proprietà all'interno degli elementi, quando è variabile o sconosciuto. Di seguito è riportata una tabella di funzioni predefinite di controllo del tipo supportate.
 
-| **Utilizzo** | **Descrizione** |
+| **Uso** | **DESCRIZIONE** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Restituisce un valore booleano che indica se il tipo del valore è una matrice. |
 | [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Restituisce un valore booleano che indica se il tipo del valore è booleano. |
@@ -1417,8 +1417,8 @@ Le funzioni di controllo del tipo consentono di controllare il tipo di un'espres
 | [IS_NUMBER (expr)](sql-api-query-reference.md#bk_is_number) | Restituisce un valore booleano che indica se il tipo del valore è un numero. |
 | [IS_OBJECT (expr)](sql-api-query-reference.md#bk_is_object) | Restituisce un valore booleano che indica se il tipo del valore è un oggetto JSON. |
 | [IS_STRING (expr)](sql-api-query-reference.md#bk_is_string) | Restituisce un valore booleano che indica se il tipo del valore è una stringa. |
-| [IS_DEFINED (expr)](sql-api-query-reference.md#bk_is_defined) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. |
-| [IS_PRIMITIVE (expr)](sql-api-query-reference.md#bk_is_primitive) | Restituisce un valore booleano che indica se il tipo del valore è stringa, numero, valore booleano o Null. |
+| [IS_DEFINED (espressione)](sql-api-query-reference.md#bk_is_defined) | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. |
+| [IS_PRIMITIVE (espressione)](sql-api-query-reference.md#bk_is_primitive) | Restituisce un valore booleano che indica se il tipo del valore è stringa, numero, valore booleano o Null. |
 
 Usando queste funzioni è ora possibile eseguire query come illustrato nell'esempio seguente:
 
@@ -1629,7 +1629,7 @@ L'immagine seguente illustra l'architettura di supporto delle query LINQ usando 
 
 Il mapping tra oggetti .NET ed elementi JSON avviene naturalmente: ogni campo del membro dati viene mappato a un oggetto JSON, in cui il nome del campo viene mappato alla parte "chiave" dell'oggetto e la parte "valore" viene mappata in modo ricorsivo alla parte del valore dell'oggetto. Si consideri l'esempio seguente: L'oggetto Family creato viene mappato all'elemento JSON, come illustrato di seguito. Viceversa, l'elemento JSON viene mappato nuovamente a un oggetto .NET.
 
-**Classe C#**
+**Classe c#**
 
 ```csharp
     public class Family
@@ -2208,7 +2208,7 @@ Nell'esempio successivo vengono illustrati i join, espressi tramite la clausola 
 
 Il client .NET esegue automaticamente l'iterazione attraverso tutte le pagine dei risultati della query nei blocchi foreach, come sopra illustrato. Le opzioni di query presentate nella sezione dell'API REST sono disponibili anche in .NET SDK usando le classi `FeedOptions` and `FeedResponse` nel metodo CreateDocumentQuery. È possibile controllare il numero di pagine usando l'impostazione `MaxItemCount` .
 
-È anche possibile controllare esplicitamente il paging creando `IDocumentQueryable` tramite l'oggetto `IQueryable`, quindi leggendo i valori ` ResponseContinuationToken` e ritrasferendoli come `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` per abilitare le analisi quando la query non può essere supportata dai criteri di indicizzazione configurati. Per i contenitori partizionati, è possibile usare `PartitionKey` per eseguire la query in una partizione singola, anche se Azure Cosmos DB può eseguire l'estrazione automatica dal testo della query, e `EnableCrossPartitionQuery` per eseguire query che potrebbe essere necessario ripetere in più partizioni.
+È possibile controllare in modo esplicito il paging creando `IDocumentQueryable` usando il `IQueryable` oggetto, quindi leggendo il `ResponseContinuationToken` i valori e passarli nuovamente come `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` può essere impostato per abilitare l'analisi quando la query non può essere supportata da criteri di indicizzazione configurati. Per i contenitori partizionati, è possibile usare `PartitionKey` per eseguire la query in una partizione singola, anche se Azure Cosmos DB può eseguire l'estrazione automatica dal testo della query, e `EnableCrossPartitionQuery` per eseguire query che potrebbe essere necessario ripetere in più partizioni.
 
 Per altri esempi contenenti query, vedere gli [esempi relativi a .NET in Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet).
 
@@ -2253,8 +2253,8 @@ L'esempio seguente mostra come usare queryDocuments nell'API del server JavaScri
 ## <a id="References"></a>Riferimenti
 
 1. [Introduzione ad Azure Cosmos DB][introduction]
-2. [Specifica SQL di Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
-3. [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+2. [Azure Cosmos DB SQL specification](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+3. [Esempi di Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
 4. [Livelli di coerenza di Azure Cosmos DB][consistency-levels]
 5. ANSI SQL 2011 [https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 6. JSON [https://json.org/](https://json.org/)

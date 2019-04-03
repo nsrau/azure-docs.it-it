@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: celested
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e960e06cc51cc4540a8360cefe90ce68fc7e1f17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009913"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878418"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Token di accesso di Azure Active Directory
 
@@ -80,7 +80,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Di conseguenza
 | `nonce` | string | Identificatore univoco usato per la protezione contro attacchi di riproduzione dei token. La risorsa può registrare questo valore per la protezione da operazioni di riproduzione. |
 | `alg` | string | Indica l'algoritmo usato per firmare il token, ad esempio "RS256" |
 | `kid` | string | Specifica l'identificazione personale per la chiave pubblica usata per firmare il token. Generata nei token di accesso sia v1.0 che v2.0. |
-| `x5t` | string | Funziona in modo analogo, per uso e valore, a `kid`. `x5t` è un'attestazione legacy generata solo nei token di accesso v1.0 per motivi di compatibilità. |
+| `x5t` | string | Funziona in modo analogo, per uso e valore, a `kid`. `x5t` un'attestazione legacy viene generata solo in v1.0 i token di accesso per motivi di compatibilità. |
 
 ### <a name="payload-claims"></a>Attestazioni di payload
 
@@ -107,7 +107,7 @@ Le attestazioni sono presenti solo se c'è un valore da inserire. Di conseguenza
 | `oid` | Stringa, un GUID | Identificatore non modificabile per un oggetto in Microsoft Identity Platform, in questo caso un account utente. Può essere usato anche per eseguire i controlli di autorizzazioni in modo sicuro e come chiave nelle tabelle di database. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. È quindi possibile usare `oid` quando si eseguono query sui Microsoft Online Services, ad esempio Microsoft Graph. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente. Poiché `oid` consente a più app di correlare utenti, per ricevere questa attestazione è necessario l'ambito `profile`. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant; vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
 | `rh` | Stringa opaca | Attestazione interna usata da Azure per riconvalidare i token. Le risorse non devono usare questa attestazione. |
 | `scp` | Stringa, elenco di ambiti separati da spazi | Set di ambiti esposti dall'applicazione per cui l'applicazione client ha richiesto (e ricevuto) il consenso. L'app deve verificare che questi ambiti siano ambiti validi esposti dall'app e prendere decisioni relative alle autorizzazioni in base al valore di questi ambiti. Inclusa solo per i [token utente](#user-and-application-tokens). |
-| `roles` | Stringa, elenco di autorizzazioni separate da spazi | Set di autorizzazioni esposte dall'applicazione per le quali l'applicazione richiedente ha ricevuto l'autorizzazione di chiamata. Viene usata durante il flusso di [credenziali client](v1-oauth2-client-creds-grant-flow.md) al posto degli ambiti utente ed è presente solo nei [token delle applicazioni](#user-and-application-tokens). |
+| `roles` | Matrice di stringhe, un elenco di autorizzazioni | Set di autorizzazioni esposte dall'applicazione per le quali l'applicazione richiedente ha ricevuto l'autorizzazione di chiamata. Per la [token dell'applicazione](#user-and-application-tokens), viene utilizzato durante la [credenziali client](v1-oauth2-client-creds-grant-flow.md) flusso al posto di ambiti di utente.  Per la [i token utente](#user-and-application-tokens) viene popolato con i ruoli è stato assegnato l'utente all'applicazione di destinazione. |
 | `sub` | Stringa, un GUID | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. Può essere usato per eseguire controlli di autorizzazione in modo sicuro, ad esempio quando il token viene usato per accedere a una risorsa oppure come chiave nelle tabelle di database. Dato che il soggetto è sempre presente nei token generati da Azure AD, è consigliabile usare questo valore in un sistema di autorizzazione di uso generico. L'oggetto è tuttavia un identificatore pairwise univoco per un ID di applicazione specifico. Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto. Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. |
 | `tid` | Stringa, un GUID | Rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID è l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali il valore è `9188040d-6c67-4c5b-b112-36a304b66dad`. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 | `unique_name` | string | Presente solo nei token v1.0. Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore potrebbe non essere univoco all'interno di un tenant e deve essere usato solo per scopi di visualizzazione. |

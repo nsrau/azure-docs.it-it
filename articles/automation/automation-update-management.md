@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42a7ae0e6ca5239aa83d20655817973e8f185d02
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805398"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862948"
 ---
 # <a name="update-management-solution-in-azure"></a>Soluzione Gestione aggiornamenti in Azure
 
@@ -52,9 +52,9 @@ La soluzione genera report sullo stato di aggiornamento del computer in base all
 > [!NOTE]
 > Per inviare correttamente un report al servizio, Gestione aggiornamenti richiede l'abilitazione di determinati URL e porte. Per altre informazioni su questi requisiti, vedere l'articolo sulla [pianificazione della rete per i ruoli di lavoro ibridi](automation-hybrid-runbook-worker.md#network-planning).
 
-È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori. 
+È possibile distribuire e installare gli aggiornamenti software nei computer che richiedono gli aggiornamenti creando una distribuzione pianificata. Gli aggiornamenti classificati come *facoltativi* non sono inclusi nell'ambito della distribuzione per i computer Windows. Nell'ambito della distribuzione vengono inclusi solo gli aggiornamenti obbligatori.
 
-La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti.
+La distribuzione pianificata definisce quali computer di destinazione ricevono gli aggiornamenti applicabili, specificando i computer in modo esplicito oppure selezionando un [gruppo di computer](../azure-monitor/platform/computer-groups.md) in base alle ricerche log di un determinato set di computer. Si specifica anche una pianificazione per approvare e impostare un periodo di tempo durante il quale è possibile installare gli aggiornamenti. Questo periodo di tempo viene chiamato dalla finestra di manutenzione. Dieci minuti della finestra di manutenzione è riservato per i riavvii se è necessario un riavvio e se è selezionata l'opzione di riavvio appropriato. Se l'applicazione di patch richiede più tempo del previsto ed è inferiore a dieci minuti nella finestra di manutenzione, non si verificherà un riavvio.
 
 Gli aggiornamenti vengono installati da runbook in Automazione di Azure. Questi runbook non richiedono alcuna configurazione e non possono essere visualizzati. Quando si crea una distribuzione degli aggiornamenti, nella distribuzione viene creata una pianificazione che avvia un runbook di aggiornamento master alla data e ora specificate per i computer inclusi. Il runbook master avvia un runbook figlio in ogni agente per installare gli aggiornamenti necessari.
 
@@ -135,9 +135,9 @@ Per altre informazioni sulle modalità di aggiornamento dei management pack, ved
 Per avviare l'applicazione di patch ai sistemi, è necessario abilitare la soluzione Gestione aggiornamenti. Esistono molti modi per eseguire l'onboarding dei computer in Gestione aggiornamenti. Per eseguire l'onboarding della soluzione si consigliano i metodi supportati seguenti:
 
 * [Da una macchina virtuale](automation-onboard-solutions-from-vm.md)
-* [Dall'esplorazione di più computer](automation-onboard-solutions-from-browse.md)
-* [Dall'account di Automazione](automation-onboard-solutions-from-automation-account.md)
-* [Con un runbook di Automazione di Azure](automation-onboard-solutions.md)
+* [Dall'esplorazione più computer](automation-onboard-solutions-from-browse.md)
+* [Dall'account di automazione](automation-onboard-solutions-from-automation-account.md)
+* [Con un runbook di automazione di Azure](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Verificare l'onboarding di computer non di Azure
 

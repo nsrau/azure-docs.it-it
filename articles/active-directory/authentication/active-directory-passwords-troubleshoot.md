@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369786"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885078"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Risolvere i problemi di reimpostazione della password self-service
 
@@ -75,7 +75,7 @@ In caso di problemi di reimpostazione della password self-service in Azure Activ
 | L'utente visualizza un errore quando convalida il numero di telefono. | Questo errore si verifica quando il numero di telefono immesso non corrisponde a quello archiviato. Assicurarsi che l'utente immetta il numero di telefono completo, inclusi il prefisso internazionale e locale, quando cerca di usare un metodo basato sul telefono per la reimpostazione della password. |
 | Si è verificato un errore durante l'elaborazione della richiesta. | Questo errore può essere causato da molti problemi, ma in genere è dovuto a un'interruzione del servizio o a un problema di configurazione. Se l'errore si verifica e ha un impatto sull'attività aziendale, contattare il supporto tecnico Microsoft per assistenza. |
 | Violazione dei criteri locali | La password non soddisfa i criteri password locali di Active Directory. |
-| La password non è conforme ai criteri fuzzy | La password che è stata usata viene visualizzata nell'elenco password escluse e non può essere usata. |
+| La password non è conforme ai criteri fuzzy | Viene visualizzata la password che è stata usata nel [vietata elenco password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) e non può essere usato. |
 
 ## <a name="troubleshoot-password-writeback"></a>Risolvere i problemi relativi al writeback delle password
 
@@ -157,7 +157,7 @@ Se si verificano interruzioni del servizio con il componente di writeback delle 
 * [Riavviare il servizio di sincronizzazione Azure AD Connect](#restart-the-azure-ad-connect-sync-service)
 * [Disabilitare e riabilitare la funzionalità di writeback delle password](#disable-and-re-enable-the-password-writeback-feature)
 * [Installare la versione più recente di Azure AD Connect](#install-the-latest-azure-ad-connect-release)
-* [Risolvere un problema relativo al writeback delle password](#troubleshoot-password-writeback)
+* [Risolvere i problemi relativi al writeback delle password](#troubleshoot-password-writeback)
 
 In generale, per ripristinare il servizio il più rapidamente possibile, è consigliabile eseguire questi passaggi nell'ordine indicato in precedenza.
 
@@ -285,14 +285,14 @@ Per garantire un supporto adeguato, verrà richiesto il maggior numero di dettag
 
 Gli articoli seguenti offrono altre informazioni sull'uso della reimpostazione della password con Azure AD:
 
-* [Come completare l'implementazione della reimpostazione della password self-service per gli utenti](howto-sspr-deployment.md)
+* [Come completare una distribuzione di SSPR eseguita correttamente?](howto-sspr-deployment.md)
 * [Reimpostare o modificare la password](../user-help/active-directory-passwords-update-your-own-password.md)
-* [Registrarsi per la reimpostazione della password self-service](../user-help/active-directory-passwords-reset-register.md)
-* [Domande sulle licenze](concept-sspr-licensing.md)
-* [Dati usati dalla reimpostazione della password self-service e dati da immettere per gli utenti](howto-sspr-authenticationdata.md)
-* [Metodi di autenticazione disponibili per gli utenti](concept-sspr-howitworks.md#authentication-methods)
-* [Opzioni dei criteri per la reimpostazione della password self-service](concept-sspr-policy.md)
-* [Panoramica del writeback delle password](howto-sspr-writeback.md)
-* [Come creare un report sull'attività relativa alla reimpostazione della password self-service](howto-sspr-reporting.md)
-* [Informazioni sulle opzioni della reimpostazione della password self-service](concept-sspr-howitworks.md)
-* [Altre informazioni non illustrate altrove](active-directory-passwords-faq.md)
+* [Eseguire la registrazione per la reimpostazione password self-service](../user-help/active-directory-passwords-reset-register.md)
+* [Hai una domanda di gestione delle licenze?](concept-sspr-licensing.md)
+* [Dati usati da SSPR e quali dati da immettere per gli utenti?](howto-sspr-authenticationdata.md)
+* [I metodi di autenticazione sono disponibili per gli utenti?](concept-sspr-howitworks.md#authentication-methods)
+* [Quali sono le opzioni dei criteri con SSPR?](concept-sspr-policy.md)
+* [Che cos'è il writeback delle password e il motivo per cui mi preoccupo su di esso?](howto-sspr-writeback.md)
+* [Come posso segnalare su attività in SSPR?](howto-sspr-reporting.md)
+* [Quali sono tutte le opzioni in SSPR e cosa il loro significato?](concept-sspr-howitworks.md)
+* [Ho una domanda che informazioni non illustrata altrove else](active-directory-passwords-faq.md)

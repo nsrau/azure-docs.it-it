@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
-ms.openlocfilehash: 1c9d5b214d0c79f84372ba679db1cbd4a7ad9858
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372591"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884177"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Come risolvere i problemi relativi all'agente di Log Analytics per Linux 
 
@@ -36,7 +36,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 
  File | path
  ---- | -----
- File di log dell'agente di Log Analytics per Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log `
+ File di log dell'agente di Log Analytics per Linux | `/var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
  File di log di configurazione dell'agente di Log Analytics | `/var/opt/microsoft/omsconfig/omsconfig.log`
 
  È consigliabile usare l'agente di raccolta log per recuperare i log importanti per la risoluzione dei problemi o prima della segnalazione di un problema in GitHub. Per altre informazioni sull'agente e sulla relativa modalità di esecuzione, vedere [questo articolo](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/tools/LogCollector/OMS_Linux_Agent_Log_Collector.md).
@@ -117,7 +117,7 @@ Se nessuno dei passaggi descritti risulta adatto alle proprie esigenze, sono dis
 
 La registrazione di debug consente di visualizzare i caricamenti in batch separati da tipo, numero di elementi di dati e tempo impiegato per l'invio di monitoraggio di Azure:
 
-*Esempio di log abilitato per il debug:*
+*Log di debug abilitati di esempio:*
 
 ```
 Success sending oms.nagios x 1 in 0.14s
@@ -380,8 +380,8 @@ Questo errore indica che l'estensione di diagnostica per Linux (LAD) è installa
 
 **Contesto**: invece di essere eseguito come utente con privilegi, `root`, l'agente di Log Analytics per Linux viene eseguito come utente `omsagent`. Nella maggior parte dei casi, è necessario che all'utente venga concessa l'autorizzazione esplicita per la lettura di alcuni file. Per concedere l'autorizzazione all'utente `omsagent`, eseguire i comandi seguenti:
 
-1. Aggiungere l'utente `omsagent` a un gruppo specifico usando `sudo usermod -a -G <GROUPNAME> <USERNAME>`
-2. Concedere l'accesso universale in lettura al file richiesto usando `sudo chmod -R ugo+rx <FILE DIRECTORY>`
+1. Aggiungere il `omsagent` utente al gruppo specifico `sudo usermod -a -G <GROUPNAME> <USERNAME>`
+2. L'accesso universale in lettura al file richiesto `sudo chmod -R ugo+rx <FILE DIRECTORY>`
 
 Un problema noto di race condition è stato risolto con l'agente di Log Analytics per Linux versione 1.1.0-217. Dopo l'aggiornamento all'agente più recente, eseguire il comando seguente per ottenere la versione più recente del plug-in di output: `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 

@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: 7942b4eb5788357a807911d3eb89d1054a92c3eb
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449360"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883939"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Inviare dati di log a Monitoraggio di Azure con l'API di raccolta dati HTTP (anteprima pubblica)
 Questo articolo illustra come usare l'API di raccolta dati HTTP per inviare dati di log a Monitoraggio di Azure da un client dell'API REST.  L'articolo descrive come formattare i dati raccolti dall'applicazione o dallo script, come includerli in una richiesta e come autorizzare tale richiesta in Monitoraggio di Azure.  Vengono indicati esempi per PowerShell, C# e Python.
@@ -166,6 +166,11 @@ Con l'invio seguente, tuttavia, Monitoraggio di Azure creerebbe le nuove proprie
 Inviando la voce seguente, prima della creazione del tipo di record Monitoraggio di Azure creerebbe un record con tre proprietà, **number_s**, **boolean_s** e **string_s**. In questa voce, ognuno dei valori iniziali viene formattato come stringa:
 
 ![Esempio di record 4](media/data-collector-api/record-04.png)
+
+## <a name="reserved-properties"></a>Proprietà riservate
+Le proprietà seguenti sono riservate e non devono essere utilizzate in un tipo di record personalizzato. Si riceverà un errore se il payload include uno dei seguenti nomi di proprietà.
+
+- tenant
 
 ## <a name="data-limits"></a>Limiti dei dati
 Esistono alcune limitazioni riguardo ai dati pubblicati nell'API per la raccolta dei dati di Monitoraggio di Azure.

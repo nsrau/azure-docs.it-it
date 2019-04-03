@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259908"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881042"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Domande frequenti su diverse API in Azure Cosmos DB
 
@@ -201,7 +201,7 @@ Sì. L'[emulatore di Azure Cosmos DB](local-emulator.md) offre un'emulazione est
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>Perché i valori a virgola mobile lunghi in un documento appaiono arrotondati se visualizzati da Esplora dati nel portale?
 
-Si tratta di una limitazione di JavaScript. JavaScript usa numeri in formato a virgola mobile a precisione doppia in base a quanto specificato in IEEE 754 e può rappresentare in modo sicuro solo numeri compresi tra -(253-1) e 253-1, ad esempio 9007199254740991.
+Si tratta di una limitazione di JavaScript. JavaScript Usa numeri di formato a virgola mobile a precisione doppia specificato in valore IEEE 754 e in modo sicuro può contenere un numero compreso tra-(2<sup>53</sup> -1) e 2<sup>53</sup>-1 (ad esempio, 9007199254740991) solo.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>Quali sono le autorizzazioni consentite nella gerarchia degli oggetti?
 
@@ -265,8 +265,8 @@ Per quanto riguarda l'API REST, sono disponibili alcune opzioni relative a endpo
 | Metodi REST | Opzione relativa a endpoint/query REST | URL della documentazione | Spiegazione |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Set Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) (Operazione Set Table Service Properties) [Get Table Service Properties](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) (Operazione Get Table Service Properties) | Questo endpoint viene usato per configurare le regole CORS, la configurazione di analisi di archiviazione e le impostazioni di registrazione. CORS non è attualmente supportato e l'analisi e la registrazione vengono gestite in modo diverso in Azure Cosmos DB rispetto ad archiviazione tabelle di Azure. |
-| OPTIONS | /<table-resource-name> | [Pre-flight CORS table request](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) (Operazione Pre-flight CORS table request) | Questa è una parte di CORS che non è attualmente supportata da Azure Cosmos DB. |
-| GET | /?restype=service@comp=stats | [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) (Operazione Get Table Service Stats) | Fornisce informazioni sulla velocità con cui i dati vengono replicati tra il server primario e i server secondari. Non è necessario in Cosmos DB perché la replica fa parte delle operazioni di scrittura. |
+| OPTIONS | /<table-resource-name> | [Richiesta di pre-flight CORS table](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Questa è una parte di CORS che non è attualmente supportata da Azure Cosmos DB. |
+| GET | /?restype=service@comp=stats | [Get Table Service Stats](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Fornisce informazioni sulla velocità con cui i dati vengono replicati tra il server primario e i server secondari. Non è necessario in Cosmos DB perché la replica fa parte delle operazioni di scrittura. |
 | GET, PUT | /mytable?comp=acl | [Get Table ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) (Operazione Get Table ACL) e [Set Table ACL](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) (Operazione Set Table ACL) | Ottiene e configura i criteri di accesso archiviati usati per gestire le firme di accesso condiviso. Anche se la firma di accesso condiviso è supportata, viene configurata e gestita in modo diverso. |
 
 L'API Tabelle di Azure Cosmos DB supporta inoltre il formato JSON, non ATOM.
@@ -292,7 +292,7 @@ Se queste differenze costituiscono un problema per il progetto, contattare [askc
 
 È possibile condividere commenti e suggerimenti in uno dei modi seguenti:
 
-* [User Voice](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Suggerimenti degli utenti](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow è ideale per domande relative alla programmazione. Assicurarsi che la domanda sia [pertinente](https://stackoverflow.com/help/on-topic) e [specificare il numero massimo possibile di dettagli, in modo che la domanda sia chiara e sia possibile fornire una risposta](https://stackoverflow.com/help/how-to-ask).
 

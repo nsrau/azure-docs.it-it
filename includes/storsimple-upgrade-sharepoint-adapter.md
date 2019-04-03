@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 1ebbce89c7a977dd9620bd8be67da647c107eadc
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b2dec95e0258933b50d4437f1cb317639b62883d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55889398"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886999"
 ---
 ### <a name="upgrade-sharepoint-2010-to-sharepoint-2013-and-then-install-the-storsomple-adapter-for-sharepoint"></a>Aggiornare SharePoint 2010 a SharePoint 2013 e quindi installare l'adattatore StorSomple per SharePoint
 > [!IMPORTANT]
@@ -29,7 +29,7 @@ ms.locfileid: "55889398"
 > È consigliabile pianificare l'aggiornamento affinché si verifichi durante un’operazione di manutenzione pianificata per i motivi seguenti:
 > 
 > * I contenuti esternalizzati in precedenza non saranno disponibili fino a quando l'adattatore viene reinstallato.
-> * Qualsiasi contenuto caricato nel sito dopo avere disinstallato la versione precedente dell'adattatore StorSimple per SharePoint, ma prima di installare la nuova versione, verrà archiviato nel database del contenuto. È necessario spostare tale contenuto nel dispositivo StorSimple dopo aver installato il nuovo adattatore. È possibile utilizzare il cmdlet di Microsoft PowerShell` RBS Migrate()` incluso in SharePoint per la migrazione del contenuto. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx). 
+> * Qualsiasi contenuto caricato nel sito dopo avere disinstallato la versione precedente dell'adattatore StorSimple per SharePoint, ma prima di installare la nuova versione, verrà archiviato nel database del contenuto. È necessario spostare tale contenuto nel dispositivo StorSimple dopo aver installato il nuovo adattatore. È possibile usare Microsoft `RBS Migrate()` cmdlet di PowerShell incluso in SharePoint per la migrazione del contenuto. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx). 
 > 
 > 
 

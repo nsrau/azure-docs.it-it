@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995121"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883718"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introduzione all'uso di Analisi di flusso di Azure: Rilevamento delle frodi in tempo reale
 
@@ -184,7 +184,7 @@ Dopo aver creato un flusso di eventi di chiamata, sarà possibile configurare un
  
 3. Fare clic su **Aggiungi input del flusso** e selezionare **Hub eventi**. Compilare quindi la nuova pagina di input con le informazioni seguenti:
 
-   |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
+   |**Impostazione**  |**Valore consigliato**  |**DESCRIZIONE**  |
    |---------|---------|---------|
    |Alias di input  |  CallStream   |  Immettere un nome per identificare l'input del processo.   |
    |Sottoscrizione   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure in cui è stato creato l'hub eventi.   |
@@ -292,7 +292,7 @@ Per questa trasformazione si intende creare una sequenza di finestre temporali c
 
     La proiezione include `System.Timestamp`, che restituisce un timestamp per la fine di ogni finestra. 
 
-    Per specificare che si intende usare una finestra a cascata, usare la funzione [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) nella clausola `GROUP BY `. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio la finestra a cascata è costituita da intervalli di 5 secondi, per ottenere un conteggio in base al paese per chiamate ogni 5 secondi.
+    Per specificare che si desidera utilizzare una finestra a cascata, usare il [finestra a CASCATA](https://msdn.microsoft.com/library/dn835055.aspx) funzionare nel `GROUP BY` clausola. Specificare nella funzione un'unità di tempo (da un microsecondo a un giorno) e una dimensione della finestra (numero di unità). In questo esempio la finestra a cascata è costituita da intervalli di 5 secondi, per ottenere un conteggio in base al paese per chiamate ogni 5 secondi.
 
 2. Fare di nuovo clic su **Test**. Si noti nei risultati che i timestamp in **WindowEnd** sono in incrementi di 5 secondi.
 
@@ -354,7 +354,7 @@ Se esiste già un account di archiviazione BLOB, è possibile usarlo. In questa 
 
 4. Nel riquadro **Output**, fare clic su **Aggiungi**, quindi selezionare **Archiviazione BLOB**. Compilare quindi la nuova pagina di output con le informazioni seguenti:
 
-   |**Impostazione**  |**Valore consigliato**  |**Descrizione**  |
+   |**Impostazione**  |**Valore consigliato**  |**DESCRIZIONE**  |
    |---------|---------|---------|
    |Alias di output  |  CallStream-FraudulentCalls   |  Immettere un nome per identificare l'output del processo.   |
    |Sottoscrizione   |  \<Sottoscrizione in uso\> |  Selezionare la sottoscrizione di Azure che include l'account di archiviazione creato. L'account di archiviazione può essere incluso nella stessa sottoscrizione o in una diversa. Questo esempio presuppone che l'account di archiviazione sia stato creato all'interno della stessa sottoscrizione. |
@@ -416,6 +416,6 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 Per altre informazioni generiche su Analisi di flusso, vedere questi articoli:
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
-* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Ridimensionare i processi di Azure Stream Analitica](stream-analytics-scale-jobs.md)
+* [Riferimenti al linguaggio di Query Analitica Stream di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Riferimento di API REST di gestione di Azure Stream Analitica](https://msdn.microsoft.com/library/azure/dn835031.aspx)

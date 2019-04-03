@@ -16,17 +16,18 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687b25ea5d792edf2f582c9929a0ae5f0c2426db
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00dd8de47422cf849d97e66698be3300b96ff83
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442074"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884551"
 ---
 # <a name="id-tokens"></a>Token ID
 
-Gli `id_tokens` vengono inviati all'applicazione client nell'ambito di un flusso di [OpenID Connect](v1-protocols-openid-connect-code.md). Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
+`id_tokens` vengono inviati all'applicazione client come parte di un' [OpenID Connect](v1-protocols-openid-connect-code.md) flusso. Possono essere inviati insieme o in sostituzione di un token di accesso e vengono usati dal client per autenticare l'utente.
 
 ## <a name="using-the-idtoken"></a>Uso degli id_token
 
@@ -34,7 +35,7 @@ I token ID devono essere usati per attestare che un utente sia effettivamente ch
 
 ## <a name="claims-in-an-idtoken"></a>Attestazioni in un id_token
 
-Per un'identità Microsoft, gli `id_tokens` sono token [JWT](https://tools.ietf.org/html/rfc7519), ovvero sono costituiti da un'intestazione, un payload e la parte della firma. L'intestazione e la firma consentono di verificare l'autenticità del token, mentre il payload contiene anche le informazioni sull'utente richieste dal client. Se non diversamente specificato, tutte le attestazioni elencate di seguito vengono visualizzate in entrambi i token v1.0 e v2.0.
+`id_tokens` per un database di Microsoft identity vengono [nei token Jwt](https://tools.ietf.org/html/rfc7519), vale a dire sono costituite da una parte di intestazione, payload e firma. L'intestazione e la firma consentono di verificare l'autenticità del token, mentre il payload contiene anche le informazioni sull'utente richieste dal client. Se non diversamente specificato, tutte le attestazioni elencate di seguito vengono visualizzate in entrambi i token v1.0 e v2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,6 +80,7 @@ Questo token v2.0 di esempio viene visualizzato in [jwt.ms](https://jwt.ms/#id_t
 |`name` | string | L'attestazione `name` fornisce un valore leggibile che identifica l'oggetto del token. Il valore potrebbe non essere univoco, è modificabile e può essere usato solo per scopi di visualizzazione. Per ricevere questa attestazione, è necessario l'ambito `profile` . |
 |`nonce`| string | Il parametro nonce corrisponde al parametro incluso nella richiesta /authorize originale al provider di identità. Se non corrisponde, l'applicazione deve rifiutare il token. |
 |`oid` | Stringa, un GUID | Identificatore non modificabile per un oggetto nel sistema di identità Microsoft, in questo caso, un account utente. Questo ID identifica in modo univoco l'utente nelle applicazioni; due applicazioni differenti che consentono l'accesso dello stesso utente riceveranno lo stesso valore nell'attestazione `oid`. Microsoft Graph restituirà l'ID come proprietà `id` per un determinato account utente. Poiché `oid` consente a più app di correlare utenti, per ricevere questa attestazione è necessario l'ambito `profile`. Si noti che se un singolo utente è presente in più tenant, l'utente conterrà un ID oggetto diverso in ogni tenant; vengono considerati account diversi, anche se l'utente accede a ogni account con le stesse credenziali. |
+|`roles`| Matrice di stringhe | Il set di ruoli che sono stati assegnati all'utente che sta effettuando l'accesso. |
 |`rh` | Stringa opaca |Attestazione interna usata da Azure per riconvalidare i token. Deve essere ignorata. |
 |`sub` | Stringa, un GUID | Entità su cui il token asserisce informazioni, ad esempio l'utente di un'app. Questo valore non è modificabile e non può essere riassegnato o riutilizzato. L'oggetto è un identificatore pairwise univoco per un ID di applicazione specifico. Se quindi un singolo utente accede a due app diverse usando due ID client differenti, queste app riceveranno due valori differenti per l'attestazione dell'oggetto. Questa condizione può non essere appropriata a seconda dei requisiti a livello di architettura e di privacy. |
 |`tid` | Stringa, un GUID | Valore GUID che rappresenta il tenant di Azure AD da cui proviene l'utente. Per gli account aziendali e dell'istituto di istruzione, il GUID è l'ID tenant non modificabile dell'organizzazione a cui appartiene l'utente. Per gli account personali il valore è `9188040d-6c67-4c5b-b112-36a304b66dad`. Per ricevere questa attestazione, è necessario l'ambito `profile` . |

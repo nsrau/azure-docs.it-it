@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: reference
-ms.date: 10/29/2018
+ms.date: 04/02/2019
 ms.author: mimart
 author: msmimart
-manager: daveba
+manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 860a059f57578965045ff8e7f404c3b072df03a1
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58293822"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877364"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -48,7 +48,7 @@ Questa funzionalità è prevista per una versione futura. Sarà quindi possibile
 Un'organizzazione può vole aggiungere gli utenti di Collaborazione B2B, effettuarne il provisioning alle applicazioni che richiedono il provisioning e quindi inviare gli inviti. È possibile usare l'API di invito di Collaborazione B2B per personalizzare il flusso di lavoro di onboarding.
 
 ### <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>È possibile creare utenti guest visibili nell'elenco indirizzi globale di Exchange?
-Sì. Gli oggetti guest non sono visibili nell'elenco indirizzi globale dell'organizzazione per impostazione predefinita, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Vedere **È possibile creare oggetti guest visibili nell'elenco indirizzi globale?** in [Accesso Guest in gruppi di Office 365](https://support.office.com/article/guest-access-in-office-365-groups-bfc7a840-868f-4fd6-a390-f347bf51aff6#PickTab=FAQ).
+Sì. Oggetti guest non sono visibili nell'elenco di indirizzi globale dell'organizzazione (EIG) per impostazione predefinita, ma è possibile usare Azure Active Directory PowerShell per renderli visibili. Vedere [è possibile creare oggetti guest visibile nell'elenco indirizzi globale?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#can-i-make-guest-objects-visible-in-the-global-address-list)
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>È possibile fare in modo che un utente guest diventi amministratore con limitazioni?
 Certo. Per altre informazioni, vedere [Aggiunta di utenti guest a un ruolo](add-guest-to-role.md).
@@ -121,5 +121,5 @@ Per informazioni su quali licenze sono necessarie all'organizzazione per poter u
 
 ### <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
+- [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
 

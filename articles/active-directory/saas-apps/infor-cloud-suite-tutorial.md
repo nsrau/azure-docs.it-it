@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7e912d01b6f8b7119e0fa0e88341b7cb56a93d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860670"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880628"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Esercitazione: Integrazione di Azure Active Directory con Infor CloudSuite
 
@@ -61,7 +61,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 
 Per configurare l'integrazione di Infor CloudSuite in Azure AD, è necessario aggiungere Infor CloudSuite dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere Infor CloudSuite dalla raccolta, seguire questa procedura:**
+**Per aggiungere Infor CloudSuite dalla raccolta, seguire i passaggi seguenti:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -97,7 +97,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Infor CloudSu
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Infor CloudSuite.
 
-**Per configurare Single Sign-On di Azure AD con Infor CloudSuite, seguire questa procedura:**
+**Per configurare single sign-on di Azure con Infor CloudSuite, procedere come segue:**
 
 1. Nella pagina di integrazione dell'applicazione **Infor CloudSuite** del portale di Azure fare clic su **Single Sign-On**.
 
@@ -119,7 +119,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     | | |
     |-|-|
-    | ` http://mingle-sso.inforcloudsuite.com`|
+    | `http://mingle-sso.inforcloudsuite.com`|
     | `http://mingle-sso.se1.inforcloudsuite.com`|
     | `http://mingle-sso.eu1.inforcloudsuite.com`|
     | `http://mingle-sso.se2.inforcloudsuite.com`|
@@ -129,9 +129,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     | | |
     |-|-|
-    | ` https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2 `|
+    | `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
     | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
     | |
 
@@ -145,7 +145,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     |-|-|
     | `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/ `|
+    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`| 
 
     > [!NOTE]
@@ -175,7 +175,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel **nome utente** , digitare **brittasimon\@yourcompanydomain.extension**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare **Proprietà**, selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.

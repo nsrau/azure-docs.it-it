@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793816"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878356"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Connettere Operations Manager a monitoraggio di Azure
 
@@ -66,7 +66,7 @@ Le informazioni sotto l'elenco delle informazioni di configurazione del proxy e 
 
 |Risorsa | Numero della porta| Ignorare l'analisi HTTPS|  
 |---------|------|-----------------------|  
-|**Agent**|||  
+|**Agente**|||  
 |\*.ods.opinsights.azure.com| 443 |Sì|  
 |\*.oms.opinsights.azure.com| 443|Sì|  
 |\*.blob.core.windows.net| 443|Sì|  
@@ -221,7 +221,7 @@ Management Pack per le soluzioni abilitate che si integrano con Operations Manag
     > 
 
 1. Dal prompt della shell dei comandi, digitare `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
-1. Quindi digitare `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. Tipo successivo, `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Per rimuovere tutti i Management pack rimanenti che presentano una dipendenza da altri Management pack di System Center Advisor, usare lo script *RecursiveRemove.ps1* scaricato in precedenza da TechNet Script Center.  
  
     > [!NOTE]
@@ -345,7 +345,7 @@ Per eliminare i due connettori, Microsoft.SystemCenter.Advisor.DataConnector e A
 Se in futuro si prevede di riconnettere il gruppo di gestione a un'area di lavoro di Log Analytics, è necessario importare nuovamente il file del Management Pack `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. A seconda della versione di System Center Operations Manager distribuita nell'ambiente in uso, è possibile che questo file si trovi nel percorso seguente:
 
 * Nel supporto di origine nella cartella `\ManagementPacks` per System Center 2016 - Operations Manager e versioni successive.
-* Nel rollup dell'aggiornamento più recente applicato al gruppo di gestione. Per Operations Manager 2012, la cartella di origine è ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e per la versione 2012 R2 si trova in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* Nel rollup dell'aggiornamento più recente applicato al gruppo di gestione. Per Operations Manager 2012, è la cartella di origine `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` e per 2012 R2, si trova in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5643b7c80307cea36f60bcc116c82ea7b31171f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 04a1741bbe4e60567a22445c5674ec03b232640c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096572"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883682"
 ---
 # <a name="create-an-azure-compatible-vhd"></a>Creare un disco rigido virtuale compatibile con Azure
 
 Questo articolo descrive in dettaglio i passaggi necessari per creare un disco rigido virtuale per un'offerta di macchina virtuale in Azure Marketplace.  Include inoltre le procedure consigliate per diversi aspetti, ad esempio l'uso di Remote Desktop Protocol (RDP), la selezione di una dimensione per la macchina virtuale, l'installazione degli aggiornamenti di Windows più recenti e la generalizzazione dell'immagine del disco rigido virtuale.  Le sezioni seguenti sono dedicate principalmente sui dischi rigidi virtuali basati su Windows. Per altre informazioni sulla creazione di dischi rigidi virtuali basati su Linux, vedere [Linux in distribuzioni approvate da Azure](../../../virtual-machines/linux/endorsed-distros.md). 
 
 > [!WARNING]
-> È consigliabile seguire le indicazioni presenti in questo argomento per usare Azure per la creazione di una macchina virtuale che contiene un sistema operativo pre-configurato e approvato.  Se tali indicazioni non sono compatibili con la soluzione in uso, è possibile creare e configurare una macchina virtuale in locale con un sistema operativo approvato.  È quindi possibile configurare e prepararla per il caricamento, come descritto in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
+> È consigliabile seguire le indicazioni presenti in questo argomento per usare Azure per la creazione di una macchina virtuale che contiene un sistema operativo pre-configurato e approvato.  Se questo non è compatibile con la soluzione, quindi è possibile creare e configurare una macchina virtuale in locale tramite un sistema operativo approvato.  È quindi possibile configurare e prepararla per il caricamento, come descritto in [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image).
 
 
 ## <a name="select-an-approved-base"></a>Selezionare una base approvata

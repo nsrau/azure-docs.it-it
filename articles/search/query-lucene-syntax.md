@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438054"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885605"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintassi di query Lucene in Ricerca di Azure
 È possibile scrivere query su Ricerca di Azure basate sulla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per moduli di query specializzati, ad esempio caratteri jolly, ricerca fuzzy, ricerca per prossimità, espressioni regolari. La maggior parte della sintassi del parser di query Lucene viene [implementata in Ricerca di Azure senza essere modificata](search-lucene-query-architecture.md), ad eccezione delle *ricerche per intervalli* che vengono costruite in Ricerca di Azure tramite le espressioni `$filter`. 
@@ -85,7 +85,7 @@ L'esempio precedente è relativo alla tilde (~), ma lo stesso principio si appli
 
  Assicurarsi che tutti i caratteri riservati e non sicuri siano codificati in un URL. "#", ad esempio, è un carattere non sicuro perché è un identificatore di frammento/ancoraggio in un URL. Il carattere deve essere codificato al `%23`, se usato in un URL. "&" e "=" sono esempi di caratteri riservati perché delimitano i parametri e specificano i valori in Ricerca di Azure. Vedere [RFC1738: Uniform Resource Locators (URL)](https://www.ietf.org/rfc/rfc1738.txt) per altri dettagli.
 
- I caratteri non sicuri sono ``" ` < > # % { } | \ ^ ~ [ ] ``. I caratteri riservati sono `; / ? : @ = + &`.
+ I caratteri non sicuri sono ``" ` < > # % { } | \ ^ ~ [ ]``. I caratteri riservati sono `; / ? : @ = + &`.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>Operatori di precedenza: raggruppamento e raggruppamento di campi  
  È possibile usare le parentesi per creare sottoquery, inclusi gli operatori nell'istruzione tra parentesi. Ad esempio, `motel+(wifi||luxury)` cercherà i documenti contenenti i termini "motel" e "wifi" o "luxury" (oppure entrambi).
@@ -167,6 +167,6 @@ L'esempio seguente illustra le differenze. Si supponga che esista un profilo di 
 
 ## <a name="see-also"></a>Vedere anche   
 
-+ [Eseguire ricerche nei documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [Sintassi delle espressioni OData per filtri e ordinamento](query-odata-filter-orderby-syntax.md)   
++ [ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [Sintassi delle espressioni OData per i filtri e l'ordinamento](query-odata-filter-orderby-syntax.md)   
 + [Sintassi di query semplice in Ricerca di Azure](query-simple-syntax.md)   

@@ -9,18 +9,18 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: 5f23435a43d139ecb9f20e5036124f175b1830c9
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225366"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885945"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale
 
 ## <a name="overview"></a>Panoramica
 
-**Progetto di sicurezza e conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale offre una distribuzione chiavi in mano di una soluzione PaaS e IaaS di Azure per illustrare come inserire, archiviare, analizzare, usare, identificare e distribuire in modo sicuro soluzioni con dati del settore sanitario rispettando i requisiti di conformità del settore. Il progetto consente di accelerare l'adozione e l'utilizzo del cloud da parte dei clienti con dati regolamentati.**
+**Azure Security and Compliance Blueprint - HIPAA/HITRUST per dati del e intelligenza artificiale offre una distribuzione di chiavi in mano di una soluzione IaaS e PaaS di Azure per dimostrare come inserire, archiviare, analizzare, interagire, identità e distribuire in modo sicuro le soluzioni con dati di integrità durante la possibilità di soddisfare i requisiti di conformità del settore. Il progetto consente di accelerare l'adozione del cloud e l'utilizzo per i clienti con dati regolamentati.**
 
 Il progetto per la sicurezza e la conformità di Azure: HIPAA/HITRUST per dati del settore sanitario e intelligenza artificiale fornisce strumenti e indicazioni per distribuire un ambiente PaaS (piattaforma distribuita come servizio) sicuro, conforme a HIPAA (Health Insurance Portability e Accountability Act) e HITRUST (Health Information Trust Alliance) per inserire, archiviare, analizzare e usare cartelle cliniche personali e non personali in un ambiente cloud multilivello sicuro, distribuito come soluzione end-to-end. 
 
@@ -150,36 +150,36 @@ Il progetto include un vasto set di cartelle cliniche anonime che illustrano le 
 
 **Amministratore del sito - Alex**
 
-*Indirizzo di posta elettronica: Alex\_SiteAdmin*
+*Posta elettronica: Alex\_SiteAdmin*
 
 Il lavoro di Alex consiste nel valutare le tecnologie che possono ridurre il carico di lavoro di gestione di una rete locale e i costi per la gestione. Alex sta valutando Azure da un po' di tempo, ma ha difficoltà a configurare i servizi necessari per soddisfare i requisiti di conformità HiTrust per l'archiviazione dei dati dei pazienti nel cloud. Alex ha scelto l'intelligenza artificiale di Integrità di Azure per distribuire una soluzione per il settore sanitario predisposta per la conformità, in grado di soddisfare i requisiti dei clienti per HiTrust.
 
-**Data scientist - Debra**
+**Data Scientist - Debra**
 
-*Indirizzo di posta elettronica: Debra\_DataScientist*
+*Posta elettronica: Debra\_DataScientist*
 
 Debra è responsabile dell'uso e della creazione di modelli che analizzano le cartelle cliniche per fornire informazioni approfondite sulla cura dei pazienti. Debra usa SQL e il linguaggio di programmazione statistica R per creare i modelli.
 
 **Analista di database - Danny**
 
-*Indirizzo di posta elettronica: Danny\_DBAnalyst*
+*Posta elettronica: Danny\_DBAnalyst*
 
 Danny è il contatto principale per tutto ciò che riguarda la soluzione Microsoft SQL Server che archivia tutti i dati dei pazienti per Contosoclinic. Danny è un amministratore esperto di SQL Server che ha di recente acquisito familiarità con il database SQL di Azure.
 
-**Responsabile dei servizi informatici sanitari (CMIO, Chief Medical Information Officer) - Caroline**
+**Chief Medical Information Officer - Caroline**
 
 Caroline collabora con Chris, responsabile sanitario, e Debra, data scientist, per determinare i fattori che influiscono sulla durata della degenza dei pazienti.
 Caroline usa le stime dalla soluzione di calcolo della durata della degenza per determinare se le risorse vengono allocate in modo appropriato nella rete ospedaliera. Usa, ad esempio, il dashboard fornito in questa soluzione.
 
 **Responsabile sanitario - Chris**
 
-*Indirizzo di posta elettronica: Chris\_CareLineManager*
+*Posta elettronica: Chris\_CareLineManager*
 
 In quanto diretto responsabile della gestione del ricovero e delle dimissioni dei pazienti presso Contosoclinic, Chris usa le stime generate dalla soluzione di calcolo della durata della degenza per garantire la disponibilità di personale adeguato per fornire assistenza ai pazienti durante la degenza.
 
 **Revisore - Han**
 
-*Indirizzo di posta elettronica: Han\_Auditor*
+*Posta elettronica: Han\_revisore*
 
 Han è un revisore certificato con esperienza nel controllo della conformità a ISO, SOC e HiTrust. È stato assunto per la revisione della rete di Contosoclinc. Han può esaminare la matrice delle responsabilità del cliente fornita con la soluzione per assicurarsi che il progetto e la soluzione di calcolo della durata della degenza possano essere usati per archiviare, elaborare e visualizzare i dati personali sensibili.
 
@@ -249,7 +249,7 @@ Questa sezione illustra nel dettaglio le configurazioni predefinite e le misure 
 ### <a name="azure-functions"></a>Funzioni di Azure
 La soluzione è stata progettata per usare [Funzioni di Azure](/azure/azure-functions/) per elaborare i dati di esempio sulla durata della degenza usati nella demo di analisi. Sono state create tre funzionalità nelle funzioni.
 
-**1. Importazione in blocco delle informazioni sanitarie protette dei clienti**
+**1. Importazione bulk di dati di informazioni protette dei pazienti dati dei clienti**
 
 Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a **distribuzione ed esecuzione della demo**, vengono eseguite le pipeline di elaborazione seguenti:
 1. **Archiviazione BLOB di Azure** - File CVS di esempio dei dati dei pazienti caricato per l'archiviazione
@@ -268,7 +268,7 @@ La funzione di Azure è stata inoltre progettata per leggere e proteggere i dati
 **2. Ricovero di nuovi pazienti**
 
 Quando si usa lo script di demo. .\\HealthcareDemo.ps1 con l'opzione **BulkPatientAdmission** come illustrato nella sezione relativa a **distribuzione ed esecuzione della demo**, vengono eseguite le pipeline di elaborazione seguenti: ![](images/securetransact.png)
-**1. Funzione di Azure** attivata e la funzione richiede un [token di connessione](/rest/api/) da Azure Active Directory.
+**1. Funzione di Azure[ attivata e la funzione richiede un ](/rest/api/)token di connessione da Azure Active Directory.
 
 **2. Key Vault** richiesto per un segreto associato al token richiesto.
 

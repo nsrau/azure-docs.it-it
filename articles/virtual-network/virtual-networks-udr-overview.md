@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Informazioni sul modo in cui Azure instrada il traffico di rete virtuale e su come personalizzare il routing di Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: jdial
-ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: malop;kumud
+ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123573"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878503"
 ---
 # <a name="virtual-network-traffic-routing"></a>Routing del traffico di rete virtuale
 
@@ -47,7 +47,7 @@ I tipi di hop successivi elencati nella tabella precedente rappresentano il modo
 
 - **Internet**: instrada verso Internet il traffico specificato dal prefisso degli indirizzi. La route di sistema predefinita specifica il prefisso degli indirizzi 0.0.0.0/0. Se non si sostituiscono le route predefinite, Azure instrada verso Internet il traffico di tutti gli indirizzi non specificati da un intervallo di indirizzi all'interno di una rete virtuale, con un'eccezione. Se l'indirizzo di destinazione è di uno dei servizi di Azure, Azure instrada il traffico direttamente al servizio tramite la rete backbone di Azure, piuttosto che verso Internet. Il traffico tra i servizi di Azure non attraversa Internet, indipendentemente dall'area di Azure in cui si trova la rete virtuale o in cui viene distribuita un'istanza del servizio di Azure. È possibile eseguire l'override della route di sistema predefinita di Azure per il prefisso degli indirizzi 0.0.0.0/0 con una [route personalizzata](#custom-routes).
 
-- **Nessuno**: il traffico indirizzato al tipo di hop successivo **Nessuno** viene eliminato e non instradato all'esterno della subnet. Azure crea automaticamente route predefinite per i prefissi degli indirizzi seguenti:
+- **Nessuna**: il traffico indirizzato al tipo di hop successivo **Nessuno** viene eliminato e non instradato all'esterno della subnet. Azure crea automaticamente route predefinite per i prefissi degli indirizzi seguenti:
   - **10.0.0.0/8, 172.16.0.0/12 e 192.168.0.0/16**: riservati per l'uso privato in RFC 1918.
   - **100.64.0.0/10**: riservato in RFC 6598.
 
@@ -92,7 +92,7 @@ Le route personalizzate vengono create con route [definite dall'utente](#user-de
     È possibile definire una route con 0.0.0.0/0 come prefisso degli indirizzi e un tipo di hop successivo Appliance virtuale, per consentire all'appliance di ispezionare il traffico e determinare se inoltrarlo o eliminarlo. Se si intende creare una route definita dall'utente che contiene il prefisso degli indirizzi 0.0.0.0/0, vedere prima [Prefisso degli indirizzi 0.0.0.0/0](#default-route).
 
 - **Gateway di rete virtuale**: consente di specificare quando si vuole che il traffico destinato a prefissi degli indirizzi specifici venga indirizzato a un gateway di rete virtuale. Il gateway di rete virtuale deve essere creato con il tipo **VPN**. Non è possibile specificare un gateway di rete virtuale creato come tipo **ExpressRoute** in una route definita dall'utente perché con ExpressRoute è necessario usare BGP per le route personalizzate. È possibile definire una route che indirizzi il traffico destinato al prefisso degli indirizzi 0.0.0.0/0 a un gateway di rete virtuale [basato su route](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). Nell'ambiente locale può essere presente un dispositivo che ispeziona il traffico e determina se inoltrarlo o eliminarlo. Se si intende creare una route definita dall'utente per il prefisso di indirizzo 0.0.0.0/0, vedere prima [Prefisso degli indirizzi 0.0.0.0/0](#default-route). Invece di configurare una route definita dall'utente per il prefisso degli indirizzi 0.0.0.0/0, è possibile annunciare una route con il prefisso 0.0.0.0/0 tramite BGP, se è stato [abilitato BGP per un gateway di rete virtuale VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **Nessuno**: consente di specificare quando si vuole eliminare il traffico verso un prefisso degli indirizzi, invece di inoltrarlo a una destinazione. Se una funzionalità non è completamente configurata, Azure può elencare *Nessuno* per alcune delle route di sistema facoltative. Se ad esempio è indicato *Nessuno* come **Indirizzo IP hop successivo** con **Tipo hop successivo** *Gateway di rete virtuale* o *Appliance virtuale*, è possibile che il dispositivo non sia in esecuzione o non sia completamente configurato. Azure crea [route predefinite](#default) di sistema per i prefissi degli indirizzi riservati con tipo hop successivo **Nessuno**.
+- **Nessuna**: consente di specificare quando si vuole eliminare il traffico verso un prefisso degli indirizzi, invece di inoltrarlo a una destinazione. Se una funzionalità non è completamente configurata, Azure può elencare *Nessuno* per alcune delle route di sistema facoltative. Se ad esempio è indicato *Nessuno* come **Indirizzo IP hop successivo** con **Tipo hop successivo** *Gateway di rete virtuale* o *Appliance virtuale*, è possibile che il dispositivo non sia in esecuzione o non sia completamente configurato. Azure crea [route predefinite](#default) di sistema per i prefissi degli indirizzi riservati con tipo hop successivo **Nessuno**.
 - **Rete virtuale**: consente di specificare quando si intende eseguire l'override del routing predefinito in una rete virtuale. Vedere [Esempio di routing](#routing-example) per un esempio che illustra perché creare una route con il tipo di hop **Rete virtuale**.
 - **Internet**: consente di specificare quando si vuole instradare esplicitamente a Internet il traffico destinato a un prefisso degli indirizzi oppure se si vuole che il traffico destinato ai servizi di Azure con indirizzi IP pubblici resti all'interno della rete backbone di Azure.
 
@@ -181,7 +181,7 @@ Per illustrare i concetti presentati in questo articolo, le sezioni seguenti des
 ### <a name="requirements"></a>Requisiti
 
 1. Implementare due reti virtuali nella stessa area di Azure e consentire alle risorse di comunicare tra le reti virtuali.
-2. Consentire a una rete locale di comunicare in modo sicuro con entrambe le reti virtuali tramite un tunnel VPN su Internet. *In alternativa è possibile usare una connessione ExpressRoute, ma in questo esempio viene usata una connessione VPN.*
+2. Consentire a una rete locale di comunicare in modo sicuro con entrambe le reti virtuali tramite un tunnel VPN su Internet. *In alternativa, può essere usata una connessione ExpressRoute, ma in questo esempio viene usata una connessione VPN.*
 3. Per una sola subnet in una sola rete virtuale:
  
     - Forzare tutto il traffico in uscita dalla subnet, ad eccezione di Archiviazione di Azure e del traffico interno alla subnet, attraverso un'appliance virtuale di rete per l'ispezione e la registrazione.
@@ -255,8 +255,8 @@ La tabella di route per *Subnet2* contiene tutte le route predefinite create da 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Creare una tabella di route definite dall'utente con route e un'appliance virtuale di rete](tutorial-create-route-table-portal.md)
-- [Configurare BGP per un gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Usare BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
+- [Creare una tabella di route definita dall'utente con route e un'appliance virtuale di rete](tutorial-create-route-table-portal.md)
+- [Configurare BGP per Gateway VPN di Azure](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Usare il protocollo BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Visualizzare tutte le route di una subnet](diagnose-network-routing-problem.md). Una tabella di route definite dall'utente mostra solo le route definite dall'utente, non le route BGP e predefinite di una subnet. La visualizzazione di tutte le route elenca le route predefinite, BGP e definite dall'utente per la subnet in cui si trova un'interfaccia di rete.
 - [Determinare il tipo di hop successivo](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) tra una macchina virtuale e un indirizzo IP di destinazione. La funzionalità di hop successivo di Azure Network Watcher consente di determinare se il traffico è in uscita da una subnet e viene indirizzato dove previsto.

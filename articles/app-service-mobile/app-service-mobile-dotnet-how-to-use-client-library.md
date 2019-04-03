@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: crdun
-ms.openlocfilehash: 469c6802879707a3cf16b3e17876cb1f5e3854fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8f014f1cb40e1a629d1989f00805fc91015a3ae9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093008"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886013"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Come usare il client gestito per App per dispositivi mobili di Azure
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -68,7 +68,7 @@ Per informazioni su come creare le tabelle nel back-end di App per dispositivi m
 Per installare il pacchetto SDK gestito da client per App per dispositivi mobili da [NuGet][9] attenersi a uno dei metodi seguenti:
 
 * **Visual Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Gestisci pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client` e fare clic su **Installa**.
-* **Xamarin Studio** Fare clic sul progetto con il pulsante destro del mouse, scegliere **Aggiungi**>**Aggiungi pacchetti NuGet**, cercare il pacchetto `Microsoft.Azure.Mobile.Client ` e fare clic su **Aggiungi pacchetto**.
+* **Xamarin Studio** mouse sul progetto, fare clic su **Add** > **Aggiungi pacchetti NuGet**, cercare il `Microsoft.Azure.Mobile.Client` del pacchetto e quindi fare clic su **Aggiungi pacchetto** .
 
 Nel file dell'attività principale aggiungere l'istruzione **using** seguente:
 
@@ -101,13 +101,13 @@ Nella sezione seguente viene illustrato come cercare e recuperare i record e mod
 * [Restituire i dati in pagine](#paging)
 * [Selezionare colonne specifiche](#selecting)
 * [Cercare un record per Id](#lookingup)
-* [Gestione delle query non tipizzate](#untypedqueries)
-* [Inserimento dei dati](#inserting)
+* [Gestione di query non tipizzate](#untypedqueries)
+* [Inserimento di dati](#inserting)
 * Aggiornamento dei dati
-* [Eliminazione dei dati](#deleting)
+* [L'eliminazione dei dati](#deleting)
 * [Risoluzione dei conflitti e concorrenza ottimistica](#optimisticconcurrency)
 * [Associazione a un'interfaccia utente di Windows](#binding)
-* [Modifica delle dimensioni di pagina](#pagesize)
+* [La modifica delle dimensioni di pagina](#pagesize)
 
 ### <a name="instantiating"></a>Procedura: Creare un riferimento alla tabella
 Tutti i codici che accedono o modificano i dati nella tabella del back-end chiamano funzioni sull'oggetto `MobileServiceTable` . Ottenere un riferimento alla tabella chiamando il metodo [GetTable] , nel modo seguente:
@@ -624,20 +624,20 @@ Ad esempio:
 È possibile utilizzare InvokeApiAsync per chiamare qualsiasi API Web, tra cui le API Web che non sono definite con App per dispositivi mobili di Azure.  Quando si utilizza InvokeApiAsync(), le intestazioni appropriate, incluse le intestazioni di autenticazione, vengono inviate con la richiesta.
 
 ## <a name="authentication"></a>Autenticare gli utenti
-Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni: Facebook, Google, account Microsoft, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Aggiungere l'autenticazione all'app Xamarin.Forms].
+Il servizio app di Azure supporta l'autenticazione e l'autorizzazione degli utenti di app usando diversi provider di identità esterni: Facebook, Google, account Microsoft, Twitter e Azure Active Directory. È possibile impostare le autorizzazioni per le tabelle per limitare l'accesso per operazioni specifiche solo agli utenti autenticati. È inoltre possibile utilizzare l'identità degli utenti autenticati per implementare regole di autorizzazione negli script del server. Per altre informazioni, vedere l'esercitazione [Aggiungere l'autenticazione all'app di Servizi mobili].
 
 Sono supportati due flussi di autenticazione: flusso *gestito dal client* e flusso *gestito dal server*. Il flusso gestito dal server è il processo di autenticazione più semplice, poiché si basa sull'interfaccia di autenticazione Web del provider. Il flusso gestito dal client assicura una maggiore integrazione con funzionalità specifiche del dispositivo, poiché si basa su SDK specifici del provider e del dispositivo.
 
 > [!NOTE]
 > Nelle app di produzione è consigliabile usare un flusso gestito dal client.
 
-Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app Xamarin.Forms].
+Per configurare l'autenticazione, è necessario registrare l'app con uno o più provider di identità.  Il provider di identità genera un ID client e un segreto client per l'app.  Questi valori vengono quindi impostati nel back-end per abilitare l'autenticazione/l'autorizzazione del Servizio app di Azure.  Per altre informazioni, seguire le istruzioni dettagliate dell'esercitazione [Aggiungere l'autenticazione all'app di Windows].
 
 Questo articolo descrive gli argomenti seguenti:
 
 * [Autenticazione gestita dal client](#clientflow)
 * [Autenticazione gestita dal server](#serverflow)
-* [Memorizzazione nella cache del token di autenticazione](#caching)
+* [La memorizzazione nella cache il token di autenticazione](#caching)
 
 ### <a name="clientflow"></a>Autenticazione gestita dal client
 L'app può contattare il provider di identità in modo indipendente e quindi fornire il token restituito durante l'accesso con il back-end. Mediante il flusso client è possibile consentire agli utenti di effettuare l'accesso un'unica volta o recuperare dal provider di identità dati utente aggiuntivi. L'autenticazione del flusso client è preferibile rispetto all'uso di un flusso server, perché l'SDK del provider di identità garantisce un'esperienza utente più naturale e consente una maggiore personalizzazione.
@@ -650,7 +650,7 @@ Vengono forniti esempi per i modelli di autenticazione del flusso client seguent
 #### <a name="adal"></a>Autenticare gli utenti con Active Directory Authentication Library
 È possibile usare Active Directory Authentication Library (ADAL) per avviare l'autenticazione degli utenti dal client usando l'autenticazione di Azure Active Directory.
 
-1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare il servizio app per l'account di accesso di Active Directory]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
+1. Configurare il back-end dell'app per dispositivi mobili per l'accesso ad Azure Active Directory seguendo l'esercitazione [Come configurare un'applicazione del servizio app per usare l'account di accesso di Azure Active Directory]. Assicurarsi di completare il passaggio facoltativo di registrazione di un'applicazione client nativa.
 2. In Visual Studio o Xamarin Studio aprire il progetto e aggiungere un riferimento al pacchetto NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` . Includere nella ricerca le versioni non definitive.
 3. Aggiungere il codice seguente all'applicazione, in base alla piattaforma usata. Apportare le sostituzioni seguenti:
 
@@ -1039,11 +1039,11 @@ public class MyHandler : DelegatingHandler
 [11]: http://www.symbolsource.org/Public/Wiki/Using
 [12]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient(v=azure.10).aspx
 
-[Aggiungere l'autenticazione all'app Xamarin.Forms]: app-service-mobile-windows-store-dotnet-get-started-users.md
+[Aggiungere l'autenticazione all'app]: app-service-mobile-windows-store-dotnet-get-started-users.md
 [Sincronizzazione di dati offline nelle app per dispositivi mobili di Azure]: app-service-mobile-offline-data-sync.md
 [Aggiungere notifiche push all'app]: app-service-mobile-windows-store-dotnet-get-started-push.md
 [Register your app to use a Microsoft account login]: ../app-service/configure-authentication-provider-microsoft.md
-[Come configurare il servizio app per l'account di accesso di Active Directory]: ../app-service/configure-authentication-provider-aad.md
+[Come configurare il servizio App per le credenziali Active Directory]: ../app-service/configure-authentication-provider-aad.md
 
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
@@ -1052,7 +1052,7 @@ public class MyHandler : DelegatingHandler
 [MobileServiceUser]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
-[crea un riferimento a una tabella non tipizzata]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
+[Crea un riferimento a una tabella non tipizzata]: https://msdn.microsoft.com/library/azure/jj554278(v=azure.10).aspx
 [DeleteAsync]: https://msdn.microsoft.com/library/azure/dn296407(v=azure.10).aspx
 [IncludeTotalCount]: https://msdn.microsoft.com/library/azure/dn250560(v=azure.10).aspx
 [InsertAsync]: https://msdn.microsoft.com/library/azure/dn296400(v=azure.10).aspx
@@ -1066,7 +1066,7 @@ public class MyHandler : DelegatingHandler
 [Select]: https://msdn.microsoft.com/library/azure/dn250569(v=azure.10).aspx
 [Skip]: https://msdn.microsoft.com/library/azure/dn250573(v=azure.10).aspx
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
-[UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
+[ID utente]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
 [Portale di Azure]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
@@ -1076,12 +1076,12 @@ public class MyHandler : DelegatingHandler
 [DelegatingHandler]: https://msdn.microsoft.com/library/system.net.http.delegatinghandler(v=vs.110).aspx
 [PasswordVault]: https://msdn.microsoft.com/library/windows/apps/windows.security.credentials.passwordvault.aspx
 [ProtectedData]: https://msdn.microsoft.com/library/system.security.cryptography.protecteddata%28VS.95%29.aspx
-[API di Hub di notifica]: https://msdn.microsoft.com/library/azure/dn495101.aspx
-[esempio di file di App per dispositivi mobili]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
+[API di hub di notifica]: https://msdn.microsoft.com/library/azure/dn495101.aspx
+[Esempio di file di App per dispositivi mobili]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files
 [LoggingHandler]: https://github.com/Azure-Samples/app-service-mobile-dotnet-todo-list-files/blob/master/src/client/MobileAppsFilesSample/Helpers/LoggingHandler.cs#L63
 
 <!-- External URLs -->
-[documentazione relativa a OData v3]: https://www.odata.org/documentation/odata-version-3-0/
+[Documentazione relativa a OData v3]: https://www.odata.org/documentation/odata-version-3-0/
 [Fiddler]: https://www.telerik.com/fiddler
 [Json.NET]: https://www.newtonsoft.com/json
 [Xamarin.Auth]: https://components.xamarin.com/view/xamarin.auth/

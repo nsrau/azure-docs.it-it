@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e18c58aafd4aa56a27f5e4a97c9dcc9dcd0fdbd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56199783"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885843"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Esercitazione: Integrazione di Azure Active Directory con Secret Server (On-Premises)
 
@@ -59,7 +59,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 ## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Aggiunta di Secret Server (On-Premises) dalla raccolta
 Per configurare l'integrazione di Secret Server (On-Premises) in Azure AD, è necessario aggiungere Secret Server (On-Premises) dalla raccolta all'elenco di app SaaS gestite.
 
-**Per aggiungere Secret Server (On-Premises) dalla raccolta, seguire questa procedura:**
+**Per aggiungere Secret Server (On-Premises) dalla raccolta, seguire i passaggi seguenti:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -95,7 +95,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Secret Server
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione Secret Server (On-Premises).
 
-**Per configurare l'accesso Single Sign-On di Azure AD con Secret Server (On-Premises), seguire questa procedura:**
+**Per configurare single sign-on di Azure con Secret Server (On-Premises), seguire i passaggi seguenti:**
 
 1. Nella pagina di integrazione dell'applicazione **Secret Server (On-Premises)** del portale di Azure fare clic su **Single Sign-On**.
 
@@ -109,9 +109,9 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-    a. Nella casella di testo **Identificatore** immettere il valore scelto dall'utente come esempio: `https://secretserveronpremises.azure`
+    a. Nel **identificatore** nella casella di testo, immettere il valore come esempio scelto dall'utente: `https://secretserveronpremises.azure`
 
-    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx `
+    b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
 
     > [!NOTE]
     > L'ID entità illustrato in precedenza è solo un esempio ed è possibile scegliere qualsiasi valore univoco che identifica l'istanza di Secret Server in Azure AD. È necessario inviare tale ID entità al [team di supporto clienti di Secret Server (On-Premises)](https://thycotic.force.com/support/s/) affinché il team possa eseguire la configurazione. Per altri dettagli, leggere [questo articolo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -120,7 +120,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
-    Nella casella di testo **URL di accesso** digitare l'URL usando il modello seguente: `https://<SecretServerURL>/login.aspx`
+    Nella casella di testo **URL di accesso** digitare un URL usando il criterio seguente: `https://<SecretServerURL>/login.aspx`
      
     > [!NOTE] 
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Secret Server (On-Premises)](https://thycotic.force.com/support/s/).
@@ -149,7 +149,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
    ![Creare un utente test di Azure AD][100]
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+**Per creare un utente test di Azure AD, seguire i passaggi seguenti:**
 
 1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
 
@@ -185,7 +185,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ![Assegnare il ruolo utente][200]
 
-**Per assegnare Britta Simon a Secret Server (On-Premises), seguire questa procedura:**
+**Per assegnare Britta Simon a Secret Server (On-Premises), procedere come segue:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

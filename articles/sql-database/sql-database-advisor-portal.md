@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564239"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863203"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 
@@ -78,6 +78,7 @@ Il database rimane online mentre viene applicata la raccomandazione. Un database
 La raccomandazione selezionata verrà applicata nel database.
 
 ### <a name="removing-recommendations-from-the-list"></a>Rimozione delle raccomandazioni dall'elenco
+
 Se l'elenco di raccomandazioni contiene voci che si vuole rimuovere dall'elenco, ignorare la raccomandazione:
 
 1. Selezionare una raccomandazione nell'elenco **Raccomandazioni** per aprire i dettagli.
@@ -110,18 +111,21 @@ Se si vuole, è possibile aggiungere nuovamente gli elementi ignorati all'elenco
 
 Dopo aver selezionato la configurazione desiderata, fare clic su Applica.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>Eseguire manualmente lo script T-SQL consigliato
+### <a name="manually-apply-recommendations-through-t-sql"></a>Applicare le raccomandazioni tramite T-SQL manualmente
+
 Selezionare qualsiasi raccomandazione e quindi fare clic su **Visualizza script**. Eseguire questo script nel database per applicare manualmente l'indicazione.
 
-*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*Gli indici eseguiti manualmente non vengono monitorati e convalidati per l'impatto sulle prestazioni da parte del servizio* , quindi è consigliabile monitorarli dopo la creazione per verificare che offrano miglioramenti delle prestazioni e modificarli o eliminarli se necessario. Per informazioni dettagliate sulla creazione di indici, vedere [CREAZIONE INDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Inoltre, raccomandazioni applicate manualmente rimarrà attiva e mostrate nell'elenco delle raccomandazioni per 24-48 ore. prima che il sistema prelevi automaticamente li. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarlo manualmente.
 
 ### <a name="canceling-recommendations"></a>Annullamento delle raccomandazioni
+
 Le raccomandazioni con stato **In sospeso**, **Convalida** oppure **Operazione completata** possono essere annullate. Le raccomandazioni con stato **In esecuzione** non possono essere annullate.
 
 1. Selezionare una raccomandazione nell'area **Cronologia ottimizzazione** per aprire la pagina dei **dettagli della raccomandazione**.
 2. Fare clic su **Annulla** per interrompere il processo di applicazione della raccomandazione.
 
 ## <a name="monitoring-operations"></a>Monitoraggio delle operazioni
+
 L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portale fornisce dettagli sullo stato della raccomandazione. Di seguito sono indicati gli stati possibili di un indice:
 
 | Stato | DESCRIZIONE |

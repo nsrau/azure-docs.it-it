@@ -16,14 +16,14 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: celested
 ms.reviewer: hirsin, jesakowi, jmprieur
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f6ccc2a355b22c2235253b78a1efa3912234027a
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: c0614a6bc588a26a23dc9d3795e532a303a472e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793493"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881648"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Autorizzazioni e consenso nell'endpoint v2.0 di Azure Active Directory
 
@@ -39,7 +39,7 @@ Le applicazioni che si integrano con Microsoft Identity Platform seguono un mode
 Microsoft Identity Platform implementa il protocollo di autorizzazione [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 è un metodo tramite cui un'applicazione di terze parti può accedere alle risorse ospitate sul Web per conto dell'utente. Qualsiasi risorsa ospitata sul Web che si integra con Microsoft Identity Platform ha un identificatore di risorsa, o *URI dell'ID applicazione*. Ad esempio, alcune delle risorse ospitate sul Web di Microsoft includono:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* API Office 365 Mail: `https://outlook.office.com`
+* API di posta elettronica di Office 365: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
 
 > [!NOTE]
@@ -55,9 +55,9 @@ Con la definizione di questi tipi di autorizzazioni, la risorsa può avere un co
 
 In OAuth 2.0 questi tipi di autorizzazioni vengono definiti *ambiti* o spesso semplicemente *autorizzazioni*. In Microsoft Identity Platform un'autorizzazione è rappresentata come valore stringa. Nell'esempio relativo a Microsoft Graph il valore stringa per ogni autorizzazione è:
 
-* Lettura del calendario dell'utente tramite `Calendars.Read`
-* Scrittura del calendario dell'utente tramite `Calendars.ReadWrite`
-* Invio di messaggi di posta elettronica come utente tramite `Mail.Send`
+* Lettura del calendario dell'utente mediante l'utilizzo `Calendars.Read`
+* Scrittura nel calendario dell'utente tramite `Calendars.ReadWrite`
+* Inviare posta elettronica come utente tramite `Mail.Send`
 
 Un'app più comunemente richiede queste autorizzazioni specificando gli ambiti nelle richieste all'endpoint di autorizzazione v2.0. Tuttavia, alcune autorizzazioni con privilegi elevati possono essere concesse solo con il consenso dell'amministratore e in genere vengono richieste e concesse tramite l'[endpoint di consenso dell'amministratore](v2-permissions-and-consent.md#admin-restricted-permissions). Per altre informazioni, continuare la lettura.
 
@@ -82,7 +82,7 @@ L'implementazione della versione 2.0 di OpenID Connect presenta alcuni ambiti be
 
 ### <a name="openid"></a>openid
 
-Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella pagina di consenso dell'account aziendale come autorizzazione di accesso e nella pagina di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi tramite l'account Microsoft. Questa autorizzazione consente a un'app di ricevere un identificatore univoco per l'utente sotto forma di attestazione `sub` e concede all'app l'accesso all'endpoint delle informazioni utente. L'ambito `openid` può essere usato nell'endpoint del token 2.0 per acquisire token ID, che possono essere usati per proteggere le chiamate HTTP tra diversi componenti di un'app.
+Se un'app esegue l'accesso usando [OpenID Connect](active-directory-v2-protocols.md), deve richiedere l'ambito `openid`. L'ambito `openid` viene visualizzato nella pagina di consenso dell'account aziendale come autorizzazione di accesso e nella pagina di consenso dell'account personale Microsoft come autorizzazione per la visualizzazione del profilo e la connessione ad app e servizi tramite l'account Microsoft. Questa autorizzazione consente a un'app di ricevere un identificatore univoco per l'utente sotto forma di attestazione `sub` e concede all'app l'accesso all'endpoint delle informazioni utente. Il `openid` ambito può essere utilizzato nell'endpoint del token 2.0 per acquisire token ID, che può essere usato dall'app per l'autenticazione.
 
 ### <a name="email"></a>email
 
@@ -139,9 +139,9 @@ Le applicazioni devono inoltre usare l'endpoint di consenso amministratore per r
 
 Alcune autorizzazioni con privilegi elevati nell'ecosistema Microsoft possono essere impostati come *riservati all'amministratore*. Tra gli esempi di questi tipi di autorizzazioni sono incluse le seguenti:
 
-* Lettura dei profili completi degli utenti tramite `User.Read.All`
-* Scrittura di dati in una directory aziendale tramite `Directory.ReadWrite.All`
-* Lettura di tutti i gruppi nella directory aziendale tramite `Groups.Read.All`
+* Leggi i profili completi di tutti gli utenti usando `User.Read.All`
+* Scrivere dati in una directory aziendale tramite `Directory.ReadWrite.All`
+* Leggere tutti i gruppi nella directory dell'organizzazione usando `Groups.Read.All`
 
 Sebbene un utente consumer possa concedere a un'applicazione l'accesso a questi tipi di dati, gli utenti aziendali non possono concedere accesso allo stesso set di dati riservati dell'azienda. Se l'applicazione richiede l'accesso a una di queste autorizzazioni da un utente aziendale, l'utente riceve un messaggio di errore che indica che non è autorizzato a fornire il consenso alle autorizzazioni dell'applicazione.
 
@@ -283,7 +283,7 @@ Non esiste alcuna autorizzazione per l'utente tra il client e Microsoft Graph. I
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Esempio 3: l'utente ha dato il consenso e il client richiede altri ambiti
 
-L'utente ha già dato il consenso per `mail.read` per il client. Il client è stato registrato per l'ambito `contacts.read` nella relativa registrazione. Quando il client effettua una richiesta per un token usando `scope=https://graph.microsoft.com/.default` e richiede il consenso tramite `prompt=consent`, l'utente visualizzerà una schermata di consenso solo per le autorizzazioni registrate dall'applicazione. `contacts.read` sarà presente nella schermata di consenso, a differenza di `mail.read`. Il token restituito sarà per Microsoft Graph e conterrà `mail.read` e `contacts.read`.
+L'utente ha già dato il consenso per `mail.read` per il client. Il client è stato registrato per l'ambito `contacts.read` nella relativa registrazione. Quando il client effettua una richiesta per un token usando `scope=https://graph.microsoft.com/.default` e richiede il consenso tramite `prompt=consent`, l'utente visualizzerà una schermata di consenso solo per le autorizzazioni registrate dall'applicazione. `contacts.read` sarà presente nella schermata di consenso dell'utente, ma `mail.read` No. Il token restituito sarà per Microsoft Graph e conterrà `mail.read` e `contacts.read`.
 
 ### <a name="using-the-default-scope-with-the-client"></a>Uso dell'ambito /.default con il client
 

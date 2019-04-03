@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520157"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884568"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -24,7 +24,7 @@ Il contenitore LUIS (Language Understanding) carica un modello Language Understa
 
 Il video seguente illustra l'uso di questo contenitore.
 
-[![Dimostrazione relativa ai contenitori per Servizi cognitivi](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
+[![Cdimostrazione di ontainer per servizi cognitivi](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -166,7 +166,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | ID applicazione dell'app LUIS pubblicata. |
 |{APPLICATION_ENVIRONMENT} | Ambiente dell'app LUIS pubblicata. Usare uno dei valori seguenti:<br/>```PRODUCTION```<br/>```STAGING``` |
 |{AUTHORING_KEY} | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS. |
-|{AZURE_REGION} | Area di Azure appropriata:<br/><br/>```westus``` - Stati Uniti occidentali<br/>```westeurope``` - Europa occidentale<br/>```australiaeast``` - Australia orientale |
+|{AZURE_REGION} | Area di Azure appropriata:<br/><br/>```westus``` -Stati Uniti occidentali<br/>```westeurope``` : Nell'area Europa occidentale<br/>```australiaeast``` -Australia orientale |
 
 Usare il comando CURL seguente per scaricare il pacchetto pubblicato, sostituendo i valori con quelli personalizzati:
 
@@ -194,7 +194,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{APPLICATION_ID} | ID dell'applicazione LUIS sottoposta a training. |
 |{APPLICATION_VERSION} | Versione dell'applicazione LUIS sottoposta a training. |
 |{AUTHORING_KEY} | Chiave di creazione dell'account LUIS per l'app LUIS pubblicata.<br/>È possibile ottenere la chiave di creazione nella pagina **User Settings** (Impostazioni utente) nel portale di LUIS.  |
-|{AZURE_REGION} | Area di Azure appropriata:<br/><br/>```westus``` - Stati Uniti occidentali<br/>```westeurope``` - Europa occidentale<br/>```australiaeast``` - Australia orientale |
+|{AZURE_REGION} | Area di Azure appropriata:<br/><br/>```westus``` -Stati Uniti occidentali<br/>```westeurope``` : Nell'area Europa occidentale<br/>```australiaeast``` -Australia orientale |
 
 Usare il comando CURL seguente per scaricare il pacchetto sottoposto a training:
 
@@ -299,9 +299,9 @@ Il nome della versione può essere composto da un massimo di 10 caratteri e deve
 Se viene specificato un punto di montaggio di output per il contenitore LUIS, i file di log di query dell'app vengono salvati nella directory di output, dove {INSTANCE_ID} è l'ID del contenitore. Il log di query dell'app contiene la query, la risposta e i timestamp per ogni query di stima inviata al contenitore LUIS. 
 
 Il percorso seguente indica la struttura di directory nidificata per i file di log del contenitore.
-`
+```
 /output/luis/{INSTANCE_ID}/
-`
+```
  
 Dal portale di LUIS selezionare l'app, quindi selezionare **Import endpoint logs** (Importa log endpoint) per caricare i log. 
 

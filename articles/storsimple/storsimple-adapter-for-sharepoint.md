@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/06/2017
 ms.author: v-sharos
-ms.openlocfilehash: 2e1b231a5cf13d2655ff66c7e48752729c580f48
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: a2f8e75578e396085e7d80f43c1180e158967061
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38232868"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885588"
 ---
 # <a name="install-and-configure-the-storsimple-adapter-for-sharepoint"></a>Installare e configurare l’adattatore StorSimple per SharePoint
 ## <a name="overview"></a>Panoramica
@@ -59,7 +59,7 @@ Prima di configurare RBS, effettuare le operazioni seguenti:
 
 * Assicurarsi che la dimensione totale del contenuto (le dimensioni di un database del contenuto più la dimensione di eventuali BLOB esternalizzati) non superi il limite delle dimensioni RBS supportato da SharePoint. Questo limite è pari a 200 GB. 
   
-    **Per misurare le dimensioni di BLOB e database del contenuto**
+    **Database del contenuto di misure e dimensioni del BLOB**
   
   1. Eseguire questa query sul front-end Web di Amministrazione centrale. Avviare la shell di gestione di SharePoint e quindi immettere il seguente comando di Windows PowerShell per ottenere le dimensioni dei database del contenuto:
      
@@ -226,9 +226,9 @@ Prima di disinstallare l'adattatore StorSimple per il software di SharePoint, è
 4. Nella pagina **Configure StorSimple Adapter** (Configura adattatore StorSimple) fare clic sul pulsante **Disabilita** sotto ciascuno dei database di contenuto che si desidera rimuovere dall'archiviazione BLOB esterno. 
 5. Eliminare gli oggetti da SharePoint e caricarli nuovamente.
 
-In alternativa, è possibile utilizzare il cmdlet di Microsoft PowerShell` RBS Migrate()` incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
+In alternativa, è possibile usare Microsoft `RBS Migrate()` cmdlet di PowerShell incluso in SharePoint. Per ulteriori informazioni, vedere [Migrazione del contenuto in o da RBS](https://technet.microsoft.com/library/ff628255.aspx).
 
-Dopo aver spostato nuovamente i BLOB nel database di contenuto, andare al passaggio successivo: [Disinstallare l'adattatore](#uninstall-the-adapter).
+Dopo aver spostato nuovamente i BLOB al database del contenuto, andare al passaggio successivo: [Disinstallare l'adattatore](#uninstall-the-adapter).
 
 ### <a name="uninstall-the-adapter"></a>Disinstallare l'adattatore
 Dopo aver spostato nuovamente i BLOB nei database del contenuto di SQL Server, utilizzare una delle seguenti opzioni per disinstallare l'adattatore StorSimple per SharePoint.

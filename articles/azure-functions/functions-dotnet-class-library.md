@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "58111481"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Guida di riferimento per gli sviluppatori C# di Funzioni di Azure
@@ -29,7 +29,7 @@ Funzioni di Azure supporta i linguaggi di programmazione C# e script C#. Per mat
 Questo articolo presuppone che l'utente abbia già letto gli articoli seguenti:
 
 * [Manuale dello sviluppatore di Funzioni di Azure](functions-reference.md)
-* [Strumenti di Visual Studio 2017 per Funzioni di Azure](functions-develop-vs.md)
+* [Strumenti di Visual Studio 2017 per funzioni di Azure](functions-develop-vs.md)
 
 ## <a name="functions-class-library-project"></a>Progetto di libreria di classi per Funzioni
 
@@ -344,7 +344,7 @@ Definire un'associazione imperativa, come segue:
   }
   ```
 
-  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili supporta ad esempio [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con l'associazione imperativa.
+  `BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un' `out` tipo di parametro (ad esempio `out JObject`). L'associazione di output della tabella App per dispositivi mobili supporta ad esempio [sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con l'associazione imperativa.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
@@ -405,7 +405,7 @@ public static class IBinderExampleMultipleAttributes
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sui trigger e le associazioni](functions-triggers-bindings.md)
+> [Altre informazioni sui trigger e associazioni](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle procedure consigliate per Funzioni di Azure](functions-best-practices.md)
+> [Altre informazioni sulle procedure consigliate per funzioni di Azure](functions-best-practices.md)

@@ -3,21 +3,21 @@ title: 'Java SDK: Operazioni del file system in Azure Data Lake Storage Gen1 | M
 description: Usare Java SDK di Azure Data Lake Storage Gen1 per eseguire operazioni del file system in Data Lake Storage Gen1, ad esempio creare cartelle e così via.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530297"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883548"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operazioni del file system in Azure Data Lake Storage Gen1 con Java SDK
 > [!div class="op_single_selector"]
@@ -209,7 +209,7 @@ Il frammento di codice seguente elimina le cartelle e i file specificati in un a
 2. Per produrre un file jar autonomo eseguibile dalla riga di comando, compilare il file jar con tutte le dipendenze incluse usando il [plug-in dell'assembly Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). Il file pom.xml nell'[esempio di codice sorgente su GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) offre un esempio.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Explore JavaDoc for the Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/) (Cercare Java SDK in JavaDoc)
-* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Esplorare JavaDoc per le Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Proteggere i dati in Data Lake archiviazione Gen1](data-lake-store-secure-data.md)
 
 

@@ -3,21 +3,21 @@ title: Panoramica del controllo di accesso in Data Lake Storage Gen1| Microsoft 
 description: Informazioni sul funzionamento del controllo di accesso in Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 7c8553aed809290ea52fcb2e98fea48a30c109f6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539599"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877670"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Controllo di accesso in Azure Data Lake Storage Gen1
 
@@ -47,8 +47,8 @@ Le autorizzazioni per un oggetto del file system sono **Lettura**, **Scrittura**
 
 |            |    File     |   Cartella |
 |------------|-------------|----------|
-| **Lettura (R)** | È possibile leggere il contenuto di un file | Per elencare il contenuto della cartella sono necessarie le autorizzazioni di **Lettura** ed **Esecuzione**|
-| **Scrittura (W)** | È possibile scrivere o aggiungere in un file | Per creare elementi figlio in una cartella sono necessarie le autorizzazioni di **Scrittura** ed **Esecuzione**. |
+| **Read (R)** | È possibile leggere il contenuto di un file | Per elencare il contenuto della cartella sono necessarie le autorizzazioni di **Lettura** ed **Esecuzione**|
+| **Scrittura (S)** | È possibile scrivere o aggiungere in un file | Per creare elementi figlio in una cartella sono necessarie le autorizzazioni di **Scrittura** ed **Esecuzione**. |
 | **Esecuzione (X)** | Nessun valore nel contesto di Data Lake Storage Gen1 | È necessaria per attraversare gli elementi figlio di una cartella |
 
 ### <a name="short-forms-for-permissions"></a>Forme brevi per le autorizzazioni
@@ -130,7 +130,7 @@ Negli ACL POSIX ogni utente è associato a un "gruppo primario". L'utente "alice
 
 Poiché non esiste alcun "gruppo primario" associato agli utenti in Data Lake Storage Gen1, il gruppo proprietario viene assegnato come mostrato di seguito.
 
-**Assegnazione del gruppo proprietario per un nuovo file o cartella**
+**Assegnare il gruppo proprietario per un nuovo file o cartella**
 
 * **Caso 1**: cartella radice "/". Questa cartella viene creata al momento della creazione di un account Data Lake Storage Gen1. In questo caso, il gruppo proprietario viene impostato su un GUID costituito solo da zeri.  Questo valore non permette alcun accesso.  È un segnaposto fino a quando non viene assegnato un gruppo.
 * **Caso 2** (qualsiasi altro caso): quando viene creato un nuovo elemento, il gruppo proprietario viene copiato dalla cartella padre.
@@ -288,14 +288,14 @@ No, ma gli ACL predefiniti possono essere usati per impostare gli ACL per i file
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Dove è possibile reperire altre informazioni sul modello di controllo di accesso POSIX?
 
-* [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux) (Elenchi di controllo di accesso POSIX in Linux)
-* [HDFS Permission Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Guida alle autorizzazioni HDFS)
-* [Domande frequenti su POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [Elenchi di controllo di accesso POSIX in Linux](https://www.linux.com/news/posix-acls-linux)
+* [Guida dell'autorizzazione di HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
+* [DOMANDE FREQUENTI SU POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
 * [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
+* [ACL utilizzando gli elenchi di controllo di accesso in Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
 
 ## <a name="see-also"></a>Vedere anche 
 

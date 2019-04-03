@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168554"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882209"
 ---
 # <a name="microsoft-azure-documentation"></a>Documentazione di Microsoft Azure
 
@@ -12,7 +12,7 @@ Benvenuti alla [documentazione](https://docs.microsoft.com/azure) open source di
 
 ## <a name="getting-started"></a>Introduzione
 
-La collaborazione alla documentazione open source non si limita a fornire aggiornamenti, ma anche a segnalare gli eventuali problemi. Per altre informazioni, vedere le [linee guida per la collaborazione](.github/CONTRIBUTING.md).
+La collaborazione alla documentazione open source non si limita a fornire aggiornamenti, ma anche a segnalare gli eventuali problemi. Per altre informazioni, vedere le [linee guida per la collaborazione](CONTRIBUTING.md).
 
 ### <a name="prerequisites"></a>Prerequisiti
 

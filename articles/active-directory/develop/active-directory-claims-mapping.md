@@ -9,16 +9,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 03/28/2019
 ms.author: celested
-ms.reviewer: paulgarn, hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102111"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884078"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -52,142 +52,142 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabella 1: Set di attestazioni limitate al token JSON Web (JWT)
 
-|Tipo di attestazione (nome)|
+| Tipo di attestazione (nome) |
 | ----- |
-|_claim_names|
-|_claim_sources|
-|access_token|
-|account_type|
-|acr|
-|actor|
-|actortoken|
-|aio|
-|altsecid|
-|amr|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|appid|
-|appidacr|
-|assertion|
-|at_hash|
-|aud|
-|auth_data|
-|auth_time|
-|authorization_code|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|cc|
-|cert_token_use|
-|client_id|
-|cloud_graph_host_name|
-|cloud_instance_name|
-|cnf|
-|code|
-|controls|
-|credential_keys|
-|csr|
-|csr_type|
-|deviceid|
-|dns_names|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|email|
-|endpoint|
-|enfpolids|
-|exp|
-|expires_on|
-|grant_type|
-|graph|
-|group_sids|
-|groups|
-|hasgroups|
-|hash_alg|
-|home_oid|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-|iat|
-|identityprovider|
-|idp|
-|in_corp|
-|instance|
-|ipaddr|
-|isbrowserhostedapp|
-|iss|
-|jwk|
-|key_id|
-|key_type|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|nameid|
-|nbf|
-|netbios_name|
-|nonce|
-|oid|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|password|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|previous_refresh_token|
-|primary_sid|
-|puid|
-|pwd_exp|
-|pwd_url|
-|redirect_uri|
-|refresh_token|
-|refreshtoken|
-|request_nonce|
-|resource|
-|role|
-|roles|
-|scope|
-|scp|
-|sid|
-|signature|
-|signin_state|
-|src1|
-|src2|
-|sub|
-|tbid|
-|tenant_display_name|
-|tenant_region_scope|
-|thumbnail_photo|
-|tid|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|unique_name|
-|upn|
-|user_setting_sync_url|
-|username|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|wids|
-|win_ver|
+| _claim_names |
+| _claim_sources |
+| access_token |
+| account_type |
+| acr |
+| actor |
+| actortoken |
+| aio |
+| altsecid |
+| amr |
+| app_chain |
+| app_displayname |
+| app_res |
+| appctx |
+| appctxsender |
+| appid |
+| appidacr |
+| assertion |
+| at_hash |
+| aud |
+| auth_data |
+| auth_time |
+| authorization_code |
+| azp |
+| azpacr |
+| c_hash |
+| ca_enf |
+| cc |
+| cert_token_use |
+| client_id |
+| cloud_graph_host_name |
+| cloud_instance_name |
+| cnf |
+| code |
+| controls |
+| credential_keys |
+| csr |
+| csr_type |
+| deviceid |
+| dns_names |
+| domain_dns_name |
+| domain_netbios_name |
+| e_exp |
+| email |
+| endpoint |
+| enfpolids |
+| exp |
+| expires_on |
+| grant_type |
+| graph |
+| group_sids |
+| groups |
+| hasgroups |
+| hash_alg |
+| home_oid |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
+| iat |
+| identityprovider |
+| idp |
+| in_corp |
+| instance |
+| ipaddr |
+| isbrowserhostedapp |
+| iss |
+| jwk |
+| key_id |
+| key_type |
+| mam_compliance_url |
+| mam_enrollment_url |
+| mam_terms_of_use_url |
+| mdm_compliance_url |
+| mdm_enrollment_url |
+| mdm_terms_of_use_url |
+| nameid |
+| nbf |
+| netbios_name |
+| nonce |
+| oid |
+| on_prem_id |
+| onprem_sam_account_name |
+| onprem_sid |
+| openid2_id |
+| password |
+| platf |
+| polids |
+| pop_jwk |
+| preferred_username |
+| previous_refresh_token |
+| primary_sid |
+| puid |
+| pwd_exp |
+| pwd_url |
+| redirect_uri |
+| refresh_token |
+| refreshtoken |
+| request_nonce |
+| resource |
+| role |
+| roles |
+| scope |
+| scp |
+| sid |
+| signature |
+| signin_state |
+| src1 |
+| src2 |
+| sub |
+| tbid |
+| tenant_display_name |
+| tenant_region_scope |
+| thumbnail_photo |
+| tid |
+| tokenAutologonEnabled |
+| trustedfordelegation |
+| unique_name |
+| upn |
+| user_setting_sync_url |
+| username |
+| uti |
+| ver |
+| verified_primary_email |
+| verified_secondary_email |
+| wids |
+| win_ver |
 
 ### <a name="table-2-saml-restricted-claim-set"></a>Tabella 2: Set di attestazioni con restrizioni SAML
 
-|Tipo di attestazione (URI)|
+| Tipo di attestazione (URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -196,7 +196,7 @@ Alcuni set di attestazioni definiscono come e quando vengono usate nei token.
 |`http://schemas.microsoft.com/identity/claims/identityprovider`|
 |`http://schemas.microsoft.com/identity/claims/objectidentifier`|
 |`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
 |`http://schemas.microsoft.com/identity/claims/tenantid`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
@@ -246,7 +246,7 @@ Per controllare quali attestazioni vengono generate e da quali origini provengon
 
 **Tipo di dati:** Booleano (true o false)
 
-**Riepilogo:** questa proprietà specifica se il set di attestazioni di base sia incluso nei token interessati da questo criterio. 
+**Riepilogo:** questa proprietà specifica se il set di attestazioni di base sia incluso nei token interessati da questo criterio.
 
 - Se impostata su True, tutte le attestazioni nel set di attestazioni di base verranno generate nei token interessati dal criterio. 
 - Se impostata su False, le attestazioni nel set di attestazioni di base non vengono generate nei token, a meno che non vengano aggiunte singolarmente nella proprietà dello schema delle attestazioni degli stessi criteri.
@@ -284,51 +284,51 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabella 3: Valori di ID validi per ogni Source
 
-|Source (Sorgente)|ID|DESCRIZIONE|
+| Source (Sorgente) | ID | DESCRIZIONE |
 |-----|-----|-----|
-|Utente|surname|Cognome|
-|Utente|givenname|Nome|
-|Utente|displayname|Nome visualizzato|
-|Utente|objectId|ObjectID|
-|Utente|mail|Indirizzo di posta elettronica|
-|Utente|userprincipalname|Nome dell'entità utente|
-|Utente|department|department|
-|Utente|onpremisessamaccountname|Nome account SAM locale|
-|Utente|netbiosname|Nome NetBios|
-|Utente|dnsdomainname|Nome di dominio DNS|
-|Utente|onpremisesecurityidentifier|ID di sicurezza locale|
-|Utente|companyname|Nome organizzazione|
-|Utente|streetaddress|Indirizzo|
-|Utente|postalcode|CAP|
-|Utente|preferredlanguange|Lingua preferita|
-|Utente|onpremisesuserprincipalname|UPN locale|
-|Utente|mailNickname|Nome di posta elettronica alternativo|
-|Utente|extensionattribute1|Attributo di estensione 1|
-|Utente|extensionattribute2|Attributo di estensione 2|
-|Utente|extensionattribute3|Attributo di estensione 3|
-|Utente|extensionattribute4|Attributo di estensione 4|
-|Utente|extensionattribute5|Attributo di estensione 5|
-|Utente|extensionattribute6|Attributo di estensione 6|
-|Utente|extensionattribute7|Attributo di estensione 7|
-|Utente|extensionattribute8|Attributo di estensione 8|
-|Utente|extensionattribute9|Attributo di estensione 9|
-|Utente|extensionattribute10|Attributo di estensione 10|
-|Utente|extensionattribute11|Attributo di estensione 11|
-|Utente|extensionattribute12|Attributo di estensione 12|
-|Utente|extensionattribute13|Attributo di estensione 13|
-|Utente|extensionattribute14|Attributo di estensione 14|
-|Utente|extensionattribute15|Attributo di estensione 15|
-|Utente|othermail|Posta elettronica alternativa|
-|Utente|country|Paese|
-|Utente|city|city|
-|Utente|state|Stato|
-|Utente|jobtitle|Posizione|
-|Utente|employeeid|ID dipendente|
-|Utente|facsimiletelephonenumber|Numero di telefono fax|
-|application, resource, audience|displayname|Nome visualizzato|
-|application, resource, audience|objected|ObjectID|
-|application, resource, audience|tags|Tag di entità servizio|
-|Azienda|tenantcountry|Paese del tenant|
+| Utente | surname | Cognome |
+| Utente | givenname | Nome |
+| Utente | displayname | Nome visualizzato |
+| Utente | objectId | ObjectID |
+| Utente | mail | Indirizzo di posta elettronica |
+| Utente | userprincipalname | Nome dell'entità utente |
+| Utente | department|department|
+| Utente | onpremisessamaccountname | Nome Account SAM locale |
+| Utente | netbiosname| Nome NetBios |
+| Utente | dnsdomainname | Nome di dominio DNS |
+| Utente | onpremisesecurityidentifier | ID di sicurezza locali |
+| Utente | companyname| Nome organizzazione |
+| Utente | streetaddress | Indirizzo |
+| Utente | postalcode | CAP |
+| Utente | preferredlanguange | Lingua preferita |
+| Utente | onpremisesuserprincipalname | UPN locale |
+| Utente | mailNickname | Nome di posta elettronica alternativo |
+| Utente | extensionattribute1 | Attributo di estensione 1 |
+| Utente | extensionattribute2 | Attributo di estensione 2 |
+| Utente | extensionattribute3 | Attributo di estensione 3 |
+| Utente | extensionattribute4 | Attributo di estensione 4 |
+| Utente | extensionattribute5 | Attributo di estensione 5 |
+| Utente | extensionattribute6 | Attributo di estensione 6 |
+| Utente | extensionattribute7 | Attributo di estensione 7 |
+| Utente | extensionattribute8 | Attributo di estensione 8 |
+| Utente | extensionattribute9 | Attributo di estensione 9 |
+| Utente | extensionattribute10 | Attributo di estensione 10 |
+| Utente | extensionattribute11 | Attributo di estensione 11 |
+| Utente | extensionattribute12 | Attributo di estensione 12 |
+| Utente | extensionattribute13 | Attributo di estensione 13 |
+| Utente | extensionattribute14 | Attributo di estensione 14 |
+| Utente | extensionattribute15 | Attributo di estensione 15 |
+| Utente | othermail | Posta elettronica alternativa |
+| Utente | country | Paese |
+| Utente | city | city |
+| Utente | state | Stato |
+| Utente | jobtitle | Posizione |
+| Utente | employeeid | ID dipendente |
+| Utente | facsimiletelephonenumber | Numero di telefono fax |
+| application, resource, audience | displayname | Nome visualizzato |
+| application, resource, audience | objected | ObjectID |
+| application, resource, audience | tags | Tag di entità servizio |
+| Azienda | tenantcountry | Paese del tenant |
 
 **TransformationID:** l'elemento TransformationID è obbligatorio solo se l'elemento Source è impostato su "transformation".
 
@@ -386,32 +386,32 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 |Source (Sorgente)|ID|DESCRIZIONE|
 |-----|-----|-----|
-|Utente|mail|Indirizzo di posta elettronica|
-|Utente|userprincipalname|Nome dell'entità utente|
-|Utente|onpremisessamaccountname|Nome account SAM locale|
-|Utente|employeeid|ID dipendente|
-|Utente|extensionattribute1|Attributo di estensione 1|
-|Utente|extensionattribute2|Attributo di estensione 2|
-|Utente|extensionattribute3|Attributo di estensione 3|
-|Utente|extensionattribute4|Attributo di estensione 4|
-|Utente|extensionattribute5|Attributo di estensione 5|
-|Utente|extensionattribute6|Attributo di estensione 6|
-|Utente|extensionattribute7|Attributo di estensione 7|
-|Utente|extensionattribute8|Attributo di estensione 8|
-|Utente|extensionattribute9|Attributo di estensione 9|
-|Utente|extensionattribute10|Attributo di estensione 10|
-|Utente|extensionattribute11|Attributo di estensione 11|
-|Utente|extensionattribute12|Attributo di estensione 12|
-|Utente|extensionattribute13|Attributo di estensione 13|
-|Utente|extensionattribute14|Attributo di estensione 14|
-|Utente|extensionattribute15|Attributo di estensione 15|
+| Utente | mail|Indirizzo di posta elettronica|
+| Utente | userprincipalname|Nome dell'entità utente|
+| Utente | onpremisessamaccountname|Nome account SAM locale|
+| Utente | employeeid|ID dipendente|
+| Utente | extensionattribute1 | Attributo di estensione 1 |
+| Utente | extensionattribute2 | Attributo di estensione 2 |
+| Utente | extensionattribute3 | Attributo di estensione 3 |
+| Utente | extensionattribute4 | Attributo di estensione 4 |
+| Utente | extensionattribute5 | Attributo di estensione 5 |
+| Utente | extensionattribute6 | Attributo di estensione 6 |
+| Utente | extensionattribute7 | Attributo di estensione 7 |
+| Utente | extensionattribute8 | Attributo di estensione 8 |
+| Utente | extensionattribute9 | Attributo di estensione 9 |
+| Utente | extensionattribute10 | Attributo di estensione 10 |
+| Utente | extensionattribute11 | Attributo di estensione 11 |
+| Utente | extensionattribute12 | Attributo di estensione 12 |
+| Utente | extensionattribute13 | Attributo di estensione 13 |
+| Utente | extensionattribute14 | Attributo di estensione 14 |
+| Utente | extensionattribute15 | Attributo di estensione 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabella 6: Metodi di trasformazione consentiti per NameID di SAML
 
-|TransformationMethod|Restrizioni|
+| TransformationMethod | Restrizioni |
 | ----- | ----- |
-|ExtractMailPrefix|Nessuna|
-|Join|Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse.|
+| ExtractMailPrefix | Nessuna |
+| Join | Il suffisso da aggiungere deve essere un dominio verificato del tenant delle risorse. |
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
 
@@ -437,19 +437,19 @@ Per iniziare, seguire questa procedura:
 
 1. Scaricare l'ultima [versione di anteprima pubblica del modulo Azure AD PowerShell](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Eseguire il comando Connect per accedere all'account amministratore di Azure AD. Eseguire questo comando ogni volta che si avvia una nuova sessione.
-    
-     ``` powershell
-    Connect-AzureAD -Confirm
-    
-    ```
+
+   ``` powershell
+   Connect-AzureAD -Confirm
+   ```
 1. Per visualizzare tutti i criteri creati nell'organizzazione, eseguire questo comando. È consigliabile eseguire questo comando dopo la maggior parte delle operazioni negli scenari seguenti per verificare che i criteri siano stati creati come previsto.
-   
-    ``` powershell
-        Get-AzureADPolicy
-    
-    ```
-   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio.
-   In questo esempio si creano criteri che rimuovono il set di attestazioni di base dai token emessi per le entità servizio collegate.
+
+   ``` powershell
+   Get-AzureADPolicy
+   ```
+
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Esempio: Creare e assegnare un criterio per omettere le attestazioni di base dai token emessi per un'entità servizio
+
+In questo esempio si creano criteri che rimuovono il set di attestazioni di base dai token emessi per le entità servizio collegate.
 
 1. Creare i criteri di mapping delle attestazioni. Questi criteri, che vengono collegati a specifiche entità servizio, rimuovono il set di attestazioni di base dai token.
    1. Per creare i criteri, eseguire questo comando: 
@@ -462,7 +462,7 @@ Per iniziare, seguire questa procedura:
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio. 
+1. Assegnare i criteri all'entità servizio. È necessario ottenere anche l'ObjectId dell'entità servizio.
    1. Per visualizzare tutte le entità servizio dell'organizzazione, è possibile eseguire query in Microsoft Graph. In alternativa, eseguire l'accesso all'account Azure AD dallo strumento Graph Explorer di Azure AD.
    2. Dopo aver ottenuto l'ObjectId dell'entità servizio, eseguire questo comando:  
      
@@ -499,10 +499,10 @@ In questo esempio si creano criteri che aggiungono EmployeeID e TenantCountry ai
 In questo esempio si creano i criteri che generano un'attestazione personalizzata "JoinedData" nei token JWT emessi per le entità servizio collegate. Questa attestazione contiene un valore creato aggiungendo i dati archiviati nell'attributo extensionattribute1 all'oggetto utente con ".sandbox". In questo esempio si esclude il set di attestazioni di base nei token.
 
 1. Creare i criteri di mapping delle attestazioni. Questi criteri, che vengono collegati a specifiche entità servizio, aggiungono le attestazioni EmployeeID e TenantCountry ai token.
-   1. Per creare i criteri, eseguire questo comando: 
+   1. Per creare i criteri, eseguire questo comando:
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. Per visualizzare il nuovo criterio e ottenere il relativo ObjectId, eseguire questo comando: 
@@ -517,3 +517,7 @@ In questo esempio si creano i criteri che generano un'attestazione personalizzat
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="see-also"></a>Vedere anche 
+
+Per informazioni su come personalizzare le attestazioni rilasciate nel token SAML tramite il portale di Azure, vedere [come: Personalizzazione delle attestazioni rilasciate nel token SAML per applicazioni aziendali](active-directory-saml-claims-customization.md)

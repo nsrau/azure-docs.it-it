@@ -4,7 +4,7 @@ description: Connettersi ad Azure Data Lake Storage Gen1 da reti virtuali di Azu
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284013"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878061"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Accedere ad Azure Data Lake Storage Gen1 dalle macchine virtuali di una rete virtuale di Azure
 Azure Data Lake Storage Gen1 è un servizio PaaS eseguito su indirizzi IP Internet pubblici. Qualunque server in grado di connettersi alla rete Internet pubblica può generalmente connettersi anche agli endpoint di Azure Data Lake Storage Gen1. Per impostazione predefinita, tutte le macchine virtuali delle reti virtuali di Azure possono accedere a Internet e quindi anche ad Azure Data Lake Storage Gen1. Tuttavia, è possibile configurare le macchine virtuali di una rete virtuale per l'accesso a Internet. Anche per queste macchine virtuali, l'accesso ad Azure Data Lake Storage Gen1 è limitato. L'accesso a Internet pubblico per le macchine virtuali delle reti virtuali di Azure può essere bloccato tramite uno degli approcci seguenti:

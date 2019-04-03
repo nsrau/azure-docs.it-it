@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992486"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881087"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Distribuzione DBMS per SQL Server di macchine virtuali di Azure per un SAP NetWeaver
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992486"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -316,7 +315,7 @@ Il presente documento illustra le numerose aree da valutare quando si distribuis
 
 
 > [!IMPORTANT]
-> L'ambito di questo documento è la versione Windows di SQL Server. SAP non supporta la versione Linux di SQL Server con qualsiasi software SAP. Questo documento non illustra il database SQL di Microsoft Azure, una piattaforma distribuita come servizio offerta nell'ambito della piattaforma Microsoft Azure. Il documento illustra l'esecuzione del prodotto SQL Server, noto per le distribuzioni locali in macchine virtuali di Azure, tramite la funzionalità di infrastruttura distribuita come servizio di Azure. Le funzionalità di database di queste due offerte sono diverse e non devono essere confuse tra loro. Vedere anche: <https://azure.microsoft.com/services/sql-database/>
+> L'ambito di questo documento è la versione Windows di SQL Server. SAP non supporta la versione Linux di SQL Server con qualsiasi software SAP. Questo documento non illustra il database SQL di Microsoft Azure, una piattaforma distribuita come servizio offerta nell'ambito della piattaforma Microsoft Azure. Il documento illustra l'esecuzione del prodotto SQL Server, noto per le distribuzioni locali in macchine virtuali di Azure, tramite la funzionalità di infrastruttura distribuita come servizio di Azure. Le funzionalità di database di queste due offerte sono diverse e non devono essere confuse tra loro. Vedere anche la pagina relativa alla <https://azure.microsoft.com/services/sql-database/>
 > 
 >
 
@@ -363,7 +362,7 @@ Per la VM serie M di Azure la latenza di scrittura nel log delle transazioni pu�
 ### <a name="formatting-the-disks"></a>Formattazione dei dischi
 Per i dischi contenenti i file di dati e di log di SQL Server è necessario un blocco NTFS di dimensioni pari a 64 kB. Non è necessario formattare l'unità D:\ perché viene fornita preformattata.
 
-Per evitare che in seguito al ripristino o alla creazione di database i file di dati non vengano inizializzati e il loro contenuto venga azzerato, è necessario assicurarsi che per il contesto utente in cui viene eseguito il servizio SQL Server siano disponibili determinate autorizzazioni. Queste autorizzazioni sono in genere disponibili per gli utenti del gruppo Administrators di Windows. Se il servizio SQL Server viene eseguito nel contesto utente di un utente non appartenente al gruppo Administrators di Windows, è necessario assegnare a tale utente il diritto **Esecuzione attività di manutenzione volume**.  Per informazioni dettagliate, vedere l'articolo <https://support.microsoft.com/kb/2574695> di Microsoft Knowledge Base
+Per evitare che in seguito al ripristino o alla creazione di database i file di dati non vengano inizializzati e il loro contenuto venga azzerato, è necessario assicurarsi che per il contesto utente in cui viene eseguito il servizio SQL Server siano disponibili determinate autorizzazioni. Queste autorizzazioni sono in genere disponibili per gli utenti del gruppo Administrators di Windows. Se il servizio SQL Server viene eseguito nel contesto utente di un utente non appartenente al gruppo Administrators di Windows, è necessario assegnare a tale utente il diritto **Esecuzione attività di manutenzione volume**.  Vedere i dettagli in questo articolo della Microsoft Knowledge Base: <https://support.microsoft.com/kb/2574695>
 
 ### <a name="impact-of-database-compression"></a>Impatto della compressione del database
 Nelle configurazioni in cui la larghezza di banda di I/O può diventare un fattore limitante, ogni misura che riduce le operazioni di I/O al secondo consente di estendere il carico di lavoro eseguibile in uno scenario IaaS come Azure. Se quindi non è stato ancora fatto, sia SAP che Microsoft consigliano di applicare la compressione di pagina di SQL Server prima di caricare un database SAP esistente in Azure.
@@ -409,7 +408,7 @@ Esistono varie possibilità di eseguire il backup "manuale":
 2.  SQL Server 2012 CU4 e versioni successive supportano il backup di database a un URL di archiviazione di Azure.
 3.  Backup di snapshot di file per i file di database in Archiviazione BLOB di Azure. Questa modalità funziona solo quando i file di dati e di log SQL Server si trovano nella risorsa di archiviazione BLOB di Azure.
 
-La prima modalità è molto nota e si applica anche in molti casi in locale. Lascia tuttavia all'amministratore il compito di risolvere il problema della posizione dei backup a lungo termine. Poiché non è utile mantenere i backup per 30 giorni e oltre nella risorsa di archiviazione di Azure collegata localmente, è necessario usare il servizio Backup di Microsoft Azure o un altro strumento di backup/ripristino di terze parti che includa la gestione degli accessi e della conservazione per i backup. In alternativa si può creare un file server di grandi dimensioni in Azure usando gli spazi di archiviazione di Windows.
+Il primo metodo è noto e applicate in molti casi anche al mondo locale. Lascia tuttavia all'amministratore il compito di risolvere il problema della posizione dei backup a lungo termine. Poiché non è utile mantenere i backup per 30 giorni e oltre nella risorsa di archiviazione di Azure collegata localmente, è necessario usare il servizio Backup di Microsoft Azure o un altro strumento di backup/ripristino di terze parti che includa la gestione degli accessi e della conservazione per i backup. In alternativa si può creare un file server di grandi dimensioni in Azure usando gli spazi di archiviazione di Windows.
 
 La seconda modalità è descritta più in dettaglio nell'articolo [Backup di SQL Server nell'URL](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Le diverse versioni di SQL Server presentano alcune varianti di questa funzionalità. È quindi consigliabile verificare la documentazione specifica della versione di SQL Server in uso. È importante notare che questo articolo elenca molte restrizioni. Esiste anche la possibilità di eseguire il backup in:
 
@@ -451,7 +450,7 @@ Dato che le immagini di SQL Server in Azure Marketplace non sono configurate per
 * Aprire una finestra di comando di Windows come amministratore.
 * Passare alla directory C:\Programmi\SQL Server\110\Setup Bootstrap\SQLServer2012.
 * Eseguire il comando seguente: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2   
-  * `<local_admin_account_name`&gt; è l'account definito come account amministratore quando si distribuisce la VM per la prima volta tramite la raccolta.
+  * `<local_admin_account_name`> è l'account, che è stato definito come account dell'amministratore quando si distribuisce la macchina virtuale per la prima volta tramite la raccolta.
 
 Il processo dovrebbe richiedere solo alcuni minuti. Per verificare la correttezza del risultato finale del passaggio, seguire questa procedura:
 
@@ -477,8 +476,8 @@ Uno dei metodi di disponibilità elevata utilizzabili è il log shipping SQL Ser
 La funzionalità di log shipping di SQL Server viene usata raramente in Azure per ottenere la disponibilità elevata in una singola area di Azure. Negli scenari seguenti i clienti SAP usano il log shipping con successo insieme ad Azure:
 
 - Scenari di ripristino di emergenza da un'area di Azure in un'altra area di Azure
-- Configurazione di ripristino di emergenza da un'area locale in un'area di Azure
-- Scenari di cutover da un'area locale ad Azure. In questi casi, il log shipping viene usato per sincronizzare la nuova distribuzione DBMS in Azure con l'ambiente di produzione in uso nel sistema locale. Al momento del cutover, la produzione viene arrestata e si controlla che gli ultimi backup del log delle transazioni e quelli più recenti siano stati trasferiti nella distribuzione DBMS di Azure. La distribuzione DBMS in Azure viene quindi aperta per la produzione.  
+- Configurazione di ripristino di emergenza da locale in un'area di Azure
+- Scenari di Taglia a failover da locale ad Azure. In questi casi, il log shipping viene usato per sincronizzare la nuova distribuzione DBMS in Azure con l'ambiente di produzione in uso nel sistema locale. Al momento del cutover, la produzione viene arrestata e si controlla che gli ultimi backup del log delle transazioni e quelli più recenti siano stati trasferiti nella distribuzione DBMS di Azure. La distribuzione DBMS in Azure viene quindi aperta per la produzione.  
 
 
 
@@ -487,16 +486,16 @@ Il mirroring del database supportato da SAP (vedere la nota SAP [965908]) si bas
 
 A partire dalle distribuzioni solo cloud, il metodo più semplice prevede la configurazione di un altro dominio in Azure allo scopo di avere in un unico dominio le VM DBMS e idealmente le VM SAP dedicate.
 
-Se non è possibile predisporre un unico dominio, è anche possibile usare i certificati per gli endpoint di mirroring del database, come descritto qui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+Se un dominio non è possibile, uno anche possibile usare certificati per il database degli endpoint del mirroring, come descritto di seguito: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-Un'esercitazione per configurare il mirroring del database in Azure è disponibile qui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+Un'esercitazione per configurare il mirroring del Database in Azure sono disponibili qui: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 ### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
 Poiché la funzionalità Always On supportata per SAP in locale (vedere la Nota SAP [1772688]), viene supportata anche per la combinazione di SAP in Azure. La distribuzione del listener del gruppo di disponibilità di SQL Server, da non confondere con il set di disponibilità di Azure, presenta alcune particolarità da considerare, poiché al momento Azure non consente di creare un oggetto AD/DNS, mentre questa operazione è consentita in locale. È quindi necessario eseguire alcuni passaggi di installazione diversi per ovviare al comportamento specifico di Azure.
 
 Di seguito sono elencate alcune considerazioni relative all'uso di un listener del gruppo di disponibilità.
 
-* L'uso di un listener del gruppo di disponibilità è possibile solo se il sistema operativo guest della VM è Windows Server 2012 o versioni successive. Per Windows Server 2012 è necessario assicurarsi che sia applicata la patch seguente: <https://support.microsoft.com/kb/2854082> 
+* L'uso di un listener del gruppo di disponibilità è possibile solo se il sistema operativo guest della VM è Windows Server 2012 o versioni successive. Per Windows Server 2012 è necessario assicurarsi che sia applicata la patch: <https://support.microsoft.com/kb/2854082> 
 * Per Windows Server 2008 R2, questa patch non esiste ed è necessario usare AlwaysOn così come il mirroring del database, specificando un partner di failover nella stringa di connessione tramite il parametro dbs/mss/server del file SAP default.pfl. Vedere la nota SAP [965908].
 * Quando si usa un listener del gruppo di disponibilità, le VM di database devono essere connesse a un Load Balancer dedicato. Per evitare che Azure assegni nuovi indirizzi IP nei casi in cui entrambe le VM vengano arrestate accidentalmente, è consigliabile assegnare indirizzi IP statici alle interfacce di rete di tali VM nella configurazione Always On. Per informazioni sulla definizione di un indirizzo IP statico, vedere [questo][virtual-networks-reserved-private-ip] articolo.
 * La procedura di creazione della configurazione cluster WSFC prevede speciali passaggi quando è necessario assegnare al cluster un indirizzo IP particolare, dal momento che Azure con la funzionalità corrente assegna al nome del cluster lo stesso indirizzo IP del nodo in cui viene creato il cluster. È quindi necessario eseguire un passaggio manuale per assegnare al cluster un indirizzo IP diverso.
@@ -525,13 +524,13 @@ Un certo numero di clienti usa la funzionalità [Transparent Data Encryption (TD
 ### <a name="applying-sql-server-tde"></a>Applicazione della funzionalità TDE di SQL Server
 Nei casi in cui si esegue una migrazione eterogenea da un altro DBMS in esecuzione in locale verso Windows/SQL Server in esecuzione in Azure, è consigliabile creare in anticipo il database di destinazione vuoto in SQL Server. Il passaggio successivo prevede l'applicazione della funzionalità TDE di SQL Server. Nel frattempo si continua a eseguire il sistema di produzione locale. Il motivo per cui conviene attenersi a questa sequenza è che il processo di crittografia del database vuoto può richiedere molto tempo. I processi di importazione SAP importano quindi i dati nel database crittografato durante la fase di inattività. Nel complesso l'importazione in un database crittografato ha un impatto temporale inferiore rispetto alla crittografia del database dopo la fase di esportazione nella fase di inattività. Esperienze negative si sono verificate nel tentativo di applicare la funzionalità TDE con il carico di lavoro SAP in esecuzione sopra al database. È pertanto consigliabile gestire la distribuzione di TDE come un'attività da svolgere senza carichi di lavoro SAP su un database specifico.
 
-Nei casi in cui si spostano i database di SQL Server per SAP dal livello locale in Azure, è consigliabile testare in quale infrastruttura è possibile applicare la crittografia più velocemente. Per questo motivo, tenere presenti queste considerazioni:
+Nei casi in cui spostare i database di SQL Server per SAP in locale in Azure, è consigliabile testare in quale infrastruttura è possibile ottenere la crittografia applicata più veloce. Per questo motivo, tenere presenti queste considerazioni:
 
 - Non è possibile definire il numero di thread che viene usato per applicare la crittografia dei dati al database. Il numero di thread dipende principalmente dal numero di volumi di disco in cui sono distribuiti i file di dati e di log SQL Server. Questo significa che maggiore è il numero di volumi distinti (lettere delle unità), maggiore sarà il numero di thread impegnati in parallelo per eseguire la crittografia. Tale configurazione è un po' in contrasto con il suggerimento precedente sulla configurazione del disco che prevede la creazione di un numero inferiore di spazi di archiviazione, o di uno solo, per i file di database di SQL Server in macchine virtuali di Azure. Una configurazione con un numero ridotto di volumi potrebbe far sì che la crittografia venga eseguita da un numero ridotto di thread. La crittografia a thread singolo legge gli extent di 64 kB, li crittografa e quindi scrivere un record nel file registro transazioni, indicando che l'extent è stato crittografato. Il carico sul log delle transazioni risulta così moderato.
-- Nelle versioni precedenti di SQL Server la compressione dei backup non è più efficiente quando si crittografa il database SQL Server. Questo comportamento potrebbe trasformarsi in un problema quando si pianifica di crittografare il database SQL locale e quindi copiare un backup in Azure per ripristinare il database in Azure. La compressione dei backup di SQL Server raggiunge in genere un rapporto di compressione di fattore 4.
+- Nelle versioni precedenti di SQL Server la compressione dei backup non è più efficiente quando si crittografa il database SQL Server. Questo comportamento potrebbe trasformarsi in un problema durante il piano per la crittografia di SQL Server database locale e quindi un backup di copia in Azure per ripristinare il database in Azure. La compressione dei backup di SQL Server raggiunge in genere un rapporto di compressione di fattore 4.
 - Con SQL Server 2016, è stata introdotta una nuova funzionalità che consente anche la compressione efficiente dei database crittografati. Per i dettagli, vedere [questi blog](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/).
  
-Considerando l'applicazione della crittografia TDE solo con carico di lavoro SAP ridotto, è consigliabile testare in una configurazione specifica se è preferibile applicare la funzionalità Transparent Data Encryption al database SAP in locale o eseguire questa operazione in Azure. In Azure è senz'altro maggiore la flessibilità in termini di provisioning eccessivo dell'infrastruttura e di riduzione della stessa dopo l'applicazione di TDE.
+Considerando l'applicazione della crittografia TDE con no per piccolo carico di lavoro SAP solo, è consigliabile testare in una configurazione specifica se è preferibile applicare Transparent Data Encryption del database SAP in locale o per eseguire questa operazione in Azure. In Azure è senz'altro maggiore la flessibilità in termini di provisioning eccessivo dell'infrastruttura e di riduzione della stessa dopo l'applicazione di TDE.
 
 ### <a name="using-azure-key-vault"></a>Utilizzo di Azure Key Vault
 Azure offre il servizio [Key Vault](https://azure.microsoft.com/services/key-vault/) per archiviare le chiavi di crittografia. SQL Server offre invece un connettore per sfruttare Azure Key Vault come archivio per i certificati TDE.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/27/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb0eacd90c3b748920e5f43bf669a36df7a3f17c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6f76fef3d5e6515e9d546c709ace0a4a533c0a45
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447025"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881172"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-powershell"></a>Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite PowerShell
 
@@ -54,8 +54,8 @@ Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal 
     $vmConfig = New-AzVMConfig -VMName myVM -AssignIdentity:$SystemAssigned ...
     ```
 
-   - [Creare una macchina virtuale Windows mediante PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-   - [Creare una macchina virtuale Linux mediante PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+   - [Creare una macchina virtuale Windows con PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+   - [Creare una macchina virtuale Linux con PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 > [!NOTE]
 > È facoltativamente possibile eseguire il provisioning delle identità gestite per estensione della macchina virtuale risorse di Azure, ma verrà presto deprecato. È consigliabile usare l'endpoint di identità di metadati dell'istanza di Azure per l'autenticazione. Per altre informazioni, vedere [eseguire la migrazione dell'estensione macchina virtuale all'endpoint di servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
@@ -147,14 +147,14 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
 1. Fare riferimento a uno delle guide introduttive seguenti della macchina virtuale di Azure, completare solo le sezioni necessarie ("accesso ad Azure", "Crea gruppo di risorse", "Crea rete group", "crea la macchina virtuale"). 
   
-    Quando si raggiunge la sezione "Creare la VM", apportare una leggera modifica alla sintassi del cmdlet [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Aggiungere i parametri `-IdentityType UserAssigned` e `-IdentityID ` per eseguire il provisioning della macchina virtuale con un'identità assegnata dall'utente.  Sostituire `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` con valori personalizzati.  Ad esempio: 
+    Quando si raggiunge la sezione "Creare la VM", apportare una leggera modifica alla sintassi del cmdlet [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm). Aggiungere i parametri `-IdentityType UserAssigned` e `-IdentityID` per eseguire il provisioning della macchina virtuale con un'identità assegnata dall'utente.  Sostituire `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` e `<USER ASSIGNED IDENTITY NAME>` con valori personalizzati.  Ad esempio: 
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
     ```
     
-    - [Creare una macchina virtuale Windows mediante PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
-    - [Creare una macchina virtuale Linux mediante PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
+    - [Creare una macchina virtuale Windows con PowerShell](../../virtual-machines/windows/quick-create-powershell.md)
+    - [Creare una macchina virtuale Linux con PowerShell](../../virtual-machines/linux/quick-create-powershell.md)
 
 > [!NOTE]
 > È facoltativamente possibile eseguire il provisioning delle identità gestite per estensione della macchina virtuale risorse di Azure, ma verrà presto deprecato. È consigliabile usare l'endpoint di identità di metadati dell'istanza di Azure per l'autenticazione. Per altre informazioni, vedere [eseguire la migrazione dell'estensione macchina virtuale all'endpoint di servizio metadati dell'istanza di Azure per l'autenticazione](howto-migrate-vm-extension.md).
@@ -215,7 +215,7 @@ Update-AzVm -ResourceGroupName myResourceGroup -VirtualMachine $vm -IdentityType
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica delle identità gestite per le risorse di Azure](overview.md)
+- [Identità gestito per una panoramica delle risorse di Azure](overview.md)
 - Per la guida introduttiva completa sulla creazione di VM di Azure, vedere:
   
   - [Creare una macchina virtuale Windows con PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 

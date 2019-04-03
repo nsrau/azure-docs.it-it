@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 883e1c11e3485c0bf3441a67a3a191563ea3aed4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990796"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877415"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Linguaggi supportati dalla macchina virtuali per data science 
 
@@ -145,8 +145,8 @@ Gli ambienti Python predefiniti nella macchina virtuale per data science sono am
 | ------------- | ------------- |
 | Versioni di linguaggio supportate | Microsoft R Open 3.x (compatibile al 100% con CRAN-R)<br /> Microsoft R Server 9.x Developer Edition (una piattaforma R di livello enterprise scalabile)|
 | Edizioni supportate della macchina virtuale per data science      | Linux, Windows     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
-| Collegamenti a esempi      | Sono inclusi i Notebook di Jupyter di esempio per R     |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
+| Collegamenti agli esempi      | Sono inclusi i Notebook di Jupyter di esempio per R     |
 | Strumenti correlati nella macchina virtuale per data science      | SparkR, Python, Julia      |
 ### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?    
 
@@ -193,7 +193,7 @@ R è installato nella macchina virtuale per data science in un ambiente globale 
 | ------------- | ------------- |
 | Versioni di linguaggio supportate | 0,6 |
 | Edizioni supportate della macchina virtuale per data science      | Linux, Windows     |
-| Come viene configurata o installata sulla macchina virtuale per data science?  | Windows: installato in `C:\JuliaPro-VERSION`<br /> Linux: installato in `/opt/JuliaPro-VERSION`    |
+| Come viene configurata o installata sulla macchina virtuale per data science?  | Windows: Installato in `C:\JuliaPro-VERSION`<br /> Linux: Installato in `/opt/JuliaPro-VERSION`    |
 | Collegamenti agli esempi      | Sono inclusi i Notebook di Jupyter di esempio per Julia     |
 | Strumenti correlati nella macchina virtuale per data science      | Python, R      |
 ### <a name="how-to-use--run-it"></a>Come usarla o eseguirla?    
@@ -209,7 +209,7 @@ Usare `Juno`, l'IDE di Julia installato nella macchina virtuale per data science
 
 * Utilizzo in Jupyter
 
-Aprire Jupyter e fare clic sul pulsante `New` per creare un nuovo notebook. A questo punto, è possibile scegliere il tipo di kernel come `Julia VERSION` 
+Aprire Jupyter e fare clic sul pulsante `New` per creare un nuovo notebook. A questo punto, è possibile scegliere il tipo di kernel `Julia VERSION` 
 
 * Installazione di pacchetti Julia
 
@@ -226,7 +226,7 @@ Usare `Juno` l'IDE di Julia installato nella DSVM e disponibile come un collegam
 
 * Utilizzo in Jupyter
 
-Aprire Jupyter e fare clic sul pulsante `New` per creare un nuovo notebook. A questo punto, è possibile scegliere il tipo di kernel come `Julia VERSION` 
+Aprire Jupyter e fare clic sul pulsante `New` per creare un nuovo notebook. A questo punto, è possibile scegliere il tipo di kernel `Julia VERSION` 
 
 * Installazione di pacchetti Julia
 

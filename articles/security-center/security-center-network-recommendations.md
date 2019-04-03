@@ -3,7 +3,7 @@ title: Protezione delle risorse di rete nel Centro sicurezza di Azure | Microsof
 description: Questo documento illustra le raccomandazioni presenti nel Centro sicurezza di Azure che facilitano la protezione delle risorse della rete di Azure e la conformità ai criteri di sicurezza.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118004"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863152"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Proteggere le risorse di Azure nel Centro sicurezza di Azure
 Il Centro sicurezza di Azure analizza continuamente lo stato di sicurezza delle risorse di Azure per consigliare le procedure ottimali di protezione della rete. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli necessari per rafforzare e tutelare le risorse.
@@ -30,10 +30,9 @@ Questo articolo illustra le raccomandazioni applicabili alle risorse di Azure da
 > La pagina **Rete** consente di esaminare nei dettagli l'integrità delle risorse di Azure da una prospettiva di rete. La mappa di rete e i controlli per la rete adattiva sono disponibili solo per il livello standard del Centro sicurezza di Azure. [Se si usa il livello gratuito, è possibile fare clic sul pulsante per visualizzare le **Risorse di rete legacy** e ricevere raccomandazioni sulle risorse di rete](#legacy-networking).
 >
 
-La pagina **Rete** offre una panoramica delle sezioni da studiare per ottenere altre informazioni sull'integrità delle risorse di rete:
+Il **Networking** pannello offre una panoramica delle sezioni è possibile approfondite informazioni approfondite, per ottenere altre informazioni sull'integrità delle risorse di rete:
 
 - Mappa di rete (solo per il livello standard di Centro sicurezza di Azure)
-- Protezione avanzata dei gruppi di sicurezza di rete (Disponibile a breve. Registrarsi per l'anteprima.)
 - Raccomandazioni per la sicurezza della rete.
 - Pannello **Rete** legacy (il precedente pannello Rete) 
  
@@ -49,7 +48,8 @@ Per aprire la mappa di rete:
  
 La vista predefinita della mappa topologica contiene:
 - Le sottoscrizioni selezionate in Azure. La mappa supporta più sottoscrizioni.
-- Le macchine virtuali, subnet e le reti virtuali del tipo Resource Manager. Le risorse di Azure classico non sono supportate
+- Le macchine virtuali, subnet e le reti virtuali del tipo di risorsa di Resource Manager (non sono supportate risorse di Azure classico)
+- Reti virtuali con peering
 - Solo le risorse che hanno [raccomandazioni per la rete](security-center-recommendations.md) con gravità alta o media  
 - Risorse con connessione Internet
 - La mappa è ottimizzata per le sottoscrizioni selezionate in Azure. Se si modifica la selezione, la mappa viene ricalcolata e ottimizzata nuovamente in base alle nuove impostazioni.  
@@ -98,9 +98,9 @@ Ad esempio, si potrebbero scoprire due macchine che non era previsto che comunic
 
 Per eseguire il drill-down in una risorsa:
 1. Quando si seleziona una risorsa specifica nella mappa, si apre il riquadro di destra con informazioni generali sulla risorsa, eventuali soluzioni per la sicurezza della connessione e le raccomandazioni rilevanti per la risorsa. Il comportamento non cambia a seconda del tipo di risorsa selezionato. 
-2. Fare clic su **Traffico** per visualizzare il possibile traffico in ingresso e in uscita sulla risorsa. Questo è l'elenco completo di chi può comunicare con la risorsa, con chi la risorsa può comunicare e tramite quali protocolli e porte.
+2. Fare clic su **Traffico** per visualizzare il possibile traffico in ingresso e in uscita sulla risorsa. Questo è l'elenco completo di chi può comunicare con la risorsa, con chi la risorsa può comunicare e tramite quali protocolli e porte. Ad esempio, quando si seleziona una macchina virtuale, tutte le VM che possa comunicare con vengono visualizzati e quando si seleziona una subnet, vengono visualizzate tutte le subnet che possa comunicare con.
 
-**Questi dati si basano sull'analisi dei gruppi di sicurezza di rete nonché sugli algoritmi di machine learning avanzati che analizzano più regole per comprendere incroci e interazioni.** 
+**Questi dati si basa sull'analisi dei gruppi di sicurezza di rete, nonché avanzati algoritmi di machine learning che analizzano più regole per comprendere le crossover e interazioni.** 
 
 ![Mappa del traffico di rete](./media/security-center-network-recommendations/network-map-traffic.png)
 
@@ -144,8 +144,8 @@ VNet|5|Abilita Protezione DDoS Standard|Le applicazioni con indirizzi IP pubblic
 Per altre informazioni sulle raccomandazioni applicabili ad altri tipi di risorse di Azure, vedere gli argomenti seguenti:
 
 * [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-recommendations.md)
-* [Protecting your applications in Azure Security Center](security-center-application-recommendations.md)
-* [Protezione del servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
+* [Protezione delle applicazioni nel Centro sicurezza di Azure](security-center-application-recommendations.md)
+* [Proteggere il servizio SQL di Azure nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md)
 
 Per altre informazioni sul Centro sicurezza, vedere gli argomenti seguenti:
 
