@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286013"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847445"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Risolvere i problemi relativi al backup di SQL Server in Azure
 
 Questo articolo offre informazioni sulla risoluzione dei problemi relativi al backup di macchine virtuali di SQL Server in Azure (anteprima).
 
-## <a name="feature-consideration-and-limitations"></a>Considerazioni sulla funzionalità e limitazioni
+## <a name="feature-consideration-and-limitations"></a>Considerazioni e limitazioni della funzionalità
 
 Per visualizzare la considerazione delle funzionalità, vedere l'articolo [backup su SQL Server in macchine virtuali di Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
@@ -98,12 +98,18 @@ I codici di errore seguenti vengono visualizzati in caso di esito negativo dei p
 |---|---|---|
 | Il ripristino non è riuscito perché non è stato possibile portare offline il database. | Il database di destinazione deve essere portato offline durante un ripristino. Backup di Azure non è in grado di portare offline i dati. | Usare i dettagli aggiuntivi nel menu dell'errore nel portale di Azure per risalire alle cause radice. Per altre informazioni, vedere la [documentazione di SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Messaggio di errore | Possibili cause | Azione consigliata |
 |---|---|---|
 | Cannot find the server certificate with thumbprint on the target (Non è possibile trovare il certificato del server con l'identificazione personale). | Il database master nell'istanza di destinazione non ha un'identificazione digitale per la crittografia valida. | Importare l'identificazione personale del certificato valida usata nell'istanza di origine, nell'istanza di destinazione. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Messaggio di errore | Possibili cause | Azione consigliata |
+|---|---|---|
+| Il backup del log utilizzato per il ripristino contiene modifiche con registrazione minima delle operazioni bulk. Non è utilizzabile per arrestare in un punto arbitrario nel tempo in base alle linee guida di SQL. | Quando un database è in modalità di ripristino registrati in blocco, non è possibile recuperare i dati tra una transazione di operazioni bulk registrate e il troncamento del log successivo. | Scegliere un altro punto nel tempo per il ripristino. [Altre informazioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>Errori di registrazione
 

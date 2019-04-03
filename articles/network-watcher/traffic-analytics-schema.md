@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109121"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879336"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Aggregazione di schema e i dati in traffico Analitica
 
@@ -120,7 +120,7 @@ Di seguito sono riportati i campi nello schema di e quali indicare.
 1. ExternalPublic - appartiene uno degli indirizzi IP per rete virtuale di Azure mentre l'altro indirizzo IP è un indirizzo IP pubblico che non sia in Azure, non è segnalato come dannoso nei feed Centro sicurezza di AZURE che utilizza il traffico Analitica per l'intervallo di elaborazione tra " FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
 1. MaliciousFlow - uno degli indirizzi IP appartenenti a rete virtuale di azure mentre l'altro indirizzo IP è un indirizzo IP pubblico che non si trova in Azure e viene indicato come dannoso nei feed Centro sicurezza di AZURE che utilizza il traffico Analitica per l'intervallo di elaborazione tra" FlowIntervalStartTime_t"e"FlowIntervalEndTime_t". 
 1. UnknownPrivate - uno degli indirizzi IP appartenenti a rete virtuale di Azure mentre l'altro indirizzo IP appartiene a un intervallo di IP privati come definito in RFC 1918 e non può essere mappato dal traffico Analitica a un sito o rete virtuale di Azure di proprietà del cliente.
-1. Sconosciuto: non è possibile eseguire il mapping di uno degli indirizzi IP per i flussi con la topologia dei clienti in Azure, nonché in locale (sito).
+1. Sconosciuto: non è possibile eseguire il mapping tra l'indirizzo IP indirizzi per i flussi con la topologia dei clienti in Azure così come in locale (sito).
 
 ### <a name="next-steps"></a>Fasi successive
 Per ottenere le risposte alle domande più frequenti, vedere [analitica domande frequenti di traffico](traffic-analytics-faq.md) per visualizzare informazioni dettagliate sulle funzionalità, vedere [documentazione analitica del traffico](traffic-analytics.md)

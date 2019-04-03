@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: rangv
-ms.openlocfilehash: 4f092f2d290138e48068141113b184d8e856bee7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b23725a4bccf753bbe7231202133771e5aaa614
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103214"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847205"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Connettere Raspberry Pi ad Azure IoT Hub (C)
 
@@ -205,8 +205,14 @@ Dovrebbe essere visibile l'output seguente che mostra i dati del sensore e i mes
 
 ![Output - dati del sensore inviati da Raspberry Pi all'hub IoT](./media/iot-hub-raspberry-pi-kit-c-get-started/8_run-output.png)
 
+## <a name="read-the-messages-received-by-your-hub"></a>Leggere i messaggi ricevuti dall'hub
+
+Un modo per monitorare i messaggi ricevuti dall'hub IoT dal dispositivo è usare gli strumenti di IoT di Azure per Visual Studio Code. Per altre informazioni, vedere [utilizza gli strumenti di IoT di Azure per Visual Studio Code inviare e ricevere messaggi tra il dispositivo e l'IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+
+Per altre modalità elaborare i dati inviati dal dispositivo, continuare con la sezione successiva.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore da inviare all'hub IoT. Per visualizzare i messaggi che Raspberry Pi ha inviato all'hub IoT o inviare messaggi al proprio Raspberry Pi, vedere [Usare Azure IoT Tools per Visual Studio Code per inviare e ricevere messaggi tra il dispositivo e l'hub IoT](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
+È stata eseguita un'applicazione di esempio per raccogliere i dati del sensore da inviare all'hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

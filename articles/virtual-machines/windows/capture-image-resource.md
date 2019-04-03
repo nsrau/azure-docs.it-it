@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: b0dc587035509606059e3620201b2061bbe4d6a0
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57341766"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847579"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
@@ -84,10 +84,11 @@ Per generalizzare la VM Windows, seguire questa procedura:
 
 ## <a name="create-an-image-of-a-vm-using-powershell"></a>Creare un'immagine di una macchina virtuale tramite PowerShell
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 La creazione di un'immagine direttamente nella VM garantisce che l'immagine includa tutti i dischi associati alla VM, compresi il disco del sistema operativo e gli eventuali dischi dati. Questo esempio illustra come creare un'immagine gestita da una VM che usa dischi gestiti.
 
-
-Prima di iniziare, verificare di avere installata la versione più recente del modulo AzureRM.Compute di PowerShell, ovvero la versione 5.7.0 o successiva. Per trovare la versione, eseguire `Get-Module -ListAvailable AzureRM.Compute` in PowerShell. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-azurerm-ps) (Installare Azure PowerShell in Windows con PowerShellGet). Se si esegue PowerShell in locale, eseguire `Connect-AzAccount` per creare una connessione con Azure.
+Prima di iniziare, assicurarsi di avere la versione più recente del modulo Azure PowerShell. Per trovare la versione, eseguire `Get-Module -ListAvailable Az` in PowerShell. Se è necessario eseguire l'aggiornamento, vedere [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-az-ps) (Installare Azure PowerShell in Windows con PowerShellGet). Se si esegue PowerShell in locale, eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 
 > [!NOTE]

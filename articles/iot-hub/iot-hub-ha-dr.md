@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092651"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879693"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
@@ -32,7 +32,7 @@ A seconda del tempo di attività degli obiettivi definiti per le soluzioni IoT, 
 
 ## <a name="intra-region-ha"></a>Disponibilità elevata intra-area
 
-Il servizio Hub IoT fornisce disponibilità elevata intra-area tramite l'implementazione delle ridondanze in quasi tutti i livelli di servizio. Il [Contratto di servizio pubblicato dal servizio Hub IoT](https://azure.microsoft.com/support/legal/sla/iot-hub) è realizzato sfruttando queste ridondanze. Non è necessario alcun intervento aggiuntivo degli sviluppatori di una soluzione IoT per sfruttare i vantaggi di queste funzionalità a disponibilità elevata. Anche se l'Hub IoT offre una garanzia di tempo di attività relativamente elevata, sono comunque attesi errori temporanei come in una qualsiasi piattaforma di elaborazione distribuita. Quando si inizia con la migrazione delle soluzioni nel cloud da una soluzione a livello locale, l'obiettivo deve passare dall'ottimizzazione del "tempo medio tra errori" al "tempo medio per il ripristino". In altre parole, gli errori temporanei sono considerati normali quando si opera con il cloud in combinazione. È necessario incorporare appropriati [criteri di ripetizione](iot-hub-reliability-features-in-sdks.md) per i componenti che interagiscono con un'applicazione cloud per gestire i guasti temporanei.
+Il servizio Hub IoT fornisce disponibilità elevata intra-area tramite l'implementazione delle ridondanze in quasi tutti i livelli di servizio. Il [Contratto di servizio pubblicato dal servizio Hub IoT](https://azure.microsoft.com/support/legal/sla/iot-hub) è realizzato sfruttando queste ridondanze. Non è necessario alcun intervento aggiuntivo degli sviluppatori di una soluzione IoT per sfruttare i vantaggi di queste funzionalità a disponibilità elevata. Anche se l'Hub IoT offre una garanzia di tempo di attività relativamente elevata, sono comunque attesi errori temporanei come in una qualsiasi piattaforma di elaborazione distribuita. Se sta appena iniziando a usare la migrazione delle soluzioni nel cloud da una soluzione in locale, lo stato attivo si deve spostare ottimizzazione del "tempo medio tra errori" per "tempo medio per il ripristino". In altre parole, gli errori temporanei sono considerati normali quando si opera con il cloud in combinazione. È necessario incorporare appropriati [criteri di ripetizione](iot-hub-reliability-features-in-sdks.md) per i componenti che interagiscono con un'applicazione cloud per gestire i guasti temporanei.
 
 > [!NOTE]
 > Anche alcuni servizi di Azure forniscono ulteriori livelli di disponibilità all'interno di un'area grazie all'integrazione con [Zone di disponibilità (AZ)](../availability-zones/az-overview.md). Le AZ non sono attualmente supportate dal servizio Hub IoT.
@@ -64,7 +64,7 @@ Una volta completata l'operazione di failover per l'Hub IoT, tutte le operazioni
 >
 > - Dopo il failover, gli eventi creati tramite Griglia di eventi possono essere usati tramite le stesse sottoscrizioni configurate in precedenza, purché le sottoscrizioni a Griglia di eventi continuino a essere disponibili.
 >
-> - Quando il routing nell'archiviazione BLOB, è consigliabile l'integrazione di BLOB e quindi si esegue l'iterazione su di essi, per assicurarsi che tutti i contenitori sono in lettura senza eventuali supposizioni errate della partizione. L'intervallo di partizione potrebbe in teoria cambiare durante un failover avviato da Microsoft o un failover manuale. Per informazioni su come enumerare l'elenco di BLOB, vedere [routing nell'archivio blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - Quando si esegue il routing all'archivio BLOB è consigliabile integrare i BLOB e quindi eseguirne l'iterazione per garantire che tutti i contenitori vengano letti senza fare ipotesi sulla partizione. L'intervallo di partizione potrebbe in teoria cambiare durante un failover avviato da Microsoft o un failover manuale. Per informazioni su come enumerare l'elenco di BLOB, vedere [routing nell'archivio blob](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Failover avviato da Microsoft
 
@@ -137,5 +137,5 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 
 Per altre informazioni sull'hub IoT di Azure, vedere questi collegamenti:
 
-* [Introduzione agli hub IoT (guida introduttiva)](quickstart-send-telemetry-dotnet.md)
-* [Che cos'è l'hub IoT Azure?](about-iot-hub.md)
+* [Introduzione all'hub IoT (Guida rapida)](quickstart-send-telemetry-dotnet.md)
+* [Che cos'è l'hub IoT di Azure?](about-iot-hub.md)

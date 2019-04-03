@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452188"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877827"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -33,19 +33,19 @@ Di seguito sono riportate alcune linee guida per scegliere una strategia di velo
 
 1. Si dispone di qualche dozzina di contenitori Azure Cosmos e si desidera condividere la velocità effettiva in tutti o in alcuni di loro. 
 
-2. Si sta eseguendo la migrazione da un database a tenant singolo che è stato progettato per l'esecuzione sulle macchine virtuali ospitate su IaaS o locali, ad esempio database relazionali o NoSQL, in Azure Cosmos DB. E se si dispone di numerosi insiemi/tabelle/grafici e non si desidera apportare modifiche al modello di dati. Si noti che, se durante la migrazione da un database locale non si sta aggiornando il modello di dati, potrebbe essere necessario compromettere alcuni dei vantaggi offerti da Azure Cosmos DB. È consigliabile ripetere sempre l'accesso al modello di dati per ottenere il massimo in termini di prestazioni e anche per ottimizzare i costi. 
+2. Si sta eseguendo la migrazione da un database a tenant singolo che è stato progettato per l'esecuzione sulle macchine virtuali ospitate su IaaS o locali, ad esempio database relazionali o NoSQL, in Azure Cosmos DB. E se si dispone di numerosi insiemi/tabelle/grafici e non si desidera apportare modifiche al modello di dati. Si noti che potrebbe essere necessario violare alcuni dei vantaggi offerti da Azure Cosmos DB, se non si stia aggiornando il modello di dati durante la migrazione da un database locale. È consigliabile ripetere sempre l'accesso al modello di dati per ottenere il massimo in termini di prestazioni e anche per ottimizzare i costi. 
 
 3. Si desidera assorbire i picchi non pianificati nei carichi di lavoro grazie alla velocità effettiva in pool a livello di database soggetto a picchi imprevisti nel carico di lavoro. 
 
 4. Anziché impostare la velocità effettiva specifica per i singoli contenitori, si è interessati a ottenere la velocità effettiva aggregata in un set di contenitori all'interno del database.
 
-**Considerare di effettuare il provisioning della velocità effettiva in un singolo contenitore se:**
+**Se il provisioning della velocità effettiva in un singolo contenitore, tenere presente:**
 
 1. Si dispone di alcuni contenitori Azure Cosmos. Poiché Azure Cosmos DB è indipendente dallo schema, un contenitore può contenere elementi con schemi eterogenei e non richiede ai clienti di creare più tipi di contenitori, uno per ogni entità. È sempre un'opzione da considerare se si raggruppano, ad esempio, 10-20 contenitori separati in un singolo contenitore. Con un minimo di 400 UR per i contenitori, potrebbe essere più conveniente il pooling di tutti i 10-20 contenitori in un singolo contenitore. 
 
 2. Si vuole controllare la velocità effettiva in un contenitore specifico e ottenere la velocità effettiva garantita per un determinato contenitore, supportata dal contratto di servizio.
 
-**Considerare una combinazione delle due strategie illustrate sopra:**
+**Si consideri un ibrido delle due strategie precedenti:**
 
 1. Come accennato in precedenza, Azure Cosmos DB consente di combinare le due strategie precedenti, pertanto ora è possibile avere alcuni contenitori nel database Azure Cosmos, che può condividere la velocità effettiva con provisioning nel database, nonché alcuni contenitori all'interno dello stesso database, che possono avere quantità dedicate di velocità effettiva con provisioning. 
 

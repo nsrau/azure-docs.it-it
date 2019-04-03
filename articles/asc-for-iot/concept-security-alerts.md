@@ -1,31 +1,31 @@
 ---
 title: Guida degli avvisi di sicurezza per il Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
 description: Informazioni sugli avvisi di sicurezza e la correzione consigliata con il Centro sicurezza di Azure per servizi e le funzionalità di IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f3ae69cb6c8e2a60488b4f1ff3df1bb8ab0c04ea
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755113"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861979"
 ---
 # <a name="azure-security-center-for-iot-security-alerts"></a>Il Centro sicurezza di Azure per gli avvisi di sicurezza IoT
 
 > [!IMPORTANT]
 > Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il Centro sicurezza di Azure (ASC) per IoT analizza continuamente della soluzione IoT con funzionalità di intelligence analitica e minacce avanzate che consentono all'attività dannose.
 Inoltre, è possibile creare avvisi personalizzati basati sulla conoscenza del comportamento del dispositivo previsto.
@@ -93,6 +93,6 @@ Per altre informazioni, vedere [creare avvisi personalizzati](quickstart-create-
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Overview](overview.md)
+- [Panoramica](overview.md)
 - [Accedere ai dati di sicurezza](how-to-security-data-access.md)
-- [Provare a utilizzare un dispositivo](how-to-investigate-device.md)
+- [Analizzare un dispositivo](how-to-investigate-device.md)

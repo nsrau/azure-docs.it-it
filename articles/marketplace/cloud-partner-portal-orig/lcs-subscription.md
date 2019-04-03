@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ee6c18d1d0dda691f8b108cbe70e05eedae606e5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 9ea04a4df55bfe26f292305a75696d423db52328
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446328"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883091"
 ---
 # <a name="lcs-subscription"></a>Sottoscrizione di LCS
 
@@ -37,7 +37,7 @@ In questa esercitazione verrà illustrato come creare una sottoscrizione. Questa
 
 **Sottoscrizione**: una sottoscrizione offre un ambiente online. Questo ambiente consente di usare Dynamics 365 for Operations nel cloud e anche di vedere come distribuire nel cloud le personalizzazioni che vengono sviluppate.
 
-**Microsoft Azure Active Directory**: l'ambiente cloud include Azure Active Directory (AD), che consente di gestire utenti, gruppi, ruoli di sicurezza e licenze per le applicazioni online, in modo analogo a come vengono gestiti negli ambienti locali.
+**Microsoft Azure Active Directory** -l'ambiente cloud include Azure Active Directory (AD), che consente di gestire utenti, gruppi, ruoli di sicurezza e le licenze per le applicazioni online, in modo analogo al modo in cui che devono essere gestiti in locale ambienti.
 
 **Utenti**: gli utenti dei servizi per i quali l'organizzazione ha eseguito la sottoscrizione sono gestiti in Azure AD. È possibile aggiungere e assegnare ai ruoli di sicurezza qualsiasi utente del tenant.
 

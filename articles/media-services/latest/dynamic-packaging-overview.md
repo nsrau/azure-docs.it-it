@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435313"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886455"
 ---
 # <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
@@ -26,7 +26,7 @@ Servizi multimediali di Microsoft Azure può essere usato per distribuire molti 
 
 [Gli endpoint di streaming](streaming-endpoint-concept.md) è il servizio di creazione dinamica dei pacchetti di servizi multimediali consente di recapitare contenuto multimediale agli assegnatari di client. Creazione dinamica dei pacchetti è una funzionalità che include standard su tutti **gli endpoint di Streaming** (Standard o Premium). 
 
-Per poter sfruttare **creazione dinamica dei pacchetti**, è necessario avere un' **Asset** con un set di file MP4 a bitrate adattivo e streaming i file di configurazione necessari da Media Services creazione dinamica dei pacchetti. Un modo per ottenere i file consiste nel codificare il file mezzanine (di origine) con servizi multimediali. Per rendere i video nell'Asset codificato disponibile ai client per la riproduzione, è necessario creare un **localizzatore di Streaming** e creare URL di streaming. Quindi, in base al formato specificato nel manifesto client di streaming (HLS, DASH o Smooth), il flusso sia ricevuto nel protocollo scelto.
+Per poter sfruttare **creazione dinamica dei pacchetti**, è necessario avere un' **Asset** con un set di file MP4 a bitrate adattivo e streaming i file di configurazione necessari da Media Services creazione dinamica dei pacchetti. Un modo per ottenere i file consiste nel codificare il file mezzanine (di origine) con Servizi multimediali. Per rendere i video nell'Asset codificato disponibile ai client per la riproduzione, è necessario creare un **localizzatore di Streaming** e creare URL di streaming. Quindi, in base al formato specificato nel manifesto client di streaming (HLS, DASH o Smooth), il flusso sia ricevuto nel protocollo scelto.
 
 Di conseguenza, si archiviano e si pagano solo i file in un singolo formato di archiviazione e il servizio Servizi multimediali crea e fornisce la risposta appropriata in base alle richieste di un client. 
 
@@ -60,7 +60,7 @@ Per un elenco dei codec e formati di Media Encoder Standard, vedere [codec e for
 Ecco i passaggi del flusso di lavoro di uno streaming live:
 
 1. Creare un [Evento live](live-events-outputs-concept.md).
-1. Ottenere gli URL di inserimento e configurare il codificatore a livello locale per usare l'URL per inviare il feed di contributo.
+1. Ottenere gli URL di inserimento e configurare un codificatore locale per usare l'URL per inviare il feed di contributo.
 1. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
 1. Creare una nuova **Asset**.
 1. Creare un **LiveOutput** e usare il nome dell'asset creato.<br/>L'**output live** archivierà il flusso nell'**asset**.
@@ -196,9 +196,9 @@ Di seguito è riportato un esempio di un manifesto Smooth Streaming:
 Applicazione di filtri dinamici viene utilizzato per controllare il numero di intervalli di tempo di presentazione che vengono inviati ai giocatori, i formati, velocità in bit e tiene traccia. Per altre informazioni, vedere [filtri e manifesti dinamici](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare la [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o uno degli [SDK](developers-guide.md).
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Caricare, codificare ed eseguire lo streaming dei video](stream-files-tutorial-with-api.md)
+[Caricare, codificare, trasmettere i video](stream-files-tutorial-with-api.md)
 

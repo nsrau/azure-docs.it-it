@@ -1,25 +1,25 @@
 ---
 title: Informazioni sul Centro sicurezza di Azure per l'architettura della soluzione IoT Preview | Microsoft Docs
 description: Informazioni sul flusso di informazioni nel Centro sicurezza di Azure per il servizio IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754991"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862366"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Il Centro sicurezza di Azure per l'architettura di IoT
 
@@ -27,7 +27,7 @@ Questo articolo illustra l'architettura del sistema funzionale di Azure Security
 
 > [!IMPORTANT]
 > Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="asc-for-iot-components"></a>Centro sicurezza di AZURE per i componenti di IoT
 

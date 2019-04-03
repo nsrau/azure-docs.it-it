@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 07a8195969df7ad7afd2bfe2e9124b07144d48cb
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 136b9141ccccfedf8d37fa0832b0673495d82417
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284783"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846553"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Come connettersi e accedere a una macchina virtuale di Azure che esegue Windows
 Per avviare una sessione di Desktop remoto (RDP) da un desktop di Windows, sarà necessario usare il pulsante **Connetti** nel portale di Azure. Connettersi prima di tutto alla macchina virtuale e quindi eseguire l'accesso.
@@ -56,7 +56,9 @@ Per connettersi a una macchina virtuale Windows da un Mac, sarà necessario inst
 
 ## <a name="connect-to-the-virtual-machine-using-powershell"></a>Connettersi alla macchina virtuale tramite PowerShell
 
-Se si usa PowerShell e il modulo AzureRM è installato, è anche possibile connettersi usando il cmdlet `Get-AzRemoteDesktopFile`, come illustrato di seguito.
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Se si usa PowerShell e avere installato il modulo di Aure PowerShell possono inoltre connettersi tramite il `Get-AzRemoteDesktopFile` cmdlet, come illustrato di seguito.
 
 In questo esempio verrà avviata immediatamente la connessione RDP, con prompt simili ai precedenti.
 

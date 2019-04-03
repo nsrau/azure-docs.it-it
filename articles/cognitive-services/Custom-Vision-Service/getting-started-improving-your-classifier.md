@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351440"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883074"
 ---
 # <a name="how-to-improve-your-classifier"></a>Come migliorare il classificatore
 
@@ -73,6 +73,15 @@ Per risolvere questo problema, includere un'ampia gamma di immagini per garantir
 
     ![Immagine di esempi di stile](./media/getting-started-improving-your-classifier/style.png)
 
+## <a name="negative-images"></a>Immagini negative
+
+A un certo punto del progetto, potrebbe essere necessario aggiungere _esempi negativi_ per rendere più preciso il classificatore. Gli esempi negativi sono quelli che non corrispondono a nessun altro tag. Quando si caricano queste immagini, applicarvi la speciale etichetta **Negative** (Negativa).
+
+> [!NOTE]
+> Il servizio Visione personalizzata supporta alcune operazioni di gestione automatica delle immagine negative. Se, ad esempio, si sta creando un classificatore di uva e banane e per la stima si invia l'immagine di una scarpa, il classificatore deve segnare un punteggio per quell'immagine più vicino possibile allo 0%, sia per l'uva che per le banane.
+> 
+> D'altra parte, nei casi in cui le immagini negative sono soltanto una variazione delle immagini usate nel training, è probabile che il modello classificherà le immagini negative come una classe con etichetta a causa delle molte analogie. Se, ad esempio, si ha un classificatore di arance e di pompelmi e si invia un'immagine di una clementina, è possibile che la clementina sia classificata come un'arancia perché molte sue caratteristiche sono simili a quelle delle arance. Se le immagini negative sono di questo tipo, è consigliabile creare uno o più tag aggiuntivi, ad esempio **Altro**, e assegnare un'etichetta alle immagini negative con questo tag durante il training per consentire al modello di distinguere meglio queste classi.
+
 ## <a name="use-prediction-images-for-further-training"></a>Usare immagini di stima per ulteriori training
 
 Quando si usa o si testa il classificatore di immagini tramite l'invio di immagini per l'endpoint di stima, il servizio Visione personalizzata archivia le immagini. È quindi possibile usarle per migliorare il modello.
@@ -102,4 +111,4 @@ A volte un'ispezione visiva può identificare modelli che è possibile corregger
 In questa guida, si sono apprese varie tecniche per rendere più preciso il modello di classificazione di immagini personalizzate. Successivamente, altre informazioni su come eseguire il test delle immagini a livello di codice inviandole all'API delle stime.
 
 > [!div class="nextstepaction"]
-> [Usare l'API delle stime](use-prediction-api.md)
+> [Usare l'API Prediction](use-prediction-api.md)

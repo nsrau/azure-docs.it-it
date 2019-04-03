@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2019
 ms.author: jdial
-ms.openlocfilehash: e32bc2f4697b5ac32993a5da66e5c38cb7add03f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 3488e8501b0b9bea83bfcce5085d42b6476d3ed2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200583"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880424"
 ---
 # <a name="virtual-network-peering"></a>Peering di rete virtuale
 
@@ -92,7 +92,7 @@ Per altre informazioni sulle autorizzazioni necessarie per creare un peering di 
 
 È previsto un addebito nominale per il traffico in ingresso e in uscita che usa una connessione con peering reti virtuali. Per altre informazioni sui prezzi per il peering reti virtuali e per il peering globale di reti virtuali, vedere la [pagina relativa ai prezzi](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Il transito nel gateway è una proprietà del peering che consente a una rete virtuale di usare un gateway VPN in una rete virtuale con peering per la connettività cross-premise o da rete virtuale a rete virtuale. Il traffico che attraversa un gateway remoto in questo scenario è soggetto ai [costi del gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) e non verranno addebitati [costi per il peering reti virtuali.](https://azure.microsoft.com/pricing/details/virtual-network) Se, ad esempio, la rete virtuale A ha un gateway VPN per la connettività locale e la rete virtuale B è associata alla rete virtuale A con le proprietà appropriate configurate, il traffico dalla rete virtuale B ai dati locali viene addebitato solo in uscita in base ai prezzi per il gateway VPN. Le tariffe del peering reti virtuali non si applicano. Informazioni su come [configurare il transito nel gateway VPN per il peering di rete virtuale.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+Il transito nel gateway è una proprietà del peering che consente a una rete virtuale di usare un gateway VPN in una rete virtuale con peering per la connettività cross-premise o da rete virtuale a rete virtuale. Il traffico che attraversa un gateway remoto in questo scenario è soggetto ai [costi del gateway VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) e non verranno addebitati [costi per il peering reti virtuali.](https://azure.microsoft.com/pricing/details/virtual-network) Ad esempio, se VNetA dispone di un gateway VPN per la connettività da sito locale e VNetB è stato eseguito il peering da VNetA con le proprietà appropriate configurate, il traffico da VNetB in locale verrà addebitato solo in uscita per ogni gateway VPN prezzi. Le tariffe del peering reti virtuali non si applicano. Informazioni su come [configurare il transito nel gateway VPN per il peering di rete virtuale.](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

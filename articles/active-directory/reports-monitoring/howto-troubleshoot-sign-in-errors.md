@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434892"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877058"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedura: Risolvere gli errori di accesso usando i report di Azure Active Directory
 
@@ -55,7 +55,7 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 
     ![Risoluzione dei problemi e supporto](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. Il motivo dell'errore descrive l'errore. Ad esempio, nello scenario precedente, il motivo dell'errore è **l'uso di una password o un nome utente non valido oppure di una password o un nome utente locale non valido**. La correzione consiste semplicemente nell'eseguire nuovamente l'accesso con nome utente e password corretti.
+6. Il motivo dell'errore descrive l'errore. Nello scenario precedente, ad esempio, il motivo dell'errore è **username non valido o password o nome utente locale non è valido o password**. La correzione consiste semplicemente nell'eseguire nuovamente l'accesso con nome utente e password corretti.
 
 7. È possibile ottenere altre informazioni, compresi suggerimenti per la correzione, eseguendo una ricerca del codice di errore, in questo esempio **50126**, nelle [informazioni di riferimento sui codici di errore di accesso](reference-sign-ins-error-codes.md). 
 
@@ -63,5 +63,5 @@ Il report degli accessi può anche essere utile per risolvere gli errori di acce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni di riferimento sui codici di errore di accesso](reference-sign-ins-error-codes.md)
-* [Panoramica del report delle attività di accesso](concept-sign-ins.md)
+* [Fare riferimento ai codici di errore di accessi](reference-sign-ins-error-codes.md)
+* [Cenni preliminari sui report degli accessi](concept-sign-ins.md)

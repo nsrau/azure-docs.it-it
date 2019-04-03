@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: 5e4fc40a9b6cfc945670bcd497d4b13af61f2f2f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6bf42406c97ccb67251a14a7a963d3da2e01dbb4
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817763"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849976"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
 Questo argomento illustra le configurazioni disponibili per le istanze di Cache Redis di Azure. Illustra inoltre la configurazione predefinita del server Redis per le istanze di Cache Redis di Azure.
@@ -356,7 +356,7 @@ Fare clic su **Regole di avviso** per configurare gli avvisi in base alle metric
 
 ### <a name="diagnostics"></a>Diagnostica
 
-Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../azure-monitor/platform/data-collection.md#metrics) e quindi vengono eliminate. Per rendere permanenti le metriche relative alla cache per più di 30 giorni, fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#export-cache-metrics) usato per archiviare la diagnostica della cache.
+Per impostazione predefinita, le metriche relative alla cache in Monitoraggio di Azure vengono [archiviate per 30 giorni](../azure-monitor/platform/data-platform-metrics.md) e quindi vengono eliminate. Per rendere permanenti le metriche relative alla cache per più di 30 giorni, fare clic su **Diagnostica** per [configurare l'account di archiviazione](cache-how-to-monitor.md#export-cache-metrics) usato per archiviare la diagnostica della cache.
 
 >[!NOTE]
 >Oltre ad archiviare le metriche della cache di archiviazione, è anche possibile [eseguirne lo streaming a un hub eventi o inviarle a log di monitoraggio di Azure](../azure-monitor/platform/stream-monitoring-data-event-hubs.md).

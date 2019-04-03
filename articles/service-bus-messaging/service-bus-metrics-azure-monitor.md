@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 11/06/2018
 ms.author: aschhab
-ms.openlocfilehash: e16b523a366cabd04a5f12441874aa60460d508f
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 175d5d5d4495986c29b75427a325088c14279e17
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213975"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849655"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor-preview"></a>Metriche del bus di sevizio di Azure in Monitoraggio di Azure (anteprima)
 
@@ -28,7 +28,7 @@ Monitoraggio di Azure offre interfacce utente unificate per il monitoraggio di d
 
 ## <a name="access-metrics"></a>Accedere alle metriche
 
-Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche tramite il [portale di Azure](https://portal.azure.com), oppure usare l'API di monitoraggio di Azure (REST e .NET) e dalle soluzioni di analisi come log di monitoraggio di Azure e hub eventi. Per altre informazioni, consultare [Monitoraggio dei dati raccolti da Monitoraggio di Azure](../azure-monitor/platform/data-collection.md).
+Monitoraggio di Azure offre molti modi per accedere alle metriche. È possibile accedere alle metriche tramite il [portale di Azure](https://portal.azure.com), oppure usare l'API di monitoraggio di Azure (REST e .NET) e dalle soluzioni di analisi come log di monitoraggio di Azure e hub eventi. Per altre informazioni, vedere [le metriche in Monitoraggio di Azure](../azure-monitor/platform/data-platform-metrics.md).
 
 Le metriche sono abilitate per impostazione predefinita ed è possibile accedere ai 30 giorni di dati più recenti. Se è necessario conservare i dati per un periodo di tempo più lungo, è possibile archiviare i dati relativi alle metriche in un account di archiviazione di Azure. Questo valore viene configurato nelle [impostazioni di diagnostica ](../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings) in Monitoraggio di Azure.
 

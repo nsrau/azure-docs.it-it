@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 1a596462eb42231a356ddc4fa67b6468b63cd97c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522163"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849298"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Eseguire il backup di database SQL Server in macchine virtuali di Azure
 
@@ -69,6 +69,7 @@ Evitare quanto segue per i nomi dei database:
   * Spazi finali/iniziali
   * Punto esclamativo (!) finale
   * Parentesi quadra chiusa ']'
+  * Nomi di database iniziano con "F:\"
 
 È previsto l'uso di alias per i caratteri non supportati dalle tabelle di Azure, ma è consigliabile evitare tali caratteri. [Altre informazioni](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)
 

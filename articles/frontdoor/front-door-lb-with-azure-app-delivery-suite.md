@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439027"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879660"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Bilanciamento del carico con la suite per il recapito di applicazioni di Azure
 
@@ -26,10 +26,10 @@ Microsoft Azure offre numerosi servizi internazionali e locali che consentono di
 ![Suite per il recapito di applicazioni ][1]
  
 Questi servizi sono suddivisi in due categorie:
-1. **Servizi di bilanciamento del carico a livello globale**, come Gestione traffico e Frontdoor, che distribuiscono il traffico dagli utenti finali attraverso i back-end a livello di area, nei cloud o anche nei servizi locali ibridi. Un servizio di bilanciamento del carico a livello globale instrada il traffico al back-end del servizio più vicino e reagisce ai cambiamenti di affidabilità o di prestazioni del servizio per mantenere prestazioni ottimali sempre disponibili per gli utenti. 
+1. **Servizi di bilanciamento del carico globale** , ad esempio Gestione traffico e porta d'ingresso distribuire il traffico dagli utenti finali in back-end a livello di area, ambienti cloud o persino l'ibrido servizi locali. Un servizio di bilanciamento del carico a livello globale instrada il traffico al back-end del servizio più vicino e reagisce ai cambiamenti di affidabilità o di prestazioni del servizio per mantenere prestazioni ottimali sempre disponibili per gli utenti. 
 2. **Servizi di bilanciamento del carico a livello di area**, come Load Balancer Standard o il gateway applicazione, che offrono la possibilità di distribuire il traffico all'interno delle reti virtuali, nelle macchine virtuali (VM) o negli endpoint di servizio di zona in un'area.
 
-Combinando i servizi a livello globale e di area nell'applicazione, è possibile ottenere una modalità completa, affidabile, sicura e ad alte prestazioni per instradare il traffico da e verso gli utenti ai servizi IaaS, PaaS o locali. Nella sezione successiva vengono descritti questi servizi.
+Combinazione di servizi locali e globali nell'applicazione fornisce un modo sicuro per instradare il traffico da e verso gli utenti e ad alte prestazioni affidabili, end-to-end, a IaaS, PaaS o servizi locali. Nella sezione successiva vengono descritti questi servizi.
 
 ## <a name="global-load-balancing"></a>Bilanciamento del carico globale
 **Gestione traffico** offre il bilanciamento del carico DNS globale. Esamina le richieste DNS in ingresso e risponde con un back-end integro, in base ai criteri di routing selezionati dal cliente. Le opzioni per i metodi di routing sono le seguenti:

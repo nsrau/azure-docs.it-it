@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/12/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 02b4b2efb447e3ba8c45caa378268ec402b5c3e7
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: c703f735f59a8425c2a14641781f482a6e2d1c78
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001985"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848547"
 ---
 # <a name="consume-monitoring-data-from-azure"></a>Uso di dati di monitoraggio in Azure
 
@@ -48,7 +48,7 @@ Nella piattaforma di Azure il monitoraggio dati e la pipeline di Monitoraggio di
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulle [metriche di Monitoraggio di Azure](data-collection.md)
+- Altre informazioni sulle [metriche di Monitoraggio di Azure](data-platform.md)
 - Altre informazioni su [Log attività di Azure](activity-logs-overview.md)
 - Altre informazioni sui [Log di diagnostica di Azure](diagnostic-logs-overview.md)
 

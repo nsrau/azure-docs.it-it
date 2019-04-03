@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 8e98b50e936ba97881e2937a50eb474d57a24a05
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107764"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862166"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
 
 > [!div class="op_single_selector"]
 > * [Portale di Azure](application-gateway-create-probe-portal.md)
-> * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
-> * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
+> * [Azure PowerShell per Resource Manager](application-gateway-create-probe-ps.md)
+> * [Azure PowerShell classico](application-gateway-create-probe-classic-ps.md)
 
 In questo articolo viene aggiunto un probe personalizzato a un gateway applicazione esistente tramite il portale di Azure. I probe personalizzati sono utili per le applicazioni che dispongono di una pagina di controllo dell'integrità specifica o per quelle che non rispondono in modo corretto all'applicazione Web predefinita.
 
@@ -51,10 +51,10 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
 
    |**Impostazione** | **Valore** | **Dettagli**|
    |---|---|---|
-   |**Nome**|customProbe|Nome descrittivo del probe accessibile nel portale.|
+   |**NOME**|customProbe|Nome descrittivo del probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità.|
    |**Host**|vale a dire contoso.com|Nome host usato per il probe. Applicabile solo quando vengono configurati più siti nel gateway applicazione. In caso contrario, usare "127.0.0.1". Questo valore è diverso dal nome host della VM.|
-   |**Percorso**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito di http://contoso.com è sufficiente usare '/' |
+   |**path**|/ o un altro percorso|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito di http:\//contoso.com usare semplicemente '/' |
    |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
    |**Timeout (secondi)**|30|Durata dell'attesa prima che si verifichi il timeout del probe. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile.|
    |**Soglia non integra**|3|Numero di tentativi non riusciti prima che venga stabilito uno stato di non integrità. Se la soglia è 0 significa che, se un controllo integrità ha esito negativo, il back-end verrà immediatamente considerato non integro.|

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543730"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885741"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generatore di espressioni dei flussi di dati di mapping
 
@@ -51,7 +51,7 @@ Aggiungere commenti per le espressioni che usano sintassi dei commenti su una ri
 
 ## <a name="regular-expressions"></a>Espressioni regolari
 
-Linguaggio delle espressioni del flusso di dati di Azure Data Factory, [documentazione di riferimento completa qui](https://aka.ms/dataflowexpressions), abilita le funzioni che includono sintassi delle espressioni regolari. Quando si usano funzioni di espressione regolare, il Generatore di espressioni tenterà di interpretare la barra rovesciata (\) come una sequenza di caratteri di escape. Quando si usano le barre rovesciate nell'espressione regolare, racchiudere l'espressione regolare intera espressa in tick ` ` oppure usare una doppia barra rovesciata.
+Linguaggio delle espressioni del flusso di dati di Azure Data Factory, [documentazione di riferimento completa qui](https://aka.ms/dataflowexpressions), abilita le funzioni che includono sintassi delle espressioni regolari. Quando si usa funzioni di espressione regolare, il generatore di espressioni tenterà di interpretare barra rovesciata (\\) come una sequenza di caratteri di escape. Quando si usa le barre rovesciate nell'espressione regolare, racchiudere l'espressione regolare intera espressa in tick (\`) oppure usare una doppia barra rovesciata.
 
 Esempio di utilizzo di tick
 

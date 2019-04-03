@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: pareshmu
-ms.openlocfilehash: 8a137919bfd3cf330586c3a4d5c9df18916e41e6
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: e4ddd4bb435b472e6837862e49856c7b98011467
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629780"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878528"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
 > [!div class="op_single_selector"]
-> * [Località per provider](expressroute-locations.md)
+> * [Località per Provider](expressroute-locations.md)
 > * [Provider per località](expressroute-locations-providers.md)
 
 
@@ -71,7 +71,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 
 
 ### <a name="production-azure"></a>Produzione Azure
-| **Posizione** | **Proprietario della località peer** | **Provider di servizi** |
+| **Località** | **Proprietario del percorso di peering** | **Provider di servizi** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon, Zayo |
 | **Amsterdam2** | Interxion | DE-CIX, Interxion |
@@ -91,7 +91,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
 | **Las Vegas** | Switch | CenturyLink Cloud Connect, Megaport |
 | **Londra** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **London2** | Telehouse | Equinix
+| **London2** | Telehouse | IX Reach, Equinix |
 | **Los Angeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marsiglia** |Interxion | Interxion |
 | **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus, Telstra Corporation |
@@ -108,7 +108,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **San Antonio** | CyrusOne | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | Equinix | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica, UOLDIVEO |
 | **Seattle** | Equinix | Aryaka Networks, Equinix, Level 3 Communications, Megaport, Zayo |
-| **Seoul** | KINX | KINX, LG CNS, Sejong Telecom |
+| **Seul** | KINX | KINX, LG CNS, Sejong Telecom |
 | **Silicon Valley** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, CenturyLink Cloud Connect, Comcast, Coresite, Equinix, InterCloud, IX Reach, PacketFabric, Level 3 Communications, Megaport, Orange, Sprint, Tata Communications, Verizon, Zayo |
 | **Singapore** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Epsilon Global Communications, Equinix, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, SingTel, Tata Communications, Telstra Corporation, Verizon, Vodafone |
 | **Singapore2** | Global Switch | Colt, Epsilon Global Communications, Megaport, SingTel |
@@ -118,14 +118,14 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Toronto** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
 | **Washington DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon, Zayo |
 | **Washington DC2** | Coresite | Coresite | 
-| **Zurich** | Interxion | Interxion |
+| **Zurigo** | Interxion | Interxion |
 
  **+** indica disponibile a breve
 
 ### <a name="national-cloud-environments"></a>Ambienti cloud nazionali
 
 ### <a name="us-government-cloud"></a>Cloud del governo degli Stati Uniti
-| **Posizione** | **Provider di servizi** |
+| **Località** | **Provider di servizi** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **Dallas** |Equinix, Megaport, Verizon |
@@ -137,7 +137,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
 ### <a name="china"></a>Cina
-| **Posizione** | **Provider di servizi** |
+| **Località** | **Provider di servizi** |
 | --- | --- |
 | **Pechino** |China Telecom |
 | **Beijing2** | GDS |
@@ -147,7 +147,7 @@ La tabella seguente mostra le località di connettività e i provider di servizi
 Per altre informazioni, vedere [ExpressRoute in Cina](http://www.windowsazure.cn/home/features/expressroute/)
 
 ### <a name="germany"></a>Germania
-| **Posizione** | **Provider di servizi** |
+| **Località** | **Provider di servizi** |
 | --- | --- |
 | **Berlino** |e-shelter, Megaport+, T-Systems |
 | **Francoforte** |Colt, Equinix, Interxion |
@@ -159,8 +159,8 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
   * [Cologix](https://www.cologix.com/)
   * [CoreSite](https://www.coresite.com/)
   * [Equinix Cloud Exchange](https://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [Interxion](https://www.interxion.com/)
-  * [NEXTDC](https://www.nextdc.com/)
+  * [InterXion](https://www.interxion.com/)
+  * [NextDC](https://www.nextdc.com/)
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [PacketFabric](https://www.packetfabric.com/packetcor/microsoft-azure/)
   
@@ -170,7 +170,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
   * Per configurare la connettività, eseguire la procedura illustrata in [Creare un circuito ExpressRoute](expressroute-howto-circuit-classic.md) .
 
 ## <a name="c1partners"></a>Connettività con provider di servizi aggiuntivi
-| **Posizione** | **Exchange** | **Provider di connettività** |
+| **Località** | **Exchange** | **Provider di connettività** |
 | --- | --- | --- |
 | **Amsterdam** | Equinix, Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
 | **Città del Capo** | Teraco | MTN |
@@ -187,7 +187,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 | **New York** |Equinix, Megaport | Altice Business, Lightower, Webair |
 | **Parigi** | Equinix | Proximus |
 | **Quebec City** | Megaport | Fibrenoire |
-| **Sao Paulo** | Equinix | Venha Pra Nuvem |
+| **Sao Paula** | Equinix | Venha Pra Nuvem |
 | **Seattle** |Equinix | Alaska Communications |
 | **Silicon Valley** |Equinix | Cox Business, Windstream |
 | **Singapore** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom, United Information Highway (UIH) |
@@ -200,7 +200,7 @@ Se il provider di connettività non è incluso nelle sezioni precedenti, sarà c
 ## <a name="expressroute-system-integrators"></a>Integratori di sistemi ExpressRoute
 L'abilitazione della connettività privata per soddisfare le proprie esigenze può risultare complessa, in base alle dimensioni della rete. Per ottenere supporto per l'onboarding in ExpressRoute, è possibile collaborare con uno degli Integratori di sistemi elencati nella seguente tabella.
 
-| **Continente** | **Integratori di sistemi** |
+| **Continent** | **Integratori di sistemi** |
 | --- | --- |
 | **Asia** |Avanade Inc., OneAs1a |
 | **Australia** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |

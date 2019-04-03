@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 55874d261ac453d559975f25b2272319cdc6a7db
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447997"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846988"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Backup e ripristino in Azure SQL Data Warehouse
 
@@ -44,7 +44,7 @@ order by run_id desc
 
 ## <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
 
-Questa funzionalità consente al trigger manualmente gli snapshot per creare i punti di ripristino del data warehouse prima e dopo le modifiche di grandi dimensioni. Questa funzionalità garantisce che i punti di ripristino sono consistenti, che fornisce la protezione dei dati aggiuntiva in caso di eventuali interruzioni del carico di lavoro o errori dell'utente per il tempo di recupero rapido. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono garantiti **42 punti di ripristino definiti dall'utente**, è necessario [eliminarli](https://go.microsoft.com/fwlink/?linkid=875299) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint#examples) o il portale di Azure.
+Questa funzionalità consente al trigger manualmente gli snapshot per creare i punti di ripristino del data warehouse prima e dopo le modifiche di grandi dimensioni. Questa funzionalità garantisce che i punti di ripristino sono consistenti, che fornisce la protezione dei dati aggiuntiva in caso di eventuali interruzioni del carico di lavoro o errori dell'utente per il tempo di recupero rapido. I punti di ripristino definiti dall'utente sono disponibili per sette giorni e vengono eliminati automaticamente per conto dell'utente. Non è possibile modificare il periodo di conservazione dei punti di ripristino definiti dall'utente. Poiché in qualsiasi momento sono garantiti **42 punti di ripristino definiti dall'utente**, è necessario [eliminarli](https://go.microsoft.com/fwlink/?linkid=875299) prima di creare un nuovo punto di ripristino. È possibile attivare gli snapshot per creare punti di ripristino definiti dall'utente tramite [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint#examples) o il portale di Azure.
 
 > [!NOTE]
 > Se occorre creare punti di ripristino che durino più di 7 giorni, votare questa funzionalità [qui](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). È anche possibile creare un punto di ripristino definito dall'utente ed eseguire il ripristino dal punto di ripristino appena creato in un nuovo data warehouse. Dopo avere eseguito il ripristino, il data warehouse diventa disponibile online e può essere messo in pausa per un periodo imprecisato al fine di risparmiare sui costi. Il database messo in pausa comporta costi di archiviazione alla frequenza dell'archiviazione Premium di Azure. Nel momento in cui occorre una copia attiva del data warehouse ripristinato, la ripresa dell'esecuzione del data warehouse richiede solo alcuni minuti.

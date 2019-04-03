@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e6623e18fa319066f121dced551dcada133ebd5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479530"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862888"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
 
@@ -83,16 +83,6 @@ Protezione tramite password di Azure AD non è un motore di applicazione dei cri
 Distribuzione di protezione di password di Azure AD in una foresta di Active Directory richiede la registrazione della foresta con Azure AD. Ogni servizio di proxy che viene distribuito anche deve essere registrato con Azure AD. Queste registrazioni per l'insieme di strutture e i proxy sono associati a uno specifico tenant di Azure AD, che è identificato in modo implicito dalle credenziali usate durante la registrazione.
 
 La foresta di Active Directory e tutti i servizi proxy distribuito all'interno di una foresta devono essere registrati con lo stesso tenant. Si dispone di una foresta di Active Directory o i servizi proxy in insieme di strutture in corso la registrazione ad Azure AD diversi tenant non è supportato. I sintomi di questo tipo di distribuzione configurato correttamente includono l'impossibilità di scaricare i criteri password.
-
-## <a name="license-requirements"></a>Requisiti relativi alle licenze
-
-I vantaggi dell'elenco globale delle password vietate si applicano a tutti gli utenti di Azure Active Directory.
-
-L'elenco di password da escludere personalizzato richiede licenze Azure AD Basic.
-
-La protezione password di Azure AD per Windows Server Active Directory richiede licenze di Azure AD Premium.
-
-Per ulteriori informazioni sulle licenze, vedere [prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
 ## <a name="download"></a>Download
 

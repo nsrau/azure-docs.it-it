@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369072"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884347"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Eliminare le password non appropriate nell'organizzazione
 
@@ -100,14 +100,17 @@ Dopo la normalizzazione, la password diventa "contosoblankf9!". Il processo di c
 [contoso] + [blank] + [f] + [9] + [!] = 5 punti. Il punteggio della password è pari a 5 punti e la password viene quindi accettata.
 
    > [!IMPORTANT]
-   > L'algoritmo delle password escluse e l'elenco globale possono cambiare in qualsiasi momento in Azure, in base ai processi di ricerca e di analisi di sicurezza in corso. Per il servizio agente del controller di dominio locale, gli algoritmi aggiornati vengono applicati solo dopo aver reinstallato il software dell'agente del controller di dominio.
+   > L'algoritmo delle password escluse e l'elenco globale possono cambiare in qualsiasi momento in Azure, in base ai processi di ricerca e di analisi di sicurezza in corso. Per il servizio agente controller di dominio locale, gli algoritmi aggiornati diventerà effettiva solo dopo aver reinstallato il software dell'agente controller di dominio.
 
 ## <a name="license-requirements"></a>Requisiti relativi alle licenze
 
 |   | Protezione delle password di Azure AD con elenco globale di password escluse | Protezione delle password di Azure AD con elenco password personalizzate escluse|
 | --- | --- | --- |
-| Solo utenti cloud | Azure AD Free | Azure AD Basic |
+| Solo utenti cloud | Azure AD Free | Azure AD Premium P1 o P2 |
 | Utenti sincronizzati da Windows Server Active Directory locale | Azure AD Premium P1 o P2 | Azure AD Premium P1 o P2 |
+
+> [!NOTE]
+> Gli utenti di Windows Server Active Directory locale che non sincronizzati con Azure Active Directory anche sfruttare i vantaggi della protezione tramite password di Azure AD basato sulla concessione di licenze esistente per gli utenti sincronizzati.
 
 Informazioni aggiuntive sulle licenze, inclusi i costi, sono disponibili nella pagina [Prezzi di Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -119,5 +122,5 @@ La password contiene una parola o una frase o segue uno schema che la rende faci
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Configurare l'elenco personalizzato di password escluse](howto-password-ban-bad.md)
-* [Abilitare gli agenti di protezione password di Azure AD in locale](howto-password-ban-bad-on-premises-deploy.md)
+* [Configurare l'elenco personalizzato password escluse](howto-password-ban-bad.md)
+* [Abilitare Azure AD password protection agenti locali](howto-password-ban-bad-on-premises-deploy.md)

@@ -14,17 +14,17 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/6/2019
 ms.author: rkarlin
-ms.openlocfilehash: d6048ee90eb6e39e70550aa52a96b4466faa3efa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fb4f9165be03a7fc3cd055ef616dcfadb58ac9d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119888"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876497"
 ---
 # <a name="connect-your-check-point-appliance"></a>Connettersi all'appliance di Check Point
 
 > [!IMPORTANT]
-> Sentinel Azure è attualmente in anteprima pubblica.
+> Azure Sentinel è attualmente in anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 È possibile connettere Azure Sentinel per le appliance di Check Point salvando i file di log di CEF Syslog. L'integrazione con Azure Sentinel consente di eseguire facilmente analitica e le query tra i dati dei file di log dal punto di controllo. Per altre informazioni sul modo in cui Azure Sentinel CEF inserisce dati di tipo, vedere [Appliance connettersi CEF](connect-common-event-format.md).
@@ -34,9 +34,9 @@ ms.locfileid: "58119888"
 
 ## <a name="step-1-connect-your-check-point-appliance-using-an-agent"></a>Passaggio 1: Connettere l'appliance di Check Point usando un agente
 
-Per connettersi all'appliance di Check Point a Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. Distribuzione automatica è disponibile solo se la macchina dedicata è una nuova macchina virtuale in Azure si sta creando. 
+Per connettersi all'appliance di Check Point a Sentinel di Azure, è necessario distribuire un agente in un computer dedicato (macchina virtuale o locale) per supportare la comunicazione tra il dispositivo e Sentinel di Azure. È possibile distribuire l'agente manualmente o automaticamente. La distribuzione automatica è disponibile solo se il computer dedicato è una nuova macchina virtuale che si sta creando in Azure. 
 
-In alternativa, è possibile distribuire l'agente manualmente in una VM di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale.
+In alternativa, è possibile distribuire l'agente manualmente in una macchina virtuale di Azure esistente, in una macchina virtuale in un altro cloud o in un computer locale.
 
 Per visualizzare un diagramma di rete di entrambe le opzioni, vedere [connettere origini dati](connect-data-sources.md).
 
@@ -119,7 +119,7 @@ Potrebbero occorrere fino a 20 minuti fino a quando i log di avvio venga visuali
 
 1. Assicurarsi che i log vengano alla porta di destra nell'agente di Syslog. Eseguire questo comando computer agente Syslog: `tcpdump -A -ni any  port 514 -vv` Questo comando Visualizza i log che consente di trasmettere dal dispositivo al computer Syslog. Assicurarsi che i log vengono ricevuti da appliance di origine sulla porta di destra e struttura a destra.
 2. Verificare che vi sia la comunicazione tra il daemon Syslog e l'agente. Eseguire questo comando computer agente Syslog: `tcpdump -A -ni any  port 25226 -vv` Questo comando Visualizza i log che consente di trasmettere dal dispositivo al computer Syslog. Assicurarsi che i log vengono anche ricevuti nell'agente.
-3. Se entrambi i comandi forniti risultati corretti, controllare i Log Analitica per vedere se i log sono in arrivo. Tutti gli eventi trasferiti da questi dispositivi vengono visualizzati in formato non elaborato nel Log Analitica in `CommonSecurityLog ` tipo.
+3. Se entrambi i comandi forniti risultati corretti, controllare i Log Analitica per vedere se i log sono in arrivo. Tutti gli eventi trasferiti da questi dispositivi vengono visualizzati in formato non elaborato nel Log Analitica in `CommonSecurityLog` tipo.
 
 4. Assicurarsi di eseguire i comandi seguenti:
   

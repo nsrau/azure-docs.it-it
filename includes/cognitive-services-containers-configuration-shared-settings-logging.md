@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/02/2019
-ms.openlocfilehash: dc527a4e1bdf9648ddfc9f582b0c146197214f26
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 04/02/2019
+ms.openlocfilehash: d1c880ddc90ae3ce18dfde7e1983b45ac239de85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740939"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886832"
 ---
 Le impostazioni `Logging` gestiscono il supporto di registrazione di ASP.NET Core per il contenitore. È possibile usare le stesse impostazioni di configurazione e gli stessi valori per il contenitore che si usano per un'applicazione ASP.NET Core. 
 
@@ -18,8 +18,33 @@ I provider di registrazione seguenti sono supportati dal contenitore:
 |Provider|Scopo|
 |--|--|
 |[Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|Provider di registrazione `Console` di ASP.NET Core. Tutti i valori predefiniti e le impostazioni di configurazione di ASP.NET Core per questo provider di registrazione sono supportati.|
-|[Eseguire il debug](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Provider di registrazione `Debug` di ASP.NET Core. Tutti i valori predefiniti e le impostazioni di configurazione di ASP.NET Core per questo provider di registrazione sono supportati.|
+|[Debug](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Provider di registrazione `Debug` di ASP.NET Core. Tutti i valori predefiniti e le impostazioni di configurazione di ASP.NET Core per questo provider di registrazione sono supportati.|
 |[Disco](#disk-logging)|Provider di registrazione JSON. Questo provider di registrazione scrive i dati di log nel montaggio di output.|
+
+Questo comando contenitore archivia le informazioni di registrazione in formato JSON per il montaggio di output:
+
+```bash
+docker run --rm -it -p 5000:5000 \
+--memory 2g --cpus 1 \
+--mount type=bind,src=/home/azureuser/output,target=/output \
+<registry-location>/<image-name> \
+Eula=accept \
+Billing=<billing-endpoint> \
+ApiKey=<api-key> \
+Logging:Disk:Format=json
+```
+
+In questo contenitore comando Mostra le informazioni di debug, il prefisso `dbug`, mentre è in esecuzione il contenitore:
+
+```bash
+docker run --rm -it -p 5000:5000 \
+--memory 2g --cpus 1 \
+<registry-location>/<image-name> \
+Eula=accept \
+Billing=<billing-endpoint> \
+ApiKey=<api-key> \
+Logging:Console:LogLevel:Default=Debug
+```
 
 ### <a name="disk-logging"></a>Registrazione su disco
 
@@ -31,3 +56,4 @@ Il provider di registrazione `Disk` supporta le impostazioni di configurazione s
 | `MaxFileSize` | Integer | Dimensione massima, espressa in megabyte (MB), di un file di log. Quando la dimensione del file di log corrente corrisponde a questo valore o lo supera, il provider di registrazione avvia un nuovo file di log. Se viene specificato -1, la dimensione del file di log è limitata solo dalla dimensione massima del file del montaggio di output eventualmente presente. Il valore predefinito è 1. |
 
 Per altre informazioni sulla configurazione del supporto di registrazione di ASP.NET Core, vedere [Registrazione in ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
+

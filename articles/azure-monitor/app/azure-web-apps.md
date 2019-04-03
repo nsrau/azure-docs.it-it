@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 7386f6bd92143cf3fb7b37725900425f99371cd0
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9d121146924eb153227e35d608a3c6c33aae31a1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804993"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862608"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -118,7 +118,7 @@ Se per qualche motivo si vuole disabilitare il monitoraggio lato client:
 * Selezionare **le impostazioni** > **le impostazioni dell'applicazione**
    * Nelle impostazioni dell'applicazione, aggiungere una nuova **nome dell'impostazione app** e **valore**:
 
-     Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valore: `false`
 
@@ -322,7 +322,7 @@ Ecco la nostra guida dettagliata sulla risoluzione dei problemi per il monitorag
 > Le applicazioni Java e Node. js sono supportate solo nei servizi App di Azure tramite strumentazione di SDK basato su manuale e i passaggi seguenti non sono quindi applicabili a questi scenari.
 
 1. Verificare che l'applicazione viene monitorata tramite `ApplicationInsightsAgent`.
-    * Verificare che ' ApplicationInsightsAgent_EXTENSION_AGENT impostazione dell'app è impostato su un valore di "~ 2".
+    * Verificare che `ApplicationInsightsAgent_EXTENSION_VERSION` impostazione dell'app è impostato su un valore di "~ 2".
 2. Assicurarsi che l'applicazione soddisfa i requisiti per il monitoraggio.
     * Passare a `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
@@ -353,10 +353,10 @@ La tabella seguente fornisce una spiegazione più dettagliata del significato di
 Per informazioni aggiornate sull'estensione/agente di Application Insights, consultare il [note sulla versione](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-
-* [Eseguire il profiler sull'app live](../../azure-monitor/app/profiler.md).
+* [Eseguire il profiler sull'app live](../app/profiler.md).
 * [Funzioni di Azure](https://github.com/christopheranderson/azure-functions-app-insights-sample): monitorare Funzioni di Azure con Application Insights
-* [Abilitare l'invio dei dati di diagnostica di Azure](../../azure-monitor/platform/diagnostics-extension-to-application-insights.md) ad Application Insights.
-* [Monitorare le metriche di integrità del servizio](../../azure-monitor/platform/data-collection.md) per assicurarsi che il servizio sia disponibile e reattivo.
-* [Ricevere notifiche di avviso](../../azure-monitor/platform/alerts-overview.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
-* [Monitorare la disponibilità e la velocità di risposta dei siti Web](../../azure-monitor/app/monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.
+* [Abilitare l'invio dei dati di diagnostica di Azure](../platform/diagnostics-extension-to-application-insights.md) ad Application Insights.
+* [Monitorare le metriche di integrità del servizio](../platform/data-platform.md) per assicurarsi che il servizio sia disponibile e reattivo.
+* [Ricevere notifiche di avviso](../platform/alerts-overview.md) ogni volta che si verificano eventi operativi o le metriche superano una soglia.
+* Usare [Analisi dell'utilizzo per applicazioni Web con Application Insights](javascript.md) per ottenere i dati di telemetria dei client dai browser che visitano una pagina Web.
+* [Monitorare la disponibilità e la velocità di risposta dei siti Web](monitor-web-app-availability.md) per ricevere un avviso se il sito è inattivo.

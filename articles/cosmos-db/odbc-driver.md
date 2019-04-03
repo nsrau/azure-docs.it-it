@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816629"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851049"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Connettersi ad Azure Cosmos DB usando gli strumenti di analisi BI con il driver ODBC
 
@@ -97,7 +97,7 @@ Esistono due tipi di metodi di campionamento da utilizzare: il **mapping raccolt
 
 1. Dopo aver completato la definizione dello schema, fare clic su **File** | **Salva**, passare alla directory in cui salvare lo schema e fare clic su **Salva**.
 
-    Se in futuro si vuole usare questo schema con un DSN, aprire la finestra Azure Cosmos DB ODBC Driver DSN Setup (Configurazione DSN driver ODBC di Azure Cosmos DB) tramite Amministrazione origine dati ODBC, fare clic su Opzioni avanzate e nel riquadro File di schema passare allo schema salvato. Salvare un file di schema in un DSN esistente modifica l'ambito della connessione DSN includendo i dati e le strutture definiti dallo schema.
+1. Per usare questo schema con un DSN, aprire il **finestra Azure Cosmos DB ODBC Driver DSN Setup** (tramite l'amministrazione origine dati ODBC), fare clic su **opzioni avanzate**e quindi il **FilediSchema** finestra, passare allo schema salvato. Salvare un file di schema in un DSN esistente modifica l'ambito della connessione DSN includendo i dati e le strutture definiti dallo schema.
 
 ## <a id="table-mapping"></a>Passaggio 4: Creare una definizione dello schema usando il metodo di mapping con delimitatori di tabella
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 31a800e851eb8a2f533cc8170856b16cd43c21cf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2a8ae3ab71b258d92d9761cc813b168717e44d82
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850718"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878010"
 ---
 # <a name="lead-management-instructions-for-azure-table"></a>Istruzioni relative alla gestione dei lead per le tabelle di Azure
 
@@ -34,7 +34,7 @@ Questo articolo descrive come configurare le tabelle di Azure per l'archiviazion
 
     ![Procedura di creazione di un account di archiviazione di Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragecreate.png)
 
-4.  Copiare la stringa di connessione dell'account di archiviazione per la chiave e incollarla nel campo **Stringa di connessione a account di archiviazione** nel portale Cloud Partner. Un esempio di stringa di connessione è `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net `
+4.  Copiare la stringa di connessione dell'account di archiviazione per la chiave e incollarla nel campo **Stringa di connessione a account di archiviazione** nel portale Cloud Partner. Un esempio di una stringa di connessione è `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net`
     
     ![Chiave di archiviazione di Azure](./media/cloud-partner-portal-lead-management-instructions-azure-table/azurestoragekeys.png)
 
@@ -148,4 +148,4 @@ Se non si ricevono notifiche di posta elettronica sui clienti potenziali, non so
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare lead relativi ai clienti](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)
+[Configurare lead](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-get-customer-leads)

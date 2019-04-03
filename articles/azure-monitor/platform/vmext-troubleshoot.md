@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/08/2018
 ms.author: magoedte
-ms.openlocfilehash: 17a52cf17c62c930dc3922ded48d659f56016688
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 40f0705cfa7f0e9bb45d300a629adebd0cc5be47
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370500"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883673"
 ---
 # <a name="troubleshooting-the-log-analytics-vm-extension-in-azure-monitor"></a>Risoluzione dei problemi l'estensione macchina virtuale di Analitica di Log in Monitoraggio di Azure
 Questo articolo fornisce indicazioni sulla risoluzione di errori che possono verificarsi con l'estensione della VM di Log Analytics per le macchine virtuali di Windows e Linux in esecuzione su Microsoft Azure e suggerisce le possibili soluzioni per risolverli.
@@ -42,19 +42,19 @@ Per verificare lo stato dell'estensione eseguire questi passaggi dal portale di 
 Se l'estensione della VM di *Microsoft Monitoring Agent* non viene installata o non segnala dati è possibile seguire queste procedure per risolvere il problema.
 
 1. Controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente seguendo la procedura descritta nell'articolo [KB 2965986](https://support.microsoft.com/kb/2965986#mt1).
-   * È anche possibile esaminare il file di log dell'agente di macchine virtuali `C:\WindowsAzure\logs\WaAppAgent.log`
+   * È anche possibile esaminare il file di log dell'agente di macchine Virtuali `C:\WindowsAzure\logs\WaAppAgent.log`
    * Se il log non esiste, l'agente di macchine virtuali non è installato
-   * [Installare l'agente di macchine virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+   * [Installare l'agente di macchine Virtuali di Azure](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
 2. Verificare che l'attività dell'heartbeat dell'estensione Microsoft Monitoring Agent sia in esecuzione seguendo questa procedura:
    * Accedere alla macchina virtuale
    * Aprire Utilità di pianificazione e trovare l'attività `update_azureoperationalinsight_agent_heartbeat`
    * Verificare che l'attività sia abilitata e venga eseguita ogni minuto
-   * Controllare il file di log dell'heartbeat in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
-3. Esaminare i file di log dell'estensione macchina virtuale Microsoft Monitoring Agent in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
+   * Archiviare il file di log di heartbeat `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\heartbeat.log`
+3. Esaminare i file di log di estensione macchina virtuale Microsoft Monitoring Agent in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`
 4. Verificare che la macchina virtuale possa eseguire script di PowerShell
 5. Verificare che le autorizzazioni per C:\Windows\temp non siano state modificate
-6. Visualizzare lo stato di Microsoft Monitoring Agent digitando quanto riportato di seguito in una finestra di PowerShell con privilegi elevati nella macchina virtuale: `  (New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
-7. Esaminare i file di log dell'installazione di Microsoft Monitoring Agent in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
+6. Visualizzare lo stato di Microsoft Monitoring Agent digitando quanto segue in una finestra di PowerShell con privilegi elevata nella macchina virtuale `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List`
+7. Esaminare i file di log di installazione di Microsoft Monitoring Agent in `C:\Windows\System32\config\systemprofile\AppData\Local\SCOM\Logs`
 
 Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Windows](../../virtual-machines/extensions/oms-windows.md).
 
@@ -62,11 +62,11 @@ Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problem
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 Se l'estensione della macchina virtuale per l'*agente di Log Analytics per Linux* non viene installata o non segnala dati, è possibile seguire questi passaggi per risolvere il problema.
 
-1. Se lo stato dell'estensione è *Sconosciuto*, controllare che l'agente di macchine virtuali di Azure sia installato e funzioni correttamente esaminando il relativo file di log `/var/log/waagent.log`
+1. Se lo stato dell'estensione è *sconosciuto* controllare se è installato l'agente di macchine Virtuali di Azure e funzioni correttamente esaminando il file di log dell'agente di macchine Virtuali `/var/log/waagent.log`
    * Se il log non esiste, l'agente di macchine virtuali non è installato
-   * [Installare l'agente di macchine virtuali di Azure nelle VM Linux](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
-2. Per altri stati non integri, esaminare i file di log dell'estensione della macchina virtuale per l'agente di Log Analytics per Linux in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
-3. Se lo stato dell'estensione è integro ma i dati non vengono caricati, esaminare i file di log dell'agente di Log Analytics per Linux in `/var/opt/microsoft/omsagent/log/omsagent.log`
+   * [Installare l'agente di macchine Virtuali di Azure nelle VM Linux](../../azure-monitor/learn/quick-collect-azurevm.md#enable-the-log-analytics-vm-extension)
+2. Per altri Stati non integri, esaminare l'agente di Log Analitica per i file di log dell'estensione di VM Linux in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` e `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`
+3. Se lo stato dell'estensione è integro, ma non vengono caricati dati consultare l'agente di Log Analitica per i file di log di Linux in `/var/opt/microsoft/omsagent/log/omsagent.log`
 
 Per altre informazioni, vedere l'articolo relativo alla [risoluzione dei problemi delle estensioni Linux](../../virtual-machines/extensions/oms-linux.md).
 

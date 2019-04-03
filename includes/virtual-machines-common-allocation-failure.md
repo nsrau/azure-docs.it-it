@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
-ms.openlocfilehash: 136c7e497b24db99b230884514d4a286bbeb64be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58114856"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883158"
 ---
 Quando si crea una macchina virtuale (VM), si riavviano VM arrestate (deallocate) o si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. Microsoft continua a investire in funzionalità e infrastrutture aggiuntive per garantire che tutti i tipi di VM supportino le richieste dei clienti. In alcuni casi possono, tuttavia, verificarsi errori di allocazione delle risorse a causa di un aumento senza precedenti delle richieste di servizi di Azure in aree specifiche. Questo problema può verificarsi quando si tenta di creare o avviare le VM in un'area e le VM visualizzano il codice di errore e il messaggio seguenti:
 
 **Codice errore**: AllocationFailed o ZonalAllocationFailed
 
-**Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni su come aumentare la possibilità di eseguire correttamente l'allocazione sono disponibili in http://aka.ms/allocation-guidance"
+**Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni su come aumentare la possibilità di eseguire correttamente l'allocazione sono disponibili in https://aka.ms/allocation-guidance"
 
 Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce possibili soluzioni alternative.
 
@@ -80,8 +80,8 @@ Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuo
 |Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Altre informazioni|
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o Dsv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Serie Dv1 o DSv1 (da D11 a D14)|[Serie Ev3 o Esv3](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
+|Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o DSV3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Serie Dv1 o DSv1 (da D11 a D14)|[Ev3 o Esv3-series](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 o DS15v2|Se si usa il modello di distribuzione di Resource Manager per sfruttare i vantaggi offerti dalle dimensioni maggiori della VM, provare a passare a E16v3/E16sv3 o E32v3/E32sv3. Queste VM sono progettate per l'hardware di generazione più recente. Se si usa il modello di distribuzione di Resource Manager per assicurarsi che l'istanza di VM sia isolata all'hardware dedicato a un singolo cliente, provare a passare alle nuove dimensioni di VM isolate, E64i_v3 o E64is_v3, progettate per l'hardware di generazione più recente. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 

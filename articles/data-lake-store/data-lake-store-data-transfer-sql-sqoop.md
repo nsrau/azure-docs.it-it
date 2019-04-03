@@ -3,21 +3,21 @@ title: Copiare i dati tra Data Lake Storage Gen1 e il database SQL di Azure tram
 description: Usare Sqoop per copiare i dati tra il database SQL di Azure e Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 3f914b2a-83cc-4950-b3f7-69c921851683
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 958171a8d1091254588aef250406b968009eb968
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 7d3283b03d15278d1f7fd42a72b154dab1a442b4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391743"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878529"
 ---
 # <a name="copy-data-between-azure-data-lake-storage-gen1-and-azure-sql-database-using-sqoop"></a>Copiare i dati tra Azure Data Lake Storage Gen1 e il database SQL di Azure tramite Sqoop
 Informazioni su come usare Apache Sqoop per importare ed esportare dati tra un database SQL di Azure e Azure Data Lake Storage Gen1.
@@ -31,7 +31,7 @@ Le applicazioni Big Data sono una scelta naturale per l'elaborazione di dati non
 Per eseguire le procedure descritte nell'articolo è necessario:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, consultare [Introduzione ad Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Un account Azure Data Lake Storage Gen1**. Per istruzioni su come crearne uno, vedere [Iniziare a usare Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Cluster HDInsight di Azure** con accesso a un account Data Lake Storage Gen1. Consultare [Creare un cluster HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Questo articolo presuppone un cluster HDInsight Linux con accesso a Data Lake Storage Gen1.
 * **Database SQL di Azure**. Per istruzioni su come crearne uno, vedere [Creare un database SQL di Azure](../sql-database/sql-database-get-started.md)
 
@@ -41,7 +41,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
 ## <a name="create-sample-tables-in-the-azure-sql-database"></a>Creare tabelle di esempio nel database SQL di Azure
 1. Per iniziare, creare due tabelle di esempio nel database SQL di Azure. Usare [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) o Visual Studio per connettersi al database SQL di Azure e quindi eseguire le query seguenti.
 
-    **Create Table1**
+    **Creare Table1**
 
         CREATE TABLE [dbo].[Table1](
         [ID] [int] NOT NULL,
@@ -54,7 +54,7 @@ Per eseguire le procedure descritte nell'articolo è necessario:
         ) ON [PRIMARY]
         GO
 
-    **Create Table2**
+    **Creare Table2**
 
         CREATE TABLE [dbo].[Table2](
         [ID] [int] NOT NULL,
@@ -92,7 +92,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
     Ad esempio,
 
 
-        sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
+        sqoop-import --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table1 --target-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1
 
 1. Verificare che i dati siano stati trasferiti all'account Data Lake Storage Gen1. Eseguire il comando seguente:
 
@@ -118,7 +118,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
     Ad esempio,
 
 
-        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=nitinme@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
+        sqoop-export --connect "jdbc:sqlserver://mysqoopserver.database.windows.net:1433;username=twooley@mysqoopserver;password=<password>;database=mysqoopdatabase" --table Table2 --export-dir adl://myadlsg1store.azuredatalakestore.net/Sqoop/SqoopImportTable1 --input-fields-terminated-by ","
 
 1. Verificare che i dati siano stati caricati nella tabella del database SQL. Usare [SQL Server Management Studio](../sql-database/sql-database-connect-query-ssms.md) o Visual Studio per connettersi al database SQL di Azure e quindi eseguire la query seguente.
 
@@ -138,7 +138,7 @@ In un cluster HDInsight sono già disponibili i pacchetti di Sqoop. Se il cluste
 Per ottimizzare le prestazioni del processo di Sqoop per copiare i dati in Data Lake Storage Gen1, vedere il [documento sulle prestazioni di Sqoop](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
 ## <a name="see-also"></a>Vedere anche 
-* [Copiare i dati dai BLOB del servizio di archiviazione di Azure a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usare Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Copiare dati da BLOB di archiviazione di Azure a Data Lake archiviazione Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Proteggere i dati in Data Lake archiviazione Gen1](data-lake-store-secure-data.md)
+* [Usare Azure Data Lake Analitica con Data Lake Store Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usare Azure HDInsight con Data Lake Store Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

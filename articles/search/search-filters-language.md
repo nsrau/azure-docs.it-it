@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 695fdfba1573ff97b05f8e8b50a05bef9dbf48de
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522265"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846164"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Come filtrare in base alla lingua in Ricerca di Azure 
 
@@ -39,7 +39,7 @@ Negli esempi, incluso l'[esempio sui dati immobiliari](search-get-started-portal
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Per esempi di codice che mostrano definizioni di campo con analizzatori di lingua, vedere [Definire un indice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [Definire un indice (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json).
+> Per esempi di codice che mostrano definizioni di campo con analizzatori di lingua, vedere [Definire un indice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [Definire un indice (REST)](search-create-index-rest-api.md).
 
 ## <a name="build-and-load-an-index"></a>Creare e caricare un indice
 

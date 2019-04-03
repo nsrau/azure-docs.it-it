@@ -1,31 +1,31 @@
 ---
 title: L'accesso ai dati usando il Centro sicurezza di Azure per l'anteprima di IoT | Microsoft Docs
 description: Informazioni su come accedere ai dati di avviso e indicazioni di sicurezza quando si usa il Centro sicurezza di Azure per IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: fbd96ddd-cd9f-48ae-836a-42aa86ca222d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758532"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862591"
 ---
 # <a name="access-your-security-data"></a>Accedere ai dati di sicurezza 
 
 > [!IMPORTANT]
 > Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Il Centro sicurezza di Azure (ASC) per IoT vengono archiviati gli avvisi di sicurezza, raccomandazioni e i dati di sicurezza non elaborato (se si sceglie di salvare il file) nell'area di lavoro di Log Analitica.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/25/2019
 ms.author: srrengar
-ms.openlocfilehash: 1b0b369f0021580d3add583f001bad04c70b03fd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: facbcd6def7451ca83bdf00fe9b7c7cac2c74945
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661752"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879948"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Eseguire query sulle API di EventStore per eventi del cluster
 
@@ -29,19 +29,19 @@ Questo articolo illustra come eseguire query sulle API di EventStore disponibili
 >Le API di EventStore a partire dalla versione 6.4 di Service Fabric sono destinate solo ai cluster di Windows in esecuzione in Azure.
 
 Le API di EventStore sono accessibili direttamente tramite un endpoint REST o a livello di codice. A seconda della query, per raccogliere i dati corretti sono necessari diversi parametri, Questi parametri in genere includono:
-* `api-version`: versione delle API di EventStore in uso
-* `StartTimeUtc`: definisce l'inizio del periodo che si intende esaminare
+* `api-version`: la versione delle APIs EventStore in uso
+* `StartTimeUtc`: definisce l'inizio del periodo di cui si è interessati all'analisi
 * `EndTimeUtc`: fine del periodo di tempo
 
 Oltre a questi parametri sono disponibili anche parametri facoltativi, ad esempio:
-* `timeout`: sostituisce il timeout predefinito di 60 secondi per l'esecuzione dell'operazione di richiesta
-* `eventstypesfilter`: offre la possibilità di filtrare tipi di eventi specifici.
-* `ExcludeAnalysisEvents`: non vengono restituiti eventi di "analisi". Per impostazione predefinita, le query di EventStore restituiscono eventi di "analisi", quando possibile. Gli eventi di analisi sono eventi avanzati del canale operativo che contengono più informazioni o contesto rispetto a un normale evento di Service Fabric e offrono maggiori dettagli.
-* `SkipCorrelationLookup`: non vengono cercati potenziali eventi correlati nel cluster. Per impostazione predefinita, EventStore tenta di correlare gli eventi in un cluster e, quando possibile, di collegare gli eventi tra loro. 
+* `timeout`: sostituire il timeout di secondo 60 predefinito per eseguire l'operazione richiesta
+* `eventstypesfilter`: questo offre la possibilità di filtrare i tipi di eventi specifici
+* `ExcludeAnalysisEvents`: non restituiscono gli eventi di "Analisi". Per impostazione predefinita, le query di EventStore restituiscono eventi di "analisi", quando possibile. Gli eventi di analisi sono eventi avanzati del canale operativo che contengono più informazioni o contesto rispetto a un normale evento di Service Fabric e offrono maggiori dettagli.
+* `SkipCorrelationLookup`: Escludi dalla ricerca i potenziali eventi correlati nel cluster. Per impostazione predefinita, EventStore tenta di correlare gli eventi in un cluster e, quando possibile, di collegare gli eventi tra loro. 
 
 È possibile eseguire query per gli eventi di ogni entità di un cluster, nonché per gli eventi di tutte le entità di un determinato tipo. Ad esempio, è possibile eseguire query per gli eventi di un nodo specifico oppure di tutti i nodi nel cluster. Di seguito è riportato l'attuale set di entità per cui è possibile eseguire query per gli eventi, con il modo in cui sarà strutturata la query.
 * Cluster: `/EventsStore/Cluster/Events`
-* Nodi: `/EventsStore/Nodes/Events`
+* nodi: `/EventsStore/Nodes/Events`
 * Nodo: `/EventsStore/Nodes/<NodeName>/$/Events`
 * Applicazioni: `/EventsStore/Applications/Events`
 * Applicazione: `/EventsStore/Applications/<AppName>/$/Events`
@@ -121,7 +121,8 @@ In questo caso è possibile verificare che tra `2018-04-03T18:00:00Z` e `2018-04
 
 È anche possibile eseguire query su EventStore a livello di codice, tramite la [libreria client di Service Fabric](https://docs.microsoft.com/dotnet/api/overview/azure/service-fabric?view=azure-dotnet#client-library).
 
-Dopo aver configurato il client di Service Fabric, è possibile eseguire query per gli eventi accedendo a EventStore nel modo seguente: ` sfhttpClient.EventStore.<request>`
+Dopo aver creato il servizio Fabric installazione del Client, è possibile eseguire query per gli eventi tramite l'accesso di EventStore simile al seguente:
+`sfhttpClient.EventStore.<request>`
 
 Di seguito è riportata una richiesta di esempio per tutti gli eventi del cluster tra `2018-04-03T18:00:00Z` e `2018-04-04T18:00:00Z`, tramite la funzione `GetClusterEventListAsync`.
 
@@ -178,35 +179,42 @@ Di seguito è riportato un altro esempio che esegue una query per l'integrità d
 
 Di seguito sono riportati alcuni esempi di come è possibile chiamare le API REST di EventStore per conoscere lo stato del cluster.
 
-*Aggiornamenti del cluster*
+*Aggiornamenti del cluster:*
 
-Per verificare quando è stato completato o tentato un aggiornamento del cluster nell'ultima settimana, è possibile eseguire una query sulle API per gli aggiornamenti del cluster completati di recente, con una query per gli eventi "ClusterUpgradeComplete" in EventStore: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
+Per visualizzare l'ultima volta che il cluster è stata completata o ha tentato di aggiornare la settimana scorsa, è possibile eseguire query sulle API per gli aggiornamenti completati di recente per il cluster, eseguendo una query per gli eventi di "ClusterUpgradeCompleted" nella finestra di EventStore:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ClusterUpgradeCompleted`
 
-*Problemi di aggiornamento del cluster*
+*Problemi di aggiornamento del cluster:*
 
-Analogamente, se si sono verificati problemi con un recente aggiornamento del cluster, è possibile eseguire una query per tutti gli eventi dell'entità cluster. Verranno visualizzati vari eventi, che includeranno l'avvio di aggiornamenti e ogni dominio di aggiornamento in cui l'aggiornamento è stato completato. Verranno visualizzati eventi anche per l'avvio del rollback e gli eventi di integrità corrispondenti. A questo scopo si userà la query seguente: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Analogamente, se si sono verificati problemi con un recente aggiornamento del cluster, è possibile eseguire una query per tutti gli eventi dell'entità cluster. Verranno visualizzati vari eventi, che includeranno l'avvio di aggiornamenti e ogni dominio di aggiornamento in cui l'aggiornamento è stato completato. Verranno visualizzati eventi anche per l'avvio del rollback e gli eventi di integrità corrispondenti. Ecco la query che si utilizzerebbe per questo oggetto:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*Cambiamenti di stato dei nodi*
+*Modifica lo stato del nodo:*
 
-Per visualizzare i cambiamenti di stato dei nodi negli ultimi giorni, ossia quando i nodi sono stati avviati o arrestati oppure attivati o disattivati (dalla piattaforma, dal servizio Chaos o dall'input utente), usare la query seguente: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+Per visualizzare che lo stato del nodo verrà modificato negli ultimi alcuni giorni - quando i nodi è verificato un errore verso l'alto o verso il basso, o sono stati attivati o disattivati (dalla piattaforma, il servizio di chaos, o dall'input dell'utente) - usano la query seguente:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Nodes/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*Eventi delle applicazioni*
+*Eventi dell'applicazione:*
 
-È anche possibile tenere traccia delle distribuzioni e degli aggiornamenti recenti di applicazioni. Per visualizzare tutti gli eventi di applicazioni nel cluster, usare la query seguente: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
+È anche possibile tenere traccia delle distribuzioni e degli aggiornamenti recenti di applicazioni. Usare la query seguente per visualizzare tutti gli eventi dell'applicazione nel cluster:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z`
 
-*Dati cronologici sull'integrità per un'applicazione*
+*Integrità cronologico per un'applicazione:*
 
 Oltre agli eventi relativi al ciclo di vita delle applicazioni, può essere utile visualizzare anche i dati cronologici sull'integrità di un'applicazione specifica. A tale scopo, è possibile specificare il nome dell'applicazione per cui si vogliono raccogliere i dati. Per ottenere tutti gli eventi di integrità dell'applicazione, usare questa query: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myApp/$/Events?api-version=6.4&starttimeutc=2018-03-24T17:01:51Z&endtimeutc=2018-03-29T17:02:51Z&EventsTypesFilter=ApplicationNewHealthReport`. Per includere gli eventi di integrità eventualmente scaduti, ossia di cui potrebbe essere stata superata la durata (TTL), aggiungere `,ApplicationHealthReportExpired` alla fine della query, per filtrare due tipi di eventi.
 
-*Dati cronologici sull'integrità per tutti i servizi in "myApp"*
+*Cronologia integrità per tutti i servizi in "myApp":*
 
-Attualmente, gli eventi dei report sull'integrità per i servizi sono inclusi come eventi `DeployedServicePackageNewHealthReport` nell'entità applicazione corrispondente. Per visualizzare l'integrità dei servizi per "App1", usare la query seguente: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+Attualmente, gli eventi dei report sull'integrità per i servizi sono inclusi come eventi `DeployedServicePackageNewHealthReport` nell'entità applicazione corrispondente. Scopri come i servizi sono stati ottenuti per "App1", usare la query seguente:
+`https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
-*Riconfigurazione delle partizioni*
+*Riconfigurazione della partizione:*
 
-Per visualizzare tutti gli spostamenti delle partizioni nel cluster, eseguire una query per l'evento `PartitionReconfigured`. In questo modo è possibile stabilire i carichi di lavoro eseguiti e il nodo in cui sono stati eseguiti in momenti specifici, per la diagnosi dei problemi nel cluster. Una query di esempio a tale scopo è la seguente: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
+Per visualizzare tutti gli spostamenti delle partizioni nel cluster, eseguire una query per l'evento `PartitionReconfigured`. In questo modo è possibile stabilire i carichi di lavoro eseguiti e il nodo in cui sono stati eseguiti in momenti specifici, per la diagnosi dei problemi nel cluster. Ecco un esempio di query che esegue tale operazione:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Partitions/Events?api-version=6.4&starttimeutc=2018-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=PartitionReconfigured`
 
-*Servizio Chaos*
+*Servizio di CHAOS:*
 
-Per l'avvio o l'arresto del servizio Chaos è disponibile un evento esposto a livello di cluster. Per visualizzare l'uso recente del servizio Chaos, usare la query seguente: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
+Per l'avvio o l'arresto del servizio Chaos è disponibile un evento esposto a livello di cluster. Per visualizzare l'utilizzo recente del servizio di Chaos, usare la query seguente:
+`https://mycluster.cloudapp.azure.com:19080/EventsStore/Cluster/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=ChaosStarted,ChaosStopped`
 

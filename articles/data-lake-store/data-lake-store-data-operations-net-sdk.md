@@ -3,20 +3,20 @@ title: '.NET SDK: Operazioni del file system in Azure Data Lake Storage Gen1 | M
 description: Usare Azure Data Lake Storage Gen1 .NET SDK per eseguire operazioni del file System in Data Lake Storage Gen1, ad esempio creare cartelle e così via.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 0a6cfc5ca9a0b788075f4472649a6e1bcdf87637
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: twooley
+ms.openlocfilehash: 02091f1b650e3e9932f9924bf36a5841861d3b1e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119497"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876956"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Operazioni del file System in Azure Data Lake Storage Gen1 con .NET SDK
 > [!div class="op_single_selector"]
@@ -59,8 +59,8 @@ Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/da
    2. Nella scheda **Gestione pacchetti NuGet** assicurarsi che **Origine pacchetto** sia impostato su **nuget.org** e che la casella di controllo **Includi versione preliminare** sia selezionata.
    3. Cercare e installare i pacchetti NuGet seguenti:
 
-      * `Microsoft.Azure.DataLake.Store` - Questa esercitazione usa la versione 1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` - Questa esercitazione usa la versione 2.3.1.
+      * `Microsoft.Azure.DataLake.Store` -Questa esercitazione Usa la versione 1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Questa esercitazione Usa la versione 2.3.1.
     
       Chiudere **Gestione pacchetti NuGet**.
 
@@ -174,12 +174,12 @@ Il frammento di codice seguente elimina una directory e tutte le relative sottod
 
 ## <a name="samples"></a>Esempi
 Ecco alcuni esempi che illustrano come usare il SDK del file System di Data Lake Storage Gen1.
-* [Esempio di base in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
+* [Esempio di base su GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Esempio avanzato in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Vedere anche 
-* [Operazioni di gestione di account in Data Lake Storage Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Riferimento a .NET SDK di Data Lake Storage Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Operazioni di gestione account in Data Lake archiviazione Gen1 con .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Riferimento al SDK di .NET di data Lake archiviazione Gen1](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Proteggere i dati in Data Lake archiviazione Gen1](data-lake-store-secure-data.md)

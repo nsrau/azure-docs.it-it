@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb597edc676fbb7b63c6a07849551cc21f69b354
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7c80b821d6bd0263473ba0178eea148f7a2d5773
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58015020"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879047"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installare i driver GPU NVIDIA in VM serie N che eseguono Linux
 
@@ -187,9 +187,9 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, sta
 
    sudo apt-get dist-upgrade -y
 
-   sudo apt-get install build-essential ubuntu-desktop -y
-   ```
-3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NVv2. A tale scopo, creare un file in `/etc/modprobe.d ` denominato `nouveau.conf` con il contenuto seguente:
+  sudo apt-get install build-essential ubuntu-desktop -y
+  ```
+3. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NVv2. A tale scopo, creare un file nella `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau
@@ -244,7 +244,7 @@ Per installare i driver NVIDIA GRID nelle macchine virtuali serie NV o NVv2, sta
    sudo yum install dkms
    ```
 
-2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV2. A tale scopo, creare un file in `/etc/modprobe.d ` denominato `nouveau.conf` con il contenuto seguente:
+2. Disabilitare il driver del kernel Nouveau, che è incompatibile con il driver NVIDIA. Usare il driver NVIDIA solo nelle macchine virtuali NV o NV2. A tale scopo, creare un file nella `/etc/modprobe.d` denominato `nouveau.conf` con il contenuto seguente:
 
    ```
    blacklist nouveau

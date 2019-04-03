@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/15/2019
+ms.date: 03/28/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 7c5e979f399a487d29138b57d1fc4ee2c77622ff
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c3e2102b5794fb3770b1c77e241320fa7d2222c7
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445480"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850778"
 ---
 # <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
@@ -219,7 +219,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018
     "resourceGroupName": "myrg",
     "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "",
+    "tags": "Department:IT;Environment:Prod;Role:WorkerRole",
     "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
@@ -296,7 +296,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
     "resourceGroupName": "myrg",
     "sku": "5-6",
     "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "",
+    "tags": "Department:IT;Environment:Test;Role:WebRole",
     "version": "7.1.1902271506",
     "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
     "vmScaleSetName": "",
@@ -514,12 +514,33 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/azEnviro
 AZUREPUBLICCLOUD
 ```
 
+### <a name="getting-the-tags-for-the-vm"></a>Ottenere i tag per la macchina virtuale
+
+Si potrebbero aver assegnato i tag nelle VM di Azure per organizzare logicamente in una tassonomia. I tag assegnati a una macchina virtuale possono essere recuperati tramite la richiesta seguente.
+
+**Richiesta**
+
+```bash
+curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/tags?api-version=2018-10-01&format=text"
+```
+
+**Risposta**
+
+```text
+Department:IT;Environment:Test;Role:WebRole
+```
+
+> [!NOTE]
+> I tag sono separati da punti e virgola. Se viene scritto un parser per estrarre a livello di codice i tag, i nomi di tag e i valori non devono contenere un punto e virgola nell'ordine per il parser per funzionare correttamente.
+
 ### <a name="validating-that-the-vm-is-running-in-azure"></a>Verifica dell'esecuzione della macchina virtuale in Azure
 
  I fornitori di Marketplace vogliono garantire che il software venga concesso in licenza solo per l'esecuzione in Azure. È necessario un modo per rilevare se qualcuno copia il disco rigido virtuale in locale. Con una chiamata al servizio metadati dell'istanza, i fornitori di Marketplace possono ottenere i dati firmati che garantiscono la provenienza della risposta solo da Azure.
- **Richiesta**
+
  > [!NOTE]
 > Richiede l'installazione di jq.
+
+ **Richiesta**
 
  ```bash
   # Get the signature

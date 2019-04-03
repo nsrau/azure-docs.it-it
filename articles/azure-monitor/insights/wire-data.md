@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
-ms.openlocfilehash: ad5869a2a79d41245b731409e9e4fe4c5a460b19
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793221"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882073"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Soluzione di wire Data 2.0 (anteprima) in Monitoraggio di Azure
 
@@ -33,7 +33,7 @@ Oltre all'agente di Log Analytics, la soluzione Wire Data usa le istanze di Micr
 >[!NOTE]
 >Se si sono già stati distribuiti i mapping dei servizi o si stanno prendendo in considerazione di mapping dei servizi oppure [monitoraggio di Azure per le macchine virtuali](../../azure-monitor/insights/vminsights-overview.md), è un nuova connessione metriche set di dati è raccogliere e archiviare in Monitoraggio di Azure che fornisce informazioni simili per i dati in transito.
 
-Per impostazione predefinita, monitoraggio di Azure registra i dati per CPU, memoria, disco e i dati sulle prestazioni di rete da contatori predefiniti di Windows e Linux, nonché altri contatori delle prestazioni che è possibile specificare. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer.  Wire Data esamina i dati di rete a livello di applicazione, non a livello di trasporto TCP, più basso.  La soluzione non esamina ACK e SYN singoli.  Dopo l'esecuzione dell'handshake, la connessione viene considerata attiva e viene contrassegnata come connessa. La connessione rimane attiva finché entrambe le parti acconsentono all'apertura del socket e alla trasmissione di dati nei due sensi.  Se una delle parti chiude la connessione, questa viene contrassegnata come disconnessa.  Viene quindi contata solo la larghezza di banda dei pacchetti completati correttamente e non vengono segnalati i nuovi tentativi di invio né i pacchetti la cui trasmissione non è riuscita.
+Per impostazione predefinita, monitoraggio di Azure registra i dati per CPU, memoria, disco e i dati sulle prestazioni di rete da contatori predefiniti di Windows e Linux, nonché altri contatori delle prestazioni che è possibile specificare. La raccolta dei dati di rete e di altro tipo viene eseguita in tempo reale per ogni agente, inclusi subnet e protocolli a livello di applicazione usati dal computer.  Wire Data esamina i dati di rete a livello di applicazione, non a livello di trasporto TCP, più basso.  La soluzione non esamina ACK e SYN singoli.  Dopo l'esecuzione dell'handshake, la connessione viene considerata attiva e viene contrassegnata come connessa. La connessione rimane attiva finché entrambe le parti acconsentono all'apertura del socket e alla trasmissione di dati nei due sensi.  Dopo che entrambi i lati chiude la connessione, viene contrassegnato come Disconnected.  Viene quindi contata solo la larghezza di banda dei pacchetti completati correttamente e non vengono segnalati i nuovi tentativi di invio né i pacchetti la cui trasmissione non è riuscita.
 
 Se si è usato [sFlow](http://www.sflow.org/) o un altro software con il [protocollo NetFlow di Cisco](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html), le statistiche e i dati visualizzati dai dati in transito risulteranno familiari.
 
@@ -52,13 +52,13 @@ Alcuni tipi di query di ricerca nei log predefinite includono:
 
 Quando si esegue una ricerca usando i dati in transito, è possibile filtrare e raggruppare i dati per visualizzare le informazioni su agenti e protocolli principali. In alternativa, è possibile visualizzare quando determinati computer (indirizzi IP/indirizzi MAC) hanno comunicato tra loro, per quanto tempo e quanti dati sono stati inviati, visualizzando essenzialmente metadati relativi al traffico di rete basati sulla ricerca.
 
-La visualizzazione di metadati, tuttavia, non è necessariamente utile per una risoluzione dei problemi approfondita. I dati in transito in Monitoraggio di Azure non sono un'acquisizione completa dei dati di rete.  e non sono destinati a una risoluzione dei problemi approfondita a livello di pacchetto. Il vantaggio di usare l'agente, rispetto ad altri metodi di raccolta, è che non è necessario installare appliance, riconfigurare i commutatori di rete o eseguire configurazioni complesse. I dati in transito sono basati semplicemente sull'agente, che viene installato in un computer e monitora il proprio traffico di rete. Un altro vantaggio si riscontra quando si vogliono monitorare carichi di lavoro in esecuzione in provider di servizi cloud, provider di servizi di hosting o Microsoft Azure, in cui l'utente non è proprietario del livello infrastruttura.
+La visualizzazione di metadati, tuttavia, non è necessariamente utile per una risoluzione dei problemi approfondita. I dati in transito in Monitoraggio di Azure non sono un'acquisizione completa dei dati di rete.  e non sono destinati a una risoluzione dei problemi approfondita a livello di pacchetto. Il vantaggio di usare l'agente, rispetto ad altri metodi di raccolta, è che non è necessario installare Appliance, riconfigurare i commutatori di rete o eseguire complesse configurazioni. I dati in transito sono basati semplicemente sull'agente, che viene installato in un computer e monitora il proprio traffico di rete. Un altro vantaggio si riscontra quando si vogliono monitorare carichi di lavoro in esecuzione in provider di servizi cloud, provider di servizi di hosting o Microsoft Azure, in cui l'utente non è proprietario del livello infrastruttura.
 
 ## <a name="connected-sources"></a>Origini connesse
 
 Wire Data ottiene i dati da Microsoft Dependency Agent. Dependency Agent dipende dall'agente Log Analitica per le connessioni a monitoraggio di Azure. quindi nel server con Dependency Agent deve essere installato e configurato Log Analytics. La tabella seguente descrive le origini connesse supportate dalla soluzione Wire Data.
 
-| **Origine connessa** | **Supportato** | **Descrizione** |
+| **Origine connessa** | **Supportato** | **DESCRIZIONE** |
 | --- | --- | --- |
 | Agenti di Windows | Sì | Wire Data analizza e raccoglie i dati da computer agente Windows. <br><br> Oltre all'[agente di Log Analytics per Windows](../../azure-monitor/platform/agent-windows.md), gli agenti Windows richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems). |
 | Agenti Linux | Sì | Wire Data analizza e raccoglie i dati da computer agente Linux.<br><br> Oltre all'[agente di Log Analytics per Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), gli agenti Linux richiedono Microsoft Dependency Agent. Per un elenco completo delle versioni del sistema operativo, vedere [Sistemi operativi supportati](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems). |
@@ -75,8 +75,8 @@ L'istanza di Dependency Agent non trasmette dati e non richiede modifiche ai fir
 
 Se sei un utente di System Center Operations Manager con un gruppo di gestione connesso a monitoraggio di Azure:
 
-- Quando gli agenti di System Center Operations Manager possono accedere a Internet per connettersi a monitoraggio di Azure, è necessaria alcuna configurazione aggiuntiva.
-- È necessario configurare il gateway Log Analitica per l'uso con System Center Operations Manager quando gli agenti di System Center Operations Manager non è possibile accedere a monitoraggio di Azure tramite Internet.
+- Quando gli agenti di System Center Operations Manager possono accedere a internet per connettersi a monitoraggio di Azure, è necessaria alcuna configurazione aggiuntiva.
+- È necessario configurare il gateway Log Analitica per l'uso con System Center Operations Manager quando gli agenti di System Center Operations Manager non è possibile accedere a monitoraggio di Azure tramite internet.
 
 Se i computer Windows o Linux non possono connettersi direttamente al servizio, è necessario configurare l'agente di Log Analitica per la connessione a monitoraggio di Azure usando il gateway Log Analitica. È possibile scaricare il gateway Log Analytics dall'[Area download Microsoft](https://www.microsoft.com/download/details.aspx?id=52666).
 
@@ -93,6 +93,8 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 
 #### <a name="windows-server"></a>Windows Server
 
+- Windows Server 2019
+- Windows Server 2016 1803
 - Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
@@ -100,96 +102,68 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 
 #### <a name="windows-desktop"></a>Desktop di Windows
 
+- Windows 10 1803
 - Windows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
 
-#### <a name="red-hat-enterprise-linux-centos-linux-and-oracle-linux-with-rhel-kernel"></a>Red Hat Enterprise Linux, CentOS Linux e Oracle Linux (con il kernel RHEL)
+#### <a name="supported-linux-operating-systems"></a>Sistemi operativi Linux supportati
+Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipendenza in Linux.  
 
 - Sono supportate solo versioni predefinita e SMP del kernel Linux.
-- Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Un sistema con stringa di versione _2.6.16.21-0.8-xen_, ad esempio, non è supportato.
+- Le versioni del kernel non standard, ad esempio PAE e Xen, non sono supportate per le distribuzioni Linux. Ad esempio, un sistema con la stringa di versione "2.6.16.21-0.8-xen" non è supportato.
 - I kernel personalizzati, tra cui le ricompilazioni dei kernel standard, non sono supportati.
-- Il kernel CentOSPlus non è supportato.
-- Unbreakable Enterprise Kernel (UEK) di Oracle è illustrato in una sezione successiva di questo articolo.
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
+##### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 
-| **Versione del sistema operativo** | **Versione del kernel** |
-| --- | --- |
-| 7.0 | 3.10.0-123 |
-| 7.1 | 3.10.0-229 |
-| 7,2 | 3.10.0-327 |
-| 7.3 | 3.10.0-514 |
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| 7.4 | 3.10.0-693 |
+| 7.5 | 3.10.0-862 |
+| 7.6 | 3.10.0-957 |
 
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
+##### <a name="red-hat-linux-6"></a>Red Hat Linux 6
 
-| **Versione del sistema operativo** | **Versione del kernel** |
-| --- | --- |
-| 6.0 | 2.6.32-71 |
-| 6.1 | 2.6.32-131 |
-| 6.2 | 2.6.32-220 |
-| 6.3 | 2.6.32-279 |
-| 6.4 | 2.6.32-358 |
-| 6,5 | 2.6.32-431 |
-| 6.6 | 2.6.32-504 |
-| 6.7 | 2.6.32-573 |
-| 6.8 | 2.6.32-642 |
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| 6.9 | 2.6.32-696 |
+| 6.10 | 2.6.32-754 |
 
-#### <a name="red-hat-linux-5"></a>Red Hat Linux 5
+##### <a name="centosplus"></a>CentOSPlus
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
+| 6.10 | 2.6.32-696.30.1<br>2.6.32-754.3.5 |
 
-| **Versione del sistema operativo** | **Versione del kernel** |
-| --- | --- |
-| 5.8 | 2.6.18-308 |
-| 5.9 | 2.6.18-348 |
-| 5.10 | 2.6.18-371 |
-| 5.11 | 2.6.18-398 <br> 2.6.18-400 <br>2.6.18-402 <br>2.6.18-404 <br>2.6.18-406 <br> 2.6.18-407 <br> 2.6.18-408 <br> 2.6.18-409 <br> 2.6.18-410 <br> 2.6.18-411 <br> 2.6.18-412 <br> 2.6.18-416 <br> 2.6.18-417 <br> 2.6.18-419 |
+##### <a name="ubuntu-server"></a>Ubuntu Server
 
-#### <a name="oracle-enterprise-linux-with-unbreakable-enterprise-kernel"></a>Oracle Enterprise Linux con Unbreakable Enterprise Kernel
+| Versione del sistema operativo | Versione del kernel |
+|:--|:--|
+| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
+| Ubuntu 16.04.3 | kernel 4.15.* |
+| 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
+| 14.04 | 3.13.\*<br>4.4.\* |
 
-#### <a name="oracle-linux-6"></a>Oracle Linux 6
+##### <a name="suse-linux-11-enterprise-server"></a>SUSE Linux 11 Enterprise Server
 
-| **Versione del sistema operativo** | **Versione del kernel** |
-| --- | --- |
-| 6.2 | Oracle 2.6.32-300 (UEK R1) |
-| 6.3 | Oracle 2.6.39-200 (UEK R2) |
-| 6.4 | Oracle 2.6.39-400 (UEK R2) |
-| 6,5 | Oracle 2.6.39-400 (UEK R2 i386) |
-| 6.6 | Oracle 2.6.39-400 (UEK R2 i386) |
+| Versione del sistema operativo | Versione del kernel
+|:--|:--|
+| 11 SP4 | 3.0.* |
 
-#### <a name="oracle-linux-5"></a>Oracle Linux 5
+##### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
 
-| **Versione del sistema operativo** | **Versione del kernel** |
-| --- | --- |
-| 5.8 | Oracle 2.6.32-300 (UEK R1) |
-| 5.9 | Oracle 2.6.39-300 (UEK R2) |
-| 5.10 | Oracle 2.6.39-400 (UEK R2) |
-| 5.11 | Oracle 2.6.39-400 (UEK R2) |
+| Versione del sistema operativo | Versione del kernel
+|:--|:--|
+| 12 SP2 | 4.4.* |
+| 12 SP3 | 4.4.* |
 
-#### <a name="suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server
+### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
 
-#### <a name="suse-linux-11"></a>SUSE Linux 11
-
-| **Versione del sistema operativo** | **Versione del kernel** |
-| --- | --- |
-| 11 | 2.6.27 |
-| 11 SP1 | 2.6.32 |
-| 11 SP2 | 3.0.13 |
-| 11 SP3 | 3.0.76 |
-| 11 SP4 | 3.0.101 |
-
-#### <a name="suse-linux-10"></a>SUSE Linux 10
-
-| **Versione del sistema operativo** | **Versione del kernel** |
-| --- | --- |
-| 10 SP4 | 2.6.16.60 |
-
-#### <a name="dependency-agent-downloads"></a>Download di Dependency Agent
-
-| **File** | **Sistema operativo** | **Versione** | **SHA-256** |
-| --- | --- | --- | --- |
-| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.0.5 | 73B3F6A2A76A08D58F72A550947FF839B588591C48E6EDDD6DDF73AA3FD82B43 |
-| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.0.5 | A1BAD0B36EBF79F2B69113A07FCF48C68D90BD169C722689F9C83C69FC032371 |
+| File | OS | Versione | SHA-256 |
+|:--|:--|:--|:--|
+| [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
+| [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 
 
@@ -197,13 +171,14 @@ Le sezioni seguenti elencano i sistemi operativi supportati per l'agente di dipe
 
 Per configurare la soluzione Wire Data per le proprie aree di lavoro, seguire questa procedura.
 
-1. Abilitare la soluzione Analitica Log attività dal [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) oppure usando la procedura descritta nel [aggiungere soluzioni di mnitoring dalla raccolta soluzioni](../../azure-monitor/insights/solutions.md).
+1. Abilitare la soluzione Analitica Log attività dal [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) oppure usando la procedura descritta nel [Aggiungi soluzioni dalla raccolta soluzioni di monitoraggio](../../azure-monitor/insights/solutions.md).
 2. Installare Dependency Agent in ogni computer in cui si vogliono ottenere i dati. Dependency Agent può monitorare le connessioni con i vicini immediati e potrebbe quindi non essere necessario un agente in ogni computer.
 
 > [!NOTE]
 > Non è possibile aggiungere la versione precedente della soluzione Wire Data a nuove aree di lavoro. Se è stata abilitata la soluzione Wire Data originale, è possibile continuare a usarla. Per usare Wire Data 2.0, tuttavia, è prima necessario rimuovere la versione originale.
 > 
-> ### <a name="install-the-dependency-agent-on-windows"></a>Installare Dependency Agent in Windows
+ 
+### <a name="install-the-dependency-agent-on-windows"></a>Installare Dependency Agent in Windows
 
 Per installare o disinstallare l'agente sono necessari i privilegi di amministratore.
 
@@ -212,7 +187,7 @@ Dependency Agent viene installato nei computer che eseguono Windows con InstallD
 Per installare Dependency Agent in ogni computer che esegue Windows, seguire questa procedura:
 
 1. Installare l'agente di Log Analytics seguendo la procedura descritta in [Raccogliere dati dai computer Windows ospitati nell'ambiente](../../azure-monitor/platform/agent-windows.md).
-2. Scaricare Windows Dependency Agent tramite il collegamento riportato nella sezione precedente e quindi eseguirlo con il comando seguente: `InstallDependencyAgent-Windows.exe`
+2. Scaricare Windows Dependency Agent tramite il collegamento nella sezione precedente e quindi eseguirlo usando il comando seguente: `InstallDependencyAgent-Windows.exe`
 3. Seguire la procedura guidata per installare l'agente.
 4. Se l'agente di dipendenza non si avvia, controllare i registri per vedere le informazioni dettagliate sull'errore. Per gli agenti Windows, la directory di log è %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -222,7 +197,7 @@ Usare le opzioni della tabella seguente per eseguire l'installazione dalla riga 
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Flag** | **Descrizione** |
+| **Flag** | **DESCRIZIONE** |
 | --- | --- |
 | <code>/?</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>/S</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -247,7 +222,7 @@ Per visualizzare un elenco dei flag di installazione, eseguire il programma di i
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Flag** | **Descrizione** |
+| **Flag** | **DESCRIZIONE** |
 | --- | --- |
 | <code>-help</code> | Ottenere un elenco delle opzioni della riga di comando. |
 | <code>-s</code> | Eseguire un'installazione invisibile all'utente senza prompt per l'utente. |
@@ -255,7 +230,7 @@ InstallDependencyAgent-Linux64.bin -help
 
 I file relativi a Dependency Agent sono memorizzati nelle directory seguenti.
 
-| **File** | **Posizione** |
+| **File** | **Località** |
 | --- | --- |
 | File core | /opt/microsoft/dependency-agent |
 | File di log | /var/opt/microsoft/dependency-agent/log |
@@ -368,8 +343,6 @@ Il Management Pack è denominato Microsoft.IntelligencePacks.ApplicationDependen
 
 ## <a name="using-the-solution"></a>Uso della soluzione
 
-**Installazione e configurazione della soluzione**
-
 Usare le informazioni seguenti per installare e configurare la soluzione.
 
 - La soluzione Wire Data acquisisce i dati dai computer che eseguono Windows Server 2012 R2, Windows 8.1 e versioni successive.
@@ -385,7 +358,7 @@ Dopo l'installazione degli agenti e della soluzione, nell'area di lavoro verrà 
 
 Nella pagina **Panoramica** dell'area di lavoro di Log Analytics nel portale di Azure, fare clic sul riquadro **Wire Data 2.0** per aprire il dashboard di Wire Data. Il dashboard include i pannelli nella tabella seguente. Ogni panello elenca fino a 10 elementi corrispondenti ai criteri del pannello per lo scope e l'intervallo di tempo specificati. È possibile eseguire una ricerca log per ottenere tutti i record facendo clic su **Vedi tutto** nella parte inferiore del pannello o facendo clic sull'intestazione del pannello.
 
-| **Pannello** | **Descrizione** |
+| **Pannello** | **DESCRIZIONE** |
 | --- | --- |
 | Agenti che acquisiscono il traffico di rete | Mostra il numero degli agenti che acquisiscono il traffico di rete e un elenco dei primi 10 computer che acquisiscono il traffico. Fare clic sul numero per eseguire una ricerca nei log per <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>. Fare clic su un computer nell'elenco per eseguire una ricerca nei log che restituisca il numero totale dei byte acquisiti. |
 | Subnet locali | Mostra il numero delle subnet locali individuate dagli agenti.  Fare clic sul numero per eseguire una ricerca nei log per <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> e ottenere un elenco di tutte le subnet con il numero dei byte inviati tramite ognuna. Fare clic su una subnet nell'elenco per eseguire una ricerca nei log che restituisca il numero totale dei byte inviati tramite la subnet. |

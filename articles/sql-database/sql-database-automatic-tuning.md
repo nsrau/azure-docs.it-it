@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/06/2019
-ms.openlocfilehash: e872c29712c3fadca676ec87870bcc5c4eb58565
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 028c69294d693202b626044cb903dc3124b5d7b7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727400"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863220"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Ottimizzazione automatica nel database SQL di Azure
 
@@ -50,7 +50,7 @@ L'ottimizzazione automatica del database SQL di Azure condivide la logica princi
 
 ## <a name="use-automatic-tuning"></a>Usare l'ottimizzazione automatica
 
-L'ottimizzazione automatica deve essere abilitata manualmente nella sottoscrizione. Per abilitare l'ottimizzazione automatica usando il portale di Azure, vedere [Abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md).
+L'ottimizzazione automatica deve essere abilitato per la sottoscrizione. Per abilitare l'ottimizzazione automatica usando il portale di Azure, vedere [Abilitare l'ottimizzazione automatica](sql-database-automatic-tuning-enable.md).
 
 L'ottimizzazione automatica può funzionare in modo autonomo grazie all'applicazione automatica di raccomandazioni di ottimizzazione, inclusa la verifica automatizzata dei miglioramenti delle prestazioni. 
 
@@ -74,7 +74,9 @@ Le opzioni di ottimizzazione automatica disponibili nel database SQL di Azure so
 
 L'ottimizzazione automatica identifica le opzioni **CREATE INDEX** (Crea indice), **DROP INDEX** (Elimina indice) e **FORCE LAST GOOD PLAN** (Forza piano valido più recente) che consentono di ottimizzare le prestazioni del database, di visualizzarle nel [portale di Azure](sql-database-advisor-portal.md) e di esporle tramite [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) e l'[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning). 
 
-È possibile applicare manualmente le opzioni di ottimizzazione usando il portale o è possibile consentirne l'applicazione autonoma da parte dell'ottimizzazione automatica. I vantaggi di consentire al sistema di applicare in modo autonomo le opzioni di ottimizzazione consistono nella convalida automatica della presenza di un aumento delle prestazioni del carico di lavoro e, se non vengono rilevati miglioramenti significativi delle prestazioni, nel ripristino dello stato prima dell'applicazione delle opzioni di ottimizzazione. Si noti che, in caso di query interessate da opzioni di ottimizzazione che non vengono eseguite di frequente, la fase di convalida può richiedere fino a 72 ore per impostazione predefinita. Nel caso in cui si applichino manualmente le opzioni di ottimizzazione, la convalida automatica delle prestazioni e i meccanismi di inversione non sono disponibili.
+È possibile applicare manualmente le opzioni di ottimizzazione usando il portale o è possibile consentirne l'applicazione autonoma da parte dell'ottimizzazione automatica. I vantaggi di consentire al sistema di applicare in modo autonomo le opzioni di ottimizzazione consistono nella convalida automatica della presenza di un aumento delle prestazioni del carico di lavoro e, se non vengono rilevati miglioramenti significativi delle prestazioni, nel ripristino dello stato prima dell'applicazione delle opzioni di ottimizzazione. Si noti che, in caso di query interessate da opzioni di ottimizzazione che non vengono eseguite di frequente, la fase di convalida può richiedere fino a 72 ore per impostazione predefinita.
+
+Nel caso in cui si applichino manualmente le opzioni di ottimizzazione, la convalida automatica delle prestazioni e i meccanismi di inversione non sono disponibili. Inoltre, raccomandazioni applicate manualmente rimarrà attiva e mostrate nell'elenco delle raccomandazioni per 24-48 ore. prima che il sistema prelevi automaticamente li. Se si desidera rimuovere prima una raccomandazione, è possibile eliminarlo manualmente.
 
 Le opzioni di ottimizzazione automatica possono essere abilitate o disabilitate in modo indipendente per ogni database, oppure possono essere configurate nei server di database SQL e applicate a ogni database che eredita le impostazioni dal server. I server di database SQL possono ereditare le impostazioni predefinite di Azure per le impostazioni di ottimizzazione automatica. Le impostazioni predefinite di Azure in questo momento sono FORCE_LAST_GOOD_PLAN (abilitata), CREATE_INDEX (abilitata) e DROP_INDEX (disabilitata).
 

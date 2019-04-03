@@ -7,18 +7,18 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17b99b7b03898ad72b4d9c7cc2ba9154855475ef
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 49234472481e30cf74efa3e72ac0e4f31466fada
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488403"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884891"
 ---
-# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Che cos'è l'agente Azure AD Connect amministratore? 
+# <a name="what-is-the-azure-ad-connect-admin-agent"></a>Cos'è l'agente di amministrazione di Azure AD Connect? 
 L'agente Azure AD Connect amministrazione è un nuovo componente di Azure Active Directory Connect installato in un server di Azure Active Directory Connect. Si è usato per raccogliere dati specifici dall'ambiente Active Directory che consente a un Microsoft di supporto tecnico per risolvere i problemi quando si apre una richiesta di assistenza.
 
 Durante l'installazione, l'agente di Azure AD Connect amministrazione attende richieste specifiche per i dati da Azure Active Directory, ottiene i dati richiesti dall'ambiente di sincronizzazione e li invia ad Azure Active Directory, in cui viene presentato a Microsoft supporto Engineer.
@@ -39,7 +39,7 @@ Il tecnico del supporto Microsoft non è possibile modificare qualsiasi dato nel
 
 ## <a name="what-if-i-dont-want-the-microsoft-support-engineer-to-access-my-data"></a>Cosa accade se si desidera che il tecnico del supporto Microsoft per accedere ai dati personali? 
  
-Se non si desidera chiamare il tecnico del servizio Microsoft per accedere ai dati per una chiamata al supporto tecnico è possibile indicarlo all'apertura di un supporto nel portale: 
+Se non si desidera il tecnico del servizio Microsoft per accedere ai dati per una chiamata al supporto tecnico è possibile disabilitare questa, modificando il file di configurazione del servizio, come descritto di seguito: 
 
   1.    Aprire **c:\Programmi\Microsoft Azure AD Connect amministrazione Agent\AzureADConnectAdministrationAgentService.exe.config** nel blocco note.
   2.    Disabilitare **UserDataEnabled** impostazione come illustrato di seguito. Se **UserDataEnabled** impostazione esiste e viene impostato su true, quindi impostarlo su false. Se l'impostazione non esiste, quindi aggiungere l'impostazione come illustrato di seguito.    

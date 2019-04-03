@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087041"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884509"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Come usare Gestione API di Azure con le reti virtuali
 Le reti virtuali di Azure (VNET) consentono di posizionare le risorse di Azure in una rete instradabile non Internet a cui si controlla l'accesso. Queste reti possono quindi essere connesse alle reti locali usando diverse tecnologie VPN. Per altre informazioni sulle reti virtuali di Azure, è possibile iniziare dalla [Panoramica sulla rete virtuale di Azure](../virtual-network/virtual-networks-overview.md).
@@ -112,7 +112,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | In ingresso            | TCP                | INTERNET / VIRTUAL_NETWORK            | Comunicazione tra client e Gestione API                      | Esterno             |
 | */3443                     | In ingresso            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Endpoint di gestione per il portale di Azure e PowerShell         | Esterno e interno  |
-| * / 80, 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | **Dipendenza da Archiviazione di Azure**                             | Esterno e interno  |
+| * / 80, 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / Storage             | **Dipendenza su archiviazione di Azure**                             | Esterno e interno  |
 | * / 80, 443                  | In uscita           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (dove applicabile)                   | Esterno e interno  |
 | * / 1433                     | In uscita           | TCP                | VIRTUAL_NETWORK/SQL                 | **Accesso agli endpoint SQL di Azure**                           | Esterno e interno  |
 | * / 5672                     | In uscita           | TCP                | VIRTUAL_NETWORK / EventHub            | Dipendenza per il criterio Registra a Hub eventi | Esterno e interno  |
@@ -136,7 +136,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 
     | Ambiente Azure | Endpoint                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com dove `East US 2` è eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com dove `East US 2` è eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure Cina       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
@@ -146,7 +146,7 @@ Quando un'istanza del servizio Gestione API è ospitata in una rete virtuale, ve
 
 + **Diagnostica del portale di Azure**: per abilitare il flusso dei log di diagnostica dal portale di Azure quando si usa l'estensione di Gestione API dall'interno di una rete virtuale, è richiesto l'accesso in uscita a `dc.services.visualstudio.com` sulla porta 443. Ciò consente di risolvere eventuali problemi che potrebbero verificarsi quando si usa l'estensione.
 
-+ **Forzano il Tunneling del traffico al Firewall dall'ambiente locale tramite Express Route o Network Appliance virtuale**: Una configurazione comune dei clienti è delegata subnet passano attraverso un firewall a livello locale o un'appliance virtuale di rete per definire la propria route predefinita (0.0.0.0/0) che forza tutto il traffico da Gestione API. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione è necessario eseguire un paio di aspetti:
++ **Forzano il Tunneling del traffico al Firewall dall'ambiente locale tramite Express Route o Network Appliance virtuale**: Una configurazione comune dei clienti è delegata subnet passano attraverso un firewall locale o un'appliance virtuale di rete per definire la propria route predefinita (0.0.0.0/0) che forza tutto il traffico da Gestione API. Questo flusso di traffico interrompe sempre la connettività con Gestione API di Azure perché il traffico in uscita è bloccato in locale o convertito tramite NAT in un set non riconoscibile di indirizzi che non usano più i diversi endpoint di Azure. La soluzione è necessario eseguire un paio di aspetti:
 
   * Abilitare gli endpoint di servizio nella subnet in cui viene distribuito il servizio Gestione API. [Gli endpoint di servizio] [ ServiceEndpoints] devono essere abilitati per Azure Sql, archiviazione di Azure, hub eventi di Azure e bus di servizio di Azure. Abilitazione degli endpoint direttamente da Gestione API di subnet delegate a questi servizi consente loro di usare la rete backbone di Microsoft Azure che fornisce il routing ottimale per il traffico del servizio. Se si usano gli endpoint di servizio con una gestione Api sottoposti a tunneling forzato, i servizi di Azure precedenti non verrà forzato il traffico sottoposto a tunneling. L'altre API di gestione viene forzato il traffico delle dipendenze del servizio sottoposto a tunneling e non possono essere perse o il servizio Gestione API non funzionerà correttamente.
     
@@ -194,8 +194,8 @@ Dato il calcolo precedente, le dimensioni minime della subnet, in cui è possibi
 
 
 ## <a name="related-content"></a>Contenuti correlati
-* [Connessione di una rete virtuale al back-end tramite Gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
-* [Connessione di una rete virtuale da modelli di distribuzione differenti](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [La connessione di una rete virtuale back-end tramite Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [La connessione di una rete virtuale da diversi modelli di distribuzione](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Come usare Controllo API per tenere traccia delle chiamate in Gestione API di Azure](api-management-howto-api-inspector.md)
 * [Domande frequenti sulla rete virtuale](../virtual-network/virtual-networks-faq.md)
 * [Tag di servizio](../virtual-network/security-overview.md#service-tags)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2018
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: e826c7a3fc12e819fd6f145d42b7381087d5970c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c7e78f89883e5cfc3fc8b9088c3ac0b3166682c7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000236"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878180"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per trasferire dati in Archiviazione BLOB di Azure
 
@@ -54,8 +54,8 @@ Per preparare le unità, eseguire le operazioni seguenti.
     `cd C:\WaImportExportV1`
 5.  Per ottenere la chiave BitLocker dell'unità, eseguire il comando seguente:
     
-    ` manage-bde -protectors -get <DriveLetter>: `
-6.  Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione può richiedere da diverse ore a più giorni.** 
+    `manage-bde -protectors -get <DriveLetter>:`
+6.  Per preparare il disco, eseguire il comando seguente. **A seconda delle dimensioni dei dati, l'operazione potrebbe richiedere diverse ore a giorni.** 
 
     ```
     ./WAImportExport.exe PrepImport /j:<journal file name> /id:session#<session number> /sk:<Storage account key> /t:<Drive letter> /bk:<BitLocker key> /srcdir:<Drive letter>:\ /dstdir:<Container name>/ /skipwrite 
@@ -70,7 +70,7 @@ Per preparare le unità, eseguire le operazioni seguenti.
     |/id:     |ID sessione. Usare un numero di sessione univoco per ogni istanza del comando.      |
     |/sk:     |Chiave dell'account di Archiviazione di Azure.         |
     |/t:     |Lettera di unità del disco da spedire. Ad esempio, l'unità `D`.         |
-    |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di ` manage-bde -protectors -get D: `      |
+    |/bk:     |Chiave di BitLocker per l'unità. La sua password numerica dall'output di `manage-bde -protectors -get D:`      |
     |/srcdir:     |Lettera di unità del disco da spedire seguita da `:\`. Ad esempio: `D:\`.         |
     |/dstdir:     |Nome del contenitore di destinazione in Archiviazione di Azure.         |
     |/skipwrite:     |Opzione che specifica che non sono presenti nuovi dati da copiare e che è necessario preparare i dati esistenti nel disco.          |
@@ -144,7 +144,7 @@ Tracciare il processo fino al completamento. Una volta completato il processo, v
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizzare lo stato dei processi e delle unità](storage-import-export-view-drive-status.md)
-* [Esaminare i requisiti di importazione/esportazione](storage-import-export-requirements.md)
+* [Visualizzare lo stato del processo e unità](storage-import-export-view-drive-status.md)
+* [Verificare i requisiti di importazione/esportazione](storage-import-export-requirements.md)
 
 

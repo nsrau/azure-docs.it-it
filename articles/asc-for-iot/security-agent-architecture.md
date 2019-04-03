@@ -1,31 +1,31 @@
 ---
 title: Informazioni sul Centro sicurezza di Azure per l'architettura dell'agente di sicurezza IoT Preview | Microsoft Docs
 description: Comprendere l'architettura dell'agente di protezione per gli agenti utilizzati nel Centro sicurezza di Azure per il servizio IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: e78523ae-d70a-456a-818d-f8b1b025d7cb
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e10cd3f60c3b12c6d5115ff34f4cbde2ef19d9fd
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754169"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862812"
 ---
 # <a name="security-agent-reference-architecture"></a>Architettura di riferimento di sicurezza dell'agente
 
 > [!IMPORTANT]
 > Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 Il Centro sicurezza di Azure (ASC) per IoT fornisce l'architettura di riferimento per gli agenti di protezione di log, elaborano, aggregano e inviino i dati di sicurezza tramite l'hub IoT.

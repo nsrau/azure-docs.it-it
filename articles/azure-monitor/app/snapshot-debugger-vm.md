@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 03/07/2019
 ms.author: brahmnes
-ms.openlocfilehash: 4041bee71a41cee06243d53de128bcceecda5618
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: ac937ddb1bcaed6813a0de4d631f820eff01e26f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58001816"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877739"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Abilitare il Debugger di Snapshot per le app .NET in Azure Service Fabric, servizio Cloud e macchine virtuali
 
-Se l'ASP.NET o ASP.NET core dell'esecuzione dell'applicazione nel servizio App di Azure, le istruzioni riportate di seguito sono anche utilizzabile. A meno che l'applicazione richiede una configurazione di Snapshot Debugger personalizzato, è altamente consigliabile [abilitare il Debugger di Snapshot tramite la pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchine virtuali o computer locali, devono essere utilizzate nelle istruzioni seguenti. 
+Se l'ASP.NET o ASP.NET core dell'esecuzione dell'applicazione nel servizio App di Azure, le istruzioni riportate di seguito sono anche utilizzabile. A meno che l'applicazione richiede una configurazione di Snapshot Debugger personalizzato, è altamente consigliabile [abilitare il Debugger di Snapshot tramite la pagina del portale di Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json). Se l'applicazione viene eseguita in Azure Service Fabric, servizio Cloud, macchine virtuali o computer locali, usare le istruzioni seguenti. 
     
 ## <a name="configure-snapshot-collection-for-aspnet-applications"></a>Configurare la raccolta di snapshot per le applicazioni ASP.NET
 
@@ -77,7 +77,7 @@ Se l'ASP.NET o ASP.NET core dell'esecuzione dell'applicazione nel servizio App d
 
 3. Modificare la classe `Startup` dell'applicazione per aggiungere e configurare il processore di telemetria dell'agente di raccolta snapshot.
 
-    Aggiungere le istruzioni using seguenti a `Startup.cs`
+    Aggiungere le seguenti istruzioni using `Startup.cs`
 
    ```csharp
    using Microsoft.ApplicationInsights.SnapshotCollector;

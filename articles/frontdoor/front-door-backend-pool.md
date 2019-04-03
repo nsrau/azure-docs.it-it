@@ -1,6 +1,6 @@
 ---
-title: Servizio Frontdoor di Azure - Back-end e pool back-end | Microsoft Docs
-description: Questo articolo fornisce informazioni sui back-end e i pool back-end per la configurazione di Frontdoor.
+title: I pool back-end e back-end nel servizio di ingresso principale di Azure | Microsoft Docs
+description: Questo articolo descrive i pool di back-end e back-end sono in primo piano lo sportello della configurazione.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -11,69 +11,85 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 228ed5c54a382db7b47d19adacf9e5db398c53ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123692"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879200"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end e pool back-end nel servizio Frontdoor di Azure
-Questo articolo illustra i diversi concetti relativi alla modalità di mapping della distribuzione delle applicazioni con Frontdoor. Verrà anche illustrato i diversi termini in primo piano configurazione sportello tutto back-end dell'applicazione significato.
+Questo articolo descrive i concetti su come eseguire il mapping di distribuzione della tua app con il servizio di ingresso principale di Azure. Vengono inoltre illustrati i diversi termini in configurazione di ingresso principale tutto back-end dell'app.
 
-## <a name="backend-pool"></a>Pool back-end
-Un pool back-end in Frontdoor indica il set dei back-end equivalenti che possono ricevere lo stesso tipo di traffico per la propria applicazione. In altre parole, è un raggruppamento logico delle istanze dell'applicazione in tutto il mondo che possono ricevere lo stesso traffico e rispondere con il comportamento previsto. In genere, questi back-end vengono distribuiti in diverse aree geografiche o nella stessa area. Inoltre, tutti questi back-end possono essere nella modalità di distribuzione attivo/attivo oppure è possibile definire una configurazione attivo/passivo.
+## <a name="backends"></a>Back-end
+Un back-end è uguale all'istanza di distribuzione di un'app in un'area. Servizio di ingresso principale supporta sia Azure sia back-end non Azure, in modo che l'area non è limitato solo alle aree di Azure. Inoltre, può essere il tuo Data Center locale o un'istanza dell'app in un altro cloud.
 
-Il pool back-end definisce anche come deve essere valutata l'integrità dei diversi back-end tramite i probe di integrità e di conseguenza come deve avvenire il bilanciamento del carico tra i back-end.
+Back-end del servizio di ingresso principale fanno riferimento al nome host o indirizzo IP pubblico dell'app, che possono rispondere alle richieste client. Back-end non deve essere confusa con il livello di database, livello di archiviazione e così via. Back-end deve essere considerato come l'endpoint pubblico dei back-end dell'app. Quando si aggiunge un back-end in un pool di back-end di ingresso principale, è necessario anche aggiungere quanto segue:
 
-### <a name="health-probes"></a>Probe di integrità
-Frontdoor invia periodicamente richieste di probe HTTP/HTTPS a ciascuno dei back-end configurati per determinare la prossimità e l'integrità di ogni back-end per il bilanciamento del carico delle richieste degli utenti finali. Le impostazioni dei probe di integrità per un pool back-end definiscono la modalità con cui viene eseguito il polling dello stato di integrità per i back-end dell'applicazione. Sono disponibili le impostazioni seguenti per la configurazione per il bilanciamento del carico:
+- **Tipo di host di back-end**. Il tipo di risorsa da aggiungere. Servizio di ingresso principale supporta il rilevamento automatico dei back-end di app se dal servizio app, servizio cloud o di archiviazione. Se si desidera un'altra risorsa in Azure o anche un back-end non Azure, selezionare **Custom host**.
 
-1. **Percorso**: Percorso URL cui verranno inviate le richieste di probe a per tutti i back-end nel pool di back-end. Ad esempio, se uno dei back-end è `contoso-westus.azurewebsites.net` e il percorso è impostato su `/probe/test.aspx`, gli ambienti Frontdoor, presupponendo che il protocollo sia impostato su HTTP, invieranno le richieste di probe di integrità a http://contoso-westus.azurewebsites.net/probe/test.aspx. 
-2. **Protocollo**: Definisce se le richieste di probe di integrità da porta principale al back-end verranno inviate tramite il protocollo HTTP o HTTPS.
-3. **Intervallo (secondi)**: Questo campo definisce la frequenza di probe di integrità per il back-end, vale a dire, gli intervalli in cui ognuno degli ambienti di ingresso principale invierà un probe. Nota: per rendere i failover più veloci, impostare questo campo su un valore inferiore. Tuttavia, più basso è il valore, maggiore sarà il volume dei probe di integrità che riceverà il back-end. Per avere un'idea del volume dei probe generati da Frontdoor nei back-end, esaminiamo un esempio. Supponiamo che l'intervallo sia impostato su 30 secondi e di avere circa 90 ambienti o POP Frontdoor a livello globale. Di conseguenza, ognuno dei back-end riceverà circa 3-5 richieste di probe al secondo.
+    >[!IMPORTANT]
+    >Durante la configurazione, le API non convalidano se il back-end non è accessibile da ambienti di ingresso principale. Assicurarsi che l'ingresso principale possa raggiungere il back-end.
 
-Per informazioni dettagliate, vedere [Probe di integrità](front-door-health-probes.md).
+- **Nome host di back-end e sottoscrizione**. Se non è stato selezionato **Custom host** per tipo di host di back-end, selezionare il back-end, scegliere la sottoscrizione appropriata e il nome host di back-end corrispondente nell'interfaccia utente.
 
-### <a name="load-balancing-settings"></a>Impostazioni di bilanciamento del carico
-Le impostazioni di bilanciamento del carico per il pool back-end definiscono come vengono valutati i probe di integrità per determinare se un back-end è integro o meno e anche come occorre bilanciare il traffico tra i diversi back-end nel pool back-end. Sono disponibili le impostazioni seguenti per la configurazione per il bilanciamento del carico:
+- **Intestazione host di back-end**. Il valore dell'intestazione host inviato al back-end per ogni richiesta. Per altre informazioni, vedere [intestazione host di back-end](#hostheader).
 
-1. **Le dimensioni del campione**: Questa proprietà identifica il numero di campioni di probe di integrità è necessario prendere in considerazione per la valutazione dell'integrità back-end.
-2. **Dimensioni del campione riuscita**: Questa proprietà definisce che delle dimensioni del campione' ' come descritto in precedenza, il numero di campioni è necessario verificare la presenza di successo chiamare il back-end integro. 
-</br>Si supponga ad esempio di aver impostato in Frontdoor l'*intervallo* del probe di integrità su 30 secondi, le *dimensioni del campione* su "5" e le *dimensioni del campione con esito positivo* su "3". In base a questa configurazione, ogni volta che valutiamo i probe di integrità per il back-end, esamineremo gli ultimi cinque campioni, che possono riguardare gli ultimi 150 secondi (5*30 secondi), e, a meno che tre o più di questi probe non abbiano avuto esito positivo, considereremo il back-end non integro. Se sono presenti solo due probe con esito positivo, il back-end verrà contrassegnato come non integro. Se alla successiva valutazione vengono rilevati tre probe con esito positivo tra gli ultimi cinque, il back-end verrà nuovamente contrassegnato come integro.
-3. **Sensibilità di latenza (latenza aggiuntiva)**: Nel campo sensibilità di latenza definisce se vuoi l'ingresso principale per inviare la richiesta al back-end che siano compresi nell'intervallo tra maiuscole e minuscole in termini di misurazioni di latenza o inoltrare le richieste al back-end più vicino. Per altre informazioni, vedere il [metodo di routing basato sulla latenza minima](front-door-routing-methods.md#latency) per Frontdoor.
+- **Priorità**. Assegnare le priorità per il back-end diverso quando si desidera usare un back-end di servizio primario per tutto il traffico. Specificare anche i backup se il database primario o back-end di backup non sono disponibili. Per altre informazioni, vedere [priorità](front-door-routing-methods.md#priority).
 
-## <a name="backend"></a>Back-end
-Un back-end è equivalente a un'istanza di distribuzione di un'applicazione in un'area. Poiché Frontdoor supporta sia i back-end di Azure che quelli non di Azure, in questo caso l'area non si limita solo alle aree di Azure, ma può anche essere il data center locale o un'istanza dell'applicazione in un altro cloud.
-
-Per back-end, nel contesto di Frontdoor, si intende il nome host o l'indirizzo IP pubblico dell'applicazione, che può rispondere alle richieste client. Di conseguenza, il back-end non deve essere confuso con il livello database o il livello di archiviazione e così via, ma deve essere piuttosto considerato l'endpoint pubblico del back-end dell'applicazione.
-
-Quando si aggiunge un back-end in un pool back-end di Frontdoor, è necessario specificare i dettagli seguenti:
-
-1. **Tipo di host di back-end**: Il tipo di risorsa da aggiungere. Frontdoor supporta l'individuazione automatica dei back-end dell'applicazione dal servizio app, dal servizio cloud o dall'archiviazione. Per usare un'altra risorsa in Azure o un back-end non Azure, selezionare "Host personalizzato". Nota: durante la configurazione, le API non convalidano se il back-end è accessibile dagli ambienti Frontdoor. È quindi necessario verificare che il back-end sia raggiungibile da Frontdoor. 
-2. **Nome host di back-end e sottoscrizione**: Se non è stato selezionato 'Host personalizzato' per l'host di back-end digitare, quindi è necessario definire l'ambito verso il basso e selezionare il back-end, scegliere la sottoscrizione appropriata e il nome host di back-end corrispondente nell'interfaccia utente.
-3. **Intestazione host di back-end**: Il valore dell'intestazione Host inviato al back-end per ogni richiesta. Per informazioni dettagliate, vedere [Intestazione host back-end](#hostheader).
-4. **Priorità**: è possibile assegnare priorità ai diversi back-end quando si vuole usare un back-end di servizio primario per tutto il traffico e prevedere backup nel caso in cui il back-end primario o i back-end di backup non siano disponibili. Per altre informazioni, vedere [Priorità](front-door-routing-methods.md#priority).
-5. **Peso**: è possibile assegnare un peso ai diversi back-end quando si vuole distribuire il traffico in un set di back-end, in modo uniforme o in base ai coefficienti di peso. Per altre informazioni, vedere [Pesi](front-door-routing-methods.md#weighted).
-
+- **Peso**. Assegnare pesi per il back-end diversi per distribuire il traffico in un set di back-end, in modo uniforme o in base ai coefficienti peso. Per altre informazioni, vedere [pesi](front-door-routing-methods.md#weighted).
 
 ### <a name = "hostheader"></a>Intestazione host back-end
 
-Le richieste inoltrate da Frontdoor a un back-end includono un campo Intestazione host usato dal back-end per recuperare la risorsa di destinazione. Il valore per questo campo in genere deriva dall'URI del back-end e contiene l'host e la porta. Ad esempio, una richiesta effettuata a `www.contoso.com` avrà l'intestazione host `www.contoso.com`. Se si sta configurando il back-end tramite il portale di Azure, il valore predefinito inserito in questo campo è il nome host del back-end. Ad esempio, se è il back-end è `contoso-westus.azurewebsites.net`, nel portale di Azure il valore popolato automaticamente per l'intestazione host del back-end sarà `contoso-westus.azurewebsites.net`. 
-</br>Se tuttavia si usano i modelli di Resource Manager o altri meccanismi e non si imposta questo campo in modo esplicito, Frontdoor invia il nome host in entrata come valore dell'intestazione host. Se ad esempio la richiesta è stata effettuata a `www.contoso.com` e il back-end è `contoso-westus.azurewebsites.net` con un campo vuoto per l'intestazione host del back-end, Frontdoor imposterà l'intestazione host su `www.contoso.com`.
+Le richieste inoltrate da porta principale per un back-end includono un campo di intestazione host che usa il back-end per recuperare la risorsa di destinazione. Il valore per questo campo in genere deriva dall'URI del back-end e contiene l'host e la porta.
 
-Per la maggior parte dei back-end dell'applicazione (ad esempio, App Web, Archiviazione BLOB e Servizi cloud), è necessario che l'intestazione host corrisponda al dominio del back-end. Tuttavia, l'host di front-end che indirizza al back-end avrà un nome host diverso, ad esempio www\.contoso.azurefd.net. Se il back-end che si sta impostando richiede che l'intestazione host corrisponda al nome host del back-end, è necessario assicurarsi che anche in "Intestazione host back-end" sia specificato il nome host del back-end.
+Ad esempio, una richiesta effettuata per www\.contoso.com avrà www l'intestazione host\.contoso.com. Se si usa il portale di Azure per configurare il back-end, il valore predefinito per questo campo è il nome host del back-end. Se il back-end è contoso-westus.azurewebsites.net, nel portale di Azure, il valore compilato automaticamente per l'intestazione host di back-end sarà westus.azurewebsites.net di contoso. Tuttavia, se si usa modelli di Azure Resource Manager o un altro metodo senza impostare in modo esplicito questo campo, servizio di ingresso principale invierà il nome host in entrata come valore per l'intestazione host. Se la richiesta è stata effettuata per www\.contoso.com e il back-end è contoso-westus.azurewebsites.net che dispone di un campo di intestazione vuota, il servizio di ingresso principale imposterà l'intestazione host come www\.contoso.com.
+
+La maggior parte dei back-end dell'app (app Web di Azure, archiviazione Blob e i servizi Cloud) richiedono l'intestazione host corrisponda al dominio di back-end. Tuttavia, l'host di front-end che indirizza al back-end utilizzerà un nome host diverso, ad esempio www\.contoso.azurefd.net.
+
+Se il back-end richiede l'intestazione host corrisponda al nome host di back-end, assicurarsi che l'intestazione host di back-end include il nome di host back-end.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>Configurazione dell'intestazione host back-end per il back-end
-Il campo "Intestazione host back-end" può essere configurato per un back-end nella sezione dei pool back-end.
 
-1. Aprire la risorsa di Frontdoor e fare clic sul pool back-end di cui è necessario configurare il back-end.
+Per configurare il **intestazione host di back-end** field per un back-end nella sezione pool back-end:
 
-2. Aggiungere un back-end, se non ne è stato ancora aggiunto nessuno, o modificarne uno esistente. Il campo "Intestazione host back-end" può essere impostato su un valore personalizzato o lasciato vuoto. In questo caso, come valore dell'intestazione host verrà usato il nome host per la richiesta in ingresso.
+1. Aprire la risorsa di ingresso principale e selezionare il pool back-end con il back-end alla configurazione.
 
+2. Aggiungere un back-end se è ancora fatto o modificarne uno esistente.
 
+3. Impostare l'host di back-end di campo di intestazione su un valore personalizzato o lasciarla vuota. Il nome host per la richiesta in ingresso verrà utilizzato come valore dell'intestazione host.
+
+## <a name="backend-pools"></a>Pool back-end
+Un pool back-end in primo piano sportello servizio indica il set dei back-end che ricevono traffico simili per le app. In altre parole, è un raggruppamento logico delle istanze delle app in tutto il mondo che ricevono il traffico stesso e rispondere con il comportamento previsto. Questi back-end vengono distribuiti in diverse aree geografiche o nella stessa area. Tutti i back-end può essere in modalità di distribuzione attiva/attiva o in quello definito nella configurazione attivo/passivo.
+
+Un pool back-end definisce come back-end diversi devono essere valutati tramite i probe di integrità. Definisce anche come bilanciamento del carico si verifica tra di essi.
+
+### <a name="health-probes"></a>Probe di integrità
+Servizio di ingresso principale invia richieste periodiche di probe HTTP/HTTPS a ciascuno dei back-end configurato. Le richieste di probe determinano la prossimità e l'integrità di ogni back-end per caricare bilanciare le richieste degli utenti finali. Le impostazioni di probe di integrità per un pool back-end definiscono come si esegue il polling di stato di integrità del back-end dell'app. Le impostazioni seguenti sono disponibili per la configurazione di bilanciamento del carico:
+
+- **Percorso**. L'URL usato per le richieste di probe per tutti i back-end nel pool di back-end. Ad esempio, se uno dei back-end è contoso-westus.azurewebsites.net e il percorso è impostato su /probe/test.aspx, quindi gli ambienti del servizio di ingresso principale, presupponendo che il protocollo è impostato su HTTP, invierà le richieste di probe di integrità HTTP\:/ / contoso-westus.azurewebsites.net/probe/test.aspx.
+
+- **Protocollo**. Definisce se si desidera inviare le richieste di probe di integrità dal servizio di ingresso principale per il back-end con il protocollo HTTP o HTTPS.
+
+- **Intervallo (secondi)**. Definisce la frequenza di probe di integrità back-end o gli intervalli in cui ognuno degli ambienti di ingresso principale invia un probe.
+
+    >[!NOTE]
+    >Per garantire failover più veloci, impostare l'intervallo su un valore inferiore. Più basso è il valore, maggiore sarà il volume di probe di integrità back-end riceve. Ad esempio, se l'intervallo è impostato su 30 secondi con 90 gli ambienti di ingresso principale o server POP a livello globale, ogni back-end verrà inviato in merito dal 3 al 5 richieste di probe al secondo.
+
+Per altre informazioni, vedere [probe di integrità](front-door-health-probes.md).
+
+### <a name="load-balancing-settings"></a>Impostazioni di bilanciamento del carico
+Le impostazioni di bilanciamento del carico per il pool back-end definiscono la modalità Valutiamo i probe di integrità. Queste impostazioni determinano se il back-end è integro o meno. È anche possibile verificare come il traffico di bilanciamento del carico tra diversi back-end nel pool di back-end. Le impostazioni seguenti sono disponibili per la configurazione di bilanciamento del carico:
+
+- **Le dimensioni del campione**. Identifica il numero di campioni di probe di integrità è necessario prendere in considerazione per la valutazione dell'integrità back-end.
+
+- **Dimensioni del campione riuscita**. Definisce le dimensioni del campione come indicata in precedenza, il numero di campioni riuscite necessario per chiamare il back-end integro. Si supponga, ad esempio, un intervallo di probe di integrità porta d'ingresso è 30 secondi, dimensioni del campione sono 5 secondi e dimensioni del campione riuscito sono 3 secondi. Individua tramite probe ogni volta che valuta l'integrità back-end, prendiamo in esame ultimi cinque campioni più di 150 secondi (5 x 30). Almeno tre probe riusciti necessario dichiarare il back-end integro.
+
+- **Sensibilità di latenza (latenza aggiuntiva)**. Definisce se vuoi l'ingresso principale per inviare la richiesta al back-end all'interno dell'intervallo di sensibilità misurazioni di latenza o inoltrare la richiesta al back-end più vicino.
+
+Per altre informazioni, vedere [metodo di routing basato su latenza minima](front-door-routing-methods.md#latency).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
-- Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).
+- [Creare un profilo Frontdoor](quickstart-create-front-door.md)
+- [Funzionamento di ingresso principale](front-door-routing-architecture.md)

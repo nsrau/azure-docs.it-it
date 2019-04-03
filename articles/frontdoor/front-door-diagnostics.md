@@ -1,6 +1,6 @@
 ---
-title: Servizio Frontdoor di Azure - Metriche e registrazione | Microsoft Docs
-description: Questo articolo consente di comprendere le diverse metriche e gli svariati log di accesso supportati dal servizio Frontdoor di Azure
+title: Monitoraggio delle metriche e log nel servizio di ingresso principale di Azure | Microsoft Docs
+description: Questo articolo descrive le diverse metriche e i log di accesso supportati dal servizio di ingresso principale di Azure
 services: frontdoor
 documentationcenter: ''
 author: sharad4u
@@ -11,30 +11,30 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 3097f4a1716718df5d67769e234562a234623cfe
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: 98aabf5330589bf80f1653bb2882c015a4bc133c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407029"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862115"
 ---
-# <a name="monitoring-metrics-and-logs-for-front-door"></a>Monitoraggio delle metriche e log di ingresso principale
+# <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Monitoraggio delle metriche e log nel servizio di ingresso principale di Azure
 
 Il servizio di ingresso principale di Azure consente di monitorare le risorse nei modi seguenti:
 
-* [Metriche](#metrics): il gateway applicazione dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
-* [Log](#diagnostic-logging): i log consentono di salvare o usare i dati delle prestazioni, di accesso e di altro tipo relativi a una risorsa per scopi di monitoraggio.
+- **Metrics** (Metriche). il gateway applicazione dispone attualmente di sette metriche per visualizzare i contatori delle prestazioni.
+- **I log**. Attività e i log di diagnostica consentono prestazioni, accesso e altri dati per essere salvati o utilizzati da una risorsa a scopo di monitoraggio.
 
-## <a name="metrics"></a>Metriche
+### <a name="metrics"></a>Metriche
 
-Le metriche sono una funzionalità di alcune risorse di Azure che consente di visualizzare i contatori delle prestazioni nel portale. Per Frontdoor sono disponibili le metriche seguenti:
+Le metriche sono una funzionalità per determinate risorse di Azure che consentono di visualizzare i contatori delle prestazioni nel portale. Di seguito sono disponibili metriche di ingresso principale:
 
 | Metrica | Nome visualizzato per la metrica | Unità | Dimensioni | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
 | RequestCount | Conteggio richieste | Conteggio | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di richieste client gestite da Frontdoor.  |
 | RequestSize | Dimensioni della richiesta | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di byte inviati come richieste dai client a Frontdoor. |
 | ResponseSize | Dimensioni della risposta | Byte | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Numero di byte inviati come risposte da Frontdoor ai client. |
-| TotalLatency | Latenza totale | Millisecondi | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | Tempo calcolato dal momento della ricezione della richiesta client da parte di Frontdoor al momento della conferma da parte del client della ricezione dell'ultimo byte della risposta di Frontdoor. |
+| TotalLatency | Latenza totale | Millisecondi | HttpStatus</br>HttpStatusGroup</br>ClientRegion</br>ClientCountry | L'ora calcolata della richiesta del client ha ricevuta da porta principale fino al client di riconoscimento dell'ultimo byte di risposta dalla porta principale. |
 | BackendRequestCount | Conteggio delle richieste del back-end | Conteggio | HttpStatus</br>HttpStatusGroup</br>Back-end | Numero di richieste inviate da Frontdoor ai back-end. |
 | BackendRequestLatency | Latenza della richiesta del back-end | Millisecondi | Back-end | Tempo calcolato dal momento dell'invio della richiesta al back-end da parte di Frontdoor al momento della ricezione da parte di Frontdoor dell'ultimo byte della risposta inviata dal back-end. |
 | BackendHealthPercentage | Percentuale di integrità del back-end | Percentuale | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
@@ -42,35 +42,36 @@ Le metriche sono una funzionalità di alcune risorse di Azure che consente di vi
 
 ## <a name="activity-log"></a>Log attività
 
-I log attività offrono informazioni dettagliate sulle operazioni eseguite sull'ingresso principale. Uso del log attività, è possibile determinare la "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sull'ingresso principale.
+I log attività offrono informazioni sulle operazioni eseguite nel servizio di ingresso principale. È inoltre possibile determinare cosa, chi e quando per qualsiasi operazione di scrittura (put, post o delete) eseguita sul servizio di ingresso principale.
 
-> [!NOTE]
-> I log attività non includono le operazioni di lettura (GET) né le operazioni eseguite nel portale di Azure o usando le API di gestione originali.
+>[!NOTE]
+>I log attività non includono le operazioni di lettura (get). Non includono anche le operazioni eseguite tramite il portale di Azure o l'API di gestione originale.
 
-È possibile accedere ai log attività di ingresso principale o accedere ai log di tutte le risorse di Azure in Monitoraggio di Azure. 
-
-Per visualizzare i log di attività:
+Attività di accesso effettua l'accesso al servizio di ingresso principale o tutti i log delle risorse di Azure in Monitoraggio di Azure. Per visualizzare i log di attività:
 
 1. Selezionare l'istanza di ingresso principale.
-2. Fare clic su **Log attività**.
+2. Selezionare **log attività**.
 
     ![Log attività](./media/front-door-diagnostics/activity-log.png)
 
-3. Selezionare l'ambito di filtro desiderato e fare clic su **Applica**.
+3. Scegliere un ambito di filtro e quindi selezionare **applica**.
 
 ## <a name="diagnostic-logging"></a>Registri di diagnostica
-I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli errori importanti per il controllo e per la risoluzione dei problemi. I log di diagnostica differiscono dai log attività. I log attività offrono informazioni approfondite sulle operazioni eseguite nelle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Altre informazioni sulle [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/diagnostic-logs-overview.md). 
+I log di diagnostica offrono informazioni dettagliate sulle operazioni e gli errori che sono importanti per il controllo e la risoluzione dei problemi. I log di diagnostica differiscono dai log attività.
 
-Per configurare i log di diagnostica per l'ingresso principale:
+I log attività offrono informazioni dettagliate sulle operazioni eseguite sulle risorse di Azure. I log di diagnostica forniscono informazioni dettagliate sulle operazioni eseguite dalla risorsa. Per altre informazioni, vedere [log di diagnostica di monitoraggio di Azure](../azure-monitor/platform/diagnostic-logs-overview.md).
 
-1. Selezionare l'istanza del servizio Gestione API.
-2. Fare clic su **Impostazioni di diagnostica**.
+![Log di diagnostica](./media/front-door-diagnostics/diagnostic-log.png)
 
-    ![Log di diagnostica](./media/front-door-diagnostics/diagnostic-log.png)
+Per configurare i log di diagnostica per il servizio di ingresso principale:
 
-3. Fare clic su **Attiva diagnostica**. I log di diagnostica possono essere archiviati con le metriche in un account di archiviazione, trasmessi a un hub eventi o inviati ai log di Monitoraggio di Azure. 
+1. Selezionare il servizio Gestione API di Azure.
 
-Servizio di ingresso principale di Azure offre attualmente funzionalità di diagnostica log (in batch orari) sulle singole API richiesta con ogni voce con lo schema seguente:
+2. Scegli **le impostazioni di diagnostica**.
+
+3. Selezionare **Attiva diagnostica**. Archiviare i log di diagnostica con le metriche in un account di archiviazione, trasmessi a un hub eventi o inviarli a log di monitoraggio di Azure.
+
+Il servizio di ingresso principale offre attualmente i log di diagnostica (in batch su base oraria). I log di diagnostica forniscono le singole richieste di API con ogni voce con lo schema seguente:
 
 | Proprietà  | DESCRIZIONE |
 | ------------- | ------------- |
@@ -91,5 +92,5 @@ Servizio di ingresso principale di Azure offre attualmente funzionalità di diag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
-- Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).
+- [Creare un profilo Frontdoor](quickstart-create-front-door.md)
+- [Funzionamento di ingresso principale](front-door-routing-architecture.md)

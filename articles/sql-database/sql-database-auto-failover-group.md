@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483387"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848392"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 
@@ -343,11 +343,11 @@ Come indicato in precedenza, i gruppi di failover automatico e la replica geogra
 
 | API | DESCRIZIONE |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Modifica la configurazione del gruppo di failover|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Recupera la configurazione del gruppo di failover|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Attiva il failover del gruppo di failover per il server secondario|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Rimuove un gruppo di failover|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Questo comando crea un gruppo di failover e lo registra nei server primario e secondario|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica la configurazione del gruppo di failover|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera la configurazione del gruppo di failover|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Attiva il failover del gruppo di failover per il server secondario|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Rimuove un gruppo di failover|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Gestire gruppi di failover del database SQL con database singoli e in pool
 

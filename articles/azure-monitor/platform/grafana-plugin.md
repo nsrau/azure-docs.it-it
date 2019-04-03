@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: ''
-ms.openlocfilehash: 64a7a52d39fcac87bdc49b9d36e80d453557bc5b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6ea8f4e591399e23b103871da115dbb937227ca9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58002280"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850684"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorare i servizi di Azure in Grafana
 Ora è possibile monitorare i servizi e le applicazioni di Azure da [Grafana](https://grafana.com/) usando il [plug-in dell'origine dati di Monitoraggio di Azure](https://grafana.com/plugins/grafana-azure-monitor-datasource). Il plug-in raccoglie i dati sulle prestazioni dell'applicazione ottenuti da Monitoraggio di Azure, tra cui diversi log e metriche. È quindi possibile visualizzare questi dati nel dashboard di Grafana.
@@ -47,13 +47,13 @@ Per configurare un server Grafana locale, [scaricare e installare Grafana nell'a
 
 7. Ottenere l'indirizzo IP pubblico del server Grafana tornando all'elenco di risorse e selezionando **Indirizzo IP pubblico**.
 
-## <a name="log-in-to-grafana"></a>Accedere a Grafana
+## <a name="sign-in-to-grafana"></a>Accedere a Grafana
 
 1. Usando l'indirizzo IP del server, aprire la pagina di accesso all'indirizzo *http://\<indirizzo IP\>:3000* o *\<NomeDNS>\:3000* nel browser. Anche se la porta predefinita è la 3000, tenere presente che potrebbe essere stata selezionata una porta diversa durante la configurazione. Compare una pagina di accesso per il server Grafana creato.
 
     ![Schermata di accesso di Grafana](./media/grafana-plugin/grafana-login-screen.png)
 
-2. Accedere con il nome utente *admin* e la password di amministratore del server Grafana creata in precedenza. Se si usa una configurazione locale, la password predefinita sarà *admin* e verrà richiesto di cambiarla al primo accesso.
+2. Accedere con il nome utente *admin* e la password amministratore del server Grafana creata in precedenza. Se si usa una configurazione locale, la password predefinita sarà *admin* e verrà richiesto di cambiarla al primo accesso.
 
 ## <a name="configure-data-source-plugin"></a>Configurare il plug-in di origine dati
 
@@ -167,5 +167,5 @@ Se è stato configurato un ambiente Grafana in Azure, è previsto un addebito qu
 2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare **Grafana** nella casella di testo e quindi fare clic su **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Panoramica delle metriche di Monitoraggio di Azure](../../azure-monitor/platform/data-collection.md)
+* [Panoramica delle metriche di Monitoraggio di Azure](data-platform.md)
 

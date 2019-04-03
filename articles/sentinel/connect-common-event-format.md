@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 0d3ecfed766f8a1ba558e0b0cd4fe6a27c33e441
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f19afeb3ac984427458dd23085c9c6d9e69e3e3a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579632"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884211"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Connettere la soluzione esterna usando Common Event Format
 
@@ -33,7 +33,7 @@ ms.locfileid: "58579632"
 > 
 > I dati vengono archiviati nella posizione geografica dell'area di lavoro in cui in esecuzione Azure Sentinel.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 La connessione tra l'appliance CEF e Sentinel Azure viene eseguita in tre passaggi:
 
@@ -120,7 +120,7 @@ Potrebbero occorrere fino a 20 minuti fino a quando i log di avvio venga visuali
 
 1. Assicurarsi che i log vengano alla porta di destra nell'agente di Syslog. Eseguire questo comando computer agente Syslog: `tcpdump -A -ni any  port 514 -vv` Questo comando Visualizza i log che consente di trasmettere dal dispositivo al computer Syslog. Assicurarsi che i log vengono ricevuti da appliance di origine sulla porta di destra e struttura a destra.
 2. Verificare che vi sia la comunicazione tra il daemon Syslog e l'agente. Eseguire questo comando computer agente Syslog: `tcpdump -A -ni any  port 25226 -vv` Questo comando Visualizza i log che consente di trasmettere dal dispositivo al computer Syslog. Assicurarsi che i log vengono anche ricevuti nell'agente.
-3. Se entrambi i comandi forniti risultati corretti, controllare i Log Analitica per vedere se i log sono in arrivo. Tutti gli eventi trasferiti da questi dispositivi vengono visualizzati in formato non elaborato nel Log Analitica in `CommonSecurityLog ` tipo.
+3. Se entrambi i comandi forniti risultati corretti, controllare i Log Analitica per vedere se i log sono in arrivo. Tutti gli eventi trasferiti da questi dispositivi vengono visualizzati in formato non elaborato nel Log Analitica in `CommonSecurityLog` tipo.
 1. Per verificare se sono presenti errori o se i log non sono in arrivo, Cerca in `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Assicurarsi che le dimensioni predefinite del messaggio Syslog sono limitata a 2048 byte (2KB). Se i log sono troppo lunghi, aggiornare il security_events usando questo comando: `message_length_limit 4096`
 6. Per usare lo schema appropriato nel Log Analitica per gli eventi CEF, cercare **CommonSecurityLog**.

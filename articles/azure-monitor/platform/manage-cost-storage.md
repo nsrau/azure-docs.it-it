@@ -14,19 +14,19 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755807"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878146"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Gestire l'utilizzo e costi per Log Analitica in Monitoraggio di Azure
 
 > [!NOTE]
 > Questo articolo descrive come controllare i costi in Log Analytics impostando il periodo di conservazione dei dati.  Per le informazioni correlate, vedere gli articoli seguenti.
 > - [Analizzare l'utilizzo dei dati in Log Analytics](manage-cost-storage.md) descrive l'analisi e gli avvisi per l'utilizzo dei dati.
-> - [Monitoraggio dell'utilizzo e dei costi stimati](usage-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati tra più funzionalità di monitoraggio di Azure per diversi modelli di determinazione dei prezzi. Illustra inoltre come modificare il modello di prezzi.
+> - [Monitorare l'utilizzo e i costi stimati](usage-estimated-costs.md) descrive come visualizzare l'utilizzo e i costi stimati relativi a più funzionalità di monitoraggio di Azure per diversi modelli di prezzi. Illustra inoltre come modificare il modello di prezzi.
 
 Log Analitica in Monitoraggio di Azure è progettato per scalabilità e supportare la raccolta, l'indicizzazione e l'archiviazione di enormi quantità di dati al giorno da qualsiasi origine in ambito aziendale o distribuita in Azure.  Anche se si tratta di uno strumento importante per l'organizzazione, è comunque fondamentale ottimizzare i costi. A tale scopo, è importante comprendere che il costo di un'area di lavoro di Log Analytics non si basa solo sul volume dei dati raccolti, ma dipende anche dal piano selezionato e dal periodo di tempo di archiviazione dei dati generati dalle origini connesse.  
 
@@ -66,7 +66,7 @@ Di seguito viene descritto come configurare un limite per gestire il volume di d
 
 1. Nell'area di lavoro selezionare **Utilizzo e costi stimati** nel riquadro a sinistra.
 2. Nella pagina **Utilizzo e costi stimati** per l'area di lavoro selezionata fare clic su **Gestione del volume dati** nella parte superiore. 
-3. Per impostazione predefinita, il limite giornaliero è impostato su **DISATTIVA**. Fare clic su **ATTIVA** per abilitarlo e quindi impostare il volume di dati in GB/giorno.<br><br> ![Configurazione della soglia dei dati in Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. Per impostazione predefinita, il limite giornaliero è impostato su **DISATTIVA**. Fare clic su **ATTIVA** per abilitarlo e quindi impostare il volume di dati in GB/giorno.<br><br> ![Log Analitica Configura limite dei dati](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Avvisa al raggiungimento del limite giornaliero
 Anche se nel portale di Azure viene visualizzato un segnale visivo quando viene raggiunta la soglia dei dati, questo comportamento potrebbe non soddisfare le esigenze aziendali per la gestione di problemi operativi che richiedono attenzione immediata.  Per ricevere una notifica di avviso, è possibile creare una nuova regola di avviso in Monitoraggio di Azure.  Per altre informazioni, vedere [Creare, visualizzare e gestire gli avvisi tramite Monitoraggio di Azure](alerts-metric.md).      
@@ -122,7 +122,7 @@ Se si desidera spostare l'area di lavoro nel piano tariffario corrente, è neces
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Risoluzione dei problemi se Log Analytics non sta più raccogliendo dati
 Se si sta usando il piano tariffario legacy Gratuito e sono stati inviati più di 500 MB di dati in un giorno, la raccolta dati si interrompe per il resto del giorno. Il raggiungimento del limite giornaliero è un motivo comune per cui Log Analytics interrompe la raccolta dei dati o per cui i dati mancano.  Log Analytics crea un evento di tipo operazione quando la raccolta dati si avvia e si arresta. Eseguire la query seguente per verificare se si raggiunge il limite giornaliero e se i dati sono mancanti: 
 
-`Operation | where OperationCategory == 'Data Collection Status' `
+`Operation | where OperationCategory == 'Data Collection Status'`
 
 Quando la raccolta dati si interrompe, OperationStatus è Avviso. Quando la raccolta dati si avvia, OperationStatus è Riuscito. La tabella seguente descrive i motivi per cui raccolta dei dati si interrompe e un'azione consigliata per riprendere la raccolta dati:  
 
@@ -186,9 +186,11 @@ Si noti che la clausola "where IsBillable = true" esclude i tipi di dati da dete
 
 Per visualizzare il **dimensioni** degli eventi fatturabili inseriti al computer, utilizzare il `_BilledSize` proprietà ([log-standard-properties & _billedsize.md](learn more)) che fornisce la dimensione in byte:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
 Il `_IsBillable` proprietà specifica se i dati inseriti si incorrerà in spese ([_isbillable & log-standard-properties.md](Learn more).)
 
@@ -205,26 +207,32 @@ Per visualizzare il numero di eventi fatturabili inseriti per computer, usare
 
 Per sapere il numero di tipi dati fatturabili che inviano dati a uno specifico computer, usare:
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volume di dati da risorse di Azure, gruppo di risorse o sottoscrizione
 
 Per i dati dai nodi ospitati in Azure è possibile ottenere il **dimensioni** degli eventi fatturabili inseriti __per ogni computer__, usare il `_ResourceId` proprietà che fornisce il percorso completo della risorsa ([ log-standard-properties.md & _resourceid](learn more)):
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
 
 Per i dati dai nodi ospitati in Azure è possibile ottenere il **dimensioni** degli eventi fatturabili inseriti __per ogni sottoscrizione di Azure__, analizzare il `_ResourceId` proprietà come:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
 
 Modificando `subscriptionId` a `resourceGroup` indicherà il volume di dati inseriti fatturabili dal gruppo resouurce Azure. 
 
@@ -295,7 +303,8 @@ Per visualizzare il numero di nodi di sicurezza distinti è possibile usare la q
 
 Per visualizzare il numero di nodi di Automazione distinti usare la query:
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -303,7 +312,8 @@ Per visualizzare il numero di nodi di Automazione distinti usare la query:
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creare un avviso quando la raccolta dati supera le dimensioni previste
 
@@ -330,7 +340,7 @@ Quando si crea l'avviso per la prima query e la quantità di dati supera i 100 G
 - Per **Definire la condizione dell'avviso**, specificare l'area di lavoro di Log Analytics come destinazione della risorsa.
 - Per **Criteri di avviso** specificare quanto segue:
    - Per **Nome segnale** selezionare **Ricerca log personalizzata**
-   - **Query di ricerca** su `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Query di ricerca** a `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
    - **Periodo di tempo** di *1440* minuti e **Frequenza di avviso** ogni *60* minuti, poiché i dati sull'utilizzo vengono aggiornati solo una volta all'ora.
 - Per **Definire i dettagli dell'avviso** specificare quanto segue:
@@ -344,7 +354,7 @@ Quando si crea l'avviso per la seconda query e si prevedono più di 100 GB di da
 - Per **Definire la condizione dell'avviso**, specificare l'area di lavoro di Log Analytics come destinazione della risorsa.
 - Per **Criteri di avviso** specificare quanto segue:
    - Per **Nome segnale** selezionare **Ricerca log personalizzata**
-   - **Query di ricerca** su `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Query di ricerca** a `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - **Logica avvisi** è **In base a** *numero di risultati* e **Condizione** è *Maggiore di* una **Soglia** pari a *0*
    - **Periodo di tempo** di *180* minuti e **Frequenza di avviso** ogni *60* minuti, poiché i dati sull'utilizzo vengono aggiornati solo una volta all'ora.
 - Per **Definire i dettagli dell'avviso** specificare quanto segue:

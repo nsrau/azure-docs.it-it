@@ -3,21 +3,21 @@ title: Copiare dati verso e da WASB in Data Lake Storage Gen1 di Azure con Distc
 description: Usare lo strumento Distcp per copiare dati da e verso BLOB di Archiviazione di Microsoft Azure in Data Lake Storage Gen1 di Azure
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ae2e9506-69dd-4b95-8759-4dadca37ea70
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5c3f393278d3d51dd3a53cd19335cd242c15c6d8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: fbefe233ce0d2477982faf0a9f38a73062e0c7a1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58168708"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884466"
 ---
 # <a name="use-distcp-to-copy-data-between-azure-storage-blobs-and-azure-data-lake-storage-gen1"></a>Usare Distcp per copiare dati tra i BLOB del servizio di Archiviazione di Microsoft Azure e i Data Lake Storage Gen1 di Azure
 > [!div class="op_single_selector"]
@@ -111,7 +111,7 @@ Quando le dimensioni del set di dati da spostare sono molto grandi (ad esempio, 
 * Se si esegue la copia da un account di Archiviazione BLOB di Azure, il processo di copia potrebbe essere limitato nell'ambito dell'archiviazione BLOB. In questo caso le prestazioni del processo di copia diminuiscono. Per altre informazioni sui limiti di Archiviazione BLOB di Azure, vedere i limiti di Archiviazione di Azure in [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-subscription-service-limits.md).
 
 ## <a name="see-also"></a>Vedere anche 
-* [Copiare i dati dai BLOB di Archiviazione di Azure a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [Proteggere i dati in Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Usare Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Usare Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Copiare dati da BLOB di archiviazione di Azure a Data Lake archiviazione Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Proteggere i dati in Data Lake archiviazione Gen1](data-lake-store-secure-data.md)
+* [Usare Azure Data Lake Analitica con Data Lake Store Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Usare Azure HDInsight con Data Lake Store Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

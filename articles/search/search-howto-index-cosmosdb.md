@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: dceabc799e187f3af56588d5a9008e5cdca517c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864457"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883395"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Indicizzazione di Cosmos DB usando un indicizzatore di ricerca di Azure
 
@@ -61,7 +61,7 @@ Nel **zdroj dat** pagina, l'origine deve essere **Cosmos DB**, con le specifiche
 
 + **Nome** è il nome dell'oggetto origine dati. Una volta creato, è possibile scegliere, per altri carichi di lavoro.
 
-+ **Account COSMOS DB** dovrebbe essere la stringa di connessione primaria o secondaria di Cosmos DB, con un `AccountEdpointPoint` e un `AccountKey`. L'account determina se i dati viene eseguito il cast come API SQL o l'API di MongoDB
++ **Account COSMOS DB** dovrebbe essere la stringa di connessione primaria o secondaria di Cosmos DB, con un `AccountEndpoint` e un `AccountKey`. L'account determina se i dati viene eseguito il cast come API SQL o l'API di MongoDB
 
 + **Database** è un database esistente dall'account. 
 
@@ -171,10 +171,10 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 
 | Campo   | DESCRIZIONE |
 |---------|-------------|
-| **nome** | Richiesto. Scegliere qualsiasi nome per rappresentare l'oggetto origine dati. |
+| **name** | Richiesto. Scegliere qualsiasi nome per rappresentare l'oggetto origine dati. |
 |**type**| Richiesto. Deve essere `documentdb`. |
 |**credentials** | Richiesto. Deve essere una stringa di connessione di Cosmos DB.<br/>Per le raccolte SQL, le stringhe di connessione sono nel formato seguente: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Per le raccolte di MongoDB, aggiungere **ApiKind = MongoDb** alla stringa di connessione:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evitare i numeri di porta nell'URL dell'endpoint. Se si include il numero di porta, Ricerca di Azure non potrà indicizzare il database di Azure Cosmos DB.|
-| **container** | contiene gli elementi seguenti: <br/>**name**: Richiesto. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativo. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.<br/>Per le raccolte di MongoDB, le query non sono supportate. |
+| **Contenitore** | contiene gli elementi seguenti: <br/>**name**: Richiesto. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: facoltativo. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che può essere indicizzato da Ricerca di Azure.<br/>Per le raccolte di MongoDB, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato. Vedere la sezione [Indicizzazione di documenti modificati](#DataChangeDetectionPolicy).|
 |**dataDeletionDetectionPolicy** | facoltativo. Vedere la sezione [Indicizzazione di documenti eliminati](#DataDeletionDetectionPolicy).|
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 15924f2da72318603d11b2d4aadff72cb14ad5f7
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55156956"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880645"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Risoluzione dei problemi del framework di esperienza di gestione delle identità e criteri personalizzati di Azure AD B2C
 
@@ -41,16 +41,16 @@ Una revisione delle regole XML può risultare utile. Azure AD B2C rifiuta qualsi
  
  Gli errori di convalida più comuni sono i seguenti.
 
-Frammento con errore: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
+Frammento di codice di errore: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * Il valore ClaimType potrebbe non essere scritto correttamente oppure non esiste nello schema.
 * I valori ClaimType devono essere definiti in almeno uno dei file nei criteri. 
-    Ad esempio: ` <ClaimType Id="socialIdpUserId">`
+    Ad esempio:  `<ClaimType Id="socialIdpUserId">`
 * Se ClaimType è definito nel file delle estensioni, ma è usato anche in un valore TechnicalProfile nel file di base, il caricamento del file di base restituirà un errore.
 
-Frammento con errore: `...makes a reference to a ClaimsTransformation with id...`
+Frammento di codice di errore: `...makes a reference to a ClaimsTransformation with id...`
 * Le cause dell'errore potrebbero essere le stesse dell'errore ClaimType.
 
-Frammento con errore: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+Frammento di codice di errore: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 * Verificare che il valore TenantId negli elementi **\<TrustFrameworkPolicy\>**  e  **\<BasePolicy\>** corrisponda al tenant di Azure Active Directory B2C di destinazione.  
 
 ## <a name="troubleshoot-the-runtime"></a>Risoluzione dei problemi di runtime
@@ -70,7 +70,7 @@ Frammento con errore: `Reason: User is currently logged as a user of 'yourtenant
 
 **Sviluppare e testare i profili tecnici con percorsi utente noti.** Usare i criteri starter pack testati per configurare i profili tecnici. Testarli separatamente prima di includerli nel proprio percorso utente.
 
-**Sviluppare e testare i percorsi utente con profili tecnici testati.** Modificare i passaggi di orchestrazione di un percorso utente in modo incrementale. Compilare progressivamente gli scenari previsti.
+**Sviluppare e testare i percorsi utente con i profili tecnici testati.** Modificare i passaggi di orchestrazione di un percorso utente in modo incrementale. Compilare progressivamente gli scenari previsti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

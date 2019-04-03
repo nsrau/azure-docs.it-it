@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c7bfa8351a2599ff8616364a093cd6154e90830c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757786"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850866"
 ---
 # <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con il portale di Azure  
 > [!div class="op_single_selector"]
@@ -27,14 +27,13 @@ ms.locfileid: "58757786"
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
-> 
+
+> [!NOTE]
+> Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](https://docs.microsoft.com/azure/media-services/latest/). Vedere anche [materiale sussidiario di migrazione dalla v2 alla v3](../latest/migrate-from-v2-to-v3.md)
 
 Questa esercitazione illustra i passaggi per creare un **canale** che riceve un flusso live a velocità in bit singola e lo codifica in un flusso a più velocità in bit.
 
-> [!NOTE]
-> Per altre informazioni concettuali sui canali correlati abilitati per la codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
-> 
-> 
+Per altre informazioni concettuali sui canali correlati abilitati per la codifica live, vedere [Uso di canali abilitati per l'esecuzione della codifica live con Servizi multimediali di Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 ## <a name="common-live-streaming-scenario"></a>Scenario comune di streaming live
 Di seguito sono descritti i passaggi generali relativi alla creazione di applicazioni comuni di streaming live.

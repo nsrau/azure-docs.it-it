@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407184"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879387"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming live con Servizi multimediali di Azure v3
 
@@ -31,7 +31,7 @@ Servizi multimediali di Azure consente di offrire eventi live per i clienti nel 
 Questo articolo offre una panoramica e informazioni aggiuntive dello streaming live con servizi multimediali e include collegamenti ad altri articoli pertinenti.
 
 > [!NOTE]
-> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare la [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o uno degli [SDK](developers-guide.md).
+> Non è attualmente possibile usare il portale di Azure per gestire le risorse v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
 
 ## <a name="dynamic-packaging"></a>Creazione dinamica dei pacchetti
 
@@ -73,7 +73,7 @@ Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, �
 
 1. Nell'account di Servizi multimediali assicurarsi che l'**endpoint di streaming** sia in esecuzione. 
 2. Creare un [Evento live](live-events-outputs-concept.md). <br/>Quando si crea l'evento, è possibile impostarne l'avvio automatico. In alternativa, è possibile avviare l'evento quando si è pronti ad avviare lo streaming.<br/> Quando l'avvio automatico è impostato su true, l'evento live verrà avviato subito dopo la creazione. La fatturazione inizia non appena viene avviata l'esecuzione dell'evento live. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione. Per altre informazioni, vedere [Stati e fatturazione dell'evento live](live-event-states-billing.md).
-3. Ottenere gli URL di inserimento e configurare il codificatore a livello locale per usare l'URL per inviare il feed di contributo.<br/>Vedere i [codificatori live consigliati](recommended-on-premises-live-encoders.md).
+3. Ottenere gli URL di inserimento e configurare un codificatore locale per usare l'URL per inviare il feed di contributo.<br/>Vedere i [codificatori live consigliati](recommended-on-premises-live-encoders.md).
 4. Ottenere l'URL di anteprima e usarlo per verificare che l'input dal codificatore venga effettivamente ricevuto.
 5. Creare un nuovo oggetto **Asset**.
 6. Creare un **LiveOutput** e usare il nome dell'asset creato.<br/>L'**output live** archivierà il flusso nell'**asset**.
@@ -87,11 +87,11 @@ Per comprendere il flusso di lavoro streaming live in servizi multimediali v3, �
 
 - [Codificatori live consigliati](recommended-on-premises-live-encoders.md)
 - [Utilizzo di un DVR cloud](live-event-cloud-dvr.md)
-- [Confronto tra le funzionalità dei tipi di eventi live](live-event-types-comparison.md)
+- [Confronto tra le funzionalità tipi di eventi in tempo reale](live-event-types-comparison.md)
 - [Stati e fatturazione](live-event-states-billing.md)
-- [Latency](live-event-latency.md)
+- [Latenza](live-event-latency.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Esercitazione sullo streaming live](stream-live-tutorial-with-api.md)
+* [Esercitazione di streaming in tempo reale](stream-live-tutorial-with-api.md)
 * [Materiale sussidiario sulla migrazione per aggiornare Servizi multimediali da v2 a v3](migrate-from-v2-to-v3.md)

@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977814"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880713"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Risoluzione degli errori di limitazione delle richieste delle API 
 
@@ -35,7 +35,7 @@ Quando un client API di Azure riceve un errore di limitazione delle richieste, l
 | Intestazione                            | Formato del valore                           | Esempio                               | DESCRIZIONE                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Numero di chiamate API rimanenti per i criteri di limitazione delle richieste che coprono il contenitore di risorse o il gruppo di operazioni che include la destinazione della richiesta                                                                   |
-| x-ms-request-charge               | ```<count>   ```                             | 1                                     | Numero di chiamate "addebitato" per questa richiesta HTTP rispetto al limite dei criteri applicabili. Generalmente è 1. Le richieste batch, ad esempio per il ridimensionamento di un set di scalabilità di macchine virtuali, possono comportare l'addebito di un numero superiore. |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | Numero di chiamate "addebitato" per questa richiesta HTTP rispetto al limite dei criteri applicabili. Generalmente è 1. Le richieste batch, ad esempio per il ridimensionamento di un set di scalabilità di macchine virtuali, possono comportare l'addebito di un numero superiore. |
 
 
 Si noti che una richiesta API può essere sottoposta a più criteri di limitazione delle richieste. Sarà presente un'intestazione `x-ms-ratelimit-remaining-resource` distinta per ogni criterio. 

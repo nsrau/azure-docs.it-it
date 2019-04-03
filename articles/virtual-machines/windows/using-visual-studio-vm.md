@@ -13,15 +13,15 @@ ms.workload: azure-vs
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: phillee
 keywords: visualstudio
-ms.openlocfilehash: b9bfa49a94bca7f80cacedea0a08b1c0a6128ef8
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: df91ba12c1ee74b8e28f75344a5cd55af018d3cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619561"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884874"
 ---
 # <a name="visual-studio-images-on-azure"></a>Immagini di Visual Studio in Azure
 L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è un modo semplice e rapido per avere subito a disposizione un ambiente di sviluppo pienamente operativo. In [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=visual%20studio&page=1) sono disponibili immagini di sistema con diverse configurazioni di Visual Studio.
@@ -29,15 +29,15 @@ L'uso di Visual Studio in una macchina virtuale (VM) di Azure preconfigurata è 
 Non si è ancora provato Azure? [Creare un account Azure gratuito](https://azure.microsoft.com/free).
 
 ## <a name="what-configurations-and-versions-are-available"></a>Quali configurazioni e versioni sono disponibili?
-Le immagini per le versioni principali più recenti, Visual Studio 2017 e Visual Studio 2015, sono disponibili in Azure Marketplace.  È stato recentemente aggiunto il supporto per le anteprime della versione principale, Visual Studio 2019, a breve in uscita.  Per ogni versione principale sono elencate la versione originariamente rilasciata (RTW) e le versioni aggiornate più recenti.  Ognuna di queste versioni offre le edizioni Visual Studio Enterprise e Visual Studio Community.  Queste immagini vengono aggiornate almeno una volta al mese in modo da includere gli aggiornamenti più recenti per Visual Studio e Windows.  Anche se i nomi delle immagini rimangono invariati, la descrizione di ogni immagine include la versione del prodotto installato e la data corrente dell'immagine.
+Immagini per le versioni principali più recenti, Visual Studio 2019, Visual Studio 2017 e Visual Studio 2015, sono disponibili in Azure Marketplace.  Per ogni rilascio versione principale, viene visualizzato l'originariamente "rilasciato sul web" (RTW) versione e le versioni aggiornate più recenti.  Ognuna di queste versioni offre le edizioni Visual Studio Enterprise e Visual Studio Community.  Queste immagini vengono aggiornate almeno una volta al mese in modo da includere gli aggiornamenti più recenti per Visual Studio e Windows.  Anche se i nomi delle immagini rimangono invariati, la descrizione di ogni immagine include la versione del prodotto installato e la data corrente dell'immagine.
 
 | Versione di rilascio                                              | Edizioni                     |     Versione prodotto      |
 |:------------------------------------------------------------:|:----------------------------:|:------------------------:|
-|     Visual Studio 2019: Anteprima (RC4)                        |           Enterprise         |    Versione 16.0.0 RC4    |
+|     Visual Studio 2019: RTW                                  |    Enterprise, Community     |      Versione 16.0.0      |
 | Visual Studio 2017: Versione più recente (versione 15.9)                    |    Enterprise, Community     |      Versione 15.9.10     |
 |         Visual Studio 2017: RTW                              |    Enterprise, Community     |      Versione 15.0.22     |
 |   Visual Studio 2015: Versione più recente (aggiornamento 3)                      |    Enterprise, Community     |  Versione 14.0.25431.01   |
-|         Visual Studio 2015: RTW                              |             None             | (Supporto per la manutenzione scaduto)  |
+|         Visual Studio 2015: RTW                              |             Nessuna             | (Supporto per la manutenzione scaduto)  |
 
 > [!NOTE]
 > In base ai criteri di manutenzione di Microsoft, il supporto per la manutenzione della versione di Visual Studio 2015 originariamente rilasciata (RTW) è scaduto. Visual Studio 2015 Update 3 è l'unica versione rimanente offerta per la linea di prodotti Visual Studio 2015.
@@ -97,7 +97,7 @@ La gamma di ambienti di sviluppo è enorme e la configurazione di ambienti parti
 
 In sintesi, usare l'Utilità preparazione sistema (Sysprep) e arrestare la macchina virtuale in esecuzione, quindi acquisire *(figura 1)* la macchina virtuale come immagine tramite l'interfaccia utente del portale di Azure. Azure salva il file `.vhd` contenente l'immagine nell'account di archiviazione selezionato e la nuova immagine verrà quindi visualizzata come risorsa Immagine nell'elenco delle risorse della sottoscrizione.
 
-<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Acquisire un'immagine tramite l'interfaccia utente del portale di Azure.*</center>
+<img src="media/using-visual-studio-vm/capture-vm.png" alt="Capture an image through the Azure portal UI" style="border:3px solid Silver; display: block; margin: auto;"><center>*(Figura 1) Acquisire un'immagine tramite il portale di Azure dell'interfaccia utente.*</center>
 
 Per altre informazioni, vedere [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](/azure/virtual-machines/windows/capture-image-resource).
 
@@ -112,5 +112,5 @@ Inoltre, le attività o le tecnologie di sviluppo possono richiedere maggiore sc
 ## <a name="next-steps"></a>Passaggi successivi
 Una volta acquisite le nozioni di base sulle immagini di Visual Studio preconfigurate, il passaggio successivo consiste nel creare una nuova macchina virtuale:
 
-* [Creare una macchina virtuale Windows con il portale di Azure](quick-create-portal.md)
-* [Panoramica di Macchine virtuali di Azure](overview.md)
+* [Creare una macchina virtuale tramite il portale di Azure](quick-create-portal.md)
+* [Panoramica delle macchine virtuali Windows](overview.md)

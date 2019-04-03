@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: d0902c0e0b4c669f3918155f8416f064485abbea
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 0485f8e3b377ce94ec23a4a1a94eb7e189b0232b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56874903"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850822"
 ---
 # <a name="azure-monitor-overview"></a>Panoramica di Monitoraggio di Azure
 
@@ -26,7 +26,7 @@ Monitoraggio di Azure ottimizza la disponibilità e le prestazioni delle applica
 > [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
 
 ## <a name="overview"></a>Panoramica
-Il diagramma seguente offre una panoramica di Monitoraggio di Azure. Al centro del diagramma si trovano gli archivi dati per le metriche e i log, i due tipi fondamentali di dati usati da Monitoraggio di Azure. A sinistra si trovano le [origini dei dati di monitoraggio](platform/data-sources.md) che popolano tali [archivi dati](platform/data-collection.md). A destra ci sono le diverse funzioni svolte da Monitoraggio di Azure con i dati raccolti, come analisi, avviso e streaming a sistemi esterni.
+Il diagramma seguente offre una panoramica di Monitoraggio di Azure. Al centro del diagramma si trovano gli archivi dati per le metriche e i log, i due tipi fondamentali di dati usati da Monitoraggio di Azure. A sinistra si trovano le [origini dei dati di monitoraggio](platform/data-sources.md) che popolano tali [archivi dati](platform/data-platform.md). A destra ci sono le diverse funzioni svolte da Monitoraggio di Azure con i dati raccolti, come analisi, avviso e streaming a sistemi esterni.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -34,7 +34,7 @@ Il diagramma seguente offre una panoramica di Monitoraggio di Azure. Al centro d
 
 
 ## <a name="monitoring-data-platform"></a>Piattaforma di monitoraggio dei dati
-Tutti i dati raccolti da Monitoraggio di Azure rientrano in uno di due tipi fondamentali, [metriche e log](platform/data-collection.md). Le [metriche](platform/data-collection.md#metrics) sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare momento. Sono elementi leggeri in grado di supportare scenari praticamente in tempo reale. I [log](platform/data-collection.md#logs) contengono diversi tipi di dati organizzati in record con diversi set di proprietà per ogni tipo. I dati di telemetria, come eventi e tracce, vengono archiviati come log insieme ai dati sulle prestazioni in modo da poter essere combinati per l'analisi.
+Tutti i dati raccolti da Monitoraggio di Azure rientrano in uno di due tipi fondamentali, [metriche e log](platform/data-platform.md). Le [metriche](platform/data-platform-metrics.md) sono valori numerici che descrivono alcuni aspetti di un sistema in un particolare momento. Sono elementi leggeri in grado di supportare scenari praticamente in tempo reale. I [log](platform/data-platform-logs.md) contengono diversi tipi di dati organizzati in record con diversi set di proprietà per ogni tipo. I dati di telemetria, come eventi e tracce, vengono archiviati come log insieme ai dati sulle prestazioni in modo da poter essere combinati per l'analisi.
 
 Per molte risorse di Azure, i dati raccolti da Monitoraggio di Azure sono visualizzati a destra nella pagina Panoramica nel portale di Azure. Osservando una qualsiasi macchina virtuale, ad esempio, si vedono diversi grafici che mostrano le metriche delle prestazioni. Fare clic su uno dei grafici per aprire i dati in [Esplora metriche](platform/metrics-charts.md) nel portale di Azure, che consente di rappresentare in un grafico i valori di più metriche nel tempo.  È possibile visualizzare i grafici in modo interattivo o aggiungerli a un dashboard per visualizzarli con altre visualizzazioni.
 
@@ -55,7 +55,7 @@ Monitoraggio di Azure può raccogliere dati da diverse origini. Il monitoraggio 
 - **Dati di monitoraggio della sottoscrizione di Azure**: dati relativi al funzionamento e alla gestione di una sottoscrizione di Azure e dati relativi all'integrità e al funzionamento di Azure stesso. 
 - **Dati di monitoraggio del tenant di Azure**: dati relativi al funzionamento dei servizi di Azure a livello di tenant, ad esempio Azure Active Directory.
 
-Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](platform/activity-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](platform/data-collection.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
+Non appena si crea una sottoscrizione di Azure e si inizia ad aggiungere risorse quali macchine virtuali e app Web, Monitoraggio di Azure avvia la raccolta dei dati.  I [log attività](platform/activity-logs-overview.md) registrano quando vengono create o modificate le risorse. Le [metriche](platform/data-platform.md) indicano le prestazioni della risorsa e quali risorse utilizza. 
 
 Per estendere i dati raccolti all'impiego effettivo delle risorse [abilitare la diagnostica](platform/diagnostic-logs-overview.md) e [aggiungere un agente](platform/agent-windows.md) per calcolare le risorse. In questo modo vengono raccolti i dati di telemetria per il funzionamento interno della risorsa ed è possibile configurare diverse [origini dati](platform/agent-data-sources.md) per raccogliere log e metriche dal sistema operativo guest Windows o Linux. 
 
@@ -143,6 +143,6 @@ Sono disponibili varie API di lettura e scrittura di metriche e log in e da Moni
 ## <a name="next-steps"></a>Passaggi successivi
 Altre informazioni su:
 
-* [Metriche e log](platform/data-collection.md) per i dati raccolti da Monitoraggio di Azure.
+* [Metriche e log](platform/data-platform.md) per i dati raccolti da Monitoraggio di Azure.
 * [Origini dati](platform/data-sources.md) per come i diversi componenti dell'applicazione inviano i dati di telemetria.
 * [Query di log](log-query/log-query-overview.md) per l'analisi dei dati raccolti.

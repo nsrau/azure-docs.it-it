@@ -3,21 +3,21 @@ title: Registrare i dati di Azure Data Lake Storage Gen1 in Azure Data Catalog |
 description: Registrare i dati di Azure Data Lake Storage Gen1 in Azure Data Catalog
 services: data-lake-store,data-catalog
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 3294d91e-a723-41b5-9eca-ace0ee408a4b
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: bc9d6f8f078860000d7a2a38bf4aa1ce00ff450e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533443"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877885"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registrare i dati di Azure Data Lake Storage Gen1 in Azure Data Catalog
 Questo articolo descrive come integrare Azure Data Lake Storage Gen1 con Azure Data Catalog per rendere i dati individuabili all'interno dell'organizzazione integrandoli con Azure Data Catalog. Per altre informazioni sulla catalogazione dei dati, vedere [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Per informazioni sugli scenari in cui è possibile usare il catalogo dati, vedere l'articolo relativo agli [scenari comuni di Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
@@ -80,4 +80,4 @@ Prima di iniziare questa esercitazione, è necessario disporre di quanto segue:
 ## <a name="see-also"></a>Vedere anche 
 * [Annotare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documentare le origini dati in Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
-* [Integrare Data Lake Storage Gen1 con altri servizi di Azure](data-lake-store-integrate-with-other-services.md)
+* [Integrare altri servizi di Azure Data Lake archiviazione Gen1](data-lake-store-integrate-with-other-services.md)

@@ -10,20 +10,20 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d98922937781fd169d34881fa67a6b5746d06df7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803120"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882465"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
 L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo a testo. La traduzione automatica neurale è il nuovo standard per traduzioni automatiche di alta qualità supportate dall'intelligenza artificiale ed è disponibile per impostazione predefinita quando si usa la versione V3 dell'API Traduzione testuale, se è disponibile un sistema neurale.
 
-[Altre informazioni sull'uso della traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
+[Altre informazioni sul funzionamento del servizio di traduzione automatica](https://www.microsoft.com/translator/mt.aspx)
 
-**API Traduzione V2**
+**V2 API traduzione**
 
 > [!NOTE]
 > La versione 2 è stata deprecata il 30 aprile 2018 e verrà sospesa il 30 aprile 2019.
@@ -264,11 +264,11 @@ Il metodo Detect supporta le lingue seguenti. Detect può identificare lingue ch
 
 È possibile recuperare l'elenco delle lingue supportate per l'API Traduzione testuale v3.0 usando il metodo Languages. È possibile visualizzare l'elenco in base alla funzionalità, al codice della lingua, nonché al nome della lingua in inglese o in qualsiasi altra lingua supportata. L'elenco viene aggiornato automaticamente dal servizio Microsoft Translator quando diventano disponibili nuove lingue.
 
-[Visualizzare la documentazione di riferimento dell'operazione Languages](reference/v3-0-languages.md)
+[Visualizzare la documentazione di riferimento di lingue operazione](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>Personalizzazione
 
-I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramite in lingua inglese [convertitore personalizzato](http://aka.ms/CustomTranslator).
+I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramite in lingua inglese [convertitore personalizzato](https://aka.ms/CustomTranslator).
 
 | Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
@@ -314,6 +314,6 @@ I linguaggi seguenti sono disponibili per la personalizzazione da e verso tramit
 
 ## <a name="access-the-list-on-the-microsoft-translator-website"></a>Accedere all'elenco nel sito Web Microsoft Translator
 
-Per una rapida panoramica delle lingue, il sito Web di Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
+Per una rapida panoramica delle lingue, il sito Web Microsoft Translator offre l'elenco di tutte le lingue supportate dalle API Traduzione testuale e Traduzione vocale. L'elenco non include informazioni specifiche per sviluppatori, ad esempio i codici delle lingue.
 
-[Visualizzare l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)
+[Vedere l'elenco delle lingue](https://www.microsoft.com/translator/languages.aspx)

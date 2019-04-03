@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993031"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847860"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Cosa sono gli avvisi classici in Microsoft Azure?
 
@@ -88,14 +88,14 @@ I webhook consentono l'automazione e la correzione, ad esempio, usando:
 ## <a name="next-steps"></a>Passaggi successivi
 Ottenere informazioni sulle regole degli avvisi e sulla relativa configurazione usando:
 
-* Altre informazioni sulle [metriche](../../azure-monitor/platform/data-collection.md)
+* Altre informazioni sulle [metriche](data-platform.md)
 * Configurare gli [avvisi delle metriche classici tramite il portale di Azure](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per PowerShell](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per l'interfaccia della riga di comando](alerts-classic-portal.md)
 * Configurare gli [avvisi delle metriche classici per l'API REST del Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Altre informazioni sul [log attività](../../azure-monitor/platform/activity-logs-overview.md)
-* Configurare [gli avvisi del log attività tramite il portale di Azure](../../azure-monitor/platform/activity-log-alerts.md)
+* Altre informazioni sul [log attività](activity-logs-overview.md)
+* Configurare [gli avvisi del log attività tramite il portale di Azure](activity-log-alerts.md)
 * Configurare [gli avvisi del log attività tramite Resource Manager](alerts-activity-log.md)
-* Esaminare lo [schema webhook degli avvisi del log attività](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Altre informazioni sui [gruppi di azioni](../../azure-monitor/platform/action-groups.md)
-* Configurare [nuovi avvisi](../../azure-monitor/platform/alerts-metric.md)
+* Esaminare lo [schema webhook degli avvisi del log attività](activity-log-alerts-webhook.md)
+* Altre informazioni sui [gruppi di azioni](action-groups.md)
+* Configurare [nuovi avvisi](alerts-metric.md)

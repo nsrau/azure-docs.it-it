@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870687"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850063"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno
 
@@ -70,10 +70,10 @@ Per inviare dati dal log attività di Azure in uno spazio dei nomi di Hub eventi
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Log di diagnostica e metriche delle risorse di Azure
 
 Le risorse di Azure generano due tipi di dati di monitoraggio:
-1. [Log di diagnostica delle risorse](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Metriche](../../azure-monitor/platform/data-collection.md)
+1. [Log di diagnostica delle risorse](diagnostic-logs-overview.md)
+2. [Metriche](data-platform.md)
 
-Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. [Seguire queste istruzioni](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) per configurare un'impostazione di diagnostica per una determinata risorsa. Configurare un'impostazione di diagnostica per ogni risorsa di cui si vogliono raccogliere i log.
+Entrambi i tipi di dati vengono inviati a un hub eventi tramite un'impostazione di diagnostica delle risorse. [Seguire queste istruzioni](diagnostic-logs-stream-event-hubs.md) per configurare un'impostazione di diagnostica per una determinata risorsa. Configurare un'impostazione di diagnostica per ogni risorsa di cui si vogliono raccogliere i log.
 
 > [!TIP]
 > I criteri di Azure consentono di assicurarsi che tutte le risorse di un determinato ambito siano sempre configurate con un'impostazione di diagnostica [usando l'effetto di DeployIfNotExists nella regola dei criteri](../../governance/policy/concepts/definition-structure.md#policy-rule).

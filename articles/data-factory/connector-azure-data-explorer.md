@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/06/2019
 ms.author: orspod
-ms.openlocfilehash: 4e2448b3043c194bda884963975d85536c329baf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6138fadd060051c1b4264cd844ca2a4b8c28116a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531641"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880033"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-using-azure-data-factory"></a>Copiare dati in o da Esplora dati di Azure usando Azure Data Factory
 
@@ -66,7 +66,7 @@ Per il servizio collegato Esplora dati di Azure sono supportate le proprietà se
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà **type** deve essere impostata su **AzureDataExplorer** | Sì |
-| endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net `. | Sì |
+| endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sì |
 | database | Nome del database. | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questo è ciò che in genere noto come "**ID autorità**" nella [stringa di connessione di Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarle passando il puntatore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. Questo è ciò che in genere noto come "**ID client dell'applicazione AAD**" nella [stringa di connessione di Kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sì |
@@ -106,7 +106,7 @@ Sono supportate le proprietà seguenti:
 | type | La proprietà **type** deve essere impostata su **AzureDataExplorerTable** | Sì |
 | tabella | Nome della tabella a cui fa riferimento il servizio collegato. | Sì per il sink, no per l'origine |
 
-**Esempio di proprietà del set di dati**
+**Esempio di proprietà set di dati**
 
 ```json
 {

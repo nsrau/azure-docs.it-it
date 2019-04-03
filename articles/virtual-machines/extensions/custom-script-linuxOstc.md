@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437106"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882430"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Usare l'estensione per script personalizzati di Azure versione 1 con macchine virtuali Linux
 
@@ -133,11 +133,11 @@ Questi elementi devono essere trattati come dati sensibili ed essere specificati
 
 ### <a name="property-value-details"></a>Dettagli sui valori delle proprietà
 
-* `fileUris`: (facoltativo, matrice di stringhe) elenco di URI degli script
-* `enableInternalDNSCheck`: (facoltativo, bool) il valore predefinito è True. Impostare su False per disabilitare il controllo DNS.
-* `commandToExecute`: (facoltativo, stringa) script del punto di ingresso da eseguire
-* `storageAccountName`: (facoltativo, stringa) nome dell'account di archiviazione
-* `storageAccountKey`: (facoltativo, stringa) chiave di accesso dell'account di archiviazione
+* `fileUris`: (facoltativa, matrice di stringhe) l'elenco di uri degli script
+* `enableInternalDNSCheck`: (facoltativo, booleano) valore predefinito è True, impostare su False per disabilitare la verifica DNS.
+* `commandToExecute`: (facoltativa, stringa) script di punto di ingresso da eseguire
+* `storageAccountName`: (facoltativa, stringa) nome dell'account di archiviazione
+* `storageAccountKey`: (facoltativa, stringa) la chiave di accesso dell'account di archiviazione
 
 I valori seguenti possono essere configurati in impostazioni pubbliche o protette, ma non devono essere specificati contemporaneamente nelle impostazioni pubbliche e in quelle protette.
 
@@ -296,8 +296,7 @@ Alcuni punti da notare:
 
 1. Enable indica il momento in cui il comando inizia l'esecuzione.
 1. Download è relativo al download del pacchetto di estensioni CustomScript da Azure e non ai file di script specificati in fileUris.
-1. È inoltre possibile visualizzare il file di log in cui avviene la scrittura: `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. È anche possibile visualizzare il file di log sono scritti per `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 Il passaggio successivo consiste nel controllare il file di log, nel formato:
 

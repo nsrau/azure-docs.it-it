@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621231"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863135"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metriche del database SQL di Azure e registrazione diagnostica
 
@@ -62,17 +62,22 @@ Abilitare le metriche e la registrazione diagnostica nei database SQL, visto che
 
 | Dati di telemetria di monitoraggio per database | Supporto dei database singoli e in pool | Supporto dell'istanza del database |
 | :------------------- | ----- | ----- |
-| [Tutte le metriche](#all-metrics): Contiene la percentuale DTU/CPU, il limite DTU/CPU, la percentuale di lettura dati fisici, la percentuale di scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, la percentuale delle sessioni, la percentuale dei ruoli di lavoro, la risorsa di archiviazione, la percentuale di archiviazione, la percentuale di archiviazione XTP. | Sì | N. |
+| [Tutte le metriche](#all-metrics): Contiene la percentuale DTU/CPU, il limite DTU/CPU, la percentuale di lettura dati fisici, la percentuale di scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, la percentuale delle sessioni, la percentuale dei ruoli di lavoro, la risorsa di archiviazione, la percentuale di archiviazione, la percentuale di archiviazione XTP. | Sì | No  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): Contiene le informazioni sulle statistiche di runtime delle query, ad esempio l'uso della CPU e le statistiche sulla durata delle query. | Sì | Sì |
 | [QueryStoreWaitStatistics](#query-store-wait-statistics): Contiene le informazioni sulle statistiche di attesa delle query (le cause di attesa delle query) ad esempio CPU, LOG o LOCKING. | Sì | Sì |
 | [Errori](#errors-dataset): Contiene informazioni sugli errori di SQL nel database. | Sì | Sì |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contiene informazioni sul tempo di attesa trascorso dal database per tipi di attesa diversi. | Sì | N. |
-| [Timeout](#time-outs-dataset): Contiene informazioni sui timeout nel database. | Sì | N. |
-| [Blocchi](#blockings-dataset): Contiene informazioni sugli eventi di blocco nel database. | Sì | N. |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contiene informazioni sul tempo di attesa trascorso dal database per tipi di attesa diversi. | Sì | No  |
+| [Timeout](#time-outs-dataset): Contiene informazioni sui timeout nel database. | Sì | No  |
+| [Blocchi](#blockings-dataset): Contiene informazioni sugli eventi di blocco nel database. | Sì | No  |
+| [I deadlock](#deadlocks-dataset): Contiene informazioni sugli eventi di deadlock nel database. | Sì | No  |
+| [AutomaticTuning](#automatic-tuning-dataset): Contiene informazioni sui suggerimenti di ottimizzazione automatica nel database. | Sì | No  |
 | [SQLInsights](#intelligent-insights-dataset): Contiene Intelligent Insights nelle prestazioni. Per altre informazioni, vedere [Intelligent Insights](sql-database-intelligent-insights.md). | Sì | Sì |
 
 > [!IMPORTANT]
 > Le istanze gestite e pool elastici hanno la propria telemetria delle diagnostiche separate dai database che contengono. Questo è importante notare come dati di telemetria di diagnostica è configurata separatamente per ciascuna di queste risorse, come descritto di seguito.
+
+> [!NOTE]
+> Non è possibile abilitare i log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database. Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -131,12 +136,12 @@ Per abilitare il flusso di dati di telemetria di diagnostica per i database sing
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Per l'esperienza di monitoraggio standard, basato su eventi, selezionare le caselle di controllo seguenti per la telemetria dei log di diagnostica del database: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errori**, **DatabaseWaitStatistics**, **Timeout**, **Blocchi** e **Deadlock**.
 1. Per un'esperienza di monitoraggio avanzata, basata su 1 minuto, selezionare la casella di controllo **AllMetrics**.
-   ![Configurare la diagnostica per un singolo, in pool o i database dell'istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![Configurare la diagnostica per i database singoli, in pool o di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Selezionare **Salva**.
 1. Ripetere questi passaggi per ogni database che si desidera monitorare.
 
 > [!NOTE]
-> Non è possibile abilitare i log dei controlli di sicurezza dalle impostazioni di diagnostica del database. Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> Non è possibile abilitare i log di controllo di sicurezza e SQLSecurityAuditEvents dalle impostazioni di diagnostica del database. Per abilitare lo streaming del log di controllo, vedere [configurare il controllo del database](sql-database-auditing.md#subheading-2), e [registri nel log di monitoraggio di Azure e hub eventi di controllo](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Ripetere questi passaggi per ogni database SQL di Azure che si desidera monitorare.
 
@@ -193,7 +198,7 @@ Per abilitare il flusso di dati di telemetria di diagnostica, ad esempio databas
 1. Immettere un nome di impostazione per il proprio riferimento.
 1. Selezionare una risorsa di destinazione per i dati di diagnostica di streaming: **Archivia in un account di archiviazione**, **Trasmetti ad un hub eventi** oppure **Invia a Log Analytics**.
 1. Selezionare le caselle di controllo per i dati di telemetria della diagnostica del database: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** e **Errori**.
-   ![Configurare la diagnostica, ad esempio i database](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configurare la diagnostica per i database di istanza](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Selezionare **Salva**.
 1. Ripetere questi passaggi per ogni database dell'istanza che si desidera monitorare.
 
@@ -349,7 +354,7 @@ Se si usano pool elastici o istanze gestite, è necessario anche configurare le 
 
 Dopo aver eseguito lo streaming dei dati selezionati in Hub eventi, sarà possibile iniziare a valutare scenari di monitoraggio avanzati. Hub eventi funge da ingresso per una pipeline di eventi. Dopo aver raccolto i dati in un hub eventi, potranno essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatore di archiviazione. Hub eventi separa la produzione di un flusso di eventi dal consumo di tali eventi. In questo modo, i consumer eventi possono accedere agli eventi in una pianificazione personalizzata. Per altre informazioni sugli hub eventi, vedere:
 
-- [Che cos'è Hub eventi?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [Che cos'è hub eventi?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 È possibile usare le metriche tramesse in hub eventi per:
@@ -431,13 +436,13 @@ Vengono forniti i dettagli dei dati di telemetria disponibile per tutti i log ne
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: ResourceUsageStats |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: MANAGEDINSTANCES |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome dell'istanza gestita |
 |ResourceId|URI della risorsa |
 |SKU_s|Codice di riferimento del prodotto dell'istanza gestita |
@@ -456,14 +461,14 @@ Vengono forniti i dettagli dei dati di telemetria disponibile per tutti i log ne
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: QueryStoreRuntimeStatistics |
 |OperationName|Nome dell'operazione. Sempre: QueryStoreRuntimeStatisticsEvent |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
@@ -507,14 +512,14 @@ Altre informazioni sui [dati delle statistiche di runtime di Query Store](https:
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: QueryStoreWaitStatistics |
 |OperationName|Nome dell'operazione. Sempre: QueryStoreWaitStatisticsEvent |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
@@ -545,19 +550,19 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT.SQ |
-|Categoria|Nome della categoria. Sempre: Errori |
+|Categoria|Nome della categoria. Sempre: Errors |
 |OperationName|Nome dell'operazione. Sempre: ErrorEvent |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
 |ResourceId|URI della risorsa |
-|Messaggio|Messaggio di errore in testo normale |
+|Message|Messaggio di errore in testo normale |
 |user_defined_b|È il bit di errore definito dall'utente |
 |error_number_d|Codice di errore |
 |Gravità|Gravità dell'errore |
@@ -574,14 +579,14 @@ Altre informazioni sui [messaggi di errore di SQL Server](https://msdn.microsoft
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: DatabaseWaitStatistics |
 |OperationName|Nome dell'operazione. Sempre: DatabaseWaitStatisticsEvent |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
@@ -603,14 +608,14 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: Timeout |
 |OperationName|Nome dell'operazione. Sempre: TimeoutEvent |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
@@ -626,14 +631,14 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: Blocchi |
 |OperationName|Nome dell'operazione. Sempre: BlockEvent |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
@@ -650,14 +655,14 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC] |Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: Deadlock |
 |OperationName|Nome dell'operazione. Sempre: DeadlockEvent |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
@@ -671,13 +676,13 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Sempre: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Tipo|Sempre: AzureDiagnostics |
+|Type|Sempre: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Sempre: MICROSOFT. SQL |
 |Categoria|Nome della categoria. Sempre: AutomaticTuning |
 |Risorsa|Nome della risorsa |
 |ResourceType|Nome del tipo di risorsa. Sempre: SERVER/DATABASE |
 |SubscriptionId|GUID dell'abbonamento per il database |
-|Gruppo di risorse|Nome del gruppo di risorse per il database |
+|ResourceGroup|Nome del gruppo di risorse per il database |
 |LogicalServerName_s|Nome del server per il database |
 |LogicalDatabaseName_s|Nome del database |
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |

@@ -1,21 +1,21 @@
 ---
-title: Protezione avanzata dalle minacce per l'archiviazione di Azure
+title: Advanced Threat Protection per Archiviazione di Azure
 description: Configurare Advanced Threat Protection di Archiviazione di Microsoft Azure per rilevare le anomalie nelle attività dell'account e ricevere una notifica in caso di tentativi di accesso all'account potenzialmente dannosi.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133230"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850713"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Protezione avanzata dalle minacce per l'archiviazione di Azure
+# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per Archiviazione di Azure
 
 Advanced Threat Protection per l'archiviazione di Azure fornisce un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza dover essere esperti di sicurezza o dover gestire sistemi di monitoraggio della sicurezza. 
 
@@ -51,6 +51,24 @@ Quando effettua la sottoscrizione al livello Standard in Centro sicurezza di Azu
 
 Usare un modello di Azure Resource Manager per distribuire un account di archiviazione di Azure con Advanced Threat Protection è abilitato.
 Per altre informazioni, vedere [account di archiviazione con Advanced Threat Protection](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### <a name="using-azure-policy"></a>Utilizzo di criteri di Azure
+
+Usare criteri di Azure per abilitare Advanced Threat Protection tra account di archiviazione in un specificato sottoscrizione o gruppo di risorse.
+
+1. Avvio di Azure **criteri - definizioni** pagina.
+
+1. Cercare il **distribuire Advanced Threat Protection per gli account di archiviazione** criteri.
+
+     ![Criteri di ricerca](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Selezionare un gruppo di risorse o sottoscrizione di Azure.
+
+    ![Selezionare la sottoscrizione o gruppo](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Assegnare i criteri.
+
+    ![Pagina delle definizioni dei criteri](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>Uso dell'API REST
 Usare i comandi API Rest per creare, aggiornare o ottenere l'impostazione di Advanced Threat Protection per un account di archiviazione specifico.

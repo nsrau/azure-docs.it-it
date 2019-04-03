@@ -15,18 +15,20 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: magoedte
-ms.openlocfilehash: 2bae96c1c87a4bbb44c006ed628ee8019ab2635c
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: cd10c503c6e65f68d063deb5f8a537fc9f3c9f0f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58671251"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846330"
 ---
 # <a name="azure-monitor-dependency-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale di Azure dipendenza del monitoraggio per Windows
 
 La funzionalità di mappa di Monitoraggio di Azure per le macchine virtuali ottiene i dati da Microsoft Dependency Agent. L'estensione di macchina virtuale dell'agente di dipendenza di macchina virtuale di Azure per Windows è pubblicata e supportata da Microsoft. L'estensione installa l'agente di dipendenza in macchine virtuali di Azure. Questo documento illustra in dettaglio le piattaforme supportate, le configurazioni e opzioni di distribuzione per l'estensione di macchina virtuale dell'agente di dipendenza di macchina virtuale di Azure per Windows.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ### <a name="operating-system"></a>Sistema operativo
 
@@ -130,11 +132,11 @@ Quando si posiziona l'estensione JSON nella radice del modello, il nome della ri
 
 ## <a name="powershell-deployment"></a>Distribuzione PowerShell
 
-Il `Set-AzureRmVMExtension` comando può essere utilizzato per distribuire l'estensione di macchina virtuale dell'agente di dipendenza in una macchina virtuale esistente. Prima di eseguire il comando, le configurazioni pubbliche e private devono essere archiviate in una tabella hash di PowerShell. 
+Il `Set-AzVMExtension` comando può essere utilizzato per distribuire l'estensione di macchina virtuale dell'agente di dipendenza in una macchina virtuale esistente. Prima di eseguire il comando, le configurazioni pubbliche e private devono essere archiviate in una tabella hash di PowerShell. 
 
 ```powershell
 
-Set-AzureRmVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
+Set-AzVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgent" `
     -ResourceGroupName "myResourceGroup" `
     -VMName "myVM" `
     -Publisher "Microsoft.Azure.Monitoring.DependencyAgent" `
@@ -150,7 +152,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.Azure.Monitoring.DependencyAgen
 I dati sullo stato delle distribuzioni dell'estensione possono essere recuperati nel portale di Azure e tramite il modulo Azure PowerShell. Per visualizzare lo stato di distribuzione delle estensioni per una determinata VM, eseguire questo comando nel modulo Azure PowerShell.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
+Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
 
 L'output dell'esecuzione dell'estensione viene registrato nei file presenti nella directory seguente:

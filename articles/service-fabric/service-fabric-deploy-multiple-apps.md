@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 7fb4c68d10478a7c8af62262b3fa4633eaac9d2b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 69df9eff85d96c9cc6ca7fa1d3aabd2c54fae416
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660409"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884721"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Distribuire più eseguibili guest
 Questo articolo descrive come creare pacchetti di più eseguibili guest e in che modo distribuirli in Azure Service Fabric. Per la creazione e la distribuzione di un pacchetto di Service Fabric, consultare l'articolo [Distribuire un eseguibile guest in Service Fabric](service-fabric-deploy-existing-app.md).
@@ -29,11 +29,11 @@ Questa procedura dettagliata illustra come distribuire un'applicazione con un fr
 È possibile usare Visual Studio per generare il pacchetto dell'applicazione che contiene più eseguibili guest. Vedere [Uso di Visual Studio per creare il pacchetto di un'applicazione esistente](service-fabric-deploy-existing-app.md). Dopo aver aggiunto il primo eseguibile guest, fare clic con il tasto destro sul progetto dell'applicazione e selezionare **Aggiungi -> Nuovo servizio Service Fabric** per aggiungere il secondo progetto eseguibile guest alla soluzione. Note: Se si sceglie il collegamento all'origine nel progetto di Visual Studio, la compilazione della soluzione di Visual Studio assicura che il pacchetto dell'applicazione venga aggiornato in base alle modifiche nell'origine. 
 
 ## <a name="samples"></a>Esempi
-* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Esempio per la creazione di pacchetti e distribuzione di un eseguibile guest](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Creare manualmente i pacchetti dell'applicazione eseguibile guest multipla
-In alternativa, è possibile distribuire manualmente l'eseguibile guest. Per quanto riguarda la creazione di pacchetti manuale, l'articolo descrive l'uso dello strumento per la creazione di pacchetti di Service Fabric, disponibile all'indirizzo [http://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
+In alternativa, è possibile distribuire manualmente l'eseguibile guest. Per quanto riguarda la creazione di pacchetti manuale, l'articolo descrive l'uso dello strumento per la creazione di pacchetti di Service Fabric, disponibile all'indirizzo [https://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Creazione di un pacchetto dell'applicazione Node.js
 Questo articolo presuppone che Node.js non sia installato nei nodi del cluster di Service Fabric. Sarà quindi necessario aggiungere Node.exe alla directory radice dell'applicazione nodo prima della creazione del pacchetto. La struttura di directory dell'applicazione Node.js (che usa il framework Web Express e il motore per la creazione di modelli Jade) dovrebbe essere simile alla seguente:
@@ -73,7 +73,7 @@ Di seguito è riportata una descrizione dei parametri in uso:
 * **/target** : definisce la directory in cui creare il pacchetto. Questa directory deve essere diversa dalla directory di origine.
 * **/appname** : definisce il nome dell'applicazione esistente. È importante comprendere che questo nome equivale al nome del servizio nel manifesto e non al nome dell'applicazione di Service Fabric.
 * **/exe**: definisce il file eseguibile che dovrebbe essere avviato da Service Fabric, in questo caso `node.exe`.
-* **/ma** : definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`.  `/ma:'bin/www'` indica allo strumento di creazione pacchetti di usare `bin/www` come argomento per node.exe.
+* **/ma** : definisce l'argomento usato per avviare il file eseguibile. Poiché Node.js non è installato, è necessario che Service Fabric avvii il server Web Node.js eseguendo `node.exe bin/www`.  `/ma:'bin/www'` indica allo strumento di creazione di pacchetti da usare `bin/www` come argomento per node.exe.
 * **/AppType** : definisce il nome del tipo di applicazione di Service Fabric.
 
 Se si passa alla directory specificata nel parametro /target, si noterà che lo strumento ha creato un pacchetto di Service Fabric pienamente funzionante, come illustrato di seguito:
@@ -217,5 +217,5 @@ Per aggiungere un altro servizio a un'applicazione già creata mediante `yo`, se
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Per avere informazioni sulla distribuzione di contenitori, consultare [Panoramica di Service Fabric e contenitori](service-fabric-containers-overview.md)
-* [Esempio per la creazione di un pacchetto e distribuzione di un file guest eseguibile](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Esempio per la creazione di pacchetti e distribuzione di un eseguibile guest](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Esempio di due eseguibili guest (C# e nodejs) che comunicano tramite il servizio Naming usando REST](https://github.com/Azure-Samples/service-fabric-containers)

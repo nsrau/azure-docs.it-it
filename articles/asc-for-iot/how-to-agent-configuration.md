@@ -1,31 +1,31 @@
 ---
 title: Configurare il Centro sicurezza di Azure per IoT agente Preview | Microsoft Docs
 description: Informazioni su come configurare gli agenti per l'uso con il Centro sicurezza di Azure per IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: f95c445a-4f0d-4198-9c6c-d01446473bd0
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 27b548459bd1fee3c6596cce624b00d052e608fe
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 1e212e752309fd8347836d462a3394da2fca4a15
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757393"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862778"
 ---
 # <a name="tutorial-configure-security-agents"></a>Esercitazione: Configurare gli agenti di sicurezza
 
 > [!IMPORTANT]
 > Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
-> Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Questo articolo illustra Azure Security Center (Centro sicurezza di AZURE) per l'agente di sicurezza IoT, come modificare tali configurare Centro sicurezza di AZURE per gli agenti di sicurezza IoT.
 
@@ -140,4 +140,4 @@ I valori predefiniti sono disponibili nello schema appropriata [Github](https://
 
 - [Informazioni sul Centro sicurezza di AZURE di consigli di IoT](concept-recommendations.md)
 - [Esplorazione di Centro sicurezza di AZURE per IoT avvisi](concept-security-alerts.md)
-- [Accedere ai dati di sicurezza non elaborati](how-to-security-data-access.md)
+- [Accedere a dati non elaborati sulla sicurezza](how-to-security-data-access.md)

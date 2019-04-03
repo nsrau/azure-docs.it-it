@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089149"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882090"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -49,9 +49,9 @@ Controllare che l'elenco a discesa degli ambienti dal lato sinistro della finest
    ```
 
 2. Impostare la sottoscrizione preferita: <br>
-   ```azurecli-interactive
-   az account set --subscription my-subscription-name`
-   ```
+```azurecli-interactive
+az account set --subscription 'my-subscription-name'
+```
 
 > [!TIP]
 > La sottoscrizione verrà memorizzata per le sessioni future con `/home/<user>/.azure/azureProfile.json`.
@@ -99,6 +99,6 @@ Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benv
    ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni sulla persistenza dei file per Bash all’interno di Cloud Shell.](persisting-shell-storage.md) <br>
-[Informazioni sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/) <br>
-[Informazioni sull'archiviazione di File di Azure](../storage/files/storage-files-introduction.md) <br>
+[Informazioni sulla persistenza dei file per Bash in Cloud Shell](persisting-shell-storage.md) <br>
+[Informazioni su Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
+[Altre informazioni sull'archiviazione file di Azure](../storage/files/storage-files-introduction.md) <br>

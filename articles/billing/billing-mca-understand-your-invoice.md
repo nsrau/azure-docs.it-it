@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839730"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883010"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Comprendere i termini sulla fattura di contratto di Microsoft dal cliente
 
@@ -49,7 +49,7 @@ Il **riepilogo della fattura** nella parte superiore della prima pagina e contie
 | ORDINE number |Numero d'ordine d'acquisto, facoltativo, assegnato dall'utente per il monitoraggio |
 | Numero di fattura |Un numero di fattura univoco, generata da Microsoft usato per scopi di rilevamento |
 | Data fattura |Data in cui viene generata la fattura, in genere cinque a 12 giorni dopo la fine del ciclo di fatturazione. È possibile controllare la data di fatturazione nella fatturazione le proprietà del profilo.|
-| Condizioni di pagamento |Il metodo di pagamento per la fattura di Microsoft. *NET 30 giorni* significa pagamento dal controllo o bonifico entro 30 giorni dalla data della fattura. |
+| Condizioni di pagamento |Il metodo di pagamento per la fattura di Microsoft. *NET 30 giorni* significa paghi entro 30 giorni dalla data della fattura. |
 
 ### <a name="billing-summary"></a>Riepilogo di fatturazione
 
@@ -110,6 +110,6 @@ Se si hanno domande o assistenza, [creare una richiesta di supporto](https://go.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Comprendere gli addebiti nella fattura del proprio profilo di fatturazione](billing-mca-understand-your-bill.md)
-- [Come ottenere la fattura e i dati di uso giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md)
+- [Come ottenere la fattura e i dati di utilizzo giornalieri di Azure](billing-download-azure-invoice-daily-usage-date.md)
 - [Visualizzare i prezzi di Azure dell'organizzazione](billing-ea-pricing.md)
 - [Visualizzare i documenti imposte per il profilo di fatturazione](billing-mca-download-tax-document.md)

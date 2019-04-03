@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a5ebd50b3a5fe3b611bae28db98979eee40f9490
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4be52fbc6d9fb01ac3cd3c0954042c35b45bbf23
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899027"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884364"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Metriche di Archiviazione di Azure in Monitoraggio di Azure
 
@@ -284,9 +284,9 @@ L'esempio seguente mostra come leggere i dati per una metrica con il supporto di
 
 L'ID risorsa è un identificatore univoco di una risorsa in Azure. Quando si usa l'API REST di Monitoraggio di Azure per leggere le definizioni o i valori delle metriche, è necessario usare l'ID risorsa per la risorsa su cui si vuole eseguire l'operazione. Il formato del modello dell'ID risorsa è il seguente:
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
-`
+```
 
 L'archiviazione fornisce metriche a livello di account di archiviazione e a livello di servizio con Monitoraggio di Azure. È ad esempio possibile recuperare le metriche solo per l'archiviazione BLOB. Ogni livello ha il proprio ID risorsa, che viene usato per recuperare le metriche solo per tale livello.
 
@@ -294,34 +294,38 @@ L'archiviazione fornisce metriche a livello di account di archiviazione e a live
 
 Di seguito viene mostrato il formato per specificare l'ID risorsa per un account di archiviazione.
 
-`
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}
-`
+```
 
 ### <a name="resource-id-for-the-storage-services"></a>ID risorsa per i servizi di archiviazione
 
 Di seguito viene mostrato il formato per specificare l'ID risorsa per ogni servizio di archiviazione.
 
-* ID risorsa del servizio BLOB `
+* ID risorsa del servizio BLOB
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default
-`
-* ID risorsa del servizio tabelle `
+```
+* ID risorsa del servizio tabelle
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/tableServices/default
-`
-* ID risorsa del servizio code `
+```
+* ID risorsa del servizio coda
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/queueServices/default
-`
-* ID risorsa del servizio file `
+```
+* ID risorsa del servizio file
+```
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/fileServices/default
-`
+```
 
 ### <a name="resource-id-in-azure-monitor-rest-api"></a>ID risorsa nell'API REST di Monitoraggio di Azure
 
 Di seguito viene mostrato il modello usato per la chiamata API REST di Monitoraggio di Azure.
 
-`
+```
 GET {resourceId}/providers/microsoft.insights/metrics?{parameters}
-`
+```
 
 ## <a name="capacity-metrics"></a>Metriche della capacità
 I valori delle metriche relative alla capacità vengono inviati a Monitoraggio di Azure ogni ora. I valori vengono aggiornati ogni giorno. L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. L'intervallo di tempo supportato per tutte le metriche relative alla capacità è un'ora (PT1H).
@@ -402,15 +406,15 @@ Le metriche legacy sono disponibili in parallelo rispetto alle metriche gestite 
 
 ## <a name="faq"></a>Domande frequenti
 
-**Le nuove metriche supportano l'account di archiviazione classico?**
+**La nuova metrica supporta account di archiviazione classico?**
 
 No, le nuove metriche in Monitoraggio di Azure supportano solo gli account di archiviazione di Azure Resource Manager. Se si vogliono usare le metriche per gli account di archiviazione, è necessario eseguire la migrazione all'account di archiviazione di Azure Resource Manager. Vedere [Migrate to Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview) (Eseguire la migrazione ad Azure Resource Manager).
 
-**Archiviazione di Azure supporta le metriche per i dischi gestiti o non gestiti?**
+**Archiviazione di Azure supporta le metriche per Managed Disks o dischi non gestiti?**
 
 No, le metriche relative ai dischi sono supportate da Calcolo di Azure. Per informazioni più dettagliate, vedere [questo articolo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/).
 
-**Come si esegue il mapping e la migrazione delle metriche classiche con le nuove metriche?**
+**Come eseguire il mapping ed eseguire la migrazione delle metriche classiche con la nuova metrica?**
 
 Un mapping dettagliato tra le metriche classiche e le nuove metriche è disponibile in [Migrazione delle metriche di Archiviazione di Azure](./storage-metrics-migration.md).
 

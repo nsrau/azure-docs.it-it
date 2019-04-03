@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: barclayn
-ms.openlocfilehash: aed0eb6ba4cdaa57d282ac4484e0c27c0697afb5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6672827a87fbb949237d51310f1a9febc192ff2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58083131"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886345"
 ---
 # <a name="azure-dedicated-hsm-networking"></a>Reti con HSM dedicato di Azure
 
@@ -60,7 +60,7 @@ Una rete privata virtuale da punto a sito è la forma più semplice di connessio
 
 ### <a name="site-to-site-vpn"></a>VPN da sito a sito
 
-Una rete privata virtuale da sito a sito consente la comunicazione sicura tra HSM dedicati basati su Azure e l'IT locale. È utile se si dispone di una funzionalità di backup per il modulo di protezione hardware locale e si ha bisogno di una connessione tra i due per l'esecuzione del backup.
+Una rete privata virtuale da sito a sito consente la comunicazione sicura tra HSM dedicati basati su Azure e l'IT locale. Un motivo per eseguire questa operazione è la presenza di una funzionalità di backup per il modulo di protezione hardware locale e che necessita di una connessione tra i due oggetti per l'esecuzione del backup.
 
 ## <a name="connecting-virtual-networks"></a>Connessione di reti virtuali
 

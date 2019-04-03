@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6ffe051c019184d5ce1a32af50dbf3e7faa06675
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490312"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881189"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Migliorare la disponibilità dell'applicazione con Azure Advisor
 
@@ -54,7 +54,7 @@ Si consiglia di impostare gli avvisi di integrità dei servizi Azure per ricever
 
 I profili di Gestione traffico con più di un endpoint dispongono di maggiore disponibilità in caso di anomalie di uno di essi. La collocazione degli endpoint in diverse aree migliora ulteriormente l'affidabilità del servizio. Advisor identifica i profili di Gestione traffico in cui è presente un solo endpoint e consiglia di aggiungerne almeno uno in un'altra regione.
 
-Se tutti gli endpoint in un profilo di Gestione traffico configurato per il routing di prossimità si trovano nella stessa area, gli utenti di altre aree potrebbero subire ritardi di connessione. L'aggiunta o lo spostamento di un endpoint in un'altra area migliorerà le prestazioni generali e fornirà una migliore disponibilità se si verificano errori su tutti gli endpoint in un'area. Advisor identifica i profili di Gestione traffico configurati per il routing di prossimità in cui tutti gli endpoint si trovano nella stessa area. Consiglia quindi di aggiungere o spostare un endpoint in un'altra area di Azure.
+Se tutti gli endpoint in un profilo di Gestione traffico configurato per il routing di prossimità si trovano nella stessa area, gli utenti di altre aree potrebbero subire ritardi di connessione. L'aggiunta o lo spostamento di un endpoint in un'altra area migliorerà le prestazioni generali e fornirà una migliore disponibilità se tutti gli endpoint in una regione presenta anomalie. Advisor identifica i profili di Gestione traffico configurati per il routing di prossimità in cui tutti gli endpoint si trovano nella stessa area. Consiglia quindi di aggiungere o spostare un endpoint in un'altra area di Azure.
 
 Se un profilo di Gestione traffico è configurato per il routing geografico, il traffico viene instradato verso gli endpoint in base ad aree definite. Se un'area presenta anomalie, non vi sono failover predefiniti. Avere un endpoint in cui il raggruppamento di area è configurato su "Tutto (mondo)" eviterà l’interruzione del traffico e migliorerà la disponibilità del servizio. Advisor identifica i profili di Gestione traffico configurati per il routing geografico dove non sono presenti endpoint configurati per il raggruppamento di aree come "Tutte (mondo)". Consiglia di modificare la configurazione in modo che un endpoint sia impostato come "Tutte (mondo)".
 
@@ -64,7 +64,7 @@ Abilitare l'[eliminazione temporanea](https://docs.microsoft.com/azure/storage/b
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configurare il gateway VPN in modalità attiva-attiva per garantire la resilienza di connessione
 
-Nella configurazione attiva-attiva, entrambe le istanze di un gateway VPN stabiliranno tunnel VPN S2S con il dispositivo VPN locale. Quando in un'istanza del gateway si verifica un evento di manutenzione pianificata o non pianificata, il traffico viene trasferito automaticamente sull'altro tunnel IPSec attivo. Azure Advisor identificherà i gateway VPN non configurati come attivo-attivo e consiglierà di configurarli per la disponibilità elevata.
+Nella configurazione attivo / attivo, entrambe le istanze di un gateway VPN stabiliranno tunnel VPN S2S con il dispositivo VPN locale. Quando in un'istanza del gateway si verifica un evento di manutenzione pianificata o non pianificata, il traffico viene trasferito automaticamente sull'altro tunnel IPSec attivo. Azure Advisor identificherà i gateway VPN non configurati come attivo-attivo e consiglierà di configurarli per la disponibilità elevata.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Come accedere ai consigli sulla disponibilità elevata in Advisor
 
@@ -75,9 +75,9 @@ Nella configurazione attiva-attiva, entrambe le istanze di un gateway VPN stabil
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sui consigli di Advisor, vedere:
-* [Introduction to Azure Advisor](advisor-overview.md) (Presentazione di Azure Advisor)
-* [Get started with Advisor](advisor-get-started.md) (Introduzione ad Advisor)
-* [Advisor Cost recommendations](advisor-cost-recommendations.md) (Consigli di Advisor sui costi)
-* [Advisor Performance recommendations](advisor-performance-recommendations.md) (Consigli di Advisor sulle prestazioni)
-* [Advisor Security recommendations](advisor-security-recommendations.md) (Consigli di Advisor sulla sicurezza)
+* [Presentazione di Azure Advisor](advisor-overview.md)
+* [Introduzione ad Advisor](advisor-get-started.md)
+* [Consigli di Advisor sui costi](advisor-cost-recommendations.md)
+* [Consigli di Advisor sulle prestazioni](advisor-performance-recommendations.md)
+* [Consigli di Advisor sulla sicurezza](advisor-security-recommendations.md)
 

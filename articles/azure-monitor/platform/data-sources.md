@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2018
 ms.author: bwren
-ms.openlocfilehash: 4ae8ae43d8c245270b64611bed0ac4930aa0ecc3
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6d03c219025c8cd39214bd8ab6807125709f9742
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763424"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849683"
 ---
 # <a name="sources-of-data-in-azure-monitor"></a>Origini dei dati in Monitoraggio di Azure
-Questo articolo descrive le origini dei dati raccolti da Monitoraggio di Azure per monitorare l'integrità e le prestazioni delle risorse e le applicazioni che si basano su tali dati. Queste risorse possono trovarsi in Azure, in un altro cloud o in locale.  Vedere [Dati raccolti da Monitoraggio di Azure](data-collection.md) per informazioni dettagliate sul modo in cui vengono archiviati questi dati e su come visualizzarli.
+Questo articolo descrive le origini dei dati raccolti da Monitoraggio di Azure per monitorare l'integrità e le prestazioni delle risorse e le applicazioni che si basano su tali dati. Queste risorse possono trovarsi in Azure, in un altro cloud o in locale.  Vedere [Dati raccolti da Monitoraggio di Azure](data-platform.md) per informazioni dettagliate sul modo in cui vengono archiviati questi dati e su come visualizzarli.
 
 I dati di monitoraggio in Azure provengono da varie origini che possono essere organizzate in livelli, dove il livello più alto è la propria applicazione unitamente ai sistemi operativi e quelli più bassi sono i componenti della piattaforma di Azure. Questa organizzazione è illustrata nel diagramma seguente e ogni livello è descritto in dettaglio nelle sezioni che seguono.
 
@@ -59,7 +59,7 @@ I log di diagnostica a livello di metrica e di risorsa offrono informazioni sul 
 
 
 ### <a name="metrics"></a>Metriche
-La maggior parte dei servizi di Azure genera [metriche di piattaforma](data-collection.md#metrics) che ne riflettono le prestazioni e il funzionamento. Le [metriche specifiche variano in base al tipo di risorsa](metrics-supported.md).  Sono accessibili dall'analisi delle metriche e possono essere copiate in log per eseguire l'analisi delle tendenze e altre analisi usando Log Analytics.
+La maggior parte dei servizi di Azure genera [metriche di piattaforma](data-platform-metrics.md) che ne riflettono le prestazioni e il funzionamento. Le [metriche specifiche variano in base al tipo di risorsa](metrics-supported.md).  Sono accessibili dall'analisi delle metriche e possono essere copiate in log per eseguire l'analisi delle tendenze e altre analisi usando Log Analytics.
 
 
 ### <a name="resource-diagnostic-logs"></a>Log di diagnostica delle risorse
@@ -116,4 +116,4 @@ Monitoraggio di Azure può raccogliere dati di log da qualsiasi client REST tram
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sui [tipi di dati di monitoraggio raccolti da Monitoraggio di Azure](data-collection.md) e su come visualizzare e analizzare i dati.
+- Altre informazioni sui [tipi di dati di monitoraggio raccolti da Monitoraggio di Azure](data-platform.md) e su come visualizzare e analizzare i dati.

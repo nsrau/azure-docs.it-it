@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
 ms.author: lahugh
-ms.openlocfilehash: a04161d80a6dd3f9db2a95a8556eaac466407047
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: b0243b37f725fc977337b72998d610e9bda71a86
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470077"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848025"
 ---
 # <a name="monitor-batch-solutions"></a>Monitorare le soluzioni Batch
 
@@ -34,7 +34,7 @@ Un modo per recuperare gli eventi dal log attività consiste nell'usare il porta
 
 ## <a name="batch-account-level-monitoring"></a>Monitoraggio a livello di account Batch
 
-Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-collection.md#metrics) e facoltativamente [i log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md) per le risorse con ambito a livello di un account Batch, ad esempio, pool, processi e attività. Raccogliere e usare questi dati manualmente o a livello di codice per monitorare le attività nell'account Batch e per diagnosticare eventuali problemi. Per informazioni dettagliate, vedere [Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio](batch-diagnostics.md).
+Monitorare ogni account Batch usando le funzionalità di [Monitoraggio di Azure](../azure-monitor/overview.md). Monitoraggio di Azure raccoglie [metriche](../azure-monitor/platform/data-platform-metrics.md) e facoltativamente [i log di diagnostica](../azure-monitor/platform/diagnostic-logs-overview.md) per le risorse con ambito a livello di un account Batch, ad esempio, pool, processi e attività. Raccogliere e usare questi dati manualmente o a livello di codice per monitorare le attività nell'account Batch e per diagnosticare eventuali problemi. Per informazioni dettagliate, vedere [Metriche, avvisi e log di Batch per la valutazione diagnostica e il monitoraggio](batch-diagnostics.md).
  
 > [!NOTE]
 > Le metriche sono disponibili per impostazione predefinita nell'account Batch senza alcuna configurazione aggiuntiva e hanno una cronologia incrementale di 30 giorni. È necessario abilitare la registrazione diagnostica per un account Batch e si potrebbe incorrere in costi aggiuntivi per archiviare o elaborare i dati dei log di diagnostica. 
