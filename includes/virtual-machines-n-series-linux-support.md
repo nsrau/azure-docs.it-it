@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/11/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: b8aba410cd447f14fcce89fee93c5f6a253a34ce
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 3d4c58cd9e7ee0674f42d776c8df6e96faba1ab1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56102165"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886863"
 ---
 ## <a name="supported-distributions-and-drivers"></a>Driver e distribuzioni supportati
 
@@ -26,7 +26,7 @@ I driver NVIDIA CUDA per le macchine virtuali serie NC, NCv2, NCv3, ND e NDv2 (f
 
 | Distribuzione | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> HPC basato su CentOS 7.3, 7.4, 7.5, 7.6, basata su CentOS 7.4 | NVIDIA CUDA 10.0, driver branch R410 |
+| Ubuntu 16.04 LTS, 18.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3, 7.4, 7.5, 7.6<br/><br/> HPC basato su CentOS 7.3, 7.4, 7.5, 7.6, basata su CentOS 7.4 | NVIDIA CUDA 10.1, ramo del driver R418 |
 
 ### <a name="nvidia-grid-drivers"></a>Driver NVIDIA GRID
 

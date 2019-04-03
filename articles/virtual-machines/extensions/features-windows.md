@@ -16,18 +16,20 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c07f01acb95523171f0297f7e2fd531713f1facf
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ce13f053c2adee6a9a347a4162b60cc6d6b40eda
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550157"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849759"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Estensioni e funzionalità della macchina virtuale per Windows
 
 Le estensioni macchina virtuale di Azure sono piccole applicazioni che eseguono attività di configurazione e automazione post-distribuzione nelle macchine virtuali di Azure. Ad esempio, se una macchina virtuale richiede l'installazione di software, la protezione antivirus o l'esecuzione di uno script al suo interno, è possibile usare un'estensione macchina virtuale. Le estensioni macchina virtuale di Azure possono essere eseguite tramite l'interfaccia della riga di comando di Azure, PowerShell, i modelli di Azure Resource Manager e il portale di Azure. Le estensioni possono essere aggregate con una nuova distribuzione di macchina virtuale o eseguite su un sistema esistente.
 
 Questo articolo offre una panoramica delle estensioni macchina virtuale, i prerequisiti per l'uso di queste estensioni di Azure e le indicazioni su come rilevare, gestire e rimuovere le estensioni. Questo articolo offre informazioni generali perché sono disponibili molte estensioni macchina virtuale, ognuna con una configurazione potenzialmente univoca. I dettagli sono disponibili nel documento specifico della singola estensione.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="use-cases-and-samples"></a>Casi d'uso ed esempi
 
@@ -94,27 +96,27 @@ Per eseguire un'estensione in una macchina virtuale esistente, è possibile usar
 Molti comandi di PowerShell vengono utilizzati per l'esecuzione di estensioni singole. Per visualizzare un elenco, usare [Get-Command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/get-command) e applicare il filtro *Estensione*:
 
 ```powershell
-Get-Command Set-Az*Extension* -Module AzureRM.Compute
+Get-Command Set-Az*Extension* -Module Az.Compute
 ```
 
 L'output generato sarà simile al seguente:
 
 ```powershell
-CommandType     Name                                               Version    Source
------------     ----                                               -------    ------
-Cmdlet          Set-AzVMAccessExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMADDomainExtension                     4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMAEMExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMBackupExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMBginfoExtension                       4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMChefExtension                         4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMDscExtension                          4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMExtension                             4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      AzureRM.Compute
-Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      AzureRM.Compute
+CommandType     Name                                          Version    Source
+-----------     ----                                          -------    ------
+Cmdlet          Set-AzVMAccessExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMADDomainExtension                     4.5.0      Az.Compute
+Cmdlet          Set-AzVMAEMExtension                          4.5.0      Az.Compute
+Cmdlet          Set-AzVMBackupExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMBginfoExtension                       4.5.0      Az.Compute
+Cmdlet          Set-AzVMChefExtension                         4.5.0      Az.Compute
+Cmdlet          Set-AzVMCustomScriptExtension                 4.5.0      Az.Compute
+Cmdlet          Set-AzVMDiagnosticsExtension                  4.5.0      Az.Compute
+Cmdlet          Set-AzVMDiskEncryptionExtension               4.5.0      Az.Compute
+Cmdlet          Set-AzVMDscExtension                          4.5.0      Az.Compute
+Cmdlet          Set-AzVMExtension                             4.5.0      Az.Compute
+Cmdlet          Set-AzVMSqlServerExtension                    4.5.0      Az.Compute
+Cmdlet          Set-AzVmssDiskEncryptionExtension             4.5.0      Az.Compute
 ```
 
 Nell'esempio seguente si utilizza l'estensione Script personalizzato per scaricare uno script da un archivio GitHub nella macchina virtuale di destinazione e quindi eseguire lo script. Per altre informazioni sull'estensione Script personalizzato, vedere [Custom Script extension overview](custom-script-windows.md) (Panoramica delle estensioni dello script personalizzato).
