@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352086"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878027"
 ---
 # <a name="saas-fulfillment-api"></a>Evasione SaaS API
 
@@ -275,7 +275,7 @@ Internal Server Error<br>
 
 L'endpoint di risoluzione consente agli utenti di risolvere un token di marketplace a un ID di risorsa permanente. L'ID risorsa è l'identificatore univoco per la sottoscrizione SAAS.  Quando un utente viene reindirizzato al sito Web di un ISV, l'URL contiene un token nei parametri di query. Si presuppone che l'ISV usi questo token ed esegua una richiesta per risolverlo. La risposta contiene l'ID di sottoscrizione SAAS univoco, il nome, l'ID dell'offerta e il piano per la risorsa. Questo token è valido solo per un'ora. 
 
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
+**messaggio:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=<ApiVersion>`**
 
 *Parametri di query:*
 
@@ -333,7 +333,7 @@ Internal Server Error
 
 #### <a name="activate-a-subscription"></a>Attivare una sottoscrizione
 
-**Post:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`**
+**messaggio:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/activate?api-version=<ApiVersion>`**
 
 *Parametri di query:*
 
@@ -457,7 +457,7 @@ Internal Server Error
 
 Annullare la sottoscrizione ed eliminare la sottoscrizione specificata.
 
-**Delete:<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
+**Delete (Elimina):<br> `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId> ?api-version=<ApiVersion>`**
 
 *Parametri di query:*
 
@@ -648,7 +648,7 @@ Consente all'utente di tenere traccia dello stato di un'operazione asincrona att
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  ` application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   Valore stringa univoco per tenere traccia della richiesta dal client, preferibilmente un GUID. Se il valore non viene fornito, ne verrà generato e fornito uno nelle intestazioni della risposta.  |
 |  x-ms-correlationid |  Valore stringa univoco per l'operazione sul client. Questo parametro mette in correlazione tutti gli eventi dall'operazione del client con gli eventi sul lato server. Se questo valore non è specificato, uno verrà generato e fornito nelle intestazioni della risposta.  |
 |  authorization     | Il token di connessione JSON Web token (JWT).  |

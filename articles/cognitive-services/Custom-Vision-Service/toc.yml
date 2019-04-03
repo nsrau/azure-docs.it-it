@@ -51,12 +51,14 @@ items:
     href: getting-started-improving-your-classifier.md
   - name: Usare l'API Prediction
     href: use-prediction-api.md
-  - name: Esportare il modello in dispositivi mobili
-    href: export-your-model.md
-  - name: Usare il modello ONNX con Windows ML
-    href: custom-vision-onnx-windows-ml.md
-  - name: Eseguire il modello TensorFlow in Python
-    href: export-model-python.md
+  - name: Esportare i modelli
+    items:
+    - name: Esportare il modello in dispositivi mobili
+      href: export-your-model.md
+    - name: Usare il modello ONNX con Windows ML
+      href: custom-vision-onnx-windows-ml.md
+    - name: Eseguire il modello TensorFlow in Python
+      href: export-model-python.md
   - name: Creare un modello con l'API REST
     href: rest-api-tutorial.md
   - name: Esportare o eliminare i dati dell'account
@@ -99,9 +101,9 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Note sulla versione
     href: release-notes.md
-ms.openlocfilehash: 5d4b5657077b92f444482aca371db0aed4ba7a75
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 98708f7c3ad2f9547e7dde9f4cf9fc7696ed7ca0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472787"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886710"

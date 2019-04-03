@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993395"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885877"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 Questo articolo risponde alle domande comuni sul servizio Backup di Azure.
@@ -40,7 +40,7 @@ Sì. Per spostare un insieme di credenziali di Servizi di ripristino, vedere que
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>È possibile eseguire un ripristino a livello di elemento per le macchine virtuali di cui è stato eseguito il backup in un insieme di credenziali di Servizi di ripristino?
 - Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
-- Il ripristino a livello di elemento non è supportato per i punti di ripristino online di macchine virtuali locali di cui è stato eseguito il backup con il server di Backup di Azure o System Center DPM.
+- ILR non è supportato per i punti di ripristino online di macchine virtuali in locale il backup dal Server di backup di Azure o System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
@@ -93,7 +93,7 @@ Sì.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>Quali sistemi operativi sono supportati per il backup?
 Backup di Azure supporta i sistemi operativi per il backup di file, cartelle e applicazioni protetti tramite server di Backup di Azure e DPM.
 
-**Sistema operativo** | **SKU** | **Dettagli**
+**OS** | **SKU** | **Dettagli**
 --- | --- | ---
 Workstation | |
 Windows 10 a 64 bit | Enterprise, Pro, Home | I computer devono eseguire i Service Pack e gli aggiornamenti più recenti.

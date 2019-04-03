@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 48a0400a471e06f65c1d548b7c1c419a1cb198bd
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 8d6323c73e5313a29b7b0df09ebdd24a190879f5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58284579"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876429"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Domande frequenti sul database di SQL Server che eseguono un backup delle macchine Virtuali di Azure
 
@@ -42,7 +42,7 @@ Auto-correzione come una funzionalità è abilitata per tutti gli utenti per imp
 Sì. È possibile imitare la velocità di esecuzione del criterio di backup per ridurre al minimo l'impatto su un'istanza di SQL Server. Per modificare l'impostazione:
 1. Nell'istanza di SQL Server, nelle *C:\Program Files\Azure del carico di lavoro Backup\bin* cartella, creare il *ExtensionSettingsOverrides.json* file.
 2. Nel *ExtensionSettingsOverrides.json* file, modificare il **DefaultBackupTasksThreshold** impostazione su un valore inferiore (ad esempio, 5). <br>
-  ` {"DefaultBackupTasksThreshold": 5}`
+  `{"DefaultBackupTasksThreshold": 5}`
 
 3. Salvare le modifiche e chiudere il file.
 4. Nell'istanza di SQL Server, aprire **Task Manager**. Riavviare il servizio **AzureWLBackupCoordinatorSvc**.
@@ -57,7 +57,7 @@ In base alle limitazioni di SQL, è possibile eseguire copia solo backup complet
  No. Backup di Azure protegge i database di SQL Server in esecuzione in Azure. Se un gruppo di disponibilità (AG) viene distribuito tra le macchine locali e Azure, il gruppo di disponibilità può essere protette solo se la replica primaria è in esecuzione in Azure. Inoltre, Backup di Azure protegge solo i nodi che eseguono nella stessa area di Azure come l'insieme di credenziali di servizi di ripristino.
 
 ## <a name="can-i-protect-availability-groups-across-regions"></a>È possibile proteggere i gruppi di disponibilità in aree geografiche?
-L'insieme di credenziali di servizi di ripristino di Backup di Azure può rilevare e proteggere tutti i nodi che si trovano nella stessa area dell'insieme di credenziali. Se il gruppo di disponibilità SQL Server Always On si estende su più aree di Azure, configurare il backup dall'area che contiene il nodo primario. Backup di Azure può rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup. Quando le preferenze di backup non viene soddisfatta, i backup non riescono e viene visualizzato l'avviso di errore.
+L'insieme di credenziali di servizi di ripristino di Backup di Azure può rilevare e proteggere tutti i nodi che si trovano nella stessa area dell'insieme di credenziali. Se il gruppo di disponibilità SQL Server Always On si estende su più aree di Azure, configurare il backup dall'area che contiene il nodo primario. Backup di Azure è in grado di rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup. Quando le preferenze di backup non viene soddisfatta, i backup non riescono e viene visualizzato l'avviso di errore.
 
 ## <a name="do-successful-backup-jobs-create-alerts"></a>I processi di backup con esito positivo determinano la creazione di avvisi?
  No. I processi di backup con esito positivo non generano avvisi. Gli avvisi vengono inviati solo per i processi di backup con esito negativo. Dettagli del comportamento per gli avvisi del portale è documentato [qui](backup-azure-monitoring-built-in-monitor.md). Tuttavia, nel caso in cui si è interessati sono presenti avvisi relativi anche per i processi completati, è possibile usare [il monitoraggio tramite Monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md).

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404774"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881784"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Attività Delete in Azure Data Factory
 
-È possibile usare l'attività Delete in Azure Data Factory per eliminare file o cartelle da archivi locali o cloud. Usare questa attività per pulire o archiviare file quando non sono più necessari.
+È possibile usare l'attività di eliminazione in Azure Data Factory per eliminare i file o cartelle da un archivio locale archivia o archivi di archiviazione cloud. Usare questa attività per pulire o archiviare file quando non sono più necessari.
 
 > [!WARNING]
 > Le cartelle o i file eliminati non possono più essere ripristinati. Prestare attenzione quando si usa l'attività Delete per eliminare file o cartelle.
@@ -37,7 +37,7 @@ Ecco alcuni consigli per l'uso dell'attività Delete:
 
 -   Assicurarsi di non eliminare file di cui è contemporaneamente in corso la scrittura. 
 
--   Se si desidera eliminare i file o cartella da un sistema locale, assicurarsi che si usa un runtime di integrazione self-hosted con una versione maggiore di 3.14.
+-   Se si desidera eliminare i file o cartella da un sistema di on-premise, assicurarsi che si usa un runtime di integrazione self-hosted con una versione maggiore di 3.14.
 
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
@@ -573,4 +573,4 @@ Set di dati per la destinazione dei dati usata dall'attività Copy.
 
 Altre informazioni sullo spostamento di file in Azure Data Factory.
 
--   [Strumento Copia dati in Azure Data Factory](copy-data-tool.md)
+-   [Strumento Copia dati di Azure Data Factory](copy-data-tool.md)

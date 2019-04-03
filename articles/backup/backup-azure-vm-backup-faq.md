@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402066"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885265"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Back-domande frequenti su backup di macchine virtuali di Azure
 
@@ -68,13 +68,13 @@ Sì. I backup vengono eseguiti quando una macchina virtuale è spenta. Il punto 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>È possibile annullare un processo di backup in corso?
 Sì. È possibile annullare un processo di backup nello stato **Creazione dello snapshot**. Non è possibile annullare un processo se è in corso il trasferimento di dati dallo snapshot.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>È stato abilitato blocco sul gruppo di risorse creato dal servizio di Backup di Azure (ad es. ` AzureBackupRG_<geo>_<number>`), i backup continueranno a funzionare?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>È stato abilitato blocco sul gruppo di risorse creato dal servizio di Backup di Azure (ad es. `AzureBackupRG_<geo>_<number>`), i backup continueranno a funzionare?
 Se si blocca il gruppo di risorse creato dal servizio Backup di Azure, i backup inizieranno ad avere esito negativo in quanto non esiste un limite massimo di 18 punti di ripristino.
 
 È necessario rimuovere il blocco e cancellare la raccolta di punti di ripristino da tale gruppo di risorse per poter raggiungere il risultato, i backup futuri [seguire questa procedura](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) per rimuovere la raccolta di punti di ripristino.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>L'ora legale viene presa in considerazione dai criteri di backup?
-No. La data e l'ora del computer locale si adeguano all'ora legale corrente applicata. L'ora impostata per i backup pianificati potrebbe essere diversa dall'ora locale dal momento che è in vigore l'ora legale.
+ No. La data e l'ora del computer locale si adeguano all'ora legale corrente applicata. L'ora impostata per i backup pianificati potrebbe essere diversa dall'ora locale dal momento che è in vigore l'ora legale.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>Quanti dischi dati è possibile collegare a una macchina virtuale sottoposta a backup tramite Backup di Azure?
 Backup di Azure è in grado di eseguire il backup di macchine virtuali con un massimo di 16 dischi. Il supporto per 16 dischi è offerto nel [Ripristino istantaneo](backup-instant-restore-capability.md).
@@ -88,7 +88,7 @@ Non è possibile creare snapshot nel disco con acceleratore di scrittura. Il ser
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>In una macchina virtuale sono presenti dischi con acceleratore di scrittura ed è installato SAP HANA. In che modo è possibile eseguire il backup?
 Backup di Azure non può eseguire il backup del disco con acceleratore di scrittura, ma può escluderlo dal processo. Il backup, tuttavia, non assicurerà la coerenza del database perché non viene eseguito il backup delle informazioni presenti sul disco con acceleratore di scrittura. È possibile eseguire il backup di dischi con questa configurazione per ottenere il backup del disco del sistema operativo e il backup di dischi senza acceleratore di scrittura.
 
-Anteprima privata per un backup di SAP HANA è in esecuzione con un RPO pari a 15 minuti. È stata creata in modo simile al backup del database SQL e usa l'interfaccia backInt per soluzioni di terze parti certificate da SAP HANA. Se si è interessati, scrivici all'indirizzo ` AskAzureBackupTeam@microsoft.com ` con il soggetto **iscriversi per l'anteprima privata per il backup di SAP HANA in macchine virtuali di Azure**.
+Anteprima privata per un backup di SAP HANA è in esecuzione con un RPO pari a 15 minuti. È stata creata in modo simile al backup del database SQL e usa l'interfaccia backInt per soluzioni di terze parti certificate da SAP HANA. Se si è interessati, scrivici all'indirizzo `AskAzureBackupTeam@microsoft.com` con il soggetto **iscriversi per l'anteprima privata per il backup di SAP HANA in macchine virtuali di Azure**.
 
 
 ## <a name="restore"></a>Restore

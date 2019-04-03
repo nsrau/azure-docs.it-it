@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177722"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883446"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
 ## <a name="overview"></a>Panoramica
@@ -114,11 +114,11 @@ Verificare quanto segue per assicurarsi che il certificato possa essere aggiorna
 
 **1. La proprietà AutoCertificateRollover di AD FS deve essere impostata su True.** Ciò indica che AD FS genererà automaticamente nuovi certificati per la firma di token e certificati di decrittografia token prima della scadenza di quelli precedenti.
 
-**2. I metadati della federazione di AD FS sono accessibili pubblicamente.**  Verificare che i metadati di federazione siano accessibili pubblicamente, passare all'URL seguente da un computer sulla rete Internet pubblica (all'esterno della rete aziendale):
+**2. I metadati di federazione di AD FS sono accessibili pubblicamente.**  Verificare che i metadati di federazione siano accessibili pubblicamente, passare all'URL seguente da un computer sulla rete Internet pubblica (all'esterno della rete aziendale):
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-dove `(your_FS_name) `viene sostituito con il nome host del servizio federativo usato dall'organizzazione, ad esempio fs.contoso.com.  Se si è in grado di verificare entrambe le impostazioni correttamente, non occorre eseguire altre operazioni.  
+in cui `(your_FS_name)` viene sostituito con il nome host del servizio federativo nell'organizzazione viene utilizzato, ad esempio fs.contoso.com.  Se si è in grado di verificare entrambe le impostazioni correttamente, non occorre eseguire altre operazioni.  
 
 Esempio: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Rinnovare manualmente il certificato per la firma di token <a name="manualrenew"></a>
