@@ -9,35 +9,33 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: ee08f5e15180a618d1a9c48b7d59b9e1f8bc90ae
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
-ms.translationtype: HT
+ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56329116"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883114"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configurare i contenitori Docker di Language Understanding 
 
 L'ambiente di runtime del contenitore **Language Understanding** (LUIS) viene configurato tramite gli argomenti del comando `docker run`. LUIS ha diverse impostazioni necessarie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le [impostazioni di montaggio](#mount-settings) di input e le impostazioni di fatturazione. 
 
-Le impostazioni del contenitore sono [gerarchiche](#hierarchical-settings) e possono essere impostate tramite [variabili di ambiente](#environment-variable-settings) o [argomenti della riga di comando](#command-line-argument-settings) di Docker.
-
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
 Questo contenitore ha le impostazioni di configurazione seguenti:
 
-|Obbligatoria|Impostazione|Scopo|
+|Obbligatorio|Impostazione|Scopo|
 |--|--|--|
 |Sì|[ApiKey](#apikey-setting)|Si usa per rilevare le informazioni di fatturazione.|
 |No |[ApplicationInsights](#applicationinsights-setting)|Consente di aggiungere al contenitore il supporto per i dati di telemetria di [Azure Application Insights](https://docs.microsoft.com/azure/application-insights).|
 |Sì|[Fatturazione](#billing-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
 |Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No |[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
-|No |[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
-|No |[registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
-|Sì|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
+|No |[Http Proxy](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
+|No |[Registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|Sì|[Punti di montaggio](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
 > Le impostazioni [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) e [`Eula`](#eula-setting) vengono usate insieme ed è necessario fornire valori validi per tutte e tre, altrimenti il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](luis-container-howto.md#billing) (Fatturazione).
@@ -63,10 +61,10 @@ L'impostazione `Billing` specifica l'URI dell'endpoint della risorsa _Language U
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: Panoramica di **Language Understanding**, con l'etichetta `Endpoint`
+* Portale di Azure: **Language Understanding** panoramica, con l'etichetta `Endpoint`
 * Portale LUIS: Pagina delle **impostazioni di chiavi ed endpoint**, come parte dell'URI dell'endpoint.
 
-|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatorio| NOME | Tipo di dati | DESCRIZIONE |
 |--|------|-----------|-------------|
 |Sì| `Billing` | string | URI dell'endpoint di fatturazione<br><br>Esempio:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
@@ -98,15 +96,10 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 La tabella seguente descrive le impostazioni supportate.
 
-|Obbligatoria| NOME | Tipo di dati | DESCRIZIONE |
+|Obbligatorio| NOME | Tipo di dati | DESCRIZIONE |
 |-------|------|-----------|-------------|
 |Sì| `Input` | string | Destinazione del montaggio di input. Il valore predefinito è `/input`. Questo è il percorso del file del pacchetto LUIS. <br><br>Esempio:<br>`--mount type=bind,src=c:\input,target=/input`|
 |No | `Output` | string | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log di query LUIS e i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
-
-## <a name="hierarchical-settings"></a>Impostazioni gerarchiche
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
@@ -124,7 +117,7 @@ Sostituire {_nome_argomento_} con i propri valori:
 |{BILLING_ENDPOINT} | Il valore dell'endpoint billing (fatturazione) è disponibile nella pagina della panoramica di Language Understanding del portale di Azure.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
-> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore e avviarlo; altrimenti il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](luis-container-howto.md#billing).
+> È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](luis-container-howto.md#billing).
 > Il valore ApiKey è la **chiave** della pagina delle chiavi ed endpoint nel portale di LUIS ed è anche disponibile nella pagina delle chiavi di Azure Language Understanding Resource. 
 
 ### <a name="basic-example"></a>Esempio di base
@@ -142,7 +135,7 @@ ApiKey={ENDPOINT_KEY}
 ```
 
 > [!Note] 
-> Il comando precedente usa la directory dell'unità `c:` per evitare conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. Il comando Docker precedente usa la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo del [computer host](luis-container-howto.md#the-host-computer). Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori docker.
+> Il comando precedente usa una directory al di fuori dell'unità `c:` per evitare conflitti di autorizzazione in Windows. Se è necessario usare una directory specifica come directory di input, potrebbe essere necessario concedere l'autorizzazione per il servizio Docker. Il comando Docker precedente usa la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituire o rimuovere questo carattere in base ai requisiti del sistema operativo del [computer host](luis-container-howto.md#the-host-computer). Non modificare l'ordine degli argomenti se non si ha dimestichezza con i contenitori docker.
 
 
 ### <a name="applicationinsights-example"></a>Esempio di ApplicationInsights
@@ -160,7 +153,7 @@ ApiKey={ENDPOINT_KEY}
 InstrumentationKey={INSTRUMENTATION_KEY}
 ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Esempio di registrazione con argomenti della riga di comando
+### <a name="logging-example"></a>Esempio di registrazione 
 
 Il comando seguente imposta il livello di registrazione, `Logging:Console:LogLevel`, per configurare il livello di registrazione su [`Information`](https://msdn.microsoft.com). 
 
@@ -172,22 +165,7 @@ mcr.microsoft.com/azure-cognitive-services/luis:latest \
 Eula=accept \
 Billing={BILLING_ENDPOINT} \
 ApiKey={ENDPOINT_KEY} \
-Logging:Console:LogLevel=Information
-```
-
-### <a name="logging-example-with-environment-variable"></a>Esempio di registrazione con variabile di ambiente
-
-I comandi seguenti usano una variabile di ambiente denominata `Logging:Console:LogLevel` per configurare il livello di registrazione su [`Information`](https://msdn.microsoft.com). 
-
-```bash
-SET Logging:Console:LogLevel=Information
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
---mount type=bind,src=c:\input,target=/input \
---mount type=bind,src=c:\output,target=/output \
-mcr.microsoft.com/azure-cognitive-services/luis:latest \
-Eula=accept \
-Billing={BILLING_ENDPOINT} \
-ApiKey={APPLICATION_ID} \
+Logging:Console:LogLevel:Default=Information
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
