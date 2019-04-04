@@ -3,8 +3,8 @@ title: Esempio di script di Azure PowerShell - Distribuire un'applicazione in un
 description: "Esempio di script di Azure PowerShell: Distribuire un'applicazione in un cluster di Service Fabric."
 services: service-fabric
 documentationcenter: ''
-author: rwike77
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 tags: azure-service-management
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: c81514fb4b1c1da483ebd55deae149caf22d4b63
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: e205315530b0dc89037c1253c571c72c55f00a67
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27927601"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661429"
 ---
 # <a name="deploy-an-application-to-a-service-fabric-cluster"></a>Distribuire un'applicazione in un cluster di Service Fabric
 

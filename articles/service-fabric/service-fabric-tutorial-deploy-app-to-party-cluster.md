@@ -3,7 +3,7 @@ title: Distribuire un'app Service Fabric in un cluster in Azure | Microsoft Docs
 description: Informazioni su come distribuire un'applicazione in un cluster da Visual Studio.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: msfussell
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/14/2019
-ms.author: ryanwi,mikhegn
+ms.author: aljo,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 2ddc0376e256a977d7d14ea10b610fcd5861e7c8
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 451cfde133955b987b97bc2447724d2e00010892
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55100564"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667379"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Service Fabric in un cluster in Azure
 

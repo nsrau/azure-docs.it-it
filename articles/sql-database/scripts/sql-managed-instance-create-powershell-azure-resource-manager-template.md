@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 33a0e90f1a0b63138168c44b87385c05aac39c69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d157d3f4dbc7a88a356cdd754326cbff1080ac1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57869762"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846472"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Usare PowerShell con un modello di Azure Resource Manager per creare un'istanza gestita nel database SQL di Azure
 
@@ -44,8 +44,8 @@ Il nome dell'istanza, il nome utente dell'amministratore SQL, la rete virtuale/s
 In questo esempio si presuppone di disporre di aver [creato un ambiente di rete valido](../sql-database-managed-instance-create-vnet-subnet.md) oppure di aver [modificato una rete virtuale esistente](../sql-database-managed-instance-configure-vnet-subnet.md) per l'istanza gestita. L'esempio usa i commandlet [New-AzureRmResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) e [Get-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) per assicurarsi che siano installati i moduli di PowerShell seguenti:
 
 ```
-Install-Module AzureRM.Network
-Install-Module AzureRM.Resources
+Install-Module Az.Network
+Install-Module Az.Resources
 ```
 
 ## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
