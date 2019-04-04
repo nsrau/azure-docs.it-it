@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997906"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916564"
 ---
 # <a name="real-time-stats-in-microsoft-azure-cdn"></a>Statistiche in tempo reale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -32,7 +32,7 @@ Sono disponibili i grafici seguenti:
 * [Larghezza di banda](#bandwidth)
 * [Codici di stato](#status-codes)
 * [Stati della cache](#cache-statuses)
-* [Connessioni](#connections)
+* [connessioni](#connections)
 
 ## <a name="accessing-real-time-stats"></a>Accesso alle statistiche in tempo reale
 1. Nel [portale di Azure](https://portal.azure.com)passare al profilo della rete CDN.
@@ -62,7 +62,7 @@ Il grafico **Larghezza di banda** visualizza la quantità di larghezza di banda 
 Il grafico **Codici di stato** indica la frequenza con cui si verificano alcuni codici di risposta HTTP durante l'intervallo di tempo selezionato.
 
 > [!TIP]
-> Per una descrizione di ogni opzione relativa ai codici di stato HTTP, vedere [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)(Codici di stato HTTP della rete CDN di Azure).
+> Per una descrizione di ogni opzione relativa ai codici di stato HTTP, vedere [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100))(Codici di stato HTTP della rete CDN di Azure).
 > 
 > 
 
@@ -76,7 +76,7 @@ Direttamente sopra al grafico viene visualizzato un elenco dei codici di stato H
 Il grafico **Stati della cache** indica la frequenza con cui si verificano alcuni tipi di stati della cache durante l'intervallo di tempo selezionato. 
 
 > [!TIP]
-> Per una descrizione di ogni opzione relativa agli stati della cache, vedere [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx)(Codici di stato della cache della rete CDN di Azure).
+> Per una descrizione di ogni opzione relativa agli stati della cache, vedere [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100))(Codici di stato della cache della rete CDN di Azure).
 > 
 > 
 
@@ -89,7 +89,7 @@ Direttamente sopra al grafico viene visualizzato un elenco di codici di stato de
 
 Questo grafico indica il numero di connessioni stabilite con i server perimetrali. Ogni richiesta per un asset che passa attraverso la rete CDN costituisce una connessione.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Per impostare la ricezione di notifiche, vedere [Avvisi in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-alerts.md)
 * Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
 * Vedere [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-analyze-usage-patterns.md)

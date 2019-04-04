@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480720"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918638"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Pianificazione per la distribuzione di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -169,10 +169,10 @@ Il clustering di failover di Windows Server è supportato da Sincronizzazione fi
 > Perché la sincronizzazione funzioni correttamente, l'agente Sincronizzazione file di Azure deve essere installato in tutti i nodi di un cluster di failover.
 
 ### <a name="data-deduplication"></a>Deduplicazione dei dati
-**Agente versione 5.0.2.0**   
+**Versione dell'agente 5.0.2.0**   
 La deduplicazione dei dati è supportata nei volumi con cloud a livelli abilitato in Windows Server 2016 e Windows Server 2019. Abilitando la deduplicazione dei dati in un volume con cloud a livelli abilitato, è possibile memorizzare nella cache un numero maggiore di file in locale senza effettuare il provisioning di altro spazio di archiviazione.
 
-**Agente di Windows Server 2012 R2 o di versioni precedenti**  
+**Windows Server 2012 R2 o versioni precedenti dell'agente**  
 Per i volumi per cui non è abilitata la suddivisione in livelli nel cloud, Sincronizzazione file di Azure supporta l'abilitazione della deduplicazione dei dati di Windows Server per il volume.
 
 ### <a name="distributed-file-system-dfs"></a>File system distribuito (DFS)
@@ -278,6 +278,8 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 | Asia orientale           | Asia sud-orientale     |
 | Stati Uniti orientali             | Stati Uniti occidentali            |
 | Stati Uniti orientali 2           | Stati Uniti centrali         |
+| Corea del Sud centrale       | Corea del Sud meridionale        |
+| Corea del Sud meridionale         | Corea del Sud centrale      |
 | Europa settentrionale        | Europa occidentale        |
 | Stati Uniti centro-settentrionali    | Stati Uniti centro-meridionali   |
 | India meridionale         | India centrale      |
@@ -291,8 +293,8 @@ Per supportare l'integrazione di failover tra l'archiviazione con ridondanza geo
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
-* [Impostazioni di proxy e firewall di Sincronizzazione file di Azure](storage-sync-files-firewall-and-proxy.md)
-* [Pianificazione per la distribuzione di File di Azure](storage-files-planning.md)
-* [Come distribuire i file di Azure](storage-files-deployment-guide.md)
-* [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
+* [Prendere in considerazione le impostazioni di proxy e firewall](storage-sync-files-firewall-and-proxy.md)
+* [Pianificazione per la distribuzione dei file di Azure](storage-files-planning.md)
+* [Distribuire i file di Azure](storage-files-deployment-guide.md)
+* [Distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md)
 * [Monitorare Sincronizzazione file di Azure](storage-sync-files-monitoring.md)

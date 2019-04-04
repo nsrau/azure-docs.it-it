@@ -1,6 +1,6 @@
 ---
-title: Procedure consigliate per SQL Server in macchine virtuali di Azure Stack
-description: Fornisce le procedure consigliate per ottimizzare le prestazioni di SQL Server in Azure Stack macchine virtuali di Microsoft.
+title: Usare le procedure consigliate di SQL Server e per migliorare le prestazioni nelle macchine virtuali di Azure Stack | Microsoft Docs
+description: Questo articolo include SQL server le procedure consigliate per migliorare le prestazioni e ottimizzazione di SQL Server in macchine virtuali di Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123403"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879065"
 ---
-# <a name="optimize-sql-server-performance"></a>Ottimizzare le prestazioni di SQL Server
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>SQL server le procedure consigliate per ottimizzare le prestazioni in Azure Stack
 
-Questo articolo fornisce indicazioni per l'ottimizzazione delle prestazioni di SQL Server in macchine virtuali di Microsoft Azure Stack. Quando si esegue SQL Server in macchine virtuali di Azure Stack, usare le stesse database ottimizzazione delle prestazioni opzioni applicabili a SQL Server in un ambiente server in locale. Le prestazioni di un database relazionale in un cloud di Azure Stack dipendono da numerosi fattori. Fattori includono le dimensioni della famiglia di una macchina virtuale e la configurazione dei dischi dati.
+Questo articolo include SQL server le procedure consigliate per l'ottimizzazione di SQL Server e migliorare le prestazioni nelle macchine virtuali di Microsoft Azure Stack. Quando si esegue SQL Server in macchine virtuali di Azure Stack, usare le stesse database ottimizzazione delle prestazioni opzioni applicabili a SQL Server in un ambiente server in locale. Le prestazioni di un database relazionale in un cloud di Azure Stack dipendono da numerosi fattori. Fattori includono le dimensioni della famiglia di una macchina virtuale e la configurazione dei dischi dati.
 
 Durante la creazione di immagini di SQL Server [considerare il provisioning delle macchine virtuali nel portale di Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Scaricare l'estensione SQL IaaS dalla gestione di Marketplace nel portale di amministrazione di Azure Stack e scaricare la scelta di dischi rigidi virtuali SQL macchina virtuale (VHD). Questi includono SQL2014SP2 SQL2016SP1 e SQL2017.
 
@@ -37,7 +37,8 @@ Ottenere il *migliore* prestazioni per SQL Server nelle macchine virtuali di Azu
 > [!NOTE]  
 > Per linee guida sulle prestazioni per SQL Server in macchine virtuali di Azure, consultare [questo articolo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Prima di iniziare
+## <a name="checklist-for-sql-server-best-practices"></a>Elenco di controllo per procedure consigliate SQL server
+
 Il seguente elenco di controllo è per ottenere prestazioni ottimali di SQL Server in macchine virtuali di Azure Stack:
 
 
@@ -112,7 +113,7 @@ Unità di archiviazione temporanea, etichettata come le **1!d** unità, non è p
 
        Ad esempio, il comando PowerShell seguente crea un nuovo pool di archiviazione con la dimensione di interleave impostata su 64 KB e il numero di colonne impostato su 2:
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3318e52b29723eaa08d8c3a4fba18e278e6cfe9c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779250"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487754"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Creare una macchina virtuale con una password sicura archiviata nell'insieme di credenziali delle chiavi di Azure Stack
 
@@ -53,7 +53,7 @@ I passaggi seguenti descrivono il processo necessario per creare una macchina vi
 
 Lo script seguente crea un insieme di credenziali delle chiavi e archivia una password nell'insieme di credenziali chiave come chiave privata. Usare il `-EnabledForDeployment` parametro quando si crea l'insieme di credenziali delle chiavi. Questo parametro assicura che l'insieme di credenziali delle chiavi è possibile fare riferimento dai modelli di Azure Resource Manager.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -118,7 +118,7 @@ Aggiornare il file azuredeploy con l'URI di KeyVault, secretName, adminUsername 
 
 A questo punto è possibile distribuire il modello usando lo script di PowerShell seguente:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

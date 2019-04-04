@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2019
 ms.author: bwren
-ms.openlocfilehash: 487f70e4055f16c56092f2f970d2a34238e7febe
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 1027398a1a7f790adedf6c7eebed44a8db501b8a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851842"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905036"
 ---
 # <a name="metrics-in-azure-monitor"></a>Metriche in Monitoraggio di Azure
 
@@ -39,7 +39,7 @@ La tabella seguente elenca i diversi modi, che è possibile usare i dati delle m
 | Avviso | Configurare un [regola di avviso metrica](alerts-metric.md) che invia una notifica o esegue [azione automatica](action-groups.md) quando il valore della metrica supera una soglia. |
 | Automatizzare |  Uso [scalabilità automatica](autoscale-overview.md) per aumentare o ridurre le risorse in base a un valore della metrica che supera una soglia. |
 | Esportazione | [Indirizzare le metriche a log](diagnostic-logs-stream-log-store.md) per analizzare i dati in metriche di monitoraggio di Azure insieme ai dati nei log di monitoraggio di Azure e per archiviare i valori delle metriche per più di 93 giorni.<br>Stream le metriche a un [Hub eventi](stream-monitoring-data-event-hubs.md) reindirizzarli verso sistemi esterni. |
-| Recupero | Accedere ai valori delle metriche da una riga di comando usando [i cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/?view=azurermps-6.7.0)<br>Accedere ai valori delle metriche dall'uso dell'applicazione personalizzata [API REST](rest-api-walkthrough.md).<br>Accedere ai valori delle metriche da una riga di comando usando [CLI](/azure/monitor/metrics). |
+| Recupero | Accedere ai valori delle metriche da una riga di comando usando [i cmdlet di PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights)<br>Accedere ai valori delle metriche dall'uso dell'applicazione personalizzata [API REST](rest-api-walkthrough.md).<br>Accedere ai valori delle metriche da una riga di comando usando [CLI](/azure/monitor/metrics). |
 | Archiviazione | [Archiviare](..//learn/tutorial-archive-data.md) la cronologia relativa alle prestazioni o all'integrità della risorsa a scopi di conformità, verifica o creazione di report offline. |
 
 

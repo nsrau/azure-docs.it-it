@@ -11,16 +11,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 5a03805fc055583f1f965854d4da3ae6b0c90e20
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444899"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904832"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
 I partner possono tener traccia dell'impatto sugli engagement dei clienti. È possibile collegare l'ID partner agli account usati per gestire le risorse di un cliente.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-access-from-your-customer"></a>Ottenere l'accesso dal cliente
 
@@ -57,9 +59,8 @@ Quando si ha accesso alle risorse del cliente, usare il portale di Azure, PowerS
 2. Accedere al tenant del cliente con l'account utente o l'entità servizio. Per altre informazioni, vedere [Sign in with PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps) (Accedere con PowerShell).
  
    ```azurepowershell-interactive
-    C:\> Connect-AzureRmAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
+    C:\> Connect-AzAccount -TenantId XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX 
    ```
-
 
 3. Creare il collegamento al nuovo ID partner. L'ID partner è l'ID [Microsoft Partner Network](https://partner.microsoft.com/) dell'organizzazione.
 
@@ -125,7 +126,7 @@ Partecipare alla discussione [Community Partner Microsoft](https://aka.ms/PALdis
 
 Tutti gli utenti dell'organizzazione partner che gestiscono le risorse di Azure del cliente possono collegare l'ID partner all'account.
 
-**Un ID partner può essere modificato dopo essere stato collegato?**
+**Un ID partner può essere modificato dopo che è collegato?**
 
 Sì. Un ID partner collegato può essere modificato, aggiunto o rimosso.
 
@@ -133,7 +134,7 @@ Sì. Un ID partner collegato può essere modificato, aggiunto o rimosso.
 
 Il collegamento tra l'ID partner e l'account viene eseguito per ogni tenant del cliente. Collegare l'ID partner in ogni tenant del cliente.
 
-**Altri partner o clienti possono modificare o rimuovere il collegamento all'ID partner?**
+**Altri partner o clienti modificare o rimuovere il collegamento all'ID partner?**
 
 Il collegamento è associato a livello di account utente. Solo il titolare dell'account può modificare o rimuovere il collegamento all'ID partner. Il cliente e altri partner non possono modificare il collegamento all'ID partner. 
 

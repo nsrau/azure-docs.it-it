@@ -8,12 +8,12 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 792053eef32ffc3a5e93136c203612927e44a5a2
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 966a8bd5990f955a3ec66ae465d14a0369d0cdf9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632450"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915309"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cwinrt"></a>Come creare e individuare gli ancoraggi usando Azure spaziali ancoraggi in C + + / WinRT
 
@@ -268,7 +268,7 @@ Altre informazioni sul [AnchorLocatedDelegate](https://docs.microsoft.com/cpp/ap
                 // This anchor has already been reported and is being tracked
                 break;
             case LocateAnchorStatus::NotLocatedAnchorDoesNotExist:
-                // The anchor was deleted or never exited in the first place
+                // The anchor was deleted or never existed in the first place
                 // Drop it, or show UI to ask user to anchor the content anew
                 break;
             case LocateAnchorStatus::NotLocated:

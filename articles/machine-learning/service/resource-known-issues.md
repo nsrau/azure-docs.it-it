@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791746"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892739"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemi noti e risoluzione per il servizio di Azure Machine Learning
 
@@ -24,7 +24,7 @@ Questo articolo consente di trovare e correggere errori o guasti riscontrati dur
 
 ## <a name="sdk-installation-issues"></a>Problemi di installazione dell'SDK
 
-**Messaggio di errore: Impossibile installare "PyYAML"**
+**Messaggio di errore: Non è possibile disinstallare 'PyYAML'**
 
 Azure Machine Learning SDK per Python: PyYAML è un progetto installato da Distutils. Non è pertanto possibile stabilire in modo accurato quali file appartengono a esso in caso di disinstallazione parziale. Per continuare a installare l'SDK, ignorando l'errore, usare:
 
@@ -50,7 +50,7 @@ Non sarà possibile distribuire i modelli in FPGA fino a quando non viene richie
 
 ## <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
 
-Tensore flusso automatizzato apprendimento automatico attualmente non supporta la versione del flusso di tensore 1.13. Installazione di questo causerà le dipendenze dei pacchetti a smettere di funzionare. Stiamo lavorando per risolvere questo problema in una versione futura. 
+Tensore flusso automatizzato apprendimento automatico attualmente non supporta la versione del flusso di tensore 1.13. Installare questa versione causerà le dipendenze dei pacchetti a smettere di funzionare. Stiamo lavorando per risolvere questo problema in una versione futura. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ Se viene visualizzato questo errore quando si usa automatico apprendimento:
 
 1. Scollega e ricollega il cluster per il notebook. 
 
-Se ciò non risolve il problema, provare a riavviare il cluster.
+Se questi passaggi non risolvono il problema, provare a riavviare il cluster.
 
 ## <a name="azure-portal"></a>Portale di Azure
 
@@ -104,7 +104,7 @@ Se si passa direttamente a visualizzare l'area di lavoro a un collegamento di co
 
 ## <a name="diagnostic-logs"></a>Log di diagnostica
 
-In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log, visitare [portale di Azure](https://portal.azure.com) e visualizzare l'area di lavoro e selezionare **dell'area di lavoro > esperimento > esecuzione > log**.
+In alcuni casi può essere utile fornire le informazioni di diagnostica quando si richiede supporto. Per visualizzare alcuni log, visitare [portale di Azure](https://portal.azure.com) e passare all'area di lavoro e selezionare **dell'area di lavoro > esperimento > esecuzione > log**.
 
 ## <a name="resource-quotas"></a>Quote di risorse
 
@@ -123,7 +123,3 @@ Se si esegue un'operazione di gestione in una destinazione di calcolo da un proc
 ```
 
 Ad esempio, si riceverà un errore se si prova a creare o collegare una destinazione di calcolo da una pipeline di Machine Learning che viene inviata per l'esecuzione remota.
-
-## <a name="get-more-support"></a>Richiedere supporto tecnico
-
-È possibile inviare le richieste di supporto e ottenere assistenza dal supporto tecnico, i forum e altro ancora. [Altre informazioni](support-for-aml-services.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449009"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905291"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Eseguire l'aggiornamento al piano Standard del Centro sicurezza per la sicurezza avanzata
 Il Centro sicurezza di Azure offre la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro in esecuzione in Azure, in locale e in altri cloud. Offre visibilità e controllo su carichi di lavoro cloud ibridi, difese attive che riducono l'esposizione a minacce e il rilevamento intelligente che consente di tenere il passo con gli attacchi informatici in rapida evoluzione.
@@ -46,7 +46,7 @@ Per ottenere il livello Standard:
 4. Selezionare **Standard** per eseguire l'aggiornamento.
 5. Fare clic su **Save**.
 
-![Prezzi del Centro sicurezza](./media/security-center-pricing/get-standard.png)
+(I prezzi indicati nell'immagine sono ad esempio è solo a scopo). ![Prezzi del Centro sicurezza](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > Per abilitare tutte le funzionalità del Centro sicurezza, è necessario applicare il piano tariffario per la sottoscrizione che contiene le macchine virtuali applicabili Standard. La configurazione dei prezzi per un'area di lavoro non abilita solo l'accesso JIT alla macchina virtuale, i controlli dell'applicazione adattivi e i rilevamenti di rete per le risorse di Azure.
@@ -64,8 +64,8 @@ Il Centro sicurezza offre maggiore sicurezza e protezione dalle minacce per i ca
 ## <a name="next-steps"></a>Passaggi successivi
 In questo articolo sono stati presentati i prezzi del Centro sicurezza. Per altre informazioni sulla sicurezza e la protezione avanzate dalle minacce del livello Standard, vedere:
 
-- [Rilevamento delle minacce avanzato](security-center-threat-report.md)
-- [Accesso JIT alla macchina virtuale](security-center-just-in-time.md)
+- [Rilevamento avanzato delle minacce](security-center-threat-report.md)
+- [Just-in controllo di accesso della macchina virtuale ora](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

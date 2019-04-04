@@ -12,40 +12,39 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 04/02/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 09/28/2018
-ms.openlocfilehash: eef9e45d71dd5a8c29112f74deaf8342dc0d1406
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2a42860ad4487f470aea9c4d2be8eba1fbe8ab
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101500"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802848"
 ---
 # <a name="use-api-version-profiles-with-java-in-azure-stack"></a>Usare i profili delle versioni API con Java in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-il SDK per Java per Azure Stack Resource Manager fornisce strumenti che consentono di compilare e gestire l'infrastruttura. I provider di risorse nel SDK includono calcolo, rete, archiviazione, servizi app, e [KeyVault](../../key-vault/key-vault-whatis.md). Java SDK incorpora i profili delle API per l'inserimento di dipendenze nel file POM. XML che carica i moduli corretti nel file Java. Tuttavia, è possibile aggiungere più profili come dipendenze, ad esempio la **2018-03-01-hybrid**, o **più recente** come profilo di Azure. Usando queste dipendenze carica il modulo corretto in modo che quando si crea il tipo di risorsa, è possibile selezionare quale versione dell'API da tali profili che si desidera utilizzare. In questo modo è possibile usare le versioni più recenti in Azure, durante lo sviluppo con le versioni dell'API più recente per Azure Stack. Uso di Java SDK consente un'esperienza di sviluppo cloud ibrido davvero. I profili di API nel SDK per Java consentono lo sviluppo cloud ibride grazie alla possibilità di passare tra le risorse di Azure globali e le risorse in Azure Stack.
+il SDK per Java per Azure Stack Resource Manager fornisce strumenti che consentono di compilare e gestire l'infrastruttura. I provider di risorse nel SDK includono calcolo, rete, archiviazione, servizi app, e [KeyVault](../../key-vault/key-vault-whatis.md). Java SDK incorpora i profili delle API per l'inserimento di dipendenze nel file POM. XML che carica i moduli corretti nel file Java. Tuttavia, è possibile aggiungere più profili come dipendenze, ad esempio la **2018-03-01-hybrid**, o **più recente**, come il profilo di Azure. Usando queste dipendenze carica il modulo corretto in modo che quando si crea il tipo di risorsa, è possibile selezionare quale versione dell'API da tali profili che si desidera utilizzare. In questo modo è possibile usare le versioni più recenti in Azure, durante lo sviluppo con le versioni dell'API più recente per Azure Stack. Uso di Java SDK consente un'esperienza di sviluppo cloud ibrido davvero. I profili di API nel SDK per Java consentono lo sviluppo cloud ibride grazie alla possibilità di passare tra le risorse di Azure globali e le risorse in Azure Stack.
 
 ## <a name="java-and-api-version-profiles"></a>Profili delle versioni API e Java
 
 Un profilo di API è una combinazione di versioni di API e i provider di risorse. È possibile usare un profilo di API per ottenere la versione più recente e più stabile di ogni tipo di risorsa in un pacchetto di provider di risorse.
 
 - Per usare le versioni più recenti di tutti i servizi, usare il **più recente** profilo come dipendenza.
-    
-   - Per usare il profilo più recente, la dipendenza serve **COM**.
 
-   - Per usare i servizi compatibili con Azure Stack, usare il **com.microsoft.azure.profile\_2018\_03\_01\_ibrida** profilo.
-    
-      - Ciò è necessario specificare nel file POM. XML come dipendenza, che carica i moduli automaticamente se è la classe a destra scegliere nell'elenco a discesa come si farebbe con .NET.
-        
-      - La parte superiore di ogni modulo verrà visualizzata come indicato di seguito:         
-           `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
-             
+  - Per usare il profilo più recente, la dipendenza serve **COM**.
+
+  - Per usare i servizi compatibili con Azure Stack, usare il **com.microsoft.azure.profile\_2018\_03\_01\_ibrida** profilo.
+
+    - Ciò è necessario specificare nel file POM. XML come dipendenza, che carica i moduli automaticamente se è la classe a destra scegliere nell'elenco a discesa come si farebbe con .NET.
+
+    - La parte superiore di ogni modulo verrà visualizzata come indicato di seguito:      `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
 
   - Le dipendenze vengono visualizzati come indicato di seguito:
+
      ```xml
      <dependency>
      <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
@@ -54,7 +53,7 @@ Un profilo di API è una combinazione di versioni di API e i provider di risorse
      </dependency>
      ```
 
-  - Per usare versioni API specifiche per un tipo di risorsa in un provider di risorse specifico, usare le versioni API specifiche definite tramite intellisense.
+  - Per usare versioni API specifiche per un tipo di risorsa in un provider di risorse specifico, usare le versioni API specifiche definite tramite Intellisense.
 
 Si noti che è possibile combinare tutte le opzioni nella stessa applicazione.
 
@@ -64,7 +63,7 @@ Usare la procedura seguente per installare il SDK per Java:
 
 1. Seguire le istruzioni ufficiali per installare Git. Per istruzioni, vedere [Guida introduttiva - installazione di Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-2. Seguire le istruzioni ufficiali per installare il [SDK per Java](https://zulu.org/download/) e [Maven](https://maven.apache.org/). La versione corretta è la versione 8 di Java Developer Kit. Apache Maven corretto è la versione 3.0 o versione successiva. Per completare la Guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME al percorso di installazione di Java Development Kit. Per altre informazioni, vedere [creare la prima funzione con Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
+2. Seguire le istruzioni per installare il [SDK per Java](https://zulu.org/download/) e [Maven](https://maven.apache.org/). La versione corretta è la versione 8 di Java Developer Kit. Apache Maven corretto è la versione 3.0 o versione successiva. Per completare la Guida introduttiva, è necessario impostare la variabile di ambiente JAVA_HOME al percorso di installazione di Java Development Kit. Per altre informazioni, vedere [creare la prima funzione con Java e Maven](../../azure-functions/functions-create-first-java-maven.md).
 
 3. Per installare i pacchetti di dipendenza corretto, aprire il file POM. XML nell'applicazione Java. Aggiungere una dipendenza, come illustrato nel codice seguente:
 
@@ -76,15 +75,15 @@ Usare la procedura seguente per installare il SDK per Java:
    </dependency>
    ```
 
-4. I pacchetti che devono essere installati dipende dalla versione del profilo da utilizzare. I nomi dei pacchetti per le versioni di profili sono:
-    
+4. Il set di pacchetti che devono essere installati dipende dalla versione del profilo da usare. I nomi dei pacchetti per le versioni di profili sono:
+
    - **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**
    - **com.microsoft.azure**
      - **latest**
 
 5. Se non è disponibile, creare una sottoscrizione e salvare l'ID sottoscrizione per un uso successivo. Per istruzioni su come creare una sottoscrizione, vedere [creare le sottoscrizioni di offerte in Azure Stack](../azure-stack-subscribe-plan-provision-vm.md).
 
-6. Creare un'entità servizio e salvare l'ID Client e il segreto Client. Per istruzioni su come creare un'entità servizio per Azure Stack, vedere [offrono alle applicazioni di accedere ad Azure Stack](../azure-stack-create-service-principals.md). Si noti che l'ID client è noto anche come ID dell'applicazione durante la creazione di un'entità servizio.
+6. Creare un'entità servizio e salvare il client ID e segreto client. Per istruzioni su come creare un'entità servizio per Azure Stack, vedere [offrono alle applicazioni di accedere ad Azure Stack](../azure-stack-create-service-principals.md). Si noti che l'ID client è noto anche come ID dell'applicazione durante la creazione di un'entità servizio.
 
 7. Assicurarsi che all'entità servizio è installato il ruolo di collaboratore/proprietario della sottoscrizione. Per istruzioni su come assegnare un ruolo all'entità servizio, vedere [offrono alle applicazioni di accedere ad Azure Stack](../azure-stack-create-service-principals.md).
 
@@ -94,14 +93,14 @@ Per usare il SDK Java di Azure con Azure Stack, è necessario fornire i valori s
 
 | Valore                     | Variabili di ambiente | DESCRIZIONE                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| ID tenant                 | AZURE_TENANT_ID            | Il valore di Azure Stack [ <span class="underline">ID tenant</span>](../azure-stack-identity-overview.md).                                                          |
-| ID client                 | AZURE_CLIENT_ID             | Il servizio di ID entità applicazione salvati dell'entità servizio è stato creato nella sezione precedente di questo documento.                                                                                              |
-| ID sottoscrizione           | AZURE_SUBSCRIPTION_ID      | Il [ <span class="underline">ID sottoscrizione</span> ](../azure-stack-plan-offer-quota-overview.md#subscriptions) è la modalità di accesso offerte in Azure Stack.                |
-| Client Secret             | AZURE_CLIENT_SECRET        | L'applicazione di un'entità servizio segreto salvato se è stata creata l'entità servizio.                                                                                                                                   |
-| Endpoint di Resource Manager | ARM_ENDPOINT              | Visualizzare [ <span class="underline">l'endpoint di gestione risorse di Azure Stack</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
-| Località                  | RESOURCE_LOCATION    | Locale per Azure Stack                                                                                                                                                                                                |
+| ID tenant                 | AZURE_TENANT_ID            | Il valore di Azure Stack [tenant ID](../azure-stack-identity-overview.md).                                                          |
+| ID client                 | AZURE_CLIENT_ID             | Il servizio di ID entità applicazione salvato quando l'entità servizio è stato creato nella sezione precedente.                                                                                              |
+| ID sottoscrizione           | AZURE_SUBSCRIPTION_ID      | Il [ID sottoscrizione](../azure-stack-plan-offer-quota-overview.md#subscriptions) è la modalità di accesso offerte in Azure Stack.                |
+| Client Secret             | AZURE_CLIENT_SECRET        | Segreto dell'applicazione dell'entità servizio salvato quando è stata creata l'entità servizio.                                                                                                                                   |
+| Endpoint di Resource Manager | ARM_ENDPOINT              | Visualizzare [l'endpoint di gestione risorse di Azure Stack](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Località                  | RESOURCE_LOCATION    | **Locale** per Azure Stack.                                                                                                                                                                                                |
 
-Per trovare l'ID tenant per Azure Stack, seguire le istruzioni riportate [qui](../azure-stack-csp-ref-operations.md). Per impostare le variabili di ambiente, eseguire le operazioni seguenti:
+Per trovare l'ID tenant per Azure Stack, vedere le istruzioni riportate [qui](../azure-stack-csp-ref-operations.md). Per impostare le variabili di ambiente, eseguire le operazioni seguenti:
 
 ### <a name="microsoft-windows"></a>Microsoft Windows
 
@@ -113,7 +112,7 @@ Set AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="macos-linux-and-unix-based-systems"></a>sistemi basati su Unix, Linux e macOS
 
-In sistemi basati su Unix, è possibile usare il comando seguente:
+In sistemi basati su Unix, usare il comando seguente:
 
 ```shell
 Export AZURE_TENANT_ID=<Your_Tenant_ID>
@@ -121,19 +120,19 @@ Export AZURE_TENANT_ID=<Your_Tenant_ID>
 
 ### <a name="trust-the-azure-stack-ca-root-certificate"></a>Considerare attendibile il certificato di autorità di certificazione di Azure Stack radice
 
-Se si usa il ASDK, è necessario considerare attendibile il certificato radice della CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi integrati.
+Se si usa il ASDK, deve considerare attendibile il certificato radice CA nel computer remoto. Non è necessario eseguire questa operazione con i sistemi integrati.
 
 #### <a name="windows"></a>Windows
 
-1. Esportare il certificato autofirmato dello Stack di Azure sul desktop
+1. Esportare il certificato autofirmato Azure Stack per il desktop.
 
-1. In una shell cmd passare directory %JAVA_HOME%\bin
+1. In un prompt dei comandi, cambiare directory % JAVA_HOME%\bin.
 
-1. Eseguire questo comando:
+1. Eseguire il comando seguente:
 
-```shell
-      .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
-```
+   ```shell
+   .\keytool.exe -importcert -noprompt -file <location of the exported certificate here> -alias root -keystore %JAVA_HOME%\lib\security\cacerts -trustcacerts -storepass changeit
+   ```
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>L'endpoint di gestione risorse di Azure Stack
 
@@ -143,20 +142,20 @@ Microsoft Azure Resource Manager è un framework di gestione che consente agli a
 
 Tenere presente le considerazioni seguenti:
 
-- Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: https://management.local.azurestack.external/
+- Il **ResourceManagerUrl** in Azure Stack Development Kit (ASDK) è: https://management.local.azurestack.external/.
 
-- Il **ResourceManagerUrl** in sistemi integrati è: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`
+- Il **ResourceManagerUrl** in sistemi integrati: `https://management.<location>.ext-<machine-name>.masd.stbtest.microsoft.com/`.
 
 Per recuperare i metadati richiesti: `<ResourceManagerUrl>/metadata/endpoints?api-version=1.0`.
 
 File JSON di esempio:
 
 ```json
-{ 
+{
    "galleryEndpoint": "https://portal.local.azurestack.external:30015/",
    "graphEndpoint": "https://graph.windows.net/",
    "portal Endpoint": "https://portal.local.azurestack.external/",
-   "authentication": 
+   "authentication":
       {
       "loginEndpoint": "https://login.windows.net/",
       "audiences": ["https://management.<yourtenant>.onmicrosoft.com/3cc5febd-e4b7-4a85-a2ed-1d730e2f5928"]
@@ -166,15 +165,15 @@ File JSON di esempio:
 
 ## <a name="existing-api-profiles"></a>Profili dell'API esistenti
 
-1.  **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Profilo più recente creato per Azure Stack. Usare questo profilo per i servizi di essere più compatibile con Azure Stack, purché si è in corrispondenza del timestamp 1808 o altri.
+- **com.microsoft.azure.profile\_2018\_03\_01\_hybrid**: Profilo più recente creato per Azure Stack. Usare questo profilo per i servizi di essere più compatibile con Azure Stack, purché si è in corrispondenza del timestamp 1808 o altri.
 
-2.  **com.microsoft.azure**: Profilo costituito le versioni più recenti di tutti i servizi. Usare le versioni più recenti di tutti i servizi.
+- **com.microsoft.azure**: Profilo costituito le versioni più recenti di tutti i servizi. Usare le versioni più recenti di tutti i servizi.
 
 Per altre informazioni sui profili di Azure Stack e l'API, vedere la [profili di riepilogo dell'API](../user/azure-stack-version-profiles.md#summary-of-api-profiles).
 
 ## <a name="azure-java-sdk-api-profile-usage"></a>Utilizzo di profilo Azure API Java SDK
 
-Il codice seguente esegue l'autenticazione dell'entità servizio in Azure Stack. Crea un token dal tenant ID e la base di autenticazione, che è specifica per Azure Stack:
+Il codice seguente esegue l'autenticazione dell'entità servizio in Azure Stack. Crea un token usando l'ID tenant e la base di autenticazione, che è specifica per Azure Stack:
 
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
@@ -234,31 +233,31 @@ HttpResponse response = httpClient.execute(getRequest);
 
 È possibile utilizzare gli esempi di GitHub seguenti come riferimento per la creazione di soluzioni con i profili .NET e API di Azure Stack:
 
-  - [Gestire gruppi di risorse](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
+- [Gestire gruppi di risorse](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Gestire gli account di archiviazione](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
+- [Gestire gli account di archiviazione](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Gestire una macchina virtuale](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
+- [Gestire una macchina virtuale](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
-### <a name="sample-unit-test-project"></a>Progetto di Unit Test di esempio 
+### <a name="sample-unit-test-project"></a>Progetto di Unit Test di esempio
 
 1. Clonare il repository usando il comando seguente:
-    
+
    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2. Creare un'entità servizio Azure e assegnare un ruolo per accedere alla sottoscrizione. Per istruzioni sulla creazione di un'entità servizio, vedere [usare Azure PowerShell per creare un'entità servizio con un certificato](../azure-stack-create-service-principals.md).
 
 3. Recuperare i valori di variabile di ambiente necessarie seguenti:
-    
-   -  AZURE_TENANT_ID
-   -  AZURE_CLIENT_ID
-   -  AZURE_CLIENT_SECRET
-   -  AZURE_SUBSCRIPTION_ID
-   -  ARM_ENDPOINT
-   -  RESOURCE_LOCATION
 
-4. Impostare le variabili di ambiente seguenti usando le informazioni di cui che è stato recuperato dall'entità servizio è stato creato mediante il prompt dei comandi:
-    
+   - AZURE_TENANT_ID
+   - AZURE_CLIENT_ID
+   - AZURE_CLIENT_SECRET
+   - AZURE_SUBSCRIPTION_ID
+   - ARM_ENDPOINT
+   - RESOURCE_LOCATION
+
+4. Impostare le variabili di ambiente seguenti usando le informazioni che precedentemente recuperati dall'entità servizio creata utilizzando il prompt dei comandi:
+
    - esportare AZURE_TENANT_ID = {proprio ID tenant}
    - esportare AZURE_CLIENT_ID = {l'ID client}
    - esportare AZURE_CLIENT_SECRET = {il segreto client}
@@ -290,18 +289,18 @@ HttpResponse response = httpClient.execute(getRequest);
    HttpResponse response = httpClient.execute(getRequest);
    ```
 
-6. Nel file POM. XML, aggiungere la dipendenza seguente per usare il profilo 2018-03-01-ibrida per Azure Stack. Questa dipendenza installerà i moduli associati a questo profilo per i provider di risorse di calcolo, rete, archiviazione, KeyVault e servizi App.
-      
+6. Nel file POM. XML, aggiungere la dipendenza seguente per usare la **2018-03-01-hybrid** profilo per Azure Stack. Questa dipendenza consente di installare i moduli associati a questo profilo per i provider di risorse di calcolo, rete, archiviazione, KeyVault e servizi App:
+
    ```xml
    <dependency>
    <groupId>com.microsoft.azure.profile_2018_03_01_hybrid</groupId>
    <artifactId>azure</artifactId>
-   <version>1.0.0-beta</version>
+   <vers1s.0.0-beta</version>
    </dependency>
    ```
 
-8. Al prompt dei comandi che è stato aperto per impostare le variabili di ambiente, immettere la riga seguente:
-    
+7. Al prompt dei comandi che è stato aperto per impostare le variabili di ambiente, immettere il comando seguente:
+
    ```shell
    mvn clean compile exec:java
    ```
@@ -310,5 +309,5 @@ HttpResponse response = httpClient.execute(getRequest);
 
 Per altre informazioni sui profili di API, vedere:
 
-- [Gestire i profili di versione API in Azure Stack](azure-stack-version-profiles.md)
+- Profili delle versioni in Azure Stack](azure-stack-version-profiles.md)
 - [Versioni di API del provider di risorse supportate da profili](azure-stack-profiles-azure-resource-manager-versions.md)

@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851862"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905102"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP ottimizzazione delle prestazioni per macchine virtuali di Azure
 
@@ -128,7 +128,7 @@ La raccomandazione corrente per Azure consiste nell'impostare fissaggio TCP MSS 
 
 #### <a name="latency-and-round-trip-time"></a>Tempo di round trip e la latenza
 
-Latenza di rete è regolata dalla velocità della luce in fibra ottica della rete fiber. La realtà è, velocità effettiva della rete di TCP effettivamente governati (pratici massimi) perché di round trip Time (RTT) tra due dispositivi di rete.
+Latenza di rete è regolata dalla velocità della luce in fibra ottica della rete fiber. La realtà è, velocità effettiva della rete di TCP è inoltre in modo efficace governati (pratici massimi) a causa di tempo di round trip (RTT) tra due dispositivi di rete.
 
 | | | | |
 |-|-|-|-|

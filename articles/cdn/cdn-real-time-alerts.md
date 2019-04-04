@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998326"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917856"
 ---
 # <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Avvisi in tempo reale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -65,7 +65,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
    > 
 8. Per **Expression** (Espressione), creare un'espressione da monitorare selezionando valori per **Metric** (Metrica), **Operator** (Operatore) e **Trigger value** (Valore trigger).
    
-   * Per **Metric**(Metrica), selezionare il tipo di condizione che si vuole monitorare.  **Bandwidth Mbps** (Mbps larghezza di banda) è la quantità di larghezza di banda utilizzata, misurata in megabit al secondo.  **Total Connections** (Connessioni totali) è il numero di connessioni HTTP simultanee ai server perimetrali.  Per informazioni sulle definizioni dei vari stati della cache e dei codici di stato, vedere [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Codici di stato della cache della rete CDN di Azure) e [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Codici di stato HTTP della rete CDN di Azure).
+   * Per **Metric**(Metrica), selezionare il tipo di condizione che si vuole monitorare.  **Bandwidth Mbps** (Mbps larghezza di banda) è la quantità di larghezza di banda utilizzata, misurata in megabit al secondo.  **Total Connections** (Connessioni totali) è il numero di connessioni HTTP simultanee ai server perimetrali.  Per informazioni sulle definizioni dei vari stati della cache e dei codici di stato, vedere [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)) (Codici di stato della cache della rete CDN di Azure) e [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100)) (Codici di stato HTTP della rete CDN di Azure).
    * **Operator** (Operatore) è l'operatore matematico che stabilisce la relazione tra la metrica e il valore trigger.
    * **Trigger Value** (Valore trigger) è il valore soglia da raggiungere perché venga inviata una notifica.
      
@@ -107,7 +107,7 @@ Questo documento illustra gli avvisi in tempo reale nella rete CDN di Microsoft 
     > 
 13. Fare clic sul pulsante **Save** (Salva) per salvare la configurazione degli avvisi.  Se al passaggio 5 è stata selezionata l'opzione **Alert Enabled** (Avviso abilitato), ora l'avviso è attivo.
 
-## <a name="next-steps"></a>Passaggi successivi
+## <a name="next-steps"></a>Fasi successive
 * Vedere [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
 * Per un'analisi più approfondita, vedere [Report HTTP avanzati nella rete CDN di Microsoft Azure](cdn-advanced-http-reports.md)
 * Vedere [Analizzare i modelli di utilizzo della rete CDN di Azure](cdn-analyze-usage-patterns.md)

@@ -14,16 +14,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774338"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905954"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Usare gli strumenti di trasferimento dei dati per l'archiviazione di Azure Stack
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 Microsoft Azure Stack offre un set di servizi di archiviazione per i dischi, BLOB, tabelle, code e le funzioni di gestione di account. Se si desidera gestire oppure spostare i dati in o da archiviazione di Azure Stack, è possibile usare un set di strumenti di archiviazione di Azure. Questo articolo offre una panoramica degli strumenti disponibili.
 
@@ -71,7 +71,7 @@ Sono disponibili due versioni dell'utilità AzCopy: AzCopy in Windows e AzCopy i
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Esempi di comando AzCopy per il trasferimento dati
 
-Negli esempi seguenti seguono gli scenari tipici per copiare dati da e verso BLOB di Azure Stack. Per altre informazioni, vedere [AzCopy in Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) e [AzCopy in Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+Negli esempi seguenti seguono gli scenari tipici per copiare dati da e verso BLOB di Azure Stack. Per altre informazioni, vedere [AzCopy in Windows](../../storage/common/storage-use-azcopy.md) e [AzCopy in Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Scaricare tutti i BLOB in un disco locale
 
@@ -156,7 +156,7 @@ In questo esempio si supponga di avere completato [installato PowerShell per Azu
    > [!NOTE]
    > Questo script deve essere eseguito nella directory radice per **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
@@ -263,7 +263,7 @@ Prima di eseguire questo script, assicurarsi che è possibile correttamente la c
 1. Aprire un editor di testo quindi copiare e incollare lo script precedente nell'editor.
 2. Aggiornare le variabili dello script in modo da riflettere le impostazioni di configurazione.
 3. Dopo aver aggiornato le variabili necessarie, salvare lo script e chiudere l'editor. I passaggi successivi presuppongono che allo sript sia stato assegnato il nome **my_storage_sample.sh**.
-4. Contrassegnare lo script come eseguibile, se necessario:`chmod +x my_storage_sample.sh`
+4. Contrassegnare lo script come eseguibile, se necessario: `chmod +x my_storage_sample.sh`
 5. Eseguire lo script. Ad esempio, in Bash: `./my_storage_sample.sh`
 
 ```azurecli

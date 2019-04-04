@@ -1,6 +1,6 @@
 ---
 title: Dimensioni delle macchine virtuali supportate in Azure Stack | Microsoft Docs
-description: Informazioni di riferimento per le dimensioni di macchina virtuale supportate in Azure Stack.
+description: Informazioni di riferimento per le dimensioni delle macchine virtuali supportate in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,26 +10,26 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: kivenkat
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: 0188de6d3a29034ec00999b2e07cab6ddb911631
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 79d18f938dc51bb7eec62120e8bc6743cb2840c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176260"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886472"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Dimensioni delle macchine virtuali supportate in Azure Stack
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-Questo articolo elenca le dimensioni di macchina virtuale (VM) che sono disponibili in Azure Stack.
+Questo articolo elenca le dimensioni di macchina virtuale disponibili in Azure Stack.
 
-Valori di IOPS (Input/Output operazioni al secondo) in Azure Stack è una funzione delle dimensioni di macchina virtuale anziché il tipo di disco. Ciò significa che per una serie di Standard_Fs macchina virtuale, indipendentemente dal fatto che si scelga di unità SSD o HDD per il tipo di disco, il limite di IOPS per un disco dati aggiuntivo single 2300 IOPS. I limiti IOPS imposti è un limite (massimo) per evitare vicini fastidiosi. Non è una garanzia di IOPS che verrà visualizzato in una dimensione di macchina virtuale specifica.
+Valori di IOPS (Input/Output operazioni al secondo) in Azure Stack è una funzione delle dimensioni di macchina virtuale (VM) anziché il tipo di disco. Ciò significa che per una serie di Standard_Fs macchina virtuale, indipendentemente dal fatto che si scelga di unità SSD o HDD per il tipo di disco, il limite di IOPS per un disco dati aggiuntivo single 2300 IOPS. I limiti IOPS imposti è un limite (massimo) per evitare vicini fastidiosi. Non è una garanzia di IOPS che verrà visualizzato in una dimensione di macchina virtuale specifica.
 
-## <a name="general-purpose"></a>Scopo generico
+## <a name="virtual-machine-general-purpose"></a>Macchina virtuale generico
 
 Dimensioni di macchina virtuale per utilizzo generico offrono un rapporto CPU-memoria equilibrato. Vengono utilizzati per il test e sviluppo, database medio-piccoli e da server web con traffico medio a ridotto. Ogni disco dati è 2300 IOPS per le dimensioni di VM premium, ad eccezione della serie Basic. Per una base, le dimensioni del disco dati sono 500 IOPS.
 

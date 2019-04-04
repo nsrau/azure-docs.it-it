@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: a82035bfbed109d6521131d8c730bef04030c94f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 92fc8e9edfc745ae89c2b4d44e193566292d4f08
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093542"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918876"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Note sulla versione per Servizi BizTalk di Azure
 
@@ -30,7 +30,7 @@ ms.locfileid: "58093542"
 Le note sulla versione per Servizi BizTalk di Microsoft Azure contengono i problemi noti in questa versione.
 
 ## <a name="whats-new-in-the-november-update-of-biztalk-services"></a>Novità nell'aggiornamento di novembre di Servizi BizTalk
-* È possibile abilitare Crittografia dati inattivi nel portale di Servizi BizTalk. Vedere [Abilitare Crittografia dati inattivi nel portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn874052.aspx).
+* È possibile abilitare Crittografia dati inattivi nel portale di Servizi BizTalk. Vedere [Abilitare Crittografia dati inattivi nel portale di Servizi BizTalk](/previous-versions/azure/dn874052(v=azure.100)).
 
 ## <a name="update-history"></a>Cronologia aggiornamenti
 ### <a name="october-update"></a>Aggiornamento di ottobre
@@ -39,14 +39,14 @@ Le note sulla versione per Servizi BizTalk di Microsoft Azure contengono i probl
   * **Scenario**: Si è registrata una distribuzione del servizio BizTalk usando un account aziendale in un'istanza di Azure Active Directory (ad esempio, user@fabrikam.com o user@contoso.com). In questo scenario solo gli utenti di Azure Active Directory nella stessa organizzazione possono gestire il servizio BizTalk usando il portale di Servizi BizTalk. Non è possibile usare un account Microsoft.  
 * Quando si crea un servizio BizTalk, l'utente viene registrato automaticamente nel portale di Servizi BizTalk.
   * **Scenario**: Si accede ad Azure, si crea un servizio BizTalk e quindi si seleziona **Gestisci** per la prima volta. Quando si apre il portale di Servizi BizTalk, il servizio BizTalk viene registrato automaticamente ed è pronto per le distribuzioni.  
-    Vedere [Registrazione e aggiornamento di una distribuzione di servizio BizTalk nel portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689837.aspx).  
+    Vedere [Registrazione e aggiornamento di una distribuzione di servizio BizTalk nel portale di Servizi BizTalk](/previous-versions/azure/hh689837(v=azure.100)).  
 
 ### <a name="august-14-update"></a>Aggiornamento del 14 agosto
-* Dissociazione di bridge e accordo: i bridge e gli accordi tra partner commerciale sono ora separati nel portale di Servizi BizTalk. È ora possibile creare accordi e bridge separatamente e in fase di esecuzione i bridge si risolvono in un accordo in base ai valori nel messaggio EDI. Vedere [Creare accordi in Servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689908.aspx), [Creare un bridge EDI con il portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn793986.aspx), [Creare un bridge AS2 con il portale di Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn793993.aspx) e [Come i bridge si risolvono in accordi in fase di esecuzione](https://msdn.microsoft.com/library/azure/dn794001.aspx)  
+* Dissociazione di bridge e accordo: i bridge e gli accordi tra partner commerciale sono ora separati nel portale di Servizi BizTalk. È ora possibile creare accordi e bridge separatamente e in fase di esecuzione i bridge si risolvono in un accordo in base ai valori nel messaggio EDI. Vedere [Creare accordi in Servizi BizTalk di Azure](/previous-versions/azure/hh689908(v=azure.100)), [Creare un bridge EDI con il portale di Servizi BizTalk](/previous-versions/azure/dn793986(v=azure.100)), [Creare un bridge AS2 con il portale di Servizi BizTalk](/previous-versions/azure/dn793993(v=azure.100)) e [Come i bridge si risolvono in accordi in fase di esecuzione](/previous-versions/azure/dn794001(v=azure.100))  
 * L'opzione per la creazione di modelli per gli accordi non è più disponibile.  
-* Per l'accordo sul lato trasmissione, è ora possibile specificare set di delimitatori diversi per ogni schema. Questa configurazione è specificata nelle impostazioni del protocollo per l'accordo sul lato trasmissione. Per altre informazioni, vedere [Creare un accordo X12 in Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689847.aspx) e [Creare un accordo EDIFACT in Servizi BizTalk](https://msdn.microsoft.com/library/azure/dn606267.aspx). Sono state aggiunte due nuove entità all'API del modello a oggetti TPM per lo stesso scopo. Vedere [X12DelimiterOverrides](https://msdn.microsoft.com/library/azure/dn798749.aspx) ed [EDIFACTDelimiterOverride](https://msdn.microsoft.com/library/azure/dn798748.aspx).  
-* I costrutti XSD standard, inclusi i tipi derivati, sono ora supportati. Vedere [Usare costrutti XSD standard nelle mappe](https://msdn.microsoft.com/library/azure/dn793987.aspx) e [Usare tipi derivati in scenari ed esempi di mapping](https://msdn.microsoft.com/library/azure/dn793997.aspx).  
-* AS2 supporta nuovi algoritmi MIC per la firma dei messaggi e nuovi algoritmi di crittografia. Vedere [Creare un contratto AS2 nei servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689890.aspx).  
+* Per l'accordo sul lato trasmissione, è ora possibile specificare set di delimitatori diversi per ogni schema. Questa configurazione è specificata nelle impostazioni del protocollo per l'accordo sul lato trasmissione. Per altre informazioni, vedere [Creare un accordo X12 in Servizi BizTalk](/previous-versions/azure/hh689847(v=azure.100)) e [Creare un accordo EDIFACT in Servizi BizTalk](/previous-versions/azure/dn606267(v=azure.100)). Sono state aggiunte due nuove entità all'API del modello a oggetti TPM per lo stesso scopo. Vedere [X12DelimiterOverrides](/previous-versions/azure/dn798749(v=azure.100)) ed [EDIFACTDelimiterOverride](/previous-versions/azure/dn798748(v=azure.100)).  
+* I costrutti XSD standard, inclusi i tipi derivati, sono ora supportati. Vedere [Usare costrutti XSD standard nelle mappe](/previous-versions/azure/dn793987(v=azure.100)) e [Usare tipi derivati in scenari ed esempi di mapping](/previous-versions/azure/).  
+* AS2 supporta nuovi algoritmi MIC per la firma dei messaggi e nuovi algoritmi di crittografia. Vedere [Creare un contratto AS2 nei servizi BizTalk di Azure](/previous-versions/azure/hh689890(v=azure.100)).  
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -85,7 +85,7 @@ Se sono presenti spazi vuoti che superano un segmento IEA, il disassemblatore li
 
 ### <a name="tracking-in-biztalk-services-portal"></a>Rilevamento nel portale di Servizi BizTalk
 Gli eventi di rilevamento vengono acquisiti nell'ambito dell'elaborazione dei messaggi EDI e di qualsiasi correlazione. Se un errore di elaborazione del messaggio si verifica all'esterno della fase del protocollo, il rilevamento risulterà elaborato in modo corretto. Per i dettagli relativi all'errore, vedere la sezione LOG della colonna **Dettagli** in **Rilevamento**.
-Le impostazioni di ricezione e invio per X12 ([Creare un accordo X12 in Servizi BizTalk di Azure](https://msdn.microsoft.com/library/azure/hh689847.aspx)) forniscono le informazioni sulla fase del protocollo.  
+Le impostazioni di ricezione e invio per X12 ([Creare un accordo X12 in Servizi BizTalk di Azure](/previous-versions/azure/hh689847(v=azure.100))) forniscono le informazioni sulla fase del protocollo.  
 
 ### <a name="update-agreement"></a>Accordo di aggiornamento
 Quando viene configurato un accordo, il portale di Servizi BizTalk consente di modificare il qualificatore di un'identità. Per effetto di questa operazione è possibile che vengano create proprietà incoerenti. Ad esempio nel caso di un accordo in cui vengono usate ZZ:1234567 e ZZ:7654321 come proprietà del qualificatore. Nelle impostazioni del profilo del portale di Servizi BizTalk, modificare ZZ:1234567 specificando 01:ChangedValue. Se si apre l'accordo, viene visualizzato 01:ChangedValue in sostituzione di ZZ:1234567.
@@ -109,7 +109,8 @@ Si consideri uno scenario costituito da azioni nell'ordine seguente:
 * Si chiude il file con estensione bcs chiudendo la relativa scheda in Visual Studio senza salvare le modifiche.  
 * Si apre nuovamente il file BCS in Esplora soluzioni.  
   Si noterà che mentre il nome del file BRIDGECONFIG associato corrisponde al nuovo nome, il nome dell'entità nell'area di Creazione progetti corrisponde ancora al nome precedente. Se si cerca di aprire la configurazione dei bridge facendo doppio clic sul componente bridge, viene visualizzato l'errore seguente:  
-  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist` Per evitare questo scenario, assicurarsi di salvare le modifiche dopo avere rinominato le entità in un progetto Servizio BizTalk.  
+  `‘<old name>’ Entity’s associated file ‘<old name>.bridgeconfig’ does not exist`
+  Per evitare di incorrere in questo scenario, assicurarsi di che salvare le modifiche dopo avere rinominato le entità in un progetto BizTalk Service.  
   
 ### <a name="biztalk-service-project-builds-successfully-even-if-an-artifact-has-been-excluded-from-a-visual-studio-project"></a>La compilazione di un progetto di Servizi BizTalk viene eseguita in modo corretto anche se un elemento è stato escluso da un progetto di Visual Studio
 Si consideri uno scenario in cui si aggiunge un elemento, ad esempio un file XSD, a un progetto di Servizi BizTalk, si include tale elemento nella Configurazione bridge, ad esempio impostandolo come tipo di messaggio di richiesta e quindi lo si esclude dal progetto di Visual Studio. In un caso come questo, la compilazione del progetto non genererà errori fino a quando l'elemento eliminato resterà disponibile sul disco nello stesso percorso in cui si trovava quando è stato incluso nel progetto di Visual Studio.
@@ -176,12 +177,12 @@ Si consideri lo scenario seguente:
 ### <a name="bridges-do-not-use-updated-certificate-even-after-a-certificate-has-been-updated-in-the-artifact-store"></a>I bridge non usano i certificati aggiornati nemmeno dopo l'aggiornamento di un certificato nell'archivio elementi
 Esaminare gli scenari seguenti:  
 
-**Scenario 1: Uso di certificati basati su identificazione personale per proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**  
+**Scenario 1: Utilizzo di certificati basati su identificazione personale per proteggere il trasferimento di messaggi da un bridge a un endpoint del servizio**  
 Provare a usare certificati basati su identificazione personale nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk usando lo stesso nome e un'identificazione personale diversa, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.  
 
 **Soluzione alternativa**: Aggiornare il certificato nel progetto di Servizi BizTalk e ridistribuire il progetto.  
 
-**Scenario 2: Uso di comportamenti basati su nomi per identificare i certificati allo scopo di proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**
+**Scenario 2: Uso dei comportamenti basati su nomi per identificare i certificati per proteggere il trasferimento di messaggi da un bridge a un endpoint di servizio**
 
 Provare a usare comportamenti basati su nomi per identificare i certificati nel progetto di Servizi BizTalk. Si aggiorna il certificato nel portale di Servizi BizTalk, ma non si aggiorna il progetto di Servizi BizTalk di conseguenza. In uno scenario di questo tipo è possibile che il bridge continui a elaborare i messaggi perché nella cache del canale possono ancora essere presenti i dati del certificato precedente. Quando questi dati non sono più presenti, l'elaborazione dei messaggi ha esito negativo.  
 
@@ -224,5 +225,5 @@ Si consideri uno scenario in cui un bridge XML è stato distribuito con la sotto
 In tutto il documento i termini "pipeline" e "bridge" sono stati usati in modo intercambiabile. Il significato dei due termini è pressoché uguale ed esprime un'unità di elaborazione dei messaggi distribuita in Servizi BizTalk.  
 
 ### <a name="concepts"></a>Concetti
-[Servizi BizTalk](https://msdn.microsoft.com/library/azure/hh689864.aspx)   
+[Servizi BizTalk](/previous-versions/azure/hh689864(v=azure.100))   
 

@@ -16,12 +16,12 @@ ms.date: 01/09/2019
 ms.author: sethm
 ms.reviewer: sijuman
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 5c7031b0d0a08106473409233db0ad95ecb32525
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 226416688fe4f2c48981718e7a2f40b0ba5b0685
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095365"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649612"
 ---
 # <a name="use-api-version-profiles-with-ruby-in-azure-stack"></a>Usare i profili delle versioni API con Ruby in Azure Stack
 
@@ -91,7 +91,7 @@ Per usare Azure Ruby SDK con Azure Stack, è necessario fornire i valori seguent
 | ID client | AZURE_CLIENT_ID | Il servizio di ID entità applicazione salvati dell'entità servizio è stato creato nella sezione precedente di questo documento.  |
 | ID sottoscrizione | AZURE_SUBSCRIPTION_ID | Il [ID sottoscrizione](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview#subscriptions) è la modalità di accesso offerte in Azure Stack. |
 | Client Secret | AZURE_CLIENT_SECRET | L'applicazione di un'entità servizio segreto salvato se è stata creata l'entità servizio. |
-| Endpoint di Resource Manager | ARM_ENDPOINT | Visualizzare [endpoint di gestione risorse di Azure Stack](#The-azure-stack-resource-manager-endpoint).  |
+| Endpoint di Resource Manager | ARM_ENDPOINT | Visualizzare [endpoint di gestione risorse di Azure Stack](#the-azure-stack-resource-manager-endpoint).  |
 
 ### <a name="the-azure-stack-resource-manager-endpoint"></a>L'endpoint di gestione risorse di Azure Stack
 

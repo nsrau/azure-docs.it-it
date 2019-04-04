@@ -13,12 +13,12 @@ ms.workload: na
 ms.date: 12/18/2018
 ms.author: sethm
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 3c36bca12a16a796a964c4447b47265eecd756be
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 0f5a4dc76830740d69547a01ce40b5e10cf4a74b
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55809249"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499409"
 ---
 # <a name="provide-applications-access-to-azure-stack"></a>Fornisci alle applicazioni l'accesso ad Azure Stack
 
@@ -89,11 +89,11 @@ Attività per la gestione di AD FS entità servizio.
 | Type | Azione |
 | --- | --- |
 | Certificato di AD FS | [Creare](azure-stack-create-service-principals.md#create-a-service-principal-using-a-certificate) |
-| Certificato di AD FS | [Aggiornamento](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-AD-FS) |
-| Certificato di AD FS | [Rimuovi](azure-stack-create-service-principals.md#remove-a-service-principal-for-AD-FS) |
+| Certificato di AD FS | [Aggiornamento](azure-stack-create-service-principals.md#update-certificate-for-service-principal-for-ad-fs) |
+| Certificato di AD FS | [Rimuovi](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 | Segreto Client di ADFS di Active Directory | [Creare](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
 | Segreto Client di ADFS di Active Directory | [Aggiornamento](azure-stack-create-service-principals.md#create-a-service-principal-using-a-client-secret) |
-| Segreto Client di ADFS di Active Directory | [Rimuovi](azure-stack-create-service-principals.md##remove-a-service-principal-for-AD-FS) |
+| Segreto Client di ADFS di Active Directory | [Rimuovi](azure-stack-create-service-principals.md#remove-a-service-principal-for-ad-fs) |
 
 ### <a name="create-a-service-principal-using-a-certificate"></a>Creare un'entità servizio usando un certificato
 
@@ -124,7 +124,7 @@ Le informazioni seguenti sono necessarie come input per i parametri di automazio
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i cmdlet seguenti:
 
-   ```PowerShell  
+   ```powershell  
     # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
     $Creds = Get-Credential
 
@@ -173,7 +173,7 @@ Le informazioni seguenti sono necessarie come input per i parametri di automazio
    > [!Note]  
    > Esclusivamente a scopo di convalida un certificato autofirmato può essere creato usando l'esempio seguente:
 
-   ```PowerShell  
+   ```powershell  
    $Cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=<yourappname>" -KeySpec KeyExchange
    ```
 
@@ -254,7 +254,7 @@ Le informazioni seguenti sono necessarie come input per i parametri di automazio
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i cmdlet seguenti:
 
-     ```PowerShell  
+     ```powershell  
       # Credential for accessing the ERCS PrivilegedEndpoint, typically domain\cloudadmin
      $Creds = Get-Credential
 
@@ -272,7 +272,7 @@ Le informazioni seguenti sono necessarie come input per i parametri di automazio
 
 2. Dopo l'esecuzione di cmdlet, la shell Visualizza i dettagli necessari per usare il nome SPN. Assicurarsi che archiviare il segreto client.
 
-     ```PowerShell  
+     ```powershell  
      ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2623
      ClientId              : 8e0ffd12-26c8-4178-a74b-f26bd28db601
      Thumbprint            : 
@@ -304,7 +304,7 @@ L'esempio Usa la **ResetClientSecret** parametro, che diventa immediatamente il 
 
 1. Aprire una sessione di Windows PowerShell con privilegi elevata ed eseguire i cmdlet seguenti:
 
-     ```PowerShell  
+     ```powershell  
           # Creating a PSSession to the ERCS PrivilegedEndpoint
           $Session = New-PSSession -ComputerName <ERCS IP> -ConfigurationName PrivilegedEndpoint -Credential $Creds
 
@@ -318,7 +318,7 @@ L'esempio Usa la **ResetClientSecret** parametro, che diventa immediatamente il 
 
 2. Al termine del processo di automazione, viene visualizzato il segreto appena generato richiesto per l'autenticazione del nome SPN. Assicurarsi che si archivierà il nuovo segreto client.
 
-     ```PowerShell  
+     ```powershell  
           ApplicationIdentifier : S-1-5-21-1634563105-1224503876-2692824315-2120
           ClientId              :  
           Thumbprint            : 

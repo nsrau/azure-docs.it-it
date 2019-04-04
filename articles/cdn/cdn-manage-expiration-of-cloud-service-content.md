@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: b070b302917d69e0145c1a10c90685b55aa4dcc2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540233"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917958"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
    ![Pagina Regole di memorizzazione nella cache della rete CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Per configurare le intestazioni Cache-Control di un server Web tramite regole di memorizzazione nella cache globali:**
+**Per impostare un sito web delle intestazioni Cache-Control del server tramite regole di memorizzazione nella cache globali:**
 
 1. In **Regole di memorizzazione nella cache globali**, impostare **Comportamento di memorizzazione nella cache della stringa di query** su **Ignora stringhe di query** e impostare **Comportamento di memorizzazione nella cache** su **Ignora**.
       
@@ -68,7 +68,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 1. Selezionare **Salva**.
 
-**Per configurare le intestazioni Cache-Control di un server Web tramite regole di memorizzazione nella cache personalizzate:**
+**Per impostare intestazioni Cache-Control del file di un server web tramite regole di memorizzazione nella cache personalizzate:**
 
 1. In **Regole di memorizzazione nella cache personalizzate** creare due condizioni di corrispondenza:
 
@@ -109,7 +109,7 @@ L'esempio di file di configurazione XML seguente mostra come impostare l'element
 Per usare l'attributo **cacheControlMaxAge**, è necessario impostare il valore dell'attributo **cacheControlMode** su `UseMaxAge`. Questa impostazione ha fatto sì che l'intestazione HTTP e la direttiva, `Cache-Control: max-age=<nnn>`, fossero aggiunte alla risposta. Il formato del valore dell'intervallo di tempo per l'attributo **cacheControlMaxAge** è `<days>.<hours>:<min>:<sec>`. Il valore viene convertito in secondi e viene usato come il valore della direttiva `Cache-Control` `max-age`. Per altre informazioni sull'elemento `<clientCache>`, vedere [Cache client<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Impostazione delle intestazioni Cache-Control a livello di programmazione
-Per le applicazioni ASP.NET, gestire a livello di codice il comportamento di memorizzazione nella cache della rete CDN impostando la proprietà **HttpResponse.Cache** dell'API.NET. Per informazioni sulla proprietà **HttpResponse.Cache**, vedere [Proprietà HttpResponse.Cache](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) e [Classe HttpCachePolicy](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
+Per le applicazioni ASP.NET, gestire a livello di codice il comportamento di memorizzazione nella cache della rete CDN impostando la proprietà **HttpResponse.Cache** dell'API.NET. Per informazioni sulla proprietà **HttpResponse.Cache**, vedere [Proprietà HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) e [Classe HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  
 
 Per memorizzare nella cache il contenuto dell'applicazione in ASP.NET a livello di codice, eseguire la procedura seguente:
    1. Verificare che il contenuto sia contrassegnato come memorizzabile nella cache impostando `HttpCacheability` su `Public`. 
@@ -131,7 +131,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 È possibile verificare facilmente le impostazioni di durata (TTL) del contenuto web. Con gli [strumenti di sviluppo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del browser verificare che il contenuto web includa l'intestazione della risposta `Cache-Control`. È anche possibile usare uno strumento come **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) per esaminare le intestazioni della risposta.
 
 ## <a name="next-steps"></a>Fasi successive
-* [Vedere informazioni dettagliate sull'elemento **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Vedere la documentazione sulla proprietà **HttpResponse.Cache**](https://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Vedere la documentazione sulla classe **HttpCachePolicy**](https://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
-* [Informazioni sui concetti di memorizzazione nella cache](cdn-how-caching-works.md)
+* [Leggere i dettagli sui **clientCache** elemento](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Leggere la documentazione per il **HttpResponse. cache** proprietà](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Leggere la documentazione per il **classe HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
+* [Scopri i concetti di memorizzazione nella cache](cdn-how-caching-works.md)

@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259772"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904866"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registrazione diagnostica in Azure Cosmos DB 
 
 Dopo avere iniziato a usare uno o più database di Azure Cosmos DB, sarà possibile scegliere di monitorare come e quando viene eseguito l'accesso ai database. Questo articolo fornisce una panoramica dei log disponibili nella piattaforma di Azure. Descrive come abilitare la registrazione diagnostica per il monitoraggio per inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), come trasmettere log a [hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)e su come esportare log in [logdimonitoraggiodiAzure](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Log disponibili in Azure
 
@@ -132,7 +135,7 @@ Se Azure PowerShell è già stato installato ma non si conosce la versione, dall
 Avviare una sessione di Azure PowerShell e accedere all'account Azure con il comando seguente:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Nella finestra del browser a comparsa, immettere il nome utente e la password dell'account Azure. Azure PowerShell recupera tutte le sottoscrizioni associate a questo account e, per impostazione predefinita, usa la prima.
@@ -140,13 +143,13 @@ Nella finestra del browser a comparsa, immettere il nome utente e la password de
 Se si dispone di più di una sottoscrizione, potrebbe essere necessario indicare la sottoscrizione specifica usata per creare l'insieme di credenziali delle chiavi di Azure. Per visualizzare le sottoscrizioni relative all'account, digitare il comando seguente:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 Per specificare quindi la sottoscrizione associata all'account Azure Cosmos DB da registrare, digitare il comando seguente:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Anche se è possibile usare un account di archiviazione esistente per i log, in 
 Per rendere la gestione ancora più facile, in questa esercitazione si userà lo stesso gruppo di risorse che contiene il database di Azure Cosmos DB. Sostituire i valori per i parametri **ContosoResourceGroup**, **contosocosmosdblogs** e **North Central US**, come applicabile:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Impostare il nome dell'account Azure Cosmos DB su una variabile denominata **account**, dove **ResourceName** è il nome dell'account Azure Cosmos DB.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Abilitare la registrazione
-Per abilitare la registrazione per Azure Cosmos DB, usare il cmdlet `Set-AzureRmDiagnosticSetting` insieme alle variabili per il nuovo account di archiviazione, l'account Azure Cosmos DB e la categoria da abilitare per la registrazione. Eseguire questo comando e impostare il flag **-Enabled** su **$true**:
+Per abilitare la registrazione per Azure Cosmos DB, usare il cmdlet `Set-AzDiagnosticSetting` insieme alle variabili per il nuovo account di archiviazione, l'account Azure Cosmos DB e la categoria da abilitare per la registrazione. Eseguire questo comando e impostare il flag **-Enabled** su **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 L'output del comando sarà simile all'esempio seguente:
@@ -221,7 +224,7 @@ L'output del comando conferma che ora la registrazione è abilitata per il datab
 Facoltativamente, è anche possibile impostare criteri di conservazione per i log, in modo che i log meno recenti vengano eliminati automaticamente. Ad esempio, impostare i criteri di conservazione con il flag **-RetentionEnabled** impostato su **$true**. Impostare il parametro **-RetentionInDays** su **90** in modo che i log antecedenti a 90 giorni vengano eliminati automaticamente.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ Creare prima una variabile per il nome contenitore. Questa variabile verrà usat
 Per elencare tutti i BLOB in questo contenitore, digitare:
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 L'output del comando sarà simile all'esempio seguente:
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Ottenere quindi un elenco di tutti i BLOB:  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Inviare l'elenco tramite pipe con il comando `Get-AzureStorageBlobContent` per scaricare i BLOB nella cartella di destinazione:
+Inviare l'elenco tramite pipe con il comando `Get-AzStorageBlobContent` per scaricare i BLOB nella cartella di destinazione:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Per scaricare BLOB in modo selettivo, usare caratteri jolly. Ad esempio:
 * Se sono disponibili più database e si vogliono scaricare i log per un solo database denominato **CONTOSOCOSMOSDB3**, usare il comando:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Se sono disponibili più gruppi di risorse e si vogliono scaricare i log per un solo gruppo di risorse, usare il comando `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Per scaricare tutti i log per il mese di luglio 2017, usare il comando `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 È anche possibile eseguire i comandi seguenti:
 
-* Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa del database, usare il comando `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Per disabilitare la registrazione della categoria **DataPlaneRequests** per la risorsa dell'account di database, usare il comando `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Per eseguire una query sullo stato delle impostazioni di diagnostica per la risorsa del database, usare il comando `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Per disabilitare la registrazione della categoria **DataPlaneRequests** per la risorsa dell'account di database, usare il comando `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 Gli oggetti BLOB restituiti in ognuna di queste query vengono archiviati come testo e formattati come BLOB JSON, come illustrato nel codice seguente:

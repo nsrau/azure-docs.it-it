@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517599"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895563"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -46,11 +46,11 @@ Quando si crea un nuovo criterio, non sono presenti utenti, gruppi, app o contro
 Affinché il criterio funzioni, è necessario configurare quanto segue:
 
 
-|Cosa           | Come                                  | Motivo|
-|:--            | :--                                  | :-- |
-|**App cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti potranno accedere alle app cloud.|
+| Cosa           | Come                                  | Motivo |
+| :--            | :--                                  | :-- |
+| **App cloud** |Selezionare una o più app.  | L'obiettivo di un criterio di accesso condizionale è consentire di controllare il modo in cui gli utenti potranno accedere alle app cloud.|
 | **Utenti e gruppi** | Selezionare almeno un utente o un gruppo autorizzato ad accedere alle app cloud selezionate. | Un criterio di accesso condizionale a cui non sono assegnati utenti e gruppi non viene mai attivato. |
-| **Controlli di accesso** | Selezionare almeno un controllo di accesso. | L'elaboratore di criteri deve sapere quali operazioni eseguire se le condizioni vengono soddisfatte.|
+| **Controlli di accesso** | Selezionare almeno un controllo di accesso. | L'elaboratore di criteri deve sapere quali operazioni eseguire se le condizioni vengono soddisfatte. |
 
 
 
@@ -111,6 +111,13 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 
 Sì, è possibile usare Exchange ActiveSync in criteri di accesso condizionale.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Come si deve configurare l'accesso condizionale con le app di Office 365?
+
+Poiché le app di Office 365 sono interconnesse, è consigliabile assegnare comunemente usati insieme delle App durante la creazione di criteri.
+
+Le applicazioni interconnesse comuni includono Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online e Office 365 Yammer.
+
+È importante per i criteri che richiedono interazioni dell'utente, come l'autenticazione a più fattori, quando l'accesso viene controllato all'inizio di una sessione o attività. In caso contrario, gli utenti non potranno completare alcune attività all'interno di un'app. Ad esempio, se è necessaria l'autenticazione a più fattori nei dispositivi non gestiti per accedere a SharePoint ma non al messaggio di posta elettronica, gli utenti che utilizzano la posta elettronica sarà in grado di collegare i file di SharePoint a un messaggio. Altre informazioni sono reperibili nell'articolo [quali sono le dipendenze dei servizi nell'accesso condizionale di Azure Active Directory?](service-dependencies.md).
 
 
 
@@ -123,7 +130,7 @@ Il framework di accesso condizionale offre ottima flessibilità di configurazion
 Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 
-**Per tutti gli utenti e tutte le applicazioni cloud:**
+**Per tutti gli utenti, tutte le app cloud:**
 
 - **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
 
@@ -132,7 +139,7 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 - **Require domain join** (Richiedi aggiunta a dominio): se ancora non si dispone di un dispositivo aggiunto al dominio, questo criterio di blocco dell'accesso è anche in grado di bloccare l'accesso per tutti gli utenti nell'organizzazione.
 
 
-**Per tutti gli utenti, tutte le applicazioni cloud e tutte le piattaforme per dispositivi:**
+**Per tutti gli utenti, tutte le app cloud, tutte le piattaforme di dispositivo:**
 
 - **Blocca accesso**: questa configurazione consente di bloccare l'intera organizzazione. Un'idea chiaramente non buona.
 

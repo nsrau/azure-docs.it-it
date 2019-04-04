@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093681"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916819"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creare un endpoint della rete CDN di Azure
-Questo articolo descrive tutte le impostazioni per la creazione di un endpoint della [rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md) in un profilo della rete CDN esistente. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti. Per informazioni introduttive sulla creazione di un profilo e di un endpoint, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
+Questo articolo descrive tutte le impostazioni per la creazione di un endpoint della [rete per la distribuzione di contenuti (CDN) di Azure](cdn-overview.md) in un profilo della rete CDN esistente. Dopo aver creato un profilo e un endpoint, è possibile avviare la distribuzione di contenuti ai clienti. Per una Guida introduttiva sulla creazione di un profilo e un endpoint, vedere [Guida introduttiva: Creare un profilo e un endpoint della rete CDN di Azure](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 Prima di poter creare un endpoint della rete CDN, è necessario avere creato almeno un profilo della rete CDN, che può contenere uno o più endpoint della rete CDN. Per organizzare gli endpoint di rete CDN per dominio Internet, applicazione Web o altri criteri, è possibile usare più profili. Dato che i prezzi della rete CDN vengono applicati a livello del profilo della rete CDN, è necessario creare più profili di rete CDN se si vuole usare una combinazione di piani tariffari per la rete CDN di Azure. Per creare un profilo di rete CDN, vedere [Creare un nuovo profilo di rete CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -67,7 +67,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
    > [!NOTE]
    > Il valore di **Porta dell'origine** determina solo la porta usata dall'endpoint per recuperare informazioni dal server di origine. L'endpoint stesso è disponibile per i client finali solo sulle porte HTTP e HTTPS predefinite (80 e 443), indipendentemente dal valore in **Porta dell'origine**.  
    > 
-   > Gli endpoint nel profilo della **rete CDN di Azure fornita da Akamai** non consentono di usare tutto l'intervallo di porte TCP per le porte dell'origine. Per un elenco delle porte di origine non consentite, vedere l'articolo relativo ai [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Porte di origine consentite in Rete CDN di Azure da Akamai).  
+   > Gli endpoint nel profilo della **rete CDN di Azure fornita da Akamai** non consentono di usare tutto l'intervallo di porte TCP per le porte dell'origine. Per un elenco delle porte di origine non consentite, vedere l'articolo relativo ai [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100))(Porte di origine consentite in Rete CDN di Azure da Akamai).  
    > 
    > Il supporto di HTTPS per i domini personalizzati di rete CDN di Azure non è disponibile per i prodotti di **rete CDN di Azure con tecnologia Akamai**. Per altre informazioni, vedere [Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
     
@@ -84,7 +84,7 @@ Accedere al [portale di Azure](https://portal.azure.com) con il proprio account 
     - Profili di **rete CDN Standard di Azure con tecnologia Akamai**:
        - [**Distribuzione Web generale**](cdn-optimization-overview.md#general-web-delivery)
        - [**Streaming multimediale generale**](cdn-optimization-overview.md#general-media-streaming)
-       - [**Streaming multimediale video on demand**](cdn-optimization-overview.md#video-on-demand-media-streaming)
+       - [**Streaming multimediale di video on demand**](cdn-optimization-overview.md#video-on-demand-media-streaming)
        - [**Download di file di grandi dimensioni**](cdn-optimization-overview.md#large-file-download)
        - [**Accelerazione sito dinamico**](cdn-optimization-overview.md#dynamic-site-acceleration)
 

@@ -3,8 +3,8 @@ title: Precaricare asset in un endpoint della rete CDN di Azure | Documentazione
 description: Informazioni su come precaricare il contenuto memorizzato nella cache in un endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 5ea3eba5-1335-413e-9af3-3918ce608a83
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
-ms.author: mazha
-ms.openlocfilehash: bf3161d756759e4b278e48ad7a49615e4a73d17f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.author: magattus
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32150135"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918366"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Precaricamento di risorse in un endpoint della rete CDN di Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,8 +49,8 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
    > [!TIP]
    > Nel momento in cui si inizia a immettere il testo vengono visualizzate altre caselle di testo **Percorso contenuto**, che consentono di compilare un elenco di più asset. Per eliminare gli asset dall'elenco, selezionare il pulsante con i puntini di sospensione (...) e quindi scegliere **Elimina**.
    > 
-   > Ogni percorso di contenuto deve essere un URL relativo che soddisfa le [espressioni regolari](https://msdn.microsoft.com/library/az24scfc.aspx) seguenti:  
-   > - Caricare un singolo percorso di file `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > Ogni percorso di contenuto deve essere un URL relativo che soddisfa le [espressioni regolari](/dotnet/standard/base-types/regular-expression-language-quick-reference) seguenti:  
+   > - Caricare un singolo percorso di file: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
    > - Caricare un singolo file con stringa di query: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Poiché ogni asset deve avere il proprio percorso, non esiste alcuna funzionalità con caratteri jolly per il pre-caricamento degli asset.
@@ -68,6 +68,6 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 
 ## <a name="see-also"></a>Vedere anche 
 * [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
-* [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent) (Riferimento API REST della rete CDN di Azure: Precacaricare contenuto su un endpoint)
-* [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent) (Riferimento API REST della rete CDN di Azure: Ripulire contenuto da un endpoint)
+* [Azure CDN REST API reference: Precaricare il contenuto in un endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Azure CDN REST API reference: Ripulire il contenuto da un endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

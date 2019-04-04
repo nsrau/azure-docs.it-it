@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/22/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 6cddb513249b424ef0df2ed2d1b5609de17c0744
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a5fe2d9b295a72b8e2e3adb7e5cffd5a98c03070
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894037"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487516"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gestire gli aggiornamenti nella panoramica di Azure Stack
 
@@ -29,7 +29,7 @@ I pacchetti di aggiornamento di Microsoft per Azure Stack in genere i sistemi in
 
 Ogni versione di aggiornamenti software Microsoft viene incluso come un singolo pacchetto di aggiornamento. Un operatore di Azure Stack, è possibile importare, install e monitorare lo stato dell'installazione di questi pacchetti dal portale di amministrazione di aggiornamento. 
 
-Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio gli aggiornamenti di driver e firmware. Durante questi aggiornamenti vengono distribuiti come pacchetti separati dal fornitore dell'hardware OEM, questi vengono importati, installato e gestiti i pacchetti di aggiornamento stesso modo di Microsoft, i pacchetti di aggiornamento vengono importati, installati e gestiti.
+Il fornitore dell'hardware (OEM) original equipment manufacturer rilasceranno anche gli aggiornamenti, ad esempio gli aggiornamenti di driver e firmware. Benché siano distribuiti come pacchetti separati dal fornitore dell'hardware OEM, questi aggiornamenti vengono importati, installati e gestiti allo stesso modo dei pacchetti di aggiornamento Microsoft.
 
 Per mantenere il sistema sottoposto a supporto, è necessario mantenere aggiornato a un livello di versione specifica di Azure Stack. Assicurarsi di rivedere le [criteri di manutenzione Azure Stack](azure-stack-servicing-policy.md).
 
@@ -48,7 +48,7 @@ Come installare gli aggiornamenti, è possibile visualizzare lo stato di alto li
 
 - Prima di iniziare l'installazione di questo aggiornamento, eseguire [Test-AzureStack](azure-stack-diagnostic-test.md) con i parametri seguenti per convalidare lo stato di Azure Stack e risolvere eventuali problemi operativi trovati, inclusi tutti gli avvisi e gli errori. Anche gli avvisi attivi rivedere e risolvere gli eventuali che richiedono un'azione.  
 
-  ```PowerShell
+  ```powershell
   Test-AzureStack -Group UpdateReadiness
   ``` 
 

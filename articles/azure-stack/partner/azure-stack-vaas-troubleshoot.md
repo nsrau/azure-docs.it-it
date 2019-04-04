@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 4b212ae884b184ffc60cdc0b3a2181a59efa3904
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: fedfd7f83a35398586734fa647751e537b850bf8
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760869"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481196"
 ---
 # <a name="troubleshoot-validation-as-a-service"></a>Risolvere i problemi di convalida come servizio
 
@@ -44,7 +44,7 @@ Se il processo dell'agente è arrestato in modo anomalo, ad esempio, macchina ri
 > [!Note]
 > I test all'interno di un flusso di lavoro sono pianificati per l'esecuzione sequenziale. **In sospeso** test sarà non venga eseguito fino al test nel **esecuzione** stato nello stesso flusso di lavoro completo.
 
-## <a name="vm-images"></a>Immagini di macchina virtuale
+## <a name="vm-images"></a>Immagini di macchine virtuali
 
 ### <a name="handle-slow-network-connectivity"></a>Gestire la connettività di rete lenta
 
@@ -60,7 +60,7 @@ Se il processo dell'agente è arrestato in modo anomalo, ad esempio, macchina ri
 
 3. Aprire Windows PowerShell da un prompt dei comandi con privilegi elevati. Eseguire i comandi seguenti:
 
-```PowerShell  
+```powershell  
     .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'Server2016DatacenterFullBYOL.vhd' /NC:12 /V:azcopylog.log /Y
     .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'Server2016DatacenterCoreBYOL.vhd' /NC:12 /V:azcopylog.log /Y
     .\azcopy.exe /Source:'https://azurestacktemplate.blob.core.windows.net/azurestacktemplate-public-container' /Dest:'<LocalFileShare>' /Pattern:'WindowsServer2012R2DatacenterBYOL.vhd' /NC:12 /V:azcopylog.log /Y

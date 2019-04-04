@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099832"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893980"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Estrazione dei dati da finalità ed entità
 LUIS consente di ottenere informazioni da espressioni in linguaggio naturale dell'utente. Le informazioni vengono estratte in modo che possano essere usate da un programma, applicazione o chatbot per intervenire. Le sezioni seguenti spiegano quali dati vengono restituiti da finalità ed entità con esempi di JSON.
@@ -432,13 +432,13 @@ Ottenere i nomi da un'espressione è difficile perché un nome può essere quals
 Le entità [PersonName](luis-reference-prebuilt-person.md) e [GeographyV2](luis-reference-prebuilt-geographyV2.md) sono disponibili in alcune [impostazioni cultura della lingua](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nomi di persone
-I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+I nomi delle persone possono presentare un formato a seconda della lingua e delle impostazioni cultura. Usare un'entità gerarchica con nomi e cognomi come elementi figlio o usare un'entità semplice con ruoli nome e cognome. Assicurarsi di fornire esempi che usano il nome e il cognome in parti diverse dell'espressione, in espressioni di lunghezze diverse e in espressioni tra tutte le finalità, inclusa la finalità None (Nessuna). [Rivedere](luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="names-of-places"></a>Nomi di località
-I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+I nomi delle località vengono impostati come città, province, stati e nazioni e sono noti come tali. Se l'app usa un set noto di località, considerare un'entità elenco. Per trovare tutti i nomi di località, creare un'entità semplice e fornire una varietà di esempi. Aggiungere un elenco di frasi di nomi di località per ribadire come appaiono nell'app i nomi di località. [Rivedere](luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ### <a name="new-and-emerging-names"></a>Nomi nuovi ed emergenti
-Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endoint-utt.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
+Alcune app devono essere in grado di trovare nomi nuovi ed emergenti, ad esempio prodotti o aziende. Questi tipi di nomi sono il tipo più difficile di estrazione dati. Iniziare con un'entità semplice e aggiungere un elenco di frasi. [Rivedere](luis-how-to-review-endpoint-utterances.md) regolarmente le espressioni endpoint per etichettare qualsiasi nome non stimato correttamente.
 
 ## <a name="pattern-roles-data"></a>Dati ruoli criterio
 I ruoli sono differenze contestuali di entità.

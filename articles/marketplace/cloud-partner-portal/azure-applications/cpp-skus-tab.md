@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095994"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905614"
 ---
 # <a name="azure-application-skus-tab"></a>Scheda SKU per un'applicazione Azure
 
@@ -57,7 +57,7 @@ Azure pubblico: questa macchina virtuale potrà essere distribuita ai clienti in
   >[!NOTE] 
   >Microsoft Azure per enti pubblici è una soluzione cloud della community di enti pubblici con accesso controllato per i clienti degli enti federali, statali e locali degli Stati Uniti E dei partner che forniscono servizi a tali enti.
 
-- **Is this a private SKU?** (SKU privato?) : selezionare Sì se questo SKU è disponibile solo per un gruppo selezionato di clienti.
+- **Si tratta di uno SKU privato?** : selezionare Sì se questo SKU è disponibile solo per un gruppo selezionato di clienti.
 
     ![Modulo Dettagli SKU per un modello di soluzione](./media/azureapp-sku-details-solutiontemplate.png)
 
@@ -80,7 +80,7 @@ Configurare le impostazioni dello SKU seguenti:
   >[!NOTE] 
   >Microsoft Azure per enti pubblici è una soluzione cloud della community di enti pubblici con accesso controllato per i clienti degli enti federali, statali e locali degli Stati Uniti E dei partner che forniscono servizi a tali enti.
 
-- **Is this a private SKU?** (SKU privato?) : selezionare Sì se questo SKU è disponibile solo per un gruppo selezionato di clienti.
+- **Si tratta di uno SKU privato?** : selezionare Sì se questo SKU è disponibile solo per un gruppo selezionato di clienti.
 - **Disponibilità per paese/area geografica**: usare **Seleziona aree** per visualizzare l'elenco di paesi/aree geografiche disponibili. Selezionare ogni paese/area geografica e quindi scegliere **OK** per salvare le selezioni effettuate. 
 
    ![Elenco di disponibilità per paese/area geografica](./media/azure-app-select-country-region.png)
@@ -124,7 +124,7 @@ Prendere nota delle proprietà chiave seguenti di questa risorsa:
   >Questo pacchetto deve contenere gli eventuali modelli annidati o gli script necessari per completare il provisioning di questa applicazione. Questi file devono trovarsi nella cartella radice:  MainTemplate.json, applianceMainTemplate.json e applianceCreateUIDefinition.json.
 
 - **ID tenant**: ID tenant di Azure Active Directory dell'organizzazione.
-- **Abilita accesso JIT?** : selezionare **Sì** per abilitare l'accesso per la gestione JIT per le distribuzioni dei clienti che usano questa offerta.
+- **Abilitare l'accesso JIT?** : selezionare **Sì** per abilitare l'accesso per la gestione JIT per le distribuzioni dei clienti che usano questa offerta.
 
   >[!NOTE] 
   >Se si abilita JIT, è necessario aggiornare il file CreateUiDefinition.json per supportare l'accesso JIT.
@@ -135,7 +135,7 @@ Per un'applicazione gestita, è necessario configurare Autorizzazione e Impostaz
 
 #### <a name="authorization"></a>Authorization
 
-Aggiungere l'identificatore di Azure Active Directory per l'utente, il gruppo o l'applicazione a cui si vuole concedere l'autorizzazione per il gruppo di risorse gestite. L'autorizzazione che viene concessa è indicata dall'ID di definizione del ruolo. Può essere un proprietario, un collaboratore o un ruolo personalizzato.
+Aggiungere l'identificatore di Azure Active Directory per l'utente, il gruppo o l'applicazione a cui si vuole concedere l'autorizzazione per il gruppo di risorse gestite. L'autorizzazione che viene concessa è indicata dall'ID di definizione del ruolo. Può trattarsi di un proprietario, collaboratore o un ruolo personalizzato.
 
 #### <a name="policy-settings"></a>Impostazioni dei criteri
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540432"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905988"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Raccogliere e analizzare i log attività di Azure nell'area di lavoro di Log Analitica in Monitoraggio di Azure
 
@@ -31,7 +31,7 @@ L'uso del log attività permette di acquisire *informazioni* *dettagliate* *su q
 Quando si connettono i log attività di Azure a un'area di lavoro di Log Analitica, è possibile:
 
 - Analizzare i log attività con le viste predefinite
-- Analizzare e cercare i log attività di più sottoscrizioni di Azure
+- Analizzare e cercare i log attività da più sottoscrizioni di Azure
 - Conservare i log attività per più di 90 giorni<sup>1</sup>
 - Correlare i log attività con altri dati dell'applicazione e della piattaforma di Azure
 - Vedere le attività operative aggregate in base allo stato
@@ -71,7 +71,7 @@ Eseguire i passaggi seguenti per configurare la soluzione Log Analytics attivit�
     2. Per ogni sottoscrizione, fare clic sul relativo nome.  
         ![aggiungere sottoscrizione](./media/collect-activity-logs/add-subscription.png)
     3. Nel pannello *SubscriptionName*, fare clic su **Connetti**.  
-        ![connettere sottoscrizione](./media/collect-activity-logs/subscription-connect.png)
+        ![Connettere sottoscrizione](./media/collect-activity-logs/subscription-connect.png)
 
 Accedere al portale di Azure per connettere una sottoscrizione di Azure all'area di lavoro.  
 

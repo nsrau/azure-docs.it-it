@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
 ms.author: banders
-ms.openlocfilehash: d500e26f5701e59dacfd5f09f6eaf88c5ced74e6
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 340cba65a1faac247678cd187f106157ba566f3e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648521"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918723"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Costi del software non inclusi nelle istanze di macchina virtuale riservate di Azure
 
-Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchina virtuale riservate in uso, i costi verranno addebitati in base ai contatori relativi al software elencati nelle sezioni seguenti.
+Se non si ha un vantaggio Azure Hybrid nelle istanze di macchina virtuale riservate, viene addebitato per i contatori relativi al software elencati nella sezione seguente.
 
 ## <a name="windows-software-meters-not-included-in-reservation-cost"></a>Costi dei contatori relativi al software Windows non inclusi nella prenotazione
 
@@ -66,7 +66,7 @@ Se non si possiede l'offerta Vantaggio Azure Hybrid Use per le istanze di macchi
 
 ## <a name="rates-for-azure-meters"></a>Tariffe per i contatori di Azure
 
-È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](https://msdn.microsoft.com/library/azure/mt219004).
+È possibile ottenere il costo di ognuno di questi contatori tramite l'API RateCard di Azure. Per informazioni su come ottenere le tariffe per un contatore di Azure specifico, vedere l'argomento relativo a come [ottenere informazioni su prezzi e metadati per le risorse usate in una sottoscrizione di Azure](/previous-versions/azure/reference/mt219004(v=azure.100)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle prenotazioni per Azure, vedere gli articoli seguenti:
@@ -74,9 +74,9 @@ Per altre informazioni sulle prenotazioni per Azure, vedere gli articoli seguent
 - [Quali sono le prenotazioni per Azure?](billing-save-compute-costs-reservations.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gestire le prenotazioni per Azure](billing-manage-reserved-vm-instance.md)
-- [Informazioni su come viene applicato lo sconto sulla prenotazione](billing-understand-vm-reservation-charges.md)
-- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
-- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Informazioni su come viene applicato lo sconto di prenotazione](billing-understand-vm-reservation-charges.md)
+- [Comprendere l'utilizzo della prenotazione per la sottoscrizione con pagamento a consumo](billing-understand-reserved-instance-usage.md)
+- [Comprendere l'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 

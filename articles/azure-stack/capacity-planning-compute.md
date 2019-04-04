@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446325"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915686"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Pianificazione della capacità di calcolo di Azure Stack
 Il [le dimensioni di macchina virtuale supportate in Azure Stack](./user/azure-stack-vm-sizes.md) sono un subset di quelli supportati in Azure. Azure impone limiti delle risorse lungo molti vettori per evitare l'uso eccessivo delle risorse (server locali e a livello di servizio). Senza imporre alcune limitazioni all'uso di tenant, l'esperienza utente tenant ne risentiranno quando altri tenant overconsume le risorse. Rete in uscita dalla macchina virtuale, esistono limiti di larghezza di banda posto in Azure Stack che corrispondono a limitazioni di Azure. Per le risorse di archiviazione, i limiti di IOPs di archiviazione sono stati implementati in Azure Stack per evitare di base uso eccessivo delle risorse dai tenant per l'accesso di archiviazione.  
@@ -45,7 +45,7 @@ Il calcolo seguente comporta la memoria totale e disponibile che può essere uti
 
   Memoria disponibile per selezione host VM = memoria del Server totale – riserva resilienza: memoria usata dalle macchine virtuali - sovraccarico dell'infrastruttura di Azure Stack in esecuzione <sup>1</sup>
 
-  Riserva di resilienza = H + R * (n-1) + V * (n-2)
+  Riserva di resilienza = H + R * ((N-1) * H) + V * (n-2)
 
 > Dove:
 > - H = dimensioni della memoria del server singolo
@@ -53,7 +53,7 @@ Il calcolo seguente comporta la memoria totale e disponibile che può essere uti
 > - R = riserva di sistema operativo per l'overhead del sistema operativo<sup>2</sup>
 > - V = più grande della macchina virtuale nell'unità di scala
 
-  <sup>1</sup> dell'infrastruttura di azure Stack Overhead = 208 GB
+  <sup>1</sup> dell'infrastruttura di azure Stack Overhead = 230 GB
 
   <sup>2</sup> riserva di sistema operativo per l'overhead = 15% di memoria del nodo. Il valore della riserva del sistema operativo è una stima e possono variare in base a capacità di memoria fisica del server e l'overhead del sistema operativo generale.
 

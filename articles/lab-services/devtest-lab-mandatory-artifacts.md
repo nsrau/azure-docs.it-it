@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: spelluru
-ms.openlocfilehash: a739b958ad60e39c38e81ce887edf68349340bb0
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
-ms.translationtype: HT
+ms.openlocfilehash: 090236ec3647c7c3e38eb862780a615f854e952b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39295288"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905801"
 ---
 # <a name="specify-mandatory-artifacts-for-your-lab-in-azure-devtest-labs"></a>Specificare artefatti obbligatori per il lab in Azure DevTest Labs
-Un proprietario di un lab può specificare gli artefatti obbligatori che vengono applicati a ogni computer creato nel lab. Si pensi a uno scenario in cui si vuole che ogni computer del lab sia connesso alla rete aziendale. In questo caso, ogni utente del lab dovrà aggiungere un artefatto di aggiunta a un dominio durante la creazione della macchina virtuale per assicurarsi che il computer sia connesso al dominio aziendale. In altre parole, gli utenti del lab dovranno essenzialmente ricreare un computer qualora dimenticassero di applicare gli artefatti obbligatori nel computer. Il proprietario di un lab imposta l'artefatto di aggiunta a un dominio come artefatto obbligatorio nel lab. Questo passaggio assicura che ogni computer sia connesso alla rete aziendale, facendo risparmiare tempo e fatica agli utenti del lab.
+Come proprietario di un lab, è possibile specificare gli elementi obbligatori che vengono applicati a ogni computer create nel lab. Si pensi a uno scenario in cui si vuole che ogni computer del lab sia connesso alla rete aziendale. In questo caso, ogni utente del lab dovrà aggiungere un artefatto di aggiunta a un dominio durante la creazione della macchina virtuale per assicurarsi che il computer sia connesso al dominio aziendale. In altre parole, gli utenti del lab dovranno essenzialmente ricreare un computer qualora dimenticassero di applicare gli artefatti obbligatori nel computer. Il proprietario di un lab imposta l'artefatto di aggiunta a un dominio come artefatto obbligatorio nel lab. Questo passaggio assicura che ogni computer sia connesso alla rete aziendale, facendo risparmiare tempo e fatica agli utenti del lab.
  
 Gli altri artefatti obbligatori possono includere uno strumento comune usato dal team o un Security Pack correlato alla piattaforma che ogni computer deve avere per impostazione predefinita e così via. In breve, tutti i software comuni che ogni computer del lab deve avere diventano artefatti obbligatori. Se si crea un'immagine personalizzata da un computer a cui sono applicati artefatti obbligatori e quindi si crea un computer nuovo da tale immagine, gli artefatti obbligatori vengono riapplicati nel computer durante la creazione. Questo comportamento implica inoltre che, anche se l'immagine personalizzata non è recente, ogni volta che si crea da essa un computer, durante il flusso di creazione viene applicata la versione più aggiornata degli artefatti obbligatori. 
  

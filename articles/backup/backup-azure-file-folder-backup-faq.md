@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: trinadhk
-ms.openlocfilehash: f5695da01752d701e1b688700580982f2d2e6154
-ms.sourcegitcommit: 98645e63f657ffa2cc42f52fea911b1cdcd56453
-ms.translationtype: HT
+ms.openlocfilehash: acf71ae6f37ab6ea32d9cdd0ac06f297b00fba2e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54827415"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918570"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Domande sull'agente di Backup di Azure
 Questo articolo contiene risposte a domande comuni che consentiranno di comprendere rapidamente i componenti dell'agente di Backup di Azure. Alcune risposte includono collegamenti ad articoli con informazioni complete. È anche possibile inserire le domande sul servizio Backup di Azure nel [forum di discussione](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -81,8 +81,8 @@ Per modificare il percorso della cache, usare l'elenco seguente.
 
     | Percorso del Registro | Chiave del Registro | Valore |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella della cache* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella della cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*Nuovo percorso della cartella cache* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*Nuovo percorso della cartella cache* |
 
 4. Riavviare il motore Backup eseguendo il comando seguente in un prompt dei comandi con privilegi elevati:
 
@@ -116,10 +116,10 @@ La cartella della cache e il disco rigido virtuale dei metadati non hanno gli at
 Quando si rinomina un server, tutti i backup attualmente configurati vengono arrestati. Registrare il nuovo nome del server con l'insieme di credenziali di backup. Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione di backup sarà *completa*. Se è necessario recuperare i dati sottoposti a backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione [**Un altro server**](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) nella procedura guidata **Ripristina dati**.
 
 ### <a name="what-is-the-maximum-file-path-length-that-can-be-specified-in-backup-policy-using-azure-backup-agent-br"></a>Qual è la lunghezza massima del percorso file specificabile nei criteri di backup usando l'agente di Backup di Azure? <br/>
-L'agente di Backup di Azure si basa su NTFS. La [lunghezza del percorso del file è limitata dall'API Windows](https://msdn.microsoft.com/library/aa365247.aspx#fully_qualified_vs._relative_paths). Se il percorso dei file da proteggere ha una lunghezza superiore a quella consentita dall'API Windows, eseguire il backup della cartella padre o dell'unità disco.  
+L'agente di Backup di Azure si basa su NTFS. La [lunghezza del percorso del file è limitata dall'API Windows](/windows/desktop/FileIO/naming-a-file#fully_qualified_vs._relative_paths). Se il percorso dei file da proteggere ha una lunghezza superiore a quella consentita dall'API Windows, eseguire il backup della cartella padre o dell'unità disco.  
 
 ### <a name="what-characters-are-allowed-in-file-path-of-azure-backup-policy-using-azure-backup-agent-br"></a>Quali caratteri sono consentiti nel percorso file dei criteri di Backup di Azure che usano l'agente di Backup di Azure? <br>
- L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS](https://msdn.microsoft.com/library/aa365247.aspx#naming_conventions) come parte della specifica file. 
+ L'agente di Backup di Azure si basa su NTFS. Consente i [caratteri supportati da NTFS](/windows/desktop/FileIO/naming-a-file#naming_conventions) come parte della specifica file. 
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Perché viene visualizzato un avviso che segnala che non sono stati configurati backup di Azure per il server anche se si sono configurati criteri di backup? <br/>
 Questo avviso viene generato quando le impostazioni di pianificazione di backup archiviate nel server locale non sono identiche alle impostazioni archiviate nell'insieme di credenziali di backup. Quando il server o le impostazioni sono state ripristinate a uno stato noto soddisfacente, le pianificazioni di backup possono perdere la sincronizzazione. Se viene visualizzato questo avviso, [riconfigurare i criteri di backup](backup-azure-manage-windows-server.md) e quindi **eseguire subito il backup** per risincronizzare il server locale con Azure.

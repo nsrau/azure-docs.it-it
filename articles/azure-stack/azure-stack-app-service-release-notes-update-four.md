@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: anwestg
-ms.lastreviewed: 11/13/2018
-ms.openlocfilehash: 5108d4f65208f12875ad592e2e9222f8e1fdb130
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.lastreviewed: 03/25/2019
+ms.openlocfilehash: c8900e639e6baba29067c50d4ac754d4dbda2dd6
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991082"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449229"
 ---
 # <a name="app-service-on-azure-stack-update-4-release-notes"></a>Servizio App in note sulla versione update 4 di Azure Stack
 
@@ -64,6 +64,8 @@ Servizio App di Azure in Azure Stack aggiornamento 4 include le correzioni e i m
 - Aggiunta del supporto per la versione API di servizio App 2018-02-01
 
 - Gli aggiornamenti **Tenant del servizio App, amministratore, i portali di funzioni e gli strumenti di Kudu**. Coerente con la versione di SDK portale di Azure Stack.
+
+- Gli aggiornamenti **runtime di funzioni di Azure** al **v1.0.11959**.
 
 - Aggiornamenti al servizio di base per migliorare l'affidabilità e messaggistica abilitazione più semplice diagnosi dei problemi comuni degli errori.
 

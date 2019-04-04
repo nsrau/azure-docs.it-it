@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838800"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905886"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 Il runtime di integrazione è l'infrastruttura di calcolo usata da Azure Data Factory per distribuire le funzionalità di integrazione di dati in ambienti di rete diversi. Per informazioni dettagliate sul runtime di integrazione, vedere [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ Di seguito viene indicato un flusso di dati generale per il riepilogo dei passag
 ![Panoramica generale](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. Lo sviluppatore di dati crea un runtime di integrazione self-hosted in un'istanza di Azure Data Factory tramite un cmdlet di PowerShell. Il portale di Azure attualmente non supporta questa funzionalità.
-2. Lo sviluppatore di dati crea quindi un servizio collegato per un archivio dati locale specificando l'istanza del runtime di integrazione self-hosted da usare per la connessione agli archivi dati. Una parte della configurazione del servizio collegato è costituita dall'uso dell'applicazione Gestione credenziali (attualmente non supportata) per impostare i tipi di autenticazione e le credenziali. L'applicazione Gestione credenziali comunica con l'archivio dati per eseguire il test della connessione e con il runtime di integrazione self-hosted per salvare le credenziali.
+2. Lo sviluppatore di dati crea quindi un servizio collegato per un archivio dati locale specificando l'istanza del runtime di integrazione self-hosted da usare per la connessione agli archivi dati.
 3. Il nodo del runtime di integrazione self-hosted crittografa le credenziali con Data Protection API (DPAPI) e le salva in locale. Se più nodi vengono impostati per la disponibilità elevata, le credenziali vengono ulteriormente sincronizzate negli altri nodi. Ogni nodo crittografa le credenziali con DPAPI e le archivia in locale. La sincronizzazione delle credenziali è trasparente allo sviluppatore di dati e viene gestita dal runtime di integrazione self-hosted.    
 4. Il servizio Data Factory comunica con il runtime di integrazione self-hosted per pianificare e gestire i processi tramite un *canale di controllo* che usa una coda condivisa del bus di servizio di Azure. Quando è necessario eseguire un processo di attività, Data Factory accoda la richiesta con le informazioni sulle credenziali (se le credenziali non sono già archiviate nel runtime di integrazione self-hosted). Il runtime di integrazione self-hosted avvia il processo dopo che è stato eseguito il polling della coda.
 5. Il runtime di integrazione self-hosted copia quindi i dati dall'archivio locale in una risorsa di archiviazione cloud o viceversa in base alla configurazione dell'attività di copia nella pipeline di dati. Per eseguire questo passaggio, il runtime di integrazione self-hosted comunica direttamente con i servizi di archiviazione basati sul cloud, ad esempio Archiviazione BLOB di Azure, su un canale protetto (HTTPS).
@@ -182,13 +182,13 @@ Per un'introduzione di dodici minuti e una dimostrazione di questa funzionalità
 
 ### <a name="monitoring"></a>Monitoraggio 
 
-- **IR condiviso**
+- **Runtime di integrazione condiviso**
 
   ![Selezioni per la ricerca di un runtime di integrazione condiviso](media/create-self-hosted-integration-runtime/Contoso-shared-IR.png)
 
   ![Scheda per il monitoraggio](media/create-self-hosted-integration-runtime/contoso-shared-ir-monitoring.png)
 
-- **IR collegato**
+- **Runtime di integrazione collegato**
 
   ![Selezioni per la ricerca di un runtime di integrazione collegato](media/create-self-hosted-integration-runtime/Contoso-linked-ir.png)
 
@@ -329,7 +329,7 @@ Se si verificano errori analoghi ai seguenti, potrebbero essere causati da una c
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Abilitare l'accesso remoto da una rete Intranet  
-Se si usa PowerShell o l'applicazione Gestione credenziali per crittografare le credenziali da un computer della rete diverso da quello in cui è installato il runtime di integrazione self-hosted, è possibile abilitare l'opzione **Accesso remoto da Intranet**. Se si esegue PowerShell o l'applicazione Gestione credenziali per crittografare le credenziali sullo stesso computer in cui è installato il runtime di integrazione self-hosted, non è possibile abilitare l'opzione **Accesso remoto da Intranet**.
+Se si usa PowerShell per crittografare le credenziali da un altro computer (nella rete) diverso da in cui è installato il runtime di integrazione self-hosted, è possibile abilitare la **accesso remoto da Intranet** opzione. Se si esegue PowerShell per crittografare le credenziali sullo stesso computer in cui è installato il runtime di integrazione self-hosted, è possibile abilitare **accesso remoto da Intranet**.
 
 È consigliabile abilitare **Accesso remoto da Intranet** prima di aggiungere un altro nodo per la disponibilità e la scalabilità elevate.  
 
@@ -339,9 +339,7 @@ Se si usa un firewall di terze parti, è possibile aprire manualmente la porta 8
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> L'applicazione Gestione credenziali non è ancora disponibile per la crittografia delle credenziali in Azure Data Factory V2.  
+``` 
 
 Se si sceglie di non aprire la porta 8060 nel computer del runtime di integrazione self-hosted, usare meccanismi diversi dall'uso dell'applicazione di impostazione credenziali per configurare le credenziali dell'archivio dati. Ad esempio, è possibile usare la **New-AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet di PowerShell.
 

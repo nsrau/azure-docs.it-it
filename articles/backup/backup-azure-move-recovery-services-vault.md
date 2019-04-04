@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199245"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905767"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Spostare un insieme di credenziali di Servizi di ripristino tra sottoscrizioni di Azure e gruppi di risorse (anteprima pubblica limitata)
 
@@ -21,6 +21,8 @@ Questo articolo illustra come spostare un insieme di credenziali di Servizi di r
 
 > [!NOTE]
 > Per spostare un insieme di credenziali di servizi di ripristino e le risorse associate al gruppo di risorse diverso, è necessario innanzitutto [registrare la sottoscrizione di origine](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Prerequisiti per lo spostamento di un insieme di credenziali
 
@@ -50,24 +52,24 @@ Per registrare la sottoscrizione di origine per **spostare** l'insieme di creden
 1. Accedere con l'account Azure
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. Selezionare la sottoscrizione da registrare
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. Registrare questa sottoscrizione
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Eseguire il comando
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Prima di iniziare con l'operazione di spostamento tramite il portale di Azure o PowerShell, attendere che la sottoscrizione venga inserita nell'elenco elementi consentiti (30 minuti).
@@ -137,18 +139,18 @@ Per spostare un insieme di credenziali di Servizi di ripristino e le risorse ass
 
 ## <a name="use-powershell-to-move-a-vault"></a>Usare PowerShell per spostare un insieme di credenziali
 
-Per spostare un insieme di credenziali di Servizi di ripristino in un altro gruppo di risorse, usare il cmdlet `Move-AzureRMResource`. `Move-AzureRMResource` richiede il nome e il tipo della risorsa. È possibile ottenerli entrambi dal cmdlet `Get-AzureRmRecoveryServicesVault`.
+Per spostare un insieme di credenziali di Servizi di ripristino in un altro gruppo di risorse, usare il cmdlet `Move-AzResource`. `Move-AzResource` richiede il nome della risorsa e il tipo di risorsa. È possibile ottenerli entrambi dal cmdlet `Get-AzRecoveryServicesVault`.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Per spostare le risorse in una diversa sottoscrizione, includere il parametro `-DestinationSubscriptionId`.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Dopo avere eseguito i cmdlet precedenti, verrà richiesto di confermare che si vuole spostare le risorse specificate. Digitare **Y** per confermare. Dopo la convalida, la risorsa viene spostata.

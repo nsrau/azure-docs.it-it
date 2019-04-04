@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369993"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904900"
 ---
 # <a name="set-environment-variables"></a>Impostare le variabili di ambiente
 
@@ -25,6 +25,8 @@ Ad esempio, se si esegue Microsoft [aci-wordcount] [ aci-wordcount] immagine del
 *MinLength*: Numero minimo di caratteri in una parola perché venga contata. Un numero più alto ignora le parole comuni, ad esempio "di" e "il".
 
 Se è necessario passare segreti come variabili di ambiente, Istanze di Azure Container supporta [valori sicuri](#secure-values) per i contenitori sia Windows che Linux.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-cli-example"></a>Esempio di interfaccia della riga di comando di Azure
 
@@ -141,7 +143,7 @@ Azure:\
 
 Per impostare le variabili di ambiente quando si avvia un contenitore nel portale di Azure, specificarle nella pagina **Configurazione** quando si crea il contenitore.
 
-Quando si esegue la distribuzione con il portale, il limite corrente è di tre variabili ed è necessario immetterle in questo formato: `"variableName":"value"`
+Quando si distribuisce con il portale, si è attualmente limitato a tre variabili e devono immetterli nel formato seguente: `"variableName":"value"`
 
 Per visualizzare un esempio, avviare il [aci-wordcount] [ aci-wordcount] contenitore con il *NumWords* e *MinLength* variabili.
 
@@ -255,6 +257,6 @@ Gli scenari basati su attività, ad esempio l'elaborazione batch di un set di da
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

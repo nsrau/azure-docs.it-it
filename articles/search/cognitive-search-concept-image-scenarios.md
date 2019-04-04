@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430268"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916972"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Come elaborare ed estrarre informazioni da immagini in scenari di ricerca cognitiva
 
@@ -34,7 +34,7 @@ Non è possibile disattivare la normalizzazione delle immagini. Le competenze ch
 
 | Parametro di configurazione | DESCRIZIONE |
 |--------------------|-------------|
-| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". |
+| imageAction   | Impostare su "none" se non deve essere eseguita alcuna operazione quando vengono rilevate immagini incorporate o file di immagine. <br/>Impostare su "generateNormalizedImages" per generare una matrice di immagini durante l'individuazione dei documenti.<br/>Impostare su "generateNormalizedImagePerPage" per generare una matrice di immagini normalizzate in cui, per i file PDF nell'origine dati, per ogni pagina viene eseguito il rendering in una sola immagine di output.  Per i tipi di file diversi da PDF, la funzionalità è la stessa di "generateNormalizedImages".<br/>Per qualsiasi opzione diversa da "none", le immagini verranno esposte nel campo *normalized_images*. <br/>Il valore predefinito è "none". Questa configurazione è pertinente solo alle origini dati BLOB, quando "dataToExtract" è impostato su "contentAndMetadata". <br/>Verrà estratto un massimo di 1000 immagini da un documento specifico. Se sono presenti più di 1000 immagini in un documento, verranno estratti prime 1000 e verrà generato un avviso. |
 |  normalizedImageMaxWidth | La larghezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
 |  normalizedImageMaxHeight | L'altezza massima (in pixel) per le immagini normalizzate generate. Il valore predefinito è 2000.|
 
@@ -218,9 +218,9 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
 ```
 
 ## <a name="see-also"></a>Vedere anche 
-+ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) (Creare un'indicizzatore - REST)
-+ [Competenza di Analisi delle immagini](cognitive-search-skill-image-analysis.md)
-+ [OCR skill](cognitive-search-skill-ocr.md) (Competenza OCR)
-+ [Text merge skill](cognitive-search-skill-textmerger.md) (Competenza di unione del testo)
++ [Creare un indicizzatore (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Analizzare l'abilità di immagine](cognitive-search-skill-image-analysis.md)
++ [Competenza OCR](cognitive-search-skill-ocr.md)
++ [Competenze di tipo merge di testo](cognitive-search-skill-textmerger.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)
++ [Come eseguire il mapping campi arricchiti](cognitive-search-output-field-mapping.md)

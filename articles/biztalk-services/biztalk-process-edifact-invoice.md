@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 5eb9740bdd0543556265f54a1a37b632f79ac861
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7093be36e34785d4153c257d411128efe463dee1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550123"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918961"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Esercitazione: Elaborare fatture EDIFACT con Servizi BizTalk di Azure
 
@@ -55,9 +55,9 @@ Per ottenere questo scenario aziendale, Contoso usa le funzionalità fornite con
 Per completare lo scenario, vengono usate code di bus di servizio per inviare la fattura da Contoso a Northwind o ricevere un acknowledgement da Northwind. Queste code possono essere create usando un'applicazione client, disponibile come download e inclusa nel pacchetto di esempio fornito come parte dell'esercitazione.  
 
 ## <a name="prerequisites"></a>Prerequisiti
-* È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [How To: Creare o modificare un Namespace di servizio del Bus di servizio](https://msdn.microsoft.com/library/azure/hh674478.aspx). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
+* È necessario disporre di uno spazio dei nomi di bus di servizio. Per istruzioni sulla creazione di uno spazio dei nomi, vedere [How To: Creare o modificare un Namespace di servizio del Bus di servizio](/previous-versions/azure/azure-services/hh674478(v=azure.100)). Si supponga di aver già effettuato il provisioning di uno spazio dei nomi di bus di servizio, denominato **edifactbts**.
 * È necessario disporre di una sottoscrizione a Servizi BizTalk. Per questa esercitazione, si supponga di avere una sottoscrizione a Servizi BizTalk, denominata **contosowabs**.
-* Registrare la propria sottoscrizione a Servizi BizTalk nel portale di Servizi BizTalk. Per istruzioni, vedere [Registrazione e aggiornamento di una distribuzione del servizio BizTalk nel portale dei servizi BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
+* Registrare la propria sottoscrizione a Servizi BizTalk nel portale di Servizi BizTalk. Per istruzioni, vedere [Registrazione e aggiornamento di una distribuzione del servizio BizTalk nel portale dei servizi BizTalk](/previous-versions/azure/hh689837(v=azure.100))
 * È necessario aver installato Visual Studio.
 * È necessario aver installato BizTalk Services SDK. È possibile scaricare l'SDK da [https://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: 36b49002a5e947f2803e00974f242e49eb26d45b
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: 213f4313e96638e4d94455be5f16aa3221d35b73
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309251"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905682"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Risorse, ruoli e controllo di accesso in Application Insights
 
@@ -25,6 +25,9 @@ ms.locfileid: "56309251"
 
 > [!IMPORTANT]
 > Assegnare l'accesso agli utenti nella **sottoscrizione o nel gruppo di risorse** a cui la risorsa dell'applicazione appartiene, non nella risorsa stessa. Assegnare il ruolo **collaboratore componente di Application Insights** . In tal modo si garantisce un controllo di accesso uniforme ai test Web e agli avvisi nonché alla risorsa dell'applicazione. [Altre informazioni](#access)
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="resources-groups-and-subscriptions"></a>Risorse, gruppi e sottoscrizioni
 
@@ -82,8 +85,8 @@ Dove applicabile sarà presente un collegamento alla documentazione di riferimen
 | --- | --- |
 | [Proprietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Può apportare qualsiasi modifica, incluso l'accesso utente. |
 | [Collaboratore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Può apportare qualsiasi modifica, incluse tutte le risorse. |
-| [Collaboratore componente di Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Può modificare risorse, test Web e avvisi di Application Insights. |
-| [Lettore](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Può visualizzare qualsiasi oggetto ma non può apportare alcuna modifica. |
+| [collaboratore componente di Application Insights ](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Può modificare risorse, test Web e avvisi di Application Insights. |
+| [Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Può visualizzare qualsiasi oggetto ma non può apportare alcuna modifica. |
 | [Debugger di snapshot di Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Concede l'autorizzazione utente per l'uso delle funzionalità di Snapshot Debugger di Application Insights. Si noti che questo ruolo non è incluso nei ruoli Proprietario e Collaboratore. |
 | Collaboratore alla gestione delle versioni di distribuzione dei servizi di Azure | Ruolo di collaboratore per i servizi di distribuzione tramite la distribuzione dei servizi di Azure. |
 | [Pulizia dati](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#data-purger) | Ruolo speciale per l'eliminazione dei dati personali. Vedere le [linee guida per i dati personali](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data) per altre informazioni.   |
@@ -112,7 +115,7 @@ Se si usano servizi come Outlook.com, OneDrive, Windows Phone o XBox Live, hanno
 
 ## <a name="related-content"></a>Contenuti correlati
 
-* [Controllo di accesso basato sui ruoli in Microsoft Azure](../../role-based-access-control/role-assignments-portal.md)
+* [In base al ruolo controllo degli accessi in Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Query di PowerShell per determinare l'appartenenza al ruolo
 
@@ -121,7 +124,7 @@ Poiché alcuni ruoli possono essere collegati a notifiche e avvisi tramite posta
 ### <a name="query-entire-subscription-for-admin-roles--contributor-roles"></a>Query dell'intera sottoscrizione per i ruoli di Amministratore e Collaboratore
 
 ```powershell
-(Get-AzureRmRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -IncludeClassicAdministrators | Where-Object {$_.RoleDefinitionName -in @('ServiceAdministrator', 'CoAdministrator', 'Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-application-insights-resource-for-owners-and-contributors"></a>Query all'interno del contesto di una risorsa specifica di Application Insights per proprietari e collaboratori
@@ -130,14 +133,14 @@ Poiché alcuni ruoli possono essere collegati a notifiche e avvisi tramite posta
 $resourceGroup = “RGNAME”
 $resourceName = “AppInsightsName”
 $resourceType = “microsoft.insights/components”
-(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup -ResourceType $resourceType -ResourceName $resourceName | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 ### <a name="query-within-the-context-of-a-specific-resource-group-for-owners-and-contributors"></a>Query all'interno del contesto di un gruppo di risorse specifico per proprietari e collaboratori
 
 ```powershell
 $resourceGroup = “RGNAME”
-(Get-AzureRmRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
+(Get-AzRoleAssignment -ResourceGroup $resourceGroup | Where-Object {$_.RoleDefinitionName -in @('Owner', 'Contributor') } | Select -ExpandProperty SignInName | Sort-Object -Unique) -Join ", "
 ```
 
 <!--Link references-->

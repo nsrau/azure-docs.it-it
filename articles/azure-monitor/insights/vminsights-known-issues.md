@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5fdee4edce0301a5a4524725879f599b0a2e3532
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745674"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916700"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemi noti relativi a Monitoraggio di Azure per le macchine virtuali (anteprima)
 
@@ -31,7 +31,6 @@ Di seguito sono descritti i problemi noti relativi alla versione corrente della 
 - Se una macchina virtuale di Azure viene rimossa o eliminata, viene visualizzata nella visualizzazione elenco delle macchine virtuali per un periodo. Facendo clic sullo stato di una macchina virtuale rimossa o eliminata, viene aperta la vista **Diagnostica integrità** e si avvia un ciclo di caricamento. Selezionando il nome di una macchina virtuale eliminata, viene aperto un pannello con un messaggio che dice che la macchina virtuale è stata eliminata.
 - L'applicazione delle modifiche di configurazione, ad esempio l'aggiornamento di una soglia, può richiedere fino a 30 minuti, anche se l'API di monitoraggio del carico di lavoro o il portale potrebbe aggiornarle immediatamente. 
 - L'esperienza della diagnostica di integrità si aggiorna più velocemente rispetto alle altre viste. Le informazioni potrebbero subire un ritardo quando si passa da una vista all'altra. 
-- Arrestando le macchine virtuali vengono aggiornati alcuni dei criteri di integrità a *critico* e altri a *integro*. Lo stato della macchina virtuale della rete è mostrato come *critico*.
 - Per le macchine virtuali Linux, il titolo della pagina che elenca i criteri di integrità per la visualizzazione di una singola macchina virtuale ha il nome di dominio completo della macchina virtuale invece del nome della macchina virtuale definito dall'utente. 
 - Dopo aver disabilitato il monitoraggio per una macchina virtuale usando uno dei metodi supportati, se si tenta di distribuirla di nuovo, è necessario distribuirla nella stessa area di lavoro. Se si usa un'area di lavoro diversa e si prova a visualizzare lo stato di integrità per tale macchina virtuale, potrebbe verificarsi un comportamento incoerente.
 - Il criterio di integrità di utilizzo CPU totale per Windows presenta una soglia *non uguale a* **4**: ciò significa che l'utilizzo della CPU è maggiore del 95% e la lunghezza della coda di sistema è maggiore di 15. Questo criterio di integrità non è configurabile in questa versione di anteprima.  

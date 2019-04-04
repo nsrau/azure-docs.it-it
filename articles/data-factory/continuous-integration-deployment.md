@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/17/2019
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 5f5a9ef689fefd5683f7b6f1ebc9b2193ce020e4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2edd4e28a0dd67be3c06159bce2e968d681b7f70
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57995781"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905257"
 ---
 # <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Integrazione e recapito continui (CI/CD) in Azure Data Factory
 
@@ -24,11 +24,11 @@ L'integrazione continua è la procedura che permette di testare ogni modifica ap
 
 In Azure Data Factory per integrazione e recapito continui si intende lo spostamento delle pipeline di Data Factory da un ambiente (sviluppo, test, produzione) a un altro. Per eseguire l'integrazione e il recapito continui, è possibile usare l'integrazione dell'interfaccia utente di Data Factory con i modelli di Azure Resource Manager. L'interfaccia utente di Data Factory può generare un modello di Resource Manager quando si selezionano le opzioni di **Modello ARM**. Quando si seleziona **Export ARM template** (Esporta modello di Azure Resource Manager), il portale genera il modello di Resource Manager per la data factory e un file di configurazione che include tutte le stringhe di connessioni e altri parametri. È quindi necessario creare un file di configurazione per ogni ambiente (sviluppo, test, produzione). Il file di modello di Resource Manager principale rimane lo stesso per tutti gli ambienti.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 Per un'introduzione di nove minuti e una dimostrazione di questa funzionalità, guardare il video seguente:
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Continuous-integration-and-deployment-using-Azure-Data-Factory/player]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-a-resource-manager-template-for-each-environment"></a>Creare un modello di Resource Manager per ogni ambiente
 Selezionare **Export ARM template** (Esporta modello di Azure Resource Manager) per esportare il modello di Resource Manager per la data factory nell'ambiente di sviluppo.

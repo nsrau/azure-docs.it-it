@@ -11,12 +11,12 @@ ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 01/28/2019
 keywords: ''
-ms.openlocfilehash: a47b38acc372e6c1d215c7440657486b5babf3bb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3694425ac72d3b75d66d870e3746bc1738ba0138
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009485"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481910"
 ---
 # <a name="azure-stack-datacenter-integration---syslog-forwarding"></a>Integrazione di Data Center di Azure Stack - l'inoltro di syslog
 
@@ -185,13 +185,13 @@ Per rimuovere completamente la configurazione del server syslog e arrestare l'in
 
 **Rimuovere la configurazione del server syslog dal client**
 
-```PowerShell  
+```powershell  
 Set-SyslogServer -Remove
 ```
 
 **Rimuovere il certificato client dal client**
 
-```PowerShell  
+```powershell  
 Set-SyslogClient -RemoveCertificate
 ```
 
@@ -201,13 +201,13 @@ Se il client di syslog connesso al server syslog, è consigliabile iniziare pres
 
 **Verificare la configurazione del server nel client di syslog**
 
-```PowerShell  
+```powershell  
 Get-SyslogServer
 ```
 
 **Verificare l'installazione del certificato nel client di syslog**
 
-```PowerShell  
+```powershell  
 Get-SyslogClient
 ```
 

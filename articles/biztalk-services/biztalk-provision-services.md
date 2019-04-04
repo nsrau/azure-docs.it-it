@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 05327c05594d38caf5e3d54f8a13eaaaac3588ec
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f5ffd1a9d0e7ff515b0819bb678bf0263f53e0d2
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097441"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918774"
 ---
 # <a name="create-biztalk-services-using-the-azure-portal"></a>Creazione di servizi BizTalk tramite il portale di Azure
 
@@ -39,8 +39,8 @@ A seconda dello stato del servizio BizTalk, alcune operazioni potrebbero non ess
 
 ## <a name="post-provisioning-steps"></a>Passaggi di post-provisioning
 * [Installare il certificato in un computer locale](#InstallCert)
-* [Aggiungere un certificato per l'ambiente di produzione](#AddCert)
-* [Ottenere lo spazio dei nomi ACS](#ACS)
+* [Aggiungere un certificato di produzione](#AddCert)
+* [Ottenere lo spazio dei nomi di controllo di accesso](#ACS)
 
 #### <a name="InstallCert"></a>Installare il certificato in un computer locale
 
@@ -59,16 +59,16 @@ Quando si distribuisce un progetto di servizio BizTalk da Visual Studio, si inse
 I valori di ACS possono essere usati con qualsiasi applicazione. Dopo la creazione di Servizi BizTalk di Azure, lo spazio del nomi ACS controlla l'autenticazione con la distribuzione del servizio BizTalk. Se si vuole modificare la sottoscrizione o gestire lo spazio dei nomi, selezionare **ACTIVE DIRECTORY** nel riquadro di spostamento sinistro e quindi selezionare lo spazio dei nomi. Le opzioni sono elencate nella bassa delle applicazioni.
 
 Facendo clic su **Manage** è possibile aprire il portale di gestione del servizio di controllo di accesso. Nel portale di gestione del controllo di accesso il servizio BizTalk usa le **identità del servizio**:  
-![Identità del servizio di controllo di accesso nel portale di gestione del servizio][ACSServiceIdentities]
+![Controllare l'identità del servizio ACS nell'accesso al portale di gestione][ACSServiceIdentities]
 
 Le identità del servizio di controllo di accesso sono set di credenziali che consentono ad applicazioni o client di eseguire l'autenticazione direttamente con il servizio di controllo di accesso e di ricevere un token.
 
 > [!IMPORTANT]
-> Il servizio BizTalk usa **Owner** come identità predefinita del servizio e il valore **Password**. Se si usa il valore della chiave simmetrica anziché il valore della password, potrebbe verificarsi un errore simile al seguente.<br/><br/>*Non è stato possibile connettersi all'account di gestione del servizio di controllo di accesso con le credenziali specificate*
+> Il servizio BizTalk usa **Owner** come identità predefinita del servizio e il valore **Password**. Se si usa il valore della chiave simmetrica anziché il valore della password, potrebbe verificarsi un errore simile al seguente.<br/><br/>*Non è riuscito a connettersi all'account di servizio di gestione di controllo di accesso con le credenziali specificate*
 > 
 > 
 
-[Gestione dello spazio dei nomi del servizio di controllo di accesso](https://msdn.microsoft.com/library/azure/hh674478.aspx) sono fornite alcune linee guida e consigli utili.
+[Gestione dello spazio dei nomi del servizio di controllo di accesso](/previous-versions/azure/azure-services/hh674478(v=azure.100)) sono fornite alcune linee guida e consigli utili.
 
 ## <a name="requirements-explained"></a>Descrizione dei requisiti
 Questi requisiti non si applicano all'edizione gratuita.
@@ -93,7 +93,7 @@ L'account Azure può avere più sottoscrizioni e può essere gestito da qualsias
 <br/><br/>
 Quando si crea un servizio BizTalk, è possibile usare un server di Azure SQL o un database SQL di Azure esistente oppure creare automaticamente un nuovo server o database.
 <br/><br/>
-La scalabilità del database SQL viene configurata automaticamente. In genere, la scalabilità predefinita è sufficiente per un servizio BizTalk. La modifica della scalabilità incide sui prezzi. Vedere <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930">Account e fatturazione nel database SQL di Azure</a>
+La scalabilità del database SQL viene configurata automaticamente. In genere, la scalabilità predefinita è sufficiente per un servizio BizTalk. La modifica della scalabilità incide sui prezzi. Vedere <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=234930"> account e fatturazione nel Database SQL di Azure</a>
 <br/><br/>
 <strong>Note</strong>
 <br/>
@@ -132,7 +132,7 @@ Vedere <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=285671">Archiviazione<
 <td>
 Quando si crea un servizio BizTalk di Azure, viene creato anche un URL HTTPS che include il nome del servizio BizTalk. Questo URL viene configurato automaticamente per l'uso del certificato autofirmato solo per l'ambiente di sviluppo. Per l'ambiente di produzione, è necessario un certificato SSL privato.
 <br/><br/>
-<strong>Informazioni importanti sul certificato SSL</strong>
+<strong>Informazioni sul certificato SSL importanti</strong>
 
 <ul>
 <li>La data di scadenza del certificato deve essere inferiore ai 5 anni.</li>
@@ -168,13 +168,13 @@ Le connessioni ibride consentono la connessione di un sito Web o di un servizio 
 Ora che viene creato un BizTalk Service, acquisire familiarità con le diverse [servizi BizTalk: Schede dashboard, monitoraggio e scalabilità](biztalk-dashboard-monitor-scale-tabs.md). Il servizio BizTalk è pronto per le applicazioni. Per iniziare a creare applicazioni, vedere [Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="see-also"></a>Vedere anche 
-* [Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md)<br/>
+* [Servizi BizTalk: Grafico delle edizioni](biztalk-editions-feature-chart.md)<br/>
 * [Servizi BizTalk: Grafico dello stato](biztalk-service-state-chart.md)<br/>
 * [Servizi BizTalk: Backup e ripristino](biztalk-backup-restore.md)<br/>
-* [Servizi BizTalk: Throttling](biztalk-throttling-thresholds.md)<br/>
+* [Servizi BizTalk: Limitazione](biztalk-throttling-thresholds.md)<br/>
 * [Servizi BizTalk: Nome dell'autorità emittente e chiave dell'autorità emittente](biztalk-issuer-name-issuer-key.md)<br/>
-* [Come iniziare a usare l'SDK di Servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Connessioni ibride](integration-hybrid-connection-overview.md)
+* [Come posso iniziare a usare il SDK di servizi BizTalk di Azure](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [connessioni ibride](integration-hybrid-connection-overview.md)
 
 [NewBizTalkService]: ./media/biztalk-provision-services/WABS_NewBizTalkService.png
 [NEWButton]: ./media/biztalk-provision-services/WABS_New.png

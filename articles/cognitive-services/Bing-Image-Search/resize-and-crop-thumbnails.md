@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 78391a9892ff568bfa41b16beb4a5b599ceee6c6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337380"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917448"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Ridimensionare e ritagliare le immagini di anteprima
 
-Durante l'elaborazione di una query di ricerca, Bing genererà le informazioni dell'anteprima per tutte le immagini nella [risposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Queste informazioni possono essere usate per visualizzare tutte le anteprime, oppure un subset delle anteprime restituite. Se si visualizza un subset, offrire la possibilità di vedere le immagini rimanenti.
+Durante l'elaborazione di una query di ricerca, Bing genererà le informazioni dell'anteprima per tutte le immagini nella [risposta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Queste informazioni possono essere usate per visualizzare tutte le anteprime, oppure un subset delle anteprime restituite. Se si visualizza un subset, offrono un'opzione per visualizzare le immagini rimanenti.
 
 
 <!-- Removing image until we can replace it with a sanatized version.

@@ -3,19 +3,19 @@ title: Tradurre in ambienti protetti da firewall - API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Informazioni su come tradurre in ambienti protetti da firewall IP con l'API Traduzione testuale.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 053bc5964644b4183572de35372e2580a80f19ae
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ebc8b7ce4ed0242f1bc62e3b97b6594cfe810374
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729985"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915748"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Come tradurre in ambienti protetti da firewall IP con l'API Traduzione testuale
 
@@ -31,4 +31,4 @@ Gli indirizzi IP per api.cognitive.microsofttranslator.com, ovvero l'API Traduzi
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Tradurre in ambienti protetti da firewall IP nella chiamata API di Translator](reference/v3-0-translate.md)
+> [Tradurre dietro a firewall IP la chiamata all'API Microsoft Translator](reference/v3-0-translate.md)

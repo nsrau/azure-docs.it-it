@@ -1,6 +1,6 @@
 ---
-title: Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Active Directory B2C | Microsoft Docs
-description: Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Active Directory B2C.
+title: Definire un profilo tecnico OAuth2 in un criterio personalizzato in Azure Active Directory B2C | Microsoft Docs
+description: Definire un profilo tecnico OAuth2 in un criterio personalizzato in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86682525ae5246f9335e64e7dd3a812eaaf3c273
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157721"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918927"
 ---
-# <a name="define-a-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 nei criteri personalizzati di Azure Active Directory B2C
+# <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth2 in un criterio personalizzato di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -76,13 +76,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
+| client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | IdTokenAudience | No  | I destinatari dell'id_token. Se specificato, Azure AD B2C controlla se il token è in un'attestazione restituita dal provider di identità ed è uguale a quello specificato. |
-| authorization_endpoint | Yes | L'URL dell'endpoint di autorizzazione come per RFC 6749. |
-| AccessTokenEndpoint | Yes | L'URL dell'endpoint token come per RFC 6749. |  
-| ClaimsEndpoint | Yes | L'URL dell'endpoint di informazioni per l'utente come per RFC 6749. | 
+| authorization_endpoint | Sì | L'URL dell'endpoint di autorizzazione come per RFC 6749. |
+| AccessTokenEndpoint | Sì | L'URL dell'endpoint token come per RFC 6749. |  
+| ClaimsEndpoint | Sì | L'URL dell'endpoint di informazioni per l'utente come per RFC 6749. | 
 | AccessTokenResponseFormat | No  | Il formato delle chiamate a endpoint del token di accesso. Ad esempio, Facebook richiede un metodo HTTP GET, ma la risposta del token di accesso è in formato JSON. |
 | AdditionalRequestQueryParameters | No  | Parametri di query della richiesta aggiuntivi. Ad esempio, è possibile inviare parametri aggiuntivi al provider di identità. È possibile includere più parametri usando la virgola di delimitazione. | 
 | ClaimsEndpointAccessTokenName | No  | Il nome del parametro della stringa di query del token di accesso. Gli endpoint di alcuni provider di identità delle attestazioni supportano la richiesta HTTP GET. In questo caso, il token di connessione viene inviato usando un parametro della stringa di query anziché l'intestazione dell'autorizzazione. |
@@ -100,9 +100,9 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |  
+| client_secret | Sì | Il segreto client dell'applicazione del provider di identità. La chiave di crittografia è necessaria solo se i metadati **response_type** sono impostati su `code`. In questo caso, Azure AD B2C effettua un'altra chiamata per scambiare il codice di autorizzazione per un token di accesso. Se i metadati sono impostati su `id_token` è possibile omettere la chiave di crittografia.  |  
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 
@@ -112,7 +112,7 @@ Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** ass
 
 Esempi:
 
-- [Aggiungere Google + come provider di identità OAuth2 usando criteri personalizzati](active-directory-b2c-custom-setup-goog-idp.md)
+- [Aggiungere Google + come provider di identità OAuth2 tramite criteri personalizzati](active-directory-b2c-custom-setup-goog-idp.md)
 
 
 

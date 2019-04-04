@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: security
-ms.date: 04/12/2018
+ms.date: 04/02/2019
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: ab439566da38a537534fc10e70058ab57005ce22
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a3bed9df5b62ce7f2f3df7046357dc4f2458575c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183799"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917907"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Autenticazione in Azure SQL Data Warehouse
 Informazioni su come eseguire l'autenticazione in Azure SQL Data Warehouse mediante Azure Active Directory (AAD) e SQL Server.
@@ -56,7 +56,7 @@ I vantaggi di Azure Active Directory includono i seguenti:
 * Consente di eliminare l'archiviazione delle password abilitando l'autenticazione integrata di Windows e altre forme di autenticazione supportate da Azure Active Directory.
 * Usa gli utenti di database indipendente per autenticare le identità a livello di database.
 * Supporta l'autenticazione basata su token per le applicazioni che si connettono a SQL Data Warehouse.
-* Supporta la Multi-Factor Authentication tramite l'autenticazione universale di Active Directory per SQL Server Management Studio. Per una descrizione di Multi-Factor Authentication, vedere [Il supporto SSMS per l'MFA di Azure Active Directory con database SQL e SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+* Supporta l'autenticazione a più fattori tramite l'autenticazione universale di Active Directory per vari strumenti, tra cui [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) e [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json).
 
 > [!NOTE]
 > Azure Active Directory è ancora relativamente nuovo e presenta alcune limitazioni. Per assicurarsi che Azure Active Directory sia ideale per l'ambiente in uso, vedere [le funzionalità e le limitazioni di Azure AD][Azure AD features and limitations], in particolare le considerazioni aggiuntive.

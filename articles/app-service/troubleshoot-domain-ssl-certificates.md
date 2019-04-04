@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449134"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905818"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Risolvere i problemi relativi al dominio e al certificato SSL in Servizio app di Azure
 
 Questo articolo elenca i problemi comuni riscontrabili quando si configura un dominio o un certificato SSL per le app Web in Servizio app di Azure. L'articolo descrive anche le possibili cause e soluzioni per tali problemi.
 
 Per ricevere assistenza in relazione a qualsiasi punto di questo articolo, contattare gli esperti di Azure nei [forum MSDN e Stack Overflow](https://azure.microsoft.com/support/forums/). In alternativa, è possibile archiviare un evento imprevisto di supporto tecnico di Azure. Accedere al [sito del supporto di Azure](https://azure.microsoft.com/support/options/) e selezionare **Richiesta di supporto**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Problemi certificati
 
@@ -314,7 +317,7 @@ Sì. Quando si accedere al pannello domini personalizzati ed SSL nel portale di 
 
 **È possibile trasferire un dominio da una sottoscrizione a un'altra sottoscrizione?**
 
-È possibile spostare un dominio a un altro gruppo di risorse/sottoscrizioni usando il [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet di PowerShell.
+È possibile spostare un dominio a un altro gruppo di risorse/sottoscrizioni usando il [Move-AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) cmdlet di PowerShell.
 
 **Come gestire il dominio personalizzato se non è attualmente disponibile un'app di servizio App di Azure?**
 

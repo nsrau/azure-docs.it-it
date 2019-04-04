@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106407"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905070"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guida introduttiva a PowerShell in Azure Cloud Shell
 
@@ -36,7 +36,7 @@ Questo documento illustra dettagliatamente come usare PowerShell in Cloud Shell 
 
    ![](media/quickstart-powershell/shell-icon.png)
 
-2. Selezionare l'ambiente PowerShell dall'elenco a discesa per accedere all’unità Azure `(Azure:)`
+2. Selezionare l'ambiente PowerShell dall'elenco a discesa e sarà nell'unità Azure `(Azure:)`
 
    ![](media/quickstart-powershell/environment-ps.png)
 
@@ -267,7 +267,7 @@ Per eseguire l'autenticazione a server o macchine virtuali tramite SSH, generare
 
 ### <a name="using-ssh"></a>Uso di SSH
 
-Seguire le istruzioni [qui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) per creare una nuova configurazione di macchina virtuale usando i cmdlet di AzureRM.
+Seguire le istruzioni [qui](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) per creare una nuova configurazione di macchina virtuale usando i cmdlet di PowerShell di Azure.
 Prima di chiamare `New-AzVM` per avviare la distribuzione, aggiungere la chiave pubblica SSH alla configurazione di macchina virtuale.
 La nuova macchina virtuale conterrà la chiave pubblica nel percorso `~\.ssh\authorized_keys`, abilitando quindi le sessioni SSH senza credenziali nella macchina virtuale.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 Nell'unità `Azure` digitare `Get-AzCommand` per ottenere i comandi di Azure specifici per il contesto.
 
-In alternativa, è sempre possibile usare `Get-Command *azurerm* -Module AzureRM.*` per scoprire i comandi di Azure disponibili.
+In alternativa, è sempre possibile usare `Get-Command *az* -Module Az.*` per scoprire i comandi di Azure disponibili.
 
 ## <a name="install-custom-modules"></a>Installazione di moduli personalizzati
 

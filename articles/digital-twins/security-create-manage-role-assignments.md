@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118592"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905308"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Creare e gestire assegnazioni di ruolo in Gemelli digitali di Azure
 
 Gemelli digitali di Azure usa il [controllo degli accessi in base al ruolo](./security-role-based-access-control.md) per gestire l'accesso alle risorse.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Panoramica delle assegnazioni di ruolo
 
@@ -36,12 +39,12 @@ Ogni assegnazione di ruolo è conforme alla definizione seguente:
 
 La tabella seguente descrive i singoli attributi:
 
-| Attributo | NOME | Obbligatoria | type | DESCRIZIONE |
+| Attributo | NOME | Obbligatorio | Type | DESCRIZIONE |
 | --- | --- | --- | --- | --- |
-| RoleId | Identificatore della definizione di ruolo | Yes | string | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
-| objectId | Identificatore di oggetto | Yes | string | ID di Azure Active Directory, ID oggetto dell'entità servizio o nome di dominio. Destinatario dell'assegnazione di ruolo. L'assegnazione di ruolo deve essere formattata in base al tipo associato. Per l'elemento objectIdType `DomainName`, objectId deve iniziare con il carattere `“@”`. |
-| objectIdType | Tipo di identificatore di oggetto | Yes | string | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
-| path | Percorso di spazio | Yes | string | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
+| RoleId | Identificatore della definizione di ruolo | Sì | string | ID univoco dell'assegnazione di ruolo desiderata. È possibile ottenere le definizioni dei ruoli e i relativi identificatori eseguendo una query sull'API di sistema o consultando la tabella seguente. |
+| objectId | Identificatore di oggetto | Sì | string | ID di Azure Active Directory, ID oggetto dell'entità servizio o nome di dominio. Destinatario dell'assegnazione di ruolo. L'assegnazione di ruolo deve essere formattata in base al tipo associato. Per l'elemento objectIdType `DomainName`, objectId deve iniziare con il carattere `“@”`. |
+| objectIdType | Tipo di identificatore di oggetto | Sì | string | Tipo di identificatore di oggetto usato. Vedere **ObjectIdType supportati** di seguito. |
+| path | Percorso di spazio | Sì | string | Percorso di accesso completo dell'oggetto `Space`. Un esempio è `/{Guid}/{Guid}`. Se un identificatore richiede l'assegnazione di ruolo per l'intero grafico, specificare `"/"`. Questo carattere designa la radice, ma non è consigliabile usarlo. Seguire sempre il principio del privilegio minimo. |
 | TenantId | Identificatore del tenant | Variabile | string | Nella maggior parte dei casi, ID tenant di Azure Active Directory. Non consentito per gli elementi ObjectIdType `DeviceId` e `TenantId`. Obbligatorio per gli elementi ObjectIdType `UserId` e `ServicePrincipalId`. Facoltativo per l'elemento ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificatori delle definizioni del ruolo supportati
@@ -83,8 +86,8 @@ L'ID applicazione viene fornito in Azure Active Directory. Per altre informazion
 Una volta ottenuto l'ID applicazione, eseguire i comandi di PowerShell seguenti:
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 Un utente con il ruolo **Amministratore** può quindi assegnare il ruolo Amministratore dello spazio a un altro utente inviando una richiesta HTTP POST autenticata all'URL:
@@ -160,7 +163,7 @@ Per controllare un'assegnazione di ruolo specifica, inviare una richiesta HTTP G
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **Valore del parametro** | **Obbligatorio** |  **Tipo** |  **Descrizione** |
+| **Valore del parametro** | **Obbligatorio** |  **Type** |  **DESCRIZIONE** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True  | string |   objectId dell'objectIdType UserId. |
 | YOUR_PATH | True  | string |   Percorso per cui verificare l'accesso. |

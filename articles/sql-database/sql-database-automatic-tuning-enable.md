@@ -12,21 +12,21 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 30a16c2a8b82ff4b32b95b14937166b94aba06b5
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: f94d731fd7b9a9fa85ae42d22949c7ca4024aabe
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726958"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904356"
 ---
 # <a name="enable-automatic-tuning-to-monitor-queries-and-improve-workload-performance"></a>Abilitare l'ottimizzazione automatica monitorare le query e migliorare le prestazioni del carico di lavoro
 
 Il database SQL di Azure è un servizio dati gestito automaticamente che esegue un monitoraggio costante delle query e identifica l'azione che è possibile eseguire per migliorare le prestazioni del carico di lavoro. È possibile esaminare le raccomandazioni e applicarle manualmente oppure delegare al database SQL di Azure l'applicazione automatica delle azioni correttive, condizione nota come **modalità di ottimizzazione automatica**.
 
-L'ottimizzazione automatica può essere abilitata a livello di server o di database dal [portale di Azure](sql-database-automatic-tuning-enable.md#azure-portal) o tramite chiamate [API REST](sql-database-automatic-tuning-enable.md#rest-api) e comandi [T-SQL](sql-database-automatic-tuning-enable.md#t-sql).
+L'ottimizzazione automatica può essere abilitata a livello di server o di database dal [portale di Azure](sql-database-automatic-tuning-enable.md#azure-portal) o tramite chiamate [API REST](sql-database-automatic-tuning-enable.md#rest-api) e comandi [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current).
 
 > [!NOTE]
-> Per istanza gestita, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurato tramite [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) solo. Configurazione basata sul portale e opzioni di ottimizzazione indice automatici descritte in questo articolo non si applicano all'istanza gestita.
+> Per istanza gestita, l'opzione supportata FORCE_LAST_GOOD_PLAN può essere configurato tramite [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management) solo. Configurazione basata sul portale e opzioni di ottimizzazione indice automatici descritte in questo articolo non si applicano all'istanza gestita.
 
 > [!NOTE]
 > Configurazione delle opzioni di ottimizzazione automatica tramite modelli ARM (Azure Resource Manager) non è supportata in questo momento.

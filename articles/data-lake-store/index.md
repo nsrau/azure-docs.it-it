@@ -1,16 +1,22 @@
 ---
 title: Documentazione di Azure Data Lake Storage Gen1 - Esercitazioni e informazioni di riferimento sulle API | Microsoft Docs
-description: 'Informazioni su come configurare, gestire e accedere a un repository Data Lake con iperscalabilità e compatibile con Hadoop per le analisi sui dati di qualsiasi dimensione, tipo e velocità di inserimento.'
+description: Informazioni su come configurare, gestire e accedere a un repository Data Lake con iperscalabilità e compatibile con Hadoop per le analisi sui dati di qualsiasi dimensione, tipo e velocità di inserimento.
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
+ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904662"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentazione di Azure Data Lake Storage Gen1
 
@@ -175,7 +181,7 @@ Informazioni su come usare Azure Data Lake Storage Gen1 (precedentemente noto co
                 <div class="card">
                     <div class="cardText">
                         <h3>Riga di comando</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
+                        <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
                         <p><a href="/cli/azure/dls">Interfaccia della riga di comando di Azure</a></p>
                     </div>
                 </div>

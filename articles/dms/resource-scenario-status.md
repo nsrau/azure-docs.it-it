@@ -10,22 +10,22 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 04/03/2019
-ms.openlocfilehash: 7017566092530dce2359d45314ac00dca63b8ad0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/04/2019
+ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886234"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915476"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Stato degli scenari di migrazione supportato dal servizio migrazione del Database di Azure
-Servizio migrazione del Database di Azure è progettato per supportare diversi scenari di migrazione (coppie origine/destinazione) sia per offline (una tantum) e le migrazioni online (sincronizzazione continua). Gli scenari supportati dal Servizio Migrazione del database di Azure aumentano con il tempo. Nuovi scenari vengono aggiunti regolarmente. Questo articolo identifica gli scenari di migrazione attualmente supportati dal servizio migrazione del Database e dello stato (anteprima privata, anteprima pubblica o disponibile a livello generale) per ogni scenario.
+Servizio migrazione del Database di Azure è progettato per supportare diversi scenari di migrazione (coppie origine/destinazione) sia per offline (una tantum) e le migrazioni online (sincronizzazione continua). Il code coverage scenario fornito dal servizio migrazione del Database viene esteso nel corso del tempo. Nuovi scenari vengono aggiunti regolarmente. Questo articolo identifica gli scenari di migrazione attualmente supportati dal servizio migrazione del Database e dello stato (anteprima privata, anteprima pubblica o disponibilità generale) per ogni scenario.
 
 ## <a name="offline-versus-online-migrations"></a>Migrazioni offline e online
 Con servizio migrazione del Database di Azure, è possibile eseguire una migrazione online o offline. Con le migrazioni *offline*, il tempo di inattività delle applicazioni inizia quando inizia la migrazione. Per limitare il tempo di inattività per il tempo necessario per trasferire gli nel nuovo ambiente al termine della migrazione, usare un *online* migrazione. Si consiglia di testare una migrazione offline per determinare se il tempo di inattività è accettabile. in caso contrario, eseguire una migrazione online.
 
 ## <a name="migration-scenario-status"></a>Stato dello scenario di migrazione
-Lo stato degli scenari di migrazione supportato dal servizio migrazione del Database varia nel tempo. In generale, gli scenari vengono rilasciati inizialmente con **anteprima privata**. Che fanno parte di anteprima privata richiede ai clienti di inviare una candidatura tramite il [sito di anteprima DMS](https://aka.ms/dms-preview). Dopo l'anteprima privata, lo stato di uno scenario diventa **versione di anteprima pubblica**. Gli utenti servizio migrazione del Database di Azure è possono provare in scenari di migrazione in anteprima pubblica direttamente dall'interfaccia utente. Nessun abbonamento è obbligatorio.  Scenari di migrazione in anteprima pubblica, tuttavia, potrebbero non essere disponibili in tutte le aree e possono subire modifiche aggiuntive prima della versione finale. Dopo la versione di anteprima pubblica, lo stato di uno scenario diventa **disponibile a livello generale**. A livello generale (GA) disponibile è lo stato della versione finale e la funzionalità è completa e accessibile a tutti gli utenti. 
+Lo stato degli scenari di migrazione supportato dal servizio migrazione del Database varia nel tempo. In generale, gli scenari vengono rilasciati inizialmente con **anteprima privata**. Che fanno parte di anteprima privata richiede ai clienti di inviare una candidatura tramite il [sito di anteprima DMS](https://aka.ms/dms-preview). Dopo l'anteprima privata, lo stato di uno scenario diventa **versione di anteprima pubblica**. Gli utenti servizio migrazione del Database di Azure è possono provare in scenari di migrazione in anteprima pubblica direttamente dall'interfaccia utente. Nessun abbonamento è obbligatorio.  Scenari di migrazione in anteprima pubblica, tuttavia, potrebbero non essere disponibili in tutte le aree e possono subire modifiche aggiuntive prima della versione finale. Dopo la versione di anteprima pubblica, lo stato di uno scenario diventa **disponibilità a livello generale**. Disponibilità generale (GA) è lo stato della versione finale e la funzionalità è completa e accessibile a tutti gli utenti.
 
 ## <a name="migration-scenario-support"></a>Supporto degli scenari di migrazione
 Le tabelle seguenti illustrano gli scenari di migrazione supportati quando si usare servizio migrazione del Database di Azure.
@@ -34,13 +34,13 @@ Le tabelle seguenti illustrano gli scenari di migrazione supportati quando si us
 > Se uno scenario elencato come supportato non è visualizzato nell'interfaccia utente, contattare il [team di migrazione dati](mailto:datamigrationteam@microsoft.com) per altre informazioni.
 
 > [!IMPORTANT]
-> Per visualizzare gli scenari attualmente supportati dal servizio migrazione del Database di Azure in anteprima privata, vedere la [sito di anteprima DMS](https://aka.ms/dms-preview).
+> Per visualizzare tutti gli scenari attualmente supportati dal servizio migrazione del Database di Azure in anteprima privata, vedere la [sito di anteprima DMS](https://aka.ms/dms-preview).
 
 ### <a name="offline-one-time-migration-support"></a>Supporto della migrazione offline (unica)
-La tabella seguente illustra il supporto di servizio migrazione del Database, per le migrazioni offline.
+La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni offline.
 
 | Destinazione  | Source (Sorgente) | Supporto | Stato |
-| ------------- | ------------- | :-------------: | :-------------: |
+| ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL |  |  |
 |   | Oracle |  |  |
@@ -56,10 +56,10 @@ La tabella seguente illustra il supporto di servizio migrazione del Database, pe
 |  | RDS PostgreSQL |   |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Supporto della migrazione online (sincronizzazione continua)
-Nella tabella seguente viene descritto il servizio migrazione del Database supporto, disponibile a livello generale, o versione di anteprima pubblica per le migrazioni online.
+La tabella seguente mostra il supporto del Servizio Migrazione del database di Azure per le migrazioni online.
 
 | Destinazione  | Source (Sorgente) | Supporto | Stato |
-| ------------- | ------------- | :-------------: | :-------------: |
+| ------------- | ------------- |:-------------:|:-------------:|
 | **Database SQL di Azure** | SQL Server | ✔ | GA |
 |   | Servizi Desktop remoto SQL | ✔ | GA |
 |   | Oracle |  |  |

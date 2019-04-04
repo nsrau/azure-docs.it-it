@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: e7243c1f0c0bc26b2e77a060b5def6e204835235
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b275a86f8fd35c43865fd920d1bfc9994a796a9c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553745"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919264"
 ---
 >[!NOTE]
 >Per le risorse che non sono corretti, aprire un ticket di supporto per richiedere un aumento di quote. Non creare altri account di servizi multimediali di Azure nel tentativo di ottenere limiti più elevati.
@@ -39,7 +39,7 @@ ms.locfileid: "57553745"
 
 A partire da 1 ° aprile 2017, qualsiasi record di processo antecedenti a 90 giorni l'account viene eliminato automaticamente, insieme ai record attività associati. L'eliminazione automatica si verifica anche se il numero totale di record è inferiore alla quota massima. Per archiviare le informazioni di attività e processi, usare il codice descritto nel [gestire gli asset con Media Services .NET SDK](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup>quando si effettua una richiesta di elenco di entità job, viene restituito un massimo di 1.000 processi per ogni richiesta. Per tenere traccia dei processi inviati tutti, usare la parte superiore o ignorare le query, come descritto in [opzioni di query di sistema OData](https://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup>quando si effettua una richiesta di elenco di entità job, viene restituito un massimo di 1.000 processi per ogni richiesta. Per tenere traccia dei processi inviati tutti, usare la parte superiore o ignorare le query, come descritto in [opzioni di query di sistema OData](/previous-versions/dynamicscrm-2015/developers-guide/gg309461(v=crm.7)).
 
 <sup>4</sup>i localizzatori non sono progettati per gestire il controllo di accesso per utente. Per concedere diritti di accesso diverse a singoli utenti, usare le soluzioni di digital rights management (DRM). Per altre informazioni, vedere [proteggere i contenuti con servizi multimediali di Azure](../articles/media-services/previous/media-services-content-protection-overview.md).
 

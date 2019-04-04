@@ -11,13 +11,13 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 manager: craigg
-ms.date: 11/07/2018
-ms.openlocfilehash: 96b6b4866b17e15f544a10124d07e651d747b58b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.date: 04/03/2019
+ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57306443"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916173"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Porte successive alla 1433 per ADO.NET 4.5
 
@@ -43,11 +43,11 @@ La sequenza è la seguente:
 
 1. ADO.NET 4.5 (o versione successiva) avvia una breve interazione con il cloud di Azure e riceve un numero di porta identificato in modo dinamico.
 
-   * Il numero di porta identificato in modo dinamico è compreso nell'intervallo tra 11000-11999 o 14000-14999.
+   * Il numero di porta identificato in modo dinamico è compreso tra 11000 a 11999.
 2. ADO.NET quindi si connette direttamente al server del database SQL, senza alcun middleware intermedio.
 3. Le query vengono inviate direttamente al database e i risultati vengono restituiti direttamente al client.
 
-Assicurarsi che l'intervallo di porte 11000-11999 e 14000-14999 nel computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il database SQL.
+Verificare che la porta di 11000-11999 sul computer client di Azure venga reso disponibile per le interazioni del client ADO.NET 4.5 con il Database SQL.
 
 * In particolare, le porte nell'intervallo devono essere libere da eventuali altri blocchi in uscita.
 * Nella macchina virtuale di Azure, il **Windows Firewall con sicurezza avanzata** controlla le impostazioni della porta.
@@ -83,7 +83,7 @@ In questa sezione vengono spiegati i moniker che fanno riferimento a versioni pr
 
 * [Elenco versioni del protocollo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Panoramica dello sviluppo di database SQL](sql-database-develop-overview.md)
-* [Firewall di database SQL di Azure](sql-database-firewall-configure.md)
-* [Procedura: configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md)
+* [Firewall del database SQL di Azure](sql-database-firewall-configure.md)
+* [Procedura: Configurare le impostazioni del firewall nel database SQL](sql-database-configure-firewall-settings.md)
 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: ec3952f2bb0b4180f5c72d948d1835a903152f0d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181827"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916655"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Attività di avvio comuni del servizio cloud
 Questo articolo fornisce alcuni esempi relativi alle attività di avvio comuni che è possibile eseguire nel servizio cloud. È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata. 
@@ -31,7 +31,7 @@ Per comprendere il funzionamento delle attività di avvio e in particolare la mo
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definire le variabili di ambiente prima dell'avvio di un ruolo
-Se si devono definire le variabili di ambiente per un'attività specifica, usare l'elemento [Environment] all'interno dell'elemento [Attività].
+Se si devono definire le variabili di ambiente per un'attività specifica, usare l'elemento [Environment] all'interno dell'elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -68,12 +68,12 @@ Lo strumento da riga di comando [AppCmd.exe](https://technet.microsoft.com/libra
 
 È consigliabile controllare il valore di **errorlevel** dopo la chiamata di *AppCmd.exe*, operazione semplice se si esegue il wrapping della chiamata a *AppCmd.exe* con un file con estensione *.cmd*. Se si rileva un valore di **errorlevel** noto, è possibile ignorarlo oppure restituirlo.
 
-Il valore di errorlevel restituito da *AppCmd.exe* è elencato nel file winerror.h e può essere visualizzato anche in [MSDN](https://msdn.microsoft.com/library/windows/desktop/ms681382.aspx).
+Il valore di errorlevel restituito da *AppCmd.exe* è elencato nel file winerror.h e può essere visualizzato anche in [MSDN](/windows/desktop/Debug/system-error-codes--0-499-).
 
 ### <a name="example-of-managing-the-error-level"></a>Esempio di gestione del livello di errore
 In questo esempio vengono aggiunte una sezione di compressione e una voce di compressione per JSON al file *Web.config* , con gestione e registrazione degli errori.
 
-Le sezioni pertinenti del file [ServiceDefinition.csdef] sono riportate di seguito, evidenziando l'impostazione dell'attributo [executionContext](https://msdn.microsoft.com/library/azure/gg557552.aspx#Task) su `elevated` per fornire ad *AppCmd.exe* le autorizzazioni sufficienti per modificare le impostazioni nel file *Web.config*:
+Le sezioni pertinenti del file [ServiceDefinition.csdef] sono riportate di seguito, evidenziando l'impostazione dell'attributo [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#Task) su `elevated` per fornire ad *AppCmd.exe* le autorizzazioni sufficienti per modificare le impostazioni nel file *Web.config*:
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -131,7 +131,7 @@ Il secondo controlla le connessioni tra la macchina virtuale e i processi al suo
 
 In Azure vengono create regole di firewall per i processi avviati nei ruoli. Quando si avvia un servizio o un programma, ad esempio, in Azure vengono create automaticamente le regole di firewall necessarie per consentire la comunicazione del servizio con Internet. Tuttavia, se si crea un servizio che viene avviato da un processo esterno al ruolo, come un servizio COM+ o un'attività pianificata di Windows, è necessario creare manualmente una regola di firewall per consentire l'accesso al servizio. Queste regole di firewall possono essere create usando un'attività di avvio.
 
-In un'attività di avvio che crea una regola di firewall l'attributo [executionContext][attività] deve essere impostato su **elevato** diverso da zero. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
+In un'attività di avvio che crea una regola di firewall l'attributo [executionContext][Task] deve essere impostato su **elevato** diverso da zero. Aggiungere l'attività di avvio seguente per il file [ServiceDefinition.csdef] .
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -293,7 +293,7 @@ REM   Exit the batch file with ERRORLEVEL 0.
 EXIT /b 0
 ```
 
-È possibile accedere alla cartella di archiviazione locale da Azure SDK usando il metodo [GetLocalResource](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx).
+È possibile accedere alla cartella di archiviazione locale da Azure SDK usando il metodo [GetLocalResource](/previous-versions/azure/reference/ee772845(v=azure.100)).
 
 ```csharp
 string localStoragePath = Microsoft.WindowsAzure.ServiceRuntime.RoleEnvironment.GetLocalResource("StartupLocalStorage").RootPath;
@@ -472,12 +472,12 @@ Esempio di output nel file **StartupLog.txt**:
 ### <a name="set-executioncontext-appropriately-for-startup-tasks"></a>Impostare l'attributo executionContext in modo appropriato per le attività di avvio
 Impostare i privilegi in modo appropriato per l'attività di avvio. In alcuni casi le attività di avvio devono essere eseguite con privilegi elevati anche se il ruolo viene eseguito con privilegi normali.
 
-Lo strumento da riga di comando [executionContext][attività] imposta il livello di privilegio dell'attività di avvio. L'uso di `executionContext="limited"` indica che l'attività di avvio dispone dello stesso livello di privilegio del ruolo. L'uso di `executionContext="elevated"` indica che l'attività di avvio dispone di privilegi di amministratore, cioè potrà eseguire attività amministrative, senza fornire privilegi di amministratore al ruolo.
+Lo strumento da riga di comando [executionContext][Task] imposta il livello di privilegio dell'attività di avvio. L'uso di `executionContext="limited"` indica che l'attività di avvio dispone dello stesso livello di privilegio del ruolo. L'uso di `executionContext="elevated"` indica che l'attività di avvio dispone di privilegi di amministratore, cioè potrà eseguire attività amministrative, senza fornire privilegi di amministratore al ruolo.
 
 Un esempio di attività di avvio che richiede privilegi elevati è un'attività di avvio che usa **AppCmd.exe** per configurare IIS. **AppCmd.exe** richiede `executionContext="elevated"`.
 
 ### <a name="use-the-appropriate-tasktype"></a>Usare l'attributo taskType appropriato
-Lo strumento da riga di comando [taskType][attività] determina la modalità di esecuzione dell'attività di avvio. Sono disponibili tre valori: **simple**, **background** e **foreground**. Le attività in background e in primo piano (foreground) vengono avviate in modo asincrono e le attività semplici (simple) vengono eseguite in modo sincrono una alla volta.
+Lo strumento da riga di comando [taskType][Task] determina la modalità di esecuzione dell'attività di avvio. Sono disponibili tre valori: **simple**, **background** e **foreground**. Le attività in background e in primo piano (foreground) vengono avviate in modo asincrono e le attività semplici (simple) vengono eseguite in modo sincrono una alla volta.
 
 Con le attività di avvio **simple** è possibile impostare l'ordine in cui le attività si verificano in base all'ordine in cui le attività sono elencate nel file ServiceDefinition.csdef. Se un'attività **simple** termina con un codice di uscita diverso da zero, la procedura di avvio viene arrestata e il ruolo non viene avviato.
 
@@ -511,10 +511,10 @@ Altre informazioni sul funzionamento delle [attività](cloud-services-startup-ta
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Endpoint]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

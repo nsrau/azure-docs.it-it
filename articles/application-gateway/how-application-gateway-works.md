@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881096"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905784"
 ---
 # <a name="how-application-gateway-works"></a>Funzionamento del Gateway applicazione
 
@@ -36,7 +36,7 @@ Dopo aver determinato un server back-end, il gateway applicazione apre una nuova
 
 Un Gateway applicazione interni sono solo indirizzo IP privato. Il nome DNS di un Gateway applicazione interna è internamente può essere risolto al relativo indirizzo IP privato. Di conseguenza, i bilanciamenti del carico interno può instradare solo le richieste dai client con accesso alla rete virtuale per il Gateway applicazione.
 
-Si noti che i gateway applicazione con connessione Internet e interni route richieste per i server back-end con indirizzi IP privati, se la risorsa di pool back-end contiene un indirizzo IP privato, configurazione NIC VM o un indirizzo risolubile internamente e il pool back-end è un endpoint pubblico, il Gateway applicazione usa relativo indirizzo IP pubblico front-end di raggiungere il server. Se è ancora stato effettuato il provisioning di un indirizzo IP pubblico front-end, ne è stato assegnato per la connettività esterna in uscita.
+Se il pool back-end contiene un nome di dominio completo risolvibile internamente o un indirizzo IP privato, il Gateway applicazione instrada la richiesta al server back-end usando gli indirizzi IP privati di istanza. Se il pool back-end contiene un endpoint esterno o un nome di dominio completo risolvibile esternamente, Gateway applicazione instrada la richiesta al server back-end tramite il relativo indirizzo IP pubblico front-end. La risoluzione DNS si basa su una zona DNS privata o un server DNS personalizzato, se configurato o richiede il valore predefinito fornito da Azure DNS. Se è ancora stato effettuato il provisioning di un indirizzo IP pubblico front-end, ne è stato assegnato per la connettività esterna in uscita.
 
 ### <a name="modifications-to-the-request"></a>Modifiche apportate alla richiesta
 

@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 63f26c8a4a0a9195083386b18c0fff9439428bf0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546195"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905631"
 ---
-# <a name="move-data-from-a-odata-source-using-azure-data-factory"></a>Spostare i dati da un'origine OData usando Azure Data Factory
+# <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Spostare dati da un'origine OData usando Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versione 1](data-factory-odata-connector.md)
-> * [Versione 2 (corrente)](../connector-odata.md)
+> * [Versione 2 (versione corrente)](../connector-odata.md)
 
 > [!NOTE]
 > Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere le informazioni sul [connettore OData nella versione 2](../connector-odata.md).
@@ -218,7 +218,7 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 }
 ```
 
-**Servizio collegato Archiviazione di Azure:**
+**Servizio collegato di archiviazione di Azure:**
 
 ```json
 {
@@ -232,7 +232,7 @@ L'esempio copia i dati dall'esecuzione di query su un'origine OData a un BLOB di
 }
 ```
 
-**Set di dati di input OData:**
+**Set di dati input OData:**
 
 Impostando "external" su "true" si comunica al servizio Data Factory che il set di dati è esterno alla data factory e non è prodotto da un'attività al suo interno.
 
@@ -264,7 +264,7 @@ Impostando "external" su "true" si comunica al servizio Data Factory che il set 
 
 La specifica di **path** nella definizione del set di dati è facoltativa.
 
-**Set di dati di output del BLOB di Azure:**
+**Set di dati di output del Blob di Azure:**
 
 I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo: 1). Il percorso della cartella per il BLOB viene valutato dinamicamente in base all'ora di inizio della sezione in fase di elaborazione. Il percorso della cartella usa le parti anno, mese, giorno e ora dell'ora di inizio.
 
@@ -324,7 +324,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: oraria, intervallo:
 }
 ```
 
-**Attività di copia in una pipeline con un'origine OData e un sink BLOB:**
+**Attività di copia in una pipeline con un'origine OData e un sink Blob:**
 
 La pipeline contiene un'attività di copia configurata per usare i set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline, il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**. La query SQL specificata per la proprietà **query** seleziona i dati più recenti dall'origine OData.
 

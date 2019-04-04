@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/23/2019
+ms.date: 04/03/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: fbf9f4aa79af32cf0e73f4e383130c565de16f53
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.lastreviewed: 04/03/2019
+ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372370"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862081"
 ---
 # <a name="azure-stack-1902-update"></a>Aggiornamento di Azure Stack 1902
 
-*Si applica a: Sistemi integrati di Azure Stack*
+*Si applica a Sistemi integrati di Azure Stack*
 
 Questo articolo descrive il contenuto del pacchetto di aggiornamento 1902. L'aggiornamento include nuove funzionalità per questa versione di Azure Stack, correzioni e miglioramenti. Anche in questo articolo descrive i problemi noti in questa versione e include un collegamento per scaricare l'aggiornamento. Problemi noti sono suddivisi in problemi correlati direttamente al processo di aggiornamento e i problemi con la build (post-installazione).
 
@@ -57,12 +57,12 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
-> - Installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1901 (se presente) prima di aggiornare a 1902.
+> È possibile installare 1902 direttamente dai [1.1901.0.95 o 1.1901.0.99](azure-stack-update-1901.md#build-reference) release, senza prima aver installato eventuali hotfix 1901. Tuttavia, se è stato installato il precedente **1901.2.103** hotfix, è necessario installare la versione più recente [1901.3.105 hotfix](https://support.microsoft.com/help/4495662) prima di passare alla 1902.
 
 - Prima di iniziare l'installazione di questo aggiornamento, eseguire [Test-AzureStack](azure-stack-diagnostic-test.md) con i parametri seguenti per convalidare lo stato di Azure Stack e risolvere eventuali problemi operativi trovati, inclusi tutti gli avvisi e gli errori. Anche gli avvisi attivi rivedere e risolvere gli eventuali che richiedono un'azione:
 
-    ```PowerShell
-    Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
+    ```powershell
+    Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
 - Quando Azure Stack è gestito da System Center Operations Manager (SCOM), assicurarsi di aggiornare il [il Management Pack per Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) alla versione 1.0.3.11 prima di applicare 1902.
@@ -77,6 +77,9 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 
 - La compilazione 1902 introduce una nuova interfaccia utente nel portale di Azure Stack amministratore per la creazione di piani, offerte, quote e piani aggiuntivi. Per altre informazioni, incluse le schermate, vedere [creare i piani, offerte e quote](azure-stack-create-plan.md).
 
+<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
+- Miglioramenti all'affidabilità di espansione della capacità durante l'aggiunta nodo quando si passa lo stato di unità di scala da "Archivio di espansione" in stato di esecuzione.
+
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
 1399240 3322580: [PNU] Optimize the DSC resource execution on the Host  PNU
@@ -84,23 +87,21 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 1398818 3685138, 3734779: ECE exception logging, VirtualMachine ConfigurePending should take node name from execution context   PNU
 1381018 [1902] 3610787 - Infra VM creation should fail if the ClusterGroup already exists   PNU
 -->
-- Per migliorare l'integrità del pacchetto e sicurezza e gestione più semplice per l'inserimento non in linea, Microsoft ha modificato il formato del pacchetto di aggiornamento dai file con estensione bin e .exe in un file con estensione zip. Il nuovo formato aggiunge garantire maggiore affidabilità per il processo di decompressione che in alcuni casi, possono causare la preparazione dell'aggiornamento bloccato. Lo stesso formato di pacchetto si applica anche per aggiornare i pacchetti da OEM.
-
-- Per migliorare l'esperienza dell'operatore Azure Stack quando si esegue **Test-AzureStack**, operatori ora è possono usare semplicemente `Test-AzureStack -Group UpdateReadiness` invece di passare parametri aggiuntivi per dieci dopo un `include` istruzione. Ad esempio: 
+- Per migliorare la sicurezza e integrità del pacchetto, nonché una gestione più semplice per l'inserimento non in linea, Microsoft ha modificato il formato del pacchetto di aggiornamento dai file con estensione bin e .exe in un file con estensione zip. Il nuovo formato aggiunge garantire maggiore affidabilità del processo di decompressione che in alcuni casi, possono causare la preparazione dell'aggiornamento bloccato. Lo stesso formato di pacchetto si applica anche per aggiornare i pacchetti da OEM.
+- Per migliorare l'esperienza dell'operatore Azure Stack durante l'esecuzione di Test-AzureStack, gli operatori possono ora è sufficiente usare, "Test-AzureStack-gruppo UpdateReadiness" invece di passare parametri aggiuntivi per dieci dopo un'istruzione di inclusione.
 
   ```powershell
-  Test-AzureStack -Group UpdateReadiness  
-  ```
-
-- Per migliorare la disponibilità dei servizi di infrastruttura di base e l'affidabilità complessive durante il processo di aggiornamento, l'oggetto nativo Aggiorna provider di risorse come parte del piano di azione di aggiornamento rileverà e richiamare le correzioni globale automatica in base alle esigenze. I flussi di lavoro di ripristino"correzione globale" includono:
-
-  - Controllare le macchine virtuali di infrastruttura che si trovano nello stato non ottimale e tentare di ripristinare in base alle esigenze.
-  - Verificare la presenza di problemi del servizio SQL come parte del piano di controllo e tentare di ripristinare in base alle esigenze.
-  - Controllare lo stato del servizio di bilanciamento carico Software (SLB) come parte del Controller di rete (NC) e tentare di ripristinare in base alle esigenze.
-  - Controllare lo stato del servizio di Controller di rete (controller di rete) e tentare il ripristino in base alle esigenze.
-  - Controllare lo stato dei nodi di service fabric emergenze ripristino Console del servizio (ERCS) e ripristinarli in base alle esigenze.
-  - Controllare lo stato dei nodi XRP service fabric e ripristinarli in base alle esigenze.
-  - Controllare lo stato dei nodi di archiviazione coerenti con Azure (ACS) service fabric e ripristinarli in base alle esigenze.
+    Test-AzureStack -Group UpdateReadiness  
+  ```  
+  
+- Per migliorare la disponibilità dei servizi di infrastruttura di base e l'affidabilità complessive durante il processo di aggiornamento, il provider di risorse native di aggiornamento come parte del piano di azione di aggiornamento rileverà e richiamare correzioni globale automatica secondo necessità. I flussi di lavoro di ripristino"correzione globale" includono:
+    - Verifica per le macchine virtuali dell'infrastruttura che sono in uno stato non ottimale e tenta di ripristinarli quando necessario 
+    - Verificare la presenza di problemi del servizio SQL come parte del piano di controllo e tentare di ripristinare tali esigenze
+    - Controllare lo stato del servizio di bilanciamento carico Software (SLB) come parte del Controller di rete (NC) e tentare di ripristinare tali esigenze
+    - Controllare lo stato del servizio di Controller di rete (controller di rete) e tentare il ripristino in base alle esigenze
+    - Controllare lo stato dei nodi di service fabric emergenze ripristino Console del servizio (ERCS) e ripristinarli in base alle esigenze
+    - Controllare lo stato dei nodi XRP service fabric e ripristinarli in base alle esigenze
+    - Controllare lo stato dei nodi di archiviazione coerenti con Azure (ACS) service fabric e ripristinarli in base alle esigenze
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
 - Miglioramenti all'affidabilità di espansione della capacità durante l'aggiunta nodo quando si passa lo stato di unità di scala da "Archivio di espansione" in stato di esecuzione.    
@@ -115,13 +116,13 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 - Miglioramenti apportati ad Azure stack di strumenti di diagnostica per migliorare le prestazioni e affidabilità di raccolta log. Registrazione aggiuntiva per i servizi di rete e di identità. 
 
 <!-- 1384958    Adding a Test-AzureStack group for Secret Rotation  Diagnostics -->
-- Miglioramenti all'affidabilità della **Test-AzureStack** per test della conformità rotazione segreta.
+- Miglioramenti all'affidabilità di Test-AzureStack predisposizione di rotazione segreta per eseguire il test.
 
 <!-- 1404751    3617292: Graph: Remove dependency on ADWS.  Identity -->
-- Miglioramenti per aumentare l'affidabilità di Graph di AD durante la comunicazione con l'ambiente Active Directory del cliente.
+- Miglioramenti per aumentare l'affidabilità di Graph di AD durante la comunicazione con l'ambiente Active Directory del cliente
 
 <!-- 1391444    [ISE] Telemetry for Hardware Inventory - Fill gap for hardware inventory info   System info -->
-- Miglioramenti all'hardware nella raccolta di inventario **Get-AzureStackStampInformation**.
+- Raccolta dell'inventario hardware miglioramenti in Get-AzureStackStampInformation.
 
 - Per migliorare l'affidabilità delle operazioni in esecuzione sull'infrastruttura ERCS, la memoria per ogni istanza ERCS aumenta da 8 a 12 GB. In un'installazione di sistemi integrati di Azure Stack, ciò comporta un aumento di 12 GB complessiva.
 
@@ -219,19 +220,6 @@ Di seguito sono problemi noti di post-installazione per questa versione di build
    - Se è stato configurato un ambiente multi-tenant, la distribuzione di macchine virtuali in una sottoscrizione associata a una directory guest potrebbe non riuscire con un messaggio di errore interno. Per risolvere l'errore, seguire questa procedura nel [questo articolo](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) riconfigurare tutte le directory di guest.
 
 - Una macchina virtuale 18.04 di Ubuntu creata con l'autorizzazione di SSH abilitato non consentirà di usare le chiavi SSH per accedere. Come soluzione alternativa, usare l'accesso della macchina virtuale per l'estensione Linux per implementare le chiavi SSH dopo il provisioning o utilizzano l'autenticazione basata su password.
-
-- Se non è un Host di ciclo di vita dell'Hardware (HLH): Prima della compilazione 1902, era necessario impostare i criteri di gruppo **Configurazione computer\Impostazioni di Windows\Impostazioni sicurezza\Criteri Locali\opzioni di protezione** a **Invia LM e NTLM: usare la sicurezza di sessione NTLMv2 se negoziato**. Da compilazione 1902, è necessario lasciare l'impostazione **non definito** oppure impostare **Invia solo risposta NTLMv2** (ovvero il valore predefinito). In caso contrario, non è possibile stabilire una sessione remota di PowerShell e si riceverà un **l'accesso è negato** errore:
-
-   ```shell
-   PS C:\Users\Administrator> $session = New-PSSession -ComputerName x.x.x.x -ConfigurationName PrivilegedEndpoint  -Credential $cred
-   New-PSSession : [x.x.x.x] Connecting to remote server x.x.x.x failed with the following error message : Access is denied. For more information, see the 
-   about_Remote_Troubleshooting Help topic.
-   At line:1 char:12
-   + $session = New-PSSession -ComputerName x.x.x.x -ConfigurationNa ...
-   +            ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      + CategoryInfo          : OpenError: (System.Manageme....RemoteRunspace:RemoteRunspace) [New-PSSession], PSRemotingTransportException
-      + FullyQualifiedErrorId : AccessDenied,PSSessionOpenFailed
-   ```
 
 ### <a name="networking"></a>Rete  
 

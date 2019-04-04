@@ -3,19 +3,19 @@ title: Report di Collaborative Translation Framework (CTF) - API Traduzione test
 titlesuffix: Azure Cognitive Services
 description: Come usare i report di Collaborative Translation Framework (CTF).
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a2f8a9c5ceaac6209391df17f4ec08027991382b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123420"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917397"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Come usare i report di Collaborative Translation Framework (CTF)
 
@@ -72,7 +72,7 @@ Questo metodo recupera il conteggio delle traduzioni create dall'utente. Fornisc
 >            int? take);
 > ```
 
-**Parameters**
+**Parametri**
 
 | Parametro | DESCRIZIONE |
 |:---|:---|
@@ -116,7 +116,7 @@ Il set di risultati contiene una matrice di **UserTranslationCount**. Ogni UserT
 > [!NOTE]
 > La quota verrà regolata per garantire l'equità tra tutti gli utenti del servizio.
 
-**Visualizzare esempi di codice in GitHub**
+**Visualizza alcuni esempi di codice su GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
@@ -143,7 +143,7 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 >             int? take);
 > ```
 
-**Parameters**
+**Parametri**
 
 | Parametro | DESCRIZIONE |
 |:---|:---|
@@ -153,7 +153,7 @@ Questo metodo recupera le traduzioni create dall'utente. Fornisce le traduzioni 
 | to| **Facoltativo** Stringa che rappresenta il codice della lingua in cui tradurre il testo.|
 | minRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità minima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
 | maxRating| **Facoltativo** Valore intero che rappresenta la classificazione di qualità massima per il testo tradotto. Il valore valido è compreso tra -10 e 10. Il valore predefinito è 1.|
-| user| **Facoltativo. Stringa usata per filtrare i risultati in base all'iniziatore dell'invio**|
+| user| **facoltativo. Stringa che viene usata per filtrare il risultato in base l'iniziatore dell'invio**|
 | category| **Facoltativo** Stringa che contiene la categoria o il dominio della traduzione. Questo parametro supporta solo l'opzione predefinita general.|
 | minDateUtc| **Facoltativo** Data da cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
 | maxDateUtc| **Facoltativo** Data fino a cui si vogliono recuperare le traduzioni. La data deve essere nel formato UTC.|
@@ -189,6 +189,6 @@ Il set di risultati contiene una matrice di **UserTranslation**. Ogni UserTransl
 > [!NOTE]
 > La quota verrà regolata per garantire l'equità tra tutti gli utenti del servizio.
 
-**Visualizzare esempi di codice in GitHub**
+**Visualizza alcuni esempi di codice su GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)

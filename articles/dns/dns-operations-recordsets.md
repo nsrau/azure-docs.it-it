@@ -14,12 +14,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651242"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906107"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Gestire record e recordset DNS in DNS di Azure con Azure PowerShell
 
@@ -33,9 +33,9 @@ Questo articolo descrive come gestire i record DNS per la zona DNS usando Azure 
 
 Gli esempi contenuti in questo articolo presuppongono che l'utente abbia [installato Azure PowerShell, eseguito l'accesso e creato una zona DNS](dns-operations-dnszones.md).
 
-## <a name="introduction"></a>Introduzione
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>Introduzione
 
 Prima di creare record DNS nel servizio DNS di Azure, è necessario comprendere il modo in cui quest'ultimo organizza i record DNS nei set di record DNS.
 
@@ -398,4 +398,4 @@ Altre informazioni su [zone e record nel servizio DNS di Azure](dns-zones-record
 <br>
 Informazioni su come [proteggere zone e record](dns-protect-zones-recordsets.md) quando si usa il servizio DNS di Azure.
 <br>
-Vedere la [documentazione di riferimento di PowerShell nel servizio DNS di Azure](/powershell/module/azurerm.dns).
+Vedere la [documentazione di riferimento di PowerShell nel servizio DNS di Azure](/powershell/module/az.dns).

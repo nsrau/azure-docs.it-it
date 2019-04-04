@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349706"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497177"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipi di quote in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
-[Le quote](azure-stack-plan-offer-quota-overview.md#plans) definire i limiti delle risorse che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali. Ogni risorsa può avere un proprio tipi di quote.
+[Le quote](azure-stack-plan-offer-quota-overview.md#plans) definire i limiti delle risorse che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota può consentire all'utente di creare fino a cinque macchine virtuali. Ogni risorsa può avere tipi di quote specifici.
+
+> [!IMPORTANT]
+> Può richiedere fino a due ore per le quote di nuovo a essere disponibile nel portale per gli utenti o prima viene applicata una quota modificata.
 
 ## <a name="compute-quota-types"></a>Tipi di quota di calcolo
 
@@ -41,9 +44,9 @@ ms.locfileid: "58349706"
 | Capacità massima (in GB) del disco gestito premium | 2048 | La capacità massima di premium servizio managed disks che possono essere create in questa posizione. |
 
 > [!NOTE]  
-> Capacità di massimo di dischi non gestiti (BLOB di pagine) è separata dalla quota disco gestito, deve essere impostata nella Quota di archiviazione.
+> La capacità massima del disco non gestito (BLOB di pagine) è separata dalla quota disco gestito. È possibile impostare questo valore **le quote di archiviazione**.
 
-## <a name="storage-quota-types"></a>Tipi di quote di archiviazione 
+## <a name="storage-quota-types"></a>Tipi di quote di archiviazione
 
 | **Elemento** | **Valore predefinito** | **Descrizione** |
 | --- | --- | --- |
@@ -51,7 +54,7 @@ ms.locfileid: "58349706"
 | Numero totale di account di archiviazione |20 |Il numero massimo di account di archiviazione che è possibile creare una sottoscrizione in questa posizione. |
 
 > [!NOTE]  
-> Può richiedere fino a due ore prima che viene applicata una quota di archiviazione. Capacità di massimo del disco gestito è separata dalla quota di archiviazione totale, deve essere impostata nella Quota di calcolo.
+> La capacità massima di dischi gestiti è separata dalla quota di archiviazione totale. È possibile impostare questo valore **calcolare le quote**.
 
 ## <a name="network-quota-types"></a>Tipi di quote di rete
 
@@ -59,7 +62,7 @@ ms.locfileid: "58349706"
 | --- | --- | --- |
 | Indirizzi IP pubblici massimo |50 |Il numero massimo di indirizzi IP pubblici che è possibile creare una sottoscrizione in questa posizione. |
 | Reti virtuali massime |50 |Il numero massimo di reti virtuali che è possibile creare una sottoscrizione in questa posizione. |
-| Gateway di rete virtuale massima |1 |Il numero massimo di gateway di rete virtuale (VPN gateway) che è possibile creare una sottoscrizione in questa posizione. |
+| Gateway di rete virtuale massima |1 |Il numero massimo di gateway di rete virtuale (gateway VPN) che è possibile creare una sottoscrizione in questa posizione. |
 | Connessioni di rete massima |2 |Il numero massimo di connessioni di rete (da punto a punto o site-to-site) che una sottoscrizione può creare in tutti i gateway di rete virtuale in questa posizione. |
 | Servizi di bilanciamento del carico massimo |50 |Il numero massimo di servizi di bilanciamento del carico che può creare una sottoscrizione in questa posizione. |
 | Interfacce di rete massime |100 |Il numero massimo di interfacce di rete che è possibile creare una sottoscrizione in questa posizione. |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 8c1e463378cc2c1ba3fdc0bcf91f800f634cc5f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 66ee211856bb451caad7af02103aa306d76e8f97
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58077123"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916275"
 ---
 # <a name="troubleshooting-azure-cdn-endpoints-that-return-a-404-status-code"></a>Risoluzione dei problemi degli endpoint della rete CDN di Azure che restituiscono un codice stato 404
 Questo articolo consente di risolvere i problemi relativi agli endpoint di rete CDN di Azure che restituiscono codici di stato di risposta HTTP 404.
@@ -76,7 +76,7 @@ Controllare le porte **HTTP** e **HTTPS**. Nella maggior parte dei casi, 80 e 44
 Si supponga tuttavia che l'URL per il file di origine sia testato in precedenza sia http:\//www.contoso.com:8080/file.txt. Si noti la parte *:8080* alla fine del segmento del nome host. Che numero indica al browser di usare la porta 8080 per connettersi al server web all'indirizzo www\.contoso.com, pertanto sarà necessario immettere *8080* nel **porta HTTP** campo. È importante notare che queste impostazioni della porta hanno effetto solo sulla porta usata dall'endpoint per recuperare informazioni dall'origine.
 
 > [!NOTE]
-> Gli endpoint di **rete CDN Standard di Azure con tecnologia Akamai** non consentono di usare l'intera gamma di porte TCP per le origini.  Per un elenco delle porte di origine non consentite, vedere l'articolo relativo ai [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Porte di origine consentite in Rete CDN di Azure da Akamai).  
+> Gli endpoint di **rete CDN Standard di Azure con tecnologia Akamai** non consentono di usare l'intera gamma di porte TCP per le origini.  Per un elenco delle porte di origine non consentite, vedere l'articolo relativo ai [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100))(Porte di origine consentite in Rete CDN di Azure da Akamai).  
 > 
 > 
 

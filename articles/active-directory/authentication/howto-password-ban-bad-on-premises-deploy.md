@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499251"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904628"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuire la protezione delle password di Azure AD
 
@@ -37,6 +37,7 @@ Dopo la funzionalità di esecuzione in modalità di controllo per un periodo di 
 ## <a name="deployment-requirements"></a>Requisiti di distribuzione
 
 * Tutti i controller di dominio che ottiene l'agente controller di dominio del servizio per la protezione con password Azure AD installata deve eseguire Windows Server 2012 o versione successiva. Questo requisito non implica che il dominio di Active Directory o un insieme di strutture devono essere anche a livello funzionale di Windows Server 2012 dominio o foresta. Come indicato nella [principi di progettazione](concept-password-ban-bad-on-premises.md#design-principles), non sono funzionalità del dominio minimo o FFL necessaria per entrambi i controller di dominio agente o un proxy software per l'esecuzione.
+* Tutti i computer che ottengono installato il servizio agente controller di dominio devono avere installato .NET 4.5.
 * Tutte le macchine che ottengono il proxy di servizio per la protezione con password Azure AD installata deve eseguire Windows Server 2012 R2 o versione successiva.
 * Tutti i computer in cui verrà installato il servizio Proxy di protezione delle Password di Azure AD è necessario .NET 4.7 installato.
   .NET 4.7 deve già essere installato in un Server di Windows completamente aggiornato. Se ciò non avviene, scaricare ed eseguire il programma di installazione, vedere [programma di installazione offline di .NET Framework 4.7 per Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -109,6 +110,7 @@ Sono disponibili due programmi di installazione necessari per la protezione di p
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Questa modalità non funziona nei sistemi operativi Server Core. Usare invece una delle modalità di autenticazione seguenti. Inoltre, questa modalità potrebbe non riuscire se è abilitata la funzionalità sicurezza avanzata di Internet Explorer. La soluzione alternativa consiste nel disabilitare tale configurazione, registrare il proxy e quindi riabilitarla.
 
@@ -133,7 +135,6 @@ Sono disponibili due programmi di installazione necessari per la protezione di p
 
        Non è attualmente necessario specificare il *- ForestCredential* parametro, che è riservato per le funzionalità future.
 
-   
    Registrazione del servizio proxy per la protezione con password è necessaria una sola volta nel ciclo di vita del servizio. Successivamente, il servizio proxy eseguirà automaticamente le altre operazioni di manutenzione necessari.
 
    > [!TIP]
@@ -149,6 +150,7 @@ Sono disponibili due programmi di installazione necessari per la protezione di p
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Questa modalità non funzionerà nei sistemi operativi Server Core. Usare invece una delle seguenti modalità di autenticazione a due. Inoltre, questa modalità potrebbe non riuscire se è abilitata la funzionalità sicurezza avanzata di Internet Explorer. La soluzione alternativa consiste nel disabilitare tale configurazione, registrare il proxy e quindi riabilitarla.  
 
@@ -162,6 +164,7 @@ Sono disponibili due programmi di installazione necessari per la protezione di p
         È quindi possibile completare l'autenticazione, seguire le istruzioni visualizzate in un altro dispositivo.
 
      * Modalità di autenticazione automatica (basata su password):
+
         ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
@@ -174,7 +177,7 @@ Sono disponibili due programmi di installazione necessari per la protezione di p
 
    > [!NOTE]
    > Se sono installati più server proxy nell'ambiente in uso, non importa quale server proxy utilizzato per registrare l'insieme di strutture.
-
+   >
    > [!TIP]
    > Potrebbe esserci un ritardo notevole prima del completamento, la prima volta che questo cmdlet viene eseguito per un tenant di Azure specifico. A meno che non viene segnalato un errore, non preoccuparsi di questo ritardo.
 
@@ -220,7 +223,8 @@ Sono disponibili due programmi di installazione necessari per la protezione di p
 
 1. Facoltativo: Configurare il servizio proxy per la protezione con password per l'ascolto su una porta specifica.
    * Il software dell'agente controller di dominio per la protezione con password nei controller di dominio utilizza RPC su TCP per comunicare con il servizio proxy. Per impostazione predefinita, il servizio proxy è in attesa su qualsiasi endpoint RPC dinamico disponibile. Ma è possibile configurare il servizio per l'ascolto su una porta TCP specifica, se è necessario a causa di topologia di rete o i requisiti del firewall nell'ambiente in uso.
-      * <a id="static" /></a>Per configurare il servizio venga eseguito con una porta statica, usare il `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+      * <a id="static" /></a>Per configurare il servizio per l'esecuzione su una porta statica, usare il cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`.
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -229,6 +233,7 @@ Sono disponibili due programmi di installazione necessari per la protezione di p
          > È necessario arrestare e riavviare il servizio per applicare le modifiche.
 
       * Per configurare il servizio venga eseguito con una porta dinamica, usare la stessa procedura, ma impostare *StaticPort* su zero:
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
@@ -284,4 +289,4 @@ La progettazione del software agente controller di dominio è possibile ridurre 
 
 Ora che è stato installato i servizi necessari per la protezione con password Azure AD nei server in locale, [eseguire la configurazione dopo l'installazione e raccogliere informazioni di reporting](howto-password-ban-bad-on-premises-operations.md) per completare la distribuzione.
 
-[Panoramica dei concetti relativi alla protezione password di Azure AD](concept-password-ban-bad-on-premises.md)
+[Panoramica concettuale della protezione tramite password di Azure AD](concept-password-ban-bad-on-premises.md)

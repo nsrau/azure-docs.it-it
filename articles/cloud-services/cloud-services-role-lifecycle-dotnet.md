@@ -14,29 +14,29 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 56f7b5e3b303ce68868f15528d1ec200919b52aa
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 13f500b32bb85bdc0f84b812ef4ef9188a257771
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001559"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916309"
 ---
 # <a name="customize-the-lifecycle-of-a-web-or-worker-role-in-net"></a>Personalizzare il ciclo di vita di un ruolo Web o di lavoro in .NET
-Quando si crea un ruolo di lavoro, si estende la classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) che fornisce metodi per la sovrascrittura che consentono di rispondere agli eventi del ciclo di vita. Per i ruoli Web questa classe è facoltativa, molto utilizzata per rispondere agli eventi del ciclo di vita.
+Quando si crea un ruolo di lavoro, si estende la classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) che fornisce metodi per la sovrascrittura che consentono di rispondere agli eventi del ciclo di vita. Per i ruoli Web questa classe è facoltativa, molto utilizzata per rispondere agli eventi del ciclo di vita.
 
 ## <a name="extend-the-roleentrypoint-class"></a>Estendere la classe RoleEntryPoint
-La classe [RoleEntryPoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.aspx) include metodi che vengono chiamati da Azure quando **avvia**, **esegue** o **arresta** un ruolo Web o di lavoro. Facoltativamente, è possibile ignorare questi metodi per gestire l'inizializzazione, sequenze di arresto o il thread di esecuzione del ruolo. 
+La classe [RoleEntryPoint](/previous-versions/azure/reference/ee758619(v=azure.100)) include metodi che vengono chiamati da Azure quando **avvia**, **esegue** o **arresta** un ruolo Web o di lavoro. Facoltativamente, è possibile ignorare questi metodi per gestire l'inizializzazione, sequenze di arresto o il thread di esecuzione del ruolo. 
 
 Quando si estende **RoleEntryPoint**è necessario tenere presente i seguenti comportamenti dei metodi:
 
-* I metodi [OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) e [OnStop](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx) restituiscono un valore booleano ed è quindi possibile che da questi metodi venga restituito **false**.
+* I metodi [OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) e [OnStop](/previous-versions/azure/reference/ee772844(v=azure.100)) restituiscono un valore booleano ed è quindi possibile che da questi metodi venga restituito **false**.
   
    Se il codice restituisce **false**il processo del ruolo viene interrotto improvvisamente, senza eseguire nessuna sequenza di arresto in programma. In generale, è consigliabile evitare la restituzione di **false** dal metodo **OnStart**.
 * Qualsiasi eccezione non rilevata all'interno di un overload di un metodo **RoleEntryPoint** viene considerato come un'eccezione non gestita.
   
-   Se si verifica un'eccezione all'interno di uno dei metodi del ciclo di vita, Azure genera l’evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) e il processo viene interrotto. Quando il ruolo viene portato offline, viene riavviato da Azure. Quando si verifica un'eccezione non gestita, l’evento [Stopping](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx) non viene generato e il metodo **OnStop** non viene chiamato.
+   Se si verifica un'eccezione all'interno di uno dei metodi del ciclo di vita, Azure genera l’evento [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) e il processo viene interrotto. Quando il ruolo viene portato offline, viene riavviato da Azure. Quando si verifica un'eccezione non gestita, l’evento [Stopping](/previous-versions/azure/reference/ee758136(v=azure.100)) non viene generato e il metodo **OnStop** non viene chiamato.
 
-Se il ruolo non viene avviato o passa in modo ciclico tra gli stati di arresto, di inizializzazione e di occupato, il codice potrebbe generare un'eccezione non gestita all'interno di uno degli eventi del ciclo di vita ogni volta che il ruolo viene riavviato. In questo caso, utilizzare l’evento [UnhandledException](https://msdn.microsoft.com/library/system.appdomain.unhandledexception.aspx) per determinare la causa dell'eccezione e gestirla nel modo appropriato. Il ruolo potrebbe anche essere restituito dal metodo [Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) che causa il riavvio del ruolo. Per ulteriori informazioni sugli stati di distribuzione, vedere [problemi comuni che causano il riciclo dei ruoli](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Se il ruolo non viene avviato o passa in modo ciclico tra gli stati di arresto, di inizializzazione e di occupato, il codice potrebbe generare un'eccezione non gestita all'interno di uno degli eventi del ciclo di vita ogni volta che il ruolo viene riavviato. In questo caso, utilizzare l’evento [UnhandledException](/dotnet/api/system.appdomain.unhandledexception) per determinare la causa dell'eccezione e gestirla nel modo appropriato. Il ruolo potrebbe anche essere restituito dal metodo [Run](/previous-versions/azure/reference/ee772746(v=azure.100)) che causa il riavvio del ruolo. Per ulteriori informazioni sugli stati di distribuzione, vedere [problemi comuni che causano il riciclo dei ruoli](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 > [!NOTE]
 > Se si usano gli **strumenti di Azure per Microsoft Visual Studio** per sviluppare l'applicazione, i modelli di progetto di ruolo estendono automaticamente la classe **RoleEntryPoint** nei file *WebRole.cs* e *WorkerRole.cs*.

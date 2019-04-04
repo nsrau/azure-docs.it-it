@@ -1,6 +1,6 @@
 ---
-title: Definire un profilo tecnico OAuth1 nei criteri personalizzati di Azure Active Directory B2C | Microsoft Docs
-description: Definire un profilo tecnico OAuth1 nei criteri personalizzati di Azure Active Directory B2C.
+title: Definire un profilo tecnico OAuth1 nei criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
+description: Definire un profilo tecnico OAuth1 nei criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 08fb0baf85b09b4804c83617dbae9ae9c69f0224
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162736"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915783"
 ---
-# <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 nei criteri personalizzati di Azure Active Directory B2C
+# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico OAuth1 in un criterio personalizzato di Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -67,13 +67,13 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 ## <a name="metadata"></a>Metadata
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| client_id | Yes | L'identificatore dell'attestazione del provider di identità. |
+| client_id | Sì | L'identificatore dell'attestazione del provider di identità. |
 | ProviderName | No  | Il nome del provider di identità. |
-| request_token_endpoint | Yes | L'URL dell'endpoint del token richiesta come per RFC 5849. |
-| authorization_endpoint | Yes | L'URL dell'endpoint di autorizzazione come per RFC 5849. |
-| access_token_endpoint | Yes | L'URL dell'endpoint token come per RFC 5849. |
+| request_token_endpoint | Sì | L'URL dell'endpoint del token richiesta come per RFC 5849. |
+| authorization_endpoint | Sì | L'URL dell'endpoint di autorizzazione come per RFC 5849. |
+| access_token_endpoint | Sì | L'URL dell'endpoint token come per RFC 5849. |
 | ClaimsEndpoint | No  | L'URL dell'endpoint di informazioni per l'utente. | 
 | ClaimsResponseFormat | No  | Il formato di risposta delle attestazioni.|
 
@@ -81,9 +81,9 @@ Il profilo tecnico restituisce anche le attestazioni che non vengono restituite 
 
 L'elemento **CryptographicKeys** contiene l'attributo seguente:
 
-| Attributo | Obbligatoria | DESCRIZIONE |
+| Attributo | Obbligatorio | DESCRIZIONE |
 | --------- | -------- | ----------- |
-| client_secret | Yes | Il segreto client dell'applicazione del provider di identità.   | 
+| client_secret | Sì | Il segreto client dell'applicazione del provider di identità.   | 
 
 ## <a name="redirect-uri"></a>URI di reindirizzamento
 
@@ -93,7 +93,7 @@ Se si usa il dominio **b2clogin.com** anziché **login.microsoftonline.com** ass
 
 Esempi:
 
-- [Aggiungere Twitter come provider di identità OAuth1 usando i criteri personalizzati](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Aggiungere Twitter come provider di identità OAuth1 tramite criteri personalizzati](active-directory-b2c-custom-setup-twitter-idp.md)
 
 
 

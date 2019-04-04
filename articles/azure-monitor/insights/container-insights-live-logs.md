@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 1a51e9b636e15f178de072af8372404af1dc47e2
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187995"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904747"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Come visualizzare i log dei contenitori in tempo reale con Monitoraggio di Azure per i contenitori (anteprima)
-Questa funzionalità, attualmente in anteprima, offre una visualizzazione in tempo reale dei log dei contenitori nel servizio Azure Kubernetes (stdout o stderr) senza bisogno di eseguire comandi kubectl. Quando si seleziona questa opzione, viene visualizzato un nuovo riquadro sotto la tabella dei dati delle prestazioni dei contenitori nella visualizzazione **Contenitori**.  Il riquadro mostra i dati di registrazione in tempo reale generati dal motore dei contenitori per facilitare la risoluzione dei problemi in tempo reale.  
+Questa funzionalità, attualmente in anteprima, offre una visualizzazione in tempo reale dei log dei contenitori nel servizio Azure Kubernetes (stdout o stderr) senza bisogno di eseguire comandi kubectl. Quando si seleziona questa opzione, viene visualizzato un nuovo riquadro sotto la tabella dei dati delle prestazioni dei contenitori nella visualizzazione **Contenitori**.  Il riquadro mostra i dati di registrazione in tempo reale generati dal motore dei contenitori per facilitare la risoluzione dei problemi in tempo reale. **Collaboratore** accesso alla risorsa del cluster è necessario per usare questa funzionalità.
 
 I log in tempo reale supportano tre metodi diversi per il controllo dell'accesso ai log:
 

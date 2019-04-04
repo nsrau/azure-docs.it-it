@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3e217e0e3367c6e1200567f589749fec9e626da8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5f9cd5edfb360da507320306314e67ac61503132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817457"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916836"
 ---
 # <a name="managing-azure-automation-data"></a>Gestione dei dati di Automazione di Azure
 Questo articolo contiene più argomenti per la gestione di un ambiente di Automazione di Azure.
@@ -45,17 +45,17 @@ Tuttavia, se si desidera conservare i dati per un periodo di tempo più lungo, �
 Quando si elimina un account di automazione in Microsoft Azure, vengono eliminati tutti gli oggetti presenti nell'account, ad esempio Runbook, moduli, configurazioni, impostazioni, processi e asset. Non sarà possibile ripristinare gli oggetti dopo l'eliminazione dell'account.  È possibile usare le informazioni seguenti per eseguire il backup dei contenuti dell'account di Automazione prima di eliminarlo. 
 
 ### <a name="runbooks"></a>Runbook
-È possibile esportare i runbook in file di script usando il portale di Azure o il cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) in Windows PowerShell.  Questi file di script possono essere importati in un account di Automazione, come illustrato in [Creazione o importazione di un Runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+È possibile esportare i runbook in file di script usando il portale di Azure o il cmdlet [Get-AzureAutomationRunbookDefinition](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azureautomationrunbookdefinition) in Windows PowerShell.  Questi file di script possono essere importati in un account di Automazione, come illustrato in [Creazione o importazione di un Runbook](/previous-versions/azure/dn643637(v=azure.100)).
 
 ### <a name="integration-modules"></a>Moduli di integrazione
 Non è possibile esportare i moduli di integrazione da Automazione di Azure.  È necessario assicurare che siano disponibili all'esterno dell'account di Automazione.
 
 ### <a name="assets"></a>Asset
-Non è possibile esportare [asset](https://msdn.microsoft.com/library/dn939988.aspx) da Automazione di Azure.  Usando il portale di Azure, è necessario annotare i dettagli di variabili, credenziali, certificati, connessioni e pianificazioni.  È quindi necessario creare manualmente eventuali asset usati dai Runbook importati in un altro account di Automazione.
+Non è possibile esportare [asset](/previous-versions/azure/dn939988(v=azure.100)) da Automazione di Azure.  Usando il portale di Azure, è necessario annotare i dettagli di variabili, credenziali, certificati, connessioni e pianificazioni.  È quindi necessario creare manualmente eventuali asset usati dai Runbook importati in un altro account di Automazione.
 
 È possibile usare i [cmdlet di Azure](https://docs.microsoft.com/powershell/module/azurerm.automation#automation) per recuperare i dettagli di asset non crittografati e salvarli come riferimento futuro o creare asset equivalenti in un altro account di Automazione.
 
-Non è possibile recuperare il valore delle variabili crittografate o il campo password delle credenziali mediante i cmdlet.  Se non si conoscono questi valori, sarà possibile recuperarli da un Runbook attraverso le attività [Get-AutomationVariable](https://msdn.microsoft.com/library/dn940012.aspx) e [Get-AutomationPSCredential](https://msdn.microsoft.com/library/dn940015.aspx).
+Non è possibile recuperare il valore delle variabili crittografate o il campo password delle credenziali mediante i cmdlet.  Se non si conoscono questi valori, sarà possibile recuperarli da un Runbook attraverso le attività [Get-AutomationVariable](/previous-versions/azure/dn940012(v=azure.100)) e [Get-AutomationPSCredential](/previous-versions/azure/dn940015(v=azure.100)).
 
 Non è possibile esportare certificati da Automazione di Azure.  È necessario assicurarsi che eventuali certificati siano disponibili all'esterno di Azure.
 

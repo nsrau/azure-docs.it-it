@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649257"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917788"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Informazioni su come viene applicato lo sconto relativo piano di prenotazione del software SUSE Linux Enterprise per Azure
 
@@ -38,7 +38,7 @@ Ad esempio, se si acquista un piano per SUSE Linux Enterprise Server per HPC - P
 - 1 VM distribuita con 3 o 4 vCPU,
 - oppure 0,77 o circa il 77% di una VM con 5 o più vCPU.
 
-Il rapporto per 5 o più vCPU è 2,6. Quindi una prenotazione per SUSE con una VM con 5 o più vCPU copre una sola parte del costo del software, che equivale a circa il 77%.
+Il rapporto per 5 o più vCPU è 2,6. Pertanto, una prenotazione per quanto riguarda SUSE con una macchina virtuale con 5 o più Vcpu copre un'unica parte del costo del software, ovvero circa 77%.
 
 ## <a name="understand-suse-vm-usage-before-you-buy"></a>Comprendere l'utilizzo della VM SUSE prima dell'acquisto
 
@@ -130,8 +130,8 @@ Per altre informazioni sulle prenotazioni, vedere gli articoli seguenti:
 - [Pagare in anticipo per i piani software SUSE con le prenotazioni di Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Pagare in anticipo le macchine virtuali tramite le istanze di macchina virtuale riservate di Azure](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Gestire le prenotazioni di Azure](billing-manage-reserved-vm-instance.md)
-- [Informazioni sull'utilizzo della prenotazione per la sottoscrizione con pagamento in base al consumo](billing-understand-reserved-instance-usage.md)
-- [Informazioni sull'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Comprendere l'utilizzo della prenotazione per la sottoscrizione con pagamento a consumo](billing-understand-reserved-instance-usage.md)
+- [Comprendere l'utilizzo della prenotazione per l'iscrizione Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>Richiesta di assistenza Contatti
 

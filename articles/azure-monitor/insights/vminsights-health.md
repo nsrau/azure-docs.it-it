@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 987d28470b8a848755cdd7d1264ba7f7f66544df
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076820"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918944"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Informazioni sull'integrità delle macchine virtuali di Azure con Monitoraggio di Azure per le macchine virtuali (anteprima)
 Azure include più servizi che singolarmente eseguono un'attività o un ruolo specifico nello spazio di monitoraggio, ma la possibilità di avere una prospettiva approfondita sull'integrità del sistema operativo ospitato nelle macchine virtuali di Azure non era disponibile.  Anche se è possibile monitorare per diverse condizioni tramite Monitoraggio di Azure, non è stato progettato per modellare e rappresentano l'integrità complessiva della macchina virtuale o per l'integrità dei componenti di base.  Con la funzionalità dell'integrità di Monitoraggio di Azure per macchine virtuali, è possibile monitorare in modo proattivo la disponibilità e le prestazioni dei sistemi operativi guest Windows o Linux con un modello che rappresenta i componenti principali e le relative relazioni, criteri che specificano come misurare l'integrità di tali componenti e avvisi che segnalano quando viene rilevata una condizione di non integrità.  
@@ -28,23 +28,6 @@ Lo stato di integrità globale della macchina virtuale di Azure e del sistema op
 Questo articolo illustra come valutare, analizzare e risolvere rapidamente i problemi di integrità rilevati.
 
 Per informazioni sulla configurazione di Monitoraggio di Azure per le macchine virtuali, vedere [Enable Azure Monitor for VMs](vminsights-onboard.md) (Abilitare Monitoraggio di Azure per le macchine virtuali).
-
-> [!NOTE]
-> A partire dall'11 febbraio 2019 Microsoft inizierà la migrazione dal modello di integrità corrente in Monitoraggio di Azure per le macchine virtuali, visibile oggi all'interno dell'esperienza Diagnostica integrità, a una nuova versione del modello di integrità. Questo aggiornamento migliora le prestazioni di elaborazione di rollup dell'integrità e include un modello di integrità affinato presentato nella vista Diagnostica integrità. 
-> 
-> Con il nuovo modello di integrità il rollup dei criteri di integrità figlio ai criteri di integrità a livello padre o entità sarà più rapido, e di conseguenza, si avrà una minore latenza dello stato di integrità degli aggiornamenti padre allo stato desiderato o di destinazione. È comunque possibile filtrare i criteri di integrità nelle categorie **Prestazioni** e **Disponibilità** a differenza del metodo precedente basato su schede per selezionare una categoria all'interno della vista.
-> 
-> Per altre informazioni sull'esperienza di Diagnostica integrità, vedere la [sezione](#health-diagnostics) relativa a Diagnostica integrità in questo articolo. 
-> 
-> Questo aggiornamento migliorerà le operazioni seguenti: 
-> 
-> - Elaborazione del rollup di integrità con latenza ridotta  
-> - Avvisi più rapidi sulle modifiche dello stato di integrità 
-> - Aggiornamento più rapido dello stato di integrità nella visualizzazione aggregata di macchine virtuali per tutte le macchine virtuali 
-> 
-> Nessuna regressione di qualsiasi funzionalità fornita oggi con la funzionalità di integrità di Monitoraggio di Azure per le macchine virtuali.
-> 
-> Questa modifica influisce su due esperienze di Diagnostica integrità: la cronologia delle modifiche dello stato verrà reimpostata e le modifiche dello stato precedenti per i criteri di integrità non saranno disponibili per la revisione nella colonna Modifiche stato della pagina Diagnostica integrità. Se si è interessati ai dati cronologici di qualsiasi macchina virtuale considerata cruciale, è possibile acquisire come riferimento una schermata dei dati dei criteri di integrità e delle modifiche stato corrispondenti. 
 
 ## <a name="monitoring-configuration-details"></a>Dettagli di configurazione di monitoraggio
 Questa sezione descrive i criteri di integrità predefiniti per monitorare le macchine virtuali Linux e Windows Azure. Tutti i criteri di integrità sono preconfigurati per l'invio di un avviso quando viene rilevata una condizione di non integrità. 
@@ -70,7 +53,7 @@ Questa sezione descrive i criteri di integrità predefiniti per monitorare le ma
 - Percentuale di larghezza di banda utilizzata in totale
 - Percentuale di larghezza di banda utilizzata per scrittura
 - Percentuale di memoria in uso di cui è stato eseguito il commit
-- Percentuale tempo di inattività del disco fisico
+- Percentuale tempo di inattività del disco
 - Integrità del servizio di client DHCP
 - Integrità del servizio di client DNS
 - Integrità del servizio RPC
@@ -89,10 +72,7 @@ Questa sezione descrive i criteri di integrità predefiniti per monitorare le ma
 - % spazio disponibile su disco logico
 - % inode disponibili su disco logico
 - Integrità scheda di rete
-- Percentuale tempo DPC processore
-- Percentuale tempo processore
 - Percentuale tempo processore totale
-- Percentuale tempo DPC totale
 - Megabyte disponibili per la memoria del sistema operativo
 
 ## <a name="sign-in-to-the-azure-portal"></a>Accedere al portale di Azure

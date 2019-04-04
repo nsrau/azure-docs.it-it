@@ -16,12 +16,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 12/10/2018
-ms.openlocfilehash: 2f51ab51cc352c5f3d95ac1a35a1cbf918899753
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9bf261918bdbdf3ee06ad28a037d5bb8a3631a20
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57768400"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487635"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Scaricare elementi di marketplace di Azure ad Azure Stack
 
@@ -101,14 +101,14 @@ Lo scenario è composto da due parti:
 
 3. Se si hanno più sottoscrizioni, eseguire il comando seguente per selezionare il certificato che è stato usato per la registrazione:  
 
-   ```PowerShell  
+   ```powershell  
    Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    $AzureContext = Get-AzureRmContext
    ```
 
 4. Scaricare la versione più recente dello strumento di diffusione di marketplace con lo script seguente:  
 
-   ```PowerShell
+   ```powershell
    # Download the tools archive.
    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
    invoke-webrequest https://github.com/Azure/AzureStack-Tools/archive/master.zip `
@@ -126,7 +126,7 @@ Lo scenario è composto da due parti:
 
 5. Importare il modulo di diffusione, quindi avviare lo strumento eseguendo i comandi seguenti. Sostituire `Destination folder path` con un percorso per archiviare i file scaricati da Azure Marketplace.   
 
-   ```PowerShell  
+   ```powershell  
    Import-Module .\Syndication\AzureStack.MarketplaceSyndication.psm1
 
    Export-AzSOfflineMarketplaceItem -Destination "Destination folder path in quotes" 
@@ -164,7 +164,7 @@ Lo scenario è composto da due parti:
 
 3. Importare il modulo di diffusione e quindi avviare lo strumento di diffusione marketplace eseguendo lo script seguente:
 
-   ```PowerShell
+   ```powershell
    $credential = Get-Credential -Message "Enter the azure stack operator credential:"
    Import-AzSOfflineMarketplaceItem -origin "marketplace content folder" -AzsCredential $credential
    ```
@@ -206,7 +206,7 @@ Lo scenario è composto da due parti:
 
    Come alternativa a questo script, è possibile usare la [descritta in questo articolo](azure-stack-add-vm-image.md#add-a-vm-image-through-the-portal) per importare il. Immagine di disco rigido virtuale nel portale di Azure.
 
-   ```PowerShell  
+   ```powershell  
    Add-AzsPlatformimage `
     -publisher "MicrosoftWindowsServer" `
     -offer "WindowsServer" `
@@ -229,7 +229,7 @@ Lo scenario è composto da due parti:
 
 
 4.  Usare PowerShell per pubblicare l'elemento del marketplace in Azure Stack usando il **Add-AzsGalleryItem** cmdlet. Ad esempio:   
-    ```PowerShell  
+    ```powershell  
     Add-AzsGalleryItem `
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
@@ -239,7 +239,7 @@ Lo scenario è composto da due parti:
 
 Con la versione di PowerShell per Azure Stack 1.3.0 è ora possibile aggiungere estensioni della macchina virtuale. Ad esempio: 
 
-```PowerShell
+```powershell
 Add-AzsVMExtension -Publisher "Microsoft" -Type "MicroExtension" -Version "0.1.0" -ComputeRole "IaaS" -SourceBlob "https://github.com/Microsoft/PowerShell-DSC-for-Linux/archive/v1.1.1-294.zip" -SupportMultipleExtensions -VmOsType "Linux"
 ```
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 3f0d3c5748afaac2544232fc1ff84316d9eb7347
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 0dcfa4e7cd792f61d1620a57330f87c5c86e6c9f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351066"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915693"
 ---
 # <a name="scaling-media-processing"></a>Ridimensionamento dell'elaborazione di contenuti multimediali
 
@@ -47,7 +47,7 @@ Il resto dell'articolo viene illustrato come utilizzare [interfaccia della riga 
 > [!NOTE]
 > Per i processi di analisi audio e video generati da Servizi multimediali v3 o Video Indexer, è fortemente consigliato effettuare il provisioning dell'account con 10 MRU S3. Se sono necessarie più di 10 MRU S3, aprire un ticket di supporto dal [portale di Azure](https://portal.azure.com/).
 >
-> Attualmente, è possibile usare il portale di Azure per gestire altre risorse di v3. Usare la [API REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o uno degli [SDK](developers-guide.md).
+> Attualmente, è possibile usare il portale di Azure per gestire altre risorse di v3. Usare l'[API REST](https://aka.ms/ams-v3-rest-ref), l'[interfaccia della riga di comando](https://aka.ms/ams-v3-cli-ref) o uno degli [SDK](developers-guide.md) supportati.
 
 ## <a name="prerequisites"></a>Prerequisiti 
 
@@ -67,7 +67,7 @@ az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 
 ## <a name="billing"></a>Fatturazione
 
-L'addebito è basato sul numero, il tipo e il periodo di tempo in cui viene effettuato il provisioning delle MRU nell'account. I costi si applicano indipendentemente dal fatto che si eseguano processi o meno. Per una spiegazione dettagliata, vedere la sezione delle domande frequenti nella pagina dei [prezzi dei Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).   
+L'addebito è basato sul numero di minuti che viene effettuato il provisioning di Media Reserved unit nel tuo account. Questo errore si verifica indipendentemente dal fatto che sono presenti tutti i processi in esecuzione nell'account. Per una spiegazione dettagliata, vedere la sezione delle domande frequenti nella pagina dei [prezzi dei Servizi multimediali](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="next-step"></a>Passaggio successivo
 

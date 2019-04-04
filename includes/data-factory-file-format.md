@@ -4,33 +4,33 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 9b3261679b64e054bb8f750ad99983661a5b6035
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56213084"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919263"
 ---
 ## <a name="specifying-formats"></a>Specifica dei formati
 Azure Data Factory supporta i tipi di formato seguenti:
 
-* [Formato testo](#specifying-textformat)
+* [Formato di testo](#specifying-textformat)
 * [Formato JSON](#specifying-jsonformat)
 * [Formato Avro](#specifying-avroformat)
 * [Formato ORC](#specifying-orcformat)
-* [Formato Parquet](#specifying-parquetformat)
+* [Formato parquet](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>Specifica di TextFormat
 Per analizzare i file di testo o scrivere i dati in formato testo, impostare la proprietà `format` `type` su **TextFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio di TextFormat](#textformat-example) sulla configurazione.
 
-| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatoria |
+| Proprietà | DESCRIZIONE | Valori consentiti | Obbligatorio |
 | --- | --- | --- | --- |
 | columnDelimiter |Il carattere usato per separare le colonne in un file. È possibile prendere in considerazione la possibilità di usare un carattere raro non stampabile che probabilmente non esiste nei dati: ad esempio, specificare "\u0001" che rappresenta Start of Heading (SOH). |È consentito un solo carattere. Il valore **predefinito** è la **virgola (",")**. <br/><br/>Per usare un carattere Unicode, vedere i [caratteri Unicode](https://en.wikipedia.org/wiki/List_of_Unicode_characters) per ottenere il codice corrispondente. |No  |
 | rowDelimiter |Il carattere usato per separare le righe in un file. |È consentito un solo carattere. Sono consentiti i seguenti valori **predefiniti** in lettura: **["\r\n", "\r", "\n"]** e **"\r\n"** in scrittura. |No  |
 | escapeChar |Carattere speciale usato per eseguire l'escape di un delimitatore di colonna nel contenuto del file di input. <br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Esempio: se è presente una virgola (,) come delimitatore di colonna, ma si vuole usare il carattere virgola nel testo (ad esempio: "Hello, world"), è possibile definire $ come carattere di escape e usare la stringa "Hello$, world" nell'origine. |No  |
 | quoteChar |Carattere usato per delimitare tra virgolette un valore stringa. I delimitatori di colonne e righe tra virgolette sono considerati parte del valore stringa. Questa proprietà è applicabile sia ai set di dati di input che a quelli di output.<br/><br/>Per una tabella, è possibile specificare sia escapeChar che quoteChar. |È consentito un solo carattere. Nessun valore predefinito. <br/><br/>Ad esempio, se è presente una virgola (",") come delimitatore di colonna, ma si desidera inserire un carattere virgola nel testo (ad esempio: <Hello, world>), è possibile definire " (virgolette doppie) come carattere di virgolette e usare la stringa "Hello, world" nell'origine. |No  |
 | nullValue |Uno o più caratteri usati per rappresentare un valore null. |Uno o più caratteri. I valori **predefiniti** sono **"\N" e "NULL"** in lettura e **"\N"** in scrittura. |No  |
-| encodingName |Specificare il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No  |
+| encodingName |Specificare il nome della codifica. |Un nome di codifica valido. Vedere [Proprietà Encoding.EncodingName](/dotnet/api/system.text.encoding). Esempio: windows-1250 o shift_jis. Il valore **predefinito** è **UTF-8**. |No  |
 | firstRowAsHeader |Specifica se considerare la prima riga come intestazione. In un set di dati di input Data factory legge la prima riga come intestazione. In un set di dati di output Data factory scrive la prima riga come intestazione. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |True <br/>**False (impostazione predefinita)** |No  |
 | skipLineCount |Indica il numero di righe da ignorare durante la lettura di dati da file di input. Se sono specificati sia skipLineCount che firstRowAsHeader, le righe vengono ignorate e le informazioni di intestazione vengono lette dal file di input. <br/><br/>Vedere [Scenari per l'uso di `firstRowAsHeader` e `skipLineCount`](#scenarios-for-using-firstrowasheader-and-skiplinecount) per gli scenari di esempio. |Integer |No  |
 | treatEmptyAsNull |Specifica se considerare una stringa vuota o null come valore null durante la lettura di dati da un file di input. |**True (impostazione predefinita)**<br/>False |No  |
@@ -73,23 +73,23 @@ Per **importare/esportare i file JSON senza modifiche in/da Azure Cosmos DB**, v
 
 Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la proprietà `format` `type` su **JsonFormat**. È anche possibile specificare le proprietà **facoltative** seguenti nella sezione `format`. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione.
 
-| Proprietà | Descrizione | Obbligatoria |
+| Proprietà | Descrizione | Obbligatorio |
 | --- | --- | --- |
 | filePattern |Indicare il modello dei dati archiviati in ogni file JSON. I valori consentiti sono: **setOfObjects** e **arrayOfObjects**. Il valore **predefinito** è **setOfObjects**. Vedere la sezione [Modelli di file JSON](#json-file-patterns) per i dettagli su questi modelli. |No  |
 | jsonNodeReference | Per eseguire l'iterazione dei dati ed estrarli dagli oggetti presenti nel campo di una matrice con lo stesso modello, specificare il percorso JSON di tale matrice. Questa proprietà è supportata solo quando si copiano i dati dai file JSON. | No  |
 | jsonPathDefinition | Specificare l'espressione del percorso JSON per ogni mapping colonne con un nome di colonna personalizzato. Iniziare con una lettera minuscola. Questa proprietà è supportata solo quando si copiano i dati dai file JSON ed è possibile estrarre i dati dall'oggetto o dalla matrice. <br/><br/> Per i campi sotto l'oggetto radice, iniziare con la radice $. Per i campi nella matrice scelta dalla proprietà `jsonNodeReference`, iniziare dall'elemento matrice. Vedere la sezione [Esempio JsonFormat](#jsonformat-example) sulla configurazione. | No  |
-| encodingName |Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No  |
+| encodingName |Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](/dotnet/api/system.text.encoding). Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No  |
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No  |
 
 #### <a name="json-file-patterns"></a>Modelli di file JSON
 
 L'attività di copia può eseguire l'analisi al di sotto dei modelli di file JSON:
 
-- **Tipo I: setOfObjects**
+- **Tipo i: setOfObjects**
 
     Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/concatenati. Quando si sceglie questa opzione in un set di dati di output, l'attività di copia produce un singolo file JSON con un oggetto per riga (delimitato da riga).
 
-    * **Esempio di JSON a oggetto singolo**
+    * **esempio JSON di oggetto singolo**
 
         ```json
         {
@@ -102,7 +102,7 @@ L'attività di copia può eseguire l'analisi al di sotto dei modelli di file JSO
         }
         ```
 
-    * **Esempio di JSON con delimitatori di riga**
+    * **esempio JSON delimitato da righe**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -110,7 +110,7 @@ L'attività di copia può eseguire l'analisi al di sotto dei modelli di file JSO
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **Esempio di JSON concatenati**
+    * **esempio di JSON concatenati**
 
         ```json
         {
@@ -174,11 +174,11 @@ L'attività di copia può eseguire l'analisi al di sotto dei modelli di file JSO
 
 #### <a name="jsonformat-example"></a>Esempio JsonFormat
 
-**Caso 1: Copia di dati dai file JSON**
+**Caso 1: Copia dei dati dai file JSON**
 
 Vedere sotto due tipi di esempi di quando si copiano dati dai file JSON e i punti generici da notare:
 
-**Esempio 1: Estrarre i dati dall'oggetto e dalla matrice**
+**Esempio 1: estrarre dati dall'oggetto e matrice**
 
 In questo esempio si prevede che un oggetto JSON radice esegua il mapping a un singolo record in un risultato tabulare. Se si dispone di un file JSON con il contenuto seguente:  
 
@@ -213,8 +213,8 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione Definizione della struttura per i set di dati rettangolari per altri dettagli.
-- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare dati dalla matrice, è possibile usare **matrice[x].proprietà** per estrarre il valore della proprietà specificata dall'oggetto x oppure è possibile usare **matrice[*].proprietà** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
+- `structure` sezione definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione Definizione della struttura per i set di dati rettangolari per altri dettagli.
+- `jsonPathDefinition` Specifica il percorso JSON per ogni colonna che indica dove estrarre i dati. Per copiare dati dalla matrice, è possibile usare **matrice[x].proprietà** per estrarre il valore della proprietà specificata dall'oggetto x oppure è possibile usare **matrice[*].proprietà** per trovare il valore in qualsiasi oggetto contenente tale proprietà.
 
 ```json
 "properties": {
@@ -286,9 +286,9 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione Definizione della struttura per i set di dati rettangolari per altri dettagli.
-- `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto le righe ordine della **matrice**.
-- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. In questo esempio "ordernumber", "orderdate" e "city" sono sotto l'oggetto radice con il percorso JSON che inizia con "$.", mentre "order_pd" e "order_price" sono definiti con il percorso derivato dall'elemento matrice senza "$.".
+- `structure` sezione definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Vedere la sezione Definizione della struttura per i set di dati rettangolari per altri dettagli.
+- `jsonNodeReference` indica di eseguire l'iterazione ed estrarre i dati dagli oggetti con lo stesso modello sotto **matrice** orderlines.
+- `jsonPathDefinition` Specifica il percorso JSON per ogni colonna che indica dove estrarre i dati. In questo esempio "ordernumber", "orderdate" e "city" sono sotto l'oggetto radice con il percorso JSON che inizia con "$.", mentre "order_pd" e "order_price" sono definiti con il percorso derivato dall'elemento matrice senza "$.".
 
 ```json
 "properties": {
@@ -333,7 +333,7 @@ Il set di dati di input con il tipo **JsonFormat** è definito come segue (defin
 * Se ci sono nomi duplicati allo stesso livello, l'attività di copia sceglie quello più recente.
 * I nomi delle proprietà distinguono tra maiuscole e minuscole. Due proprietà con lo stesso nome ma con una combinazione differente di maiuscole e minuscole vengono considerate come due proprietà diverse.
 
-**Caso 2: Scrittura dei dati nel file JSON**
+**Caso 2: La scrittura dati in file JSON**
 
 Se nel database SQL è presente la tabella seguente:
 

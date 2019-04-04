@@ -15,12 +15,12 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: ca58059716ebebfaf663412b37014ae4f534d0e3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf831c6f8faad1892291794bc43dc13e6a17eba1
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081509"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484849"
 ---
 # <a name="add-kubernetes-to-the-azure-stack-marketplace"></a>Aggiungere Kubernetes per il Marketplace di Azure Stack
 
@@ -78,7 +78,7 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
 
     - Aprire PowerShell con privilegi elevati. Eseguire lo script seguente con i parametri aggiornati ai valori di:
 
-        ```PowerShell  
+        ```powershell  
         # Creates a new self signed certificate 
         $passwordString = "<password>"
         $certlocation = "<local certificate path>.pfx"
@@ -106,7 +106,7 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
 
 2.  Prendere nota dell'ID del nuovo certificato visualizzata nella sessione di PowerShell, `1C2ED76081405F14747DC3B5F76BB1D83227D824`. L'ID verrà usato durante la creazione dell'entità servizio.
 
-    ```PowerShell  
+    ```powershell  
     VERBOSE: Generated new certificate 'CN=<certificate name>' (1C2ED76081405F14747DC3B5F76BB1D83227D824).
     ```
 
@@ -126,7 +126,7 @@ Se si usa Active Directory Federated Services (ADFS) per il servizio di gestione
 
     - Eseguire lo script seguente con i parametri aggiornati ai valori di:
 
-        ```PowerShell  
+        ```powershell  
         #Create service principal using the certificate
         $privilegedendpoint="<ERCS IP>"
         $applicationName="<application name>"
@@ -259,7 +259,7 @@ Per rimuovere l'elemento di Kubernetes:
 
 2. Trovare l'elemento di un Kubernetes Cluster corrente nella raccolta.
 
-    ```PowerShell  
+    ```powershell  
     Get-AzsGalleryItem | Select Name
     ```
     
@@ -267,7 +267,7 @@ Per rimuovere l'elemento di Kubernetes:
 
 4. Usare il cmdlet di PowerShell seguente per rimuovere l'elemento:
 
-    ```PowerShell  
+    ```powershell  
     $Itemname="Microsoft.AzureStackKubernetesCluster.0.3.0"
 
     Remove-AzsGalleryItem -Name $Itemname

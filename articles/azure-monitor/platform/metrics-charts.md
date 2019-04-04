@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848868"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916343"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Esplora metriche di Monitoraggio di Azure
 
@@ -76,11 +76,33 @@ Esplora metriche di Monitoraggio di Azure è un componente del portale di Micros
 
 5. È possibile ripetere i passaggi da 1 a 4 per applicare più filtri agli stessi grafici.
 
+## <a name="multiple-metrics-and-charts"></a>Più metriche e questi grafici
+
+È anche possibile creare grafici che tracciare più metriche o mostrano più grafici delle metriche in una sola volta. Questa funzionalità consente di:
+
+- correlare le metriche correlate nel grafico per vedere come un valore stesso sono correlata a un'altra
+- visualizzare le metriche con unità di misura in stretta vicinanza diverse
+- aggregare e confrontare le metriche da più risorse visivamente
+
+Ad esempio, se hai 5 account di archiviazione e si desidera conoscere la quantità di spazio totale viene consumato tra di essi, è possibile creare un grafico ad area (in pila) che mostra i singoli e la somma di tutti i valori in determinati punti nel tempo.
+
+### <a name="multiple-metrics-on-a-chart"></a>Più metriche in un grafico
+
+Prima di tutto [creare un nuovo grafico](#create-a-new-chart). Fare clic su **Aggiungi metrica** e ripetere i passaggi per aggiungere un'altra metrica nello stesso grafico.
+
+### <a name="multiple-charts"></a>Più grafici
+
+Scegliere il **Aggiungi grafico** e creare un altro grafico con una metrica diversa.
+
+### <a name="order-or-delete-multiple-charts"></a>Ordinare o eliminare più grafici
+
+Per ordinare o eliminare più grafici, fare clic sui puntini di sospensione ( **...**  ) per aprire il menu di grafico e scegliere la voce di menu appropriata del simbolo **spostare verso l'alto**, **Sposta giù**, o **eliminare**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Applicare la suddivisione in un grafico
 
-È possibile suddividere una metrica per dimensione in modo da confrontare visivamente i diversi segmenti e identificare i segmenti esterni di una dimensione. 
+È possibile suddividere una metrica per dimensione in modo da confrontare visivamente i diversi segmenti e identificare i segmenti esterni di una dimensione.
 
-### <a name="to-apply-splitting"></a>Per applicare la suddivisione
+### <a name="apply-splitting"></a>Applicare separazione
 
 1. Fare clic su **Applicare separazione** sopra il grafico.
  
@@ -141,7 +163,7 @@ Per altre informazioni sulla configurazione di avvisi delle metriche, vedere que
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 
-*All'interno del grafico non vengono visualizzati dati.*
+*Non sono presenti eventuali dati del grafico.*
 
 * I filtri si applicano a tutti i grafici del riquadro. Assicurarsi che, mentre ci si concentra su un grafico, non sia stato impostato un filtro che escluda tutti i dati di un altro grafico.
 

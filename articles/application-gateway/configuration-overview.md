@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629628"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906124"
 ---
 # <a name="application-gateway-configuration-overview"></a>Panoramica configurazione del Gateway applicazione
 
@@ -21,6 +21,9 @@ Gateway applicazione di Azure è costituito da diversi componenti che è possibi
 ![Diagramma di flusso i componenti di Gateway applicazione](./media/configuration-overview/configuration-overview1.png)
 
 Questa immagine illustra un'applicazione che dispone di tre listener. Le prime due sono i listener multisito per `http://acme.com/*` e `http://fabrikam.com/*`, rispettivamente. Sia in ascolto sulla porta 80. Il terzo è un listener di base con la terminazione Secure Sockets Layer (SSL) end-to-end.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -136,11 +139,11 @@ Visualizzare [certificati supportati per la terminazione SSL](https://docs.micro
 Supporto del protocollo HTTP/2 è disponibile per i client in grado di connettersi solo listener del gateway applicazione. La comunicazione ai pool di server back-end è su HTTP/1.1. Per impostazione predefinita, il supporto di HTTP/2 è disabilitato. Il frammento di codice di Azure PowerShell seguente viene illustrato come abilitare questa opzione:
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>Supporto per WebSocket
@@ -343,4 +346,4 @@ Ora che sai sui componenti di Gateway applicazione, è possibile:
 
 - [Creare un gateway applicazione nel portale di Azure](quick-create-portal.md)
 - [Creare un gateway applicazione usando PowerShell](quick-create-powershell.md)
-- [Creare un gateway applicazione tramite la CLI di Azure](quick-create-cli.md)
+- [Creare un gateway applicazione con l'interfaccia della riga di comando di Azure](quick-create-cli.md)

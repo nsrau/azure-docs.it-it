@@ -15,12 +15,12 @@ ms.date: 03/04/2019
 ms.author: patricka
 ms.reviewer: bryanr
 ms.lastreviewed: 03/04/2019
-ms.openlocfilehash: 16d915ff6ce0f787febbdc4be4d41e1c2e714d7f
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 78370dba4c54df5636e6d17d23ce7cc9d7671c15
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57336666"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487703"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multi-tenancy in Azure Stack
 
@@ -42,7 +42,7 @@ Esistono alcuni prerequisiti per tenere conto prima di configurare multi-tenancy
  - Assicurarsi di aver [installata](azure-stack-powershell-install.md) e [configurato](azure-stack-powershell-configure-admin.md) PowerShell per Azure Stack.
  - [Scaricare gli strumenti di Azure Stack](azure-stack-powershell-download.md)e importare i moduli Connect e l'identità:
 
-    ```PowerShell  
+    ```powershell  
     Import-Module .\Connect\AzureStack.Connect.psm1
     Import-Module .\Identity\AzureStack.Identity.psm1
     ```
@@ -55,7 +55,7 @@ Eseguire l'onboarding nel Tenant di Directory Guest (Fabrikam) per Azure Stack t
 
 L'amministratore del servizio di contoso.onmicrosoft.com esegue i comandi seguenti.
 
-```PowerShell  
+```powershell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $adminARMEndpoint = "https://adminmanagement.local.azurestack.external"
 
@@ -86,7 +86,7 @@ Una volta l'amministratore di Azure Stack / operatore ha abilitato la directory 
 
 L'amministratore di Directory di Fabrikam Mary esegue i comandi seguenti in fabrikam.onmicrosoft.com la directory guest.
 
-```PowerShell
+```powershell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
 $tenantARMEndpoint = "https://management.local.azurestack.external"
     

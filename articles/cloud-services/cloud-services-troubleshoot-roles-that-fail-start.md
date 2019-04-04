@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255422"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918417"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Risolvere i problemi dei ruoli del servizio cloud che non vengono avviati
 Ecco alcuni problemi e soluzioni comini correlati ai ruoli di Servizi cloud di Azure che non vengono avviati.
@@ -75,8 +75,8 @@ Quando il servizio viene ridistribuito, verrà visualizzato un messaggio di erro
 Se si passa al sito Web, ora verranno restituiti messaggi di errore più espliciti:
 
 * Errore del server nell'applicazione '/'.
-* Descrizione: Eccezione non gestita durante l'esecuzione della richiesta Web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
-* Dettagli dell'eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly 'Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
+* Descrizione: Si è verificata un'eccezione non gestita durante l'esecuzione della richiesta web corrente. Per altre informazioni sull'errore e sul suo punto di origine nel codice, vedere l'analisi dello stack.
+* Dettagli eccezione: System.IO.FIleNotFoundException: Impossibile caricare il file o l'assembly ' Microsoft.WindowsAzure.StorageClient, versione Version=1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o una delle relative dipendenze. Non è possibile trovare il file specificato.
 
 Ad esempio: 
 
@@ -96,7 +96,7 @@ Per ottenere risultati ottimali con questo metodo di diagnosi, è consigliabile 
 7. All'avvio del ruolo, verranno visualizzate informazioni dettagliate sull'errore in Internet Explorer. È anche possibile usare gli strumenti di risoluzione dei problemi standard di Windows per diagnosticare ulteriormente il problema.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnosticare i problemi usando IntelliTrace
-Per i ruoli di lavoro e i ruoli Web che fanno uso di .NET Framework 4, è possibile usare [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), disponibile in Microsoft Visual Studio Enterprise.
+Per i ruoli di lavoro e i ruoli Web che fanno uso di .NET Framework 4, è possibile usare [IntelliTrace](/visualstudio/debugger/intellitrace), disponibile in Microsoft Visual Studio Enterprise.
 
 Seguire questa procedura per distribuire il servizio con IntelliTrace abilitato:
 

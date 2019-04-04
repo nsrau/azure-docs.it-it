@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: jeffya
-ms.openlocfilehash: a7131a66e9d722265282ac98b67b52db8de086e2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 80e4895e0b276e701a6d7f10d8fc67649db0f188
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551898"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904492"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
 
@@ -30,7 +30,7 @@ Questo articolo descrive come usare il [provisioning automatico](concepts-auto-p
 
 Per completare la procedura di questa esercitazione, effettuare le attività seguenti:
 
-* Preparare il DevKit seguendo i passaggi descritti in [Connettere DevKit di IoT AZ3166 all'hub IoT di Azure nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
+* Configurare il DevKit Wi-Fi e preparare l'ambiente di sviluppo seguendo i passaggi descritti in [connettere DevKit di IoT AZ3166 all'IoT Hub di Azure nel cloud](/azure/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started).
 * Eseguire l'aggiornamento al firmware più recente (1.3.0 o versioni successive) seguendo l'esercitazione [Update DevKit firmware](https://microsoft.github.io/azure-iot-developer-kit/docs/firmware-upgrading/) (Aggiornare il firmware del DevKit).
 * Creare e collegare un hub IoT con un'istanza del servizio Device Provisioning seguendo i passaggi descritti in [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](/azure/iot-dps/quick-setup-auto-provision).
 
@@ -56,18 +56,18 @@ Un segreto UDS tipico è una stringa di 64 caratteri, come illustrato nell'esemp
 Per salvare un segreto UDS nel DevKit:
 
 1. In VS Code fare clic sulla barra di stato per selezionare la porta COM per il DevKit.
-  ![Selezionare la porta COM](media/how-to-connect-mxchip-iot-devkit/select-com.png)
+  ![Selezionare una porta COM](media/how-to-connect-mxchip-iot-devkit/select-com.png)
 
 1. Su DevKit, tenere premuto il **pulsante A**, premere e rilasciare il pulsante di **reimpostazione** e quindi rilasciare il **pulsante A**. Il DevKit passa alla modalità di configurazione.
 
 1. Premere `F1` per aprire il riquadro comandi, digitare e selezionare **Azure IoT Device Workbench: Configure Device Settings... > Config Unique Device String (UDS)** (Configura impostazioni dispositivo > Configura stringa UDS).
-  ![Configurare la stringa UDS](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
+  ![Configurare i domini di aggiornamento](media/how-to-connect-mxchip-iot-devkit/config-uds.png)
 
 1. Prendere nota della stringa UDS generata. Sarà necessaria per generare il certificato X.509. Premere quindi `Enter`.
-  ![Copiare la stringa UDS](media/how-to-connect-mxchip-iot-devkit/copy-uds.png)
+  ![Copiare i domini di aggiornamento](media/how-to-connect-mxchip-iot-devkit/copy-uds.png)
 
 1. Verificare nella notifica che la stringa UDS sia stata configurata correttamente nel chip STSAFE.
-  ![Esito positivo della configurazione della stringa UDS](media/how-to-connect-mxchip-iot-devkit/config-uds-success.png)
+  ![Configurare i domini di aggiornamento Success](media/how-to-connect-mxchip-iot-devkit/config-uds-success.png)
 
 > [!NOTE]
 > In alternativa, è possibile configurare la stringa UDS tramite la porta seriale usando utilità come Putty. Vedere [Use configuration mode](https://microsoft.github.io/azure-iot-developer-kit/docs/use-configuration-mode/) (Usare la modalità di configurazione) per questa operazione.
@@ -77,16 +77,16 @@ Per salvare un segreto UDS nel DevKit:
 Nel codice del dispositivo è necessario specificare l'[endpoint di provisioning del dispositivo](/azure/iot-dps/concepts-service#device-provisioning-endpoint) e l'ambito ID per garantire l'isolamento del tenant.
 
 1. Nel portale di Azure selezionare il riquadro **Panoramica** del servizio Device Provisioning e prendere nota dei valori **Endpoint dispositivo globale** e **Ambito ID**.
-  ![Ambito ID ed endpoint globale del servizio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
+  ![Device Provisioning Endpoint globale del servizio e l'ambito ID](media/how-to-connect-mxchip-iot-devkit/dps-global-endpoint.png)
 
 1. Aprire **DeKitDPS.ino**. Trovare e sostituire `[Global Device Endpoint]` e `[ID Scope]` con i valori annotati.
   ![Endpoint del servizio Device Provisioning](media/how-to-connect-mxchip-iot-devkit/endpoint.png)
 
 1. Compilare la variabile `registrationId` nel codice. Sono consentiti solo caratteri alfanumerici, caratteri minuscoli e trattini con un massimo di 128 caratteri. Prendere nota anche del valore.
-  ![ID registrazione](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
+  ![ID di registrazione](media/how-to-connect-mxchip-iot-devkit/registration-id.png)
 
 1. Premere `F1`, digitare e selezionare **Azure IoT Device Workbench: Upload Device Code** (Azure IoT Device Workbench: Carica il codice del dispositivo). Vengono avviati la compilazione e il caricamento nel codice in DevKit.
-  ![Caricamento del dispositivo](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
+  ![Caricamento dispositivo](media/how-to-connect-mxchip-iot-devkit/device-upload.png)
 
 ## <a name="generate-x509-certificate"></a>Generare il certificato X.509
 
@@ -100,7 +100,7 @@ Il [meccanismo di attestazione](/azure/iot-dps/concepts-device#attestation-mecha
 1. Eseguire `dps_cert_gen.exe` nella cartella `tool`.
 
 1. Specificare il percorso del file binario compilato come `..\.build\DevKitDPS`. Incollare quindi la **stringa UDS** e il valore **registrationId** annotati. 
-  ![Generare il certifico X.509](media/how-to-connect-mxchip-iot-devkit/gen-x509.png)
+  ![Generare X.509](media/how-to-connect-mxchip-iot-devkit/gen-x509.png)
 
 1. Nella stessa cartella viene generato un file di certificato X.509 con estensione `.pem`.
   ![File X.509](media/how-to-connect-mxchip-iot-devkit/pem-file.png)
@@ -111,7 +111,7 @@ Il [meccanismo di attestazione](/azure/iot-dps/concepts-device#attestation-mecha
   ![Aggiungi registrazione singola](media/how-to-connect-mxchip-iot-devkit/add-enrollment.png)
 
 1. Fare clic sull'icona del file accanto a **File di certificato primario con estensione pem o cer** per caricare il file `.pem` generato.
-  ![Caricare il file con estensione pem](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
+  ![Caricare con estensione PEM](media/how-to-connect-mxchip-iot-devkit/upload-pem.png)
 
 ## <a name="verify-the-devkit-is-registered-with-azure-iot-hub"></a>Verificare che il DevKit sia registrato nell'hub IoT di Azure
 
@@ -122,7 +122,7 @@ Premere il pulsante di **reimpostazione** sul DevKit. Dovrebbe essere visualizza
 1. Al termine della registrazione il servizio Device Provisioning invia l'URI dell'hub IoT, l'ID dispositivo e la chiave crittografata di nuovo al dispositivo.
 1. L'applicazione client dell'hub IoT nel dispositivo si connette all'hub.
 1. Successivamente alla connessione all'hub il dispositivo viene visualizzato in Device Explorer dell'hub IoT.
-  ![Dispositivo registrato](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
+  ![Il dispositivo è stato registrato](./media/how-to-connect-mxchip-iot-devkit/device-registered.png)
 
 ## <a name="problems-and-feedback"></a>Problemi e commenti
 

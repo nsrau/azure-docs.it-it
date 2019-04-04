@@ -2,25 +2,18 @@
 title: Importare ed esportare un file di zona del dominio in DNS di Azure usando l'interfaccia della riga di comando di Azure | Microsoft Docs
 description: Informazioni su come importare ed esportare un file di zona DNS in DNS di Azure con l'interfaccia della riga di comando di Azure
 services: dns
-documentationcenter: na
 author: vhorne
-manager: timlt
-ms.assetid: f5797782-3005-4663-a488-ac0089809010
 ms.service: dns
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/30/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.openlocfilehash: d41ad3232fef57d1008f1e15d5d7d5ee1e106e9b
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 25445415141372e1f231549c5b8f8575a89363c6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57312648"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905410"
 ---
-# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure 
+# <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Importare ed esportare un file di zona DNS usando l'interfaccia della riga di comando di Azure
 
 Questo articolo spiega come importare ed esportare file di zona DNS per DNS di Azure usando l'interfaccia della riga di comando di Azure.
 
@@ -32,7 +25,6 @@ DNS di Azure supporta l'importazione e l'esportazione di file di zona tramite l'
 
 L'interfaccia della riga di comando di Azure è uno strumento da riga di comando multipiattaforma usato per la gestione dei servizi di Azure. È disponibile per le piattaforme Windows, Mac e Linux nella [pagina di download di Azure](https://azure.microsoft.com/downloads/). Il supporto multipiattaforma è importante per importare ed esportare i file di zona, perché il software server più conosciuto, [BIND](https://www.isc.org/downloads/bind/), viene generalmente eseguito in Linux.
 
-
 ## <a name="obtain-your-existing-dns-zone-file"></a>Recupero del file di zona DNS esistente
 
 Prima di importare un file di zona DNS in DNS di Azure, è necessario ottenere una copia del file di zona. L'origine di questo file dipende da dove è attualmente ospitata la zona DNS.
@@ -40,14 +32,6 @@ Prima di importare un file di zona DNS in DNS di Azure, è necessario ottenere u
 * Se la zona DNS è ospitata da un servizio partner, ad esempio un registrar, un provider di servizi di hosting DNS dedicato o un provider di servizi cloud alternativo, tale servizio deve fornire la possibilità di scaricare il file di zona DNS.
 * Se la zona DNS è ospitata nel DNS di Windows, la cartella predefinita per i file di zona è **%systemroot%\system32\dns**. Il percorso completo di ogni file di zona viene visualizzato anche nella scheda **Generale** della console DNS.
 * Se la zona DNS è ospitata con BIND, il percorso del file di zona per ogni zona è specificato nel file di configurazione di BIND **named.conf**.
-
-> [!NOTE]
-> I file di zona scaricati da GoDaddy hanno un formato leggermente non standard. È necessario correggerlo prima di importare questi file di zona in DNS di Azure.
->
-> I nomi DNS in RDATA di ogni record DNS sono specificati come nomi completi, ma non hanno un "." alla fine. Ciò significa che vengono interpretati da altri sistemi DNS come nomi relativi. È necessario modificare il file di zona aggiungendo il '.' di terminazione ai relativi nomi prima di importarli in DNS di Azure.
->
-> Ad esempio, il record CNAME "www 3600 IN CNAME contoso.com" deve essere modificato in "www 3600 IN CNAME contoso.com."
-> con un "." alla fine.
 
 ## <a name="import-a-dns-zone-file-into-azure-dns"></a>Importare un file di zona DNS in DNS di Azure
 
@@ -88,7 +72,6 @@ Valori:
 * `<zone file name>` è il nome/percorso del file di zona da importare.
 
 Se una zona con questo nome non esiste nel gruppo di risorse, viene creata. Se la zona esiste già, i set di record importati vengono uniti con quelli esistenti. 
-
 
 ### <a name="step-1-import-a-zone-file"></a>Passaggio 1. Importare un file di zona
 
@@ -191,3 +174,9 @@ Per esportare la zona **contoso.com** di DNS di Azure esistente nel gruppo di ri
 ```
 az network dns zone export -g myresourcegroup -n contoso.com -f contoso.com.txt
 ```
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* Informazioni su come [gestire record e set di record](dns-getstarted-create-recordset-cli.md) nella zona DNS.
+
+* Informazioni su come [delegare il dominio al servizio DNS di Azure](dns-domain-delegation.md).

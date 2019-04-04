@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093307"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917754"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limitare il contenuto della rete CDN di Azure in base al paese
 
@@ -46,17 +46,17 @@ Nella casella **Percorso** specificare il percorso relativo della posizione a cu
 
 Ad esempio, tutti i filtri di percorso di directory seguenti sono validi:   
 */*                                 
-*/Foto/*     
-*/Foto/Strasburgo/*     
-*/Foto/Strasburgo/città.png*
+*/Photos/*     
+*/Photos/Strasburgo /*     
+*/Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Definire il tipo di azione
 
 Nell'elenco **Azione** selezionare **Consenti** o **Blocca**: 
 
-- **Consenti**: solo gli utenti dei paesi specificati sono autorizzati ad accedere alle risorse richieste dal percorso ricorsivo.
+- **Consenti**: Solo gli utenti dei paesi specificati possono accedere alle risorse richieste dal percorso ricorsivo.
 
-- **Blocca**: agli utenti dei paesi specificati viene negato l'accesso alle risorse richieste dal percorso ricorsivo. Se non sono state definite altre opzioni di filtro di paese per tale percorso, tutti gli altri utenti saranno autorizzati ad accedere.
+- **Blocco**: Gli utenti dei paesi specificati negati l'accesso agli asset richiesto dal percorso ricorsivo. Se non sono state definite altre opzioni di filtro di paese per tale percorso, tutti gli altri utenti saranno autorizzati ad accedere.
 
 Ad esempio, una regola di filtro geografico per bloccare il percorso */Foto/Strasburgo/* filtra i file seguenti:     
 *http://<endpoint>.azureedge.net/Foto/Strasburgo/1000.jpg*
@@ -110,5 +110,5 @@ Nella tabella delle regole di filtro del paese, selezionare l'icona di eliminazi
 
 * È possibile applicare una sola regola allo stesso percorso relativo. Vale a dire, non è possibile creare più filtri paese che puntano allo stesso percorso relativo. Tuttavia, a causa della natura ricorsiva dei filtri paese, una cartella può avere più filtri paese. In altre parole, una sottocartella di una cartella configurata in precedenza può essere assegnata a un filtro di paese diverso.
 
-* La funzionalità di filtro geografico usa i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta. Anche se i profili Akamai e Verizon supportano la maggior parte degli stessi codici paese, esistono alcune differenze. Per altre informazioni, vedere [Azure CDN country codes](https://msdn.microsoft.com/library/mt761717.aspx) (Codici paese per la rete CDN di Azure). 
+* La funzionalità di filtro geografico usa i codici paese per definire i paesi da cui una richiesta viene consentita o bloccata per una directory protetta. Anche se i profili Akamai e Verizon supportano la maggior parte degli stessi codici paese, esistono alcune differenze. Per altre informazioni, vedere [Azure CDN country codes](/previous-versions/azure/mt761717(v=azure.100)) (Codici paese per la rete CDN di Azure). 
 

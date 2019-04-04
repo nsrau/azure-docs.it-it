@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 18e65fc51f99aa19162daa3f6e5b9b7012214f64
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 347ea75673336574f7517f2f7d0c802b0ed16560
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57765544"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918298"
 ---
 # <a name="hybrid-connections-overview"></a>Panoramica delle connessioni ibride
 
@@ -91,11 +91,11 @@ Le seguenti porte TCP vengono usate dalle connessioni ibride:
 | 80, 443 |Queste porte vengono usate per alcune richieste di dati in Azure. Inoltre, se le porte 9352 e 5671 non possono essere impiegate, *allora*verranno usate le porte 80 e 443 come porte di fallback per la trasmissione dei dati e il canale di controllo.<br/><br/>Consentire le connessioni in uscita in queste porte. <br/><br/>**Nota** Non è consigliabile usare queste porte come porte di fallback al posto delle altre porte TCP. HTTP/WebSocket viene utilizzato come protocollo al posto del protocollo TCP nativo per i canali di dati. Può comportare prestazioni ridotte. |
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Create and manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
+[Creare e gestire connessioni ibride](integration-hybrid-connection-create-manage.md)
 
 ## <a name="see-also"></a>Vedere anche
-[REST API for Managing BizTalk Services on Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx) (API REST per la gestione dei servizi BizTalk in Microsoft Azure)  
-[Servizi BizTalk: Grafico edizioni](biztalk-editions-feature-chart.md)  
+[API REST per la gestione dei servizi BizTalk in Microsoft Azure](/previous-versions/azure/reference/dn232347(v=azure.100))  
+[Servizi BizTalk: Grafico delle edizioni](biztalk-editions-feature-chart.md)  
 [Creare un servizio BizTalk](biztalk-provision-services.md)  
 [Servizi BizTalk: Schede dashboard, monitoraggio e scalabilità](biztalk-dashboard-monitor-scale-tabs.md)  
 

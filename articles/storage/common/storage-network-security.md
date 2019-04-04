@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486394"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906090"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -241,7 +241,7 @@ Ogni account di archiviazione supporta fino a 100 regole di rete IP, che possono
 
 Per garantire l'accesso all'account di archiviazione dalle reti locali con una regola di rete IP è necessario identificare gli indirizzi IP esposti a Internet usati dalla rete. Per assistenza contattare l'amministratore di rete.
 
-È possibile usare [ExpressRoute](/azure/expressroute/expressroute-introduction) per connettere la propria rete alla rete di Azure. Qui ogni circuito è configurato con due indirizzi IP pubblici. È possibile trovarli in corrispondenza dell'Edge Microsoft e usano il [peering pubblico di Azure](/azure/expressroute/expressroute-circuit-peerings) per stabilire la connessione a servizi Microsoft come Archiviazione di Azure. Per consentire la comunicazione con Archiviazione di Azure, creare regole di rete IP per gli indirizzi IP pubblici dei circuiti. Per trovare gli indirizzi IP pubblici del circuito ExpressRoute, [aprire un ticket di supporto con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure.
+Se si usa [ExpressRoute](/azure/expressroute/expressroute-introduction) dall'ambiente locale, per il peering pubblico o per il peering Microsoft, sarà necessario identificare gli indirizzi IP NAT usati. Per il peering pubblico, ogni circuito ExpressRoute usa per impostazione predefinita due indirizzi IP NAT applicati al traffico del servizio di Azure quando il traffico entra nel backbone della rete di Microsoft Azure. Per il peering Microsoft, gli indirizzi IP NAT usati vengono forniti dal cliente o dal provider del servizio. Per consentire l'accesso alle risorse del servizio è necessario autorizzare questi indirizzi IP pubblici nell'impostazione del firewall IP per le risorse. Per trovare gli indirizzi IP del circuito ExpressRoute per il peering pubblico, [aprire un ticket di supporto in ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) tramite il portale di Azure. Vedere altre informazioni su [NAT per il peering pubblico e il peering Microsoft ExpressRoute.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Gestione delle regole di rete IP
 
@@ -361,7 +361,7 @@ Se si abilita l'eccezione **Consenti ai servizi Microsoft attendibili...**, ai s
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione
 
-In alcuni casi l'accesso per la lettura di log diagnostici e metrica viene richiesto dall'esterno dei limiti di rete. È possibile autorizzare eccezioni alle regole di rete per consentire l'accesso in lettura ai file di log, alle tabelle di metrica o a entrambi gli elementi dell'account di archiviazione. [Altre informazioni sull'uso dell'analisi archiviazione.](/azure/storage/storage-analytics)
+In alcuni casi l'accesso per la lettura di log diagnostici e metrica viene richiesto dall'esterno dei limiti di rete. È possibile autorizzare eccezioni alle regole di rete per consentire l'accesso in lettura ai file di log, alle tabelle di metrica o a entrambi gli elementi dell'account di archiviazione. [Altre informazioni sull'uso di analitica di archiviazione.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Gestione delle eccezioni
 

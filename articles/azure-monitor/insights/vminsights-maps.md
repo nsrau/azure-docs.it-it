@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984850"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916734"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso della mappa di Monitoraggio di Azure per le macchine virtuali (anteprima) per comprendere i componenti delle applicazioni
 I componenti di applicazione individuati in macchine virtuali Windows e Linux in esecuzione in Azure nell'ambiente dell'utente possono essere visualizzati in due modi con Monitoraggio di Azure per le macchine virtuali, ovvero direttamente da una macchina virtuale o tra gruppi di macchine virtuali in Monitoraggio di Azure. 
@@ -43,7 +43,7 @@ Sul lato destro del riquadro, fare clic sui **gli eventi del Log** icona per pas
 
 ![Elenco di ricerca log nel riquadro Proprietà](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Chiudere *Log** e tornare al riquadro **Proprietà** in cui selezionare **Avvisi** per visualizzare gli avvisi generati per la macchina virtuale in base ai criteri di integrità. Gli avvisi Azure integrati in Mappe consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato. Se sono presenti avvisi, viene visualizzata un'icona e gli avvisi vengono elencati nel riquadro specifico del computer. 
+Chiudi **registri** e tornare al **delle proprietà** riquadro e selezionare **avvisi** per visualizzare gli avvisi per gli avvisi generati per la macchina virtuale da criteri di integrità. Gli avvisi Azure integrati in Mappe consentono di visualizzare gli avvisi attivati per un determinato server nell'intervallo di tempo selezionato. Se sono presenti avvisi, viene visualizzata un'icona e gli avvisi vengono elencati nel riquadro specifico del computer. 
 
 ![Avvisi del computer nel riquadro Proprietà](./media/vminsights-maps/properties-pane-alerts-01.png)
 

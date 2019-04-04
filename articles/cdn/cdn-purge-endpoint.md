@@ -3,8 +3,8 @@ title: Ripulire un endpoint della rete CDN di Azure | Microsoft Docs
 description: Informazioni su come ripulire tutto il contenuto memorizzato nella cache da un endpoint della rete CDN di Azure.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: mazha
-ms.openlocfilehash: 262a8f7385ba5f74d21991772599540260a145fc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.author: magattus
+ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765167"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916480"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Ripulire un endpoint della rete CDN di Azure
 ## <a name="overview"></a>Panoramica
@@ -52,13 +52,13 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
    > 
    > 
 4. Selezionare gli asset che si desidera ripulire dai nodi periferici.  Se si desidera ripulire tutti gli asset, fare clic sulla casella di controllo **Elimina tutto** .  In alternativa digitare il percorso di ogni asset che si vuole eliminare nella casella di testo **Percorso**. I formati seguenti sono supportati nel percorso.
-    1. **Single URL purge**: (Eliminazione di un URL singolo) eliminazione di un singolo asset specificando l'URL completo, con o senza l'estensione di file, ad esempio `/pictures/strasbourg.png`; `/pictures/strasbourg`
-    2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Consente di eliminare tutte le cartelle, le sottocartelle e i file in un endpoint inserendo `/*` nel percorso o di eliminare tutte le sottocartelle e i file in una determinata cartella specificando la cartella seguita da `/*`, ad esempio `/pictures/*`.  Si noti che l'eliminazione dei caratteri jolly non è attualmente supportata dalla rete CDN di Azure fornita da Akamai. 
-    3. **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
+    1. **Eliminazione di un URL singolo**: Ripulire singolo asset specificando l'URL completo, con o senza l'estensione di file, ad esempio,`/pictures/strasbourg.png`; `/pictures/strasbourg`
+    2. **Eliminazione dei caratteri jolly**: L’asterisco (\*) può essere usato come carattere jolly. Consente di eliminare tutte le cartelle, le sottocartelle e i file in un endpoint inserendo `/*` nel percorso o di eliminare tutte le sottocartelle e i file in una determinata cartella specificando la cartella seguita da `/*`, ad esempio `/pictures/*`.  Si noti che l'eliminazione dei caratteri jolly non è attualmente supportata dalla rete CDN di Azure fornita da Akamai. 
+    3. **Elimina dominio radice**: Consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
    
    > [!TIP]
-   > Per l'eliminazione, è necessario che i percorsi vengano specificati e che siano un URL relativo che soddisfi l'[espressione regolare](https://msdn.microsoft.com/library/az24scfc.aspx) seguente. Le funzioni **Elimina tutti** e **Wildcard purge** (Eliminazione dei caratteri jolly) non sono attualmente supportate con la **rete CDN di Azure fornita da Akamai**.
-   > > Single URL purge (Eliminazione di un URL singolo) `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   > Per l'eliminazione, è necessario che i percorsi vengano specificati e che siano un URL relativo che soddisfi l'[espressione regolare](/dotnet/standard/base-types/regular-expression-language-quick-reference) seguente. Le funzioni **Elimina tutti** e **Wildcard purge** (Eliminazione dei caratteri jolly) non sono attualmente supportate con la **rete CDN di Azure fornita da Akamai**.
+   > > Eliminazione di URL singolo `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Stringa di query `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Wildcard purge (Eliminazione dei caratteri jolly) `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";`. 
    > 
@@ -75,5 +75,5 @@ Questa esercitazione illustra l'eliminazione dagli asset di tutti i nodi periodi
 
 ## <a name="see-also"></a>Vedere anche 
 * [Precaricamento di risorse in un endpoint della rete CDN di Azure](cdn-preload-endpoint.md)
-* [Riferimento API REST della rete CDN di Azure - Ripulire o precaricare un endpoint](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Riferimento API REST della rete CDN Azure - ripulire o precaricare un Endpoint](/rest/api/cdn/endpoints)
 
