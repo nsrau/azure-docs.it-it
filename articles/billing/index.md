@@ -1,19 +1,24 @@
 ---
 layout: LandingPage
 title: Documentazione della fatturazione e della gestione dei costi di Azure | Microsoft Docs
-description: 'Informazioni sulla fatturazione di Azure, su come gestire e monitorare l''utilizzo e i costi e su come gestire l''account e le sottoscrizioni.'
+description: Informazioni sulla fatturazione di Azure, su come gestire e monitorare l'utilizzo e i costi e su come gestire l'account e le sottoscrizioni.
 services: billing
 author: cwatson-cat
 manager: dougeby
-ms.assetid: null
+ms.assetid: ''
 ms.service: billing
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
 ms.date: 02/19/2019
 ms.author: banders
+ms.openlocfilehash: e150525b6f5fd1814f13595fbd4ea7e3bccde4fc
+ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 02/20/2019
+ms.locfileid: "56446716"
 ---
-
 # <a name="azure-billing-and-cost-management-documentation"></a>Documentazione della fatturazione e della gestione dei costi di Azure
 
 Informazioni sulla fatturazione di Azure, su come monitorare l'utilizzo e i costi e su come gestire l'account e le sottoscrizioni.

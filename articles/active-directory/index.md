@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: Documentazione di Azure Active Directory - Esercitazioni e informazioni di riferimento sulle API | Documentazione Microsoft
-description: 'Azure Active Directory (Azure AD) è il servizio directory e di gestione delle identità basato sul cloud multi-tenant di Microsoft, che combina i principali servizi directory, la gestione dell''accesso alle applicazioni e la protezione delle identità in un''unica soluzione.'
+description: Azure Active Directory (Azure AD) è il servizio directory e di gestione delle identità basato sul cloud multi-tenant di Microsoft, che combina i principali servizi directory, la gestione dell'accesso alle applicazioni e la protezione delle identità in un'unica soluzione.
 services: active-directory
 author: barbkess
 manager: daveba
@@ -11,8 +11,13 @@ ms.topic: landing-page
 ms.date: 01/24/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
+ms.openlocfilehash: d3ad12ac45a90edc5b3d9be0dc78786ef01a0f04
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337834"
 ---
-
 <div id="main" class="v2">
     <div class="container">
         <h1>Documentazione di Azure Active Directory</h1>
