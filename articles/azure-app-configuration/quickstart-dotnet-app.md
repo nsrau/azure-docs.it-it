@@ -14,14 +14,14 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 551b884f032eaba3f052fcb7571ba907038152ff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: b4cb571653cbe69939a1cbdc92338663e4e7125f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226845"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576073"
 ---
-# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Avvio rapido: Creare un'app .NET Framework con Configurazione app di Azure
+# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Guida introduttiva: Creare un'app .NET Framework con Configurazione app di Azure
 
 Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarlo per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida introduttiva mostra come incorporare il servizio in un'app console desktop di Windows basata su .NET Framework.
 
@@ -46,6 +46,7 @@ Per completare questa guida di avvio rapido, installare [Visual Studio 2017](htt
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di configurazione app
 
 1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto. Se non è possibile trovarli, selezionare la casella di controllo **Includi versione preliminare**.
+
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later

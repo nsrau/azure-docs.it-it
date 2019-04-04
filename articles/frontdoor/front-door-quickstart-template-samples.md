@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: sharadag
-ms.openlocfilehash: c0dccdd38f4b945df3702178e7351db58687bf82
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 1d1f7eeb6f55fa19b94a1eb4d05520c76352a414
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883897"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756552"
 ---
 # <a name="azure-resource-manager-deployment-model-templates-for-front-door"></a>Modello di distribuzione Azure Resource Manager per Frontdoor
 
@@ -31,7 +31,6 @@ La tabella seguente contiene collegamenti ai modelli di distribuzione di Azure R
 | [Creare una frontdoor con configurazione back-end attiva e in standby](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-priority-lb)| Consente di creare una frontdoor che verifica il routing basato su priorità per la topologia dell'applicazione attiva/standby: ciò significa che invia per impostazione predefinita tutto il traffico al back-end primario (con maggiore priorità) fino a quando non diventa disponibile. |
 | [Creare una frontdoor con la memorizzazione nella cache abilitata per determinati route](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-create-caching)| Crea una frontdoor con memorizzazione nella cache abilitata per la configurazione del routing, memorizzando quindi nella cache qualsiasi risorsa statica per il carico di lavoro. |
 | [Configurare l'affinità di sessione per i nomi host di Frontdoor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-session-affinity) | Aggiorna una frontdoor per abilitare l'affinità di sessione per l'host di front-end; in tal modo, il traffico successivo proveniente dalla stessa sessione utente verrà inviato nello stesso back-end. |
-| [Eseguire l'onboarding di un dominio personalizzato con certificato SSL personalizzato (per HTTPS) per Frontdoor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-custom-byoc) | Consente di eseguire l'onboarding di un dominio personalizzato per una frontdoor con certificato SSL personalizzato, noto anche come scenario Bring Your Own Certificate. |
 | [Configurare Frontdoor per l'inserimento in whitelist o blacklist di IP client](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-clientip)| Configura una frontdoor per limitare il traffico a determinati client IP, usando un controllo di accesso personalizzato tramite IP client. |
 | [Configurare Frontdoor per eseguire un'azione con parametri HTTP specifici ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-waf-http-params)| Configura una frontdoor per consentire o bloccare il traffico in base a parametri http nella richiesta in ingresso tramite regole personalizzate per il controllo dell'accesso con parametri http. |
 | [Configurare la limitazione della frequenza di Frontdoor](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-rate-limiting)| Consente di configurare una frontdoor per limitare la frequenza del traffico in ingresso per un host di front-end specifico. |

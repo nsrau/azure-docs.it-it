@@ -14,14 +14,14 @@ ms.tgt_pltfrm: Azure Functions
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 22ec05660682f000d8bc3b9780732d5adf9b5c24
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b0c48b3a3fb3a1b4e4fbe94a368297823a86778
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226709"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579581"
 ---
-# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Avvio rapido: Creare una funzione di Azure con Configurazione app
+# <a name="quickstart-create-an-azure-function-with-app-configuration"></a>Guida introduttiva: Creare una funzione di Azure con Configurazione app
 
 Configurazione app di Azure è un servizio di configurazione gestito di Azure. È possibile usarlo per archiviare e gestire con facilità tutte le impostazioni delle applicazioni in un'unica risorsa separata dal codice. Questa guida di avvio rapido mostra come incorporare il servizio in una funzione di Azure. 
 
@@ -45,13 +45,19 @@ Per completare questa guida di avvio rapido, installare [Visual Studio 2017](htt
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di configurazione app
 
-1. Aprire *Function1.cs* e aggiungere un riferimento a un provider di configurazione .NET Core per Configurazione app.
+1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci pacchetti NuGet**. Nella scheda **Sfoglia** cercare e aggiungere i pacchetti NuGet seguenti al progetto. Se non è possibile trovarli, selezionare la casella di controllo **Includi versione preliminare**.
+
+    ```
+    Microsoft.Extensions.Configuration.AzureAppConfiguration 1.0.0 preview or later
+    ```
+
+2. Aprire *Function1.cs* e aggiungere un riferimento a un provider di configurazione .NET Core per Configurazione app.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-2. Aggiornare il metodo `Run` per usare Configurazione app effettuando una chiamata a `builder.AddAzureAppConfiguration()`.
+3. Aggiornare il metodo `Run` per usare Configurazione app effettuando una chiamata a `builder.AddAzureAppConfiguration()`.
 
     ```csharp
     public static async Task<IActionResult> Run(

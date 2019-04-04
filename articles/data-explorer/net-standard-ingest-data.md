@@ -1,21 +1,21 @@
 ---
-title: 'Avvio rapido: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)'
+title: 'Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)'
 description: Questa guida introduttiva descrive come inserire (caricare) i dati in Esplora dati di Azure usando .NET Standard SDK.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
-ms.openlocfilehash: 0197ae8077a00111e005e5686efcd2597b995bcb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 327ab46b01e15b77e675e052dbfe8b3453b566a6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007046"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757110"
 ---
-# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Avvio rapido: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
+# <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Guida introduttiva: Inserire dati usando .NET Standard SDK di Esplora dati di Azure (anteprima)
 
 Esplora dati di Azure (ADX) è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora dati di Azure offre due librerie client per .NET Standard: una [libreria di inserimento](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) e una [libreria di dati](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). Queste librerie consentono di inserire (caricare) i dati in un cluster ed eseguire una query di dati dal codice. In questa guida introduttiva, è innanzitutto necessario creare una tabella e il mapping dei dati in un cluster di prova. Quindi viene accodato un inserimento nel cluster e vengono convalidati i risultati.
 

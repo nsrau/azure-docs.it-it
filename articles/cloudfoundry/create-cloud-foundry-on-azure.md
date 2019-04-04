@@ -14,12 +14,12 @@ ms.service: azure
 ms.tgt_pltfrm: multiple
 ms.topic: tutorial
 ms.workload: web
-ms.openlocfilehash: ab3963ba8efc23d8f21c104361e0d3369ab5ea10
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 382e342f2144bcc6eeedafd74790bb442b8f9308
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772552"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884237"
 ---
 # <a name="create-a-pivotal-cloud-foundry-cluster-on-azure"></a>Creare un cluster Pivotal Cloud Foundry in Azure
 
@@ -72,11 +72,11 @@ Per altre informazioni, vedere [Uso delle chiavi SSH con Windows in Azure](https
 
 5. Impostare il ruolo di autorizzazione dell'entità servizio come Collaboratore.
 
-    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor” `
+    `az role assignment create --assignee “{enter-your-homepage}” --role “Contributor”`
 
     In alternativa, è anche possibile usare
 
-    `az role assignment create --assignee {service-principal-name} --role “Contributor” `
+    `az role assignment create --assignee {service-principal-name} --role “Contributor”`
 
     ![Assegnazione di ruolo dell'entità servizio](media/deploy/svc-princ.png )
 

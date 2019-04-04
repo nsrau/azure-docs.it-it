@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090475"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886370"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Guida introduttiva: Creare un'app Web ASP.NET 
 
@@ -97,7 +97,7 @@ A questo punto creare la cache per l'app.
 
 In questa sezione si aggiorna l'applicazione per supportare una nuova visualizzazione con un semplice test su Cache Redis di Azure.
 
-* [Aggiornare il file web.config con un'impostazione di app per la cache](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Aggiornare il file web.config con un'impostazione di app per la cache](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Configurare l'applicazione per l'uso del client StackExchange.Redis
 * Aggiornare HomeController e Layout
 * Aggiungere una nuova visualizzazione di RedisCache
@@ -116,7 +116,7 @@ Poiché il file *CacheSecrets.config* non viene distribuito in Azure con l'appli
 2. Nel file *web.config* individuare l'elemento `<appSetting>`. Aggiungere quindi l'attributo `file` seguente. Se è stato usato un nome o un percorso di file diverso, sostituire i valori dell'esempio con questi valori.
 
 * Prima: `<appSettings>`
-* Dopo: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Dopo:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'elemento `<appSettings>` . Il runtime ignora l'attributo file, se non è possibile trovare il file specificato. I segreti, ovvero la stringa di connessione alla cache, non sono inclusi come parte del codice sorgente per l'applicazione. Quando si distribuisce l'app Web in Azure, il file *CacheSecrets.config* non viene distribuito.
 

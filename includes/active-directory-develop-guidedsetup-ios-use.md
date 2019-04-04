@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d5a38d19541e59e0e2815362c0181a8e317a5d0f
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: b7883de410a1fd281a154a792dd45132c08f0c03
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203502"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58890995"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Usare Microsoft Authentication Library (MSAL) per ottenere un token per l'API Microsoft Graph
 
@@ -215,7 +215,7 @@ Il metodo `acquireTokenSilent` gestisce le acquisizioni e i rinnovi dei token se
 
 Alla fine, tuttavia, `acquireTokenSilent` avrà esito negativo perché, ad esempio, l'utente si sarà disconnesso o avrà modificato la password in un altro dispositivo. Se MSAL rileva che il problema può essere risolto richiedendo un'azione interattiva, viene attivata un'eccezione `MSALErrorCode.interactionRequired`. L'applicazione può gestire questa eccezione in due modi:
 
-1. Eseguire subito una chiamata a `acquireToken`, in modo da chiedere all'utente di eseguire l'accesso. Questo criterio viene usato in genere nelle applicazioni online in cui non sono disponibili contenuti offline per l'utente. L'applicazione di esempio generata tramite questa installazione guidata usa questo criterio: è possibile vederlo in azione la prima volta che viene eseguita l'applicazione. Poiché nessun utente ha mai usato l'applicazione, `applicationContext.allAccounts().first` conterrà un valore null e verrà generata un'eccezione ` MSALErrorCode.interactionRequired `. Il codice dell'esempio gestirà quindi l'eccezione chiamando `acquireToken`, ovvero chiedendo all'utente di eseguire l'eccesso.
+1. Eseguire subito una chiamata a `acquireToken`, in modo da chiedere all'utente di eseguire l'accesso. Questo criterio viene usato in genere nelle applicazioni online in cui non sono disponibili contenuti offline per l'utente. L'applicazione di esempio generata tramite questa installazione guidata usa questo criterio: è possibile vederlo in azione la prima volta che viene eseguita l'applicazione. Poiché nessun utente ha mai usato l'applicazione, `applicationContext.allAccounts().first` conterrà un valore null e verrà generata un'eccezione `MSALErrorCode.interactionRequired`. Il codice dell'esempio gestirà quindi l'eccezione chiamando `acquireToken`, ovvero chiedendo all'utente di eseguire l'eccesso.
 
 2. Le applicazioni possono anche generare un'indicazione visiva per informare l'utente che è necessario un accesso interattivo, in modo da consentire di scegliere il momento più opportuno per accedere. In alternativa, l'applicazione riproverà a eseguire `acquireTokenSilent` in un secondo momento. Questo metodo viene usato in genere quando l'utente può accedere ad altre funzionalità dell'applicazione senza essere interrotto, ad esempio quando nell'applicazione sono disponibili contenuti offline. In questo caso, l'utente può decidere quando eseguire l'accesso per accedere alla risorsa protetta o per aggiornare informazioni obsolete. In alternativa, l'applicazione può decidere di riprovare a eseguire `acquireTokenSilent` se la rete viene ripristinata dopo essere stata temporaneamente non disponibile.
 

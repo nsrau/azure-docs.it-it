@@ -3,17 +3,17 @@ title: Informazioni su Esplora dati di Azure
 description: Esplora dati di Azure è un servizio di esplorazione dei dati rapido e a scalabilità elevata per dati di log e di telemetria.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 33169448b5b1e4496f42d157cb77134b90804fa6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3a669c547b33e5f13da43bc3ce851a2f24783f5
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433179"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755993"
 ---
 # <a name="what-is-azure-data-explorer"></a>Informazioni su Esplora dati di Azure
 

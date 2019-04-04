@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5a7161d05b153a556cce20ec4f4d0cbbfdf1d2d1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2201a8017f82517f287cc0b73346a90eaa2408a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315505"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877721"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurare il ripristino di emergenza di macchine virtuali Hyper-V locali in Azure
 
@@ -87,17 +87,17 @@ Se si usa un server Hyper-V Core, completare i passaggi seguenti dopo aver scari
 
 1. Estrarre i file da AzureSiteRecoveryProvider.exe eseguendo
 
-    ``AzureSiteRecoveryProvider.exe /x:. /q``
+    `AzureSiteRecoveryProvider.exe /x:. /q`
  
     I file verranno estratti nella directory locale.
  
-2.  Eseguire ``.\setupdr.exe /i ``
+2.  Esegui `.\setupdr.exe /i`
 
     I risultati verranno registrati in %Programdata%\ASRLogs\DRASetupWizard.log
 
 3.  Registrare il server usando questo comando:
 
-``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+`cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"`
  
 
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
@@ -140,4 +140,4 @@ Site Recovery verifica la disponibilità di uno o più account di archiviazione 
    È possibile tenere traccia dello stato del processo **Abilita protezione** in **Processi** > **Site Recovery jobs** (Processi di Site Recovery). Dopo il completamento del processo **Finalizza protezione**, la replica iniziale è completata e la macchina virtuale è pronta per il failover.
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Eseguire un'esercitazione sul ripristino di emergenza](tutorial-dr-drill-azure.md)
+[Eseguire una verifica del ripristino di emergenza](tutorial-dr-drill-azure.md)

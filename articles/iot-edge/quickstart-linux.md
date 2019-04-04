@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 039ef05f7c0cbb9809a51efc3deef978e2970cf4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1913cf8d5fa367cc97dfac0a1ecfdf1edf06e298
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224567"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758664"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-device"></a>Guida introduttiva: Distribuire il primo modulo IoT Edge in un dispositivo Linux
 
@@ -128,7 +128,7 @@ Durante la configurazione del runtime, si immette una stringa di connessione del
 Se si usa la macchina virtuale Azure IoT Edge on Ubuntu come descritto nei prerequisiti, nel dispositivo è già installato il runtime IoT Edge. È sufficiente configurare il dispositivo con la relativa stringa di connessione recuperata nella sezione precedente. È possibile eseguire questa operazione in remoto senza connettersi alla macchina virtuale. Eseguire questo comando sostituendo **{device_connection_string}** con la propria stringa.
 
    ```azurecli-interactive
-   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script '/etc/iotedge/configedge.sh "{device_connection_string}"'
+   az vm run-command invoke -g IoTEdgeResources -n EdgeVM --command-id RunShellScript --script "/etc/iotedge/configedge.sh '{device_connection_string}'"
    ```
 
 Se si esegue IoT Edge nel computer locale o in un dispositivo ARM32, è necessario installare il runtime IoT Edge e i relativi prerequisiti nel dispositivo. Seguire le istruzioni riportate in [Installare il runtime di Azure IoT Edge in Linux (x64)](how-to-install-iot-edge-linux.md) o [Installare il runtime di Azure IoT Edge in Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) e quindi tornare a questa guida introduttiva.

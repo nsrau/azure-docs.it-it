@@ -2,18 +2,18 @@
 title: Esercitazione su Kubernetes in Azure - Distribuire un'applicazione
 description: In questa esercitazione sul servizio Azure Kubernetes si distribuisce un'applicazione multicontenitore nel cluster usando un'immagine archiviata in Registro Azure Container.
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 224f6b91d53995674ab8a68baaaedfe7ed22c448
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 42437130d30a405af47289ae16d9851fb506a598
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55755970"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756274"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Eseguire le applicazioni nel servizio Azure Kubernetes
 

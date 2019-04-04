@@ -1,21 +1,21 @@
 ---
-title: 'Avvio rapido: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python'
+title: 'Guida introduttiva: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python'
 description: Questa guida introduttiva descrive come eseguire query sui dati da Esplora dati di Azure tramite Python.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: f3a8dd001f4d1d930c700847f0725e00b7c29ecf
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 60e51ba42bddd97c8663a035a29b2ff4880acd8c
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53715118"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758604"
 ---
-# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Avvio rapido: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
+# <a name="quickstart-query-data-using-the-azure-data-explorer-python-library"></a>Guida introduttiva: Eseguire query sui dati usando la libreria di Esplora dati di Azure per Python
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Esplora i dati di Azure mette a disposizione una [libreria client per i dati per Python](https://github.com/Azure/azure-kusto-python/tree/master/azure-kusto-data). Questa libreria consente di eseguire query sui dati dal codice. In questa guida introduttiva, per facilitare l'apprendimento ci si connetterà a una tabella nel *cluster della guida* configurato in precedenza. Si eseguirà quindi una query in tale cluster e si riceveranno i risultati.
 
@@ -98,4 +98,4 @@ I primi dieci risultati visualizzati provengono dalla tabella StormEvents.
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Avvio rapido: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)
+> [Guida introduttiva: Inserire dati usando la libreria di Esplora dati di Azure per Python](python-ingest-data.md)

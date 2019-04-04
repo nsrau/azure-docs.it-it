@@ -1,21 +1,21 @@
 ---
-title: 'Avvio rapido: Visualizzare i dati con il connettore Esplora dati di Azure per Power BI'
+title: 'Guida introduttiva: Visualizzare i dati con il connettore Esplora dati di Azure per Power BI'
 description: 'In questa guida introduttiva viene descritto come usare una delle tre opzioni per la visualizzazione dei dati in Power BI: il connettore Power BI per Esplora dati di Azure.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ca3e68f3ef039f86957e47e22df48922498c292f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106747"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754741"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Avvio rapido: Visualizzare i dati con il connettore Esplora dati di Azure per Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Guida introduttiva: Visualizzare i dati con il connettore Esplora dati di Azure per Power BI
 
 Esplora dati di Azure è un servizio di esplorazione dati rapido e a scalabilità elevata per dati di log e di telemetria. Power BI è una soluzione di analisi aziendale che consente di visualizzare i dati e condividere i risultati all'interno dell'organizzazione.
 
