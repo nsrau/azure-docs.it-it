@@ -161,7 +161,7 @@ items:
         href: active-directory-b2c-setup-sf-app-custom.md
     - name: Tenere traccia del comportamento degli utenti
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
-    - name: riferimento
+    - name: Informazioni di riferimento
       items:
       - name: Resolver di attestazioni
         href: claim-resolver-overview.md
@@ -288,10 +288,12 @@ items:
     href: b2clogin.md
   - name: Usare l'API Graph di Azure AD
     href: active-directory-b2c-devquickstarts-graph-dotnet.md
-  - name: riferimento
+  - name: Informazioni di riferimento
     items:
     - name: Esempi di codice
       href: https://azure.microsoft.com/resources/samples/?service=active-directory-b2c
+    - name: Definizioni dei cookie
+      href: cookie-definitions.md
     - name: Aree di disponibilità e residenza dei dati
       href: active-directory-b2c-reference-tenant-type.md
     - name: Abilitare la fatturazione
@@ -324,9 +326,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 81e58beb53ec818555f47c24fb21dcecf553878b
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418806"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886574"

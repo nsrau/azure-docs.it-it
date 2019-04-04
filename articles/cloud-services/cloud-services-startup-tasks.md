@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 6601eba90f3c3644d418ddd0a74746e1a12bcbd3
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 59bfa83ab3432adb7a4df5112367f87014a0b292
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007780"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917618"
 ---
 # <a name="how-to-configure-and-run-startup-tasks-for-a-cloud-service"></a>Come configurare ed eseguire attività di avvio per un servizio cloud
 È possibile usare le attività di avvio per eseguire operazioni prima dell'avvio di un ruolo. Le operazioni che si possono eseguire sono l'installazione di un componente, la registrazione dei componenti COM, l'impostazione delle chiavi del Registro di sistema o l'avvio di un processo a esecuzione prolungata.
@@ -50,13 +50,13 @@ Di seguito è riportata la procedura di avvio di un ruolo in Azure:
    * Le attività di tipo **background** e **foreground** vengono avviate in modo asincrono, in parallelo all'attività di avvio.  
      
      > [!WARNING]
-     > È possibile che IIS non sia stato configurato completamente nella fase delle attività di avvio del processo di avvio, pertanto potrebbero non essere disponibili dati specifici per il ruolo. Per le attività di avvio che richiedono dati specifici per il ruolo è necessario usare [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx).
+     > È possibile che IIS non sia stato configurato completamente nella fase delle attività di avvio del processo di avvio, pertanto potrebbero non essere disponibili dati specifici per il ruolo. Per le attività di avvio che richiedono dati specifici per il ruolo è necessario usare [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)).
      > 
      > 
 3. Viene avviato il processo host del ruolo e il sito viene creato in IIS.
-4. Viene chiamato il metodo [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) .
+4. Viene chiamato il metodo [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.OnStart](/previous-versions/azure/reference/ee772851(v=azure.100)) .
 5. L'istanza viene contrassegnata con lo stato **Pronto** e il traffico viene indirizzato all'istanza.
-6. Viene chiamato il metodo [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.run.aspx) .
+6. Viene chiamato il metodo [Microsoft.WindowsAzure.ServiceRuntime.RoleEntryPoint.Run](/previous-versions/azure/reference/ee772746(v=azure.100)) .
 
 ## <a name="example-of-a-startup-task"></a>Esempio di attività di avvio
 Le attività di avvio vengono definite nel file [ServiceDefinition.csdef] nell'elemento **Task** . L'attributo **commandLine** specifica il nome e i parametri del file batch o del comando di console di avvio, l'attributo **executionContext** specifica il livello di privilegio dell'attività di avvio e l'attributo **taskType** specifica la modalità di esecuzione dell'attività.
@@ -99,9 +99,9 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 **executionContext** : specifica il livello di privilegio per l'attività di avvio. Il livello di privilegio può essere limitato o elevato:
 
-* **limitato**  
+* **Limited**  
   : l'attività di avvio viene eseguita con gli stessi privilegi del ruolo. Quando anche l'attributo **executionContext** dell'elemento [Runtime] è **limitato**, vengono usati i privilegi utente.
-* **elevato**  
+* **elevated**  
   : l'attività di avvio viene eseguita con privilegi di amministratore. In questo modo attraverso le attività di avvio è possibile installare programmi, apportare modifiche alla configurazione di IIS, effettuare modifiche al Registro di sistema e altre attività a livello di amministratore senza aumentare il livello di privilegio del ruolo.  
 
 > [!NOTE]
@@ -111,7 +111,7 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
 
 **taskType** : specifica la modalità di esecuzione di un'attività di avvio.
 
-* **simple**  
+* **Semplice**  
   vengono eseguite in modo sincrono, una alla volta, nell'ordine specificato nel file [ServiceDefinition.csdef] . Quando un'attività di avvio **simple** termina con un valore **errorlevel** uguale a zero, viene eseguita l'attività di avvio **simple** successiva. Se non sono presenti altre attività di avvio **simple** da eseguire, viene avviato il ruolo.   
   
   > [!NOTE]
@@ -121,9 +121,9 @@ Di seguito vengono descritti gli attributi dell'elemento **Task** nel file [Serv
   
     Per assicurarsi che il file batch termini con un valore **errorlevel** uguale a zero, eseguire il comando `EXIT /B 0` al termine del processo del file batch.
 * **background**  
-  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
-* **foreground**  
-  vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
+   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo.
+* **In primo piano**  
+   vengono eseguite in modo asincrono, in parallelo con l'avvio del ruolo. La differenza principale tra un'attività **foreground** e un'attività **background** è che l'attività **foreground** impedisce il riciclo o l'arresto del ruolo fino al termine dell'attività. Le attività **background** non prevedono questa restrizione.
 
 ## <a name="environment-variables"></a>Variabili di ambiente
 Le variabili di ambiente costituiscono un modo per passare le informazioni a un'attività di avvio. È ad esempio possibile inserire il percorso di un BLOB contenente un programma da installare, i numeri di porta che verranno usati dal ruolo o impostazioni per controllare le funzionalità dell'attività di avvio.
@@ -161,10 +161,10 @@ Informazioni su come eseguire alcune [attività di avvio comuni](cloud-services-
 [Creare il pacchetto](cloud-services-model-and-package.md) del servizio cloud.  
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Attività]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Environment]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
-[Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
+[Variabile]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx

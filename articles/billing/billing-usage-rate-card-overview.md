@@ -16,12 +16,12 @@ ms.workload: billing
 ms.date: 5/10/2018
 ms.author: erikre
 ms.custom: seodec18
-ms.openlocfilehash: cd1688cd9d3d19242800b04e7e29c8875879cffc
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 99772579fd28b0880d497abb038fb25fd2a6139e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351570"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918213"
 ---
 # <a name="use-azure-billing-apis-to-programmatically-get-insight-into-your-azure-usage"></a>Usare le API di fatturazione di Azure per ottenere informazioni approfondite sull'uso di Azure a livello di codice
 Usare le API di fatturazione di Azure per raccogliere e immettere i dati di uso e delle risorse negli strumenti di analisi dei dati scelti. Le API di utilizzo delle risorse di Azure e RateCard possono aiutare a prevedere e gestire i costi con precisione. Le API vengono implementate come provider di risorse, nell’ambito della famiglia di API esposte da Azure Resource Manager.  
@@ -36,7 +36,7 @@ Dopo aver [completato il consenso esplicito](billing-manage-access.md#opt-in), s
 > Questa funzionalità è nella prima versione di anteprima e può essere soggetta a modifiche incompatibili con le versioni precedenti. Attualmente, non è disponibile per alcune offerte di sottoscrizione, EA, CSP e AIO non sono supportati, e in Azure Germania.
 
 ## <a name="azure-resource-usage-api-preview"></a>API di utilizzo delle risorse di Azure (anteprima)
-Per ottenere una stima dei dati di consumo di Azure usare l'[API di uso delle risorse](https://msdn.microsoft.com/library/azure/mt219003) di Azure. L'API include:
+Per ottenere una stima dei dati di consumo di Azure usare l'[API di uso delle risorse](/previous-versions/azure/reference/mt219003(v=azure.100)) di Azure. L'API include:
 
 * **Controllo degli accessi in base al ruolo di Azure**: configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azure/overview) per specificare quali utenti o applicazioni possono avere accesso ai dati di utilizzo della sottoscrizione. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Per ottenere l'accesso ai dati di uso per una determinata sottoscrizione di Azure aggiungere il chiamante al ruolo Lettore della fatturazione, Proprietario o Collaboratore.
 * **Aggregazioni orarie o giornaliere** : i chiamanti possono specificare se desiderano i dati di utilizzo di Azure in intervalli orari o giornalieri. L’impostazione predefinita è rappresentata dagli intervalli giornalieri.
@@ -45,7 +45,7 @@ Per ottenere una stima dei dati di consumo di Azure usare l'[API di uso delle ri
 * **Utilizzo per differenti tipi di offerte**: i dati di utilizzo sono accessibili per tutti i tipi di offerta, tra cui il pagamento in base al consumo, MSDN, l’impegno monetario, il credito monetari ed EA, eccetto [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-invoice#retrieve-usage-data-for-a-specific-subscription).
 
 ## <a name="azure-resource-ratecard-api-preview"></a>API RateCard delle risorse di Azure (anteprima)
-Per ottenere l'elenco delle risorse di Azure disponibili e una stima delle informazioni sul prezzo di ognuna di esse usare l'[API RateCard delle risorse di Azure](https://msdn.microsoft.com/library/azure/mt219005). L'API include:
+Per ottenere l'elenco delle risorse di Azure disponibili e una stima delle informazioni sul prezzo di ognuna di esse usare l'[API RateCard delle risorse di Azure](/previous-versions/azure/reference/mt219005(v=azure.100)). L'API include:
 
 * **Controllo degli accessi in base al ruolo di Azure**: configurare i propri criteri di accesso nel [portale di Azure](https://portal.azure.com) o tramite i [cmdlet di Azure PowerShell](/powershell/azure/overview) per specificare quali utenti o applicazioni possono avere accesso ai dati di RateCard. Per l’autenticazione, i chiamanti devono utilizzare i token standard di Azure Active Directory. Aggiungere il chiamante al ruolo Lettore, Proprietario o Collaboratore per ottenere l'accesso ai dati di utilizzo per una determinata sottoscrizione di Azure.
 * **Supporto delle offerte con pagamento in base al consumo, MSDN, impegno monetario e credito monetario (EA e [CSP](https://docs.microsoft.com/azure/cloud-solution-provider/billing/azure-csp-pricelist#get-prices-by-using-the-azure-rate-card) non supportati)** : questa API fornisce informazioni sulle tariffe a livello di offerta di Azure.  Il chiamante di questa API deve passare le informazioni sull'offerta per dettagli e tariffe delle risorse. Dal momento che le offerte EA hanno tariffe personalizzate in base alla registrazione, al momento non è possibile fornire le tariffe EA.
@@ -65,10 +65,10 @@ Di seguito sono illustrati alcuni scenari resi possibili con la combinazione di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Controllare gli esempi di codice su GitHub:
-  * [Esempio di codice API della fattura](https://go.microsoft.com/fwlink/?linkid=845124)
+  * [Esempio di codice per l'API di fatturazione](https://go.microsoft.com/fwlink/?linkid=845124)
 
-  * [Uso del codice di esempio API](https://github.com/Azure-Samples/billing-dotnet-usage-api)
+  * [Esempio di codice per l'API di utilizzo](https://github.com/Azure-Samples/billing-dotnet-usage-api)
 
-  * [Codice di esempio API RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
+  * [Esempio di codice per l'API RateCard](https://github.com/Azure-Samples/billing-dotnet-ratecard-api)
 
 * Per altre informazioni su Azure Resource Manager, vedere [Panoramica di Gestione risorse di Microsoft Azure](../azure-resource-manager/resource-group-overview.md).

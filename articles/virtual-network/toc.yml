@@ -84,6 +84,8 @@ items:
     items:
     - name: Reti virtuali
       href: virtual-network-vnet-plan-design-arm.md
+    - name: Ottimizzazione delle prestazioni TCP/IP per le macchine virtuali di Azure
+      href: virtual-network-tcpip-performance-tuning.md
   - name: Distribuire
     items:
     - name: Gruppi di sicurezza di rete
@@ -328,12 +330,12 @@ items:
         href: virtual-networks-dmz-nsg-fw-udr-asm.md
       - name: Applicazione di esempio
         href: virtual-networks-sample-app.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/network
   - name: Azure PowerShell
-    href: /powershell/module/azurerm.network
+    href: /powershell/module/az.network
   - name: .NET
     href: /api/overview/azure/virtual-network
   - name: Java
@@ -366,9 +368,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
   - name: Domande frequenti
     href: virtual-networks-faq.md
-ms.openlocfilehash: 028be4695de7d8e36bd76127523ef0f3155828ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 233a81ac0cf062475f6992f0206b609579e0fd55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57998484"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849345"

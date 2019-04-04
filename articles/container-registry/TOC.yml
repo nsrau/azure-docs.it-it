@@ -7,13 +7,15 @@ items:
     href: container-registry-intro.md
 - name: Guide introduttive
   items:
-  - name: 'Registro Container: interfaccia della riga di comando'
+  - name: Creare un registro contenitori - Interfaccia della riga di comando
     href: container-registry-get-started-azure-cli.md
-  - name: 'Registro Container: portale'
+  - name: Creare un registro contenitori - Portale
     href: container-registry-get-started-portal.md
-  - name: 'Registro Container: PowerShell'
+  - name: Creare un registro contenitori - PowerShell
     href: container-registry-get-started-powershell.md
-  - name: 'Eventi con Griglia di eventi: interfaccia della riga di comando'
+  - name: Compilare ed eseguire l'immagine - Interfaccia della riga di comando
+    href: container-registry-quickstart-task-cli.md
+  - name: Inviare eventi a Griglia di eventi - Interfaccia della riga di comando
     href: container-registry-event-grid-quickstart.md
   expanded: true
 - name: Esercitazioni
@@ -89,10 +91,8 @@ items:
     items:
     - name: Attività di Registro Azure Container
       href: container-registry-tasks-overview.md
-    - name: Attività in più passaggi (anteprima)
+    - name: Attività in più passaggi
       href: container-registry-tasks-multi-step.md
-    - name: Informazioni di riferimento sulle attività in più passaggi (anteprima)
-      href: container-registry-tasks-reference-yaml.md
   - name: Registri e altri servizi di Azure
     items:
     - name: Istanze di Azure Container
@@ -101,7 +101,7 @@ items:
       href: ../aks/tutorial-kubernetes-prepare-app.md
     - name: Service Fabric
       href: ../service-fabric/service-fabric-tutorial-create-container-images.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/acr
@@ -119,6 +119,8 @@ items:
     href: /javascript/api/overview/azure/container-registry
   - name: Modello di Resource Manager
     href: /azure/templates/microsoft.containerregistry/registries
+  - name: Codice YAML di Attività del Registro Azure Container
+    href: container-registry-tasks-reference-yaml.md
   - name: Schema dei webhook
     href: container-registry-webhook-reference.md
   - name: Schema di Griglia di eventi
@@ -140,9 +142,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-container-registry
   - name: Video
     href: https://azure.microsoft.com/resources/videos/index/?services=container-registry&sort=newest
-ms.openlocfilehash: 3b5c8cc63db967fd582d15765f2fd1ca1c7bbb3e
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 987b70f527afe9b9d09eeef70c7fa706c3e58932
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847677"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917873"

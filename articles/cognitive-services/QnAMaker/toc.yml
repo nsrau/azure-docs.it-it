@@ -140,7 +140,7 @@ items:
       href: Quickstarts/python.md
     - name: Go
       href: Quickstarts/go.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: Informazioni di riferimento sulle API REST
     href: https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff
@@ -153,6 +153,10 @@ items:
   - name: Codici di risposta HTTP
     displayName: 200, 2xx, 400, 401, 403, 404
     href: http-response-codes.md
+  - name: Esempi
+    items:
+    - name: Bot della Guida di QnA Maker
+      href: https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot
   - name: SDK
     items:
     - name: C#
@@ -193,9 +197,9 @@ items:
     href: https://docs.microsoft.com/search/index?search=QnAMaker
   - name: Blog
     href: https://blog.botframework.com/category/QnAMaker/
-ms.openlocfilehash: d1e2e6729539c2041604c795306f1a404c39d143
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 5b3ed41dfd4ee878f948c4940bc7b642bc26cb6a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621947"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886506"

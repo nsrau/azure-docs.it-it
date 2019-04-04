@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.author: diberry
-ms.openlocfilehash: 0acb844b8b10ff210985dfcd8c96f15da6669356
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 72c4f23f47e0a2c6d9a96dbbe36716bc3ab665f1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337477"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891430"
 ---
 # <a name="create-a-new-luis-app-in-the-luis-portal"></a>Creare una nuova app LUIS nel portale LUIS
 Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel portale [LUIS](https://www.luis.ai) o tramite le [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) di creazione di LUIS.
@@ -66,6 +66,17 @@ Un'app LUIS può essere creata in due modi. È possibile creare un'app LUIS nel 
 Gli errori possibili sono: 
 
 * Un'app con lo stesso nome esiste già. Reimportare le app e impostare il **nome facoltativo** a un nuovo nome. 
+
+## <a name="export-app"></a>Esportare l'applicazione
+
+1. Nella pagina **App personali**, seleziona **Importa una nuova applicazione**.
+1. Nella finestra di dialogo **Importa una nuova applicazione**, seleziona il file JSON che definisce l'applicazione LUIS.
+
+## <a name="delete-app"></a>Eliminare l'applicazione
+
+1. Nella pagina **App personali** seleziona i tre punti di sospensione (...) alla fine della riga dell'applicazione.
+1. Seleziona **Elimina** dal menu.
+1. Nella finestra di conferma fai clic su **Ok**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

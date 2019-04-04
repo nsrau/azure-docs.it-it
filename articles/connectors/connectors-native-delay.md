@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27963673"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893725"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introduzione alle azioni si ritardo e ritardo fino a
 Le azioni di ritardo e "ritardo fino a" consentono di completare scenari di flusso di lavoro.
@@ -33,9 +33,11 @@ Ad esempio, è possibile:
 Per iniziare a usare un'azione di ritardo in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Usare le azioni di ritardo
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).
 
-Di seguito è riportata una sequenza di esempio di come usare un passaggio di ritardo in un'app per la logica:
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. 
+[Altre informazioni sulle azioni](../connectors/apis-list.md).
+
+Ecco una sequenza di esempio di come usare un passaggio di ritardo in un'app per la logica:
 
 1. Dopo aver aggiunto un trigger, fare clic su **Nuovo passaggio** per aggiungere un'azione.
 2. Cercare **ritardo** per visualizzare le azioni di ritardo. In questo esempio si selezionerà **Ritarda**.
@@ -56,7 +58,7 @@ Un asterisco (*) indica che è un campo obbligatorio.
 | Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
 | Conteggio* |count |Il numero di unità di tempo di ritardo |
-| Unità* |unit |Unità di tempo: `Second`, `Minute`, `Hour` o `Day` |
+| Unità* |unit |L'unità di tempo: `Second`, `Minute`, `Hour`, o `Day` |
 
 <br>
 
@@ -66,9 +68,9 @@ Un asterisco (*) indica che è un campo obbligatorio.
 
 | Nome visualizzato | Nome proprietà | DESCRIZIONE |
 | --- | --- | --- |
-| Anno* |timestamp |L'anno di termine del ritardo (GMT) |
-| Mese* |timestamp |Il mese di termine del ritardo (GMT) |
-| Giorno* |timestamp |Il giorno di termine del ritardo (GMT) |
+| Anno* | timestamp |L'anno di termine del ritardo (GMT) |
+| Mese* | timestamp |Il mese di termine del ritardo (GMT) |
+| Giorno* | timestamp |Il giorno di termine del ritardo (GMT) |
 
 <br>
 

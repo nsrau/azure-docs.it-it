@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b7dbea4736eae3371d288883ba40d8edfe310869
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727945"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877497"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Esercitazione: Migrare dati locali in una risorsa di archiviazione cloud tramite AzCopy
 
@@ -59,7 +59,7 @@ I nomi dei contenitori devono iniziare con una lettera o un numero e possono con
 
 È possibile usare AzCopy per caricare tutti i file di una cartella nell'archiviazione BLOB di [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) o [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). Per caricare tutti i BLOB di una cartella, immettere il comando AzCopy seguente:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy \
         --source /mnt/myfolder \
@@ -67,7 +67,7 @@ I nomi dei contenitori devono iniziare con una lettera o un numero e possono con
         --dest-key <key> \
         --recursive
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
@@ -82,7 +82,7 @@ Per caricare in modo ricorsivo i contenuti della directory specificata nell'arch
 
 Se si vogliono copiare solo le risorse di origine non ancora disponibili nella destinazione, specificare nel comando AzCopy entrambi i parametri: `--exclude-older` e `--exclude-newer` (Linux) o `/XO` e `/XN` (Windows). AzCopy carica solo i dati aggiornati, in base al relativo timestamp.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy \
     --source /mnt/myfolder \
@@ -91,7 +91,7 @@ Se si vogliono copiare solo le risorse di origine non ancora disponibili nella d
     --recursive \
     --exclude-older
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
@@ -102,11 +102,11 @@ Se si vogliono copiare solo le risorse di origine non ancora disponibili nella d
 
 Copiare il comando AzCopy in un editor di testo. Aggiornare i valori di parametro del comando AzCopy con i valori appropriati. Salvare il file come `script.sh` (Linux) o `script.bat` (Windows) per AzCopy.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
@@ -117,7 +117,7 @@ AzCopy viene eseguito con l'opzione verbose `--verbose` (Linux) o `/V` (Windows)
 In questa esercitazione viene usato il comando [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) per creare un'attività pianificata in Windows, il comando [Crontab](http://crontab.org/) per creare un processo cron in Linux.
  **Schtasks** consente agli amministratori di creare, eliminare, interrogare, modificare, eseguire e terminare attività pianificate in un computer locale o remoto. **Cron** consente agli utenti di Linux e Unix di eseguire comandi o script in una data e a un'ora specifiche usando [espressioni cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
 Per creare un processo cron in Linux, immettere il comando seguente su un terminale:
 
@@ -126,9 +126,9 @@ crontab -e
 */5 * * * * sh /path/to/script.sh
 ```
 
-Se nel comando si specifica l'espressione cron `*/5 * * * * `, si indica che lo script di shell `script.sh` deve essere eseguito ogni cinque minuti. È possibile pianificare lo script in modo che venga eseguito a un'ora specifica ogni giorno, mese o anno. Per altre informazioni sull'impostazione della data e dell'ora di esecuzione del processo, vedere la sezione sulle [espressioni cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+Se nel comando si specifica l'espressione cron `*/5 * * * *`, si indica che lo script di shell `script.sh` deve essere eseguito ogni cinque minuti. È possibile pianificare lo script in modo che venga eseguito a un'ora specifica ogni giorno, mese o anno. Per altre informazioni sull'impostazione della data e dell'ora di esecuzione del processo, vedere la sezione sulle [espressioni cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
 Per creare un'attività pianificata in Windows, immettere il comando seguente al prompt dei comandi o in PowerShell:
 

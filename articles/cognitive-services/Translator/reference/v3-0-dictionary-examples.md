@@ -3,19 +3,19 @@ title: Metodo Dictionary Examples dell'API Traduzione testuale
 titlesuffix: Azure Cognitive Services
 description: Usare il metodo Dictionary Examples dell'API Traduzione testuale.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: a72aca47b33c911d4812274cfa624eaacbdec0d0
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884784"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916422"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>API Traduzione testuale 3.0: Esempi di dizionari
 
@@ -56,7 +56,7 @@ Le intestazioni della richiesta includono:
   <th width="20%">Headers</th>
   <th>DESCRIZIONE</th>
   <tr>
-    <td>_Intestazione_<br/>_di autorizzazione_</td>
+    <td>_Un'autorizzazione_<br/>_intestazione_</td>
     <td>*Intestazione della richiesta obbligatoria*.<br/>Vedere le [opzioni disponibili per l'autenticazione](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -79,7 +79,7 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un 
 
   * `Text`: stringa che specifica il termine da ricercare. Questo deve essere il valore di un campo `normalizedText` dalle traduzioni inverse di una richiesta di [ricerca precedente nel dizionario](./v3-0-dictionary-lookup.md). Può anche essere il valore del campo `normalizedSource`.
 
-  * `Translation`: stringa che specifica il testo tradotto restituito in precedenza dall'operazione di [ricerca nel dizionario](./v3-0-dictionary-lookup.md). Deve essere il valore del campo `normalizedTarget` nell'elenco `translations` della risposta della [ricerca nel dizionario](./v3-0-dictionary-lookup.md). Il servizio restituirà esempi relativi alla specifica coppia di parole di origine-destinazione.
+  * `Translation`: stringa che specifica il testo tradotto restituito in precedenza dall'operazione di ](./v3-0-dictionary-lookup.md)ricerca nel dizionario. Deve essere il valore del campo `normalizedTarget` nell'elenco `translations` della risposta della [ricerca nel dizionario](./v3-0-dictionary-lookup.md). Il servizio restituirà esempi relativi alla specifica coppia di parole di origine-destinazione.
 
 Di seguito è riportato un esempio:
 
@@ -104,11 +104,11 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
   
   * `examples`: elenco di esempi per la coppia termine origine-termine di destinazione. Ogni elemento dell'elenco è un oggetto con le proprietà seguenti:
 
-    * `sourcePrefix`: stringa da concatenare _prima_ del valore `sourceTerm` per formare un esempio completo. Non aggiungere uno spazio perché è già presente. Questo valore può essere una stringa vuota.
+    * `sourcePrefix`: stringa da concatenare _prima`sourceTerm` del valore  per formare un esempio completo. Non aggiungere uno spazio perché è già presente. Questo valore può essere una stringa vuota.
 
     * `sourceTerm`: stringa uguale al termine cercato effettivo. La stringa viene aggiunta con `sourcePrefix` e `sourceSuffix` per formare l'esempio completo. Il valore è separato e pertanto può essere contrassegnato in un'interfaccia utente, ad esempio, con il grassetto.
 
-    * `sourceSuffix`: stringa da concatenare _dopo_ il valore `sourceTerm` per formare un esempio completo. Non aggiungere uno spazio perché è già presente. Questo valore può essere una stringa vuota.
+    * `sourceSuffix`: stringa da concatenare _dopo`sourceTerm` il valore  per formare un esempio completo. Non aggiungere uno spazio perché è già presente. Questo valore può essere una stringa vuota.
 
     * `targetPrefix`: stringa simile a `sourcePrefix` ma per la destinazione.
 
@@ -123,7 +123,7 @@ Una risposta corretta è una matrice JSON con un risultato per ogni stringa nell
 
 Questo esempio illustra come ricercare esempi per la coppia formata dal termine inglese `fly` e la sua traduzione in spagnolo `volar`.
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# [<a name="curl"></a>CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

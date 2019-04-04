@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 6a2d2825e382a6cda8a1fc04fd223e700cf8d284
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757333"
 documentType: LandingData
 title: Documentazione dell'anteprima del Centro sicurezza di Azure per IoT
 metadata:
-  title: Documentazione dell'anteprima del Centro sicurezza di Azure per IoT - Esercitazioni, guide di avvio rapido | Microsoft Docs
+  title: 'Documentazione dell''anteprima del Centro sicurezza di Azure per IoT - Esercitazioni, guide di avvio rapido | Microsoft Docs'
   meta.description: Azure Security Center for IoT unifies your security management and enables advanced threat protection across your IoT solution.
-  services: ascforiot
+  services: asc-for-iot
   author: mlottner
   manager: barbkess
   ms.service: ascforiot
@@ -20,48 +14,48 @@ metadata:
   ms.date: 03/26/19
   ms.author: barbkess
 abstract:
-  description: Usare l'anteprima del Centro sicurezza di Azure per IoT per estendere l'attuale visibilità della cybersecurity all'intera soluzione IoT. Offre un quadro panoramico completo sulla sicurezza di tutte le risorse correlate ad Azure. Le opzioni per la distribuzione rapida e la piena integrazione con i moduli gemelli nell'hub IoT assicurano un'ampia gamma di opzioni di personalizzazione e l'integrazione immediata con gli attuali strumenti di gestione dei dispositivi. 
+  description: "Usare l'anteprima del Centro sicurezza di Azure per IoT per estendere l'attuale visibilità della cybersecurity all'intera soluzione IoT. Offre un quadro panoramico completo sulla sicurezza di tutte le risorse correlate ad Azure. Le opzioni per la distribuzione rapida e la piena integrazione con i moduli gemelli nell'hub IoT assicurano un'ampia gamma di opzioni di personalizzazione e l'integrazione immediata con gli attuali strumenti di gestione dei dispositivi.\_"
 sections:
-- title: Guide di avvio rapido di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come abilitare l'hub IoT nel Centro sicurezza di Azure per IoT, installare gli agenti del Centro sicurezza di Azure per IoT e ottenere visibilità nei dati e nelle potenziali minacce.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: media/index/deploy.svg
-      text: Abilitare il Centro sicurezza di Azure per IoT
-      href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-    - image:
-        src: media/index/get-started.svg
-      text: Introduzione al Centro sicurezza di Azure per IoT
-      href: /azure/asc-for-iot/getting-started
-- title: Guide alle procedure
-  items:
-  - type: paragraph
-    text: Informazioni su come definire criteri di sicurezza, proteggere i dispositivi da attività dannose e rispondere ad avvisi ed eventi imprevisti relativi alla sicurezza.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Informazioni su come abilitare l''hub IoT nel Centro sicurezza di Azure per IoT, installare gli agenti del Centro sicurezza di Azure per IoT e ottenere visibilità nei dati e nelle potenziali minacce.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/deploy.svg
+            text: Abilitare il Centro sicurezza di Azure per IoT
+            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
+          - image:
+              src: media/index/get-started.svg
+            text: Introduzione al Centro sicurezza di Azure per IoT
+            href: /azure/asc-for-iot/getting-started
+  - title: Guide alle procedure
     items:
-    - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Rilevare le minacce con il Centro sicurezza di Azure per IoT</a>
-- title: Sviluppare le proprie competenze con Microsoft Learn
-  items:
-  - type: list
-    style: cards
-    className: cardsFTitle
+      - type: paragraph
+        text: 'Informazioni su come definire criteri di sicurezza, proteggere i dispositivi da attività dannose e rispondere ad avvisi ed eventi imprevisti relativi alla sicurezza.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Rilevare le minacce con il Centro sicurezza di Azure per IoT</a>
+  - title: Sviluppare le proprie competenze con Microsoft Learn
     items:
-    - title: Introduzione alla sicurezza in Azure
-      href: https://docs.microsoft.com/learn/azure
-      image:
-        src: media/index/tutorial.svg
-        href: https://docs.microsoft.com/learn/azure
-  - type: paragraph
-    text: <a href="/learn/browse/?term=security">Altre risorse di apprendimento interattivo</a>
-- title: Informazioni di riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: Introduzione alla sicurezza in Azure
+            href: 'https://docs.microsoft.com/learn/azure'
+            image:
+              src: media/index/tutorial.svg
+              href: 'https://docs.microsoft.com/learn/azure'
+      - type: paragraph
+        text: <a href="/learn/browse/?term=security">Altre risorse di apprendimento interattivo...</a>
+  - title: Informazioni di riferimento
     items:
-    - html: <a href="https://azure.microsoft.com/updates/?product=iotsecurity">Aggiornamenti del servizio</a>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">Aggiornamenti del servizio</a>'

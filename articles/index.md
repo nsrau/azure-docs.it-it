@@ -2,10 +2,16 @@
 layout: HubPage
 hide_bc: true
 title: Documentazione di Microsoft Azure
-description: 'Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.'
+description: Informazioni su come compilare e gestire applicazioni avanzate usando i servizi cloud di Microsoft Azure. Ottenere la documentazione, il codice di esempio, le esercitazioni e altro.
 ms.topic: hub-page
 featureFlags:
-  - clicktale
+- clicktale
+ms.openlocfilehash: 97fd2ffd22f4a4c883d284a2d2db060cd1c2121c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878673"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -70,7 +76,7 @@ featureFlags:
         <h1 class="visually-hidden">Documentazione di Microsoft Azure</h1>
         <ul class="pivots">
             <li>
-                <a href="#get-started">Introduzione</a>
+                <a href="#get-started">Attività iniziali</a>
                 <ul id="get-started">
                     <li>
                         <a href="#get-started1"></a>
@@ -170,7 +176,7 @@ Go</a>
                                                <h4>Modelli di app</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/app-service-web/">App Web</a></li>
-                                                    <li><a class="barLink" href="/azure/azure-functions/">Funzioni senza server</a></li>
+                                                    <li><a class="barLink" href="/azure/azure-functions/">Funzioni serverless</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Contenitori</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">Microservizi con Kubernetes</a></li>
                                                     <li><a class="barLink" href="/azure/service-fabric/">Microservizi con Service Fabric</a></li>
@@ -189,7 +195,7 @@ Go</a>
                                                 <h4>Database relazionali</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">Database SQL distribuito come servizio</a></li>
-                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server in una VM di Azure</a></li>
+                                                    <li><a class="barLink" href="/azure/virtual-machines/windows/sql/">SQL Server in una macchina virtuale di Azure</a></li>
                                                     <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse distribuito come servizio</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">Database PostgreSQL distribuito come servizio</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">Database MySQL distribuito come servizio</a></li>
@@ -204,9 +210,9 @@ Go</a>
                                                 </ul>
                                                 <h4>AI e Servizi cognitivi</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Servizi cognitivi</a></li>
-                                                    <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
+                                                    <li><a class="barLink" href="/azure/notebooks/">Notebook di Azure</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -223,7 +229,7 @@ Go</a>
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
-Interfaccia della riga di comando di Azure</a>
+Interfaccia della riga di comando di Azure </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
@@ -294,7 +300,7 @@ Azure DevOps Projects </a>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/tour-azure-portal/">
                                                             <img src="https://docs.microsoft.com/learn/achievements/tour-azure-services-and-features.svg" alt="">
-Presentazione dei servizi e delle funzionalità di Azure </a>
+Esplorare i servizi e le funzionalità di Azure </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/learn/modules/principles-cloud-computing/">
@@ -1619,6 +1625,12 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 <p>Azure Sentinel</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/asc-for-iot/">
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
+                                                <p>Centro sicurezza di Azure per IoT</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Identità</h3>
                                     <ul>
@@ -2737,7 +2749,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">Dispositivi mobili</a>
+                        <a href="#mobile">Mobile</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
@@ -3265,7 +3277,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#analytics">Analisi</a>
+                        <a href="#analytics">Analytics</a>
                         <ul id="analytics" class="cardsA">
                             <li>
                                 <a href="/azure/sql-data-warehouse/">
@@ -4594,7 +4606,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#security">Sicurezza</a>
+                        <a href="#security">Security</a>
                         <ul id="security" class="cardsA">
                             <li>
                                 <a href="/azure/security/">
@@ -4843,6 +4855,25 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/asc-for-iot/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Centro sicurezza di Azure per IoT</h3>
+                                                    <p>Informazioni su come unificare la gestione della sicurezza e abilitare la protezione avanzata dalle minacce nella soluzione ioT</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -4984,7 +5015,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#devtools">Strumenti per sviluppatori</a>
+                        <a href="#devtools">Strumenti di sviluppo</a>
                         <ul id="devtools" class="cardsA">
                             <li>
                                 <a href="/visualstudio/products/">
@@ -5910,7 +5941,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                 <a href="#sdkstools">SDK/Strumenti</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">Tutti</a>
+                        <a href="#sdkstools-all">tutti</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -5930,7 +5961,7 @@ Automatizzare le attività di Azure usando gli script con PowerShell </a>
                                                 <h3>
 Azure per sviluppatori .NET </h3>
                                                 <p>
-                                                    <a href="/dotnet/azure">Introduzione</a>
+                                                    <a href="/dotnet/azure">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api/overview/azure/?view=azure-dotnet">Informazioni di riferimento sulle API</a>
@@ -5953,7 +5984,7 @@ Azure per sviluppatori .NET </h3>
                                                 <h3>
 Azure per sviluppatori Python </h3>
                                                 <p>
-                                                    <a href="/python/azure">Introduzione</a>
+                                                    <a href="/python/azure">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="/python/api/overview/azure/">Informazioni di riferimento sulle API</a>
@@ -5976,7 +6007,7 @@ Azure per sviluppatori Python </h3>
                                                 <h3>
 Azure per sviluppatori Node.js </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Introduzione</a>
+                                                    <a href="/javascript/azure/">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">Informazioni di riferimento sulle API</a>
@@ -5999,7 +6030,7 @@ Azure per sviluppatori Node.js </h3>
                                                 <h3>
 Azure per sviluppatori Java </h3>
                                                 <p>
-                                                    <a href="/java/azure">Introduzione</a>
+                                                    <a href="/java/azure">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api">Informazioni di riferimento sulle API</a>
@@ -6022,7 +6053,7 @@ Azure per sviluppatori Java </h3>
                                                 <h3>
 Azure per sviluppatori Go </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Introduzione</a>
+                                                    <a href="/go/azure/">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Informazioni di riferimento sulle API</a>
@@ -6070,7 +6101,7 @@ API REST di Azure </h3>
                                                 <h3>
 Interfaccia della riga di comando di Azure </h3>
                                                 <p>
-                                                    <a href="/cli/azure">Introduzione</a>
+                                                    <a href="/cli/azure">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure/reference-index">Informazioni di riferimento</a>
@@ -6092,7 +6123,7 @@ Interfaccia della riga di comando di Azure </h3>
                                             <div class="cardText">
                                                 <h3>Azure PowerShell</h3>
                                                 <p>
-                                                    <a href="/powershell/azure/get-started-azureps">Introduzione</a>
+                                                    <a href="/powershell/azure/get-started-azureps">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="/powershell/azure/overview">Informazioni di riferimento</a>
@@ -6283,7 +6314,7 @@ Azure Resource Manager </h3>
                                                     <a href="https://storageexplorer.com">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Introduzione</a>
+                                                    <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=722418">Download per Linux</a>
@@ -6321,7 +6352,7 @@ SDK e strumenti di Service Fabric </h3>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Download per Mac OS X</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Download per l'interfaccia della riga di comando di Service Fabric</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Download per l'interfaccia della riga di comando di Service Fabric </a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6349,7 +6380,7 @@ Strumenti SQL </h3>
                                                     <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SQL Server Data Tools (SSDT)</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/sql/tools/overview-sql-tools">Vedere tutti gli strumenti SQL</a>
+                                                    <a href="/sql/tools/overview-sql-tools">Visualizzare tutti gli strumenti SQL</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6368,7 +6399,7 @@ Strumenti SQL </h3>
                                                 <h3>
 Azure Dev Spaces </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Introduzione</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Attività iniziali</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">Download per .NET Core e Visual Studio Code</a>

@@ -105,6 +105,8 @@ items:
         href: service-bus-sas.md
     - name: Filtri e azioni per gli argomenti
       href: topic-filters.md
+    - name: Eseguire la migrazione da spazi dei nomi Standard a Premium
+      href: service-bus-migrate-standard-premium.md
     - name: Code e argomenti partizionati
       href: service-bus-partitioning.md
     - name: Sessioni di messaggistica
@@ -121,6 +123,8 @@ items:
         href: service-bus-amqp-protocol-guide.md
       - name: Operazioni basate su richiesta-risposta AMQP
         href: service-bus-amqp-request-response.md
+      - name: Errori di AMQP
+        href: service-bus-amqp-troubleshoot.md
     - name: Funzionalità avanzate
       items:
       - name: Usare firewall
@@ -176,7 +180,7 @@ items:
     items:
     - name: Eccezioni
       href: service-bus-messaging-exceptions.md
-- name: riferimento
+- name: Informazioni di riferimento
   items:
   - name: .NET
     items:
@@ -234,9 +238,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
-ms.openlocfilehash: 09a7759c89411d53b374552a969f7aefdb89ee98
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 464e19bc796e41045d0c8422718da39f2aa66a9b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848096"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906277"

@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551972"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893396"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Chiamare gli endpoint REST con il connettore HTTP + Swagger in App per la logica di Azure
 
@@ -28,7 +28,7 @@ Per informazioni su come creare app per la logica con i connettori, consultare [
 
 Il trigger e l'azione HTTP + Swagger funzionano come l'[azione HTTP](connectors-native-http.md), ma offrono un'esperienza migliore in Progettazione app per la logica, mostrando la forma dell'API e i risultati grazie ai [metadati Swagger](https://swagger.io). È anche possibile usare il connettore HTTP + Swagger come trigger. Se si desidera implementare un trigger di poll, seguire il modello di polling descritto in [Creazione di un'API personalizzata da usare con le app per la logica](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Altre informazioni sui [trigger e le azioni nelle app per la logica](connectors-overview.md).
+Altre informazioni sui [trigger e le azioni nelle app per la logica](../connectors/apis-list.md).
 
 Di seguito è riportato un esempio di come usare l'operazione HTTP + Swagger come azione in un flusso di lavoro in un'app per la logica.
 
@@ -72,14 +72,14 @@ Ecco i passaggi per creare, configurare e archiviare i documenti di Swagger in A
 Di seguito sono riportati i dettagli per i trigger e le azioni supportati da questo connettore HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Trigger HTTP + Swagger
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger.](connectors-overview.md)  Il connettore HTTP + Swagger supporta un solo trigger.
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica.  Il connettore HTTP + Swagger supporta un solo trigger. [Altre informazioni sui trigger](../connectors/apis-list.md).
 
 | Trigger | DESCRIZIONE |
 | --- | --- |
 | HTTP + Swagger |Esegue una chiamata HTTP e restituisce il contenuto della risposta |
 
 ## <a name="http--swagger-actions"></a>Azioni HTTP + Swagger
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Ulteriori informazioni sulle azioni.](connectors-overview.md)  Il connettore HTTP + Swagger supporta una sola azione possibile.
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica.  Il connettore HTTP + Swagger supporta una sola azione possibile. [Altre informazioni sulle azioni](../connectors/apis-list.md).
 
 | Azione | DESCRIZIONE |
 | --- | --- |
@@ -123,7 +123,6 @@ Quando si eseguono chiamate a varie azioni, è possibile ottenere determinate ri
 | 404 |Non trovato |
 | 500 |Errore interno del server. Si è verificato un errore sconosciuto. |
 
-- - -
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
