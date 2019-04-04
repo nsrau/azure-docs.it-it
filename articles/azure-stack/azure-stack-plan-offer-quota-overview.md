@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763453"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497858"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Panoramica di piano, offerta, quote e sottoscrizione
 
@@ -47,11 +47,14 @@ Dopo aver creato l'offerta, gli utenti possono sottoscrivere per accedere ai ser
 
 ## <a name="plans"></a>Piani
 
-I piani sono raggruppamenti di uno o più servizi. Un operatore di Azure Stack, si [consente di creare piani](azure-stack-create-plan.md) per offrire agli utenti. A sua volta, gli utenti sottoscrivono le offerte per usare i piani e servizi che inclusi. Quando si creano i piani, assicurarsi di impostare le quote, definire i piani di base e provare a includere piani aggiuntivi facoltativi.
+I piani sono raggruppamenti di uno o più servizi. Un operatore di Azure Stack, si [consente di creare piani](azure-stack-create-plan.md) per offrire agli utenti. A loro volta, gli utenti sottoscrivono le offerte per usare i piani e i servizi inclusi. Quando si creano i piani, assicurarsi di impostare le quote, definire i piani di base e provare a includere piani aggiuntivi facoltativi.
 
 ### <a name="quotas"></a>Quote
 
 Per aiutarti a gestire la capacità del cloud, è possibile usare preconfigurati *quote*, o creare una nuova quota per ogni servizio in un piano. Le quote di definiscono i limiti di risorse superiore che può effettuare il provisioning o utilizzare una sottoscrizione utente. Ad esempio, una quota potrebbe consentire all'utente di creare fino a cinque macchine virtuali (VM).
+
+> [!IMPORTANT]
+> Può richiedere fino a due ore per le quote di nuovo a essere disponibile nel portale per gli utenti o prima viene applicata una quota modificata.
 
 È possibile configurare le quote per area. Ad esempio, un piano che fornisce servizi di calcolo per l'area A potrebbe avere una quota di due macchine virtuali.
 

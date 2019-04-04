@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259857"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904203"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Configurare un modello di dispositivo (nuova progettazione dell'interfaccia utente)
 
@@ -197,8 +197,8 @@ Esistono due tipi di proprietà di posizione che è possibile aggiungere:
    ![Modulo "Configure Location" (Configura posizione) con i dettagli per la posizione](./media/howto-set-up-template/locationcloudproperty2.png)
 
    Esistono due formati supportati per aggiungere una posizione:
-   - **Location come indirizzo**
-   - **Location come coordinate**
+   - **Posizione di un indirizzo**
+   - **Percorso come coordinate**
 
 4. Selezionare **Salva**. Un operatore può aggiornare il valore della posizione in **Device Explorer**.
 
@@ -280,4 +280,6 @@ Sarà possibile ridimensionare la mappa alle dimensioni desiderate. Ora, quando 
 Ora che si conosce la procedura per configurare un modello di dispositivo nell'applicazione Azure IoT Central, è possibile:
 
 > [!div class="nextstepaction"]
-> [Creare una nuova versione di un modello di dispositivo](howto-version-devicetemplate.md)
+> [Creare una nuova versione di modello di dispositivo](howto-version-devicetemplate.md)
+> [connettere un dispositivo MXChip IoT DevKit all'applicazione Azure IoT Central](howto-connect-devkit.md)
+> [connettere un'applicazione client generico di Azure Applicazione IoT Central (Node. js)](howto-connect-nodejs.md)

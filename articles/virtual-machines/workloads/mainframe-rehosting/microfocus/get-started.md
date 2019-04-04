@@ -1,19 +1,17 @@
 ---
 title: Micro-ambienti di sviluppo/test attivo in Azure | Microsoft Docs
 description: Rehosting IBM z/OS mainframe carichi di lavoro di uso di soluzioni di Micro Focus nelle macchine virtuali di Azure (VM).
-services: virtual-machines-linux
-documentationcenter: ''
 author: njray
-manager: edprice
-editor: edprice
-tags: ''
-keywords: ''
-ms.openlocfilehash: 23a650698f8484e3ed8f033331693484c2e02fac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.author: sread
+ms.date: 04/02/2019
+ms.topic: article
+ms.service: multiple
+ms.openlocfilehash: d83b4c89d0f37e2217974d6d1ed32ac73d8fa4df
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56740356"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893776"
 ---
 # <a name="micro-focus-devtest-environments-on-azure"></a>Micro-ambienti di sviluppo/test attivo in Azure
 
@@ -25,5 +23,6 @@ Micro Focus offre rehosting di sviluppo e test rehosting soluzioni che estendono
 
 **Passaggi successivi**
 
-- [Installare Micro Focus Enterprise Server 4.0 e gli sviluppatori aziendali 4.0 in Azure](./set-up-micro-focus-on-azure.md)
+- [Installare Micro Focus Enterprise Server 4.0 e gli sviluppatori aziendali 4.0 in Azure](./set-up-micro-focus-azure.md)
 - [Impostare i Micro messa a fuoco CICS BankDemo per Micro messa a fuoco Enterprise Developer 4.0 in Azure](./demo.md)
+- [Eseguire Server Enterprise in contenitori Docker in Azure](./run-enterprise-server-container.md)

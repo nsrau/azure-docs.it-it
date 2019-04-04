@@ -7,14 +7,14 @@ ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 4/2/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9d5a0cf9fa4f9ad8b5a673cd2420416f92edda91
-ms.sourcegitcommit: fd488a828465e7acec50e7a134e1c2cab117bee8
-ms.translationtype: HT
+ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/03/2019
-ms.locfileid: "53994981"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892229"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
  
@@ -44,12 +44,14 @@ Analisi di flusso di Azure usa un hub IoT per distribuire i processi Edge ai dis
 
 ### <a name="installation-instructions"></a>Istruzioni per l'installazione
 Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono disponibili nelle sezioni successive.
+
 |      |Passaggio   | Note   |
 | ---   | ---   |  ---      |
 | 1   | **Creare un contenitore di archiviazione**   | I contenitori di archiviazione vengono usati per salvare la definizione del processo in cui sono accessibili dai dispositivi IoT. <br>  È possibile riusare qualsiasi contenitore di archiviazione esistente.     |
-| 2   | **Creare un processo Edge di Analisi di flusso di Azure**   |  Creare un nuovo processo, selezionare **Edge** come **Ambiente host**. <br> Questi processi vengono creati e gestiti dal cloud ed eseguiti nei dispositivi IoT Edge.     |
+| 2   | **Creare un processo edge ASA**   |  Creare un nuovo processo, selezionare **Edge** come **Ambiente host**. <br> Questi processi vengono creati e gestiti dal cloud ed eseguiti nei dispositivi IoT Edge.     |
 | 3   | **Configurare l'ambiente IoT Edge nei dispositivi**   | Istruzioni per [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
-| 4   | **Distribuire Analisi di flusso di Azure nei dispositivi IoT Edge**   |  La definizione del processo di Analisi di flusso di Azure viene esportata nel contenitore di archiviazione creato in precedenza.       |
+| 4   | **Distribuire ASA nei dispositivi IoT Edge**   |  La definizione del processo di Analisi di flusso di Azure viene esportata nel contenitore di archiviazione creato in precedenza.       |
+
 È possibile seguire [questa esercitazione dettagliata](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) per distribuire il primo processo di Analisi di flusso di Azure in IoT Edge. Il video seguente fornisce informazioni sull'esecuzione di un processo di Analisi di flusso in un dispositivo IoT Edge:  
 
 
@@ -104,7 +106,7 @@ Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](ht
 - Nel portale di Azure aprire l'hub IoT, passare a **IoT Edge** e fare clic sul dispositivo da usare come destinazione per questa distribuzione.
 - Selezionare **Imposta moduli**, quindi selezionare **+ Aggiungi** e scegliere il **modulo di Analisi di flusso di Azure**.
 - Selezionare la sottoscrizione e il processo Edge di Analisi di flusso di Azure creato. Fare clic su Save.
-![Aggiungere un modulo di Analisi di flusso di Azure nella distribuzione](media/stream-analytics-edge/add-stream-analytics-module.png)
+![Aggiungi modulo ASA nella distribuzione](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
@@ -123,12 +125,12 @@ I nomi di input e output creati nel processo di Analisi di flusso di Azure posso
 
 ```json
 {
-"routes": {                                              
-    "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
-    "alertsToCloud": "FROM /messages/modules/ASA/* INTO $upstream", 
-    "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")" 
+    "routes": {
+        "sensorToAsa":   "FROM /messages/modules/tempSensor/* INTO BrokeredEndpoint(\"/modules/ASA/inputs/temperature\")",
+        "alertsToCloud": "FROM /messages/modules/ASA/* INTO $upstream",
+        "alertsToReset": "FROM /messages/modules/ASA/* INTO BrokeredEndpoint(\"/modules/tempSensor/inputs/control\")"
+    }
 }
-}   
 
 ```
 Questo esempio mostra le route per lo scenario descritto nella figura seguente. Contiene un processo Edge chiamato "**ASA**", con un input denominato "**temperature**"e un output denominato"**alert**".
@@ -142,7 +144,7 @@ Questo esempio definisce le route seguenti:
 
 ## <a name="technical-information"></a>Informazioni tecniche
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitazioni correnti per i processi IoT Edge rispetto ai processi cloud
-L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. La maggior parte delle funzionalità del linguaggio di query SQL è già supportata.
+L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. Sono supportate la maggior parte delle funzionalità del linguaggio query SQL, consentendo di eseguire la stessa logica sul cloud e IoT Edge.
 Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Edge:
 * Funzioni definite dall'utente in JavaScript. Le funzioni definite dall'utente sono disponibili in [C# per i processi IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (anteprima).
 * Aggregazioni definite dall'utente.
@@ -150,14 +152,6 @@ Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Ed
 * Uso di più di 14 aggregati in un unico passaggio.
 * Formato AVRO per l'input/output. In questo momento sono supportati solo CSV e JSON.
 * Operatori SQL seguenti:
-    * Operatori geospaziali:
-        * CreatePoint
-        * CreatePolygon
-        * CreateLineString
-        * ST_DISTANCE
-        * ST_WITHIN
-        * ST_OVERLAPS
-        * ST_INTERSECTS
     * PARTITION BY
     * GetMetadataPropertyValue
 
@@ -215,8 +209,8 @@ Per assistenza, provare il [Forum di Analisi di flusso di Azure](https://social.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni su Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [Esercitazione su Analisi di flusso di Azure in IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [Altre informazioni su Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
+* [ASA esercitazione di IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
 * [Implementare CI/CD per Analisi di flusso usando le API](stream-analytics-cicd-api.md)
 

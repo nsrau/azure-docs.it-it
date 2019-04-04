@@ -16,16 +16,16 @@ ms.date: 01/09/2019
 ms.author: jeffgilb
 ms.reviewer: jiahan
 ms.lastreviewed: 01/09/2019
-ms.openlocfilehash: 7f44e8c2c4587ecfdb3bd5eb4304789674da96f3
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: e0101aebadcaef71f35c72b54f9126e69cff0f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55252006"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882836"
 ---
 # <a name="mysql-resource-provider-11330--release-notes"></a>Note sulla versione di MySQL resource provider 1.1.33.0
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 Queste note sulla versione vengono descritti i miglioramenti e problemi noti nella versione del provider di risorse 1.1.33.0 MySQL.
 
@@ -50,7 +50,8 @@ Questa versione del provider di risorse MySQL di Azure Stack include le correzio
 
 - **Distribuzione del provider (1.1.30.0) risorse MySQL precedente potrebbe non riuscire se TLS 1.2 non è abilitato**. Aggiornare il provider di risorse MySQL 1.1.33.0 per abilitare TLS 1.2 quando si distribuisce il provider di risorse, l'aggiornamento del provider di risorse o la rotazione dei segreti. 
 
-- **Si verifica un errore di rotazione segreta del provider di risorse MySQL**. Problema risolto generando il codice di errore seguente durante la rotazione dei segreti: ` New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
+- **Si verifica un errore di rotazione segreta del provider di risorse MySQL**. Problema risolto generando il codice di errore seguente durante la rotazione dei segreti:
+`New-AzureRmResourceGroupDeployment - Error: Code=InvalidDeploymentParameterValue; Message=The value of deployment parameter 'StorageAccountBlobUri' is null.`
 
 ## <a name="known-issues"></a>Problemi noti 
 

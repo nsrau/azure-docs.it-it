@@ -1,6 +1,6 @@
 ---
-title: Distribuzione di Kubernetes in Azure Stack | Microsoft Docs
-description: Informazioni su come distribuire Kubernetes in Azure Stack.
+title: Distribuzione di Kubernetes per usare i contenitori di Azure Stack | Microsoft Docs
+description: Informazioni su come distribuire Kubernetes per l'uso dei contenitori con Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986244"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877194"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Distribuzione di Kubernetes in Azure Stack
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Distribuzione di Kubernetes per l'uso dei contenitori con Azure Stack
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!Note]  
-> Kubernetes in Azure Stack è disponibile in anteprima. Scenario disconnesso di Azure Stack non è attualmente supportato per l'anteprima.
+> Kubernetes in Azure Stack è disponibile in anteprima. Una situazione di disconnessione di Azure Stack non è attualmente supportato per l'anteprima.
 
 È possibile seguire i passaggi descritti in questo articolo per distribuire e configurare le risorse di Kubernetes in un'unica operazione coordinata. La procedura Usa un modello di soluzione di Azure Resource Manager. Sarà necessario per raccogliere le informazioni necessarie relative all'installazione di Azure Stack, generare il modello e quindi distribuire il cloud. Il modello di Azure Stack non usa lo stesso servizio AKS gestito disponibile in Azure globale.
 
@@ -43,7 +43,7 @@ ms.locfileid: "56986244"
 
 Ti verrà addebitata solo per l'utilizzo di calcolo necessario per i nodi che supportano il cluster. Per altre informazioni, vedere [informazioni sull'utilizzo e fatturazione in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
-## <a name="deploy-kubernetes"></a>Distribuzione di Kubernetes
+## <a name="deploy-kubernetes-to-use-containers"></a>Distribuzione di Kubernetes per l'uso dei contenitori
 
 I passaggi per distribuire un cluster Kubernetes in Azure Stack varia in base al servizio di gestione di identità. Verificare la soluzione di gestione di identità usata per l'installazione di Azure Stack. Contattare l'amministratore di Azure Stack per verificare il servizio di gestione di identità.
 

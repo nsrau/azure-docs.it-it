@@ -15,12 +15,12 @@ ms.date: 01/22/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/22/2019
-ms.openlocfilehash: 24c500251c8e91b7542c5c9d3e77676205c88c1f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cd7e66961a0b9a80150a3d3e132efd29485cdb66
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090968"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483149"
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Unità nodo azioni di ridimensionamento in Azure Stack
 
@@ -85,7 +85,7 @@ Questa azione viene in genere usata quando un nodo è bloccata e non risponde pi
 
 Per eseguire l'azione di interruzione, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-```PowerShell  
+```powershell  
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -99,7 +99,7 @@ Il **avviare** azione attiva nel nodo. È lo stesso come se si preme il pulsante
  
 Per eseguire l'azione di avvio, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-```PowerShell  
+```powershell  
   Start-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -118,7 +118,7 @@ Questa azione viene in genere usata durante la sostituzione del campo di parti, 
 
 Per eseguire l'azione di svuotamento, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-```PowerShell  
+```powershell  
   Disable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -130,7 +130,7 @@ Il **riprendere** azione riprende un nodo disabilitato e lo contrassegna attivo 
 
 Per eseguire l'azione di ripresa, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-```PowerShell  
+```powershell  
   Enable-AzsScaleUnitNode -Location <RegionName> -Name <NodeName>
 ```
 
@@ -149,7 +149,7 @@ Quando si esegue l'azione di ripristino, è necessario specificare l'indirizzo I
 
 Per eseguire l'azione di ripristino, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-  ```PowerShell
+  ```powershell
   Repair-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -BMCIPv4Address <BMCIPv4Address>
   ```
 
@@ -163,7 +163,7 @@ Se l'operazione di arresto ha esito negativo, provare il [svuotare](#drain) oper
 
 Per eseguire l'azione di arresto, aprire un prompt di PowerShell con privilegi elevato ed eseguire il cmdlet seguente:
 
-  ```PowerShell
+  ```powershell
   Stop-AzsScaleUnitNode -Location <RegionName> -Name <NodeName> -Shutdown
   ```
 

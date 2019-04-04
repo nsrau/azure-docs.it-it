@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116899"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895733"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Test in batch con un set di espressioni di esempio
 
@@ -100,7 +100,7 @@ Le due sezioni del grafico in verde corrispondevano alla stima prevista.
 
 Se il test indica che l'app LUIS non riconosce le finalità e le entità corrette, è possibile migliorare le prestazioni dell'app LUIS etichettando più espressioni o aggiungendo funzionalità. 
 
-* [Etichettare le espressioni suggerite con LUIS](luis-how-to-review-endoint-utt.md) 
-* [Usare le funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
-* [Comprendere il test in batch con questa esercitazione](luis-tutorial-batch-testing.md)
+* [Assegnare un'etichetta di espressioni suggerite con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Usare funzionalità per migliorare le prestazioni dell'app LUIS](luis-how-to-add-features.md) 
+* [Comprendere il test con questa esercitazione di batch](luis-tutorial-batch-testing.md)
 * [Informazioni sui concetti del test in batch](luis-concept-batch-test.md).

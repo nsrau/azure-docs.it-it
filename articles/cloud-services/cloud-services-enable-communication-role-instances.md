@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539633"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918162"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Abilitare la comunicazione delle istanze del ruolo in azure
 I ruoli del servizio cloud comunicano tramite connessioni interne ed esterne. Le connessioni esterne vengono chiamate **endpoint di input** mentre le connessioni interne vengono chiamate **endpoint interni**. In questo argomento viene descritto come modificare la [definizione del servizio](cloud-services-model-and-package.md#csdef) per creare gli endpoint.
 
 ## <a name="input-endpoint"></a>Endpoint di input
-L'endpoint di input viene utilizzato quando si desidera esporre una porta all'esterno. Specificare il tipo di protocollo e porta dell'endpoint che vengono poi applicati per le porte interne ed esterne per l'endpoint. Se si desidera, è possibile specificare una porta interna diversa per l'endpoint con l’attributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
+L'endpoint di input viene utilizzato quando si desidera esporre una porta all'esterno. Specificare il tipo di protocollo e porta dell'endpoint che vengono poi applicati per le porte interne ed esterne per l'endpoint. Se si desidera, è possibile specificare una porta interna diversa per l'endpoint con l’attributo [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) .
 
 L'endpoint di input può utilizzare i seguenti protocolli: **http, https, tcp, udp**.
 
@@ -96,7 +96,7 @@ La libreria gestita di Azure fornisce metodi per la comunicazione di istanze del
 > 
 > 
 
-È possibile utilizzare la proprietà [Istanze](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) per recuperare le istanze di un ruolo. Usare prima di tutto [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) per restituire un riferimento all'istanza del ruolo corrente, quindi usare la proprietà [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) per restituire un riferimento al ruolo stesso.
+È possibile utilizzare la proprietà [Istanze](/previous-versions/azure/reference/ee741904(v=azure.100)) per recuperare le istanze di un ruolo. Usare prima di tutto [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) per restituire un riferimento all'istanza del ruolo corrente, quindi usare la proprietà [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) per restituire un riferimento al ruolo stesso.
 
 Quando ci si connette a un'istanza del ruolo a livello di programmazione tramite il SDK di .NET, è relativamente semplice accedere alle informazioni relative all’endpoint. Ad esempio, dopo essersi connessi a un ambiente di ruolo specifico, è possibile ottenere la porta di un endpoint specifico con il seguente codice:
 
@@ -111,7 +111,7 @@ La proprietà **Instances** restituisce una raccolta di oggetti **RoleInstance**
 > 
 > 
 
-Per determinare il numero di porta per un endpoint interno in un'istanza del ruolo, è possibile utilizzare la proprietà [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) per restituire un oggetto Dictionary che contenga i nomi degli endpoint e i corrispondenti indirizzi IP e porte. La proprietà [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) restituisce l'indirizzo IP e la porta per un endpoint specificato. La proprietà **PublicIPEndpoint** restituisce la porta per un endpoint con carico bilanciato. La parte relativa all’indirizzo IP della proprietà **PublicIPEndpoint** non viene utilizzata.
+Per determinare il numero di porta per un endpoint interno in un'istanza del ruolo, è possibile utilizzare la proprietà [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) per restituire un oggetto Dictionary che contenga i nomi degli endpoint e i corrispondenti indirizzi IP e porte. La proprietà [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) restituisce l'indirizzo IP e la porta per un endpoint specificato. La proprietà **PublicIPEndpoint** restituisce la porta per un endpoint con carico bilanciato. La parte relativa all’indirizzo IP della proprietà **PublicIPEndpoint** non viene utilizzata.
 
 Di seguito è riportato un esempio che consente di eseguire l’iterazione delle istanze del ruolo.
 
@@ -368,7 +368,7 @@ Consente solo il traffico di rete da **WebRole1** a **WorkerRole1**, **WebRole1*
 </ServiceDefinition>
 ```
 
-Un riferimento allo schema XML per gli elementi utilizzati in precedenza è reperibile [qui](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Un riferimento allo schema XML per gli elementi utilizzati in precedenza è reperibile [qui](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ulteriori informazioni sul [modello](cloud-services-model-and-package.md)del servizio Cloud.

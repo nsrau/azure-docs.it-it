@@ -9,21 +9,18 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 41c665a2a1aec56cc07d5465742d01e41e6adfff
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d915058e13f3c5287bdb037a1600e7f0a09da436
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443591"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895665"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
-> [!Note]
-> L'API Video Indexer v1 è stata deprecata l'1 agosto 2018. È ora necessario usare l'API Video Indexer v2. <br/>Per le attività di sviluppo con le API Video Indexer v2, fare riferimento alle istruzioni disponibili [qui](https://api-portal.videoindexer.ai/). 
-
 Video Indexer consolida diverse tecnologie di intelligenza artificiale audio e video offerte da Microsoft in un unico servizio integrato, semplificando così lo sviluppo. Le API sono progettate per consentire agli sviluppatori di concentrarsi sull'uso delle tecnologie di intelligenza artificiale per i contenuti multimediali senza doversi preoccupare della scalabilità, della portata globale, della disponibilità e dell'affidabilità della piattaforma cloud. È possibile usare l'API per caricare file, ottenere informazioni dettagliate sui video, ottenere gli URL dei widget delle informazioni dettagliate e del lettore per incorporarli nell'applicazione ed eseguire altre attività.
 
-Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, crei un account Video Indexer [connesso alla sottoscrizione di Azure e un account servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account di Azure Media Services. 
+Al momento della creazione di un account di Video Indexer, è possibile scegliere un account di valutazione gratuito (in cui si ottiene un certo numero di minuti di indicizzazione gratuita) o un'opzione a pagamento (in cui non si è limitati dalla quota). Con la versione di valutazione gratuita, Video Indexer offre fino a 600 minuti di indicizzazione gratuita per gli utenti di siti Web e fino a 2400 minuti di indicizzazione gratuita per gli utenti di API. Con l'opzione a pagamento, si crea un account di Video Indexer [collegato alla sottoscrizione di Azure e un account di Servizi multimediali di Azure](connect-to-azure.md). Il pagamento viene effettuato per i minuti di indicizzazione, nonché in base ai costi correlati all'account di Azure Media Services. 
 
 Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio dall'[API Video Indexer](https://api-portal.videoindexer.ai/).
 
@@ -211,8 +208,8 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Panoramica di Video Indexer](video-indexer-overview.md)
-- [Aree](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
+- [Panoramica di indicizzatore video](video-indexer-overview.md)
+- [Regioni](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

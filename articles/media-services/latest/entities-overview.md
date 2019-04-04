@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804871"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891957"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Sviluppo con servizi multimediali v3 API
 
@@ -47,7 +47,7 @@ Vedere l'esempio incluso in [Ottenere i criteri di chiave simmetrica - .NET](get
 
 Le operazioni contrassegnate con `x-ms-long-running-operation` in servizi multimediali di Azure [swagger file](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) sono lunghe operazioni in esecuzione. 
 
-Per informazioni dettagliate su come tenere traccia delle operazioni asincrone, vedere [operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Per informazioni dettagliate su come tenere traccia delle operazioni asincrone, vedere [operazioni asincrone](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
 Servizi multimediali ha le seguenti operazioni a esecuzione prolungata:
 
@@ -65,7 +65,6 @@ Servizi multimediali ha le seguenti operazioni a esecuzione prolungata:
 * Avviare un'entità StreamingEndpoint
 * Arrestare entità StreamingEndpoint
 * Scalabilità StreamingEndpoint
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Applicazione di filtri, ordinamento e restituzione di più pagine delle entità di Servizi multimediali
 
@@ -356,4 +355,4 @@ La tabella seguente illustra come queste opzioni possono essere applicate alle p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Eseguire lo streaming di un file](stream-files-dotnet-quickstart.md)
+[Un file di Stream](stream-files-dotnet-quickstart.md)

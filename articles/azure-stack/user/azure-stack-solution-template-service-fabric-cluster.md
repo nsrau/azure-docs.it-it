@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098009"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482265"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Distribuire un cluster di Service Fabric in Azure Stack
 
@@ -61,7 +61,7 @@ Usare lo script seguente per creare l'insieme di credenziali e aggiungere il *ce
 > [!TIP]  
 > Prima che lo script può avere esito positivo, deve essere presente una pubblica offerta che include i servizi di calcolo, rete, archiviazione e Key Vault. 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -211,7 +211,7 @@ Per altre informazioni, vedere [gestire Key Vault in Azure Stack con PowerShell]
 
 1. Dopo aver modificato l'ordine delle variabili di ambiente, riavviare PowerShell ed eseguire lo script di PowerShell seguente per ottenere l'accesso al cluster di Service Fabric:
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

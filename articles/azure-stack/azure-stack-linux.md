@@ -15,12 +15,12 @@ ms.date: 02/15/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 11/16/2018
-ms.openlocfilehash: 277af6f139e815f46894f5b8df82a1d92ef573d1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: c957812271d2ddd6639672d862026b30cfd19661
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537134"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804514"
 ---
 # <a name="add-linux-images-to-azure-stack"></a>Aggiungere le immagini Linux in Azure Stack
 
@@ -38,7 +38,7 @@ Si noti che esistono aggiornamenti frequenti delle immagini, quindi controllare 
 
 Laddove possibile, scaricare le immagini disponibili tramite la gestione di Marketplace che sono stati preparati e testate per Azure Stack.
 
-L'agente Linux di Azure (in genere viene chiamato `WALinuxAgent` o `walinuxagent`) è obbligatorio, non tutte le versioni dell'agente funzionerà in Azure Stack. Se si crea un'immagine personalizzata, è necessario utilizzare la versione più recente di WALA o versione 2.2.20. Si noti che le versioni tra 2.2.20 e 2.2.35.1 (esclusivo) non funzionano in Azure Stack. Si noti che [cloud-init](https://cloud-init.io/) , in questo momento, non è supportato in Azure Stack.
+L'agente Linux di Azure (in genere viene chiamato `WALinuxAgent` o `walinuxagent`) è obbligatorio, non tutte le versioni dell'agente funzionerà in Azure Stack. Se si crea un'immagine personalizzata, è necessario utilizzare la versione più recente di WALA o versione 2.2.20. Si noti che le versioni tra 2.2.20 e 2.2.35.1 (esclusivo) non funzionano in Azure Stack. Per usare le versioni dell'agente tra 2.2.20 e 2.2.35.1, applicare l'hotfix di hotfix/1902 1901 o aggiornare lo Stack di Azure alla versione 1903 (o versioni successive). Si noti che [cloud-init](https://cloud-init.io/) , in questo momento, non è supportato in Azure Stack.
 
 È possibile preparare l'immagine Linux personalizzata seguendo le istruzioni seguenti:
 

@@ -1,6 +1,6 @@
 ---
 title: Creare e gestire macchine virtuali in DevTest Labs con l'interfaccia della riga di comando di Azure | Microsoft Docs
-description: Informazioni su come usare Azure DevTest Labs per creare e gestire le macchine virtuali con l'interfaccia della riga di comando di Azure 2.0
+description: Informazioni su come usare Azure DevTest Labs per creare e gestire le macchine virtuali con l'interfaccia della riga di comando di Azure
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -11,37 +11,58 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e50bc3c6804a6f3d3dafd07b2918605c4cbc6ab
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: HT
+ms.openlocfilehash: 48a30ef86cdb10b540ffe1231294542ccff87255
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434680"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895631"
 ---
 # <a name="create-and-manage-virtual-machines-with-devtest-labs-using-the-azure-cli"></a>Creare e gestire macchine virtuali con DevTest Labs tramite l'interfaccia della riga di comando di Azure
-Questa guida introduttiva illustra la creazione, l'avvio, la connessione, l'aggiornamento e la pulizia di una macchina di sviluppo nel lab. 
+Questa Guida introduttiva guiderà l'utente tramite la creazione, avvio, la connessione, l'aggiornamento e pulizia di un computer di sviluppo nel lab. 
 
 Prima di iniziare:
 
 * Se il lab non è stato creato, le istruzioni sono disponibili [qui](devtest-lab-create-lab.md).
 
-* [Installare l'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli). Per iniziare, eseguire az login per creare una connessione con Azure. 
+* [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) Per iniziare, eseguire az login per creare una connessione con Azure. 
 
 ## <a name="create-and-verify-the-virtual-machine"></a>Creare e verificare la macchina virtuale 
-Creare una macchina virtuale da un'immagine del Marketplace con autenticazione SSH.
+Prima di eseguire i comandi correlati a DevTest Labs, impostare il contesto di Azure appropriato usando il `az account set` comando:
+
+```azurecli
+az account set --subscription 11111111-1111-1111-1111-111111111111
+```
+
+Il comando per creare una macchina virtuale è: `az lab vm create`. Il gruppo di risorse per il lab, nome del lab e nome della macchina virtuale sono tutti obbligatori. Il resto degli argomenti cambiare a seconda del tipo di macchina virtuale.
+
+Il comando seguente crea un'immagine basata su Windows da Azure Marketplace. Il nome dell'immagine è lo stesso come verrà visualizzata quando si crea una macchina virtuale usando il portale di Azure. 
+
+```azurecli
+az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "Visual Studio Community 2017 on Windows Server 2016 (x64)" --image-type gallery --size 'Standard_D2s_v3’ --admin-username 'AdminUser' --admin-password 'Password1!'
+```
+
+Il comando seguente crea una macchina virtuale basata su un'immagine personalizzata disponibile nell'ambiente di laboratorio:
+
+```azurecli
+az lab vm create --resource-group DtlResourceGroup --lab-name MyLab --name 'MyTestVm' --image "My Custom Image" --image-type custom --size 'Standard_D2s_v3' --admin-username 'AdminUser' --admin-password 'Password1!'
+```
+
+Il **-tipo di immagine** argomento è stato modificato da **gallery** al **personalizzato**. Il nome dell'immagine corrisponde a ciò che viene visualizzato se si intende creare la macchina virtuale nel portale di Azure.
+
+Il comando seguente crea una macchina virtuale da un'immagine di marketplace con ssh autenticazione:
+
 ```azurecli
 az lab vm create --lab-name sampleLabName --resource-group sampleLabResourceGroup --name sampleVMName --image "Ubuntu Server 16.04 LTS" --image-type gallery --size Standard_DS1_v2 --authentication-type  ssh --generate-ssh-keys --ip-configuration public 
 ```
-> [!NOTE]
-> Inserire il nome del **gruppo di risorse lab** nel parametro --resource-group.
->
 
-Se si vuole creare una macchina virtuale tramite una formula, usare il parametro --formula in [az lab vm create](https://docs.microsoft.com/cli/azure/lab/vm#az-lab-vm-create).
+È anche possibile creare macchine virtuali basate su formule impostando il **-tipo di immagine** parametro per **formula**. Se è necessario scegliere una rete virtuale specifica per la macchina virtuale, usare il **vnet-name** e **subnet** parametri. Per altre informazioni, vedere [az lab vm create](/cli/azure/lab/vm#az-lab-vm-create).
 
+## <a name="verify-that-the-vm-is-available"></a>Verificare che la VM sia disponibile.
+Usare il `az lab vm show` comando per verificare che la macchina virtuale sia disponibile prima di avviare e connettersi a esso. 
 
-Verificare che la VM sia disponibile.
 ```azurecli
 az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup --expand 'properties($expand=ComputeVm,NetworkInterface)' --query '{status: computeVm.statuses[0].displayStatus, fqdn: fqdn, ipAddress: networkInterface.publicIpAddress}'
 ```
@@ -54,21 +75,20 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 ```
 
 ## <a name="start-and-connect-to-the-virtual-machine"></a>Avviare e connettersi alla macchina virtuale
-Avviare una VM.
+Il comando seguente avvia una macchina virtuale:
+
 ```azurecli
 az lab vm start --lab-name sampleLabName --name sampleVMName --resource-group sampleLabResourceGroup
 ```
-> [!NOTE]
-> Inserire il nome del **gruppo di risorse lab** nel parametro --resource-group.
->
 
-Connettersi a una VM: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) o [Desktop remoto](../virtual-machines/windows/connect-logon.md).
+Connettersi a una macchina virtuale: [SSH](../virtual-machines/linux/mac-create-ssh-keys.md) oppure [Desktop remoto](../virtual-machines/windows/connect-logon.md).
 ```bash
 ssh userName@ipAddressOrfqdn 
 ```
 
 ## <a name="update-the-virtual-machine"></a>Aggiornare la macchina virtuale
-Applicare elementi a una VM.
+Il comando di esempio seguente si applica elementi a una macchina virtuale:
+
 ```azurecli
 az lab vm apply-artifacts --lab-name  sampleLabName --name sampleVMName  --resource-group sampleResourceGroup  --artifacts @/artifacts.json
 ```
@@ -115,7 +135,8 @@ az lab vm show --lab-name sampleLabName --name sampleVMName --resource-group sam
 ```
 
 ## <a name="stop-and-delete-the-virtual-machine"></a>Arrestare ed eliminare la macchina virtuale    
-Arrestare una VM.
+Il comando di esempio seguente arresta una macchina virtuale.
+
 ```azurecli
 az lab vm stop --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
@@ -125,4 +146,5 @@ Eliminare una VM.
 az lab vm delete --lab-name sampleLabName --name sampleVMName --resource-group sampleResourceGroup
 ```
 
-[!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
+## <a name="next-steps"></a>Passaggi successivi
+Vedere il contenuto seguente: [Documentazione di CLI di Azure per Azure DevTest Labs](/cli/azure/lab?view=azure-cli-latest). 

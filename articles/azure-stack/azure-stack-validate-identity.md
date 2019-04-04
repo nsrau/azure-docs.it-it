@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403188"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486683"
 ---
 # <a name="validate-azure-identity"></a>Convalidare l'identità di Azure
 
@@ -85,7 +85,7 @@ Sono necessari i prerequisiti seguenti:
 
 4. Dopo che viene eseguito lo strumento, esaminare l'output. Verificare lo stato sia **OK** per i requisiti di installazione. Convalida riuscita viene visualizzato come nell'immagine seguente:
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Gli esempi seguenti forniscono informazioni aggiuntive sugli errori di convalida
 
 ### <a name="expired-or-temporary-password"></a>Password scaduta o temporanee
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 In alternativa, accedere al [portale di Azure](https://portal.azure.com) come proprietario dell'account e l'utente dovrà cambiare la password.
 
-### <a name="unknown-user-type"></a>Tipo di utente sconosciuto
-
-```shell
+### <a name="unknown-user-type"></a>Tipo di utente sconosciuto 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>Account non amministratore
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

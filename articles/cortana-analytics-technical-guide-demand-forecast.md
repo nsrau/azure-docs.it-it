@@ -10,15 +10,15 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: d055b6775c9c788ecbb3a868055fa2402a537a83
-ms.sourcegitcommit: a512360b601ce3d6f0e842a146d37890381893fc
-ms.translationtype: HT
+ms.openlocfilehash: 6b80e73dec7d0e03823a8aa2867ee91bfb68f560
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/11/2019
-ms.locfileid: "54231173"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893640"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guida tecnica per il modello di soluzione di Cortana Intelligence per la previsione della domanda nel settore energetico
-## <a name="overview"></a>**Panoramica**
+## **<a name="overview"></a>Panoramica**
 I modelli di soluzione sono progettati per accelerare il processo di compilazione di una demo end-to-end basata su Cortana Intelligence Suite. Un modello distribuito esegue il provisioning della sottoscrizione con il componente Cortana Intelligence necessario e crea le relazioni interne. Inoltre effettua il seeding della pipeline di dati con dati di esempio generati da un'applicazione di simulazione di dati. Scaricare il simulatore di dati dal collegamento specificato e installarlo nel computer locale. Fare riferimento al file readme.txt per istruzioni sull'uso del simulatore. I dati generati dal simulatore attivano la pipeline di dati e avviano la creazione di una stima di Machine Learning che può essere visualizzata nel dashboard di Power BI.
 
 Il modello della soluzione è disponibile [qui](https://gallery.cortanaintelligence.com/SolutionTemplate/Demand-Forecasting-for-Energy-1)
@@ -27,13 +27,13 @@ Il processo di distribuzione prevede diversi passaggi per l'impostazione delle c
 
 L'obiettivo di questo documento è illustrare l'architettura di riferimento e i diversi componenti di cui viene effettuato il provisioning nella sottoscrizione nell'ambito di questo modello di soluzione. Il documento illustra anche come sostituire i dati di esempio con dati reali per poter visualizzare informazioni dettagliate o stime dai propri dati e illustra poi le parti del modello di soluzione da modificare per personalizzare la soluzione con i propri dati. Alla fine del documento vengono fornite istruzioni sulla compilazione del dashboard di Power BI per questo modello di soluzione.
 
-## <a name="details"></a>**Dettagli**
+## **<a name="details"></a>Dettagli**
 ![](media/cortana-analytics-technical-guide-demand-forecast/ca-topologies-energy-forecasting.png)
 
 ### <a name="architecture-explained"></a>Spiegazione dell'architettura
 Quando si distribuisce la soluzione, vengono attivati vari servizi di Azure nell'ambito di Cortana Intelligence Suite (vale a dire, Hub eventi, Analisi di flusso di Azure, HDInsight, Data Factory, Machine Learning, *e così via*). Il diagramma dell'architettura riportato illustra, a livello generale, l'intero processo di costruzione del modello di soluzione per la previsione della domanda nel settore energetico. È possibile esaminare i servizi facendo clic su di essi nel diagramma del modello di soluzione creato con la distribuzione della soluzione. Le sezioni seguenti descrivono i vari componenti.
 
-## <a name="data-source-and-ingestion"></a>**Origine dati e inserimento**
+## **<a name="data-source-and-ingestion"></a>Origine dati e inserimento**
 ### <a name="synthetic-data-source"></a>Origine dati sintetica
 L'origine dati usata per questo modello viene generata da un'applicazione desktop da scaricare ed eseguire localmente al termine della distribuzione. Le istruzioni per il download e l'installazione di questa applicazione sono disponibili nella barra delle proprietà, selezionando il primo nodo denominato Energy Forecasting Data Simulator nel diagramma del modello di soluzione. Questa applicazione invia al servizio [Hub eventi di Azure](#azure-event-hub) punti dati, o eventi, che verranno usati nel flusso della soluzione.
 
@@ -42,7 +42,7 @@ L'applicazione di generazione eventi popola l'Hub eventi di Azure solo quando è
 ### <a name="azure-event-hub"></a>Hub eventi di Azure
 Il servizio [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/) è il destinatario dell'input fornito dall'origine dati sintetica descritta in precedenza.
 
-## <a name="data-preparation-and-analysis"></a>**Preparazione e analisi dei dati**
+## **<a name="data-preparation-and-analysis"></a>Preparazione dei dati e analisi**
 ### <a name="azure-stream-analytics"></a>Analisi di flusso di Azure
 Il servizio [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/) consente di analizzare quasi in tempo reale il flusso di input dal servizio [Hub eventi di Azure](#azure-event-hub), pubblicare i risultati in un dashboard di [Power BI](https://powerbi.microsoft.com) e archiviare tutti gli eventi in ingresso non elaborati nel servizio [Archiviazione di Azure](https://azure.microsoft.com/services/storage/), per l'elaborazione successiva da parte del servizio [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
@@ -52,15 +52,15 @@ Il servizio Azure HDInsight, orchestrato da Data factory di Azure, consente di e
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Il servizio [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) , orchestrato da Azure Data Factory, consente di eseguire previsioni sul consumo futuro di elettricità di un'area specifica in base agli input ricevuti.
 
-## <a name="data-publishing"></a>**Pubblicazione dei dati**
+## **<a name="data-publishing"></a>Pubblicazione dei dati**
 ### <a name="azure-sql-database-service"></a>Servizio database SQL di Azure
 Il servizio [database SQL di Azure](https://azure.microsoft.com/services/sql-database/), gestito da Azure Data Factory, consente di archiviare le stime ricevute dal servizio Azure Machine Learning che vengono usate nel dashboard di [Power BI](https://powerbi.microsoft.com).
 
-## <a name="data-consumption"></a>**Uso dei dati**
+## **<a name="data-consumption"></a>Uso dei dati**
 ### <a name="power-bi"></a>Power BI
 Il servizio [Power BI](https://powerbi.microsoft.com) consente di visualizzare un dashboard contenente le aggregazioni fornite dal servizio [Analisi di flusso di Azure](https://azure.microsoft.com/services/stream-analytics/), oltre ai risultati delle previsioni della domanda archiviati nel [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) e prodotti usando il servizio [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/). Per istruzioni sulla compilazione del dashboard di Power BI per questo modello di soluzione, vedere la sezione sottostante.
 
-## <a name="how-to-bring-in-your-own-data"></a>**Come inserire i propri dati**
+## **<a name="how-to-bring-in-your-own-data"></a>Come inserire i propri dati**
 Questa sezione descrive come inserire i propri dati in Azure e quali aree sarebbe necessario modificare per i dati inseriti in questa architettura.
 
 È poco probabile che i set di dati inseriti possano corrispondere al set di dati usato per questo modello di soluzione. Per poter adattare questo modello ai propri dati è fondamentale comprendere i dati e i requisiti. Se si tratta della prima esperienza con il servizio Azure Machine Learning, è possibile ottenere un'introduzione eseguendo l'esercitazione [Creare il primo esperimento](machine-learning/studio/create-experiment.md).
@@ -106,40 +106,40 @@ Cinque delle pipeline di questa data factory contengono script [Hive](https://bl
 
 Come le query di [Analisi di flusso di Azure](#azure-stream-analytics-1), gli script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) hanno una conoscenza implicita del formato dei dati in ingresso. Sarà quindi necessario modificare queste query in base al formato dati e ai requisiti di [progettazione delle funzioni](machine-learning/team-data-science-process/create-features.md) specifici.
 
-#### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx). Il servizio esegue uno script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per aggregare i dati sulla domanda trasmessi ogni 10 secondi a livello di sottostazione nel livello dell'area oraria e inserirli in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) attraverso il processo di Analisi di flusso di Azure.
+#### *<a name="aggregatedemanddatato1hrpipeline"></a>AggregateDemandDataTo1HrPipeline*
+Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)). Il servizio esegue uno script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per aggregare i dati sulla domanda trasmessi ogni 10 secondi a livello di sottostazione nel livello dell'area oraria e inserirli in [Archiviazione di Azure](https://azure.microsoft.com/services/storage/) attraverso il processo di Analisi di flusso di Azure.
 
 Lo script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per questa attività di partizionamento è ***AggregateDemandRegion1Hr.hql***
 
-#### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
+#### *<a name="loadhistorydemanddatapipeline"></a>LoadHistoryDemandDataPipeline*
 Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene due attività:
 
-* L'attività [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) che esegue uno script Hive per aggregare i dati storici sulla domanda a livello di sottostazione nel livello dell'area oraria e inserirli in Archiviazione di Azure attraverso il processo di Analisi di flusso di Azure
-* [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) , che sposta i dati aggregati dal BLOB di Archiviazione di Azure al database SQL di Azure di cui è stato effettuato il provisioning durante l'installazione del modello di soluzione.
+* L'attività [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) che esegue uno script Hive per aggregare i dati storici sulla domanda a livello di sottostazione nel livello dell'area oraria e inserirli in Archiviazione di Azure attraverso il processo di Analisi di flusso di Azure
+* [Copy](/previous-versions/azure/dn835035(v=azure.100)) , che sposta i dati aggregati dal BLOB di Archiviazione di Azure al database SQL di Azure di cui è stato effettuato il provisioning durante l'installazione del modello di soluzione.
 
 Lo script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) per questa attività è ***AggregateDemandHistoryRegion.hql***.
 
-#### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
+#### *<a name="mlscoringregionxpipeline"></a>MLScoringRegionXPipeline*
 Queste [pipeline](data-factory/concepts-pipelines-activities.md) contengono diverse attività il cui risultato finale è costituito dalle stime con punteggio provenienti dall'esperimento di Azure Machine Learning associato a questo modello di soluzione. Sono quasi identiche, ad eccezione del fatto che ognuna gestisce solo un'area specifica. Ciò avviene perché alla pipeline ADF viene passato un RegionID diverso e per ogni area viene eseguito uno script diverso.  
 Le attività contenute nella pipeline sono:
 
-* L'attività [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) con uno script Hive per eseguire le operazioni necessarie di aggregazione e progettazione delle funzioni per l'esperimento di Azure Machine Learning. Gli script Hive per questa attività sono ***PrepareMLInputRegionX.hql***.
-* L'attività [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), che sposta i risultati dall'attività [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) in un unico BLOB di archiviazione di Azure accessibile dall'attività [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx).
-* [AzureMLBatchScoring](https://msdn.microsoft.com/library/azure/dn894009.aspx), che chiama l'esperimento di Azure Machine Learning con cui i risultati vengono inseriti in un unico BLOB di Archiviazione di Azure.
+* L'attività [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), che usa un servizio [HDInsightLinkedService](/previous-versions/azure/dn893526(v=azure.100)) con uno script Hive per eseguire le operazioni necessarie di aggregazione e progettazione delle funzioni per l'esperimento di Azure Machine Learning. Gli script Hive per questa attività sono ***PrepareMLInputRegionX.hql***.
+* L'attività [Copy](/previous-versions/azure/dn835035(v=azure.100)), che sposta i risultati dall'attività [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) in un unico BLOB di archiviazione di Azure accessibile dall'attività [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)).
+* [AzureMLBatchScoring](/previous-versions/azure/dn894009(v=azure.100)), che chiama l'esperimento di Azure Machine Learning con cui i risultati vengono inseriti in un unico BLOB di Archiviazione di Azure.
 
-#### <a name="copyscoredresultregionxpipeline"></a>*CopyScoredResultRegionXPipeline*
-Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), che sposta i risultati dell'esperimento di Azure Machine Learning dalla rispettiva ***MLScoringRegionXPipeline*** al database SQL di Azure di cui è stato eseguito il provisioning durante l'installazione del modello di soluzione.
+#### *<a name="copyscoredresultregionxpipeline"></a>CopyScoredResultRegionXPipeline*
+Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [Copy](/previous-versions/azure/dn835035(v=azure.100)), che sposta i risultati dell'esperimento di Azure Machine Learning dalla rispettiva ***MLScoringRegionXPipeline*** al database SQL di Azure di cui è stato eseguito il provisioning durante l'installazione del modello di soluzione.
 
-#### <a name="copyaggdemandpipeline"></a>*CopyAggDemandPipeline*
-Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), che sposta i dati aggregati sulla domanda in corso da ***LoadHistoryDemandDataPipeline*** al database SQL di Azure di cui è stato eseguito il provisioning durante l'installazione del modello di soluzione.
+#### *<a name="copyaggdemandpipeline"></a>CopyAggDemandPipeline*
+Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [Copy](/previous-versions/azure/dn835035(v=azure.100)), che sposta i dati aggregati sulla domanda in corso da ***LoadHistoryDemandDataPipeline*** al database SQL di Azure di cui è stato eseguito il provisioning durante l'installazione del modello di soluzione.
 
-#### <a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>*CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
-Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx), che sposta i dati di riferimento di area/sottostazione/topologia caricati nel BLOB di archiviazione di Azure durante l'installazione del modello di soluzione nel database SQL di Azure di cui è stato eseguito il provisioning durante l'installazione del modello di soluzione.
+#### *<a name="copyregiondatapipeline-copysubstationdatapipeline-copytopologydatapipeline"></a>CopyRegionDataPipeline, CopySubstationDataPipeline, CopyTopologyDataPipeline*
+Questa [pipeline](data-factory/concepts-pipelines-activities.md) contiene un'unica attività, [Copy](/previous-versions/azure/dn835035(v=azure.100)), che sposta i dati di riferimento di area/sottostazione/topologia caricati nel BLOB di archiviazione di Azure durante l'installazione del modello di soluzione nel database SQL di Azure di cui è stato eseguito il provisioning durante l'installazione del modello di soluzione.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 L'esperimento di [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) usato per questo modello di soluzione mette a disposizione la previsione della domanda dell'area. L'esperimento è specifico per il set di dati usato. Per l'uso con dati propri deve quindi essere modificato o sostituito in base alle specifiche dei dati inseriti.
 
-## <a name="monitor-progress"></a>**Monitorare lo stato**
+## **<a name="monitor-progress"></a>Monitorare lo stato**
 Dopo aver avviato il generatore di dati, la pipeline inizia ad attivarsi e i diversi componenti della soluzione cominciano ad avviarsi in base ai comandi inviati da Data factory. Esistono due modi per monitorare la pipeline.
 
 1. Caricare dati dall'archiviazione BLOB di Azure
@@ -154,7 +154,7 @@ Dopo aver avviato il generatore di dati, la pipeline inizia ad attivarsi e i div
 
     È possibile impostare un dashboard per il percorso critico di Power BI per monitorare i dati non elaborati in ingresso. Seguire le istruzioni nella sezione "Dashboard di Power BI".
 
-## <a name="power-bi-dashboard"></a>**Dashboard di Power BI**
+## **<a name="power-bi-dashboard"></a>dashboard di Power BI**
 ### <a name="overview"></a>Panoramica
 Questa sezione descrive come configurare il dashboard di Power BI per visualizzare i dati in tempo reale provenienti da Analisi di flusso di Azure (percorso critico), nonché i risultati di previsione provenienti da Azure Machine Learning (percorso non critico).
 
@@ -224,14 +224,14 @@ Nella pipeline di dati del percorso non critico l'obiettivo principale consiste 
    * Espandere la sezione **Pianifica aggiornamento** . Attivare l'opzione "Mantieni aggiornati i dati".
    * Pianificare l'aggiornamento in base alle esigenze. Per altre informazioni, vedere [Aggiornamento dei dati in Power BI](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/).
 
-## <a name="how-to-delete-your-solution"></a>**Come eliminare la soluzione**
+## **<a name="how-to-delete-your-solution"></a>Come eliminare la soluzione**
 Verificare di arrestare il generatore di dati quando non lo si usa in modo attivo, poiché l'esecuzione di questa applicazione può comportare costi elevati. Se non la si usa, è consigliabile eliminarla. Con l'eliminazione di questa soluzione vengono eliminati anche tutti i componenti di cui è stato eseguito il provisioning nella sottoscrizione durante la procedura di distribuzione. Per eliminare la soluzione, fare clic sul nome della soluzione nel riquadro sinistro del modello e su Elimina.
 
-## <a name="cost-estimation-tools"></a>**Strumenti di stima dei costi**
+## **<a name="cost-estimation-tools"></a>Strumenti di stima dei costi**
 I due strumenti indicati di seguito consentono di comprendere meglio i costi totali associati all'esecuzione nella propria sottoscrizione del modello di soluzione per la previsione della domanda nel settore energetico:
 
-* [Calcolatore prezzi (online)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (PC desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool (online)](https://azure.microsoft.com/pricing/calculator/)
+* [Microsoft Azure Cost Estimator Tool (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
 
-## <a name="acknowledgements"></a>**Riconoscimenti**
+## **<a name="acknowledgements"></a>Riconoscimenti**
 Autori di questo articolo sono il data scientist Yijing Chen e il software engineer Min Qiu di Microsoft.

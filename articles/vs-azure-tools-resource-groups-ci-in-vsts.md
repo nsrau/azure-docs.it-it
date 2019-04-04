@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456347"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894150"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Azure DevOps Services con i progetti di distribuzione di tipo Gruppo di risorse di Azure
 Per distribuire un modello di Azure, eseguire attività nelle varie fasi: Compilazione, Test, copia in Azure (detta anche "Staging") e distribuire il modello. Esistono due modi diversi per distribuire i modelli in Azure DevOps Services. Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.
@@ -37,7 +37,7 @@ Indipendentemente dallo scenario, se sono disponibili elementi necessari per la 
 * File binari dell'applicazione
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Modelli annidati e script di configurazione
-Quando si usano i modelli forniti da Visual Studio, o compilati con frammenti di Visual Studio, lo script di PowerShell non solo prepara gli elementi, ma imposta anche l'URI con parametri per le risorse per le diverse distribuzioni. Lo script copia quindi gli elementi in un contenitore protetto in Azure, crea un token di firma di accesso condiviso per tale contenitore e quindi passa le informazioni alla distribuzione del modello. Per altre informazioni sui modelli annidati, vedere [Creare una distribuzione di modelli](https://msdn.microsoft.com/library/azure/dn790564.aspx) .  Quando si usano le attività in Azure DevOps Services, bisogna selezionare le attività appropriate per la distribuzione del modello e, se necessario, passare i valori dei parametri dal passaggio di gestione temporanea alla distribuzione del modello.
+Quando si usano i modelli forniti da Visual Studio, o compilati con frammenti di Visual Studio, lo script di PowerShell non solo prepara gli elementi, ma imposta anche l'URI con parametri per le risorse per le diverse distribuzioni. Lo script copia quindi gli elementi in un contenitore protetto in Azure, crea un token di firma di accesso condiviso per tale contenitore e quindi passa le informazioni alla distribuzione del modello. Per altre informazioni sui modelli annidati, vedere [Creare una distribuzione di modelli](/previous-versions/azure/reference/dn790564(v=azure.100)) .  Quando si usano le attività in Azure DevOps Services, bisogna selezionare le attività appropriate per la distribuzione del modello e, se necessario, passare i valori dei parametri dal passaggio di gestione temporanea alla distribuzione del modello.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Impostare la distribuzione continua in Azure Pipelines
 Per chiamare lo script di PowerShell in Azure Pipelines, è necessario aggiornare la pipeline di compilazione. In breve, ecco i passaggi: 

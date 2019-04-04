@@ -1,7 +1,7 @@
 ---
 title: Migrazione delle API da v1 a v2
 titleSuffix: Azure Cognitive Services
-description: L'endpoint della versione 1 e la creazione di API di riconoscimento della lingua sono deprecati. Usare questa guida per comprendere come eseguire la migrazione alla versione 2 delle API dell'endpoint e di creazione.
+description: L'endpoint della versione 1 e la creazione di API riconoscimento vocale sono deprecati. Usare questa guida per comprendere come eseguire la migrazione alla versione 2 delle API dell'endpoint e di creazione.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087925"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894082"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guida alla migrazione delle API da v1 a v2 per le app LUIS
 La versione 1 delle API dell'[endpoint](https://aka.ms/v1-endpoint-api-docs) e di [creazione](https://aka.ms/v1-authoring-api-docs) è deprecata. Usare questa guida per imparare a migrare le API [endpoint](https://aka.ms/luis-endpoint-apis) e [creazione](https://aka.ms/luis-authoring-apis) alla versione 2. 
@@ -134,7 +134,7 @@ Diverse API restituiscono metadati LUIS presentano nuovi nomi.
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Sample" rinominata in "suggest"
-LUIS suggerisce espressioni da [espressioni endpoint](luis-how-to-review-endoint-utt.md) esistenti che potrebbero migliorare il modello. Nella versione precedente il nome era **sample**. Nella nuova versione il nome è **suggest**. Si tratta della **[revisione delle espressioni endpoint](luis-how-to-review-endoint-utt.md)** nel sito Web LUIS.
+LUIS suggerisce espressioni da [espressioni endpoint](luis-how-to-review-endpoint-utterances.md) esistenti che potrebbero migliorare il modello. Nella versione precedente il nome era **sample**. Nella nuova versione il nome è **suggest**. Si tratta della **[revisione delle espressioni endpoint](luis-how-to-review-endpoint-utterances.md)** nel sito Web LUIS.
 
 | version | Route |
 |--|--|

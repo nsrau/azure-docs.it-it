@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339636"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894919"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -36,10 +36,10 @@ Il servizio app offre funzionalità diagnostiche per la registrazione di informa
 
 * **Registrazione degli errori dettagliata** -informazioni dettagliate per tutte le richieste che genera codice di stato HTTP 400 o superiore. incluse eventuali informazioni che aiutano a determinare il motivo per cui il server ha restituito il codice di errore. Un file HTML viene generato per ogni errore nel file system dell'app e fino a 50 errori (file) vengono mantenuti. Quando il numero di file HTML di superare i 50, i file di 26 meno recenti vengono eliminati automaticamente.
 * **Traccia delle richieste non riuscita** : consente di registrare informazioni dettagliate sulle richieste non riuscite, inclusa una traccia dei componenti IIS utilizzati per elaborare la richieste e il tempo impiegato in ciascun componente. È utile per migliorare le prestazioni del sito o isolare uno specifico errore HTTP. Una cartella viene generata per ogni errore nel file system dell'app. Criteri di conservazione dei file sono le stesse di registrazione sopra dettagliata degli errori.
-* **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
+* **Registrazione del server Web** : consente di registrare informazioni sulle transazioni HTTP tramite il [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging). È utile nel determinare le metriche generali del sito, ad esempio il numero delle richieste gestite oppure quante di esse provengono da uno specifico indirizzo IP.
 
 ### <a name="application-diagnostics"></a>Diagnostica applicazioni
-La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio: 
+La diagnostica applicazioni consente di acquisire le informazioni prodotte da un'applicazione Web. Le applicazioni ASP.NET possono utilizzare la classe [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) per registrare le informazioni nel log di diagnostica applicazioni. Ad esempio: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -57,9 +57,9 @@ Se si abilita **Diagnostica applicazioni**, è anche possibile scegliere il **Li
 
 | Level| Categorie di log incluse |
 |-|-|
-|**Disabilitato** | Nessuna |
-|**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
-|**Warning** | Avviso, Errore, Errore critico|
+|**Disabled** | Nessuna |
+|**Tipi di errore** | Errore, Errore critico |
+|**Avviso** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
 |**Dettagliato** | Analisi, Debug, Informazioni, Avviso, Errore, Errore critico (tutte le categorie) |
 |-|-|
@@ -101,7 +101,7 @@ La struttura di directory in cui sono memorizzati i log è la seguente:
 * **Application logs** - /LogFiles/Application/. In questa cartella sono presenti uno o più file di testo contenenti le informazioni generate dalla registrazione dell'applicazione.
 * **Failed Request Traces** - /LogFiles/W3SVC#########/. Questa cartella contiene un file XSL e uno o più file XML. Verificare che il file XSL venga scaricato nella stessa directory dei file XML in quanto il file XSL fornisce le funzionalità per la formattazione e il filtro dei contenuti del file XML per la visualizzazione in Internet Explorer.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. Questa cartella contiene uno o più file HTM che forniscono informazioni dettagliate relative agli eventuali errori HTTP che si sono verificati.
-* **Web Server Logs** - /LogFiles/http/RawLogs. Questa cartella contiene uno o più file di testo formattati utilizzando il [formato di file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Web Server Logs** - /LogFiles/http/RawLogs. Questa cartella contiene uno o più file di testo formattati utilizzando il [formato di file di log esteso W3C](/windows/desktop/Http/w3c-logging).
 * **Deployment logs** - /LogFiles/Git. Questa cartella contiene i log generati dai processi di distribuzione interna usati dal Servizio app di Azure, oltre ai log per le distribuzioni Git. I log di distribuzione sono anche disponibili in D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -132,7 +132,7 @@ Visual Studio Application Insights fornisce strumenti per il filtro e ricerca de
 3. Caricare il progetto ed eseguire la generazione di dati del log.
 4. Nel [portale di Azure](https://portal.azure.com/) passare alla nuova risorsa di Application Insights e aprire **Ricerca**. Verranno visualizzati i dati dei log insieme a quelli relativi alle richieste e all'utilizzo e ad altri dati di telemetria. Alcuni dati di telemetria potrebbe richiedere alcuni minuti per arrivare: fare clic su Aggiorna. [Altre informazioni](../azure-monitor/app/diagnostic-search.md)
 
-[Ulteriori informazioni sulle prestazioni di rilevamento con Application Insights](../azure-monitor/app/azure-web-apps.md)
+[Altre informazioni sulle prestazioni di rilevamento con Application Insights](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Procedura: Eseguire lo streaming dei log
 Durante lo sviluppo di un'applicazione, è spesso utile visualizzare le informazioni di registrazione in tempo quasi reale. È possibile eseguire lo streaming delle informazioni di registrazione al proprio ambiente di sviluppo tramite l'interfaccia della riga di comando di Azure.
@@ -222,7 +222,7 @@ Le tracce delle richieste non riuscite vengono memorizzate nei file XML denomina
 I log di errore dettagliati sono documenti HTML che offrono informazioni più approfondite sugli errori HTTP verificatisi. Poiché si tratta di semplici documenti HTML, è possibile visualizzarli in un browser Web.
 
 ### <a name="web-server-logs"></a>Web Server Logs
-I log del server Web vengono formattati con il [formato file di log esteso W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). È possibile leggere queste informazioni con un editor di testo oppure analizzarle con utilità come [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
+I log del server Web vengono formattati con il [formato file di log esteso W3C](/windows/desktop/Http/w3c-logging). È possibile leggere queste informazioni con un editor di testo oppure analizzarle con utilità come [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > I log prodotti dal Servizio app di Azure non supportano i campi **s-computername**, **s-ip** o **cs-version**.
@@ -230,6 +230,6 @@ I log del server Web vengono formattati con il [formato file di log esteso W3C](
 >
 
 ## <a name="nextsteps"></a> Passaggi successivi
-* [Come monitorare il Servizio app di Azure](web-sites-monitor.md)
-* [Risoluzione dei problemi del Servizio app di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analizzare i log delle app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Come monitorare il servizio App di Azure](web-sites-monitor.md)
+* [Risoluzione dei problemi di servizio App di Azure in Visual Studio](troubleshoot-dotnet-visual-studio.md)
+* [Analizzare i log dell'app in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

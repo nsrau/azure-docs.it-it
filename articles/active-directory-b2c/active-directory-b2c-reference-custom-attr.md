@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 53d9aec5a689babb637d2eff6b36ea3b8bd8d97f
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 277a1d5df0e6eb828c4d3c6faed91d55defb4108
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55173939"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894031"
 ---
 # <a name="define-custom-attributes-in-azure-active-directory-b2c"></a>Definire attributi personalizzati in Azure Active Directory B2C
 
  Ogni applicazione che riguarda il cliente ha requisiti specifici per le informazioni che devono essere raccolte. Il tenant Azure Active Directory (Azure AD) B2C viene fornito con un set predefinito di informazioni archiviate in attributi, ad esempio nome, cognome, città e codice postale. Con Azure AD B2C, è possibile estendere il set di attributi archiviati in ogni account cliente. 
  
- È possibile creare attributi personalizzati nel [portale di Azure](https://portal.azure.com/) e usarli nei flussi utente di iscrizione, nei flussi utente di iscrizione o accesso oppure nei flussi utente di modifica del profilo. Questi attributi possono anche essere scritti e letti usando l' [API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md). Gli attributi personalizzati in Azure Active Directory B2C usano le [Estensioni dello schema di directory dell'API Graph di Azure AD](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
+ È possibile creare attributi personalizzati nel [portale di Azure](https://portal.azure.com/) e usarli nei flussi utente di iscrizione, nei flussi utente di iscrizione o accesso oppure nei flussi utente di modifica del profilo. Questi attributi possono anche essere scritti e letti usando l' [API Graph di Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md). Gli attributi personalizzati in Azure Active Directory B2C usano le [Estensioni dello schema di directory dell'API Graph di Azure AD](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 ## <a name="create-a-custom-attribute"></a>Creare un attributo personalizzato
 

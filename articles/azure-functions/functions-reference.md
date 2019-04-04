@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "56339488"
+ms.locfileid: "58891890"
 ---
 # <a name="azure-functions-developers-guide"></a>Manuale dello sviluppatore di Funzioni di Azure
 In Funzioni di Azure funzioni specifiche condividono alcuni concetti tecnici e componenti di base, indipendentemente dal linguaggio o dall'associazione che vengono usati. Prima di passare all'apprendimento di dettagli specifici per un linguaggio o un'associazione, assicurarsi di leggere questa panoramica generale.
@@ -75,7 +75,7 @@ La struttura di cartelle mostrata sopra è quella predefinita (e consigliata) pe
 L'editor delle funzioni integrato nel portale di Azure permette di aggiornare il codice e il file *function.json* direttamente inline. Si tratta di un approccio consigliato solo per piccole modifiche o modelli di verifica, mentre la procedura consigliata consiste nell'usare uno strumento di sviluppo locale come Visual Studio Code.
 
 ## <a name="parallel-execution"></a>Esecuzione parallela
-Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo riesca a elaborare, il runtime chiama la funzione più volte in parallelo.  Se un'app per le funzioni usa il [piano di hosting a consumo](functions-scale.md#how-the-consumption-plan-works), il numero di istanze dell'app può aumentare automaticamente.  Ogni istanza dell'app per le funzioni, indipendentemente dal fatto che venga eseguita in un piano di hosting a consumo o in un normale [piano di hosting del servizio app](../app-service/overview-hosting-plans.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread.  Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app per le funzioni dipende dal tipo di trigger usato e dalle risorse usate dalle altre funzioni nell'app per le funzioni.
+Quando si verificano rapidamente più eventi di trigger di quanti il runtime della funzione a thread singolo riesca a elaborare, il runtime chiama la funzione più volte in parallelo.  Se un'app per le funzioni usa il [piano di hosting a consumo](functions-scale.md#how-the-consumption-and-premium-plans-work), il numero di istanze dell'app può aumentare automaticamente.  Ogni istanza dell'app per le funzioni, indipendentemente dal fatto che venga eseguita in un piano di hosting a consumo o in un normale [piano di hosting del servizio app](../app-service/overview-hosting-plans.md), può elaborare chiamate di funzione simultanee in parallelo usando più thread.  Il numero massimo di chiamate di funzione simultanee in ogni istanza dell'app per le funzioni dipende dal tipo di trigger usato e dalle risorse usate dalle altre funzioni nell'app per le funzioni.
 
 ## <a name="functions-runtime-versioning"></a>Controllo delle versioni del runtime di Funzioni
 

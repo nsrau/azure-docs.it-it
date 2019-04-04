@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: e7e4e898142d6f9d1a93e91c1f1476ff81fc7d3c
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734660"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894356"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Guida di riferimento per gli sviluppatori di Funzioni di Azure in F#
 
@@ -115,7 +115,7 @@ let Run(req: HttpRequestMessage) =
 ```
 
 ## <a name="cancellation-token"></a>Token di annullamento
-Se la funzione deve gestire l'arresto normale, è possibile assegnarle un argomento [`CancellationToken`](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) . È possibile combinare questo argomento con `async`, ad esempio:
+Se la funzione deve gestire l'arresto normale, è possibile assegnarle un argomento [`CancellationToken`](/dotnet/api/system.threading.cancellationtoken) . È possibile combinare questo argomento con `async`, ad esempio:
 
 ```fsharp
 let Run(req: HttpRequestMessage, token: CancellationToken)
@@ -284,19 +284,19 @@ let mylog(log: ILogger, text: string) =
 
 I percorsi specificati per la direttiva `#load` sono relativi alla posizione del file `.fsx`.
 
-* `#load "logger.fsx"` carica un file che si trova nella cartella della funzione.
-* `#load "package\logger.fsx"` carica un file che si trova nella sottocartella `package` della cartella della funzione.
-* `#load "..\shared\mylogger.fsx"` carica un file che si trova nella cartella `shared` allo stesso livello della cartella della funzione, ovvero direttamente in `wwwroot`.
+* `#load "logger.fsx"` Carica un file che si trova nella cartella della funzione.
+* `#load "package\logger.fsx"` Carica un file nei `package` cartella nella cartella della funzione.
+* `#load "..\shared\mylogger.fsx"` Carica un file nei `shared` cartella allo stesso livello della cartella della funzione, vale a dire, direttamente sotto `wwwroot`.
 
 La direttiva `#load` funziona solo con i file `.fsx` (script F# ), non con i file `.fs`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, vedere le seguenti risorse:
 
-* [F# Guide](/dotnet/articles/fsharp/index) (Guida di F#)
-* [Best Practices for Azure Functions](functions-best-practices.md) (Procedure consigliate per Funzioni di Azure)
-* [Guida di riferimento per gli sviluppatori a Funzioni di Azure](functions-reference.md)
-* [Trigger e associazioni di Funzioni di Azure](functions-triggers-bindings.md)
-* [Test di Funzioni di Azure](functions-test-a-function.md)
-* [Scalabilità di Funzioni di Azure](functions-scale.md)
+* [F#Guida](/dotnet/articles/fsharp/index)
+* [Procedure consigliate per Funzioni di Azure](functions-best-practices.md)
+* [Guida di riferimento per gli sviluppatori di Funzioni di Azure](functions-reference.md)
+* [Associazioni e trigger delle funzioni di azure](functions-triggers-bindings.md)
+* [Test di funzioni di Azure](functions-test-a-function.md)
+* [Scalabilità di funzioni di Azure](functions-scale.md)
 

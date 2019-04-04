@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089846"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894184"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Accesso utente endpoint e in creazione
 L'accesso in creazione è disponibile ai proprietari e ai collaboratori. Per un'app privata, l'accesso endpoint è disponibile ai proprietari e ai collaboratori. Per un'app pubblica, l'accesso endpoint è disponibile a chiunque disponga di un proprio account LUIS e dell'ID dell'app pubblica. 
@@ -35,7 +35,7 @@ Il proprietario e tutti i collaboratori hanno accesso in creazione all'app.
 |Rendere pubblica un'app|Quando un'app è pubblica, chiunque disponga di una chiave di creazione o endpoint può eseguire una query nell'app.|
 |Modificare il modello|
 |Pubblica|
-|Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endoint-utt.md)|
+|Rivedere le espressioni endpoint per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md)|
 |Eseguire il training|
 
 ## <a name="access-to-endpoint"></a>Accedere all'endpoint

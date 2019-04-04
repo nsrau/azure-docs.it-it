@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371860"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894594"
 ---
 # <a name="what-are-authentication-methods"></a>Cosa si intende per metodi di autenticazione?
 
-La reimpostazione della password di Azure AD in modalità self-service (SSPR) e l'autenticazione a più fattori (MFA) può richiedere informazioni aggiuntive, note come metodi di autenticazione o informazioni di sicurezza per confermare l'identità degli utenti quando usano le funzionalità associate.
+Come amministratore scelta dei metodi di autenticazione per Azure multi-Factor Authentication e la password self-service (SSPR) di ripristino, è consigliabile richiedere agli utenti di registrare più metodi di autenticazione. Quando un metodo di autenticazione non è disponibile per un utente, è possibile scegliere di eseguire l'autenticazione con un altro metodo.
 
-Nei criteri, gli amministratori possono definire quali metodi di autenticazione sono disponibili agli utenti di SSPR e autenticazione a più fattori. Alcuni metodi di autenticazione potrebbero non essere disponibili per tutte le funzionalità.
+Nei criteri, gli amministratori possono definire quali metodi di autenticazione sono disponibili agli utenti di SSPR e autenticazione a più fattori. Alcuni metodi di autenticazione potrebbero non essere disponibili per tutte le funzionalità. Per altre informazioni sulla configurazione dei criteri vedere gli articoli [come implementare la reimpostazione della password self-service](howto-sspr-deployment.md) e [pianificazione basata sul cloud Azure multi-Factor Authentication](howto-mfa-getstarted.md)
 
 Si consiglia agli amministratori di consentire agli utenti la selezione di un numero maggiore di metodi di autenticazione rispetto al limite minimo nel caso in cui non abbiano accesso a uno.
 
@@ -233,10 +233,10 @@ Se l'organizzazione è federata e usa SSO con Azure AD e si prevede di usare Azu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Impossibile abilitare la reimpostazione della password in modalità self-service per l'organizzazione](quickstart-sspr.md)
+[Abilitare la modalità self-service delle password per l'organizzazione](quickstart-sspr.md)
 
-[Abilitare Azure Multi-Factor Authentication per l'organizzazione](howto-mfa-getstarted.md)
+[Abilitare Azure multi-Factor Authentication per l'organizzazione](howto-mfa-getstarted.md)
 
 [Abilitare la registrazione combinata nel tenant](howto-registration-mfa-sspr-combined.md)
 
-[Documentazione sulla configurazione di un metodo di autenticazione per l'utente finale](https://aka.ms/securityinfoguide)
+[Documentazione relativa alla configurazione metodo di autenticazione dell'utente finale](https://aka.ms/securityinfoguide)

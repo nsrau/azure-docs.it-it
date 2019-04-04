@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630972"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896024"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Connessione a origini dati locali con gateway dati locale
 Il gateway dati locale garantisce il trasferimento sicuro dei dati tra le origini dati locali e i server Azure Analysis Services nel cloud. Oltre a lavorare con più server Azure Analysis Services nella stessa area, la versione più recente del gateway funziona anche con app per la logica di Azure, Power BI, PowerApps e Microsoft Flow. È possibile associare più servizi nella stessa sottoscrizione e nella stessa area con un singolo gateway. 
 
 La configurazione iniziale del gateway è un processo in quattro fasi:
 
-- **Scaricare ed eseguire il programma di installazione**: questo passaggio consente di installare un servizio gateway in un computer dell'organizzazione. È anche possibile accedere ad Azure usando un account in Azure AD del [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). Gli account Azure B2B (guest) non sono supportati.
+- **Scaricare ed eseguire il programma di installazione**: questo passaggio consente di installare un servizio gateway in un computer dell'organizzazione. È anche possibile accedere ad Azure usando un account in Azure AD del [tenant](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant). Gli account Azure B2B (guest) non sono supportati.
 
 - **Registrare il gateway**: in questo passaggio vengono specificati un nome e una chiave di ripristino per il gateway, si seleziona un'area e si registra il gateway con il servizio cloud Gateway. La risorsa gateway può essere registrata in qualsiasi area, ma è consigliabile registrarla nella stessa area dei server Analysis Services. 
 
@@ -61,7 +61,7 @@ Il gateway crea una connessione in uscita al bus di servizio di Azure. La comuni
 
 Di seguito sono indicati i nomi di dominio completi usati dal gateway.
 
-| Nomi di dominio | Porte in uscita | Descrizione |
+| Nomi di dominio | Porte in uscita | DESCRIZIONE |
 | --- | --- | --- |
 | *.powerbi.com |80 |HTTP usato per scaricare il programma di installazione. |
 | *.powerbi.com |443 |HTTPS |
@@ -94,10 +94,10 @@ Attualmente non esiste un'unica posizione in cui gli amministratori tenant posso
 ### <a name="general"></a>Generale
 
 **D**: È necessario un gateway per le origini dati nel cloud, ad esempio il database SQL di Azure? <br/>
-**R**: No. È necessario un gateway solo per la connessione alle origini dati locali.
+**R**:  No. È necessario un gateway solo per la connessione alle origini dati locali.
 
 **D**: Il gateway deve essere installato nello stesso computer dell'origine dati? <br/>
-**R**: No. Il gateway deve solo potersi connettere al server, in genere nella stessa rete.
+**R**:  No. Il gateway deve solo potersi connettere al server, in genere nella stessa rete.
 
 <a name="why-azure-work-school-account"></a>
 
@@ -118,7 +118,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 **R**: I risultati vengono inviati tramite il bus di servizio di Azure.
 
 **D**: Esistono connessioni in ingresso al gateway dal cloud? <br/>
-**R**: No. Il gateway usa le connessioni in uscita al bus di servizio di Azure.
+**R**:  No. Il gateway usa le connessioni in uscita al bus di servizio di Azure.
 
 **D**: Cosa accade se si bloccano le connessioni in uscita? Cosa fare per sbloccarle? <br/>
 **R**: Vedere le porte e gli host usati dal gateway.
@@ -127,7 +127,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 **R**: In Servizi il gateway è denominato servizio gateway dati locale.
 
 **D**: Il servizio gateway di Windows può essere eseguito con un account Azure Active Directory? <br/>
-**R**: No. Il servizio Windows deve disporre di un account Windows valido. Per impostazione predefinita, il sevizio viene eseguito con il SID servizio NT SERVICE\PBIEgwService.
+**R**:  No. Il servizio Windows deve disporre di un account Windows valido. Per impostazione predefinita, il sevizio viene eseguito con il SID servizio NT SERVICE\PBIEgwService.
 
 **D**: Come si acquisisce la proprietà di un gateway? <br/>
 **R**: Per acquisire la proprietà di un gateway (selezionando Installa/Cambia in Pannello di controllo > Programmi), è necessario essere un proprietario della risorsa gateway in Azure e avere la chiave di ripristino. I proprietari delle risorse gateway sono configurabili nel controllo di accesso.
@@ -160,7 +160,7 @@ Lo strumenti di terze parti Azure Speed Test può aiutare a valutare la velocit�
 
 Quando la versione del gateway non è aggiornata, possono emergere numerosi problemi. Come buona pratica, assicurarsi di usare la versione più recente. Se il gateway non è stato aggiornato per un mese o più è consigliabile installarne la versione più recente e verificare se è possibile riprodurre il problema.
 
-### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Errore: Failed to add user to group (Non è stato possibile aggiungere l'utente al gruppo). (Utenti log delle prestazioni -2147463168 PBIEgwService)
+### <a name="error-failed-to-add-user-to-group--2147463168-pbiegwservice-performance-log-users"></a>Errore: Impossibile aggiungere l'utente al gruppo. (Utenti log delle prestazioni -2147463168 PBIEgwService)
 
 Questo errore viene visualizzato se si sta tentando di installare il gateway in un controller di dominio, un'operazione non consentita. Assicurarsi di distribuire il gateway in un computer che non sia un controller di dominio.
 

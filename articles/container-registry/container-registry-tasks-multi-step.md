@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: b2b6da1739aa97f69f5744905564f638309a587f
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: ac0e4e9019a35d3fdb35c0b7af9cb1289f4bceeb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854323"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895450"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Eseguire attività di creazione, test e applicazione di patch in più passaggi in Attività di Registro Azure Container
 
@@ -32,8 +32,6 @@ Le attività in più passaggi estendono la singola funzionalità di creazione ed
 
 Tutti i passaggi vengono eseguiti all'interno di Azure, riducendo così il lavoro per le risorse di calcolo di Azure e liberando l'utente dalla gestione dell'infrastruttura. Oltre al Registro Azure Container, si paga solo per le risorse che si usano. Per informazioni sui prezzi, vedere la sezione relativa alla **Creazione di contenitori** sul sito [Prezzi di Registro di sistema del contenitore][pricing].
 
-> [!IMPORTANT]
-> Questa funzionalità è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale.
 
 ## <a name="common-task-scenarios"></a>Scenari comuni di attività
 
@@ -49,14 +47,14 @@ Le attività in più passaggi rendono possibili scenari come la logica seguente:
 
 Un'attività in più passaggi in Attività di Registro Azure Container viene definita come una serie di passaggi all'interno di un file YAML. Ogni passaggio può specificare le dipendenze dal completamento di uno o più passaggi precedenti. Sono disponibili i tipi di passaggi di attività seguenti:
 
-* [`build`](container-registry-tasks-reference-yaml.md#build): creare una o più immagini del contenitore usando la nota sintassi `docker build`, in serie o in parallelo.
-* [`push`](container-registry-tasks-reference-yaml.md#push): eseguire il push di immagini create a un registro contenitori. Sono supportati i registri privati, ad esempio Registro Azure Container, nonché l'hub Docker pubblico.
-* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): eseguire un contenitore, in modo che possa operare come una funzione all'interno del contesto dell'attività in esecuzione. È possibile passare parametri a `[ENTRYPOINT]` del contenitore e specificare proprietà come env, detach e altri parametri `docker run` comuni. Il tipo di passaggio `cmd` consente l'esecuzione di test funzionali e di unit test, con l'esecuzione simultanea del contenitore.
+* [`build`](container-registry-tasks-reference-yaml.md#build): Uno o più immagini del contenitore con build `docker build` sintassi, in serie o in parallelo.
+* [`push`](container-registry-tasks-reference-yaml.md#push): Push delle immagini compilate in un registro contenitori. Sono supportati i registri privati, ad esempio Registro Azure Container, nonché l'hub Docker pubblico.
+* [`cmd`](container-registry-tasks-reference-yaml.md#cmd): Eseguire un contenitore, tale che può operare come una funzione all'interno del contesto dell'attività in esecuzione. È possibile passare parametri a `[ENTRYPOINT]` del contenitore e specificare proprietà come env, detach e altri parametri `docker run` comuni. Il tipo di passaggio `cmd` consente l'esecuzione di test funzionali e di unit test, con l'esecuzione simultanea del contenitore.
 
 I frammenti di codice seguenti illustrano come combinare questi tipi di passaggi delle attività. Le attività in più passaggi possono essere semplici, come la creazione di un'unica immagine da un documento Dockerfile e il push nel registro, con un file YAML simile a:
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
@@ -64,8 +62,8 @@ steps:
 
 Oppure possono essere più complesse, ad esempio la definizione fittizia di più passaggi, che includono i passaggi per compilazione, test, pacchetto Helm e distribuzione Helm (la configurazione del registro contenitori e del repository Helm non è illustrata):
 
-```yaml
-version: 1.0-preview-1
+```yml
+version: v1.0.0
 steps:
   - id: build-web
     build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}} .
@@ -151,21 +149,13 @@ Run ID: yd14 was successful after 19s
 
 Per altre informazioni sulle creazioni automatiche su commit GIT o in caso di aggiornamento dell'immagine di base, vedere gli articoli [Automatizzare la compilazione di immagini](container-registry-tutorial-build-task.md) e [Automatizzare la compilazione di immagini in caso di aggiornamento dell'immagine di base](container-registry-tutorial-base-image-update.md) nell'esercitazione.
 
-## <a name="preview-feedback"></a>Feedback sull'anteprima
-
-Sebbene la funzionalità dell'attività in più passaggi di Attività di Registro Azure Container sia disponibile in anteprima, invitiamo a inviarci commenti e suggerimenti. Sono disponibili diversi canali per i commenti e suggerimenti:
-
-* [Problemi](https://aka.ms/acr/issues): visualizzare i bug e i problemi esistenti e registrarne di nuovi
-* [UserVoice](https://aka.ms/acr/uservoice): votare richieste di funzionalità esistenti o creare nuove richieste
-* [Discussione](https://aka.ms/acr/feedback): partecipare alla discussione su Registro contenitori di Azure con la community di Stack Overflow
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 È possibile trovare riferimenti ed esempi sulle attività in più passaggi qui:
 
 * [Task reference](container-registry-tasks-reference-yaml.md) (Riferimenti alle attività): tipi, proprietà e utilizzo dei passaggi di attività.
 * [Esempi di attività][task-examples]: file `task.yaml` di esempio per vari scenari da quelli semplici a quelli complessi.
-* [Repository di comandi](https://github.com/AzureCR/cmd): raccolta di contenitori come comandi per Attività del Registro contenitori di Azure.
+* [Repository di comandi](https://github.com/AzureCR/cmd): raccolta di contenitori come comandi per Attività di Registro Azure Container.
 
 <!-- IMAGES -->
 

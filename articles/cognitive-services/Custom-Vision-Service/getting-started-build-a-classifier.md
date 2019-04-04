@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886438"
+ms.locfileid: "58891481"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Come creare un classificatore con Visione personalizzata
 
@@ -125,9 +125,7 @@ L'interpretazione di chiamate di previsione con una soglia di probabilità eleva
 
 ## <a name="manage-training-iterations"></a>Gestire le iterazioni di training
 
-Ogni volta che si esegue il training del classificatore, si crea una nuova _iterazione_ con le metriche delle prestazioni aggiornate. È possibile visualizzare tutte le iterazioni nel riquadro sinistro della scheda **Prestazioni**. Quando se ne seleziona una, è possibile impostarla come _iterazione predefinita_ facendo clic sul pulsante **Predefinito** in alto. L'_iterazione predefinita_ è il modello che viene usato per impostazione predefinita quando se ne esegue una query tramite l'API Previsioni (ad esempio, da un'app). Se si rifiuta di aggiornare l'_iterazione predefinita_, è possibile continuare a eseguire il training del modello senza alcun impatto sul comportamento corrente dell'app. Dopo avere raggiunto il miglioramento ottimale per il modello, sarà possibile aggiornare quello predefinito.
-
-Nel riquadro a sinistra è presente anche il pulsante **Elimina**, che consente di eliminare un'iterazione obsoleta. Quando si elimina un'iterazione, vengono eliminate anche tutte le immagini associate in modo univoco a tale iterazione.
+Ogni volta che si esegue il training del classificatore, si crea una nuova _iterazione_ con le metriche delle prestazioni aggiornate. È possibile visualizzare tutte le iterazioni nel riquadro sinistro della scheda **Prestazioni**. Nel riquadro a sinistra è presente anche il pulsante **Elimina**, che consente di eliminare un'iterazione obsoleta. Quando si elimina un'iterazione, vengono eliminate anche tutte le immagini associate in modo univoco a tale iterazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

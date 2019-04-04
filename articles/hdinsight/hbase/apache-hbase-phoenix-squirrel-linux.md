@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/03/2018
 ms.author: hrasheed
-ms.openlocfilehash: 6dee4ac7cb863a08e9046b16189e7f4a7b04b810
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 38f86bd19c85440fbad0e7fd56a3dd9ba836c7b8
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201671"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903303"
 ---
 # <a name="use-apache-phoenix-with-linux-based-apache-hbase-clusters-in-hdinsight"></a>Usare Apache Phoenix con cluster Apache HBase basati su Linux in HDInsight
 Questo articolo fornisce informazioni su come usare [Apache Phoenix](https://phoenix.apache.org/) in Azure HDInsight e su come usare SQLLine. Per altre informazioni su Phoenix, vedere la [breve panoramica su Apache Phoenix](https://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Per la grammatica di Phoenix, vedere l'articolo relativo alla [grammatica di Apache Phoenix](https://phoenix.apache.org/language/index.html).
@@ -34,7 +34,7 @@ Per usare SQLLine sono necessari gli elementi seguenti:
 
 Quando ci si connette a un cluster HBase, è necessario connettersi a una delle macchine virtuali [Apache ZooKeeper](https://zookeeper.apache.org/). Ogni cluster HDInsight ha tre macchine virtuali ZooKeeper.
 
-**Per ottenere il nome host ZooKeeper**
+**Per ottenere il nome host di ZooKeeper**
 
 1. Aprire [Apache Ambari](https://ambari.apache.org/) passando ad **https://\<nome cluster\>.azurehdinsight.net**.
 2. Per accedere, immettere nome utente e password HTTP (cluster).
@@ -47,7 +47,7 @@ Quando ci si connette a un cluster HBase, è necessario connettersi a una delle 
 
 2. In SSH usare i comandi seguenti per eseguire SQLLine:
 
-        cd /usr/hdp/current/phoenix/bin
+        cd /usr/hdp/current/phoenix-client/bin
         ./sqlline.py <ZOOKEEPER SERVER FQDN>:2181:/hbase-unsecure
 3. Per creare una tabella HBase e inserire alcuni dati, eseguire questi comandi:
 

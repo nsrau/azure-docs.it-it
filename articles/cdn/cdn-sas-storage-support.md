@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170395"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918553"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso della rete CDN di Azure con firma di accesso condiviso
 
@@ -86,10 +86,11 @@ Questa opzione è disponibile solo per i profili di **rete CDN Premium di Azure 
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Regola di riscrittura URL della rete CDN - sinistra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regola di riscrittura URL della rete CDN - destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Rete CDN regola di riscrittura URL - sinistra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![della rete CDN regola di riscrittura URL - a destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Dopo l'attivazione della nuova regola, chiunque può accedere ai file nel contenitore specificato nell'endpoint della rete CDN indipendentemente dal fatto che venga usato o meno un token di firma di accesso condiviso nell'URL. Il formato è il seguente: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Dopo l'attivazione della nuova regola, chiunque può accedere ai file nel contenitore specificato nell'endpoint della rete CDN indipendentemente dal fatto che venga usato o meno un token di firma di accesso condiviso nell'URL. Di seguito è riportato il formato:
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Ad esempio:    
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -124,8 +125,8 @@ Per usare l'autenticazione tramite token di sicurezza della rete CDN di Azure, �
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Regola di riscrittura URL della rete CDN - sinistra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regola di riscrittura URL della rete CDN - destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Rete CDN regola di riscrittura URL - sinistra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![della rete CDN regola di riscrittura URL - a destra](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Se si rinnova la firma di accesso condiviso, assicurarsi di aggiornare la regola di riscrittura URL con il nuovo token di firma di accesso condiviso. 
 
@@ -137,7 +138,7 @@ Poiché i parametri della firma di accesso condiviso non sono visibili alla rete
 | --- | --- |
 | Inizia | Ora in cui la rete CDN di Azure può iniziare ad accedere al file BLOB. A causa dello sfasamento del clock (quando un segnale di clock perviene in momenti diversi per i diversi componenti), scegliere un'ora con 15 minuti di anticipo se si vuole che l'asset sia immediatamente disponibile. |
 | End | Ora dopo la quale la rete CDN di Azure non può più accedere al file BLOB. I file precedentemente memorizzati nella cache sulla rete CDN di Azure sono ancora accessibili. Per controllare l'ora di scadenza dei file, impostare l'ora di scadenza appropriata nel token di sicurezza della rete CDN di Azure o ripulire l'asset. |
-| Indirizzi IP consentiti | facoltativo. Se si usa la **rete CDN di Azure fornita da Verizon**, è possibile impostare questo parametro sugli intervalli definiti in [Rete CDN di Azure da intervalli di indirizzi IP per server perimetrali Verizon](https://msdn.microsoft.com/library/mt757330.aspx). Se si usa la **rete CDN di Azure fornita da Akamai**, non è possibile impostare il parametro degli intervalli IP poiché gli indirizzi IP non sono statici.|
+| Indirizzi IP consentiti | facoltativo. Se si usa la **rete CDN di Azure fornita da Verizon**, è possibile impostare questo parametro sugli intervalli definiti in [Rete CDN di Azure da intervalli di indirizzi IP per server perimetrali Verizon](/azure/cdn/cdn-pop-list-api). Se si usa la **rete CDN di Azure fornita da Akamai**, non è possibile impostare il parametro degli intervalli IP poiché gli indirizzi IP non sono statici.|
 | Protocolli consentiti | Uno o più protocolli consentiti per una richiesta effettuata con la firma di acceso condiviso dell'account. È consigliabile usare l'impostazione HTTPS.|
 
 ## <a name="next-steps"></a>Passaggi successivi

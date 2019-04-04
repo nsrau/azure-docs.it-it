@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860357"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894936"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Accedere ad Azure Cosmos DB dalle reti virtuali (VNet)
 
@@ -54,6 +54,9 @@ Le regole NSG vengono utilizzate per limitare la connettività da e verso una su
 
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>Gli endpoint di servizio sono disponibili per tutte le reti virtuali?
 No, solo le reti virtuali di Azure Resource Manager hanno un endpoint di servizio abilitato. Le reti virtuali classiche non supportano gli endpoint di servizio.
+
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>È possibile accettare le connessioni nei datacenter di Azure pubblici quando viene abilitato l'accesso all'endpoint del servizio per Azure Cosmos DB?  
+Questa operazione è necessaria solo quando si vuole consentire l'accesso all'account Azure Cosmos DB da altri servizi proprietari Azure come Azure Data Factory, Ricerca di Azure o qualsiasi servizio distribuito in una specifica area di Azure.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 2479db2abcb578eb380655346582392770606b39
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0f6ee8729cbed9cb8baf3668f7b1a332bc5eddc1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57552181"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892826"
 ---
 # <a name="get-started-with-the-request-and-response-components"></a>Introduzione ai componenti di richiesta e risposta
 Con i componenti di richiesta e risposta in un'app per la logica è possibile rispondere in tempo reale agli eventi.
@@ -34,9 +34,10 @@ Ad esempio, è possibile:
 Per informazioni su come iniziare a usare le azioni di richiesta e risposta in un'app per la logica, vedere [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-http-request-trigger"></a>Usare il trigger di richiesta HTTP
-Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. [Altre informazioni sui trigger](connectors-overview.md).
+Un trigger è un evento che può essere usato per avviare il flusso di lavoro definito in un'app per la logica. 
+[Altre informazioni sui trigger](../connectors/apis-list.md).
 
-Ecco una sequenza di esempio di come configurare una richiesta HTTP nella finestra di progettazione dell'app per la logica.
+Ecco una sequenza di esempio di come configurare una richiesta HTTP in Progettazione App per la logica.
 
 1. Aggiungere il trigger **Richiesta - Alla ricezione di una richiesta HTTP** all'app per la logica. È possibile facoltativamente fornire uno schema JSON (usando uno strumento come [JSONSchema.net](https://jsonschema.net)) per il corpo della richiesta. In questo modo la finestra di progettazione potrà generare i token per le proprietà nella richiesta HTTP.
 2. Aggiungere un'altra azione per poter salvare l'app per la logica.

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083938"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896126"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Accesso Single Sign-On facile di Azure Active Directory: Approfondimento tecnico
 
@@ -39,15 +39,12 @@ Questa sezione è composta da tre parti:
 
 L'accesso SSO facile viene abilitato con Azure AD Connect, come illustrato [qui](how-to-connect-sso-quick-start.md). Durante l'abilitazione della funzionalità, si verificano i passaggi seguenti:
 
-- Un account computer denominato `AZUREADSSOACC`, che rappresenta Azure AD, viene creato in Active Directory (AD) locale in ciascuna foresta di AD.
-- La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD. Se sono presenti più foreste Active Directory, ognuna avrà la propria chiave di decrittografia di Kerberos.
-- Vengono anche creati due nomi dell'entità servizio (SPN, Service Principal Name) Kerberos per rappresentare due URL usati durante l'accesso ad Azure AD.
-
->[!NOTE]
-> L'account computer e gli SPN Kerberos vengono creati in ogni foresta di AD che si sincronizza con Azure AD, tramite Azure AD Connect, e per i cui utenti si vuole abilitare l'accesso SSO facile. Spostare l'account computer `AZUREADSSOACC` in un'unità organizzativa in cui sono archiviati altri account computer per assicurarsi che venga gestito allo stesso modo e non venga eliminato.
+- Un account computer (`AZUREADSSOACC`) viene creato in locale Active Directory (AD) in ogni foresta di Active Directory che si sincronizza con Azure AD (tramite Azure AD Connect).
+- Inoltre, viene creato un numero di nomi dell'entità Kerberos servizio (SPN) da utilizzare durante il processo di accesso di Azure AD.
+- La chiave di decrittografia Kerberos dell'account computer viene condivisa in modo sicuro con Azure AD. Se sono presenti più foreste Active Directory, ogni account computer avrà la propria chiave di decrittografia Kerberos univoca.
 
 >[!IMPORTANT]
->È consigliabile [rinnovare la chiave di decrittografia di Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) dell'account computer `AZUREADSSOACC` almeno ogni 30 giorni.
+> Il `AZUREADSSOACC` account computer deve essere fortemente protetto per motivi di sicurezza. Solo gli amministratori di dominio devono essere in grado di gestire l'account del computer. Assicurarsi che la delega Kerberos sull'account del computer è disabilitata. Store l'account del computer in un'unità Organizzativa in cui siano sicure da eliminazioni accidentali. La chiave di decrittografia Kerberos dell'account computer deve essere considerata come sensibili. È consigliabile [rinnovare la chiave di decrittografia di Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) dell'account computer `AZUREADSSOACC` almeno ogni 30 giorni.
 
 Una volta completata l'installazione, l'accesso SSO facile funziona esattamente come qualsiasi altro accesso che usa l'autenticazione integrata di Windows (NTLM).
 

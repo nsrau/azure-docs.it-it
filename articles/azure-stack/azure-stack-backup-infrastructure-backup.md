@@ -14,16 +14,16 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: hectorl
 ms.lastreviewed: 03/19/2019
-ms.openlocfilehash: 080129ca1520dc2b1b085c69f6389508f11c7ba2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: da1ae76925ffeba7a1df57b4121f8cfe20b2887f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285922"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882107"
 ---
 # <a name="backup-and-data-recovery-for-azure-stack-with-the-infrastructure-backup-service"></a>Backup e ripristino dei dati per Azure Stack con il servizio Backup di infrastruttura
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 È possibile eseguire il backup e ripristinare i dati di servizio usando il servizio Backup di infrastruttura e configurazione. Ogni installazione di Azure Stack contiene un'istanza del servizio. È possibile usare i backup creati dal servizio per la ridistribuzione del Cloud Azure Stack per il ripristino di identità, sicurezza e i dati di Azure Resource Manager. 
 
@@ -32,7 +32,7 @@ ms.locfileid: "58285922"
 Prima di abilitare il servizio backup, assicurarsi di avere [requisiti posto](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> Il servizio di infrastruttura di Backup non include applicazioni e dati utente. Fare riferimento a [proteggono le macchine virtuali distribuite in Azure Stack](user/azure-stack-manage-vm-protect.md) per altre informazioni su come proteggere le applicazioni basate su VM IaaS. Per una comprensione completa di come proteggere le applicazioni in Azure Stack, vedere la [onsiderations Azure Stack per business continuità e ripristino di emergenza ripristino white paper](http://aka.ms/azurestackbcdrconsiderationswp).
+> Il servizio di infrastruttura di Backup non include applicazioni e dati utente. Fare riferimento a [proteggono le macchine virtuali distribuite in Azure Stack](user/azure-stack-manage-vm-protect.md) per altre informazioni su come proteggere le applicazioni basate su VM IaaS. Per una comprensione completa di come proteggere le applicazioni in Azure Stack, vedere la [considerazioni su Azure Stack per business continuità e ripristino di emergenza ripristino white paper](https://aka.ms/azurestackbcdrconsiderationswp).
 
 ## <a name="the-infrastructure-backup-service"></a>Il servizio Backup di infrastruttura
 

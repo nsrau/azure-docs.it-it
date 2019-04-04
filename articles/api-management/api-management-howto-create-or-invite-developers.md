@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: apimpm
-ms.openlocfilehash: d56e2da00e60b9daa44e040db6796215dd03436b
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 6a4ad827c39ec106acdc7b52a5b769ab6e7febf8
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793085"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893946"
 ---
 # <a name="how-to-manage-user-accounts-in-azure-api-management"></a>Come gestire gli account utente in Gestione API di Azure
 
-In Gestione API gli sviluppatori sono gli utenti delle API esposte con Gestione API. In questa guida viene illustrato come creare e invitare gli sviluppatori a usare le API e i prodotti resi disponibili con l'istanza di Gestione API. Per informazioni sulla gestione degli account utente a livello di codice, vedere la documentazione [Entità utente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) nel riferimento [API Management REST (REST di gestione API)](/rest/api/apimanagement/).
+In Gestione API gli sviluppatori sono gli utenti delle API esposte con Gestione API. In questa guida viene illustrato come creare e invitare gli sviluppatori a usare le API e i prodotti resi disponibili con l'istanza di Gestione API. Per informazioni sulla gestione degli account utente a livello di codice, vedere la documentazione [Entità utente](https://docs.microsoft.com/en-us/rest/api/apimanagement/user) nel riferimento [API Management REST (REST di gestione API)](/rest/api/apimanagement/).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -69,7 +69,7 @@ Per bloccare un utente, eseguire la procedura seguente.
 
 ## <a name="reset-a-user-password"></a>Reimpostare la password di un utente
 
-Per lavorare con gli account utente a livello di codice, vedere la documentazione [Entità utente](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity) nel riferimento [API Management REST (REST di gestione API)](/rest/api/apimanagement/). Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
+Per lavorare con gli account utente a livello di codice, vedere la documentazione [Entità utente](https://docs.microsoft.com/en-us/rest/api/apimanagement/user) nel riferimento [API Management REST (REST di gestione API)](/rest/api/apimanagement/). Per reimpostare la password di un account utente su un valore specifico, è possibile usare la procedura [Update a user (Aggiornamento di un utente)](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-user-entity#UpdateUser) e specificare la password desiderata.
 
 ## <a name="next-steps"> </a>Passaggi successivi
 Dopo aver creato un account sviluppatore, è possibile associarlo ai ruoli ed effettuarne la sottoscrizione a prodotti e API. Per altre informazioni, vedere [Come creare e usare i gruppi][How to create and use groups].

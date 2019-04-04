@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 45769a2285965395d113f026f0ffc171873a5a99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842601"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892399"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creare e gestire pool elastici nel database SQL di Azure
 
@@ -91,11 +91,11 @@ Per creare e spostare i database all'interno dei pool elastici esistenti o per r
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[CREATE DATABASE (database SQL di Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Consente di creare un nuovo database in un pool esistente o in un database singolo. Per creare un nuovo database è necessario essere connessi al database master.|
-| [ALTER DATABASE (database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Consente di spostare un database all'interno, all'esterno o tra pool elastici.|
+|[CREATE DATABASE (Database SQL di Azure)](/sql/t-sql/statements/create-database-azure-sql-database)|Consente di creare un nuovo database in un pool esistente o in un database singolo. Per creare un nuovo database è necessario essere connessi al database master.|
+| [ALTER DATABASE (Database SQL di Azure)](/sql/t-sql/statements/alter-database-azure-sql-database) |Consente di spostare un database all'interno, all'esterno o tra pool elastici.|
 |[DROP DATABASE (Transact-SQL)](/sql/t-sql/statements/drop-database-transact-sql)|Questo comando elimina un database.|
-|[sys.elastic_pool_resource_stats (Database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Restituisce statistiche di uso delle risorse per tutti i pool elastici in un server di database SQL di Azure. Per ogni pool elastico è presente una riga per ogni finestra di report di 15 secondi (quattro righe al minuto). Sono inclusi CPU, IO, Log, uso dell'archiviazione e uso di richieste/sessioni simultanee da parte di tutti i database nel pool.|
-|[sys.database_service_objectives (database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, di un database SQL di Azure o un'istanza di Azure SQL Data Warehouse. Se si è connessi al database master in un server di database SQL di Azure, restituisce informazioni su tutti i database. Per Azure SQL Data Warehouse, è necessario essere connessi al database master.|
+|[Sys. elastic_pool_resource_stats (Database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)|Restituisce statistiche di uso delle risorse per tutti i pool elastici in un server di database SQL di Azure. Per ogni pool elastico è presente una riga per ogni finestra di report di 15 secondi (quattro righe al minuto). Sono inclusi CPU, IO, Log, uso dell'archiviazione e uso di richieste/sessioni simultanee da parte di tutti i database nel pool.|
+|[database_service_objectives (Database SQL di Azure)](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, di un database SQL di Azure o un'istanza di Azure SQL Data Warehouse. Se si è connessi al database master in un server di database SQL di Azure, restituisce informazioni su tutti i database. Per Azure SQL Data Warehouse, è necessario essere connessi al database master.|
 
 ## <a name="rest-api-manage-elastic-pools-and-pooled-databases"></a>API REST: gestire i pool elastici e i database in pool
 
@@ -103,21 +103,20 @@ Per creare e gestire i pool elastici e i database in pool del database SQL, usar
 
 | Comando | DESCRIZIONE |
 | --- | --- |
-|[Pool elastici - Creazione o aggiornamento](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crea un nuovo pool elastico o aggiorna un pool elastico esistente.|
-|[Pool elastici: Delete](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Consente di eliminare un pool elastico.|
+|[Pool elastici: crea o aggiorna](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crea un nuovo pool elastico o aggiorna un pool elastico esistente.|
+|[Eliminazione di pool elastici:](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Consente di eliminare un pool elastico.|
 |[Pool elastici: Get](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Ottiene un pool elastico.|
-|[Pool elastici - Elenco dal server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Restituisce un elenco di pool elastici in un server.|
-|[Pool elastici: aggiornamento](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Consente di aggiornare un pool elastico esistente.|
-|[Attività dei pool elastici](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Restituisce le attività del pool elastico.|
-|[Attività del database dei pool elastici](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Restituisce l'attività sul database all'interno di un pool elastico.|
-|[Database - Creazione o aggiornamento](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Ottiene un database.|
-|[Databases - List by elastic pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
-|[Databases - List by server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Aggiorna un database esistente.|
+|[Pool elastici: Elenca dal server](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Restituisce un elenco di pool elastici in un server.|
+|[Aggiornare i pool elastici:](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Consente di aggiornare un pool elastico esistente.|
+|[Attività del pool elastico](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Restituisce le attività del pool elastico.|
+|[Attività del pool elastico del database](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Restituisce l'attività sul database all'interno di un pool elastico.|
+|[Database: crea o aggiorna](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crea un nuovo database o ne aggiorna uno esistente.|
+|[Database - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Ottiene un database.|
+|[Database: Elenca da pool elastico](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Restituisce un elenco di database in un pool elastico.|
+|[Database: Elenca dal server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Restituisce un elenco di database in un server.|
+|[Database - aggiornamento](https://docs.microsoft.com/rest/api/sql/databases/update)|Aggiorna un database esistente.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Un video è disponibile in [Esercitazione video di Microsoft Virtual Academy sulle funzionalità di elasticità del database SQL di Azure](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)
 * Per altre informazioni sui modelli di progettazione per applicazioni SaaS con pool elastici, vedere l'articolo relativo ai [modelli di progettazione per applicazioni SaaS multi-tenant con database SQL di Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 * Per un'esercitazione sul SaaS con i pool elastici, vedere [Introduzione all'applicazione SaaS Wingtip](sql-database-wtp-overview.md).

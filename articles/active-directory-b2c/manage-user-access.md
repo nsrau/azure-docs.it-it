@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 0ec3aa6f3d6e7037e2ed59baeb0657fbdabcf3ec
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 2fb9de7781fae51792e2802002a3cf68974dec83
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154610"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894857"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Gestire l'accesso utente in Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ A seconda delle normative che l'applicazione deve rispettare, potrebbe essere ne
 
 Di seguito è riportato un esempio di un flusso utente per l'acquisizione del consenso dei genitori:
 
-1. Un'operazione [API Graph di Azure Active Directory](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog) identifica l'utente come un minorenne e restituisce i dati dell'utente all'applicazione in forma di un token JSON non firmato.
+1. Un'operazione [API Graph di Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog) identifica l'utente come un minorenne e restituisce i dati dell'utente all'applicazione in forma di un token JSON non firmato.
 
 2. L'applicazione elabora il token JSON e visualizza una schermata per comunicare al minore che è necessario il consenso dei genitori e richiedere il consenso di un genitore online. 
 

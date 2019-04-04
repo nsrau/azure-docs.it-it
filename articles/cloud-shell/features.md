@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: damaerte
-ms.openlocfilehash: 7e2ead6d5fc13b0d7517258d75148d50a3f1bc62
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: fe04c5450ecd2c21affa5cbb89c627bc30cf7b6f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246356"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903455"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Funzionalità e strumenti per Azure Cloud Shell
 
@@ -40,7 +40,7 @@ Al termine, Cloud Shell assocerà automaticamente la risorsa di archiviazione (m
 Inoltre, la directory `$HOME` viene resa persistente come un .img nella condivisione file di Azure.
 I file all'esterno di `$HOME` e lo stato della macchina non sono persistenti tra le sessioni. Usare le procedure consigliate per l'archiviazione dei segreti, ad esempio le chiavi SSH. Servizi, ad esempio [Azure Key Vault dispongono di esercitazioni per l'installazione](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Altre informazioni sulla persistenza dei file all’interno di Cloud Shell.](persisting-shell-storage.md)
+[Altre informazioni sulla persistenza dei file in Cloud Shell.](persisting-shell-storage.md)
 
 ### <a name="azure-drive-azure"></a>Unità Azure (Azure:)
 
@@ -80,7 +80,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 |Python     |2.7 e 3.5 (impostazione predefinita)|
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Avvio rapido di Bash in Cloud Shell](quickstart.md) <br>
-[Avvio rapido di PowerShell in Cloud Shell](quickstart-powershell.md) <br>
-[Informazioni sull'interfaccia della riga di comando di Azure 2.0](https://docs.microsoft.com/cli/azure/) <br>
+[Bash in Cloud Shell Quickstart](quickstart.md) <br>
+[PowerShell in avvio rapido di Cloud Shell](quickstart-powershell.md) <br>
+[Informazioni su Azure CLI](https://docs.microsoft.com/cli/azure/) <br>
 [Informazioni su Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

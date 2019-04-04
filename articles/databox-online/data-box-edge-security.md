@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403392"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891804"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Sicurezza bordo casella dei dati e protezione dei dati
 
@@ -35,6 +35,7 @@ Il servizio Gateway di dati finestra Edge/Data finestra è un servizio di gestio
 
 - Accesso al servizio Gateway di dati finestra Edge/Data finestra richiede l'organizzazione disponga di un Enterprise Agreement (EA) o una sottoscrizione di Cloud Solution Provider (CSP). Per altre informazioni, visitare [iscriversi a una sottoscrizione di Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Poiché il servizio di gestione è ospitato in Azure, viene protetto dalle funzionalità di sicurezza di Azure. Per altre informazioni sulle funzionalità di sicurezza fornite da Microsoft Azure, andare in [Centro protezione Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
+- Per le operazioni di gestione di SDK, è disponibile per il bordo di Data Box chiave di crittografia / risorsa del Gateway di dati finestra sotto **le proprietà del dispositivo**. È possibile visualizzare la chiave di crittografia solo se si dispone delle autorizzazioni per l'API Graph di risorse.
 
 ## <a name="data-box-edge-device-protection"></a>Protezione dei dati per il dispositivo bordo casella
 
@@ -44,7 +45,8 @@ Il dispositivo perimetrale casella dei dati è un dispositivo locale che aiuta a
 - È protetta in tutte le volte in cui da una password del dispositivo.
 - È un dispositivo bloccato. Il dispositivo BMC e BIOS è protetti da password con accesso utente limitato per il BIOS.
 - Avvio protetto è abilitato.
-- Viene eseguito Windows Defender Device Guard. Device Guard consente di eseguire solo applicazioni attendibili definite nei criteri di integrità del codice. 
+- Viene eseguito Windows Defender Device Guard. Device Guard consente di eseguire solo applicazioni attendibili definite nei criteri di integrità del codice.
+- Include una chiave all'interno di copertina che può essere utilizzata per bloccare il dispositivo. È consigliabile che dopo aver configurato il dispositivo, aprire il coperchio. Individuare la chiave e quindi si blocca la copertura per impedire eventuali accessi non autorizzati ai dischi dati che si trova allocate all'inizio del dispositivo.
 
 ### <a name="protect-the-device-via-activation-key"></a>Proteggere il dispositivo tramite una chiave di attivazione
 

@@ -1,5 +1,5 @@
 ---
-title: Procedure consigliate per la sicurezza con il controllo di accesso e identità di Azure | Microsoft Docs
+title: Procedure consigliate per la sicurezza con il controllo di accesso e identità di Azure | Documentazione Microsoft
 description: Questo articolo illustra una serie di procedure consigliate per il controllo di accesso e la gestione delle identità usando le funzionalità integrate di Azure.
 services: security
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: bf5143c3c0c75bc37f6981c6d995339e41baa4c4
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: f872c61ad0597d2307cd244668fdfc258f7a45cb
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112105"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895687"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Procedure consigliate per la sicurezza con il controllo di accesso e la gestione delle identità di Azure
 
@@ -116,7 +116,7 @@ Di seguito sono indicati i vantaggi e le opzioni per l'abilitazione della verifi
 **Opzione 1**: [abilitare l'autenticazione a più fattori modificando lo stato utente](../active-directory/authentication/howto-mfa-userstates.md).   
 **Vantaggio**: questo è il metodo tradizionale per richiedere la verifica in due passaggi. Funziona sia con [Azure Multi-Factor Authentication nel cloud e Server Multi-Factor Authentication](../active-directory/authentication/concept-mfa-whichversion.md). Con questo metodo gli utenti devono eseguire la verifica in due passaggi ogni volta che eseguono l'accesso e vengono ignorati i criteri di accesso condizionale.
 
-**Opzione 2**: [abilitare l'autenticazione a più fattori con criteri di accesso condizionale](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
+**Opzione 2**: [abilitare l'autenticazione a più fattori con criteri di accesso condizionale](../active-directory/authentication/howto-mfa-getstarted.md).
 **Vantaggio**: questa opzione consente di richiedere la verifica in due passaggi in determinate condizioni usando l'[accesso condizionale](../active-directory/active-directory-conditional-access-azure-portal.md). L'accesso di utenti da posizioni diverse, l'uso di dispositivi non attendibili o l'uso di applicazioni considerate rischiose possono essere considerate condizioni specifiche. La definizione di condizioni specifiche in cui si richiede la verifica in due passaggi consente di evitare di chiedere continuamente conferma agli utenti della loro identità, che può risultare spiacevole.
 
 Questo rappresenta il mezzo più flessibile per abilitare la verifica in due passaggi per gli utenti. L'abilitazione mediante criteri di accesso condizionale funziona solo per Azure Multi-Factor Authentication nel cloud ed è una funzione Premium di Azure AD. Per altre informazioni su questo metodo, vedere [Implementare Azure Multi-Factor Authentication basato su cloud](../active-directory/authentication/howto-mfa-getstarted.md).
@@ -183,11 +183,11 @@ Valutare gli account assegnati o idonei per il ruolo di amministratore globale. 
 
 [Separare gli account utente e l'inoltro della posta elettronica per gli account amministratore globale](../active-directory/users-groups-roles/directory-admin-roles-secure.md)  
 
-[Verificare che le password degli account amministrativi siano state modificate di recente](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
+[Assicurarsi che le password degli account amministrativi è sono modificata di recente](../active-directory/users-groups-roles/directory-admin-roles-secure.md#ensure-the-passwords-of-administrative-accounts-have-recently-changed)  
 
 [Attivare la sincronizzazione dell'hash delle password](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)  
 
-[Richiedere l'autenticazione a più fattori per gli utenti con tutti i ruoli con privilegi e gli utenti esposti](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
+[Richiedi multi-Factor Authentication per gli utenti nei ruoli con tutti i privilegi, nonché utenti esposti](../active-directory/users-groups-roles/directory-admin-roles-secure.md#require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users)  
 
 [Ottenere Office 365 Secure Score (se si usa Office 365)](../active-directory/users-groups-roles/directory-admin-roles-secure.md#obtain-your-office-365-secure-score-if-using-office-365)  
 
@@ -197,7 +197,7 @@ Valutare gli account assegnati o idonei per il ruolo di amministratore globale. 
 
 [Stabilire i proprietari del piano di risposta a eventi imprevisti ed emergenze](../active-directory/users-groups-roles/directory-admin-roles-secure.md#establish-incidentemergency-response-plan-owners)  
 
-[Proteggere gli account amministrativi con privilegi locali](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
+[Proteggere gli account amministrativi con privilegiati locali](../active-directory/users-groups-roles/directory-admin-roles-secure.md#turn-on-password-hash-synchronization)
 
 Se non si protegge l'accesso con privilegi, si noterà che troppi utenti hanno ruoli con privilegi elevati che sono più vulnerabili agli attacchi. Attori dannosi, come gli utenti malintenzionati, prendono spesso di mira gli account amministratore e altri elementi di accesso con privilegi per accedere ai dati sensibili e ai sistemi usando attacchi con furto di credenziali.
 

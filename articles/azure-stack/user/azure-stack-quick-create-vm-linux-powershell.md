@@ -15,14 +15,14 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.custom: mvc
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: e6afea414ed632dead97a4b9adc7c623e48bd7ef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 5e93a8fbcd603e5c52141a2a883bd7371ee50221
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766700"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445378"
 ---
-# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Avvio rapido: Creare una macchina virtuale di server Linux con PowerShell in Azure Stack
+# <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Guida introduttiva: Creare una macchina virtuale di server Linux con PowerShell in Azure Stack
 
 *Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
@@ -384,7 +384,7 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Connettersi alla macchina virtuale
 
-Dopo aver distribuita la macchina virtuale, configurare una connessione SSH per la macchina virtuale. Usare il comando [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-4.3.1) per ottenere l'indirizzo IP pubblico della macchina virtuale.
+Dopo aver distribuita la macchina virtuale, configurare una connessione SSH per la macchina virtuale. Usare il comando [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) per ottenere l'indirizzo IP pubblico della macchina virtuale.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName myResourceGroup | Select IpAddress
@@ -420,7 +420,7 @@ Con NGINX installato e la porta 80 aperta sulla macchina virtuale, è possibile 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Pulire le risorse che non sono più necessari. È possibile usare la [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1) comando per rimuovere queste risorse. Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il comando seguente:
+Pulire le risorse che non sono più necessari. È possibile usare la [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) comando per rimuovere queste risorse. Per eliminare il gruppo di risorse e tutte le relative risorse, eseguire il comando seguente:
 
 ```powershell
 Remove-AzureRmResourceGroup -Name myResourceGroup

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
-ms.openlocfilehash: 323de505bc1bfa9747f372033392a9fd6e08462c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57898857"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895784"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Procedure consigliate e risoluzione dei problemi per le applicazioni Node nel Servizio app di Azure per Windows
 
@@ -98,7 +98,7 @@ Il valore predefinito è False. Se questa funzionalità è abilitata, l'applicaz
 
 ### <a name="idlepageouttimeperiod"></a>idlePageOutTimePeriod
 
-Il valore predefinito è 0, ovvero questa funzionalità è disabilitata. Se si specifica un valore maggiore di 0, iisnode eseguirà il paging di tutti i rispettivi processi figlio ogni 'idlePageOutTimePeriod' in millisecondi. Per informazioni sul paging, vedere questa [documentazione](https://msdn.microsoft.com/library/windows/desktop/ms682606.aspx). Questa impostazione è utile per le applicazioni che usano una quantità elevata di memoria e vogliono eseguire occasionalmente il paging della memoria sul disco per liberare RAM.
+Il valore predefinito è 0, ovvero questa funzionalità è disabilitata. Se si specifica un valore maggiore di 0, iisnode eseguirà il paging di tutti i rispettivi processi figlio ogni 'idlePageOutTimePeriod' in millisecondi. Per informazioni sul paging, vedere questa [documentazione](/windows/desktop/api/psapi/nf-psapi-emptyworkingset). Questa impostazione è utile per le applicazioni che usano una quantità elevata di memoria e vogliono eseguire occasionalmente il paging della memoria sul disco per liberare RAM.
 
 > [!WARNING]
 > Prestare attenzione quando si abilitano le impostazioni di configurazione seguenti nelle applicazioni di produzione. È consigliabile non abilitarle nelle applicazioni di produzione live.
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Passare al sito della console di debug all'indirizzo `https://yoursite.scm.azurewebsites.net/DebugConsole`
+Visitare il sito della Console di Debug `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Passare alla directory site/wwwroot. Verrà visualizzato un prompt dei comandi, come mostrato nell'esempio seguente:
 
@@ -274,7 +274,7 @@ Abilitare FREB per l'applicazione per visualizzare il codice errore win32. Assic
 | 503 |1002 |Cercare il motivo effettivo nel codice errore win32. Non è stato possibile inviare la richiesta a node.exe. |
 | 503 |1003 |La named pipe è troppo occupata. Verificare se node.exe sta usando una quantità eccessiva di CPU |
 
-NODE.exe include un'impostazione denominata `NODE_PENDING_PIPE_INSTANCES`. In Servizio app di Azure questo valore è impostato su 5000. Ossia, node.exe può accettare 5000 richieste alla volta nella named pipe. Questo valore dovrebbe essere appropriato per la maggior parte delle applicazioni in esecuzione in Servizio app di Azure. L'errore 503.1003 non dovrebbe essere visualizzato in Servizio app di Azure perché è stato impostato un valore elevato per `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe include un'impostazione denominata `NODE_PENDING_PIPE_INSTANCES`. In Servizio app di Azure questo valore è impostato su 5000. Ossia, node.exe può accettare 5000 richieste alla volta nella named pipe. Questo valore dovrebbe essere appropriato per la maggior parte delle applicazioni in esecuzione in Servizio app di Azure. È consigliabile 503.1003 non visualizzato nel servizio App di Azure il valore massimo per il `NODE_PENDING_PIPE_INSTANCES`
 
 ## <a name="more-resources"></a>Altre risorse
 
@@ -283,6 +283,6 @@ Per altre informazioni sulle applicazioni node.js nel servizio app di Azure, sel
 * [Introduzione alle app Web Node.js nel servizio app di Azure](app-service-web-get-started-nodejs.md)
 * [Come eseguire il debug di un'app Web Node.js nel servizio app di Azure](app-service-web-tutorial-nodejs-mongodb-app.md)
 * [Utilizzo di moduli Node.js con le applicazioni Azure](../nodejs-use-node-modules-azure-apps.md)
-* [App Web del Servizio app di Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
-* [Centro per sviluppatori di Node. js](../nodejs-use-node-modules-azure-apps.md)
-* [Exploring the Super Secret Kudu Debug Console (Esplorazione della console segreta di debug di Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
+* [App Web di servizio App di Azure: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
+* [Centro per sviluppatori Node.js](../nodejs-use-node-modules-azure-apps.md)
+* [Esplorazione della Console di Debug Super Secret Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

@@ -8,18 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570114"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895867"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Usare le identità gestite per autenticare Analisi di flusso in Azure Data Lake Storage Gen1
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Eseguire l'autenticazione Analitica Stream per Azure Data Lake archiviazione Gen1 usando identità gestite
 
 Analisi di flusso di Azure supporta l'autenticazione con identità gestita con l'output di Azure Data Lake Storage (ADLS) Gen1. L'identità è un'applicazione gestita registrata in Azure Active Directory che rappresenta un determinato processo di Analisi di flusso e può essere usata per l'autenticazione in una risorsa di destinazione. Le identità gestite eliminano le limitazioni associate ai metodi di autenticazione basata sull'utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password o le scadenze dei token utente ogni 90 giorni. Inoltre, le identità gestite semplificano l'automazione delle distribuzioni dei processi di Analisi di flusso che inviano l'output ad Azure Data Lake Storage Gen1.
-
-Per registrarsi per questa anteprima e scoprire di più sulle nuove funzionalità, vedere il post di blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Otto nuove funzionalità in Analisi di flusso di Azure).
 
 Questo articolo illustra tre metodi per abilitare l'identità gestita per un processo di Analisi di flusso di Azure che invia l'output ad Azure Data Lake Storage Gen1 tramite il portale di Azure, la distribuzione dei modelli di Azure Resource Manager e gli strumenti di Analisi di flusso di Azure per Visual Studio.
 
@@ -27,11 +25,11 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-1. Per iniziare, creare un nuovo processo di Analisi di flusso o aprire un processo esistente nel portale di Azure. Nella barra dei menu sul lato sinistro della schermata selezionare **Identità gestita (anteprima)** in **Configura**.
+1. Per iniziare, creare un nuovo processo di Analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu che si trova sul lato sinistro della schermata, selezionare **identità gestito** che si trova sotto **configura**.
 
-   ![Configurare l'identità gestita (anteprima) di Analisi di flusso](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configurare l'identità di Analitica Stream gestiti](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Selezionare **Use System-assigned Managed Identity (preview)** (Usa identità gestita assegnata dal sistema - anteprima) dalla finestra visualizzata sulla destra. Fare clic su **salvare** a un'entità servizio per l'identità del processo di Stream Analitica in Azure Active Directory. Il ciclo di vita dell'identità creata sarà gestito da Azure. Quando si elimina il processo di Analisi di flusso, l'identità associata (ovvero, l'entità servizio) viene eliminata automaticamente da Azure.
+2. Selezionare **assegnato dal sistema Usa identità gestite** dalla finestra che viene visualizzato a destra. Fare clic su **salvare** a un'entità servizio per l'identità del processo di Stream Analitica in Azure Active Directory. Il ciclo di vita dell'identità creata sarà gestito da Azure. Quando si elimina il processo di Analisi di flusso, l'identità associata (ovvero, l'entità servizio) viene eliminata automaticamente da Azure.
 
    Al momento del salvataggio della configurazione, l'ID oggetto (OID) dell'entità servizio viene indicato come ID dell'entità, come illustrato di seguito:
 
@@ -39,7 +37,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
  
    L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è **MyASAJob**, anche il nome dell'entità servizio creata è **MyASAJob**.
 
-3. Nella finestra delle proprietà di output del sink di output di ADLS Gen1, fare clic sull'elenco a discesa Modalità di autenticazione e selezionare **Identità gestita (anteprima)**.
+3. Nella finestra proprietà di output del sink di output Gen1 Azure Data Lake Store, scegliere la modalità di autenticazione elenco a discesa e seleziona * * identità gestito * *.
 
 4. Compilare le proprietà rimanenti. Per altre informazioni sulla creazione di un output di ADLS, vedere [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md) (Creare un output di Data Lake Store con Analisi di flusso). Al termine, fare clic su **Salva**.
 
@@ -131,7 +129,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
               }
    ```
   
-   **Risposta del processo di esempio**
+   **Esempio di risposta di processo**
 
    ```json
    {
@@ -183,6 +181,6 @@ Questa funzionalità non supporta le operazioni seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Create a Data lake Store output with stream analytics](../data-lake-store/data-lake-store-stream-analytics.md) (Creare un output di Data Lake Store con Analisi di flusso)
+* [Creare un output di Data lake Store con analitica di flusso](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Eseguire test locali delle query di Analisi di flusso con Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Testare i dati live in locale usando gli strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-live-data-local-testing.md) 
+* [Dati di test in tempo reale in locale usando gli strumenti di Azure Stream Analitica per Visual Studio](stream-analytics-live-data-local-testing.md) 

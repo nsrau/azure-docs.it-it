@@ -15,12 +15,12 @@ ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f66f57799e1e6b6d0e27624e3dc08b4de5d09cac
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9513b552ce6bfd525077270b90d3d10e31c015c5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766200"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484963"
 ---
 # <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Parametri comuni del flusso di lavoro per la convalida dello Stack di Azure come servizio
 
@@ -43,7 +43,7 @@ Parametri di ambiente descrivono l'ambiente dello Stack di Azure sottoposta a te
 1. Accedere a qualsiasi computer dotato di accesso all'ambiente Azure Stack o di DVM.
 2. Eseguire i comandi seguenti in una finestra di PowerShell con privilegi elevata:
 
-    ```PowerShell  
+    ```powershell  
     $CloudAdminUser = "<cloud admin username>"
     $CloudAdminPassword = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
     $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $CloudAdminPassword)

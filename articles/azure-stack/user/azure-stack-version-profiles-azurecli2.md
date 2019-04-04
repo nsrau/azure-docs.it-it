@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 519046081a7f9778fb430daa0cd418cf9863a2b0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57975628"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487584"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Usare i profili delle versioni API con il comando di Azure in Azure Stack
 
@@ -95,13 +95,13 @@ Dovrebbe visualizzare la versione della CLI di Azure e altre librerie dipendenti
 
 2. Aggiornare PIP. PIP è una gestione pacchetti per Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
 
-    ```PowerShell  
+    ```powershell  
     python -m pip install --upgrade pip
     ```
 
 3. Installare il **quella ottenibile** modulo. [Quella ottenibile](https://pypi.org/project/certifi/) un modulo e una raccolta di certificati radice per convalidare l'attendibilità dei certificati SSL durante la verifica dell'identità host TLS. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
 
-    ```PowerShell
+    ```powershell
     pip install certifi
     ```
 
@@ -157,7 +157,7 @@ Per rendere attendibile il certificato radice CA Azure Stack, aggiungerlo al cer
 
 1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 
@@ -277,7 +277,7 @@ Se si usa il ASDK, è necessario considerare attendibile il certificato radice d
 
 1. Trovare il percorso di certificato nel computer. Il percorso può variare in base alla quale è stato installato Python. Aprire un prompt dei comandi o un prompt di PowerShell con privilegi elevato e digitare il comando seguente:
 
-    ```PowerShell  
+    ```powershell  
       python -c "import certifi; print(certifi.where())"
     ```
 

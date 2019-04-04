@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818703"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918264"
 ---
 # <a name="sizes-for-cloud-services"></a>Dimensioni dei servizi cloud
 Questo argomento descrive le dimensioni e le opzioni disponibili per le istanze del ruolo di servizio cloud, come ruoli Web e di lavoro. Fornisce anche considerazioni sulla distribuzione da tenere presenti quando si prevede di usare queste risorse. Ogni dimensione dispone di un ID da inserire nel [file di definizione del servizio](cloud-services-model-and-package.md#csdef). I prezzi per ogni dimensione sono disponibili nella pagina relativa ai [prezzi dei servizi cloud](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -59,7 +59,7 @@ Le considerazioni seguenti potrebbero essere utili all'utente per scegliere una 
 
 | Famiglia SKU | ACU/Core |
 | --- | --- |
-| [ExtraSmall](#a-series) |50 |
+| [Molto piccola](#a-series) |50 |
 | [Small-ExtraLarge](#a-series) |100 |
 | [A5-7](#a-series) |100 |
 | [A8-A11](#a-series) |225* |
@@ -213,7 +213,7 @@ Man mano che la natura del carico di lavoro cambia o nuove dimensioni della VM d
 >
 
 ## <a name="get-a-list-of-sizes"></a>Ottenere un elenco di dimensioni
-È possibile usare PowerShell o l'API REST per ottenere un elenco di dimensioni. L'API REST è documentata [qui](https://msdn.microsoft.com/library/azure/dn469422.aspx). Il codice seguente è un comando di PowerShell che elenca tutte le dimensioni disponibili per Servizi cloud. 
+È possibile usare PowerShell o l'API REST per ottenere un elenco di dimensioni. L'API REST è documentata [qui](/previous-versions/azure/reference/dn469422(v=azure.100)). Il codice seguente è un comando di PowerShell che elenca tutte le dimensioni disponibili per Servizi cloud. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel

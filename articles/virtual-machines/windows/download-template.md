@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984529"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903115"
 ---
 # <a name="download-the-template-for-a-vm"></a>Scaricare il modello per una VM
 Quando si crea una macchina virtuale in Azure con il portale o con PowerShell, viene creato automaticamente un modello di Resource Manager. È possibile usare questo modello per duplicare rapidamente una distribuzione. Il modello contiene informazioni su tutte le risorse in un gruppo di risorse. Per una macchina virtuale, questo significa che il modello contiene tutto ciò che viene creato in supporto della macchina virtuale all'interno del gruppo di risorse, comprese le risorse di rete.
@@ -29,7 +29,7 @@ Quando si crea una macchina virtuale in Azure con il portale o con PowerShell, v
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Nel menu a sinistra selezionare **Macchine virtuali**.
 3. Selezionare la macchina virtuale dall'elenco.
-4. Selezionare **Script di automazione**.
+4. Selezionare **Esporta modello**.
 5. Selezionare **Scarica** dal menu nella parte superiore e salvare il file con estensione zip nel computer locale.
 6. Aprire il file .zip ed estrarne i file in una cartella. Il file con estensione zip contiene:
    

@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091988"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486938"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Note sulla versione per la convalida come servizio
 
@@ -61,7 +61,7 @@ Il 30 novembre 2018
 
     `Install-VaaSPrerequisites` non richiede le credenziali di amministratore di cloud. Se si esegue la versione più recente di questo cmdlet, vedere [scaricare e installare l'agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) per i comandi rivisti per l'installazione dei prerequisiti. Ecco i comandi:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -78,7 +78,7 @@ Il 30 novembre 2018
 
     `Install-VaaSPrerequisites` è ora necessario cloud le credenziali di amministratore per risolvere un problema durante la convalida del pacchetto. La documentazione all'indirizzo [scaricare e installare l'agente](azure-stack-vaas-local-agent.md#download-and-install-the-agent) è stato aggiornato con il codice seguente:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force

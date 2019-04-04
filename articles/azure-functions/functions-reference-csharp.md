@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: eda6f7b8ec61f2c3472b00c76467c1379bc2ff1b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082110"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892416"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Guida di riferimento a Funzioni di Azure per sviluppatori di script C# (.csx)
 
@@ -216,9 +216,9 @@ public class Order
 
 È possibile usare un percorso relativo con la direttiva `#load` :
 
-* `#load "mylogger.csx"` carica un file che si trova nella cartella della funzione.
-* `#load "loadedfiles\mylogger.csx"` carica un file che si trova in una sottocartella della cartella della funzione.
-* `#load "..\shared\mylogger.csx"` carica un file che si trova in una cartella allo stesso livello della cartella della funzione, ovvero direttamente in *wwwroot*.
+* `#load "mylogger.csx"` Carica un file che si trova nella cartella della funzione.
+* `#load "loadedfiles\mylogger.csx"` Carica un file che si trova in una cartella nella cartella della funzione.
+* `#load "..\shared\mylogger.csx"` Carica un file che si trova in una cartella allo stesso livello della cartella della funzione, vale a dire, direttamente sotto *wwwroot*.
 
 La direttiva `#load` è compatibile solo con i file con estensione *.csx* e non lo è con i file con estensione *.cs*.
 
@@ -274,7 +274,7 @@ Non è possibile usare i parametri `out` in funzioni asincrone. Per le associazi
 
 ## <a name="cancellation-tokens"></a>Token di annullamento
 
-Una funzione può accettare un parametro [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx), che consente al sistema operativo di notificare il codice quando la funzione sta per essere terminata. È possibile usare questa notifica per assicurarsi che la funzione non termini in modo imprevisto lasciando i dati in uno stato incoerente.
+Una funzione può accettare un parametro [CancellationToken](/dotnet/api/system.threading.cancellationtoken), che consente al sistema operativo di notificare il codice quando la funzione sta per essere terminata. È possibile usare questa notifica per assicurarsi che la funzione non termini in modo imprevisto lasciando i dati in uno stato incoerente.
 
 L'esempio seguente illustra come verificare l'eventuale imminente interruzione della funzione.
 
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un tipo di parametro `out`, ad esempio `out JObject`. L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
+`BindingTypeAttribute` è l'attributo .NET che definisce l'associazione e `T` è un tipo di input o output supportato da quel tipo di associazione. `T` non può essere un' `out` tipo di parametro (ad esempio `out JObject`). L'associazione di output della tabella App per dispositivi mobili, ad esempio, supporta[ sei tipi di output](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), ma è possibile usare solo [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) per `T`.
 
 ### <a name="single-attribute-example"></a>Esempio con un solo attributo
 
@@ -484,7 +484,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definisce l'associazione di input o output del [BLOB di archiviazione](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) è un tipo di associazione di output supportato.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) definisce l'associazione di input o output del [BLOB di archiviazione](functions-bindings-storage-blob.md) e [TextWriter](/dotnet/api/system.io.textwriter) è un tipo di associazione di output supportato.
 
 ### <a name="multiple-attribute-example"></a>Esempio con più attributi
 
@@ -527,7 +527,7 @@ Nella tabella seguente vengono elencati gli attributi .NET per ogni tipo di asso
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sui trigger e le associazioni](functions-triggers-bindings.md)
+> [Altre informazioni sui trigger e associazioni](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sulle procedure consigliate per Funzioni di Azure](functions-best-practices.md)
+> [Altre informazioni sulle procedure consigliate per funzioni di Azure](functions-best-practices.md)

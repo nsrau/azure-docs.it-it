@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 73ceb0a92b97e90b1fdb0c5562d623505e86b870
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877568"
+ms.locfileid: "58891585"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Incorporare i widget di Video Indexer nelle applicazioni
 
@@ -30,7 +30,7 @@ Un widget **Cognitive Insights** include tutte le informazioni dettagliate visiv
 
 |NOME|Definizione|DESCRIZIONE|
 |---|---|---|
-|widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** Il parametro URL **widget** non è supportato se si usa **version=2**. |
+|widgets|Stringhe separate da virgola|Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering. <br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` esegue il rendering solo delle informazioni dettagliate su persone e marchi<br/>Le opzioni disponibili sono: people, keywords, annotations, brands, sentiments, transcript, search.<br/>Non supportato tramite URL con version=2<br/><br/>**Nota:** Il parametro URL widget non è supportato nella versione 2. |
 
 ### <a name="player-widget"></a>Widget Player
 
@@ -254,4 +254,4 @@ Per impostazione predefinita il lettore all'avvio inizia a riprodurre il video. 
 
 Per informazioni su come visualizzare e modificare le informazioni dettagliate di Video Indexer, vedere [questo](video-indexer-view-edit.md) articolo.
 
-Inoltre, consultare [Indicizzatore video codepen](https://codepen.io/videoindexer/pen/eGxebZ).
+Inoltre, consultare [Video indexer CodePen](https://codepen.io/videoindexer/pen/eGxebZ).

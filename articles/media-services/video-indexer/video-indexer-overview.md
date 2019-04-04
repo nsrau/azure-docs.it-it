@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890786"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895969"
 ---
 # <a name="what-is-video-indexer"></a>Informazioni su Video Indexer
 
@@ -23,15 +23,17 @@ Video Indexer di Azure è un'applicazione cloud creata sulla base di Analisi Ser
 ## <a name="video-insights"></a>Informazioni dettagliate sui contenuti video
 
 - **Rilevamento volto**: rileva e raggruppa i visi visualizzati nel video.
-- **Identificazione di celebrità**: Video Indexer identifica automaticamente oltre 1 milione di celebrità, ad esempio leader mondiali, attori e attrici, atleti, ricercatori, imprenditori e leader tecnologici in tutto il mondo. I dati relativi a queste celebrità possono anche essere trovati su diversi siti Web noti, ad esempio IMDB e Wikipedia.
+- **Identificazione di celebrità**: Video Indexer identifica automaticamente celebrità di oltre 1 milione – come leader del mondo, gli attori, attrici, atleti, i ricercatori, business e i responsabili tecnici in tutto il mondo. I dati relativi a queste celebrità possono anche essere trovati su diversi siti Web noti, ad esempio IMDB e Wikipedia.
 - **Identificazione viso basata sull'account**: Video Indexer esegue il training di un modello per un account specifico. Riconosce quindi volti del video in base al modello con training. Per altre informazioni, vedere [personalizzare un modello di persona dal sito Web di Video Indexer](customize-person-model-with-website.md) e [personalizzare un modello di persona con l'API Video Indexer](customize-person-model-with-api.md).
 - **Estrazione dell'anteprima per i visi** ("viso migliore"): identifica automaticamente il viso migliore acquisito in ogni gruppo di visi (in base a qualità, dimensioni e posizione frontale) e lo estrae come risorsa immagine.
 - **Riconoscimento del testo visivo** (OCR): estrae il testo visualizzato nel video.
 - **Moderazione del contenuto visivo**: rileva contenuto visivo per adulti e/o razzista.
 - **Identificazione delle etichette**: identifica gli oggetti visivi e le azioni visualizzate.
-- **Rilevamento inquadratura**: determina i cambi di scena nel video.
+- **Segmentazione della scena**: determina quando viene modificato una scena nel video in base a segnali visivi. Una scena illustra un singolo evento ed è composto da una serie di schermate consecutivi, semanticamente correlate. 
+- **Cattura di rilevamento**: determina quando viene modificato un cattura nel video in base a segnali visivi. Una cattura è una serie di fotogrammi impiegato dalla fotocamera cinematografica stesso. Per altre informazioni, vedere [scene, scatti e fotogrammi chiave](scenes-shots-keyframes.md).
 - **Rilevamento fotogramma nero**: identifica i fotogrammi neri presentati nel video.
 - **Estrazione di fotogrammi chiave**: rileva i fotogrammi chiave stabili in un video.
+- **Implementazione di crediti**: identificare l'inizio e fine dei crediti in sequenza alla fine di film e TV.
 
 ## <a name="audio-insights"></a>Informazioni dettagliate sui contenuti audio
 
@@ -69,15 +71,14 @@ Il servizio Video Indexer soddisfa le esigenze dei gestori di contenuti e degli 
 Ecco alcuni scenari in cui Video Indexer può risultare utile.
 
 - Ricerca: le informazioni dettagliate estratte dal video possono essere usate per migliorare l'esperienza di ricerca in un catalogo video. L'indicizzazione del testo parlato e dei visi ad esempio può consentire all'esperienza di ricerca di individuare i momenti in un video in cui una persona specifica ha pronunciato determinate parole o in cui due persone sono visualizzate insieme. La ricerca basata su tali informazioni dettagliate estratte dai video è utile per agenzie di stampa, istituti di istruzione, operatori che trasmettono eventi live, proprietari di contenuti per l'intrattenimento, app line-of-business aziendali e in genere per qualsiasi settore che ha un catalogo video in cui gli utenti devono eseguire ricerche.
-
+- La creazione: insights estratto dai video e contenuto della Guida in modo efficace creare contenuto, ad esempio i trailer, contenuti multimediali basati su social network, notizie, clip e così via da contenuti esistenti nell'archivio dell'organizzazione 
 - Monetizzazione: Video Indexer può contribuire al miglioramento del valore dei video. I settori che si basano ad esempio sui profitti degli annunci pubblicitari (media, social media e così via) possono offrire annunci più rilevanti usando le informazioni dettagliate estratte come segnali aggiuntivi per il server di annunci. La presentazione di un annuncio relativo a una scarpa sportiva, ad esempio, è più rilevante durante una partita di calcio rispetto a una gara di nuoto.
-
 - Engagement degli utenti: le informazioni dettagliate estratte dai video possono essere usate per migliorare l'engagement degli utenti tramite il posizionamento dei momenti rilevanti del video per gli utenti. Si consideri ad esempio un video formativo che illustra le sfere per i primi 30 minuti e le piramidi per i 30 minuti successivi. Uno studente che sta leggendo informazioni sulle piramidi otterrebbe maggiori vantaggi se il video venisse posizionato a partire dal marcatore dei 30 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 È ora possibile iniziare a usare Video Indexer. Per altre informazioni, vedere gli articoli seguenti:
 
-- [Introduzione al sito Web di Video Indexer](video-indexer-get-started.md)
-- [Elaborare contenuti con l'API REST Video Indexer](video-indexer-use-apis.md)
-- [Embed visual widgets in your application](video-indexer-embed-widgets.md) (Incorporare i widget visivi nell'applicazione)
+- [Iniziare con il sito Web indicizzatore Video](video-indexer-get-started.md)
+- [Elaborano contenuto con l'API REST dell'indicizzatore Video](video-indexer-use-apis.md)
+- [Incorporare widget visual nell'applicazione](video-indexer-embed-widgets.md)

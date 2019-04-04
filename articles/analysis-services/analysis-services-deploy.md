@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188590"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893606"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Distribuire un modello da Visual Studio
 
@@ -24,7 +24,7 @@ Dopo aver creato un server nella sottoscrizione di Azure, si è pronti per distr
 Per iniziare, è necessario:
 
 * Un **server Analysis Services** in Azure. Per altre informazioni, vedere [Creare un server Azure Analysis Services](analysis-services-create-server.md).
-* Un **progetto di modello tabulare** in SSDT o un modello tabulare esistente con livello di compatibilità 1200 o superiore. Se non è mai stato creato un progetto simile, Vedere [Adventure Works Internet sales tabular modeling tutorial](https://msdn.microsoft.com/library/hh231691.aspx) (Esercitazione sul modello tabulare di vendite Internet per Adventure Works).
+* Un **progetto di modello tabulare** in SSDT o un modello tabulare esistente con livello di compatibilità 1200 o superiore. Se non è mai stato creato un progetto simile, Vedere [Adventure Works Internet sales tabular modeling tutorial](/sql/analysis-services/tabular-modeling-adventure-works-tutorial) (Esercitazione sul modello tabulare di vendite Internet per Adventure Works).
 * Un **gateway locale**: se una o più origini dati si trovano nella rete locale dell'organizzazione, è necessario installare un [gateway dati locale](analysis-services-gateway.md). Il gateway è necessario affinché il server nel cloud possa connettersi alle origini dati locali per elaborare e aggiornare i dati nel modello.
 
 > [!TIP]

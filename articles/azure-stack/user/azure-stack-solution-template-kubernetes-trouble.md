@@ -11,30 +11,30 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361541"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878129"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Risolvere i problemi di distribuzione di Kubernetes in Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Risolvere i problemi di distribuzione di Kubernetes in Azure Stack
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 > [!Note]  
 > Kubernetes in Azure Stack è disponibile in anteprima. Scenario disconnesso di Azure Stack non è attualmente supportato per l'anteprima.
 
 L'articolo seguente esamina la risoluzione dei problemi del cluster Kubernetes. È possibile esaminare l'avviso di distribuzione e rivedere lo stato della distribuzione per gli elementi necessari per la distribuzione. Potrebbe essere necessario raccogliere i log di distribuzione da Azure Stack o le macchine virtuali Linux che ospitano Kubernetes. È anche necessario rivolgersi all'amministratore di Azure Stack per recuperare i log da un endpoint di amministrazione.
 
-## <a name="overview-of-deployment"></a>Panoramica della distribuzione
+## <a name="overview-of-kubernetes-deployment"></a>Panoramica della distribuzione di Kubernetes
 
 Prima di iniziare la risoluzione dei problemi del cluster, si potrebbe voler esaminare il processo di distribuzione di cluster Kubernetes di Azure Stack. La distribuzione Usa un modello di soluzione di Azure Resource Manager per creare le macchine virtuali e installare il motore ACS per il cluster.
 
-### <a name="deployment-workflow"></a>Flusso di lavoro per la distribuzione
+### <a name="kubernetes-deployment-workflow"></a>Flusso di lavoro distribuzione Kubernetes
 
 Il diagramma seguente illustra il processo generale per distribuire il cluster.
 
@@ -85,7 +85,7 @@ Il diagramma seguente illustra il processo generale per distribuire il cluster.
 
 È possibile raccogliere i log nelle macchine virtuali che supportano il cluster Kubernetes. È anche possibile esaminare il log di distribuzione. Si potrebbe essere necessario rivolgersi all'amministratore di Azure Stack per verificare la versione di Azure Stack che è necessario usare e per ottenere i log da Azure Stack che sono correlati alla distribuzione.
 
-1. Rivedere le [lo stato di distribuzione](#review-deployment-status) e [recuperare i registri](#get-logs-from-a-vm) dal nodo master nel cluster Kubernetes.
+1. Rivedere le [lo stato di distribuzione](#review-deployment-status) e recuperare i registri dal nodo master nel cluster Kubernetes.
 2. Assicurarsi che si usa la versione più recente di Azure Stack. Se non si conosce la versione in uso, contattare l'amministratore di Azure Stack.
 3.  Esaminare i file di creazione della macchina virtuale. Si potrebbero avere avuto problemi seguenti:  
     - La chiave pubblica potrebbe non essere valida. Esaminare la chiave creata.  

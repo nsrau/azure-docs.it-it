@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443420"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892756"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Modelli di funzioni durevoli e concetti tecnici (funzioni di Azure)
 
@@ -415,7 +415,7 @@ A causa del comportamento di riproduzione del dispatcher di Durable Task Framewo
 
 L'estensione funzioni permanenti Usa code, tabelle e BLOB in archiviazione di Azure in modo permanente l'esecuzione della cronologia dello stato e attivare l'esecuzione della funzione. È possibile usare l'account di archiviazione predefinito per l'app per le funzioni oppure è possibile configurare un account di archiviazione separato. Potrebbe essere un account separato basato sui limiti di velocità effettiva di archiviazione. Il codice dell'agente di orchestrazione che scritto non interagisce con le entità in questi account di archiviazione. Durable Task Framework consente di gestire le entità direttamente come dettaglio di implementazione.
 
-Le funzioni di orchestrazione pianificano le funzioni attività e ricevono le relative risposte tramite messaggi di coda interni. Quando un'app per le funzioni viene eseguita nel piano a consumo funzioni di Azure, il [controller di scalabilità di funzioni di Azure](../functions-scale.md#how-the-consumption-plan-works) consente di monitorare queste code. Aggiunte nuove istanze di calcolo in base alle esigenze. Quando viene scalata orizzontalmente a più macchine virtuali, una funzione di orchestrazione può essere eseguita su una macchina virtuale, mentre le funzioni di attività che le chiamate di funzione dell'agente di orchestrazione può essere eseguita su più macchine virtuali diverse. Per altre informazioni sul comportamento di scalabilità di funzioni permanenti, vedere [scalabilità e prestazioni](durable-functions-perf-and-scale.md).
+Le funzioni di orchestrazione pianificano le funzioni attività e ricevono le relative risposte tramite messaggi di coda interni. Quando un'app per le funzioni viene eseguita nel piano a consumo funzioni di Azure, il [controller di scalabilità di funzioni di Azure](../functions-scale.md#how-the-consumption-and-premium-plans-work) consente di monitorare queste code. Aggiunte nuove istanze di calcolo in base alle esigenze. Quando viene scalata orizzontalmente a più macchine virtuali, una funzione di orchestrazione può essere eseguita su una macchina virtuale, mentre le funzioni di attività che le chiamate di funzione dell'agente di orchestrazione può essere eseguita su più macchine virtuali diverse. Per altre informazioni sul comportamento di scalabilità di funzioni permanenti, vedere [scalabilità e prestazioni](durable-functions-perf-and-scale.md).
 
 La cronologia di esecuzione per gli account dell'agente di orchestrazione viene archiviata nell'archiviazione tabelle. Ogni volta che un'istanza viene riattivata in una determinata VM, l'agente di orchestrazione recupera la cronologia delle esecuzioni dall'archiviazione tabella in modo da poter ricompilare il suo stato locale. Un aspetto pratico della disponibilità della cronologia nell'archiviazione tabelle è che è possibile usare strumenti come [Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) per visualizzare la cronologia delle orchestrazioni.
 

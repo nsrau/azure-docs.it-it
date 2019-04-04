@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 01/16/2019
 ms.author: sethm
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: b00082ec567d51c320f55210cb38dcab9547e0d9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d2324f9538ce8079be5e660a1613c1c093ecc85a
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258752"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58484597"
 ---
 # <a name="manage-key-vault-in-azure-stack-using-powershell"></a>Gestire Key Vault in Azure Stack tramite PowerShell
 
@@ -45,7 +45,7 @@ ms.locfileid: "58258752"
 
 Prima di poter eseguire qualsiasi operazione su un insieme di credenziali delle chiavi, è necessario assicurarsi che la sottoscrizione di tenant è abilitata per le operazioni dell'insieme di credenziali. Per verificare che siano abilitate le operazioni dell'insieme di credenziali, eseguire il comando seguente:
 
-```PowerShell  
+```powershell  
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault | ft -Autosize
 ```
 
@@ -57,7 +57,7 @@ Se la sottoscrizione è abilitata per le operazioni dell'insieme di credenziali,
 
 Se le operazioni dell'insieme di credenziali non sono abilitate, richiamare il comando seguente per registrare il servizio Key Vault nella sottoscrizione:
 
-```PowerShell
+```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.KeyVault
 ```
 
@@ -71,7 +71,7 @@ Se la registrazione ha esito positivo, viene restituito l'output seguente:
 
 Prima di creare un insieme di credenziali delle chiavi, creare un gruppo di risorse in modo che tutte le risorse correlate per l'insieme di credenziali delle chiavi esiste in un gruppo di risorse. Usare il comando seguente per creare un nuovo gruppo di risorse:
 
-```PowerShell
+```powershell
 New-AzureRmResourceGroup -Name "VaultRG" -Location local -verbose -Force
 
 ```
@@ -84,7 +84,7 @@ A questo punto, usare il **New-AzureRMKeyVault** comando per creare un insieme d
 
 Eseguire il comando seguente per creare un insieme di credenziali delle chiavi:
 
-```PowerShell
+```powershell
 New-AzureRmKeyVault -VaultName "Vault01" -ResourceGroupName "VaultRG" -Location local -verbose
 ```
 
@@ -98,7 +98,7 @@ L'output di questo comando Mostra le proprietà dell'insieme di credenziali chia
 
 In una distribuzione di AD FS, è possibile ottenere questo avviso: "I criteri di accesso non sono impostato. Nessun utente o l'applicazione ha l'autorizzazione di accesso per usare questo insieme di credenziali". Per risolvere questo problema, impostare criteri di accesso per l'insieme di credenziali usando il [Set-AzureRmKeyVaultAccessPolicy](#authorize-an-application-to-use-a-key-or-secret) comando:
 
-```PowerShell
+```powershell
 # Obtain the security identifier(SID) of the active directory user
 $adUser = Get-ADUser -Filter "Name -eq '{Active directory user name}'"
 $objectSID = $adUser.SID.Value
@@ -115,7 +115,7 @@ Dopo aver creato un insieme di credenziali, usare la procedura seguente per crea
 
 Usare la **Add-AzureKeyVaultKey** comando per creare o importare una chiave protetta tramite software in un insieme di credenziali delle chiavi.
 
-```PowerShell
+```powershell
 Add-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01" -verbose -Destination Software
 ```
 
@@ -134,7 +134,7 @@ Il **destinazione** parametro viene utilizzato per specificare che la chiave sof
 
 Usare la **Get-AzureKeyVaultKey** comandi per leggere una chiave e i relativi dettagli.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 ```
 
@@ -142,7 +142,7 @@ Get-AzureKeyVaultKey -VaultName "Vault01" -Name "Key01"
 
 Usare la **Set-AzureKeyVaultSecret** comando per creare o aggiornare un segreto in un insieme di credenziali. Se non ne esiste già, viene creata una chiave privata. Se esiste già, viene creata una nuova versione del segreto.
 
-```PowerShell
+```powershell
 $secretvalue = ConvertTo-SecureString "User@123" -AsPlainText -Force
 Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secretvalue
 ```
@@ -155,7 +155,7 @@ Set-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01" -SecretValue $secr
 
 Usare la **Get-AzureKeyVaultSecret** comando per leggere un segreto in un insieme di credenziali delle chiavi. Questo comando può restituire tutte le versioni specifiche di un segreto o.
 
-```PowerShell
+```powershell
 Get-AzureKeyVaultSecret -VaultName "Vault01" -Name "Secret01"
 ```
 
@@ -166,13 +166,13 @@ Dopo aver creato le chiavi e segreti, è possibile autorizzare applicazioni este
 Usare la **Set-AzureRmKeyVaultAccessPolicy** comando autorizzare un'applicazione di accedere a una chiave o segreto nell'insieme di credenziali chiave.
 Nell'esempio seguente, è il nome dell'insieme di credenziali *ContosoKeyVault* e l'applicazione che si desidera autorizzare ha un ID client *8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed*. Per autorizzare l'applicazione, eseguire il comando seguente. Facoltativamente, è possibile specificare il **PermissionsToKeys** per impostare le autorizzazioni per un utente, applicazione o un gruppo di sicurezza.
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300b7b4ed -PermissionsToKeys decrypt,sign
 ```
 
 Se si desidera autorizzare la stessa applicazione di leggere i segreti nell'insieme di credenziali, eseguire il cmdlet seguente:
 
-```PowerShell
+```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -ServicePrincipalName 8f8c4bbd-485b-45fd-98f7-ec6300 -PermissionsToKeys Get
 ```
 

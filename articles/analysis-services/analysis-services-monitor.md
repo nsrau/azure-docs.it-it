@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 6f686ff40805050b6da05a1971aeabb367da96d7
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54190829"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893181"
 ---
 # <a name="monitor-server-metrics"></a>Monitorare le metriche dei server
 
@@ -87,4 +87,4 @@ Usare questa tabella per determinare le metriche più adatte allo scenario di mo
 ## <a name="next-steps"></a>Passaggi successivi
 [Monitoraggio in Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Metriche in Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Metriche nell'API REST di Monitoraggio di Azure](https://msdn.microsoft.com/library/azure/dn931930.aspx)
+[Metriche nell'API REST di monitoraggio di Azure](/rest/api/monitor/metrics)

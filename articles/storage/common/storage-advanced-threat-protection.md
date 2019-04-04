@@ -5,25 +5,25 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850713"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904118"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection per Archiviazione di Azure
 
-Advanced Threat Protection per l'archiviazione di Azure fornisce un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza dover essere esperti di sicurezza o dover gestire sistemi di monitoraggio della sicurezza. 
+Advanced Threat Protection per Archiviazione di Azure offre un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento degli account di archiviazione. Questo livello di protezione consente di affrontare le minacce senza dover essere esperti di sicurezza o dover gestire sistemi di monitoraggio della sicurezza. 
 
 Quando si verificano le anomalie nelle attività, vengono generati avvisi di sicurezza.  Questi avvisi di sicurezza sono integrati con [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/)e vengono anche inviati tramite posta elettronica per gli amministratori delle sottoscrizioni, con i dettagli dell'attività sospetta e consigli su come analizzare e correggere le minacce.
 
 > [!NOTE]
-> * Advanced Threat Protection per l'archiviazione di Azure è attualmente disponibile solo per l'archiviazione Blob. 
-> * Dettagli sul nuovo piano tariffario è disponibile nel [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-pricing) prezzi, inclusa un'opzione per un periodo di valutazione per i primi 30 giorni senza alcun costo aggiuntivo. 
+> * Advanced Threat Protection per l'archiviazione di Azure è attualmente disponibile solo per l'archiviazione Blob.
+> * Per dettagli sui prezzi, incluse una versione di valutazione gratuita di 30 giorni, vedere la [pagina dei prezzi Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
 > * Per la funzionalità di archiviazione di Azure ATP non è attualmente disponibile in Azure per enti pubblici e aree del cloud con sovranità.
 
 Advanced Threat Protection per l'archiviazione di Azure inserisce i log di diagnostica di lettura, scrittura ed eliminazione delle richieste nell'archivio Blob per il rilevamento delle minacce. Per analizzare gli avvisi da Advanced Threat Protection, è possibile visualizzare le attività di archiviazione correlato usando registrazione Analitica dell'archiviazione. Per altre informazioni, vedere come [configurare la registrazione di archiviazione Analitica](storage-monitor-storage-account.md#configure-logging).

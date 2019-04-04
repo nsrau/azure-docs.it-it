@@ -15,12 +15,12 @@ ms.date: 03/15/2019
 ms.author: mabrigg
 ms.reviewer: thoroet
 ms.lastreviewed: 01/24/2019
-ms.openlocfilehash: a0411e3aa8f4df1039a129fd73ebdad5a58c5a0c
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: daf30098888a0d7779ccff4d4c6c2ce6390511fe
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58257585"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486224"
 ---
 # <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Connettersi ad Azure Stack con PowerShell come un operatore
 
@@ -39,7 +39,7 @@ Eseguire i seguenti prerequisiti dal [kit di sviluppo](./asdk/asdk-connect.md#co
 
 Configurare l'ambiente di operatore di Azure Stack con PowerShell. Eseguire uno degli script seguenti: Sostituire il Nometenant Azure Active Directory (Azure AD) e valori dell'endpoint Azure Resource Manager con la propria configurazione di ambiente. <!-- GraphAudience endpoint -->
 
-```PowerShell  
+```powershell  
     # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
 Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
@@ -59,7 +59,7 @@ Connettersi all'ambiente di operatore di Azure Stack con PowerShell con Azure Ac
 
 <!-- GraphAudience endpoint -->
 
-  ```PowerShell  
+  ```powershell  
   # Register an Azure Resource Manager environment that targets your Azure Stack instance. Get your Azure Resource Manager endpoint value from your service provider.
   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint "https://adminmanagement.local.azurestack.external"
 
@@ -74,7 +74,7 @@ Connettersi all'ambiente di operatore di Azure Stack con PowerShell con Azure Ac
 
 Ora che hai tutti gli elementi di configurazione, usare PowerShell per creare risorse all'interno di Azure Stack. Ad esempio, è possibile creare un gruppo di risorse per un'applicazione e aggiungere una macchina virtuale. Usare il comando seguente per creare un gruppo di risorse denominato **MyResourceGroup**.
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 

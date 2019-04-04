@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/28/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 68e8bfa16c56b8c864ac99cdf6c19243bc7e881c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8cffcc938a247a2b08ff53b128560e1ab5e1653a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101874"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499778"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Aggiungere server di hosting per il provider di risorse MySQL
 
@@ -90,16 +90,19 @@ Come procedura consigliata, tutti i server di hosting in uno SKU devono avere le
 
 SKU non è possibile assegnare a utenti o gruppi specifici.
 
-Gli SKU possono richiedere fino a un'ora siano visibili nel portale. Gli utenti non è possibile creare un database fino a quando non viene completamente creato lo SKU.
+Per modificare uno SKU, passare a **tutti i servizi** > **Adapter MySQL** > **SKU**. Selezionare lo SKU da modificare, apportare le modifiche necessarie e fare clic su **salvare** per salvare le modifiche. 
 
-Per modificare uno SKU, passare a **tutti i servizi** > **Adapter MySQL** > **SKU**. Selezionare lo SKU da modificare, apportare le modifiche necessarie e fare clic su **salvare** per salvare le modifiche. Per eliminare uno SKU che non è più necessario, passare a **tutti i servizi** > **Adapter MySQL** > **SKU**. Il nome SKU e scegliere **eliminare** per eliminarlo.
+Per eliminare uno SKU che non è più necessario, passare a **tutti i servizi** > **Adapter MySQL** > **SKU**. Il nome SKU e scegliere **eliminare** per eliminarlo.
 
-> [!TIP]
-> È possibile modificare o eliminare le quote di provider di risorse MySQL nella stessa posizione.
+> [!IMPORTANT]
+> Può richiedere fino a un'ora prima che nuovi SKU a essere disponibile nel portale per gli utenti.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Rendere disponibili agli utenti i server di database MySQL
 
 Creare i piani e offerte per rendere disponibili agli utenti i server di database MySQL. Aggiungere il servizio Microsoft.MySqlAdapter al piano e creare una nuova quota. MySQL non consente di limitare le dimensioni dei database.
+
+> [!IMPORTANT]
+> Può richiedere fino a due ore per le quote di nuovo a essere disponibile nel portale per gli utenti o prima viene applicata una quota modificata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

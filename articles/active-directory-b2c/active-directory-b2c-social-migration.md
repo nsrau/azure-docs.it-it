@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: a1ecc4de9475e735cd17286826c1d8cea05904ab
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089353"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894902"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Eseguire la migrazione di utenti con identità dei social network
 Per eseguire la migrazione del provider di identità ad Azure AD B2C, potrebbe essere necessario eseguire anche la migrazione degli utenti con identità di social networking. L'articolo spiega come eseguire la migrazione di account con identità di social networking esistenti, ad esempio: account di Facebook, LinkedIn, Microsoft e Google per Azure AD B2C. Questo articolo è valido anche per le identità federate, tuttavia queste migrazioni sono meno comuni.
@@ -29,11 +29,11 @@ Questo articolo è una continuazione dell'articolo sulla migrazione degli utenti
 
 * Le identità degli **account di social networking** sono archiviate nella raccolta `userIdentities`. La voce specifica l'`issuer` (nome del provider di identità), ad esempio facebook.com, e l'`issuerUserId`, ovvero un identificatore utente univoco per l'emittente. L'attributo `userIdentities` contiene uno o più record UserIdentity che specificano il tipo di account di social networking e l'identificatore utente univoco dal provider di identità basato su social network.
 
-* **Combinare account locali con identità di social networking**. Come accennato, i nomi di accesso degli account locali e le identità di account di social networking vengono archiviati in attributi diversi. `signInNames` viene usato per gli account locali, mentre `userIdentities` viene usato per gli account di social networking. Un singolo account Azure AD B2C può essere solo un account locale, solo un account di social networking oppure combinare un account locale con l'identità di social networking in un singolo record utente. Questo comportamento consente di gestire un singolo account, mentre un utente può accedere con le credenziali dell'account locale o con le identità di social networking.
+* **Combinare account locali con identità di social networking**. Come accennato, i nomi di accesso degli account locali e le identità di account di social networking vengono archiviati in attributi diversi. `signInNames` viene utilizzato per l'account locale, mentre `userIdentities` per account di social networking. Un singolo account Azure AD B2C può essere solo un account locale, solo un account di social networking oppure combinare un account locale con l'identità di social networking in un singolo record utente. Questo comportamento consente di gestire un singolo account, mentre un utente può accedere con le credenziali dell'account locale o con le identità di social networking.
 
-* Tipo di `UserIdentity` - Contiene informazioni sull'identità di un utente con account di social networking in un tenant di Azure AD B2C:
-  * `issuer` Rappresentazione stringa del provider di identità che ha emesso l'identificatore utente, ad esempio facebook.com.
-  * `issuerUserId` Identificatore utente univoco usato dal provider di identità basato su social network in formato base64.
+* `UserIdentity` Type - contiene le informazioni relative all'identità dell'utente account di social networking in un tenant di Azure AD B2C:
+  * `issuer` La rappresentazione di stringa del provider di identità che ha emesso l'identificatore utente, ad esempio facebook.com.
+  * `issuerUserId` L'identificatore utente univoco usato dal provider di identità basati su social network in formato base64.
 
     ```JSON
     "userIdentities": [{
@@ -63,7 +63,7 @@ L'elenco seguente include le proprietà obbligatorie per la creazione di un uten
 * **userIdentities** - Uno o più record UserIdentity che specificano il tipo di account di social networking e l'identificatore utente univoco dal provider di identità basato su social network.
 * [facoltativo] **otherMails** - Solo per gli account di social networking, indirizzi di posta elettronica dell'utente 
 
-Per altre informazioni, vedere: [Informazioni di riferimento per l'API Graph](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
+Per altre informazioni, vedere: [Informazioni di riferimento per l'API Graph](/previous-versions/azure/ad/graph/api/users-operations#CreateLocalAccountUser)
 
 ## <a name="migrate-social-account-only"></a>Eseguire la migrazione (solo) di account di social networking
 Per creare solo account di social networking, senza credenziali per account locali. Inviare una richiesta HTTPS POST all'API Graph. Il corpo della richiesta contiene le proprietà dell'utente con account di social networking da creare. Come minimo, è necessario specificare le proprietà obbligatorie. 

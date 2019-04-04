@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27962646"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893568"
 ---
 # <a name="get-started-with-the-query-action"></a>Introduzione all'azione di query
 Con l'azione di query è possibile usare batch e matrici per poter eseguire flussi di lavoro per:
@@ -31,7 +31,8 @@ Con l'azione di query è possibile usare batch e matrici per poter eseguire flus
 Per iniziare a usare l'azione di query in un'app per la logica, vedere [Creare una nuova app per la logica che connette servizi SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Usare l'azione di query
-Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. [Altre informazioni sulle azioni](connectors-overview.md).  
+Un'azione è un'operazione eseguita dal flusso di lavoro e definita in un'app per la logica. 
+[Altre informazioni sulle azioni](../connectors/apis-list.md).  
 
 L'azione di query ha attualmente un'operazione, denominata Filtra matrice, esposta nella finestra di progettazione. Questa consente di interrogare una matrice e restituire un set di risultati filtrati.
 

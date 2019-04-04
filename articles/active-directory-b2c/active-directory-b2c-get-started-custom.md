@@ -1,21 +1,21 @@
 ---
-title: Introduzione ai criteri personalizzati in Azure Active Directory B2C | Microsoft Docs
-description: Come iniziare a usare criteri personalizzati di Azure Active Directory B2C.
+title: Introduzione ai criteri personalizzati - Azure Active Directory B2C | Microsoft Docs
+description: Informazioni su come iniziare a usare i criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 04/03/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d4105aab80add8556bcbe79c9c6e8dd7743b25b7
-ms.sourcegitcommit: a7331d0cc53805a7d3170c4368862cad0d4f3144
-ms.translationtype: HT
+ms.openlocfilehash: b414529d7756812f1e1e16d2d0184c8472c0c55f
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55298739"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916751"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Introduzione ai criteri personalizzati in Azure Active Directory B2C
 
@@ -25,12 +25,13 @@ I [criteri personalizzati](active-directory-b2c-overview-custom.md) sono file di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In assenza di un tenant, è necessario [creare un tenant di Azure AD B2C](tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
+- In assenza di un tenant, è necessario [creare un tenant di Azure AD B2C](tutorial-create-tenant.md) collegato alla sottoscrizione di Azure.
+- [Registrare l'applicazione](tutorial-register-applications.md) nel tenant creato in modo che possa comunicare con Azure AD B2C.
 
 ## <a name="add-signing-and-encryption-keys"></a>Aggiungere le chiavi di firma e di crittografia
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore globale del tenant di Azure AD B2C.
-2. Assicurarsi di usare la directory che contiene il tenant di Azure AD B2C. A tale scopo, fare clic sul **filtro delle directory e delle sottoscrizioni** nel menu in alto e scegliere la directory che contiene il tenant. 
+2. Assicurarsi che si usa la directory che contiene il tenant di Azure AD B2C. Fare clic sui **Directory e sottoscrizione filtro** nel menu in alto e scegliendo la directory che contiene il tenant. 
 3. Scegliere **Tutti i servizi** nell'angolo in alto a sinistra del portale di Azure, cercare **Azure AD B2C** e selezionarlo.
 4. Nella pagina Panoramica selezionare **Framework dell'esperienza di gestione delle identità - ANTEPRIMA**.
 
@@ -59,11 +60,11 @@ Se si dispone già di un [segreto dell'applicazione Facebook](active-directory-b
 1. Selezionare **Chiavi dei criteri** e quindi selezionare **Aggiungi**.
 2. Per **Opzioni** scegliere `Manual`.
 3. Per **Nome** immettere `FacebookSecret`. È possibile che il prefisso `B2C_1A_` venga aggiunto automaticamente.
-4. In **Segreto** immettere il segreto di Facebook da developers.facebook.com oppure `0` come segnaposto. Questo è il segreto, non l'ID applicazione.
+4. In **Segreto** immettere il segreto di Facebook da developers.facebook.com oppure `0` come segnaposto. Questo valore è il segreto, non l'ID applicazione.
 5. Per **Uso chiave** selezionare **Firma**.
 6. Fare clic su **Create**(Crea).
 
-## <a name="register-applications"></a>Registrare le applicazioni
+## <a name="register-identity-experience-framework-applications"></a>Registrare le applicazioni del framework dell'esperienza di gestione delle identità
 
 Azure AD B2C richiede di registrare due applicazioni che vengono usate per registrare e far accedere gli utenti: L'app Web IdentityExperienceFramework e l'app nativa ProxyIdentityExperienceFramework, con autorizzazione delegata dall'app IdentityExperienceFramework. Gli account locali esistono solo nel tenant. Per accedere alle applicazioni registrate nel tenant, gli utenti si iscrivono con una combinazione univoca di indirizzo di posta elettronica e password.
 
@@ -85,8 +86,7 @@ Azure AD B2C richiede di registrare due applicazioni che vengono usate per regis
 4. Per **URI di reindirizzamento** immettere `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`, dove `yourtenant` è il tenant di Azure AD B2C.
 5. Fare clic su **Create**(Crea). Dopo la creazione, copiare l'ID applicazione e salvarlo per usarlo in seguito.
 6. Nella pagina Impostazioni selezionare **Autorizzazioni necessarie** e selezionare **Aggiungi**.
-7. Fare clic su **Selezionare un'API**.
-8. Ricercare e selezionare **IdentityExperienceFramework**, quindi fare clic su **Seleziona**.
+7. Scegli **selezionare un'API**, cercare e selezionare **IdentityExperienceFramework**, quindi fare clic su **selezionare**.
 9. Selezionare la casella di controllo accanto a **Accesso a IdentityExperienceFramework**, fare clic su **Seleziona** e quindi su **Operazione completata**.
 10. Selezionare **Concedi autorizzazioni** e quindi confermare selezionando **Sì**.
 
@@ -131,12 +131,11 @@ Aggiungere gli ID delle applicazioni al file delle estensioni *TrustFrameworkExt
 
 ## <a name="test-the-custom-policy"></a>Testare i criteri personalizzati
 
-1. Nella pagina dei criteri personalizzati selezionare **B2C_1A_signup_signin**. 
-2. Selezionare **Esegui adesso**.
-
-3. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
-
-4. Accedere con lo stesso account per verificare che la configurazione sia corretta.
+1. Nella pagina dei criteri personalizzati selezionare **B2C_1A_signup_signin**.
+2. Per la **selezionare l'applicazione** nella pagina Panoramica del criterio personalizzato, selezionare l'applicazione web denominata *App Web 1* che è stato registrato in precedenza. Assicurarsi che il **URL di risposta** è `https://jwt.ms`.
+3. Selezionare **Esegui adesso**.
+4. Dovrebbe essere possibile iscriversi usando un indirizzo di posta elettronica.
+5. Accedere con lo stesso account per verificare che la configurazione sia corretta.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Aggiungere Facebook come provider di identità
 

@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 64a31e0c8a36b7ea8b60f65caefba9ba15b91777
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258735"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903999"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrare la soluzione di monitoraggio esterna con Azure Stack
 
@@ -81,8 +81,8 @@ Configurare il file di plug-in "Azurestack_plugin.py" con i parametri seguenti:
 
 | Parametro | DESCRIZIONE | Esempio |
 |---------|---------|---------|
-| *arm_endpoint* | Endpoint di Azure Resource Manager (amministratore) |https:\//adminmanagement.local.azurestack.external |
-| *api_endpoint* | Endpoint di Azure Resource Manager (amministratore)  | https:\//adminmanagement.local.azurestack.external |
+| *arm_endpoint* | Endpoint di Azure Resource Manager (amministratore) | https://adminmanagement.local.azurestack.external |
+| *api_endpoint* | Endpoint di Azure Resource Manager (amministratore)  | https://adminmanagement.local.azurestack.external |
 | *Tenant_id* | ID sottoscrizione amministratore | Recuperare tramite il portale per gli amministratori o PowerShell |
 | *User_name* | Nome di sottoscrizione utente operatore | operator@myazuredirectory.onmicrosoft.com |
 | *User_password* | Password di sottoscrizione di operatore | mypassword |
@@ -96,35 +96,36 @@ Configurare il file di plug-in "Azurestack_plugin.py" con i parametri seguenti:
 
 Se non si usa Operations Manager, Nagios o una soluzione basata su Nagios, è possibile usare PowerShell per abilitare una vasta gamma di monitoraggio delle soluzioni per l'integrazione con Azure Stack.
 
-1. Per usare PowerShell, assicurarsi di aver [PowerShell installato e configurato](azure-stack-powershell-configure-quickstart.md) per un ambiente di operatore di Azure Stack. Installare PowerShell in un computer locale in grado di raggiungere l'endpoint di gestione risorse (amministratore) (https:\//adminmanagement. [ Region]. [FQDN_esterno]).
+1. Per usare PowerShell, assicurarsi di aver [PowerShell installato e configurato](azure-stack-powershell-configure-quickstart.md) per un ambiente di operatore di Azure Stack. Installare PowerShell in un computer locale in grado di raggiungere l'endpoint di gestione risorse (amministratore) (https://adminmanagement. [ Region]. [FQDN_esterno]).
 
 2. Eseguire i comandi seguenti per connettersi all'ambiente Azure Stack come operatore di Azure Stack:
 
-   ```PowerShell  
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https:\//adminmanagement.[Region].[External_FQDN]
+   ```powershell
+   Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint https://adminmanagement.[Region].[External_FQDN]
 
    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
    ```
 
 3. Usare i comandi come negli esempi seguenti per lavorare con gli avvisi:
-   ```PowerShell
+   ```powershell
     #Retrieve all alerts
-    Get-AzsAlert
+    $Alerts = Get-AzsAlert
+    $Alerts
 
     #Filter for active alerts
-    $Active=Get-AzsAlert | Where {$_.State -eq "active"}
+    $Active = $Alerts | Where-Object { $_.State -eq "active" }
     $Active
 
     #Close alert
     Close-AzsAlert -AlertID "ID"
 
     #Retrieve resource provider health
-    Get-AzsRPHealth
+    $RPHealth = Get-AzsRPHealth
+    $RPHealth
 
     #Retrieve infrastructure role instance health
-    $FRPID=Get-AzsRPHealth|Where-Object {$_.DisplayName -eq "Capacity"}
+    $FRPID = $RPHealth | Where-Object { $_.DisplayName -eq "Capacity" }
     Get-AzsRegistrationHealth -ServiceRegistrationId $FRPID.RegistrationId
-
     ```
 
 ## <a name="learn-more"></a>Altre informazioni

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: e02a09bdc8bd80b93f7fa33632c32a75c1d705bd
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.lastreviewed: 03/27/2019
+ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226862"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649408"
 ---
 # <a name="azure-stack-1901-update"></a>Aggiornamento di Azure Stack 1901
 
@@ -56,18 +56,20 @@ Azure Stack hotfix sono applicabili solo ai sistemi integrati di Azure Stack. no
 
 ### <a name="azure-stack-hotfixes"></a>Aggiornamenti rapidi di Azure Stack
 
+Se hai già 1901 e non è stato installato eventuali aggiornamenti rapidi, è possibile [installare direttamente 1902](azure-stack-update-1902.md), senza che sia necessario installare l'hotfix 1901.
+
 - **1809**: [KB 4481548 – aggiornamento rapido di Azure Stack 1.1809.12.114](https://support.microsoft.com/help/4481548/)
 - **1811**: Nessun hotfix corrente disponibile.
-- **1901**: [KB 4481548 – aggiornamento rapido di Azure Stack 1.1901.2.103](https://support.microsoft.com/help/4494720)
+- **1901**: [KB 4495662 – aggiornamento rapido di Azure Stack 1.1901.3.105](https://support.microsoft.com/help/4495662)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 > [!IMPORTANT]
-> - Installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1811 (se presente) prima di aggiornare a 1901.
+> Installare il [hotfix più recente di Azure Stack](#azure-stack-hotfixes) per 1811 (se presente) prima di aggiornare a 1901. Se hai già 1901 e ancora non è stato installato eventuali aggiornamenti rapidi, è possibile installare 1902 direttamente, senza prima aver installato l'hotfix 1901.
 
 - Prima di iniziare l'installazione di questo aggiornamento, eseguire [Test-AzureStack](azure-stack-diagnostic-test.md) con i parametri seguenti per convalidare lo stato di Azure Stack e risolvere eventuali problemi operativi trovati, inclusi tutti gli avvisi e gli errori. Anche gli avvisi attivi rivedere e risolvere gli eventuali che richiedono un'azione:
 
-    ```PowerShell
+    ```powershell
     Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
@@ -93,7 +95,7 @@ Questo aggiornamento include le seguenti nuove funzionalità e miglioramenti per
    * **AzureRm.Insights**  
          Modulo di rollup AzureRm ora include la versione già pubblicata 5.1.5 che supportano il **2018-01 01 api-version** per le metriche, i tipi di risorsa delle definizioni delle metriche.
 
-- **AzureStack 1.7.0** questa versione di una modifica sostanziale. Per informazioni dettagliate, fare riferimento a https://aka.ms/azspshmigration170
+- **AzureStack 1.7.1** questo rilascio di una modifica sostanziale. Per informazioni dettagliate, fare riferimento a https://aka.ms/azspshmigration171
    * **Modulo Azs.Backup.Admin**  
          Modifica che causa un'interruzione: passaggio dal backup alla modalità di crittografia basata su certificato. Il supporto delle chiavi simmetriche è deprecato.  
    * **Azs.Fabric.Admin Module**  
@@ -117,9 +119,6 @@ Per esaminare le informazioni di riferimento per i moduli aggiornati, vedere [ri
 
 - <!-- 3235634 – IS, ASDK -->
   Risolto un problema in cui distribuire le macchine virtuali con dimensioni che contiene un **v2** suffisso; ad esempio, **Standard_A2_v2**, che specifica il suffisso come obbligatorio **Standard_A2_v2** ( v lettere minuscole). Come con Azure globale, è ora possibile usare **Standard_A2_V2** (lettere maiuscole V).
-
-<!-- 2869209 – IS, ASDK --> 
-- Risolto un problema quando si usa la [cmdlet Add-AzsPlatformImage](/powershell/module/azs.compute.admin/add-azsplatformimage), in cui era necessario utilizzare il **- OsUri** parametro come URI in cui è stato caricato il disco dell'account di archiviazione. È ora possibile usare anche il percorso locale su disco.
 
 <!--  2795678 – IS, ASDK --> 
 - Risolto un problema che ha generato un avviso quando è stato usato il portale per creare macchine virtuali (VM) in una dimensione di VM premium (DS, Ds_v2, ADFS, FSv2). La macchina virtuale è stata creata in un account di archiviazione standard. Anche se ciò non ha modificato a livello funzionale, numero di IOPs o di fatturazione, l'avviso è stato risolto.

@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: c1b26b8a59ac0306fc06bf90f01642d4585a45be
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991573"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892790"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Visualizzare e modificare le informazioni dettagliate di Video Indexer
 
@@ -34,17 +34,11 @@ Questo argomento illustra come visualizzare e modificare le informazioni dettagl
 
     Il lettore e le informazioni dettagliate sono sincronizzati. Ad esempio, se si fa clic su una parola chiave o sulla riga della trascrizione, il lettore passa a quel momento nel video. È possibile implementare la visualizzazione e la sincronizzazione del lettore e delle informazioni dettagliate nella propria applicazione. Per altre informazioni, vedere [Incorporare i widget di Video Indexer di Azure nelle applicazioni](video-indexer-embed-widgets.md). 
 
-3. Modificare le informazioni dettagliate di Video Indexer.
-
-    Premere Modifica sotto il video. La pagina che compare mostra tutte le informazioni dettagliate sul video. Queste sono suddivise in blocchi. I blocchi sono concepiti per semplificare l'esame dei dati. Ad esempio, i blocchi potrebbero essere suddivisi in base a quando cambia il parlante o alla presenza di una lunga pausa. È possibile creare una propria playlist contenente solo le righe desiderate. Per mostrare solo determinate parti del video di origine, è possibile filtrare per argomenti/parole chiave, sentiment, persone e relatori. Si può scegliere di visualizzare solo la trascrizione o OCR del video.  
-
-    ![Informazioni dettagliate](./media/video-indexer-view-edit/video-indexer-create-new-playlist.png)
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 [Informazioni su come creare informazioni dettagliate di Video Indexer basate su video di altre persone](video-indexer-create-new.md).
 
 ## <a name="see-also"></a>Vedere anche 
 
-[Panoramica di Video Indexer](video-indexer-overview.md)
+[Panoramica di indicizzatore video](video-indexer-overview.md)
 

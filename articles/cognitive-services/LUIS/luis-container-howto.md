@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b7788cc6854b477e8aab9e9df82ed2b54a3bdfe2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: ca9b08cdccd43a093ca8b5001d3e30be0e5258b5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884568"
+ms.locfileid: "58894679"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
  
@@ -81,7 +81,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 1. [Eseguire il contenitore](##run-the-container-with-docker-run), con il _punto di montaggio di input_ e le impostazioni di fatturazione richiesti. Sono disponibili altri [esempi](luis-container-configuration.md#example-docker-run-commands) del comando `docker run`. 
 1. [Eseguire query sull'endpoint di stima del contenitore](#query-the-containers-prediction-endpoint). 
 1. Dopo aver completato le operazioni con il contenitore, [importare i log dell'endpoint](#import-the-endpoint-logs-for-active-learning) dal punto di montaggio di output nel portale di LUIS e [arrestare](#stop-the-container) il contenitore.
-1. Usare la funzionalità di [apprendimento attivo](luis-how-to-review-endoint-utt.md) nella pagina **Review endpoint utterances** (Esamina espressioni endpoint) del portale di LUIS per migliorare l'app.
+1. Usare la funzionalità di [apprendimento attivo](luis-how-to-review-endpoint-utterances.md) nella pagina **Review endpoint utterances** (Esamina espressioni endpoint) del portale di LUIS per migliorare l'app.
 
 Non è possibile modificare l'app in esecuzione nel contenitore. Per modificare l'app nel contenitore, è necessario modificarla nel servizio LUIS usando il portale di [LUIS](https://www.luis.ai) oppure usando le [API di creazione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c2f) LUIS. Eseguire quindi il training e/o la pubblicazione, scaricare un nuovo pacchetto ed eseguire nuovamente il contenitore.
 
@@ -268,7 +268,7 @@ I parametri di query specificano la modalità e i contenuti restituiti nella ris
 |`timezoneOffset`|number|Il parametro timezoneOffset consente di [modificare il fuso orario](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) usato dall'entità predefinita datetimeV2.|
 |`verbose`|boolean|Se l'impostazione è true, restituisce tutte le finalità e i relativi punteggi. Il valore predefinito è false, che restituisce solo la finalità principale.|
 |`staging`|boolean|Se l'impostazione è true, restituisce i risultati della query dall'ambiente di gestione temporanea. |
-|`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endoint-utt.md). Il valore predefinito è true.|
+|`log`|boolean|Registra le query, che successivamente possono essere usate per l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md). Il valore predefinito è true.|
 
 ### <a name="query-published-app"></a>Eseguire query sull'app pubblicata
 

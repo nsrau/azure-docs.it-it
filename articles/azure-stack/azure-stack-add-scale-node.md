@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172400"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882039"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Aggiungere nodi di unità di scalabilità aggiuntiva in Azure Stack
 
@@ -75,7 +75,7 @@ Usare la **New-AzsScaleUnitNodeObject** cmdlet per aggiungere un nodo.
 Prima di usare uno degli script di PowerShell di esempio seguenti, sostituire i valori *i nomi dei nodi* e *gli indirizzi IP* con i valori dell'ambiente Azure Stack.
 
   > [!Note]  
-  > Quando un nodo di denominazione è necessario mantenere il nome a meno di 15 caratteri. È anche possibile usare un nome contenente uno spazio o i caratteri seguenti: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > Quando un nodo di denominazione è necessario mantenere il nome a meno di 15 caratteri. È anche possibile usare un nome contenente uno spazio o i caratteri seguenti: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`, `}`, `_`.
 
 **Aggiungere un nodo:**
   ```powershell

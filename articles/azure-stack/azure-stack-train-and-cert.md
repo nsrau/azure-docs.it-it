@@ -8,13 +8,13 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: mabrigg
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: d4f7ec8f4b6960650b98d8f2d2f051c0873c9754
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 3/20/2019
+ms.openlocfilehash: d15a981e0f43c686a5b6f60387dab6aa6f4b8096
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242502"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540330"
 ---
 # <a name="azure-stack-training-and-certification"></a>Certificazione e formazione su azure Stack
 
@@ -24,9 +24,18 @@ Le opportunità di formazione e certificazione seguenti sono disponibili per inf
 
 ## <a name="training"></a>Formazione
 
-- [Corso 20537A: Configurazione e il funzionamento di un Cloud ibrido con Microsoft Azure Stack](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
-- [edX: Formazione Online su Azure Stack](https://aka.ms/AzureStackMOOC)
-- [Ruoli di lavoro e i percorsi di apprendimento](https://azure.microsoft.com/training/learning-paths/)
+- Microsoft official Course on demand
+   - [ODX20537: Configurazione e il funzionamento di un Cloud ibrido con Microsoft Azure Stack (180 giorni)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537)
+   - [OD20537: Configurazione e il funzionamento di un Cloud ibrido con Microsoft Azure Stack (90 giorni)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537)
+
+- Corso di formazione di Microsoft IT
+   - [Corso 20537A: Configurazione e il funzionamento di un Cloud ibrido con Microsoft Azure Stack](https://aka.ms/azsmoc)
+
+- Apri edx
+   - [edX: Corso online di Microsoft Azure Stack operativo e di configurazione](https://aka.ms/AzureStackMOOC)
+   
+- Percorsi di apprendimento di Microsoft
+   - [Ruoli di lavoro e i percorsi di apprendimento](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certificazione
 

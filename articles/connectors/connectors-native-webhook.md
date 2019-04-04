@@ -11,12 +11,12 @@ ms.assetid: 71775384-6c3a-482c-a484-6624cbe4fcc7
 ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
-ms.openlocfilehash: c0985df445ae34795d5287144d4664755cc006da
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182116"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895580"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Creare azioni o flussi di lavoro basati su eventi usando webhook e App per la logica di Azure
 
@@ -29,11 +29,11 @@ Altre informazioni su [come creare API personalizzate che supportano un webhook]
 
 ## <a name="use-the-webhook-trigger"></a>Usare il trigger webhook
 
-Un [*trigger*](connectors-overview.md) è un evento che avvia un flusso di lavoro nell'app per la logica. Il trigger webhook è basato su eventi, che non variano a polling per nuovi elementi. Quando si salva l'app per la logica con un trigger di webhook o quando si modifica l'app per la logica da disabilitato ad abilitato, il trigger webhook *sottoscrive* per il servizio specificato o l'endpoint registrando un *URL callback* con tale servizio o dell'endpoint. Il trigger Usa quindi tale URL per eseguire l'app per la logica in base alle esigenze. Ad esempio la [trigger di richiesta](connectors-native-reqres.md), app per la logica viene attivata immediatamente quando si verifica l'evento previsto. Il trigger *Annulla la sottoscrizione* se si rimuove il trigger e salvare l'app per la logica, o quando si modifica l'app per la logica da abilitato a disabilitato.
+Un [*trigger*](../connectors/apis-list.md) è un evento che avvia un flusso di lavoro nell'app per la logica. Il trigger webhook è basato su eventi, che non variano a polling per nuovi elementi. Quando si salva l'app per la logica con un trigger di webhook o quando si modifica l'app per la logica da disabilitato ad abilitato, il trigger webhook *sottoscrive* per il servizio specificato o l'endpoint registrando un *URL callback* con tale servizio o dell'endpoint. Il trigger Usa quindi tale URL per eseguire l'app per la logica in base alle esigenze. Ad esempio la [trigger di richiesta](connectors-native-reqres.md), app per la logica viene attivata immediatamente quando si verifica l'evento previsto. Il trigger *Annulla la sottoscrizione* se si rimuove il trigger e salvare l'app per la logica, o quando si modifica l'app per la logica da abilitato a disabilitato.
 
 Ecco un esempio che mostra come configurare un trigger HTTP in Progettazione app per la logica. I passaggi presuppongono che un'API sia già stata distribuita o che si stia accedendo all'API che segue il [modello di "subscribe" e "unsubscribe" del webhook nelle app per la logica](../logic-apps/logic-apps-create-api-app.md#webhook-triggers). 
 
-**Per aggiungere il trigger webhook**
+**Per aggiungere il trigger di webhook**
 
 1. Aggiungere il trigger **HTTP Webhook** come primo passaggio in un'app per la logica.
 2. Specificare i parametri per le chiamate "subscribe" e "unsubscribe" del webhook.
@@ -48,7 +48,7 @@ Ecco un esempio che mostra come configurare un trigger HTTP in Progettazione app
 
 ## <a name="use-the-webhook-action"></a>Usare l'azione webhook
 
-Un' [ *azione* ](connectors-overview.md) è un'operazione definita e l'esecuzione da parte del flusso di lavoro dell'app per la logica. Quando un'app per la logica viene eseguita un'azione webhook, tale azione *sottoscrive* per il servizio specificato o dell'endpoint tramite la registrazione di un *URL di callback* con tale servizio o dell'endpoint. Quindi l'azione di webhook attende che l'URL prima i curricula di app per la logica che esegue chiamate al servizio. Annulla la sottoscrizione dell'app per la logica del servizio o un endpoint in questi casi: 
+Un' [ *azione* ](../connectors/apis-list.md) è un'operazione definita e l'esecuzione da parte del flusso di lavoro dell'app per la logica. Quando un'app per la logica viene eseguita un'azione webhook, tale azione *sottoscrive* per il servizio specificato o dell'endpoint tramite la registrazione di un *URL di callback* con tale servizio o dell'endpoint. Quindi l'azione di webhook attende che l'URL prima i curricula di app per la logica che esegue chiamate al servizio. Annulla la sottoscrizione dell'app per la logica del servizio o un endpoint in questi casi: 
 
 * Quando l'azione webhook è stata completata correttamente
 * Se l'esecuzione dell'app per la logica è stata annullata durante l'attesa di una risposta
@@ -104,9 +104,9 @@ L'asterisco (*) indica che il campo è obbligatorio.
 | Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 | Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
 | Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
-| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
+| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 
-**Dettagli dell'output**
+**Dettagli output**
 
 Richiesta Webhook
 
@@ -140,9 +140,9 @@ L'asterisco (*) indica che il campo è obbligatorio.
 | Subscribe Authentication |authentication |Autenticazione HTTP da usare per la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 | Unsubscribe Body |Corpo |Request body HTTP per annullare la sottoscrizione |
 | Unsubscribe Headers |headers |Intestazioni della richiesta HTTP per annullare la sottoscrizione |
-| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. Vedere [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
+| Unsubscribe Authentication |authentication |Autenticazione HTTP da usare per annullare la sottoscrizione. [Connettore HTTP](connectors-native-http.md#authentication) per informazioni dettagliate |
 
-**Dettagli dell'output**
+**Dettagli output**
 
 Richiesta Webhook
 

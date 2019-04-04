@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660715"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915924"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automate OS and framework patching with ACR Tasks (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Tasks)
 
@@ -27,7 +27,7 @@ Compilare e testare le immagini del contenitore con ACR Tasks in quattro modi:
 * [Attività rapida](#quick-task): compilare ed eseguire il push di immagini del contenitore on demand, in Azure, senza necessitare di un'installazione locale di un motore Docker. Pensare `docker build`, `docker push` nel cloud. Compilazione dal codice sorgente locale o un repository GIT.
 * [Compilazione automatica in caso di commit del codice sorgente](#automatic-build-on-source-code-commit): attivare automaticamente una compilazione dell'immagine del contenitore quando viene eseguito il commit di codice in un repository Git.
 * [Compilazione in caso di aggiornamento dell'immagine di base](#automate-os-and-framework-patching): attivare una compilazione di immagini dei contenitori quando l'immagine di base dell'immagine è stata aggiornata.
-* [Attività in più passaggi](#multi-step-tasks-preview) (anteprima): definire le attività in più passaggi che compilano immagini, eseguono i contenitori come comandi ed eseguono il push delle immagini in un registro. Questa funzionalità di anteprima di ACR Tasks supporta l'esecuzione delle attività on demand e le operazioni di compilazione, test e push delle immagini parallele.
+* [Attività multipassaggio](#multi-step-tasks): definire le attività in più passaggi che compilano immagini, eseguono i contenitori come comandi ed eseguono il push delle immagini in un registro. Questa funzionalità di attività di registro contenitori di AZURE supporta l'esecuzione dell'attività su richiesta e compilazione dell'immagine parallela, testare e operazioni di push.
 
 ## <a name="quick-task"></a>Attività rapida
 
@@ -36,6 +36,8 @@ Il ciclo di sviluppo interno, processo iterativo di scrittura di codice, compila
 Prima di eseguire il commit della prima riga di codice, la funzione [attività rapida](container-registry-tutorial-quick-task.md) di ACR Tasks può offrire un'esperienza di sviluppo integrato eseguendo l'offload delle build di un'immagine del contenitore in Azure. Con questa funzionalità è possibile verificare le definizioni delle compilazioni automatiche e rilevare problemi potenziali prima di eseguire il commit di codice.
 
 Usando il noto formato `docker build`, il comando [az acr build][az-acr-build] nell'interfaccia della riga di comando di Azure accetta un *contesto* (l'insieme di file da compilare), lo invia al servizio ACR Tasks e al termine, per impostazione predefinita, esegue il push dell'immagine compilata nel registro.
+
+Per un'introduzione, vedere la Guida introduttiva a [compilare ed eseguire un'immagine del contenitore](container-registry-quickstart-task-cli.md) in Registro contenitori di Azure.  
 
 La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
 
@@ -76,9 +78,9 @@ Per informazioni sull'applicazione di patch al sistema operativo e al framework,
 > [!NOTE]
 > Gli aggiornamenti delle immagini di base attivano compilazioni solo quando sia l'immagine di base che quella dell'applicazione risiedono nello stesso Registro Azure Container, o la base risiede in un repository dell'hub Docker accessibile pubblicamente.
 
-## <a name="multi-step-tasks-preview"></a>Attività in più passaggi (anteprima)
+## <a name="multi-step-tasks"></a>Attività più passi
 
-Attività a più passaggi, una funzionalità in anteprima di ACR Tasks, consente di definire ed eseguire attività in più passaggi per compilare, testare e correggere immagini del contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
+Attività multipassaggio forniscono una definizione di attività basata sul passaggio e l'esecuzione per la creazione, test e dell'applicazione di patch immagini del contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
 
 Ad esempio, è possibile creare un'attività in più passaggi che consenta di automatizzare le operazioni seguenti:
 
@@ -93,15 +95,12 @@ Le attività in più passaggi consentono di dividere la creazione, l'esecuzione 
 
 Altre informazioni sulle attività in più passaggi in [Run multi-step build, test, and patch tasks in ACR Tasks](container-registry-tasks-multi-step.md) (Eseguire attività di compilazione, test e applicazione di patch in più passaggi con ACR Tasks).
 
-> [!IMPORTANT]
-> La funzionalità di attività in più passaggi di ACR Tasks è attualmente in anteprima. Le anteprime vengono rese disponibili a condizione che l'utente accetti le [condizioni supplementari per l'utilizzo][terms-of-use]. Alcuni aspetti di questa funzionalità potrebbero subire modifiche prima della disponibilità a livello generale
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Quando si è pronti ad automatizzare l'applicazione di patch al sistema operativo e al framework compilando le immagini dei contenitori nel cloud, vedere la serie di esercitazioni in tre parti su ACR Tasks.
 
 > [!div class="nextstepaction"]
-> [Compilare immagini dei contenitori nel cloud con ACR Tasks](container-registry-tutorial-quick-task.md)
+> [Creare immagini dei contenitori nel cloud con le attività del Registro di sistema di contenitore di Azure](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2019
+ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: harik
 ms.lastreviewed: 01/11/2019
-ms.openlocfilehash: a61820dc05752d43774b13399d071c5a2be98483
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8abbf3a9db02fda0c92485ef75a12d82f4e8c8e9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58400541"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903948"
 ---
 # <a name="azure-stack-servicing-policy"></a>Criteri di manutenzione Azure Stack
 
@@ -53,10 +53,10 @@ Documentazione su come pianificare e gestire gli aggiornamenti e come determinar
 
 Per informazioni su uno specifico aggiornamento, incluso come scaricarlo, vedere le note sulla versione per cui aggiornare:
 
+- [Azure Stack 1903 update](azure-stack-update-1903.md)
 - [Aggiornamento di Azure Stack 1902](azure-stack-update-1902.md)
 - [Aggiornamento di Azure Stack 1901](azure-stack-update-1901.md)
 - [Aggiornamento di Azure Stack 1811](azure-stack-update-1811.md)
-- [Aggiornamento di Azure Stack 1809](azure-stack-update-1809.md)
 
 ## <a name="hotfixes"></a>Hotfix
 

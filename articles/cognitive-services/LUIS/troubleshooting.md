@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: aed7d4fedd4781eac8c127744e5fe93fb054b99d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369718"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894458"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Risposte alle domande frequenti per Language Understanding (LUIS)
 
@@ -88,7 +88,7 @@ Per informazioni su come concedere l'accesso ai collaboratori, vedere [Risorse d
 
 I risultati imprevisti della query dipendono dallo stato del modello pubblicato. Per correggere il modello, può essere necessario modificare il modello, eseguire il training e ripetere la pubblicazione. 
 
-La correzione del modello inizia con l'[apprendimento attivo](luis-how-to-review-endoint-utt.md).
+La correzione del modello inizia con l'[apprendimento attivo](luis-how-to-review-endpoint-utterances.md).
 
 È possibile rimuovere il training non deterministico aggiornando l'[API delle impostazioni della versione dell'applicazione](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) in modo da usare tutti i dati di training.
 
@@ -240,7 +240,7 @@ La prima cosa da fare è determinare se il problema è correlato a LUIS o avvien
 #### <a name="resolve-issue-in-luis"></a>Risolvere il problema LUIS
 Passare la stessa espressione a LUIS dall'[endpoint LUIS](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Se si riceve un errore, risolvere il problema in LUIS finché l'errore non viene più restituito. Di seguito sono riportati gli errori più comuni.
 
-* `Out of call volume quota. Quota will be replenished in <time>.` - Questo problema indica che occorre passare da una chiave di creazione a una [chiave endpoint](luis-how-to-azure-subscription.md) oppure è necessario modificare i [livelli di servizio](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.` -Questo problema indica che devono modificare da una chiave di creazione e modifica di un [chiave endpoint](luis-how-to-azure-subscription.md) oppure è necessario modificare [livelli di servizio](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Risolvere il problema nel servizio Azure Bot
 
@@ -296,10 +296,10 @@ In occasione della conferenza Build 2018 sono state rilasciate le seguenti funzi
 Sono state incluse altre [route API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) di creazione.
 
 Video:
-* [Azure Friday all'evento Build 2018: Servizi cognitivi - Linguaggio (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Build 2018 AI Show - Novità del servizio Language Understanding](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Sessione di Build 2018: bot intelligenti, funzionalità vocali e procedure consigliate per la comprensione del linguaggio naturale](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Build 2018 - Aggiornamenti su Language Understanding (LUIS)](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+* [Azure Friday At Build 2018: Servizi cognitivi - linguaggio (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Build 2018 per intelligenza artificiale Show - novità di Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
+* [Build 2018 sessione - intelligence Bot, funzionalità di riconoscimento vocale e NLU procedure consigliate](https://channel9.msdn.com/events/Build/2018/BRK3208)
+* [Build 2018 - aggiornamenti di LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
 
 Progetti:
 * Demo del [bot Contoso Cafe](https://github.com/botbuilderbuild2018/build2018demo) - Codice sorgente su GitHub
@@ -307,5 +307,5 @@ Progetti:
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su LUIS, vedere le risorse seguenti:
-* [Domande su Stack Overflow con tag LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Forum MSDN su LUIS (Language Understanding Intelligent Service)](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Stack Overflow domande contrassegnate con LUIS](https://stackoverflow.com/questions/tagged/luis)
+* [MSDN comprensione intelligente del linguaggio (LUIS) Forum su servizi](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)

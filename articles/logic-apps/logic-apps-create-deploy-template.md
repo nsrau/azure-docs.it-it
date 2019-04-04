@@ -10,193 +10,185 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 624539557b0bf57e9d919a3a46337f1cf93a4f07
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883441"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894235"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creare modelli di Azure Resource Manager per la distribuzione di app per la logica
 
-Una volta creata un'app per la logica, è possibile crearla come un modello di Azure Resource Manager.
-Così facendo, l'app per la logica potrà essere facilmente distribuita in qualsiasi ambiente o gruppo di risorse in cui potrebbe essere necessaria.
-Per altre informazioni sui modelli di Resource Manager, vedere gli articoli su [creazione di modelli di Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [distribuzione delle risorse con i modelli di Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Quando si crea un'app per la logica, è possibile espandere la definizione dell'app per la logica in un [modello di Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). È quindi possibile usare questo modello per l'automazione delle distribuzioni definendo le risorse e i parametri che si desidera utilizzare per la distribuzione e fornire i valori dei parametri tramite un [file dei parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+In questo modo, è possibile distribuire App per la logica più facilmente e in qualsiasi ambiente o un gruppo di risorse di Azure desiderato. 
 
-## <a name="logic-app-deployment-template"></a>Modello di distribuzione di app per la logica
+App per la logica di Azure fornisce una [modello di Azure Resource Manager di App per la logica predefinite](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) che è possibile riutilizzare, non solo per la creazione di App per la logica, ma anche per definire le risorse e i parametri da usare per la distribuzione. È possibile usare questo modello per i propri scenari aziendali o personalizzarlo in base alle esigenze. Altre informazioni sulle [struttura modello di Resource Manager e la sintassi](../azure-resource-manager/resource-group-authoring-templates.md). Per la sintassi e le proprietà JSON, vedere [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions) (Tipi di risorsa Microsoft.Logic).
 
-Un'app per la logica dispone di tre componenti di base:
+Per altre informazioni sui modelli di Azure Resource Manager, vedere questi articoli:
 
-* **Risorsa dell'app per la logica**: contiene informazioni su elementi quali piano tariffario, posizione e definizione del flusso di lavoro.
-* **Definizione del flusso di lavoro**: descrive i passaggi del flusso di lavoro dell'app per la logica e come il motore di App per la logica deve eseguire il flusso di lavoro.
-È possibile visualizzare questa definizione nella finestra **Visualizzazione Codice** dell'app per la logica.
-Nella risorsa di app per la logica è possibile trovare questa definizione nella proprietà `definition`.
-* **Connessioni**: si riferisce a risorse separate per archiviare in modo sicuro i metadati su qualsiasi connessione del connettore, ad esempio una stringa di connessione e un token di accesso.
-Nella risorsa di app per la logica, l'app per la logica si riferisce a queste risorse nella sezione `parameters`.
+* [Creare modelli di Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [I modelli di Azure Resource Manager possono essere sviluppati per la coerenza cloud](../azure-resource-manager/templates-cloud-consistency.md)
 
-È possibile visualizzare tutti questi elementi delle app per la logica esistenti usando uno strumento come [Esplora inventario risorse di Azure](http://resources.azure.com). Per la sintassi e le proprietà JSON, vedere [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions) (Tipi di risorsa Microsoft.Logic).
+## <a name="logic-app-structure"></a>Struttura dell'app per la logica
 
-Per creare un modello per un'app per la logica da usare con distribuzioni di gruppi di risorse, è necessario definire le risorse e creare i parametri necessari.
-Ad esempio, se si esegue la distribuzione in un ambiente di sviluppo, un ambiente di test e un ambiente di produzione, è probabile che in ogni si vogliano usare stringhe di connessione a un database SQL diverse.
-In alternativa, è possibile che si voglia eseguire la distribuzione in sottoscrizioni o gruppi di risorse diversi.  
+La definizione dell'app per la logica dispone di queste sezioni di base, che è possibile visualizzare passando da "visualizzazione di progettazione" per "visualizzazione codice" o con uno strumento, ad esempio [Azure Resource Explorer](http://resources.azure.com). Definizioni di app per la logica usare Javascript Object Notation (JSON), pertanto per altre informazioni sulla sintassi JSON e le proprietà, vedere [tipi di risorse Logic](/azure/templates/microsoft.logic/allversions).
 
-## <a name="create-a-logic-app-deployment-template"></a>Creare un modello di distribuzione di app per la logica
+* **Risorsa dell'app per la logica**: Descrive le informazioni come la posizione dell'app per la logica o area, piano tariffario e definizione del flusso di lavoro.
 
-Il modo più semplice per ottenere un modello di distribuzione di app per la logica consiste nell'usare [Visual Studio Tools per app per la logica](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
-Gli strumenti di Visual Studio generano un modello di distribuzione valido, che può essere usato in qualsiasi sottoscrizione o località.
+* **Definizione del flusso di lavoro**: Viene descritto dell'app per la logica di trigger e azioni ed esecuzione del flusso di lavoro del servizio App per la logica di Azure. Nella visualizzazione codice, è possibile trovare la definizione del flusso di lavoro nel `definition` sezione.
 
-Esistono altri strumenti utili per la creazione di un modello di distribuzione di app per la logica.
-È possibile eseguire la creazione manualmente utilizzando le risorse appena descritte per creare i parametri in base alle esigenze.
-In alternativa è possibile utilizzare un modulo [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator) di PowerShell. Questo modulo open source valuta l'app per la logica ed eventuali connessioni che utilizza, quindi genera risorse del modello con i parametri necessari per la distribuzione.
-Se, ad esempio, si dispone di un'app per la logica che ha ricevuto un messaggio da una coda del bus del servizio di Azure e ha aggiunto dati a un database SQL di Azure, lo strumento conserva l'intera logica di orchestrazione e crea parametri per le stringhe di connessione di SQL e del bus di servizio, in modo che sia possibile configurarle in fase di distribuzione.
+* **Connessioni**: Se si usano connettori gestiti nell'app per la logica di `$connections` sezione fa riferimento ad altre risorse che archiviano in modo sicuro i metadati relativi a queste connessioni tra l'app per la logica e altri sistemi o servizi, ad esempio le stringhe di connessione e i token di accesso. All'interno della definizione di app per la logica, riferimenti a queste connessioni vengono visualizzati all'interno della definizione di app per la logica `parameters` sezione.
 
-> [!NOTE]
-> Le connessioni devono essere incluse nello stesso gruppo di risorse dell'app per la logica.
->
->
+Per creare un modello di app per la logica che è possibile usare con distribuzioni di gruppi di risorse di Azure, è necessario definire le risorse e impostare i parametri in base alle esigenze. Ad esempio, se si esegue la distribuzione in un ambiente di sviluppo, un ambiente di test e un ambiente di produzione, è probabile che in ogni si vogliano usare stringhe di connessione a un database SQL diverse.
+In alternativa, è possibile che si voglia eseguire la distribuzione in sottoscrizioni o gruppi di risorse diversi.
 
-### <a name="install-the-logic-app-template-powershell-module"></a>Installare il modulo PowerShell per il modello di app per la logica
-Il modo più semplice per installare il modulo consiste nell'usare la [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1) con il comando `Install-Module -Name LogicAppTemplate`.  
+## <a name="create-logic-app-deployment-templates"></a>Creare modelli di distribuzione di app per la logica
 
-È inoltre possibile installare il modulo PowerShell manualmente:
+Per il modo più semplice creare un modello di distribuzione di app per la logica valida, usare Visual Studio e gli strumenti di App per la logica di Azure per l'estensione di Visual Studio. Scaricare l'app per la logica dal portale di Azure in Visual Studio, per ottenere un modello di distribuzione valido che è possibile usare con qualsiasi sottoscrizione di Azure e il percorso. Inoltre, automaticamente il download dell'app per la logica Parametrizza la definizione dell'app per la logica che viene incorporata nel modello.
+Per altre informazioni sulla creazione e gestione delle App per la logica in Visual Studio, vedere [creare App per la logica con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) e [gestire le App per la logica con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-1. Scaricare la versione più recente di [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
-2. Estrarre la cartella nella cartella del modulo PowerShell, in genere `%UserProfile%\Documents\WindowsPowerShell\Modules`.
+Diverso da Visual Studio o la creazione manuale del modello e i parametri necessari seguendo le indicazioni fornite in questo argomento, è anche possibile usare la [modulo di PowerShell per la creazione di modelli di app per la logica](https://github.com/jeffhollan/LogicAppTemplateCreator). Questo modulo open source valuta innanzitutto tutte le connessioni che usa l'app per la logica e app per la logica. Il modulo quindi genera risorse del modello con i parametri necessari per la distribuzione. Ad esempio, si supponga di che avere un'app per la logica che riceve un messaggio da una coda del Bus di servizio di Azure e aggiunge dati a un database SQL di Azure. Lo strumento di modulo consente di mantenere tutta la logica di orchestrazione e la parametrizzazione le stringhe di connessione SQL e Bus di servizio in modo che sia possibile impostare tali valori in fase di distribuzione.
 
-Per consentire il funzionamento del modulo con qualsiasi tenant e qualsiasi token di accesso della sottoscrizione, è consigliabile usare lo strumento della riga di comando [ARMClient](https://github.com/projectkudu/ARMClient).  Questo [post di blog ](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) illustra ARMClient in modo più dettagliato.
+> [!IMPORTANT]
+> Le connessioni devono esistere nello stesso gruppo di risorse di Azure come app per la logica.
+> Per il modulo di PowerShell lavorare con qualsiasi tenant e la sottoscrizione accesso token da usare in Azure il modulo con il [dello strumento client di Azure Resource Manager](https://github.com/projectkudu/ARMClient). Per altre informazioni, vedere questo [articolo sullo strumento client di Azure Resource Manager](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) illustra ARMClient in modo più dettagliato.
 
-### <a name="generate-a-logic-app-template-by-using-powershell"></a>Generare un modello di app per la logica tramite PowerShell
+### <a name="install-powershell-module-for-logic-app-templates"></a>Installare il modulo di PowerShell per i modelli di app per la logica
+
+Per il modo più semplice installare il modulo dal [PowerShell Gallery](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), usare questo comando:
+
+`Install-Module -Name LogicAppTemplate`
+
+È anche possibile installare manualmente il modulo di PowerShell:
+
+1. Scaricare la versione più recente [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).
+
+1. Estrarre la cartella nella cartella del modulo PowerShell, che è in genere `%UserProfile%\Documents\WindowsPowerShell\Modules`.
+
+### <a name="generate-logic-app-template---powershell"></a>Generare il modello di app per la logica - PowerShell
+
 Dopo aver installato PowerShell, è possibile generare un modello utilizzando il comando seguente:
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
 `$SubscriptionId` è l'ID sottoscrizione di Azure. Questa riga ottiene innanzitutto un token di accesso tramite ARMClient, lo trasmette allo script di PowerShell e quindi crea il modello in un file JSON.
 
-## <a name="add-parameters-to-a-logic-app-template"></a>Aggiungere parametri a un modello di app per la logica
-Dopo aver creato il modello di app per la logica, è possibile continuare ad aggiungere o modificare i parametri necessari. Se, ad esempio, la definizione include un ID di risorsa in una funzione di Azure o in un flusso di lavoro annidato in cui si prevede eseguire una singola distribuzione, è possibile aggiungere altre risorse al modello e creare parametri per gli ID in base alla necessità. Lo stesso approccio è applicabile a qualsiasi riferimento ad API personalizzate o endpoint Swagger che si prevede di distribuire in ogni gruppo di risorse.
+## <a name="parameters-in-logic-app-templates"></a>Parametri nei modelli di app per la logica
 
-### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Aggiungere riferimenti per le risorse dipendenti ai modelli di distribuzione di Visual Studio
+Dopo aver creato il modello di app per la logica, è possibile aggiungere e modificare i parametri necessari. Il modello include più di una `parameters` sezione, ad esempio: 
 
-Quando si vuole che l'app per la logica faccia riferimento alle risorse dipendenti, è possibile usare le [funzioni del modello di Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions) nel modello di distribuzione di app per la logica. Ad esempio, l'utente può fare in modo che l'app per la logica faccia riferimento a una funzione di Azure o a un account di integrazione che si desidera distribuire insieme all'app per la logica. Seguire queste linee guida sull'uso dei parametri nel modello di distribuzione in modo che la Progettazione app per la logica esegua il rendering correttamente. 
+* Definizione di flusso di lavoro dell'app per la logica dispone di propri [ `parameters` sezione](../logic-apps/logic-apps-workflow-definition-language.md#parameters) che consente di definire tutti i parametri che l'app per la logica Usa per accettare gli input in fase di distribuzione.
 
-È possibile usare i parametri dell'app per la logica in questi tipi di trigger e azioni:
+* Modello di Resource Manager dispone di propri [ `parameters` sezione](../azure-resource-manager/resource-group-authoring-templates.md#parameters), separato dell'app per la logica `parameters` sezione. Ad esempio: 
 
-*   Flusso di lavoro figlio
-*   App per le funzioni
-*   Chiamata APIM
-*   URL di runtime della connessione API
-*   Percorso di connessione API
+  [!INCLUDE [logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-Ed è possibile usare le funzioni di modello, ad esempio parametri, variabili, resourceId, CONCAT e così via. Ad esempio, ecco come è possibile sostituire l'ID di risorsa della funzione di Azure:
+Si supponga, ad esempio, la definizione dell'app per la logica fa riferimento a un ID di risorsa che rappresenta un flusso di lavoro di app per la logica annidata o una funzione di Azure e si desidera distribuire tale ID di risorsa con l'app per la logica come singola distribuzione. È possibile aggiungere tale ID come risorsa nel modello e impostare i parametri per tale ID. È possibile usare questo stesso approccio per i riferimenti a endpoint personalizzati, le API o OpenAPI (in precedenza "Swagger") da distribuire con ogni gruppo di risorse di Azure.
 
-```
-"parameters":{
-    "functionName": {
+Quando si usano parametri nel modello di distribuzione, seguire queste linee guida per la progettazione di App per la logica può visualizzati correttamente questi parametri:
+
+* Usare parametri solo in questi trigger e azioni:
+
+  * App per le funzioni di Azure
+  * Annidati o flusso di lavoro app per la logica figlio
+  * Chiamata di gestione API
+  * URL di runtime della connessione API
+  * Percorso di connessione API
+
+* Quando si definiscono i parametri, assicurarsi di specificare i valori predefiniti utilizzando i `defaultValue` valore della proprietà, ad esempio:
+
+  ```json
+  "parameters": {
+     "IntegrationAccount": {
         "type":"string",
-        "minLength":1,
-        "defaultValue":"<FunctionName>"
-    }
+        "minLength": 1,
+        "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource=group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
+     }
+  },
+  ```
+
+* Per proteggere o nascondere informazioni riservate nei modelli, proteggere i parametri. Altre informazioni sulle [come usare i parametri protetti](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow).
+
+Ecco un esempio che illustra come è possibile parametrizzare l'azione "Invia messaggio" del Bus di servizio di Azure:
+
+```json
+"Send_message": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['servicebus']['connectionId']"
+         },
+         // If the `host.runtimeUrl` property appears in your template, 
+         // you can remove this property, which is optional, for example:
+         "runtimeUrl": {}
+      },
+      "method": "POST",
+      "path": "[concat('/@{encodeURIComponent(''', parameters('<Azure-Service-Bus-queue-name>'), ''')}/messages')]",
+      "body": {
+         "ContentData": "@{base64(triggerBody())}"
+      },
+      "queries": {
+         "systemProperties": "None"
+      }
+   },
+   "runAfter": {}
 },
 ```
 
-E dove si useranno i parametri:
+### <a name="reference-dependent-resources"></a>Fare riferimento alle risorse dipendenti
 
+Se l'app per la logica richiede i riferimenti a risorse dipendenti, è possibile usare [funzioni del modello di Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md) nel modello di distribuzione dell'app per la logica. Si supponga, ad esempio, che si vuole che l'app per la logica faccia riferimento a una funzione di Azure o un account di integrazione con le definizioni per i partner, contratti e altri elementi desiderati distribuiti insieme all'app per la logica.
+È possibile usare funzioni di modello di Resource Manager, ad esempio `parameters`, `variables`, `resourceId`, `concat`e così via.
+
+Ecco un esempio che illustra come è possibile sostituire l'ID risorsa per una funzione di Azure con la definizione di questi parametri:
+
+``` json
+"parameters": {
+   "<Azure-function-name>": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "<Azure-function-name>"
+   }
+},
 ```
+
+Ecco come si usano questi parametri quando si fa riferimento la funzione di Azure:
+
+```json
 "MyFunction": {
-    "type": "Function",
-    "inputs": {
-        "body":{},
-        "function":{
-            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
-        }
-    },
-    "runAfter":{}
-}
+   "type": "Function",
+   "inputs": {
+      "body": {},
+      "function": {
+         "id":"[resourceid('Microsoft.Web/sites/functions','<Azure-Functions-app-name>', parameters('<Azure-function-name>'))]"
+      }
+   },
+   "runAfter": {}
+},
 ```
-È anche possibile, ad esempio, impostare il parametro per l'operazione di invio messaggio del bus di servizio:
 
-```
-"Send_message": {
-    "type": "ApiConnection",
-        "inputs": {
-            "host": {
-                "connection": {
-                    "name": "@parameters('$connections')['servicebus']['connectionId']"
-                }
-            },
-            "method": "post",
-            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
-            "body": {
-                "ContentData": "@{base64(triggerBody())}"
-            },
-            "queries": {
-                "systemProperties": "None"
-            }
-        },
-        "runAfter": {}
-    }
-```
-> [!NOTE] 
-> host.runtimeUrl è facoltativo e può essere rimosso dal modello, se presente.
-> 
+## <a name="add-logic-app-to-resource-group-project"></a>Aggiungere app per la logica al progetto gruppo di risorse
 
+Se si dispone di un progetto gruppo di risorse di Azure esistente, è possibile aggiungere app per la logica al progetto usando la finestra Struttura JSON. È inoltre possibile aggiungere un'altra app per la logica con l'applicazione creata in precedenza.
 
-> [!NOTE] 
-> Affinché la Progettazione dell'app per la logica funzioni quando si usano i parametri, è necessario fornire valori predefiniti, ad esempio:
-> 
-> ```
-> "parameters": {
->     "IntegrationAccount": {
->     "type":"string",
->     "minLength":1,
->     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
->     }
-> },
-> ```
+1. In Esplora soluzioni aprire il file `<template>.json`.
 
-## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Aggiungere un'app per la logica a un progetto Gruppo di risorse esistente
+2. Dal **View** dal menu **Other Windows** > **struttura JSON**.
 
-Se si dispone di un progetto Gruppo di risorse esistente, è possibile aggiungere l'app per la logica al progetto nella finestra Struttura JSON. È inoltre possibile aggiungere un'altra app per la logica con l'applicazione creata in precedenza.
+3. Per aggiungere una risorsa del file di modello, scegliere **Aggiungi risorsa** nella parte superiore della finestra Struttura JSON. Oppure nella finestra Struttura JSON fare clic con il tasto destro del mouse su **risorse**e selezionare **Aggiungi nuova risorsa**.
 
-1. Aprire il file `<template>.json` .
+   ![Finestra Struttura JSON](./media/logic-apps-create-deploy-template/jsonoutline.png)
 
-2. Per aprire la finestra Struttura JSON andare in **Visualizza** > **Altre finestre** > **Struttura JSON**.
-
-3. Per aggiungere una risorsa al file del modello, fare clic su **Aggiungi risorsa** nella parte superiore della finestra Struttura JSON. Oppure nella finestra Struttura JSON fare clic con il tasto destro del mouse su **risorse**e selezionare **Aggiungi nuova risorsa**.
-
-    ![Finestra Struttura JSON](./media/logic-apps-create-deploy-template/jsonoutline.png)
-    
 4. Nella finestra di dialogo **Aggiungi risorsa**, individuare e selezionare **App per la logica**. Dare un nome all'app per la logica e scegliere **Aggiungi**.
 
-    ![Aggiungere una risorsa](./media/logic-apps-create-deploy-template/addresource.png)
+   ![Aggiungere una risorsa](./media/logic-apps-create-deploy-template/addresource.png)
 
+## <a name="get-support"></a>Supporto
 
-## <a name="deploy-a-logic-app-template"></a>Distribuire un modello di app per la logica
+In caso di domande, visitare il [forum di App per la logica di Azure](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-Per distribuire il modello, è possibile usare alcuni strumenti, inclusi PowerShell, API REST, [Azure DevOps Pipelines](#team-services) e la distribuzione dei modelli attraverso il portale di Azure.
-Per archiviare i valori per i parametri, è inoltre consigliabile creare un [file di parametri](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
-Sono disponibili informazioni su come [distribuire risorse con i modelli di Azure Resource Manager e PowerShell](../azure-resource-manager/resource-group-template-deploy.md) o [distribuire risorse con i modelli di Azure Resource Manager e il Portale di Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
+## <a name="next-steps"></a>Passaggi successivi
 
-### <a name="authorize-oauth-connections"></a>Autorizzare le connessioni OAuth
-
-Una volta distribuite, le app per la logica funzionano end-to-end con parametri validi.
-Tuttavia, è necessario continuare ad autorizzare le connessioni OAuth per generare un token di accesso valido.
-Per autorizzare le connessioni OAuth, aprire l'app per la logica nella finestra di progettazione delle app per la logica e autorizzare le connessioni. In alternativa, per la distribuzione automatizzata è possibile usare uno script per consentire ogni connessione OAuth.
-Nel progetto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) è presente uno script di esempio su GitHub.
-
-<a name="team-services"></a>
-## <a name="azure-devops-azure-pipelines"></a>Azure DevOps Pipelines
-
-Uno scenario comune per la distribuzione e la gestione di ambienti consiste nell'usare uno strumento come Azure Pipelines in Azure DevOps con un modello di distribuzione di app per la logica. Azure DevOps include un'attività [Distribuisci gruppo di risorse di Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2) che può essere aggiunta in una pipeline di versione o di compilazione. Per l'autorizzazione alla distribuzione è necessario avere un'[entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/). Sarà quindi possibile generare la pipeline di versione.
-
-1. In Azure Pipelines selezionare **Vuoto** per creare una pipeline vuota.
-
-    ![Creare una pipeline vuota][1]
-
-2. Scegliere le risorse necessarie, possibilmente includendo il modello di app per la logica generato manualmente o nell'ambito del processo di compilazione.
-3. Aggiungere un'attività **Distribuzione gruppo di risorse di Azure** .
-4. Eseguire la configurazione con un' [entità servizio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/), quindi fare riferimento ai file Modello e Parametri modello.
-5. Continuare a compilare passaggi nel processo di rilascio per eventuali altri ambienti, test automatizzati o responsabili approvazione necessari.
-
-<!-- Image References -->
-[1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png
+> [!div class="nextstepaction"]
+> [Distribuire modelli di app per la logica](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)

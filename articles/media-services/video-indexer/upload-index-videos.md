@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58516962"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893453"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -22,7 +22,7 @@ Durante il caricamento di video con l'API Video Indexer, sono disponibili le opz
 
 * caricare il video da un URL (scelta consigliata),
 * inviare il file video come matrice di byte nel corpo della richiesta,
-* Usare l'asset di Servizi multimediali di Azure esistente fornendo l'[id asset](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supportato solo negli account a pagamento).
+* Usare asset di servizi multimediali di Azure esistente, fornendo il [ID asset](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supportati in solo gli account a pagamento).
 
 Questo articolo illustra come usare l'API [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) per caricare e indicizzare i video in base a un URL. L'esempio di codice nell'articolo include il codice impostato come commento che mostra come caricare la matrice di byte. <br/>L'articolo illustra anche alcuni parametri che è possibile impostare per l'API per modificare il processo e l'output dell'API.
 
@@ -85,9 +85,9 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 
 Usare questo parametro se registrazioni non elaborate o esterne contengono rumore di fondo. Questo parametro si usa per configurare il processo di indicizzazione. È possibile specificare i valori seguenti:
 
-- `Default`: indicizzare ed estrarre informazioni dettagliate usando audio e video
-- `AudioOnly`: indicizzare ed estrarre informazioni dettagliate usando solo l'audio (ignorando il video)
-- `DefaultWithNoiseReduction`: indicizzare ed estrarre informazioni dettagliate sia dall'audio che dal video, applicando gli algoritmi di riduzione del rumore al flusso audio
+- `Default` : Indicizzare ed estrarre informazioni dettagliate tramite audio e video
+- `AudioOnly` : Indicizzare e di estrarre informazioni approfondite con solo audio (video ignorato)
+- `DefaultWithNoiseReduction` : Indicizzare e di estrarre informazioni approfondite da audio e video, applicando gli algoritmi di riduzione del rumore nel flusso audio
 
 Il prezzo dipende dall'opzione di indicizzazione selezionata.  
 
@@ -175,7 +175,7 @@ public async Task Sample()
     var uploadRequestResult = await client.PostAsync($"{apiUrl}/{accountInfo.Location}/Accounts/{accountInfo.Id}/Videos?{queryParams}", content);
     var uploadResult = await uploadRequestResult.Content.ReadAsStringAsync();
 
-    // get the video id from the upload result
+    // get the video ID from the upload result
     string videoId = JsonConvert.DeserializeObject<dynamic>(uploadResult)["id"];
     Debug.WriteLine("Uploaded");
     Debug.WriteLine("Video ID:");
@@ -290,4 +290,4 @@ L'operazione di caricamento può restituire i codici di stato elencati nella tab
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Esaminare l'output di Video Indexer di Azure generato dall'API v2](video-indexer-output-json-v2.md)
+[Esaminare l'output di indicizzatore Video di Azure generato dall'API](video-indexer-output-json-v2.md)

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 01/12/2019
 ms.author: juliako
-ms.openlocfilehash: 55828ea2235e42920a5179846d81711b1ada5dc2
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: affa6f9a808543401b7d57812c7d2bef4324a83c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763674"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894218"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Creare un account di Video Indexer connesso ad Azure
 
@@ -60,7 +60,7 @@ Cercare **Microsoft.Media** e **Microsoft.EventGrid**. Se lo stato non è "Regis
 
 1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
 
-2. Fare clic sul pulsante **Connessione ad Azure**:
+2. Fare clic sui **Crea nuovo account** pulsante:
 
     ![connessione ad Azure](./media/create-account/connect-to-azure.png)
 
@@ -90,9 +90,7 @@ Cercare **Microsoft.Media** e **Microsoft.EventGrid**. Se lo stato non è "Regis
 
     ![nuovo account](./media/create-account/new-account.png)
 
-7. Passare al nuovo account:
-
-    ![Account di Video Indexer](./media/create-account/vi-account.png)
+7. Passare al nuovo account
 
 ## <a name="connect-to-azure-manually-advanced-option"></a>Connettersi ad Azure manualmente (opzione avanzata)
 

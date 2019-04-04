@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 52ec7c83b4070a4c38963b3ab12f58f923fa889d
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562626"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893521"
 ---
 # <a name="social-accounts-claims-transformations"></a>Trasformazioni delle attestazioni degli account social
 
@@ -38,7 +38,7 @@ L'articolo fornisce esempi per l'uso delle trasformazioni di attestazioni dell'a
 
 ## <a name="createalternativesecurityid"></a>CreateAlternativeSecurityId
 
-Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per altre informazioni, vedere [Schema di AlternativeSecurityId](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType).
+Crea una rappresentazione JSON della proprietà alternativeSecurityId dell'utente che può essere usata nelle chiamate ad Azure Active Directory. Per altre informazioni, vedere [Schema di AlternativeSecurityId](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#AlternativeSecurityIdType).
 
 | Elemento | TransformationClaimType | Tipo di dati | Note |
 | ---- | ----------------------- | --------- | ----- |
@@ -81,7 +81,7 @@ Aggiunge un `AlternativeSecurityId` a un'attestazione `alternativeSecurityIdColl
 L'esempio seguente collega una nuova identità di social networking a un account esistente. Per collegare una nuova identità di social networking:
 1. Nei profili tecnici **AAD-UserReadUsingAlternativeSecurityId** e **AAD-UserReadUsingObjectId**, viene fornita l'attestazione **alternativeSecurityIds** dell'utente.
 1. Chiedere all'utente di accedere con uno dei provider di identità che non sono associati a tale utente.
-1. Usando la trasformazione delle attestazioni **CreateAlternativeSecurityId**, creare un nuovo tipo di attestazione **alternativeSecurityId** con un nome di `AlternativeSecurityId2`
+1. Usando il **CreateAlternativeSecurityId** attestazioni di trasformazione, creare un nuovo **alternativeSecurityId** con un nome del tipo di attestazione `AlternativeSecurityId2`
 1. Chiamare la trasformazione delle attestazioni **AddItemToAlternativeSecurityIdCollection** per aggiungere l'attestazione **AlternativeSecurityId2** all'attestazione esistente **AlternativeSecurityIds**.
 1. Mantenere l'attestazione **alternativeSecurityIds** per l'account utente
 

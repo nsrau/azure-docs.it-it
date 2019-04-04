@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: efe50533a03551a673583265e107263d79cff90a
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418687"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895546"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipi di entità e relativo scopo nel servizio LUIS
 
@@ -88,15 +88,15 @@ Dopo aver estratto l'entità, i relativi dati possono essere rappresentati come 
 
 |Basata su Machine Learning|Può essere contrassegnata|Esercitazione|Esempio<br>Risposta|Tipo di entità|Scopo|
 |--|--|--|--|--|--|
-|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composita**](#composite-entity)|Raggruppamento di entità, indipendentemente dal tipo di entità.|
+|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Composite**](#composite-entity)|Raggruppamento di entità, indipendentemente dal tipo di entità.|
 |✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Gerarchica**](#hierarchical-entity)|Raggruppamento di entità semplici.|
 |||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Elenco**](#list-entity)|Elenco di elementi e relativi sinonimi estratti con corrispondenza di testo esatta.|
-|Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entità di cui è difficile determinare la fine.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Predefinita**](#prebuilt-entity)|Già sottoposta a training per estrarre vari tipi di dati.|
+|Mista||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.Any**](#patternany-entity)|Entità di cui è difficile determinare la fine.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Predefiniti**](#prebuilt-entity)|Già sottoposta a training per estrarre vari tipi di dati.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Espressione regolare**](#regular-expression-entity)|Usa un'espressione regolare in base a cui trovare una corrispondenza di testo.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Semplice**](#simple-entity)|Contiene un singolo concetto in parole o frasi.|
 
-Solo le entità basate su Machine Learning devono essere contrassegnate nelle espressioni di esempio per ogni finalità. Le entità basate su Machine Learning funzionano meglio quando vengono testate tramite [query endpoint](luis-concept-test.md#endpoint-testing) e vengono [esaminate le espressioni endpoint](luis-how-to-review-endoint-utt.md). 
+Solo le entità basate su Machine Learning devono essere contrassegnate nelle espressioni di esempio per ogni finalità. Le entità basate su Machine Learning funzionano meglio quando vengono testate tramite [query endpoint](luis-concept-test.md#endpoint-testing) e vengono [esaminate le espressioni endpoint](luis-how-to-review-endpoint-utterances.md). 
 
 Le entità Pattern.any devono essere contrassegnate negli esempi di modello [Pattern](luis-how-to-model-intent-pattern.md), non negli esempi di finalità utente. 
 
@@ -117,7 +117,7 @@ Questa entità è idonea quando i dati:
 ![entità composita](./media/luis-concept-entities/composite-entity.png)
 
 [Esercitazione](luis-tutorial-composite-entity.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#composite-entity-data)<br>
+[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>Entità gerarchica
 
@@ -139,7 +139,7 @@ Non usare se:
 ![entità gerarchica](./media/luis-concept-entities/hierarchical-entity.png)
 
 [Esercitazione](luis-quickstart-intent-and-hier-entity.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
+[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
 
 ### <a name="roles-versus-hierarchical-entities"></a>Ruoli ed entità gerarchiche
 
@@ -158,7 +158,7 @@ Questa entità è idonea quando i dati di testo:
 ![entità elenco](./media/luis-concept-entities/list-entity.png)
 
 [Esercitazione](luis-quickstart-intent-and-list-entity.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#list-entity-data)
+[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Entità pattern.any
 
@@ -168,7 +168,7 @@ Questa entità è idonea quando:
 
 * La fine dell'entità può essere confusa con il testo rimanente dell'espressione. 
 [Esercitazione](luis-tutorial-pattern.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#patternany-entity-data)
+[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#patternany-entity-data)
 
 **Esempio**  
 Data un'applicazione client che esegue la ricerca di libri in base al titolo, l'entità pattern.any estrae il titolo completo. Un'espressione di criterio con pattern.any per questa ricerca è `Was {BookTitle} written by an American this year[?]`. 
@@ -195,7 +195,7 @@ Le entità predefinite possono essere aggiunte e rimosse in qualsiasi momento.
 ![entità predefinita number](./media/luis-concept-entities/number-entity.png)
 
 [Esercitazione](luis-tutorial-prebuilt-intents-entities.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#prebuilt-entity-data)
+[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Alcune di queste entità predefinite sono definite nel progetto open source [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Se una lingua o un'entità specifica non è attualmente supportata, è possibile collaborare al progetto. 
 
@@ -243,7 +243,7 @@ Questa entità è idonea quando:
 ![Entità di espressione regolare](./media/luis-concept-entities/regex-entity.png)
 
 [Esercitazione](luis-quickstart-intents-regex-entity.md)<br>
-[Risposta JSON di esempio per l'entità](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[Esempio di risposta JSON per entità](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>Entità semplice 
 

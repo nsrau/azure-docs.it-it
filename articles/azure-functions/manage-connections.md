@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 30d578f130985548c431dea8b68ee291325b5c99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402372"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893221"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Gestire le connessioni in funzioni di Azure
 
@@ -23,7 +23,7 @@ Le funzioni in un'app per le funzioni condividono le risorse. Tra le risorse con
 
 Il numero di connessioni disponibili è limitato in parte perché un'app per le funzioni in esecuzione in un [ambiente sandbox](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una delle restrizioni della sandbox impone nel codice dell'oggetto è un [limite sul numero di connessioni (attualmente di 600 connessioni attive e connessioni totali 1.200)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) per ogni istanza. Quando si raggiunge questo limite, il runtime di Funzioni crea un log con il messaggio seguente: `Host thresholds exceeded: Connections`.
 
-Questo limite è per ogni istanza.  Quando la [controller di scalabilità aggiunge le istanze delle app di funzione](functions-scale.md#how-the-consumption-plan-works) per gestire più richieste, ogni istanza ha un limite di connessione indipendente. Pertanto, non esiste un limite di connessione globali e si possono avere molto più di 600 connessioni attive tra tutte le istanze attive.
+Questo limite è per ogni istanza.  Quando la [controller di scalabilità aggiunge le istanze delle app di funzione](functions-scale.md#how-the-consumption-and-premium-plans-work) per gestire più richieste, ogni istanza ha un limite di connessione indipendente. Pertanto, non esiste un limite di connessione globali e si possono avere molto più di 600 connessioni attive tra tutte le istanze attive.
 
 ## <a name="static-clients"></a>Client statici
 

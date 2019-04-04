@@ -10,22 +10,22 @@ ms.topic: conceptual
 ms.date: 05/06/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: b03e02a783245459fa28126b73eac2459f6aad67
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 62846fe744e7295f58902481400ce91770c916da
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182847"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893096"
 ---
 # <a name="manage-user-data-in-azure-active-directory-b2c"></a>Gestire i dati utente in Azure Active Directory B2C
 
- Questo articolo spiega come gestire i dati utente in Azure Active Directory (Azure AD) B2C usando le operazioni specificate dall'[API Graph di Azure Active Directory](https://msdn.microsoft.com/library/azure/ad/graph/api/api-catalog). La gestione dei dati utente include l'eliminazione o esportazione di dati dai log di controllo.
+ Questo articolo spiega come gestire i dati utente in Azure Active Directory (Azure AD) B2C usando le operazioni specificate dall'[API Graph di Azure Active Directory](/previous-versions/azure/ad/graph/api/api-catalog). La gestione dei dati utente include l'eliminazione o esportazione di dati dai log di controllo.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="delete-user-data"></a>Eliminare dati utente
 
-I dati utente vengono archiviati nella directory di Azure Active Directory B2C e nei log di controllo. Tutti i dati di controllo degli utenti vengono conservati per 30 giorni in Azure Active Directory B2C. Se si vogliono eliminare i dati utente entro il periodo di 30 giorni, è possibile usare l'operazione [Eliminare un utente](https://msdn.microsoft.com/library/azure/ad/graph/api/users-operations#DeleteUser). È necessaria un'operazione di eliminazione per ognuno dei tenant di Azure Active Directory B2C in cui possono trovarsi i dati. 
+I dati utente vengono archiviati nella directory di Azure Active Directory B2C e nei log di controllo. Tutti i dati di controllo degli utenti vengono conservati per 30 giorni in Azure Active Directory B2C. Se si vogliono eliminare i dati utente entro il periodo di 30 giorni, è possibile usare l'operazione [Eliminare un utente](/previous-versions/azure/ad/graph/api/users-operations#DeleteUser). È necessaria un'operazione di eliminazione per ognuno dei tenant di Azure Active Directory B2C in cui possono trovarsi i dati. 
 
 A ogni utente in Azure Active Directory B2C viene assegnato un ID oggetto. L'ID oggetto fornisce un identificatore univoco, da usare per eliminare i dati utente in Azure Active Directory B2C. A seconda dell'architettura in uso, l'ID oggetto può essere un utile identificatore di correlazione in altri servizi, ad esempio tra database finanziari, di marketing e di gestione delle relazioni con i clienti. 
 

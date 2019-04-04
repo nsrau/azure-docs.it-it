@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861996"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918519"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Scenari di automazione per la fatturazione e la gestione dei costi
 
@@ -80,9 +80,9 @@ I clienti con accesso Web diretto ed Enterprise possono usare tutte le API segue
 
 -   [API Dettagli sull'utilizzo](https://docs.microsoft.com/rest/api/consumption/usagedetails): ottenere informazioni sui costi e l'utilizzo per tutte le risorse di Azure da Microsoft. Le informazioni sono presentate sotto forma di record di dettagli di utilizzo, che attualmente vengono generati una volta al giorno per ogni contatore. È possibile usare le informazioni per sommare i costi di tutte le risorse o analizzare i costi e/o l'utilizzo per risorse specifiche.
 
--   [API RateCard](https://msdn.microsoft.com/library/azure/mt219005.aspx): i clienti con accesso Web diretto possono ottenere le tariffe dei propri contatori. Possono quindi usare le informazioni restituite con le informazioni sull'utilizzo delle risorse per calcolare manualmente la fattura prevista. 
+-   [API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)): i clienti con accesso Web diretto possono ottenere le tariffe dei propri contatori. Possono quindi usare le informazioni restituite con le informazioni sull'utilizzo delle risorse per calcolare manualmente la fattura prevista. 
 
--   [API per i dati di utilizzo senza classificazione](https://msdn.microsoft.com/library/azure/mt219003.aspx): ottenere informazioni non elaborate sull'utilizzo prima che Azure esegua qualsiasi misurazione/addebito.
+-   [API per i dati di utilizzo senza classificazione](/previous-versions/azure/reference/mt219003(v=azure.100)): ottenere informazioni non elaborate sull'utilizzo prima che Azure esegua qualsiasi misurazione/addebito.
 
 ### <a name="billing"></a>Fatturazione
 -   [API per i periodi di fatturazione](https://docs.microsoft.com/rest/api/billing/billingperiods): determinare un periodo di fatturazione da analizzare, insieme agli ID fattura per il periodo. È possibile usare gli ID fattura con l'API Fatture.
@@ -121,7 +121,7 @@ Queste API forniscono essenzialmente dati diversi:
    - Modifiche all'account per l'uso di impegni monetari prepagati
    - Modifiche all'account per discrepanze di utilizzo individuate da Azure
 
-- L'[API per il consumo](https://msdn.microsoft.com/library/Mt219003.aspx) fornisce informazioni sull'utilizzo di Azure non elaborate prima che queste vengano trasmesse al sistema di misurazione dei costi di Azure. Questi dati potrebbero non avere alcuna correlazione con l'importo per l'utilizzo o di addebito visualizzato dopo il sistema di misurazione degli addebiti di Azure.
+- L'[API per il consumo](/previous-versions/azure/reference/mt219003(v=azure.100)) fornisce informazioni sull'utilizzo di Azure non elaborate prima che queste vengano trasmesse al sistema di misurazione dei costi di Azure. Questi dati potrebbero non avere alcuna correlazione con l'importo per l'utilizzo o di addebito visualizzato dopo il sistema di misurazione degli addebiti di Azure.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>Qual è la differenza tra l'API di fatturazione e l'API Dettagli di utilizzo?
 Queste API forniscono una visualizzazione diversa degli stessi dati:
@@ -135,7 +135,7 @@ Queste API forniscono set simili di dati, ma hanno destinatari diversi:
 
 - l'[API Elenco prezzi](https://docs.microsoft.com/rest/api/consumption/pricesheet) fornisce i prezzi personalizzati che sono stati negoziati per un cliente Enterprise.
 
-- L'[API RateCard](https://msdn.microsoft.com/library/mt219005.aspx) fornisce i prezzi pubblici applicati ai clienti con accesso Web diretto.
+- L'[API RateCard](/previous-versions/azure/reference/mt219005(v=azure.100)) fornisce i prezzi pubblici applicati ai clienti con accesso Web diretto.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
