@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803216"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046989"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Domande frequenti su Analisi del traffico
 
 Questo articolo raccoglie molte delle domande più frequenti su Analisi del traffico in Azure Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>Quali sono i prerequisiti per usare Analisi del traffico?
 
@@ -51,11 +54,11 @@ Per abilitare Analisi del traffico, l'account deve soddisfare una delle seguenti
         
 Per verificare i ruoli assegnati a un utente per una sottoscrizione:
 
-1. Accedere ad Azure usando **Login-AzureRmAccount**. 
+1. Accedere ad Azure usando **account di accesso-AzAccount**. 
 
-2. Selezionare la sottoscrizione richiesta usando **Select-AzureRmSubscription**. 
+2. Selezionare la sottoscrizione necessaria utilizzando **Select AzSubscription**. 
 
-3. Per elencare tutti i ruoli assegnati a un utente specifico, usare **Get-AzureRmRoleAssignment -SignInName [e-mail utente] -IncludeClassicAdministrators**. 
+3. Per elencare tutti i ruoli assegnati a un utente specifico, usare **Get-AzRoleAssignment - SignInName [indirizzo di posta elettronica utente] - IncludeClassicAdministrators**. 
 
 Se non viene visualizzato alcun risultato, contattare l'amministratore dell'abbonamento per ottenere l'accesso ed eseguire i comandi. Per altre informazioni, consultare [Gestire il controllo degli accessi in base al ruolo con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -139,8 +142,8 @@ Se il problema persiste, contattare il supporto.
 Per il corretto funzionamento della registrazione dei flussi, è necessario registrare il provider Microsoft.Insights. Se non si è sicuri che il provider Microsoft.Insights sia registrato o meno per la sottoscrizione, sostituire *xxxxx-xxxxx-xxxxxx-xxxx* nel comando seguente ed eseguire questi comandi di PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>Ho configurato la soluzione. Perché non viene visualizzato nessun elemento nel dashboard?
@@ -170,13 +173,13 @@ Le informazioni sulle risorse sono visualizzate nel dashboard, tuttavia non sono
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>È possibile configurare la funzionalità Analisi del traffico tramite PowerShell o un client o modello di Azure Resource Manager?
 
-È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione dei flussi e Analisi del traffico per un NSG specifico utilizzando il comando Set cmdlet, vedere [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). Per ottenere lo stato della registrazione dei flussi e di Analisi del traffico per un determinato NSG, vedere [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+È possibile configurare Analisi del traffico utilizzando Windows PowerShell a partire dalla versione 6.2.1. Per configurare la registrazione dei flussi e analitica di traffico per un gruppo di sicurezza di rete specifico tramite il cmdlet Set, vedere [Set-AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Per ottenere la registrazione dei flussi e lo stato di analitica di traffico per un gruppo di sicurezza di rete specifico, vedere [Get-AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 Attualmente, non è possibile utilizzare un modello di Azure Resource Manager per configurare Analisi del traffico.
 
 Per configurare Analisi del traffico utilizzando un client Azure Resource Manager, vedere gli esempi seguenti.
 
-**Esempio Set cmdlet:**
+**Esempio di set di cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -217,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Esempio Get cmdlet:**
+**Ottenere l'esempio di cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -269,7 +272,7 @@ La pagina della mappa geografica contiene due sezioni principali:
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navigazione da tastiera in qualsiasi momento
     
-- `Esc` comprime la selezione espansa.
+- `Esc` Comprime la selezione espansa.
 - Il tasto `Up arrow` esegue la stessa azione di `Esc`. Il tasto `Down arrow` esegue la stessa azione di `Enter`.
 - Usare `Shift+Plus` per fare zoom avanti e `Shift+Minus` per fare zoom indietro.
 

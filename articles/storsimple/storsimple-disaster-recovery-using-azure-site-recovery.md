@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084879"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051938"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Soluzione di ripristino di emergenza automatizzato usando Azure Site Recovery per le condivisioni file ospitate su StorSimple
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>Panoramica
 Microsoft Azure StorSimple è una soluzione di archiviazione cloud ibrida che risolve le complessità dei dati non strutturati comunemente associate alle condivisioni file. StorSimple usa l'archiviazione cloud come un'estensione della soluzione locale e organizza automaticamente i dati in livelli tra archiviazione locale e archiviazione cloud. La protezione integrata dei dati, con snapshot locali e cloud, elimina la necessità di un'infrastruttura di archiviazione complessa.
 
@@ -167,7 +170,7 @@ Per la VM del file server configurare le impostazioni di rete in Azure Site Reco
    
 1. Nell'account di automazione fare clic su **Variabili** &gt; **Aggiungi variabile** e aggiungere le variabili seguenti. È possibile scegliere di crittografare questi asset. Queste variabili sono specifiche del piano di ripristino. Se il nome del piano di ripristino (che verrà creato nel passaggio successivo) è TestPlan, le variabili devono essere TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName e così via.
 
-   - **BaseUrl**: l'URL di Resource Manager per il cloud di Azure. Può essere ottenuto usando il cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
+   - **BaseUrl**: l'URL di Resource Manager per il cloud di Azure. Ottenere utilizzando **Get-AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
    - *RecoveryPlanName***-ResourceGroupName**: il gruppo di Resource Manager contenente la risorsa StorSimple.
    - *RecoveryPlanName***-ManagerName**: la risorsa StorSimple contenente il dispositivo StorSimple.
    - *RecoveryPlanName***-DeviceName**: il dispositivo StorSimple che deve essere sottoposto a failover.
