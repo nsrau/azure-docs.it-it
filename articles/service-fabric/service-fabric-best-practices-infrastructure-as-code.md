@@ -14,18 +14,20 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 2a4c3adb39ebf6e58770348eccc8c78e8ff92167
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 9224ecebed35a631514c5254703ad2694675d40e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804468"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049621"
 ---
 # <a name="infrastructure-as-code"></a>Infrastructure as code
 
 In uno scenario di produzione, creare i cluster Azure Service Fabric usando i modelli di Resource Manager. I modelli di Resource Manager offrono un maggiore controllo delle proprietà delle risorse e assicurano di avere a disposizione un modello di risorse coerente.
 
 Tra gli [esempi di Azure su GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates) sono disponibili alcuni modelli di Resource Manager di esempio per Windows e Linux. Questi modelli possono essere usati come punto di partenza per il modello del cluster. Scaricare `azuredeploy.json` e `azuredeploy.parameters.json` e modificarli in modo da soddisfare i requisiti personalizzati.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Per distribuire i modelli `azuredeploy.json` e `azuredeploy.parameters.json` scaricati in precedenza, usare i comandi dell'interfaccia della riga di comando di Azure seguenti:
 
@@ -45,8 +47,8 @@ $Location="westus"
 $Template="azuredeploy.json"
 $Parameters="azuredeploy.parameters.json"
 
-New-AzureRmResourceGroup -Name $ResourceGroupName -Location $Location
-New-AzureRmResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
+New-AzResourceGroup -Name $ResourceGroupName -Location $Location
+New-AzResourceGroupDeployment -Name $ResourceGroupName -TemplateFile $Template -TemplateParameterFile $Parameters
 ```
 
 ## <a name="azure-service-fabric-resources"></a>Risorse di Azure Service Fabric

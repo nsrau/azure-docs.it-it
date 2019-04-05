@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 5e6a7cbc070d81de33fac07a89dabf2b469bd355
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 19a7d6052091f8889a88c61793186b7bf7d9d869
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58450095"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047025"
 ---
 # <a name="add-an-artifact-to-a-vm"></a>Aggiungere un elemento in una macchina virtuale
 Durante la creazione di una macchina virtuale, è possibile aggiungere elementi esistenti a esso. Questi elementi possono essere da entrambi i [pubblica repository Git di DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) o dal repository Git. Questo articolo illustra come aggiungere gli elementi nel portale di Azure e tramite Azure PowerShell. 
@@ -27,6 +27,8 @@ Durante la creazione di una macchina virtuale, è possibile aggiungere elementi 
 Gli *elementi* di Azure DevTest Labs consentono di specificare le *azioni* eseguite quando viene eseguito il provisioning della macchina virtuale, ad esempio, l'esecuzione di script Windows PowerShell, comandi Bash e installazione del software. Gli elementi *parametri* consentono di personalizzare l'elemento per un determinato scenario.
 
 Per altre informazioni su come creare elementi personalizzati, vedere l'articolo: [Creare elementi personalizzati](devtest-lab-artifact-author.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-azure-portal"></a>Usare il portale di Azure 
 1. Accedere al [portale di Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
@@ -63,11 +65,10 @@ I passaggi seguenti illustrano come visualizzare o modificare i parametri di un 
 1. Selezionare **OK** per chiudere il riquadro **Artefatti selezionati**.
 
 ## <a name="use-powershell"></a>Usare PowerShell
-Lo script seguente si applica l'elemento specificato per la macchina virtuale specificata. Il [Invoke-AzureRmResourceAction](/powershell/module/azurerm.resources/invoke-azurermresourceaction?view=azurermps-6.13.0) comando è quello che esegue l'operazione.  
+Lo script seguente si applica l'elemento specificato per la macchina virtuale specificata. Il [Invoke-AzResourceAction](/powershell/module/az.resources/invoke-azresourceaction) comando è quello che esegue l'operazione.  
 
 ```powershell
-#Requires -Version 3.0
-#Requires -Module AzureRM.Resources
+#Requires -Module Az.Resources
 
 param
 (
@@ -86,14 +87,14 @@ param
 )
 
 # Set the appropriate subscription
-Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
  
 # Get the lab resource group name
-$resourceGroupName = (Find-AzureRmResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
+$resourceGroupName = (Find-AzResource -ResourceType 'Microsoft.DevTestLab/labs' | Where-Object { $_.Name -eq $DevTestLabName}).ResourceGroupName
 if ($resourceGroupName -eq $null) { throw "Unable to find lab $DevTestLabName in subscription $SubscriptionId." }
 
 # Get the internal repo name
-$repository = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
+$repository = Get-AzResource -ResourceGroupName $resourceGroupName `
                     -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
                     -ResourceName $DevTestLabName `
                     -ApiVersion 2016-05-15 `
@@ -103,7 +104,7 @@ $repository = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
 if ($repository -eq $null) { "Unable to find repository $RepositoryName in lab $DevTestLabName." }
 
 # Get the internal artifact name
-$template = Get-AzureRmResource -ResourceGroupName $resourceGroupName `
+$template = Get-AzResource -ResourceGroupName $resourceGroupName `
                 -ResourceType "Microsoft.DevTestLab/labs/artifactSources/artifacts" `
                 -ResourceName "$DevTestLabName/$($repository.Name)" `
                 -ApiVersion 2016-05-15 `
@@ -116,7 +117,7 @@ if ($template -eq $null) { throw "Unable to find template $ArtifactName in lab $
 $FullVMId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
                 /providers/Microsoft.DevTestLab/labs/$DevTestLabName/virtualmachines/$virtualMachineName"
 
-$virtualMachine = Get-AzureRmResource -ResourceId $FullVMId
+$virtualMachine = Get-AzResource -ResourceId $FullVMId
 
 # Generate the artifact id
 $FullArtifactId = "/subscriptions/$SubscriptionId/resourceGroups/$resourceGroupName`
@@ -150,7 +151,7 @@ artifacts = @(
 # Check the VM
 if ($virtualMachine -ne $null) {
    # Apply the artifact by name to the virtual machine
-   $status = Invoke-AzureRmResourceAction -Parameters $prop -ResourceId $virtualMachine.ResourceId -Action "applyArtifacts" -ApiVersion 2016-05-15 -Force
+   $status = Invoke-AzResourceAction -Parameters $prop -ResourceId $virtualMachine.ResourceId -Action "applyArtifacts" -ApiVersion 2016-05-15 -Force
    if ($status.Status -eq 'Succeeded') {
       Write-Output "##[section] Successfully applied artifact: $ArtifactName to $VirtualMachineName"
    } else {
@@ -167,5 +168,5 @@ Sugli elementi, vedere gli articoli seguenti:
 
 - [Specificare gli elementi obbligatori per l'ambiente lab](devtest-lab-mandatory-artifacts.md)
 - [Creare elementi personalizzati](devtest-lab-artifact-author.md)
-- [Aggiungere un repository di elementi a un lab](devtest-lab-artifact-author.md)
+- [Aggiungere un repository di artefatti a un lab](devtest-lab-artifact-author.md)
 - [Diagnosticare errori degli elementi](devtest-lab-troubleshoot-artifact-failure.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: e5c4eca772cf17f04ea10f4d5ae166ea41eaa830
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496922"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045083"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi del bus di servizio tramite il modello di Azure Resource Manager
 In questa guida introduttiva viene creato un modello di Azure Resource Manager che crea uno spazio dei nomi del bus di servizio di tipo **Messaggistica** con uno SKU **Standard**. L'articolo definisce anche i parametri specificati per eseguire la distribuzione. È possibile usare questo modello per le proprie distribuzioni o personalizzarlo in base alle esigenze. Per altre informazioni sulla creazione dei modelli, vedere [Creazione di modelli di Azure Resource Manager][Authoring Azure Resource Manager templates]. Per il modello completo, vedere il [modello dello spazio dei nomi del bus di servizio][Service Bus namespace template] su GitHub.
@@ -27,24 +27,27 @@ In questa guida introduttiva viene creato un modello di Azure Resource Manager c
 > [!NOTE]
 > Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione. 
 > 
-> * [Creare uno spazio dei nomi del bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
-> * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
-> * [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Creare uno spazio dei nomi del Bus di servizio con coda](service-bus-resource-manager-namespace-queue.md)
+> * [Creare uno spazio dei nomi del Bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
+> * [Creare uno spazio dei nomi del Bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Creare uno spazio dei nomi del Bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare "service bus".
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="quick-deployment"></a>Distribuzione rapida
 Per eseguire l'esempio senza scrivere codice JSON ed eseguire comandi di PowerShell/CLI, selezionare il pulsante seguente:
 
-[![Distribuzione in Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Distribuisci ad Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 Per creare e distribuire il modello manualmente, consultare le sezioni seguenti in questo articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida introduttiva è necessaria una sottoscrizione di Azure. Se non se ne ha una, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
-Se si desidera usare **Azure PowerShell** per distribuire il modello di Resource Manager [installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
+Se si desidera usare **Azure PowerShell** per distribuire il modello di Resource Manager [installare Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
 Se si desidera usare l'**interfaccia della riga di comando di Azure** per distribuire il modello di Resource Manager [installare l'interfaccia della riga di comando di Azure]( /cli/azure/install-azure-cli).
 
@@ -134,12 +137,12 @@ Creare un file JSON denominato **MyServiceBusNamespace-Parameters.json** con il 
 2. Eseguire questo comando per accedere ad Azure:
 
    ```azurepowershell
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 3. Eseguire i comandi seguenti per impostare il contesto corrente di sottoscrizione:
 
    ```azurepowershell
-   Select-AzureRmSubscription -SubscriptionName "<YourSubscriptionName>" 
+   Select-AzSubscription -SubscriptionName "<YourSubscriptionName>" 
    ```
 
 ### <a name="deploy-resources"></a>Distribuire le risorse
@@ -156,12 +159,12 @@ Per distribuire le risorse usando Azure PowerShell, passare alla cartella in cui
 2. Creare un gruppo di risorse di Azure.
 
     ```azurepowershell
-    New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 3. Distribuire il modello di Resource Manager. Specificare i nomi della distribuzione stessa, del gruppo di risorse, del file JSON per il modello, del file JSON per i parametri
 
     ```azurepowershell
-    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
+    New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
     ```
 
 ## <a name="use-azure-cli-to-deploy-the-template"></a>Usare l'interfaccia della riga di comando di Azure per distribuire il modello

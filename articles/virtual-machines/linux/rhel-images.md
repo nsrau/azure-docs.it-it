@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
-ms.openlocfilehash: d42349de4324428103ccca3ef270ceb9109ca0c7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58011674"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045423"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Immagini Red Hat Enterprise Linux in Azure
 Questo articolo illustra le immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure Marketplace con i criteri per la denominazione e conservazione.
@@ -65,7 +65,7 @@ az vm create --name RhelVM --resource-group TestRG --image RedHat:RHEL:7-RAW:lat
 ### <a name="current-naming-convention"></a>Convenzione di denominazione attuale
 Tutte le immagini RHEL attualmente pubblicate utilizzano il modello con pagamento in base al consumo e sono connesse all'[infrastruttura di aggiornamento per Red Hat (RHUI) in Azure](https://aka.ms/rhui-update). A causa di una limitazione di progettazione dell'infrastruttura RHUI, è stata adottata una nuova convenzione di denominazione per le immagini della famiglia RHEL 7. La denominazione della famiglia RHEL 6 non è stata attualmente modificata.
 
-La limitazione sta nel fatto che quando un `yum update` non selettivo viene eseguito su una VM connessa all'infrastruttura RHUI, la versione RHEL viene aggiornata alla versione più recente nella famiglia attuale. Per altre informazioni, vedere [questo collegamento](https://aka.ms/rhui-udate). Ciò potrebbe causare confusione quando un'immagine di RHEL 7.2 con provisioning diventa RHEL 7.6 dopo un aggiornamento. È comunque possibile effettuare il provisioning da un'immagine precedente, come illustrato negli esempi precedenti, specificando esplicitamente la versione richiesta. Se la versione richiesta non viene specificata durante il provisioning di una nuova immagine RHEL 7, allora verrà eseguito il provisioning dell'immagine più recente.
+La limitazione sta nel fatto che quando un `yum update` non selettivo viene eseguito su una VM connessa all'infrastruttura RHUI, la versione RHEL viene aggiornata alla versione più recente nella famiglia attuale. Per altre informazioni, vedere [questo collegamento](https://aka.ms/rhui-update). Ciò potrebbe causare confusione quando un'immagine di RHEL 7.2 con provisioning diventa RHEL 7.6 dopo un aggiornamento. È comunque possibile effettuare il provisioning da un'immagine precedente, come illustrato negli esempi precedenti, specificando esplicitamente la versione richiesta. Se la versione richiesta non viene specificata durante il provisioning di una nuova immagine RHEL 7, allora verrà eseguito il provisioning dell'immagine più recente.
 
 >[!NOTE]
 > Nel set di immagini RHEL per SAP, la versione RHEL rimane fissa. Di conseguenza, la convenzione di denominazione include una versione particolare nello SKU.

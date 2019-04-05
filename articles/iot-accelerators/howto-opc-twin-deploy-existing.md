@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: da11d4977cc998c9fccb3628a44e45db95c7d977
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 9b1dee8ea43d01825449cb6010fbfa62e4715cff
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759538"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047263"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Distribuire OPC dei dispositivi gemelli in un progetto esistente
 
@@ -30,10 +30,7 @@ Il nucleo del modulo è l'identità del supervisore. Il Supervisore gestisce gem
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-> [!NOTE]
-> Note: A causa di dipendenza, il modulo AzureRM distribuzione attualmente è supportata solo in Windows.
-
-Assicurarsi di disporre di PowerShell e [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-1.1.0) estensioni installate.   Se non si fatto ancora, clonare questo repository GitHub.  Aprire un prompt dei comandi o terminale ed eseguire:
+Assicurarsi di disporre di PowerShell e [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps) estensioni installate.   Se non si fatto ancora, clonare questo repository GitHub.  Aprire un prompt dei comandi o terminale ed eseguire:
 
 ```bash
 git clone --recursive https://github.com/Azure/azure-iiot-components 
@@ -143,4 +140,4 @@ Tenant di AAD da usare.
 Ora che si è appreso come distribuire OPC gemello di un progetto esistente, ecco il passaggio successivo consigliato:
 
 > [!div class="nextstepaction"]
-> [Proteggere la comunicazione del Client OPC e OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)
+> [Proteggere le comunicazioni di OPC Client e OPC PLC ](howto-opc-vault-deploy-existing-client-plc-communication.md)

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: article
 ms.date: 2/15/2019
 ms.author: victorh
-ms.openlocfilehash: 21309060b7b4a93d798c444bd96bc21c62693a54
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3f329d3dd4af1faef8f77d08db655cc7d6ef79fd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57534004"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051819"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Esempi di Azure Firewall log analitica
 
@@ -40,7 +40,7 @@ E per i dati di log delle regole di rete:
 
 ![Dati di log delle regole di rete]( ./media/log-analytics-samples/azurefirewall-networkrulelogstats.png)
 
-I dati di log del Firewall di Azure sotto AzureDiagnostics con categoria come **AzureFirewallApplicationRule** oppure **AzureFirewallApplicationRule**. I dati che contengono i dettagli vengono archiviati nel campo msg_s. Usando l'operatore [analizza](https://docs.microsoft.com/azure/kusto/query/parseoperator) è possibile estrarre le varie proprietà interessante dal campo msg_s. Le query seguenti estraggono le informazioni per entrambe le categorie.
+Firewall di Azure vengono registrati i dati sotto AzureDiagnostics con categoria come **AzureFirewallApplicationRule** oppure **AzureFirewallNetworkRule**. I dati che contengono i dettagli vengono archiviati nel campo msg_s. Usando l'operatore [analizza](https://docs.microsoft.com/azure/kusto/query/parseoperator) è possibile estrarre le varie proprietà interessante dal campo msg_s. Le query seguenti estraggono le informazioni per entrambe le categorie.
 
 ## <a name="application-rules-log-data-query"></a>Query sui dati di log delle regole di applicazione
 

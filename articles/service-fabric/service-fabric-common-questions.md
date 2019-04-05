@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd2518c23f2cd323d7c3b2b46465e4144c1ba1a
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f75236c826584d742fe3163a2fdac29c4030bf66
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665322"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045799"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Domande frequenti su Service Fabric
 
 Esistono molte domande frequenti sulle caratteristiche e sulle modalità di uso di Service Fabric. In questo documento vengono illustrate molte di queste domande comuni e le relative risposte.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="cluster-setup-and-management"></a>Configurazione e gestione del cluster
 
@@ -133,7 +136,7 @@ No. Le macchine virtuali con priorità bassa non sono supportate.
 Di seguito sono riportati i mezzi che permettono all'applicazione di ottenere le credenziali per l'autenticazione a Key Vault:
 
 R. Durante il processo di compilazione/compressione delle applicazioni, è possibile estrarre un certificato nel pacchetto di dati della tua app di Service Fabric e utilizzare questa opzione per l'autenticazione in Key Vault.
-B. Per gli host con identità del servizio gestita abilitata del set di scalabilità di macchine virtuali, è possibile sviluppare un semplice PowerShell SetupEntryPoint per l'app di Service Fabric per ottenere [un token di accesso dall'endpoint di identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti da Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/Get-AzureKeyVaultSecret)
+B. Per gli host con identità del servizio gestita abilitata del set di scalabilità di macchine virtuali, è possibile sviluppare un semplice PowerShell SetupEntryPoint per l'app di Service Fabric per ottenere [un token di accesso dall'endpoint di identità del servizio gestita](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)e quindi [recuperare i segreti da Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault/Get-AzureKeyVaultSecret)
 
 ## <a name="application-design"></a>Progettazione di applicazioni
 
@@ -189,4 +192,4 @@ Seguire il [blog di Service Fabric](https://blogs.msdn.microsoft.com/azureservic
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sui [concetti chiave](service-fabric-technical-overview.md) e sulle [procedure consigliate di Service Fabric](service-fabric-best-practices-overview.md)
+Scopri [principali concetti di Service Fabric](service-fabric-technical-overview.md) e [procedure consigliate](service-fabric-best-practices-overview.md) ghiaccio concepts](service-fabric-technical-overview.md) Fabric e [procedure consigliate](service-fabric-best-practices-overview.md)

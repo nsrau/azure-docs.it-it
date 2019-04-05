@@ -10,12 +10,12 @@ ms.subservice: bing-image-search
 ms.topic: troubleshooting
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: a6d5d7b3ab83c8e405c6866562b4095434b9acff
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 20b8dbcae36555baf3913ab160575a631e204dd9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539021"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049425"
 ---
 # <a name="frequently-asked-questions-faq-about-the-bing-image-search-api"></a>Domande frequenti sull'API Ricerca immagini Bing
 
@@ -25,11 +25,11 @@ Questo articolo offre risposte alle domande frequenti sui concetti, il codice e 
 
 Le intestazioni seguenti possono essere incluse nelle risposte dell'API Ricerca immagini Bing.
 
-|||
-|-|-|
-|`X-MSEdge-ClientID`|ID univoco assegnato da Bing all'utente|
-|`BingAPIs-Market`|Mercato usato per soddisfare la richiesta|
-|`BingAPIs-TraceId`|Voce di registro nel server API Bing per questa richiesta (ai fini del supporto)|
+| `Attribute`         | `Description` |
+| ------------------- | ------------- |
+| `X-MSEdge-ClientID` |ID univoco assegnato da Bing all'utente |
+| `BingAPIs-Market`   |Mercato usato per soddisfare la richiesta |
+| `BingAPIs-TraceId`  |Voce di registro nel server API Bing per questa richiesta (ai fini del supporto) |
 
 È particolarmente importante rendere permanente l'ID client e restituirlo con le richieste successive. In questo modo la ricerca userà il contesto passato per classificare i risultati della ricerca e fornirà anche un'esperienza utente coerente.
 

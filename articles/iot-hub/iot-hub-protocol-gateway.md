@@ -3,17 +3,17 @@ title: Gateway del protocollo Azure IoT | Microsoft Docs
 description: Come usare un gateway di protocollo IoT di Azure per estendere le funzionalità dell'hub IoT e il supporto del protocollo per consentire ai dispositivi di connettersi all'hub usando protocolli non supportati dall'hub IoT in modo nativo.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: 91d61ffecc0e5345d02db88af73aee4586f7099e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57009852"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046428"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Supportare altri protocolli per l'hub IoT
 L'hub IoT di Azure supporta in modo nativo la comunicazione tramite i protocolli MQTT, AMQP e HTTPS. In alcuni casi i dispositivi o i gateway sul campo potrebbero non riuscire a usare uno di questi protocolli standard e richiedono l'adattamento del protocollo. In questi casi, è possibile utilizzare un gateway personalizzato. Un gateway personalizzato abilita l'adattamento del protocollo per gli endpoint dell'hub IoT con il bridging del traffico da e verso l'hub IoT. È possibile usare il [gateway del protocollo Azure IoT](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) come gateway personalizzato per consentire l'adattamento del protocollo per l'hub IoT.
@@ -33,7 +33,7 @@ Ai fini della flessibilità, il gateway del protocollo di Azure IoT e l'implemen
 Per ulteriori informazioni sul gateway del protocollo IoT di Azure e su come utilizzarlo e distribuirlo come parte della soluzione IoT, vedere:
 
 * [Archivio gateway del protocollo IoT Azure su GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
-* [Guida per sviluppatori del gateway del protocollo IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+* [Guida per sviluppatori di gateway di protocollo IoT Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 Per altre informazioni sulla pianificazione della distribuzione dell'hub IoT, vedere:
 

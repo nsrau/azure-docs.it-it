@@ -1,5 +1,5 @@
 ---
-title: Interpretazione di modello
+title: Interpretabilità dei modelli
 titleSuffix: Azure Machine Learning service
 description: Informazioni su come usare il SDK di interpretazione di Azure Machine Learning per spiegare il motivo per cui il modello esegue le stime. Può essere utilizzato durante il training e inferenza per comprendere come il modello effettua stime.
 services: machine-learning
@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
-ms.openlocfilehash: 1cd5f48e8e0e74dfa04465993246e5d68840a783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.date: 04/04/2019
+ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919726"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051802"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Azure Machine Learning Interpretability SDK
 
-Informazioni su come spiegare il motivo per cui il modello arriva le stime rende. L'interpretazione di SDK di Azure Machine Learning consente di spiegare il modello, che è importante per i motivi seguenti:
+In questo articolo si apprenderà come spiegare il motivo per cui il modello creato le stime viene eseguita tramite l'interpretazione di SDK di Azure Machine Learning. La possibilità di spiegare il modello è importante per i motivi seguenti:
 
 * I clienti e stakeholder desiderano **se si possono considerare attendibili le stime del modello di appartenenza**.
 * Come un data scientist, si desidera comprendere **saper eseguire query sul modello per trovare approfondimenti**. È necessario anche strumenti per prendere decisioni informate sul **come migliorare il modello**.
@@ -27,16 +27,10 @@ Informazioni su come spiegare il motivo per cui il modello arriva le stime rende
 
 Interpretazione di Machine learning è importante in due fasi del ciclo di sviluppo di apprendimento automatico: **training** tempo e **inferenza** ora:
 
-* Durante **training**: Gli analizzatori e i progettisti di modelli richiedono strumenti interpretazione per spiegare l'output di un modello agli stakeholder per fiducia va costruita. Strumenti di interpretazione consentono inoltre di eseguire il debug di modello:
-
-    * Il comportamento corrisponda gli obiettivi?
-    * È influenzato?
-
+* Durante **training**: Gli analizzatori e i progettisti di modelli richiedono strumenti interpretazione per spiegare l'output di un modello agli stakeholder per fiducia va costruita. Devono anche insights nel modello in modo che possano eseguire il debug di modello e prendere decisioni sul fatto che il comportamento corrisponde a loro obiettivi. Infine, è necessario garantire che il modello non è influenzato.
 * Durante **inferenza**: Le stime devono essere giustificati per le persone che usano il modello. Ad esempio, il motivo per cui è stato il modello di negare un mutuo o stimare che un portfolio di investimento comporta un rischio più elevato?
 
-L'interpretazione di SDK di Azure Machine Learning include tecnologie sviluppate da Microsoft e collaudata le librerie di terze parti (ad esempio, & proprietà e verde LIMONE). Fornisce un'API comune tra le librerie integrate e si integra con servizi di Azure Machine Learning. 
-
-Con questo SDK, è possibile spiegare modelli di machine learning **a livello globale in tutti i dati**, o **localmente su un punto dati specifico** usando le tecnologie di avanzato in modo scalabile e facile da usare.
+L'interpretazione di SDK di Azure Machine Learning include tecnologie sviluppate da Microsoft e collaudata le librerie di terze parti (ad esempio, & proprietà e verde LIMONE). il SDK consente di creare un'API comune tra le librerie integrate e si integra servizi di Azure Machine Learning. Con questo SDK, è possibile spiegare modelli di machine learning **a livello globale in tutti i dati**, o **localmente su un punto dati specifico** usando le tecnologie di avanzato in modo scalabile e facile da usare.
 
 ## <a name="how-does-it-work"></a>Come funziona?
 
@@ -48,11 +42,7 @@ Azure Machine Learning interpretazione restituisce un set di informazioni sul mo
 
 * Importanza delle caratteristiche relative globale o locale
 * Relazione tra funzionalità e stima di globale o locale
-* Visualizzazioni interattive per:
-
-    * Previsioni
-    * Relazioni tra funzionalità e la stima
-    * Importanza delle caratteristiche relative a valori a livello globale e in locale
+* Visualizzazioni interattive che mostra le stime, funzionalità e relazione di stima, relativa funzionalità e i valori di priorità a livello globale e in locale
 
 ## <a name="architecture"></a>Architettura
 
@@ -114,11 +104,7 @@ Le funzioni di spiegazione accettano entrambi i modelli e le pipeline come input
 
 ### <a name="local-and-remote-compute-target"></a>Destinazione di calcolo locali e remoti
 
-il SDK di interpretazione di Machine Learning è progettato per funzionare con entrambe le destinazioni di calcolo locali e remoti. 
-
-* Se eseguite **localmente**, il SDK non viene contattato alcun servizio di Azure.
-
-* Se eseguite **in modalità remota**, informazioni sull'esecuzione viene registrate nei servizi di Azure Machine Learning eseguire cronologia. Una volta che tale informazione viene registrata, report e visualizzazioni dalla spiegazione sono immediatamente disponibili nel portale di Azure Machine Learning dell'area di lavoro per analisi degli utenti.
+il SDK di interpretazione di Machine Learning è progettato per funzionare con entrambe le destinazioni di calcolo locali e remoti. Se eseguito in locale, le funzioni del SDK non contatterà tutti i servizi Azure. È possibile eseguire in remoto una spiegazione nel calcolo di Azure Machine Learning e registrare le informazioni nella spiegazione in servizi di Azure Machine Learning eseguire cronologia. Una volta che tale informazione viene registrata, report e visualizzazioni dalla spiegazione sono immediatamente disponibili nel portale di Azure Machine Learning dell'area di lavoro per analisi degli utenti.
 
 ## <a name="train-and-explain-locally"></a>Eseguire il training e spiegare in locale
 
@@ -138,9 +124,7 @@ il SDK di interpretazione di Machine Learning è progettato per funzionare con e
     model = clf.fit(x_train, y_train)
     ```
 
-2. Chiamare la spiegazione. Quando un'istanza di un oggetto di spiegazione, passare il modello e dati di training. Facoltativamente è possibile passare le funzionalità di interesse. Se si usa la classificazione, passare i nomi delle classi di output.
-
-    Nell'esempio seguente viene illustrato come creare un oggetto di spiegazione tramite [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), e `LimeExplainer` in locale. `TabularExplainer` viene chiamato uno dei tre explainers sotto (`TreeExplainer`, `DeepExplainer`, o `KernelExplainer`) e viene automaticamente selezionando quello più appropriato per il caso d'uso. È tuttavia possibile chiamare direttamente ognuno dei relativi tre explainers sottostante.
+2. Chiamare la spiegazione: Per avviare un oggetto di spiegazione, è necessario passare il modello, i dati di training, la funzionalità di interesse (facoltativo) e i nomi delle classi di output (se classificazione) per la spiegazione. Di seguito viene illustrato come creare un'istanza di un oggetto di spiegazione tramite [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), e `LimeExplainer` in locale. `TabularExplainer` viene chiamato uno dei tre explainers sotto (`TreeExplainer`, `DeepExplainer`, o `KernelExplainer`) e viene automaticamente selezionando quello più appropriato per il caso d'uso. È tuttavia possibile chiamare direttamente ognuno dei relativi tre explainers sottostante.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -213,7 +197,7 @@ Anche se è possibile eseguire il training sulle varie destinazioni di calcolo s
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Per inviare un'esecuzione di training, seguire i passaggi descritti nel [configurare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md#amlcompute) articolo. Usare la procedura per creare una destinazione di calcolo di Azure Machine Learning e quindi invia un'esecuzione di training.
+2. Seguire le istruzioni sullo [configurare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md#amlcompute) per informazioni su come configurare un Azure calcolo di Machine Learning come destinazione di calcolo e invia l'esecuzione di training.
 
 3. Scaricare la spiegazione in locale Jupyter notebook. 
 

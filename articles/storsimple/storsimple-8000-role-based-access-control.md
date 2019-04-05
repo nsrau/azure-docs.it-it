@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793612"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049473"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Controllo degli accessi in base al ruolo per StorSimple
 
 Questo articolo fornisce una breve descrizione di come è possibile usare il controllo degli accessi in base al ruolo di Azure per un dispositivo StorSimple. Il controllo degli accessi in base al ruolo consente la gestione degli accessi con granularità fine per Azure. Il controllo degli accessi in base al ruolo consente di concedere agli utenti di StorSimple il livello di accesso appropriato in base al tipo di attività che devono svolgere, anziché concedere loro un accesso illimitato. Per le nozioni di base sulla gestione degli accessi in Azure, vedere [Introduzione al controllo degli accessi in base al ruolo nel portale di Azure](../role-based-access-control/overview.md).
 
 Questo articolo si applica ai dispositivi StorSimple serie 8000 con Update 3.0 o successivo in esecuzione nel portale di Azure.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rbac-roles-for-storsimple"></a>Ruoli di controllo degli accessi in base al ruolo per StorSimple
 
@@ -46,14 +48,14 @@ Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consen
 
 2. Accedere ad Azure.
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 
 3. Esportare il ruolo Lettore nel computer come modello JSON.
 
     ```powershell
-    Get-AzureRMRoleDefinition -Name "Reader"
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. Aprire il file JSON in Visual Studio. In genere, un ruolo di controllo degli accessi in base al ruolo è composto da tre sezioni principali: **Actions**, **NotActions** e **AssignableScopes**.
@@ -62,7 +64,7 @@ Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consen
 
     Per visualizzare tutti i provider di risorse disponibili e registrati nella sottoscrizione, è possibile usare PowerShell.
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     È possibile anche cercare tutti i cmdlet di PowerShell disponibili per gestire i provider di risorse.
 
@@ -102,7 +104,7 @@ Nell'esempio seguente si inizia con il ruolo predefinito **Lettore**, che consen
 
 6. Reimportare nell'ambiente il ruolo di controllo degli accessi in base al ruolo personalizzato.
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 Il ruolo dovrebbe essere ora visualizzato nell'elenco dei ruoli nel pannello **Controllo di accesso**.
@@ -114,7 +116,7 @@ Per altre informazioni, passare a [Custom roles](../role-based-access-control/cu
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Esempio di output per la creazione di un ruolo personalizzato mediante PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ```Output
@@ -127,7 +129,7 @@ CurrentStorageAccount :
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader"
+Get-AzRoleDefinition -Name "Reader"
 ```
 
 ```Output
@@ -141,8 +143,8 @@ AssignableScopes : {/}
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
-New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
 ```
 
 ```Output

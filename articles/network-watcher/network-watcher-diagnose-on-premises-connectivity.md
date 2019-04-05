@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099397"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051581"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnosticare la connettività locale tramite i gateway VPN
 
 Il gateway VPN di Azure consente di creare una soluzione ibrida per soddisfare l'esigenza di una connessione sicura tra la rete locale e la rete virtuale di Azure. I requisiti variano a seconda dell'organizzazione, quindi la scelta del dispositivo VPN locale varia di conseguenza. Azure supporta attualmente [diversi dispositivi VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) costantemente convalidati in collaborazione con i fornitori di dispositivi. Esaminare le impostazioni di configurazione specifiche del dispositivo prima di configurare il dispositivo VPN locale. Analogamente, il gateway VPN di Azure viene configurato con un set di [parametri IPsec supportati](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) che vengono usati per stabilire le connessioni. Non è attualmente possibile immettere o selezionare una combinazione specifica di parametri IPsec dal gateway VPN di Azure. Per stabilire una connessione tra la rete locale e Azure, le impostazioni del dispositivo VPN locale devono essere conformi ai parametri IPsec prescritti dal gateway VPN di Azure per evitare la perdita della connettività. La risoluzione di questi problemi era sinora complessa ed erano generalmente necessarie ore per identificare e risolvere il problema.
 
 Con la funzionalità di risoluzione dei problemi di Azure Network Watcher è possibile diagnosticare eventuali problemi con il gateway e le connessioni e ottenere in pochi minuti informazioni sufficienti per prendere una decisione informata per risolvere il problema.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenario
 
@@ -42,7 +45,7 @@ Uno dei passaggi critici consiste nella configurazione dei parametri di comunica
 
 ### <a name="ike-phase-1-setup"></a>Configurazione fase 1 IKE
 
-| **Proprietà** | **PolicyBased** | **Gateway VPN RouteBased e con prestazioni elevate o standard** |
+| **Proprietà** | **PolicyBased** | **Gateway VPN RouteBased e Standard o ad alte prestazioni** |
 | --- | --- | --- |
 | Versione IKE |IKEv1 |IKEv2 |
 | Diffie-Hellman Group |Gruppo 2 (1024 bit) |Gruppo 2 (1024 bit) |
@@ -57,7 +60,7 @@ Questi problemi sono difficili da risolvere e le cause principali sono spesso no
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Risoluzione dei problemi tramite Azure Network Watcher
 
-Per diagnosticare la connessione, connettersi ad Azure PowerShell e avviare il cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting`. I dettagli sull'uso di questo cmdlet sono disponibili in [Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure - PowerShell](network-watcher-troubleshoot-manage-powershell.md). L'esecuzione del cmdlet può richiedere alcuni minuti.
+Per diagnosticare la connessione, connettersi ad Azure PowerShell e avviare il cmdlet `Start-AzNetworkWatcherResourceTroubleshooting`. I dettagli sull'uso di questo cmdlet sono disponibili in [Risolvere i problemi relativi al gateway di rete virtuale e alle connessioni di Azure - PowerShell](network-watcher-troubleshoot-manage-powershell.md). L'esecuzione del cmdlet può richiedere alcuni minuti.
 
 Al termine del cmdlet è possibile passare al percorso di archiviazione specificato nel cmdlet per ottenere informazioni dettagliate sul problema e i log. Azure Network Watcher crea una cartella ZIP contenente i file di log seguenti:
 
@@ -80,7 +83,7 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Yes|
+| NoFault | Non viene rilevato alcun errore. |Sì|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
 | PlannedMaintenance |  L'istanza del gateway è in fase di manutenzione.  |No |
 | UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento. | No  |
@@ -88,26 +91,26 @@ La funzionalità di risoluzione dei problemi di Azure Network Watcher consente d
 | PlatformInActive | Si è verificato un errore con la piattaforma. | No |
 | ServiceNotRunning | Il servizio sottostante non è in esecuzione. | No |
 | NoConnectionsFoundForGateway | Non esistono connessioni sul gateway. Questo è solo un avviso.| No |
-| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Yes|
-| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Yes |
+| ConnectionsNotConnected | Nessuna connessione è connessa. Questo è solo un avviso.| Sì|
+| GatewayCPUUsageExceeded | L'utilizzo della CPU del gateway corrente è > 95%. | Sì |
 
 ### <a name="connection"></a>Connessione
 
 | Tipo di errore | Motivo | Log|
 |---|---|---|
-| NoFault | Non viene rilevato alcun errore. |Yes|
+| NoFault | Non viene rilevato alcun errore. |Sì|
 | GatewayNotFound | Non è possibile trovare il gateway o il gateway non è stato sottoposto a provisioning. |No |
 | PlannedMaintenance | L'istanza del gateway è in fase di manutenzione.  |No |
 | UserDrivenUpdate | È in corso l'aggiornamento utente. Potrebbe trattarsi di un'operazione di ridimensionamento.  | No  |
 | VipUnResponsive | Non è possibile raggiungere l'istanza primaria del gateway. Ciò si verifica in caso di errore del probe di integrità. | No  |
 | ConnectionEntityNotFound | La configurazione della connessione non è presente. | No  |
 | ConnectionIsMarkedDisconnected | La connessione viene contrassegnata come "disconnected". |No |
-| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Yes |
-| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Yes|
-| Authentication | Mancata corrispondenza della chiave precondivisa. | Yes|
-| PeerReachability | Il gateway peer non è raggiungibile. | Yes|
-| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Yes|
-| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Yes|
+| ConnectionNotConfiguredOnGateway | La connessione per il servizio sottostante non è stata configurata. | Sì |
+| ConnectionMarkedStandby | Il servizio sottostante viene contrassegnato come "standby".| Sì|
+| Authentication | Mancata corrispondenza della chiave precondivisa. | Sì|
+| PeerReachability | Il gateway peer non è raggiungibile. | Sì|
+| IkePolicyMismatch | Il gateway peer ha criteri IKE non supportati da Azure. | Sì|
+| WfpParse Error | Si è verificato un errore durante l'analisi del log WFP. |Sì|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

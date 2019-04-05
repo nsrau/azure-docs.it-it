@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486055"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051190"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Ripristino di emergenza e failover dell'account di archiviazione (anteprima) in Archiviazione di Azure
 
@@ -22,6 +22,9 @@ Microsoft si impegna per fare in modo che i servizi di Azure siano sempre dispon
 Archiviazione di Azure supporta il failover dell'account (anteprima) per gli account di archiviazione con ridondanza geografica. Con il failover dell'account, è possibile avviare il processo di failover per l'account di archiviazione se l'endpoint primario non è più disponibile. Il failover aggiorna l'endpoint secondario, che in questo modo diventa l'endpoint primario dell'account di archiviazione. Una volta completato il failover, i clienti possono iniziare a scrivere nel nuovo endpoint primario.
 
 Questo articolo illustra i concetti e il processo relativi a un failover dell'account e spiega come preparare l'account di archiviazione per il ripristino con il minimo impatto per i clienti. Per informazioni su come avviare un failover dell'account nel portale di Azure o in PowerShell, vedere [Avviare un failover dell'account (anteprima)](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Scegliere l'opzione di ridondanza appropriata
 
@@ -122,14 +125,14 @@ La versione di anteprima è destinata solo all'uso in ambienti non di produzione
 Per eseguire la registrazione per l'anteprima, usare i comandi seguenti in PowerShell. Assicurarsi di sostituire il segnaposto tra parentesi quadre con il proprio ID sottoscrizione:
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Potrebbero essere necessari 1-2 giorni per ricevere l'approvazione per l'anteprima. Per verificare che la registrazione sia stata approvata, usare il comando seguente:
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Ulteriori considerazioni 
@@ -176,6 +179,6 @@ In casi estremi, in cui un'area va persa a causa di una grave emergenza, Microso
 
 ## <a name="see-also"></a>Vedere anche 
 
-* [Avviare il failover di un account (anteprima)](storage-initiate-account-failover.md)
+* [Avviare un failover di account (anteprima)](storage-initiate-account-failover.md)
 * [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB](../blobs/storage-create-geo-redundant-storage.md) 

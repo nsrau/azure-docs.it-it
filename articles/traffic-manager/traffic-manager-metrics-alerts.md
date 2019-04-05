@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200191"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045305"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Metriche e avvisi di Gestione traffico
 
@@ -33,13 +33,13 @@ Nell'esempio seguente, la Figura 1 visualizza tutte le risposte alle query resti
   
 ![Visualizzazione aggregata con tutte le query](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figura 1: visualizzazione aggregata con tutte le query*
+*Figura 1: Visualizzazione aggregazione con tutte le query*
   
 La Figura 2 mostra le stesse informazioni, suddivise tuttavia per endpoint. È quindi visibile il volume di risposte alle query nelle quali è stato restituito un endpoint specifico.
 
 ![Metriche di Gestione traffico: visualizzazione del volume di query suddiviso per endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figura 2: visualizzazione suddivisa con volume di query mostrato per ogni endpoint restituito*
+*Figura 2: Doppia visualizzazione con volumi di query visualizzati per ogni endpoint restituite*
 
 ## <a name="endpoint-status-by-endpoint"></a>Stato endpoint per endpoint
 Usare [questa metrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) per comprendere lo stato di integrità degli endpoint nel profilo. Sono necessari due valori:
@@ -51,14 +51,14 @@ Questa metrica può essere visualizzata sia come valore aggregato che rappresent
 
 ![Metriche di Gestione traffico: visualizzazione composita dello stato degli endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Figura 3: visualizzazione composita delle metriche di stato degli endpoint - aggregazione "Avg" selezionata*
+*Figura 3: Visualizzazione composta di metrica relativa allo stato di endpoint: aggregazione "Avg" selezionata*
 
 
 ![Metriche di Gestione traffico: visualizzazione suddivisa dello stato degli endpoint](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Figura 4: visualizzazione suddivisa delle metriche di stato degli endpoint*
+*Figura 4: Doppia visualizzazione delle metriche di stato di endpoint*
 
-È possibile utilizzare queste metriche tramite il portale del [servizio Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md), l'[API REST](https://docs.microsoft.com/rest/api/monitor/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor) e [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights) oppure tramite la sezione delle metriche dell'esperienza del portale di Gestione traffico.
+È possibile utilizzare queste metriche tramite il portale del [servizio Monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md), l'[API REST](https://docs.microsoft.com/rest/api/monitor/), l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/monitor) e [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights) oppure tramite la sezione delle metriche dell'esperienza del portale di Gestione traffico.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Avvisi sulle metriche di Gestione traffico
 Oltre all'elaborazione e alla visualizzazione delle metriche di Gestione traffico, Monitoraggio di Azure consente ai clienti di configurare e ricevere avvisi associati a tali metriche. È possibile scegliere quali condizioni debbano essere soddisfatte in queste metriche per generare un avviso, la frequenza con cui tali condizioni debbano essere monitorate e le modalità di invio degli avvisi. Per altre informazioni, vedere la [documentazione degli avvisi di Monitoraggio di Azure](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).

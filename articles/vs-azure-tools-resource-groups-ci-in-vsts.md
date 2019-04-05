@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894150"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047324"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integrazione continua in Azure DevOps Services con i progetti di distribuzione di tipo Gruppo di risorse di Azure
 Per distribuire un modello di Azure, eseguire attività nelle varie fasi: Compilazione, Test, copia in Azure (detta anche "Staging") e distribuire il modello. Esistono due modi diversi per distribuire i modelli in Azure DevOps Services. Entrambi i metodi forniscono gli stessi risultati, quindi è opportuno scegliere quello che meglio si adatta al proprio flusso di lavoro.
@@ -28,6 +28,8 @@ Per distribuire un modello di Azure, eseguire attività nelle varie fasi: Compil
 2. Aggiungere più passaggi di compilazione dei servizi di Azure DevOps, ognuna delle quali esegue un'attività della fase.
 
 Questo articolo illustra entrambe le opzioni. La prima opzione ha il vantaggio di usare lo stesso script usato dagli sviluppatori di Visual Studio e di fornire coerenza durante tutto il ciclo di vita. La seconda opzione offre una comoda alternativa allo script predefinito. Entrambe le procedure presuppongono che sia già disponibile un progetto di distribuzione di Visual Studio archiviato in Azure DevOps Services.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Copiare gli elementi in Azure
 Indipendentemente dallo scenario, se sono disponibili elementi necessari per la distribuzione del modello, occorre concedere ad Azure Resource Manager l'accesso a tali elementi. Questi elementi possono includere file, ad esempio:
@@ -87,7 +89,7 @@ Le procedure seguenti consentono di eseguire i passaggi necessari per configurar
       
       Per gli script di Azure PowerShell usare:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Per l'interfaccia della riga di comando di Azure usare:
       

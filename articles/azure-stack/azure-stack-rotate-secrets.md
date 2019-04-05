@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917561"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050255"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotazione dei segreti in Azure Stack
 
@@ -63,13 +63,13 @@ Azure Stack supporta la rotazione segreta con certificati esterni da un autorit�
 
 |Installazione certificato CA|Autorità di certificazione per ruotare per|Supportato|Versioni di Azure Stack è supportate|
 |-----|-----|-----|-----|
-|Da autofirmato|To Enterprise|Non supportato||
+|Da autofirmato|To Enterprise|Supportato|1903 e versioni successive|
 |Da autofirmato|Per autofirmato|Non supportato||
 |Da autofirmato|Pubblico<sup>*</sup>|Supportato|1803 e versioni successive|
-|Da Enterprise|To Enterprise|Supportato purché i clienti usano la stessa CA usato in fase di distribuzione dell'organizzazione|1803 e versioni successive|
+|Da Enterprise|To Enterprise|Supportato. Da 1803 1903: supportato purché i clienti usano la stessa CA usato in fase di distribuzione dell'organizzazione|1803 e versioni successive|
 |Da Enterprise|Per autofirmato|Non supportato||
 |Da Enterprise|Pubblico<sup>*</sup>|Supportato|1803 e versioni successive|
-|Pubblico<sup>*</sup>|To Enterprise|Non supportato|1803 e versioni successive|
+|Pubblico<sup>*</sup>|To Enterprise|Supportato|1903 e versioni successive|
 |Pubblico<sup>*</sup>|Per autofirmato|Non supportato||
 |Pubblico<sup>*</sup>|Pubblico<sup>*</sup>|Supportato|1803 e versioni successive|
 

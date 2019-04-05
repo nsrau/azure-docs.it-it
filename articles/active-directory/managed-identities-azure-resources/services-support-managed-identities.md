@@ -10,12 +10,12 @@ ms.service: active-directory
 ms.subservice: msi
 manager: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5592ee7f3c4b5f55785100ceff09659aa437cb6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d524f5f58e7381dd89f36c5d2821e6911ed9ec15
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578578"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045458"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -30,9 +30,9 @@ I servizi di Azure seguenti supportano le identità gestite per le risorse di Az
 
 ### <a name="azure-virtual-machines"></a>Macchine virtuali di Azure
 
-| Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+| Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibili | Anteprima | Anteprima | Anteprima | 
+| Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima | 
 | Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per le macchine virtuali di Azure (nelle aree in cui è disponibile):
@@ -45,9 +45,9 @@ Vedere l'elenco seguente per configurare l'identità gestita per le macchine vir
 
 ### <a name="azure-virtual-machine-scale-sets"></a>Set di scalabilità delle macchine virtuali di Azure
 
-|Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+|Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibili | Anteprima | Anteprima | Anteprima |
+| Assegnata dal sistema | Disponibile | Anteprima | Anteprima | Anteprima |
 | Assegnata dall'utente | Anteprima | Anteprima | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il set di scalabilità di macchine virtuali di Azure (nelle aree in cui è disponibile):
@@ -60,9 +60,9 @@ Vedere l'elenco seguente per configurare l'identità gestita per il set di scala
 
 ### <a name="azure-app-service"></a>Servizio app di Azure
 
-| Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+| Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibili | Disponibili | Disponibili | Disponibili |
+| Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
 | Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app di Azure (nelle aree in cui è disponibile):
@@ -74,7 +74,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per il Servizio app
 
 ### <a name="azure-blueprints"></a>Azure Blueprint
 
-|Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+|Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Anteprima | Non disponibile | Non disponibile | Non disponibile |
 | Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
@@ -86,9 +86,9 @@ Vedere l'elenco seguente per usare un'identità gestita con [progetti Azure](../
 
 ### <a name="azure-functions"></a>Funzioni di Azure
 
-Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+Tipo di identità gestita |Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibili | Disponibili | Disponibili | Disponibili |
+| Assegnata dal sistema | Disponibile | Disponibile | Disponibile | Disponibile |
 | Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per Funzioni di Azure (nelle aree in cui è disponibile):
@@ -100,7 +100,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per Funzioni di Azu
 
 ### <a name="azure-logic-apps"></a>App per la logica di Azure
 
-Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Anteprima | Anteprima | Non disponibile | Anteprima |
 | Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
@@ -112,9 +112,9 @@ Vedere l'elenco seguente per configurare l'identità gestita per le App per la l
 
 ### <a name="azure-data-factory-v2"></a>Azure Data Factory V2
 
-Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibili | Non disponibile | Non disponibile | Non disponibile |
+| Assegnata dal sistema | Disponibile | Non disponibile | Non disponibile | Non disponibile |
 | Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per Azure Data Factory V2 (nelle aree in cui è disponibile):
@@ -126,9 +126,9 @@ Vedere l'elenco seguente per configurare l'identità gestita per Azure Data Fact
 
 ### <a name="azure-api-management"></a>Gestione API di Azure
 
-Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
-| Assegnata dal sistema | Disponibili | Disponibili | Non disponibile | Non disponibile |
+| Assegnata dal sistema | Disponibile | Disponibile | Non disponibile | Non disponibile |
 | Assegnata dall'utente | Non disponibile | Non disponibile | Non disponibile | Non disponibile |
 
 Vedere l'elenco seguente per configurare l'identità gestita per Gestione API di Azure (nelle aree in cui è disponibile):
@@ -137,7 +137,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per Gestione API di
 
 ### <a name="azure-container-instances"></a>Istanze di Azure Container
 
-Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure per enti pubblici | Azure Germania | 21Vianet per Azure Cina |
+Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | --- | --- | --- | --- |
 | Assegnata dal sistema | Linux: Anteprima<br>Windows: Non disponibile | Non disponibile | Non disponibile | Non disponibile |
 | Assegnata dall'utente | Linux: Anteprima<br>Windows: Non disponibile | Non disponibile | Non disponibile | Non disponibile |
@@ -163,61 +163,61 @@ Vedere l'elenco seguente per configurare l'accesso ad Azure Resource Manager:
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://management.azure.com/`| Disponibili |
-| Azure per enti pubblici | `https://management.usgovcloudapi.net/` | Disponibili |
-| Azure Germania | `https://management.microsoftazure.de/` | Disponibili |
-| 21Vianet per Azure Cina | `https://management.chinacloudapi.cn` | Disponibili |
+| Azure Global | `https://management.azure.com/`| Disponibile |
+| Azure Government | `https://management.usgovcloudapi.net/` | Disponibile |
+| Azure Germania | `https://management.microsoftazure.de/` | Disponibile |
+| 21Vianet per Azure Cina | `https://management.chinacloudapi.cn` | Disponibile |
 
-### <a name="azure-key-vault"></a>Insieme di credenziali delle chiavi di Azure
-
-| Cloud | ID risorsa | Stato |
-|--------|------------|--------|
-| Azure Global | `https://vault.azure.net`| Disponibili |
-| Azure per enti pubblici | `https://vault.usgovcloudapi.net` | Disponibili |
-| Azure Germania |  `https://vault.microsoftazure.de` | Disponibili |
-| 21Vianet per Azure Cina | `https://vault.azure.cn` | Disponibili |
-
-## <a name="azure-data-lake"></a>Azure Data Lake 
+### <a name="azure-key-vault"></a>Azure Key Vault
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://datalake.azure.net/` | Disponibili |
-| Azure per enti pubblici |  | Non disponibile |
+| Azure Global | `https://vault.azure.net`| Disponibile |
+| Azure Government | `https://vault.usgovcloudapi.net` | Disponibile |
+| Azure Germania |  `https://vault.microsoftazure.de` | Disponibile |
+| 21Vianet per Azure Cina | `https://vault.azure.cn` | Disponibile |
+
+### <a name="azure-data-lake"></a>Azure Data Lake 
+
+| Cloud | ID risorsa | Stato |
+|--------|------------|--------|
+| Azure Global | `https://datalake.azure.net/` | Disponibile |
+| Azure Government |  | Non disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-## <a name="azure-sql"></a>Azure SQL 
+### <a name="azure-sql"></a>SQL di Azure 
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://database.windows.net/` | Disponibili |
-| Azure per enti pubblici | `https://database.usgovcloudapi.net/` | Disponibili |
-| Azure Germania | `https://database.cloudapi.de/` | Disponibili |
-| 21Vianet per Azure Cina | `https://database.chinacloudapi.cn/` | Disponibili |
+| Azure Global | `https://database.windows.net/` | Disponibile |
+| Azure Government | `https://database.usgovcloudapi.net/` | Disponibile |
+| Azure Germania | `https://database.cloudapi.de/` | Disponibile |
+| 21Vianet per Azure Cina | `https://database.chinacloudapi.cn/` | Disponibile |
 
-## <a name="azure-event-hubs"></a>Hub eventi di Azure
+### <a name="azure-event-hubs"></a>Hub eventi di Azure
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://eventhubs.azure.net` | Anteprima |
-| Azure per enti pubblici |  | Non disponibile |
+| Azure Government |  | Non disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-## <a name="azure-service-bus"></a>Bus di servizio di Azure
+### <a name="azure-service-bus"></a>Bus di servizio di Azure
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
 | Azure Global | `https://servicebus.azure.net`  | Anteprima |
-| Azure per enti pubblici |  | Non disponibile |
+| Azure Government |  | Non disponibile |
 | Azure Germania |   | Non disponibile |
 | 21Vianet per Azure Cina |  | Non disponibile |
 
-## <a name="azure-storage"></a>Archiviazione di Azure
+### <a name="azure-storage"></a>Archiviazione di Azure
 
 | Cloud | ID risorsa | Stato |
 |--------|------------|--------|
-| Azure Global | `https://storage.azure.com/` | Disponibili |
-| Azure per enti pubblici | `https://storage.azure.com/` | Disponibili |
-| Azure Germania | `https://storage.azure.com/` | Disponibili |
-| 21Vianet per Azure Cina | `https://storage.azure.com/` | Disponibili |
+| Azure Global | `https://storage.azure.com/` | Disponibile |
+| Azure Government | `https://storage.azure.com/` | Disponibile |
+| Azure Germania | `https://storage.azure.com/` | Disponibile |
+| 21Vianet per Azure Cina | `https://storage.azure.com/` | Disponibile |

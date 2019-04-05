@@ -3,17 +3,17 @@ title: Servizio Device Provisioning in hub IoT di Azure - Attestazione chiave si
 description: In questo articolo viene fornita una panoramica concettuale dell'attestazione con chiave simmetrica con il servizio Device Provisioning IoT.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/18/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: 80828876ffe8b58697cfaacad4991354ac070730
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+manager: philmea
+ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971791"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050945"
 ---
 # <a name="symmetric-key-attestation"></a>Attestazione con chiave simmetrica
 
@@ -48,8 +48,8 @@ Di seguito sono riportati i componenti di ciascun token:
 
 | Valore | DESCRIZIONE |
 | --- | --- |
-| {signature} |Stringa della firma HMAC-SHA256. Per le registrazioni individuali, questa firma viene generata utilizzando la chiave simmetrica (primaria o secondaria) per eseguire il codice hash. Per i gruppi di registrazioni, viene usata una chiave derivata dalla chiave del gruppo di registrazioni per eseguire il codice hash. Il codice hash viene eseguito su un messaggio nel formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: la chiave deve essere decodificata dalla codifica Base64 prima di essere usata come chiave per eseguire il calcolo di HMAC-SHA256. Inoltre, il risultato di firma deve essere codificato con URL. |
-| {resourceURI} |URI dell'endpoint di registrazione a cui è possibile accedere tramite questo token, a partire da ID ambito per l'istanza del servizio Device Provisioning. Ad esempio: `{Scope ID}/registrations/{Registration ID}` |
+| {signature} |Stringa della firma HMAC-SHA256. Per le registrazioni individuali, questa firma viene generata utilizzando la chiave simmetrica (primaria o secondaria) per eseguire il codice hash. Per i gruppi di registrazioni, viene usata una chiave derivata dalla chiave del gruppo di registrazioni per eseguire il codice hash. Il codice hash viene eseguito su un messaggio nel formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: La chiave deve essere decodificata da base64 prima di essere usata per eseguire il calcolo di HMAC-SHA256. Inoltre, il risultato di firma deve essere codificato con URL. |
+| {resourceURI} |URI dell'endpoint di registrazione a cui è possibile accedere tramite questo token, a partire da ID ambito per l'istanza del servizio Device Provisioning. Ad esempio, `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |Stringhe UTF8 per il numero di secondi trascorsi dalle 00:00:00 UTC dell'1 gennaio 1970. |
 | {URL-encoded-resourceURI} |Codifica URL con lettere minuscole dell'URI della risorsa con lettere minuscole |
 | {policyName} |Nome del criterio di accesso condiviso a cui fa riferimento il token. Il nome del criterio usato durante il provisioning con l'attestazione con chiave simmetrica è **registrazione**. |
@@ -114,6 +114,6 @@ Se le chiavi di dispositivo non vengono installate in ambiente di fabbrica, deve
 
 Ora che si hanno le informazioni sull'attestazione con chiave simmetrica, vedere gli articoli seguenti per altre informazioni:
 
-* [Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
-* [Informazioni sui concetti di provisioning automatico](./concepts-auto-provisioning.md)
+* [Guida introduttiva: Effettuare il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
+* [Apprendere i concetti di provisioning automatico](./concepts-auto-provisioning.md)
 * [Iniziare a usare il provisioning automatico](./quick-setup-auto-provision.md) 

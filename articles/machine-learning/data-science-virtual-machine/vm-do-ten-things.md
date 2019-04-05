@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: 81646c979748b7a23762a25538ced447e382f72a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f30c241feced3031d9ed9791c27c6bb1e1e99efb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878432"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046182"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dieci cose da fare con la macchina virtuale per l'analisi scientifica dei dati di Windows
 
@@ -50,6 +50,9 @@ Questo articolo illustra come usare la macchina virtuale per data science per es
 
 * È necessaria una sottoscrizione di Azure. È possibile iscriversi per una versione di valutazione gratuita di Azure [qui](https://azure.microsoft.com/free/).
 * Le istruzioni per il provisioning di una macchina virtuale per l'analisi scientifica dei dati nel portale di Azure sono disponibili nel documento relativo alla [creazione di una macchina virtuale](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="1-explore-data-and-develop-models-using-microsoft-ml-server-or-python"></a>1. Esplorare dati e sviluppare modelli usando Microsoft ML Server o Python
 È possibile usare linguaggi come R e Python per eseguire l'analisi dei dati direttamente in DSVM.
@@ -223,22 +226,22 @@ I data scientist possono condividere grandi set di dati, codice o alte risorse a
 
 ```powershell
 # Authenticate to Azure.
-Connect-AzureRmAccount
+Connect-AzAccount
 # Select your subscription
-Get-AzureRmSubscription –SubscriptionName "<your subscription name>" | Select-AzureRmSubscription
+Get-AzSubscription –SubscriptionName "<your subscription name>" | Select-AzSubscription
 # Create a new resource group.
-New-AzureRmResourceGroup -Name <dsvmdatarg>
+New-AzResourceGroup -Name <dsvmdatarg>
 # Create a new storage account. You can reuse existing storage account if you wish.
-New-AzureRmStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
+New-AzStorageAccount -Name <mydatadisk> -ResourceGroupName <dsvmdatarg> -Location "<Azure Data Center Name For eg. South Central US>" -Type "Standard_LRS"
 # Set your current working storage account
-Set-AzureRmCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
+Set-AzCurrentStorageAccount –ResourceGroupName "<dsvmdatarg>" –StorageAccountName <mydatadisk>
 
 # Create an Azure File Service Share
-$s = New-AzureStorageShare <<teamsharename>>
+$s = New-AzStorageShare <<teamsharename>>
 # Create a directory under the FIle share. You can give it any name
-New-AzureStorageDirectory -Share $s -Path <directory name>
+New-AzStorageDirectory -Share $s -Path <directory name>
 # List the share to confirm that everything worked
-Get-AzureStorageFile -Share $s
+Get-AzStorageFile -Share $s
 ```
 
 A questo punto, dopo avere creato una condivisione file di Azure, è possibile installarla in una macchina virtuale in Azure. È consigliabile che la VM sia nello stesso data center di Azure dell'account di archiviazione per evitare la latenza e gli addebiti per il trasferimento dei dati. Ecco i comandi per installare l'unità in DSVM, che è possibile eseguire in Azure PowerShell.
@@ -283,7 +286,7 @@ BLOB di Azure è una risorsa di archiviazione cloud conveniente e affidabile per
 
 ![Screenshot di Azure Storage Explorer che accede a un account di archiviazione](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
 
-**Spostare i dati dalla VM al BLOB di Azure: AzCopy**
+**Spostare i dati dalla VM al Blob di Azure: AzCopy**
 
 Per spostare i dati tra i file locali e l'archiviazione BLOB, è possibile usare AzCopy nella riga di comando o in PowerShell:
 
@@ -308,20 +311,20 @@ Dopo l'esecuzione del comando AzCopy per la copia in un BLOB di Azure, entro bre
 
 ![Screenshot dell'account di archiviazione con la visualizzazione del file CSV caricato](./media/vm-do-ten-things/AzCopy_run_finshed_Storage_Explorer_v3.png)
 
-**Spostare i dati dalla VM al BLOB di Azure: Azure Storage Explorer**
+**Spostare i dati dalla VM al Blob di Azure: Esplora archivi Azure**
 
 È anche possibile caricare i dati dal file locale nella VM usando Azure Storage Explorer:
 
-* Per caricare dati in un contenitore, selezionare il contenitore di destinazione e fare clic sul pulsante **Carica**.![Screenshot del pulsante Carica in Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Fare clic su **...** a destra della casella **File**, selezionare uno o più file da caricare dal file system e fare clic su **Carica** per iniziare a caricare i file.![Screenshot della finestra di dialogo per il caricamento di file](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Per caricare dati in un contenitore, selezionare il contenitore di destinazione e scegliere il **caricare** pulsante.![ Screenshot del pulsante di caricamento in Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
+* Fare clic su di **...**  a destra del **file** , selezionare uno o più file da caricare dal file system e fare clic su **Carica** per iniziare a caricare i file.![ Screenshot della finestra di dialogo di caricamento file](./media/vm-do-ten-things/upload-files-to-blob.png)
 
-**Leggere i dati dal BLOB di Azure: modulo Reader di Machine Learning**
+**Leggere i dati dal Blob di Azure: Modulo reader di Machine Learning**
 
 In Azure Machine Learning Studio è possibile usare un **modulo Import Data** per leggere i dati dal BLOB.
 
 ![Screenshot del modulo Import Data in Machine Learning Studio](./media/vm-do-ten-things/AML_ReaderBlob_Module_v3.png)
 
-**Leggere i dati dal BLOB di Azure: ODBC Python**
+**Leggere i dati dal Blob di Azure: Python ODBC**
 
 È possibile usare la libreria **BlobService** per leggere i dati direttamente dal BLOB in Jupyter Notebook o in un programma Python.
 
@@ -386,7 +389,7 @@ Un Archivio Azure Data Lake è un repository con iperscalabilità per i carichi 
 
 ![Schermata degli strumenti Data Lake in Visual Studio](./media/vm-do-ten-things/Azure_Data_Lake_PlugIn_v2.PNG)
 
-**Spostare i dati dalla VM a Data Lake: Azure Data Lake Explorer**
+**Spostare i dati dalla macchina virtuale per Data Lake: Azure Data Lake Explorer**
 
 È possibile usare **Azure Data Lake Explorer** per caricare i dati dai file locali della macchina virtuale nell'archivio di Data Lake.
 
@@ -394,7 +397,7 @@ Un Archivio Azure Data Lake è un repository con iperscalabilità per i carichi 
 
 È anche possibile creare una pipeline di dati per rendere operativo lo spostamento dei dati da e verso Azure Data Lake tramite [Azure Data Factory (ADF)](https://azure.microsoft.com/services/data-factory/). Per istruzioni dettagliate per creare pipeline di dati, vedere questo [articolo](https://azure.microsoft.com/blog/creating-big-data-pipelines-using-azure-data-lake-and-azure-data-factory/).
 
-**Leggere i dati dal BLOB di Azure a Data Lake: U-SQL**
+**Leggere i dati dal Blob di Azure a Data Lake: U-SQL**
 
 Se i dati si trovano nell'archivio BLOB di Azure, è possibile leggerli direttamente dal BLOB di archiviazione di Azure nella query U-SQL. Prima di scrivere la query U-SQL, verificare che l'account di archiviazione BLOB sia collegato ad Azure Data Lake. Passare al **portale di Azure**, individuare il dashboard di Azure Data Lake Analytics, fare clic su **Aggiungi origine dati**, selezionare **Archiviazione di Azure** come tipo di archiviazione e inserire il nome e la chiave dell'account di archiviazione di Azure. Sarà ora possibile fare riferimento ai dati archiviati nell'account di archiviazione.
 
@@ -450,7 +453,7 @@ Dopo che la query è stata inviata al server, viene visualizzato un diagramma ch
 
 ![Screenshot dello stato del processo](./media/vm-do-ten-things/USQL_Job_Status.PNG)
 
-**Effettuare una query dei dati in Data Lake: U-SQL**
+**Eseguire query sui dati in Data Lake: U-SQL**
 
 Dopo che il set di dati è stato inserito in Azure Data Lake, è possibile usare il [linguaggio U-SQL](../../data-lake-analytics/data-lake-analytics-u-sql-get-started.md) per l'esecuzione di query e l'esplorazione dei dati. Il linguaggio U-SQL è simile a T-SQL, ma combina alcune funzionalità di C# in modo che gli utenti possano scrivere moduli personalizzati, funzioni definite dall'utente e così via. È possibile usare gli script del passaggio precedente.
 
@@ -589,7 +592,7 @@ for i in range(1,13):
 
 Dopo aver caricato i dati nel cluster HDI, è possibile controllarli in Azure Storage Explorer. Nel cluster HDI è stato creato un database nyctaxidb.
 
-**Esplorazione dei dati: query Hive in Python**
+**Esplorazione dei dati: Query hive in Python**
 
 Poiché i dati si trovano nel cluster Hadoop, è possibile usare il pacchetto pyodbc per connettersi ai cluster Hadoop ed eseguire una query sul database con Hive per l'esplorazione e la progettazione di funzionalità. È possibile visualizzare le tabelle esistenti create nel passaggio del prerequisito.
 
@@ -814,7 +817,7 @@ pd.read_sql(queryString,connection)
 
 ![Prime righe dei dati dalla tabella](./media/vm-do-ten-things/DownSample_Data_For_Modeling_v2.PNG)
 
-**Leggere i dati da HDI con il modulo Reader di Machine Learning**
+**Leggere i dati da HDI usando Machine Learning: modulo reader**
 
 È anche possibile usare il modulo **Reader** in Machine Learning Studio per accedere al database nel cluster Hadoop. Collegare le credenziali dei cluster HDI e l'account di archiviazione di Azure per poter creare modelli di Machine Learning usando il database nei cluster HDI.
 

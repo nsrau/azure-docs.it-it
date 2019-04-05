@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: ebe5c65f701c0a1c7c02182800a35bfbeed5b0be
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 96e3a24b0c9f9ab21652ffcd1b29deeb512581e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181385"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046615"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Creare ambienti con più macchine virtuali e risorse PaaS con i modelli di Azure Resource Manager
 
@@ -36,6 +36,8 @@ Altre informazioni sui numerosi [vantaggi offerti dai modelli di Resource Manage
 > [!NOTE]
 > Quando si usa un modello di Resource Manager come base per creare più macchine virtuali lab, occorre tenere presente che ci sono alcune differenze tra la creazione di più macchine virtuali e una singola macchina virtuale. Nell'articolo [Use a virtual machine's Azure Resource Manager template](devtest-lab-use-resource-manager-template.md) (Usare un modello di Azure Resource Manager di una macchina virtuale) queste differenze sono illustrate con maggiori dettagli.
 >
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="devtest-labs-public-environments"></a>Ambienti pubblici in DevTest Labs
 Azure DevTest Labs include un [repository pubblico di modelli di Azure Resource Manager](https://github.com/Azure/azure-devtestlab/tree/master/Environments) che consente di creare ambienti senza connettersi a un'origine GitHub esterna. Questo repository include i modelli usati di frequente, ad esempio App Web di Azure, Cluster di Service Fabric e l'ambiente di sviluppo della Farm di SharePoint. Questa funzionalità è simile al repository pubblico di artefatti incluso in ogni lab creato. Il repository di ambienti consente di iniziare rapidamente usando modelli di ambiente predefiniti con parametri di input minimi per garantire un'agevole esperienza iniziale con le risorse PaaS all'interno dei lab. Per altre informazioni, vedere [Configurare e usare ambienti pubblici in DevTest Labs](devtest-lab-configure-use-public-environments.md).
@@ -147,8 +149,7 @@ Salvare lo script di PowerShell nella sezione successiva sul disco rigido (ad es
 Ecco lo script di esempio per creare un ambiente nel lab. I commenti nello script utile per comprendere meglio lo script. 
 
 ```powershell
-#Requires -Version 3.0
-#Requires -Module AzureRM.Resources
+#Requires -Module Az.Resources
 
 [CmdletBinding()]
 
@@ -181,20 +182,20 @@ param (
 
 # Comment this statement to completely automate the environment creation.    
 # Sign in to Azure. 
-Connect-AzureRmAccount
+Connect-AzAccount
 
 # Select the subscription that has the lab.  
-Set-AzureRmContext -SubscriptionId $SubscriptionId | Out-Null
+Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
 # Get information about the user, specifically the user ID, which is used later in the script.  
-$UserId = $((Get-AzureRmADUser -UserPrincipalName (Get-AzureRmContext).Account).Id.Guid)
+$UserId = $((Get-AzADUser -UserPrincipalName (Get-AzContext).Account).Id.Guid)
         
 # Get information about the lab such as lab location. 
-$lab = Get-AzureRmResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName -ResourceGroupName $ResourceGroupName 
+$lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName -ResourceGroupName $ResourceGroupName 
 if ($lab -eq $null) { throw "Unable to find lab $LabName in subscription $SubscriptionId." } 
     
 # Get information about the repository in the lab. 
-$repository = Get-AzureRmResource -ResourceGroupName $lab.ResourceGroupName `
+$repository = Get-AzResource -ResourceGroupName $lab.ResourceGroupName `
     -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
     -ResourceName $LabName `
     -ApiVersion 2016-05-15 `
@@ -203,7 +204,7 @@ $repository = Get-AzureRmResource -ResourceGroupName $lab.ResourceGroupName `
 if ($repository -eq $null) { throw "Unable to find repository $RepositoryName in lab $LabName." } 
 
 # Get information about the Resource Manager template based on which the environment will be created. 
-$template = Get-AzureRmResource -ResourceGroupName $lab.ResourceGroupName `
+$template = Get-AzResource -ResourceGroupName $lab.ResourceGroupName `
     -ResourceType "Microsoft.DevTestLab/labs/artifactSources/armTemplates" `
     -ResourceName "$LabName/$($repository.Name)" `
     -ApiVersion 2016-05-15 `
@@ -228,8 +229,8 @@ $Params | ForEach-Object {
 # Once name/value pairs are isolated, create an object to hold the necessary template properties
 $templateProperties = @{ "deploymentProperties" = @{ "armTemplateId" = "$($template.ResourceId)"; "parameters" = $templateParameters }; } 
 
-# Now, create or deploy the environment in the lab by using the New-AzureRmResource command. 
-New-AzureRmResource -Location $Lab.Location `
+# Now, create or deploy the environment in the lab by using the New-AzResource command. 
+New-AzResource -Location $Lab.Location `
     -ResourceGroupName $lab.ResourceGroupName `
     -Properties $templateProperties `
     -ResourceType 'Microsoft.DevTestLab/labs/users/environments' `

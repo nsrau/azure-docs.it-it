@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: 3de26efb74b9349282d36beb94e8a2a269227fbf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488311"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046980"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Abilitare la crittografia del disco per i nodi del cluster Linux di Service Fabric 
 > [!div class="op_single_selector"]
 > * [Crittografia del disco per Linux](service-fabric-enable-azure-disk-encryption-linux.md)
-> * [Crittografia del disco per Windows](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Crittografia dischi per Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 
@@ -36,33 +36,36 @@ La guida illustra le procedure seguenti:
 * Procedure da eseguire per abilitare la crittografia del disco nel set di scalabilità di macchine virtuali del cluster Linux di Service Fabric.
 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Registrazione automatica**: per usare l'anteprima di Crittografia dischi del set di scalabilità di macchine virtuali, è necessaria la registrazione automatica
 * È possibile eseguire la registrazione automatica della sottoscrizione procedendo nel modo seguente: 
 ```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 * Attendere circa 10 minuti finché lo stato risulta "Registrato". È possibile controllare lo stato con il comando seguente: 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 * **Azure Key Vault**: creare un insieme di credenziali delle chiavi nella stessa sottoscrizione e nella stessa area del set di scalabilità di macchine virtuali e impostare il criterio di accesso "EnabledForDiskEncryption" sull'insieme di credenziali delle chiavi usando il relativo cmdlet PS. È anche possibile impostare i criteri tramite l'interfaccia utente per l'insieme di credenziali delle chiavi nel portale di Azure: 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
-* Installare la versione più recente dell'[interfaccia della riga di comando di Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest), che include i nuovi comandi di crittografia.
-* Installare la versione più recente di [Azure SDK da Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Di seguito sono riportati i cmdlet ADE per abilitare del set di scalabilità di macchina virtuale ([impostata](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) la crittografia, recuperare ([ottenere](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) lo stato della crittografia e Rimuovi ([disabilitare](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) crittografia su scala istanza del set. 
+* Installare una versione più recente [CLI Azure](/cli/azure/install-azure-cli) , che include i nuovi comandi di crittografia.
+* Installare la versione più recente di [Azure SDK da Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Di seguito sono riportati i cmdlet ADE per abilitare del set di scalabilità di macchina virtuale ([impostata](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) la crittografia, recuperare ([ottenere](/powershell/module/az.compute/get-azvmssvmdiskencryption)) lo stato della crittografia e Rimuovi ([disabilitare](/powershell/module/az.compute/disable-azvmssdiskencryption)) crittografia su scala istanza del set. 
 
 | Comando | Versione |  Source (Sorgente)  |
 | ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 o successiva | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 o successiva | AzureRM.Compute |
-| Disable-AzureRmVmssDiskEncryption   | 3.4.0 o successiva | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 o successiva | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 o successiva | AzureRM.Compute |
-| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 o successiva | AzureRM.Compute |
+| Get-AzVmssDiskEncryptionStatus   | 1.0.0 o versione successiva | Az.Compute |
+| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 o versione successiva | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 o versione successiva | Az.Compute |
+| Get-AzVmssDiskEncryption   | 1.0.0 o versione successiva | Az.Compute |
+| Get-AzVmssVMDiskEncryption   | 1.0.0 o versione successiva | Az.Compute |
+| Set-AzVmssDiskEncryptionExtension   | 1.0.0 o versione successiva | Az.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Scenari supportati per la crittografia dei dischi
@@ -79,8 +82,8 @@ Usare i comandi seguenti per creare cluster e abilitare la crittografia del disc
 
 ```powershell
 
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Login-AzAccount
+Set-AzContext -SubscriptionId <guid>
 
 ```
 
@@ -147,7 +150,7 @@ $parameterFilePath="c:\templates\templateparam.json"
 $templateFilePath="c:\templates\template.json"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 
@@ -184,11 +187,11 @@ Seguire le procedure e le indicazioni per [distribuire l'applicazione nel cluste
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
-$KeyVault = Get-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName
+$KeyVault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName
 $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
 $KeyVaultResourceId = $KeyVault.ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
 
 ```
 
@@ -206,9 +209,9 @@ Inoltre utente può accedere alla macchina virtuale di Cluster Linux ed eseguire
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
 
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
+Get-AzVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
 
 ```
 
@@ -223,7 +226,7 @@ La disabilitazione della crittografia dei dischi si applica all'intero set di sc
 ```powershell
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 
 ```
 

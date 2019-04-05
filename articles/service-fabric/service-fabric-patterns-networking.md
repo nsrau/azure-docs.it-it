@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670252"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049898"
 ---
 # <a name="service-fabric-networking-patterns"></a>Modelli di rete di Service Fabric
 È possibile integrare il cluster di Azure Service Fabric con altre funzionalità di rete di Azure. Questo articolo illustra come creare cluster che fanno uso delle funzionalità seguenti:
@@ -34,6 +34,9 @@ Service Fabric viene eseguito in un set di scalabilità di macchine virtuali sta
 Service Fabric si distingue dalle altre funzionalità di rete per un solo aspetto. Il [portale di Azure](https://portal.azure.com) usa internamente il provider di risorse di Service Fabric per chiamare un cluster e ottenere informazioni sui nodi e le applicazioni. Il provider di risorse di Service Fabric richiede l'accesso in ingresso accessibile pubblicamente alla porta del gateway HTTP nell'endpoint di gestione. Per impostazione predefinita si tratta della porta 19080. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) usa l'endpoint di gestione per gestire il cluster. Anche il provider di risorse di Service Fabric usa questa porta per richiedere informazioni sul cluster, che vengono visualizzate nel portale di Azure. 
 
 Se la porta 19080 non è accessibile dal provider di risorse di Service Fabric, nel portale viene visualizzato un messaggio che indica che *non sono stati trovati nodi* e l'elenco dei nodi e delle applicazioni risulta vuoto. Per visualizzare il cluster nel portale di Azure, il servizio di bilanciamento del carico deve esporre un indirizzo IP pubblico e il gruppo di sicurezza di rete deve consentire il traffico in ingresso dalla porta 19080. Se la configurazione non soddisfa questi requisiti, lo stato del cluster non viene visualizzato nel portale di Azure.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Modelli
 
@@ -51,7 +54,7 @@ L'esempio seguente parte da una rete virtuale esistente denominata ExistingRG-vn
 In genere, un indirizzo IP pubblico è una risorsa dedicata che viene gestita separatamente rispetto alla macchina virtuale o alle macchine virtuali a cui è assegnato. Il provisioning viene effettuato in un gruppo di risorse di rete dedicato e non nel gruppo di risorse stesso del cluster di Service Fabric. Creare un indirizzo IP pubblico statico denominato staticIP1 nello stesso gruppo di risorse ExistingRG, nel portale di Azure oppure tramite PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ Negli esempi riportati in questo articolo viene usato il file template.json di S
 6. Distribuire il modello:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     Dopo la distribuzione, la rete virtuale dovrebbe includere le nuove macchine virtuali del set di scalabilità. Il tipo di nodo del set di scalabilità di macchine virtuali dovrebbe mostrare la rete virtuale esistente e la subnet. È anche possibile usare il protocollo RDP (Remote Desktop Protocol) per accedere alla macchina virtuale già esistente nella rete virtuale e per effettuare il ping delle nuove macchine virtuali del set di scalabilità:
@@ -276,13 +279,13 @@ Per altre informazioni, vedere un [esempio non specifico di Service Fabric](http
 8. Distribuire il modello:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 Dopo la distribuzione, il servizio di bilanciamento del carico è associato all'indirizzo IP statico pubblico dell'altro gruppo di risorse. L'endpoint della connessione client di Service Fabric e l'endpoint di [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) puntano al nome di dominio completo del DNS dell'indirizzo IP statico.
@@ -346,7 +349,7 @@ Questo scenario sostituisce il servizio di bilanciamento del carico esterno nel 
                 ],
     ```
 
-5. Modificare l'impostazione `frontendIPConfigurations` del servizio di bilanciamento del carico passando dall'uso di `publicIPAddress` all'uso di una subnet e di `privateIPAddress`. `privateIPAddress` usa un indirizzo IP interno statico predefinito. Per usare un indirizzo IP dinamico, rimuovere l'elemento `privateIPAddress` e modificare `privateIPAllocationMethod` in **dinamico**.
+5. Modificare l'impostazione `frontendIPConfigurations` del servizio di bilanciamento del carico passando dall'uso di `publicIPAddress` all'uso di una subnet e di `privateIPAddress`. `privateIPAddress` Usa un indirizzo IP statico interno predefinito. Per usare un indirizzo IP dinamico, rimuovere l'elemento `privateIPAddress` e modificare `privateIPAllocationMethod` in **dinamico**.
 
     ```json
                 "frontendIPConfigurations": [
@@ -378,9 +381,9 @@ Questo scenario sostituisce il servizio di bilanciamento del carico esterno nel 
 7. Distribuire il modello:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 Dopo la distribuzione, il servizio di bilanciamento del carico usa l'indirizzo IP privato statico 10.0.0.250. Se nella stessa rete virtuale è disponibile un altro computer, è possibile passare all'endpoint interno di [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Si noti che questo si connette a uno dei nodi del servizio di bilanciamento del carico.
@@ -595,9 +598,15 @@ In un cluster a due tipi di nodo, un tipo di nodo si trova nel servizio di bilan
 7. Distribuire il modello:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+Dopo la distribuzione, nel gruppo di risorse vengono visualizzati due servizi di bilanciamento del carico. Esplorando tali servizi è possibile visualizzare l'indirizzo IP pubblico e gli endpoint di gestione (porte 19000 e 19080) assegnati all'indirizzo IP pubblico. È anche possibile visualizzare l'indirizzo IP interno statico e l'endpoint dell'applicazione (porta 80) assegnati al servizio di bilanciamento del carico interno. Entrambi i servizi di bilanciamento del carico usano lo stesso pool back-end del set di scalabilità di macchine virtuali.
+
+## <a name="next-steps"></a>Passaggi successivi
+[Creare un cluster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 Dopo la distribuzione, nel gruppo di risorse vengono visualizzati due servizi di bilanciamento del carico. Esplorando tali servizi è possibile visualizzare l'indirizzo IP pubblico e gli endpoint di gestione (porte 19000 e 19080) assegnati all'indirizzo IP pubblico. È anche possibile visualizzare l'indirizzo IP interno statico e l'endpoint dell'applicazione (porta 80) assegnati al servizio di bilanciamento del carico interno. Entrambi i servizi di bilanciamento del carico usano lo stesso pool back-end del set di scalabilità di macchine virtuali.

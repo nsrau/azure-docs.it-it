@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.custom: seodec18
-ms.openlocfilehash: fe348daa4613e0b515244686e48ed63a41991d81
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79751dc0de8817c940355e8b64652014b1c67c35
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009383"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045901"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Creare risorse di Time Series Insights tramite i modelli di Azure Resource Manager
 
@@ -33,11 +33,14 @@ Time Series Insights supporta le risorse seguenti:
 
 Un modello di Resource Manager è un file JSON che definisce l'infrastruttura e la configurazione delle risorse in un gruppo di risorse. Per altre informazioni, vedere i documenti seguenti:
 
-- [Panoramica di Azure Resource Manager - Distribuzione modelli](../azure-resource-manager/resource-group-overview.md#template-deployment)
+- [Panoramica di Azure Resource Manager - distribuzione del modello](../azure-resource-manager/resource-group-overview.md#template-deployment)
 - [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
 - [Tipi di risorsa Microsoft.TimeSeriesInsights](/azure/templates/microsoft.timeseriesinsights/allversions)
 
 Il modello di avvio rapido [201-timeseriesinsights-environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-timeseriesinsights-environment-with-eventhub) viene pubblicato su GitHub. Questo modello crea un ambiente Time Series Insights, un origine evento figlio configurato per usare gli eventi da un hub eventi e i criteri di accesso che concedono l'accesso ai dati dell'ambiente. Se non è specificato un hub eventi esistente, ne verrà creato uno con la distribuzione.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="deploy-the-quickstart-template-locally-using-powershell"></a>Distribuire il modello di avvio rapido in locale tramite PowerShell
 
@@ -110,8 +113,8 @@ Per creare un file di parametri, copiare il file [201-timeseriesinsights-environ
    | eventSourceDisplayName | Un nome descrittivo facoltativo da visualizzare nelle interfacce degli strumenti o utente al posto del nome dell'origine evento. |
    | eventSourceTimestampPropertyName | La proprietà di evento che verrà usata come timestamp dell'origine evento. Se non è specificato un valore per timestampPropertyName o se viene specificato null o una stringa vuota, verrà usata l'ora di creazione dell'evento. |
    | eventSourceKeyName | Il nome della chiave di accesso condivisa che verrà usata dal servizio Time Series Insights per connettersi all'hub eventi. |
-   | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando i cmdlet **Get-AzureRMADUser** o **Get-AzureRMADServicePrincipal**. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
-   | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando i cmdlet **Get-AzureRMADUser** o **Get-AzureRMADServicePrincipal**. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
+   | accessPolicyReaderObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso in lettura all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando il **Get-AzADUser** o il **Get-AzADServicePrincipal** cmdlet. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
+   | accessPolicyContributorObjectIds | Un elenco di ID oggetto degli utenti o delle applicazioni in Azure AD che devono disporre dell'accesso per collaboratori all'ambiente. L'objectId dell'entità servizio può essere ottenuto chiamando il **Get-AzADUser** o il **Get-AzADServicePrincipal** cmdlet. La creazione di criteri di accesso per i gruppi di Azure AD non è ancora supportata. |
 
 Ad esempio, per creare un ambiente verrebbe usato il file dei parametri seguente e un'origine evento che legge gli eventi da un hub eventi esistente. Crea inoltre due criteri di accesso che concedono l'accesso per i collaboratori all'ambiente.
 
@@ -155,27 +158,27 @@ Per altre informazioni, vedere l'articolo [Parametri](../azure-resource-manager/
 Al prompt di PowerShell, eseguire il comando seguente:
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 Il sistema chiede di accedere all'account Azure. Dopo l'accesso, eseguire il comando seguente per visualizzare le sottoscrizioni disponibili:
 
 ```powershell
-Get-AzureRMSubscription
+Get-AzSubscription
 ```
 
 Questo comando restituisce un elenco delle sottoscrizioni di Azure disponibili. Scegliere una sottoscrizione per la sessione corrente eseguendo il comando seguente. Sostituire `<YourSubscriptionId>` con il GUID della sottoscrizione di Azure che si vuole usare:
 
 ```powershell
-Set-AzureRmContext -SubscriptionID <YourSubscriptionId>
+Set-AzContext -SubscriptionID <YourSubscriptionId>
 ```
 
 ### <a name="set-the-resource-group"></a>Impostare il gruppo di risorse
 
-Se non è disponibile un gruppo di risorse esistente, creare un nuovo gruppo di risorse con il comando **New-AzureRmResourceGroup**. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio: 
+Se non è una risorsa esistente di gruppo, creare un nuovo gruppo di risorse con il **New-AzResourceGroup** comando. Specificare il nome del gruppo di risorse e la posizione che si vuole usare, Ad esempio: 
 
 ```powershell
-New-AzureRmResourceGroup -Name MyDemoRG -Location "West US"
+New-AzResourceGroup -Name MyDemoRG -Location "West US"
 ```
 
 Se il nuovo gruppo di risorse è stato creato correttamente, viene visualizzato il relativo riepilogo.
@@ -190,38 +193,38 @@ ResourceId        : /subscriptions/<GUID>/resourceGroups/MyDemoRG
 
 ### <a name="test-the-deployment"></a>Test della distribuzione
 
-Convalidare la distribuzione eseguendo il cmdlet `Test-AzureRmResourceGroupDeployment`. Durante il test della distribuzione, specificare esattamente gli stessi parametri di quando si esegue la distribuzione.
+Convalidare la distribuzione eseguendo il cmdlet `Test-AzResourceGroupDeployment`. Durante il test della distribuzione, specificare esattamente gli stessi parametri di quando si esegue la distribuzione.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 ### <a name="create-the-deployment"></a>Creare la distribuzione
 
-Per creare la nuova distribuzione, eseguire il cmdlet `New-AzureRmResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/deployment-modes.md).
+Per creare la nuova distribuzione, eseguire il cmdlet `New-AzResourceGroupDeployment` e specificare i parametri necessari quando viene richiesto. I parametri includono il nome della distribuzione, il nome del gruppo di risorse e il percorso o l'URL del file di modello. Se il parametro **Mode** non è specificato, viene usato il valore predefinito **Incremental**. Per altre informazioni, vedere [Distribuzioni incrementali e complete](../azure-resource-manager/deployment-modes.md).
 
 Il comando seguente richiede cinque parametri obbligatori nella finestra di PowerShell:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json 
 ```
 
 Per specificare invece un file di parametri, usare il comando seguente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
 ```
 
 È anche possibile usare i parametri inline quando si esegue il cmdlet di distribuzione. Il comando è il seguente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
+New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
 Per eseguire una distribuzione [completa](../azure-resource-manager/deployment-modes.md), impostare il parametro **Mode** su **Complete**:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
+New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
 ```
 
 ## <a name="verify-the-deployment"></a>Verificare la distribuzione

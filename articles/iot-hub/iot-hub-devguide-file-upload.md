@@ -3,17 +3,17 @@ title: Informazioni sul caricamento di file dell'hub IoT di Azure | Microsoft Do
 description: "Guida per gli sviluppatori: usare la funzionalità di caricamento di file dell'hub IoT per gestire il caricamento di file da un dispositivo a un contenitore BLOB di archiviazione di Azure."
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/07/2018
-ms.openlocfilehash: 7678c50cbda0ea112c737e8230586081efe61081
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: 217d348eacab30b90e06fe805d9cdb0cf32349ac
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008560"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050731"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
@@ -152,7 +152,7 @@ Si è ora appreso come caricare i file dai dispositivi usando l'hub IoT. Altri a
 
 * [Controllare l'accesso all'hub IoT](iot-hub-devguide-security.md)
 
-* [Use device twins to synchronize state and configurations](iot-hub-devguide-device-twins.md) (Usare dispositivi gemelli per sincronizzare lo stato e le configurazioni)
+* [Usare dispositivi gemelli per sincronizzare stato e configurazioni](iot-hub-devguide-device-twins.md)
 
 * [Richiamare un metodo diretto in un dispositivo](iot-hub-devguide-direct-methods.md)
 
@@ -160,4 +160,4 @@ Si è ora appreso come caricare i file dai dispositivi usando l'hub IoT. Altri a
 
 Per provare alcuni dei concetti descritti in questo articolo, vedere l'esercitazione sull'hub IoT seguente:
 
-* [Come caricare file dai dispositivi al cloud con l'hub IoT](iot-hub-csharp-csharp-file-upload.md)
+* [Come caricare file dai dispositivi al cloud con l'IoT Hub](iot-hub-csharp-csharp-file-upload.md)

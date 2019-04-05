@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d685b06b95af42f07449cc84e70220dd1a4afa9f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338429"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051785"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
 
@@ -29,7 +29,7 @@ Ecco alcune configurazioni all'interno di ogni servizio che consentono di miglio
 - **Ereditare il partizionamento** – Questa opzione di configurazione dell'output di SQL consente di ereditare lo schema di partizione del passaggio precedente della query o dell'input. Con questa impostazione attivata, la scrittura in una tabella basata su disco e con una topologia [perfettamente parallela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) per il processo, ci si aspetta di vedere migliori velocità effettive. Questo partizionamento avviene automaticamente per molti altri [output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). Il blocco di tabella (TABLOCK) viene inoltre disabilitato per gli inserimenti bulk eseguiti con questa opzione.
 
 > [!NOTE] 
-> Quando sono presenti più di 8 partizioni di input, ereditare l'input dello schema di partizione potrebbe non essere una scelta appropriata. Il limite massimo è stato rilevato in una tabella con una colonna di identità singola e un indice cluster. In base allo schema e alla scelta degli indici, le osservazioni possono variare.
+> Quando sono presenti più di 8 partizioni di input, ereditare l'input dello schema di partizione potrebbe non essere una scelta appropriata. Il limite massimo è stato rilevato in una tabella con una colonna di identità singola e un indice cluster. In questo caso, è consigliabile usare [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 nella query, specificare in modo esplicito il numero di writer di output. In base allo schema e alla scelta degli indici, le osservazioni possono variare.
 
 - **Dimensione batch** - la configurazione di output SQL consente di specificare le dimensioni massime del batch in un output Analisi di flusso SQL di Azure, in base alla natura del carico di lavoro/tabella di destinazione. La dimensione del batch indica il numero massimo di record inviati con ogni transazione di inserimento di massa. Negli indici columnstore cluster, le dimensioni del batch intorno ai [100K](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) consentono una maggiore parallelizzazione, una registrazione minima e le ottimizzazioni dei blocchi. Nelle tabelle basate su disco, uguale o inferiore a 10K (impostazione predefinita), può essere ottimale per la soluzione, in quanto le dimensioni di batch maggiori possono attivare l'escalation blocchi durante gli inserimenti di massa.
 

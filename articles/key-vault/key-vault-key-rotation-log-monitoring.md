@@ -13,18 +13,16 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: barclayn
-ms.openlocfilehash: 68fd33dc3e9def11f72b7aec14f83f86b8bb74d0
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: fb3300a45f905eb57fcc4880269e4a9bed9dac0c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56749708"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045986"
 ---
 # <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurare l'insieme di credenziali delle chiavi di Azure con rotazione e controllo delle chiavi
 
 ## <a name="introduction"></a>Introduzione
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Dopo aver creato un insieme di credenziali delle chiavi, è possibile iniziare a usarle per archiviare le chiavi e i segreti. Le applicazioni non devono più rendere persistenti le chiavi o i segreti, ma li richiederanno all'insieme di credenziali delle chiavi in base alle esigenze. Un insieme di credenziali delle chiavi consente di aggiornare le chiavi e segreti senza influenzare il comportamento dell'applicazione, si apre così un ampio ventaglio di possibilità per la gestione dei segreti e chiavi.
 
@@ -39,6 +37,8 @@ Questo articolo illustra:
 
 > [!NOTE]
 > Questo articolo non illustra nei dettagli la configurazione iniziale dell'insieme di credenziali delle chiavi. Per queste informazioni, vedere [Cos'è Azure Key Vault?](key-vault-overview.md). Per istruzioni relative all'interfaccia della riga di comando multipiattaforma, vedere [gestire Key Vault tramite la CLI di Azure](key-vault-manage-with-cli2.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="set-up-key-vault"></a>Configurare l'insieme di credenziali delle chiavi
 
@@ -166,6 +166,9 @@ Quando si esegue l'applicazione, verrà eseguita l'autenticazione in Azure Activ
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotazione delle chiavi con Automazione di Azure
 
+> [!IMPORTANT]
+> Runbook di automazione di Azure richiedono comunque l'uso del `AzureRM` modulo.
+
 A questo punto si è pronti configurare una strategia di rotazione per i valori memorizzati come segreti di Key Vault. I segreti possono essere ruotati in diversi modi:
 
 - Come parte di un processo manuale
@@ -210,7 +213,7 @@ try
     $servicePrincipalConnection=Get-AutomationConnection -Name $connectionName         
 
     "Logging in to Azure..."
-    Connect-AzAccount `
+    Connect-AzureRmAccount `
         -ServicePrincipal `
         -TenantId $servicePrincipalConnection.TenantId `
         -ApplicationId $servicePrincipalConnection.ApplicationId `
@@ -235,12 +238,12 @@ $VaultName = <keyVaultName>
 $SecretName = <keyVaultSecretName>
 
 #Key name. For example key1 or key2 for the storage account
-New-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
-$SAKeys = Get-AzStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
+New-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName -KeyName "key2" -Verbose
+$SAKeys = Get-AzureRmStorageAccountKey -ResourceGroupName $RGName -Name $StorageAccountName
 
 $secretvalue = ConvertTo-SecureString $SAKeys[1].Value -AsPlainText -Force
 
-$secret = Set-AzKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
+$secret = Set-AzureRmKeyVaultSecret -VaultName $VaultName -Name $SecretName -SecretValue $secretvalue
 ```
 
 Nel riquadro dell'editor, selezionare **riquadro di Test** per testare lo script. Dopo lo script viene eseguito senza errori, è possibile selezionare **pubblica**, ed è quindi possibile applicare una pianificazione per il runbook nel riquadro di configurazione del runbook.

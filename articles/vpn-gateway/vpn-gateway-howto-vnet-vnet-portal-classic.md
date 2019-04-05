@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6924d4eca52bfab8c90e7787bb8849b47df064db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112263"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046123"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configurare una connessione da rete virtuale a rete virtuale (versione classica)
 
@@ -33,12 +33,14 @@ Questo articolo consente di creare una connessione gateway VPN tra reti virtuali
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-howto-vnet-vnet-cli.md)
 > * [Portale di Azure (classico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Connettersi tra modelli di distribuzione diversi - Portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Connettere i modelli di distribuzione diversi - portale di Azure](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [Connettersi tra modelli di distribuzione diversi - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
 ![Diagramma di connettività tra reti virtuali](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about-vnet-to-vnet-connections"></a>Informazioni sulla connessione da rete virtuale a rete virtuale
 
@@ -56,7 +58,7 @@ Le reti virtuali possono trovarsi in diverse sottoscrizioni e aree geografiche d
 
   * È possibile configurare la sincronizzazione o la replica geografica con connettività sicura senza passare da endpoint con connessione Internet.
   * Con Azure Load Balancer e una tecnologia di clustering Microsoft o di terze parti, è possibile configurare il carico di lavoro a disponibilità elevata con ridondanza geografica in più aree di Azure. Un esempio importante è rappresentato dalla configurazione SQL AlwaysOn con gruppi di disponibilità distribuiti in più aree di Azure.
-* **Applicazioni multi livello in singole aree geografiche con alto grado di isolamento**
+* **Applicazioni multilivello in singole aree geografiche con alto grado di isolamento**
 
   * Nella stessa area, è possibile configurare applicazioni multilivello con più reti virtuali collegate tra loro tramite forte isolamento e comunicazione tra livelli sicura.
 * **Comunicazione tra sottoscrizioni e organizzazioni in Azure**
@@ -122,7 +124,7 @@ GatewaySubnet: 10.41.1.0/27
 
 * **Indirizzo** : quando si crea una rete virtuale viene associata a una località di Azure (area). Ad esempio, se si desidera che le macchine virtuali distribuite nella rete virtuale vengano posizionate fisicamente in Stati Uniti occidentali, selezionare tale posizione. È possibile modificare il percorso associato alla rete virtuale dopo averla creata.
 
-**Dopo aver creato le reti virtuali, è possibile aggiungere le seguenti impostazioni:**
+**Dopo aver creato le reti virtuali, è possibile aggiungere le impostazioni seguenti:**
 
 * **Spazio indirizzi**: per questa configurazione non sono necessari altri spazi degli indirizzi, ma è possibile aggiungere altri spazi degli indirizzi dopo aver creato la rete virtuale.
 
@@ -219,19 +221,19 @@ Nelle procedure seguenti, ci si connetterà al proprio account Azure per scarica
 2. Aprire la console di PowerShell con diritti elevati e connettersi all'account. Per eseguire la connessione, usare gli esempi che seguono:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
    Controllare le sottoscrizioni per l'account.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
    Se sono disponibili più sottoscrizioni, selezionare la sottoscrizione da usare.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
    Successivamente, utilizzare il cmdlet seguente per aggiungere la sottoscrizione di Azure a PowerShell per il modello di distribuzione classico.

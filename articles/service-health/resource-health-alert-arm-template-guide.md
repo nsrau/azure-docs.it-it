@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663435"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047518"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configurare avvisi di integrità risorse di Azure tramite modelli di Gestione risorse
 
@@ -22,30 +22,32 @@ Integrità risorse di Azure comunica lo stato di integrità attuale e cronologic
 > [!NOTE]
 > Gli avvisi di integrità risorse sono attualmente in anteprima.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per seguire le istruzioni riportate in questa pagina, è necessario configurare in anticipo alcuni aspetti:
 
-1. È necessario installare il [modulo di Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. È necessario installare il [modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. È necessario [creare o riutilizzare un gruppo di azioni](../azure-monitor/platform/action-groups.md) configurato per ricevere una notifica
 
 ## <a name="instructions"></a>Istruzioni
 1. Tramite PowerShell, accedere ad Azure con il proprio account e selezionare la sottoscrizione con cui si desidera interagire
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > È possibile usare `Get-AzureRmSubscription` per elencare le sottoscrizioni che è possibile utilizzare.
+    > È possibile usare `Get-AzSubscription` per elencare le sottoscrizioni che è possibile utilizzare.
 
 2. Individuare e salvare l'ID di Azure Resource Manager completo per il gruppo di azioni
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Creare e salvare un modello di Gestione risorse per gli avvisi di Integrità risorse come `resourcehealthalert.json` ([vedere i dettagli di seguito](#resource-manager-template-for-resource-health-alerts))
 
 4. Creare una nuova distribuzione di Azure Resource Manager usando questo modello
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. Verrà richiesto di digitare il nome dell'avviso e l'ID di risorsa gruppo di azioni copiato in precedenza:
 
@@ -162,7 +164,7 @@ E per un ambito a livello di risorse, la sezione ambiti dovrebbe essere simile a
 ],
 ```
 
-Ad esempio: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Ad esempio:  `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Per ottenere questa stringa, è possibile accedere al portale di Azure e osservare l'URL quando si visualizzano le risorse di Azure.
 
@@ -426,8 +428,8 @@ Tuttavia, ogni utente è consapevole di quali configurazioni sono più efficaci 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Altre informazioni su Integrità risorse:
--  [Panoramica su Integrità risorse di Azure](Resource-health-overview.md)
+-  [Panoramica di Integrità risorse di Azure](Resource-health-overview.md)
 -  [Tipi di risorse e controlli integrità disponibili in Integrità risorse di Azure](resource-health-checks-resource-types.md)
 
 Creare avviso di integrità dei servizi di Azure:
--  [Configurare gli avvisi per Integrità dei servizi di Azure](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Configurare gli avvisi per integrità dei servizi](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

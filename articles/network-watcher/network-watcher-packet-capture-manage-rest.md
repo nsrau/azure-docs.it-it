@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 49a703164b302443d8b50ba950cf23b8601cb599
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 614c3e1831680fff50058cd5192449f8e6e28179
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480703"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049797"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-azure-rest-api"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher usando l'API REST di Azure
 
@@ -39,6 +39,9 @@ Questo articolo illustra le diverse attività di gestione attualmente disponibil
 - [**Avviare un'acquisizione di pacchetti**](#start-packet-capture)
 - [**Interrompere un'acquisizione di pacchetti**](#stop-packet-capture)
 - [**Eliminare un'acquisizione di pacchetti**](#delete-packet-capture)
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -60,7 +63,7 @@ Eseguire lo script seguente per restituire la macchina virtuale. Queste informaz
 
 Per il codice seguente sono necessarie alcune variabili:
 
-- **subscriptionId**: l'ID sottoscrizione può essere recuperato anche con il cmdlet **Get-AzureRMSubscription**.
+- **subscriptionId** -l'id della sottoscrizione può essere recuperato anche con il **Get-AzSubscription** cmdlet.
 - **resourceGroupName**: il nome di un gruppo di risorse contenente le macchine virtuali.
 
 ```powershell

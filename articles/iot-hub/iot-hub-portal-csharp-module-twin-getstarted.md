@@ -3,18 +3,18 @@ title: Introduzione all'identità del modulo e ai moduli gemelli dell'hub IoT di
 description: Come creare l'identità del modulo e aggiornare il modulo gemello usando il portale e .NET.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: f323eb777d98a812ead8dd8ac78ee3d6b36a748a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: d5ac2291f9be6fc8f8d702ec390acf02d5ad9d0f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57545821"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051649"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
 

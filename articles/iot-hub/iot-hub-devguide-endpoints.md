@@ -3,17 +3,17 @@ title: Conoscere gli endpoint di Azure IoT Hub | Documentazione Microsoft
 description: "Guida per gli sviluppatori: informazioni di riferimento sugli endpoint dell'hub IoT per dispositivi e per servizi."
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: 085a4ffbe0b615408bfd8aa70c027013e16f0136
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 5015068f9b165190bef3b0cb97ddb194e173303e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201433"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045918"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Informazioni di riferimento - Endpoint dell'hub IoT
 
@@ -102,5 +102,5 @@ In una soluzione IoT un *gateway sul campo* è posizionato tra i dispositivi e l
 Di seguito sono indicati altri argomenti di riferimento reperibili nella Guida per gli sviluppatori dell'hub IoT:
 
 * [Linguaggio di query dell'hub IoT per dispositivi gemelli, processi e routing di messaggi](iot-hub-devguide-query-language.md)
-* [Quote e limitazione](iot-hub-devguide-quotas-throttling.md)
+* [Quote e limitazioni](iot-hub-devguide-quotas-throttling.md)
 * [Supporto di MQTT nell'hub IoT](iot-hub-mqtt-support.md)

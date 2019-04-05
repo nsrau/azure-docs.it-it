@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c19d41cee55a309b5345af4f811c60b82a613
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178975"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046496"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Riscatto dell'invito di Collaborazione B2B di Azure Active Directory
 
@@ -56,14 +56,14 @@ Per informazioni sul modo in cui un amministratore del tenant può collegarsi al
 
 ## <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
-È possibile presentare le condizioni per l'utilizzo all'utente guest durante il processo di riscatto iniziale usando la funzionalità Condizioni per l'utilizzo di Azure AD. In Azure Active Directory è possibile accedere a questa funzionalità in **Gestisci** > **Relazioni aziendale** > **Condizioni per l'utilizzo** o in **Sicurezza** > **Accesso condizionale** > **Condizioni per l'utilizzo**. Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure AD](../governance/active-directory-tou.md).
+È possibile presentare le condizioni per l'utilizzo all'utente guest durante il processo di riscatto iniziale usando la funzionalità Condizioni per l'utilizzo di Azure AD. In Azure Active Directory è possibile accedere a questa funzionalità in **Gestisci** > **Relazioni aziendale** > **Condizioni per l'utilizzo** o in **Sicurezza** > **Accesso condizionale** > **Condizioni per l'utilizzo**. Per altre informazioni, vedere [Funzionalità Condizioni per l'utilizzo di Azure AD](../conditional-access/terms-of-use.md).
 
 ![Screenshot che mostra le nuove condizioni per l'utilizzo](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
+- [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
 - [Aggiungere utenti di Collaborazione B2B di Azure Active Directory nel portale di Azure](add-users-administrator.md)
 - [Procedura di aggiunta di utenti di Collaborazione B2B ad Azure Active Directory da parte di information worker](add-users-information-worker.md)
-- [Add Azure Active Directory B2B collaboration users by using PowerShell (Aggiungere utenti di Collaborazione B2B di Azure Active Directory usando PowerShell)](customize-invitation-api.md#powershell)
-- [Leave an organization as a guest user (Uscire da un'organizzazione come utente guest)](leave-the-organization.md)
+- [Aggiungere gli utenti di collaborazione B2B di Azure Active Directory usando PowerShell](customize-invitation-api.md#powershell)
+- [Uscire da un'organizzazione come utente guest](leave-the-organization.md)

@@ -1,19 +1,18 @@
 ---
 title: Inserimento dati in Esplora dati di Azure
 description: Informazioni sui diversi modi di inserire (caricare) i dati in Esplora dati di Azure
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 2/18/2019
-ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/18/2019
+ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755780"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045595"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Inserimento dati in Esplora dati di Azure
 
@@ -91,9 +90,9 @@ Kusto offre un SDK client che può essere usato per inserire ed eseguire query s
 
 | Metodo | Latenza |
 | --- | --- |
-| **Inserimento inline** | Immediato |
-| **Inserimento da query** | Tempo di query + tempo di elaborazione |
-| **Inserimento da risorsa di archiviazione** | Tempo di download + tempo di elaborazione |
+| **Inserimento di inline** | Immediato |
+| **Inserimento di query** | Tempo di query + tempo di elaborazione |
+| **Da un archivio di inserimento** | Tempo di download + tempo di elaborazione |
 | **Inserimento in coda** | Tempo di invio in batch + tempo di elaborazione |
 | |
 
@@ -145,7 +144,7 @@ Il mapping dello schema consente di associare i campi dati di origine alle colon
 > [Inserire dati dall'hub eventi in Esplora dati di Azure](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Inserire dati in Esplora dati di Azure tramite una sottoscrizione di Griglia di eventi](ingest-data-event-grid.md)
+> [Inserire i dati usando la sottoscrizione di griglia di eventi in Esplora dati di Azure](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
 > [Inserire dati da Kafka in Esplora dati di Azure](ingest-data-kafka.md)

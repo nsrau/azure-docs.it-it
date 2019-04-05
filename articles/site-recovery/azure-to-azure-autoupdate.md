@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 6e1a9b2fd34d915716225c6a1bda6e0371a510a9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 67eb01ad596393c9095d72670e61b8c09776c588
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438836"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049235"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Aggiornamento automatico del servizio Mobility nella replica di Azure ad Azure
 
@@ -21,6 +21,9 @@ Azure Site Recovery Usa un ritmo di rilascio mensile per risolvere i problemi e 
 
 Come indicato nella [architettura di ripristino di emergenza da Azure ad Azure](azure-to-azure-architecture.md), il servizio Mobility viene installato in tutte le macchine virtuali di Azure (VM) per cui è abilitata la replica, durante la replica di macchine virtuali da un'area di Azure a un altro. Quando si usano gli aggiornamenti automatici, ogni nuova versione consente di aggiornare l'estensione del servizio Mobility.
  
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="how-automatic-updates-work"></a>Lavoro degli aggiornamenti automatica
 
 Quando si usa Site Recovery per gestire gli aggiornamenti, distribuisce un runbook globale (usato da servizi di Azure) tramite un account di automazione creato nella stessa sottoscrizione dell'insieme di credenziali. Ogni insieme di credenziali Usa un account di automazione. Il runbook controlla ogni macchina virtuale in un insieme di credenziali per gli aggiornamenti automatici attivi e consente di aggiornare l'estensione del servizio Mobility se è disponibile una versione più recente.
@@ -342,7 +345,7 @@ $JobsFailedToStart = 0
 $JobsTimedOut = 0
 $Header = @{}
 
-$AzureRMProfile = Get-Module -ListAvailable -Name AzureRM.Profile | Select Name, Version, Path
+$AzureRMProfile = Get-Module -ListAvailable -Name Az.Accounts | Select Name, Version, Path
 $AzureRmProfileModulePath = Split-Path -Parent $AzureRMProfile.Path
 Add-Type -Path (Join-Path $AzureRmProfileModulePath "Microsoft.IdentityModel.Clients.ActiveDirectory.dll")
 

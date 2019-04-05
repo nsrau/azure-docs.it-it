@@ -3,17 +3,17 @@ title: Servizio Device Provisioning in hub IoT - Concetti relativi al provisioni
 description: Questo articolo offre una panoramica delle fasi in cui si articola il provisioning automatico dei dispositivi tramite il servizio Device Provisioning in hub IoT, l'hub IoT e SDK client.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/01/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 6ba21e29673da176c380d6b367e84b2ea7536955
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0df4eb664accd828c47d834fb0014d0d60f57458
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58080032"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051734"
 ---
 # <a name="auto-provisioning-concepts"></a>Concetti relativi al provisioning automatico
 
@@ -97,7 +97,7 @@ Può risultare utile aggiungere un segnalibro a questo articolo per usarlo come 
 
 Per iniziare, completare la guida introduttiva "Configurare il provisioning automatico" relativa allo strumento di gestione in uso, che copre la fase "Configurazione del servizio":
 
-- [Configurare il provisioning automatico usando l'interfaccia della riga di comando di Azure](quick-setup-auto-provision-cli.md)
+- [Configurare il provisioning automatico usando Azure CLI](quick-setup-auto-provision-cli.md)
 - [Configurare il provisioning automatico usando il portale di Azure](quick-setup-auto-provision.md)
 - [Configurare il provisioning automatico usando un modello di Resource Manager](quick-setup-auto-provision-rm.md)
 

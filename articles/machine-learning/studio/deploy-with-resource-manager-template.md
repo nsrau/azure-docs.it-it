@@ -10,16 +10,18 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 83ae58e4a86d3bc2ffb2197f48d2c641790e8524
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 91413aa461261824782717ae4edacc2757ad5405
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648283"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048725"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Distribuire un'area di lavoro di Azure Machine Learning Studio con Azure Resource Manager
 
 L'uso di un modello di distribuzione Azure Resource Manager consente di risparmiare tempo perché è possibile distribuire in modo scalabile i componenti interconnessi con un meccanismo di convalida e di ripetizione dei tentativi. Per configurare le aree di lavoro di Azure Machine Learning Studio, ad esempio, è necessario configurare prima un account di archiviazione di Azure e quindi distribuire l'area di lavoro. Si immagini di doverlo fare manualmente per centinaia di aree di lavoro. Un'alternativa più semplice prevede l'uso di un modello di Azure Resource Manager per distribuire un'area di lavoro di Studio e tutte le dipendenze. Questo articolo illustra il processo in dettaglio. Per una panoramica generale di Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="step-by-step-create-a-machine-learning-workspace"></a>Procedura dettagliata: Creare un'area di lavoro di Machine Learning
 Verrà creato un gruppo di risorse di Azure, quindi verranno distribuiti un nuovo account di archiviazione di Azure e una nuova area di lavoro di Azure Machine Learning Studio usando un modello di Resource Manager. Una volta completata la distribuzione, verranno visualizzate importanti informazioni sulle aree di lavoro create (la chiave primaria, l'ID area di lavoro e l'URL dell'area di lavoro).
@@ -83,7 +85,7 @@ Salvare questo modello come file mlworkspace.json in c:\temp\.
 
 ```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
-Install-Module AzureRM -Scope CurrentUser
+Install-Module Az -Scope CurrentUser
 
 # Install the Azure Service Management modules from the PowerShell Gallery (press “A”)
 Install-Module Azure -Scope CurrentUser
@@ -95,7 +97,7 @@ Install-Module Azure -Scope CurrentUser
 
 ```powershell
 # Authenticate (enter your credentials in the pop-up window)
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 Questo passaggio deve essere ripetuto per ogni sessione. Una volta eseguita l'autenticazione, verranno visualizzate le informazioni sulla sottoscrizione.
 
@@ -106,7 +108,7 @@ Ora che si ha accesso ad Azure, è possibile creare il gruppo di risorse.
 * Creare un gruppo di risorse
 
 ```powershell
-$rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
+$rg = New-AzResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
 
@@ -119,7 +121,7 @@ Il nome del gruppo di risorse viene usato dal modello per generare il nome dell'
 
 ```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
-$rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
+$rgd = New-AzResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
 Una volta completata la distribuzione, è semplice accedere alle proprietà dell'area di lavoro distribuita. Ad esempio, è possibile accedere al token di chiave primaria.
@@ -129,11 +131,11 @@ Una volta completata la distribuzione, è semplice accedere alle proprietà dell
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
-Un altro modo per recuperare i token dell'area di lavoro esistente consiste nell'utilizzare il comando Invoke-AzureRmResourceAction. Ad esempio, è possibile elencare i token primari e secondari di tutte le aree di lavoro.
+Un altro modo per recuperare i token dell'area di lavoro esistente consiste nell'utilizzare il comando Invoke-AzResourceAction. Ad esempio, è possibile elencare i token primari e secondari di tutte le aree di lavoro.
 
 ```powershell
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
+Get-AzResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 Dopo il provisioning dell'area di lavoro, è anche possibile automatizzare diverse attività di Azure Machine Learning Studio usando il [modulo PowerShell per Azure Machine Learning Studio](https://aka.ms/amlps).
 

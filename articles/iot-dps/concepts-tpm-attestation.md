@@ -3,17 +3,17 @@ title: Servizio Device Provisioning in hub IoT di Azure - Attestazione TPM
 description: In questo articolo viene fornita una panoramica concettuale del flusso di un'attestazione TPM con il servizio Device Provisioning IoT.
 author: nberdy
 ms.author: nberdy
-ms.date: 04/23/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: e4a86585fbf1e00512e9e8e111a9a259663f8a26
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536779"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048878"
 ---
 # <a name="tpm-attestation"></a>Attestazione TPM
 
@@ -67,5 +67,5 @@ Il dispositivo può quindi firmare un token di firma di accesso condiviso con il
 
 A questo punto, il dispositivo si connette all'hub IoT e viene garantita l’archiviazione sicura delle chiavi dei dispositivi. Ora che è stato appreso come il servizio Device Provisioning verifica in modo sicuro l’identità di un dispositivo utilizzando il TPM, è possibile consultare gli articoli seguenti per altre informazioni:
 
-* [Informazioni sui concetti di provisioning automatico](./concepts-auto-provisioning.md)
+* [Informazioni su tutti i concetti di provisioning automatico](./concepts-auto-provisioning.md)
 * [Introduzione all'uso del provisioning automatico](./quick-setup-auto-provision.md) tramite SDK per la gestione del flusso.

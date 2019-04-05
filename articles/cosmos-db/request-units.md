@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 850c8af3e3dd696ce0e84b9c553d6f1617deb3de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 72ec8332a3363d5336fb84b3390d5e44ced0b2e5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762974"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047321"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 
@@ -71,6 +71,7 @@ Per stimare il numero di UR al secondo di cui effettuare il provisioning, consid
 * [Ridimensionamento a livello globale della velocità effettiva sottoposta a provisioning](scaling-throughput.md)
 * [Effettuare il provisioning della velocità effettiva in un contenitore di Azure Cosmos](how-to-provision-container-throughput.md)
 * [Effettuare il provisioning della velocità effettiva in un database di Azure Cosmos](how-to-provision-database-throughput.md)
+* Informazioni su come [trovare l'addebito delle unità richiesta per un'operazione](find-request-unit-charge.md).
 * Informazioni su come [ottimizzare i costi di velocità effettiva con provisioning in Azure Cosmos DB](optimize-cost-throughput.md).
 * Informazioni su come [ottimizzare le letture e scritture dei costi in Azure Cosmos DB](optimize-cost-reads-writes.md).
 * Informazioni su come [ottimizzare il costo di query in Azure Cosmos DB](optimize-cost-queries.md).

@@ -1,21 +1,20 @@
 ---
-title: Gestire i dati duplicati
-description: Questo argomento illustra vari modi per gestire i dati duplicati
-services: data-explorer
+title: Gestire i dati duplicati in Esplora dati di Azure
+description: Questo argomento si illustra diversi approcci per la gestione con dati duplicati quando si usa Esplora dati di Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756366"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045782"
 ---
-# <a name="deal-with-duplicate-data"></a>Gestire i dati duplicati
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Gestire i dati duplicati in Esplora dati di Azure
 
 I dispositivi che inviano dati al cloud mantengono una cache locale dei dati. A seconda delle dimensioni dei dati, la cache locale potrebbe archiviare i dati per giorni o anche mesi. Si vogliono proteggere i database analitici dai dispositivi non funzionanti che inviano di nuovo i dati memorizzati nella cache e causano la duplicazione dei dati nel database analitico. Questo argomento descrive le procedure consigliate per la gestione dei dati duplicati per questi tipi di scenari.
 

@@ -7,16 +7,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: mayg
-ms.openlocfilehash: 325cd0d2f52405ae1cbf463f6335c8738317ea1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 10bec01a3b90776c8dd8c32a74ba7754264da131
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878707"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050136"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gestire il server di configurazione per il ripristino di emergenza di server fisici
 
 Si configura un server di configurazione locale quando si usa il servizio [Azure Site Recovery](site-recovery-overview.md) per il ripristino di emergenza dei server fisici in Azure. Il server di configurazione coordina le comunicazioni tra i computer locali e Azure e gestisce la replica dei dati. Questo articolo riepiloga le attività comuni per la gestione del server di configurazione dopo che è stato distribuito.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -265,28 +267,28 @@ Per aggiornare il server, seguire questa procedura:
 
 ## <a name="delete-or-unregister-a-configuration-server-powershell"></a>Eliminare o annullare la registrazione di un server di configurazione (PowerShell)
 
-1. [Installare](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) il modulo Azure PowerShell
+1. [Installare](https://docs.microsoft.com/powershell/azure/install-Az-ps) il modulo Azure PowerShell
 2. Accedere al proprio account di Azure usando il comando
     
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 3. Selezionare la sottoscrizione in cui è presente l'insieme di credenziali
 
-     `Get-AzureRmSubscription –SubscriptionName <your subscription name> | Select-AzureRmSubscription`
+     `Get-AzSubscription –SubscriptionName <your subscription name> | Select-AzSubscription`
 3.  Configurare ora il contesto dell'insieme di credenziali
     
     ```powershell
-    $Vault = Get-AzureRmRecoveryServicesVault -Name <name of your vault>
-    Set-AzureRmSiteRecoveryVaultSettings -ARSVault $Vault
+    $Vault = Get-AzRecoveryServicesVault -Name <name of your vault>
+    Set-AzSiteRecoveryVaultSettings -ARSVault $Vault
     ```
 4. Selezionare il server di configurazione
 
-    `$Fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
+    `$Fabric = Get-AzSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Eliminare il server di configurazione
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $Fabric [-Force]`
+    `Remove-AzSiteRecoveryFabric -Fabric $Fabric [-Force]`
 
 > [!NOTE]
-> L'opzione **-Force** in Remove-AzureRmSiteRecoveryFabric può essere usata per forzare la rimozione/eliminazione del server di configurazione.
+> Il **-Force** opzione nella finestra di Remove-AzSiteRecoveryFabric può essere usata per forzare la rimozione/eliminazione del server di configurazione.
 
 ## <a name="renew-ssl-certificates"></a>Rinnovare i certificati SSL
 Il server di configurazione include un server Web integrato che orchestra le attività del servizio Mobility, dei server di elaborazione e dei server di destinazione master connessi. Il server Web usa un certificato SSL per autenticare i client. Il certificato scade dopo tre anni e può essere rinnovato in qualsiasi momento.

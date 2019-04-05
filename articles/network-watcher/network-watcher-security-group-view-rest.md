@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 77519c57c9a603ae0eff46d248ff15432d0404fa
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a2f55a65d88b499384fc961c3d6a479bac804ba8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485392"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051530"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>Analizzare la protezione della macchina virtuale visualizzando un gruppo di sicurezza con l'API REST
 
@@ -29,6 +29,9 @@ ms.locfileid: "58485392"
 > - [API REST](network-watcher-security-group-view-rest.md)
 
 La visualizzazione di un gruppo di sicurezza consente di recuperare le regole di sicurezza di rete configurate ed effettive applicate a una macchina virtuale. Questa funzionalità è utile per controllare e diagnosticare i gruppi di sicurezza di rete e le regole configurate in una macchina virtuale per verificare che il traffico viene consentito o negato in modo corretto. Questo articolo illustra come recuperare le regole di sicurezza effettive ed applicate a una macchina virtuale tramite l'API REST
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -50,7 +53,7 @@ armclient login
 
 Eseguire lo script seguente per restituire una macchina virtuale Il codice seguente necessita delle variabili:
 
-- **subscriptionId**: l'ID sottoscrizione può essere recuperato anche con il cmdlet **Get-AzureRMSubscription**.
+- **subscriptionId** -l'id della sottoscrizione può essere recuperato anche con il **Get-AzSubscription** cmdlet.
 - **resourceGroupName**: il nome di un gruppo di risorse contenente le macchine virtuali.
 
 ```powershell

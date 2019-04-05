@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312275"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050646"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 
@@ -42,7 +42,7 @@ Se lo stato di integrità di Gestione traffico è **Inattivo**, entrambi gli end
 Per risolvere gli errori di probe, è necessario uno strumento che mostri il codice di stato HTTP restituito dall'URL del probe. Sono disponibili numerosi strumenti che mostrano la risposta HTTP non elaborata.
 
 * [Fiddler](https://www.telerik.com/fiddler)
-* [curl](https://curl.haxx.se/)
+* [CURL](https://curl.haxx.se/)
 * [wget](http://gnuwin32.sourceforge.net/packages/wget.htm)
 
 È inoltre possibile utilizzare la scheda Rete in Strumenti F12 per il debug di Internet Explorer per visualizzare le risposte HTTP.
@@ -80,16 +80,16 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Fasi successive
 
-[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
+[Metodi di routing del traffico di gestione traffico](traffic-manager-routing-methods.md)
 
-[Gestione traffico di Azure](traffic-manager-overview.md)
+[Che cos'è Gestione traffico](traffic-manager-overview.md)
 
 [Servizi cloud](https://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Servizio app di Azure](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operazioni per gestione traffico (riferimento all'API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlet di Gestione traffico di Azure][1]
 
-[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager
+[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

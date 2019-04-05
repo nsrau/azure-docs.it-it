@@ -8,17 +8,16 @@ ms.service: site-recovery
 ms.date: 03/18/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4888d019065e557cb49574e2268515323b3fd005
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8a7694f3a94f9bda7dc905fabbd7adf0e4b7d0f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310706"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047178"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Domande frequenti - Ripristino di emergenza da Hyper-V ad Azure
 
 Questo articolo fornisce le risposte alle domande frequenti relative alla replica di macchine virtuali Hyper-V locali in Azure. 
-
 
 ## <a name="general"></a>Generale
 
@@ -90,8 +89,8 @@ Sì. Site Recovery esegue la conversione dalla seconda generazione alla prima du
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>È possibile automatizzare gli scenari di Site Recovery con un SDK?
 Sì. È possibile automatizzare i flussi di lavoro di Site Recovery usando l'API Rest, PowerShell o Azure SDK. Scenari attualmente supportati per la replica da Hyper-V ad Azure con PowerShell:
 
-- [Replica di Hyper-V senza VMM tramite PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Replica di Hyper-V con VMM tramite PowerShell](hyper-v-vmm-powershell-resource-manager.md)
+- [Eseguire la replica Hyper-V senza VMM con PowerShell](hyper-v-azure-powershell-resource-manager.md)
+- [La replica Hyper-V con VMM tramite Powershell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>Replica
 
@@ -188,7 +187,7 @@ Dopo il failover, è possibile accedere alle macchine virtuali di Azure tramite 
 Azure è progettato nell'ottica della resilienza. Site Recovery è progettato per il failover a un data center secondario di Azure in conformità con il contratto di servizio di Azure. Al momento del failover, Microsoft si assicura che i metadati e gli insiemi di credenziali rimangano nella stessa area geografica selezionata per l'insieme di credenziali.
 
 ### <a name="is-failover-automatic"></a>Il failover è automatico?
-Il [failover](site-recovery-failover.md) non è automatico. Può essere avviato con singolo clic nel portale oppure è possibile usare [PowerShell](/powershell/module/azurerm.siterecovery) per attivare un failover.
+Il [failover](site-recovery-failover.md) non è automatico. Può essere avviato con singolo clic nel portale oppure è possibile usare [PowerShell](/powershell/module/az.siterecovery) per attivare un failover.
 
 ### <a name="how-do-i-fail-back"></a>Come si esegue il failback?
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802955"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048710"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -30,7 +30,7 @@ Prima di esaminare i metodi disponibili per creare report sulla conformità, è 
 > [!WARNING]
 > Se lo stato di conformità viene segnalato come **non è registrato**, verificare che il **policyinsights** (controllo di Provider di risorse viene registrato e che l'utente disponga dell'accesso appropriato in base al ruolo Le autorizzazioni RBAC) come descritto in [RBAC in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Trigger di valutazione
 
@@ -56,8 +56,8 @@ Un'analisi di valutazione di una sottoscrizione o un gruppo di risorse può esse
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourRG}`: sostituire con il nome del gruppo di risorse
-- `{subscriptionId}`: sostituire con l'ID sottoscrizione
+- `{YourRG}` -Sostituire con il nome del gruppo di risorse
+- `{subscriptionId}` -Sostituire con l'ID sottoscrizione
 
 L'analisi supporta la valutazione delle risorse in una sottoscrizione o in un gruppo di risorse. Avviare un'analisi per ambito con un comando **POST** dell'API REST usando le strutture URI seguenti:
 

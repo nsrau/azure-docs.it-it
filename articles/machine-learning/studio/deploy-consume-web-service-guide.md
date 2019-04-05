@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 04/19/2017
-ms.openlocfilehash: 592bf638cf0be26182dfdb28ac5a0c8345a7a250
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ad58b914c22c112a83c18a7c0377b567424e4efd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116708"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046020"
 ---
 # <a name="azure-machine-learning-studio-web-services-deployment-and-consumption"></a>Servizi Web di Azure Machine Learning Studio: Distribuzione e utilizzo
 
@@ -37,7 +37,7 @@ I collegamenti seguenti offrono informazioni generali su come distribuire un nuo
 * Per esempi specifici di distribuzione di un servizio Web, vedere:
 
   * [Esercitazione 3: Distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md)
-  * [Come distribuire un servizio Web in più aree](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
+  * [Come distribuire un servizio web in più aree](/azure/machine-learning/studio/publish-a-machine-learning-web-service#multi-region)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Con le API del provider di risorse di servizi Web (API di Azure Resource Manager)
 
@@ -49,7 +49,7 @@ Il provider di risorse di Azure Machine Learning Studio per i servizi Web consen
 
 Il provider di risorse di Azure Machine Learning Studio per i servizi Web consente di distribuire e gestire i servizi Web tramite cmdlet di PowerShell.
 
-Per usare i cmdlet è prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell tramite il cmdlet [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount). Se non si ha familiarità con la chiamata di comandi di PowerShell basati su Resource Manger, vedere [Uso di Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
+Per usare i cmdlet, è prima necessario accedere al proprio account Azure dall'interno dell'ambiente di PowerShell usando il [Connect-AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet. Se non si ha familiarità con la chiamata di comandi di PowerShell basati su Resource Manger, vedere [Uso di Azure PowerShell con Azure Resource Manager](../../azure-resource-manager/manage-resources-powershell.md).
 
 Usare questo [codice di esempio](https://github.com/ritwik20/AzureML-WebServices)per esportare l'esperimento predittivo. Dopo aver creato il file .exe dal codice è possibile digitare:
 
@@ -78,7 +78,7 @@ Ad esempio:
 
 Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 
-* [Cmdlet di Azure Machine Learning Studio](https://docs.microsoft.com/powershell/module/azurerm.machinelearning) in MSDN
+* [Cmdlet di Azure Machine Learning Studio](https://docs.microsoft.com/powershell/module/az.machinelearning) in MSDN
 * [Procedura dettagliata](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) di esempio su GitHub
 
 ## <a name="consume-the-web-services"></a>Utilizzare i servizi Web
@@ -95,8 +95,8 @@ Per altre informazioni, vedere gli articoli e il codice di esempio seguenti:
 
 È possibile scaricare un modello di Excel che usa il servizio Web:
 
-* [Utilizzo di un servizio Web di Azure Machine Learning da Excel](consuming-from-excel.md)
-* [Componente aggiuntivo Excel per i servizi Web di Azure Machine Learning](excel-add-in-for-web-services.md)
+* [Utilizzo di un servizio web di Azure Machine Learning da Excel](consuming-from-excel.md)
+* [Componente aggiuntivo di Excel per servizi Web di Azure Machine Learning](excel-add-in-for-web-services.md)
 
 ### <a name="from-a-rest-based-client"></a>Da un client basato su REST
 

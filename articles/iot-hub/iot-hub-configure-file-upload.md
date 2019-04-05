@@ -7,13 +7,13 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 04f3f05c8c18a3356c282144cda62d1f980362fe
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: bd7cc37b8fc81fc9d4109826743f2243913d0604
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57008442"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047280"
 ---
 # <a name="configure-iot-hub-file-uploads-using-the-azure-portal"></a>Configurare i caricamenti dei file nell'hub IoT con il portale di Azure
 
@@ -46,11 +46,11 @@ Per altre informazioni sulle funzionalità di caricamento dei file dell'hub IoT,
 Per ulteriori informazioni sulla gestione dell'hub IoT di Azure, consultare questi collegamenti:
 
 * [Gestire in blocco i dispositivi IoT](iot-hub-bulk-identity-mgmt.md)
-* [Metriche di hub IoT](iot-hub-metrics.md)
+* [Metriche di Hub IoT](iot-hub-metrics.md)
 * [Monitoraggio delle operazioni](iot-hub-operations-monitoring.md)
 
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per sviluppatori dell'hub IoT](iot-hub-devguide.md)
+* [Guida per gli sviluppatori dell'IoT Hub](iot-hub-devguide.md)
 * [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Proteggere la soluzione IoT sin dall'inizio](../iot-fundamentals/iot-security-ground-up.md)
+* [Proteggere la soluzione IoT sin dall'inizio backup](../iot-fundamentals/iot-security-ground-up.md)

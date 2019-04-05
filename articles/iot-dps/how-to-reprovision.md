@@ -3,17 +3,17 @@ title: Come rieffettuare il provisioning dei dispositivi nel servizio Device Pro
 description: Come rieffettuare il provisioning dei dispositivi in un'istanza del servizio Device Provisioning
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 4fedc5b8b3b69ff364374dbef0460930e1f631a6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869072"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046838"
 ---
 # <a name="how-to-reprovision-devices"></a>Come rieffettuare il provisioning dei dispositivi
 

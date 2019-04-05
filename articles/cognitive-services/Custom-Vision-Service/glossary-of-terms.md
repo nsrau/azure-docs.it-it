@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: anroth
-ms.openlocfilehash: 3530dbfe15f6dbdf481df70de6d03979750aa38e
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352103"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048937"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossario dei termini del Servizio visione artificiale personalizzato
 
@@ -29,11 +29,10 @@ Un classificatore è un modello che si genera usando il Servizio visione artific
 
 Quando si crea un progetto, si seleziona un "dominio" per il progetto. Il dominio ottimizza un classificatore per un tipo specifico di oggetto nelle immagini usate. Se ad esempio lo scenario prevede di classificare tra immagini di una torta di mele e immagini di una torta di carote, è consigliabile selezionare il dominio "Cibo". Se non si è sicuri di quale dominio scegliere, selezionare il dominio "Generale".
 
-- **Dominio Cibo.** Ottimizzato per i piatti che si possono vedere nel menu di un ristorante. Non è ottimizzato per riconoscere i singoli frutti o le singole verdure. Se si intende classificare le fotografie di singoli frutti o singole verdure, usare il dominio Generale.
-- **Dominio Riferimento.** Ottimizzato per i luoghi riconoscibili, sia naturali che artificiali. Questo dominio funziona meglio quando il luogo è chiaramente visibile nella fotografia, anche se è leggermente nascosto da un gruppo di persone in posa davanti ad esso.
-- **Dominio Vendita al dettaglio.** Ottimizzato per classificare le immagini di un catalogo di vendita o di un sito Web di vendita. Se si vuole classificare con elevata precisione abiti, pantaloni, magliette, ecc, è consigliabile usare il dominio Vendita al dettaglio.
-- **Dominio Adulti.** Ottimizzato per definire meglio tra contenuto per adulti e contenuto per non adulti. Se ad esempio si vuole bloccare le immagini che ritraggono persone in costume da bagno, questo dominio consente di creare appositamente un classificatore personalizzato.
-- **Dominio Generale.** Adatto a un'ampia gamma di attività di classificazione delle immagini.
+- **Il dominio di cibo.** Ottimizzato per i piatti che si possono vedere nel menu di un ristorante. Non è ottimizzato per riconoscere i singoli frutti o le singole verdure. Se si intende classificare le fotografie di singoli frutti o singole verdure, usare il dominio Generale.
+- **Il dominio di luoghi di interesse.** Ottimizzato per i luoghi di interesse riconoscibili, sia naturali che artificiali. Questo dominio funziona meglio quando il luogo è chiaramente visibile nella fotografia, anche se è leggermente nascosto da un gruppo di persone in posa davanti ad esso.
+- **Il dominio delle vendite al dettaglio.** Ottimizzato per classificare le immagini di un catalogo di vendita o di un sito Web di vendita. Se si vuole classificare con elevata precisione abiti, pantaloni, magliette, ecc, è consigliabile usare il dominio Vendita al dettaglio.
+- **Il dominio generale.** Adatto a un'ampia gamma di attività di classificazione delle immagini.
 
 I modelli generati da **domini compatti** possono essere esportati con la funzionalità di esportazione iterazione. I modelli sono ottimizzati per i vincoli di classificazione in tempo reale su dispositivi mobili. I classificatori creati con un dominio compatto possono essere leggermente meno precisi rispetto a un dominio standard con la stessa quantità di dati di training. Il compromesso è che sono sufficientemente piccoli da poter essere eseguiti localmente in near real time. 
 

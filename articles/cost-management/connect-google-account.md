@@ -5,24 +5,22 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/14/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b22d98c079a87943d3078fbe41e76074543c260a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f63293900e116fd3175b0ea6d704993a2dcf591
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002616"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051394"
 ---
 # <a name="connect-a-google-cloud-platform-account"></a>Connettere un account di Google Cloud Platform
 
 È possibile connettere un account Google Cloud Platform esistente a Cloudyn. Dopo aver connesso l'account a Cloudyn, i costi e i dati di utilizzo sono disponibili nei report di Cloudyn. Questo articolo contiene informazioni utili per configurare l'account di Google e connetterlo a Cloudyn.
 
-> [!NOTE]
-> Google ha modificato la sicurezza degli account, impedendo la creazione di nuove connessioni tra Cloudyn e Google. Cloudyn continua a raccogliere i dati di Google per gli utenti con Cloudyn già connesso a Google. Attualmente non è tuttavia possibile aggiungere nuovi account di Google a Cloudyn. Il team di Cloudyn non è in grado di indicare quando riprenderà il supporto per l'aggiunta di nuovi account di Google a Cloudyn. Questa nota verrà rimossa al ripristino del supporto.
 
 ## <a name="collect-project-information"></a>Raccogliere le informazioni sul progetto
 
@@ -30,7 +28,7 @@ ms.locfileid: "58002616"
 
 1. Accedere alla console di Google Cloud Platform all'indirizzo [https://console.cloud.google.com](https://console.cloud.google.com).
 2. Rivedere le informazioni sul progetto da caricare in Cloudyn e prendere nota dei valori dei campi **Nome progetto** e **ID progetto**. Tenere a portata di mano queste informazioni per i passaggi successivi.  
-    ![Nome del progetto e ID del progetto visualizzati nella console di Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
+    ![Nome del progetto e ID di progetto visualizzato nella console di Google Cloud Platform](./media/connect-google-account/gcp-console01.png)
 3. Se la fatturazione non è abilitata e collegata al progetto, creare un account di fatturazione. Per altre informazioni, vedere [Create a new billing account](https://cloud.google.com/billing/docs/how-to/manage-billing-account#create/_a/_new/_billing/_account) (Creare un nuovo account di fatturazione).
 
 ## <a name="enable-storage-bucket-billing-export"></a>Abilitare l'esportazione dei dati di fatturazione nel bucket di archiviazione
@@ -41,7 +39,7 @@ L'uso di Google Cloud Storage per archiviare i report sull'utilizzo comporta cos
 
 1. Se non si è abilitata l'esportazione dei dati di fatturazione in un file, seguire le istruzioni in [Come abilitare l'esportazione della fatturazione in un file](https://cloud.google.com/billing/docs/how-to/export-data-file#how_to_enable_billing_export_to_a_file). Per l'esportazione dei dati di fatturazione è possibile usare il formato JSON o CSV.
 2. In alternativa, nella console di Google Cloud Platform, passare a **Billing** > **Billing export** (Fatturazione - Esportazione fatturazione). Prendere nota dei valori dei campi **Bucket name** (Nome bucket) e **Report prefix** (Prefisso report).  
-    ![Informazioni di esportazione fatturazione visualizzate nella pagina di esportazione della fatturazione](./media/connect-google-account/billing-export.png)
+    ![Informazioni di esportazione fatturazione visualizzate nella pagina di esportazione di fatturazione](./media/connect-google-account/billing-export.png)
 
 ## <a name="enable-google-cloud-platform-apis"></a>Abilitare le API di Google Cloud Platform
 
@@ -69,7 +67,7 @@ Per raccogliere le informazioni sull'utilizzo e sugli asset, Cloudyn richiede ch
 4. In **Google Account Name** (Nome account Google) immettere l'indirizzo di posta elettronica per l'account di fatturazione e quindi fare clic su **Next** (Avanti).
 5. Nella finestra di dialogo di autenticazione di Google selezionare o immettere un account di Google e quindi scegliere **ALLOW** (CONSENTI) per concedere l'accesso di cloudyn.com all'account.
 6. Aggiungere le informazioni sul progetto della richiesta annotate nei passaggi precedenti, ovvero l'**ID** e il **nome del progetto**, il nome del bucket di **fatturazione** e il prefisso del **file dei dati di fatturazione**, quindi fare clic su **Save** (Salva).  
-    ![Aggiunta di un progetto Google all'account Cloudyn](./media/connect-google-account/add-project.png)
+    ![Aggiungi progetto di Google all'account di Cloudyn](./media/connect-google-account/add-project.png)
 
 L'account di Google verrà visualizzato nell'elenco degli account e dovrebbe risultare **Authenticated** (Autenticato). Al di sotto dell'account dovrebbero essere visualizzati il nome e l'ID del progetto Google, contrassegnati da un segno di spunta verde. Lo stato dell'account dovrebbe essere **Completed** (Completato).
 

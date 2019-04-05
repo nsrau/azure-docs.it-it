@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615216"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051564"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creare un'istanza di Azure Network Watcher
 
 Network Watcher è un servizio a livello di area che permette di monitorare e diagnosticare le condizioni al livello di scenario di rete da, verso e all'interno di Azure. Il monitoraggio a livello di scenario permette di diagnosticare i problemi in una visualizzazione completa a livello di rete. Gli strumenti di visualizzazione e diagnostica di rete disponibili in Network Watcher permettono di comprendere, diagnosticare e ottenere informazioni dettagliate sulla rete in Azure. Network Watcher viene abilitato tramite la creazione di una risorsa Network Watcher. Questa risorsa permette di sfruttare le funzionalità di Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher viene abilitato automaticamente
 Quando si crea o si aggiorna una rete virtuale nella sottoscrizione, Network Watcher viene abilitato automaticamente nell'area della rete virtuale. Non è previsto alcun impatto sulle risorse o alcun addebito associato per l'abilitazione automatica di Network Watcher.
@@ -35,8 +38,8 @@ Se si vuole rifiutare esplicitamente l'abilitazione automatica di Network Watche
 > Il rifiuto esplicito dell'abilitazione automatica di Network Watcher è una modifica permanente. Se in seguito si vuole acconsentire di nuovo esplicitamente, è necessario [contattare il supporto](https://azure.microsoft.com/support/options/).
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ Se si vuole personalizzare il nome di un'istanza di Network Watcher e il gruppo 
 Per creare un'istanza di Network Watcher, eseguire questo esempio:
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Creare un'istanza di Network Watcher con l'interfaccia della riga di comando di Azure
@@ -108,8 +111,8 @@ Dopo aver creato un'istanza di Network Watcher, è possibile approfondire le fun
 * [Acquisizione pacchetti](network-watcher-packet-capture-overview.md)
 * [Verifica del flusso IP](network-watcher-ip-flow-verify-overview.md)
 * [Hop successivo](network-watcher-next-hop-overview.md)
-* [Visualizzazione di un gruppo di sicurezza](network-watcher-security-group-view-overview.md)
-* [Registrazione dei flussi dei gruppi di sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
-* [Risoluzione dei problemi del gateway di rete virtuale](network-watcher-troubleshoot-overview.md)
+* [Visualizzazione dei gruppi di sicurezza](network-watcher-security-group-view-overview.md)
+* [Registrazione dei flussi del gruppo sicurezza di rete](network-watcher-nsg-flow-logging-overview.md)
+* [La risoluzione dei problemi con Gateway di rete virtuale](network-watcher-troubleshoot-overview.md)
 
 Dopo aver creato un'istanza di Network Watcher, è possibile abilitare l'acquisizione di pacchetti all'interno delle macchine virtuali. Per informazioni su come fare, vedere l'articolo su come [creare un'acquisizione di pacchetti attivata da un avviso](network-watcher-alert-triggered-packet-capture.md)

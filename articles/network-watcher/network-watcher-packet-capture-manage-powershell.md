@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 01efbd928630b491419f6231007590c4f0fb0b22
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 267b2c375ef9672c8e5bd7cb8280b4dd40dbcd0d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57888486"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045544"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>Gestire le acquisizioni di pacchetti con Azure Network Watcher tramite PowerShell
 
@@ -38,6 +38,9 @@ Questo articolo illustra le diverse attività di gestione attualmente disponibil
 - [**Eliminare un'acquisizione di pacchetti**](#delete-a-packet-capture)
 - [**Scaricare un'acquisizione di pacchetti**](#download-a-packet-capture)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 Questo articolo presuppone che l'utente disponga delle risorse seguenti:
@@ -54,33 +57,33 @@ Questo articolo presuppone che l'utente disponga delle risorse seguenti:
 ### <a name="step-1"></a>Passaggio 1
 
 ```powershell
-$VM = Get-AzureRmVM -ResourceGroupName testrg -Name VM1
+$VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 ```
 
 ### <a name="step-2"></a>Passaggio 2
 
-Nell'esempio seguente vengono recuperate le informazioni sull'estensione necessarie per eseguire il cmdlet `Set-AzureRmVMExtension`. Il cmdlet installa l'agente di acquisizione di pacchetti sulla macchina virtuale guest.
+Nell'esempio seguente vengono recuperate le informazioni sull'estensione necessarie per eseguire il cmdlet `Set-AzVMExtension`. Il cmdlet installa l'agente di acquisizione di pacchetti sulla macchina virtuale guest.
 
 > [!NOTE]
-> Il completamento del cmdlet `Set-AzureRmVMExtension` può richiedere alcuni minuti.
+> Il completamento del cmdlet `Set-AzVMExtension` può richiedere alcuni minuti.
 
 Per le macchine virtuali Windows:
 
 ```powershell
-$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
+$AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentWindows -Version 1.4.585.2
 $ExtensionName = "AzureNetworkWatcherExtension"
-Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
+Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
 Per le macchine virtuali Linux:
 
 ```powershell
-$AzureNetworkWatcherExtension = Get-AzureRmVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
+$AzureNetworkWatcherExtension = Get-AzVMExtensionImage -Location WestCentralUS -PublisherName Microsoft.Azure.NetworkWatcher -Type NetworkWatcherAgentLinux -Version 1.4.13.0
 $ExtensionName = "AzureNetworkWatcherExtension"
-Set-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
+Set-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -Location $VM.Location -VMName $VM.Name -Name $ExtensionName -Publisher $AzureNetworkWatcherExtension.PublisherName -ExtensionType $AzureNetworkWatcherExtension.Type -TypeHandlerVersion $AzureNetworkWatcherExtension.Version.Substring(0,3)
 ```
 
-L'esempio seguente rappresenta una risposta corretta dopo l'esecuzione del cmdlet `Set-AzureRmVMExtension`.
+L'esempio seguente rappresenta una risposta corretta dopo l'esecuzione del cmdlet `Set-AzVMExtension`.
 
 ```
 RequestId IsSuccessStatusCode StatusCode ReasonPhrase
@@ -90,13 +93,13 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 
 ### <a name="step-3"></a>Passaggio 3
 
-Per verificare che l'agente sia stato installato, eseguire il cmdlet `Get-AzureRmVMExtension` e passarlo al nome della macchina virtuale e al nome dell'estensione.
+Per verificare che l'agente sia stato installato, eseguire il cmdlet `Get-AzVMExtension` e passarlo al nome della macchina virtuale e al nome dell'estensione.
 
 ```powershell
-Get-AzureRmVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
+Get-AzVMExtension -ResourceGroupName $VM.ResourceGroupName  -VMName $VM.Name -Name $ExtensionName
 ```
 
-L'esempio seguente riporta una possibile risposta all'esecuzione di `Get-AzureRmVMExtension`.
+L'esempio seguente è riportato un esempio di risposta all'esecuzione `Get-AzVMExtension`
 
 ```
 ResourceGroupName       : testrg
@@ -124,11 +127,11 @@ Dopo aver completato i passaggi precedenti, l'agente di acquisizione di pacchett
 
 ### <a name="step-1"></a>Passaggio 1
 
-Il passaggio successivo consente di recuperare l'istanza di Network Watcher. Questa variabile viene passata al cmdlet `New-AzureRmNetworkWatcherPacketCapture` nel passaggio 4.
+Il passaggio successivo consente di recuperare l'istanza di Network Watcher. Questa variabile viene passata al cmdlet `New-AzNetworkWatcherPacketCapture` nel passaggio 4.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName  
 ```
 
 ### <a name="step-2"></a>Passaggio 2
@@ -136,7 +139,7 @@ $networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $n
 Recuperare un account di archiviazione. L'account di archiviazione viene usato per archiviare il file di acquisizione di pacchetti.
 
 ```powershell
-$storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name testrgsa123
+$storageAccount = Get-AzStorageAccount -ResourceGroupName testrg -Name testrgsa123
 ```
 
 ### <a name="step-3"></a>Passaggio 3
@@ -144,8 +147,8 @@ $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName testrg -Name test
 È possibile usare i filtri per limitare i dati archiviati dall'acquisizione di pacchetti. Nell'esempio seguente vengono impostati due filtri.  Un filtro acquisisce il traffico TCP in uscita solo dall'indirizzo IP 10.0.0.3 locale verso le porte di destinazione 20, 80 e 443.  Il secondo filtro acquisisce solo il traffico UDP.
 
 ```powershell
-$filter1 = New-AzureRmPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
-$filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
+$filter1 = New-AzPacketCaptureFilterConfig -Protocol TCP -RemoteIPAddress "1.1.1.1-255.255.255.255" -LocalIPAddress "10.0.0.3" -LocalPort "1-65535" -RemotePort "20;80;443"
+$filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 ```
 
 > [!NOTE]
@@ -153,13 +156,13 @@ $filter2 = New-AzureRmPacketCaptureFilterConfig -Protocol UDP
 
 ### <a name="step-4"></a>Passaggio 4
 
-Eseguire il cmdlet `New-AzureRmNetworkWatcherPacketCapture` per avviare il processo di acquisizione dei pacchetti, passando i valori richiesti recuperati nei passaggi precedenti.
+Eseguire il cmdlet `New-AzNetworkWatcherPacketCapture` per avviare il processo di acquisizione dei pacchetti, passando i valori richiesti recuperati nei passaggi precedenti.
 ```powershell
 
-New-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
+New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-L'esempio seguente riporta l'output previsto dall'esecuzione del cmdlet `New-AzureRmNetworkWatcherPacketCapture`.
+L'esempio seguente riporta l'output previsto dall'esecuzione del cmdlet `New-AzNetworkWatcherPacketCapture`.
 
 ```
 Name                    : PacketCaptureTest
@@ -199,13 +202,13 @@ Filters                 : [
 
 ## <a name="get-a-packet-capture"></a>Ottenere un'acquisizione di pacchetti
 
-L'esecuzione del cmdlet `Get-AzureRmNetworkWatcherPacketCapture` consente di recuperare lo stato di un'acquisizione di pacchetti attualmente in esecuzione o completata.
+L'esecuzione del cmdlet `Get-AzNetworkWatcherPacketCapture` consente di recuperare lo stato di un'acquisizione di pacchetti attualmente in esecuzione o completata.
 
 ```powershell
-Get-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+Get-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
-L'esempio seguente riporta l'output ottenuto dall'esecuzione del cmdlet `Get-AzureRmNetworkWatcherPacketCapture`. L'esempio seguente mostra il risultato ottenuto al completamento dell'acquisizione di pacchetti. Il valore PacketCaptureStatus è Stopped, mentre il valore StopReason corrisponde a TimeExceeded. Questo valore indica che l'acquisizione di pacchetti ha avuto esito positivo ed è stata eseguita per il tempo necessario.
+L'esempio seguente riporta l'output ottenuto dall'esecuzione del cmdlet `Get-AzNetworkWatcherPacketCapture`. L'esempio seguente mostra il risultato ottenuto al completamento dell'acquisizione di pacchetti. Il valore PacketCaptureStatus è Stopped, mentre il valore StopReason corrisponde a TimeExceeded. Questo valore indica che l'acquisizione di pacchetti ha avuto esito positivo ed è stata eseguita per il tempo necessario.
 ```
 Name                    : PacketCaptureTest
 Id                      : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/NetworkWatcherRG/providers/Microsoft.Network/networkWatcher
@@ -246,10 +249,10 @@ PacketCaptureError      : []
 
 ## <a name="stop-a-packet-capture"></a>Interrompere un'acquisizione di pacchetti
 
-L'esecuzione del cmdlet `Stop-AzureRmNetworkWatcherPacketCapture` consente di interrompere un'acquisizione di pacchetti in corso.
+L'esecuzione del cmdlet `Stop-AzNetworkWatcherPacketCapture` consente di interrompere un'acquisizione di pacchetti in corso.
 
 ```powershell
-Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+Stop-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
@@ -258,7 +261,7 @@ Stop-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketC
 ## <a name="delete-a-packet-capture"></a>Eliminare un'acquisizione di pacchetti
 
 ```powershell
-Remove-AzureRmNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
+Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCaptureName "PacketCaptureTest"
 ```
 
 > [!NOTE]
