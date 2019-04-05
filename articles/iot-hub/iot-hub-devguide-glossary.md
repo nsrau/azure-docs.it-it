@@ -3,17 +3,17 @@ title: Glossario dei termini dell'hub IoT di Azure | Documentazione Microsoft
 description: Guida per sviluppatori - Glossario dei termini comuni relativi all'hub IoT di Azure.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: ac7043d2967fcf3f083c09622c39f4649f04f6e7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551671"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045969"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossario dei termini relativi all'hub IoT
 Questo articolo elenca alcuni dei termini comuni usati negli articoli su Hub IoT.
