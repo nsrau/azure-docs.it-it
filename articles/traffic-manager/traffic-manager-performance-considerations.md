@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007940"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048300"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Considerazioni sulle prestazioni per Gestione traffico
 
@@ -56,7 +56,7 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
 
-* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
+* [Monitoraggio sintetico App autorità di certificazione](https://asm.ca.com/en/checkit.php)
 
     Precedentemente noto come lo strumento di espressioni di controllo mouse Check Website, questo sito mostra i tempi di risoluzione DNS da più aree geografiche simultaneamente. Immettere l'URL per visualizzare i tempi di risoluzione DNS, i tempi di connessione e la velocità da diverse aree geografiche. Usare questo test per vedere quale servizio ospitato viene restituito per le diverse aree geografiche.
 
@@ -66,21 +66,21 @@ Gli strumenti disponibili in questi siti misurano la latenza DNS e visualizzano 
 
     Questo strumento offre statistiche sulle prestazioni per ogni elemento di una pagina Web. La scheda Page Analysis (Analisi pagina) mostra la percentuale di tempo impiegato per la ricerca DNS.
 
-* [What's My DNS?](https://www.whatsmydns.net/)
+* [Che cos'è il DNS?](https://www.whatsmydns.net/)
 
     Questo sito esegue una ricerca DNS da 20 aree geografiche diverse e visualizza i risultati su una mappa.
 
-* [Dig Web Interface](https://www.digwebinterface.com)
+* [Esaminare l'interfaccia Web](https://www.digwebinterface.com)
 
     Mostra informazioni più dettagliate sul DNS, inclusi i record A e CNAME. Verificare di selezionare "Colorize output" (Colora output) e "Stats" (Statistiche) in Options (Opzioni) e di selezionare "All" (Tutti) in Nameservers (Server dei nomi).
 
 ## <a name="next-steps"></a>Fasi successive
 
-[Informazioni sui metodi di routing di Gestione traffico](traffic-manager-routing-methods.md)
+[Metodi di routing del traffico di gestione traffico](traffic-manager-routing-methods.md)
 
-[Verifica delle impostazioni di Gestione traffico](traffic-manager-testing-settings.md)
+[Verificare le impostazioni di Gestione traffico](traffic-manager-testing-settings.md)
 
-[Operazioni per Gestione traffico (informazioni di riferimento API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operazioni per gestione traffico (riferimento all'API REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlet di Gestione traffico di Azure](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+[Cmdlet di gestione traffico di Azure](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

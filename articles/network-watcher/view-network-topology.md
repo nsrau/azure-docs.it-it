@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2018
 ms.author: jdial
-ms.openlocfilehash: eb98fc2da95f1aa2b7294d09ec2a3145bdb5c789
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a9cddf3f8091115f7cd39999e8c52d87ead4af07
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112739"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044329"
 ---
 # <a name="view-the-topology-of-an-azure-virtual-network"></a>Visualizzare la topologia di una rete virtuale di Azure
 
 In questo articolo si apprenderà come visualizzare le risorse in una rete virtuale di Microsoft Azure e le relazioni tra di esse. Ad esempio, una rete virtuale contiene più subnet, che a loro volta contengono risorse, come Macchine virtuali (VM) di Azure. Le VM hanno una o più interfacce di rete. Ogni subnet può avere un gruppo di sicurezza di rete e una tabella di route associata a tale gruppo. La funzionalità di topologia di Azure Network Watcher consente di visualizzare tutte le risorse presenti in una rete virtuale, le risorse associate a tali risorse e le relazioni tra di esse.
 
 Per visualizzare una topologia è possibile usare il [portale di Azure](#azure-portal), l'[interfaccia della riga di comando di Azure](#azure-cli) o [PowerShell](#powershell).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name = "azure-portal"></a>Visualizzare la topologia tramite il portale di Azure
 
@@ -85,38 +87,38 @@ L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) nec
 
 I comandi descritti nei passaggi seguenti possono essere eseguiti in due modi:
 - In Azure Cloud Shell, selezionando **Prova** nell'angolo in alto a destra di ogni comando. Azure Cloud Shell è una shell interattiva gratuita in cui sono disponibili gli strumenti comuni di Azure preinstallati e configurati per l'uso con un account.
-- Tramite PowerShell dal computer. Se si adotta questa seconda soluzione, per eseguire i passaggi descritti in questo articolo è necessario disporre della versione 5.7.0 o successiva del modulo AzureRm. Eseguire `Get-Module -ListAvailable AzureRM` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Login-AzureRmAccount` per creare una connessione con Azure.
+- Tramite PowerShell dal computer. Se si esegue PowerShell dal computer, questo articolo è necessario Azure PowerShell `Az` modulo. Eseguire `Get-Module -ListAvailable Az` per trovare la versione installata. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps). Se si esegue PowerShell in locale, è anche necessario eseguire `Connect-AzAccount` per creare una connessione con Azure.
 
 L'account usato deve avere le [autorizzazioni](required-rbac-permissions.md) necessarie.
 
-1. Se è già presente un'istanza di Network Watcher nella stessa area della rete virtuale per cui si vuole creare una topologia, andare al passaggio 3. Creare un gruppo di risorse in cui includere un'istanza di Network Watcher con il comando [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup). L'esempio seguente crea il gruppo di risorse nell'area *eastus*:
+1. Se è già presente un'istanza di Network Watcher nella stessa area della rete virtuale per cui si vuole creare una topologia, andare al passaggio 3. Creare un gruppo di risorse per contenere un network watcher con [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). L'esempio seguente crea il gruppo di risorse nell'area *eastus*:
 
     ```azurepowershell-interactive
-    New-AzureRmResourceGroup -Name NetworkWatcherRG -Location EastUS
+    New-AzResourceGroup -Name NetworkWatcherRG -Location EastUS
     ```
 
-2. Creare un'istanza di Network Watcher con il comando [New-AzureRmNetworkWatcher](/powershell/module/azurerm.network/new-azurermnetworkwatcher). L'esempio seguente crea un'istanza di Network Watcher nell'area eastus:
+2. Creare un'istanza di network watcher con [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher). L'esempio seguente crea un'istanza di Network Watcher nell'area eastus:
 
     ```azurepowershell-interactive
-    New-AzureRmNetworkWatcher `
+    New-AzNetworkWatcher `
       -Name NetworkWatcher_eastus `
       -ResourceGroupName NetworkWatcherRG
     ```
 
-3. Recuperare un'istanza di Network Watcher con il comando [Get-AzureRmNetworkWatcher](/powershell/module/azurerm.network/get-azurermnetworkwatcher). L'esempio seguente recupera un'istanza di Network Watcher nell'area eastus:
+3. Recuperare un'istanza di Network Watcher con [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher). L'esempio seguente recupera un'istanza di Network Watcher nell'area eastus:
 
     ```azurepowershell-interactive
-    $nw = Get-AzurermResource `
+    $nw = Get-AzResource `
       | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "EastUS" }
-    $networkWatcher = Get-AzureRmNetworkWatcher `
+    $networkWatcher = Get-AzNetworkWatcher `
       -Name $nw.Name `
       -ResourceGroupName $nw.ResourceGroupName
     ```
 
-4. Recuperare una topologia con il comando [Get-AzureRmNetworkWatcherTopology](/powershell/module/azurerm.network/get-azurermnetworkwatchertopology). L'esempio seguente recupera una topologia relativa a una rete virtuale nel gruppo di risorse denominato *MyResourceGroup*:
+4. Recuperare una topologia con [Get-AzNetworkWatcherTopology](/powershell/module/az.network/get-aznetworkwatchertopology). L'esempio seguente recupera una topologia relativa a una rete virtuale nel gruppo di risorse denominato *MyResourceGroup*:
 
     ```azurepowershell-interactive
-    Get-AzureRmNetworkWatcherTopology `
+    Get-AzNetworkWatcherTopology `
       -NetworkWatcher $networkWatcher `
       -TargetResourceGroupName MyResourceGroup
     ```

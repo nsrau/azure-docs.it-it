@@ -1,5 +1,5 @@
 ---
-title: Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure | Microsoft Docs
+title: Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure | Documentazione Microsoft
 description: Questa pagina fornisce istruzioni sulle modalità di configurazione del controllo di un gruppo di sicurezza di rete
 services: network-watcher
 documentationcenter: na
@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 227ea446a75c167be27128b15de1d3c216e6856d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
-ms.translationtype: HT
+ms.openlocfilehash: 3d35860452aabb6aecc4e8549c7b5ce4447d7aa4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34363377"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047671"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Automatizzare il controllo del gruppo di sicurezza di rete con la visualizzazione del gruppo di sicurezza di rete di Network Watcher di Azure
 
 I clienti devono spesso far fronte alla sfida posta dalla verifica del comportamento di sicurezza della propria infrastruttura. Lo stesso problema si pone per le macchine virtuali in Azure. È importante disporre di un profilo di sicurezza simile in base alle regole del gruppo di sicurezza di rete (NSG) applicate. Usando la visualizzazione del gruppo di sicurezza, è possibile ottenere l'elenco delle regole applicate a una macchina virtuale all'interno di un gruppo di sicurezza di rete. È possibile definire un profilo di sicurezza NSG elevato e avviare la visualizzazione del gruppo di sicurezza con frequenza settimanale, quindi confrontare l'output con il profilo elevato e creare un report. In questo modo è possibile identificare con facilità tutte le macchine virtuali che non sono conformi al profilo di protezione previsto.
 
 Se non si ha familiarità con i gruppi di sicurezza di rete, vedere l'argomento relativo alla [sicurezza di rete](../virtual-network/security-overview.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -46,7 +49,7 @@ In questo scenario si apprenderà come:
 
 ## <a name="retrieve-rule-set"></a>Recuperare il set di regole
 
-Il primo passaggio in questo esempio consiste nell'uso di una baseline esistente. L'esempio seguente consiste nell'estrazione di alcuni json da un gruppo di sicurezza di rete esistente usando il cmdlet `Get-AzureRmNetworkSecurityGroup` come baseline per l'esempio.
+Il primo passaggio in questo esempio consiste nell'uso di una baseline esistente. L'esempio seguente consiste nell'estrazione di alcuni json da un gruppo di sicurezza di rete esistente usando il cmdlet `Get-AzNetworkSecurityGroup` come baseline per l'esempio.
 
 ```json
 [
@@ -123,19 +126,19 @@ $nsgbaserules = Get-Content -Path C:\temp\testvm1-nsg.json | ConvertFrom-Json
 
 ## <a name="retrieve-network-watcher"></a>Recuperare Network Watcher
 
-Il passaggio successivo consente di recuperare l'istanza di Network Watcher. La variabile `$networkWatcher` viene passata al cmdlet `AzureRmNetworkWatcherSecurityGroupView`.
+Il passaggio successivo consente di recuperare l'istanza di Network Watcher. La variabile `$networkWatcher` viene passata al cmdlet `AzNetworkWatcherSecurityGroupView`.
 
 ```powershell
-$nw = Get-AzurermResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
-$networkWatcher = Get-AzureRmNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
+$nw = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" } 
+$networkWatcher = Get-AzNetworkWatcher -Name $nw.Name -ResourceGroupName $nw.ResourceGroupName 
 ```
 
 ## <a name="get-a-vm"></a>Ottenere una macchina virtuale
 
-È necessario che una macchina virtuale esegua il cmdlet `Get-AzureRmNetworkWatcherSecurityGroupView`. Nell'esempio seguente viene ottenuto un oggetto macchina virtuale.
+È necessario che una macchina virtuale esegua il cmdlet `Get-AzNetworkWatcherSecurityGroupView`. Nell'esempio seguente viene ottenuto un oggetto macchina virtuale.
 
 ```powershell
-$VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
+$VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"
 ```
 
 ## <a name="retrieve-security-group-view"></a>Recuperare la visualizzazione del gruppo di sicurezza
@@ -143,7 +146,7 @@ $VM = Get-AzurermVM -ResourceGroupName "testrg" -Name "testvm1"
 Il passaggio successivo prevede il recupero del risultato della visualizzazione del gruppo di sicurezza. Questo risultato viene confrontato con il file json "baseline" illustrato in precedenza.
 
 ```powershell
-$secgroup = Get-AzureRmNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
+$secgroup = Get-AzNetworkWatcherSecurityGroupView -NetworkWatcher $networkWatcher -TargetVirtualMachineId $VM.Id
 ```
 
 ## <a name="analyzing-the-results"></a>Analisi dei risultati

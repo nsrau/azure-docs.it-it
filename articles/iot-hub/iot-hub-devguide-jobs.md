@@ -3,17 +3,17 @@ title: Informazioni sui processi hub IoT di Azure | Microsoft Docs
 description: Guida per sviluppatori - Pianificazione di processi da eseguire in più dispositivi connessi all'hub di IoT. I processi possono aggiornare i tag e le proprietà desiderate e richiamare metodi diretti su più dispositivi.
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011365"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044373"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Pianificare processi in più dispositivi
 
@@ -32,7 +32,7 @@ L'hub IoT di Azure abilita un numero di blocchi predefiniti, ad esempio [tag e p
 I processi vengono avviati dal back-end della soluzione e mantenuti dall'hub IoT. È possibile avviare un processo tramite un URI del servizio (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) ed eseguire query riguardo allo stato di avanzamento in un processo in esecuzione tramite un URI del servizio (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). Per aggiornare lo stato dei processi in esecuzione dopo l'avvio, eseguire query sui processi.
 
 > [!NOTE]
-> Quando si avvia un processo, i valori e i nomi di proprietà possono contenere solo caratteri alfanumerici US-ASCII stampabili, ad eccezione dei seguenti: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> Quando si avvia un processo, i nomi delle proprietà e i valori possono contenere solo stampabili US-ASCII alfanumerici, ad eccezione dei seguenti: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Processi per eseguire metodi diretti
 
@@ -121,7 +121,7 @@ Di seguito è riportato un elenco di proprietà e corrispondenti descrizioni che
 | **type** |Tipi di processi: |
 | | **scheduledUpdateTwin**: Un processo usato per aggiornare un set di proprietà o tag desiderati. |
 | | **scheduledDeviceMethod**: Un processo usato per richiamare un metodo di dispositivo in un set di dispositivi gemelli. |
-| **Stato** |Stato corrente del processo. Valori possibili per lo stato: |
+| **status** |Stato corrente del processo. Valori possibili per lo stato: |
 | | **In sospeso**: Pianificata e in attesa di essere prelevati dal servizio del processo. |
 | | **scheduled**: Pianificati per un momento successivo. |
 | | **running**: Processo attualmente attivo. |

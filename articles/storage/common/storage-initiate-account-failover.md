@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668565"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044964"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Avviare un failover dell'account di archiviazione (anteprima)
 
@@ -23,6 +23,8 @@ Questo articolo illustra come avviare un failover per l'account di archiviazione
 
 > [!WARNING]
 > Un failover dell'account in genere comporta una perdita di dati. Per conoscere le implicazioni di un failover dell'account e prepararsi alla perdita di dati, vedere [Informazioni sul processo di failover dell'account](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +37,7 @@ Prima di poter eseguire un failover sull'account di archiviazione, assicurarsi d
 
 Quando si avvia un failover per l'account di archiviazione, vengono aggiornati i record DNS per l'endpoint secondario in modo che l'endpoint secondario diventi l'endpoint primario. Assicurarsi di aver compreso l'impatto potenziale sull'account di archiviazione prima di avviare un failover.
 
-Per valutare la portata della possibile perdita di dati prima di avviare un failover, controllare la proprietà **Ora ultima sincronizzazione** usando il cmdlet di PowerShell `Get-AzureRmStorageAccount` e includere il parametro `-IncludeGeoReplicationStats`. Controllare quindi la proprietà `GeoReplicationStats` dell'account. 
+Per valutare la portata della possibile perdita di dati prima di avviare un failover, controllare la proprietà **Ora ultima sincronizzazione** usando il cmdlet di PowerShell `Get-AzStorageAccount` e includere il parametro `-IncludeGeoReplicationStats`. Controllare quindi la proprietà `GeoReplicationStats` dell'account. 
 
 Dopo il failover, il tipo di account di archiviazione viene convertito automaticamente in archiviazione con ridondanza locale nella nuova area primaria. È possibile abilitare nuovamente l'archiviazione con ridondanza geografica o l'archiviazione con ridondanza geografica e accesso in lettura per l'account. Tenere presente che la conversione da archiviazione con ridondanza locale ad archiviazione con ridondanza geografica o archiviazione con ridondanza geografica e accesso in lettura comporta un costo aggiuntivo. Per altre informazioni, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -104,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristino di emergenza e failover dell'account (anteprima) in Archiviazione di Azure](storage-disaster-recovery-guidance.md)
+- [Disaster recovery e l'account di failover (anteprima) in archiviazione di Azure](storage-disaster-recovery-guidance.md)
 - [Progettazione di applicazioni a disponibilità elevata con RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 - [Esercitazione: Compilare un'applicazione a disponibilità elevata con l'archivio BLOB](../blobs/storage-create-geo-redundant-storage.md) 

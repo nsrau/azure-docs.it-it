@@ -135,8 +135,10 @@ items:
         href: devtest-lab-add-vm.md
       - name: Creare e gestire macchine virtuali richiedibili
         href: devtest-lab-add-claimable-vm.md
-      - name: Creare e gestire VM con l'interfaccia della riga di comando di Azure
+      - name: Creare e gestire macchine virtuali con l'interfaccia della riga di comando di Azure
         href: devtest-lab-vmcli.md
+      - name: Creare una macchina virtuale con Azure PowerShell
+        href: devtest-lab-vm-powershell.md
       - name: Creare una VM da un modello di Resource Manager
         href: devtest-lab-use-resource-manager-template.md
       - name: Riavviare una macchina virtuale
@@ -277,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Domande frequenti
       href: devtest-lab-faq.md
-ms.openlocfilehash: bee44d9ce7378bd48960c47ed9be9c7f53e23110
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886676"
+ms.locfileid: "58894441"

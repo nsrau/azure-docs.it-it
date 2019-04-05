@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
-ms.openlocfilehash: 370ef54f39c585ffe0babd4aa54ed7ed89e9dfbc
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 2952c446e2d66505ebaec42eb82e37be02035483
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54849601"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047790"
 ---
 # <a name="create-a-service-bus-namespace-and-a-queue-using-an-azure-resource-manager-template"></a>Creare uno spazio dei nomi e una coda del bus di servizio tramite il modello di Azure Resource Manager
 
@@ -32,14 +32,14 @@ Per il modello completo, vedere il [modello dello spazio dei nomi e della coda d
 > [!NOTE]
 > Questi modelli di Azure Resource Manager sono disponibili per il download e la distribuzione.
 > 
-> * [Creare uno spazio dei nomi del bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Creare uno spazio dei nomi del bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
+> * [Creare uno spazio dei nomi del Bus di servizio con coda e regola di autorizzazione](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Creare uno spazio dei nomi del Bus di servizio con argomento e sottoscrizione](service-bus-resource-manager-namespace-topic.md)
 > * [Creare uno spazio dei nomi del bus di servizio](service-bus-resource-manager-namespace.md)
-> * [Creare uno spazio dei nomi del bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Creare uno spazio dei nomi del Bus di servizio con argomento, sottoscrizione e regola](service-bus-resource-manager-namespace-topic-with-rule.md)
 > 
 > Per verificare la disponibilità di nuovi modelli, visitare la raccolta [Modelli di avvio rapido di Azure][Azure Quickstart Templates] e cercare **bus di servizio**.
-> 
-> 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-will-you-deploy"></a>Distribuzione
 
@@ -49,7 +49,7 @@ Le [code del bus di servizio](service-bus-queues-topics-subscriptions.md#queues)
 
 Per eseguire automaticamente la distribuzione, fare clic sul pulsante seguente:
 
-[![Distribuire in Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
+[![Distribuisci ad Azure](./media/service-bus-resource-manager-namespace-queue/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-queue%2Fazuredeploy.json)
 
 ## <a name="parameters"></a>Parametri
 
@@ -125,7 +125,7 @@ Per la sintassi e le proprietà JSON, vedere [Spazi dei nomi](/azure/templates/m
 ## <a name="powershell"></a>PowerShell
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
+New-AzResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -TemplateFile <https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-servicebus-create-queue/azuredeploy.json>
 ```
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
@@ -139,8 +139,8 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver creato e distribuito le risorse con Azure Resource Manager, è possibile imparare a gestire queste risorse. Leggere gli articoli seguenti:
 
-* [Gestire Bus di servizio con PowerShell](service-bus-manage-with-ps.md)
-* [Gestire le risorse del bus di servizio con Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
+* [Gestire il bus di servizio con PowerShell](service-bus-manage-with-ps.md)
+* [Gestire le risorse del bus di servizio con lo strumento di esplorazione](https://github.com/paolosalvatori/ServiceBusExplorer/releases)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace and queue template]: https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190892"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047807"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch
 
@@ -59,7 +59,7 @@ In questa esercitazione viene eseguito il test dell'accesso Single Sign-On di Az
 ## <a name="adding-edigitalresearch-from-the-gallery"></a>Aggiunta di eDigitalResearch dalla raccolta
 Per configurare l'integrazione di eDigitalResearch in Azure AD, è necessario aggiungere eDigitalResearch dalla raccolta al proprio elenco di app SaaS gestite.
 
-**Per aggiungere eDigitalResearch dalla raccolta, seguire questa procedura:**
+**Per aggiungere eDigitalResearch dalla raccolta, seguire i passaggi seguenti:**
 
 1. Nel **[portale di Azure](https://portal.azure.com)** fare clic sull'icona di **Azure Active Directory** nel riquadro di spostamento sinistro. 
 
@@ -89,7 +89,7 @@ Per configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con eDi
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creare un utente test di eDigitalResearch](#create-a-edigitalresearch-test-user)**: per avere una controparte di Britta Simon in eDigitalResearch collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Creare un utente test di eDigitalResearch](#create-an-edigitalresearch-test-user)**  : per avere una controparte di Britta Simon in eDigitalResearch collegata alla rappresentazione in Azure AD dell'utente.
 1. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
@@ -97,7 +97,7 @@ Per configurare e testare l'accesso Single Sign-On di Microsoft Azure AD con eDi
 
 In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel portale di Azure e viene configurato l'accesso Single Sign-On nell'applicazione eDigitalResearch.
 
-**Per configurare Single Sign-On di Microsoft Azure AD con eDigitalResearch, seguire questa procedura:**
+**Per configurare single sign-on di Azure con eDigitalResearch, seguire i passaggi seguenti:**
 
 1. Nella pagina di integrazione dell'applicazione **eDigitalResearch** del portale di Azure fare clic su **Single Sign-On**.
 
@@ -111,7 +111,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
     ![Informazioni sul Single Sign-On di URL e dominio di eDigitalResearch](./media/edigitalresearch-tutorial/tutorial_edigitalresearch_url.png)
 
-    a. Nella casella di testo **Identificatore** digitare l'URL adottando il modello seguente: `https://<company-name>.edigitalresearch.com`
+    a. Nella casella di testo **Identificatore** digitare l'URL adottando il criterio seguente: `https://<company-name>.edigitalresearch.com`
 
     b. Nella casella di testo **URL di risposta** digitare l'URL usando il modello seguente: `https://<company-name>.edigitalresearch.com/login/consume`
 
@@ -143,7 +143,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
    ![Creare un utente test di Azure AD][100]
 
-**Per creare un utente test in Azure AD, eseguire la procedura seguente:**
+**Per creare un utente test di Azure AD, seguire i passaggi seguenti:**
 
 1. Nel portale di Azure fare clic sul pulsante **Azure Active Directory** nel riquadro sinistro.
 
@@ -169,7 +169,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     d. Fare clic su **Create**(Crea).
   
-### <a name="create-a-edigitalresearch-test-user"></a>Creare un utente test di eDigitalResearch
+### <a name="create-an-edigitalresearch-test-user"></a>Creare un utente test di eDigitalResearch
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in eDigitalResearch. 
 
@@ -184,7 +184,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 ![Assegnare il ruolo utente][200] 
 
-**Per assegnare Britta Simon a eDigitalResearch, seguire questa procedura:**
+**Per assegnare Britta Simon a eDigitalResearch, seguire i passaggi seguenti:**
 
 1. Nel portale di Azure aprire la visualizzazione delle applicazioni e quindi la visualizzazione delle directory e passare ad **Applicazioni aziendali**, quindi fare clic su **Tutte le applicazioni**.
 

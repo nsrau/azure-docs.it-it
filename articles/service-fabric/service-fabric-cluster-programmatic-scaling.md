@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949619"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047940"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
 
 I cluster di Service Fabric in esecuzione in Azure sono basati su set di scalabilità di macchine virtuali.  L'articolo sulla [scalabilità dei cluster](./service-fabric-cluster-scale-up-down.md) descrive come aumentare o ridurre i cluster di Service Fabric manualmente o usando regole di ridimensionamento automatico. Questo articolo descrive come gestire le credenziali e ridimensionare un cluster usando l'SDK di calcolo di Azure Fluent, ovvero in uno scenario più avanzato. Per una panoramica, leggere le informazioni sui [metodi per coordinare a livello di codice le operazioni di ridimensionamento di Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Gestire le credenziali
 Un problema in fase di scrittura di un servizio per gestire la scalabilità è che il servizio deve essere in grado di accedere alle risorse dei set di scalabilità di macchine virtuali senza un accesso interattivo. L'accesso al cluster Service Fabric è semplice se il servizio di scalabilità sta modificando la propria applicazione Service Fabric, ma sono necessarie le credenziali per accedere al set di scalabilità. Per accedere, è possibile usare un'[entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creata con l'[interfaccia della riga di comando di Azure](https://github.com/azure/azure-cli).
@@ -31,9 +34,9 @@ Un problema in fase di scrittura di un servizio per gestire la scalabilità è c
 È possibile creare un'entità servizio con i passaggi seguenti:
 
 1. Accedere all'interfaccia della riga di comando di Azure (`az login`) come utente con accesso al set di scalabilità di macchine virtuali
-2. Creare l'entità servizio con `az ad sp create-for-rbac`
+2. Creare un'entità con il servizio `az ad sp create-for-rbac`
     1. Prendere nota di appId (denominato altrove "ID client"), nome, password e tenant per un uso successivo.
-    2. Sarà inoltre necessario l'ID sottoscrizione, che può essere visualizzato con `az account list`
+    2. È necessario anche l'ID sottoscrizione, che può essere visualizzato con `az account list`
 
 La libreria di calcolo Fluent può eseguire l'accesso usando queste credenziali come indicato di seguito. Si noti che i tipi di Azure fluent principali, ad esempio `IAzure`, sono nel pacchetto [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/):
 
@@ -65,7 +68,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) consente di recuperare l'oggetto set di scalabilità di macchine virtuali. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo avere impostato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere aggiornato con il comando [`Update-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) consente di recuperare l'oggetto set di scalabilità di macchine virtuali. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo avere impostato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere aggiornato con il comando [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss).
 
 Quando si aggiunge manualmente un nodo, l'aggiunta di un'istanza del set di scalabilità dovrebbe essere sufficiente per avviare un nuovo nodo Service Fabric in quanto il modello del set di scalabilità include le estensioni per aggiungere automaticamente nuove istanze al cluster Service Fabric. 
 

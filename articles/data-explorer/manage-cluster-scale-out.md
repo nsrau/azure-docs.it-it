@@ -1,19 +1,18 @@
 ---
-title: Ridimensionamento di un cluster di Esplora dati di Azure per rispondere al cambiamento della domanda
+title: Scalare orizzontalmente un cluster di Esplora dati di Azure per soddisfare la richiesta di modifica
 description: Questo articolo descrive i passaggi per scalare in orizzontale e scalabilità in un cluster di Azure Data Explorer base alle variazioni della domanda.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755077"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044235"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Gestire l'aumento del numero di istanze di un cluster per rispondere al cambiamento della domanda
 
@@ -55,7 +54,7 @@ La figura seguente mostra il flusso dei passaggi successivi. Altri dettagli sono
 
     | Impostazione | Descrizione e valore |
     | --- | --- |
-    | **operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
+    | **Operazione** | Scegliere l'opzione appropriata per ridurre o aumentare il numero di istanze. |
     | **Numero di istanze** | Scegliere il numero di nodi o istanze da aggiungere o rimuovere quando viene soddisfatta una condizione di metrica. |
     | **Disattiva regole dopo (minuti)** | Scegliere un intervallo di tempo appropriato per l'attesa tra le operazioni di ridimensionamento. Iniziare con il valore predefinito di cinque minuti. |
     |  |  |
@@ -66,9 +65,9 @@ La figura seguente mostra il flusso dei passaggi successivi. Altri dettagli sono
 
     | Impostazione | Descrizione e valore |
     | --- | --- |
-    | **Minimi** | Numero di istanze al di sotto del quale non verrà effettuato il ridimensionamento del cluster, indipendentemente dall'utilizzo. |
-    | **Massimo** | Numero di istanze al di sopra del quale non verrà effettuato il ridimensionamento del cluster, indipendentemente dall'utilizzo. |
-    | **Default** | Il numero predefinito di istanze. Questa impostazione viene usata se si verificano problemi con la lettura delle metriche delle risorse. |
+    | **Minima** | Numero di istanze al di sotto del quale non verrà effettuato il ridimensionamento del cluster, indipendentemente dall'utilizzo. |
+    | **Massima** | Numero di istanze al di sopra del quale non verrà effettuato il ridimensionamento del cluster, indipendentemente dall'utilizzo. |
+    | **Predefinito** | Il numero predefinito di istanze. Questa impostazione viene usata se si verificano problemi con la lettura delle metriche delle risorse. |
     |  |  |
 
 1. Selezionare **Salva**.
