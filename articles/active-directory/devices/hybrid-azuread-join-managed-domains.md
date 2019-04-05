@@ -69,7 +69,7 @@ L'aggiunta ad Azure AD ibrido richiede che i dispositivi abbiano accesso alle ri
 - https://enterpriseregistration.windows.net
 - https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
-- https://autologon.microsoftazuread-sso.com (Se si usa o si pensa di usare Seamless SSO)
+- [https://autologon.microsoftazuread-sso.com](https://autologon.microsoftazuread-sso.com) (Se si usa o si pensa di usare Seamless SSO)
 
 Se l'organizzazione richiede l'accesso a Internet attraverso un proxy in uscita, a partire da Windows 10 1709 è possibile [configurare le impostazioni proxy nel computer usando un oggetto Criteri di gruppo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Se nel computer è in esecuzione una versione precedente a Windows 10 1709, è necessario implementare Web Proxy Auto-Discovery (WPAD) per consentire ai computer Windows 10 di registrare i dispositivi con Azure AD. 
 
