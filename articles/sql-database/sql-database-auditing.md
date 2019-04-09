@@ -11,13 +11,13 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: a98ec18f2ed38b290d04c3fdc36d9a6ff80a675a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.date: 04/08/2019
+ms.openlocfilehash: 75c4f531fff02d8dfeed4ca32bbe1da432635765
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407352"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261072"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>Introduzione al controllo del database SQL
 
@@ -25,7 +25,7 @@ Il controllo del [database SQL di Azure](sql-database-technical-overview.md) e d
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
 
-- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni su Azure programmi che supporto la conformità agli standard, vedere la [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
 
 
 > [!NOTE] 
@@ -231,8 +231,8 @@ Durante la produzione è probabile che periodicamente vengano aggiornate le chia
 
 - [Crea o aggiorna i criteri (Set-AzSqlDatabaseAuditing) controllo del Database](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseauditing)
 - [Crea o aggiorna i criteri di controllo del Server (Set-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserverauditing)
-- [Ottenere i criteri di controllo del database (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
-- [Ottenere il controllo dei criteri (Get-AzSqlServerAuditing) Server](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
+- [Ottieni Criteri controllo del Database (Get-AzSqlDatabaseAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabaseauditing)
+- [Get Server Auditing Policy (Get-AzSqlServerAuditing)](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlserverauditing)
 
 Per un esempio di script, vedere [Configurare il controllo del database SQL e il rilevamento delle minacce usando PowerShell](scripts/sql-database-auditing-and-threat-detection-powershell.md).
 
@@ -240,10 +240,10 @@ Per un esempio di script, vedere [Configurare il controllo del database SQL e il
 
 **API REST**:
 
-- [Creare o aggiornare i criteri controllo del database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
-- [Creare o aggiornare i criteri controllo del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
-- [Ottenere i criteri controllo del database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
-- [Ottenere i criteri controllo del server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
+- [Crea o aggiorna i Criteri controllo del Database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/createorupdate)
+- [Crea o aggiorna i criteri di controllo del Server](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/createorupdate)
+- [Ottenere i Criteri controllo del Database](https://docs.microsoft.com/rest/api/sql/database%20auditing%20settings/get)
+- [Ottenere i Server dei criteri di controllo](https://docs.microsoft.com/rest/api/sql/server%20auditing%20settings/get)
 
 Criteri estesi con il supporto della clausola WHERE per altri filtri:
 
@@ -256,9 +256,9 @@ Criteri estesi con il supporto della clausola WHERE per altri filtri:
 
 È possibile gestire il controllo del database SQL di Azure usando i modelli di [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), come illustrato negli esempi seguenti:
 
-- [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in un account di Archiviazione BLOB di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
-- [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in Log Analytics](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
-- [Distribuire un server SQL di Azure con il controllo abilitato per la scrittura dei log di controllo in Hub eventi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
+- [Distribuire un Server SQL di Azure con il controllo in grado di scrivere i log di controllo per account di archiviazione Blob di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage)
+- [Distribuire un Server SQL di Azure con il controllo in grado di scrivere i log di controllo Log Analitica](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-oms)
+- [Distribuire un Server SQL di Azure con il controllo in grado di scrivere i log di controllo a hub eventi](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 > [!NOTE]
 > Gli esempi collegati si trovano in un repository pubblico esterno e vengono forniti "come è", senza alcuna garanzia e non sono supportati in qualsiasi programma o servizio di supporto Microsoft.

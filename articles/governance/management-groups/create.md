@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/04/2019
+ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057439"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259810"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creare gruppi di gestione per la gestione e l'organizzazione delle risorse
 
@@ -50,7 +50,7 @@ La creazione del primo gruppo di gestione nella directory può richiedere fino a
 
 ### <a name="create-in-powershell"></a>Creazione in PowerShell
 
-All'interno di PowerShell, utilizzare il cmdlet New-AzManagementGroup:
+Per PowerShell, usare il [New-AzManagementGroup](/powershell/module/az.resources/new-azmanagementgroup) cmdlet per creare un nuovo gruppo di gestione.
 
 ```azurepowershell-interactive
 New-AzManagementGroup -GroupName 'Contoso'
@@ -58,20 +58,39 @@ New-AzManagementGroup -GroupName 'Contoso'
 
 **GroupName** è un identificatore univoco creato. Questo ID viene usato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in un secondo momento.
 
-Se si vuole visualizzare un nome diverso per il gruppo di gestione all'interno del portale di Azure, è necessario aggiungere il parametro **DisplayName** alla stringa. Se ad esempio si vuole creare un gruppo di gestione con GroupName Contoso e nome visualizzato "Contoso Group", usare il cmdlet seguente:
+Se si desidera che il gruppo di gestione per mostrare un nome diverso nel portale di Azure, aggiungere il **DisplayName** parametro. Ad esempio, per creare un gruppo di gestione con GroupName Contoso e il nome visualizzato "Contoso Group", usare il cmdlet seguente:
 
 ```azurepowershell-interactive
-New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group' -ParentId '/providers/Microsoft.Management/managementGroups/ContosoTenant'
+New-AzManagementGroup -GroupName 'Contoso' -DisplayName 'Contoso Group'
 ```
 
-Usare il parametro **ParentId** per creare questo gruppo di gestione in una gestione diversa.
+Negli esempi precedenti, viene creato il nuovo gruppo di gestione nel gruppo di gestione radice. Per specificare un gruppo di gestione differente come elemento padre, usare il **ParentId** parametro.
+
+```azurepowershell-interactive
+$parentGroup = Get-AzManagementGroup -GroupName Contoso
+New-AzManagementGroup -GroupName 'ContosoSubGroup' -ParentId $parentGroup.id
+```
 
 ### <a name="create-in-azure-cli"></a>Creazione nell'interfaccia della riga di comando di Azure
 
-Nell'interfaccia della riga di comando di Azure usare il comando az account management-group create.
+Riga di comando di Azure, usare il [az account management-group create](/cli/azure/account/management-group?view=azure-cli-latest#az-account-management-group-create) comando per creare un nuovo gruppo di gestione.
 
 ```azurecli-interactive
-az account management-group create --name 'Contoso'
+az account management-group create --name Contoso
+```
+
+Il **nome** è un identificatore univoco viene creato. Questo ID viene usato da altri comandi per fare riferimento a questo gruppo e non può essere modificato in un secondo momento.
+
+Se si desidera che il gruppo di gestione per mostrare un nome diverso nel portale di Azure, aggiungere il **display-name** parametro. Ad esempio, per creare un gruppo di gestione con GroupName Contoso e il nome visualizzato "Contoso Group", usare il comando seguente:
+
+```azurecli-interactive
+az account management-group create --name Contoso --display-name 'Contoso Group'
+```
+
+Negli esempi precedenti, viene creato il nuovo gruppo di gestione nel gruppo di gestione radice. Per specificare un gruppo di gestione differente come elemento padre, usare il **padre** parametro e specificare il nome del gruppo padre.
+
+```azurecli-interactive
+az account management-group create --name ContosoSubGroup --parent Contoso
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

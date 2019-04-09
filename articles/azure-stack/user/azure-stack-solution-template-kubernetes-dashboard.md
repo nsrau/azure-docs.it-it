@@ -15,16 +15,16 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482590"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255938"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Accedere al Dashboard di Kubernetes in Azure Stack 
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack* 
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack* 
 > [!Note]   
 > Kubernetes in Azure Stack è disponibile in anteprima. Scenario disconnesso di Azure Stack non è attualmente supportato per l'anteprima. 
 
@@ -47,7 +47,7 @@ Kubernetes include un dashboard web che è possibile usare per le operazioni di 
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Panoramica dei passaggi per abilitare i dashboard
 
 1.  Esportare i certificati di Kubernetes dal nodo master nel cluster. 
-2.  Importare i certificati in Azure Stack il computer di gestione.
+2.  Importare i certificati nel computer di gestione di Azure Stack.
 2.  Aprire il dashboard web di Kubernetes. 
 
 ## <a name="export-certificate-from-the-master"></a>Esportare un certificato dal server master 
@@ -70,7 +70,7 @@ Kubernetes include un dashboard web che è possibile usare per le operazioni di 
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Trovare l'URL per il dashboard. Ad esempio: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Trovare l'URL per il dashboard. Ad esempio:   `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Estrarre il certificato autofirmato e convertirlo in formato PFX. Eseguire il comando seguente:
 

@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: 7fc69c3d0b6820db2227b241d63e4304152d99bf
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/08/2019
+ms.openlocfilehash: 7c01e8132cc8fe8fcc01e468973a273dbfcfad64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664676"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261055"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Panoramica della funzionalità di sicurezza del database SQL di Azure
 
@@ -157,7 +157,7 @@ Per altre informazioni, vedere [Introduzione a Individuazione dati e classificaz
 
 ### <a name="compliance"></a>Conformità
 
-Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono all'applicazione di soddisfare vari requisiti di sicurezza, il database SQL di Azure è inoltre sottoposto a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere il [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [certificazioni di conformità del database SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono all'applicazione di soddisfare vari requisiti di sicurezza, il database SQL di Azure è inoltre sottoposto a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per altre informazioni, vedere la [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -17,12 +17,12 @@ ms.date: 02/26/2019
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70fb463b1ac8664838404a7dfcd0380da8f3358d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 92825a9ef84edc30b6b34aa875f8a207c70c8511
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889495"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260936"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Monitorare AD FS con Azure AD Connect Health
 La documentazione seguente è specifica per il monitoraggio dell'infrastruttura AD FS con Azure AD Connect Health. Per informazioni sul monitoraggio di Azure Active Directory Connect (Sincronizzazione) con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health per la sincronizzazione](how-to-connect-health-sync.md). Per informazioni sul monitoraggio di Servizi di dominio Active Directory con Azure AD Connect Health, vedere [Uso di Azure AD Connect Health con Servizi di dominio Active Directory](how-to-connect-health-adds.md).
@@ -120,5 +120,5 @@ Il report fornisce le informazioni seguenti:
 ## <a name="related-links"></a>Collegamenti correlati
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Installazione dell'agente di Azure AD Connect Health](how-to-connect-health-agent-install.md)
-* [Report sugli indirizzi IP rischiosi ](how-to-connect-health-adfs-risky-ip.md)
+* [Report sugli indirizzi IP rischiosi](how-to-connect-health-adfs-risky-ip.md)
 

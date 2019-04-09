@@ -1,19 +1,18 @@
 ---
 title: Fasi della distribuzione di un progetto
 description: Informazioni sulla procedura i servizi di Azure Blueprint passa attraverso durante una distribuzione.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: ced8c8ab2e65fb1d3f8a976f122a387fe9161750
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d7000813b51fb9c9aae9a21cbded3ae0028e83f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801965"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261418"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fasi della distribuzione di un progetto
 

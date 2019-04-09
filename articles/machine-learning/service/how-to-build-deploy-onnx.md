@@ -11,12 +11,12 @@ ms.author: prasantp
 author: prasanthpul
 ms.date: 12/3/2018
 ms.custom: seodec18
-ms.openlocfilehash: 349f2c4eea743c3e44e492dfa76be4a70f2c37d6
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 33a93aa01499beb978f616f633588ba75e4b62a3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362026"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259185"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX e Azure Machine Learning: Creare e distribuire modelli di intelligenza artificiale interoperativi
 
@@ -28,15 +28,16 @@ Il formato [Open Neural Network Exchange](https://onnx.ai) (ONNX) è uno standar
 Microsoft supporta ONNX in tutti i relativi prodotti tra cui Azure e Windows per raggiungere i propri obiettivi.  
 
 ## <a name="why-choose-onnx"></a>Perché scegliere ONNX?
+
 L'interoperabilità che si ottiene con ONNX consente di ottenere più velocemente idee eccezionali nell’ambiente di produzione. Con ONNX, i data scientist possono scegliere il framework preferito per il processo. Analogamente, gli sviluppatori possono dedicare meno tempo alla preparazione per la produzione di modelli e distribuirli attraverso il cloud e i dispositivi periferici.  
 
-È possibile creare modelli ONNX da molti framework, tra cui PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn e altri ancora.
+È possibile creare i modelli ONNX da molti Framework, tra cui PyTorch, Chainer, MXNet, a ML.Net, TensorFlow, Keras, SciKit-Learn, Microsoft Cognitive Toolkit e altro ancora.
 
 È inoltre disponibile un ecosistema di strumenti per visualizzare e accelerare i modelli ONNX. Per gli scenari comuni sono inoltre disponibili vari modelli con training preliminare ONNX.
 
 [I modelli ONNX possono essere distribuiti](#deploy) nel cloud usando Azure Machine Learning e ONNX Runtime. Inoltre, possono essere distribuiti nei dispositivi Windows 10 usando [Windows ML](https://docs.microsoft.com/windows/ai/). È anche possibile distribuirli in altre piattaforme usando convertitori recuperabili dalla community ONNX. 
 
-[![Diagramma di flusso ONNX con training, convertitori di tipi e la distribuzione](media/concept-onnx/onnx.png) ](./media/concept-onnx/onnx.png#lightbox)
+[![ODiagramma di flusso NNX con training, convertitori di tipi e alla distribuzione](media/concept-onnx/onnx.png)](./media/concept-onnx/onnx.png#lightbox)
 
 ## <a name="get-onnx-models"></a>Ottenere modelli ONNX
 
@@ -52,12 +53,12 @@ L'interoperabilità che si ottiene con ONNX consente di ottenere più velocement
 
 |Framework per il modello|Strumento o esempio di conversione|
 |-----|-------|
-|PyTorch|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
-|Microsoft&nbsp;Cognitive&nbsp;Toolkit&nbsp;(CNTK)|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
-|TensorFlow|[tensorflow-onnx converter](https://github.com/onnx/tensorflow-onnx)|
-|Chainer|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
-|MXNet|[Jupyter Notebook](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
+|PyTorch|[Notebook di Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/PytorchOnnxExport.ipynb)|
+|TensorFlow|[convertitore di tensorflow onnx](https://github.com/onnx/tensorflow-onnx)|
+|Chainer|[Notebook di Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/ChainerOnnxExport.ipynb)|
+|MXNet|[Notebook di Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/MXNetONNXExport.ipynb)|
 |Keras, ScitKit-Learn, CoreML<br/>XGBoost e libSVM|[WinMLTools](https://docs.microsoft.com/windows/ai/convert-model-winmltools)|
+|Microsoft&nbsp;Cognitive&nbsp;Toolkit|[Notebook di Jupyter](https://github.com/onnx/tutorials/blob/master/tutorials/CntkOnnxExport.ipynb)|
 
 È possibile reperire l'elenco più recente del Framework supportati e i convertitori nel [sito dedicato alle esercitazioni di ONNX](https://github.com/onnx/tutorials).
 
@@ -144,6 +145,9 @@ Ecco un esempio per la distribuzione di un modello ONNX:
    image.wait_for_creation(show_output = True)
    ```
 
+   > [!TIP]
+   > Nell'esempio precedente Usa l'immagine predefinita fornita dal servizio Azure Machine Learning. È anche possibile usare un'immagine personalizzata. Per altre informazioni, vedere la sezione relativa alla configurazione e alla registrazione di un'immagine nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#configureimage).
+
    Il file `score.py` contiene la logica di punteggio e deve essere incluso nell'immagine. Questo file viene usato per eseguire il modello nell'immagine. Vedere questa [esercitazione](tutorial-deploy-models-with-aml.md#create-scoring-script) per le istruzioni su come creare uno script dei punteggi. Di seguito viene mostrato un file di esempio per un modello ONNX:
 
    ```python
@@ -207,6 +211,6 @@ Per altre informazioni su ONNX o per contribuire al progetto:
 + [Codice ONNX su GitHub](https://github.com/onnx/onnx)
 
 Per altre informazioni su ONNX Runtime o per contribuire al progetto:
-+ [Repository GitHub di ONNX Runtime](https://github.com/Microsoft/onnxruntime)
++ [Repository GitHub di Runtime ONNX](https://github.com/Microsoft/onnxruntime)
 
 

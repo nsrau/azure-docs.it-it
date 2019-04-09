@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894766"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256890"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Accesso Single Sign-On facile di Azure Active Directory: Avvio rapido
 
@@ -93,7 +93,7 @@ Seguire queste istruzioni per verificare di aver abilitato correttamente l'acces
 ![Portale di Azure: riquadro di Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L'accesso SSO facile crea un account computer denominato `AZUREADSSOACC` in locale Active Directory (AD) in ogni foresta di Active Directory. Il `AZUREADSSOACC` account computer deve essere fortemente protetto per motivi di sicurezza. Solo gli amministratori di dominio devono essere in grado di gestire l'account del computer. Assicurarsi che la delega Kerberos sull'account del computer è disabilitata. Store l'account del computer in un'unità Organizzativa in cui siano sicure da eliminazioni accidentali.
+> L'accesso SSO facile crea un account computer denominato `AZUREADSSOACC` in locale Active Directory (AD) in ogni foresta di Active Directory. Il `AZUREADSSOACC` account computer deve essere fortemente protetto per motivi di sicurezza. Solo gli amministratori di dominio devono essere in grado di gestire l'account del computer. Assicurarsi che la delega Kerberos sull'account del computer è disabilitata. Store l'account del computer in un'unità Organizzativa in cui siano sicure da eliminazioni accidentali e solo gli amministratori di dominio hanno accesso.
 
 >[!NOTE]
 > Se si usa le architetture di Pass-the-Hash e mitigazione dei rischi di furto delle credenziali in locale nell'ambiente in uso, apportare le modifiche appropriate per garantire che il `AZUREADSSOACC` account computer non termina nel contenitore di quarantena. 

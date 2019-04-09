@@ -3,17 +3,17 @@ title: Concetti dell'architettura di Azure IoT Central | Microsoft Docs
 description: Questo articolo presenta i concetti fondamentali relativi all'architettura di Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/30/2017
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 564ea3efe35a1054b8c905cff4b7f4c739cc9216
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 4f4b917808f4973dc83294391f58d7e0e2d01c4c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156375"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260953"
 ---
 # <a name="azure-iot-central-architecture"></a>Architettura di Azure IoT Central
 
@@ -83,7 +83,7 @@ Un'applicazione può avere uno o più dispositivi simulati e reali basati su ogn
 
 Un [amministratore può definire le regole di accesso](howto-administer.md) per un'applicazione Azure IoT Central tramite i ruoli predefiniti. Un amministratore può assegnare gli utenti ai ruoli determinando a quali aree dell'applicazione l'utente può accedere.
 
-## <a name="security"></a>Sicurezza
+## <a name="security"></a>Security
 
 Le funzionalità di sicurezza all'interno di Azure IoT Central includono:
 

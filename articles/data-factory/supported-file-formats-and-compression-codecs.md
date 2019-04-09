@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e21223bf3c50a98e039d0f19c51116c4a3cfbcc0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875127"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257910"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formati di file e codec di compressione supportati in Azure Data Factory
 
-*Questo articolo si applica ai connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), [BLOB di Azure](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Archiviazione file di Azure](connector-azure-file-storage.md), [File system](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) e [SFTP](connector-sftp.md).*
+*Questo articolo si applica ai connettori seguenti: [Amazon S3](connector-amazon-simple-storage-service.md), [Blob di Azure](connector-azure-blob-storage.md), [Azure Data Lake Store Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Store Gen2](connector-azure-data-lake-storage.md), [archiviazione File di Azure](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)e [ SFTP](connector-sftp.md).*
 
 Per **copiare i file così come sono** tra archivi basati su file (copia binaria), è possibile ignorare la sezione del formato nelle definizioni dei set di dati di input e di output. Se si intende **analizzare o generare file con un formato specifico**, Azure Data Factory supporta i tipi di formato file seguenti:
 
@@ -96,15 +96,18 @@ Per analizzare i file JSON o scrivere i dati in formato JSON, impostare la propr
 | encodingName |Specificare il nome della codifica. Per l'elenco dei nomi di codifica validi, vedere: Proprietà [Encoding.EncodingName](https://msdn.microsoft.com/library/system.text.encoding.aspx). Ad esempio: windows-1250 o shift_jis. Il valore **predefinito** è: **UTF-8**. |No  |
 | nestingSeparator |Carattere utilizzato per separare i livelli di nidificazione. Il valore predefinito è "." (punto). |No  |
 
+>[!NOTE]
+>Nel caso di applicazione incrociata dei dati nella matrice in più righe (caso 1 -> esempio di 2 in [esempi di JsonFormat](#jsonformat-example)), è possibile scegliere solo espandere singola matrice utilizzando proprietà `jsonNodeReference`. 
+
 ### <a name="json-file-patterns"></a>Modelli di file JSON
 
 L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
 
-- **Tipo I: setOfObjects**
+- **Tipo i: setOfObjects**
 
     Ogni file contiene un solo oggetto o più oggetti con delimitatori di riga/concatenati. Quando si sceglie questa opzione in un set di dati di output, l'attività di copia produce un singolo file JSON con un oggetto per riga (delimitato da riga).
 
-    * **Esempio di JSON a oggetto singolo**
+    * **esempio JSON di oggetto singolo**
 
         ```json
         {
@@ -117,7 +120,7 @@ L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
         }
         ```
 
-    * **Esempio di JSON con delimitatori di riga**
+    * **esempio JSON delimitato da righe**
 
         ```json
         {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
@@ -125,7 +128,7 @@ L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
         {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
         ```
 
-    * **Esempio di JSON concatenati**
+    * **esempio di JSON concatenati**
 
         ```json
         {
@@ -189,9 +192,9 @@ L'attività di copia può eseguire l'analisi dei seguenti modelli di file JSON:
 
 ### <a name="jsonformat-example"></a>Esempio JsonFormat
 
-**Caso 1: Copia di dati dai file JSON**
+**Caso 1: Copia dei dati dai file JSON**
 
-**Esempio 1: Estrarre i dati dall'oggetto e dalla matrice**
+**Esempio 1: estrarre dati dall'oggetto e matrice**
 
 In questo esempio si prevede che un oggetto JSON radice esegua il mapping a un singolo record in un risultato tabulare. Se si dispone di un file JSON con il contenuto seguente:  
 
@@ -227,8 +230,8 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, estraend
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
-- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare `array[x].property` per estrarre il valore della proprietà specificata dall'oggetto `xth`, oppure è possibile usare `array[*].property` per trovare il valore in qualsiasi oggetto contenente tale proprietà.
+- `structure` sezione definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
+- `jsonPathDefinition` Specifica il percorso JSON per ogni colonna che indica dove estrarre i dati. Per copiare i dati dalla matrice, è possibile usare `array[x].property` per estrarre il valore della proprietà specificata dall'oggetto `xth`, oppure è possibile usare `array[*].property` per trovare il valore in qualsiasi oggetto contenente tale proprietà.
 
 ```json
 "properties": {
@@ -302,9 +305,9 @@ e lo si vuole copiare in una tabella SQL di Azure nel formato seguente, rendendo
 
 Il set di dati di input con il tipo **JsonFormat** è definito come segue (definizione parziale che include solo le parti pertinenti). Più in particolare:
 
-- La sezione `structure` definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
-- `jsonNodeReference` indica di seguire l'iterazione dei dati e di estrarli dagli oggetti con lo stesso modello sotto la **matrice**`orderlines`.
-- `jsonPathDefinition` specifica il percorso JSON per ogni colonna indicante da dove estrarre i dati. In questo esempio `ordernumber`, `orderdate` e `city` sono sotto l'oggetto radice con il percorso JSON che inizia con `$.`, mentre `order_pd` e `order_price` sono definiti con il percorso derivato dall'elemento matrice senza `$.`.
+- `structure` sezione definisce i nomi di colonna personalizzati e il tipo di dati corrispondente durante la conversione in dati tabulari. Questa sezione è **facoltativa** a meno che non sia necessario eseguire il mapping colonne. Per altre informazioni, vedere [Eseguire il mapping delle colonne del set di dati di origine alle colonne del set di dati di destinazione](copy-activity-schema-and-type-mapping.md).
+- `jsonNodeReference` indica di eseguire l'iterazione ed estrarre i dati dagli oggetti con lo stesso modello sotto **matrice** `orderlines`.
+- `jsonPathDefinition` Specifica il percorso JSON per ogni colonna che indica dove estrarre i dati. In questo esempio `ordernumber`, `orderdate` e `city` sono sotto l'oggetto radice con il percorso JSON che inizia con `$.`, mentre `order_pd` e `order_price` sono definiti con il percorso derivato dall'elemento matrice senza `$.`.
 
 ```json
 "properties": {
@@ -349,7 +352,7 @@ Il set di dati di input con il tipo **JsonFormat** è definito come segue (defin
 * Se ci sono nomi duplicati allo stesso livello, l'attività di copia sceglie quello più recente.
 * I nomi delle proprietà distinguono tra maiuscole e minuscole. Due proprietà con lo stesso nome ma con una combinazione differente di maiuscole e minuscole vengono considerate come due proprietà diverse.
 
-**Caso 2: Scrittura dei dati nel file JSON**
+**Caso 2: La scrittura dati in file JSON**
 
 Se nel database SQL è presente la tabella seguente:
 
@@ -586,10 +589,10 @@ La sezione **compression** ha due proprietà:
 
 Per gli archivi dati basati su file supportati da Azure Data Factory, vedere i seguenti articoli:
 
-- [Connettore di Archiviazione BLOB di Azure](connector-azure-blob-storage.md)
+- [Connettore di archiviazione Blob di Azure](connector-azure-blob-storage.md)
 - [Connettore di Azure Data Lake Store](connector-azure-data-lake-store.md)
-- [Connettore di Amazon S3](connector-amazon-simple-storage-service.md)
-- [Connettore File System](connector-file-system.md)
+- [Connettore Amazon S3](connector-amazon-simple-storage-service.md)
+- [Connettore file System](connector-file-system.md)
 - [Connettore FTP](connector-ftp.md)
 - [Connettore SFTP](connector-sftp.md)
 - [Connettore HDFS](connector-hdfs.md)

@@ -5,26 +5,25 @@ author: bolzmj
 ms.author: mbolz
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 01/24/2019
-ms.openlocfilehash: b01238b0ebfe07b605824a75301165e477bd05e9
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 0521283f917d05a56d26503dc6f0af349f1ac1e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54910713"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260324"
 ---
 # <a name="azure-database-for-postgresql-advanced-threat-protection"></a>Advanced Threat Protection per Database di Azure per PostgreSQL
 
 Advanced Threat Protection per Database di Azure per PostgreSQL rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
 
-Threat Protection fa parte dell'offerta Advanced Threat Protection (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. È possibile accedere e gestire Advanced Threat Protection tramite il [portale di Azure](https://portal.azure.com) ed è attualmente in anteprima.
+> [!NOTE]
+> Advanced Threat Protection è disponibile in anteprima pubblica.
+
+Threat Protection fa parte dell'offerta Advanced Threat Protection (ATP), che è un pacchetto unificato per le funzionalità avanzate di sicurezza. Advanced Threat Protection siano accessibili e gestite tramite il [portale di Azure](https://portal.azure.com) o tramite [API REST](/rest/api/postgresql/serversecurityalertpolicies). La funzionalità è disponibile per i server per utilizzo generico e ottimizzate per la memoria.
 
 > [!NOTE]
 > La funzionalità Advanced Threat Protection **non** è disponibile nelle aree seguenti di cloud sovrano e Azure per enti pubblici: US Gov Texas, US Gov Arizona, US Gov Iowa, US Gov Virginia, US DoD (area orientale), US DoD (area centrale), Germania centrale, Germania settentrionale, Cina orientale, Cina orientale 2. Visitare [i prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/) per verificare la disponibilità generale del prodotto.
->
-
-> [!NOTE]
-> Questa funzionalità è disponibile in tutte le aree di Azure in cui Database di Azure per PostgreSQL viene distribuito nei server per utilizzo generico e ottimizzati per la memoria.
 
 ## <a name="what-is-advanced-threat-protection"></a>Che cos'è Advanced Threat Protection?
 

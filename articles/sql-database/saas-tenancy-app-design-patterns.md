@@ -4,7 +4,7 @@ description: Informazioni sui requisiti e sui criteri comuni di architettura dei
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: MightyPen
@@ -12,18 +12,18 @@ ms.author: genemi
 ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: d55d8f8f945e30402cb772c7e26b234e3e460698
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57217870"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260545"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Criteri di tenancy di database delle applicazioni SaaS multi-tenant
 
-Quando si progetta un'applicazione SaaS multi-tenant, è necessario scegliere con attenzione il modello di tenancy più adatto alle esigenze dell'applicazione.  Un modello di tenancy determina la modalità di mapping dei dati di ogni tenant alla risorsa di archiviazione.  La scelta del modello di tenancy influisce sulla progettazione e sulla gestione dell'applicazione.  In alcuni casi il passaggio a un modello diverso in un secondo momento è dispendioso.
+Questo articolo descrive i vari modelli di tenancy disponibili per un'applicazione SaaS multi-tenant.
 
-Questo articolo descrive modelli di tenancy alternativi.
+Quando si progetta un'applicazione SaaS multi-tenant, è necessario scegliere con attenzione il modello di tenancy più adatto alle esigenze dell'applicazione.  Un modello di tenancy determina la modalità di mapping dei dati di ogni tenant alla risorsa di archiviazione.  La scelta del modello di tenancy influisce sulla progettazione e sulla gestione dell'applicazione.  In alcuni casi il passaggio a un modello diverso in un secondo momento è dispendioso.
 
 ## <a name="a-saas-concepts-and-terminology"></a>R. Concetti e terminologia relativi a SaaS
 
@@ -56,7 +56,7 @@ In generale, il modello di tenancy non influisce sul funzionamento di un'applica
     - Modifiche alle query (richieste dal modello).
 
 - **Complessità operativa:**
-    - Prestazioni di monitoraggio e gestione.
+    - Monitoraggio e gestione delle prestazioni.
     - Gestione degli schemi.
     - Ripristino di un tenant.
     - Ripristino di emergenza.
@@ -97,7 +97,7 @@ Grazie alla funzione di database per tenant, è semplice personalizzare lo schem
 
 Quando vengono distribuiti nello stesso gruppo di risorse, i database possono essere raggruppati in pool elastici.  I pool forniscono un modo economico per condividere le risorse tra più database.  Questa opzione di pool è più economica rispetto alla necessità per ogni database di contenere i picchi di utilizzo che si trova a gestire.  Anche se i database in pool condividono l'accesso alle risorse, possono comunque conseguire un elevato livello di isolamento delle prestazioni.
 
-![Progettazione di app multi-tenant con database per tenant mediante pool elastico.][image-mt-app-db-per-tenant-pool-153p]
+![Progettazione di app multi-tenant con database per tenant, usano il pool elastico.][image-mt-app-db-per-tenant-pool-153p]
 
 Il database SQL di Azure fornisce gli strumenti necessari per configurare, monitorare e gestire la condivisione.  Entrambe le metriche delle prestazioni a livello di pool e a livello di database sono disponibili nel portale di Azure e tramite i log di monitoraggio di Azure.  Le metriche possono fornire dettagli sulle prestazioni aggregate e specifiche del tenant.  I singoli database possono essere spostati tra i pool per fornire risorse riservate a un tenant specifico.  Questi strumenti garantiscono prestazioni ottimali in modo conveniente.
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905274"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263761"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>Per i log di .NET Core ILogger ApplicationInsightsLoggerProvider
 
@@ -208,10 +208,10 @@ Mentre è ancora possibile utilizzare provider precedente (è ora obsoleta e ver
 1. Provider precedente supportava dei [ambiti](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). Del nuovo provider, le proprietà dall'ambito vengono aggiunti automaticamente come proprietà personalizzate ai dati di telemetria raccolti.
 2. A questo punto è possibile acquisire i log molto più indietro in pipeline di avvio dell'applicazione. vale a dire A questo punto è possibile acquisire i log dalle classi di programma e avvio.
 3. Con il nuovo provider, il filtro viene applicato a livello di framework stesso. Filtro di log al provider di Application Insights può essere eseguito in esatta esattamente come per altri provider, inclusi i provider predefiniti, come Console di Debug e così via. È anche possibile applicare filtri stesso da più provider.
-4. Il [consigliato](https://github.com/aspnet/Announcements/issues/255) modo in Asp.Net Core (2.0 o versione successiva) per abilitare i provider di registrazione è utilizzando i metodi di estensione su ILoggingBuilder in `Program.cs` stesso.
+4. Il [consigliato](https://github.com/aspnet/Announcements/issues/255) modo in ASP.NET Core (2.0 o versione successiva) per abilitare i provider di registrazione è utilizzando i metodi di estensione su ILoggingBuilder in `Program.cs` stesso.
 
 > [!Note]
-Il nuovo Provider è disponibile per le applicazioni destinate a `NETSTANDARD2.0` o versione successiva. Se l'applicazione è destinata a versioni precedenti di .NET Core, ad esempio .NET Core 1.1 o se la destinazione è .NET Framework, continuare a usare il vecchio provider.
+> Il nuovo Provider è disponibile per le applicazioni destinate a `NETSTANDARD2.0` o versione successiva. Se l'applicazione è destinata a versioni precedenti di .NET Core, ad esempio .NET Core 1.1 o se la destinazione è .NET Framework, continuare a usare il vecchio provider.
 
 ## <a name="console-application"></a>Applicazione console
 

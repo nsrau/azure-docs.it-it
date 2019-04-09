@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905835"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262500"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
 Attivare il monitoraggio delle applicazioni web basati su in esecuzione in servizi App di Azure in .NET e .NET Core è ora più facile che mai. Mentre in precedenza è necessario installare manualmente un'estensione del sito, l'estensione/agente più recente è ora incorporato nell'immagine del servizio app per impostazione predefinita. Questo articolo verrà consentono di eseguire l'abilitazione del monitoraggio di Application Insights, nonché fornire linee guida introduttive per l'automatizzazione del processo per le distribuzioni su larga scala.
 
 > [!NOTE]
-> Aggiunta manuale di un'estensione del sito Application Insights tramite **strumenti di sviluppo** > **estensioni** è deprecata. La versione stabile più recente dell'estensione è ora [preinstallato](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio App. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate su agenti per abilitare il monitoraggio di seguito rimuoverà automaticamente l'estensione deprecata per l'utente.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Aggiunta manuale di un'estensione del sito Application Insights tramite **strumenti di sviluppo** > **estensioni** è deprecata. Questo metodo di installazione dell'estensione dipendeva aggiornamenti manuali per ogni nuova versione. La versione stabile più recente dell'estensione è ora [preinstallato](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) come parte dell'immagine del servizio App. I file si trovano in `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` e vengono aggiornati automaticamente con ogni versione stabile. Se si seguono le istruzioni basate su agenti per abilitare il monitoraggio di seguito rimuoverà automaticamente l'estensione deprecata per l'utente.
 
 ## <a name="enable-application-insights"></a>Abilitare Application Insights
 
@@ -285,6 +282,8 @@ Di seguito è riportato un esempio, sostituire tutte le istanze di `AppMonitored
 
 Per consentire l'applicazione di monitoraggio tramite PowerShell, è necessario essere modificata solo le impostazioni dell'applicazione sottostante. Di seguito è riportato un esempio, che consente il monitoraggio delle applicazioni per un sito Web denominato "AppMonitoredSite" nel gruppo di risorse "AppMonitoredRG", e configura i dati da inviare per la chiave di strumentazione "012345678-abcd-ef01-2345-6789abcd".
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -348,6 +347,7 @@ La tabella seguente fornisce una spiegazione più dettagliata del significato di
 |Valore di problema|Spiegazione|Correzione
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Questo valore indica che l'estensione ha rilevato che alcuni aspetti del SDK sono già presenti nell'applicazione e verranno backoff. È possibile a causa di un riferimento a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, o `Microsoft.ApplicationInsights`  | Rimuovere i riferimenti. Alcuni di questi riferimenti vengono aggiunti per impostazione predefinita di determinati modelli di Visual Studio e le versioni precedenti di Visual Studio possono aggiungere i riferimenti a `Microsoft.ApplicationInsights`.
+|`AppAlreadyInstrumented:true` | Se l'applicazione è destinato a .NET Core 2.1 o 2.2 e si intende [Microsoft. aspnetcore](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta pacchetto, quindi lo riporta in Application Insights ed estensione verrà backoff. | I clienti in .NET Core 2.1,2.2 [consigliato](https://github.com/aspnet/Announcements/issues/287) usare invece Microsoft.AspNetCore.App meta pacchetto.|
 |`AppAlreadyInstrumented:true` | Questo valore può essere causato anche dalla presenza delle DLL precedente nella cartella dell'app da una distribuzione precedente. | Eliminare la cartella dell'app per assicurarsi che queste DLL vengono rimossi.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Questo valore indica che l'estensione rilevato riferimenti a `Microsoft.AspNet.TelemetryCorrelation` nell'applicazione e verrà backoff. | Rimuovere il riferimento.
 |`AppContainsDiagnosticSourceAssembly**:true`|Questo valore indica che l'estensione rilevato riferimenti a `System.Diagnostics.DiagnosticSource` nell'applicazione e verrà backoff.| Rimuovere il riferimento.

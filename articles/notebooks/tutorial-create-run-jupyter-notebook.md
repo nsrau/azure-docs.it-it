@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 8fa873ca1ab20fbd8b3ca4ff57507adf34529246
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903658"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258534"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Esercitazione: creare ed eseguire un notebook di Jupyter con Python
 
@@ -128,7 +128,7 @@ Dopo aver preparato il file di dati e impostato l'ambiente del progetto, è ora 
 1. Poiché è presente un file *requirements.txt* nelle impostazioni dell'ambiente, viene visualizzato il messaggio "Waiting for your container to finish being prepared" (In attesa del completamento della preparazione del contenitore). È possibile selezionare **OK** per chiudere il messaggio e continuare a lavorare nel notebook. Tuttavia, non sarà possibile eseguire le celle di codice finché l'ambiente non è completamente configurato.
 1. Il notebook viene aperto nell'interfaccia di Jupyter con una singola cella di codice vuota come valore predefinito.
 
-    [![Visualizzazione iniziale di un nuovo notebook in Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Iniziale visualizzazione di un nuovo notebook in Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Esplorare l'interfaccia del notebook
 
@@ -144,7 +144,7 @@ Nella parte superiore della finestra sono visualizzati gli elementi seguenti:
 (F) Indicatore che segnala se il notebook è attendibile. Il valore predefinito è **Not Trusted** (Non attendibile).
 (G) Il kernel usato per eseguire il notebook, insieme a un indicatore dell'attività.
 
-[![Aree principali dell'interfaccia utente di Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Paree dell'interfaccia utente primaria dell'interfaccia Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter fornisce una presentazione integrata dei principali elementi dell'interfaccia utente. Avviare la presentazione selezionando il comando **Help** (Guida)  > **User Interface Tour** (Presentazione dell'interfaccia utente) e facendo clic nelle finestre popup.
 
@@ -421,13 +421,13 @@ Vedere anche [Visual Studio Code - Jupyter support (Visual Studio Code - support
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Explore sample notebooks (Esplorare i notebook di esempio)](azure-notebooks-samples.md)
+- [Scopri i notebook di esempio](azure-notebooks-samples.md)
 
 Procedure dettagliate:
 
 - [Creare e clonare progetti](create-clone-jupyter-notebooks.md)
-- [Configure and manage projects (Configurare e gestire i progetti)](configure-manage-azure-notebooks-projects.md)
-- [Install packages from within a notebook (Installare pacchetti da un notebook)](install-packages-jupyter-notebook.md)
+- [Configurare e gestire i progetti](configure-manage-azure-notebooks-projects.md)
+- [Installare pacchetti da un notebook](install-packages-jupyter-notebook.md)
 - [Eseguire una presentazione](present-jupyter-notebooks-slideshow.md)
 - [Usare i file di dati](work-with-project-data-files.md)
 - [Accedere alle risorse dati](access-data-resources-jupyter-notebooks.md)

@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285007"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264897"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -30,6 +30,8 @@ Tutti gli utenti avere un'unica *domestica* directory per l'autenticazione. Tutt
 
 > [!Important]
 > Quando si associa una sottoscrizione a un'altra directory, gli utenti che hanno ruoli assegnati tramite [controllo di accesso basato sui ruoli (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderanno l'accesso. Amministratore sottoscrizione classico (amministratore del servizio e coamministratori) anche perderanno l'accesso.
+> 
+> Inoltre, lo spostamento del cluster Azure Kubernetes Service (AKS) per una sottoscrizione diversa o Sposta la sottoscrizione che possiede cluster in un nuovo tenant, fa sì che il cluster a una perdita di funzionalità a causa di diritti di identità del servizio e le assegnazioni di ruolo persi. Per altre informazioni sul servizio contenitore di AZURE, vedere [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -67,15 +69,16 @@ Prima di poter associare o aggiungere la sottoscrizione, è necessario eseguire 
 
     ![Pagina di selezione directory, con le informazioni di esempio](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-La modifica della directory della sottoscrizione è un'operazione a livello di servizio, pertanto non influisce sulla proprietà della fatturazione della sottoscrizione. L'amministratore dell'account può comunque modificare l'amministratore del servizio dal [Centro account](https://account.azure.com/subscriptions). Per eliminare la directory originale, è necessario trasferire la proprietà della fatturazione della sottoscrizione a un nuovo amministratore dell'account. Per altre informazioni sul trasferimento della proprietà della fatturazione, vedere [Trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../billing/billing-subscription-transfer.md). 
+La modifica della directory della sottoscrizione è un'operazione a livello di servizio, pertanto non influisce sulla proprietà della fatturazione della sottoscrizione. L'amministratore dell'account può comunque modificare l'amministratore del servizio dal [Centro account](https://account.azure.com/subscriptions). Per eliminare la directory originale, è necessario trasferire la proprietà della fatturazione della sottoscrizione a un nuovo amministratore dell'account. Per altre informazioni sul trasferimento della proprietà della fatturazione, vedere [Trasferire la proprietà di una sottoscrizione di Azure a un altro account](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Associazione passaggi successivi
-
 Dopo aver associato una sottoscrizione a un'altra directory, potrebbero essere presenti altri passaggi che è necessario eseguire per riprendere le operazioni.
 
 1. Se si dispone di tutti gli insiemi di credenziali chiave, è necessario modificare l'ID insieme di credenziali delle chiavi tenant. Per altre informazioni, vedere [modificare l'ID tenant per un insieme di credenziali delle chiavi dopo lo spostamento di una sottoscrizione](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Se è stato registrato usando questa sottoscrizione di Azure Stack, è necessario registrare nuovamente. Per altre informazioni, vedere [registrare Azure Stack con Azure](../../azure-stack/azure-stack-registration.md).
+2. Se è stato registrato usando questa sottoscrizione di Azure Stack, è necessario registrare nuovamente. Per altre informazioni, vedere [registrare Azure Stack con Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

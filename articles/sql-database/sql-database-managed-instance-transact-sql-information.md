@@ -1,10 +1,9 @@
 ---
-title: Differenze T-SQL di Istanza gestita del database SQL di Azure | Microsoft Docs
+title: Differenze T-SQL di istanza gestita di Database SQL di Azure | Microsoft Docs
 description: Questo articolo illustra le differenze T-SQL tra un'istanza gestita di database SQL di Azure e SQL Server
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010601"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260494"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
-L'opzione di distribuzione Istanza gestita assicura una compatibilità elevata con il motore di database di SQL Server locale. La maggior parte delle funzionalità del motore di database di SQL Server è supportata in un'istanza gestita.
-
-![migrazione](./media/sql-database-managed-instance/migration.png)
-
-Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilogate e illustrate in questo articolo. <a name="Differences"></a>
+Questo articolo vengono riepilogati e vengono illustrate le differenze nella sintassi e il comportamento tra istanza gestita di Azure SQL Database e motore di Database locale SQL Server. <a name="Differences"></a>
 
 - [Disponibilità](#availability) incluse le differenze relative a [Always On](#always-on-availability) e [Backup](#backup),
 - [Sicurezza](#security) incluse le differenze relative a [Controllo](#auditing), [Certificati](#certificates), [Credenziali](#credential), [Provider del servizio di crittografia](#cryptographic-providers), [Accessi/utenti](#logins--users), [Chiave del servizio e chiave master del servizio](#service-key-and-service-master-key),
@@ -33,6 +29,10 @@ Esistono tuttavia alcune differenze nella sintassi e nel comportamento, riepilog
 - [Funzionalità](#functionalities) tra cui [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transazioni distribuite](#distributed-transactions), [Eventi estesi](#extended-events), [Librerie esterne](#external-libraries), [FileStream e FileTable](#filestream-and-filetable), [Ricerca semantica full-text](#full-text-semantic-search), [Server collegati](#linked-servers), [PolyBase](#polybase), [Replica](#replication), [RIPRISTINO](#restore-statement), [Service Broker](#service-broker), [Stored procedure, funzioni e trigger](#stored-procedures-functions-triggers),
 - [Funzionalità che presentano un comportamento diverso nelle istanze gestite](#Changes)
 - [Problemi noti e limitazioni temporanee](#Issues)
+
+L'opzione di distribuzione Istanza gestita assicura una compatibilità elevata con il motore di database di SQL Server locale. La maggior parte delle funzionalità del motore di database di SQL Server è supportata in un'istanza gestita.
+
+![migrazione](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Disponibilità
 
@@ -494,7 +494,7 @@ Ciò dimostra che, in determinate circostanze, a causa di una distribuzione spec
 
 In questo esempio, i database esistenti continueranno a funzionare e potranno crescere senza alcun problema fino a quando non vengono aggiunti nuovi file. È possibile tuttavia che non vengano creati o ripristinati nuovi database a causa dello spazio insufficiente per le nuove unità disco, anche se le dimensioni totali di tutti i database non raggiungono il limite di dimensioni dell'istanza. L'errore restituito in questo caso potrebbe non essere chiaro.
 
-È possibile [identificare il numero dei file rimanenti](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) utilizzando viste di sistema. Se sta per essere raggiunto questo limite tenta [vuoti e l'eliminazione di alcuni dei file più piccoli utilizzando l'istruzione DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o shitch al [livello Business Critical che non presenta questo limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+È possibile [identificare il numero dei file rimanenti](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) utilizzando viste di sistema. Se sta per essere raggiunto questo limite tenta [vuoti e l'eliminazione di alcuni dei file più piccoli utilizzando l'istruzione DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o passare [livello Business Critical che non presenta questo limite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configurazione non corretta della chiave di firma di accesso condiviso durante il ripristino del database
 

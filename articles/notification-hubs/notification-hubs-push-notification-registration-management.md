@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166770"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260456"
 ---
 # <a name="registration-management"></a>Gestione delle registrazioni
 
@@ -45,12 +45,12 @@ Un'installazione è una registrazione avanzata che include un contenitore di pro
 Ecco alcuni vantaggi chiave dell'uso delle installazioni:
 
 - La creazione o l'aggiornamento di un'installazione è completamente idempotente. È quindi possibile riprovare a eseguire l'operazione senza preoccuparsi di registrazioni duplicate.
-- Il modello di installazione semplifica l'esecuzione di singoli push destinati a un dispositivo specifico. Un tag di sistema **"$InstallationId:[installationId]"** viene aggiunto automaticamente con ogni registrazione basata su un'installazione. È quindi possibile chiamare un'operazione di invio a questo tag per fare riferimento a un dispositivo specifico senza dover scrivere codice aggiuntivo.
+- Il modello di installazione supporta un formato di tag speciale (`$InstallationId:{INSTALLATION_ID}`) che consente l'invio di una notifica diretta al dispositivo specifico. Ad esempio, se il codice dell'app imposta un ID di installazione di `joe93developer` per questo dispositivo specifico, uno sviluppatore può di destinazione il dispositivo quando si invia una notifica per il `$InstallationId:{joe93developer}` tag. In questo modo è possibile definire un dispositivo specifico senza dover scrivere codice aggiuntivo.
 - L'uso delle installazioni consente inoltre di eseguire aggiornamenti parziali delle registrazioni. L'aggiornamento parziale di un'installazione è richiesto con un metodo PATCH che usa lo [standard JSON-Patch](https://tools.ietf.org/html/rfc6902). Questo è utile quando si intende aggiornare i tag nella registrazione. Non è necessario disattivare l'intera registrazione e quindi inviare di nuovo tutti i tag precedenti.
 
 Un'installazione può contenere le proprietà seguenti. Per un elenco completo delle proprietà di installazione, vedere [Creare o sovrascrivere un'installazione con API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) o [Proprietà Installation](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ Il nome di ogni modello è associato al corpo di un modello e a un set di tag fa
 
 Per le applicazioni client di Windows Store, inviare notifiche ai riquadri secondari equivale a inviarle a quello primario. Questo è supportato anche nelle installazioni. I riquadri secondari hanno un diverso ChannelUri, che viene gestito in modo trasparente dall'SDK nell'app client.
 
-Il dizionario SecondaryTiles usa lo stesso TileId che viene usato per creare l'oggetto SecondaryTiles nell'app di Windows Store.
-Come nel caso del valore ChannelUri primario, i valori ChannelUri dei riquadri secondari possono cambiare in qualsiasi momento. Per mantenere aggiornate le installazioni nell'hub di notifica, il dispositivo deve aggiornarle con i valori ChannelUri correnti dei riquadri secondari.
+Il dizionario SecondaryTiles usa lo stesso TileId che viene usato per creare l'oggetto SecondaryTiles nell'app di Windows Store. Come nel caso del valore ChannelUri primario, i valori ChannelUri dei riquadri secondari possono cambiare in qualsiasi momento. Per mantenere aggiornate le installazioni nell'hub di notifica, il dispositivo deve aggiornarle con i valori ChannelUri correnti dei riquadri secondari.
 
 ## <a name="registration-management-from-the-device"></a>Gestione delle registrazioni dal dispositivo
 
