@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 985f620caaa329b48b00d6ce586e7dcefbf5869d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341234"
 documentType: LandingData
 title: Gestione di Azure - Governance
 metadata:
   title: Gestione di Azure - Governance
-  description: Informazioni sui concetti e i servizi di Azure disponibili per la gestione dell'ambiente con coerenza, tramite progettazione e regole esplicite, nonché su come controllare la conformità.
-  services: governance
+  description: 'Informazioni sui concetti e i servizi di Azure disponibili per la gestione dell''ambiente con coerenza, tramite progettazione e regole esplicite, nonché su come controllare la conformità.'
   author: DCtheGeek
   manager: carmonm
   ms.service: governance
@@ -18,58 +11,58 @@ metadata:
   ms.date: 09/18/2018
   ms.author: dacoulte
 abstract:
-  description: Con governance di Azure si intende una raccolta di concetti e servizi progettati per consentire la gestione di varie risorse di Azure su larga scala. Questi servizi offrono la possibilità di organizzare e strutturare le sottoscrizioni in modo logico, creare e distribuire pacchetti di risorse riutilizzabili e nativi di Azure per definire, controllare e correggere le risorse e altro ancora. Usare questa pagina per scoprire di più su questi concetti e servizi e su come abilitare e usare ognuno nel proprio ambiente.
+  description: 'Con governance di Azure si intende una raccolta di concetti e servizi progettati per consentire la gestione di varie risorse di Azure su larga scala. Questi servizi offrono la possibilità di organizzare e strutturare le sottoscrizioni in modo logico, creare e distribuire pacchetti di risorse riutilizzabili e nativi di Azure per definire, controllare e correggere le risorse e altro ancora. Usare questa pagina per scoprire di più su questi concetti e servizi e su come abilitare e usare ognuno nel proprio ambiente.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 225
       src: ./media/video.png
       width: 250
-    title: Velocità e controllo sulle risorse con la governance di Azure (1:47)
-    href: https://www.youtube.com/watch?v=MhGbKjlmuRs
+    title: 'Velocità e controllo sulle risorse con la governance di Azure (1:47)'
+    href: 'https://www.youtube.com/watch?v=MhGbKjlmuRs'
     width: 250
 sections:
-- title: Componenti e servizi
-- items:
-  - type: list
-    style: cards
-    className: cardsD
-    columns: 2
-    items:
-    - href: ./management-groups/overview
-      html: <p>Informazioni sul raggruppamento e l'organizzazione delle sottoscrizioni in una gerarchia logica che supporta la distribuzione di altri servizi di governance in modo strutturato.<br /></p>
-      image:
-        alt: Gruppi di gestione
-        src: ./media/management-groups-illustration.svg
-      title: Gruppi di gestione
-    - href: ./resource-graph/
-      html: <p>Usare un potente strumento da riga di comando, che supporta l'interfaccia della riga di comando di Azure e Azure PowerShell, per recuperare rapidamente dettagli complessi sulle risorse di Azure. Trovare ed esporre informazioni che in precedenza avrebbero richiesto l'esecuzione di script complessi e iterativi per l'individuazione delle risorse su larga scala.</p>
-      image:
-        alt: Resource Graph
-        src: ./media/resource-graph-illustration.svg
-      title: Resource Graph
-    - href: ./policy/
-      html: <p>Definire e applicare standard alle risorse nell'ambiente. Impedire la creazione di risorse indesiderate, ottimizzare nuove risorse con elementi aggiuntivi e controllare e correggere risorse già nell'ambiente.</p>
-      image:
-        alt: Policy
-        src: ./media/policy-illustration.svg
-      title: Policy
-    - href: ./blueprints/
-      html: <p>Creare un pacchetto nativo di Azure di <i>artefatti</i> (gruppi di risorse, criteri, assegnazioni di ruolo, modelli di Resource Manager e altro) che possa essere distribuito in modo dinamico alle sottoscrizioni per creare ambienti coerenti e ripetibili.</p>
-      image:
-        alt: Progetti
-        src: ./media/blueprints-illustration.svg
-      title: Progetti
-- title: Implementazioni
-- items:
-  - type: list
-    style: cards
-    className: cardsZ
-    columns: 3
-    items:
-    - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-      html: <p>In passato le aziende si assumevano la proprietà e la responsabilità di tutti i livelli della tecnologia, dall'infrastruttura al software. Il cloud offre attualmente la possibilità di trasformare il modo in cui le aziende utilizzano la tecnologia tramite il provisioning e l'uso delle risorse in base alla necessità.</p>
-      title: Adozione del cloud nell'organizzazione
-    - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
-      html: <p>Consente agli amministratori di verificare che i carichi di lavoro soddisfino i requisiti minimi di governance di un'organizzazione senza impedire che i gruppi e gli sviluppatori aziendali soddisfino i propri obiettivi.<br /><br /></p>
-      title: Scaffold enterprise
+  - title: Componenti e servizi
+  - items:
+      - type: list
+        style: cards
+        className: cardsD
+        columns: 2
+        items:
+          - href: ./management-groups/overview
+            html: <p>Informazioni sul raggruppamento e l'organizzazione delle sottoscrizioni in una gerarchia logica che supporta la distribuzione di altri servizi di governance in modo strutturato.<br /></p>
+            image:
+              alt: Gruppi di gestione
+              src: ./media/management-groups-illustration.svg
+            title: Gruppi di gestione
+          - href: ./resource-graph/
+            html: '<p>Usare un potente strumento da riga di comando, che supporta l''interfaccia della riga di comando di Azure e Azure PowerShell, per recuperare rapidamente dettagli complessi sulle risorse di Azure. Trovare ed esporre informazioni che in precedenza avrebbero richiesto l''esecuzione di script complessi e iterativi per l''individuazione delle risorse su larga scala.</p>'
+            image:
+              alt: Resource Graph
+              src: ./media/resource-graph-illustration.svg
+            title: Resource Graph
+          - href: ./policy/
+            html: '<p>Definire e applicare standard alle risorse nell''ambiente. Impedire la creazione di risorse indesiderate, ottimizzare nuove risorse con elementi aggiuntivi e controllare e correggere risorse già nell''ambiente.</p>'
+            image:
+              alt: Policy
+              src: ./media/policy-illustration.svg
+            title: Policy
+          - href: ./blueprints/
+            html: '<p>Creare un pacchetto nativo di Azure di <i>artefatti</i> (gruppi di risorse, criteri, assegnazioni di ruolo, modelli di Resource Manager e altro) che possa essere distribuito in modo dinamico alle sottoscrizioni per creare ambienti coerenti e ripetibili.</p>'
+            image:
+              alt: Progetti
+              src: ./media/blueprints-illustration.svg
+            title: Progetti
+  - title: Implementazioni
+  - items:
+      - type: list
+        style: cards
+        className: cardsZ
+        columns: 3
+        items:
+          - href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
+            html: '<p>In passato le aziende si assumevano la proprietà e la responsabilità di tutti i livelli della tecnologia, dall''infrastruttura al software. Il cloud offre attualmente la possibilità di trasformare il modo in cui le aziende utilizzano la tecnologia tramite il provisioning e l''uso delle risorse in base alla necessità.</p>'
+            title: Adozione del cloud nell'organizzazione
+          - href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
+            html: <p>Consente agli amministratori di verificare che i carichi di lavoro soddisfino i requisiti minimi di governance di un'organizzazione senza impedire che i gruppi e gli sviluppatori aziendali soddisfino i propri obiettivi.<br /><br /></p>
+            title: Scaffold enterprise

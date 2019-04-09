@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670388"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280554"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Aggiungere report sull'integrità di Service Fabric personalizzati
 In Azure Service Fabric è disponibile un [modello di integrità](service-fabric-health-introduction.md) progettato per contrassegnare condizioni di non integrità di cluster e applicazioni in entità specifiche. Il modello di integrità usa **i** , costituiti da watchdog e componenti di sistema. Lo scopo è semplificare e velocizzare la diagnosi e la risoluzione dei problemi. Gli sviluppatori del servizio devono tenere conto dell'integrità fin dall'inizio. È necessario segnalare tutte le condizioni che possono influire sull'integrità, soprattutto se aiutano a risalire alla causa dei problemi. Le informazioni sull'integrità consentono di risparmiare tempo ed energie per il debug e l'analisi. L'utilità è particolarmente evidente quando il servizio è in esecuzione su larga scala nel cloud (privato o Azure).
@@ -55,18 +55,18 @@ Una volta definita la progettazione dei report sull'integrità, è possibile inv
 > 
 
 ## <a name="health-client"></a>Client di integrità
-I report sull'integrità vengono inviati all'archivio integrità tramite un client di integrità, che risiede nel client Fabric. Il client di integrità può essere configurato con le impostazioni seguenti:
+I report sull'integrità vengono inviati a health manager tramite un client di integrità, che si trova all'interno del client fabric. Il gestore integrità consente di salvare i report nell'archivio integrità. Il client di integrità può essere configurato con le impostazioni seguenti:
 
-* **HealthReportSendInterval**: ritardo tra il momento in cui il report viene aggiunto al client e il momento in cui viene inviato all'archivio integrità. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Predefinito: 30 secondi.
-* **HealthReportRetrySendInterval**: intervallo dopo il quale il client di integrità invia nuovamente i report sull'integrità accumulati all'archivio integrità. Predefinito: 30 secondi.
-* **HealthOperationTimeout**: periodo di timeout per un messaggio di report inviato all'archivio integrità. In caso di timeout di un messaggio scade, il client di integrità riprova a inviarlo finché l'archivio integrità non conferma che i report sono stati elaborati. Valore predefinito: due minuti.
+* **HealthReportSendInterval**: Il ritardo tra il momento in cui che il report viene aggiunto al client e l'ora viene inviato a health manager. Questo valore viene usato per inviare i report in batch un singolo messaggio, anziché inviare un messaggio per ogni report, e migliorare così le prestazioni. Predefinito: 30 secondi.
+* **HealthReportRetrySendInterval**: I report l'intervallo in corrispondenza del quale il client di integrità invia nuovamente sull'integrità accumulati a health manager. Predefinito: 30 secondi, minima: 1 secondo.
+* **HealthOperationTimeout**: Il periodo di timeout per un messaggio di report inviato a health manager. Se un messaggio scade, il client di integrità Riprova a inviarlo finché il gestore integrità conferma che il report è stato elaborato. Valore predefinito: due minuti.
 
 > [!NOTE]
-> Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o l'archivio integrità non può applicare i report a causa di errori temporanei, il client Fabric deve restare attivo più a lungo per dare la possibilità di riprovare.
+> Quando i report vengono riuniti in batch, il client Fabric deve restare attivo almeno per il tempo previsto da HealthReportSendInterval per garantire l'invio dei report. Se il messaggio viene perso o health manager non è possibile applicare a causa di errori temporanei, il client fabric deve restare attivo più per assegnargli una possibilità di riprovare.
 > 
 > 
 
-La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Se un particolare generatore di report non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, ad esempio, i report vengono sostituiti con l'ultima versione. Nella coda del client sarà presente al massimo uno di questi report. Se è configurato l'invio in batch, il numero di report inviati all'archivio integrità è solo uno per ogni intervallo di trasmissione. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità.
+La memorizzazione nel buffer sul client tiene conto dell'unicità dei report. Se un particolare generatore di report non corretto crea 100 report al secondo per la stessa proprietà della stessa entità, ad esempio, i report vengono sostituiti con l'ultima versione. Nella coda del client sarà presente al massimo uno di questi report. Se l'invio in batch è configurata, il numero di report inviato a health manager è solo uno per ogni intervallo di invio. Questo è l'ultimo report aggiunto, che riflette lo stato più recente dell'entità.
 Specificare i parametri di configurazione quando viene creato `FabricClient` passando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) con i valori desiderati per le voci correlate all'integrità.
 
 L'esempio seguente crea un client Fabric e specifica che i report devono essere inviati quando vengono aggiunti. In caso di timeout ed errori che supportano nuovi tentativi, questi vengono eseguiti ogni 40 secondi.
@@ -304,13 +304,13 @@ Inviare report sull'integrità usando REST con richieste POST indirizzate all'en
 ## <a name="next-steps"></a>Passaggi successivi
 In base ai dati sull'integrità, gli sviluppatori del servizio e gli amministratori di cluster e applicazioni possono valutare come usare le informazioni. Ad esempio, è possibile impostare avvisi in base allo stato integrità per rilevare problemi gravi prima che provochino interruzioni. Gli amministratori possono anche configurare sistemi di ripristino per risolvere i problemi automaticamente.
 
-[Introduzione al monitoraggio dell'integrità di Service Fabric](service-fabric-health-introduction.md)
+[Introduzione a Service Fabric integrità monitoraggio](service-fabric-health-introduction.md)
 
 [Come visualizzare i report sull'integrità di Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
-[Creare report e verificare l'integrità dei servizi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Come segnalare e controllare l'integrità dei servizi](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Uso dei report sull'integrità del sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Usare i report sull'integrità di sistema per la risoluzione dei problemi](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Monitorare e diagnosticare servizi in locale](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

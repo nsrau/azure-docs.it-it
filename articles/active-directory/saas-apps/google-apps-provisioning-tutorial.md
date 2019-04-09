@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b78cb45d83cd9bc9bc973ec7a09cb75a8b111744
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224149"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058476"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Esercitazione: configurare G Suite per il provisioning utenti automatico
 
@@ -69,78 +69,77 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
 > Un'altra soluzione valida per l'automazione del provisioning utenti in G Suite consiste nell'usare [Google Apps Directory Sync (GADS)](https://support.google.com/a/answer/106368?hl=en). GADS esegue il provisioning in G Suite delle identità locali di Active Directory. Al contrario, la soluzione in questa esercitazione esegue il provisioning in G Suite dei gruppi abilitati alla posta elettronica e degli utenti (cloud) di Azure Active Directory. 
 
 1. Accedere alla [console di amministrazione di Google Apps](https://admin.google.com/) con l'account amministratore e selezionare **Security** (Sicurezza). Se il collegamento non è visibile, è possibile che sia nascosto sotto il menu **More Controls** (Altri controlli) nella parte inferiore della schermata.
-   
+
     ![Selezionare Security (Sicurezza).][10]
 
 1. Nella pagina **Security** (Sicurezza) fare clic su **API Reference** (Riferimento API).
-   
+
     ![Selezionare API Reference (Riferimento API).][15]
 
 1. Selezionare **Enable API access**.
-   
+
     ![Selezionare API Reference (Riferimento API).][16]
 
    > [!IMPORTANT]
    > Per ogni utente per cui si intende eseguire il provisioning in G Suite, si *deve* associare il relativo nome utente in Azure Active Directory a un dominio personalizzato. Ad esempio, nomi utente simili a bob@contoso.onmicrosoft.com non vengono accettati da G Suite. mentre bob@contoso.com viene accettato. È possibile modificare il dominio di un utente esistente modificandone le proprietà in Azure AD. Nella procedura seguente sono illustrate le istruzioni su come impostare un dominio personalizzato per Azure Active Directory e G Suite.
-      
+
 1. Se non si è ancora aggiunto un nome di dominio personalizzato ad Azure Active Directory, seguire questa procedura:
   
-    a. Nel [portale di Azure](https://portal.azure.com) selezionare **Active Directory** nel riquadro di spostamento a sinistra. Nell'elenco visualizzato, selezionare la directory. 
+    a. Nel [portale di Azure](https://portal.azure.com) selezionare **Active Directory** nel riquadro di spostamento a sinistra. Nell'elenco visualizzato, selezionare la directory.
 
     b. Selezionare **Nome di dominio** nel riquadro di spostamento a sinistra e quindi fare clic su **Aggiungi**.
-     
-     ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
 
-     ![Aggiunta del dominio](./media/google-apps-provisioning-tutorial/domain_2.png)
+    ![Domain](./media/google-apps-provisioning-tutorial/domain_1.png)
+
+    ![Aggiunta del dominio](./media/google-apps-provisioning-tutorial/domain_2.png)
 
     c. Digitare il nome di dominio nel campo **Nome di dominio** . Questo deve essere lo stesso nome di dominio che si intende usare per G Suite. Selezionare quindi il pulsante **Aggiungi dominio**.
-     
-     ![Nome di dominio](./media/google-apps-provisioning-tutorial/domain_3.png)
 
-    d. Selezionare **Avanti** per passare alla pagina di verifica. Per verificare che si è proprietari di questo dominio, modificare i record DNS del dominio in base ai valori riportati in questa pagina. È possibile eseguire la verifica usando **record MX** o **record TXT**, a seconda dell'opzione selezionata come **Tipo di record**. 
-    
+    ![Nome di dominio](./media/google-apps-provisioning-tutorial/domain_3.png)
+
+    d. Selezionare **Avanti** per passare alla pagina di verifica. Per verificare che si è proprietari di questo dominio, modificare i record DNS del dominio in base ai valori riportati in questa pagina. È possibile eseguire la verifica usando **record MX** o **record TXT**, a seconda dell'opzione selezionata come **Tipo di record**.
+
     Per istruzioni più dettagliate su come verificare i nomi di dominio con Azure AD, vedere [Aggiungere il proprio nome di dominio ad Azure AD](https://go.microsoft.com/fwLink/?LinkID=278919&clcid=0x409).
-     
-     ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
+
+    ![Domain](./media/google-apps-provisioning-tutorial/domain_4.png)
 
     e. Ripetere i passaggi precedenti per tutti i domini che si desidera aggiungere alla directory.
 
-   > [!NOTE]
-   >  Per il provisioning utenti, il dominio personalizzato deve corrispondere al nome di dominio di Azure AD di origine. Se non corrispondono, per risolvere il problema può essere utile implementare la personalizzazione del mapping degli attributi.
-
+    > [!NOTE]
+    > Per il provisioning utenti, il dominio personalizzato deve corrispondere al nome di dominio di Azure AD di origine. Se non corrispondono, per risolvere il problema può essere utile implementare la personalizzazione del mapping degli attributi.
 
 1. Ora che tutti i domini sono stati verificati con Azure AD, è necessario verificarli nuovamente con Google Apps. Per ogni dominio non ancora registrato con Google, seguire questa procedura:
-   
+
     a. Nella [console di amministrazione di Google Apps](https://admin.google.com/) selezionare **Domains** (Domini).
-     
-     ![Selezionare i domini][20]
+
+    ![Selezionare i domini][20]
 
     b. Selezionare **Add a domain or a domain alias** (Aggiungi un dominio o un alias di dominio).
-     
-     ![Aggiungere un nuovo dominio][21]
+
+    ![Aggiungere un nuovo dominio][21]
 
     c. Selezionare **Add another domain** (Aggiungi un altro dominio) e quindi digitare il nome del dominio che si vuole aggiungere.
-     
-     ![Digitare il nome di dominio][22]
+
+    ![Digitare il nome di dominio][22]
 
     d. Selezionare **Continue and verify domain ownership** (Continua e verifica la proprietà del dominio). Seguire i passaggi per verificare che si è proprietari del nome di dominio. Per istruzioni dettagliate su come verificare il dominio con Google, vedere [Verificare il proprietario del sito con Google Apps](https://support.google.com/webmasters/answer/35179).
 
     e. Ripetere i passaggi precedenti per tutti i domini aggiuntivi che si desidera aggiungere a Google Apps.
-     
-     > [!WARNING]
-     > Se si modifica il dominio primario per il tenant di G Suite ed è già stato configurato l'accesso Single Sign-On con Azure AD, è necessario ripetere il passaggio 3 illustrato in Passaggio 2: Abilitare l'accesso Single Sign-On.
-       
+
+    > [!WARNING]
+    > Se si modifica il dominio primario per il tenant di G Suite ed è già stato configurato l'accesso Single Sign-On con Azure AD, è necessario ripetere il passaggio 3 illustrato in Passaggio 2: Abilitare l'accesso Single Sign-On.
+
 1. Nella [console di amministrazione di Google Apps](https://admin.google.com/) selezionare **Admin Roles** (Ruoli amministratore).
-   
-     ![Selezionare Google Apps][26]
+
+    ![Selezionare Google Apps][26]
 
 1. Determinare l'account di amministratore da usare per gestire il provisioning utenti. Per il **ruolo di amministratore** di tale account, modificare i **privilegi** per tale ruolo. Assicurarsi di abilitare tutti i **privilegi dell'API di amministratore** in modo che l'account possa essere usato per il provisioning.
-   
-     ![Selezionare Google Apps][27]
-   
+
+    ![Selezionare Google Apps][27]
+
     > [!NOTE]
     > Se si sta configurando un ambiente di produzione, è consigliabile creare un nuovo account di amministratore in G Suite specificatamente per questo passaggio. Questi account devono avere un ruolo di amministratore associato che abbia i privilegi API necessari.
-     
+
 1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory** > **App aziendali** > **Tutte le applicazioni**.
 
 1. Se si è già configurato G Suite per l'accesso Single Sign-On, cercare l'istanza di G Suite usando il campo di ricerca. In alternativa, selezionare **Aggiungi** e cercare **G Suite**  o **Google Apps** nella raccolta delle applicazioni. Selezionare l'applicazione nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
@@ -149,13 +148,13 @@ Questa sezione illustra il processo di connessione di Azure AD all'API di provis
 
 1. Impostare **Modalità di provisioning** su **Automatico**. 
 
-       ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
+    ![Provisioning](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Nella sezione **Credenziali amministratore** selezionare **Autorizza**. Verrà aperta una finestra di dialogo di autorizzazione di Google in una nuova finestra del browser.
 
 1. Confermare che si vuole concedere l'autorizzazione di Azure Active Directory per apportare modifiche al tenant di G Suite. Selezionare **Accetto**.
-    
-       ![Confirm permissions.][28]
+
+    ![Verificare le autorizzazioni.][28]
 
 1. Nel portale di Azure selezionare **Test connessione** per verificare che Azure AD possa connettersi all'app. Se la connessione non riesce, verificare che l'account di G Suite disponga delle autorizzazioni di amministratore di team. Ripetere quindi il passaggio per l'**autorizzazione**.
 
@@ -177,11 +176,9 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](tutorial-list.md)
+* [Gestione di provisioning degli account utente per le app aziendali](tutorial-list.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
-* [Configurare l'accesso Single Sign-On](google-apps-tutorial.md)
-
-
+* [Configura accesso Single Sign-On](google-apps-tutorial.md)
 
 <!--Image references-->
 

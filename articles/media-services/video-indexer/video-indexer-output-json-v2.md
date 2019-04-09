@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892576"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280214"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Esaminare l'output a Video Indexer prodotto dall'API
 
@@ -79,7 +79,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |privacyMode|La scomposizione può avere una delle modalità seguenti: **Private**, **Public**. **Public**: il video è visibile per tutti gli utenti nell'account e per chiunque disponga di un collegamento al video. **Private**: il video è visibile per tutti gli utenti nell'account.|
 |duration|Contiene una durata che definisce il tempo associato a un'informazione dettagliata. La durata è espressa in secondi.|
 |thumbnailVideoId|ID del video da cui è stata ottenuta l'anteprima.
-|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) e passare thumbnailVideoId e thumbnailId.|
+|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettivo, chiamare [Get-anteprima](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passarlo thumbnailVideoId e thumbnailId.|
 |faces|Può contenere zero o più volti. Per informazioni più dettagliate, vedere [faces](#faces).|
 |keywords|Può contenere zero o più parole chiave. Per informazioni più dettagliate, vedere [keywords](#keywords).|
 |sentiments|Può contenere zero o più valutazioni. Per informazioni più dettagliate, vedere [sentiments](#sentiments).|
@@ -106,7 +106,7 @@ Questa sezione mostra il riepilogo delle informazioni dettagliate.
 |metadata|Metadati esterni del video (se specificati dall'utente).|
 |isAdult|Indica se il video è stato esaminato e identificato manualmente come un video per adulti.|
 |insights|Oggetto insights. Per altre informazioni, vedere [insights](#insights).|
-|thumbnailId|ID dell'anteprima del video. Per ottenere l'anteprima effettiva, chiamare Get-Thumbnail (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail)) e passare l'ID del video e thumbnailId.|
+|thumbnailId|ID dell'anteprima del video. Per ottenere la chiamata effettiva in miniatura [Get-anteprima](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) e passare l'ID e thumbnailId video.|
 |publishedUrl|URL per lo streaming del video.|
 |publishedUrlProxy|URL da cui eseguire lo streaming del video (per i dispositivi Apple).|
 |viewToken|Token di visualizzazione di breve durata per lo streaming del video.|

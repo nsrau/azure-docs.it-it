@@ -9,22 +9,21 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 04/17/2018
 ms.author: cakarst
-ms.reviewer: igorstan
-ms.openlocfilehash: 0f35e14686c2bd3f87faf51ed6a54728f2a54641
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: a8cb3714d11994b36991e56df7fc0f97d08c89ff
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466031"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256907"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Procedure consigliate per il caricamento dei dati in Azure SQL Data Warehouse
-Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in Azure SQL Data Warehouse. 
 
-- Per altre informazioni su PolyBase e sulla progettazione di un processo di estrazione, caricamento e trasformazione, vedere l'articolo su come [progettare estrazione, caricamento e trasformazione per SQL Data Warehouse](design-elt-data-loading.md).
-- Per un'esercitazione sul caricamento, vedere [Usare PolyBase per caricare dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
-
+Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in Azure SQL Data Warehouse.
 
 ## <a name="preparing-data-in-azure-storage"></a>Preparazione dei dati in Archiviazione di Azure
+
 Per ridurre al minimo la latenza, usare un percorso condiviso per il livello di archiviazione e il data warehouse.
 
 In caso di esportazione di dati in un formato di file ORC, quando sono presenti colonne di testo di grandi dimensioni potrebbero verificarsi errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
@@ -39,15 +38,17 @@ Suddividere i file compressi di grandi dimensioni in file compressi di dimension
 
 Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, è consigliabile aumentare prima le prestazioni del data warehouse.
 
-Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente addetto al caricamento a una specifica classe di risorse. Per eseguire un caricamento, effettuare l'accesso come utente addetto al caricamento e quindi eseguire l'operazione. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
+Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente addetto al caricamento a una specifica classe di risorse. Per eseguire un caricamento, accedere come uno degli utenti durante il caricamento e quindi eseguire il carico. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
 
 ### <a name="example-of-creating-a-loading-user"></a>Esempio di creazione di un utente addetto al caricamento
+
 Questo esempio crea un utente addetto al caricamento per la classe di risorse staticrc20. Il primo passaggio consiste nel **connettersi al master** e creare un account di accesso.
 
 ```sql
    -- Connect to master
    CREATE LOGIN LoaderRC20 WITH PASSWORD = 'a123STRONGpassword!';
 ```
+
 Connettersi al data warehouse e creare un utente. Il codice seguente presuppone che si sia connessi al database denominato mySampleDataWarehouse. Mostra come creare un utente denominato LoaderRC20, concedere all'utente l'autorizzazione di controllo per un database e quindi aggiungere l'utente come membro del ruolo del database staticrc20.  
 
 ```sql
@@ -56,7 +57,8 @@ Connettersi al data warehouse e creare un utente. Il codice seguente presuppone 
    GRANT CONTROL ON DATABASE::[mySampleDataWarehouse] to LoaderRC20;
    EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
 ```
-Per eseguire un caricamento con le risorse della classe di risorse staticRC20, è sufficiente accedere come LoaderRC20 ed eseguire il caricamento.
+
+Per eseguire un carico con le risorse per le classi di risorse staticRC20, accedere come LoaderRC20 ed eseguire il carico.
 
 Eseguire i caricamenti con classi di risorse statiche anziché dinamiche. L'uso di classi di risorse statiche garantisce le stesse risorse indipendentemente dalle [unità data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Se si usa una classe di risorse dinamica, le risorse variano in base al livello di servizio. Per le classi dinamiche, un livello di servizio inferiore renderà probabilmente necessario usare una classe di risorse di maggiori dimensioni per l'utente addetto al caricamento.
 
@@ -73,7 +75,6 @@ Si supponga ad esempio che esistano gli schemi di database schema_A per il repar
 
 Gli utenti user_A e user_B saranno ora esclusi dall'accesso allo schema dell'altro reparto.
 
-
 ## <a name="loading-to-a-staging-table"></a>Caricamento in una tabella di staging
 
 Per ottenere la massima velocità di caricamento per spostare i dati in una tabella di data warehouse, caricare i dati in una tabella di staging.  Definire la tabella di staging come heap e usare round robin per l'opzione di distribuzione. 
@@ -87,7 +88,6 @@ Gli indici columnstore richiedono una grande quantità di memoria per la compres
 - Per garantire all'utente addetto al caricamento una quantità di memoria sufficiente per raggiungere i massimi tassi di compressione, usare utenti addetti al caricamento che siano membri di una classe di risorse di medie o grandi dimensioni. 
 - Caricare un numero di righe sufficiente a riempire completamente i nuovi rowgroup. Durante un caricamento bulk, ogni gruppo di 1.048.576 righe viene compresso direttamente nel columnstore come rowgroup completo. In caso di caricamenti con meno di 102.400 righe, le righe vengono inviate nell'archivio differenziale, in cui vengono mantenute in un indice albero B. Se si carica un numero troppo basso di righe, le righe potrebbero essere inserite tutte nell'archivio differenziale e non essere immediatamente compresse nel formato columnstore.
 
-
 ## <a name="handling-loading-failures"></a>Gestione degli errori di caricamento
 
 Un caricamento con una tabella esterna può avere esito negativo con l'errore *"Query interrotta. È stata raggiunta la soglia massima di rifiuti durante la lettura da un'origine esterna"*. Questo messaggio indica che i dati esterni contengono record dirty. Un record di dati viene considerato dirty se i tipi di dati e il numero di colonne non corrispondono alle definizioni di colonna della tabella esterna oppure se i dati non sono conformi al formato di file esterno specificato. 
@@ -95,6 +95,7 @@ Un caricamento con una tabella esterna può avere esito negativo con l'errore *"
 Per risolvere questo problema, assicurarsi che la tabella esterna e le definizioni del formato di file esterno siano corrette e che i dati esterni siano conformi a queste definizioni. Nel caso in cui un subset di record di dati esterni sia dirty, è possibile scegliere di rifiutare tali record per le query usando le opzioni di rifiuto in CREATE EXTERNAL TABLE.
 
 ## <a name="inserting-data-into-a-production-table"></a>Inserimento di dati in una tabella di produzione
+
 Per una singola operazione di caricamento in una tabella di piccole dimensioni con un'[istruzione INSERT](/sql/t-sql/statements/insert-transact-sql) o anche un ricaricamento periodico di una ricerca, è possibile ottenere prestazioni soddisfacenti con un'istruzione come `INSERT INTO MyLookup VALUES (1, 'Type 1')`.  Gli inserimenti singleton non offrono tuttavia la stessa efficienza di un caricamento bulk. 
 
 Se nel corso di una giornata si eseguono migliaia di singoli inserimenti o più, inviare in batch gli inserimenti per poterne eseguire il caricamento bulk.  Sviluppare i processi per aggiungere i singoli inserimenti in un file e quindi creare un altro processo che carica periodicamente il file.
@@ -112,6 +113,7 @@ create statistics [YearMeasured] on [Customer_Speed] ([YearMeasured]);
 ```
 
 ## <a name="rotate-storage-keys"></a>Ruotare le chiavi di archiviazione
+
 Ai fini della sicurezza è consigliabile modificare regolarmente la chiave di accesso all'archivio BLOB. Sono disponibili due chiavi di archiviazione per l'account di archiviazione BLOB ed è quindi possibile passare da una chiave all'altra.
 
 Per ruotare le chiavi dell'account di archiviazione di Azure:
@@ -134,9 +136,11 @@ ALTER DATABASE SCOPED CREDENTIAL my_credential WITH IDENTITY = 'my_identity', SE
 
 Non sono necessarie altre modifiche alle origini dati esterne.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
-Per monitorare il caricamento dei dati, vedere [Monitoraggio del carico di lavoro mediante DMV](sql-data-warehouse-manage-monitor.md).
+
+- Per altre informazioni su PolyBase e sulla progettazione di un processo di estrazione, caricamento e trasformazione, vedere l'articolo su come [progettare estrazione, caricamento e trasformazione per SQL Data Warehouse](design-elt-data-loading.md).
+- Per un'esercitazione sul caricamento, vedere [Usare PolyBase per caricare dati dall'archivio BLOB di Azure ad Azure SQL Data Warehouse](load-data-from-azure-blob-storage-using-polybase.md).
+- Per monitorare il caricamento dei dati, vedere [Monitoraggio del carico di lavoro mediante DMV](sql-data-warehouse-manage-monitor.md).
 
 
 

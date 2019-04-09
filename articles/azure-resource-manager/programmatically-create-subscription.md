@@ -2,23 +2,21 @@
 title: Creare sottoscrizioni di Azure Enterprise a livello di programmazione | Microsoft Docs
 description: Informazioni su come creare sottoscrizioni di Azure Enterprise o Sviluppo/test Enterprise aggiuntive a livello di programmazione.
 services: azure-resource-manager
-author: adpick
-manager: adpick
-editor: ''
+author: tfitzmac
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 1b772fdbda8e58db9414e09ef3ef7c98fc9f86b8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.author: tomfitz
+ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486980"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256924"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Creare sottoscrizioni di Azure Enterprise a livello di programmazione (anteprima)
 
@@ -30,9 +28,9 @@ Qualsiasi sottoscrizione di Azure creata tramite questa API è regolamentata dal
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-È necessario disporre del ruolo Proprietario o Collaboratore dell'account di registrazione sotto cui si desiderano creare le sottoscrizioni. È possibile procedere in due modi per ottenere questi ruoli:
+È necessario un ruolo di proprietario nell'Account di registrazione che si desidera creare le sottoscrizioni. È possibile procedere in due modi per ottenere questi ruoli:
 
-* L'amministratore della registrazione può rendere l'utente [proprietario dell'account](https://ea.azure.com/helpdocs/addNewAccount) (accesso richiesto). In questo modo l'utente diventa Proprietario dell'account di registrazione. Seguire le istruzioni nel messaggio di posta elettronica di invito ricevuto per creare manualmente una sottoscrizione iniziale. Confermare di essere proprietario dell'account e creare manualmente una sottoscrizione EA iniziale prima di procedere al passaggio successivo. La semplice aggiunta dell'account alla registrazione non è sufficiente.
+* L'amministratore delle registrazioni può [rendere è proprietario dell'Account](https://ea.azure.com/helpdocs/addNewAccount) (accesso richiesto) che ti rende un proprietario dell'Account di registrazione. Seguire le istruzioni nel messaggio di posta elettronica di invito ricevuto per creare manualmente una sottoscrizione iniziale. Confermare di essere proprietario dell'account e creare manualmente una sottoscrizione EA iniziale prima di procedere al passaggio successivo. La semplice aggiunta dell'account alla registrazione non è sufficiente.
 
 * Un proprietario esistente dell'account di registrazione può [concedere l'accesso](grant-access-to-create-subscription.md). Analogamente, se si desidera utilizzare un'entità servizio per creare la sottoscrizione EA, è necessario [concedere a tale entità servizio la possibilità di creare sottoscrizioni](grant-access-to-create-subscription.md).
 
@@ -42,7 +40,7 @@ Dopo essere stato aggiunto a una registrazione di Azure EA come proprietario del
 
 Per eseguire i comandi seguenti è necessario che sia stato effettuato l'accesso nella *home directory* del proprietario dell'account, ovvero la directory in cui, per impostazione predefinita, vengono create le sottoscrizioni.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Richiesta dell'elenco di tutti gli account di registrazione:
 
@@ -75,7 +73,7 @@ Azure risponde con un elenco di tutti gli account di registrazione a cui si ha a
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Usare il cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) per elencare tutti gli account di registrazione a cui si ha accesso.
 
@@ -91,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# [<a name="azure-cli"></a>Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Usare il comando [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) per elencare tutti gli account di registrazione a cui si ha accesso.
 
@@ -132,7 +130,7 @@ Usare la proprietà `principalName` per identificare l'account a cui si desidera
 
 L'esempio seguente crea una richiesta per creare la sottoscrizione denominata *Sottoscrizione team Dev* e l'offerta di sottoscrizione è *MS-AZR-0017P* (EA regolare). L'account di registrazione è `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (valore segnaposto, il valore è un GUID), ovvero l'account di registrazione per SignUpEngineering@contoso.com. Aggiunge anche facoltativamente due utenti come proprietari con Controllo degli accessi in base al ruolo per la sottoscrizione.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Usare `id` di `enrollmentAccount` nel percorso della richiesta per creare la sottoscrizione.
 
@@ -153,7 +151,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 }
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | DESCRIZIONE                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | DESCRIZIONE                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `displayName` | No       | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
 | `offerType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -161,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 Nella risposta verrà restituito un oggetto `subscriptionOperation` per il monitoraggio. Al termine dell'operazione di creazione della sottoscrizione, l'oggetto `subscriptionOperation` restituirà un oggetto `subscriptionLink` che contiene l'ID della sottoscrizione.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Per usare questo modulo di anteprima, installarlo eseguendo prima `Install-Module Az.Subscription -AllowPrerelease`. Per assicurarsi che `-AllowPrerelease` funzioni, installare una versione recente di PowerShellGet da [Ottenere il modulo PowerShellGet](/powershell/gallery/installing-psget).
 
@@ -171,7 +169,7 @@ Usare [New-AzSubscription](/powershell/module/az.subscription) con l'ID oggetto 
 New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -EnrollmentAccountObjectId 747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx -OwnerObjectId <userObjectId>,<servicePrincipalObjectId>
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | DESCRIZIONE                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | DESCRIZIONE                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `Name` | No       | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
 | `OfferType`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |
@@ -182,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Per visualizzare un elenco completo di tutti i parametri, vedere [New-AzSubscription](/powershell/module/az.subscription.preview).
 
-# <a name="azure-clitabazure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+# [<a name="azure-cli"></a>Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per usare questa estensione di anteprima, installarla eseguendo prima `az extension add --name subscription`.
 
@@ -192,7 +190,7 @@ Usare [az account create](/cli/azure/ext/subscription/account?view=azure-cli-lat
 az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscription" --enrollment-account-object-id "747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --owner-object-id "<userObjectId>","<servicePrincipalObjectId>"
 ```
 
-| Nome dell'elemento  | Obbligatoria | Type   | DESCRIZIONE                                                                                               |
+| Nome dell'elemento  | Obbligatorio | Type   | DESCRIZIONE                                                                                               |
 |---------------|----------|--------|-----------------------------------------------------------------------------------------------------------|
 | `display-name` | No       | string | Nome visualizzato della sottoscrizione Se non specificato, viene impostato il nome dell'offerta, ad esempio "Microsoft Azure Enterprise".                                 |
 | `offer-type`   | Sì      | string | Offerta della sottoscrizione. Esistono due opzioni per EA, ovvero [MS-AZR-0017P](https://azure.microsoft.com/pricing/enterprise-agreement/) (uso in produzione) e [MS-AZR-0148P](https://azure.microsoft.com/offers/ms-azr-0148p/) (sviluppo/test, deve essere [attivato tramite il portale EA](https://ea.azure.com/helpdocs/DevOrTestOffer)).                |

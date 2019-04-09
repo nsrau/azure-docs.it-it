@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401424"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279228"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creare un pool di host con un modello di Azure Resource Manager
 
-I pool di host sono una raccolta di uno o più macchine virtuali identiche all'interno di ambienti di tenant di anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app che gli utenti possono interagire con come in un desktop fisico.
+I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant dell'anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
 Seguire le istruzioni della sezione per creare un pool di host per un tenant di Desktop virtuale Windows con un modello di Azure Resource Manager fornito da Microsoft. Questo articolo illustrerà come creare un pool di host di Desktop virtuale Windows, creare un gruppo di risorse con le macchine virtuali in una sottoscrizione di Azure, aggiungere tali macchine virtuali al dominio di Active Directory e registrare le macchine virtuali con Windows Desktop virtuale.
 
@@ -52,7 +52,7 @@ Per indicazioni sui quali parametri è necessario immettere per il proprio scena
 
 Dopo aver completato il modello di GitHub Azure Resource Manager, assegnare loro l'accesso prima di avviare il desktop di sessione completa nelle macchine virtuali di test.
 
-Prima di tutto [scaricare e importare il modulo Windows PowerShell di Desktop virtuale](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell se non è già presente.
+Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
 
 Per assegnare gli utenti al gruppo di applicazioni desktop, aprire una finestra di PowerShell ed eseguire questo cmdlet per accedere all'ambiente di Desktop virtuale Windows:
 
@@ -72,6 +72,9 @@ Successivamente, aggiungere utenti al gruppo di applicazioni desktop con questo 
 Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -UserPrincipalName <userupn>
 ```
 
-L'UPN dell'utente deve corrispondere all'identità dell'utente in Azure Active Directory (ad esempio, user1@contoso.com). Se si desidera aggiungere più utenti, è necessario eseguire questo cmdlet per ogni utente.
+Il nome dell'entità utente deve corrispondere all'identità dell'utente in Azure Active Directory, ad esempio user1@contoso.com. Se si vogliono aggiungere più utenti, è necessario eseguire questo cmdlet per ognuno.
 
-Dopo aver completato questi passaggi, gli utenti aggiunti al gruppo di applicazioni desktop possono accedere al Desktop virtuale Windows con client di Desktop remoto supportati e visualizzare una risorsa per un desktop di sessione.
+Dopo aver completato questi passaggi, gli utenti aggiunti al gruppo di applicazioni desktop possono accedere a Desktop virtuale Windows con i client di Desktop remoto supportati e vedere una risorsa per un desktop di sessione.
+
+>[!IMPORTANT]
+>Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile che non aprire la porta in ingresso 3389 nelle macchine virtuali. Desktop virtuale di Windows non richiede una porta in ingresso aperta 3389 per gli utenti per accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare [-in-time alla VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

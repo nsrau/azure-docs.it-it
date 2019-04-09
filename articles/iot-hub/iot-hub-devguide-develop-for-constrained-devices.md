@@ -7,16 +7,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
-ms.openlocfilehash: 683f3ca88c349fef31f9647566dbed8a840f94dd
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451732"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261395"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Sviluppare per dispositivi vincolati tramite Azure IoT C SDK
 
 L'SDK C dell'hub IoT di Azure è scritto in ANSI C (C99), che lo rende particolarmente adatto per il funzionamento su una vasta gamma di piattaforme con footprint di memoria e disco ridotto. La quantità di RAM consigliata è almeno 64 KB, ma il footprint di memoria esatto varia in base al protocollo usato, al numero di connessioni aperte e alla piattaforma di destinazione.
+> [!NOTE]
+> * Azure IoT C SDK pubblica regolarmente le informazioni sul consumo di risorse per facilitare lo sviluppo.  Visitare il [repository GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) ed esaminare il benchmark più recente.
+>
 
 L'SDK C è disponibile in forma di pacchetto da apt-get, NuGet e MBED. Per fare riferimento ai dispositivi vincolati, è possibile compilare l'SDK in locale per la piattaforma di destinazione. Questa documentazione illustra come rimuovere alcune funzionalità per ridurre il footprint dell'SDK C usando [cmake](https://cmake.org/). Inoltre, questa documentazione presenta i modelli di programmazione consigliati per l'uso con i dispositivi vincolati.
 
@@ -30,7 +33,7 @@ Seguire questa [guida all'installazione dell'SDK C](https://github.com/Azure/azu
 
 ### <a name="remove-additional-protocol-libraries"></a>Rimuovere le librerie di protocollo aggiuntive
 
-L'SDK C supporta attualmente cinque protocolli: MQTT, MQTT su WebSocket, AMQPs, AMQP su WebSocket e HTTPS. La maggior parte degli scenari richiede uno o due protocolli in esecuzione in un client, pertanto è possibile rimuovere dall'SDK la libreria di protocollo non usata. Altre informazioni sulla scelta del protocollo di comunicazione appropriato per uno specifico scenario sono disponibili in [Scegliere un protocollo di comunicazione](iot-hub-devguide-protocols.md). Ad esempio, MQTT è un protocollo leggero che spesso è più indicato per i dispositivi vincolati.
+C SDK supporta cinque protocolli oggi stesso: MQTT, MQTT su WebSocket, AMQPs, AMQP su WebSocket e HTTPS. La maggior parte degli scenari richiede uno o due protocolli in esecuzione in un client, pertanto è possibile rimuovere dall'SDK la libreria di protocollo non usata. Altre informazioni sulla scelta del protocollo di comunicazione appropriato per uno specifico scenario sono disponibili in [Scegliere un protocollo di comunicazione](iot-hub-devguide-protocols.md). Ad esempio, MQTT è un protocollo leggero che spesso è più indicato per i dispositivi vincolati.
 
 È possibile rimuovere le librerie AMQP e HTTP usando il comando cmake seguente:
 
@@ -79,5 +82,5 @@ Un altro set di API senza l'indice _LL_ viene definito livello dedicato, in cui 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sull'architettura dell'SDK C per l'hub IoT di Azure:
--   [Codice sorgente dell'SDK C per l'hub IoT di Azure](https://github.com/Azure/azure-iot-sdk-c/)
--   [Introduzione ad Azure IoT SDK per dispositivi per C](iot-hub-device-sdk-c-intro.md)
+-   [Codice sorgente per Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/)
+-   [Azure IoT SDK per dispositivi per C introduzione](iot-hub-device-sdk-c-intro.md)

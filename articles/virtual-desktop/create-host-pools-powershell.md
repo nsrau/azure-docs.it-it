@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439074"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258471"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creare un pool di host con PowerShell
 
-I pool di host sono una raccolta di uno o più macchine virtuali identiche all'interno di ambienti di tenant di anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app che gli utenti possono interagire con come in un desktop fisico.
+I pool di host sono una raccolta di una o più macchine virtuali identiche all'interno di ambienti tenant dell'anteprima di Desktop virtuale Windows. Ogni pool di host può contenere un gruppo di app con cui gli utenti possono interagire come farebbero in un desktop fisico.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Usare il client di PowerShell per creare un pool di host
 
-Prima di tutto [scaricare e importare il modulo Windows PowerShell di Desktop virtuale](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell se non è già presente.
+Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows di PowerShell](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) da usare nella sessione di PowerShell, se non è già stato fatto.
 
 Eseguire il cmdlet seguente per accedere all'ambiente di Desktop virtuale Windows
 
@@ -112,9 +112,12 @@ Per registrare gli agenti Windows Desktop virtuale, eseguire le operazioni segue
      - Selezionare **File**, quindi **aprire...** e quindi trovare lo script di PowerShell dai file scaricati e aprirlo.
      - Selezionare il pulsante di riproduzione di colore verde per eseguire lo script.
 
+>[!IMPORTANT]
+>Per proteggere l'ambiente di Desktop virtuale Windows in Azure, è consigliabile che non aprire la porta in ingresso 3389 nelle macchine virtuali. Desktop virtuale di Windows non richiede una porta in ingresso aperta 3389 per gli utenti per accedere alle macchine virtuali del pool di host. Se è necessario aprire la porta 3389 per la risoluzione dei problemi, è consigliabile usare [-in-time alla VM](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che sono state apportate a un pool di host, è possibile popolarlo con RemoteApp. Per altre informazioni su come gestire le App in Windows Desktop virtuale, vedere l'esercitazione di gruppi di gestione app.
+Ora che sono state apportate a un pool di host, è possibile popolarlo con RemoteApp. Per altre informazioni su come gestire le app in Desktop virtuale Windows, vedere l'esercitazione Gestire i gruppi di app.
 
 > [!div class="nextstepaction"]
 > [Gestire l'esercitazione di gruppi di app](./manage-app-groups.md)

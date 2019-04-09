@@ -13,20 +13,20 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/08/2019
+ms.openlocfilehash: fc8b300cea714ee44f826a78ce8c7a10c1443414
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086055"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282118"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introduzione al controllo dell'istanza gestita del database SQL di Azure
 
 Il controllo dell'[istanza gestita](sql-database-managed-instance.md) tiene traccia degli eventi del database e li registra in un log di controllo nell'account di archiviazione di Azure. Inoltre, il servizio di controllo:
 
 - Consente di gestire la conformità alle normative, ottenere informazioni sull'attività del database e rilevare discrepanze e anomalie che potrebbero indicare problemi aziendali o possibili violazioni della sicurezza.
-- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+- Supporta e facilita il rispetto degli standard di conformità, pur non garantendo la conformità. Per altre informazioni su Azure programmi che supporto la conformità agli standard, vedere la [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configurare il controllo per il server in Archiviazione di Azure
 
@@ -60,7 +60,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
         ![Pulsante delle proprietà del contenitore BLOB](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. Copiare l'URL del contenitore facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro. Il formato dell'URL del contenitore deve essere `https://<StorageName>.blob.core.windows.net/<ContainerName>`
+     1. Copiare l'URL del contenitore facendo clic sull'icona di copia e salvarlo (ad esempio, in Blocco note) per uso futuro. Il formato di URL del contenitore deve essere `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![URL da copiare del contenitore BLOB](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -141,8 +141,8 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
 1. <a id="createspec"></a>Dopo aver configurato il contenitore BLOB come destinazione dei log di controllo, creare una specifica di controllo server o una specifica di controllo database come nel caso di SQL Server:
 
-   - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Creare la Guida di T-SQL Server audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Creare la Guida di T-SQL specifica controllo Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 1. Abilitare il controllo server creato nel passaggio 6:
 
@@ -154,7 +154,7 @@ La sezione seguente descrive la configurazione del controllo per l'istanza gesti
 
 Per altre informazioni:
 
-- [Differenze di controllo tra database singoli, pool elastici e istanze gestite nel database SQL di Azure e i database in SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [Controllo delle differenze tra i database singoli, pool elastico, s e istanze gestite nei database in SQL Server e Database SQL di Azure](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
 - [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
 - [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
@@ -187,8 +187,8 @@ I log di controllo da un'istanza gestita possono essere inviati a log di monitor
 
 9. Creare una specifica di controllo server o di controllo database come si farebbe per SQL Server:
 
-   - [Guida di T-SQL per la creazione di specifiche di controllo server](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Guida di T-SQL per la creazione di specifiche di controllo database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Creare la Guida di T-SQL Server audit specification](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Creare la Guida di T-SQL specifica controllo Database](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. Abilitare il controllo del server creato nel passaggio 8:
  
@@ -237,12 +237,12 @@ Le principali differenze nella sintassi `CREATE AUDIT` per il controllo in Archi
 - Una nuova sintassi `TO EXTERNAL MONITOR` viene fornito per consentire alle destinazioni di log anche Hub e monitoraggio di Azure.
 - La sintassi `TO FILE` **non è supportata** perché il database SQL non può accedere alle condivisioni file di Windows.
 - L'opzione Shutdown **non è supportata**.
-- Un valore di `queue_delay` uguale a 0 **non è supportato**.
+- `queue_delay` pari a 0 rappresenta **non è supportato**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per l'elenco completo dei metodi di consumo del log di controllo, fare riferimento a [Introduzione al controllo del database SQL](sql-database-auditing.md).
-- Per altre informazioni sui programmi di Azure che supportano la conformità agli standard, vedere il [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+- Per altre informazioni su Azure programmi che supporto la conformità agli standard, vedere la [Centro protezione Azure](https://azure.microsoft.com/support/trust-center/compliance/) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
 
 <!--Image references-->
 

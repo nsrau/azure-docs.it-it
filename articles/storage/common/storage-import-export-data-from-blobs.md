@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769278"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263835"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Usare il servizio Importazione/Esportazione di Azure per esportare dati da Archiviazione BLOB di Azure
 Questo articolo offre istruzioni dettagliate su come usare il servizio Importazione/Esportazione di Azure per esportare in tutta sicurezza grandi quantità di dati da Archiviazione BLOB di Azure. Il servizio richiede la spedizione di unità vuote al data center di Azure. Il servizio esporta i dati dall'account di archiviazione alle unità e quindi rispedisce le unità.
@@ -25,7 +25,7 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 - Avere una sottoscrizione di Azure attiva che possa essere usata per il servizio Importazione/Esportazione.
 - Avere almeno un account di archiviazione di Azure. Vedere l'elenco di [account di archiviazione e tipi di archiviazione supportati per il servizio Importazione/Esportazione](storage-import-export-requirements.md). Per informazioni sulla creazione di un nuovo account di archiviazione, vedere [Come creare un account di archiviazione](storage-quickstart-create-account.md).
 - Avere un numero adeguato di dischi dei [tipi supportati](storage-import-export-requirements.md#supported-disks).
-- Avere un account FedEx o DHL.  
+- Avere un account FedEx o DHL. Se si desidera usare un operatore diverso da FedEx o DHL, contattare il team di finestra operazioni sui dati di Azure all'indirizzo `adbops@microsoft.com`. 
     - L'account deve essere valido, deve avere un saldo e deve avere le funzionalità di spedizione di ritorno.
     - Generare un numero di tracciabilità per il processo di esportazione.
     - Ogni processo deve avere un numero di tracciabilità separato. Più processi con lo stesso numero di tracciabilità non sono supportati. 
@@ -82,7 +82,7 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
 
 4. In **Informazioni sul mittente della spedizione**:
 
-    - Selezionare il vettore nell'elenco a discesa.
+    - Selezionare il vettore nell'elenco a discesa. Se si desidera usare un operatore diverso da FedEx o DHL, scegliere un'opzione esistente dall'elenco a discesa. Finestra operazioni dei dati di contatto Azure team a `adbops@microsoft.com` con le informazioni riguardanti il corriere si intende usare.
     - Immettere un numero di account di vettore valido creato con il vettore. Microsoft usa questo account per restituire le unità al cliente al termine del processo di importazione. 
     - Specificare un nome di contatto completo e valido, insieme a numero di telefono, indirizzo di posta elettronica, indirizzo, città, CAP, stato/provincia e paese/area.
 
@@ -205,7 +205,7 @@ La tabella seguente mostra alcuni esempi di percorsi BLOB validi:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Visualizzare lo stato dei processi e delle unità](storage-import-export-view-drive-status.md)
-* [Esaminare i requisiti di importazione/esportazione](storage-import-export-requirements.md)
+* [Visualizzare lo stato del processo e unità](storage-import-export-view-drive-status.md)
+* [Verificare i requisiti di importazione/esportazione](storage-import-export-requirements.md)
 
 

@@ -8,19 +8,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: nberdy
-ms.openlocfilehash: d839e2e9922ac68af3aea37884e8b2f72b80b0e7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84f28a1cb411e7df156fc08fa683efe7f83eda64
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791580"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258114"
 ---
 # <a name="iot-hub-operations-monitoring-deprecated"></a>Operazioni dell'IoT Hub di monitoraggio (deprecata)
 
 Il monitoraggio delle operazioni dell'hub IoT consente di monitorare lo stato delle operazioni nel proprio hub IoT in tempo reale. L'hub IoT tiene traccia degli eventi nelle diverse categorie di operazioni. È possibile scegliere di impostare l'invio di eventi da una o più categorie a un endpoint del proprio hub IoT per l'elaborazione. È possibile monitorare i dati per individuare gli errori o configurare un'elaborazione più complessa in base ai modelli di dati.
 
 >[!NOTE]
->L'IoT Hub **operazioni di monitoraggio è deprecate ed è stata rimossa dall'IoT Hub il 10 marzo 2019**. Per monitorare le operazioni e l'integrità dell'hub IoT, vedere [Monitor the health of Azure IoT Hub and diagnose problems quickly][lnk-monitor] (Monitorare lo stato dell'hub IoT di Azure e diagnosticare i problemi rapidamente) Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure][lnk-blog-announcement].
+>L'IoT Hub **operazioni di monitoraggio è deprecate ed è stata rimossa dall'IoT Hub il 10 marzo 2019**. Per monitorare le operazioni e l'integrità dell'IoT Hub, vedere [monitorare l'integrità dell'IoT Hub di Azure e diagnosticare rapidamente i problemi](iot-hub-monitor-resource-health.md). Per altre informazioni sulla sequenza temporale relativa alla funzionalità deprecata, vedere [Monitorare le soluzioni IoT di Azure con Monitoraggio di Azure e Integrità risorse di Azure](https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health).
 
 L'hub IoT monitora sei categorie di eventi:
 
@@ -36,15 +36,15 @@ L'hub IoT monitora sei categorie di eventi:
 
 ## <a name="how-to-enable-operations-monitoring"></a>Come abilitare il monitoraggio delle operazioni
 
-1. Creare un hub IoT. Le istruzioni sulla creazione di un hub IoT sono disponibili nella [Guida introduttiva][lnk-get-started].
+1. Creare un hub IoT. È possibile trovare istruzioni su come creare un hub IoT nel [iniziare a usare](quickstart-send-telemetry-dotnet.md) Guida.
 
-1. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Monitoraggio operazioni**.
+2. Aprire il pannello dell'hub IoT. Da qui, fare clic su **Monitoraggio operazioni**.
 
-    ![Accedere alla configurazione del monitoraggio delle operazioni nel portale][1]
+    ![Accedere alla configurazione del monitoraggio delle operazioni nel portale](./media/iot-hub-operations-monitoring/enable-OM-1.png)
 
-1. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
+3. Selezionare le categorie di monitoraggio da controllare e fare clic su **Salva**. Gli eventi sono disponibili per la lettura nell'endpoint compatibile con l'hub eventi elencato in **Impostazioni di monitoraggio**. L'endpoint dell'hub IoT è chiamato `messages/operationsmonitoringevents`.
 
-    ![Configurare il monitoraggio delle operazioni sull'hub IoT][2]
+    ![Configurare il monitoraggio delle operazioni sull'hub IoT](./media/iot-hub-operations-monitoring/enable-OM-2.png)
 
 > [!NOTE]
 > La selezione del monitoraggio **Dettagliato** per la categoria **Connessioni** consente all'hub IoT di generare messaggi di diagnostica aggiuntivi. Per tutte le altre categorie, l'impostazione **Dettagliato** modifica la quantità di informazioni che l'hub IoT include in ogni messaggio di errore.
@@ -145,7 +145,9 @@ La categoria Connessioni tiene traccia degli errori che si verificano quando i d
 La categoria di caricamenti dei file tiene traccia degli errori che si verificano nell'hub IoT e correlati alla funzionalità di caricamento dei file. Questa categoria include:
 
 * Errori che si verificano con l'URI di firma di accesso condiviso, ad esempio quando l'URI scade prima che un dispositivo notifichi all'hub un caricamento completato.
+
 * Caricamenti non riusciti segnalati dal dispositivo.
+
 * Errori che si verificano quando un file non viene trovato nell'archivio durante la creazione del messaggio di notifica dell'hub IoT.
 
 Questa categoria non può intercettare errori che si verificano direttamente mentre il dispositivo sta caricando un file in memoria.
@@ -188,31 +190,31 @@ La categoria del routing dei messaggi tiene traccia degli errori che si verifica
 
 ## <a name="connect-to-the-monitoring-endpoint"></a>Connettersi all'endpoint di monitoraggio
 
-L'endpoint di monitoraggio sull'hub IoT è un endpoint compatibile con Hub eventi. Per leggere i messaggi di monitoraggio da questo endpoint, è possibile usare qualsiasi meccanismo che funzioni con l'Hub eventi. L'esempio seguente crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. Per altre informazioni su come elaborare i messaggi da Hub eventi, vedere l'esercitazione [Introduzione all'Hub eventi][lnk-eventhubs-tutorial].
+L'endpoint di monitoraggio sull'hub IoT è un endpoint compatibile con Hub eventi. Per leggere i messaggi di monitoraggio da questo endpoint, è possibile usare qualsiasi meccanismo che funzioni con l'Hub eventi. L'esempio seguente crea un lettore di base non adatto per una distribuzione con velocità effettiva elevata. Per altre informazioni su come elaborare i messaggi da Hub eventi, vedere l'esercitazione [Introduzione all'Hub eventi](../event-hubs/event-hubs-csharp-ephcs-getstarted.md) .
 
 Per connettersi all'endpoint di monitoraggio, è necessaria una stringa di connessione e il nome dell'endpoint. La procedura seguente mostra come trovare i valori necessari nel portale:
 
 1. Nel portale, passare al pannello di risorse dell'hub IoT.
 
-1. Scegliere **Monitoraggio operazioni** e prendere nota dei valori in **Nome compatibile con Hub eventi** e in **Endpoint compatibile con Hub eventi**:
+2. Scegliere **Monitoraggio operazioni** e prendere nota dei valori in **Nome compatibile con Hub eventi** e in **Endpoint compatibile con Hub eventi**:
 
-    ![Valori di Endpoint compatibile con Hub eventi][img-endpoints]
+    ![Valori di Endpoint compatibile con Hub eventi](./media/iot-hub-operations-monitoring/monitoring-endpoint.png)
 
-1. Scegliere **Criteri di accesso condiviso**, quindi scegliere **servizio**. Prendere nota del valore presente in **Chiave primaria**:
+3. Scegliere **Criteri di accesso condiviso**, quindi scegliere **servizio**. Prendere nota del valore presente in **Chiave primaria**:
 
-    ![Chiave primaria del servizio dei criteri di accesso condiviso][img-service-key]
+    ![Chiave primaria del servizio dei criteri di accesso condiviso](./media/iot-hub-operations-monitoring/service-key.png)
 
 L'esempio di codice C# seguente viene preso da un'app console C# per **Desktop classico di Windows** di Visual Studio. Il progetto ha il pacchetto **WindowsAzure.ServiceBus** NuGet installato.
 
 * Sostituire il placeholder della stringa di connessione con una stringa di connessione che usa i valori precedentemente annotati per l'**endpoint compatibile con Hub eventi** e il servizio **Chiave primaria** come illustrato nell'esempio seguente:
 
-    ```cs
+    ```csharp
     "Endpoint={your Event Hub-compatible endpoint};SharedAccessKeyName=service;SharedAccessKey={your service primary key value}"
     ```
 
 * Sostituire il placeholder del nome dell'endpoint di monitoraggio con il valore del **nome Hub eventi compatibile** annotato in precedenza.
 
-```cs
+```csharp
 class Program
 {
     static string connectionString = "{your monitoring endpoint connection string}";
@@ -263,24 +265,9 @@ class Program
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sulle funzionalità dell'hub IoT, vedere:
 
-* [Guida per gli sviluppatori dell'hub IoT][lnk-devguide]
-* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge][lnk-iotedge]
+* [Guida per gli sviluppatori dell'IoT Hub](iot-hub-devguide.md)
 
-<!-- Links and images -->
-[1]: media/iot-hub-operations-monitoring/enable-OM-1.png
-[2]: media/iot-hub-operations-monitoring/enable-OM-2.png
-[img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
-[img-service-key]: media/iot-hub-operations-monitoring/service-key.png
-
-[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
-[lnk-monitor]: iot-hub-monitor-resource-health.md
-[lnk-get-started]: quickstart-send-telemetry-dotnet.md
-[lnk-diagnostic-metrics]: iot-hub-metrics.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-dr]: iot-hub-ha-dr.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
+* [Distribuzione dell'intelligenza artificiale in dispositivi perimetrali con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

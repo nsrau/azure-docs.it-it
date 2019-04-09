@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e4c5607089efb247620766fb311b97cae3772770
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518780"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279874"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Eseguire la migrazione dal contratto Enterprise a API di contratto dei clienti di Microsoft
 
@@ -81,7 +81,7 @@ Se si usa qualsiasi API con contratto Enterprise esistente, è necessario aggior
 | Scopo | Offerta precedente | Nuova offerta |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Gestione costi di Azure](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) pack e il connettore del contenuto | [App Power BI Insights il consumo di Microsoft Azure](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) e [ connettore di Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) pack e il connettore del contenuto | [App Power BI Insights il consumo di Microsoft Azure](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) e [connettore di Azure Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) |
 
 ## <a name="apis-to-get-balance-and-credits"></a>API per saldi e crediti
 

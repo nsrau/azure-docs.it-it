@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006808"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278225"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configurare e gestire i criteri per la replica del ripristino di emergenza di VMware in Azure
 Questo articolo illustra come configurare criteri di replica quando si esegue la replica di macchine virtuali VMware in Azure usando il servizio [Azure Site Recovery](site-recovery-overview.md).
@@ -20,7 +20,7 @@ Questo articolo illustra come configurare criteri di replica quando si esegue la
 ## <a name="create-a-policy"></a>Creare un criterio
 
 1. Selezionare **Gestisci** > **Site Recovery Infrastructure** (Infrastruttura di Site Recovery).
-2. In **For VMware and Physical machines** (Per VMware e computer fisici) selezionare **Criteri di replica**. 
+2. In **For VMware and Physical machines** (Per VMware e computer fisici) selezionare **Criteri di replica**.
 3. Fare clic su **+Criteri di replica** e specificare il nome del criterio.
 4. In **Soglia RPO**specificare il limite per RPO. Quando la replica continua supera questo limite, vengono generati avvisi.
 5. In **Conservazione del punto di ripristino** specificare la durata in ore dell'intervallo di conservazione per ogni punto di ripristino. I computer protetti possono essere ripristinati in qualsiasi punto all'interno di un intervallo di conservazione. Per le macchine replicate nell'archiviazione Premium è supportato un intervallo di conservazione fino a 24 ore. Per l'archiviazione standard sono supportate fino a 72 ore.
@@ -29,7 +29,7 @@ Questo articolo illustra come configurare criteri di replica quando si esegue la
 
 Quando si crea un criterio di replica, viene creato automaticamente un criterio di replica di failback con il suffisso "failback". Dopo aver creato il criterio, è possibile modificarlo selezionandolo e scegliendo il comando **Modifica impostazioni**.
 
-## <a name="associate-a-configuration-server"></a>Associare un server di configurazione 
+## <a name="associate-a-configuration-server"></a>Associare un server di configurazione
 
 Associare il criterio di replica al server di configurazione locale.
 

@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549146"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260749"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identità gestita per Data Factory
 
@@ -46,7 +46,7 @@ Se si trova alla data factory non è un'identità gestita associata seguendo [re
 
 - [Generare l'identità gestita tramite PowerShell](#generate-managed-identity-using-powershell)
 - [Generare l'identità gestita tramite l'API REST](#generate-managed-identity-using-rest-api)
-- Generare l'identità gestita tramite un modello Azure Resource Manager
+- [Generare l'identità gestita tramite un modello Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Generare l'identità gestita tramite SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperare l'identità gestita tramite il portale di Azure
 
-È possibile trovare le informazioni sull'identità gestito dal portale di Azure -> data factory -> Impostazioni -> proprietà:
+È possibile trovare le informazioni sull'identità gestito dal portale di Azure -> data factory -> proprietà:
 
-- ID IDENTITÀ DEL SERVIZIO
-- TENANT IDENTITÀ DEL SERVIZIO
-- **ID APPLICAZIONE IDENTITÀ DEL SERVIZIO** > copiare il valore
+- ID oggetto identità gestita
+- Tenant identità gestita
+- **Managed Identity Application ID** > copiare questo valore
 
 ![Recuperare l'identità gestita](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 

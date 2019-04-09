@@ -1,27 +1,27 @@
 ---
-title: Proprietà di un utente di collaborazione B2B - Azure Active Directory | Microsoft Docs
-description: Le proprietà di un utente di Collaborazione B2B di Azure Active Directory sono configurabili
+title: Proprietà di un B2B guest utente - Azure Active Directory | Microsoft Docs
+description: Le proprietà dell'utente guest di Active Directory B2B di Azure e gli stati prima e dopo il riscatto dell'invito
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294655"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257604"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
-Un utente di Collaborazione B2B (business-to-business ) di Azure Active Directory (Azure AD) è un utente con UserType = Guest. L'utente guest rappresenta in genere un utente di un'organizzazione partner e ha privilegi limitati nella directory di invito per impostazione predefinita.
+Questo articolo descrive le proprietà e gli Stati dell'oggetto utente guest B2B in Azure Active Directory (Azure AD) prima e dopo il riscatto dell'invito. Un utente di collaborazione di Azure AD business-to-business (B2B) è un utente con UserType = Guest. L'utente guest rappresenta in genere un utente di un'organizzazione partner e ha privilegi limitati nella directory di invito per impostazione predefinita.
 
 In base alle esigenze dell'organizzazione che emette l'invito, un utente di Collaborazione B2B di Azure AD può trovarsi in uno dei seguenti stati dell'account:
 
@@ -105,6 +105,6 @@ Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elen
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
-* [Token utente in Collaborazione B2B](user-token.md)
-* [Mapping delle attestazioni utente per Collaborazione B2B](claims-mapping.md)
+* [Informazioni su Collaborazione B2B di Azure AD](what-is-b2b.md)
+* [Token utente di collaborazione B2B](user-token.md)
+* [Attestazioni utente di collaborazione B2B di mapping](claims-mapping.md)

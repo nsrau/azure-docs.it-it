@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 216ce32997a4114f4f2684b14338b4e36d9afd03
-ms.sourcegitcommit: b767a6a118bca386ac6de93ea38f1cc457bb3e4e
-ms.translationtype: HT
+ms.openlocfilehash: f11034a4970e3fb95333310af82a6b2a2551f1eb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/18/2018
-ms.locfileid: "53558006"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257281"
 ---
 # <a name="scale-your-stream-analytics-job-with-azure-machine-learning-functions"></a>Ridimensionare il processo di Analisi di flusso con funzioni di Azure Machine Learning
 È semplice impostare un processo di Analisi di flusso e usarlo per analizzare alcuni dati di esempio. Cosa fare quando è necessario eseguire lo stesso processo con volume di dati più elevato? Bisogna capire come configurare il processo di Analisi di flusso per il ridimensionamento. Questo documento illustra in particolare gli aspetti specifici del ridimensionamento di processi di Analisi di flusso con funzioni di Machine Learning. Per informazioni su come ridimensionare processi di Analisi di flusso in generale, vedere l'articolo relativo al [ridimensionamento dei processi](stream-analytics-scale-jobs.md).
 
 ## <a name="what-is-an-azure-machine-learning-function-in-stream-analytics"></a>Che cos'è una funzione di Azure Machine Learning in Analisi di flusso?
-Una funzione di Machine Learning in Analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di Analisi di flusso. Tuttavia, le chiamate di funzione sono in realtà richieste del servizio Web Azure Machine Learning. I servizi Web di Machine Learning supportano l'invio in batch di più righe, dette mini-batch, nella stessa chiamata all'API del servizio Web per migliorare la velocità effettiva globale. Per altre informazioni, vedere [Azure Machine Learning functions in Stream Analytics](https://blogs.technet.microsoft.com/machinelearning/2015/12/10/azure-ml-now-available-as-a-function-in-azure-stream-analytics/) (Funzioni di Azure Machine Learning in Analisi di flusso) e [Servizi Web di Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
+Una funzione di Machine Learning in Analisi di flusso può essere usata come una normale chiamata di funzione nel linguaggio di query di Analisi di flusso. Tuttavia, le chiamate di funzione sono in realtà richieste del servizio Web Azure Machine Learning. I servizi Web di Machine Learning supportano l'invio in batch di più righe, dette mini-batch, nella stessa chiamata all'API del servizio Web per migliorare la velocità effettiva globale. Per altre informazioni, vedere [servizi Web di Azure Machine Learning](../machine-learning/studio/consume-web-services.md).
 
 ## <a name="configure-a-stream-analytics-job-with-machine-learning-functions"></a>Configurare un processo di Analisi di flusso con funzioni di Machine Learning
 Quando si configura una funzione di Machine Learning per un processo di Analisi di flusso è necessario prendere in considerazione due parametri, le dimensioni batch delle chiamate di funzione di Machine Learning e le unità di streaming (SU) di cui viene effettuato il provisioning per il processo di Analisi di flusso. Per determinare i relativi valori appropriati, occorre prima scegliere tra latenza e velocità effettiva, vale a dire la latenza del processo di Analisi di flusso e la velocità effettiva di ogni unità di streaming. È sempre possibile aggiungere unità di streaming a un processo per aumentare la velocità effettiva di una query di Analisi di flusso con partizionamento efficiente, anche se le unità di streaming aumentano il costo di esecuzione del processo.
@@ -74,14 +74,14 @@ Di seguito è riportata una tabella della velocità effettiva del processo di An
 
 | Dimensioni batch (latenza ML) | 500 (200 ms) | 1.000 (200 ms) | 5.000 (250 ms) | 10.000 (300 ms) | 25.000 (500 ms) |
 | --- | --- | --- | --- | --- | --- |
-| **1 unità di archiviazione** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **3 unità di archiviazione** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **6 unità di archiviazione** |2.500 |5.000 |20.000 |30.000 |50.000 |
-| **12 unità di archiviazione** |5.000 |10.000 |40.000 |60.000 |100.000 |
-| **18 unità di archiviazione** |7.500 |15.000 |60.000 |90.000 |150.000 |
-| **24 unità di archiviazione** |10.000 |20.000 |80.000 |120.000 |200.000 |
+| **1 unità di ricerca** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **3 SU** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **6 SU** |2.500 |5.000 |20.000 |30.000 |50.000 |
+| **12 SU** |5.000 |10,000 |40.000 |60.000 |100,000 |
+| **18 SU** |7.500 |15.000 |60.000 |90.000 |150.000 |
+| **24 SU** |10,000 |20.000 |80.000 |120.000 |200.000 |
 | **…** |… |… |… |… |… |
-| **60 unità di archiviazione** |25.000 |50.000 |200.000 |300.000 |500.000 |
+| **60 SU** |25.000 |50.000 |200.000 |300.000 |500.000 |
 
 A questo punto dovrebbe essere chiaro il funzionamento delle funzioni di Machine Learning in Analisi di flusso. I processi di Analisi di flusso eseguono il pull dei dati dalle origini dati e ogni pull restituisce un batch di eventi al processo di Analisi di flusso per l'elaborazione. Come influisce tale modello pull sulle richieste al servizio Web Machine Learning?
 
@@ -112,7 +112,7 @@ Per riepilogare i punti principali, per ridimensionare un processo di Analisi di
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni su Analisi di flusso, vedere:
 
-* [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Iniziare a usare Azure Stream Analitica](stream-analytics-real-time-fraud-detection.md)
+* [Ridimensionare i processi di Azure Stream Analitica](stream-analytics-scale-jobs.md)
+* [Riferimenti al linguaggio di Query Analitica Stream di Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
+* [Riferimento di API REST di gestione di Azure Stream Analitica](https://msdn.microsoft.com/library/azure/dn835031.aspx)

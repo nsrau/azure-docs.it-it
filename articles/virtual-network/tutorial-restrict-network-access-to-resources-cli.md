@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 35f2c1bcc3db82f5fbca5f0458d534bf73d9067a
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890944"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010499"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Limitare l'accesso di rete alle risorse PaaS con gli endpoint di servizio della rete virtuale usando l'interfaccia della riga di comando di Azure
 
@@ -118,9 +118,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Storage" \
   --destination-port-range "*"
+```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+Ogni gruppo di sicurezza di rete contiene numerosi [regole di sicurezza predefinite](security-overview.md#default-security-rules). La regola che segue esegue l'override di una regola di sicurezza predefinita che consente l'accesso in uscita a tutti gli indirizzi IP pubblici. Il `destination-address-prefix "Internet"` opzione Nega accesso in uscita a tutti gli indirizzi IP. La regola precedente esegue l'override di questa regola, a causa della priorità più alta, che consente l'accesso agli indirizzi IP pubblici di Archiviazione di Azure.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -133,9 +135,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
+```
 
-The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
+La regola seguente consente il traffico SSH in ingresso verso la subnet da qualsiasi posizione. La regola esegue l'override di una regola di sicurezza predefinita che rifiuta tutto il traffico in ingresso da Internet. SSH è consentita per la subnet in modo che la connettività può essere testata in un passaggio successivo.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \

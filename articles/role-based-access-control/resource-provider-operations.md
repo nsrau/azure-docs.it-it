@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010737"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278871"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -649,7 +649,7 @@ Le operazioni dei provider di risorse sono costantemente in evoluzione. Per otte
 > | Azione | Microsoft.Blueprint/blueprintAssignments/assignmentOperations/read | Esegue la lettura degli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprintAssignments/delete | Elimina gli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprintAssignments/read | Esegue la lettura degli artefatti del progetto |
-> | Azione | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Recupera l'ID oggetto dell'entità servizio di Azure Blueprints. |
+> | Azione | Microsoft.Blueprint/blueprintAssignments/whoisblueprint/action | Ottenere l'ID oggetto dell'entità servizio i progetti di Azure |
 > | Azione | Microsoft.Blueprint/blueprintAssignments/write | Crea o aggiorna gli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprints/artifacts/delete | Elimina gli artefatti del progetto |
 > | Azione | Microsoft.Blueprint/blueprints/artifacts/read | Esegue la lettura degli artefatti del progetto |
@@ -1229,7 +1229,7 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.Compute/snapshots/endGetAccess/action | Revoca l'URI SAS dello snapshot |
 > | Azione | Microsoft.Compute/snapshots/read | Ottiene le proprietà di una snapshot |
 > | Azione | Microsoft.Compute/snapshots/write | Crea una nuova snapshot o ne aggiorna una esistente |
-> | Azione | Microsoft.Compute/unregister/action | Annulla la registrazione della sottoscrizione con il provider di risorse Microsoft.Compute |
+> | Azione | Microsoft.Compute/unregister/action | Annulla la registrazione di sottoscrizione con il provider di risorse Microsoft. Compute |
 > | Azione | Microsoft.Compute/virtualMachines/capture/action | Acquisisce la macchina virtuale copiando i dischi rigidi virtuali e genera un modello utilizzabile per creare macchine virtuali simili |
 > | Azione | Microsoft.Compute/virtualMachines/convertToManagedDisks/action | Converte i dischi basati su BLOB della macchina virtuale in dischi gestiti |
 > | Azione | Microsoft.Compute/virtualMachines/deallocate/action | Disabilita la macchina virtuale e rilascia le risorse di calcolo |
@@ -1628,7 +1628,7 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/delete | Elimina le condivisioni |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Elenca o ottiene le condivisioni |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/read | Elenca o ottiene le condivisioni |
-> | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Aggiorna i metadati della condivisione con i dati dal cloud |
+> | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/refresh/action | Aggiornare i metadati di condivisione con i dati dal cloud |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/shares/write | Crea o aggiorna le condivisioni |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/delete | Elimina le credenziali dell'account di archiviazione |
 > | Azione | Microsoft.DataBoxEdge/dataBoxEdgeDevices/storageAccountCredentials/read | Elenca o ottiene le credenziali dell'account di archiviazione |
@@ -2269,7 +2269,7 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per le sottoscrizioni evento |
 > | Azione | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per le sottoscrizioni evento |
 > | Azione | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | Ottiene la metrica disponibile per le sottoscrizioni evento |
-> | Azione | Microsoft.EventGrid/eventSubscriptions/read | Legge una sottoscrizione evento |
+> | Azione | Microsoft.EventGrid/eventSubscriptions/read | Leggere una sottoscrizione evento |
 > | Azione | Microsoft.EventGrid/eventSubscriptions/write | Crea o aggiorna una sottoscrizione evento |
 > | Azione | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Ottiene l'impostazione di diagnostica per gli argomenti |
 > | Azione | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Crea o aggiorna l'impostazione di diagnostica per gli argomenti |
@@ -2443,8 +2443,8 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.Insights/AutoscaleSettings/Scaleup/Action | Scalabilità automatica: aumento avviato |
 > | Azione | Microsoft.Insights/AutoscaleSettings/ScaleupResult/Action | Scalabilità automatica: aumento completato |
 > | Azione | Microsoft.Insights/AutoscaleSettings/Write | Crea o aggiorna un'impostazione di scalabilità automatica |
-> | Azione | Microsoft.Insights/Baseline/Read | Lettura baseline metrica (anteprima) |
-> | Azione | Microsoft.Insights/CalculateBaseline/Read | Calcola baseline per i valori della metrica (anteprima) |
+> | Azione | Microsoft.Insights/Baseline/Read | Leggere una linea di base delle metriche (anteprima) |
+> | Azione | Microsoft.Insights/CalculateBaseline/Read | Calcola una linea di base per i valori delle metriche (anteprima) |
 > | Azione | Microsoft.Insights/Components/AnalyticsItems/Delete | Eliminazione di un elemento di analisi di Application Insights |
 > | Azione | Microsoft.Insights/Components/AnalyticsItems/Read | Lettura di un elemento di analisi di Application Insights |
 > | Azione | Microsoft.Insights/Components/AnalyticsItems/Write | Scrittura di un elemento di analisi di Application Insights |

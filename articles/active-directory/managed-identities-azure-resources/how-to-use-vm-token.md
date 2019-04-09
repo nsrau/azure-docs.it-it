@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7354ed8362412c40d52a3895a9b4118eb7c1544
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449387"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258913"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
 
@@ -58,7 +58,7 @@ Un'applicazione client può richiedere un [token di accesso solo app](../develop
 | [Ottenere un token tramite CURL](#get-a-token-using-curl) | Esempio di utilizzo dell'endpoint REST delle identità gestite per risorse di Azure da un client Bash/CURL |
 | Gestione della memorizzazione nella cache dei token | Indicazioni per la gestione di token di accesso scaduti |
 | [Gestione degli errori](#error-handling) | Materiale sussidiario per la gestione degli errori HTTP restituiti dall'endpoint del token delle identità gestite per risorse di Azure |
-| [ID di risorsa per servizi di Azure](#resource-ids-for-azure-services) | Come ottenere ID di risorsa per i servizi di Azure supportati |
+| [ID di risorsa per i servizi di Azure](#resource-ids-for-azure-services) | Come ottenere ID di risorsa per i servizi di Azure supportati |
 
 ## <a name="get-a-token-using-http"></a>Ottenere un token tramite HTTP 
 
@@ -79,10 +79,11 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Un campo di intestazione della richiesta HTTP, richiesto dalle identità gestite per risorse di Azure come mitigazione degli attacchi SSRF (Server Side Request Forgery). Questo valore deve essere impostato su "true", usando tutte lettere minuscole. |
 | `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 | `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
+| `mi_res_id` | (Facoltativo) Un parametro stringa di query, che indicano l'identità gestita, per che si desidera il token mi_res_id (ID risorsa di Azure). Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
 
 Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale delle identità gestite per risorse di Azure *(la cui deprecazione è pianificata per il gennaio 2019)*:
 
-```
+```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
@@ -96,10 +97,9 @@ Metadata: true
 | `object_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore object_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 | `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 
-
 Risposta di esempio:
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -365,7 +365,7 @@ Se si verifica un errore, il corpo della risposta HTTP corrispondente contiene d
 | Elemento | DESCRIZIONE |
 | ------- | ----------- |
 | error   | Identificatore dell'errore. |
-| error_description | Descrizione dettagliata dell'errore. **Le descrizioni degli errori possono cambiare in qualsiasi momento: non scrivere codice che crei rami in base ai valori contenuti nella descrizione dell'errore.**|
+| error_description | Descrizione dettagliata dell'errore. **Le descrizioni degli errori possono cambiare in qualsiasi momento. Non scrivere codice che i rami in base ai valori nella descrizione dell'errore.**|
 
 ### <a name="http-response-reference"></a>Riferimenti per la risposta HTTP
 
@@ -391,7 +391,7 @@ I limiti delle richieste si applicano al numero di chiamate effettuate all'endpo
 
 Per eseguire nuovi tentativi è consigliabile seguire la strategia seguente: 
 
-| **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
+| **Strategia di tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Numero tentativi<br />Interruzione temporanea minima<br />Interruzione temporanea massima<br />Interruzione temporanea delta<br />Primo tentativo rapido |5<br />0 secondi<br />60 secondi<br />2 secondi<br />false |Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 

@@ -11,7 +11,7 @@ items:
   - name: HDInsight 4.0
     href: ../hdinsight-version-release.md
     maintainContext: true
-- name: Guide di avvio rapido
+- name: Guide introduttive
   items:
   - name: Creare un cluster Apache Spark - Portale
     href: apache-spark-jupyter-spark-sql-use-portal.md
@@ -26,6 +26,7 @@ items:
     href: apache-spark-load-data-run-query.md
   - name: Usare VSCode per eseguire query Apache Spark
     href: ../hdinsight-for-vscode.md
+    maintainContext: true
   - name: Usare IntelliJ per eseguire query Apache Spark
     href: apache-spark-intellij-tool-plugin.md
   - name: Analizzare i dati usando gli strumenti di business intelligence
@@ -38,6 +39,7 @@ items:
     href: apache-spark-create-standalone-application.md
   - name: Monitorare la disponibilità dei cluster con i log di Ambari e di Monitoraggio di Azure
     href: ../hdinsight-cluster-availability.md
+    maintainContext: true
 - name: Procedure
   items:
   - name: Usare l'archiviazione cluster
@@ -105,6 +107,7 @@ items:
       href: apache-spark-connect-to-sql-database.md
     - name: Implementare un'architettura lambda Apache Spark e Cosmos DB
       href: ../../cosmos-db/lambda-architecture.md
+      maintainContext: true
     - name: Eseguire i carichi di lavoro di Azure Machine Learning con AutoML
       href: apache-spark-run-machine-learning-automl.md
       maintainContext: true
@@ -397,7 +400,7 @@ items:
     - name: Monitorare le prestazioni di un cluster
       href: ../hdinsight-key-scenarios-to-monitor.md
       maintainContext: true
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=hdinsight
@@ -442,9 +445,9 @@ items:
   - name: Strumenti Windows per HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 9775c1da15b5ac5e675e84487006339b1c9701ce
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 973adb6fb1c8761ff03935d09faf699040604544
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670171"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058901"

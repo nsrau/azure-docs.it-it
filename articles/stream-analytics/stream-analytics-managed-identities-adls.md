@@ -6,14 +6,14 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/18/2019
+ms.date: 04/8/2019
 ms.custom: seodec18
-ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 9eb66a9000c9add0718c6edf6674a26ce8e479b3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895867"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257978"
 ---
 # <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Eseguire l'autenticazione Analitica Stream per Azure Data Lake archiviazione Gen1 usando identità gestite
 
@@ -71,7 +71,7 @@ Questo articolo illustra tre metodi per abilitare l'identità gestita per un pro
 
    ![Configurazione del processo di Analisi di flusso per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-jobconfig-vs.png)
 
-2. Nella finestra delle proprietà di output del sink di output di ADLS Gen1, fare clic sull'elenco a discesa Modalità di autenticazione e selezionare **Identità gestita (anteprima)**.
+2. Nella finestra proprietà di output del sink di output Gen1 Azure Data Lake Store, scegliere la modalità di autenticazione elenco a discesa e seleziona * * identità gestito * *.
 
    ![Output di ADLS per le identità gestite](./media/stream-analytics-managed-identities-adls/adls-mi-output-vs.png)
 

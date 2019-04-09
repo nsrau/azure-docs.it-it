@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57440999"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278826"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurare report di Backup di Azure
 Questo articolo illustra i passaggi da seguire per configurare report per Backup di Azure tramite un insieme di credenziali di Servizi di ripristino. Descrive inoltre come accedere ai report con Power BI. Dopo aver completato questi passaggi, sarà possibile passare direttamente a Power BI per visualizzare, personalizzare e creare report.
@@ -43,9 +43,6 @@ Usare la procedura seguente per configurare l'account di archiviazione per un in
 
    * Nell'elenco di risorse digitare **Servizi di ripristino**.
    * Non appena si inizia a digitare, l'elenco viene filtrato in base all'input. Quando viene visualizzato **Insiemi di credenziali dei servizi di ripristino**, selezionare questa opzione.
-
-      ![Creare un insieme di credenziali dei servizi di ripristino - Passaggio 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * Viene visualizzato l'elenco di insiemi di credenziali dei servizi di ripristino. Nell'elenco di insiemi di credenziali dei servizi di ripristino selezionare un insieme di credenziali.
 
      Viene aperto il dashboard dell'insieme di credenziali selezionato.
@@ -153,6 +150,6 @@ Sì, è possibile configurare lo stesso account di archiviazione per vari insiem
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver configurato l'account di archiviazione e importato il pacchetto di contenuto Backup di Azure, il passaggio successivo consiste nel personalizzare i report e usare il modello di dati per creare report. Per altre informazioni, vedere gli articoli seguenti.
 
-* [Utilizzo del modello dati di Backup di Azure](backup-azure-reports-data-model.md)
-* [Filtraggio dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [Creazione dei report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Usare un Backup di Azure dei dati modello di report](backup-azure-reports-data-model.md)
+* [Filtrare i report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Creare report in Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

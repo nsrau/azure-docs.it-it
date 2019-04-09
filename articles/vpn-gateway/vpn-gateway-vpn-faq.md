@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
-ms.openlocfilehash: a4f8e2b6a1367658514cc1bf9711825959ee371e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58095654"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281050"
 ---
 # <a name="vpn-gateway-faq"></a>Domande frequenti sul gateway VPN
 
@@ -182,7 +182,7 @@ Questa sezione si applica al modello di distribuzione Resource Manager.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>È possibile usare un gateway VPN di Azure per il transito del traffico tra i siti locali o verso un'altra rete virtuale?
 
-**Modello di distribuzione Resource Manager**<br>
+**Modello di distribuzione di Gestione risorse**<br>
 Sì. Per altre informazioni, vedere la sezione [BGP](#bgp).
 
 **Modello di distribuzione classica**<br>
@@ -242,3 +242,5 @@ Vengono visualizzate informazioni sulla rete virtuale aggiuntive in [Domande fre
 
 * Per altre informazioni sui gateway VPN, vedere [Informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md).
 * Per altre informazioni sulle impostazioni di configurazione del gateway VPN, vedere [Informazioni sulle impostazioni di configurazione del gateway VPN](vpn-gateway-about-vpn-gateway-settings.md).
+
+**"OpenVPN" è un marchio registrato di OpenVPN Inc.**

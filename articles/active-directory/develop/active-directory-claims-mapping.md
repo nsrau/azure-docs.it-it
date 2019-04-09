@@ -13,12 +13,12 @@ ms.date: 03/28/2019
 ms.author: celested
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2076aec1585ff8b60ee2b593621b75abfaeaa1ac
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884078"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260307"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -295,7 +295,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | department|department|
 | Utente | onpremisessamaccountname | Nome Account SAM locale |
 | Utente | netbiosname| Nome NetBios |
-| Utente | dnsdomainname | Nome di dominio DNS |
+| Utente | dnsdomainname | DNS Domain Name |
 | Utente | onpremisesecurityidentifier | ID di sicurezza locali |
 | Utente | companyname| Nome organizzazione |
 | Utente | streetaddress | Indirizzo |
@@ -415,7 +415,7 @@ In base al metodo scelto è previsto un set di input e output. Definire gli inpu
 
 ### <a name="custom-signing-key"></a>Chiave di firma personalizzata
 
-È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. Tutti i token emessi interessati dal criterio vengono firmati con la chiave di firma personalizzata e le applicazioni devono essere configurate in modo da accettare i token firmati con la chiave di firma. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati.
+È necessario assegnare una chiave di firma personalizzata all'oggetto entità servizio per poter applicare criteri di mapping di attestazioni. In questo modo si conferma che i token sono stati modificati dall'autore del criterio di mapping delle attestazioni e si proteggono le applicazioni dai criteri di mapping di attestazioni creati da malintenzionati.  App con le attestazioni mapping abilitato è necessario controllare un URI speciale per i token di chiavi di firma aggiungendo `appid={client_id}` alla loro [richieste di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document).  
 
 ### <a name="cross-tenant-scenarios"></a>Scenari tra tenant
 

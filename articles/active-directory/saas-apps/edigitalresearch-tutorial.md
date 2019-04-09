@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 78b21e686d6ee6109ccf142dc4ca9956dc4d36ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59047807"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278718"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Esercitazione: Integrazione di Azure Active Directory con eDigitalResearch
 
@@ -40,7 +40,7 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Infor
 Per configurare l'integrazione di Azure AD con eDigitalResearch, sono necessari gli elementi seguenti:
 
 - Sottoscrizione di Azure AD
-- Sottoscrizione di eDigitalResearch abilitata per l'accesso Single Sign-On
+- Sottoscrizione abilitata per un eDigitalResearch accesso single sign-on
 
 > [!NOTE]
 > Non è consigliabile usare un ambiente di produzione per testare i passaggi di questa esercitazione.

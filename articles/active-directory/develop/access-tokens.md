@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 4b94004aa4b4834be80c13a044fcf7eb0023b6f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878418"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259865"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Token di accesso di Azure Active Directory
 
@@ -148,7 +148,7 @@ Le identità Microsoft possono autenticarsi in diversi modi, che possono essere 
 
 ## <a name="validating-tokens"></a>Convalida dei token
 
-Per convalidare un oggetto id_token o access_token, l'app deve convalidare sia la firma del token che le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento si trova all'indirizzo [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+Per convalidare un oggetto id_token o access_token, l'app deve convalidare sia la firma del token che le attestazioni. Per convalidare i token di accesso, l'applicazione deve convalidare anche l'autorità emittente, i destinatari e i token di firma. Questi elementi devono essere convalidati in base ai valori contenuti nel documento di individuazione OpenID. Ad esempio, la versione indipendente dal tenant del documento è disponibile all'indirizzo [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
 
 Il middleware di Azure AD offre funzionalità predefinite per la convalida dei token di accesso ed è possibile cercare tra gli [esempi](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) per trovarne una nel linguaggio preferito. Per altre informazioni sulla convalida esplicita di un token JWT, vedere l'[esempio di convalida manuale del token JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
 
@@ -173,14 +173,14 @@ L'attestazione `alg` indica l'algoritmo usato per firmare il token, mentre l'att
 
 In qualsiasi momento, Azure AD può firmare un token ID usando un determinato set di coppie di chiavi pubbliche/private. Azure AD ruota il set di chiavi su base periodica, quindi l'app deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi. Una frequenza ragionevole per la ricerca di aggiornamenti per le chiavi pubbliche usate da Azure AD è di circa 24 ore.
 
-È possibile acquisire i dati della chiave per la firma necessari per convalidare la firma usando il documento dei metadati OpenID Connect disponibile all'indirizzo:
+È possibile acquisire i dati chiave di firma necessari per convalidare la firma usando il [documento di metadati OpenID Connect](v2-protocols-oidc.md#fetch-the-openid-connect-metadata-document) che si trova in:
 
 ```
-https://login.microsoftonline.com/common/.well-known/openid-configuration
+https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Provare questo [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) in un browser.
+> Provare questo [URL](https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration) in un browser.
 
 Il documento di metadati ha le caratteristiche seguenti:
 
@@ -190,7 +190,9 @@ Il documento di metadati ha le caratteristiche seguenti:
 > [!NOTE]
 > L'endpoint v1.0 restituisce entrambe le attestazioni `x5t` e `kid`, mentre l'endpoint v2.0 restituisce solo l'attestazione `kid`. In futuro è consigliabile usare l'attestazione `kid` per convalidare il token.
 
-L'esecuzione della convalida della firma non rientra nell'ambito di questo documento, sono tuttavia disponibili numerose librerie open source che contengono informazioni per eseguire questa operazione.
+L'esecuzione della convalida della firma non rientra nell'ambito di questo documento, sono tuttavia disponibili numerose librerie open source che contengono informazioni per eseguire questa operazione.  Tuttavia, la piattaforma Microsoft Identity ha un'estensione per gli standard - personalizzati le chiavi di firma la firma di token.  
+
+Se l'app dispone di chiavi di accesso personalizzate in seguito all'utilizzo di [mapping delle attestazioni](active-directory-claims-mapping.md) funzionalità, è necessario aggiungere un' `appid` parametro che contiene l'ID dell'app per ottenere query un `jwks_uri` che punta all'App per la firma del chiave informazioni, che devono essere utilizzate per la convalida. Ad esempio: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene un `jwks_uri` di `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Autorizzazione basata su attestazioni
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862888"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264472"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Applicare la funzione della password di protezione di Azure AD per Windows Server Active Directory
 
@@ -31,7 +31,8 @@ Protezione tramite password di Azure AD è stato progettato con questi principi 
 * Non sono necessarie modifiche dello schema di Active Directory. Il software utilizza Active Directory esistente **contenitore** e **serviceConnectionPoint** oggetti dello schema.
 * Non Active Directory foresta o dominio funzionale livello minimo (funzionalità del dominio/FFL) è obbligatorio.
 * Il software non creare o richiedono gli account in domini di Active Directory che protegge.
-* Le password non crittografate utente non lasciare il controller di dominio durante le operazioni di convalida delle password o in qualsiasi momento.
+* Le password non crittografate utente non lasciano mai il controller di dominio, durante le operazioni di convalida delle password o in qualsiasi momento.
+* Il software non è dipendente da altre funzionalità di Azure AD; ad esempio sincronizzazione dell'hash delle password Azure AD non è correlata e non è necessaria in ordine per la protezione di password di Azure AD in funzione.
 * Distribuzione incrementale è supportata, tuttavia i criteri password vengono applicati solo in cui è installato l'agente Controller di dominio (DC agente). Vedere l'argomento successivo per altri dettagli.
 
 ## <a name="incremental-deployment"></a>Distribuzione incrementale
@@ -62,7 +63,7 @@ Il servizio agente controller di dominio è responsabile dell'avvio del download
 
 Dopo che il servizio agente controller di dominio riceve un nuovo criterio di password da Azure AD, il servizio archivia i criteri in una cartella dedicata alla radice del dominio *sysvol* condivisione cartella. Il servizio agente controller di dominio monitora anche questa cartella, nel caso in cui eseguire la replica di criteri più recenti da altri servizi di agente controller di dominio nel dominio.
 
-Il servizio agente controller di dominio richiede sempre un nuovo criterio all'avvio del servizio. Una volta avviato il servizio agente controller di dominio, controlla la validità del criterio corrente disponibile sul computer locale ogni ora. Se il criterio è antecedente a un'ora, l'agente controller di dominio richiede un nuovo criterio da Azure AD, come descritto in precedenza. Se il criterio corrente non è antecedente a un'ora, l'agente controller di dominio continua a usare tale criterio.
+Il servizio agente controller di dominio richiede sempre un nuovo criterio all'avvio del servizio. Una volta avviato il servizio agente controller di dominio, controlla la validità del criterio corrente disponibile sul computer locale ogni ora. Se il criterio è antecedente a un'ora, l'agente controller di dominio richiede un nuovo criterio da Azure AD tramite il servizio proxy, come descritto in precedenza. Se il criterio corrente non è antecedente a un'ora, l'agente controller di dominio continua a usare tale criterio.
 
 Ogni volta che viene scaricato un criterio di password di Azure AD password protezione, tale criterio è specifico di un tenant. In altre parole, i criteri password sono sempre una combinazione di elenco della password da escludere globale di Microsoft e l'elenco di password da escludere personalizzati per ogni tenant.
 
@@ -77,6 +78,8 @@ Il servizio proxy è senza stato. Memorizza nella cache mai i criteri o qualsias
 Il servizio agente controller di dominio Usa sempre i criteri password in locale disponibile più recente per valutare una password dell'utente. Se nessun criterio di password è disponibile nel controller di dominio locale, viene accettata automaticamente la password. In questo caso, un messaggio di evento viene registrato per informare l'utente amministratore.
 
 Protezione tramite password di Azure AD non è un motore di applicazione dei criteri in tempo reale. Si può verificare un ritardo tra quando viene effettuata una modifica della configurazione dei criteri password in Azure AD e quando che modifica raggiunge e viene applicati a tutti i controller di dominio.
+
+Protezione tramite password di Azure AD agisce come un supplemento ai criteri password Active Directory esistenti, non una sostituzione. Questo include tutte le altre DLL di filtro password 3rd-party che possono essere installate. Active Directory richiede sempre che accettano tutti i componenti di convalida la password prima di accettare una password.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>Associazione di foresta o al tenant per la protezione con password
 

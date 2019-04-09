@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500050"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056851"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Aggiungere un livello simbolo a una mappa
 
-Questo articolo illustra come eseguire il rendering di un punto dati da un'origine dati come livello simbolo in una mappa. Il rendering dei livelli simbolo viene eseguito tramite WebGL e tali livelli supportano un numero significativamente maggiore di punti dati rispetto ai marcatori HTML, ma non supportano elementi HTML e CSS tradizionali per lo stile.  
+Questo articolo illustra come eseguire il rendering di un punto dati da un'origine dati come livello simbolo in una mappa. Livelli di simboli vengono sottoposti a rendering utilizzando WebGL e supportano molto più grandi insiemi di punti di marcatori di HTML, ma non supportano elementi HTML e CSS tradizionali per lo stile.  
 
 > [!TIP]
-> Per impostazione predefinita, i livelli simbolo eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo da eseguire il rendering solo delle funzionalità della geometria dei punti, impostare la proprietà `filter` del livello su `['==', '$type', 'Point']`
+> Per impostazione predefinita, i livelli simbolo eseguiranno il rendering delle coordinate di tutte le geometrie in un'origine dati. Per limitare il livello in modo da poter sviluppare solo punto di geometria funzionalità set il `filter` proprietà del livello `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` se si desidera includere anche le funzionalità MultiPoint.
 
 ## <a name="add-a-symbol-layer"></a>Aggiungere un livello per i simboli
 
@@ -34,14 +34,14 @@ Nel secondo blocco di codice viene creato un oggetto origine dati usando la clas
 
 Il terzo blocco di codice crea un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) e aggiorna le coordinate del punto al clic del mouse usando il metodo [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) della classe Shape.
 
-Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) come simboli sulla mappa.  L'origine dati, il listener dell'evento click e il livello simbolo vengono creati e aggiunti alla mappa all'interno della funzione [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per assicurarsi che il punto venga visualizzato dopo il caricamento completo della mappa.
+Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) come simboli sulla mappa.  L'origine dati, il listener di eventi clic e il livello di simboli vengono creati e aggiunti alla mappa all'interno di `ready` [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) funzione per verificare che il punto viene visualizzato dopo la mappa caricata e pronta per l'accesso.
 
 > [!TIP]
 > Per impostazione predefinita, per le prestazioni, i livelli di simbolo ottimizzare il rendering dei simboli, nascondendo i simboli che si sovrappongono. Come è ingrandire i simboli nascosti diventano visibili. Per disabilitare questa funzionalità ed eseguire il rendering di tutti i simboli in qualsiasi momento, impostare il `allowOverlap` proprietà del `iconOptions` opzioni per `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Aggiungere un'icona personalizzata a un livello simbolo
 
-Il rendering dei livelli simbolo viene eseguito tramite WebGL. Di conseguenza tutte le risorse, ad esempio le immagini icona, devono essere caricate nel contesto di WebGL. Questo esempio illustra come aggiungere un'icona simbolo personalizzata alle risorse della mappa e quindi usarla per eseguire il rendering di un punto dati con un simbolo personalizzato sulla mappa. La proprietà `textField` del livello simbolo richiede che venga specificata un'espressione. In questo caso, si vuole eseguire il rendering le proprietà di temperatura della funzionalità punto uguale al valore di testo. A tale scopo, usare questa espressione: `['get', 'temperature']`. 
+Il rendering dei livelli simbolo viene eseguito tramite WebGL. Di conseguenza tutte le risorse, ad esempio le immagini icona, devono essere caricate nel contesto di WebGL. Questo esempio viene illustrato come aggiungere un'icona personalizzata per le risorse della mappa e quindi usarlo per eseguire il rendering di punto dati con un simbolo sulla mappa personalizzato. La proprietà `textField` del livello simbolo richiede che venga specificata un'espressione. In questo caso, si desidera eseguire il rendering della proprietà di temperatura, ma poiché è un numero, deve essere convertito in una stringa. Inoltre si vuole accodare la "° F" al file. Un'espressione può essere utilizzata per questo scopo. `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -85,4 +85,4 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Aggiungere un livello per le bolle](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Aggiungere marcatori HTML](./map-add-bubble-layer.md)
+> [Aggiungere HTML Maker](./map-add-bubble-layer.md)

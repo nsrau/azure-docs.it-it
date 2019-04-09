@@ -6,26 +6,26 @@ documentationcenter: ''
 author: zhchia
 writer: zhchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 9df4c7c5-9a58-478e-93b7-2f77aae12807
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/27/2019
 ms.author: zhchia
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe36969661ae1b729601681c02f79e777b2f8cab
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
-ms.translationtype: MT
+ms.openlocfilehash: c8fecc5232b26c98c4027174454cf29b81b0ee41
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57344578"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058119"
 ---
 # <a name="tutorial-configure-merchlogix-for-automatic-user-provisioning"></a>Esercitazione: Configurazione di MerchLogix per il provisioning utenti automatico
 
-L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in MerchLogix e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e deprovisioning di utenti e/o gruppi a MerchLogix. 
+L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in MerchLogix e Azure Active Directory (Azure AD) per configurare Azure AD per effettuare automaticamente il provisioning e deprovisioning di utenti e/o gruppi a MerchLogix.
 
 > [!NOTE]
 > L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../manage-apps/user-provisioning.md).
@@ -34,11 +34,12 @@ L'obiettivo di questa esercitazione è illustrare i passaggi da eseguire in Merc
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga dei prerequisiti seguenti:
 
-*   Un tenant di Azure AD
-*   Un tenant di MerchLogix
-*   Contatto tecnico in MerchLogix in grado di fornire l'URL dell'endpoint SCIM e il token segreto richiesto per il provisioning utenti
+* Un tenant di Azure AD
+* Un tenant di MerchLogix
+* Contatto tecnico in MerchLogix in grado di fornire l'URL dell'endpoint SCIM e il token segreto richiesto per il provisioning utenti
 
 ## <a name="adding-merchlogix-from-the-gallery"></a>Aggiunta di MerchLogix dalla raccolta
+
 Prima configurazione di MerchLogix per provisioning utenti automatico con Azure AD, è necessario aggiungere MerchLogix dalla raccolta di applicazioni di Azure AD al proprio elenco di applicazioni SaaS gestite.
 
 **Per aggiungere MerchLogix dalla raccolta di applicazioni di Azure AD, seguire i passaggi seguenti:**
@@ -50,7 +51,7 @@ Prima configurazione di MerchLogix per provisioning utenti automatico con Azure 
 2. Passare ad **Applicazioni aziendali** > **Tutte le applicazioni**.
 
     ![Sezione Applicazioni aziendali][2]
-    
+
 3. Per aggiungere MerchLogix, scegliere il **nuova applicazione** pulsante nella parte superiore della finestra di dialogo.
 
     ![Pulsante Nuova applicazione][3]
@@ -67,13 +68,13 @@ Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate,
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono accedere a MerchLogix. Dopo aver stabilito questo, è possibile assegnare tali utenti e/o gruppi a MerchLogix, seguire le istruzioni riportate qui:
 
-*   [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
+* [Assegnare un utente o gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-merchlogix"></a>Suggerimenti importanti per l'assegnazione di utenti a MerchLogix
 
-*    È consigliabile che un singolo utente di Azure AD viene assegnato a MerchLogix per testare il configurazione del provisioning utenti automatico iniziale. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento, una volta completati i test.
+* È consigliabile che un singolo utente di Azure AD viene assegnato a MerchLogix per testare il configurazione del provisioning utenti automatico iniziale. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento, una volta completati i test.
 
-*   Quando si assegna un utente a MerchLogix, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
+* Quando si assegna un utente a MerchLogix, è necessario selezionare qualsiasi ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Gli utenti con il ruolo **Accesso predefinito** vengono esclusi dal provisioning.
 
 ## <a name="configuring-automatic-user-provisioning-to-merchlogix"></a>Configurazione del provisioning utenti automatico a MerchLogix 
 
@@ -96,13 +97,12 @@ Questa sezione descrive i passaggi per configurare il provisioning di Azure AD d
 
 5. Sotto il **credenziali amministratore** sezione:
 
-    *   Nel **URL Tenant** immettere l'URL dell'endpoint SCIM fornito per il contatto tecnico MerchLogix.
+    * Nel **URL Tenant** immettere l'URL dell'endpoint SCIM fornito per il contatto tecnico MerchLogix.
 
-    *   Nel **Token segreto** immettere segreto token fornito dal contatto tecnico MerchLogix.
+    * Nel **Token segreto** immettere segreto token fornito dal contatto tecnico MerchLogix.
 
 6. Dopo aver completato i campi indicati nel passaggio 5, fare clic su **Test connessione** per verificare che Azure AD possa connettersi a MerchLogix. Se la connessione non riesce, verificare che l'account di MerchLogix abbia autorizzazioni di amministratore e riprovare.
 
-    
 7. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
 8. Fare clic su **Save**.
@@ -119,14 +119,13 @@ Questa sezione descrive i passaggi per configurare il provisioning di Azure AD d
 
 14. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
 
-
 L'operazione avvia la sincronizzazione iniziale di tutti gli utenti e/o i gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti quando il servizio di provisioning di Azure AD è in esecuzione. È possibile usare la **Dettagli sincronizzazione** sezione per monitorare lo stato di avanzamento e selezionare i collegamenti ai report delle attività, che descrivono tutte le azioni eseguite dal servizio in MerchLogix di provisioning di Azure AD provisioning.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione di provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

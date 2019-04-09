@@ -7,12 +7,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58915924"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256193"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automate OS and framework patching with ACR Tasks (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Tasks)
 
@@ -78,7 +78,7 @@ Per informazioni sull'applicazione di patch al sistema operativo e al framework,
 > [!NOTE]
 > Gli aggiornamenti delle immagini di base attivano compilazioni solo quando sia l'immagine di base che quella dell'applicazione risiedono nello stesso Registro Azure Container, o la base risiede in un repository dell'hub Docker accessibile pubblicamente.
 
-## <a name="multi-step-tasks"></a>Attività più passi
+## <a name="multi-step-tasks"></a>Attività in più passaggi
 
 Attività multipassaggio forniscono una definizione di attività basata sul passaggio e l'esecuzione per la creazione, test e dell'applicazione di patch immagini del contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
 
@@ -97,10 +97,9 @@ Altre informazioni sulle attività in più passaggi in [Run multi-step build, te
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Quando si è pronti ad automatizzare l'applicazione di patch al sistema operativo e al framework compilando le immagini dei contenitori nel cloud, vedere la serie di esercitazioni in tre parti su ACR Tasks.
+Quando si è pronti per automatizzare l'applicazione di patch framework tramite la compilazione delle immagini del contenitore nel cloud e del sistema operativo, consultare le tre parti [serie di esercitazioni in Registro contenitori di AZURE attività](container-registry-tutorial-quick-task.md).
 
-> [!div class="nextstepaction"]
-> [Creare immagini dei contenitori nel cloud con le attività del Registro di sistema di contenitore di Azure](container-registry-tutorial-quick-task.md)
+Facoltativamente, installare il [estensione Docker per Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e il [Account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) estensioni utilizzabili con i registri contenitori di Azure. Eseguire il pull e push delle immagini in un registro contenitori di Azure o eseguire attività di registro contenitori di AZURE, tutto all'interno di Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

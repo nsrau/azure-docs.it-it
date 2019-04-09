@@ -9,12 +9,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: kgremban
-ms.openlocfilehash: 80091adaa364289ec9cddf6e259242e376b76b37
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 04fc1da04d9da715acfed8ca9d26e9c325afb403
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549613"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279925"
 ---
 # <a name="get-started-with-device-management-python"></a>Introduzione alla gestione dei dispositivi (Python)
 
@@ -23,21 +23,27 @@ ms.locfileid: "57549613"
 Questa esercitazione illustra come:
 
 * Creare un hub IoT nel portale di Azure e un'identità del dispositivo nell'hub IoT.
+
 * Creare un'app di dispositivo simulato contenente un metodo diretto per il riavvio del dispositivo. I metodi diretti vengono richiamati dal cloud.
+
 * Creare un'app console Python che chiama il metodo diretto di riavvio nell'app di dispositivo simulato tramite l'hub IoT.
 
 Al termine di questa esercitazione, si avranno due app console Python:
 
-**dmpatterns_getstarted_device.py**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza, riceve un metodo diretto di riavvio, simula un riavvio fisico e segnala il tempo impiegato per l'ultimo riavvio.
+* **dmpatterns_getstarted_device.py**, che si connette all'hub IoT con l'identità del dispositivo creata in precedenza, riceve un metodo diretto di riavvio, simula un riavvio fisico e segnala il tempo impiegato per l'ultimo riavvio.
 
-**dmpatterns_getstarted_service.py**, che chiama un metodo diretto nell'app di dispositivo simulato e visualizza la risposta e le proprietà segnalate aggiornate.
+* **dmpatterns_getstarted_service.py**, che chiama un metodo diretto nell'app di dispositivo simulato e visualizza la risposta e le proprietà segnalate aggiornate.
 
 Per completare l'esercitazione, sono necessari gli elementi seguenti:
 
 * [Python 2.x o 3.x](https://www.python.org/downloads/). Assicurarsi di usare le installazioni a 32 bit o 64 bit, come richiesto dalla configurazione. Quando richiesto durante l'installazione, assicurarsi di aggiungere Python alla variabile di ambiente specifica per la piattaforma. Se si usa Python 2.x, potrebbe essere necessario [installare o aggiornare *pip*, il sistema di gestione pacchetti Python](https://pip.pypa.io/en/stable/installing/).
-    * Installare il pacchetto [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) usando il comando `pip install azure-iothub-device-client`
-    * Installare il pacchetto [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) usando il comando `pip install azure-iothub-service-client`
+
+* Installare il [azure-iothub-device-client](https://pypi.org/project/azure-iothub-device-client/) del pacchetto, usando il comando       `pip install azure-iothub-device-client`
+
+* Installare il [azure-iothub-service-client](https://pypi.org/project/azure-iothub-service-client/) del pacchetto, usando il comando       `pip install azure-iothub-service-client`
+
 * Se si usa il sistema operativo Windows, usare il [pacchetto ridistribuibile di Visual C++](https://www.microsoft.com/download/confirmation.aspx?id=48145) per consentire l'uso di DLL native da Python.
+
 * Un account Azure attivo. Se non si dispone di un account, è possibile crearne uno [gratuito](https://azure.microsoft.com/pricing/free-trial/) in pochi minuti.
 
 ## <a name="create-an-iot-hub"></a>Creare un hub IoT
@@ -49,16 +55,19 @@ Per completare l'esercitazione, sono necessari gli elementi seguenti:
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## <a name="create-a-simulated-device-app"></a>Creare un'app di dispositivo simulato
+
 In questa sezione si svolgeranno le seguenti operazioni:
 
 * Creare un'app console Python che risponde a un metodo diretto chiamato dal cloud
+
 * Simulare un riavvio del dispositivo
+
 * Usare le proprietà segnalate per abilitare le query nei dispositivi gemelli in modo da identificare i dispositivi e l'ora dell'ultimo riavvio
 
 1. Usando un editor di testo, creare un file **dmpatterns_getstarted_device.py**.
 
-1. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_device.py**.
-   
+2. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_device.py**.
+
     ```python
     import random
     import time, datetime
@@ -68,8 +77,8 @@ In questa sezione si svolgeranno le seguenti operazioni:
     from iothub_client import IoTHubClient, IoTHubClientError, IoTHubTransportProvider, IoTHubClientResult, IoTHubError, DeviceMethodReturnValue
     ```
 
-1. Aggiungere variabili, tra cui una variabile **CONNECTION_STRING** e l'inizializzazione del client.  Sostituire la stringa di connessione con la stringa di connessione del dispositivo.  
-   
+3. Aggiungere variabili, tra cui una variabile **CONNECTION_STRING** e l'inizializzazione del client.  Sostituire la stringa di connessione con la stringa di connessione del dispositivo.  
+
     ```python
     CONNECTION_STRING = "{deviceConnectionString}"
     PROTOCOL = IoTHubTransportProvider.MQTT
@@ -85,44 +94,43 @@ In questa sezione si svolgeranno le seguenti operazioni:
     METHOD_CALLBACKS = 0
     ```
 
-1. Aggiungere i callback delle funzioni seguenti per implementare il metodo diretto nel dispositivo.
-   
+4. Aggiungere i callback delle funzioni seguenti per implementare il metodo diretto nel dispositivo.
+
     ```python
     def send_reported_state_callback(status_code, user_context):
         global SEND_REPORTED_STATE_CALLBACKS
-    
+
         print ( "Device twins updated." )
 
     def device_method_callback(method_name, payload, user_context):
         global METHOD_CALLBACKS
-    
+
         if method_name == "rebootDevice":
             print ( "Rebooting device..." )
-        
             time.sleep(20)
-        
+
             print ( "Device rebooted." )
-        
+
             current_time = str(datetime.datetime.now())
             reported_state = "{\"rebootTime\":\"" + current_time + "\"}"
             CLIENT.send_reported_state(reported_state, len(reported_state), send_reported_state_callback, SEND_REPORTED_STATE_CONTEXT)
-        
+
             print ( "Updating device twins: rebootTime" )
-            
+
         device_method_return_value = DeviceMethodReturnValue()
         device_method_return_value.response = "{ \"Response\": \"This is the response from the device\" }"
         device_method_return_value.status = 200
-    
+
         return device_method_return_value
     ```
 
-1. Avviare il listener del metodo diretto e attendere.
-   
+5. Avviare il listener del metodo diretto e attendere.
+
     ```python
     def iothub_client_init():
         if CLIENT.protocol == IoTHubTransportProvider.MQTT or client.protocol == IoTHubTransportProvider.MQTT_WS:
             CLIENT.set_device_method_callback(device_method_callback, METHOD_CONTEXT)
-        
+
     def iothub_client_sample_run():
         try:
             iothub_client_init()
@@ -149,19 +157,20 @@ In questa sezione si svolgeranno le seguenti operazioni:
         iothub_client_sample_run()
     ```
 
-1. Salvare e chiudere il file **dmpatterns_getstarted_device.py**.
+6. Salvare e chiudere il file **dmpatterns_getstarted_device.py**.
 
 > [!NOTE]
 > Per semplicità, in questa esercitazione non si implementa alcun criterio di ripetizione dei tentativi. Nel codice di produzione è consigliabile implementare criteri di ripetizione dei tentativi, ad esempio un backoff esponenziale, come suggerito nell'articolo [Gestione degli errori temporanei](/azure/architecture/best-practices/transient-faults).
 
 
 ## <a name="trigger-a-remote-reboot-on-the-device-using-a-direct-method"></a>Attivare un riavvio remoto nel dispositivo con un metodo diretto
+
 In questa sezione viene creata un'app console Python che attiva un riavvio remoto in un dispositivo usando un metodo diretto. L'app esegue query nel dispositivo gemello per ottenere l'ora dell'ultimo riavvio del dispositivo in questione.
 
 1. Usando un editor di testo, creare un file **dmpatterns_getstarted_service.py**.
 
-1. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_service.py**.
-   
+2. Aggiungere le istruzioni `import` seguenti all'inizio del file **dmpatterns_getstarted_service.py**.
+
     ```python
     import sys, time
     import iothub_service_client
@@ -169,8 +178,8 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
     from iothub_service_client import IoTHubDeviceMethod, IoTHubError, IoTHubDeviceTwin
     ```
 
-1. Aggiungere le dichiarazioni di variabili seguenti. Sostituire solo i valori segnaposto per _IoTHubConnectionString_ e _deviceId_.
-   
+3. Aggiungere le dichiarazioni di variabili seguenti. Sostituire solo i valori segnaposto per _IoTHubConnectionString_ e _deviceId_.
+
     ```python
     CONNECTION_STRING = "{IoTHubConnectionString}"
     DEVICE_ID = "{deviceId}"
@@ -181,14 +190,14 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
     WAIT_COUNT = 10
     ```
 
-1. Aggiungere la funzione seguente per richiamare il metodo del dispositivo per riavviare il dispositivo di destinazione, quindi eseguire una query per i dispositivi gemelli e ottenere la data e l'ora dell'ultimo riavvio.
-   
+4. Aggiungere la funzione seguente per richiamare il metodo del dispositivo per riavviare il dispositivo di destinazione, quindi eseguire una query per i dispositivi gemelli e ottenere la data e l'ora dell'ultimo riavvio.
+
     ```python
     def iothub_devicemethod_sample_run():
         try:
             iothub_twin_method = IoTHubDeviceTwin(CONNECTION_STRING)
             iothub_device_method = IoTHubDeviceMethod(CONNECTION_STRING)
-        
+
             print ( "" )
             print ( "Invoking device to reboot..." )
 
@@ -199,7 +208,7 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
 
             print ( "" )
             print ( response.payload )
-        
+
             while True:
                 print ( "" )
                 print ( "IoTHubClient waiting for commands, press Ctrl-C to exit" )
@@ -207,7 +216,7 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
                 status_counter = 0
                 while status_counter <= WAIT_COUNT:
                     twin_info = iothub_twin_method.get_twin(DEVICE_ID)
-                
+
                     if twin_info.find("rebootTime") != -1:
                         print ( "Last reboot time: " + twin_info[twin_info.find("rebootTime")+11:twin_info.find("rebootTime")+37])
                     else:
@@ -232,24 +241,24 @@ In questa sezione viene creata un'app console Python che attiva un riavvio remot
         iothub_devicemethod_sample_run()
     ```
 
-1. Salvare e chiudere il file **dmpatterns_getstarted_service.py**.
-
+5. Salvare e chiudere il file **dmpatterns_getstarted_service.py**.
 
 ## <a name="run-the-apps"></a>Eseguire le app
+
 A questo punto è possibile eseguire le app.
 
 1. Al prompt dei comandi eseguire il comando seguente per iniziare a stare in ascolto del metodo diretto di riavvio.
-   
+
     ```
     python dmpatterns_getstarted_device.py
     ```
 
-1. A un altro prompt dei comandi eseguire il comando seguente per attivare il riavvio remoto ed eseguire una query per il dispositivo gemello per trovare la data e l'ora dell'ultimo riavvio.
-   
+2. A un altro prompt dei comandi eseguire il comando seguente per attivare il riavvio remoto ed eseguire una query per il dispositivo gemello per trovare la data e l'ora dell'ultimo riavvio.
+
     ```
     python dmpatterns_getstarted_service.py
     ```
 
-1. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
+3. Nella console viene visualizzata la risposta del dispositivo al metodo diretto.
 
 [!INCLUDE [iot-hub-dm-followup](../../includes/iot-hub-dm-followup.md)]
