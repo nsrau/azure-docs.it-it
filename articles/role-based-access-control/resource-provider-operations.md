@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906209"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010737"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operazioni dei provider di risorse di Azure Resource Manager
 
@@ -5066,7 +5066,7 @@ Aggiornare un gruppo di persona esistente nome e userData. Se non si trovano nel
 > | Azione | Microsoft.Sql/servers/importExportOperationResults/read | Ottiene le operazioni di importazione/esportazione in corso |
 > | Azione | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | Elimina il profilo dell'endpoint di interfaccia specificato |
 > | Azione | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Restituisce le proprietà del profilo dell'endpoint di interfaccia specificato |
-> | Azione | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Crea un profilo dell'endpoint di interfaccia con i parametri specificati oppure aggiorna le proprietà o i tag per l'endpoint di interfaccia specificato |
+> | Azione | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Crea un profilo di endpoint di interfaccia con i parametri specificati o aggiorna le proprietà o i tag per l'endpoint di interfaccia specificato |
 > | Azione | Microsoft.Sql/servers/jobAgents/delete | Elimina un agente processo di database SQL di Azure |
 > | Azione | Microsoft.Sql/servers/jobAgents/read | Ottiene un agente processo di database SQL di Azure |
 > | Azione | Microsoft.Sql/servers/jobAgents/write | Crea o aggiorna un agente processo di database SQL di Azure |

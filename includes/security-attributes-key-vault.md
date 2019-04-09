@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aba09012bf2e9d2741f598280add8b599a6f6d1a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a52b7a5234b292fa3f8c3e19fe7f62f989d639c
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55807192"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007235"
 ---
 ## <a name="preventative"></a>Prevenzione
 
@@ -17,7 +17,7 @@ ms.locfileid: "55807192"
 |---|---|--|
 | Crittografia di dati inattivi:<ul><li>Modello di crittografia lato server</li><li>Crittografia lato server con chiavi gestite dal cliente</li><li>Altre funzionalità di crittografia (ad esempio lato client, Always Encrypted e così via)</ul>| Sì | Vengono crittografati tutti gli oggetti. |
 | Crittografia in transito:<ul><li>Crittografia ExpressRoute</li><li>Crittografia nella rete virtuale</li><li>Crittografia da rete virtuale a rete virtuale</ul>| Sì | Tutte le comunicazioni vengono effettuate tramite chiamate API crittografate |
-| Gestione delle chiavi di crittografia (CMK, BYOK e così via)| Sì | Il cliente controlla tutte le chiavi nel proprio insieme di credenziali delle chiavi. Se vengono specificate chiavi basate sul modulo di protezione hardware (HSM), la chiave, il certificato o il segreto viene protetto da un modulo di protezione hardware FIPS di livello 2. |
+| Gestione delle chiavi di crittografia (CMK, BYOK e così via)| Sì | Il cliente controlla tutte le chiavi nel proprio insieme di credenziali delle chiavi. Quando vengono specificate le chiavi module (HSM) supportata di protezione hardware, un modulo di protezione hardware di FIPS livello 2 consente di proteggere la chiave, un certificato o un segreto. |
 | Crittografia a livello di colonna (Servizi dati di Azure)| N/D |  |
 | Chiamate API crittografate| Sì | Viene usato HTTPS. |
 
@@ -34,7 +34,7 @@ ms.locfileid: "55807192"
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto monitoraggio di Azure (Log Analytics, Application Insights e così via)| Sì | Viene usato Log Analytics. |
+| Monitoraggio di supporto (analitica di Log, Application insights e così via) di Azure| Sì | Viene usato Log Analytics. |
 
 ## <a name="iam-support"></a>Supporto per la gestione delle identità e degli accessi
 

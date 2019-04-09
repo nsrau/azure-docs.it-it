@@ -15,12 +15,12 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992101"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006735"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Informazioni sulle assegnazioni di rifiuto per le risorse di Azure
 
@@ -31,7 +31,7 @@ Per certi versi, le assegnazioni di rifiuto sono diverse dalle assegnazioni di r
 Questo articolo descrive il modo in cui le assegnazioni di rifiuto sono definite.
 
 > [!NOTE]
-> A questo punto, l'unico modo è possibile aggiungere il proprio negare assegnazioni consiste nell'usare progetti di architetture di Azure. Per altre informazioni, vedere [proteggere le nuove risorse con i blocchi di risorse di Azure progetti](../governance/blueprints/tutorials/protect-new-resources.md).
+> Al momento, l'unico modo per aggiungere le proprie assegnazioni di rifiuto è tramite Azure Blueprints. Per altre informazioni, vedere [Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints](../governance/blueprints/tutorials/protect-new-resources.md).
 
 ## <a name="deny-assignment-properties"></a>Proprietà dell'assegnazione di rifiuto
 
@@ -56,12 +56,12 @@ Questo articolo descrive il modo in cui le assegnazioni di rifiuto sono definite
 
 ## <a name="system-defined-principal"></a>Entità definite dal sistema
 
-Per supportare tutte le assegnazioni di negazione è stata introdotta l'**entità definita dal sistema**. Quest'entità rappresenta tutti gli utenti, gruppi, entità servizio e identità gestite in una directory di Azure AD. Se l'ID entità è un GUID zero `00000000-0000-0000-0000-000000000000` e il tipo di entità è `SystemDefined`, l'entità rappresenta tutte le entità. `SystemDefined` può essere combinato con `ExcludePrincipals` per negare tutte le entità, ad eccezione di alcuni utenti. `SystemDefined` presenta i vincoli seguenti:
+Per supportare tutte le assegnazioni di negazione è stata introdotta l'**entità definita dal sistema**. Quest'entità rappresenta tutti gli utenti, gruppi, entità servizio e identità gestite in una directory di Azure AD. Se l'ID entità è un GUID zero `00000000-0000-0000-0000-000000000000` e il tipo di entità è `SystemDefined`, l'entità rappresenta tutte le entità. `SystemDefined` può essere combinato con `ExcludePrincipals` negare tutte le entità, ad eccezione di alcuni utenti. `SystemDefined` presenta i vincoli seguenti:
 
 - Può essere usata solo con `Principals` e non può essere usata con `ExcludePrincipals`.
 - `Principals[i].Type` deve essere impostato su `SystemDefined`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Elencare le assegnazioni di rifiuto per le risorse di Azure usando l'API REST](deny-assignments-rest.md)
+* [Visualizzare le assegnazioni di rifiuto per le risorse di Azure usando il portale di Azure](deny-assignments-portal.md)
 * [Informazioni sulle definizioni del ruolo per le risorse di Azure](role-definitions.md)

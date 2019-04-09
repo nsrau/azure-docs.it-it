@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/01/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0c516ce9dc3a13474cefc61b6634dbeea0fce0
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
-ms.translationtype: MT
+ms.openlocfilehash: 76cd877380090ccad8b2f7b7dbe79957e0eab5bb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793659"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056678"
 ---
 # <a name="manage-pre-and-post-scripts-preview"></a>Gestire i pre-script e i post-script (anteprima)
 
@@ -67,6 +67,23 @@ Quando si configurano i pre-script e i post-script è possibile passare i parame
 Se è necessario un altro tipo di oggetto, è possibile eseguirne il cast in un altro tipo con la propria logica nel runbook.
 
 Oltre ai parametri standard dei runbook viene passato un parametro aggiuntivo. **SoftwareUpdateConfigurationRunContext**. Questo parametro è una stringa JSON e, se viene definito nello script pre o post, viene automaticamente passato alla distribuzione di aggiornamento. Il parametro contiene informazioni sulla distribuzione di aggiornamento costituite da un subset delle informazioni restituite dall'API [SoftwareUpdateconfigurations](/rest/api/automation/softwareupdateconfigurations/getbyname#updateconfiguration). La tabella seguente illustra le proprietà specificate nella variabile:
+
+## <a name="stopping-a-deployment"></a>L'arresto di una distribuzione
+
+Se si vuole arrestare una distribuzione basata su uno script di Pre devi [throw](automation-runbook-execution.md#throw) un'eccezione. Se non si generano un'eccezione, verrà eseguito comunque la distribuzione e lo script di Post. Il [runbook di esempio](https://gallery.technet.microsoft.com/Update-Management-Run-6949cc44?redir=0) nella raccolta viene illustrato come è possibile eseguire questa operazione. Di seguito è riportato un frammento di codice da tale runbook.
+
+```powershell
+#In this case, we want to terminate the patch job if any run fails.
+#This logic might not hold for all cases - you might want to allow success as long as at least 1 run succeeds
+foreach($summary in $finalStatus)
+{
+    if ($summary.Type -eq "Error")
+    {
+        #We must throw in order to fail the patch deployment.  
+        throw $summary.Summary
+    }
+}
+```
 
 ### <a name="softwareupdateconfigurationruncontext-properties"></a>Proprietà SoftwareUpdateConfigurationRunContext
 
@@ -231,6 +248,17 @@ if ($summary.Type -eq "Error")
 }
 ```
 
+## <a name="abort-patch-deployment"></a>Interrompere la distribuzione delle patch
+
+Se lo script precedente restituisce un errore, è possibile interrompere la distribuzione. A tale scopo, è necessario [throw](/powershell/module/microsoft.powershell.core/about/about_throw) un errore nello script per qualsiasi logica che costituisce un errore.
+
+```powershell
+if (<My custom error logic>)
+{
+    #Throw an error to fail the patch deployment.  
+    throw "There was an error, abort deployment"
+}
+```
 ## <a name="known-issues"></a>Problemi noti
 
 * Quando si usano pre-script o post-script, non è possibile passare oggetti o matrici ai parametri. Il runbook avrà esito negativo.

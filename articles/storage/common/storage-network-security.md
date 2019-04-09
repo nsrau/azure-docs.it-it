@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906090"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057388"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurare i firewall e le reti virtuali di Archiviazione di Azure
 
@@ -350,13 +350,14 @@ Se si abilita l'eccezione **Consenti ai servizi Microsoft attendibili...**, ai s
 |Service|Nome provider di risorse|Scopo|
 |:------|:---------------------|:------|
 |Backup di Azure|Microsoft.Backup|Eseguire il backup e il ripristino di dischi non gestiti nelle macchine virtuali IAAS (non obbligatorio per i dischi gestiti). [Altre informazioni](/azure/backup/backup-introduction-to-azure-backup)|
-|Azure Site Recovery|Microsoft.SiteRecovery |Configurare il ripristino di emergenza abilitando la replica delle macchine virtuali IaaS di Azure. Questa operazione è necessaria se si usa un account di archiviazione della cache abilitato per il firewall, un account di archiviazione di origine o un account di archiviazione di destinazione.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
-|Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti. [Altre informazioni](/azure/devtest-lab/devtest-lab-overview)|
 |Azure Data Box|Microsoft.DataBox|Consente l'importazione di dati in Azure mediante Data Box. [Altre informazioni](/azure/databox/data-box-overview)|
+|Azure DevTest Labs|Microsoft.DevTestLab|Creazione di immagini personalizzate e installazione di artefatti. [Altre informazioni](/azure/devtest-lab/devtest-lab-overview)|
 |Griglia di eventi di Azure|Microsoft.EventGrid|Abilitare la pubblicazione di eventi di archiviazione BLOB e consentire a Griglia di eventi la pubblicazione nelle code di archiviazione. Informazioni sugli [eventi di archiviazione BLOB](/azure/event-grid/event-sources) e sulla [pubblicazione nelle code](/azure/event-grid/event-handlers).|
 |Hub eventi di Azure|Microsoft.EventHub|Archiviare dati con Acquisizione di Hub eventi. [Altre informazioni](/azure/event-hubs/event-hubs-capture-overview).|
-|Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview)|
+|HDInsight di Azure|Microsoft.HDInsight|Effettuare il provisioning di contenuto iniziale del file system predefinito per un nuovo cluster HDInsight. [Altre informazioni](https://azure.microsoft.com/en-us/blog/enhance-hdinsight-security-with-service-endpoints/)|
 |Monitoraggio di Azure|Microsoft.Insights|Eseguire la scrittura dei dati di monitoraggio in un account di archiviazione protetto [Altre informazioni](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).|
+|Rete di Azure|Microsoft.Networking|Archiviare e analizzare i log di traffico di rete. [Altre informazioni](/azure/network-watcher/network-watcher-packet-capture-overview)|
+|Azure Site Recovery|Microsoft.SiteRecovery |Configurare il ripristino di emergenza abilitando la replica delle macchine virtuali IaaS di Azure. Questa operazione è necessaria se si usa un account di archiviazione della cache abilitato per il firewall, un account di archiviazione di origine o un account di archiviazione di destinazione.  [Altre informazioni](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication)|
 |Azure SQL Data Warehouse|Microsoft.Sql|Consente scenari di importazione ed esportazione con PolyBase. [Altre informazioni](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)|
 
 ### <a name="storage-analytics-data-access"></a>Accesso ai dati di Analisi archiviazione

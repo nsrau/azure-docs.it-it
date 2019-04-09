@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893062"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010601"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Differenze T-SQL tra Istanza gestita del database SQL di Azure e SQL Server
 
@@ -288,10 +288,9 @@ Per altre informazioni, vedere [ALTER DATABASE](https://docs.microsoft.com/sql/t
     - La lettura della coda non è supportata.  
     - La shell dei comandi non è ancora supportata.
   - Le istanze gestite non possono accedere a risorse esterne, ad esempio a condivisioni di rete tramite robocopy.  
-  - PowerShell non è ancora supportato.
   - Analysis Services non è supportato.
 - Le notifiche sono supportate in modo parziale.
-- La notifica tramite posta elettronica è supportata e richiede la configurazione di un profilo di posta elettronica database. Può esistere un solo profilo di posta elettronica database, che deve essere denominato `AzureManagedInstance_dbmail_profile` nell'anteprima pubblica (limitazione temporanea).  
+- La notifica tramite posta elettronica è supportata e richiede la configurazione di un profilo di posta elettronica database. SQL Agent può utilizzare il profilo di posta elettronica di un solo database, che deve essere denominato `AzureManagedInstance_dbmail_profile`.  
   - Pager non è supportato.  
   - NetSend non è supportato.
   - Gli avvisi non sono ancora supportati.
@@ -432,10 +431,7 @@ Le opzioni di database seguenti sono impostate/sottoposte a override e non posso
 - `.BAK` Impossibile ripristinare il file che contengono più set di backup.
 - `.BAK` Impossibile ripristinare il file che contengono più file di log.
 - Se il file con estensione bak contiene dati `FILESTREAM`, il ripristino non riesce.
-- I backup che contengono database con oggetti in memoria attivi non possono attualmente essere ripristinati.  
-- I backup che contengono database in cui esistevano oggetti in memoria non possono attualmente essere ripristinati.
-- I backup che contengono database in modalità di sola lettura non possono attualmente essere ripristinati. Questa limitazione verrà rimossa a breve.
-
+- Impossibile ripristinare i backup contenenti database con oggetti In memoria attivi nell'istanza di uso generale.  
 Per informazioni sulle istruzioni Restore, vedere [Istruzioni RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Broker di servizio
@@ -485,6 +481,8 @@ Non è possibile ripristinare l'istanza gestita [database indipendenti](https://
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Superamento dello spazio di archiviazione con file di database di piccole dimensioni
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, e `RESTORE DATABASE` istruzioni potrebbero non riuscire perché l'istanza può raggiungere il limite di archiviazione di Azure.
+
 Ogni istanza gestita di generale scopo dispone archiviazione di 35 TB riservata per lo spazio su disco Premium di Azure e ogni file di database viene posizionato su un disco fisico separato. I dischi possono essere da 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. Lo spazio inutilizzato su disco non viene conteggiato, ma la somma delle dimensioni dei dischi Premium di Azure non può superare 35 TB. In alcuni casi, un'istanza gestita che non necessita di 8 TB in totale può superare il limite di Azure di 35 TB per le dimensioni delle risorse di archiviazione, a causa della frammentazione interna.
 
 Ad esempio, un'istanza gestita scopo generale può avere uno file 1,2 TB di dimensioni contenute conservata sul disco da 4 TB e 248 file (ogni 1 GB di dimensioni) che vengono inseriti in dischi separati da 128 GB. Esempio:
@@ -514,9 +512,13 @@ SQL Server Management Studio (SSMS) e SQL Server Data Tools (SSDT) potrebbero ri
 
 In numerose viste di sistema, contatori delle prestazioni, messaggi di errore, XEvent e voci del log degli errori sono visualizzati gli identificatori GUID dei database anziché i nomi effettivi. Non fare affidamento su questi identificatori GUID, in quanto potrebbero essere sostituiti dai nomi effettivi dei database in futuro.
 
+### <a name="database-mail"></a>Posta elettronica database
+
+`@query` nel parametro [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedura non funziona.
+
 ### <a name="database-mail-profile"></a>Profilo di posta elettronica database
 
-Il profilo di posta elettronica database utilizzato da SQL Agent deve essere chiamato `AzureManagedInstance_dbmail_profile`.
+Il profilo di posta elettronica database utilizzato da SQL Agent deve essere chiamato `AzureManagedInstance_dbmail_profile`. Sono non disponibili restrizioni riguardanti altri nomi di profilo di posta elettronica database.
 
 ### <a name="error-logs-are-not-persisted"></a>I log degli errori non sono persistenti
 

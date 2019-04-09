@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: helohr
-ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: a7e2f3c95819c6ab6d2e63e5c7a2f62649ebd15c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58628993"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056096"
 ---
 # <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configurare una condivisione di profilo utente per un pool di host
 
-Il servizio di Windows Virtual Desktop Preview offre contenitori profilo FSLogix come soluzione consigliata per l'utente del profilo. Non è consigliabile usare la soluzione disco profili utente (UPD) e nelle versioni future di Windows Desktop virtuale verrà deprecato.
+Il servizio di Windows Virtual Desktop Preview offre contenitori profilo FSLogix come soluzione consigliata per l'utente del profilo. Non è consigliabile l'uso della soluzione disco profili utente (UPD), che sarà deprecata in futuro le versioni di Windows Desktop virtuale.
 
 In questa sezione indicano come configurare una condivisione di contenitore FSLogix profilo per un pool di host. Per la documentazione generale relativa FSLogix, vedere la [FSLogix sito](https://docs.fslogix.com/).
 
@@ -40,12 +40,12 @@ Dopo aver creato la macchina virtuale, aggiungerla al dominio effettuando le ope
 
 Ecco le istruzioni generali su come preparare una macchina virtuale da usare come una condivisione file per i profili utente:
 
-1. Aggiungere le macchine virtuali host sessione a un [gruppo di sicurezza di Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Questo gruppo di sicurezza da utilizzare per autenticare le macchine virtuali host sessione per la macchina virtuale di condivisione file che appena creato.
+1. Aggiungere gli utenti di Windows Virtual Desktop Active Directory a un' [gruppo di sicurezza di Active Directory](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups). Questo gruppo di sicurezza da utilizzare per autenticare gli utenti di Desktop virtuale Windows per la macchina virtuale di condivisione file che appena creato.
 2. [Connettersi alla macchina virtuale di condivisione file](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine).
 3. Nella macchina virtuale di condivisione file, creare una cartella nel **unità C** che verrà usato come la condivisione dei profili.
 4. Fare clic su nuova cartella, selezionare **delle proprietà**, selezionare **Sharing**, quindi selezionare **di condivisione avanzate...** .
 5. Selezionare **Condividi questa cartella**, selezionare **autorizzazioni...** , quindi selezionare **Aggiungi...** .
-6. Cercare il gruppo di sicurezza a cui è stato aggiunto macchine virtuali host sessione e quindi verificare che tale gruppo abbia **controllo completo**.
+6. Cercare il gruppo di sicurezza a cui è stato aggiunto gli utenti di Desktop virtuale Windows, quindi verificare che tale gruppo abbia **controllo completo**.
 7. Dopo aver aggiunto il gruppo di sicurezza, fare clic su nella cartella, selezionare **delle proprietà**, selezionare **condivisione**, quindi copiare il **percorso di rete** da utilizzare per un uso successivo.
 
 Per altre informazioni sulle autorizzazioni, vedere la [FSLogix documentazione](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
@@ -56,17 +56,13 @@ Per configurare le macchine virtuali con il software FSLogix, eseguire le operaz
 
 1. [Connettersi alla macchina virtuale](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con le credenziali specificate durante la creazione della macchina virtuale.
 2. Avviare un browser internet e passare a [questo collegamento](https://go.microsoft.com/fwlink/?linkid=2084562) per scaricare l'agente FSLogix. Durante l'anteprima pubblica di Desktop virtuale Windows, si otterrà un codice di licenza per attivare il software FSLogix. La chiave è il file LicenseKey.txt incluso nel file con estensione zip FSLogix dell'agente.
-3. Installare l'agente FSLogix.
+3. Passare a una delle due \\ \\Win32\\rilascio o \\ \\X64\\versione nel file con estensione zip e run **FSLogixAppsSetup** per installare l'agente FSLogix.
 4. Passare a **Program Files** > **FSLogix** > **app** per confermare l'agente installato.
-5. Dal menu start, eseguire **RegEdit** come amministratore. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\profili**
-6. Creare i seguenti valori:
+5. Dal menu start, eseguire **RegEdit** come amministratore. Passare a **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+6. Creare una chiave denominata **profili**.
+7. Creare i seguenti valori per la chiave di profili:
 
 | NOME                | Type               | / Valore dei dati                        |
 |---------------------|--------------------|-----------------------------------|
 | Attivato             | DWORD              | 1                                 |
-| VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file" |
-| VolumeType          | string             | VHDX                              |
-| SizeInMBs           | DWORD              | "numero intero per le dimensioni del profilo"     |
-| IsDynamic           | DWORD              | 1                                 |
-| LockedRetryCount    | DWORD              | 1                                 |
-| LockedRetryInterval | DWORD              | 0                                 |
+| VHDLocations        | Valore multistringa | "Percorso di rete per la condivisione file"     |

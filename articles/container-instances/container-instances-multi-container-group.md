@@ -1,43 +1,53 @@
 ---
-title: Distribuire gruppi di più contenitori in Istanze di Azure Container
-description: Informazioni su come distribuire un gruppo di contenitori con più contenitori in istanze di contenitore di Azure usando un modello di Azure Resource Manager.
+title: 'Esercitazione: distribuire un gruppo multicontenitore in istanze di contenitore di Azure - modello'
+description: In questa esercitazione descrive come distribuire un gruppo di contenitori con più contenitori in istanze di contenitore di Azure usando un modello di Azure Resource Manager con la CLI di Azure.
 services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 04/03/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 93f73e133e99025b479d0b38512e26088a8eaefa
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: f769beda1654dc9f58ecff733741fb1ab9118031
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369115"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006907"
 ---
-# <a name="deploy-a-multi-container-group-with-a-resource-manager-template"></a>Distribuire un gruppo multicontenitore con un modello di Resource Manager
+# <a name="tutorial-deploy-a-multi-container-group-using-a-resource-manager-template"></a>Esercitazione: Distribuire un gruppo multicontenitore con un modello di Resource Manager
 
-Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Ciò è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
+> [!div class="op_single_selector"]
+> * [YAML](container-instances-multi-container-yaml.md)
+> * [Gestione risorse](container-instances-multi-container-group.md)
 
-Esistono due metodi per la distribuzione di gruppi di contenitori con più contenitori usando l'interfaccia della riga di comando di Azure:
+Istanze di Azure Container supporta la distribuzione di più contenitori in un singolo host usando un [gruppo di contenitori](container-instances-container-groups.md). Un gruppo di contenitori è utile quando si compila un contenitore collaterale dell'applicazione per la registrazione, il monitoraggio o qualsiasi altra configurazione in cui un servizio necessita di un secondo processo associato.
 
-* Distribuzione del modello di Resource Manager (questo articolo)
-* [Distribuzione con un file YAML](container-instances-multi-container-yaml.md)
+In questa esercitazione è seguire questa procedura per eseguire una configurazione multicontenitore con contenitore di due distribuendo un modello di Azure Resource Manager tramite la CLI di Azure. Si apprenderà come:
 
-La distribuzione con un modello di Resource Manager è consigliata quando è necessario distribuire risorse del servizio di Azure aggiuntive (ad esempio, una condivisione di File di Azure) al momento della distribuzione di istanze di contenitore. A causa della natura più concisa del formato YAML, la distribuzione con un file YAML è consigliata quando la distribuzione include *solo* istanze di contenitore.
+> [!div class="checklist"]
+> * Configurare un modello di gruppo multicontenitore
+> * Distribuire il gruppo di contenitori
+> * Visualizzare i log dei contenitori
+
+Un modello di Resource Manager può essere facilmente adattato a scenari quando occorre distribuire le risorse dei servizi Azure aggiuntivi (ad esempio, una condivisione file di Azure o una rete virtuale) con il gruppo di contenitori. 
 
 > [!NOTE]
-> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. Microsoft si impegna per rendere disponibili tutte le funzionalità anche per i contenitori Windows, ma nel frattempo è possibile trovare le differenze correnti tra le piattaforme in [Quotas and region availability for Azure Container Instances](container-instances-quotas.md) (Quote e aree disponibili per Istanze di Azure Container).
+> I gruppi multicontenitore sono attualmente limitati ai contenitori Linux. 
 
-Per esempi di modelli aggiuntivi, vedere [modelli di Azure Resource Manager per le istanze di contenitore di Azure](container-instances-samples-rm.md). 
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="configure-the-template"></a>Configurare il modello
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Le sezioni in questo articolo descrivono come eseguire una semplice configurazione multicontenitore con contenitore collaterale tramite la distribuzione di un modello di Azure Resource Manager.
+## <a name="configure-a-template"></a>Configurare un modello
 
-Per iniziare, creare un file denominato `azuredeploy.json` e quindi copiarvi il codice JSON seguente.
+Per iniziare, copiare il codice JSON seguente in un nuovo file denominato `azuredeploy.json`. In Azure Cloud Shell, è possibile usare Visual Studio Code per creare il file nella directory di lavoro:
 
-Il modello di Resource Manager definisce un gruppo di contenitori con due contenitori, un indirizzo IP pubblico e due porte esposte. I contenitori vengono distribuiti da immagini pubbliche di Microsoft. Il primo contenitore del gruppo esegue un'applicazione con connessione Internet. Il secondo contenitore, ovvero il contenitore collaterale, invia una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo.
+```
+code azuredeploy.json
+```
+
+Il modello di Resource Manager definisce un gruppo di contenitori con due contenitori, un indirizzo IP pubblico e due porte esposte. Il primo contenitore nel gruppo esegue un'applicazione Web con connessione Internet. Il secondo contenitore, ovvero il contenitore collaterale, invia una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo.
 
 ```JSON
 {
@@ -169,9 +179,9 @@ Name              ResourceGroup    Status    Image                              
 myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tutorial-sidecar,mcr.microsoft.com/azuredocs/aci-helloworld:latest  20.42.26.114:80,8080  Public     1.0 core/1.5 gb  Linux     eastus
 ```
 
-## <a name="view-logs"></a>Visualizzare i log
+## <a name="view-container-logs"></a>Visualizzare i log dei contenitori
 
-Visualizzare l'output del log di un contenitore con il comando [az container logs][az-container-logs]. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio viene specificato il primo contenitore.
+Visualizzare l'output del log di un contenitore con il comando [az container logs][az-container-logs]. L'argomento `--container-name` specifica il contenitore da cui effettuare il pull dei log. In questo esempio, il `aci-tutorial-app` contenitore specificato.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -186,7 +196,7 @@ listening on port 80
 ::1 - - [21/Mar/2019:23:17:54 +0000] "HEAD / HTTP/1.1" 200 1663 "-" "curl/7.54.0"
 ```
 
-Per visualizzare i log per il contenitore collaterale, eseguire lo stesso comando specificando il nome del secondo contenitore.
+Per visualizzare i log per il contenitore collaterale, eseguire un comando simile che specifica il `aci-tutorial-sidecar` contenitore.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
@@ -212,14 +222,21 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-Come si può notare, il contenitore collaterale invia periodicamente una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo per verificare che l'applicazione sia in esecuzione. Questo esempio di contenitore collaterale può essere esteso per attivare un avviso se si riceve un codice di risposta HTTP diverso da 200 OK.
+Come si può notare, il contenitore collaterale invia periodicamente una richiesta HTTP all'applicazione Web principale tramite la rete locale del gruppo per verificare che l'applicazione sia in esecuzione. In questo esempio sidecar può essere ampliato per attivare un avviso se si riceve un codice di risposta HTTP diverso da `200 OK`.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato i passaggi necessari per la distribuzione di un'istanza multicontenitore di Azure. Per un'esperienza end-to-end di Istanze di Azure Container, vedere l'apposita esercitazione.
+In questa esercitazione, è usato un modello Azure Resource Manager per distribuire un gruppo multicontenitore in istanze di contenitore di Azure. Si è appreso come:
 
-> [!div class="nextstepaction"]
-> [Esercitazione su Istanze di Azure Container][aci-tutorial]
+> [!div class="checklist"]
+> * Configurare un modello di gruppo multicontenitore
+> * Distribuire il gruppo di contenitori
+> * Visualizzare i log dei contenitori
+
+Per esempi di modelli aggiuntivi, vedere [modelli di Azure Resource Manager per le istanze di contenitore di Azure](container-instances-samples-rm.md).
+
+È inoltre possibile specificare un gruppo multicontenitore con un [file YAML](container-instances-multi-container-yaml.md). Implicazioni più conciso, del formato YAML distribuzione con un file YAML è una scelta ottimale quando la distribuzione include solo le istanze di contenitore.
+
 
 <!-- LINKS - Internal -->
 [aci-tutorial]: ./container-instances-tutorial-prepare-app.md

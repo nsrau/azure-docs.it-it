@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: d7f44ace1625b9859eb8914f15526cf98fe883bc
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 74b22f194e7af000dbd8b53ec95dbbff2c5c588a
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58878366"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010533"
 ---
 # <a name="mapping-data-flow-data-transformation-expressions"></a>Espressioni di trasformazione dei dati del flusso di dati di mapping
 
@@ -509,7 +509,7 @@ Trova la posizione (in base 1) della sottostringa all'interno di una stringa a p
 <code>log</code>
 ==============================
 <code><b>log(<i>&lt;value1&gt;</i> : number, [<i>&lt;value2&gt;</i> : number]) => double</b></code><br/><br/>
-Calcola il valore del logaritmo. Può essere una base facoltativa else specificati un numero di Eulero se usato
+Calcola il valore del logaritmo. Può essere una base facoltativa else fornito un numero di Eulero se usato
 * ``log(100, 10) -> 2``
 *********************************
 <code>log10</code>

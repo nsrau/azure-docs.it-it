@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d6c1438fa70a1e8520ecb2a98dfb4d74d2818ffc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: 33011a419c8c966fc59b769106aaff428b2a0709
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286177"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057677"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Linux 
 
@@ -48,7 +48,7 @@ Usare il comando [az vm encryption enable](/cli/azure/vm/encryption#az-vm-encryp
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type [All|OS|Data]
      ```
 
-- **Crittografare una macchina virtuale in esecuzione usando una chiave di crittografia della chiave:**
+- **Crittografare una macchina virtuale in esecuzione usando KEK:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type [All|OS|Data]
@@ -133,7 +133,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | Parametro | DESCRIZIONE |
 | --- | --- |
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
-| keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`|
+| keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave BitLocker. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`|
 | keyVaultResourceGroup | Nome del gruppo di risorse che contiene l'insieme di credenziali delle chiavi.|
 |  keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave BitLocker generata. Questo parametro è facoltativo se si seleziona **nokek** dall'elenco a discesa UseExistingKek. Se si seleziona **kek** dall'elenco a discesa UseExistingKek, è necessario immettere il valore _keyEncryptionKeyURL_. |
 | volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_, _Data_ e _All_. 
@@ -144,7 +144,7 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 
 
 ## <a name="encrypt-virtual-machine-scale-sets"></a>Crittografare i set di scalabilità di macchine virtuali
-I [set di scalabilità di macchine virtuali di Azure](../virtual-machine-scale-sets/overview.md) consentono di creare e gestire un gruppo di macchine virtuali identiche con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. Per crittografare i set di scalabilità di macchine virtuali, usare l'interfaccia della riga di comando o Azure PowerShell.
+I [set di scalabilità di macchine virtuali di Azure](../virtual-machine-scale-sets/overview.md) consentono di creare e gestire un gruppo di macchine virtuali identiche con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. Per crittografare i set di scalabilità di macchine virtuali, usare l'interfaccia della riga di comando o Azure PowerShell. È supportata solo la crittografia dei dischi dati nelle macchine virtuali di set di scalabilità di Linux.
 
 Un esempio di file batch per la crittografia dei dischi dati del set di scalabilità di Linux è disponibile [qui](https://github.com/Azure-Samples/azure-cli-samples/tree/master/disk-encryption/vmss). In questo esempio vengono creati un gruppo di risorse e il set di scalabilità di Linux, viene montato un disco dati di 5 GB e viene crittografato il set di scalabilità di macchine virtuali.
 
@@ -154,12 +154,12 @@ Usare [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-
 
 -  **Crittografare un set di scalabilità di macchine virtuali in esecuzione**
     ```azurecli-interactive
-    az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" 
+    az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault"
     ```
 
--  **Crittografare un set di scalabilità di macchine virtuali in esecuzione usando una chiave di crittografia della chiave per eseguire il wrapping della chiave**
+-  **Scalabilità di macchine virtuali in esecuzione impostato utilizzando KEK per eseguire il wrapping della chiave di crittografia**
      ```azurecli-interactive
-     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault" 
+     az vmss encryption enable --resource-group "MyVMScaleSetResourceGroup" --name "MySecureVmss" --volume-type DATA --disk-encryption-keyvault "MySecureVault" --key-encryption-key "MyKEK" --key-encryption-keyvault "MySecureVault"
      ```
 
     >[!NOTE]
@@ -189,7 +189,7 @@ Usare la [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-a
       $KeyVault = Get-AzKeyVault -VaultName $KeyVaultName -ResourceGroupName $KVRGname;
       $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
-      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -VolumeType Data -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId;
       ```
 
 -  **Crittografare un set di scalabilità di macchine virtuali in esecuzione usando una chiave di crittografia della chiave (KEK) per eseguire il wrapping della chiave**:
@@ -203,7 +203,7 @@ Usare la [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-a
       $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri;
       $KeyVaultResourceId = $KeyVault.ResourceId;
       $KeyEncryptionKeyUrl = (Get-AzKeyVaultKey -VaultName $KeyVaultName -Name $keyEncryptionKeyName).Key.kid;
-      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl  -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
+      Set-AzVmssDiskEncryptionExtension -ResourceGroupName $VMSSRGname -VMScaleSetName $VmssName -VolumeType Data -DiskEncryptionKeyVaultUrl $diskEncryptionKeyVaultUrl  -DiskEncryptionKeyVaultId $KeyVaultResourceId -KeyEncryptionKeyUrl $KeyEncryptionKeyUrl -KeyEncryptionKeyVaultId $KeyVaultResourceId;
       ```
 
     >[!NOTE]
@@ -226,8 +226,8 @@ Usare la [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-a
 Per crittografare o decrittografare set di scalabilità di macchine virtuali Linux, usare i modelli di Azure Resource Manager e le istruzioni di seguito:
 
 - [Abilitare la crittografia in un set di scalabilità di macchine virtuali Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Distribuire un set di scalabilità di macchine virtuali Linux con una jumpbox e abilitare la crittografia nel set di scalabilità](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Disabilitare la crittografia in un set di scalabilità di macchine virtuali Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Distribuire un set di scalabilità di macchine virtuali Linux con un jumpbox e abilitare la crittografia nel set di scalabilità di VM Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+- [Disabilitare la crittografia in un set di scalabilità di VM Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Fare clic su **Distribuzione in Azure**.
      2. Compilare i campi obbligatori quindi accettare i termini e le condizioni.
@@ -346,7 +346,7 @@ A differenza della sintassi di PowerShell, l'interfaccia della riga di comando n
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault "MySecureVault" --volume-type "Data"
      ```
 
-- **Crittografare i volumi di dati di una macchina virtuale in esecuzione tramite una chiave di crittografia della chiave:**
+- **Crittografare i volumi di dati di una macchina virtuale in esecuzione usando KEK:**
 
      ```azurecli-interactive
      az vm encryption enable --resource-group "MyVirtualMachineResourceGroup" --name "MySecureVM" --disk-encryption-keyvault  "MySecureVault" --key-encryption-key "MyKEK_URI" --key-encryption-keyvault "MySecureVaultContainingTheKEK" --volume-type "Data"
@@ -414,4 +414,4 @@ A differenza della sintassi di PowerShell, l'interfaccia della riga di comando n
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Abilitare Crittografia dischi di Azure per Windows](azure-security-disk-encryption-windows.md)
+> [Abilitare la crittografia dischi di Azure per Windows](azure-security-disk-encryption-windows.md)

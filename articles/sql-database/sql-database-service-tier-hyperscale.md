@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 4db013b51657bb327c36d616a3743c46731cd19a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/04/2019
+ms.openlocfilehash: 5e323b28913e0ba259654d39f97e0436e6bff2db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903794"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010482"
 ---
 # <a name="hyperscale-service-tier-preview-for-up-to-100-tb"></a>Livello di servizio con iperscalabilità (anteprima) per database fino a 100 TB
 
@@ -33,8 +33,6 @@ Il livello di servizio con iperscalabilità nel database SQL di Azure è il live
 > Il livello di servizio con iperscalabilità è attualmente in anteprima pubblica ed è limitato ad alcune aree di Azure. Per l'elenco completo delle aree, vedere la sezione [Aree disponibili](#available-regions). Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
 > [!NOTE]
 > Per informazioni dettagliate sui livelli di servizio Utilizzo generico e Business critical nel modello di acquisto basato su vCore, vedere i livelli di servizio [Utilizzo generico](sql-database-service-tier-general-purpose.md) e [Business critical](sql-database-service-tier-business-critical.md). Per un confronto tra il modello di acquisto basato su vCore e quello basato su DTU, vedere [Modelli di acquisto e risorse del database SQL di Azure](sql-database-purchase-models.md).
-> [!IMPORTANT]
-> Il livello di servizio con iperscalabilità è attualmente disponibile in anteprima pubblica. Non è ancora consigliabile eseguire carichi di lavoro in database con iperscalabilità. Non è possibile aggiornare un database con iperscalabilità ad altri livelli di servizio. A scopo di test, è consigliabile creare una copia del database corrente e aggiornare la copia al livello di servizio con iperscalabilità.
 
 ## <a name="what-are-the-hyperscale-capabilities"></a>Funzionalità del livello di servizio con iperscalabilità
 

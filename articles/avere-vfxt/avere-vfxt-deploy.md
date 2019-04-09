@@ -4,14 +4,14 @@ description: Procedura per la distribuzione del cluster Avere vFXT in Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/05/2019
 ms.author: v-erkell
-ms.openlocfilehash: 7dbfc39075bb42b1ec13823849eb769e117ddd4a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409687"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056606"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuire il cluster vFXT
 
@@ -29,20 +29,19 @@ Dopo aver seguito le istruzioni riportate in questo documento, si avrà una rete
 Prima di usare il modello di creazione, verificare che siano soddisfatti i prerequisiti seguenti:  
 
 1. [Nuova sottoscrizione](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Autorizzazioni di proprietario della sottoscrizione](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+1. [Autorizzazioni di proprietario di sottoscrizione](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
 1. [Quota per il cluster vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Ruoli personalizzati di accesso](avere-vfxt-prereqs.md#create-access-roles): è necessario creare un ruolo di controllo degli accessi in base al ruolo da assegnare ai nodi del cluster. È possibile anche creare un ruolo personalizzato di accesso per il controller del cluster, ma la maggior parte degli utenti sceglierà il ruolo predefinito di proprietario, che concede sul controller i privilegi corrispondenti al proprietario di un gruppo di risorse. Per altre informazioni, vedere [Ruoli predefiniti per le risorse di Azure](../role-based-access-control/built-in-roles.md#owner).
 1. [Endpoint di servizio di archiviazione (se necessario)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) : obbligatorio per la distribuisce nell'archiviazione blob e usando una rete virtuale esistente
 
 Per altre informazioni sulla procedura di distribuzione e sulla pianificazione del cluster, vedere [Pianificare il sistema Avere vFXT](avere-vfxt-deploy-plan.md) e [Panoramica della distribuzione](avere-vfxt-deploy-overview.md).
 
 ## <a name="create-the-avere-vfxt-for-azure"></a>Creare Avere vFXT per Azure
 
-Accedere al modello di creazione nel portale di Azure cercando Avere e selezionando "Avere vFXT ARM Deployment" (Distribuzione ARM di Avere vFXT). 
+Accedere al modello di creazione nel portale di Azure cercando Avere e selezionando "Avere vFXT per modello di Azure ARM". 
 
-![Finestra del browser in cui è visualizzato il portale di Azure con il percorso di navigazione "Nuovo > Marketplace > Tutto". Nella pagina Tutto il campo di ricerca contiene il termine "avere" e il secondo risultato, "Avere vFXT ARM Deployment" (Distribuzione ARM di Avere vFXT) è evidenziato da un riquadro rosso.](media/avere-vfxt-template-choose.png)
+![Finestra del browser in cui è visualizzato il portale di Azure con il percorso di navigazione "Nuovo > Marketplace > Tutto". In tutto il campo di ricerca, pagina ha il termine "avere" e il secondo risultato, "Avere vFXT per modello di Azure ARM" viene evidenziato in rosso per evidenziarlo.](media/avere-vfxt-template-choose.png)
 
-Dopo avere letto i dettagli nella pagina Avere vFXT ARM Deployment (Distribuzione ARM di Avere vFXT), fare clic su **Crea** per iniziare. 
+Dopo aver letto le informazioni necessarie sul vFXT Avere per la pagina del modello ARM di Azure, fare clic su **Create** per iniziare. 
 
 ![Azure Marketplace con la prima pagina del modello di distribuzione](media/avere-vfxt-deploy-first.png)
 
@@ -69,14 +68,6 @@ Specificare le informazioni seguenti:
 
 * **Password** o **Chiave pubblica SSH**: a seconda del tipo di autenticazione selezionato, nei campi successivi è necessario specificare una chiave pubblica RSA o una password. Queste credenziali devono essere usate con il nome utente specificato in precedenza.
 
-* **Avere cluster create role ID** (ID del ruolo di creazione del cluster di Avere): usare questo campo per specificare il ruolo di controllo degli accessi relativo al controller del cluster. Il valore predefinito è il ruolo [Proprietario](../role-based-access-control/built-in-roles.md#owner). Per il controller del cluster, i privilegi di proprietario sono limitati al gruppo di risorse del cluster. 
-
-  È necessario usare l'identificatore univoco globale corrispondente al ruolo scelto. Per il valore predefinito (Proprietario), il GUID è 8e3af657-a8ff-443c-a75c-2fe8c4bcb635. Per trovare il GUID di un ruolo personalizzato, usare questo comando: 
-
-  ```azurecli
-  az role definition list --query '[*].{roleName:roleName, name:name}' -o table --name 'YOUR ROLE NAME'
-  ```
-
 * **Sottoscrizione**: selezionare la sottoscrizione per Avere vFXT. 
 
 * **Gruppo di risorse**: selezionare un gruppo di risorse vuoto esistente per il cluster Avere vFXT oppure creare un nuovo gruppo di risorse facendo clic su "Crea nuovo" e immettendo un nome. 
@@ -97,10 +88,6 @@ La seconda pagina del modello di distribuzione consente di configurare le dimens
 * **Avere vFXT cluster node count** (Numero di nodi del cluster Avere vFXT): scegliere il numero di nodi da usare nel cluster. Il valore minimo è tre nodi, quello massimo dodici nodi. 
 
 * **Cluster administration password** (Password di amministrazione del cluster): creare la password per l'amministrazione del cluster. Questa password verrà usata con il nome utente ```admin``` per accedere al pannello di controllo del cluster e poter monitorare il cluster e configurare le impostazioni.
-
-* **Avere cluster operations role** (Ruolo delle operazioni del cluster Avere): specificare il nome del ruolo di controllo degli accessi per i nodi del cluster. Si tratta di un ruolo personalizzato creato come passaggio preliminare. 
-
-  Nell'esempio descritto in [Creare il ruolo di accesso dei nodi del cluster](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) il file viene salvato come ```avere-operator.json``` e il nome del ruolo corrispondente è ```avere-operator```.
 
 * **Avere vFXT cluster name** (Nome del cluster Avere vFXT): assegnare al cluster un nome univoco. 
 
@@ -138,7 +125,7 @@ Pagina 3 viene riepilogata la configurazione e convalida i parametri. Al termine
 
 ![Terza pagina del modello di distribuzione - convalida](media/avere-vfxt-deploy-3.png)
 
-Nella quarta pagina fare clic sul pulsante **Crea** per accettare le condizioni e creare il cluster Avere vFXT per Azure. 
+Nella pagina quattro, immettere le informazioni di contatto richieste e fare clic sui **Create** pulsante per accettare le condizioni e creare il vFXT Avere per cluster di Azure. 
 
 ![Quarta pagina del modello di distribuzione - condizioni di utilizzo del software, pulsante di creazione](media/avere-vfxt-deploy-4.png)
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877827"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009768"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Di seguito sono riportate alcune linee guida per scegliere una strategia di velo
 
 1. Si dispone di qualche dozzina di contenitori Azure Cosmos e si desidera condividere la velocità effettiva in tutti o in alcuni di loro. 
 
-2. Si sta eseguendo la migrazione da un database a tenant singolo che è stato progettato per l'esecuzione sulle macchine virtuali ospitate su IaaS o locali, ad esempio database relazionali o NoSQL, in Azure Cosmos DB. E se si dispone di numerosi insiemi/tabelle/grafici e non si desidera apportare modifiche al modello di dati. Si noti che potrebbe essere necessario violare alcuni dei vantaggi offerti da Azure Cosmos DB, se non si stia aggiornando il modello di dati durante la migrazione da un database locale. È consigliabile ripetere sempre l'accesso al modello di dati per ottenere il massimo in termini di prestazioni e anche per ottimizzare i costi. 
+2. Si sta eseguendo la migrazione da un database a tenant singolo che è stato progettato per l'esecuzione sulle macchine virtuali ospitate su IaaS o locali, ad esempio database relazionali o NoSQL, in Azure Cosmos DB. E se si dispone di molte raccolte/tabelle/grafi e non si desidera apportare modifiche al modello di dati. Si noti che potrebbe essere necessario violare alcuni dei vantaggi offerti da Azure Cosmos DB, se non si stia aggiornando il modello di dati durante la migrazione da un database locale. È consigliabile ripetere sempre l'accesso al modello di dati per ottenere il massimo in termini di prestazioni e anche per ottimizzare i costi. 
 
 3. Si desidera assorbire i picchi non pianificati nei carichi di lavoro grazie alla velocità effettiva in pool a livello di database soggetto a picchi imprevisti nel carico di lavoro. 
 

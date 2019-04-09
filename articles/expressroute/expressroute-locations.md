@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: pareshmu
-ms.openlocfilehash: 06e93639e487439207aface0e56616b6492c6f5e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 6d1fa0235c91d17887a40bbe0be9831623fce775
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879246"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006975"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Partner e località di peering per ExpressRoute
 
@@ -50,6 +50,7 @@ La tabella seguente fornisce una mappa di aree di Azure e di località ExpressRo
 | **India** | 2 |India occidentale, India centrale, India Meridionale |Chennai, Chennai2, Mumbai, Mumbai2 |
 | **Giappone** | 2 |Giappone occidentale, Giappone orientale |Osaka, Tokyo |
 | **Corea del Sud** | 2 |Corea del Sud centrale, Corea del Sud meridionale |Busan, Seoul|
+| **Emirati Arabi Uniti** | 2 | Emirati Arabi Uniti centrali, Emirati Arabi Uniti settentrionali | Dubai |
 | **Sud Africa** | 3 |Sudafrica occidentale, Sudafrica settentrionale |Città del Capo, Johannesburg |
 | **America del Sud** | 3 |Brasile meridionale |Sao Paulo |
 
@@ -95,6 +96,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **EIR** |Supportato |Supportato |Dublino|
 | **Epsilon Global Communications** |Supportato |Supportato |Singapore, Singapore2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Supportato |Supportato |Amsterdam, Atlanta, Chicago, Dallas, Dublino, Hong Kong, Londra, Londra2, Los Angeles, Melbourne, Miami, New York, Osaka, Parigi, San Paolo, Seattle, Silicon Valley, Singapore, Sidney, Tokyo, Toronto, Washington DC |
+| **Emirati Arabi Uniti Etisalat** |Supportato |Supportato |Dubai|
 | **euNetworks** |Supportato |Supportato |Amsterdam, Dublino, Londra |
 | **GÉANT** |Supportato |Supportato |Amsterdam |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Supportato| Supportato | Chennai, Mumbai |
@@ -106,6 +108,7 @@ La tabella seguente mostra le località per provider di servizi. Per visualizzar
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Supportato |Supportato | Amsterdam, London2, Silicon Valley, Toronto |
 | **Jisc** |Supportato |Supportato |Londra |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Supportato |Supportato |Seul |
+| **Kordia** | Supportato |Supportato |Sydney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Supportato | Supportato | Amsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supportato |Supportato |Amsterdam, Chicago, Dallas, Londra, Newport (Galles), San Paolo, Seattle, Silicon Valley, Singapore, Washington DC |
 | **LG CNS** |Supportato |Supportato |Busan, Seoul |
