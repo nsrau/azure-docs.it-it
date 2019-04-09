@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 48afb867a5455ffea10f8a74b1fff2c2b7f361ab
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849755"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283682"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(DEPRECATO) Usare Draft con il servizio Azure Container e il Registro Azure Container per compilare e distribuire un'applicazione in Kubernetes
 
@@ -139,7 +139,7 @@ A questo punto, è possibile distribuire un'applicazione.
 
 ## <a name="build-and-deploy-an-application"></a>Compilare e distribuire un'applicazione
 
-Nel repository di Draft ci sono [sei semplici applicazioni di esempio](https://github.com/Azure/draft/tree/master/examples). Clonare il repository e usare l'[esempio Java](https://github.com/Azure/draft/tree/master/examples/java). Passare alla directory examples/java e digitare `draft create` per compilare l'applicazione. Il risultato dovrebbe essere simile al seguente.
+Nel repository di Draft ci sono [sei semplici applicazioni di esempio](https://github.com/Azure/draft/tree/master/examples). Clonare il repository e usare l'[esempio Java](https://github.com/Azure/draft/tree/master/examples/example-java). Passare alla directory examples/java e digitare `draft create` per compilare l'applicazione. Il risultato dovrebbe essere simile al seguente.
 ```bash
 $ draft create
 --> Draft detected the primary language as Java with 91.228814% certainty.

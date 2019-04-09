@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bc3e2955049188b0794367d5391762f5eb50b1c0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850182"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005789"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Come cambiare il modello di licenza per una macchina virtuale SQL Server in Azure
 Questo articolo descrive come cambiare il modello di licenza per una macchina virtuale di SQL Server in Azure usando il nuovo provider di risorse della macchina virtuale di SQL **Microsoft.SqlVirtualMachine**. Sono disponibili due modelli per una macchina virtuale (VM) che ospita SQL Server - con pagamento a consumo, licenze e bring your own license (BYOL) per. Adesso, usando PowerShell o l'interfaccia della riga di comando di Azure, è possibile modificare il modello di licenza usato dalla macchina virtuale di SQL Server. 
@@ -35,12 +35,17 @@ Il passaggio tra i due modelli di licenza **non comporta tempi di inattività**,
 
 ## <a name="remarks"></a>Osservazioni
 
- - La capacità di convertire il modello di licenza è attualmente disponibile solo se si inizia con un'immagine di macchina virtuale di SQL Server con pagamento in base al consumo. Se si inizia con un'immagine Bring Your Own License dal portale, non sarà possibile convertire tale immagine per applicare il pagamento in base al consumo.
  - I clienti CSP possono usufruire del Vantaggio Azure Hybrid distribuendo prima una macchina virtuale con pagamento in base al consumo e convertendola quindi in Bring Your Own License. 
- - Attualmente questa possibilità è abilitata solo per le installazioni di Cloud pubblico.
  - Quando si registra un'immagine di VM di SQL Server personalizzata con il provider di risorse, specificare il tipo di licenza come = 'AHUB'. Lasciando la licenza digitare vuoti o specificando 'PAYG' causerà l'esito negativo della registrazione. 
+ 
+## <a name="limitations"></a>Limitazioni
+
+ - La capacità di convertire il modello di licenza è attualmente disponibile solo se si inizia con un'immagine di macchina virtuale di SQL Server con pagamento in base al consumo. Se si inizia con un'immagine Bring Your Own License dal portale, non sarà possibile convertire tale immagine per applicare il pagamento in base al consumo.
+  - Attualmente, la modifica del modello di gestione delle licenze è supportata solo per le macchine virtuali distribuite tramite il modello di Resource Manager. Non sono supportate le macchine virtuali distribuite tramite il modello di distribuzione classica. 
+   - Attualmente la modifica del modello di licenza è abilitata solo per le installazioni di Cloud pubblico.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per usare il provider di risorse della macchina virtuale di SQL è necessaria l'estensione IaaS SQL. Per procedere quindi con l'utilizzo del provider di risorse della macchina virtuale di SQL, è necessario quanto segue:
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
 - [Assurance software](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
@@ -232,8 +237,8 @@ Questo errore si verifica quando si prova a modificare il modello di licenza in 
 Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-overview.md)
-* [SQL Server sulle domande frequenti di una macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-* [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure).
-* [SQL Server sulle note sulla versione della macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
+* [SQL Server in una macchina virtuale di domande frequenti su Windows](virtual-machines-windows-sql-server-iaas-faq.md)
+* [SQL Server in una macchina virtuale Windows Guida ai prezzi](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [SQL Server in un note sulla versione di macchina virtuale Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

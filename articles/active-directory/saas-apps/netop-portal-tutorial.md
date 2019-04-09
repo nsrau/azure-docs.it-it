@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891019"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849230"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Netop Portal
 
@@ -76,11 +76,11 @@ Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Netop Portal, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Netop Portal ](#configure-netop-portal-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
+2. **[Configurare l'accesso Single Sign-On di Netop Portal ](#configure-netop-portal-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 5. **[Creare l'utente di test di Netop Portal ](#create-netop-portal-test-user)**: per avere una controparte di Britta Simon in Netop Portal collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -128,7 +128,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Netop Portal, seguire q
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Lasciare vuota la casella **Spazio dei nomi**.
+    c. Nella casella di testo **Spazio dei nomi** digitare https:\//secure.netop.com.
 
     d. Per Origine selezionare **Attributo**.
 
@@ -152,9 +152,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Netop Portal, seguire q
 
     c. URL di chiusura sessione
 
-### <a name="configure-netop-portal-single-sign-on"></a>Configurare l'accesso Single Sign-On per Netop Portal
+### <a name="configure-netop-portal-single-sign-on"></a>Configurare l'accesso Single Sign-On di Netop Portal
 
-Per configurare l'accesso Single Sign-On sul lato **Netop Portal**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Netop Portal](mailto:casemanager@netop.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Netop Portal**, è necessario il file di **XML metadati federazione** scaricato e l'URL di accesso copiato dal portale di Azure. Seguire le istruzioni nel passaggio 3 della documentazione disponibile [qui](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) per configurare NetOp Portal per l'autenticazione di Azure AD.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 

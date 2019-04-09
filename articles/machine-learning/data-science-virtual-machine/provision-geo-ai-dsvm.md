@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858144"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008839"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Eseguire il provisioning di una macchina virtuale con intelligenza artificiale geografica in Azure 
 
@@ -87,7 +87,7 @@ In caso contrario, è possibile iscriversi per ricevere un nuovo account ArcGIS 
 
 ![ArcGIS-Free-Trial](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Dopo aver effettuato l'iscrizione per un account ArcGIS a pagamento o di valutazione gratuita, è possibile autorizzare ArcGIS Pro per l'account seguendo le istruzioni nella [documentazione introduttiva di ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
+Dopo l'iscrizione per entrambi un a pagamento o gratuito di valutazione account ArcGIS, è possibile autorizzare ArcGIS Pro per l'account seguendo le istruzioni disponibili nel [Guida introduttiva a ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Una volta eseguito l'accesso ad ArcGIS Pro desktop con l'account ArcGIS, si è pronti per iniziare a usare gli strumenti di data science installati e configurati nella macchina virtuale per progetti di analisi geospaziale e apprendimento automatico.
 
@@ -95,4 +95,4 @@ Una volta eseguito l'accesso ad ArcGIS Pro desktop con l'account ArcGIS, si è p
 
 Iniziare a usare la macchina virtuale di data science con intelligenza artificiale geografica facendo riferimento agli argomenti seguenti:
 
-* [Usare la macchina virtuale di data science con intelligenza artificiale geografica](use-geo-ai-dsvm.md)
+* [Usare l'intelligenza artificiale per Data Science con geografica della macchina virtuale](use-geo-ai-dsvm.md)

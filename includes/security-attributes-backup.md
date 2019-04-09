@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5a4cc3ea822c5613fc7a50b8e370d6846b683721
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 85d1e4d4909422b82ed38e688e3a62ca53c3430a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513296"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007203"
 ---
 ## <a name="preventative"></a>Prevenzione
 
@@ -34,14 +34,14 @@ ms.locfileid: "55513296"
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto monitoraggio di Azure (Log Analytics, Application Insights e così via)| Sì | Log Analytics è supportato tramite i log di diagnostica. Per altre informazioni, vedere Monitor Azure Backup protected workloads using Log Analytics (Monitorare i carichi di lavoro protetti di Backup di Azure usando Log Analytics) (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |
+| Monitoraggio di supporto (analitica di Log, Application insights e così via) di Azure| Sì | Log Analytics è supportato tramite i log di diagnostica. Per altre informazioni, vedere Monitor Azure Backup protected workloads using Log Analytics (Monitorare i carichi di lavoro protetti di Backup di Azure usando Log Analytics) (https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |
 
 ## <a name="iam-support"></a>Supporto per la gestione delle identità e degli accessi
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
 | Gestione degli accessi - Autenticazione| Sì | L'autenticazione avviene tramite Azure Active Directory. |
-| Gestione degli accessi - Autorizzazione| Sì | Vengono usati ruoli RBAC creati dai clienti o predefiniti. Per altre informazioni, vedere Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). |
+| Gestione degli accessi - Autorizzazione| Sì | Vengono usati ruoli RBAC creati dai clienti o predefiniti. Vedere il controllo di accesso degli accessi in base a gestire i punti di ripristino Backup di Azure (/ azure/backup/backup-rbac--insieme di credenziali rs) per altre informazioni. |
 
 
 ## <a name="audit-trail"></a>Audit trail
@@ -55,4 +55,4 @@ ms.locfileid: "55513296"
 
 | Attributo di sicurezza | Sì/No | Note|
 |---|---|--|
-| Supporto gestione della configurazione (controllo delle versioni di configurazione e così via)| Sì|  |
+| Supporto di Gestione configurazione (controllo delle versioni di configurazione e così via).| Sì|  |

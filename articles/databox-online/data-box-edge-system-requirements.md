@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905240"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006355"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisiti di sistema Azure bordo casella dei dati
 
@@ -101,6 +101,37 @@ Gli amministratori di rete possono spesso configurare regole del firewall avanza
 ## <a name="internet-bandwidth"></a>Larghezza di banda Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>Considerazioni relative alle dimensioni di calcolo
+
+Usare l'esperienza durante lo sviluppo e test della soluzione per assicurarsi che sia una capacità sufficiente nel dispositivo Edge casella dei dati e ottenere prestazioni ottimale dal dispositivo.
+
+Fattori da considerare includono:
+
+- **Le specifiche di contenitore** -considerare quanto segue.
+
+    - Numero di contenitori è nel carico di lavoro? È possibile che molti contenitori leggeri rispetto a pochi quelli a elevato utilizzo di risorse.
+    - Quali sono le risorse allocate a questi contenitori e quali sono le risorse in uso?
+    - Numero di livelli sono i contenitori di condivisione?
+    - Sono presenti contenitori non usati? Un contenitore arrestato occupa ancora spazio su disco.
+    - In quale lingua vengono scritti i contenitori?
+- **Dimensioni dei dati elaborati** -la quantità di dati dei contenitori elaborerà? Questi dati utilizzerà lo spazio su disco o i dati verranno elaborati in memoria?
+- **Prestazioni previste** -che cosa sono le caratteristiche di prestazioni desiderato della soluzione? 
+
+Per comprendere e ottimizzare le prestazioni della soluzione, è possibile usare:
+
+- Le metriche di calcolo disponibili nel portale di Azure. Passare alla risorsa di dati al bordo casella e quindi andare al **monitoraggio > metriche**. Esaminare i **Edge calcolo - utilizzo memoria** e **Edge calcolo - Percentuale CPU** per comprendere le risorse disponibili e come vengono recupero utilizzate le risorse.
+- I comandi di monitoraggio disponibili tramite l'interfaccia PowerShell del dispositivo, ad esempio:
+
+    - `dkr` statistiche per ottenere uno streaming live di uno o più contenitori le statistiche di utilizzo di risorse. Il comando supporta CPU, utilizzo della memoria, limite di memoria e le metriche dei / o rete.
+    - `dkr system df` Per ottenere informazioni riguardanti la quantità di spazio su disco utilizzato. 
+    - `dkr image [prune]` immagini non utilizzate la pulizia e liberare spazio.
+    - `dkr ps --size` Per visualizzare le dimensioni approssimative di un contenitore in esecuzione. 
+
+    Per altre informazioni sui comandi disponibili, visitare [monitorare e risolvere i problemi di calcolo moduli](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Infine, assicurarsi di convalidare la soluzione sul set di dati e quantificare le prestazioni sul bordo di finestra di dati prima della distribuzione nell'ambiente di produzione.
+
 
 ## <a name="next-step"></a>Passaggio successivo
 

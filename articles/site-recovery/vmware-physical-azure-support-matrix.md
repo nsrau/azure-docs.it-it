@@ -8,12 +8,12 @@ services: site-recovery
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: raynew
-ms.openlocfilehash: 199f9508b599e2f946404446a23e9608bb969ba7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 7f24e027edd5de0eecd97e5c7c19126c9ac34301
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649459"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006924"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Matrice di supporto per il ripristino di emergenza di macchine virtuali VMware e server fisici in Azure
 
@@ -72,7 +72,7 @@ Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11<b>\*\*</b>, da
 ### <a name="ubuntu-kernel-versions"></a>Versioni del kernel Ubuntu
 
 
-**Versione supportata** | **Versione del servizio Mobility di Azure Site Recovery** | **Versione del kernel** |
+**Versione supportata** | **Versione di Azure il servizio Mobility di Site Recovery** | **Versione del kernel** |
 --- | --- | --- |
 14.04 LTS | [9.23][9.23 UR] | 3.13.0-24-Generic a 3.13.0-165-generic,<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>4.4.0-21-Generic a 4.4.0-142-generic,<br/>4.15.0-1023-Azure a 4.15.0-1037-azure |
 14.04 LTS | [9.22][9.22 UR] | Da 3.13.0-24 generica a 3.13.0-164 generica<br/>Da 3.16.0-25 generica a 3.16.0-77 generica<br/>Da 3.19.0-18 generica a 3.19.0-80 generica<br/>Da 4.2.0-18 generica a 4.2.0-42 generica<br/>Da 4.4.0-21 generica a 4.4.0-140 generica<br/>Da 4.15.0-1023 Azure a 4.15.0-1036 Azure |
@@ -87,7 +87,7 @@ Sistema operativo Linux | Red Hat Enterprise Linux: da 5.2 a 5.11<b>\*\*</b>, da
 ### <a name="debian-kernel-versions"></a>Versioni del kernel Debian
 
 
-**Versione supportata** | **Versione del servizio Mobility di Azure Site Recovery** | **Versione del kernel** |
+**Versione supportata** | **Versione di Azure il servizio Mobility di Site Recovery** | **Versione del kernel** |
 --- | --- | --- |
 Debian 7 | [9.20][9.20 UR],[9.21][9.21 UR], [9.22][9.22 UR],[9.23][9.23 UR]| Da 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -108,7 +108,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | [9.20][9.20 UR] | Da 3.12.49-1
 **Componente** | **Supportato**
 --- | ---
 File system | ext3, ext4, XFS
-Gestore volumi | Prima della [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM2 è supportata. <br/> 2. LVM è supportata solo per i dischi dati. <br/> 3. Le macchine virtuali di Azure hanno un solo disco di sistema operativo.<br/><br/>Dalla [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) in avanti, sono supportate LVM e LVM2.
+Gestore volumi | Prima della [versione 9.20](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery), <br/> 1. LVM è supportata. <br/> 2. /boot nel volume LVM non è supportato. <br/> 3. Non sono supportati più dischi del sistema operativo.<br/><br/>Dal [9.20 versione](https://support.microsoft.com/en-in/help/4478871/update-rollup-31-for-azure-site-recovery) e versioni successive, /boot su LVM è supportata. Non sono supportati più dischi del sistema operativo.
 Dispositivi di archiviazione paravirtualizzati | I dispositivi esportati da driver paravirtualizzati non sono supportati.
 Dispositivi di I/O a blocchi a code multiple | Non supportati.
 Server fisici con controller di archiviazione HP CCISS | Non supportati.
@@ -187,6 +187,7 @@ Percorsi multipli (MPIO) guest/server | No
 >
 > - È supportata solo la migrazione in Azure. Il failback nel sito VMware locale non è supportato.
 > - Il server non deve avere più di quattro partizioni nel disco del sistema operativo.
+> - È supportato solo NTFS
 > - Richiede il servizio Mobility versione 9.13 o successiva.
 
 ## <a name="azure-storage"></a>Archiviazione di Azure
@@ -236,7 +237,7 @@ Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e tra
 
 La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per ottenere risultati ottimali, è fortemente consigliabile [Esegui strumento deployment planner](site-recovery-deployment-planner.md) ed eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.
 
-**Destinazione archiviazione di replica** | **Dimensioni medie I/O disco di origine** |**Varianza dati media disco di origine** | **Varianza dati totale giornaliera disco di origine**
+**Destinazione archiviazione di replica** | **Disco di origine di medie dimensioni i/o** |**Varianza Media di origine del disco dati** | **Disco varianza dati totale origine al giorno**
 ---|---|---|---
 Archiviazione standard | 8 KB | 2 MB/s | 168 GB per disco
 Disco P10 o P15 Premium | 8 KB  | 2 MB/s | 168 GB per disco
@@ -245,7 +246,7 @@ Disco P10 o P15 Premium | 32 KB o superiori | 8 MB/s | 672 GB per disco
 Disco P20, P30, P40 o P50 Premium | 8 KB    | 5 MB/s | 421 GB per disco
 Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per disco
 
-**Varianza dati di origine** | **Limite Massimo**
+**Varianza dei dati di origine** | **Limite massimo**
 ---|---
 Varianza media dei dati per VM| 25 MB/s
 Picco di varianza dei dati su tutti i dischi in una VM | 54 MB/s
@@ -263,7 +264,7 @@ Spostamento di risorse di archiviazione, rete e VM di Azure tra gruppi di risors
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Scaricare i componenti più recenti di Azure Site Recovery
 
-**Nome** | **Descrizione** | **Istruzioni per il download della versione più recente**
+**NOME** | **DESCRIZIONE** | **Istruzioni di download versione più recente**
 --- | --- | ---
 Server di configurazione | Coordina le comunicazioni tra server VMware locali e Azure  <br/><br/>  Installato su server VMware locali | Per altre informazioni, visita le istruzioni riportate in [installazione aggiornata](vmware-azure-deploy-configuration-server.md) e [aggiornamento del componente esistente alla versione più recente](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Server di elaborazione|Installato per impostazione predefinita nel server di configurazione. Riceve i dati di replica, li ottimizza attraverso la memorizzazione nella cache, la compressione e la crittografia e li invia ad Archiviazione di Azure. Con l'aumentare delle dimensioni della distribuzione, è possibile aggiungere altri server di elaborazione separati per gestire volumi più elevati di traffico di replica.| Per altre informazioni, visita le istruzioni riportate in [installazione aggiornata](vmware-azure-set-up-process-server-scale.md) e [aggiornamento del componente esistente alla versione più recente](vmware-azure-manage-process-server.md#upgrade-a-process-server).

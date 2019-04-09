@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: f7d1c5bc54d909d1a948123839d95e1ee1158a5c
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444828"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010227"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona (anteprima pubblica)
 
@@ -29,6 +29,9 @@ Il gateway applicazione e Web application firewall sono ora disponibili in antep
 > Lo SKU del gateway applicazione con scalabilità automatica e ridondanza della zona è attualmente in anteprima pubblica. Questa anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Vedere [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
+
+> [!NOTE]
+> Il ridimensionamento automatico e il gateway applicazione ridondanza della zona supporta ora la SKU [probe di integrità predefinito](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) per monitorare l'integrità di tutte le risorse nel pool back-end e rimuovere le risorse considerate non dal pool automaticamente. L'esecuzione di probe di integrità predefinito da configurati automaticamente per tutti i back-end per il quale è ancora configurato tutte le configurazioni di probe personalizzato. Per altre informazioni, vedere [probe di integrità nel gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Confronto delle funzionalità tra SKU v1 e v2 SKU
 
@@ -76,6 +79,6 @@ Durante l'anteprima, non sono previsti addebiti. Viene fatturata risorse diverse
 |Integrazione di Netwatcher|Non è supportata nell'anteprima pubblica.|
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare un gateway applicazione con scalabilità automatica e ridondanza della zona con un indirizzo IP virtuale riservato tramite Azure PowerShell](tutorial-autoscale-ps.md)
+- [Creare un scalabilità automatica, il gateway applicazione ridondanza della zona con un indirizzo IP virtuale riservato usando Azure PowerShell](tutorial-autoscale-ps.md)
 - Altre informazioni sul [gateway applicazione](overview.md).
 - Altre informazioni su [Firewall di Azure](../firewall/overview.md).

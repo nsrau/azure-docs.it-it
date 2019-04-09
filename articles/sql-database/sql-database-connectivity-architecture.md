@@ -1,6 +1,6 @@
 ---
 title: Indirizzamento del traffico di Azure al database SQL di Azure e ad Azure SQL Data Warehouse | Microsoft Docs
-description: Questo documento illustra l'architettura della connettività del database SQL di Azure e di SQL Data Warehouse dall'interno o dall'esterno di Azure.
+description: Questo documento illustra l'architettura onnectivity Azcure SQL per le connessioni di database dall'interno o dall'esterno di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918604"
+ms.locfileid: "59006785"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Architettura della connettività di SQL di Azure
 
 Questo articolo illustra non solo l'architettura della connettività del database SQL di Azure e di SQL Data Warehouse, ma anche il funzionamento dei diversi componenti per indirizzare il traffico a un'istanza di SQL di Azure. La funzione dei componenti di connettività è indirizzare il traffico di rete verso il database SQL di Azure o SQL Data Warehouse con client che si connettono dall'interno di Azure e client che si connettono dall'esterno di Azure. Questo articolo include anche alcuni esempi di script per modificare la modalità di connessione e propone alcune considerazioni sulla modifica delle impostazioni di connettività predefinite.
-
-> [!IMPORTANT]
-> **[Modifica imminente] Per le connessioni di endpoint di servizio per i server SQL di Azure, un `Default` differenze di funzionamento della connettività `Redirect`.**
-> I clienti sono invitati a creare nuovi server e a impostare quelli esistenti con un tipo di connessione impostata esplicitamente su Redirect (scelta consigliata) oppure su Proxy a seconda della relativa architettura di connettività.
->
-> Per impedire che la connettività tramite un endpoint di servizio venga interrotta negli ambienti esistenti in seguito a questa modifica, vengono usati i dati di telemetria per effettuare le operazioni seguenti:
->
-> - Per i server a cui è stato effettuato l'accesso tramite gli endpoint di servizio prima della modifica, il tipo di connessione viene impostato su `Proxy`.
-> - Per tutti gli altri server, il tipo di connessione verrà impostato su `Redirect`.
->
-> Gli utenti degli endpoint di servizio potrebbero tuttavia essere interessati dagli scenari seguenti:
->
-> - L'applicazione si connette raramente a un server esistente, quindi i dati di telemetria non hanno acquisito le informazioni su tali applicazioni
-> - Distribuzione automatizzata per la logica crea un server di Database SQL, supponendo che sia il comportamento predefinito per le connessioni di endpoint di servizio `Proxy`
->
-> Se non è stato possibile stabilire le connessioni degli endpoint di servizio al server di Azure SQL e si sospetta di essere interessati da questa modifica, verificare che il tipo di connessione sia esplicitamente impostato su `Redirect`. In questo caso, è necessario aprire le regole del firewall della macchina virtuale e i gruppi di sicurezza di rete (NSG) a tutti gli indirizzi IP di Azure nell'area che appartengono a Sql [tag del servizio](../virtual-network/security-overview.md#service-tags) per le porte 11000-11999. Se non è possibile, impostare in modo esplicito il server su `Proxy`.
-> [!NOTE]
-> In questo argomento si applica ai server di Database SQL di Azure che ospita i database singoli e pool elastici, database SQL Data Warehouse, Database di Azure per MySQL, Database di Azure per MariaDB e Database di Azure per PostgreSQL. Per semplicità, Database SQL viene usato quando si fa riferimento al Database SQL, SQL Data Warehouse, Database di Azure per MySQL, Database di Azure per MariaDB e Database di Azure per PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 

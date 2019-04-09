@@ -7,12 +7,12 @@ manager: jhubbard
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.openlocfilehash: aef55660d07c8923a82baf7f8b6320abf3ccdd1d
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430217"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006612"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usare gli endpoint e le regole di servizio di rete virtuale per Database di Azure per MySQL
 
@@ -93,7 +93,7 @@ I ruoli di sicurezza sono distinti nell'amministrazione degli endpoint del servi
 - **Amministratore di rete:** &nbsp; attiva l'endpoint.
 - **Amministratore del database:** &nbsp; aggiorna l'elenco di controllo di accesso (ACL) per aggiungere la subnet specificata al Database di Azure per il server MySQL.
 
-*Alternativa del controllo degli accessi in base al ruolo:*
+*In alternativa RBAC:*
 
 I ruoli di amministratore di rete e amministratore di database hanno più funzionalità di quelle necessarie a gestire le regole della rete virtuale. È necessario solo un subset delle relative funzionalità.
 
@@ -107,6 +107,8 @@ I ruoli di amministratore di rete e amministratore di database hanno più funzio
 ## <a name="limitations"></a>Limitazioni
 
 Per Database di Azure per MySQL, la funzionalità delle regole di rete virtuale presenta le limitazioni seguenti:
+
+- Un'app Web può essere mappata a un indirizzo IP privato in una rete virtuale/subnet. Anche se gli endpoint di servizio sono attivati dalla rete virtuale/subnet specificata, le connessioni dall'app Web al server avranno come origine l'indirizzo IP pubblico di Azure, non la rete virtuale/subnet. Per abilitare la connettività da un'App Web a un server con le regole del firewall della rete virtuale, è necessario consentire Azure services per accedere ai server nel server.
 
 - Nel firewall per Database di Azure per MySQL ogni regola di rete virtuale fa riferimento a una subnet. Tutte queste subnet cui viene fatto riferimento devono essere ospitate nella stessa area geografica che ospita Database di Azure per MySQL.
 
@@ -140,8 +142,8 @@ La semplice impostazione di una regola del firewall non consente di proteggere i
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per articoli relativi alla creazione di regole di rete virtuale, vedere:
-- [Creare e gestire le regole di rete virtuale per Database di Azure per MySQL tramite il portale di Azure](howto-manage-vnet-using-portal.md)
-- [Creare e gestire le regole di rete virtuale per Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](howto-manage-vnet-using-cli.md)
+- [Creare e gestire Database di Azure per MySQL VNet regole usando il portale di Azure](howto-manage-vnet-using-portal.md)
+- [Creare e gestire Database di Azure per MySQL VNet regole tramite la CLI di Azure](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

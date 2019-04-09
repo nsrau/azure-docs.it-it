@@ -7,23 +7,23 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
-ms.openlocfilehash: 9fb3cdd4b4b809e45180cd95b8fe930cce86826e
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 43d289f2688bbf4927ee244d6ae9992782bf380e
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498809"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009819"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Esempio: Aggiungere il completamento automatico o suggerimenti all'applicazione di ricerca di Azure
 
-In questo esempio, informazioni su come usare [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) per compilare una casella di ricerca avanzata che supporta i comportamenti di ricerca---digitazione.
+In questo articolo, informazioni su come usare [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [autocomplete](https://docs.microsoft.com/rest/api/searchservice/autocomplete) per compilare una casella di ricerca avanzata che supporta i comportamenti di ricerca---digitazione.
 
-+ *I suggerimenti* è un elenco di risultati suggeriti generati durante la digitazione, in cui ogni suggerimento è un singolo risultato dall'indice che corrisponde a quanto digitato finora. 
++ *I suggerimenti* vengono suggeriti i risultati generati durante la digitazione, in cui ogni suggerimento è un singolo risultato dall'indice che corrisponde a quanto digitato finora. 
 
-+ *Completamento automatico*, [una funzionalità di anteprima](search-api-preview.md), "completa", la parola o frase che un utente è attualmente la digitazione. Come con i suggerimenti, una completato parola o frase viene affermata su una corrispondenza dell'indice. 
++ *Completamento automatico*, [una funzionalità di anteprima](search-api-preview.md), "completa", la parola o frase che un utente è attualmente la digitazione. Invece di restituire i risultati, il completamento di una query, che è quindi possibile eseguire per restituire i risultati. Come con i suggerimenti, una completato parola o frase in una query viene affermata su una corrispondenza dell'indice. Il servizio non offerta le query che restituiscono zero risultati nell'indice.
 
 È possibile scaricare ed eseguire il codice di esempio **DotNetHowToAutocomplete** valutare queste funzionalità. Il codice di esempio è destinato a un indice predefinito popolato con [NYCJobs demo dati](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs). L'indice NYCJobs contiene un [costrutto dello strumento suggerimenti](index-add-suggesters.md), che rappresenta un requisito per l'uso di suggerimenti o il completamento automatico. È possibile usare l'indice preparata ospitata in un servizio sandbox, oppure [popolare il proprio indice](#configure-app) usando un caricatore dei dati nella soluzione di esempio NYCJobs. 
 
@@ -42,7 +42,7 @@ Questo esercizio illustra le attività seguenti:
 
 Un servizio di ricerca di Azure è facoltativo per questo esercizio poiché la soluzione Usa un servizio sandbox in tempo reale che ospita un indice demo NYCJobs preparato. Se si vuole eseguire in questo esempio nel proprio servizio di ricerca, vedere [indice dei processi NYC configurare](#configure-app) per le istruzioni.
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono state testati nell'edizione Community Edition gratuita.
+* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), qualsiasi edizione. Il codice di esempio e le istruzioni sono stati testati nell'edizione Community Edition gratuita.
 
 * Scaricare il [DotNetHowToAutoComplete esempio](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete).
 
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-Il codice sopra riportato viene eseguito nel browser al caricamento della pagina per configurare il completamento automatico dell'interfaccia utente di jQuery per la casella di input "example1a".  `minLength: 3` assicura che i consigli verranno visualizzati solo quando sono presenti almeno tre caratteri nella casella di ricerca.  Il valore di origine è importante:
+Il codice sopra riportato viene eseguito nel browser al caricamento della pagina per configurare il completamento automatico dell'interfaccia utente di jQuery per la casella di input "example1a".  `minLength: 3` assicura che le raccomandazioni verranno visualizzate solo quando sono presenti almeno tre caratteri nella casella di ricerca.  Il valore di origine è importante:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",
@@ -156,7 +156,7 @@ $(function () {
 });
 ```
 
-## <a name="c-version"></a>C#Versione
+## <a name="c-example"></a>Esempio in C#
 
 Dopo aver esaminato il codice JavaScript per la pagina web, è possibile esaminare il C# codice del controller sul lato server che consente di recuperare effettivamente le corrispondenze suggerite usando .NET SDK ricerca di Azure.
 
@@ -229,9 +229,11 @@ La funzione di completamento automatico accetta l'input di termine di ricerca. I
 
 Gli altri esempi nella pagina di seguano lo stesso modello per aggiungere l'evidenziazione dei riscontri e i facet per supportare la memorizzazione nella cache lato client dei risultati di completamento automatico. Esamina ciascuno di questi elementi per comprendere come funzionano e come usarli al meglio nella tua esperienza di ricerca.
 
-## <a name="javascript-version-with-rest"></a>Versione di JavaScript con REST
+## <a name="javascript-example"></a>Esempio JavaScript
 
-Per l'implementazione di JavaScript, aprire **IndexJavaScript.cshtml**. Si noti che la funzione di completamento automatico dell'interfaccia utente di jQuery viene usata anche per la casella di ricerca, la raccolta di input di termine di ricerca e chiamate asincrone a ricerca di Azure per il recupero suggerito corrispondenze o completato termini. 
+Un'implementazione Javascript di completamento automatico e i suggerimenti chiama l'API REST, usando un URI come origine per specificare l'indice e l'operazione. 
+
+Per controllare l'implementazione JavaScript, aprire **IndexJavaScript.cshtml**. Si noti che la funzione di completamento automatico dell'interfaccia utente di jQuery viene usata anche per la casella di ricerca, la raccolta di input di termine di ricerca e chiamate asincrone a ricerca di Azure per il recupero suggerito corrispondenze o completato termini. 
 
 Esaminiamo il codice JavaScript nel primo esempio:
 

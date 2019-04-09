@@ -8,18 +8,19 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bffe948eec81b480e51d0cf5a25f6091f397dd15
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372851"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59286372"
 ---
 Archiviazione di Azure offre diversi tipi di account di archiviazione. Ogni tipo supporta caratteristiche diverse e ha uno specifico modello di prezzi. È importante tenere in considerazione tali differenze prima di creare un account di archiviazione per determinare il tipo di account ottimale per le proprie applicazioni. I tipi di account di archiviazione sono i seguenti:
 
 - **Account per utilizzo generico v2**: tipo di account di archiviazione Basic per BLOB, file, code e tabelle. Consigliato per la maggior parte degli scenari che usano Archiviazione di Azure.
 - **Account per utilizzo generico v1**: tipo di account legacy per BLOB, file, code e tabelle. Laddove è possibile, preferire account per utilizzo generico v2.
 - **Bloccare l'account di archiviazione blob**: Account di archiviazione solo BLOB con caratteristiche di prestazioni premium. Consigliato per gli scenari con frequenze di transazioni elevata, con oggetti più piccoli o la richiesta di latenza di archiviazione ridotti in modo coerente.
+- **Gli account di archiviazione (anteprima) FileStorage**: Account di archiviazione "solo file" con caratteristiche di prestazioni premium. Consigliato per applicazioni a prestazioni elevate di scalabilità o enterprise.
 - **Account di archiviazione BLOB**: Account di archiviazione solo BLOB. Laddove è possibile, preferire account per utilizzo generico v2.
 
 Nella tabella seguente sono descritti i tipi di account di archiviazione e le relative funzionalità:
@@ -29,6 +30,7 @@ Nella tabella seguente sono descritti i tipi di account di archiviazione e le re
 | Utilizzo generico v2   | BLOB, file, coda, tabella e disco       | Standard, Premium<sup>5</sup> | Accesso frequente, accesso sporadico, archivio<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Gestione risorse             | Crittografato              |
 | Utilizzo generico v1   | BLOB, file, coda, tabella e disco       | Standard, Premium<sup>5</sup> | N/D                            | LRS, GRS, RA-GRS                  | Resource Manager, classica    | Crittografato              |
 | Archiviazione blob in blocchi   | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Premium                       | N/D                            | Archiviazione con ridondanza locale                               | Gestione risorse             | Crittografato              |
+| FileStorage (anteprima)   | Solo i file | Premium                       | N/D                            | Archiviazione con ridondanza locale                               | Gestione risorse             | Crittografato              |
 | Archiviazione BLOB         | BLOB (solo BLOB in blocchi e BLOB di accodamento) | Standard                      | Accesso frequente, accesso sporadico, archivio<sup>3</sup> | LRS, GRS, RA-GRS                  | Gestione risorse             | Crittografato              |
 
 <sup>1</sup>È consigliabile usare il modello di distribuzione Azure Resource Manager. Gli account di archiviazione che usano il modello di distribuzione classico possono comunque essere creati in alcune posizioni e gli account classici esistenti continuano a essere supportati. Per altre informazioni, vedere [Distribuzione Azure Resource Manager o classica: Comprendere i modelli di distribuzione e lo stato delle risorse](../articles/azure-resource-manager/resource-manager-deployment-model.md).

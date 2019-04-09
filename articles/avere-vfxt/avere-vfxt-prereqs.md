@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 04af92f21cecaa832e857a7017b67f815f6ab685
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
-ms.translationtype: MT
+ms.openlocfilehash: 352833b12c00abbefcf7016d27dfb580ee25e450
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417973"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056742"
 ---
 # <a name="prepare-to-create-the-avere-vfxt"></a>Preparare la creazione di Avere vFXT
 
@@ -30,23 +30,16 @@ Per creare una nuova sottoscrizione di Azure nel portale di Azure:
 
 ## <a name="configure-subscription-owner-permissions"></a>Configurare le autorizzazioni di proprietario della sottoscrizione
 
-Il cluster vFXT deve essere creato da un utente con autorizzazioni di proprietario per la sottoscrizione. Le autorizzazioni di proprietario della sottoscrizione sono necessarie, a titolo esemplificativo, per eseguire queste operazioni:
+Il cluster vFXT deve essere creato da un utente con autorizzazioni di proprietario per la sottoscrizione. Per accettare le condizioni d'uso del software ed eseguire altre azioni sono necessarie autorizzazioni di proprietario di sottoscrizione. 
 
-* Accettare le condizioni per il software Avere vFXT
-* Creare il ruolo di accesso dei nodi del cluster 
+Esistono alcuni scenari di soluzioni alternative che consentono un non-owner creare un vFTX Avere per cluster di Azure. Questi scenari comportano imponendo restrizioni sulle risorse e l'assegnazione di ruoli aggiuntivi al creatore. In entrambi i casi, un proprietario della sottoscrizione deve inoltre [accettare le condizioni di software vFXT Avere](#accept-software-terms) anticipatamente. 
 
-Sono disponibili due soluzioni alternative se non si vuole concedere l'accesso come proprietario agli utenti che creano il cluster vFXT:
-
-* Il proprietario di un gruppo di risorse può creare un cluster se vengono soddisfatte queste condizioni:
-
-  * Il proprietario di una sottoscrizione deve [accettare le condizioni software per Avere vFXT](#accept-software-terms) e [creare il ruolo di accesso dei nodi del cluster](#create-the-cluster-node-access-role). 
-  * Tutte le risorse di Avere vFXT devono essere distribuite all'interno del gruppo di risorse, tra cui:
-    * Controller del cluster
-    * Nodi del cluster
-    * Archiviazione BLOB
-    * Elementi di rete
+| Scenario | Restrizioni | Ruoli di accesso necessari per creare il cluster vFXT Avere | 
+|----------|--------|-------|
+| Amministratore di gruppo di risorse | La rete virtuale, controller del cluster e nodi del cluster devono essere creati all'interno del gruppo di risorse | [Amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) ruoli, sia come ambito il gruppo di risorse di destinazione | 
+| Rete virtuale esterna | Il controller del cluster e nodi del cluster vengono creati all'interno del gruppo di risorse, ma viene usata una rete virtuale esistente in un gruppo di risorse diverso | (1) [amministratore accesso utenti](../role-based-access-control/built-in-roles.md#user-access-administrator) e [collaboratore](../role-based-access-control/built-in-roles.md#contributor) avranno come ambiti il gruppo di risorse vFXT; e (2) ruoli [collaboratore macchina virtuale](../role-based-access-control/built-in-roles.md#virtual-machine-contributor), [accesso utente Amministratore](../role-based-access-control/built-in-roles.md#user-access-administrator), e [collaboratore Avere](../role-based-access-control/built-in-roles.md#avere-contributor) ruoli nell'ambito del gruppo di risorse di rete virtuale. |
  
-* Un utente senza privilegi di proprietario può creare cluster vFXT usando il controllo degli accessi in base al ruolo anticipatamente per assegnare privilegi all'utente. Questo metodo consente di concedere autorizzazioni significative a questi utenti. [Questo articolo](avere-vfxt-non-owner.md) spiega come creare un ruolo di accesso per autorizzare utenti non proprietari per la creazione di cluster.
+Un'alternativa consiste nel creare un ruolo controllo degli accessi basata sui ruoli di accesso personalizzato anticipatamente e assegnare i privilegi di utente, come illustrato in [questo articolo](avere-vfxt-non-owner.md). Questo metodo consente di concedere autorizzazioni significative a questi utenti. 
 
 ## <a name="quota-for-the-vfxt-cluster"></a>Quota per il cluster vFXT
 
@@ -57,7 +50,7 @@ Sono disponibili due soluzioni alternative se non si vuole concedere l'accesso c
 
 |Componente di Azure|Quota|
 |----------|-----------|
-|Macchine virtuali|3 o più E32s_v3|
+|Macchine virtuali|3 o più E32_v3|
 |Archiviazione SSD Premium|200 GB di spazio del sistema operativo più 1-4 TB di spazio di memorizzazione nella cache per nodo |
 |Account di archiviazione (facoltativo) |v2|
 |Archiviazione back-end dei dati (facoltativa) |Un nuovo contenitore BLOB di archiviazione con ridondanza locale |
@@ -83,75 +76,6 @@ Per accettare preventivamente le condizioni software:
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
    ```
-
-## <a name="create-access-roles"></a>Creare ruoli di accesso 
-
-Il [controllo degli accessi in base al ruolo](../role-based-access-control/index.yml) fornisce al controller del cluster vFXT e ai nodi del cluster l'autorizzazione per eseguire le attività necessarie.
-
-* Il controller del cluster necessita dell'autorizzazione di creazione e modifica delle macchine virtuali per creare il cluster. 
-
-* I singoli nodi vFXT devono eseguire operazioni come la lettura delle proprietà delle risorse di Azure, la gestione dell'archiviazione e il controllo delle impostazioni dell'interfaccia di rete degli altri nodi come parte del normale funzionamento del cluster.
-
-Prima di creare un cluster Avere vFXT, è necessario definire un ruolo personalizzato da usare con i nodi del cluster. 
-
-Per il controller del cluster, è possibile accettare il ruolo predefinito del modello. L'impostazione predefinita offre al controller del cluster privilegi di proprietario del gruppo di risorse. Se si preferisce creare un ruolo personalizzato per il controller, vedere [Ruolo di controllo degli accessi personalizzato](avere-vfxt-controller-role.md).
-
-> [!NOTE] 
-> Solo il proprietario di una sottoscrizione o un utente con il ruolo Proprietario o Amministratore Accesso utenti può creare ruoli. I ruoli possono essere creati in anticipo.  
-
-### <a name="create-the-cluster-node-access-role"></a>Creare il ruolo di accesso dei nodi del cluster
-
-<!-- caution - this header is linked to in the template so don't change it unless you can change that -->
-
-Per poter creare il cluster Avere vFXT per Azure, è necessario prima creare il ruolo dei nodi del cluster.
-
-> [!TIP] 
-> Gli utenti Microsoft interni devono usare il ruolo esistente denominato "Avere Cluster Runtime Operator" invece di tentare di crearne uno. 
-
-1. Copiare il file. Aggiungere l'ID sottoscrizione nella riga AssignableScopes.
-
-   La versione corrente di questo file viene archiviata nel repository github.com/Azure/Avere come [AvereOperator.txt](https://github.com/Azure/Avere/blob/master/src/vfxt/src/roles/AvereOperator.txt).  
-
-   ```json
-   {
-      "AssignableScopes": [
-          "/subscriptions/PUT_YOUR_SUBSCRIPTION_ID_HERE"
-      ],
-      "Name": "Avere Operator",
-      "IsCustom": "true",
-      "Description": "Used by the Avere vFXT cluster to manage the cluster",
-      "NotActions": [],
-      "Actions": [
-          "Microsoft.Compute/virtualMachines/read",
-          "Microsoft.Network/networkInterfaces/read",
-          "Microsoft.Network/networkInterfaces/write",
-          "Microsoft.Network/virtualNetworks/read",
-          "Microsoft.Network/virtualNetworks/subnets/read",
-          "Microsoft.Network/virtualNetworks/subnets/join/action",
-          "Microsoft.Network/networkSecurityGroups/join/action",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/write"
-      ],
-      "DataActions": [
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read",
-          "Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write"
-      ]
-   }
-   ```
-
-1. Salvare il file come ``avere-operator.json`` o un nome di file simile facile da ricordare. 
-
-
-1. Aprire Azure Cloud Shell e accedere con l'ID sottoscrizione (descritto [in precedenza in questo documento](#accept-software-terms)). Usare questo comando per creare il ruolo:
-
-   ```bash
-   az role definition create --role-definition /avere-operator.json
-   ```
-
-Il nome del ruolo viene usato durante la creazione del cluster. In questo esempio il nome è ``avere-operator``.
 
 ## <a name="create-a-storage-service-endpoint-in-your-virtual-network-if-needed"></a>Creare un endpoint di servizio di archiviazione in una rete virtuale (se necessario)
 

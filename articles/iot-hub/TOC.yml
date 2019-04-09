@@ -5,7 +5,7 @@ items:
   items:
   - name: Che cos'è l'hub IoT di Azure?
     href: about-iot-hub.md
-- name: Guide di avvio rapido
+- name: Guide introduttive
   items:
   - name: Inviare dati di telemetria
     items:
@@ -298,13 +298,13 @@ items:
       href: iot-hub-distributed-tracing.md
     - name: Configurare il filtro IP
       href: iot-hub-ip-filtering.md
-    - name: Configurare dispositivi su larga scala
+    - name: Gestione automatica dei dispositivi su larga scala
       items:
       - name: Usare il portale di Azure
-        href: iot-hub-auto-device-config.md
+        href: iot-hub-automatic-device-management.md
       - name: Utilizzare l'interfaccia della riga di comando di Azure
-        href: iot-hub-auto-device-config-cli.md
-    - name: Gestire in blocco i dispositivi IoT
+        href: iot-hub-automatic-device-management-cli.md
+    - name: Importazione ed esportazione di dispositivi IoT in blocco
       href: iot-hub-bulk-identity-mgmt.md
   - name: Usare dispositivi reali
     items:
@@ -355,7 +355,7 @@ items:
     items:
     - name: Disconnessioni dei dispositivi
       href: iot-hub-troubleshoot-connectivity.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Interfaccia della riga di comando di Azure
     href: /cli/azure/iot
@@ -457,9 +457,9 @@ items:
     href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
   - name: Video
     href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub
-ms.openlocfilehash: 1360a16f6b8fe786eb933de991e45f9f6d0ce825
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: d1aa4f75ce01f4169418f54fc19dfca6588fb751
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630743"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010703"

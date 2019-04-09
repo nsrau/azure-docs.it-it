@@ -8,20 +8,33 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e3d2466f05028a963256dbcc052c46650857836d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1cb353d22e39447d7aeb723b5506ac0209cf74d8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372714"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59287103"
 ---
 ### <a name="premium-performance-block-blob-storage"></a>Archiviazione blob in blocchi prestazioni Premium
 
-Un account di archiviazione premium prestazioni blocco blob è ottimizzato per le applicazioni che usano più piccole, in kilobyte intervallo, gli oggetti. È ideale per le applicazioni che richiedono l'archiviazione a bassa latenza coerente o frequenze di transazione molto elevato. Archiviazione blob in blocchi prestazioni Premium è progettato per soddisfare le tue applicazioni. Se si prevede di distribuire le applicazioni che richiedono centinaia di migliaia di richieste al secondo o petabyte di capacità di archiviazione, contattare Microsoft inviando una richiesta di supporto nel [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Un account di archiviazione premium prestazioni blocco blob è ottimizzato per le applicazioni che usano più piccole, in kilobyte intervallo, gli oggetti. È ideale per le applicazioni che richiedono una frequenza elevata delle transazioni o coerenti con l'archiviazione a bassa latenza. Archiviazione blob in blocchi prestazioni Premium è progettato per soddisfare le tue applicazioni. Se si prevede di distribuire le applicazioni che richiedono centinaia di migliaia di richieste al secondo o petabyte di capacità di archiviazione, contattare Microsoft inviando una richiesta di supporto nel [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="premium-performance-filestorage-preview"></a>Prestazioni Premium FileStorage (anteprima)
+
+File Premium usano un account di archiviazione univoco **FileStorage (anteprima)**. Questo tipo di account è progettato per carichi di lavoro con numero elevato di IOPS, velocità effettiva elevata con bassa latenza coerente. Archiviazione Premium di file si adatta alle dimensioni della condivisione con provisioning.
+
+|Area  |Destinazione  |
+|---------|---------|
+|Dimensioni massime     |5 TiB (anteprima pubblica), 100 TiB (anteprima pubblica limitata)     |
+|Condivisioni   |Illimitato  |
+|IOPS     |100.000 (anteprima pubblica limitata)    |
+|Larghezza di banda|5 GB/s     |
+
+ File premium condividono obiettivi di scalabilità, vedere la [file Premium scalare destinazioni](../articles/storage/common/storage-scalability-targets.md#premium-files-scale-targets) sezione.
 
 ### <a name="premium-performance-page-blob-storage"></a>Archiviazione blob di pagine Premium prestazioni
 
-Prestazioni Premium, account di archiviazione per utilizzo generico v1 o v2 hanno gli obiettivi di scalabilità seguente:
+Prestazioni Premium, utilizzo generico v1 o v2 gli account di archiviazione sono gli obiettivi di scalabilità seguente:
 
 | Capacità account totale                            | Larghezza di banda totale per un account di archiviazione con ridondanza locale                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |

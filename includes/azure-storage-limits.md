@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58890991"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291757"
 ---
 La tabella seguente descrive i limiti predefiniti per Archiviazione di Azure. Il *ingress* limite si riferisce a tutti i dati dalle richieste inviate a un account di archiviazione. Il *uscita* limite si riferisce a tutti i dati dalle risposte che vengono ricevute da un account di archiviazione.
 
@@ -22,10 +22,15 @@ La tabella seguente descrive i limiti predefiniti per Archiviazione di Azure. Il
 | Numero di account di archiviazione per ogni area per ogni sottoscrizione, inclusi gli account sia Standard che Premium | 250 |
 | Capacità dell'account di archiviazione massimo | 2 PB di Stati Uniti ed Europa, 500 TB per tutte le altre aree, che include il Regno Unito |
 | Numero massimo di contenitori blob, BLOB, condivisioni file, tabelle, code, entità o messaggi per ogni account di archiviazione | Nessun limite |
+| Dimensioni massime di un account di archiviazione FileStorage (anteprima) | 100.000 giB |
+| Numero massimo di IOPS per un account di archiviazione FileStorage (anteprima) | 100,000 |
+| Larghezza di banda massima per un account di archiviazione FileStorage (anteprima) | 5 GB/s |
 | Frequenza massima di richieste<sup>1</sup> per account di archiviazione | 20.000 richieste al secondo |
 | Massimo in ingresso<sup>1</sup> per ogni account di archiviazione (aree degli Stati Uniti) | 10 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 20 Gbps per LRS/ZRS<sup>2</sup> |
 | Massimo in ingresso<sup>1</sup> per ogni account di archiviazione (aree non degli Stati Uniti) | 5 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 10 Gbps per LRS/ZRS<sup>2</sup> |
-| Numero massimo in uscita per utilizzo generico v2 e account di archiviazione Blob (tutte le aree) | 50 Gbps |
+| Numero massimo in ingresso per FileStorage (anteprima) account di archiviazione (aree degli Stati Uniti) | 20 Gbps (solo archiviazione con ridondanza locale) |
+| Numero massimo in ingresso per FileStorage (anteprima) account di archiviazione (aree non degli Stati Uniti) | 10 Gbps (solo archiviazione con ridondanza locale)|
+| Numero massimo in uscita per utilizzo generico v2, FileStorage (anteprima) e archiviazione Blob di account (tutte le aree) | 50 Gbps |
 | Numero massimo in uscita per gli account di archiviazione per utilizzo generico v1 (aree degli Stati Uniti) | 20 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 30 Gbps per LRS/ZRS<sup>2</sup> |
 | Numero massimo in uscita per gli account di archiviazione per utilizzo generico v1 (aree non degli Stati Uniti) | 10 Gbps se RA-GRS/archiviazione con ridondanza geografica è abilitata, 15 Gbps per LRS/ZRS<sup>2</sup> |
 

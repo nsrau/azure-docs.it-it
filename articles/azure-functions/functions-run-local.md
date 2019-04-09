@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 6c38591aa283491369562db8ea840ef7e5b17e6d
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402627"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009836"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Usare Strumenti di base di Funzioni di Azure
 
@@ -136,7 +136,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` supporta le opzioni seguenti, che sono disponibili solo nella versione 2.x, se non specificato diversamente:
+`func init` supporta le opzioni seguenti, che sono versione 2.x-only, se non diversamente specificato:
 
 | Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
@@ -192,9 +192,9 @@ Il file local.settings.json archivia le impostazioni di app, le stringhe di conn
 
 I valori delle impostazioni dell'app di funzione possono anche essere letti nel codice come variabili di ambiente. Per altre informazioni, vedere la sezione Variabili di ambiente negli argomenti di riferimento specifici del linguaggio seguenti:
 
-* [C# precompilato](functions-dotnet-class-library.md#environment-variables)
+* [C#precompilato](functions-dotnet-class-library.md#environment-variables)
 * [Script C# (file con estensione csx)](functions-reference-csharp.md#environment-variables)
-* [Script F# (file con estensione fsx)](functions-reference-fsharp.md#environment-variables)
+* [F#script (fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -294,7 +294,7 @@ func host start
 
 Il comando `host` è richiesto solo nella versione 1.x.
 
-`func host start` supporta le opzioni seguenti:
+`func host start` supporta le seguenti opzioni:
 
 | Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
@@ -386,7 +386,7 @@ curl --request POST -H "Content-Type:application/json" --data '{"input":"sample 
 
 È anche possibile richiamare una funzione direttamente tramite `func run <FunctionName>` e offrire dati di input per la funzione. Questo comando è simile all'esecuzione di una funzione con la scheda **Test** nel portale di Azure.
 
-`func run` supporta le opzioni seguenti:
+`func run` supporta le seguenti opzioni:
 
 | Opzione     | DESCRIZIONE                            |
 | ------------ | -------------------------------------- |
@@ -474,7 +474,7 @@ Per registrare una richiesta per un bug o una funzionalità [aprire un problema 
 
 <!-- LINKS -->
 
-[Strumenti di base di Funzioni di Azure]: https://www.npmjs.com/package/azure-functions-core-tools
+[Azure Functions Core Tools]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portale di Azure]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime

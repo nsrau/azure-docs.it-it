@@ -1,5 +1,5 @@
 ---
-title: Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
+title: Creare, visualizzare e gestire avvisi del log tramite Monitoraggio di Azure | Microsoft Docs
 description: Usare Monitoraggio di Azure per creare, visualizzare e gestire le regole degli avvisi relativi ai log in Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: f26c8e670855513995463ffaaf7e49a8e00e35fa
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3285a6b2aa09dd78bbb63c384bd1f65c17034ff
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57873792"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006940"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Creare, visualizzare e gestire gli avvisi del log tramite Monitoraggio di Azure
 
@@ -23,10 +23,10 @@ Questo articolo illustra come configurare gli avvisi del log tramite l'interfacc
 - Criteri: condizione specifica o logica che, se rilevata nel segnale, deve attivare l'azione
 - Azione: chiamata specifica inviata a un ricevitore di una notifica di posta elettronica, SMS, webhook e così via.
 
-Il termine **Avvisi del log** viene usato per descrivere gli avvisi in cui il segnale è basato su una query personalizzata in [Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi su [Avvisi del log - Panoramica](../../azure-monitor/platform/alerts-unified-log.md).
+Il termine **gli avvisi del Log** per descrivere gli avvisi in cui il segnale è query di log in un [dell'area di lavoro di Log Analitica](../learn/tutorial-viewdata.md) oppure [Application Insights](../app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi su [Avvisi del log - Panoramica](alerts-unified-log.md).
 
 > [!NOTE]
-> I dati di log più comuni di [Azure Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md) sono ora disponibili anche nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](../../azure-monitor/platform/alerts-metric-logs.md) (Avvisi di metrica per i log).
+> Dati di log più diffusi da [un'area di lavoro di Log Analitica](../../azure-monitor/learn/tutorial-viewdata.md) è ora inoltre disponibile nella piattaforma di metriche in Monitoraggio di Azure. Per i dettagli, vedere [Metric Alert for Logs](alerts-metric-logs.md) (Avvisi di metrica per i log).
 
 ## <a name="managing-log-alerts-from-the-azure-portal"></a>Gestione degli avvisi del log dal portale di Azure
 
@@ -58,7 +58,7 @@ Di seguito è riportata una Guida dettagliata all'uso degli avvisi del log trami
 
    > [!NOTE]
    > 
-   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)**, come illustrato nella figura precedente. Gli utenti possono quindi perfezionare la query in Analytics e salvarla per uso futuri in Avvisi. Altri dettagli sull'uso del salvataggio di query sono disponibili in [Usare la ricerca log in Log Analytics](../../azure-monitor/log-query/log-query-overview.md) o in [Query condivisa in Analytics in Application Insights](../../azure-monitor/log-query/log-query-overview.md).
+   > Avvisi può importare query di Analytics come tipo di segnale **Log (query salvata)**, come illustrato nella figura precedente. In modo che gli utenti possono perfezionare la query in Analitica e salvarlo per utilizzi futuri in avvisi - altri dettagli sull'uso del salvataggio di query disponibile all'indirizzo [l'uso di query di log in Monitoraggio di Azure](../log-query/log-query-overview.md) o [query condivisa in analitica di application insights ](../log-query/log-query-overview.md).
 
 1. *Avvisi relativi ai log*: una volta selezionata, la query per gli avvisi può essere immessa nel campo **Query di ricerca**. Se la sintassi della query non è corretta, nel campo viene visualizzato un errore in ROSSO. Se la sintassi della query è corretta, i dati cronologici della query specificata vengono visualizzati sotto forma di grafico come riferimento con un'opzione per modificare l'intervallo di tempo dalle ultime sei ore alla settimana precedente.
 
@@ -119,19 +119,19 @@ Gli utenti possono anche finalizzare le query di analisi in [Log Analytics](../l
     > Le regole di avviso del log comprendono la logica personalizzata basata su query fornita dagli utenti e quindi senza stato risolto. Per questo motivo viene generata ogni volta che vengono soddisfatte le condizioni specificate nella regola di avviso del log.
 
 1. Selezionare il pulsante **Gestisci regole** nella barra superiore per passare alla sezione di gestione delle regole in cui sono elencate tutte le regole di avviso create, inclusi gli avvisi che sono stati disabilitati.
-    ![gestione delle regole di avviso](media/alerts-log/manage-alert-rules.png)
+    ![ gestione delle regole di avviso](media/alerts-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gestione degli avvisi del log tramite il modello di risorsa di Azure
 
 Gli avvisi dei log in Monitoraggio di Azure sono associati al tipo di risorsa `Microsoft.Insights/scheduledQueryRules/`. Per altre informazioni su questo tipo di risorsa, vedere il [riferimento all'API per regole di query pianificate in Monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/). Gli avvisi dei log per Application Insights o Log Analytics possono essere creati usando l'[API Regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
 > [!NOTE]
-> Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](../../azure-monitor/platform/api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
+> Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
 
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Creazione di avvisi di log di esempio tramite il modello di risorse di Azure
 
-Di seguito viene riportata la struttura per la [creazione di regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) basate su modello di risorse in cui viene usata una query di ricerca log standard di [regola di avviso Numero di risultati](../../azure-monitor/platform/alerts-unified-log.md#number-of-results-alert-rules) con un set di dati di esempio come variabili.
+Di seguito viene riportata la struttura per la [creazione di regole di query pianificate](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) basate su modello di risorse in cui viene usata una query di ricerca log standard di [regola di avviso Numero di risultati](alerts-unified-log.md#number-of-results-alert-rules) con un set di dati di esempio come variabili.
 
 ```json
 {
@@ -316,7 +316,7 @@ L'API Regole di query pianificate in Monitoraggio di Azure](https://docs.microso
 
 
 > [!NOTE]
-> Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](../../azure-monitor/platform/api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../../azure-monitor/insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
+> Gli avvisi dei log per Log Analytics possono essere gestiti anche usando l'[API degli avvisi di Log Analytics](api-alerts.md) legacy e i modelli legacy di [avvisi e di ricerche salvate di Log Analytics](../insights/solutions-resources-searches-alerts.md). Per altre informazioni sull'uso della nuova API ScheduledQueryRules illustrata qui in dettaglio per impostazione predefinita, vedere [Passare alla nuova API per gli avvisi di Log Analytics](alerts-log-api-switch.md).
 
 Gli avvisi del log attualmente non sono disponibili i comandi di PowerShell o CLI dedicati attualmente; ma come illustrato di seguito può essere usato tramite cmdlet di PowerShell per Azure Resource Manager di esempio di modello di risorse indicato in precedenza (sampleScheduledQueryRule.json) nella sezione del modello di risorsa:
 
@@ -335,4 +335,4 @@ On successful operation, 201 will be returned to state new alert rule creation o
 * Learn about [Log Alerts in Azure Alerts](../../azure-monitor/platform/alerts-unified-log.md)
 * Understand [Webhook actions for log alerts](../../azure-monitor/platform/alerts-log-webhook.md)
 * Learn more about [Application Insights](../../azure-monitor/app/analytics.md)
-* Learn more about [Log Analytics](../../azure-monitor/log-query/log-query-overview.md).
+* Learn more about [log queries](../log-query/log-query-overview.md).

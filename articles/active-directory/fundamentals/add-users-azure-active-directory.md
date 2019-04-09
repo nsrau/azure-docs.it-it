@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cda9f976a7680a1338584e4308426683de82a79
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802119"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009598"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
 Aggiungere nuovi utenti o eliminare utenti esistenti dell'organizzazione di Azure Active Directory (Azure AD).
@@ -37,7 +37,7 @@ Con il portale Azure Active Directory è possibile creare un nuovo utente.
 
     ![Aggiunta di un nuovo utente, pagina Utente con le informazioni sull'utente](media/add-users-azure-active-directory/new-user-user-blade.png)
 
-   - **Nome (obbligatorio).** Nome e cognome del nuovo utente. Ad esempio, Mary Parker.
+   - **Name (obbligatorio).** Nome e cognome del nuovo utente. Ad esempio, Mary Parker.
 
    - **Nome utente (obbligatorio).** Nome utente del nuovo utente. Ad esempio: mary@contoso.com.
     
@@ -45,9 +45,9 @@ Con il portale Azure Active Directory è possibile creare un nuovo utente.
 
    - **Profilo.** Facoltativamente, è possibile aggiungere altre informazioni sull'utente. È anche possibile aggiungere informazioni sull'utente in un secondo momento. Per altre informazioni sull'aggiunta di informazioni sull'utente, vedere [Come aggiungere o modificare informazioni di un profilo utente](active-directory-users-profile-azure-portal.md).
 
-   - **Gruppi.** Facoltativamente, è possibile aggiungere l'utente a uno o più gruppi esistenti. È anche possibile aggiungere l'utente a gruppi in un secondo momento. Per altre informazioni sull'aggiunta di utenti a gruppi, vedere [Come creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md).
+   - **gruppi.** Facoltativamente, è possibile aggiungere l'utente a uno o più gruppi esistenti. È anche possibile aggiungere l'utente a gruppi in un secondo momento. Per altre informazioni sull'aggiunta di utenti a gruppi, vedere [Come creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md).
 
-   - **Ruolo directory.** Facoltativamente, è possibile aggiungere l'utente a un'istanza di AD Azure il ruolo di amministratore. È possibile assegnare l'utente sia un amministratore globale o uno o più dei ruoli amministratore con limitazioni di Azure AD. Per altre informazioni sull'assegnazione di ruoli, vedere [Come assegnare ruoli agli utenti](active-directory-users-assign-role-azure-portal.md).
+   - **Ruolo della directory.** Facoltativamente, è possibile aggiungere l'utente a un ruolo di amministratore di Azure AD. È possibile assegnare l'utente sia un amministratore globale o uno o più dei ruoli amministratore con limitazioni di Azure AD. Per altre informazioni sull'assegnazione di ruoli, vedere [Come assegnare ruoli agli utenti](active-directory-users-assign-role-azure-portal.md).
 
 4. Copiare la password generata automaticamente nella casella **Password**. È necessario fornire la password all'utente per la procedura di accesso iniziale.
 
@@ -85,6 +85,6 @@ Dopo aver aggiunto gli utenti, è possibile eseguire i processi di base seguenti
 
 - [Creare un gruppo di base e aggiungere membri](active-directory-groups-create-azure-portal.md)
 
-- [Utilizzare gruppi e utenti dinamici](../users-groups-roles/groups-create-rule.md)
+- [Lavorare con i gruppi dinamici e utenti](../users-groups-roles/groups-create-rule.md)
 
 In alternativa, è possibile eseguire altre attività di gestione degli utenti, ad esempio [aggiungere utenti guest da un'altra directory](../b2b/what-is-b2b.md) oppure [ripristinare un utente eliminato](active-directory-users-restore.md). Per altre informazioni sulle altre azioni disponibili, vedere [Documentazione sulla gestione degli utenti in Azure Active Directory](../users-groups-roles/index.yml).

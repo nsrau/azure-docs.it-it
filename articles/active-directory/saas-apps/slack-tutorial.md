@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791b224f141dc0baa5babc401c35d6860a213df5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875035"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905495"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Esercitazione: Integrazione di Azure Active Directory con Slack
 
@@ -28,7 +28,7 @@ Questa esercitazione descrive come integrare Slack con Azure Active Directory (A
 L'integrazione di Slack con Azure AD offre i vantaggi seguenti:
 
 * È possibile controllare in Azure AD chi può accedere a Slack.
-* È possibile consentire agli utenti l'accesso automatico a Slack (Single Sign-On) con i rispettivi account Azure AD.
+* È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Slack con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -51,7 +51,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 ## <a name="adding-slack-from-the-gallery"></a>Aggiunta di Slack dalla raccolta
 
-Per configurare l'integrazione di Slack in Azure AD, è necessario aggiungere Slack dalla raccolta al proprio elenco di app SaaS gestite.
+Per configurare l'integrazione di Slack in Azure AD, è necessario aggiungere Slack dalla raccolta all'elenco di app SaaS gestite.
 
 **Per aggiungere Slack dalla raccolta, seguire questa procedura:**
 
@@ -69,21 +69,21 @@ Per configurare l'integrazione di Slack in Azure AD, è necessario aggiungere Sl
 
 4. Nella casella di ricerca digitare **Slack**, selezionare **Slack** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
-     ![Slack nell'elenco dei risultati](common/search-new-app.png)
+     ![Slack nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Slack con un utente di test di nome **Britta Simon**.
-Per il funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Slack.
+Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Slack.
 
-Per configurare e testare l'accesso Single Sign-On di Azure AD con Slack, è necessario completare i blocchi predefiniti seguenti:
+Per configurare e testare l'accesso Single Sign-On di Azure AD con Slack, è necessario completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-single-sign-on)**: per consentire agli utenti di usare questa funzionalità.
 2. **[Configurare l'accesso Single Sign-On di Slack](#configure-slack-single-sign-on)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
 3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)**: per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-4. **[Assegnare l'utente test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare un utente di test di Slack](#create-slack-test-user)**: per avere una controparte di Britta Simon in Slack collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
+4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+5. **[Creare l'utente di test di Slack](#create-slack-test-user)**: per avere una controparte di Britta Simon in Slack collegata alla rappresentazione dell'utente in Azure AD.
+6. **[Testare l'accesso Single Sign-On](#test-single-sign-on)**: per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configurare l'accesso Single Sign-On di Azure AD
 
@@ -107,7 +107,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Slack](common/sp-identifier.png)
 
-    a. Nella casella di testo **URL di accesso** digitare un URL usando il modello seguente: `https://<companyname>.slack.com`
+    a. Nella casella di testo **URL di accesso** digitare un URL nel formato seguente: `https://<companyname>.slack.com`
 
     b. Nella casella di testo **Identificatore (ID entità)** digitare un URL: `https://slack.com`
 
@@ -123,7 +123,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
 6. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** configurare l'attributo del token SAML come mostrato nell'immagine precedente e seguire questa procedura:
 
-    | NOME | Source Attribute |
+    | Nome | Attributo di origine |
     | --- | --- |
     | first_name | user.givenname |
     | last_name | user.surname |
@@ -152,7 +152,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
-8. Nella sezione **Configura Slack** copiare gli URL appropriati in base alle proprie esigenze.
+8. Nella sezione **Configura Slack** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
@@ -174,7 +174,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial_slack_002.png)
 
-4. Nella finestra di dialogo **Impostazioni di autenticazione SAML** , eseguire la procedura seguente:
+4. Nella finestra di dialogo **Impostazioni di autenticazione SAML** eseguire la procedura seguente:
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/slack-tutorial/tutorial_slack_003.png)
 
@@ -188,9 +188,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Slack, seguire questa p
 
     e.  Fare clic su **Salva configurazione**.
 
-### <a name="create-an-azure-ad-test-user"></a>Creare un utente test di Azure AD 
+### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD 
 
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
 1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
 
@@ -206,16 +206,16 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nel campo **Nome** immettere **BrittaSimon**.
   
-    b. Nel campo **Nome utente**, digitare **brittasimon\@dominioaziendale.estensione**  
+    b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio: BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
     d. Fare clic su **Create**(Crea).
 
-### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente test di Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a Slack.
+In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Slack.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Slack**.
 
@@ -239,7 +239,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-slack-test-user"></a>Creare un utente di test di Slack
+### <a name="create-slack-test-user"></a>Creare l'utente di test di Slack
 
 L'obiettivo di questa sezione consiste nel creare un utente chiamato Britta Simon in Slack. Slack supporta il provisioning JIT, abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Durante un tentativo di accesso a Slack viene creato un nuovo utente, se non esiste ancora. Slack supporta anche il provisioning utenti automatico; [qui](slack-provisioning-tutorial.md) è possibile trovare altre informazioni su come configurare il provisioning utenti automatico.
 

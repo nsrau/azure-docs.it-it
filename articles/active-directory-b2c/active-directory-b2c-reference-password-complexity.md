@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2c6f3d88aae99c419b2507f421cc4dfebb2c022b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1d7874d7c8d04e3d3565cdfe2e52e49c538b3091
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100204"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009802"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configurare i requisiti di complessità delle password in Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ Azure Active Directory (Azure AD) B2C supporta la modifica dei requisiti di comp
 
 ## <a name="password-rule-enforcement"></a>Applicazione delle regole delle password
 
-Durante la registrazione o la reimpostazione di una password, l'utente finale deve specificare una password che soddisfi le regole di complessità, che vengono applicate in base al flusso utente di riferimento. È possibile che, durante la registrazione, un flusso utente richieda un PIN a quattro cifre, mentre un altro una stringa di otto caratteri. È possibile, ad esempio, usare un flusso utente con una complessità delle password diversa per gli adulti e per i bambini.
+Durante la registrazione o la reimpostazione di una password, l'utente finale deve specificare una password che soddisfi le regole di complessità, che vengono applicate in base al flusso utente di riferimento. È possibile avere un solo flusso utente di richiedere un pin a quattro cifre, mentre un altro flusso utente richiede una stringa di otto caratteri durante l'iscrizione. È possibile, ad esempio, usare un flusso utente con una complessità delle password diversa per gli adulti e per i bambini.
 
 La complessità delle password non viene mai applicata durante l'accesso. Durante la registrazione, infatti, agli utenti non viene mai chiesto di modificare la password perché non soddisfa i requisiti di complessità correnti.
 

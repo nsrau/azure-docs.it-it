@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/20/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8724bd7e13b0d8607ad5a6814b27c8c06681f331
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f4bbea8acd447a731cf5c56f9876baf9183735ea
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202011"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005542"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Gruppi di contenitori in Istanze di Azure Container
 
@@ -41,7 +41,9 @@ Questo gruppo di contenitori di esempio:
 
 ## <a name="deployment"></a>Distribuzione
 
-Esistono due modi comuni per distribuire un gruppo multicontenitore: usare una [modello di Resource Manager] [ resource-manager template] o un [file YAML][yaml-file]. Usare un modello di Resource Manager quando è necessario distribuire le risorse dei servizi Azure aggiuntivi (ad esempio, un' [condivisione file di Azure][azure-files]) al momento distribuire le istanze di contenitore. A causa di natura più concisa del formato YAML, un file YAML è consigliato quando la distribuzione include solo le istanze di contenitore.
+Esistono due modi comuni per distribuire un gruppo multicontenitore: usare una [modello di Resource Manager] [ resource-manager template] o un [file YAML][yaml-file]. Un modello di Resource Manager è consigliato quando è necessario distribuire le risorse dei servizi Azure aggiuntivi (ad esempio, un' [condivisione file di Azure][azure-files]) quando si distribuiscono le istanze di contenitore. A causa di natura più concisa del formato YAML, un file YAML è consigliato quando la distribuzione include solo le istanze di contenitore.
+
+Per mantenere la configurazione di un gruppo contenitore, è possibile esportare la configurazione in un file YAML usando il comando di Azure CLI [esportazione di contenitore di az][az-container-export]. Esportazione consente di archiviare le configurazioni dei gruppi contenitore nel controllo della versione di "configurazione come codice". In alternativa, usare il file esportato come punto di partenza per lo sviluppo di una nuova configurazione in YAML.
 
 ## <a name="resource-allocation"></a>Allocazione delle risorse
 
@@ -110,3 +112,4 @@ Informazioni su come distribuire un gruppo con più contenitori con un modello d
 [azure-files]: container-instances-volume-azure-files.md
 [virtual-network]: container-instances-vnet.md
 [gpus]: container-instances-gpu.md
+[az-container-export]: /cli/azure/container#az-container-export

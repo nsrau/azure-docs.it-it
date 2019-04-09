@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4a47f393853d1e1dfb2b6c367fe62d1822e98806
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249452"
 documentType: LandingData
 title: Documentazione di Azure AD Identity Governance
 metadata:
-  document_id: 
+  document_id: null
   title: Documentazione di Azure Active Directory Identity Governance | Microsoft Docs
   description: Informazioni sulla governance del ciclo di vita delle identità e del ciclo di vita degli accessi e l'amministrazione sicura per dipendenti e partner.
   services: active-directory
@@ -24,31 +18,31 @@ abstract:
   description: Azure Active Directory (Azure AD) Identity Governance offre alle organizzazioni la possibilità di implementare la governance del ciclo di vita delle identità e del ciclo di vita degli accessi e di proteggere l'amministrazione per dipendenti e partner.
   aside:
     image:
-      alt: 
+      alt: null
       height: 112
       src: media/index/video-thumb-identity-governance.png
       width: 200
-    title: "Gestire l'accesso alle risorse (1: 17:24)"
-    href: https://www.youtube.com/embed/aY7A0Br8u5M
+    title: 'Gestire l''accesso alle risorse (1: 17:24)'
+    href: 'https://www.youtube.com/embed/aY7A0Br8u5M'
     width: 200
 sections:
-- title: Identity Governance
-  items:
-  - type: list
-    style: unordered
+  - title: Identity Governance
     items:
-    - html: <a href="/azure/active-directory/governance/identity-governance-overview">Informazioni su Identity Governance</a>
-- title: Verifiche di accesso
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/identity-governance-overview">Informazioni su Identity Governance</a>
+  - title: Verifiche di accesso
     items:
-    - html: <a href="/azure/active-directory/governance/access-reviews-overview">Informazioni sulle verifiche di accesso</a>
-    - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gestire l'accesso utente con le verifiche di accesso</a>
-    - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gestire l'accesso guest con le verifiche di accesso</a>
-- title: Condizioni per l'utilizzo
-  items:
-  - type: list
-    style: unordered
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/governance/access-reviews-overview">Informazioni sulla verifica di accesso</a>
+          - html: <a href="/azure/active-directory/governance/manage-user-access-with-access-reviews">Gestire l'accesso utente con le verifiche di accesso</a>
+          - html: <a href="/azure/active-directory/governance/manage-guest-access-with-access-reviews">Gestire l'accesso guest con le verifiche di accesso</a>
+  - title: Condizioni per l'utilizzo
     items:
-    - html: <a href="/azure/active-directory/governance/active-directory-tou">Operazioni supportate da Condizioni per l'utilizzo</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">Quali operazioni si possono eseguire con Condizioni per l'utilizzo?</a>

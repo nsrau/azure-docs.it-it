@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807712"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291835"
 ---
 ## <a name="benefits-of-managed-disks"></a>Vantaggi dei dischi gestiti
 
@@ -31,6 +31,10 @@ L'uso dei dischi gestiti permette di creare fino a 50.000 **dischi** di macchine
 
 I dischi gestiti vengono integrati con una maggiore affidabilità per i set di disponibilità, così che i dischi delle [macchine virtuali in un set di disponibilità](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) siano sufficientemente isolati gli uni dagli altri per evitare singoli punti di errore. I dischi vengono automaticamente posizionati in unità di scala di archiviazione diverse (timbri). Se uno stamp non riesce a causa di un errore hardware o software, hanno esito negativo solo le istanze delle macchine virtuali con dischi in tali stamp. Si prenda ad esempio un'applicazione in esecuzione in cinque macchine virtuali, a loro volta inserite in un set di disponibilità. I dischi di tali macchine virtuali non vengono tutti archiviati nello stesso stamp. In caso di inattività di uno stamp, quindi, le altre istanze dell'applicazione continuano l'esecuzione.
 
+## <a name="integration-with-availability-zones"></a>Integrazione con le zone di disponibilità
+
+Supporta i dischi gestiti [zone di disponibilità](../articles/availability-zones/az-overview.md), che è un'offerta a disponibilità elevata che protegge le applicazioni da errori dei Data Center. Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona è costituita da uno o più data center dotati di impianti indipendenti per l'alimentazione, il raffreddamento e la connettività di rete. Per garantire la resilienza, sono presenti almeno tre zone separate in tutte le aree abilitate. Con le zone di disponibilità, Azure offre un contratto di servizio con tempo di attività delle VM del 99,99% tra i migliori del settore.
+
 ### <a name="azure-backup-support"></a>Supporto di Backup di Azure
 
 Per proteggersi da emergenze a livello di area, [Backup di Azure](../articles/backup/backup-introduction-to-azure-backup.md) può essere usato per creare un processo di backup con backup pianificati e criteri di conservazione dei backup. Ciò consente di eseguire semplici operazioni di ripristino delle macchine virtuali in base alle esigenze. Attualmente Backup di Azure supporta dimensioni di disco fino a quattro tebibyte (TiB). Per altre informazioni, vedere [Uso delle macchine virtuali con dischi gestiti con Backup di Azure](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -41,11 +45,15 @@ Per assegnare autorizzazioni specifiche per un disco gestito a uno o più utenti
 
 ## <a name="disk-roles"></a>Ruoli del disco
 
-### <a name="data-disks"></a>Dischi dati
+Sono disponibili tre ruoli principali del disco in Azure: il disco dati, il disco del sistema operativo e il disco temporaneo. Questi ruoli corrispondono ai dischi collegati alla macchina virtuale.
+
+![Ruoli del disco in azione](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### <a name="data-disk"></a>Disco dati
 
 Un disco dati è un disco gestito collegato a una macchina virtuale per archiviare i dati delle applicazioni o altri dati che è necessario conservare. I dischi dati vengono registrati come unità SCSI ed etichettati con una lettera di propria scelta. Ogni disco dati ha una capacità massima di 32.767 gibibyte (GiB). Le dimensioni della macchina virtuale determinano il numero di dischi dati è possibile collegare e il tipo di archiviazione che è possibile utilizzare per ospitare i dischi.
 
-### <a name="os-disks"></a>Dischi del sistema operativo
+### <a name="os-disk"></a>Disco del sistema operativo
 
 Tutte le macchine virtuali dispongono di un disco del sistema operativo collegato. Il disco del sistema operativo che dispone di un sistema operativo preinstallato, selezionato quando è stata creata la macchina virtuale.
 
@@ -71,7 +79,7 @@ I dischi gestiti supportano anche la creazione di un'immagine personalizzata ges
 Per informazioni sulla creazione di immagini, vedere gli articoli seguenti:
 
 * [Come acquisire un'immagine gestita di una macchina virtuale generalizzata in Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Come generalizzare e acquisire una macchina virtuale Linux con l'interfaccia della riga di comando di Azure](../articles/virtual-machines/linux/capture-image.md)
+* [Come generalizzare e acquisire una macchina virtuale Linux tramite la CLI di Azure](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Immagini e snapshot
 

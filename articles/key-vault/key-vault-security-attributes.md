@@ -7,29 +7,20 @@ author: msmbaldwin
 manager: barbkess
 ms.service: key-vault
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1df710b256715cab9650e6d141a3dd187be41cfd
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 32aa111c45835883cd779fc40946b89139af6ea5
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56109523"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59004687"
 ---
 # <a name="security-attributes-for-azure-key-vault"></a>Attributi di sicurezza per Azure Key Vault
 
-La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo illustra gli attributi di sicurezza integrati in Azure Key Vault. Un attributo di sicurezza è una qualità o una funzionalità di un servizio di Azure che contribuisce alla capacità del servizio di impedire, rilevare o gestire problemi di vulnerabilità della sicurezza.
+La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo sono descritti gli attributi di sicurezza comuni incorporati in Azure Key Vault. 
 
-Gli attributi di sicurezza sono classificati come segue:
-* Prevenzione
-* Segmentazione di rete
-* Rilevamento
-* Supporto per la gestione delle identità e degli accessi
-* Audit trail
-* Controlli di accesso (se usati)
-* Gestione della configurazione (se usata)
-
-In ogni categoria, viene indicato se un attributo è usato o meno (sì/no). Per alcuni servizi, un attributo può non essere applicabile e viene indicato come N/D. È inoltre possibile che sia riportata una nota o indicato un collegamento per altre informazioni su un attributo.
+[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 
-[!INCLUDE [security-attributes-key-vault](../../includes/security-attributes-key-vault.md)]
+[!INCLUDE [Security Attributes for Key Vault](../../includes/security-attributes-key-vault.md)]

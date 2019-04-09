@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: 1a35d1cbd49a55b0c25f5e2b993358130589c125
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: ea50506df53bfd586656d0030be4536d9d3b907d
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444634"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010142"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Introduzione all'archiviazione tabelle di Azure e a Servizi connessi di Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -537,7 +537,7 @@ Come accennato nella sezione [Aggiungere un'entità a una tabella](#add-an-entit
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Creare un'istanza di un oggetto **TableQuery** specificando la query nella clausola **Where**. Usando la classe **CustomerEntity** e i dati presentati nella sezione [Aggiungere un batch di entità a una tabella](#add-a-batch-of-entities-to-a-table), il frammento di codice seguente esegue una query sulla tabella per tutte le entità in cui il valore **PartitionKey** (cognome del cliente) sia "Smith":
+1. Creare un'istanza di un oggetto **TableQuery** specificando la query nella clausola **Where**. Usando il **CustomerEntity** classe e i dati presentati nella sezione [aggiungere un batch di entità a una tabella](#add-a-batch-of-entities-to-a-table), il frammento di codice seguente esegue una query sulla tabella per tutte le entità in cui il **PartitionKey**  (cognome del cliente) ha un valore di "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -711,4 +711,4 @@ Questa sezione illustra come eliminare un'entità da una tabella.
 Per ulteriori opzioni di archiviazione dei dati in Azure, consultare altre guide alle funzionalità.
 
   * [Introduzione all'Archiviazione BLOB di Azure e ai Servizi connessi di Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Introduzione all'archiviazione code di Azure e ai Servizi connessi di Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [Introduzione all'archiviazione code di Azure e ai servizi connessi di Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)

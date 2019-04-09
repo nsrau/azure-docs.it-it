@@ -7,29 +7,19 @@ author: msmbaldwin
 manager: barbkess
 ms.service: service-fabric
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 0e6e0040577723955a4a9a0d8c3e966d1df5e788
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 90857da43701934f447cf80c28a04fc0bc0e3637
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110644"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005985"
 ---
 # <a name="security-attributes-for-azure-service-fabric"></a>Attributi di sicurezza per Azure Service Fabric
 
-La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo illustra gli attributi di sicurezza integrati in Azure Service Fabric. Un attributo di sicurezza è una qualità o una funzionalità di un servizio di Azure che contribuisce alla capacità del servizio di impedire, rilevare o gestire problemi di vulnerabilità della sicurezza.
+La sicurezza è integrata in ogni aspetto di un servizio di Azure. Questo articolo sono descritti gli attributi di sicurezza comuni integrati in Azure Service Fabric. 
 
-Gli attributi di sicurezza sono classificati come segue:
-* Prevenzione
-* Segmentazione di rete
-* Rilevamento
-* Supporto per la gestione delle identità e degli accessi
-* Audit trail
-* Controlli di accesso (se usati)
-* Gestione della configurazione (se usata)
-
-In ogni categoria, viene indicato se un attributo è usato o meno (sì/no). Per alcuni servizi, un attributo può non essere applicabile e viene indicato come N/D. È inoltre possibile che sia riportata una nota o indicato un collegamento per altre informazioni su un attributo.
-
+[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 [!INCLUDE [ecurity-attributes-service-fabric](../../includes/security-attributes-service-fabric.md)]

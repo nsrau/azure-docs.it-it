@@ -1,5 +1,5 @@
 ---
-title: Risoluzione dei problemi relativi agli avvisi del log nel Monitoraggio di Azure
+title: Risoluzione dei problemi degli avvisi di log in Monitoraggio di Azure | Microsoft Docs
 description: Problemi comuni, errori e risoluzione per le regole di avviso del log in Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429447"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005299"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Risoluzione dei problemi relativi agli avvisi del log nel Monitoraggio di Azure  
 
 ## <a name="overview"></a>Panoramica
 
-Questo articolo mostra come risolvere gli errori comuni riscontrati durante la configurazione degli avvisi del log in Monitoraggio di Azure. Fornisce inoltre le soluzioni ad alcune domande frequenti relative alla funzionalità o alla configurazione degli avvisi del log. 
+Questo articolo illustra come risolvere gli errori comuni riscontrati durante l'impostazione di avvisi del log in Monitoraggio di Azure. Fornisce inoltre le soluzioni ad alcune domande frequenti relative alla funzionalità o alla configurazione degli avvisi del log. 
 
-Il termine **avvisi del log** fa riferimento agli avvisi che vengono attivati in base a una query personalizzata in [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi sono disponibili in [Avvisi del log - Panoramica](../platform/alerts-unified-log.md).
+Il termine **gli avvisi del Log** descrive gli avvisi che fire basato su una query di log in un [dell'area di lavoro di Log Analitica](../learn/tutorial-viewdata.md) oppure [Application Insights](../../azure-monitor/app/analytics.md). Altre informazioni su funzionalità, terminologia e tipi sono disponibili in [Avvisi del log - Panoramica](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > Questo articolo non prende in considerazione i casi in cui il portale di Azure visualizza una regola di avviso come attivata e una notifica come eseguita tramite gruppi di azioni associati. Per questi casi, fare riferimento ai dettagli nell'articolo sui [gruppi di azioni](../platform/action-groups.md).
@@ -33,7 +33,7 @@ Di seguito sono elencati alcuni motivi per cui una [regola di avviso del log con
 
 ### <a name="data-ingestion-time-for-logs"></a>Tempo di inserimento dati per i log
 
-Un avviso del log esegue periodicamente una query basata su [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Poiché Log Analytics elabora molti terabyte di dati di migliaia di clienti da origini di vario tipo in tutto il mondo, il servizio è soggetto a ritardi variabili. Per altre informazioni, vedere [Tempo di inserimento dei dati in Log Analytics](../platform/data-ingestion-time.md).
+Un avviso del log esegue periodicamente una query basata su [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Poiché il monitoraggio di Azure elabora diversi terabyte di dati da migliaia di clienti provenienti da origini diverse in tutto il mondo, il servizio è soggetto a un ritardo di tempo diversi. Per altre informazioni, vedere [ora di inserimento dei dati nei log di monitoraggio di Azure](../platform/data-ingestion-time.md).
 
 Per ridurre il ritardo di inserimento dei dati, il sistema rimane in attesa e ritenta più volte di eseguire la query di avviso se rileva che i dati necessari non sono ancora stati inseriti. Il sistema ha un tempo di attesa impostato che aumenta in modo esponenziale. L'avviso del log viene attivato solo dopo che i dati risultano disponibili, pertanto il ritardo potrebbe essere dovuto alla lentezza dell'inserimento dei dati di log. 
 
@@ -57,7 +57,7 @@ Gli **avvisi del log dell'unità di misura della metrica** sono un sottotipo di 
 
 Si supponga, ad esempio, che una regola di avviso del log dell'unita di misura della metrica sia stata configurata come segue:
 
-- Query: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
+- query era: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - Periodo di tempo di 6 ore
 - Soglia di 50
 - Logica dell'avviso di tre violazioni consecutive
@@ -84,7 +84,7 @@ Di seguito sono riportati in dettaglio alcuni motivi per cui una [regola di avvi
 
 ### <a name="alert-triggered-by-partial-data"></a>Avviso attivato da dati parziali
 
-Analytics che potenzia Log Analytics e Application Insights è soggetto a ritardi di inserimento ed l'elaborazione. Per questo motivo, nel momento in cui viene eseguita la query di avviso del log specificata, potrebbero verificarsi scenari in cui non sono disponibili dati o ne sono disponibili solo alcuni. Per altre informazioni, vedere [Tempo di inserimento dei dati in Log Analytics](../platform/data-ingestion-time.md).
+Analytics che potenzia Log Analytics e Application Insights è soggetto a ritardi di inserimento ed l'elaborazione. Per questo motivo, nel momento in cui viene eseguita la query di avviso del log specificata, potrebbero verificarsi scenari in cui non sono disponibili dati o ne sono disponibili solo alcuni. Per altre informazioni, vedere [ora di inserimento dei dati di Log in Monitoraggio di Azure](../platform/data-ingestion-time.md).
 
 A seconda del modo in cui è configurata la regola di avviso, potrebbero verificarsi attivazioni errate se al momento dell'esecuzione dell'avviso non sono presenti dati nei log o i dati sono solo parziali. In questi casi, è consigliabile modificare la configurazione o la query di avviso. 
 
@@ -100,4 +100,4 @@ Nella casella **Query da eseguire** viene visualizzata la query che verrà esegu
 
 - Informazioni sugli [avvisi del log in Avvisi di Azure](../platform/alerts-unified-log.md)
 - Altre informazioni su [Application Insights](../../azure-monitor/app/analytics.md)
-- Altre informazioni su [Log Analytics](../../log-analytics/log-analytics-overview.md)
+- Altre informazioni su [le query di log](../log-query/log-query-overview.md)
