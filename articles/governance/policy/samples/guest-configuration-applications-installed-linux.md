@@ -1,5 +1,5 @@
 ---
-title: 'Esempio : Controllare se le applicazioni specificate non sono installate nelle macchine virtuali Linux'
+title: 'Esempio : Controllare se le applicazioni non sono installate nelle macchine virtuali Linux'
 description: Questa iniziativa e le definizioni di Configurazione guest di Criteri di Azure di esempio controllano se le applicazioni specificate non sono installate nelle macchine virtuali Linux.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 03/18/2019
 ms.author: dacoulte
-ms.openlocfilehash: bc4c54fa157f5468bbc324ebdf03dd65a47488c9
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8b383ed4a9e13380ec9d9ad2508c5b48b1e23e9e
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190615"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849247"
 ---
 # <a name="sample---audit-if-specified-applications-are-not-installed-inside-linux-vms"></a>Esempio : Controllare se le applicazioni specificate non sono installate nelle macchine virtuali Linux
 
@@ -38,13 +38,13 @@ Questa iniziativa di [Configurazione guest](../concepts/guest-configuration.md) 
 - [deployIfNotExists](#deployIfNotExists-definition): distribuisce l'estensione della macchina virtuale per controllare se un'applicazione è installata in macchine virtuali Linux
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
-### <a name="initiative-definition"></a>Definizione dell'iniziativa
+### <a name="initiative-definition"></a>Definizione di iniziativa
 
 Per creare l'iniziativa, si uniscono le definizioni **audit** e **deployIfNotExists** e i [parametri dell'iniziativa](#initiative-parameters). Questo è il codice JSON della definizione.
 
 [!code-json[initiative-definition](../../../../policy-templates/samples/GuestConfiguration/installed-application-linux/azurepolicyset.json "Initiative definition (JSON)")]
 
-### <a name="initiative-parameters"></a>Parametri dell'iniziativa
+### <a name="initiative-parameters"></a>Parametri delle iniziative
 
 |Nome |Tipo ||Descrizione | |---|---||---| |applicationName |String |Nomi di applicazione. Esempio: 'python', 'powershell' oppure un elenco delimitato da virgole, come 'python,powershell'. Usare l'asterisco (\*) per la corrispondenza con carattere jolly, ad esempio 'power\*'.|
 
@@ -107,16 +107,16 @@ Dopo la creazione delle definizioni **audit** e **deployIfNotExists** nel portal
 
 ### <a name="create-copy-of-audit-definition"></a>Creare la copia della definizione audit
 
-[![Distribuire in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
-[![Distribuire in Azure per enti pubblici](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Distribuire l'esempio di Criteri in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Distribuire l'esempio di Criteri in Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
 Questi pulsanti per la distribuzione tramite il portale consentono di creare una copia della definizione di criteri **audit**.
 Se non è presente la definizione di criteri abbinata **deployIfNotExists**, Configurazione guest non funzionerà correttamente.
 
 ### <a name="create-copy-of-deployifnotexists-definition"></a>Creare la copia della definizione deployIfNotExists
 
-[![Distribuire in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
-[![Distribuire in Azure per enti pubblici](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Distribuire l'esempio di Criteri in Azure](http://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Distribuire l'esempio di Criteri in Azure Gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
 Questi pulsanti per la distribuzione tramite il portale consentono di creare una copia della definizione di criteri **deployIfNotExists**. Se non è presente la definizione di criteri abbinata **audit**, Configurazione guest non funzionerà correttamente.
 

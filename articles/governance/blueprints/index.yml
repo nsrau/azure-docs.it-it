@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: bc646bd1c1e2ada45971359b9a17d71d66e301d4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800438"
 documentType: LandingData
 title: Documentazione per il servizio Azure Blueprints
 metadata:
   title: Documentazione di Progetti di Azure - Esercitazioni e informazioni di riferimento sulle API
-  description: Azure Blueprint è un servizio disponibile in Azure usato per creare, definire e distribuire artefatti nell'ambiente Azure.
-  services: blueprints
+  description: 'Azure Blueprint è un servizio disponibile in Azure usato per creare, definire e distribuire artefatti nell''ambiente Azure.'
   author: DCtheGeek
   manager: carmonm
   ms.service: blueprints
@@ -18,34 +11,34 @@ metadata:
   ms.date: 03/26/2019
   ms.author: dacoulte
 abstract:
-  description: Azure Blueprints consente di distribuire e aggiornare ambienti cloud in modo ripetibile usando artefatti componibili come modelli di Azure Resource Manager per il provisioning delle risorse, controllo degli accessi in base al ruolo e criteri.
+  description: 'Azure Blueprints consente di distribuire e aggiornare ambienti cloud in modo ripetibile usando artefatti componibili come modelli di Azure Resource Manager per il provisioning delle risorse, controllo degli accessi in base al ruolo e criteri.'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come creare, assegnare e gestire definizioni di progetto in Azure.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        alt: Portale di Azure
-        src: ./media/portal.svg
-      text: Portale di Azure
-      href: create-blueprint-portal.md
-    - image:
-        alt: REST
-        src: ./media/rest.svg
-      text: REST
-      href: create-blueprint-rest-api.md
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Informazioni su come creare, assegnare e gestire definizioni di progetto in Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Portale di Azure
+              src: ./media/portal.svg
+            text: Portale di Azure
+            href: create-blueprint-portal.md
+          - image:
+              alt: REST
+              src: ./media/rest.svg
+            text: REST
+            href: create-blueprint-rest-api.md
+  - title: riferimento
     items:
-    - title: Riga di comando
-      html: <p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK per .NET</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/blueprints/">Informazioni di riferimento sulle API</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: '<p><a href="/powershell/module/az.blueprint/#blueprint">Azure PowerShell</a></p>'
+          - title: Languages
+            html: <p><a href="/dotnet/api/overview/azure/blueprints/management">Azure SDK per .NET</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/blueprints/">Informazioni di riferimento sulle API</a></p>

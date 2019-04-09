@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 4622809f0e261236d6753daf5bb2e00ff814c849
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58087874"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272768"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integrare Azure ExpressRoute con il ripristino di emergenza per le macchine virtuali di Azure
 
@@ -104,7 +104,7 @@ In genere, le distribuzioni aziendali presentano carichi di lavoro suddivisi tra
 
 #### <a name="spoke-to-hub"></a>Da spoke a hub
 
-**Direzione** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **Stato**
 --- | --- | ---
 Da spoke a hub | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
 Da spoke a hub | Consenti traffico inoltrato | Attivato
@@ -115,7 +115,7 @@ Da spoke a hub | Usa gateway remoti | Attivato
 
 #### <a name="hub-to-spoke"></a>Da hub a spoke
 
-**Direzione** | **Impostazione** | **State**
+**Direzione** | **Impostazione** | **Stato**
 --- | --- | ---
 Da hub a spoke | Allow virtual network address (Consenti indirizzo rete virtuale) | Attivato
 Da hub a spoke | Consenti traffico inoltrato | Attivato

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839018"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620515"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Esercitazione 3: Distribuire il modello di rischio di credito - Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Quando viene eseguito l'accesso al servizio Web, i dati dell'utente vengono inse
 I risultati vengono quindi restituiti all'utente dal servizio Web tramite il modulo **Output servizio Web**.
 
 > [!TIP]
-> In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Ma è possibile restituire un elemento diverso se si desidera, ad esempio, si potrebbe restituire solo il valore di rischio di credito. A tale scopo, inserire un modulo [Project Columns][project-columns] (Colonne progetto) tra [Score Model][score-model] (Modello punteggio) e **Output servizio Web** per eliminare le colonne che il servizio Web non deve restituire. 
+> In considerazione del modo in cui l'esperimento predittivo è configurato, vengono restituiti tutti i risultati del modulo [Score Model][score-model]. Ciò include tutti i dati di input, il valore del rischio di credito e il valore di probabilità del punteggio. Ma è possibile restituire un elemento diverso se si desidera, ad esempio, si potrebbe restituire solo il valore di rischio di credito. A tale scopo, inserire un modulo [Select Columns][select-columns] (Colonne selezionate) tra [Score Model][score-model] (Modello punteggio) e **Output servizio Web** per eliminare le colonne che il servizio Web non deve restituire. 
 > 
 > 
 
@@ -267,4 +267,4 @@ In questa esercitazione sono stati completati i passaggi seguenti:
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

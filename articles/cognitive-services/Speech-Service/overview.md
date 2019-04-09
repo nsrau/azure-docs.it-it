@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519630"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662225"
 ---
 # <a name="what-are-the-speech-services"></a>Informazioni sui servizi Voce
 
@@ -39,7 +39,7 @@ Queste funzionalità costituiscono i servizi Voce di Azure. Per altre informazio
 
 Informazioni sulle novità relative ai servizi Voce di Azure.
 
-* Marzo 2019 - È ora disponibile un nuovo endpoint per la sintesi vocale che restituisce un elenco completo delle voci disponibili in aree specifiche. Per altre informazioni, vedere le [informazioni di riferimento sull'API di sintesi vocale (REST)](rest-text-to-speech.md).
+* Marzo 2019 - È ora disponibile un nuovo endpoint per la sintesi vocale che restituisce un elenco completo delle voci disponibili in aree specifiche. Inoltre, sono ora supportate nuove aree per la sintesi vocale. Per altre informazioni, vedere le [informazioni di riferimento sull'API di sintesi vocale (REST)](rest-text-to-speech.md).
 * Febbraio 2019 - Rilasciato Speech SDK 1.3.0 con supporto per [Unity (beta)](quickstart-csharp-unity.md). Aggiunta del supporto per la classe `AudioInput`, che consente di scegliere l'origine di flusso per l'audio. Per un elenco completo di miglioramenti e problemi noti, vedere [Note sulla versione](releasenotes.md).
 * Dicembre 2018 - Rilasciato Speech SDK 1.2.0 con supporto per [Python](quickstart-python.md) e [Node. js](quickstart-js-node.md), nonché Ubuntu 18.04 LTS. Per altre informazioni, vedere [Note sulla versione](releasenotes.md).
 

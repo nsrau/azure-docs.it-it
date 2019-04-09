@@ -1,6 +1,6 @@
 ---
 title: Esempio di PowerShell - Ripristinare un backup del database SQL di Azure | Microsoft Docs
-description: Script di esempio di Azure PowerShell per ripristinare un singolo database SQL di Azure da backup con ridondanza geografica
+description: Script di esempio di Azure PowerShell per ripristinare uno stato precedente di un database singolo SQL di Azure dai backup automatici
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883611"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621346"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>Usare PowerShell per ripristinare un singolo database SQL di Azure dai backup
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Usare PowerShell per ripristinare uno stato precedente di un database singolo SQL di Azure
 
-Questo esempio di script di PowerShell ripristina un database SQL di Azure da un backup con ridondanza geografica, ripristina un database SQL di Azure eliminato in base al backup più recente ed esegue un ripristino temporizzato di un database SQL di Azure.  
+Questo esempio di script di PowerShell ripristina uno specifico stato precedente di un database SQL di Azure.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

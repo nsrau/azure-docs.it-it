@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895563"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261539"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -138,6 +138,7 @@ Nell'ambiente, è necessario evitare le seguenti configurazioni:
 
 - **Require domain join** (Richiedi aggiunta a dominio): se ancora non si dispone di un dispositivo aggiunto al dominio, questo criterio di blocco dell'accesso è anche in grado di bloccare l'accesso per tutti gli utenti nell'organizzazione.
 
+- **Richiedono criteri di protezione delle app** : questo criterio di blocco accesso ha anche la possibilità di bloccare l'accesso per tutti gli utenti nell'organizzazione se non si dispone di un criterio di Intune. Se si è amministratore senza un'applicazione client che ha un criterio di protezione app di Intune, questo criterio blocca l'accesso in portali, ad esempio Intune e Azure.
 
 **Per tutti gli utenti, tutte le app cloud, tutte le piattaforme di dispositivo:**
 

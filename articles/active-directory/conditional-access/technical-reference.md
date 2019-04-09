@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051123"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273040"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Informazioni di riferimento sulle impostazioni di accesso condizionale di Azure Active Directory
 
@@ -232,6 +232,23 @@ Questa impostazione è valida solo per le app client seguenti:
 - Le app client approvate supportano la funzionalità di gestione di applicazioni mobili di Intune.
 - Il requisito **Richiedi app client approvata**:
    - Supporta solo iOS e Android come [condizione per le piattaforme del dispositivo](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Requisito dei criteri di protezione App 
+
+Nel criterio di accesso condizionale, è possibile richiedere che un criterio di protezione delle app siano presenti nell'app client prima di accesso è disponibile per le app cloud selezionate. 
+
+![Controllare l'accesso con criteri di protezione delle app](./media/technical-reference/22.png)
+
+Questa impostazione è valida solo per le app client seguenti:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Osservazioni**
+
+- Le App per criteri di protezione delle app supportano la funzionalità di gestione di applicazioni mobili di Intune con criteri di protezione.
+- Il **richiedono criteri di protezione delle app** requisiti:
+    - Supporta solo iOS e Android come [condizione per le piattaforme del dispositivo](#device-platform-condition).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

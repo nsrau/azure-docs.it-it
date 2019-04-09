@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 55bb83015cee6476a10424f32b51eb9eb29db0da
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59050255"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271731"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Rotazione dei segreti in Azure Stack
 
@@ -300,11 +300,11 @@ Il **Start-SecretRotation** cmdlet ruota i segreti dell'infrastruttura di un sis
 
 | Parametro | Type | Obbligatorio | Posizione | Predefinito | DESCRIZIONE |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | string  | False  | denominata  | Nessuna  | Il percorso di condivisione file per il **\Certificates** directory contenente tutti esterni i certificati di endpoint di rete. Necessaria solo per la rotazione dei segreti esterni. Directory di fine deve essere **\Certificates**. |
-| CertificatePassword | SecureString | False  | denominata  | Nessuna  | La password per tutti i certificati forniti in PfXFilesPath. Valore obbligatorio se viene fornito PfxFilesPath quando i segreti esterni vengono ruotati. |
-| Interno | string | False | denominata | Nessuna | Flag interno deve essere utilizzata ogni volta che un operatore di Azure Stack desidera ruotare i segreti di infrastruttura interna. |
-| PathAccessCredential | PSCredential | False  | denominata  | Nessuna  | La credenziale di PowerShell per la condivisione file del **\Certificates** directory contenente tutti esterni i certificati di endpoint di rete. Necessaria solo per la rotazione dei segreti esterni.  |
-| ReRun | SwitchParameter | False  | denominata  | Nessuna  | Riesegui devono essere utilizzata ogni volta che la rotazione segreta viene ritentata dopo un tentativo non riuscito. |
+| `PfxFilesPath` | string  | False  | denominata  | Nessuna  | Il percorso di condivisione file per il **\Certificates** directory contenente tutti esterni i certificati di endpoint di rete. Necessaria solo per la rotazione dei segreti esterni. Directory di fine deve essere **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | denominata  | Nessuna  | La password per tutti i certificati forniti in PfXFilesPath. Valore obbligatorio se viene fornito PfxFilesPath quando i segreti esterni vengono ruotati. |
+| `Internal` | string | False | denominata | Nessuna | Flag interno deve essere utilizzata ogni volta che un operatore di Azure Stack desidera ruotare i segreti di infrastruttura interna. |
+| `PathAccessCredential` | PSCredential | False  | denominata  | Nessuna  | La credenziale di PowerShell per la condivisione file del **\Certificates** directory contenente tutti esterni i certificati di endpoint di rete. Necessaria solo per la rotazione dei segreti esterni.  |
+| `ReRun` | SwitchParameter | False  | denominata  | Nessuna  | Riesegui devono essere utilizzata ogni volta che la rotazione segreta viene ritentata dopo un tentativo non riuscito. |
 
 ### <a name="examples"></a>Esempi
 

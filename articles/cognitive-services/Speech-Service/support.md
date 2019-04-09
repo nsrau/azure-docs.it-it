@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877701"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272021"
 ---
 # <a name="support-and-help-options"></a>Opzioni di supporto tecnico e assistenza
 
@@ -23,6 +23,7 @@ Sta appena iniziando a esplorare le funzionalità dei servizi di riconoscimento 
 
 > [!div class="checklist"]
 > * È possibile rimanere informati sui nuovi sviluppi in *Servizi cognitivi di Azure* o leggere le ultime novità relative al *servizio Voce*.
+> * Note sulla versione contengono informazioni per tutte le versioni.
 > * Eseguire una ricerca per verificare se la community ha già discusso il problema o se esiste già la documentazione della funzionalità che si vuole implementare.
 > * Se non si riesce a trovare una risposta soddisfacente, si può porre una domanda in *Stack Overflow*.
 > * Se si riscontra un problema relativo a uno degli esempi in GitHub, segnalare il problema in *GitHub*.
@@ -31,6 +32,10 @@ Sta appena iniziando a esplorare le funzionalità dei servizi di riconoscimento 
 ## <a name="stay-informed"></a>Rimani sempre aggiornato
 
 Le novità su Servizi cognitivi sono raccolte nel[blog sui Servizi cognitivi](https://azure.microsoft.com/blog/topics/cognitive-services/). Per informazioni aggiornate sui servizi di riconoscimento vocale, tenere traccia di [blog di servizi di riconoscimento vocale](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## <a name="release-notes"></a>Note sulla versione
+
+Le [note]] (https://aka.ms/csspeech/whatsnew) vengono aggiornati, non appena è disponibile una nuova versione. Le note contengono informazioni sulle nuove funzionalità, miglioramenti e correzioni di bug.
 
 ## <a name="search"></a>Ricerca
 
@@ -61,16 +66,16 @@ Se non si trova una risposta al problema tramite la ricerca, inviare una nuova d
 
 |Componente/Area  |Tag  |
 |---------|---------|
-|Riconoscimento vocale |[[microsoft-cognitive+speech-to-text]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
-|Sintesi vocale |[[microsoft-cognitive+text-to-speech]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
+|Riconoscimento vocale |[[microsoft-cognitivi +-vocale]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech-to-text)|
+|Sintesi vocale |[[microsoft-cognitivi +-a-sintesi vocale da testo]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+text-to-speech)|
 |Traduzione vocale |[[microsoft-cognitive+translation]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+translation)|
-|Finalità voce |[[microsoft-cognitive+luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
-|Speech SDK generale |[[microsoft-cognitive+microsoft-speech-api]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
+|Finalità voce |[[microsoft-cognitivi + luis]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+luis)|
+|Speech SDK generale |[[microsoft-cognitivi +--api traduzione vocale microsoft]](https://stackoverflow.com/questions/tagged/microsoft-cognitive+microsoft-speech-api)|
 
 > [!TIP]
 > I post di Stack Overflow seguenti contengono suggerimenti su come porre domande e su come aggiungere codice sorgente. Se ci si attiene a queste linee guida, aumenta la probabilità che i membri della community valutino le domande e rispondano rapidamente:  
-> * [Come creare una domanda utile](https://stackoverflow.com/help/how-to-ask)
-> * [Come creare un esempio minimo, completo e verificabile](https://stackoverflow.com/help/mcve)
+> * [Come porre una domanda da porsi?](https://stackoverflow.com/help/how-to-ask)
+> * [Come creare un numero minimo, completo e verificabile esempio](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Segnalare un problema in GitHub
 
@@ -81,11 +86,11 @@ Gli esempi vengono spesso pubblicati come open source. Per domande e problemi, s
 
 È possibile creare un report sui bug, una richiesta di funzionalità oppure porre una domanda di carattere generale e condividere le procedure consigliate. Per i report sui bug seguire il modello fornito:
 
-**Descrizione del bug**
+**Descrivere il bug**
 
 Descrizione chiara e concisa del bug.
 
-**Riproduzione**
+**Per riprodurre**
 
 Passaggi per riprodurre il comportamento:
 1. ...
@@ -95,20 +100,20 @@ Passaggi per riprodurre il comportamento:
 
 Descrizione chiara e concisa del comportamento previsto.
 
-**Versione di Speech SDK di Servizi cognitivi**
+**Versione del SDK la voce di servizi cognitivi**
 
 Versione dell'SDK usata.
 
-**Piattaforma, sistema operativo e linguaggio di programmazione**
+**Sistema operativo, piattaforma e linguaggio di programmazione**
 
  - Sistema operativo, ad esempio Windows, Linux, Android, iOS, ... - specificare
  - Hardware: x64, x86, ARM, ...
  - Browser, ad esempio Chrome, Safari (se applicabile) - specificare
 
-**Altre informazioni di contesto**
+**Contesto aggiuntivo**
 
  - Messaggi di errore, informazioni del log, analisi dello stack, ...
- - Se si segnala un errore relativo a un'interazione con un servizio specifico, indicare SessionId e ora (incluso il fuso orario) degli incidenti segnalati. Il valore di SessionId è indicato in tutti i callback e gli eventi ricevuti.
+ - Se si segnala un errore per l'interazione con un servizio specifico, segnalare l'ID sessione e l'ora (tra cui fuso orario) di eventi imprevisti segnalati. Il valore di SessionId è indicato in tutti i callback e gli eventi ricevuti.
  - Eventuali altre informazioni aggiuntive
 
 

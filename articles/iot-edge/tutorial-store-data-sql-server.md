@@ -5,20 +5,20 @@ services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/18/2019
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 2b99207f35bd83c9e02ad636a070ae538ae3472c
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: a83b8a56a8108f86d868e3420d8368c74fba308a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54412224"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578193"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Esercitazione: Archiviare dati sul perimetro con database di SQL Server
 
-Usare Azure IoT Edge e SQL Server per archiviare i dati ed eseguirne query nei dispositivi perimetrali. Azure IoT Edge offre funzionalità di archiviazione di base che memorizzano nella cache i messaggi se un dispositivo passa alla modalità offline e quindi li inoltrano quando viene ristabilita la connessione. È tuttavia possibile che siano necessarie funzionalità di archiviazione più avanzate, ad esempio la possibilità di eseguire query sui dati in locale. Incorporando i database locali, i dispositivi IoT Edge possono eseguire elaborazioni più complesse senza la necessità di mantenere una connessione all'hub IoT. Ad esempio, un sensore in un computer carica i dati nel cloud una volta al mese per la creazione di report e il miglioramento di un modulo di apprendimento automatico. Tuttavia, se un tecnico sul campo sta lavorando sulla macchina, può accedere agli ultimi giorni di dati del sensore localmente.
+Usare Azure IoT Edge e SQL Server per archiviare i dati ed eseguirne query nei dispositivi perimetrali. Azure IoT Edge offre funzionalità di archiviazione di base che memorizzano nella cache i messaggi se un dispositivo passa alla modalità offline e quindi li inoltrano quando viene ristabilita la connessione. È tuttavia possibile che siano necessarie funzionalità di archiviazione più avanzate, ad esempio la possibilità di eseguire query sui dati in locale. I dispositivi IoT Edge possono usare database locale per eseguire elaborazioni più complesse senza la necessità di mantenere una connessione all'hub IoT. 
 
 Questo articolo contiene istruzioni per la distribuzione di un database di SQL Server a un dispositivo IoT Edge. Funzioni di Azure, in esecuzione sul dispositivo IoT Edge, struttura i dati in ingresso e quindi li invia al database. I passaggi descritti in questo articolo sono applicabili anche ad altri database che operano in contenitori, ad esempio MySQL o PostgreSQL.
 
@@ -36,10 +36,8 @@ In questa esercitazione si apprenderà come:
 
 Un dispositivo Azure IoT Edge:
 
-* È possibile usare il computer per lo sviluppo o una macchina virtuale come dispositivo perimetrale seguendo la procedura illustrata nella guida introduttiva per dispositivi [Linux](quickstart-linux.md) o [Windows](quickstart.md).
-
-  > [!NOTE]
-  > SQL Server supporta solo i contenitori Linux. Per testare questa esercitazione usando un dispositivo Windows come dispositivo Edge, è necessario configurarlo in modo che utilizzi i contenitori Linux. Vedere [Installare il runtime di Azure IoT Edge in Windows](how-to-install-iot-edge-windows-with-linux.md) per i prerequisiti e la procedura di installazione per la configurazione del runtime IoT Edge per i contenitori Linux in Windows.
+* È possibile usare una macchina virtuale di Azure come dispositivo IoT Edge seguendo la procedura illustrata nell'argomento di avvio rapido per [Linux](quickstart-linux.md).
+* SQL Server supporta solo i contenitori Linux. Per testare questa esercitazione usando un dispositivo Windows come dispositivo IoT Edge, è necessario configurarlo in modo che usi i contenitori Linux. Vedere [Installare il runtime di Azure IoT Edge in Windows](how-to-install-iot-edge-windows.md) per i prerequisiti e la procedura di installazione per la configurazione del runtime IoT Edge per i contenitori Linux in Windows.
 
 Risorse cloud:
 
@@ -52,6 +50,7 @@ Risorse per lo sviluppo:
 * [Strumenti di Azure IoT](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) per Visual Studio Code. 
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download). 
 * [Docker CE](https://docs.docker.com/install/). 
+  * Per lo sviluppo in un computer Windows, verificare che Docker sia [configurato per l'uso di contenitori Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 ## <a name="create-a-container-registry"></a>Creare un registro contenitori
 
@@ -98,7 +97,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
    | Provide a solution name (Specificare un nome per la soluzione) | Immettere un nome descrittivo per la soluzione, ad esempio **SqlSolution**, oppure accettare l'impostazione predefinita. |
    | Select module template (Selezionare un modello di modulo) | Scegliere **Azure Functions - C#** (Funzioni di Azure - C#). |
    | Provide a module name (Specificare un nome per il modulo) | Assegnare al modulo il nome **sqlFunction**. |
-   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. La stringa finale è simile a \<nome registro\>.azurecr.io/sqlFunction. |
+   | Provide Docker image repository for the module (Specificare il repository di immagini Docker per il modulo) | Un repository di immagini include il nome del registro contenitori e il nome dell'immagine del contenitore. L'immagine del contenitore è prepopolata dall'ultimo passaggio. Sostituire **localhost:5000** con il valore del server di accesso in Registro Azure Container. È possibile recuperare il server di accesso dalla pagina Panoramica del registro contenitori nel portale di Azure. <br><br>La stringa finale è simile a \<nome registro\>.azurecr.io/sqlFunction. |
 
    La finestra di VS Code carica l'area di lavoro della soluzione IoT Edge. 
    
@@ -119,7 +118,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 
 7. Nello strumento di esplorazione di Visual Studio Code aprire **modules** > **sqlFunction** > **sqlFunction.cs**.
 
-8. Sostituire il contenuto del file con il codice seguente:
+8. Sostituire l'intero contenuto del file con il codice seguente:
 
    ```csharp
    using System;
@@ -206,7 +205,7 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
    }
    ```
 
-6. Nella riga 35 sostituire la stringa **\<sql connection string\>** con la stringa seguente. La proprietà **Data Source** fa riferimento al nome del contenitore di SQL Server, che verrà creato con il nome **SQL** nella sezione successiva. 
+6. Nella riga 35 sostituire la stringa **\<sql connection string\>** con la stringa seguente. La proprietà **Data Source** fa riferimento al nome del contenitore di SQL Server, che non esiste ma verrà creato con il nome **SQL** nella sezione successiva. 
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
@@ -224,76 +223,53 @@ La procedura seguente illustra come creare una funzione di IoT Edge tramite Visu
 
 10. Salvare il file **sqlFunction.csproj**.
 
-## <a name="add-a-sql-server-container"></a>Aggiungere un contenitore di SQL Server
+## <a name="add-the-sql-server-container"></a>Aggiungere il contenitore di SQL Server
 
-Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che il runtime IoT Edge installerà nel dispositivo IoT Edge. Nella sezione precedente è stato specificato il codice per creare un modulo di funzione personalizzato, ma il modulo di SQL Server è già compilato. È sufficiente indicare al runtime IoT Edge di includerlo, quindi configurarlo nel dispositivo. 
+Un [manifesto della distribuzione](module-composition.md) dichiara i moduli che il runtime IoT Edge installerà nel dispositivo IoT Edge. Nella sezione precedente è stato specificato il codice per creare un modulo di funzione personalizzato, ma il modulo di SQL Server è già compilato e disponibile in Azure Marketplace. È sufficiente indicare al runtime IoT Edge di includerlo, quindi configurarlo nel dispositivo. 
 
-1. Nello strumento di esplorazione di Visual Studio Code aprire il file **deployment.template.json**. 
+1. In Visual Studio Code aprire il riquadro comandi selezionando **Visualizza** > **Riquadro comandi**.
 
-1. Individuare la sezione **modules**. Dovrebbero essere elencati due moduli: **tempSensor**, che genera i dati simulati, e il modulo **sqlFunction**.
+2. Nel riquadro comandi digitare ed eseguire il comando **Azure IoT Edge: Aggiungi modulo IoT Edge**. Nel riquadro comandi immettere le informazioni seguenti per aggiungere un nuovo modulo: 
 
-1. Aggiungere il codice seguente per dichiarare un terzo modulo. Aggiungere una virgola dopo la sezione sqlFunction e inserire:
+   | Campo | Valore | 
+   | ----- | ----- |
+   | Select deployment template file (Selezionare il file del modello di distribuzione) | Il riquadro comandi evidenzia il file deployment.template.json nella cartella della soluzione corrente. Selezionare questo file.  |
+   | Select module template (Selezionare un modello di modulo) | Selezionare **Module from Azure Marketplace** (Modulo da Azure Marketplace). |
 
-   ```json
-   "sql": {
-     "version": "1.0",
-     "type": "docker",
-     "status": "running",
-     "restartPolicy": "always",
-     "env":{},
-     "settings": {
-       "image": "",
-       "createOptions": ""
-     }
-   }
-   ```
+3. Nel marketplace per il modulo Azure IoT Edge cercare e selezionare **SQL Server Module** (Modulo di SQL Server). 
 
-   ![Aggiungere il modulo di SQL Server al manifesto](./media/tutorial-store-data-sql-server/view_json_sql.png)
+4. Cambiare il nome del modulo in **sql**, tutto in minuscolo. Questo nome corrisponde al nome del contenitore dichiarato nella stringa di connessione nel file sqlFunction.cs. 
 
-1. Aggiornare i parametri del modulo **sql** con il codice seguente:
-      ```json
-      "env": {
-        "ACCEPT_EULA": {"value": "Y"},
-        "SA_PASSWORD": {"value": "Strong!Passw0rd"}
-      },
-      "settings": {
-        "image": "mcr.microsoft.com/mssql/server:latest",
-        "createOptions": {
-          "HostConfig": {
-            "Mounts": [{"Target": "/var/opt/mssql","Source": "sqlVolume","Type": "volume"}],
-            "PortBindings": {
-              "1433/tcp": [{"HostPort": "1401"}]
-            }
-          }
-        }
-      }
-      ```
+5. Selezionare **Importa** per aggiungere il modulo alla soluzione. 
+
+6. Nella cartella della soluzione aprire il file **deployment.template.json**. 
+
+7. Individuare la sezione **modules**. Dovrebbero essere visualizzati tre moduli. Il modulo *tempSensor* è incluso per impostazione predefinita nelle nuove soluzioni e fornisce i dati di test da usare con gli altri moduli. Il modulo *sqlFunction* è quello che è stato creato inizialmente e aggiornato con il nuovo codice. Infine, il modulo *sql* è stato importato da Azure Marketplace. 
 
    >[!Tip]
-   >Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
+   >Il modulo di SQL Server include una password predefinita impostata nelle variabili di ambiente del manifesto della distribuzione. Ogni volta che si crea un contenitore SQL Server in un ambiente di produzione, è necessario [modificare la password dell'amministratore di sistema predefinita](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker).
 
-1. Salvare il file **deployment.template.json**.
+8. Chiudere il file **deployment.template.json**.
 
 ## <a name="build-your-iot-edge-solution"></a>Compilare la soluzione IoT Edge
 
-Nelle sezioni precedenti è stata creata una soluzione con un modulo e quindi ne è stata aggiunta un'altra al modello di manifesto della distribuzione. È ora necessario compilare la soluzione, creare le immagini del contenitore per i moduli ed eseguire il push delle immagini nel registro contenitori. 
+Nelle sezioni precedenti è stata creata una soluzione con un modulo e quindi ne è stata aggiunta un'altra al modello di manifesto della distribuzione. Il modulo di SQL Server viene ospitato pubblicamente da Microsoft, ma è necessario aggiungere il codice a un contenitore nel modulo Functions. In questa sezione viene compilata la soluzione, vengono create le immagini del contenitore per il modulo sqlFunction e ne viene eseguito il push nel registro contenitori. 
 
-1. Accedere al registro contenitori in Visual Studio Code per poter eseguire il push delle immagini nel registro. Usare le stesse credenziali aggiunte al file con estensione env. Immettere il comando seguente nel terminale integrato:
+1. In Visual Studio Code aprire il terminale integrato selezionando **Visualizza** > **Terminale**.  
+
+1. Accedere al registro contenitori in Visual Studio Code per poter eseguire il push delle immagini nel registro. Usare le stesse credenziali di Registro Azure Container aggiunte al file con estensione env. Immettere il comando seguente nel terminale integrato:
 
     ```csh/sh
-    docker login -u <ACR username> <ACR login server>
+    docker login -u <ACR username> -p <ACR password> <ACR login server>
     ```
     
-    Verrà richiesto di specificare la password. Incollare la password nel prompt (la password è nascosta per sicurezza) e premere **INVIO**. 
-
-    ```csh/sh
-    Password: <paste in the ACR password and press enter>
-    Login Succeeded
-    ```
+    È possibile che venga visualizzato un avviso di sicurezza in cui si consiglia l'uso del parametro --password-stdin. Sebbene il suo utilizzo non rientri nell'ambito di questo articolo, si raccomanda di seguire questa procedura consigliata. Per altre informazioni, vedere la guida comandi di [accesso di Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin). 
 
 2. Nello strumento di esplorazione di Visual Studio Code fare clic con il pulsante destro del mouse sul file **deployment.template.json** e scegliere **Build and Push IoT Edge solution** (Compila ed esegui il push della soluzione IoT Edge). 
 
 Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutto con le informazioni del modello di distribuzione viene generato un file deployment.json in una nuova cartella denominata **config**. Vengono quindi eseguiti due comandi nel terminale integrato: `docker build` e `docker push`. Questi due comandi compilano il codice, includono il modulo in un contenitore ed eseguono il push del codice nel registro contenitori specificato quando è stata inizializzata la soluzione. 
+
+È possibile verificare se il push del modulo sqlFunction nel registro contenitori è stato eseguito correttamente. Nel portale di Azure passare al registro contenitori. Selezionare **repository** e cercare **sqlFunction**. Il push degli altri due moduli, tempSensor e sql, nel registro contenitori non verrà eseguito perché si punta già ai relativi repository nei registri Microsoft.
 
 ## <a name="deploy-the-solution-to-a-device"></a>Distribuire la soluzione in un dispositivo
 
@@ -312,6 +288,8 @@ Quando si comunica a Visual Studio Code di compilare la soluzione, prima di tutt
    ![Create deployment for single device (Crea la distribuzione per un unico dispositivo)](./media/tutorial-store-data-sql-server/create-deployment.png)
 
 6. In Esplora file passare alla cartella **config** nella soluzione e scegliere **deployment.amd64**. Fare clic su **Select Edge deployment manifest** (Seleziona il manifesto della distribuzione di Edge). 
+
+   Non usare il file deployment.template.json come manifesto della distribuzione.
 
 Se la distribuzione ha esito positivo, nell'output di Visual Studio Code viene visualizzato un messaggio di conferma. 
 
@@ -376,9 +354,6 @@ Se si intende continuare con il prossimo articolo consigliato, è possibile cons
 In caso contrario, è possibile eliminare le risorse di Azure e le configurazioni locali create in questo articolo per evitare addebiti. 
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
-
-[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
-
 
 
 ## <a name="next-steps"></a>Passaggi successivi

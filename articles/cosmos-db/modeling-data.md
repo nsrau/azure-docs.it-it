@@ -1,19 +1,19 @@
 ---
-title: Modellazione dei dati di un documento in un database NoSQL
+title: Modellazione dei dati in Azure Cosmos DB
 titleSuffix: Azure Cosmos DB
 description: Informazioni sulla modellazione dei dati nei database NoSQL e sulle differenze tra la modellazione dei dati nei database relazionali e nei database di documenti.
-author: aliuy
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.author: andrl
-ms.custom: seodec18
-ms.openlocfilehash: 5f117d51378f895755b4f5a27fe892d85e12074a
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.date: 04/08/2019
+ms.author: rimman
+ms.custom: rimman
+ms.openlocfilehash: e8581cb130c8b2d7ac044838f0ae922b9b5e86cd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762583"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275692"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modellazione dei dati in Azure Cosmos DB
 

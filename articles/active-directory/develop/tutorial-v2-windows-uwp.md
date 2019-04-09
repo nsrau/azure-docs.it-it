@@ -9,19 +9,19 @@ editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b00a4f9ee561e8e9356b36d4a14b4bcb4f9a3357
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c5e05faa37baf3c25be70a9500f1131cc0ea9f66
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202861"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629418"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Chiamare l'API Microsoft Graph da un'applicazione della piattaforma UWP (XAML)
 
@@ -37,7 +37,7 @@ Al termine di questa guida, l'applicazione chiama un'API protetta usando account
 
 ## <a name="how-this-guide-works"></a>Come interpretare questa guida
 
-![Viene illustrato il funzionamento delle app di esempio generata da questa esercitazione](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
+![Illustra come funziona l'app di esempio generata da questa esercitazione](./media/tutorial-v2-windows-uwp/uwp-intro-updated.png)
 
 L'applicazione di esempio creata in questa guida consente a un'applicazione UWP di eseguire query nell'API Microsoft Graph o in un'API Web che accetta token dall'endpoint di Azure Active Directory v2.0. Per questo scenario, viene aggiunto un token a richieste HTTP tramite l'intestazione di autorizzazione. Le acquisizioni e i rinnovi del token vengono gestiti da Microsoft Authentication Library (MSAL).
 

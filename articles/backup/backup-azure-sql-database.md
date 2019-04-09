@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285446"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847307"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -55,7 +55,7 @@ Prima di iniziare, verificare quanto segue:
 
 - Il backup di SQL Server può essere configurato nel portale di Azure o in **PowerShell**. L'interfaccia della riga di comando non è supportata.
 - La macchina virtuale che esegue SQL Server richiede la connettività Internet per accedere agli indirizzi IP pubblici di Azure.
-- Le istanze del **cluster di failover Always On di SQL Server (FCI)** non sono supportate.
+- L'**Istanza del cluster di failover** di SQL Server e l'istanza del cluster di failover AlwaysOn di SQL Server.
 - Le operazioni di backup e ripristino per i database mirror e gli snapshot di database non sono supportate.
 - L'uso di più soluzioni per eseguire il backup dell'istanza di SQL Server autonoma o del gruppo di disponibilità Always On di SQL potrebbe generare un errore di backup. Evitare questo approccio.
 - Anche il backup di due nodi di un gruppo di disponibilità singolarmente con soluzioni uguali o differenti potrebbe generare errori. Backup di Azure è in grado di rilevare e proteggere tutti i nodi che si trovano nella stessa area dell'insieme di credenziali. Se il gruppo di disponibilità Always On di SQL Server si estende in più aree di Azure, configurare il backup dall'area che include il nodo primario. Backup di Azure è in grado di rilevare e proteggere tutti i database nel gruppo di disponibilità in base alle preferenze di backup.  
@@ -73,12 +73,12 @@ In base alle preferenze e ai tipi di backup (completo/differenziale/log/completo
 
 - **Preferenza di backup: Primario**
 
-**Tipo di backup** | **Nodo**
+**Tipo di backup** | **Node**
     --- | ---
-    Completo | Primario
-    Differenziale | Primario
-    Log |  Primario
-    Completo solo copia |  Primario
+    Completa | Primaria
+    Differenziale | Primaria
+    Log |  Primaria
+    Completo solo copia |  Primaria
 
 - **Preferenza di backup: Solo secondario**
 
@@ -91,19 +91,19 @@ Completo solo copia |  Secondario
 
 - **Preferenza di backup: Secondario**
 
-**Tipo di backup** | **Nodo**
+**Tipo di backup** | **Node**
 --- | ---
-Completo | Primaria
-Differenziale | Primario
+Completa | Primaria
+Differenziale | Primaria
 Log |  Secondario
 Completo solo copia |  Secondario
 
 - **Nessuna preferenza di backup**
 
-**Tipo di backup** | **Nodo**
+**Tipo di backup** | **Node**
 --- | ---
-Completo | Primario
-Differenziale | Primario
+Completa | Primaria
+Differenziale | Primaria
 Log |  Secondario
 Completo solo copia |  Secondario
 

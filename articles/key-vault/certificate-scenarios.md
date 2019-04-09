@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8b56151ae56de44cbab3003743ce6df33ec89612
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58075630"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275896"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
@@ -82,7 +82,7 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
       -   Informazioni relative al rinnovo, ad esempio 90 giorni prima della scadenza  
 
   - Il processo di creazione di un certificato è in genere asincrono e prevede il polling dell'insieme di credenziali delle chiavi per lo stato dell'operazione di creazione del certificato.  
-[Operazione di recupero del certificato](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+[Ottieni operazione relativa al certificato](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Stato: operazione completata, non riuscita con informazioni sull'errore o annullata  
       -   A causa del ritardo nella creazione può essere avviata un'operazione di annullamento. L'annullamento può essere applicato o meno.  
 
@@ -101,6 +101,17 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
 -   Se non vengono eseguite altre operazioni, Key Vault per prima cosa invierà un avviso di scadenza. 
 
 -   L'utente, inoltre, può modificare i criteri, che sono funzionali al momento dell'importazione ma contengono impostazioni predefinite nel caso in cui non vengano specificate informazioni durante l'importazione, Esempio: se non sono presenti informazioni sull'autorità di certificazione.  
+
+### <a name="formats-of-import-we-support"></a>Formati di importazione sono supportati
+Sono supportati i seguenti tipi di importazione per il formato di file con estensione PEM. Un singolo certificato con codificata PEM insieme a un PKCS #8 codificato, chiave non crittografata che presenta le seguenti
+
+---BEGIN CERTIFICATE------END CERTIFICATE--
+
+---BEGIN PRIVATE KEY------END PRIVATE KEY--
+
+Merge certificato Supportiamo formati con estensione PEM in base 2. È possibile unire in un singolo certificato con codificato PKCS #8 oppure P7B file con codifica base64. ---BEGIN CERTIFICATE------END CERTIFICATE--
+
+Attualmente non supportiamo le chiavi CE nel formato PEM.
 
 ## <a name="creating-a-certificate-with-a-ca-not-partnered-with-key-vault"></a>Creazione di un certificato con una CA non partner di Key Vault  
  Questo metodo consente di usare CA diverse dai provider partner di Key Vault, in modo che l'organizzazione possa avvalersi di una CA di propria scelta.  

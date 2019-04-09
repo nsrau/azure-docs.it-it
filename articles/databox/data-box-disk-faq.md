@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 02/26/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 97794675f3d489e1154d9c327c18d40708dd5b53
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57877854"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892331"
 ---
 # <a name="what-is-azure-data-box-disk"></a>Che cos'è Azure Data Box Disk?
 
@@ -42,7 +42,7 @@ I dischi vengono crittografati tramite Crittografia unità BitLocker Microsoft e
 R. Quando si ha l'esigenza di trasferire 40 TB di dati (o meno) in Azure, l'uso dei dischi di Data Box può risultare vantaggioso.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>D: Qual è il prezzo dei dischi di Data Box?
-R. Per informazioni sul prezzo dei dischi di Data Box Disk, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
+R. Per informazioni sul prezzo dei dischi di Data Box Disk, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>D: Come è possibile ottenere i dischi di Data Box? 
 R.  Per ottenere gli Azure Data Box Disk, accedere al portale di Azure e creare un ordine di Data Box per i dischi. Fornire le informazioni di contatto e i dettagli per le notifiche. Quando si effettua un ordine, in base alla disponibilità, i dischi vengono spediti all'utente entro 10 giorni.
@@ -170,6 +170,6 @@ R. Sì. I dati sono stati caricati in Azure, ma se non viene visualizzato nessun
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere i [requisiti di sistema per Data Box](data-box-disk-system-requirements.md).
-- Comprendere i [limiti di Data Box](data-box-disk-limits.md).
+- Vedere i [requisiti di sistema di Data Box Disk](data-box-disk-system-requirements.md).
+- Comprendere i [limiti di Data Box Disk](data-box-disk-limits.md).
 - Distribuire rapidamente [Azure Data Box Disk](data-box-disk-quickstart-portal.md) nel portale di Azure.

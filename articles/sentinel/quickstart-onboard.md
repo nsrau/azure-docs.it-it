@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/12/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: c055b3d9dec2e2538a7dc7ac0eb707c97313d0d6
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: 5c6dfa359a85b5330e70a2618d59ffab15cf24f4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006599"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276644"
 ---
 # <a name="on-board-azure-sentinel-preview"></a>Anteprima di onboarding Sentinel di Azure
 
@@ -29,7 +29,7 @@ ms.locfileid: "59006599"
 
 In questa Guida introduttiva si apprenderà come caricare Sentinel di Azure. 
 
-Per eseguire l'onboarding di Azure Sentinel, è necessario innanzitutto connettersi alle origini dati. Sentinel Azure viene fornito con una serie di connettori per le soluzioni Microsoft, disponibile all'esterno di finestra e fornendo integrazione in tempo reale, incluse le soluzioni di protezione dalle minacce di Microsoft, Microsoft 365 origini, tra cui Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security e altro ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. È anche possibile usare comune formato di eventi, Syslog o REST-API per connettersi alle origini dati con Azure Sentinel.  
+Per caricare Sentinel di Azure, è necessario innanzitutto abilitare Sentinel di Azure e quindi connettersi alle origini dati. Sentinel Azure viene fornito con una serie di connettori per le soluzioni Microsoft, disponibile all'esterno di finestra e fornendo integrazione in tempo reale, incluse le soluzioni di protezione dalle minacce di Microsoft, Microsoft 365 origini, tra cui Office 365, Azure AD, Azure ATP, e Microsoft Cloud App Security e altro ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. È anche possibile usare comune formato di eventi, Syslog o REST-API per connettersi alle origini dati con Azure Sentinel.  
 
 Dopo la connessione alle origini dati, è possibile scegliere da una raccolta di dashboard creato in modo accurato che informazioni dettagliate basate sui dati della superficie di attacco. Questi dashboard possono essere personalizzati facilmente in base alle esigenze.
 
@@ -40,9 +40,10 @@ Dopo la connessione alle origini dati, è possibile scegliere da una raccolta di
 
 - Area di lavoro di Analitica di log. Informazioni su come [creare un'area di lavoro di Log Analitica](../log-analytics/log-analytics-quick-create-workspace.md)
 
-    - Autorizzazioni di collaboratore al gruppo di risorse associato a Azure Sentinel
-    - Autorizzazioni di collaboratore al gruppo di risorse per abilitare Azure Sentinel 
-
+-  Per abilitare Azure Sentinel, sono necessarie autorizzazioni di collaboratore alla sottoscrizione in cui si trova l'area di lavoro Azure Sentinel. 
+- Per usare Azure Sentinel, sono necessarie autorizzazioni di collaboratore o Visualizzatore sul gruppo di risorse a cui appartiene l'area di lavoro
+- Potrebbero essere necessarie autorizzazioni aggiuntive per la connessione a origini dati specifiche
+ 
 ## Abilitare Azure Sentinel <a name="enable"></a>
 
 1. Passare al portale di Azure.

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860474"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893708"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
@@ -30,7 +30,7 @@ In questa esercitazione, che è la prima parte di una serie, si apprenderà come
 > * Compilare un'immagine del contenitore in Azure
 > * Distribuire un contenitore in Istanze di Azure Container
 
-Le esercitazioni successive illustrano come usare ACR Tasks per automatizzare la compilazione delle immagini dei contenitori in caso di commit del codice e di aggiornamento delle immagini di base. Le funzionalità di Attività del Registro Azure Container consentono anche di eseguire [attività in più passi](container-registry-tasks-multi-step.md) (attualmente in anteprima), usando un file YAML per definire i passaggi per creare, eseguire il push e facoltativamente testare più contenitori.
+Le esercitazioni successive illustrano come usare ACR Tasks per automatizzare la compilazione delle immagini dei contenitori in caso di commit del codice e di aggiornamento delle immagini di base. Le funzionalità di Attività del Registro Azure Container consentono anche di eseguire [attività in più passi](container-registry-tasks-multi-step.md), usando un file YAML per definire i passaggi per creare, eseguire il push e facoltativamente testare più contenitori.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

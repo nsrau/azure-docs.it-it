@@ -1,19 +1,18 @@
 ---
 title: Criteri di autore per le proprietà di matrice sulle risorse di Azure
 description: Si apprenderà a creare i parametri di matrice, creare le espressioni del linguaggio delle regole per l'array, valutare l'alias [*] e per l'aggiunta di elementi in una matrice esistente con regole di definizione dei criteri di Azure.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 62267a4549355212a18654ff9781b2164ba19fa9
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: 38cf6decb8e61768faa9680058f6366e1550ba40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57860269"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274724"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Criteri di autore per le proprietà di matrice sulle risorse di Azure
 

@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 485a386210458d57b87aaa0537b1c58a6adab2c7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58342558"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58616475"
 ---
-1. È possibile trovare le reti WAN virtuali passando a **Tutti i servizi** e cercando "reti WAN virtuali". In alternativa, è possibile cercare "reti WAN virtuali" nella casella di ricerca nella parte superiore del portale di Azure. Fare clic su **Reti WAN virtuali** per aprire la pagina.
-2. Fare clic su **+Aggiungi** per aprire la pagina **Crea rete WAN**.
-3. Nella pagina **Crea rete WAN** compilare i campi seguenti:
+1. Passare alla pagina WAN virtuale. Un modo per passare alla pagina consiste nel visitare **Tutti i servizi** e quindi cercare la rete WAN virtuale.
+1. Fare clic su **+Aggiungi** per aprire la pagina **Crea rete WAN**.
+1. Nella pagina **Crea rete WAN** compilare i campi seguenti:
 
    * **Nome** - Selezionare il nome che si vuole usare per la rete WAN.
    * **Sottoscrizione** - Selezionare la sottoscrizione che si vuole usare.

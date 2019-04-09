@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402899"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801680"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Esercitazione: Creare un tenant nell'anteprima di Desktop virtuale Windows
 
@@ -30,6 +30,8 @@ Ecco i requisiti per configurare il tenant di Desktop virtuale Windows:
 * L'ID tenant di [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per gli utenti di Desktop virtuale Windows.
 * Un account di amministratore globale all'interno del tenant di Azure Active Directory.
    * Questo requisito si applica anche per le organizzazioni CSP (provider di soluzioni cloud) che creano un tenant in Desktop virtuale Windows per i loro clienti. Le organizzazioni CSP devono essere in grado di accedere come amministratore globale di Azure Active Directory dei clienti.
+   * L'account amministratore deve provenire dal tenant di Azure Active Directory in cui si sta provando a creare il tenant di Desktop virtuale Windows. Questa procedura non supporta gli account di Azure Active Directory B2B (guest).
+   * L'account amministratore deve essere un account aziendale o dell'istituto di istruzione.
 * Un ID sottoscrizione di Azure
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Concedere le autorizzazioni di Azure Active Directory all'anteprima del servizio Desktop virtuale Windows
@@ -75,7 +77,7 @@ Prima di tutto, [scaricare e importare il modulo Desktop virtuale Windows](https
 Accedere a Desktop virtuale Windows usando l'account utente TenantCreator con questo cmdlet:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Creare quindi un nuovo tenant di Desktop virtuale Windows associato al tenant di Azure Active Directory:

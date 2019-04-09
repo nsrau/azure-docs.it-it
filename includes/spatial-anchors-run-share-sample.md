@@ -4,14 +4,18 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 563c2bd561328561d30acee6910b70d53ef64c6b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 397a8a9b07b4d7a88d0345399ac4abcc3e738a82
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58305083"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58631168"
 ---
 ## <a name="set-up-your-device"></a>Configurare il dispositivo
+
+In Unity aprire il progetto nella cartella `Unity`.
+
+![Fine Unità](./media/spatial-anchors-unity/unity-window.png)
 
 ### <a name="set-up-an-android-device"></a>Configurare un dispositivo Android
 
@@ -31,7 +35,9 @@ Nel riquadro **Inspector** (Controllo) immettere il valore di `Sharing Anchors S
 
 Salvare la scena selezionando **File** > **Salva**.
 
-## <a name="to-deploy-the-app-to-an-android-device"></a>Per distribuire l'app in un dispositivo Android
+## <a name="deploy-to-your-device"></a>Eseguire la distribuzione nel dispositivo
+
+### <a name="deploy-to-android-device"></a>Distribuzione in un dispositivo Android
 
 Accedere al dispositivo Android e connetterlo al computer con un cavo USB.
 
@@ -41,9 +47,9 @@ In **Scenes In Build** (Scene nella compilazione) inserire un segno di spunta ac
 
 Assicurarsi che l'opzione **Export Project** (Esporta progetto) non sia selezionata. Selezionare **Build And Run** (Compila ed esegui). Verrà richiesto di salvare il file `.apk`. È possibile scegliere qualsiasi nome.
 
-Seguire le istruzioni nell'app. È possibile selezionare **Create & Share Anchor** (Crea e condividi ancoraggio) oppure **Locate Shared Anchor** (Individua ancoraggio condiviso). La prima opzione consente di creare un ancoraggio che successivamente potrà essere individuato nello stesso dispositivo o in un dispositivo diverso. La seconda opzione, se è già stata eseguita l'app, nello stesso dispositivo o in uno diverso, consente di individuare gli ancoraggi condivisi in precedenza.
+Seguire le istruzioni nell'app. È possibile selezionare **Create & Share Anchor** (Crea e condividi ancoraggio) oppure **Locate Shared Anchor** (Individua ancoraggio condiviso). Il primo scenario consente di creare un ancoraggio che successivamente potrà essere individuato nello stesso dispositivo o in un dispositivo diverso. Il secondo scenario, se è già stata eseguita l'app, nello stesso dispositivo o in uno diverso, consente di individuare gli ancoraggi condivisi in precedenza. Dopo aver scelto lo scenario, l'app guiderà l'utente con ulteriori istruzioni sulle operazioni da eseguire. Ad esempio, verrà chiesto di spostarsi all'interno del dispositivo per raccogliere informazioni sull'ambiente. In un secondo momento si inserirà un ancoraggio, si attenderà il caricamento e così via.
 
-## <a name="to-deploy-the-app-to-an-ios-device"></a>Per distribuire l'app in un dispositivo iOS
+### <a name="deploy-to-an-ios-device"></a>Distribuzione in un dispositivo iOS
 
 Aprire **Build Settings** (Impostazioni compilazione) selezionando **File** > **Build Settings** (File -> Impostazioni compilazione).
 
@@ -51,6 +57,6 @@ In **Scenes In Build** (Scene nella compilazione) inserire un segno di spunta ac
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-Seguire le istruzioni nell'app. È possibile selezionare **Create & Share Anchor** (Crea e condividi ancoraggio) oppure **Locate Shared Anchor** (Individua ancoraggio condiviso). La prima opzione consente di creare un ancoraggio che successivamente potrà essere individuato nello stesso dispositivo o in un dispositivo diverso. La seconda opzione, se è già stata eseguita l'app, nello stesso dispositivo o in uno diverso, consente di individuare gli ancoraggi condivisi in precedenza.
+Seguire le istruzioni nell'app. È possibile selezionare **Create & Share Anchor** (Crea e condividi ancoraggio) oppure **Locate Shared Anchor** (Individua ancoraggio condiviso). Il primo scenario consente di creare un ancoraggio che successivamente potrà essere individuato nello stesso dispositivo o in un dispositivo diverso. Il secondo scenario, se è già stata eseguita l'app, nello stesso dispositivo o in uno diverso, consente di individuare gli ancoraggi condivisi in precedenza. Dopo aver scelto lo scenario, l'app guiderà l'utente con ulteriori istruzioni sulle operazioni da eseguire. Ad esempio, verrà chiesto di spostarsi all'interno del dispositivo per raccogliere informazioni sull'ambiente. In un secondo momento si inserirà un ancoraggio, si attenderà il caricamento e così via.
 
 In Xcode arrestare l'app selezionando **Stop** (Arresta).

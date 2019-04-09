@@ -10,18 +10,18 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577323"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269130"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Come funziona il servizio Azure Machine Learning: Architettura e concetti
 
 In questo articolo vengono descritti l'architettura e i concetti del servizio Azure Machine Learning. Il diagramma seguente illustra i componenti principali del servizio e il flusso di lavoro generale durante il suo uso:
 
-[![Architettura e flusso di lavoro del servizio Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Aarchitettura del servizio Azure Machine Learning e flusso di lavoro](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 Il flusso di lavoro, in genere, segue questa sequenza:
 
@@ -50,7 +50,7 @@ I modelli vengono registrati con l'area di lavoro. Il modello registrato e gli s
 
 * Proprietario
 * Collaboratore
-* Lettore
+* Reader
 
 Per altre informazioni su questi ruoli, vedere la [gestire l'accesso a un'area di lavoro di Azure Machine Learning](how-to-assign-roles.md) articolo.
 
@@ -66,7 +66,7 @@ Quando si crea una nuova area di lavoro, vengono create automaticamente diverse 
 
 Nel seguente diagramma viene illustrata una tassonomia dell'area di lavoro:
 
-[![Tassonomia dell'area di lavoro](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
+[![Wtassonomia orkspace](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.svg)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
 ## <a name="experiment"></a>Esperimento
 
@@ -80,7 +80,7 @@ Nella forma più semplice, un modello è un frammento di codice che accetta un i
 
 Un modello è prodotto da un'esecuzione in Azure Machine Learning. È anche possibile usare un modello il cui training sia stato eseguito all'esterno di Azure Machine Learning. È possibile registrare un modello in un'area di lavoro del servizio Azure Machine Learning.
 
-Il servizio Azure Machine Learning è indipendente dal framework. Quando si crea un modello, è possibile usare un qualsiasi framework di apprendimento automatico comune, ad esempio Scikit-learn, XGBoost, PyTorch, TensorFlow, Chainer e Microsoft Cognitive Toolkit (precedentemente noto come CNTK).
+Il servizio Azure Machine Learning è indipendente dal framework. Quando si crea un modello, è possibile usare qualsiasi framework di apprendimento comuni, come Scikit-learn, XGBoost, PyTorch, TensorFlow e Chainer.
 
 Per un esempio di training di un modello, vedere [esercitazione: Eseguire il training di un modello di classificazione delle immagini con il servizio Azure Machine Learning](tutorial-train-models-with-aml.md).
 
@@ -120,7 +120,7 @@ Una destinazione di calcolo è la risorsa di calcolo usata per eseguire lo scrip
 | Ambiente di calcolo di Azure Machine Learning | ✓ | &nbsp; |
 | Una VM Linux in Azure</br>(ad esempio, Data Science Virtual Machine) | ✓ | &nbsp; |
 | Azure Databricks | ✓ | &nbsp; |
-| Azure Data Lake Analytics | ✓ | &nbsp; |
+| Azure Data Lake Analytics. | ✓ | &nbsp; |
 | Apache Spark per HDInsight | ✓ | &nbsp; |
 | Istanze di Azure Container | &nbsp; | ✓ |
 | Servizio Azure Kubernetes | &nbsp; | ✓ |
@@ -173,7 +173,7 @@ Un'attività rappresenta un'operazione a esecuzione prolungata. Le operazioni se
 
 Le attività possono fornire notifiche tramite l'SDK o l'interfaccia utente Web in modo da poter facilmente monitorare l'avanzamento di queste operazioni.
 
-## <a name="image"></a>Immagine
+## <a name="image"></a>Image
 
 Le immagini consentono di distribuire in modo affidabile un modello e tutti i componenti necessari per il suo utilizzo. Un'immagine contiene i seguenti elementi:
 
@@ -185,6 +185,10 @@ Azure Machine Learning può creare due tipi di immagine:
 
 * **Immagine FPGA**: usata durante la distribuzione in un dispositivo FPGA (Field-Programmable Gate Array) in Azure.
 * **Immagine docker**: usata durante la distribuzione in destinazioni di calcolo diverse da FPGA. Alcuni esempi sono le Istanze di Azure Container e il servizio Azure Kubernetes.
+
+Il servizio di Azure Machine Learning fornisce un'immagine di base, che viene usata per impostazione predefinita. È anche possibile fornire le tue immagini personalizzate.
+
+Per altre informazioni, vedere la sezione relativa alla configurazione e alla registrazione di un'immagine nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#configureimage).
 
 Per un esempio di creazione di un'immagine, vedere [Distribuire un modello di classificazione delle immagini in Istanze di Azure Container](tutorial-deploy-models-with-aml.md).
 
@@ -228,7 +232,7 @@ Quando si sviluppa la soluzione, usare Python SDK di Azure Machine Learning nell
 
 Per iniziare con il servizio Azure Machine Learning, vedere:
 
-* [Informazioni sul servizio Azure Machine Learning.](overview-what-is-azure-ml.md)
+* [Informazioni sul servizio Azure Machine Learning](overview-what-is-azure-ml.md)
 * [Creare un'area di lavoro del servizio di Azure Machine Learning](setup-create-workspace.md)
 * [Esercitazione: Eseguire il training di un modello](tutorial-train-models-with-aml.md)
 * [Creare un'area di lavoro con un modello di Resource Manager](how-to-create-workspace-template.md)

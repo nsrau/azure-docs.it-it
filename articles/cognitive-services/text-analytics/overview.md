@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533239"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904764"
 ---
 # <a name="what-is-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -77,7 +77,7 @@ Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elabor
 | Dimensioni massime dell'intera richiesta | 1 MB |
 | Numero massimo di documenti in una richiesta | 1.000 documenti |
 
-Il limite di velocità è 100 chiamate al minuto. Si noti che è possibile inviare una grande quantità di documenti in una singola chiamata (fino a 1.000 documenti).
+Il limite di velocità è 100 richieste al seconda e 1000 richieste al minuto. È possibile inviare una grande quantità di documenti in una singola chiamata (fino a 1000 documenti).
 
 ## <a name="unicode-encoding"></a>Codifica Unicode
 

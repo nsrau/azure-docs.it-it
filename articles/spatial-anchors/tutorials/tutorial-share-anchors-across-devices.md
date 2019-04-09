@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Condivisione tra sessioni e dispositivi con Ancoraggi nello spazio di Azure | Microsoft Docs
+title: Esercitazione - Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi | Microsoft Docs
 description: Questa esercitazione illustra come condividere gli identificatori di Ancoraggi nello spazio di Azure tra dispositivi Android/iOS in ​​Unity con un servizio back-end.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ff9868dd7347812eb6ef566288ec364bc89b6955
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57901305"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629315"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>Esercitazione: condivisione tra sessioni e dispositivi con Ancoraggi nello spazio di Azure
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>Esercitazione: Condividere Ancoraggi nello spazio di Azure tra sessioni e dispositivi
 
-Questa esercitazione illustra come usare [Ancoraggi nello spazio di Azure](../overview.md) per eseguire queste operazioni:
-
-1. Creare ancoraggi in una sessione e quindi individuarli in un'altra sessione nello stesso dispositivo o in un altro, ad esempio in un giorno diverso.
-2. Creare ancoraggi che possono essere individuati da più dispositivi nello stesso luogo e nello stesso momento.
+Questa esercitazione illustra come usare [Ancoraggi nello spazio di Azure](../overview.md) per creare ancoraggi durante una sessione e quindi individuarli nello stesso dispositivo o in un differente. Questi stessi ancoraggi potrebbero anche essere individuati da più dispositivi nello stesso luogo e nello stesso momento.
 
 ![Persistenza](./media/persistence.gif)
 
@@ -51,10 +48,6 @@ Aprire Visual Studio e il progetto nella cartella `Sharing\SharingServiceSample`
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="open-the-sample-project-in-unity"></a>Aprire il progetto di esempio in Unity
-
-[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
-
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
@@ -63,7 +56,7 @@ Aprire Visual Studio e il progetto nella cartella `Sharing\SharingServiceSample`
 
 In questa esercitazione è stata distribuita un'app Web ASP.NET Core in Azure, quindi è stata configurata e distribuita un'app Unity. Sono stati creati ancoraggi nello spazio con l'app, successivamente condivisi con altri dispositivi tramite l'app Web ASP.NET Core.
 
-Per altre informazioni su come ottimizzare l'app Web ASP.NET Core in modo che usi Azure Cosmos DB per archiviare gli ancoraggi nello spazio condivisi, continuare con l'esercitazione successiva.
+Per altre informazioni su come migliorare l'app Web ASP.NET Core in modo che usi Azure Cosmos DB per archiviare gli identificatori di Ancoraggio nello spazio condivisi, continuare con l'esercitazione successiva. Azure Cosmos DB offre persistenza all'app Web ASP.NET Core. In questo modo l'app può creare un ancoraggio oggi, tornare dopo alcuni giorni ed essere ancora in grado di individuarlo usando l'identificatore di ancoraggio archiviato nell'app Web.
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Usare Cosmos DB per archiviare gli ancoraggi](./tutorial-use-cosmos-db-to-store-anchors.md)

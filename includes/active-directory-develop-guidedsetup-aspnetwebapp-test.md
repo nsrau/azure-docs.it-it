@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 4c4870dc0f5a423288e6cb561b985501414e8525
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203633"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58919260"
 ---
 ## <a name="test-your-code"></a>Testare il codice
 
@@ -27,9 +27,9 @@ Per eseguire test dell'applicazione in Visual Studio, premere **F5** per eseguir
 
 Quando si è pronti per eseguire il test, usare un account Microsoft Azure Active Directory (Azure AD) (aziendale o dell'istituto di istruzione) o un account Microsoft personale (<span>live.</span>com oppure <span>outlook.</span>com) per accedere.
 
-![Accedi con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
+![Accedere con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
-![Accedere all'account Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
+![Effettuare l'accesso con l'account Microsoft.](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Visualizzare i risultati dell'applicazione
 
@@ -45,8 +45,8 @@ Dopo il passaggio alla visualizzazione dei controller, dovrebbe essere visualizz
 
 |Proprietà |Valore |DESCRIZIONE |
 |---|---|---|
-|**Nome** |Nome e cognome dell'utente | Nome e cognome dell'utente.
-|**Nome utente** |utente<span>@domain.com</span> | Nome utente usato per identificare l'utente.
+|**NOME** |Nome e cognome dell'utente | Nome e cognome dell'utente.
+|**Username** |utente<span>@domain.com</span> | Nome utente usato per identificare l'utente.
 |**Oggetto** |Oggetto |Stringa che identifica in modo univoco l'utente sul Web.|
 |**ID tenant** |Guid | **GUID** che rappresenta in modo univoco l'organizzazione di Azure AD dell'utente.|
 
@@ -82,12 +82,12 @@ Per limitare l'accesso degli utenti all'applicazione, sono disponibili diverse o
 
 #### <a name="option-1-restrict-users-from-only-one-organizations-active-directory-instance-to-sign-in-to-your-application-single-tenant"></a>Opzione 1: Limitare l'accesso all'applicazione solo agli utenti di una specifica istanza di Active Directory dell'organizzazione (tenant singolo)
 
-Questa opzione è uno scenario comune per *applicazioni LOB*: Se si desidera che l'applicazione accetti accessi solo da account appartenenti a una specifica istanza di Azure Active Directory (inclusi *gli account guest* di quell'istanza) eseguire le operazioni seguenti:
+Questa opzione è uno scenario comune per le *applicazioni line-of-business*: Se si vuole che l'applicazione accetti gli accessi solo da account appartenenti a una specifica istanza di Azure Active Directory (inclusi gli *account guest* dell'istanza), procedere come segue:
 
 1. Nel file **web.config**, modificare il valore del parametro `Tenant` da `Common` con il nome del tenant dell'organizzazione, ad esempio `contoso.onmicrosoft.com`.
 2. Nella [classe OWIN Startup](#configure-the-authentication-pipeline) impostare l'argomento `ValidateIssuer` su `true`.
 
-#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opzione 2: Limitare l'accesso all'applicazione agli utenti in un elenco specifico di organizzazioni
+#### <a name="option-2-restrict-access-to-your-application-to-users-in-a-specific-list-of-organizations"></a>Opzione 2: limitare l'accesso all'applicazione ai soli utenti contenuti in un elenco specifico di organizzazioni
 
 È possibile limitare l'accesso ai soli account utente inclusi in un'organizzazione di Azure AD che fa parte dell'elenco di organizzazioni consentite:
 1. Nella [classe OWIN Startup](#configure-the-authentication-pipeline) impostare l'argomento `ValidateIssuer` su `true`.
@@ -95,6 +95,6 @@ Questa opzione è uno scenario comune per *applicazioni LOB*: Se si desidera che
 
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opzione 3: Usare un metodo personalizzato per convalidare le autorità di certificazione
 
-È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere [TokenValidationParameters class](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx) (Classe TokenValidationParameters) su MSDN.
+È possibile implementare un metodo personalizzato per convalidare le autorità di certificazione usando il parametro **IssuerValidator**. Per altre informazioni su come usare questo parametro, vedere la [classe TokenValidationParameters class](/previous-versions/visualstudio/dn464192(v=vs.114)).
 
 [!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

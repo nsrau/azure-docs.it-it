@@ -4,16 +4,16 @@ description: Informazioni su come usare i blocchi delle risorse in Azure Bluepri
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855760"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629224"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Proteggere le nuove risorse con blocchi delle risorse in Azure Blueprints
 
@@ -40,7 +40,7 @@ Creare prima una nuova definizione di progetto.
 
 1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
 
-1. Trovare l'esempio di progetto **Blank sample**(Esempio vuoto) nella parte superiore della pagina e selezionare **Usa questo esempio**.
+1. Trovare l'esempio di progetto **Blank Blueprint** (Progetto vuoto) nella parte superiore della pagina e selezionare **Start with blank blueprint** (Inizia con progetto vuoto).
 
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
@@ -81,7 +81,7 @@ Creare prima una nuova definizione di progetto.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -182,13 +182,15 @@ L'assegnazione ha creato il gruppo di risorse _TestingBPLocks_ e l'account di ar
 
    L'assegnazione del progetto ha creato un'[assegnazione di rifiuto](../../../role-based-access-control/deny-assignments.md) nel gruppo di risorse distribuito per rafforzare la modalità di blocco del progetto _Sola lettura_. L'assegnazione di rifiuto impedisce agli utenti che dispongono di diritti appropriati nella scheda _Assegnazioni di ruolo_ di eseguire azioni specifiche. L'assegnazione di rifiuto si applica a _tutte le entità_.
 
+   Per informazioni su come escludere un'entità di sicurezza da un'assegnazione di rifiuto, vedere l'articolo sul [blocco risorse di Azure Blueprints](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
+
 1. Selezionare l'assegnazione di rifiuto, quindi selezionare la pagina **Autorizzazioni negate** a sinistra.
 
    L'assegnazione di rifiuto impedisce tutte le operazioni con la configurazione **\*** e **Action**, ma consente l'accesso in lettura escludendo **\*/read** tramite **NotActions**.
 
 1. Nella struttura di navigazione del portale di Azure selezionare **TestingBPLocks - Controllo di accesso (IAM)**. Selezionare quindi la pagina **Panoramica** a sinistra e quindi il pulsante **Elimina gruppo di risorse**. Immettere il nome _TestingBPLocks_ per confermare l'eliminazione e selezionare **Elimina** in fondo al riquadro.
 
-   Nel portale viene visualizzata la notifica **L'eliminazione del gruppo di risorse TestingBPLocks non è riuscita**. Questo errore si verifica perché, sebbene l'account abbia l'autorizzazione necessaria per eliminare il gruppo di risorse, l'accesso è negato dall'assegnazione del progetto. È stata infatti selezionata la modalità di blocco del progetto _Sola lettura_durante l'assegnazione del progetto. Il blocco del progetto impedisce a un account di eliminare la risorsa, anche se dispone dell'autorizzazione _Proprietario_. Per altre informazioni, vedere [Blueprints resource locking](../concepts/resource-locking.md) (Blocco delle risorse del progetto).
+   Nel portale viene visualizzata la notifica **L'eliminazione del gruppo di risorse TestingBPLocks non è riuscita**. Questo errore si verifica perché, sebbene l'account abbia l'autorizzazione necessaria per eliminare il gruppo di risorse, l'accesso è negato dall'assegnazione del progetto. È stata infatti selezionata la modalità di blocco del progetto _Sola lettura_ durante l'assegnazione del progetto. Il blocco del progetto impedisce a un account di eliminare la risorsa, anche se dispone dell'autorizzazione _Proprietario_. Per altre informazioni, vedere [Blueprints resource locking](../concepts/resource-locking.md) (Blocco delle risorse del progetto).
 
 Questi passaggi mostrano che le risorse distribuite sono ora protette con blocchi del progetto che ne impediscono l'eliminazione indesiderata, persino da un account dotato dell'autorizzazione appropriata.
 
@@ -221,9 +223,9 @@ Al termine dell'esercitazione, eliminare le risorse seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md)
-- Comprendere come usare i [parametri statici e dinamici](../concepts/parameters.md)
-- Scoprire come usare in modo ottimale il [blocco delle risorse del progetto](../concepts/resource-locking.md)
-- Imparare a personalizzare l'[ordine in sequenza del progetto](../concepts/sequencing-order.md)
-- Informazioni su come [aggiornare le assegnazioni esistenti](../how-to/update-existing-assignments.md)
-- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md)
+- Informazioni sul [ciclo di vita del progetto](../concepts/lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](../concepts/parameters.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](../concepts/resource-locking.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](../concepts/sequencing-order.md).
+- Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
+- Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

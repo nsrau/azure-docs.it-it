@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: 9fad5874a0e595ee2c275f06504665ce143266f6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
-ms.translationtype: MT
+ms.openlocfilehash: cb6826be8f6a9a8caf54a23b0dbc5f3dda7830d6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759577"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273975"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi all'API servizi multimediali di v3 - .NET
 
@@ -200,10 +200,6 @@ namespace ConsoleApp1
  
         private static async Task<ServiceClientCredentials> GetCredentialsAsync(ConfigWrapper config)
         {
-            // Use UserTokenProvider.LoginWithPromptAsync or UserTokenProvider.LoginSilentAsync to get a token using user authentication
-            //// ActiveDirectoryClientSettings.UsePromptOnly
-            //// UserTokenProvider.LoginWithPromptAsync
-
             // Use ApplicationTokenProvider.LoginSilentWithCertificateAsync or UserTokenProvider.LoginSilentAsync to get a token using service principal with certificate
             //// ClientAssertionCertificate
             //// ApplicationTokenProvider.LoginSilentWithCertificateAsync
@@ -229,18 +225,18 @@ namespace ConsoleApp1
 
 ## <a name="see-also"></a>Vedere anche 
 
-- [Esercitazione: Caricare, codificare ed eseguire lo streaming dei video - .NET](stream-files-tutorial-with-api.md) 
-- [Esercitazione: Eseguire lo streaming live con Servizi multimediali v3 - .NET](stream-live-tutorial-with-api.md)
-- [Esercitazione: Analizzare i video con Servizi multimediali v3 - .NET](analyze-videos-tutorial-with-api.md)
+- [Esercitazione: Caricare, codificare e trasmettere in streaming video - .NET](stream-files-tutorial-with-api.md) 
+- [Esercitazione: Stream live con servizi multimediali v3 - .NET](stream-live-tutorial-with-api.md)
+- [Esercitazione: Analizzare i video con servizi multimediali v3 - .NET](analyze-videos-tutorial-with-api.md)
 - [Creare un input del processo da un file locale - .NET](job-input-from-local-file-how-to.md)
 - [Creare un input del processo da un URL HTTPS - .NET](job-input-from-http-how-to.md)
-- [Codificare con una trasformazione personalizzata - .NET](customize-encoder-presets-how-to.md)
+- [Codificare contenuti con una trasformazione personalizzata - .NET](customize-encoder-presets-how-to.md)
 - [Usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi - .NET](protect-with-aes128.md)
-- [Usare il servizio di crittografia dinamica e di distribuzione di licenze DRM - .NET](protect-with-drm.md)
+- [Usare DRM dinamico crittografia e la licenza distribuzione servizio - .NET](protect-with-drm.md)
 - [Ottenere una chiave di firma dai criteri esistenti - .NET](get-content-key-policy-dotnet-howto.md)
-- [Creare filtri con Servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Esempi di video on-demand avanzato di Funzioni di Azure v2 con Servizi multimediali v3](https://aka.ms/ams3functions)
+- [Creare filtri con servizi multimediali - .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Advanced video on demand esempi di funzioni di Azure v2 con servizi multimediali v3](https://aka.ms/ams3functions)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
+[Informazioni di riferimento .NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)

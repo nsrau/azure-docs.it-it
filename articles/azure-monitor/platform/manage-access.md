@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577247"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276412"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Gestire i dati di log e le aree di lavoro in Monitoraggio di Azure
 Monitoraggio di Azure archivia i dati di log in un'area di lavoro di Log Analytics, che in pratica è un contenitore che include dati e informazioni di configurazione. Per gestire l'accesso ai dati di log, vengono eseguite diverse attività amministrative relative alle aree di lavoro. Nell'organizzazione è possibile usare più aree di lavoro per gestire diversi set di dati raccolti dall'intera infrastruttura IT o da una parte di essa.
 
 Questo articolo illustra come gestire l'accesso ai log e per amministrare le aree di lavoro che li contengono. 
 
-## <a name="create-a-workspace"></a>Crea un'area di lavoro
+## <a name="create-a-workspace"></a>Creare un'area di lavoro
 Per creare un'area di lavoro di Log Analitica, è necessario:
 
 1. Disporre di una sottoscrizione di Azure
@@ -35,9 +35,9 @@ Per creare un'area di lavoro di Log Analitica, è necessario:
 
 Vedere gli articoli seguenti per informazioni dettagliate sulla creazione di un'area di lavoro:
 
-- [Creare un'area di lavoro di Log Analitica nel portale di Azure](../learn/quick-create-workspace.md)
-- [Creare un'area di lavoro di Log Analitica con Azure CLI 2.0](../learn/quick-create-workspace-cli.md)
-- [Creare un'area di lavoro di Log Analitica con Azure PowerShell](../learn/quick-create-workspace-posh.md)
+- [Creare un'area di lavoro di Log Analytics nel portale di Azure](../learn/quick-create-workspace.md)
+- [Creare un'area di lavoro di Log Analytics con l'interfaccia della riga di comando di Azure 2.0](../learn/quick-create-workspace-cli.md)
+- [Creare un'area di lavoro di Log Analytics con Azure PowerShell](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinare il numero di aree di lavoro necessarie
 Un'area di lavoro di Log Analytics è una risorsa di Azure e rappresenta un contenitore in cui i dati vengono raccolti, analizzati e presentati in Monitoraggio di Azure. È possibile disporre di più aree di lavoro per ogni sottoscrizione di Azure e avere accesso a più di un'area di lavoro, con la possibilità di eseguire facilmente query su di esse. Questa sezione descrive quando può essere utile creare più aree di lavoro.
@@ -99,10 +99,9 @@ Il _accessmode_ fa riferimento al modo in cui un utente accede a un'area di lavo
 > [!NOTE]
 > I log sono disponibili per le query sugli elementi risorsa solo se si trovassero sia associati correttamente la risorsa in questione. Attualmente, le risorse seguenti presentano limitazioni: 
 > - Computer all'esterno di Azure
-> - Risorsa Service Fabric
+> - Service Fabric
 > - Application Insights
 > - Contenitori
-> - Log personalizzato creato dalle API di raccolta dati HTTP
 >
 > È possibile verificare se i log associate correttamente alle relative risorse eseguendo una query e analizzare i record di interesse. Se l'ID di risorsa corretta è la [_ResourceId](log-standard-properties.md#_resourceid) proprietà, i dati è disponibile per le query sugli elementi risorsa.
 
@@ -214,7 +213,7 @@ I membri del ruolo *Lettore di Log Analytics* possono eseguire queste operazioni
 
 Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 
-| Tipo    | Autorizzazione | DESCRIZIONE |
+| Type    | Autorizzazione | DESCRIZIONE |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse |
 | Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Consente di eseguire query di ricerca log versione 2 |

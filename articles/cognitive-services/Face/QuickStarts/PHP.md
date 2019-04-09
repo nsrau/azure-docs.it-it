@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: c29647e4ee312302b66535ba834edabb42e4cff7
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0c48b85e48153eb70400fc6da4822271f49b7fbe
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550601"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630172"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>Guida introduttiva: Rilevare i visi in un'immagine con l'API REST e PHP
 
@@ -24,7 +24,8 @@ In questa guida introduttiva si userà l'API REST Viso di Azure con PHP per rile
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Una chiave di sottoscrizione API Viso. È possibile ottenere una chiave di sottoscrizione della versione di valutazione gratuita da [Prova Servizi cognitivi](https://azure.microsoft.com/try/cognitive-services/?api=face-api). In alternativa, seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per effettuare la sottoscrizione al servizio API Viso e ottenere la chiave.
-- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download)
+- Un editor di codice, ad esempio [Visual Studio Code](https://code.visualstudio.com/download).
+- Il pacchetto PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2).
 
 ## <a name="initialize-the-html-file"></a>Inizializzare il file HTML
 

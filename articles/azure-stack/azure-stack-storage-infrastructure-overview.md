@@ -15,16 +15,16 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760274"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271289"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Gestire l'infrastruttura di archiviazione per Azure Stack
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 Questo articolo descrive l'integrità e lo stato operativo delle risorse di infrastruttura di archiviazione di Azure Stack. Queste risorse includono le unità di archiviazione e volumi. Le informazioni contenute in questo argomento possono essere estremamente utile quando si tenta di risolvere i problemi vari, ad esempio un'unità non è possibile aggiungere a un pool.
 
@@ -32,7 +32,7 @@ Questo articolo descrive l'integrità e lo stato operativo delle risorse di infr
 
 ### <a name="drives"></a>Unità
 
-Azure Stack con tecnologia software Windows Server definita funzionalità di archiviazione, con una combinazione di spazi di archiviazione è diretta (S2D) e Windows Server Failover Clustering, per fornire un servizio di archiviazione scalabile e resiliente e ad alte prestazioni.
+Azure Stack basato su software di Windows Server, definisce le funzionalità di archiviazione con una combinazione di spazi di archiviazione è diretta (S2D) e Windows Server Failover Clustering per fornire un efficiente, scalabile e il servizio di archiviazione resiliente.
 
 Partner di Azure Stack integrato system offrono numerose variazioni di soluzioni, tra cui una vasta gamma di flessibilità di archiviazione. È attualmente possibile selezionare una combinazione dei tre tipi di unità: NVMe (memoria Non Volatile Express), unità SSD (unità SSD), SATA o SAS HDD (unità disco rigido).
 

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122013"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621669"
 ---
 # <a name="what-is-azure-backup"></a>Informazioni su Backup di Azure
 
@@ -31,7 +31,11 @@ Backup di Azure offre i vantaggi principali seguenti:
 - **Trasferimento dati senza limiti**: Backup di Azure non prevede limiti per la quantità di dati trasferiti in ingresso o in uscita né addebiti per il trasferimento dei dati.
     - I dati in uscita sono i dati trasferiti da un insieme di credenziali di Servizi di ripristino durante un'operazione di ripristino.
     - Se si esegue un backup iniziale offline con il servizio Importazione/esportazione di Azure per importare grandi quantità di dati, viene applicato un costo per i dati in ingresso.  [Altre informazioni](backup-azure-backup-import-export.md) 
-- **Sicurezza dei dati**: grazie alla crittografia dei dati, la trasmissione e l'archiviazione dei dati sono sicure nel cloud pubblico. La passphrase di crittografia viene archiviata in locale e non viene mai trasmessa o archiviata in Azure. Se è necessario ripristinare i dati, solo il cliente è in possesso della passphrase o della chiave di crittografia.
+- **Sicurezza dei dati**:
+    - in locale i dati in movimento vengono crittografati nel computer locale con AES256. I dati trasmessi vengono protetti tramite HTTPS tra l'archiviazione e il backup. Il protocollo iSCSI protegge i dati trasmessi tra il backup e il computer dell'utente. Il tunneling protetto viene usato per proteggere il canale iSCSI.
+    - Per il backup dall'ambiente locale ad Azure, i dati inattivi in Azure vengono crittografati usando la passphrase specificata durante la configurazione del backup. La passphrase o la chiave non viene mai trasmessa né archiviata in Azure. Se è necessario ripristinare i dati, solo il cliente è in possesso della passphrase o della chiave di crittografia.
+    - Per le macchine virtuali di Azure, i dati inattivi vengono crittografati usando la crittografia del servizio di archiviazione. Il servizio Backup crittografa automaticamente i dati prima di archiviarli. Il servizio Archiviazione di Azure decrittografa i dati prima di recuperarli.
+    - Il servizio Backup supporta anche le macchine virtuali di Azure crittografate con Crittografia dischi di Azure. [Altre informazioni](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups)
 - **Backup coerenti con le app**: i backup coerenti con le applicazioni implicano che un punto di ripristino ha tutti i dati necessari per ripristinare la copia di backup. Backup di Azure offre backup coerenti con l'applicazione, che eliminano la necessità di correzioni aggiuntive per ripristinare i dati. Il ripristino di dati coerenti con l'applicazione riduce il tempo di ripristino e consente quindi di tornare rapidamente allo stato operativo.
 - **Conservazione a breve e a lungo termine**: è possibile usare gli insiemi di credenziali di Servizi di ripristino per la conservazione dei dati a breve termine e a lungo termine. Azure non limita la durata della conservazione dei dati in un insieme di credenziali di dei Servizi di ripristino. È possibile conservare i dati per il tempo desiderato. Backup di Azure ha un limite di 9999 punti di ripristino per ogni istanza protetta. [Altre informazioni](backup-introduction-to-azure-backup.md#backup-and-retention) sull'effetto di questo limite sulle esigenze di backup.
 - **Gestione automatica dell'archiviazione**. Gli ambienti ibridi richiedono spesso un'archiviazione eterogenea, in parte in locale e in parte nel cloud. Con Backup di Azure non sono previsti costi per l'uso di dispositivi di archiviazione locale. Backup di Azure alloca e gestisce automaticamente le risorse di archiviazione di backup e usa un modello di pagamento in base al consumo in modo che si pagano solo le risorse di archiviazione effettivamente usate. [Altre informazioni](https://azure.microsoft.com/pricing/details/backup) sui prezzi.
@@ -66,7 +70,7 @@ Backup di Azure consente di eseguire il backup sia di computer locali che di VM 
 
 **Computer** | **Scenario di backup**
 --- | ---
-**Backup locale** |  1) Eseguire l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure nei computer Windows locali per eseguire il backup di singoli file e dello stato del sistema. <br/><br/>2) Eseguire il backup dei computer locali in un server di backup, ad esempio System Center Data Protection Manager (DPM) o un server di Backup di Microsoft Azure, e quindi configurare il server di backup per eseguire il backup in un insieme di credenziali di Servizi di ripristino di Backup di Azure in Azure.
+**Backup locale** |  1) Eseguire l'agente di Servizi di ripristino di Microsoft Azure di Backup di Azure nei computer Windows locali per eseguire il backup di singoli file e dello stato del sistema. <br/><br/>2) Eseguire il backup dei computer locali in un server di backup, ad esempio System Center Data Protection Manager (DPM) o un server di Backup di Microsoft Azure, e quindi configurarlo per eseguire il backup in un insieme di credenziali di Servizi di ripristino di Backup di Azure in Azure.
 **Macchine virtuali di Azure** | 1) Abilitare il backup delle singole macchine virtuali di Azure. Quando si abilita il backup, Backup di Azure installa un'estensione dell'agente di macchine virtuali di Azure in esecuzione nella macchina virtuale. L'agente esegue il backup dell'intera macchina virtuale.<br/><br/> 2) Eseguire l'agente di Servizi di ripristino di Microsoft Azure in una macchina virtuale di Azure. Ciò è utile se si vuole eseguire il backup di singoli file e cartelle nella macchina virtuale.<br/><br/> 3) Eseguire il backup di una macchina virtuale di Azure in un server DPM o in un server di Backup di Microsoft Azure in esecuzione in Azure. Eseguire quindi il backup del server DPM o del server di Backup di Microsoft Azure in un insieme di credenziali con Backup di Azure. 
 
 
@@ -75,7 +79,7 @@ Backup di Azure consente di eseguire il backup sia di computer locali che di VM 
 
 
 
-I vantaggi di eseguire il backup di computer e app in risorse di archiviazione del server DPM o del server di Backup di Microsoft Azure e quindi di eseguire il backup di tali risorse di archiviazione in un insieme di credenziali sono i seguenti:
+La scelta di eseguire il backup di computer e app in risorse di archiviazione del server DPM o del server di Backup di Microsoft Azure e quindi di eseguire il backup di tali risorse in un insieme di credenziali offre i vantaggi seguenti:
 
 - Con il backup in server DPM o server di Backup di Microsoft Azure si ottengono backup con riconoscimento delle app ottimizzati per app comuni come SQL Server, Exchange e SharePoint, oltre a backup di file, cartelle, volumi e dello stato del computer (bare metal, stato del sistema).
 - Per i computer locali non è necessario installare l'agente di Servizi di ripristino di Microsoft Azure in ogni computer di cui eseguire il backup. Ogni computer esegue l'agente protezione del server DPM o del server di Backup di Microsoft Azure, mentre l'agente di Servizi di ripristino di Microsoft Azure viene eseguito solo nei server DPM o server di Backup di Microsoft Azure.

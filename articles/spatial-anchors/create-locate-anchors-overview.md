@@ -1,5 +1,5 @@
 ---
-title: Creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure | Microsoft Docs
+title: Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure | Microsoft Docs
 description: Descrizione approfondita di come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,36 +8,36 @@ ms.author: ramonarguelles
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: e51298fff32bc93b730692ea5769b223b04e1787
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 780c3da24d20418919670f09aa064003e3d96b90
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752775"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629670"
 ---
-# <a name="create-and-locate-anchors-using-azure-spatial-anchors"></a>Creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure
+# <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors"></a>Come creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure
 
 Ancoraggi nello spazio di Azure è un servizio che consente di condividere ancoraggi nel mondo tra dispositivi diversi.
 
-Questo servizio è stato ottimizzato per funzionare al meglio con l'ambiente di sviluppo preferito.
+Supporta vari ambienti di sviluppo differenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni, scegliere l'ambiente di sviluppo:
 
 > [!div class="nextstepaction"]
-> [C# in Unity (per HoloLens, iOS e Android)](concepts/create-locate-anchors-unity.md)
+> [C# in Unity (per HoloLens, iOS e Android)](how-tos/create-locate-anchors-unity.md)
 
 > [!div class="nextstepaction"]
-> [Objective-C in iOS](concepts/create-locate-anchors-objc.md)
+> [Objective-C in iOS](how-tos/create-locate-anchors-objc.md)
 
 > [!div class="nextstepaction"]
-> [Swift in iOS](concepts/create-locate-anchors-swift.md)
+> [Swift in iOS](how-tos/create-locate-anchors-swift.md)
 
 > [!div class="nextstepaction"]
-> [Java in Android](concepts/create-locate-anchors-java.md)
+> [Java in Android](how-tos/create-locate-anchors-java.md)
 
 > [!div class="nextstepaction"]
-> [C++/NDK in Android](concepts/create-locate-anchors-cpp-ndk.md)
+> [C++/NDK in Android](how-tos/create-locate-anchors-cpp-ndk.md)
 
 > [!div class="nextstepaction"]
-> [C++/WinRT in HoloLens](concepts/create-locate-anchors-cpp-winrt.md)
+> [C++/WinRT in HoloLens](how-tos/create-locate-anchors-cpp-winrt.md)

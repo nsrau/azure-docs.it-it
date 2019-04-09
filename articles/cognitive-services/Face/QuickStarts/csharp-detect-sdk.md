@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: quickstart
-ms.date: 02/06/2019
+ms.date: 03/27/2019
 ms.author: pafarley
-ms.openlocfilehash: e9f613b6cd02bd1e85b75db7a3b2c2b4adccce3f
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 57605f9bd1a39435e27a2f2c56c06cf3bfb38605
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372132"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630711"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Guida introduttiva: Rilevare i visi in un'immagine usando .NET SDK Viso
 
@@ -32,11 +32,9 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 1. In Visual Studio creare un nuovo progetto **App console (.NET Framework)** e assegnargli il nome **FaceDetection**. 
 1. Se la soluzione contiene anche altri progetti, selezionare questo come progetto di avvio singolo.
-1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Fare clic sulla scheda **Sfoglia** e selezionare **Includi versione preliminare**, quindi cercare e installare i pacchetti seguenti:
+1. Ottenere i pacchetti NuGet necessari. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Fare clic sulla scheda **Sfoglia** e selezionare **Includi versione preliminare**, quindi cercare e installare il pacchetto seguente:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
-    - Microsoft.Rest.ClientRuntime
-    - Microsoft.Rest.ClientRuntime.Azure
-    - Newtonsoft.Json
+1. Verificare di aver installato le versioni più recenti di tutti i pacchetti NuGet del progetto. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Gestisci pacchetti NuGet**. Scegliere la scheda **Aggiornamenti** e installare le versioni più recenti di qualsiasi pacchetto visualizzato.
 
 ## <a name="add-face-detection-code"></a>Aggiungere codice di rilevamento volto
 
@@ -50,21 +48,21 @@ Aggiungere le istruzioni `using` seguenti all'inizio del file *Program.cs*.
 
 ### <a name="add-essential-fields"></a>Aggiungere campi fondamentali
 
-Aggiungere i campi seguenti alla classe **Program** . Questi dati consentono di specificare come connettersi al servizio Viso e dove ottenere i dati di input. Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `faceEndpoint` in modo che contenga l'identificatore di area corretta. Sarà necessario impostare anche i valori `localImagePath` e/o`remoteImageUrl` sui percorsi che puntano ai file immagine effettivi.
+Aggiungere la classe **Program** con i campi seguenti. Questi dati consentono di specificare come connettersi al servizio Viso e dove ottenere i dati di input. Sarà necessario aggiornare il campo `subscriptionKey` con il valore della chiave di sottoscrizione e potrebbe essere necessario modificare la stringa `faceEndpoint` in modo che contenga l'identificatore di area corretta. Sarà necessario impostare anche i valori `localImagePath` e/o`remoteImageUrl` sui percorsi che puntano ai file immagine effettivi.
 
 Il campo `faceAttributes` è semplicemente una matrice di alcuni tipi di attributi, che specifica quali informazioni recuperare sui visi rilevati.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=9-34)]
 
 ### <a name="create-and-use-the-face-client"></a>Creare e usare il client Viso
 
-Quindi, aggiungere il codice seguente al metodo **Main** della classe **Program**. Viene impostato un client API Viso.
+Quindi, aggiungere il metodo **Main** della classe **Program** con il codice seguente. Viene impostato un client API Viso.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=36-41)]
 
 In più, nel metodo **Main**, aggiungere il codice seguente per usare il client Viso appena creato allo scopo di rilevare i visi in un'immagine remota e locale. I metodi di rilevamento verranno definiti successivamente. 
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-50)]
 
 ### <a name="detect-faces"></a>Rilevare visi
 
@@ -82,9 +80,9 @@ Successivamente, definire il metodo **GetFaceAttributes**. Restituisce una strin
 
 [!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-Infine, definire il metodo **DisplayAttributes** per scrivere i dati dell'attributo viso nell'output della console.
+Infine, definire il metodo **DisplayAttributes** per scrivere i dati dell'attributo viso nell'output della console. È quindi possibile chiudere la classe e lo spazio dei nomi.
 
-[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-125)]
 
 ## <a name="run-the-app"></a>Esecuzione dell'app
 

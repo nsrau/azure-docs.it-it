@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101551"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269351"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configurare SSL end-to-end usando un gateway applicazione con PowerShell
 
@@ -52,20 +52,17 @@ Questo processo di configurazione viene descritto nelle sezioni seguenti.
 
 Questa sezione descrive la creazione di un gruppo di risorse che contiene il gateway applicazione.
 
-
 1. Accedere all'account Azure.
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. Selezionare la sottoscrizione da usare per questo scenario.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. Creare un gruppo di risorse. Se si usa un gruppo di risorse esistente, ignorare questo passaggio.
 
@@ -77,7 +74,6 @@ Questa sezione descrive la creazione di un gruppo di risorse che contiene il gat
 
 Nell'esempio seguente viene creata una rete virtuale e due subnet. Una subnet viene usata per contenere il gateway applicazione. L'altra subnet viene usata per i back-end che ospitano l'applicazione Web.
 
-
 1. Assegnare un intervallo di indirizzi per la subnet da usare per il gateway applicazione.
 
    ```powershell
@@ -86,8 +82,7 @@ Nell'esempio seguente viene creata una rete virtuale e due subnet. Una subnet vi
 
    > [!NOTE]
    > Le subnet configurate per un gateway applicazione devono essere ridimensionate nel modo corretto. Un gateway applicazione può essere configurato per un massimo di 10 istanze. Ogni istanza accetta un indirizzo IP dalla subnet. Le dimensioni eccessivamente piccole di una subnet possono influire negativamente sull'aumento del numero di istanze di un gateway applicazione.
-   > 
-   > 
+   >
 
 2. Assegnare un intervallo di indirizzi da usare per il pool di indirizzi dei back-end.
 
@@ -130,7 +125,6 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. Creare una configurazione di indirizzi IP front-end. Questa impostazione esegue il mapping di un indirizzo IP pubblico o privato al front-end del gateway applicazione. Il passaggio seguente consente di associare l'indirizzo IP pubblico del passaggio precedente alla configurazione IP front-end.
 
    ```powershell
@@ -145,7 +139,6 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
 
    > [!NOTE]
    > Anche un nome di dominio completo (FQDN) è un valore valido da usare al posto di un indirizzo IP per i server back-end. Per abilitarlo, usare l'opzione **-BackendFqdns**. 
-
 
 4. Configurare la porta d indirizzo IP front-end con l'endpoint di indirizzo IP pubblico. Si tratta della porta a cui si connettono gli utenti finali.
 
@@ -177,7 +170,7 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
    > Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nel back-end, la chiave pubblica recuperata potrebbe non corrispondere al sito previsto in cui viene trasferito il traffico. In caso di dubbi, visitare la pagina all'indirizzo https://127.0.0.1/ nei server back-end per determinare il certificato usato per l'associazione SSL *predefinita*. In questa sezione usare la chiave pubblica ottenuta da tale richiesta. Se si usano intestazioni host e la funzionalità Indicazione nome server (SNI) nelle associazioni HTTPS e non si ricevono una risposta e un certificato da una richiesta manuale del browser all'indirizzo https://127.0.0.1/ nei server back-end, è necessario configurare un'associazione SSL predefinita nei server. In caso contrario, i probe hanno esito negativo e il back-end non è consentito.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ Tutti gli elementi di configurazione vengono impostati prima di creare il gatewa
     L'esempio seguente imposta la versione minima del protocollo su **TLSv1_2** e abilita solo **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** e **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>Creare il gateway applicazione

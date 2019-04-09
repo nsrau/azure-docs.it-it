@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903386"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272207"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copiare dati da e verso l'Istanza gestita di database SQL di Azure con Azure Data Factory
 
@@ -62,7 +62,7 @@ Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono sup
 >[!TIP]
 >È possibile che venga visualizzato il codice di errore "UserErrorFailedToConnectToSqlServer" con un messaggio di questo tipo: "Il limite di sessioni per il database è XXX ed è stato raggiunto". Se si verifica questo errore, aggiungere `Pooling=false` alla stringa di connessione e riprovare.
 
-**Esempio 1: Usare l'autenticazione di SQL**
+**Esempio 1: Usa autenticazione di SQL**
 
 ```json
 {
@@ -83,7 +83,7 @@ Per il servizio collegato dell'Istanza gestita di database SQL di Azure sono sup
 }
 ```
 
-**Esempio 2: Usare l'autenticazione di SQL con la password in Azure Key Vault**
+**Esempio 2 Usare l'autenticazione di SQL con password in Azure Key Vault**
 
 ```json
 {
@@ -282,7 +282,7 @@ Per copiare i dati da un'Istanza gestita di database SQL di Azure, impostare il 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
 | type | La proprietà type del sink dell'attività di copia deve essere impostata su **SqlSink**. | Sì. |
-| writeBatchSize |Questa proprietà inserisce dati nella tabella SQL quando la dimensione del buffer raggiunge writeBatchSize.<br/>I valori consentiti sono integer per il numero di righe. |No (valore predefinito: 10.000). |
+| writeBatchSize |Numero di righe nella tabella SQL inserimenti **per ogni batch**.<br/>I valori consentiti sono integer per il numero di righe. |No (valore predefinito: 10.000). |
 | writeBatchTimeout |Questa proprietà specifica il tempo di attesa per l'operazione di inserimento batch da completare prima del timeout.<br/>I valori consentiti sono relativi all'intervallo di tempo. Ad esempio, "00:30:00" corrisponde a 30 minuti. | No. |
 | preCopyScript |Questa proprietà specifica una query SQL per l'attività di copia da eseguire prima di scrivere i dati nell'istanza gestita. Viene richiamata solo una volta per ogni esecuzione della copia. È possibile usare questa proprietà per pulire i dati precaricati. | No. |
 | sqlWriterStoredProcedureName |Questo è il nome della stored procedure che definisce come applicare i dati di origine nella tabella di destinazione. Un esempio di stored procedure consiste nell'eseguire operazioni di upsert o trasformazione usando la propria logica di business. <br/><br/>Questa stored procedure viene *richiamata per batch*. Per un'operazione che viene eseguita una sola volta e non ha nulla a che fare con i dati di origine, ad esempio un'eliminazione o un troncamento, usare la proprietà `preCopyScript`. | No. |
@@ -292,7 +292,7 @@ Per copiare i dati da un'Istanza gestita di database SQL di Azure, impostare il 
 > [!TIP]
 > Quando si copiano dati in un'Istanza gestita di database SQL di Azure, per impostazione predefinita l'attività di copia accoda i dati alla tabella di sink. Per eseguire un'operazione di upsert o altra logica di business, usare la stored procedure in SqlSink. Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
-**Esempio 1: Accodare dati**
+**Esempio 1: Aggiungere i dati**
 
 ```json
 "activities":[
@@ -324,7 +324,7 @@ Per copiare i dati da un'Istanza gestita di database SQL di Azure, impostare il 
 ]
 ```
 
-**Esempio 2: Richiamare una stored procedure durante la copia per un'operazione di upsert**
+**Esempio 2 Richiamare una stored procedure durante la copia per l'operazione upsert**
 
 Per altre informazioni, vedere [Richiamare una stored procedure da un sink SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
@@ -438,9 +438,9 @@ Quando si copiano dati in un'Istanza gestita di database SQL di Azure, è possib
 
 È possibile usare una stored procedure quando non si possono usare i meccanismi di copia predefiniti. In genere viene usata quando è necessario eseguire un'operazione di upsert (aggiornamento + inserimento) o un'altra operazione di elaborazione prima dell'inserimento finale dei dati di origine nella tabella di destinazione. Altre operazioni di elaborazione possono includere attività come l'unione di colonne, la ricerca di valori aggiuntivi e l'inserimento in più tabelle.
 
-L'esempio seguente mostra come usare una stored procedure per eseguire un'operazione di upsert in una tabella dell'istanza gestita. Si presuppone che i dati di input e la tabella "Marketing" del sink abbiano tre colonne: ProfileID, State e Category. Eseguire quindi l'operazione di upsert in base alla colonna ProfileID e applicarla solo per una categoria specifica.
+Nell'esempio seguente viene illustrato come usare una stored procedure per eseguire un'operazione upsert in una tabella del database SQL Server. Si presuppone che i dati di input e la tabella **Marketing** del sink abbiano tre colonne: **ProfileID**, **State** e **Category**. Eseguire l'operazione di upsert nella colonna **ProfileID** e applicarla solo a una categoria specifica.
 
-**Set di dati di output**
+**Set di dati di output:** "tableName" deve essere lo stesso nome parametro di tipo tabella della stored procedure (vedere di seguito script di stored procedure).
 
 ```json
 {
@@ -459,7 +459,7 @@ L'esempio seguente mostra come usare una stored procedure per eseguire un'operaz
 }
 ```
 
-Definire la sezione SqlSink in un'attività di copia nel modo seguente:
+Definire le **sink SQL** sezione nell'attività di copia come indicato di seguito.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ Definire la sezione SqlSink in un'attività di copia nel modo seguente:
 }
 ```
 
-Nel database definire la stored procedure con lo stesso nome di SqlWriterStoredProcedureName, che gestisce i dati di input dell'origine specificata e li unisce nella tabella di output. Il nome del parametro del tipo di tabella nella stored procedure deve essere identico al valore "tableName" definito nel set di dati.
+Nel database definire la stored procedure con lo stesso nome di **SqlWriterStoredProcedureName**, che gestisce i dati di input dell'origine specificata e li unisce nella tabella di output. Il nome del parametro del tipo di tabella nella stored procedure deve essere identico al valore **tableName** definito nel set di dati.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

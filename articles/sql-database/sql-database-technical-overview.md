@@ -12,13 +12,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: e71039c84c79c27a372a378144b21f6f724d08d8
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670836"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273142"
 ---
 # <a name="what-is-azure-sql-database-service"></a>Informazioni sul servizio database SQL di Azure
 
@@ -156,7 +156,7 @@ Al database SQL è stato aggiunto anche il gruppo di funzionalità di [elaborazi
 Il database SQL offre un'ampia gamma di [funzionalità predefinite per sicurezza e conformità](sql-database-security-overview.md) utili per fare in modo che le applicazioni possano soddisfare svariati requisiti di sicurezza e conformità.
 
 > [!IMPORTANT]
-> Database SQL di Azure (tutte le opzioni di distribuzione), ha ottenuto la certificazione per numerosi standard di conformità. Per ulteriori informazioni, vedere il [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [certificazioni di conformità del database SQL](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+> Database SQL di Azure (tutte le opzioni di distribuzione), ha ottenuto la certificazione per numerosi standard di conformità. Per altre informazioni, vedere la [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
 
 ### <a name="advance-threat-protection"></a>Advanced Threat Protection
 
@@ -186,7 +186,7 @@ Il database SQL consente di gestire a livello centralizzato le identità degli u
 
 ### <a name="compliance-certification"></a>Certificazione di conformità
 
-Il database SQL è sottoposto a regolari controlli e ha ottenuto la certificazione per vari standard di conformità. Per ulteriori informazioni, vedere il [Centro protezione di Microsoft Azure](https://azure.microsoft.com/support/trust-center/), dove è possibile trovare l'elenco più recente di [certificazioni di conformità del database SQL](https://azure.microsoft.com/support/trust-center/services/).
+Il database SQL è sottoposto a regolari controlli e ha ottenuto la certificazione per vari standard di conformità. Per altre informazioni, vedere la [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità di Database SQL.
 
 ## <a name="easy-to-use-tools"></a>Strumenti facili da usare
 
@@ -256,9 +256,9 @@ I clienti di database SQL possono beneficiare dei diritti seguenti associati al 
 - Per iniziare, vedere queste guide introduttive:
 
   - [Creare un database SQL nel portale di Azure](sql-database-single-database-get-started.md)  
-  - [Creare un database SQL con l'interfaccia della riga di comando di Azure](sql-database-get-started-cli.md)
+  - [Creare un database SQL con la CLI di Azure](sql-database-get-started-cli.md)
   - [Creare un database SQL usando PowerShell](sql-database-get-started-powershell.md)
 
 - Per un set di esempi dell'interfaccia della riga di comando di Azure e di PowerShell, vedere:
-  - [Esempi dell'interfaccia della riga di comando di Azure per database SQL](sql-database-cli-samples.md)
-  - [Esempi di Azure PowerShell per database SQL](sql-database-powershell-samples.md)
+  - [Esempi di riga di comando di Azure per il Database SQL](sql-database-cli-samples.md)
+  - [Esempi di Azure PowerShell per il Database SQL](sql-database-powershell-samples.md)

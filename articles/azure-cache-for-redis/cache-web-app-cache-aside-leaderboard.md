@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234867"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893742"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
 
@@ -79,7 +79,7 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
     using System.Data.Entity.SqlServer;
     ```
 
-1. Sostituire la definizione della classe `Team` con il frammento di codice seguente che contiene una classe `Team` aggiornata, oltre ad altre classi helper di Entity Framework. Questa esercitazione usa il primo approccio al codice con Entity Framework. Questo approccio consente a Entity Framework di creare il database dal codice. Per altre informazioni sull'approccio Code First per Entity Framework usato in questa esercitazione, vedere [Code First per un nuovo database](https://msdn.microsoft.com/data/jj193542).
+1. Sostituire la definizione della classe `Team` con il frammento di codice seguente che contiene una classe `Team` aggiornata, oltre ad altre classi helper di Entity Framework. Questa esercitazione usa il primo approccio al codice con Entity Framework. Questo approccio consente a Entity Framework di creare il database dal codice. Per altre informazioni sull'approccio Code First per Entity Framework usato in questa esercitazione, vedere [Code First per un nuovo database](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team
@@ -660,21 +660,21 @@ In questa sezione si effettuerà il provisioning di un nuovo database di SQL Azu
 
 1. Usare le impostazioni seguenti per il nuovo database SQL:
 
-   | Impostazione       | Valore consigliato | Descrizione |
+   | Impostazione       | Valore consigliato | DESCRIZIONE |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome database** | *ContosoTeamsDatabase* | Per i nomi di database validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Sottoscrizione** | *Sottoscrizione in uso*  | Selezionare la stessa sottoscrizione che è stata usata per creare la cache e ospitare il servizio app. |
    | **Gruppo di risorse**  | *TestResourceGroup* | Fare clic su **Usa esistente** e usare lo stesso gruppo di risorse in cui sono stati inseriti la cache e il servizio app. |
-   | **Seleziona origine** | **Database vuoto** | Iniziare con un database vuoto. |
+   | **Selezionare l'origine** | **Database vuoto** | Iniziare con un database vuoto. |
 
 1. In **Server** fare clic su **Configura le impostazioni obbligatorie** > **Crea un nuovo server** e specificare le informazioni seguenti, quindi fare clic sul pulsante **Seleziona**:
 
-   | Impostazione       | Valore consigliato | Descrizione |
+   | Impostazione       | Valore consigliato | DESCRIZIONE |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Qualsiasi password valida | La password deve almeno 8 caratteri e contenere caratteri inclusi in tre delle categorie seguenti: caratteri maiuscoli, caratteri minuscoli, numeri e caratteri non alfanumerici. |
-   | **Posizione** | *Stati Uniti orientali* | Selezionare la stessa area geografica in cui sono stati creati la cache e il servizio app. |
+   | **Località** | *Stati Uniti orientali* | Selezionare la stessa area geografica in cui sono stati creati la cache e il servizio app. |
 
 1. Fare clic su **Pin to dashboard** (Aggiungi al dashboard) e quindi **Crea** per creare il nuovo database e il nuovo server.
 

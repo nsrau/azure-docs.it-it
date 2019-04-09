@@ -8,14 +8,14 @@ services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/06/2019
 ms.author: heidist
-ms.openlocfilehash: a59451c659effb55a2e16236b359b7601eb31cd4
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286602"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273414"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Creare e gestire chiavi API per un servizio di ricerca di Azure
 
@@ -53,30 +53,37 @@ Per accedere al servizio di ricerca vengono usati due tipi di chiavi: amministra
 
 ## <a name="create-query-keys"></a>Creare le chiavi di query
 
-Le chiavi di query vengono usate per l'accesso di sola lettura di documenti all'interno di un indice. Limitazione dell'accesso e le operazioni nelle App client è essenziale per salvaguardare le risorse di ricerca nel servizio. Usare sempre una chiave di query anziché una chiave amministratore per le query provenienti da un'app client.
+Le chiavi di query vengono usate per l'accesso di sola lettura ai documenti all'interno di un indice per le operazioni di una raccolta documenti di destinazione. Le query di ricerca, filtro e suggerimenti sono tutte le operazioni che accettano una chiave di query. Qualsiasi operazione di sola lettura che restituisce system le definizioni dei dati o un oggetto, ad esempio uno stato di definizione o l'indicizzatore indice, richiede una chiave amministratore.
+
+Limitazione dell'accesso e le operazioni nelle App client è essenziale per salvaguardare le risorse di ricerca nel servizio. Usare sempre una chiave di query anziché una chiave amministratore per le query provenienti da un'app client.
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Elencare i [servizi di ricerca](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) per la sottoscrizione.
 3. Selezionare il servizio e nella pagina Panoramica fare clic su **le impostazioni** >**chiavi**.
 4. Fare clic su **gestire le chiavi di query**.
-5. Usare la query già generata per il servizio o creare nuove chiavi di query fino a 50. La chiave di query predefinito non è denominata, ma le chiavi di query aggiuntive possono essere denominate per una migliore gestibilità.
+5. Usare la chiave di query già generata per il servizio o creare nuove chiavi di query fino a 50. La chiave di query predefinito non è denominata, ma le chiavi di query aggiuntive possono essere denominate per una migliore gestibilità.
 
    ![Creare o usare una chiave di query](media/search-security-overview/create-query-key.png) 
-
 
 > [!Note]
 > Un esempio di codice che illustrano l'utilizzo di chiavi di query è reperibile nel [Query su un indice di ricerca di Azure in C# ](search-query-dotnet.md).
 
+<a name="regenerate-admin-keys"></a>
+
 ## <a name="regenerate-admin-keys"></a>Riscrivere una chiave amministratore
 
-Due chiavi amministratore vengono create per ogni servizio in modo che è possibile ruotare una chiave primaria, usando la chiave secondaria per l'accesso continuo.
-
-Riscrivendo contemporaneamente sia la chiave primaria che quella secondaria, qualsiasi applicazione che usa due chiavi per l'accesso alle operazioni del servizio non sarà in grado di accedere al servizio.
+Due chiavi amministratore vengono create per ogni servizio in modo che è possibile ruotare una chiave primaria, usando la chiave secondaria per la continuità aziendale.
 
 1. Nella pagina **Impostazioni** >**Chiavi**, copiare la chiave secondaria.
 2. Per tutte le applicazioni, aggiornare le impostazioni relative alle chiavi API per usare la chiave secondaria.
 3. Riscrivere la chiave primaria.
 4. Aggiornare tutte le applicazioni affinché usino la nuova chiave primaria.
+
+Se inavvertitamente si rigenerano entrambe le chiavi nello stesso momento, tutte le richieste client con tali chiavi avrà esito negativo con HTTP 403-accesso negato. Tuttavia, il contenuto non viene eliminato e non sono bloccato in modo permanente. 
+
+È comunque possibile accedere al servizio tramite il portale o il livello di gestione ([API REST](https://docs.microsoft.com/rest/api/searchmanagement/), [PowerShell](https://docs.microsoft.com/azure/search/search-manage-powershell), oppure Azure Resource Manager). Funzioni di gestione sono operativo tramite un ID sottoscrizione, non una chiave api del servizio- e pertanto ancora disponibili anche se non sono le chiavi api. 
+
+Dopo aver creato nuove chiavi tramite un livello di portale o la gestione, viene ripristinato l'accesso al contenuto (indici, indicizzatori, origini dati e mappe sinonimiche) dopo aver le nuove chiavi e fornire le chiavi nelle richieste.
 
 ## <a name="secure-api-keys"></a>Proteggere le chiavi API
 La sicurezza delle chiavi viene garantita limitando l'accesso tramite il portale o le interfacce di Resource Manager (PowerShell o interfaccia della riga di comando). Come indicato, gli amministratori delle sottoscrizioni possono visualizzare e rigenerare tutte le chiavi API. Per precauzione, esaminare le assegnazioni di ruolo per sapere chi ha accesso alle chiavi amministratore.
@@ -90,6 +97,6 @@ I membri dei ruoli seguenti possono visualizzare e ricreare una chiave: propriet
 
 ## <a name="see-also"></a>Vedere anche 
 
-+ [Controllo degli accessi in base al ruolo in Ricerca di Azure](search-security-rbac.md)
++ [Controllo degli accessi in base al ruolo in ricerca di Azure](search-security-rbac.md)
 + [Gestire usando PowerShell](search-manage-powershell.md) 
 + [Articolo su prestazioni e ottimizzazione](search-performance-optimization.md)

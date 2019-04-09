@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: c1165fcebf8382d30b1be86f102da78ef0a4ac9a
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57244367"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257162"
 ---
 # <a name="set-alerts-in-application-insights"></a>Impostare gli avvisi in Application Insights
 [Application Insights di Azure][start] può informare di eventuali cambiamenti nelle prestazioni e nelle metriche di utilizzo dell'app Web in uso. 
@@ -45,7 +45,7 @@ Aprire la scheda regole di avviso e quindi usare il pulsante Aggiungi.
 * Impostare un [indirizzo di webhook](../../azure-monitor/platform/alerts-webhooks.md) se è stata impostata un'app Web che risponde agli avvisi. L'app viene chiamata sia quando l'avviso viene attivato sia quando viene risolto. Si noti però che attualmente i parametri di query non vengono passati come proprietà webhook.
 * È possibile disabilitare o abilitare l'avviso: usando i pulsanti nella parte superiore.
 
-*Il pulsante Aggiungi avviso non è visibile.*
+*Non è presente il pulsante Aggiungi avviso.*
 
 * Si sta usando un account aziendale? È possibile impostare gli avvisi se si ha l'accesso come proprietario o come collaboratore a questa risorsa dell'applicazione. Esaminare la scheda di controllo di accesso. [Informazioni sul controllo di accesso][roles].
 
@@ -133,7 +133,7 @@ In questa sezione verranno esaminate come impostare un avviso di eccezione basat
 
     ![In Alert logic scegliere tra le opzioni fornite per in base e una condizione, quindi digitare una soglia](./media/alerts/6alertlogic.png)
 
-8. In "Evaluated basata", impostare il periodo e frequenza. Il periodo di qui deve corrispondere al valore che si inseriscono per periodo nella query precedente. Quindi fare clic su ****.
+8. In "Evaluated basata", impostare il periodo e frequenza. Il periodo di qui deve corrispondere al valore che si inseriscono per periodo nella query precedente. Quindi fare clic **su**.
 
     ![Impostare periodo e frequenza nella parte inferiore e quindi fare clic su Fine](./media/alerts/7evaluate.png)
 
@@ -143,7 +143,7 @@ In questa sezione verranno esaminate come impostare un avviso di eccezione basat
 
 10. Infine aggiungere i dettagli dell'avviso (nome della regola, la descrizione, livello di gravità avviso). Al termine, fare clic su **Crea regola di avviso** nella parte inferiore.
 
-    ![In dettaglio avviso digitare il nome della regola di avviso, scrivere una descrizione e scegliere un livello di gravità ](./media/alerts/9alertdetails.png)
+    ![In dettaglio avviso digitare il nome della regola di avviso, scrivere una descrizione e scegliere un livello di gravità](./media/alerts/9alertdetails.png)
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>Chi riceve le notifiche di avviso (classiche)?
 
@@ -160,7 +160,7 @@ Usare la nuova esperienza di avviso/avvisi quasi in tempo reale se si desidera i
 
 ## <a name="automation"></a>Automazione
 * [Usare PowerShell per automatizzare la configurazione degli avvisi](../../azure-monitor/app/powershell-alerts.md)
-* [Usare webhook per automatizzare la risposta agli avvisi](../../azure-monitor/platform/alerts-webhooks.md)
+* [Usare i webhook per automatizzare la risposta agli avvisi](../../azure-monitor/platform/alerts-webhooks.md)
 
 ## <a name="see-also"></a>Vedere anche 
 * [Test Web di disponibilità](../../azure-monitor/app/monitor-web-app-availability.md)

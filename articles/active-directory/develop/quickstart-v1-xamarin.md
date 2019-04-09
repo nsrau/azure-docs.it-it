@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e25848359de91d67925f49901c6c170978ea592
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b0a20c2e6524b0c466f5c45578e0ba8eaad351ea
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078704"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881886"
 ---
 # <a name="quickstart-build-a-xamarin-app-that-integrates-microsoft-sign-in"></a>Guida introduttiva: Creare un'app Xamarin che si integra con il sistema di accesso Microsoft
 
@@ -72,25 +72,25 @@ Ora che si dispone di un'app in Azure AD, è possibile installare ADAL e scriver
 
 1. Aggiungere ADAL al progetto DirectorySearcher usando la console di Gestione pacchetti.
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirectorySearcherLib
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Android
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Desktop
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-iOS
-    `
+    ```
 
-    `
+    ```
     PM> Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -ProjectName DirSearchClient-Universal
-    `
+    ```
 
     Si noti che a ogni progetto vengono aggiunti due riferimenti alla libreria, ovvero la parte relativa alla libreria di classi portabile di ADAL e una parte specifica della piattaforma.
 2. Nel progetto DirectorySearcherLib aprire DirectorySearcher.cs.
@@ -130,7 +130,7 @@ Quasi tutta la logica di autenticazione dell'app si basa su `DirectorySearcher.S
     ...
     ```
 
-    `AcquireTokenAsync(...)` tenta prima di restituire un token per la risorsa necessaria, in questo caso, l'API Graph, senza chiedere all'utente di immettere le credenziali. A questo scopo vengono usati i token memorizzati nella cache o vengono aggiornati i token precedenti. Se necessario, viene visualizzata la pagina di accesso di Azure AD prima di acquisire il token richiesto.
+    `AcquireTokenAsync(...)` prova prima a restituire un token per la risorsa necessaria, in questo caso, l'API Graph, senza chiedere all'utente di immettere le credenziali. A questo scopo vengono usati i token memorizzati nella cache o vengono aggiornati i token precedenti. Se necessario, viene visualizzata la pagina di accesso di Azure AD prima di acquisire il token richiesto.
 4. Associare il token di accesso alla richiesta dell'API Graph nell'intestazione **Authorization**:
 
     ```csharp

@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
-ms.openlocfilehash: aa534ca4fb29237de6377c7225a11f4758f39c55
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 57d7fecfa9bf2b27a54387072b080ed95f4e87e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588382"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881223"
 ---
 # <a name="tutorial-automate-handling-emails-and-attachments-with-azure-logic-apps"></a>Esercitazione: automatizzare la gestione di messaggi di posta elettronica e allegati con App per la logica di Azure
 
@@ -60,13 +60,13 @@ Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure<
 
    | Impostazione | Valore | DESCRIZIONE | 
    |---------|-------|-------------| 
-   | **Nome** | attachmentstorageacct | Nome per l'account di archiviazione | 
+   | **NOME** | attachmentstorageacct | Nome per l'account di archiviazione | 
    | **Modello di distribuzione** | Resource Manager | [Modello di distribuzione](../azure-resource-manager/resource-manager-deployment-model.md) per la gestione della distribuzione delle risorse | 
    | **Tipo di account** | Scopo generico | [Tipo di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts) | 
-   | **Posizione** | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di archiviazione | 
+   | **Località** | Stati Uniti occidentali | Area in cui archiviare le informazioni sull'account di archiviazione | 
    | **Replica** | Archiviazione con ridondanza locale (LRS) | Questa impostazione specifica come vengono copiati, archiviati, gestiti e sincronizzati i dati. Vedere [Archiviazione con ridondanza locale (LRS): ridondanza dei dati a basso costo per Archiviazione di Azure](../storage/common/storage-redundancy-lrs.md). | 
    | **Prestazioni** | Standard | Questa impostazione specifica i tipi di dati supportati e il supporto per l'archiviazione dei dati. Vedere [Tipi di account di archiviazione](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
-   | **Trasferimento sicuro necessario** | Disabled | Questa impostazione specifica la sicurezza necessaria per le richieste dalle connessioni. Vedere [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). | 
+   | **Trasferimento sicuro obbligatorio** | Disabled | Questa impostazione specifica la sicurezza necessaria per le richieste dalle connessioni. Vedere [Richiedere il trasferimento sicuro](../storage/common/storage-require-secure-transfer.md). | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | Nome della sottoscrizione di Azure | 
    | **Gruppo di risorse** | LA-Tutorial-RG | Nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md) usato per organizzare e gestire le risorse correlate. <p>**Nota:** un gruppo di risorse si trova in un'area specifica. Anche se gli elementi in questa esercitazione potrebbero non essere disponibili in tutte le aree, provare a usare la stessa area, se possibile. | 
    | **Configurare reti virtuali** | Disabled | Per questa esercitazione, mantenere l'impostazione **Disattivato**. | 
@@ -143,7 +143,8 @@ Usare ora il frammento di codice fornito in questi passaggi per creare una funzi
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | La stessa sottoscrizione di Azure usata in precedenza | 
    | **Gruppo di risorse** | LA-Tutorial-RG | Lo stesso gruppo di risorse di Azure usato in precedenza | 
    | **Piano di hosting** | Piano a consumo | Questa impostazione determina la modalità di allocazione e scalabilità delle risorse, ad esempio la potenza di calcolo, per l'esecuzione dell'app per le funzioni. Vedere il [confronto tra piani di hosting](../azure-functions/functions-scale.md). | 
-   | **Posizione** | Stati Uniti occidentali | La stessa area usata in precedenza | 
+   | **Località** | Stati Uniti occidentali | La stessa area usata in precedenza | 
+   | **Stack di runtime** | Lingua preferita | Scegliere un runtime che supporti il linguaggio di programmazione della funzione preferito. Scegliere .NET per le funzioni C# e F #. |
    | **Archiviazione** | cleantextfunctionstorageacct | Creare un account di archiviazione per l'app per le funzioni. Usare solo lettere minuscole e numeri. <p>**Nota:** questo account di archiviazione contiene le app per le funzioni ed è diverso dall'account di archiviazione creato in precedenza per gli allegati di posta elettronica. | 
    | **Application Insights** | Off | Attiva il monitoraggio delle applicazioni con [Application Insights](../azure-monitor/app/app-insights-overview.md). Per questa esercitazione, tuttavia, scegliere l'impostazione **No**. | 
    |||| 
@@ -236,10 +237,10 @@ Dopo aver controllato il funzionamento della funzione, creare l'app per la logic
 
    | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
-   | **Nome** | LA-ProcessAttachment | Nome dell'app per la logica | 
+   | **NOME** | LA-ProcessAttachment | Nome dell'app per la logica | 
    | **Sottoscrizione** | <*nome-sottoscrizione-Azure*> | La stessa sottoscrizione di Azure usata in precedenza | 
    | **Gruppo di risorse** | LA-Tutorial-RG | Lo stesso gruppo di risorse di Azure usato in precedenza |
-   | **Posizione** | Stati Uniti occidentali | La stessa area usata in precedenza | 
+   | **Località** | Stati Uniti occidentali | La stessa area usata in precedenza | 
    | **Log Analytics** | Off | Per questa esercitazione, scegliere l'impostazione **No**. | 
    |||| 
 
@@ -279,9 +280,9 @@ Aggiungere quindi un [trigger](../logic-apps/logic-apps-overview.md#logic-app-co
 
       | Impostazione | Valore | DESCRIZIONE | 
       | ------- | ----- | ----------- | 
-      | **Con allegato** | Sì | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, ma controlla solo i nuovi messaggi ed elabora esclusivamente quelli che corrispondono al filtro dell'oggetto. | 
-      | **Includi allegati** | Sì | Recupera gli allegati da usare come input per il flusso di lavoro, invece che limitarsi a controllare la presenza di allegati. | 
-      | **Filtro oggetto** | ```Business Analyst 2 #423501``` | Testo da trovare nell'oggetto del messaggio di posta elettronica | 
+      | **Presenta un allegato** | Sì | Recupera solo i messaggi di posta elettronica con allegati. <p>**Nota:** il trigger non rimuove alcun messaggio di posta elettronica dall'account, ma controlla solo i nuovi messaggi ed elabora esclusivamente quelli che corrispondono al filtro dell'oggetto. | 
+      | **Includere gli allegati** | Sì | Recupera gli allegati da usare come input per il flusso di lavoro, invece che limitarsi a controllare la presenza di allegati. | 
+      | **Filtro dell'oggetto** | ```Business Analyst 2 #423501``` | Testo da trovare nell'oggetto del messaggio di posta elettronica | 
       |  |  |  | 
 
 4. Per nascondere i dettagli del trigger per il momento, fare clic sulla barra del titolo del trigger.
@@ -394,13 +395,14 @@ Questo passaggio aggiunge la funzione di Azure creata in precedenza all'app per 
 
    ![Selezionare la funzione di Azure](./media/tutorial-process-email-attachments-workflow/add-action-select-azure-function.png)
 
-5. Rinominare la forma della funzione con questa descrizione: ```Call RemoveHTMLFunction to clean email body```
+5. Rinominare la forma della funzione con questa descrizione:
+```Call RemoveHTMLFunction to clean email body```
 
 6. Specificare quindi l'input che dovrà essere elaborato dalla funzione. 
 
    1. In **Corpo della richiesta** immettere il testo seguente con uno spazio finale: 
    
-      ```{ "emailBody": ``` 
+      ```{ "emailBody":``` 
 
       Nel corso delle operazioni sull'input dei passaggi successivi verrà visualizzato un errore di codice JSON non valido finché all'input non verrà applicato un formato JSON corretto.
       Quando in precedenza questa funzione è stata testata, per l'input specificato per la funzione è stato usato JSON (JavaScript Object Notation). 
@@ -408,7 +410,7 @@ Questo passaggio aggiunge la funzione di Azure creata in precedenza all'app per 
 
       Posizionando il cursore all'interno della casella **Corpo della richiesta** viene visualizzato l'elenco di contenuto dinamico ed è così possibile selezionare i valori delle proprietà disponibili dalle azioni precedenti. 
       
-   2. Nell'elenco di contenuto dinamico selezionare la proprietà **Corpo** in **All'arrivo di un nuovo messaggio di posta elettronica**. Ricordarsi di aggiungere la parentesi graffa di chiusura ```}``` dopo questa proprietà.
+   2. Nell'elenco di contenuto dinamico selezionare la proprietà **Corpo** in **All'arrivo di un nuovo messaggio di posta elettronica**. Ricordarsi di aggiungere la parentesi graffa di chiusura dopo questa proprietà: ```}```
 
       ![Specificare il corpo della richiesta da passare alla funzione](./media/tutorial-process-email-attachments-workflow/add-email-body-for-function-processing.png)
 
@@ -434,11 +436,12 @@ Aggiungere quindi un'azione che crea un BLOB nel contenitore di archiviazione pe
 
    | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
-   | **Connection Name** (Nome connessione) | AttachmentStorageConnection | Nome descrittivo per la connessione | 
-   | **Storage Account** | attachmentstorageacct | Nome dell'account di archiviazione creato in precedenza per il salvataggio degli allegati | 
+   | **Connection Name (Nome connessione)** | AttachmentStorageConnection | Nome descrittivo per la connessione | 
+   | **Account di archiviazione** | attachmentstorageacct | Nome dell'account di archiviazione creato in precedenza per il salvataggio degli allegati | 
    |||| 
 
-4. Rinominare l'azione **Crea BLOB** con questa descrizione: ```Create blob for email body```
+4. Rinominare l'azione **Crea BLOB** con questa descrizione:
+```Create blob for email body```
 
 5. Nell'azione **Crea BLOB** specificare le informazioni e selezionare i campi per creare il BLOB come illustrato e descritto:
 
@@ -446,8 +449,8 @@ Aggiungere quindi un'azione che crea un BLOB nel contenitore di archiviazione pe
 
    | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
-   | **Percorso cartella** | /attachments | Percorso e nome del contenitore creato in precedenza. Per questo esempio, fare clic sull'icona a forma di cartella e quindi selezionare il contenitore "/attachments". | 
-   | **Nome BLOB** | Campo **Da** | Per questo esempio, come nome del BLOB usare il nome del mittente. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare il campo **Da** sotto l'azione **All'arrivo di un nuovo messaggio di posta elettronica**. | 
+   | **Percorso della cartella** | /attachments | Percorso e nome del contenitore creato in precedenza. Per questo esempio, fare clic sull'icona a forma di cartella e quindi selezionare il contenitore "/attachments". | 
+   | **Nome del BLOB** | Campo **Da** | Per questo esempio, come nome del BLOB usare il nome del mittente. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare il campo **Da** sotto l'azione **All'arrivo di un nuovo messaggio di posta elettronica**. | 
    | **Contenuto BLOB** | Campo **Contenuto** | Per questo esempio, come contenuto del BLOB usare il corpo del messaggio di posta elettronica senza codice HTML. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare **Corpo** sotto l'azione **Call RemoveHTMLFunction to clean email body**. |
    |||| 
 
@@ -504,7 +507,8 @@ Per elaborare ogni allegato del messaggio di posta elettronica, aggiungere un ci
 
    ![Aggiungere un ciclo For each](./media/tutorial-process-email-attachments-workflow/add-for-each-loop.png)
 
-2. Rinominare il ciclo con questa descrizione: ```For each email attachment```
+2. Rinominare il ciclo con questa descrizione:
+```For each email attachment```
 
 3. Specificare ora i dati che il ciclo deve elaborare. Fare clic all'interno della casella **Selezionare un output dai passaggi precedenti** per aprire l'elenco di contenuto dinamico e quindi selezionare **Allegati**. 
 
@@ -527,7 +531,8 @@ Aggiungere quindi l'azione che consente di salvare ogni allegato come BLOB nel c
 
    ![Aggiungere un'azione per creare un BLOB](./media/tutorial-process-email-attachments-workflow/create-blob-action-for-attachments.png)
 
-3. Rinominare l'azione **Crea BLOB 2** con questa descrizione: ```Create blob for each email attachment```
+3. Rinominare l'azione **Crea BLOB 2** con questa descrizione:
+```Create blob for each email attachment```
 
 4. Nell'azione **Create blob for each email attachment** specificare le informazioni e selezionare le proprietà per ogni BLOB da creare come illustrato e descritto:
 
@@ -535,8 +540,8 @@ Aggiungere quindi l'azione che consente di salvare ogni allegato come BLOB nel c
 
    | Impostazione | Valore | DESCRIZIONE | 
    | ------- | ----- | ----------- | 
-   | **Percorso cartella** | /attachments | Percorso e nome del contenitore creato in precedenza. Per questo esempio, fare clic sull'icona a forma di cartella e quindi selezionare il contenitore "/attachments". | 
-   | **Nome BLOB** | Campo **Nome** | Per questo esempio, come nome del BLOB usare il nome dell'allegato. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare il campo **Nome** sotto l'azione **All'arrivo di un nuovo messaggio di posta elettronica**. | 
+   | **Percorso della cartella** | /attachments | Percorso e nome del contenitore creato in precedenza. Per questo esempio, fare clic sull'icona a forma di cartella e quindi selezionare il contenitore "/attachments". | 
+   | **Nome del BLOB** | Campo **Nome** | Per questo esempio, come nome del BLOB usare il nome dell'allegato. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare il campo **Nome** sotto l'azione **All'arrivo di un nuovo messaggio di posta elettronica**. | 
    | **Contenuto BLOB** | Campo **Contenuto** | Per questo esempio, come contenuto del BLOB usare il campo **Contenuto**. Fare clic all'interno di questa casella in modo da visualizzare l'elenco di contenuto dinamico e quindi selezionare il campo **Contenuto** sotto l'azione **All'arrivo di un nuovo messaggio di posta elettronica**. |
    |||| 
 
@@ -592,7 +597,8 @@ Aggiungere quindi un'azione in modo che l'app per la logica invii un messaggio d
 
 3. Se viene chiesto di immettere le credenziali, accedere all'account di posta elettronica in modo che App per la logica crei una connessione all'account.
 
-4. Rinominare l'azione **Invia un messaggio di posta elettronica** con questa descrizione: ```Send email for review```
+4. Rinominare l'azione **Invia un messaggio di posta elettronica** con questa descrizione:
+```Send email for review```
 
 5. Specificare le informazioni per l'azione e selezionare i campi da includere nel messaggio di posta elettronica come illustrato e descritto. Per aggiungere righe vuote in una casella di modifica, premere MAIUSC+INVIO.  
 
@@ -602,9 +608,9 @@ Aggiungere quindi un'azione in modo che l'app per la logica invii un messaggio d
 
    | Impostazione | Valore | Note | 
    | ------- | ----- | ----- | 
-   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name: ``` **Da** <p>```Application file location: ``` **Percorso** <p>```Application email content: ``` **Corpo** | Contenuto del corpo del messaggio di posta elettronica. Fare clic all'interno della casella, immettere il testo dell'esempio e quindi selezionare i campi seguenti nell'elenco di contenuto dinamico: <p>- Campo **Da** in **All'arrivo di un nuovo messaggio di posta elettronica** </br>- Campo **Percorso** in **Create blob for email body** </br>- Campo **Corpo** in **Call RemoveHTMLFunction to clean email body** | 
-   | **Oggetto**  | ```ASAP - Review applicant for position: ``` **Oggetto** | Oggetto del messaggio di posta elettronica da includere. Fare clic all'interno della casella, immettere il testo dell'esempio e quindi selezionare il campo **Oggetto** nell'elenco di contenuto dinamico sotto **All'arrivo di un nuovo messaggio di posta elettronica**. | 
-   | **To** | <*indirizzo-posta-elettronica-destinatario*> | AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. | 
+   | **Corpo** | ```Please review new applicant:``` <p>```Applicant name:``` **Da** <p>```Application file location:``` **path** <p>```Application email content:``` **Corpo** | Contenuto del corpo del messaggio di posta elettronica. Fare clic all'interno della casella, immettere il testo dell'esempio e quindi selezionare i campi seguenti nell'elenco di contenuto dinamico: <p>- Campo **Da** in **All'arrivo di un nuovo messaggio di posta elettronica** </br>- Campo **Percorso** in **Create blob for email body** </br>- Campo **Corpo** in **Call RemoveHTMLFunction to clean email body** | 
+   | **Oggetto**  | ```ASAP - Review applicant for position:``` **Oggetto** | Oggetto del messaggio di posta elettronica da includere. Fare clic all'interno della casella, immettere il testo dell'esempio e quindi selezionare il campo **Oggetto** nell'elenco di contenuto dinamico sotto **All'arrivo di un nuovo messaggio di posta elettronica**. | 
+   | **A** | <*indirizzo-posta-elettronica-destinatario*> | AI fini del test delle app è possibile indicare il proprio indirizzo di posta elettronica. | 
    |||| 
 
    > [!NOTE] 

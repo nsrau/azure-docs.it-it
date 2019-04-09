@@ -8,12 +8,12 @@ ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 87770a12ca7e489b11b2d176903f976fdcc256a0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551324"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803783"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Esempio: SKU consentiti per gli account di archiviazione e le macchine virtuali
 
@@ -29,7 +29,7 @@ Questo criterio richiede che gli account di archiviazione e le macchine virtuali
 
 ## <a name="deploy-with-the-portal"></a>Eseguire la distribuzione con il portale
 
-[![Distribuzione in Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![Distribuire l'esempio in Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Distribuire con PowerShell
 

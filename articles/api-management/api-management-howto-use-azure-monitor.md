@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517947"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622196"
 ---
 # <a name="monitor-published-apis"></a>Monitorare le API pubblicate
 
@@ -77,21 +77,28 @@ Per accedere alle metriche:
 
 Per configurare gli avvisi:
 
-1. Selezionare **Avvisi (versione classica)** nella barra dei menu nella parte inferiore della pagina.
+1. Selezionare **Avvisi** sulla barra dei menu nella parte inferiore della pagina.
 
-    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Selezionare **Aggiungi avviso per la metrica**.
-3. Immettere un **nome** per questo avviso.
-4. Selezionare **Richieste del gateway non autorizzate** come metrica da monitorare.
-5. Selezionare **Invia messaggio di posta elettronica a proprietari, collaboratori e lettori**.
-6. Premere **OK**.
-7. Provare a chiamare l'API Conference senza una chiave API. In quanto proprietario del servizio Gestione API, l'utente riceverà un avviso di posta elettronica. 
+2. Fare clic su **Nuova regola di avviso** per questo avviso.
+3. Fare clic su **Aggiungi condizione**.
+4. Selezionare **Metrica** nell'elenco a discesa Tipo di segnale.
+5. Selezionare **Richieste del gateway non autorizzate** come segnale da monitorare.
 
-    > [!TIP]
-    > Quando viene attivata, la regola di avviso può anche chiamare un webhook o un'app per la logica di Azure.
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-    ![set-up-alert](./media/api-management-azure-monitor/set-up-alert.png)
+6. Nella visualizzazione **Configura logica dei segnali** specificare una soglia superata la quale dovrà essere attivato un avviso e fare clic su **Fatto**.
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. Selezionare un gruppo di azioni esistente o crearne uno nuovo. Nell'esempio seguente viene inviato un messaggio di posta elettronica agli amministratori. 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. Specificare un nome e una descrizione per la regola di avviso, quindi scegliere il livello di gravità. 
+9. Selezionare **Crea regola di avviso**.
+10. Provare a chiamare l'API Conference senza una chiave API. Verrà attivato l'avviso e verrà inviato un messaggio di posta elettronica agli amministratori. 
 
 ## <a name="activity-logs"></a>Log attività
 
@@ -184,7 +191,7 @@ Attualmente Gestione API offre log di diagnostica (in batch orari) sulle singole
 | correlationId | stringa | Identificatore richiesta http univoco assegnato da Gestione API |
 | location | stringa | Nome dell'area di Azure in cui si trovava il gateway che ha elaborato la richiesta |
 | httpStatusCodeCategory | stringa | Categoria di codice di stato della risposta HTTP: richiesta riuscita (minore o uguale a 301 oppure 304 o 307), richiesta non autorizzata (401, 403, 429), errore (400, valore compreso tra 500 e 600), altro |
-| resourceId | stringa | Id della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
+| resourceId | stringa | ID della risorsa di Gestione API /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | properties | object | Proprietà della richiesta corrente |
 | statico | stringa | Metodo HTTP della richiesta in ingresso |
 | URL | stringa | URL della richiesta in ingresso |

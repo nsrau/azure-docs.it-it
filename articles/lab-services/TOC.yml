@@ -53,6 +53,8 @@ items:
       href: devtest-lab-concepts.md
     - name: Scenari
       items:
+      - name: Scenari diffusi per l'uso di DevTest Labs
+        href: devtest-lab-guidance-get-started.md
       - name: Usare i lab per gli sviluppatori
         href: devtest-lab-developer-lab.md
       - name: Usare i lab per gli ambienti di testing
@@ -109,8 +111,6 @@ items:
     - name: Configurare l'infrastruttura di DevTest Labs nell'azienda
       href: devtest-lab-guidance-prescriptive-adoption.md
       items:
-      - name: Introduzione a DevTest Labs
-        href: devtest-lab-guidance-get-started.md
       - name: Aumentare le prestazioni della distribuzione di DevTest Labs
         href: devtest-lab-guidance-scale.md
       - name: Orchestrare l'implementazione di DevTest Labs
@@ -239,7 +239,7 @@ items:
         href: devtest-lab-integrate-ci-cd-vsts.md
     - name: Creare o modificare lab tramite il modello di Resource Manager
       href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Lab per le classi
     items:
@@ -279,9 +279,9 @@ items:
       href: https://azure.microsoft.com/resources/videos/index/?services=devtest-lab
     - name: Domande frequenti
       href: devtest-lab-faq.md
-ms.openlocfilehash: 0b8c70629d17ed93b67a746fadfe66944d9489c9
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a5312fc1c99072c10337bd00569a608825df3bc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894441"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262874"

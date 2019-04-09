@@ -16,16 +16,16 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767210"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264710"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Gestire l'accesso alle risorse con controllo degli accessi Azure Stack Role-Based
 
-*Si applica a: Azure Stack Development Kit e i sistemi integrati di Azure Stack*
+*Si applica a Azure Stack Development Kit e i sistemi integrati di Azure Stack*
 
 Azure Stack supporta il controllo di accesso basato sui ruoli (RBAC), lo stesso [modello di sicurezza per la gestione degli accessi](https://docs.microsoft.com/azure/role-based-access-control/overview) che usa Microsoft Azure. È possibile usare RBAC per gestire utenti, gruppo o applicazione l'accesso a servizi, risorse e sottoscrizioni.
 
@@ -40,28 +40,6 @@ Azure Stack presenta tre ruoli di base che è possibile applicare a tutti i tipi
 * **Proprietario** può gestire tutto, incluso l'accesso alle risorse.
 * **Collaboratore** può gestire tutto ad eccezione degli accessi alle risorse.
 * **Lettore** può visualizzare tutto, ma non è possibile apportare modifiche.
-
-### <a name="resource-hierarchy-and-inheritance"></a>Ereditarietà e gerarchia di risorse
-
-Azure Stack è la gerarchia delle risorse seguenti:
-
-* Ogni sottoscrizione appartiene a una directory.
-* Ogni gruppo di risorse appartiene a una sottoscrizione.
-* Ogni risorsa appartiene a un gruppo di risorse.
-
-Accesso che concede a un ambito padre viene ereditato dall'ambito figlio. Ad esempio: 
-
-* Si assegna il ruolo Lettore a un gruppo di Azure AD nell'ambito della sottoscrizione. I membri di tale gruppo possono visualizzare ogni gruppo di risorse e ogni risorsa nella sottoscrizione.
-* Si assegna il ruolo Collaboratore a un'applicazione nell'ambito del gruppo di risorse. L'applicazione può gestire le risorse di tutti i tipi in tale gruppo di risorse, ma non altri gruppi di risorse nella sottoscrizione.
-
-### <a name="assigning-roles"></a>Assegnazione di ruoli
-
-È possibile assegnare più di un ruolo a un utente e ogni ruolo può essere associato a un ambito diverso. Ad esempio: 
-
-* Si assegna il ruolo di lettore the TestUser-A alla sottoscrizione 1.
-* Si assegna ruolo TestUser-A il proprietario TestVM-1.
-
-Azure [assegnazioni di ruolo](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) articolo fornisce informazioni dettagliate su come visualizzare, assegnare e l'eliminazione di ruoli.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Ereditarietà e gerarchia di risorse
 

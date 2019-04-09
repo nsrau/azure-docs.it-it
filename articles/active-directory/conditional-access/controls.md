@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521976"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258743"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Quali sono i controlli di accesso nell'accesso condizionale di Azure Active Directory?
 
@@ -58,7 +58,7 @@ Con i controlli di concessione è possibile bloccare completamente l'accesso o c
 - Richiedere che tutti i controlli selezionati siano soddisfatti (*AND*)
 - Richiedere che un solo controllo selezionato sia soddisfatto (*OR*)
 
-![Controllo](./media/controls/17.png)
+![Controllo](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Autenticazione a più fattori
 
@@ -78,7 +78,7 @@ Il dispositivo deve essere registrato in Azure AD prima che possa essere contras
 
 - [Dispositivi registrati in Azure AD](../devices/overview.md#azure-ad-registered-devices)
 - [Dispositivi aggiunti ad Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivi aggiunti ad Azure AD ibrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Dispositivi aggiunti all'identità ibrida di Azure AD](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Per altre informazioni, vedere [Come richiedere dispositivi gestiti per l'accesso alle app cloud con l'accesso condizionale](require-managed-devices.md).
 
@@ -94,6 +94,18 @@ Poiché i dipendenti di un'azienda usano i dispositivi mobili per attività sia 
 È possibile usare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali indipendentemente dalla soluzione di gestione dei dispositivi mobili (MDM).
 
 Con le app client approvate, è possibile richiedere a un'app client che prova ad accedere alle app cloud di supportare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy). È possibile, ad esempio, limitare l'accesso a Exchange Online all'app Outlook. I criteri di accesso condizionale che richiedono app client approvate sono noti anche come [criteri di accesso condizionale basato su app](app-based-conditional-access.md). Per un elenco di app client approvate supportate, vedere [Requisito per le app client approvate](technical-reference.md#approved-client-app-requirement).
+
+### <a name="app-protection-policy-preview"></a>Criteri di protezione delle App (anteprima)
+
+Poiché i dipendenti di un'azienda usano i dispositivi mobili per attività sia lavorative che personali, può essere utile avere la possibilità di proteggere i dati aziendali accessibili da dispositivi anche nel caso in cui vengano gestiti da altri utenti.
+È possibile usare i [criteri di protezione delle app di Intune](https://docs.microsoft.com/intune/app-protection-policy) per proteggere i dati aziendali indipendentemente dalla soluzione di gestione dei dispositivi mobili (MDM).
+
+Con i criteri di protezione delle app, è possibile limitare l'accesso alle applicazioni client che hanno segnalato ad Azure AD è invece disponibile dopo aver ricevuto [criteri di protezione app di Intune](https://docs.microsoft.com/intune/app-protection-policy). Ad esempio, è possibile limitare l'accesso a Exchange Online per l'app Outlook con criteri di protezione app di Intune. Un criterio di accesso condizionale che richiede criteri di protezione delle app è noto anche come [criteri di accesso condizionale basato su protezione delle app](app-protection-based-conditional-access.md). 
+
+Il dispositivo deve essere registrato in Azure AD prima di un'applicazione può essere contrassegnata come protetto da criteri.
+
+Per un elenco dei criteri supportati di App client protetti, vedere [requisito dei criteri di protezione app](technical-reference.md#app-protection-policy-requirement).
+
 
 ### <a name="terms-of-use"></a>Condizioni per l'utilizzo
 
@@ -112,7 +124,7 @@ Questi controlli consentono l'utilizzo di determinati servizi esterni o personal
 Di seguito sono elencati i provider che attualmente offrono un servizio compatibile:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
-- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+- [Datacard di Entrust](https://www.entrustdatacard.com/products/authentication/intellitrust)
 - [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)

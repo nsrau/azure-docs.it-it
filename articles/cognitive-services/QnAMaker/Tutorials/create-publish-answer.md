@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102163"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877279"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Esercitazione: Creare una knowledge base e quindi rispondere a una domanda con C#
 
@@ -32,10 +32,10 @@ Questa esercitazione illustra la procedura di creazione e pubblicazione di una k
 
 In questa guida introduttiva viene chiamata l'API QnA Maker seguente:
 
-* [Create Knowledge base (kb)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) (Creare la knowledge base)
-* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) (Ottenere i dettagli dell'operazione)
-* [Get Knowledge base details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) (Ottenere i dettagli della knowledge base) 
-* [Get Knowledge base endpoints](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) (Ottenere gli endpoint della knowledge base)
+* [Create Knowledge base (kb) (Creare la knowledge base)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Ottenere i dettagli dell'operazione](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
+* [Get Knowledge base details (Ottenere i dettagli della knowledge base)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
+* [Get Knowledge base endpoints (Ottenere gli endpoint della knowledge base)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
 * [Pubblica](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -158,7 +158,7 @@ L'_endpoint primario_ viene passato come intestazione per autenticare la richies
 
 |Nome intestazione|Valore intestazione|
 |--|--|
-|Authorization|`Endpoint ` + **endpoint primario**<br>Esempio: `Endpoint xxxxxxx`<br>Si noti lo spazio tra il testo di `Endpoint` e il valore dell'endpoint primario. 
+|Authorization|`Endpoint` + **endpoint primario**<br>Esempio: `Endpoint xxxxxxx`<br>Si noti lo spazio tra il testo di `Endpoint` e il valore dell'endpoint primario. 
 
 Il corpo della richiesta deve passare l'oggetto JSON appropriato:
 

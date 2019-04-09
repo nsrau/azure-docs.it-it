@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449345"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904849"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con PowerShell
 
@@ -34,6 +34,9 @@ L'architettura di una tipica distribuzione in più aree a disponibilità elevata
 ![Distribuzione in più aree](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
 L'esercitazione è incentrata sull'integrazione di una coppia di moduli di protezione hardware e del necessario gateway ExpressRoute (subnet 1 nella figura sopra) in una rete virtuale esistente (rete virtuale 1 nella figura sopra).  Tutte le altre risorse sono risorse standard di Azure. Lo stesso processo di integrazione può essere usato per i moduli di protezione hardware nella subnet 4 della rete virtuale 3 della figura sopra.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,13 +59,13 @@ Il provisioning dei moduli di protezione hardware e la relativa integrazione in 
 Come indicato sopra, per qualsiasi attività di provisioning è necessaria la registrazione del servizio HSM dedicato per la sottoscrizione. Per convalidare la registrazione, eseguire questo comando di PowerShell in Cloud Shell nel portale di Azure. 
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
+Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
 Il comando seguente verifica le funzionalità di rete necessarie per il servizio HSM dedicato.
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
 ```
 
 Per poter procedere ulteriormente, entrambi i comandi devono restituire lo stato "Registered" come illustrato di seguito.  Se è necessario registrarsi per il servizio, contattare il rappresentante Microsoft.
@@ -75,12 +78,12 @@ Viene effettuato il provisioning di un dispositivo HSM nella rete virtuale di un
 
 Dopo aver ottenuto i file, è necessario modificare il file di parametri per inserire i nomi preferiti per le risorse. A tale scopo, modificare le righe con "value": "".
 
-- `namingInfix`: prefisso per i nomi delle risorse HSM
-- `ExistingVirtualNetworkName`: nome della rete virtuale usata per i moduli di protezione hardware
-- `DedicatedHsmResourceName1`: nome della risorsa HSM nel data center 1
-- `DedicatedHsmResourceName2`: nome della risorsa HSM nel data center 2
-- `hsmSubnetRange`: intervallo di indirizzi IP della subnet per i moduli di protezione hardware
-- `ERSubnetRange`: intervallo di indirizzi IP della subnet per il gateway di rete virtuale
+- `namingInfix` prefisso per i nomi delle risorse HSM
+- `ExistingVirtualNetworkName` nome della rete virtuale usata per i moduli di protezione hardware
+- `DedicatedHsmResourceName1` nome della risorsa HSM nel data center 1
+- `DedicatedHsmResourceName2` nome della risorsa HSM nel data center 2
+- `hsmSubnetRange` intervallo di indirizzi IP della subnet per i moduli di protezione hardware
+- `ERSubnetRange` intervallo di indirizzi IP della subnet per il gateway di rete virtuale
 
 Di seguito è riportato un esempio delle modifiche:
 
@@ -130,20 +133,20 @@ Dopo aver caricato i file, è possibile creare le risorse.
 Prima di creare le nuove risorse HSM, verificare che siano presenti alcune risorse che ne costituiscono i prerequisiti. È necessario avere una rete virtuale con intervalli di subnet per il calcolo, i moduli di protezione hardware e il gateway. I comandi seguenti offrono un esempio di come creare una rete virtuale di questo tipo.
 
 ```powershell
-$compute = New-AzureRmVirtualNetworkSubnetConfig `
+$compute = New-AzVirtualNetworkSubnetConfig `
   -Name compute `
   -AddressPrefix 10.2.0.0/24
 ```
 
 ```powershell
-$delegation = New-AzureRmDelegation `
+$delegation = New-AzDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 
 ```
 
 ```powershell
-$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+$hsmsubnet = New-AzVirtualNetworkSubnetConfig ` 
   -Name hsmsubnet ` 
   -AddressPrefix 10.2.1.0/24 ` 
   -Delegation $delegation 
@@ -152,7 +155,7 @@ $hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-$gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
+$gwsubnet= New-AzVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
   -AddressPrefix 10.2.255.0/26
 
@@ -160,7 +163,7 @@ $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-New-AzureRmVirtualNetwork `
+New-AzVirtualNetwork `
   -Name myHSM-vnet `
   -ResourceGroupName myRG `
   -Location westus `
@@ -176,7 +179,7 @@ Quando tutti i prerequisiti sono presenti, eseguire questo comando per usare il 
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
+New-AzResourceGroupDeployment -ResourceGroupName myRG `
      -TemplateFile .\Deploy-2HSM-toVNET-Template.json `
      -TemplateParameterFile .\Deploy-2HSM-toVNET-Params.json `
      -Name HSMdeploy -Verbose
@@ -195,10 +198,10 @@ Per verificare che i dispositivi siano stati sottoposti a provisioning e visuali
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG"
 $resourceName = "HSM1"  
-Get-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+Get-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
 
 ```
 
@@ -218,7 +221,7 @@ Dopo aver eseguito l'accesso alla VM Linux, è possibile accedere al modulo di p
 
 ```powershell
 
-(Get-AzureRmResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
+(Get-AzResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
 
 ```
 Quando si ha l'indirizzo IP, eseguire questo comando:
@@ -262,10 +265,10 @@ Se le risorse di questo gruppo di risorse non sono più necessarie, è possibile
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG" 
 $resourceName = "HSMdeploy"  
-Remove-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
+Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
 
 ```
 

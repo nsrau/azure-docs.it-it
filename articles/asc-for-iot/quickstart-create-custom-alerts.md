@@ -1,30 +1,30 @@
 ---
 title: Creare avvisi personalizzati per il Centro sicurezza di Azure per IoT - Anteprima | Microsoft Docs
 description: Creare e assegnare avvisi del dispositivo personalizzati per il Centro sicurezza di Azure per IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: d1757868-da3d-4453-803a-7e3a309c8ce8
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: mlottner
-ms.openlocfilehash: 591000f251d384b961569f9d7ca09ae93edea617
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d793b105e6d73c98739cd05d6e19a218413d7813
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541738"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861996"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Guida introduttiva: Creare avvisi personalizzati
 
 > [!IMPORTANT]
-> Il Centro sicurezza di Azure per IoT è attualmente in anteprima pubblica.
+> Centro sicurezza di Azure per IoT è attualmente in versione di anteprima pubblica.
 > Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'uso di gruppi di sicurezza e avvisi personalizzati sfrutta al meglio le informazioni di sicurezza end-to-end e la conoscenza categorica del dispositivo per garantire una migliore sicurezza nell'intera soluzione IoT. 
@@ -90,4 +90,4 @@ La tabella seguente fornisce un riepilogo degli avvisi disponibili per la person
 Per informazioni su come distribuire un agente di sicurezza, passare all'articolo successivo...
 
 > [!div class="nextstepaction"]
-> [Distribuire un agente di sicurezza](select-deploy-agent.md)
+> [Distribuire un agente di sicurezza](how-to-deploy-agent.md)

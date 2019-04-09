@@ -1,5 +1,5 @@
 ---
-title: Introduzione all'uso di Azure DevTest Labs
+title: Scenari comuni per l'uso di Azure DevTest Labs
 description: Questo articolo fornisce gli scenari principali per l'uso di Azure DevTest Labs e due percorsi generali per iniziare a usare il servizio all'interno dell'organizzazione.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: 219697451174811fab7880ba0d5930ba85edf8fb
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 8736ba4c24ac4c8f8d84345028d1cadfdef38697
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803800"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272384"
 ---
-# <a name="get-started-with-using-azure-devtest-labs"></a>Introduzione all'uso di Azure DevTest Labs
+# <a name="popular-scenarios-for-using-azure-devtest-labs"></a>Scenari comuni per l'uso di Azure DevTest Labs
 A seconda delle esigenze di un'azienda, DevTest Labs può essere configurato per soddisfare requisiti diversi.  Questo articolo illustra gli scenari comuni. Ogni scenario illustra vantaggi introdotti con DevTest Labs e le risorse da usare per implementare tali scenari.  
 
 - Desktop degli sviluppatori

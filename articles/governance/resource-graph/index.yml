@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803416"
 documentType: LandingData
 title: Documentazione per il servizio Azure Resource Graph
 metadata:
   title: Documentazione di Azure Resource Graph - Esercitazioni e informazioni di riferimento sulle API
   description: Azure Resource Graph è un servizio disponibile in Azure che consente di eseguire query complesse sulle risorse su vasta scala.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -20,36 +13,36 @@ metadata:
 abstract:
   description: La documentazione di Azure Resource Graph consente di configurare e apprendere il linguaggio di query per individuare ed esplorare le risorse su vasta scala.
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Configurare Resource Graph ed eseguire la prima query.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        alt: Interfaccia della riga di comando di Azure
-        src: ./media/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: first-query-azurecli.md
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: Commenti e suggerimenti
-  items:
-  - type: paragraph
-    text: Per inviare commenti e suggerimenti su questa funzionalità o ricevere assistenza per le query, visitare la pagina <b>Resource Graph (anteprima)</b> accessibile da <b>Criteri di Azure</b> nel portale di Azure e fare clic su Commenti e suggerimenti. È possibile inviare suggerimenti anche in <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Configurare Resource Graph ed eseguire la prima query.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Interfaccia della riga di comando di Azure
+              src: ./media/cli.svg
+            text: Interfaccia della riga di comando di Azure
+            href: first-query-azurecli.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: Commenti e suggerimenti
     items:
-    - title: Riga di comando
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK per .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK per Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Informazioni di riferimento sulle API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>
+      - type: paragraph
+        text: 'Per inviare commenti e suggerimenti su questa funzionalità o ricevere assistenza per le query, visitare la pagina <b>Resource Graph (anteprima)</b> accessibile da <b>Criteri di Azure</b> nel portale di Azure e fare clic su Commenti e suggerimenti. È possibile inviare suggerimenti anche in <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.'
+  - title: riferimento
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">Azure SDK per .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">Azure SDK per Python</a></p>
+          - title: REST
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">Informazioni di riferimento sulle API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">2018-09-01-preview (OpenAPI)</a></p>'

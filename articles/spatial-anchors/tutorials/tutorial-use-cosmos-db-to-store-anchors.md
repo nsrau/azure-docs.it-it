@@ -1,5 +1,5 @@
 ---
-title: Esercitazione - Condivisione tra sessioni e dispositivi con Ancoraggi nello spazio di Azure e un back-end di Azure Cosmos DB | Microsoft Docs
+title: Esercitazione - Condivisione Ancoraggi nello spazio di Azure tra sessioni e dispositivi con un back-end di Azure Cosmos DB | Microsoft Docs
 description: Questa esercitazione illustra come condividere gli identificatori di Ancoraggi nello spazio di Azure tra dispositivi Android/iOS in ​​Unity con un servizio back-end e Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286398"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915255"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Esercitazione: Condivisione tra sessioni e dispositivi con Ancoraggi nello spazio di Azure e un back-end di Azure Cosmos DB
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Esercitazione: Condivisione di Ancoraggi nello spazio di Azure tra sessioni e dispositivi con un back-end di Azure Cosmos DB
 
-Questa esercitazione illustra come usare [Ancoraggi nello spazio di Azure](../overview.md) per eseguire queste operazioni:
-
-- Creare ancoraggi in una sessione e quindi individuarli in un'altra sessione nello stesso dispositivo o in un altro. La seconda sessione potrebbe ad esempio svolgersi in un giorno diverso.
-- Creare ancoraggi che possono essere individuati da più dispositivi nello stesso luogo e nello stesso momento.
+Questa esercitazione illustra come usare [Ancoraggi nello spazio di Azure](../overview.md) per creare ancoraggi durante una sessione e quindi individuarli durante un'altra sessione, nello stesso dispositivo o in uno differente. La seconda sessione potrebbe ad esempio svolgersi in un giorno diverso. Questi stessi ancoraggi potrebbero anche essere individuati da più dispositivi nello stesso luogo e nello stesso momento.
 
 ![GIF che illustra la persistenza degli oggetti](./media/persistence.gif)
 
@@ -73,7 +70,7 @@ Individuare la proprietà `StorageConnectionString` e impostare lo stesso valore
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione è stato usato Azure Cosmos DB per condividere identificatori di ancoraggi tra dispositivi. Per altre informazioni sulla libreria di Ancoraggi nello spazio di Azure, passare alla guida che illustra come creare e individuare ancoraggi.
+In questa esercitazione è stato usato Azure Cosmos DB per condividere identificatori di ancoraggi tra dispositivi. Per altre informazioni sull'uso degli ancoraggi nello spazio di Azure in una nuova app Android, continuare con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
-> [Creare e individuare ancoraggi usando Ancoraggi nello spazio di Azure](../create-locate-anchors-overview.md)
+> [Avvio di una nuova app Android](./tutorial-new-android-app.md)

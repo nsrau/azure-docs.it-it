@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cf5eeff9aa56a2c3366c57ddef47f4020e73c161
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804650"
 documentType: LandingData
 title: Documentazione per il servizio Criteri di Azure
 metadata:
   title: Documentazione di Criteri di Azure - Esercitazioni e informazioni di riferimento sulle API
   description: Criteri di Azure consente di gestire ed evitare problemi IT con definizioni dei criteri che applicano regole e azioni per le risorse. L'uso di Criteri di Azure consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
-  services: azure-policy
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy
@@ -20,60 +13,60 @@ metadata:
 abstract:
   description: Criteri di Azure consente di gestire ed evitare problemi IT con definizioni dei criteri che applicano regole e azioni per le risorse. L'uso di Criteri di Azure consente di assicurare che le risorse rimangano conformi con gli standard aziendali e i contratti di servizio.
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Informazioni su come creare, assegnare e gestire le definizioni dei criteri in Azure.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        alt: Portale di Azure
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Portale di Azure
-      href: ./assign-policy-portal
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: ./assign-policy-powershell
-    - image:
-        alt: Interfaccia della riga di comando di Azure
-        src: ./media/cli.svg
-      text: Interfaccia della riga di comando di Azure
-      href: ./assign-policy-azurecli
-    - image:
-        alt: Modello di Resource Manager
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Modello di Resource Manager
-      href: ./assign-policy-template
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Informazioni su come creare, assegnare e gestire le definizioni dei criteri in Azure.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Informazioni su come creare, assegnare e gestire le definizioni dei criteri in Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Portale di Azure
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Portale di Azure
+            href: ./assign-policy-portal
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              alt: Interfaccia della riga di comando di Azure
+              src: ./media/cli.svg
+            text: Interfaccia della riga di comando di Azure
+            href: ./assign-policy-azurecli
+          - image:
+              alt: Modello di Resource Manager
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Modello di Resource Manager
+            href: ./assign-policy-template
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creare e gestire Criteri di Azure</a>
-    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Creare una definizione di criteri personalizzata</a>
-- title: Esempi
-  items:
-  - type: paragraph
-    text: Esaminare gli esempi disponibili per semplificare la creazione di definizioni dei criteri in Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Informazioni su come creare, assegnare e gestire le definizioni dei criteri in Azure.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creare e gestire i criteri di Azure</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Creare una definizione di criteri personalizzata</a>
+  - title: Esempi
     items:
-    - html: <a href="/azure/governance/policy/samples/index">Indice degli esempi</a>
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Esaminare gli esempi disponibili per semplificare la creazione di definizioni dei criteri in Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">Indice degli esempi</a>
+  - title: riferimento
     items:
-    - title: Riga di comando
-      html: <p><a href="/cli/azure/policy">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (criteri)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (configurazione guest)</a></p>
-    - title: Modelli di Gestione risorse
-      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Assegnazioni</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Definizioni dei criteri</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Definizioni delle iniziative</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">Eventi</a></p><p><a href="/rest/api/policy-insights/policystates">Stati</a></p><p><a href="/rest/api/resources/policyassignments">Assegnazioni</a></p><p><a href="/rest/api/resources/policydefinitions">Definizioni dei criteri</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definizioni delle iniziative</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Risorse monitorate dai criteri</a></p><p><a href="/rest/api/policy-insights/remediations">Correzioni</a></p><p><a href="/rest/api/guestconfiguration/">Configurazione guest</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Riga di comando
+            html: '<p><a href="/cli/azure/policy">Interfaccia della riga di comando di Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (criteri)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (Policy Insights)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (configurazione guest)</a></p>'
+          - title: Modelli di Gestione risorse
+            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Assegnazioni</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Definizioni dei criteri</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Definizioni delle iniziative</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/policy-insights/policyevents">Eventi</a></p><p><a href="/rest/api/policy-insights/policystates">Stati</a></p><p><a href="/rest/api/resources/policyassignments">Assegnazioni</a></p><p><a href="/rest/api/resources/policydefinitions">Definizioni dei criteri</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definizioni delle iniziative</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Risorse monitorate dai criteri</a></p><p><a href="/rest/api/policy-insights/remediations">Correzioni</a></p><p><a href="/rest/api/guestconfiguration/">Configurazione guest</a></p>

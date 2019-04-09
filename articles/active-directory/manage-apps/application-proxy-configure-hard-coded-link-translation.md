@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c010a7bcd2d811b31d9c2d05e81cce5dc85c2ce
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118596"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262551"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Reindirizzare i collegamenti hardcoded per le app pubblicate con il proxy di app di Azure AD
 
@@ -82,6 +82,31 @@ Esistono due tipi comuni di collegamenti interni nelle applicazioni locali:
 - I **collegamenti interni relativi** che puntano a una risorsa condivisa in una struttura di file locale come `/claims/claims.html`. Questi collegamenti sono attivati automaticamente nelle app che vengono pubblicate tramite il proxy di applicazione e continuano a funzionare con o senza la conversione dei collegamenti. 
 - I **collegamenti interni hardcoded** ad altre applicazioni locali come `http://expenses` o i file pubblicati come `http://expenses/logo.jpg`. La funzionalità di conversione dei collegamenti opera sui collegamenti interni hardcoded e li converte, in modo che puntino agli URL esterni che gli utenti remoti devono usare.
 
+L'elenco completo dei tag di codice HTML che il Proxy di applicazione supporta la conversione dei collegamenti per includono:
+* a
+* audio
+* base
+* button
+* div
+* Incorpora
+* Form
+* Frame
+* Head
+* html
+* IFRAME
+* Immagine
+* input
+* link
+* MenuItem
+* meta
+* object
+* script
+* una sezione source
+* Track
+* video
+
+Inoltre, all'interno di CSS l'attributo URL viene inoltre convertito.
+
 ### <a name="how-do-apps-link-to-each-other"></a>In che modo le app si collegano tra loro?
 
 La conversione dei collegamenti è abilitata per ogni applicazione, perciò si ha il controllo dell'esperienza utente a livello di app. Attivare la conversione dei collegamenti per un'app quando si desidera che siano convertiti i collegamenti *da* tale app e non i collegamenti *a* tale app. 
@@ -123,4 +148,4 @@ Abbiamo bisogno dell'intervento dell'utente per rendere questa funzionalità ope
 ## <a name="next-steps"></a>Passaggi successivi
 [Usare i domini personalizzati con il proxy di applicazione Azure AD](application-proxy-configure-custom-domain.md) per avere gli stessi URL interni ed esterni
 
-[Configurare i mapping di accesso alternativo per for SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configurare il mapping di accesso alternativo per SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

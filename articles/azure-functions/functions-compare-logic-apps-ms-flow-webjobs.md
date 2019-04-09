@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: de83cc80d64fb1862f1fdec32b704d0948ef9fc8
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820519"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895648"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Informazioni su Microsoft Flow, App per la logica, Funzioni e Processi Web
 
@@ -84,7 +84,7 @@ Basandosi su WebJobs SDK, Funzioni di Azure condivide molti degli stessi trigger
 
 |  | Funzioni | Processi Web con WebJobs SDK |
 | --- | --- | --- |
-|[Modello di app senza server](https://azure.microsoft.com/solutions/serverless/) con [ridimensionamento automatico](functions-scale.md#how-the-consumption-plan-works)|✔||
+|[Modello di app senza server](https://azure.microsoft.com/solutions/serverless/) con [ridimensionamento automatico](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Sviluppo e test nel browser](functions-create-first-azure-function.md) |✔||
 |[Pagamento a consumo](functions-scale.md#consumption-plan)|✔||
 |[Integrazione con App per la logica](functions-twitter-email.md)|✔||
@@ -119,8 +119,8 @@ L'integrazione tra Microsoft Flow, App per la logica e Funzioni continua a migli
 
 Per altre informazioni sui servizi di integrazione, seguire i collegamenti seguenti:
 
-* [Leveraging Azure Functions & Azure App Service for integration scenarios](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/) (Sfruttare Funzioni di Azure e Servizio app di Azure per scenari di integrazione) di Christopher Anderson
-* [Integrations Made Simple](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Leveraging Azure Functions & Azure App Service for integration scenarios di Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
+* [Integrations Made Simple di Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
 * [Webcast live su App per la logica](https://aka.ms/logicappslive)
 * [Domande frequenti su Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 
@@ -128,6 +128,6 @@ Per altre informazioni sui servizi di integrazione, seguire i collegamenti segue
 
 Iniziare creando il primo flusso, la prima app per la logica o la prima app per le funzioni. Selezionare uno di questi collegamenti:
 
-* [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/) (Introduzione a Microsoft Flow)
+* [Introduzione a Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Creare un'app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Create your first Azure function](functions-create-first-azure-function.md) (Creare la prima funzione di Azure)
+* [Creare la prima funzione di Azure](functions-create-first-azure-function.md)

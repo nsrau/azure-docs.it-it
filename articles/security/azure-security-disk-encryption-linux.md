@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 33011a419c8c966fc59b769106aaff428b2a0709
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 624ad22b1c63498e8ce936472cfc884910bc6f84
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057677"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276950"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms"></a>Abilitare Crittografia dischi di Azure per le macchine virtuali IaaS Linux 
 
@@ -226,8 +226,7 @@ Usare la [Set-AzVmssDiskEncryptionExtension](/powershell/module/az.compute/set-a
 Per crittografare o decrittografare set di scalabilità di macchine virtuali Linux, usare i modelli di Azure Resource Manager e le istruzioni di seguito:
 
 - [Abilitare la crittografia in un set di scalabilità di macchine virtuali Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
-- [Distribuire un set di scalabilità di macchine virtuali Linux con un jumpbox e abilitare la crittografia nel set di scalabilità di VM Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
-- [Disabilitare la crittografia in un set di scalabilità di VM Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+- [Disabilitare la crittografia in un set di scalabilità di macchine virtuali Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
 
      1. Fare clic su **Distribuzione in Azure**.
      2. Compilare i campi obbligatori quindi accettare i termini e le condizioni.

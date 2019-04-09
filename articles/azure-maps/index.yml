@@ -1,56 +1,57 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 684e6a798c690c65f70c2f6224ac8f11256ce6eb
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
-ms.contentlocale: it-IT
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270131"
 documentType: LandingData
 title: Documentazione di Mappe di Azure
 metadata:
-  document_id: 
+  document_id: null
   title: Documentazione di Mappe di Azure | Microsoft Docs
   meta.description: Use Azure Maps to provide geospatial services to your web or mobile application.
   author: philmea
-  manager: 
+  manager: null
   ms.service: azure-maps
   services: azure-maps
   ms.topic: landing-page
   ms.date: 02/14/2019
   ms.author: philmea
 abstract:
-  description: Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa più aggiornati disponibili per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Mappe di Azure è un set di API REST conforme all'API Azure One per mappe, ricerca, routing, traffico, fusi orari, georilevazione, geofencing, dati mappa e operazioni spaziali accompagnati da SDK Web e Android per rendere lo sviluppo semplice, flessibile e portabile in più piattaforme.
+  description: 'Mappe di Azure offre agli sviluppatori di tutti i settori potenti funzionalità geospaziali che includono i dati mappa più aggiornati disponibili per fornire contesto geografico alle applicazioni Web e per dispositivi mobili. Mappe di Azure è un set di API REST conforme all''API Azure One per mappe, ricerca, routing, traffico, fusi orari, georilevazione, geofencing, dati mappa e operazioni spaziali accompagnati da SDK Web e Android per rendere lo sviluppo semplice, flessibile e portabile in più piattaforme.'
 sections:
-- title: Guide introduttive di 5 minuti
-  items:
-  - type: paragraph
-    text: Avviare un'app di ricerca nelle mappe con Mappe di Azure.
-  - type: list
-    style: icon48
+  - title: Guide introduttive di 5 minuti
     items:
-    - image:
-        src: /azure/sql-database/media/index/portal.svg
-      text: Avviare un'app per le mappe demo
-      href: /azure/azure-maps/quick-demo-map-app
-- title: Esercitazioni dettagliate
-  items:
-  - type: paragraph
-    text: Creare un'applicazione Web geospaziale per cercare i punti di interesse, trovare gli itinerari per le località e tenere traccia dei dispositivi creando un recinto virtuale con Mappe di Azure.
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: Informazioni su come creare applicazioni geospaziali con Mappe di Azure.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/logos/logo_js.svg'
+            text: Creare un'app Web
+            href: /azure/azure-maps/quick-demo-map-app
+  - title: Esercitazioni dettagliate
     items:
-    - html: <a href="/azure/azure-maps/tutorial-search-location">Cercare i punti di interesse</a>
-    - html: <a href="/azure/azure-maps/tutorial-route-location">Itinerario per un punto di interesse</a>
-    - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Itinerari per modalità di viaggio</a>
-    - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Creare un localizzatore di punti vendita</a>
-    - html: <a href="/azure/azure-maps/tutorial-geofence">Configurare un recinto virtuale</a>
-- title: riferimento
-  items:
-  - type: list
-    style: cards
-    className: cardsW
+      - html: <b>Esercitazioni sull'SDK Web</b>
+      - type: paragraph
+        text: Creare applicazioni Web geospaziali con l'SDK Web di Mappe di Azure.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-maps/tutorial-search-location">Cercare i punti di interesse</a>
+          - html: <a href="/azure/azure-maps/tutorial-route-location">Itinerario per un punto di interesse</a>
+          - html: <a href="/azure/azure-maps/tutorial-prioritized-routes">Itinerari per modalità di viaggio</a>
+          - html: <a href="/azure/azure-maps/tutorial-create-store-locator">Creare un localizzatore di punti vendita</a>
+      - html: <b>Esercitazioni sulle API REST</b>
+      - type: paragraph
+        text: Creare applicazioni geospaziali che chiamano i servizi REST di Mappe di Azure.
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/azure-maps/tutorial-geofence">Configurare un recinto virtuale</a>
+  - title: riferimento
     items:
-    - title: JavaScript
-      html: <p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Controllo mappa</a></p>
-    - title: REST
-      html: <p><a href="https://docs.microsoft.com/rest/api/maps/data">Servizio dati</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Servizio di georilevazione</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Servizio di rendering</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Servizio di pianificazione percorso</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Servizio di ricerca</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Servizio spaziale</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Servizio fuso orario</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Servizio informazioni sul traffico</a></p>
+      - type: list
+        style: cards
+        className: cardsW
+        items:
+          - title: JavaScript
+            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">Controllo mappa</a></p>'
+          - title: REST
+            html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">Servizio dati</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">Servizio di georilevazione</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Servizio di rendering</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Servizio di pianificazione percorso</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Servizio di ricerca</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">Servizio spaziale</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Servizio fuso orario</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Servizio informazioni sul traffico</a></p>'

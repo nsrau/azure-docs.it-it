@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863241"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918247"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introduzione alla macchina virtuale data science di Azure per Linux e Windows
 
@@ -87,7 +87,7 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git e GitBash | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | S | S |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | S | N |
-| PowerBI Desktop | S | N |
+| Power BI Desktop | S | N |
 | SDK per accedere alla suite di servizi di Cortana Intelligence e di Azure | S | S |
 | **Strumenti di gestione e spostamento dati** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Storage Explorer | S | S |
@@ -139,4 +139,4 @@ La macchina virtuale per l'analisi scientifica dei dati ha già installati e con
 * Per una procedura dettagliata che illustra come eseguire diverse attività comuni di data science con la macchina virtuale Linux, CentOS e Ubuntu, vedere [Data science in una macchina virtuale data science Linux](linux-dsvm-walkthrough.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida di Azure per sviluppatori R](../r-developers-guide.md)
+[Guida di Azure per sviluppatori di R](/azure/architecture/data-guide/technology-choices/r-developers-guide)

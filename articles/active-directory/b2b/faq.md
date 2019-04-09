@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877364"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260392"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Domande frequenti su Collaborazione B2B di Azure Active Directory
 
@@ -60,7 +60,7 @@ A meno che a un utente non sia assegnato il ruolo di amministratore con limitazi
  Sì. Quando si configura questo criterio, prestare attenzione e non bloccare accidentalmente l'accesso ai membri e agli amministratori.
 Per bloccare l'accesso dell'utente guest al [portale di Azure](https://portal.azure.com), usare un criterio di accesso condizionale nell'API del modello di distribuzione classica di Microsoft Azure:
 1. Modificare il gruppo **All Users** (Tutti gli utenti) in modo che contenga solo i membri.
-   ![Screenshot che mostra il gruppo di tutti gli utenti in cui UserType non è uguale Guest ](media/faq/modify-all-users-group.png)
+   ![Screenshot che mostra il gruppo di tutti gli utenti in cui UserType non è uguale Guest](media/faq/modify-all-users-group.png)
 2. Creare un gruppo dinamico che contenga utenti guest.
    ![Screenshot che illustra un nuovo gruppo di tutti gli utenti Guest](media/faq/group-with-guest-users.png)
 3. Configurare un criterio di accesso condizionale per impedire agli utenti guest l'accesso al portale, come illustrato nel video seguente:
