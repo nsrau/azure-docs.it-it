@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: f3ebbfb1b9894b2bf1ca41ac46970e138d107f7b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005789"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265084"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Come cambiare il modello di licenza per una macchina virtuale SQL Server in Azure
 Questo articolo descrive come cambiare il modello di licenza per una macchina virtuale di SQL Server in Azure usando il nuovo provider di risorse della macchina virtuale di SQL **Microsoft.SqlVirtualMachine**. Sono disponibili due modelli per una macchina virtuale (VM) che ospita SQL Server - con pagamento a consumo, licenze e bring your own license (BYOL) per. Adesso, usando PowerShell o l'interfaccia della riga di comando di Azure, è possibile modificare il modello di licenza usato dalla macchina virtuale di SQL Server. 
@@ -42,7 +42,8 @@ Il passaggio tra i due modelli di licenza **non comporta tempi di inattività**,
 
  - La capacità di convertire il modello di licenza è attualmente disponibile solo se si inizia con un'immagine di macchina virtuale di SQL Server con pagamento in base al consumo. Se si inizia con un'immagine Bring Your Own License dal portale, non sarà possibile convertire tale immagine per applicare il pagamento in base al consumo.
   - Attualmente, la modifica del modello di gestione delle licenze è supportata solo per le macchine virtuali distribuite tramite il modello di Resource Manager. Non sono supportate le macchine virtuali distribuite tramite il modello di distribuzione classica. 
-   - Attualmente la modifica del modello di licenza è abilitata solo per le installazioni di Cloud pubblico.
+   - Attualmente, la modifica del modello di licenza è abilitata solo per le installazioni di Cloud pubblico.
+   - Attualmente, questa procedura è supportata solo su macchine virtuali con una singola scheda di rete (interfaccia di rete). Nelle macchine virtuali con più NIC, è necessario prima di tutto rimuovere uno di interfaccia di rete (usando il portale di Azure) prima di eseguire la procedura. In caso contrario, si verifica un errore simile al seguente: "La macchina virtuale '\<vmname\>' ha più di una scheda di rete associato." Anche se è possibile aggiungere la scheda di rete nella macchina virtuale dopo aver modificato la modalità gestione licenze, le operazioni eseguite tramite il pannello di configurazione di SQL, ad esempio l'applicazione automatica delle patch e backup, non verranno considerate supportato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

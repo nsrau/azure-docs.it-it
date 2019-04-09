@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121622"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267146"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure
 Quando si crea un servizo cloud, Azure lo assegna a un sottodominio di **cloudapp.net**. Se ad esempio il servizio cloud è denominato "contoso", gli utenti saranno in grado di accedere all'applicazione da un URL come http://contoso.cloudapp.net. Azure assegna anche un indirizzo IP virtuale.
@@ -64,11 +64,11 @@ Per creare un record CNAME è necessario aggiungere una nuova voce nella tabella
 
 1. Utilizzare uno dei metodi seguenti per trovare il nome di dominio **.cloudapp.net** assegnato al servizio cloud in questione.
 
-   * Accedere al [portale di Azure], selezionare il servizio cloud, esaminare la sezione **Informazioni di base** e quindi individuare la voce **URL sito**.
+   * Account di accesso per il [portale di Azure], selezionare il servizio cloud, esaminare il **Panoramica** sezione e quindi individuare il **URL sito** voce.
 
        ![Sezione quick glance in cui è visualizzato l'URL del sito][csurl]
 
-       **OR**
+       **Oppure**
    * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
 
        ```powershell
@@ -97,11 +97,11 @@ Per creare un record A, è necessario innanzitutto trovare l'indirizzo IP virtua
 
 1. Utilizzare uno dei metodi seguenti per ottenere l'indirizzo IP del servizio cloud.
 
-   * Accedere al [portale di Azure], selezionare il servizio cloud, esaminare la sezione **Informazioni di base** e quindi individuare la voce **Indirizzi IP pubblici**.
+   * Account di accesso per il [portale di Azure], selezionare il servizio cloud, esaminare il **Cenni preliminari sulla** sezione e quindi individuare il **indirizzi IP pubblici** voce.
 
        ![Sezione quick glance in cui è visualizzato l'indirizzo VIP][vip]
 
-       **OR**
+       **Oppure**
    * Installare e configurare [Azure Powershell](/powershell/azure/overview), quindi eseguire il comando seguente:
 
        ```powershell
@@ -131,7 +131,7 @@ In questo esempio viene illustrata la creazione di un record A per il dominio ra
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Come gestire i servizi cloud](cloud-services-how-to-manage-portal.md)
-* [Come eseguire il mapping del contenuto della rete CDN a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md)
+* [Come eseguire il mapping della rete CDN a un dominio personalizzato](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configurazione generale del servizio cloud](cloud-services-how-to-configure-portal.md).
 * Procedura [distribuire un servizio cloud](cloud-services-how-to-create-deploy-portal.md).
 * Configurare i [certificati ssl](cloud-services-configure-ssl-certificate-portal.md).

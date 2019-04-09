@@ -12,12 +12,12 @@ ms.author: joke
 ms.reviwer: sstein
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: f90e4281be27f4f30f4fdf0e3eb2932fa4e743ef
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb5066185f9301450a68276dd4b2ce2123231b34
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840818"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58666789"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creare un agente processo elastico con PowerShell
 
@@ -129,7 +129,7 @@ $Db2
 
 ## <a name="enable-the-elastic-jobs-preview-for-your-subscription"></a>Abilitare l'anteprima dei processi elastici per la sottoscrizione
 
-Per usare i processi elastici, registrare la funzionalità nella sottoscrizione di Azure eseguendo il comando seguente (che deve essere eseguito solo una volta in ogni sottoscrizione in cui si vogliono usare i processi elastici):
+Per usare i processi elastici, registrare la funzionalità nella sottoscrizione di Azure eseguendo il comando seguente, una volta sola per la sottoscrizione in cui si intende effettuare il provisioning dell'agente di processo elastico. Le sottoscrizioni che contengono solo database di destinazione del processo non devono essere registrate.
 
 ```powershell
 Register-AzProviderFeature -FeatureName sqldb-JobAccounts -ProviderNamespace Microsoft.Sql

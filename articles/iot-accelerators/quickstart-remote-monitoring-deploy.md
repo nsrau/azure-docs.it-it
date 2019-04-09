@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184173"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792502"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Guida introduttiva: Provare una soluzione di monitoraggio remoto basata sul cloud
 
 Questa guida introduttiva illustra come distribuire l'acceleratore di soluzione Monitoraggio remoto di IoT di Azure. In questa soluzione basata sul cloud viene usata la pagina **Dashboard** per visualizzare i dispositivi simulati su una mappa e la pagina **Maintenance** (Manutenzione) per rispondere a un avviso di pressione da un dispositivo refrigeratore simulato. È possibile usare questo acceleratore di soluzione come punto di partenza per un'implementazione personalizzata o come strumento di apprendimento.
 
 La distribuzione iniziale configura l'acceleratore di soluzione per una società denominata Contoso. Gli operatori di Contoso possono gestire una selezione di diversi tipi di dispositivi, ad esempio refrigeratori, distribuiti in ambienti fisici diversi. Un dispositivo refrigeratore invia temperatura, umidità e dati di telemetria sulla pressione all'acceleratore della soluzione di monitoraggio remoto.
+
+Questo argomento di avvio rapido implementa una versione di **base** dell'acceleratore di soluzione a scopi dimostrativi e di test per ridurre al minimo i costi. Per altre informazioni sulle diverse versioni che è possibile implementare, vedere [Distribuzioni di base e standard](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Per completare questa guida introduttiva, è necessaria una sottoscrizione di Azure attiva.
 
@@ -36,9 +38,7 @@ Fare clic sul riquadro **Monitoraggio remoto**. Nella pagina **Monitoraggio remo
 
 ![Scegliere il monitoraggio remoto](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-Nella pagina **Create Remote Monitoring solution** (Creare soluzione di monitoraggio remoto), selezionare una distribuzione **Basic** (Base). Se l'acceleratore della soluzione viene distribuito per esplorarne il funzionamento o eseguire una dimostrazione, scegliere l'opzione **Basic** (Base) per ridurre al minimo i costi.
-
-Scegliere **.NET** come linguaggio. Le implementazioni di Java e .NET hanno funzionalità identiche.
+Scegliere **Microservizi C#** come **Opzioni di distribuzione**. Le implementazioni di Java e C# hanno funzionalità identiche.
 
 Immettere un valore univoco in **Solution name** (Nome soluzione) per l'acceleratore della soluzione di monitoraggio remoto. Per questa guida introduttiva usare il nome **contoso-rm**.
 
@@ -111,7 +111,7 @@ Per intervenire sul refrigeratore, scorrere a **Related information** (Informazi
 
 Nel pannello **Jobs** (Processi) scegliere **Run method** (Esegui metodo) e quindi il metodo **EmergencyValveRelease**. Aggiungere il nome del processo **ChillerPressureRelease** e fare clic su **Applica**. Queste impostazioni creano un processo che viene eseguito immediatamente.
 
-Per visualizzare lo stato del processo, tornare alla pagina **Maintenance** (Manutenzione) e visualizzare l'elenco di processi nella visualizzazione **Jobs** (Processi). Possono essere necessari alcuni secondi prima di vedere che il processo è stato eseguito per rilasciare la pressione della valvola sul refrigeratore:
+Per visualizzare lo stato del processo, tornare alla pagina **Maintenance** (Manutenzione) e visualizzare l'elenco di processi nella visualizzazione **Jobs** (Processi). Possono essere necessari alcuni secondi prima di vedere che il processo è stato eseguito:
 
 [![Stato dei processi nella visualizzazione Processi](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

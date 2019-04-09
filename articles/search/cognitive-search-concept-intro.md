@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 3c2567564e015ef19adf9f8c776e1f377a9cdf30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 187e40716bc55f71623ef758722eb58d27651d4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58133060"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882497"
 ---
 # <a name="what-is-cognitive-search-in-azure-search"></a>Che cos'è la ricerca cognitiva in Ricerca di Azure?
 
@@ -38,7 +38,7 @@ Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante
 
 ## <a name="components-of-cognitive-search"></a>Componenti della ricerca cognitiva
 
-Ricerca cognitiva è una funzionalità in anteprima di [Ricerca di Azure](search-what-is-azure-search.md) supportata in [queste aree](#where-do-i-start). 
+Ricerca cognitiva è una funzionalità in anteprima di [Ricerca di Azure](search-what-is-azure-search.md).
 
 La pipeline della ricerca cognitiva si basa su indicizzatori di [Ricerca di Azure *che effettuano*](search-indexer-overview.md) ricerche nelle origini dati e garantiscono l'elaborazione degli indici end-to-end. Le competenze sono ora associate agli indicizzatori, intercettando e arricchendo i documenti in base al set di competenze definito. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca attraverso tutti i [tipi di query supportati da Ricerca di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 
@@ -76,7 +76,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 
 | Concetto | DESCRIZIONE| Collegamenti |
 |---------|------------|-------|
-| Set di competenze | Risorsa denominata di primo livello contenente una raccolta di competenze. Un set di competenze è la pipeline di arricchimento. Viene richiamata durante l'indicizzazione da parte di un indicizzatore. | [Definire un set di competenze](cognitive-search-defining-skillset.md) |
+| Set di competenze | Risorsa denominata di primo livello contenente una raccolta di competenze. Un set di competenze è la pipeline di arricchimento. Viene richiamata durante l'indicizzazione da parte di un indicizzatore. | [Definire un insieme di competenze](cognitive-search-defining-skillset.md) |
 | Competenza cognitiva | Trasformazione atomica in una pipeline di arricchimento. Spesso si tratta di un componente che consente di estrarre o dedurre la struttura e pertanto aumenta il riconoscimento dei dati di input. Quasi sempre, l'output è testuale e l'elaborazione è del linguaggio naturale o di immagini e consente di estrarre o generare testo dagli input delle immagini. L'output di una competenza può essere mappato a un campo di un indice o usato come input per un arricchimento a valle. Una competenza può essere predefinita e fornita da Microsoft o personalizzata, ossia creata e distribuita dall'utente. | [Competenze predefinite](cognitive-search-predefined-skills.md) |
 | Estrazione dei dati | Include una vasta gamma di tipologie di elaborazione, comunque riferibili alla ricerca cognitiva; la competenza di riconoscimento entità denominata è generalmente usata per estrarre dati (entità) da un'origine che non fornisce tali informazioni in modo nativo. | [Competenza di riconoscimento entità denominata](cognitive-search-skill-named-entity-recognition.md)| 
 | Elaborazione di immagini | Deduce il testo da un'immagine, ad esempio la possibilità di riconoscere un riferimento, oppure estrae il testo da un'immagine. Alcuni esempi comuni includono l'OCR per l'estrazione di caratteri da un file digitalizzato (JPEG) o il riconoscimento del nome di una via in una foto che contiene un cartello stradale. | [Competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md) o [Competenza OCR](cognitive-search-skill-ocr.md)
@@ -96,7 +96,7 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 
 **Passaggio 2: Provare alcune guide di avvio rapido e alcuni esempi per acquisire esperienza pratica**
 
-+ [Guida introduttiva (portale)](cognitive-search-quickstart-blob.md)
++ [Avvio rapido (portale)](cognitive-search-quickstart-blob.md)
 + [Esercitazione (richieste HTTP)](cognitive-search-tutorial-blob.md)
 + [Esempio di competenze personalizzate (C#)](cognitive-search-create-custom-skill-example.md)
 
@@ -135,6 +135,6 @@ Per altre informazioni su domande o problemi specifici, vedere [Suggerimenti per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-+ [Documentazione sulla ricerca cognitiva](cognitive-search-resources-documentation.md)
-+ [Avvio rapido: Provare la ricerca cognitiva in una procedura dettagliata del portale](cognitive-search-quickstart-blob.md)
++ [Documentazione della ricerca cognitiva](cognitive-search-resources-documentation.md)
++ [Guida introduttiva: Provare la ricerca cognitiva in una procedura dettagliata del portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: Informazioni sulle API di ricerca cognitiva](cognitive-search-tutorial-blob.md)

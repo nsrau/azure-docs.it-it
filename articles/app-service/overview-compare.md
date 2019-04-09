@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 05afbd9a621752b8b665c7d2f68cd8cfcc8a1d1a
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
+ms.openlocfilehash: aac2a0b102d50c8d3f0506c2cc1469a838706703
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54322028"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793856"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Confronto tra Servizio app di Azure, Macchine virtuali, Service Fabric e Servizi cloud
 
@@ -29,7 +29,7 @@ Azure App Service è la scelta migliore per la maggior parte delle app Web. La d
 
 Service Fabric è una scelta valida se si crea una nuova app o si riscrive un'app esistente per usare un'architettura di microservizio. Le app, eseguite in un pool condiviso di computer, possono essere inizialmente di piccole dimensioni ed espandersi su vasta scala con centinaia o migliaia di computer in base alle esigenze. I servizi con stato facilitano un'archiviazione coerente e affidabile dello stato delle app e Service Fabric gestisce automaticamente il partizionamento, la scalabilità e la disponibilità dei servizi.  Service Fabric supporta anche WebAPI con Open Web Interface for .NET (OWIN) e ASP.NET Core.  Rispetto al servizio app, Service Fabric offre anche un maggiore livello di controllo, o accesso diretto, sull'infrastruttura sottostante. È possibile accedere in remoto ai server e configurarne le attività di avvio. Servizi cloud è simile a Service Fabric in termini di rapporto tra controllo e semplicità d'uso, ma è un servizio legacy e per le nuove attività di sviluppo è consigliabile usare Service Fabric.
 
-Se l'esecuzione di un'applicazione esistente nel servizio app o in Service Fabric richiederebbe modifiche sostanziali, è possibile scegliere Macchine virtuali per semplificare la migrazione al cloud. La corretta configurazione, la protezione e la gestione delle VM, tuttavia, richiedono tempi e competenze IT notevolmente superiori rispetto a Servizio app di Azure e Service Fabric. Se si sta valutando la possibilità di usare Macchine virtuali di Azure, assicurarsi di tenere conto delle operazioni di manutenzione continua necessarie per le attività di applicazione di patch, aggiornamento e gestione relative all'ambiente di VM. Macchine virtuali di Azure è un'infrastruttura distribuita come servizio (IaaS, Infrastructure-as-a-Service), mentre il servizio app e Service Fabric sono piattaforme distribuite come servizio (PaaS, Platform-as-a-Service). 
+Se l'esecuzione di un'applicazione esistente nel servizio app o in Service Fabric richiederebbe modifiche sostanziali, è possibile scegliere Macchine virtuali per semplificare la migrazione al cloud. La corretta configurazione, la protezione e la gestione delle VM, tuttavia, richiedono tempi e competenze IT notevolmente superiori rispetto a Servizio app di Azure e Service Fabric. Se si sta valutando la possibilità di usare Macchine virtuali di Azure, assicurarsi di tenere conto delle operazioni di manutenzione continua necessarie per le attività di applicazione di patch, aggiornamento e gestione relative all'ambiente di VM. Macchine virtuali di Azure è un'infrastruttura distribuita come servizio (IaaS, Infrastructure-as-a-Service), mentre il servizio app e Service Fabric sono piattaforme distribuite come servizio (PaaS, Platform-as-a-Service).
 
 ## <a name="features"></a>Confronto delle funzionalità
 Nella tabella seguente vengono confrontate le funzionalità del Servizio app, di Servizi cloud, di Macchine virtuali e di Service Fabric per aiutare i clienti a operare la scelta più adatta. Per informazioni aggiornate sul contratto di servizio per ciascuna opzione, vedere i [contratti di servizio di Azure](https://azure.microsoft.com/support/legal/sla/).
@@ -145,7 +145,7 @@ Se il framework open source è supportato su Azure App Service, le lingue e i fr
 Se il framework open source non è supportato nel servizio app, è possibile eseguirlo in una delle altre due opzioni di hosting Web di Azure. Con Macchine virtuali il software viene installato e configurato sull'immagine della macchina, che può essere basata su Windows o su Linux.
 
 ### <a id="lob"></a>Ho un'applicazione line-of-business che deve connettersi alla rete aziendale
-Per creare un'applicazione line-of-business, il sito Web potrebbe richiedere l'accesso diretto a servizi o dati nella rete aziendale. Ciò è possibile nel servizio app, in Service Fabric e in Macchine virtuali usando il [servizio Rete virtuale di Azure](/azure/virtual-network/). Nel servizio app è possibile usare la nuova [funzionalità di integrazione VNET](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), che consente l'esecuzione delle applicazioni Azure come se queste si trovassero sulla rete aziendale.
+Per creare un'applicazione line-of-business, il sito Web potrebbe richiedere l'accesso diretto a servizi o dati nella rete aziendale. Ciò è possibile nel servizio app, in Service Fabric e in Macchine virtuali usando il [servizio Rete virtuale di Azure](/azure/virtual-network/). Nel servizio app è possibile usare la nuova [funzionalità di integrazione VNet](/azure/app-service/web-sites-integrate-with-vnet), che consente l'esecuzione delle applicazioni Azure come se queste si trovassero sulla rete aziendale.
 
 ### <a id="mobile"></a>Voglio ospitare un'API REST o un servizio Web per client mobili
 I servizi Web basati su HTTP consentono di supportare una vasta gamma di client, inclusi client mobili. Framework come API Web ASP.NET si integrano con Visual Studio per semplificare la creazione e l'uso di servizi REST.  Tali servizi sono esposti da un endpoint Web, pertanto, per il supporto di questo scenario, è possibile usare qualsiasi tecnica di hosting Web in Azure. Servizio app è tuttavia un'ottima scelta per l'hosting di API REST. Con il servizio app, è possibile:
@@ -157,8 +157,6 @@ I servizi Web basati su HTTP consentono di supportare una vasta gamma di client,
 
 > [!NOTE]
 > Per iniziare a usare il servizio app di Azure prima di iscriversi per ottenere un account, visitare la pagina <a href="https://trywebsites.azurewebsites.net/">https://trywebsites.azurewebsites.net</a>, in cui è possibile creare subito gratuitamente un'app di base temporanea nel servizio app di Azure. Non è necessario fornire una carta di credito né impegnarsi in alcun modo.
-> 
-> 
 
 ## <a id="nextsteps"></a> Passaggi successivi
 Per altre informazioni sulle tre opzioni di hosting Web, vedere [Introduzione a Microsoft Azure](../fundamentals-introduction-to-azure.md).

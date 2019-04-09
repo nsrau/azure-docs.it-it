@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342712"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803987"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creare un'assegnazione di criteri per identificare le risorse non conformi
 
@@ -31,15 +31,15 @@ In questa guida introduttiva si crea un'assegnazione di criteri e si assegna la 
 
 1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
 
-   ![Ricerca di criteri](./media/assign-policy-portal/search-policy.png)
+   ![Cercare Criteri di Azure in Tutti i servizi](./media/assign-policy-portal/search-policy.png)
 
 1. Selezionare **Assegnazioni** a sinistra nella pagina Criteri di Azure. Un'assegnazione è un criterio che è stato assegnato per l'implementazione in un ambito specifico.
 
-   ![Selezionare le assegnazioni](./media/assign-policy-portal/select-assignments.png)
+   ![Selezionare la pagina Assegnazioni dalla pagina Panoramica dei criteri](./media/assign-policy-portal/select-assignments.png)
 
 1. Selezionare **Assegna criterio** nella parte superiore della pagina **Criteri - Assegnazioni**.
 
-   ![Assegnare una definizione di criteri](./media/assign-policy-portal/select-assign-policy.png)
+   ![Assegnare una definizione di criteri dalla pagina Assegnazioni](./media/assign-policy-portal/select-assign-policy.png)
 
 1. Nella pagina **Assegna criterio** selezionare il valore di **Ambito** facendo clic sui puntini di sospensione e quindi selezionando un gruppo di gestione o una sottoscrizione. Facoltativamente, selezionare un gruppo di risorse. L'ambito determina le risorse o il raggruppamento di risorse a cui viene applicata l'assegnazione di criteri  Fare quindi clic su **Seleziona** nella parte inferiore della pagina **Ambito**.
 
@@ -71,7 +71,7 @@ A questo punto si è pronti per identificare le risorse non conformi per compren
 
 Selezionare **Assegnazioni** a sinistra nella pagina. Individuare l'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) creata.
 
-![Conformità ai criteri](./media/assign-policy-portal/policy-compliance.png)
+![Dettagli della conformità nella pagina Conformità ai criteri](./media/assign-policy-portal/policy-compliance.png)
 
 Le eventuali risorse esistenti non conformi a questa nuova assegnazione verranno visualizzate nella scheda **Non-compliant resources** (Risorse non conformi).
 
@@ -94,7 +94,7 @@ Per rimuovere l'assegnazione creata, eseguire la procedura seguente:
 
 1. Fare clic con il pulsante destro del mouse sull'assegnazione dei criteri **Audit VMs that do not use managed disks** (Controllare le macchine virtuali che non usano Managed Disks) e scegliere **Elimina assegnazione**
 
-   ![Eliminare un'assegnazione](./media/assign-policy-portal/delete-assignment.png)
+   ![Eliminare un'assegnazione dalla pagina Conformità](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

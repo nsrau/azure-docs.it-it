@@ -86,12 +86,6 @@ items:
       href: platform/data-ingestion-time.md
     - name: Metriche personalizzate nell'archivio delle metriche
       href: platform/metrics-custom-overview.md
-  - name: Analizzare i dati dei log
-    items:
-    - name: Query di log
-      href: log-query/log-query-overview.md
-    - name: Portali per query sui log
-      href: log-query/portals.md
   - name: Sicurezza dei dati
     items:
     - name: Dati di log
@@ -327,6 +321,8 @@ items:
           items:
           - name: Profiler per i servizi app Linux (anteprima)
             href: app/profiler-aspnetcore-linux.md
+        - name: ASP.NET Core senza Visual Studio
+          href: app/asp-net-core-no-visualstudio.md
         - name: Console
           href: app/console.md
         - name: Dashboard dell'applicazione
@@ -611,6 +607,8 @@ items:
           href: insights/vminsights-maps.md
         - name: Monitorare le prestazioni
           href: insights/vminsights-performance.md
+        - name: Uso delle cartelle di lavoro
+          href: insights/vminsights-workbooks.md
         - name: Eseguire query sui dati con Log Analytics
           href: insights/vminsights-log-search.md
         - name: Disabilitare il monitoraggio
@@ -680,18 +678,20 @@ items:
       href: platform/grafana-plugin.md
   - name: Analizzare i dati
     items:
-    - name: Introduzione a Esplora metriche
-      href: platform/metrics-getting-started.md
-    - name: Funzionalità avanzate di Esplora metriche
-      href: platform/metrics-charts.md
-    - name: Esempi di grafici delle metriche
-      href: platform/metric-chart-samples.md
-    - name: Visualizzare eventi nel log attività
-      href: ../azure-resource-manager/resource-group-audit.md
-    - name: Visualizzare le notifiche del servizio
-      href: platform/service-notifications.md
-    - name: Eseguire query sui dati di log
+    - name: Metriche
       items:
+      - name: Introduzione a Esplora metriche
+        href: platform/metrics-getting-started.md
+      - name: Funzionalità avanzate di Esplora metriche
+        href: platform/metrics-charts.md
+      - name: Esempi di grafici delle metriche
+        href: platform/metric-chart-samples.md
+    - name: Log
+      items:
+      - name: Query di log
+        href: log-query/log-query-overview.md
+      - name: Portali per query sui log
+        href: log-query/portals.md
       - name: Documentazione del linguaggio di query
         href: log-query/query-language.md
       - name: Differenze di lingua
@@ -766,6 +766,10 @@ items:
         href: platform/flow-tutorial.md
       - name: API di ricerca nei log
         href: https://dev.loganalytics.io/
+    - name: Visualizzare eventi nel log attività
+      href: ../azure-resource-manager/resource-group-audit.md
+    - name: Visualizzare le notifiche del servizio
+      href: platform/service-notifications.md
   - name: Rispondere agli eventi imprevisti
     items:
     - name: Avvisi
@@ -952,7 +956,7 @@ items:
         href: insights/solutions-best-practices.md
       - name: Raccogliere i dati di monitoraggio da un runbook
         href: platform/runbook-datacollect.md
-- name: Informazioni di riferimento
+- name: riferimento
   items:
   - name: Application Insights
     items:
@@ -1067,9 +1071,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Esempi di codice
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: 9c0f17f113b7940f83e3d3b5b2161fe9f88c01ac
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886642"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261157"

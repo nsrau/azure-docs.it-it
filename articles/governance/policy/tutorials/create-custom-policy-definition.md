@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112088"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802271"
 ---
 # <a name="create-a-custom-policy-definition"></a>Creare una definizione di criteri personalizzata
 
@@ -56,14 +56,14 @@ Tuttavia, le proprietà da usare nella definizione del criterio non sono note. I
 
 Per determinare le proprietà delle risorse di Azure, sono disponibili varie opzioni, che verranno descritte in questa esercitazione:
 
-- Modelli di Resource Manager
+- Modelli di Gestione risorse
   - Esportazione di una risorsa esistente
   - Esperienza di creazione
   - Modelli di avvio rapido (GitHub)
   - Documentazione di riferimento sui modelli
-- Azure Resource Explorer
+- Esplora risorse di Azure
 
-### <a name="resource-manager-templates"></a>Modelli di Resource Manager
+### <a name="resource-manager-templates"></a>Modelli di Gestione risorse
 
 È possibile esaminare in vari modi un [modello di Resource Manager](../../../azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md) che include la proprietà da gestire.
 
@@ -72,7 +72,7 @@ Per determinare le proprietà delle risorse di Azure, sono disponibili varie opz
 Il modo più semplice per trovare proprietà consiste nell'esaminare una risorsa esistente dello stesso tipo. Le risorse già configurate con l'impostazione da applicare forniscono anche il valore da confrontare.
 Esaminare la pagina **Script di automazione** in **Impostazioni** nel portale di Azure per questa specifica risorsa.
 
-![Pagina Script di automazione](../media/create-custom-policy-definition/automation-script.png)
+![Esportare la pagina del modello sulla risorsa esistente](../media/create-custom-policy-definition/automation-script.png)
 
 Per un account di archiviazione questa pagina visualizza un modello simile a questo esempio:
 
@@ -151,7 +151,7 @@ I [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-t
 Per verificare se **supportsHttpsTrafficOnly** è la proprietà corretta, controllare le informazioni di riferimento del modello di Resource Manager relativo alla [risorsa account di archiviazione](/azure/templates/microsoft.storage/2018-07-01/storageaccounts) nel provider di archiviazione.
 L'oggetto proprietà include un elenco di parametri validi. Selezionando il collegamento [StorageAccountPropertiesCreateParameters-object](/azure/templates/microsoft.storage/2018-07-01/storageaccounts#storageaccountpropertiescreateparameters-object) viene visualizzata una tabella di proprietà accettabili. La proprietà **supportsHttpsTrafficOnly** è presente e la descrizione corrisponde alla risorsa necessaria per soddisfare i requisiti aziendali.
 
-### <a name="azure-resource-explorer"></a>Azure Resource Explorer
+### <a name="azure-resource-explorer"></a>Esplora risorse di Azure
 
 È possibile esplorare le risorse di Azure anche in un altro modo, ossia tramite [Azure Resource Explorer](https://resources.azure.com) (anteprima). Questo strumento usa il contesto della sottoscrizione, quindi è necessario eseguire l'autenticazione per il sito Web con le credenziali di Azure. Dopo aver completato l'autenticazione, è possibile esplorare le risorse in base a provider, sottoscrizioni, gruppi di risorse e singole risorse.
 
@@ -165,7 +165,7 @@ Per determinare gli alias per una risorsa di Azure, sono disponibili varie opzio
 
 - Interfaccia della riga di comando di Azure
 - Azure PowerShell
-- Azure Resource Graph
+- Diagramma delle risorse di Azure
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -194,7 +194,7 @@ Verrà applicato un filtro per trovare lo spazio dei nomi **Microsoft.Storage** 
 
 Anche in questo caso, come con l'interfaccia della riga di comando di Azure, i risultati includono un alias supportato dagli account di archiviazione denominati **supportsHttpsTrafficOnly**.
 
-### <a name="azure-resource-graph"></a>Azure Resource Graph
+### <a name="azure-resource-graph"></a>Diagramma delle risorse di Azure
 
 [Azure Resource Graph](../../resource-graph/overview.md) è un nuovo servizio disponibile in anteprima. Rende disponibile un altro metodo per trovare le proprietà delle risorse di Azure. Ecco una query di esempio per esaminare un singolo account di archiviazione con Resource Graph:
 
@@ -325,7 +325,7 @@ A questo punto sono disponibili i dettagli e l'alias della proprietà per lo sce
 }
 ```
 
-### <a name="metadata"></a>Metadati
+### <a name="metadata"></a>Metadata
 
 I primi tre componenti sono metadati dei criteri. Per questi componenti è facile fornire i valori, perché il motivo per cui viene creata la regola è noto. L'opzione [mode](../concepts/definition-structure.md#mode) riguarda prevalentemente i tag e la posizione delle risorse. Poiché non è necessario limitare la valutazione alle risorse che supportano i tag, verrà usato il valore _all_ per **mode**.
 

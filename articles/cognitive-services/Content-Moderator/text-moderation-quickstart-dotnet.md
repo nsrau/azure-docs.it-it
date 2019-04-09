@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312243"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756542"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guida introduttiva: Analizzare il contenuto del testo per individuare materiale inappropriato in C# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guida introduttiva: Analizzare il contenuto del testo per individuare materiale inappropriato in C#
 
 Questo articolo contiene informazioni ed esempi di codice utili per iniziare a usare [Content Moderator SDK per .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Si imparerà a filtrare e classificare il contenuto di testo in base a determinati termini allo scopo di sottoporre a moderazione materiale potenzialmente sgradevole.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Aggiungere il codice seguente al metodo **Main**. Il metodo **ScreenText** è l'operazione essenziale. I suoi parametri specificano le operazioni di moderazione del contenuto che verranno eseguite. In questo esempio il metodo è configurato per:
 - Rilevare possibile contenuto volgare nel testo.
 - Normalizzare il testo e correggere automaticamente gli errori di digitazione.
-- Rilevare informazioni personali (PII), ad esempio numeri di telefono degli Stati Uniti e del Regno Unito, indirizzi di posta elettronica e indirizzi postali degli Stati Uniti.
+- Rilevare informazioni personali, ad esempio numeri di telefono degli Stati Uniti e del Regno Unito, indirizzi di posta elettronica e indirizzi postali degli Stati Uniti.
 - Usare modelli basati su Machine Learning per classificare il testo in tre categorie.
 
 Per informazioni più approfondite su queste operazioni, selezionare il collegamento nella sezione [Passaggi successivi](#next-steps).

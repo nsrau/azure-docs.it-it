@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621271"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270954"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Scegliere un piano tariffario per Ricerca di Azure
 
-In Ricerca di Azure una [risorsa viene creata](search-create-service-portal.md) con un piano tariffario o SKU che rimane fisso per l'intera durata del servizio. I livelli includono **gratuito**, **base**, **Standard**, oppure **ottimizzate per l'archiviazione**.  **Standard** e **ottimizzate per l'archiviazione** sono disponibili in diverse configurazioni e capacità. La maggior parte dei clienti iniziano con la **gratuito** livello per la valutazione e quindi passa a uno dei livelli a pagamento superiore per le distribuzioni di sviluppo e produzione. Con il piano **Gratuito** è possibile eseguire tutte le guide introduttive e le esercitazioni, incluse quelle per la ricerca cognitiva a elevato utilizzo di risorse.
+In Ricerca di Azure una [risorsa viene creata](search-create-service-portal.md) con un piano tariffario o SKU che rimane fisso per l'intera durata del servizio. I livelli includono **gratuito**, **base**, **Standard**, oppure **ottimizzate per l'archiviazione**.  **Standard** e **ottimizzate per l'archiviazione** sono disponibili in diverse configurazioni e capacità. 
+
+La maggior parte dei clienti iniziano con la **gratuito** livello per la valutazione e quindi passa a uno dei livelli a pagamento superiore per le distribuzioni di sviluppo e produzione. Con il piano **Gratuito** è possibile eseguire tutte le guide introduttive e le esercitazioni, incluse quelle per la ricerca cognitiva a elevato utilizzo di risorse.
 
 > [!NOTE]
 > I livelli di servizio con ottimizzazione per la memoria sono attualmente disponibili in anteprima al prezzo scontato per scopi di test e sperimentazione allo scopo di raccogliere commenti e suggerimenti. I prezzi finali verranno annunciati in un secondo momento quando questi livelli sono disponibili a livello generale. È consigliabile evitare di utilizzare questi livelli per le applicazioni di produzione.
@@ -29,7 +31,7 @@ I livelli rispecchiano le caratteristiche dell'hardware che ospita il servizio (
 + Numero di indici che è possibile creare
 + Dimensione e velocità delle partizioni (archiviazione fisica)
 
-Anche se tutti i piani, incluso quello **Gratuito**, offrono in genere parità delle funzionalità, la presenza di carichi di lavoro più elevati può imporre che vengano soddisfatti i requisiti previsti per i piani di livello superiore. Ad esempio, l'indicizzazione della [ricerca cognitiva](cognitive-search-concept-intro.md) ha competenze a esecuzione prolungata che scadono in un servizio gratuito a meno che il set di dati non sia di dimensioni ridotte.
+Anche se tutti i piani, incluso quello **Gratuito**, offrono in genere parità delle funzionalità, la presenza di carichi di lavoro più elevati può imporre che vengano soddisfatti i requisiti previsti per i piani di livello superiore. Ad esempio, [l'indicizzazione per intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md) ha competenze con esecuzione prolungata che raggiungono timeout su un servizio gratuito, a meno che non dovesse essere piccolo set di dati.
 
 > [!NOTE] 
 > L'eccezione alla parità delle funzionalità è rappresentata dagli [indicizzatori](search-indexer-overview.md), che non sono disponibili per S3HD.
@@ -43,8 +45,8 @@ La tabella seguente elenca i piani disponibili. Includono altre fonti di informa
 
 |Livello | Capacity |
 |-----|-------------|
-|Gratis | Condiviso con altri sottoscrittori. Non scalabile, limitato a 3 indici e l'archiviazione a 50 MB. |
-|Di base | Risorse di calcolo dedicate per carichi di lavoro di produzione su scala ridotta. Una partizione di 2 GB e un massimo di tre repliche. |
+|Gratuito | Condiviso con altri sottoscrittori. Non scalabile, limitato a 3 indici e l'archiviazione a 50 MB. |
+|Basic | Risorse di calcolo dedicate per carichi di lavoro di produzione su scala ridotta. Una partizione di 2 GB e un massimo di tre repliche. |
 |Standard 1 (S1) | Da S1 nel backup, computer dedicati con maggiore capacità di elaborazione e archiviazione a ogni livello. Dimensioni della partizione sono 25 GB per partizione (max 300 GB per ogni servizio) per S1. |
 |Standard 2 (S2) | Simile a S1, ma con 100 GB/partizioni (max 1,2 TB per ogni servizio) |
 |Standard 3 (S3) | 200 GB per partizione (max 2,4 TB per ogni servizio) |
@@ -53,7 +55,7 @@ La tabella seguente elenca i piani disponibili. Includono altre fonti di informa
 |2 (L2) ottimizzazione dell'archiviazione | 2 TB/partizione (massimo 24 TB per ogni servizio) |
 
 > [!NOTE] 
-> I livelli di ottimizzazione dell'archiviazione offrono capacità di archiviazione superiore a un prezzo inferiore per ogni TB di livelli Standard.  Il compromesso principale è maggiore latenza delle query, che è necessario convalidare per le proprie esigenze specifiche dell'applicazione.  Per altre informazioni sulle considerazioni sulle prestazioni di questo livello, vedere [considerazioni sulle prestazioni e ottimizzazione](search-performance-optimization.md).
+> I livelli di ottimizzazione dell'archiviazione offrono capacità di archiviazione superiore a un prezzo inferiore per ogni TB di livelli Standard. Il compromesso principale è maggiore latenza delle query, che è necessario convalidare per le proprie esigenze specifiche dell'applicazione.  Per altre informazioni sulle considerazioni sulle prestazioni di questo livello, vedere [considerazioni sulle prestazioni e ottimizzazione](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Modalità di funzionamento della fatturazione
@@ -70,17 +72,27 @@ Nello screenshot seguente, per ogni ai prezzi unità sia indicato per Free, Basi
 
 Partizioni e repliche aggiuntive sono un componente aggiuntivo per il costo iniziale. Un servizio di ricerca richiede una replica e partizione in modo che la configurazione minima è uno di ciascuno. Oltre il valore minimo, si aggiungono repliche e partizioni in modo indipendente. Ad esempio, è possibile aggiungere solo le repliche o partizioni. 
 
-Partizioni e repliche aggiuntive vengono tariffate in base una [formula](#search-units). I costi non sono lineari (raddoppiare la capacità più copie del costo). Per un esempio di come dei lavori formule, vedere ["Come allocare partizioni e repliche"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Partizioni e repliche aggiuntive vengono tariffate in base una [formula](#search-units). I costi non sono lineari (raddoppiare la capacità più copie del costo). Per un esempio di come dei lavori formule, vedere ["Come allocare partizioni e repliche"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Costi di uscita dei dati durante l'indicizzazione.
 
-Quando si esegue il pull da un'origine dati di tipo database SQL di Azure o Cosmos DB, nella fattura per tali risorse saranno indicati gli addebiti per la transazione. Gli addebiti non sono contatori di ricerca di Azure, ma sono indicate qui perché se si usa gli indicizzatori per eseguire il pull dei dati dal Database SQL di Azure o Azure Cosmos DB, si noterà che carica la fattura.
+Sfrutta [indicizzatori di ricerca di Azure](search-indexer-overview.md) può comportare l'impatto a seconda di dove si trovano i servizi di fatturazione. È possibile eliminare i costi di uscita dei dati completamente se si crea il servizio di ricerca di Azure nella stessa area dei dati.
+
++ Nessun addebito per tutti i dati in ingresso a qualsiasi servizio in Azure.
+
++ Nessun addebito per tutti i dati in uscita da ricerca di Azure.
+
++ Nessun addebito per i dati o i file in uscita dal database SQL, Cosmos, archiviazione Blob (in ingresso in ricerca di Azure), purché tutti i servizi sono nella stessa area.
+
++ Gli addebiti si applicano per file o dei dati in uscita se archiviazione e ricerca di Azure si trovano in aree diverse.
+
+Durante il routing dei dati tra aree di Azure, questi saranno costi di larghezza di banda nella fattura per le risorse. Gli addebiti non fanno parte della fattura di ricerca di Azure, ma sono indicate qui perché se si usa gli indicizzatori per eseguire il pull di dati o file in rete, si noterà che carica la fattura complessiva.
+
+Se non si usa gli indicizzatori, non sono previsti costi di larghezza di banda. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. Intelligenza artificiale-indicizzazione arricchita con servizi cognitivi
 
-Solo per la [ricerca cognitiva](cognitive-search-concept-intro.md), l'estrazione di immagini durante l'individuazione dei documenti viene fatturata in base al numero di immagini estratte dai documenti. L'estrazione di testo è attualmente gratuita. Altri miglioramenti in base [competenze cognitive predefinite](cognitive-search-predefined-skills.md) vengono fatturate a una risorsa di servizi cognitivi. Gli arricchimenti vengono fatturati alla stessa tariffa che verrebbe usata se l'attività fosse stata eseguita usando direttamente Servizi cognitivi.
-
-Se non si usano la [ricerca cognitiva](cognitive-search-concept-intro.md) oppure [indicizzatori di Ricerca di Azure](search-indexer-overview.md), gli unici costi sono quelli sono correlati alle repliche e partizioni in uso attivo, per carichi di lavoro regolari di indicizzazione e query.
+Per la [l'indicizzazione per intelligenza artificiale con servizi cognitivi](cognitive-search-concept-intro.md) solo, estrazione di immagini durante decifrazione del documento viene fatturato in base al numero di immagini estratti dai tuoi documenti. L'estrazione di testo è attualmente gratuita. Altri miglioramenti, ad esempio l'elaborazione in linguaggio naturale, si basano [competenze cognitive predefinite](cognitive-search-predefined-skills.md) vengono fatturate a una risorsa di servizi cognitivi. Gli arricchimenti vengono fatturati alla stessa tariffa che verrebbe usata se l'attività fosse stata eseguita usando direttamente Servizi cognitivi.
 
 <a name="search-units"></a>
 
@@ -209,7 +221,7 @@ Il numero di indici e le dimensioni sono ugualmente rilevanti per l'analisi poic
 > I requisiti di archiviazione possono apparire maggiori del necessario se i documenti contengono dati estranei. In teoria, i documenti contengono solo i dati necessari per l'esperienza di ricerca. I dati binari non sono ricercabili e devono essere archiviati separatamente, ad esempio in una tabella o un archivio BLOB di Azure, con un campo nell'indice che contenga un riferimento URL ai dati esterni. Le dimensioni massime di un singolo documento sono pari a 16 MB o meno, se si caricano più documenti in una richiesta. Per altre informazioni, vedere [Limiti dei servizi in Ricerca di Azure](search-limits-quotas-capacity.md).
 >
 
-**Considerazioni sul volume delle query**
+**Considerazioni sul volume di query**
 
 Le query al secondo (QPS, Queries-Per-Second) sono una metrica rilevante per l'ottimizzazione delle prestazioni ma non lo sono per la scelta del livello, a meno che non si preveda un volume di query elevato sin dall'inizio.
 

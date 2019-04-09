@@ -6,16 +6,16 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: d4be7b9c7774163aed8c0efb3414dbd6a794cf7f
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 67526eddd19c5869aa54432f963d9b80396f878d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52847797"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270983"
 ---
-# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server 
+# <a name="set-up-disaster-recovery-for-sql-server"></a>Configurare il ripristino di emergenza per SQL Server
 
 Questo articolo descrive come proteggere il back-end SQL Server di un'applicazione usando una combinazione di [Azure Site Recovery](site-recovery-overview.md) e tecnologie di continuità aziendale e ripristino di emergenza di SQL Server.
 
@@ -30,7 +30,7 @@ Molti carichi di lavoro usano come base SQL Server, che può essere integrato co
 * **Istanze di clustering di failover di SQL Server (AlwaysOn FCI)**: Due o più nodi che eseguono SQL Server a istanze con dischi condivisi vengono configurati in un cluster di failover di Windows. Se un nodo è inattivo, il cluster può effettuare il failover di SQL Server in un'altra istanza. Questa configurazione viene in genere usata per implementare la disponibilità elevata in un sito primario. Questa distribuzione non offre la protezione da errori o interruzioni nel livello dell'archiviazione condivisa. Un disco condiviso può essere implementato con iSCSI, Fibre Channel o VHDX condiviso.
 * **Gruppi di disponibilità AlwaysOn di SQL**: Due o più nodi sono configurati in un cluster non condiviso con i database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico.
 
- Per ripristinare i database in un sito remoto, in questo articolo vengono sfruttate le tecnologie di ripristino di emergenza native di SQL riportate di seguito:
+  Per ripristinare i database in un sito remoto, in questo articolo vengono sfruttate le tecnologie di ripristino di emergenza native di SQL riportate di seguito:
 
 * Gruppi di disponibilità SQL AlwaysOn, per supportare il ripristino di emergenza per SQL Server 2012 o 2014 Enterprise Edition.
 * Mirroring del database SQL in modalità protezione elevata, per SQL Server Standard Edition (qualsiasi versione) o SQL Server 2008 R2.
@@ -42,10 +42,10 @@ Site Recovery può proteggere SQL Server, come riepilogato nella tabella.
 
 **Scenario** | **In un sito secondario** | **In Azure**
 --- | --- | ---
-**Hyper-V** | Yes | Yes
-**VMware** | Yes | Yes
-**Server fisico** | Yes | Yes
-**Azure**|ND| Yes
+**Hyper-V** | Sì | Sì
+**VMware** | Sì | Sì
+**Server fisico** | Sì | Sì
+**Azure** |ND| Sì
 
 ### <a name="supported-sql-server-versions"></a>Versioni di SQL Server supportate
 Per gli scenari supportati, sono supportate le versioni di SQL Server seguenti:
@@ -62,22 +62,22 @@ Site Recovery può essere integrato con le tecnologie di continuità aziendale e
 **Funzionalità** | **Dettagli** | **SQL Server** |
 --- | --- | ---
 **Gruppo di disponibilità AlwaysOn** | Ognuna delle istanze autonome multiple di SQL Server viene eseguita in un cluster di failover con più nodi.<br/><br/>I database possono essere raggruppati in gruppi di failover che possono essere copiati (con mirroring) in istanze di SQL Server in modo che non sia necessaria alcuna archiviazione condivisa.<br/><br/>Fornisce il ripristino di emergenza tra un sito primario e uno o più siti secondari. Due nodi possono essere configurati in un cluster non condiviso con i database di SQL Server configurati in un gruppo di disponibilità con replica sincrona e failover automatico. | SQL Server 2016, SQL Server 2014 & SQL Server 2012 Enterprise edition
-**Clustering di failover (istanza del cluster di failover AlwaysOn)** | SQL Server usa il clustering di failover di Windows per l'elevata disponibilità dei carichi di lavoro SQL Server locali.<br/><br/>I nodi che eseguono le istanze di SQL Server con dischi condivisi sono configurati in un cluster di failover. Se un'istanza non è attiva, il cluster esegue il failover in un'altra istanza.<br/><br/>Il cluster non protegge da errori o interruzioni nell'archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, fibre channel o VHDX condivisi. | Edizioni SQL Server Enterprise<br/><br/>Edizione SQL Server Standard (limitata a soli due nodi)
-**Mirroring del database (modalità di protezione elevata)** | Protegge un singolo database in una singola copia secondaria. Disponibile nelle modalità di replica a protezione elevata (sincrona) e a prestazione elevata (asincrona). Non richiede un cluster di failover. | SQL Server 2008 R2<br/><br/>Tutte le edizioni di SQL Server Enterprise
+**Failover (FCI AlwaysOn) di clustering** | SQL Server usa il clustering di failover di Windows per l'elevata disponibilità dei carichi di lavoro SQL Server locali.<br/><br/>I nodi che eseguono le istanze di SQL Server con dischi condivisi sono configurati in un cluster di failover. Se un'istanza non è attiva, il cluster esegue il failover in un'altra istanza.<br/><br/>Il cluster non protegge da errori o interruzioni nell'archiviazione condivisa. Il disco condiviso può essere implementato con iSCSI, fibre channel o VHDX condivisi. | Edizioni SQL Server Enterprise<br/><br/>Edizione SQL Server Standard (limitata a soli due nodi)
+**Mirroring del database (modalità a sicurezza elevata)** | Protegge un singolo database in una singola copia secondaria. Disponibile nelle modalità di replica a protezione elevata (sincrona) e a prestazione elevata (asincrona). Non richiede un cluster di failover. | SQL Server 2008 R2<br/><br/>Tutte le edizioni di SQL Server Enterprise
 **SQL Server autonomo** | SQL Server e il database si trovano in un singolo server (fisico o virtuale). Il clustering dell'host viene usato per la disponibilità elevata se il server è virtuale. Nessuna disponibilità elevata a livello di guest. | Edizione Enterprise o Standard
 
 ## <a name="deployment-recommendations"></a>Indicazioni di distribuzione
 
 Nella tabella seguente vengono riepilogate le indicazioni per l'integrazione delle tecnologie di continuità aziendale e ripristino di emergenza (BCDR) di SQL Server con Site Recovery.
 
-| **Versione** | **Edizione** | **Distribuzione** | **Da locale a locale** | **Da locale ad Azure** |
+| **Versione** | **Edizione** | **Distribuzione** | **Dall'ambiente locale a locale** | **Da locale ad Azure** |
 | --- | --- | --- | --- | --- |
 | SQL Server 2016, 2014 o 2012 |Enterprise |Istanza del cluster di failover |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn |
-|| Enterprise |Gruppo di disponibilità AlwaysOn per la disponibilità elevata |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn | |
-|| Standard |Istanza del cluster di failover (FCI) |Replica di Site Recovery con mirror locale |Replica di Site Recovery con mirror locale | |
-|| Enterprise o Standard |Autonoma |Replica di Site Recovery |Replica di Site Recovery | |
+|| Enterprise |Gruppo di disponibilità AlwaysOn per la disponibilità elevata |Gruppi di disponibilità AlwaysOn |Gruppi di disponibilità AlwaysOn |
+|| Standard |Istanza del cluster di failover (FCI) |Replica di Site Recovery con mirror locale |Replica di Site Recovery con mirror locale |
+|| Enterprise o Standard |Autonoma |Replica di Site Recovery |Replica di Site Recovery |
 | SQL Server 2008 R2 o 2008 |Enterprise o Standard |Istanza del cluster di failover (FCI) |Replica di Site Recovery con mirror locale |Replica di Site Recovery con mirror locale |
-|| Enterprise o Standard |Autonoma |Replica di Site Recovery |Replica di Site Recovery | |
+|| Enterprise o Standard |Autonoma |Replica di Site Recovery |Replica di Site Recovery |
 | SQL Server (qualsiasi versione) |Enterprise o Standard |Istanza del cluster di failover: applicazione DTC |Replica di Site Recovery |Non supportato |
 
 ## <a name="deployment-prerequisites"></a>Prerequisiti di distribuzione
@@ -101,7 +101,7 @@ Le istruzioni in questo articolo presuppongono che sia disponibile un controller
 
 1. Importare gli script nell'account di Automazione di Azure. Sono inclusi gli script per il failover del gruppo di disponibilità SQL in una [macchina virtuale di Resource Manager](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) e una [macchina virtuale classica](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1).
 
-    [![Distribuzione in Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+    [![Distribuisci ad Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 
 1. Aggiungere ASR-SQL-FailoverAG come azione preliminare del primo gruppo del piano di ripristino.
@@ -116,7 +116,7 @@ SQL AlwaysOn non supporta il failover di test in modo nativo. È quindi consigli
 
 1. Prima di attivare il failover di test del piano di ripristino, ripristinare la macchina virtuale dal backup creato nel passaggio precedente.
 
-    ![Eseguire il ripristino da Backup di Azure ](./media/site-recovery-sql/restore-from-backup.png)
+    ![Eseguire il ripristino da Backup di Azure](./media/site-recovery-sql/restore-from-backup.png)
 
 1. [Forzare un quorum](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/force-a-wsfc-cluster-to-start-without-a-quorum#PowerShellProcedure) nella macchina virtuale ripristinata dal backup.
 
@@ -130,9 +130,9 @@ SQL AlwaysOn non supporta il failover di test in modo nativo. È quindi consigli
 
 1. Creare un servizio di bilanciamento del carico con un indirizzo IP creato nel pool di indirizzi IP front-end corrispondente al listener di ogni gruppo di disponibilità e con la macchina virtuale SQL aggiunta nel pool back-end.
 
-     ![Creazione del servizio di bilanciamento del carico - Pool di indirizzi front-end ](./media/site-recovery-sql/create-load-balancer1.png)
+     ![Creazione del servizio di bilanciamento del carico - Pool di indirizzi front-end](./media/site-recovery-sql/create-load-balancer1.png)
 
-    ![Creazione del servizio di bilanciamento del carico - Pool back-end ](./media/site-recovery-sql/create-load-balancer2.png)
+    ![Creazione del servizio di bilanciamento del carico - Pool back-end](./media/site-recovery-sql/create-load-balancer2.png)
 
 1. Effettuare un failover di test del piano di ripristino.
 

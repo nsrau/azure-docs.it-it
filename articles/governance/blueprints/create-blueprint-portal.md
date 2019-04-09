@@ -1,6 +1,6 @@
 ---
 title: Creare un progetto nel portale
-description: Usare Azure Blueprints per creare, definire e distribuire elementi tramite il portale di Azure.
+description: Usare Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004910"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804395"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definire e assegnare un progetto Azure Blueprint nel portale
 
@@ -40,7 +40,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    - In alternativa, fare clic su **Crea** nella pagina **Attività iniziali** per passare direttamente alla creazione di un progetto.
 
-   ![Crea progetto](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Crea progetto nella pagina di definizioni del progetto](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Specificare un nome in **Nome progetto**, ad esempio "MyBlueprint" (lettere e numeri, fino a 48 caratteri, ma senza spazi o caratteri speciali) per il progetto, ma per il momento lasciare vuoto il campo **Descrizione del progetto**. Nella casella **Località della definizione** fare clic sui puntini di sospensione a destra, selezionare il [gruppo di gestione](../management-groups/overview.md) o la sottoscrizione in cui si vuole salvare il progetto e fare clic su **Seleziona**.
 
@@ -48,7 +48,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 1. Aggiungere un'assegnazione di ruolo alla sottoscrizione: fare clic sulla riga **+ Aggiungi artefatto...** sotto la voce **Sottoscrizione**. Verrà visualizzata la finestra "Aggiungi elemento" sul lato destro del browser. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Collaboratore" e lasciare il campo _Aggiungi utente, app o gruppo_ con la casella di controllo che indica un **parametro dinamico**. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
 
-   ![Elemento - Assegnazione di ruolo](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Artefatto del progetto - Assegnazione di ruolo](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > La maggior parte degli _elementi_ supporta parametri. Un parametro cui è assegnato un valore durante la creazione del progetto è un **parametro statico**. Se il parametro viene assegnato durante l'assegnazione del progetto, si tratta di un **parametro dinamico**. Per altre informazioni, vedere [Blueprint parameters](./concepts/parameters.md) (Parametri per i progetti).
@@ -113,11 +113,11 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
    }
    ```
 
-   ![Elemento - Modello di Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Artefatto del progetto - Modello di Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. Il progetto completo sarà simile al seguente. Notare che ogni elemento ha _x_ parametri popolati su _y_ nella colonna _Parametri_. I **parametri dinamici** vengono impostati durante ogni assegnazione del progetto.
 
-   ![Progetto completato](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Definizione del progetto completata](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Ora che sono stati aggiunti tutti gli elementi pianificati, fare clic su **Salva bozza** nella parte inferiore della pagina.
 
@@ -135,11 +135,11 @@ In [Creare un progetto](#create-a-blueprint) non è stata fornita alcuna descriz
 
 1. Aggiungere un'assegnazione di ruolo nel gruppo di risorse: fare clic sulla riga **+ Aggiungi artefatto...** direttamente sotto la voce **Gruppo di risorse**. Selezionare "Assegnazione ruolo" per _Tipo di elemento_. In _Ruolo_ selezionare "Proprietario", rimuovere il segno di spunta per il campo _Aggiungi utente, app o gruppo_ e quindi cercare e selezionare un utente, un'app o un gruppo da aggiungere. Questo elemento usa un **parametro statico** con la stessa impostazione in ogni assegnazione di questo progetto. Fare clic su **Aggiungi** per aggiungere questo elemento al progetto.
 
-   ![Elemento - Assegnazione di ruolo n. 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Artefatto del progetto - Assegnazione di ruolo n. 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. Il progetto completo sarà simile al seguente. Si noti che l'assegnazione di ruolo appena aggiunta indica **1 parametro popolato su 1** e questo significa che si tratta di un **parametro statico**.
 
-   ![Progetto completato n. 2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Definizione del progetto completata n. 2](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Fare clic su **Salva bozza** ora che il progetto è stato aggiornato.
 
@@ -224,7 +224,7 @@ Ora che il progetto è stato assegnato a una sottoscrizione, verificare lo stato
 
 1. Nell'elenco di progetti fare clic con il pulsante destro del mouse su quello assegnato in precedenza e scegliere **Visualizza i dettagli dell'assegnazione**.
 
-   ![Visualizza i dettagli dell'assegnazione](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Visualizzare i dettagli dell'assegnazione nella finestra Progetti assegnati](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. Nella pagina **Assegnazione progetto** verificare che tutti gli artefatti siano stati distribuiti correttamente e che non si siano verificati errori durante la distribuzione. In caso di errori, vedere [Troubleshooting blueprint](./troubleshoot/general.md) (Risoluzione dei problemi relativi a un progetto) per istruzioni su come determinare gli eventuali problemi.
 

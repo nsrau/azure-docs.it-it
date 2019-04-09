@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dacf58760d353eea3c552a9113589259148f3558
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1bb1370b2d828aaddae61c32a663bd032b18e7b1
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447894"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801894"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure
 
@@ -76,7 +76,7 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 1. Tornare all'account di archiviazione appena creato.
 2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.
 3. Fare clic su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per la macchina virtuale.
-4. In **Ruolo**, nell'elenco a discesa, selezionare **Lettore dei dati del BLOB di archiviazione (anteprima)**.
+4. In **Ruolo** scegliere **Lettore dei dati del BLOB di archiviazione** dall'elenco a discesa.
 5. Dall'elenco a discesa, in **Assegna accesso a** selezionare **Macchina virtuale**.
 6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su **Tutti i gruppi di risorse**.
 7. In **Seleziona**, scegliere la macchina virtuale e quindi fare clic su **Salva**.

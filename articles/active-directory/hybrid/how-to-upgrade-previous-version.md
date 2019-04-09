@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: Identity
-ms.date: 07/18/2018
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa21b1054fa6860a8acc5d6971f75e1d74c889f7
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57193756"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267039"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: Eseguire l'aggiornamento da una versione precedente
 Questo argomento descrive i diversi metodi che è possibile usare per aggiornare l'installazione di Azure Active Directory (Azure AD) Connect alla versione più recente. È consigliabile mantenersi sempre al passo con le versioni di Azure AD Connect. È anche possibile usare le procedure illustrate nella sezione [Migrazione swing](#swing-migration), che consentono di apportare modifiche significative alla configurazione.
+
+>[!NOTE]
+> È attualmente supportata per eseguire l'aggiornamento da una qualsiasi versione di Azure AD Connect alla versione corrente. Non sono supportati gli aggiornamenti sul posto di DirSync o ADSync e una migrazione swing è obbligatorio.  Se si vuole eseguire l'aggiornamento da DirSync, vedere [aggiornamento dallo strumento di sincronizzazione Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) o nella [migrazione Swing](#swing-migration) sezione.  </br>In pratica, i clienti con versioni molto obsolete potrebbero verificarsi problemi non direttamente correlati ad Azure AD Connect. I server che sono stati in ambiente di produzione per diversi anni, hanno avuto in genere applicate le patch di diversi e non tutti questi possono essere prese in considerazione.  In generale, i clienti che non sono aggiornati in 12-18 mesi devono considerare un aggiornamento swing come questa è l'opzione più conservativo e meno rischioso.
 
 Se si vuole eseguire l'aggiornamento da DirSync, vedere invece l'argomento relativo all'[aggiornamento dallo strumento di sincronizzazione di Azure AD (DirSync)](how-to-dirsync-upgrade-get-started.md) .
 
@@ -32,7 +35,7 @@ Esistono diverse strategie per eseguire l'aggiornamento di Azure AD Connect.
 
 | Metodo | DESCRIZIONE |
 | --- | --- |
-| [Aggiornamento automatico](how-to-connect-install-automatic-upgrade.md) |Si tratta del metodo più semplice per i clienti con installazione rapida. |
+| [aggiornamento automatico](how-to-connect-install-automatic-upgrade.md) |Si tratta del metodo più semplice per i clienti con installazione rapida. |
 | [Aggiornamento sul posto](#in-place-upgrade) |Se si ha un singolo server, è possibile eseguire un aggiornamento sul posto dell'installazione nello stesso server. |
 | [Migrazione swing](#swing-migration) |Se si usano due server, è possibile preparare uno dei due con la nuova versione o configurazione e, quando si è pronti, modificare il server attivo. |
 
@@ -114,7 +117,7 @@ Durante l'aggiornamento sul posto, è possibile che vengano introdotte modifiche
 
 3. Annotare le sostituzioni esistenti che sono state aggiunte.
    
-4. Per rimuovere le sostituzioni per l'importazione completa e per la sincronizzazione completa in un connettore arbitrario, eseguire il cmdlet seguente: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Per rimuovere le sostituzioni per l'importazione completa e sincronizzazione completa in un connettore arbitrario, eseguire il cmdlet seguente: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Per rimuovere le sostituzioni in tutti i connettori, eseguire lo script PowerShell seguente:
 
@@ -125,12 +128,12 @@ Durante l'aggiornamento sul posto, è possibile che vengano introdotte modifiche
    }
    ```
 
-5. Per riabilitare l'utilità di pianificazione, eseguire il cmdlet seguente: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Per riprendere l'utilità di pianificazione, eseguire il cmdlet seguente: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > Non dimenticare di eseguire i passaggi di sincronizzazione necessari appena possibile. È possibile eseguire questi passaggi manualmente tramite Synchronization Service Manager oppure aggiungere nuovamente le sostituzioni usando il cmdlet Set-ADSyncSchedulerConnectorOverride.
 
-Per aggiungere le sostituzioni per l'importazione completa e per la sincronizzazione completa in un connettore arbitrario, eseguire il cmdlet seguente: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Per aggiungere le sostituzioni per l'importazione completa e sincronizzazione completa in un connettore arbitrario, eseguire il cmdlet seguente:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>risoluzione dei problemi
 La sezione seguente contiene informazioni sulla risoluzione dei problemi che possono essere utili se si verifica un problema durante l'aggiornamento di Azure AD Connect.
@@ -141,7 +144,7 @@ Quando si esegue l'aggiornamento di Azure AD Connect da una versione precedente,
 
 ![Tipi di errore](./media/how-to-upgrade-previous-version/error1.png)
 
-Questo errore si verifica perché il connettore di Azure Active Directory con l'identificatore, b891884f-051e-4a83-95af-2544101c9083, non esiste nella configurazione corrente di Azure AD Connect. Per verificare questa eventualità, aprire una finestra di PowerShell, eseguire il cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+Questo errore si verifica perché il connettore di Azure Active Directory con l'identificatore, b891884f-051e-4a83-95af-2544101c9083, non esiste nella configurazione corrente di Azure AD Connect. Per verificare che questo è il caso, aprire una finestra di PowerShell, eseguire il Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 5d9e33e5cf4c8a7d5b8085e1e2ff8f4bde3274b7
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8e7eee40bed29117d2873393395a852e4b738533
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770902"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793482"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Esercitazione: Aggiungere un dispositivo reale all'applicazione Azure IoT Central
 
@@ -50,7 +50,7 @@ Per aggiungere un dispositivo reale all'applicazione, si usa il modello di dispo
 
    ![Pagina Device Explorer con Connected Air Conditioner (Condizionatore d'aria connesso)](media/tutorial-add-device/explorer.png)
 
-   In **Device Explorer** viene visualizzato il modello di dispositivo **Connected Air Conditioner** (Condizionatore d'aria connesso) e il dispositivo simulato creato automaticamente al momento della creazione del modello di dispositivo da parte del generatore.
+   In **Esplora dispositivi** sono visualizzati il modello di dispositivo **Condizionatore connesso** e un dispositivo simulato. Quando si crea un modello di dispositivo, IoT Central crea automaticamente un dispositivo simulato.
 
 2. Per iniziare la connessione di un dispositivo condizionatore d'aria connesso reale, selezionare **+**, quindi **Reale**:
 
@@ -68,7 +68,7 @@ Il dispositivo reale viene creato sulla base del modello di dispositivo **Connec
 
     ![Impostazioni da sincronizzare](media/tutorial-add-device/settingssyncing.png)
 
-2. Nella pagina **Proprietà** del nuovo condizionatore connesso, la posizione di utilizzo e la data dell'ultimo utilizzo sono entrambe proprietà modificabili del dispositivo. I campi della versione del firmware e del numero di serie sono vuoti fino a quando il dispositivo viene connesso all'applicazione. Sono valori di sola lettura inviati dal dispositivo e non possono essere modificati.
+2. Nella pagina **Proprietà** del nuovo dispositivo reale, sia la posizione di utilizzo che la data dell'ultimo utilizzo sono proprietà modificabili. I campi della versione del firmware e del numero di serie sono vuoti fino a quando il dispositivo viene connesso all'applicazione. Sono valori di sola lettura inviati dal dispositivo e non possono essere modificati.
 
     ![Proprietà del dispositivo reale](media/tutorial-add-device/setproperties1.png)
 
@@ -76,7 +76,7 @@ Il dispositivo reale viene creato sulla base del modello di dispositivo **Connec
 
 ## <a name="generate-connection-string"></a>Generare la stringa di connessione
 
-Uno sviluppatore di dispositivi deve incorporare la *stringa di connessione* del dispositivo reale nel codice che viene eseguito sul dispositivo. La stringa di connessione consente al dispositivo di connettersi in modo sicuro all'applicazione Azure IoT Central. La stringa di connessione viene generata durante la preparazione del codice client scritto in Node.js nei passaggi successivi. L'applicazione Node.js rappresenta il condizionatore reale connesso. 
+Uno sviluppatore di dispositivi deve incorporare la *stringa di connessione* del dispositivo reale nel codice che viene eseguito sul dispositivo. La stringa di connessione consente al dispositivo di connettersi in modo sicuro all'applicazione. I passaggi seguenti mostrano come generare la stringa di connessione e preparare il client del codice Node.js.
 
 ## <a name="prepare-the-client-code"></a>Preparare il codice client
 
@@ -88,7 +88,7 @@ L'esempio di codice riportato in questo articolo è scritto in [Node.js](https:/
 * Rispondere a un operatore che usa l'impostazione **Set Temperature** (Temperatura impostata).
 * Gestire il comando Echo dall'applicazione Azure IoT Central.
 
-Gli articoli sulle procedure riportati nella sezione [Passaggi successivi](#next-steps) forniscono esempi più completi e illustrano l'uso di altri linguaggi di programmazione. Per altre informazioni su come i dispositivi si connettono ad Azure IoT Central, vedere l'articolo [Connettività dei dispositivi](concepts-connectivity.md).
+Gli articoli elencati nella sezione [Passaggi successivi](#next-steps) includono esempi più completi e illustrano altri linguaggi di programmazione. Per altre informazioni su come i dispositivi si connettono ad Azure IoT Central, vedere l'articolo [Connettività dei dispositivi](concepts-connectivity.md).
 
 La procedura seguente illustra come preparare l'esempio [Node.js](https://nodejs.org/):
 
@@ -163,7 +163,7 @@ La procedura seguente illustra come preparare l'esempio [Node.js](https://nodejs
 
 ## <a name="review-client-code"></a>Esaminare il codice client
 
-Nella sezione precedente è stato creato uno scheletro di progetto Node.js per un'applicazione che si connette all'applicazione Azure IoT Central. In questa sezione si aggiungerà il codice per:
+Nella sezione precedente è stato creato uno scheletro di progetto Node.js per un'applicazione che si connette all'applicazione Azure IoT Central. Il passaggio successivo consiste nell'aggiungere codice a:
 
 * Eseguire la connessione all'applicazione Azure IoT Central.
 * Inviare dati di telemetria all'applicazione Azure IoT Central.
@@ -300,7 +300,8 @@ Nella sezione precedente è stato creato uno scheletro di progetto Node.js per u
 
 ## <a name="configure-client-code"></a>Configurare il codice client
 
-<!-- Add the connection string to the sample code, build, and run --> Per configurare il codice client per la connessione all'applicazione Azure IoT Central, è necessario aggiungere la stringa di connessione del dispositivo reale annotata in precedenza in questa esercitazione.
+<!-- Add the connection string to the sample code, build, and run -->
+Per configurare il codice client per la connessione all'applicazione Azure IoT Central, è necessario aggiungere la stringa di connessione del dispositivo reale annotata in precedenza in questa esercitazione.
 
 1. Nel file **ConnectedAirConditioner.js** individuare la riga di codice seguente:
 
@@ -365,10 +366,8 @@ Un operatore può apprendere come:
 
 Uno sviluppatore di dispositivi può apprendere come:
 
-* [Preparare e connettere un dispositivo DevKit](howto-connect-devkit.md)
-* [Preparare e connettere un'applicazione Raspberry Pi](howto-connect-raspberry-pi-python.md)
+* [Preparare e connettere un dispositivo DevKit (C)](howto-connect-devkit.md)
+* [Preparare e connettere un'applicazione Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Preparare e connettere un'applicazione Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Preparare e connettere un dispositivo Windows 10 IoT Core (C#)](howto-connect-windowsiotcore.md)
 * [Connettere un'applicazione client Node.js generica all'applicazione Azure IoT Central](howto-connect-nodejs.md)
-* [Customize your code (Personalizzare il codice)][lnk-nodejs-device-ref]
-
-
-[lnk-nodejs-device-ref]: /javascript/api/azure-iot-device/?view=azure-iot-typescript-latest

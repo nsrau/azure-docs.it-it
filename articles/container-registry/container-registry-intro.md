@@ -5,15 +5,15 @@ services: container-registry
 author: stevelas
 ms.service: container-registry
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 03/29/2019
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: befac6f1429d5099f68f0c2ba0a90bb1217f8b6f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 39f643bd66e2a96b0b9b93989d2941a9c30ea7fc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530263"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894014"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Introduzione ai registri per contenitori Docker privati in Azure
 
@@ -43,7 +43,7 @@ Configurare le attività del Registro Azure Container per ricreare automaticamen
 * **Repository**. Un registro contiene uno o più repository, che archiviano gruppi di immagini contenitore. Registro Azure Container supporta spazi dei nomi dei repository multilivello. Con gli spazi dei nomi multilivello è possibile raggruppare raccolte di immagini correlate a un'app specifica oppure una raccolta di app per team operativi o di sviluppo specifici. Ad esempio: 
 
   * `myregistry.azurecr.io/aspnetcore:1.0.1` rappresenta un'immagine a livello aziendale
-  * `myregistry.azurecr.io/warrantydept/dotnet-build` rappresenta un'immagine usata per creare app .NET, condivisa nel reparto garanzia
+  * `myregistry.azurecr.io/warrantydept/dotnet-build` rappresenta un'immagine usata per creare app .NET, condivise nel reparto garanzia
   * `myregistry.azurecr.io/warrantydept/customersubmissions/web` rappresenta un'immagine Web, raggruppata nell'app customersubmissions, di proprietà del reparto garanzia
 
 * **Immagine**. Ogni immagine archiviata in un repository è uno snapshot di sola lettura di un contenitore compatibile con Docker. I registri contenitori di Azure possono includere immagini sia Windows che Linux. L'utente controlla i nomi delle immagini per tutte le distribuzioni di contenitori. Usare i [comandi di Docker](https://docs.docker.com/engine/reference/commandline/) standard per effettuare il pull e il push di immagini da e verso un repository. Oltre alle immagini del contenitore, Registro Azure Container archivia [formati del contenuto correlato](container-registry-image-formats.md) come i [grafici Helm](container-registry-helm-repos.md) usati per distribuire applicazioni in Kubernetes.
@@ -54,10 +54,10 @@ Configurare le attività del Registro Azure Container per ricreare automaticamen
 
 Le [attività di Registro Azure Container](container-registry-tasks-overview.md) sono un gruppo di funzionalità di Registro Azure Container che consente una compilazione efficiente e semplificata delle immagini del contenitore Docker in Azure. Usare le attività di Registro Azure Container per estendere il ciclo interno di sviluppo nel cloud usando le operazioni di offload `docker build` in Azure. Configurare le attività di compilazione per automatizzare la pipeline di applicazione delle patch al sistema operativo e al framework del contenitore e compilare automaticamente le immagini quando il team esegue il commit del codice nel controllo dell'origine.
 
-[Attività a più passaggi](container-registry-tasks-overview.md#multi-step-tasks-preview), una funzionalità in anteprima delle attività di Registro Azure Container, consente di definire ed eseguire attività in più passaggi per compilare, testare e correggere immagini contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
+Le [attività in più passi](container-registry-tasks-overview.md#multi-step-tasks) consentono di definire ed eseguire attività basate su passaggi per creare, testare e correggere le immagini del contenitore nel cloud. I passaggi dell'attività definiscono singole operazioni di compilazione e push dell'immagine contenitore. Possono anche definire l'esecuzione di uno o più contenitori, in cui ogni passaggio usa il contenitore come ambiente di esecuzione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Creare un registro contenitori con il portale di Azure](container-registry-get-started-portal.md)
-* [Create a container registry using the Azure CLI](container-registry-get-started-azure-cli.md) (Creare un registro contenitori con l'interfaccia della riga di comando di Azure)
-* [Automate OS and framework patching with ACR Tasks](container-registry-tasks-overview.md) (Automatizzare la correzione di sistema operativo e framework con le attività di Registro Azure Container)
+* [Creare un registro contenitori usando l'interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md)
+* [Automate OS and framework patching with ACR Tasks (Automatizzare l'applicazione di patch al sistema operativo e al framework con ACR Tasks)](container-registry-tasks-overview.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 98cc6ee2428523b93b42fca73daadc118103b7d7
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667481"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268518"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Reliable Services di Service Fabric
 
@@ -134,7 +134,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys in un servizio con stato
 
-`HttpSysCommunicationListener` non è attualmente progettato per l'uso in servizi con stato, a causa di problemi con la funzionalità di condivisione delle porte *http.sys* sottostante. Per altre informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HttpSys. Per i servizi con stato, Kestrel è il server Web consigliato.
+`HttpSysCommunicationListener` attualmente non progettato per l'utilizzo nei servizi con stato a causa di problemi con l'oggetto sottostante *HTTP. sys* funzionalità di condivisione delle porte. Per altre informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HttpSys. Per i servizi con stato, Kestrel è il server Web consigliato.
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 
@@ -369,7 +369,7 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 ### <a name="default-key-mapping"></a>Chiave predefinita di Mapping
-Per impostazione predefinita, provider di configurazione di Service Fabric include nome del pacchetto, nome della sezione e nome della proprietà tra loro per formare la configurazione di asp.net core usando la seguente funzione della chiave:
+Per impostazione predefinita, il provider di configurazione di Service Fabric include nome del pacchetto, nome della sezione e nome della proprietà tra loro per formare la configurazione di asp.net core usando la seguente funzione della chiave:
 ```csharp
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```

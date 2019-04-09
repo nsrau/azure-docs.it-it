@@ -4,15 +4,15 @@ description: Panoramica del servizio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 04/03/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999962"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894970"
 ---
 # <a name="about-azure-migrate"></a>Informazioni su Azure Migrate
 
@@ -65,11 +65,11 @@ Le impostazioni di valutazione possono essere personalizzate in base alle esigen
 **Criterio di dimensionamento** | Il dimensionamento può essere basato sulla **cronologia delle prestazioni** delle macchine virtuali locali (impostazione predefinita) oppure può essere configurato **come in locale**, senza considerare la cronologia delle prestazioni.
 **Cronologia delle prestazioni** | Per impostazione predefinita, Azure Migrate valuta le prestazioni dei computer locali usando la cronologia delle prestazioni per l'ultimo giorno, con un valore percentile del 95%.
 **Fattore di comfort** | Durante la valutazione, Azure Migrate considera un buffer (fattore di comfort), che viene applicato ai dati sull'utilizzo delle VM (CPU, memoria, disco e rete). Il fattore di comfort tiene conto di aspetti come utilizzo stagionale, breve cronologia delle prestazioni e probabile aumento dell'utilizzo futuro.<br/><br/> Da una VM con 10 core e un utilizzo del 20%, ad esempio, si ottiene normalmente una VM con 2 core. Con un fattore di comfort pari a 2.0x, invece, il risultato è una VM con 4 core. L'impostazione predefinita del fattore di comfort è 1.3x.
-**Serie macchina virtuale** | Serie di VM usata per le stime delle dimensioni. Se si ha un ambiente di produzione di cui non si intende eseguire la migrazione a VM serie A in Azure, ad esempio, si può escludere la serie A dall'elenco o dalle serie. Il dimensionamento sarà basato solo sulla serie selezionata.   
+**Serie VM** | Serie di VM usata per le stime delle dimensioni. Se si ha un ambiente di produzione di cui non si intende eseguire la migrazione a VM serie A in Azure, ad esempio, si può escludere la serie A dall'elenco o dalle serie. Il dimensionamento sarà basato solo sulla serie selezionata.   
 **Valuta** | Valuta di fatturazione. La valuta predefinita è il dollaro statunitense.
 **Sconto (%)** | Qualsiasi sconto specifico della sottoscrizione ricevuto oltre all'offerta Azure. L'impostazione predefinita è 0%.
 **Tempo di attività macchina virtuale** | Se non si prevede di eseguire ininterrottamente le macchine virtuali in Azure, è possibile specificare la durata (numero di giorni al mese e numero di ore al giorno) dell'esecuzione. Il costo verrà stimato di conseguenza. Il valore predefinito è di 31 giorni al mese e di 24 ore al giorno.
-**Offerta Azure** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Azure Migrate stima il costo di conseguenza.
+**Offerta di Azure** | [Offerta di Azure](https://azure.microsoft.com/support/legal/offer-details/) sottoscritta. Azure Migrate stima il costo di conseguenza.
 **Vantaggio Azure Hybrid** | Eventuale iscrizione a Software Assurance e idoneità per il [Vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-use-benefit/) con prezzi scontati.
 
 ## <a name="how-does-azure-migrate-work"></a>Funzionamento di Azure Migrate
@@ -103,6 +103,12 @@ Dopo aver valutato i computer locali, è possibile usare alcuni strumenti per es
 
 - **Azure Site Recovery**: è possibile usare Azure Site Recovery per eseguire la migrazione ad Azure. A tale scopo, [preparare i componenti di Azure](../site-recovery/tutorial-prepare-azure.md) necessari, che includono un account di archiviazione e una rete virtuale. In locale, [preparare l'ambiente VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Dopo aver preparato tutto, configurare e abilitare la replica in Azure ed eseguire la migrazione delle VM. [Altre informazioni](../site-recovery/vmware-azure-tutorial.md)
 - **Migrazione del database di Azure**: se i computer locali eseguono un database come SQL Server, MySQL oppure Oracle, è possibile eseguirne la migrazione ad Azure usando [Servizio Migrazione del database di Azure](../dms/dms-overview.md).
+
+## <a name="want-to-learn-more-from-community-experts"></a>Per saperne di più dagli esperti della community
+Visitare il [forum su Azure Migrate su MSDN](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc) o [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate)
+
+## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.  
+In caso di domande o per assistenza, [creare una richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se per la richiesta di supporto sono necessarie informazioni tecniche dettagliate, visitare la pagina dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/)     
 
 
 ## <a name="next-steps"></a>Passaggi successivi

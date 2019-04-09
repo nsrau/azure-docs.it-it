@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: 6b6d0d1a7e14035f7a1b7998ec4b3e68761539f5
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158109"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903647"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
 
@@ -25,7 +25,7 @@ Le esercitazioni in questo articolo si applicano a Microsoft Azure Data Box Disk
 
 Per vari motivi potrebbe essere necessario annullare un ordine effettuato. È possibile annullare l'ordine solo prima dell'avvio della preparazione del disco. Non è possibile eseguire questa operazione dopo che i dischi sono stati preparati e l'ordine è stato elaborato. 
 
-Eseguire la procedura seguente per annullare un ordine.
+Seguire questa procedura per annullare un ordine.
 
 1.  Passare a **Panoramica > Annulla**. 
 
@@ -55,7 +55,7 @@ Eseguire la procedura seguente per clonare un ordine.
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
-[![Clonazione ordine 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![CClonazione ordine 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminare un ordine
 

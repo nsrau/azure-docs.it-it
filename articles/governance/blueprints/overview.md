@@ -1,6 +1,6 @@
 ---
 title: Panoramica di Azure Blueprint
-description: Azure Blueprint è un servizio disponibile in Azure usato per creare, definire e distribuire artefatti nell'ambiente Azure.
+description: Informazioni sul servizio Azure Blueprints, che consente di creare, definire e distribuire artefatti nell'ambiente di Azure.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -9,14 +9,14 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: cf3801381359bb973d126e2ee946cdb51e5aecb7
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56823094"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802576"
 ---
-# <a name="what-is-azure-blueprints"></a>Informazioni su Azure Blueprint
+# <a name="overview-of-the-azure-blueprints-service"></a>Panoramica del servizio Azure Blueprints
 
 Così come un progetto consente a un ingegnere o un architetto di tracciare i parametri di progettazione, Azure Blueprint consente agli architetti cloud e ai gruppi centrali del reparto IT di definire un set ripetibile di risorse di Azure che implementa ed è conforme a standard, criteri e requisiti di un'organizzazione. Azure Blueprint consente ai team di sviluppo di creare e realizzare rapidamente nuovi ambienti sapendo che vengono creati in conformità con l'organizzazione con un set di componenti integrati, ad esempio reti, per velocizzare lo sviluppo e il recapito.
 

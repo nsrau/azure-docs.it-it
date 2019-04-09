@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994871"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885962"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definire e assegnare un progetto Azure Blueprint con l'API REST
 
@@ -40,10 +40,10 @@ Per le specifiche di progetti Bluprint, vedere [API REST di Azure Blueprints](/r
 
 Se non si ha già uno strumento per effettuare chiamate API REST, provare a usare PowerShell per queste istruzioni. Di seguito è riportata un'intestazione di esempio per l'autenticazione con Azure. Generare un'intestazione di autenticazione, talvolta denominata **bearer token**e fornire l'URI dell'API REST cui connettersi con qualsiasi parametro o un **corpo della richiesta**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -68,8 +68,8 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourMG}`: sostituire con l'ID del gruppo di gestione
-- `{subscriptionId}`: sostituire con l'ID sottoscrizione
+- `{YourMG}` - Sostituire con l'ID del gruppo di gestione
+- `{subscriptionId}` - Sostituire con l'ID sottoscrizione
 
 > [!NOTE]
 > I progetti possono anche essere creati a livello di sottoscrizione. Per un esempio, vedere l'[esempio di creazione del progetto a livello di sottoscrizione](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -334,9 +334,9 @@ Dopo aver pubblicato un progetto usando l'API REST, è possibile assegnarlo a un
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{tenantId}`: sostituire con il proprio ID tenant
-- `{YourMG}`: sostituire con l'ID del gruppo di gestione
-- `{subscriptionId}`: sostituire con l'ID sottoscrizione
+- `{tenantId}` - Sostituire con il proprio ID tenant
+- `{YourMG}` - Sostituire con l'ID del gruppo di gestione
+- `{subscriptionId}` - Sostituire con l'ID sottoscrizione
 
 1. Fornire all'entità servizio di Azure Blueprint il ruolo **Proprietario** nella sottoscrizione di destinazione. L'ID app è statico (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), ma l'ID dell'entità servizio varia in funzione del tenant. È possibile richiedere dettagli per il tenant usando l'API REST seguente. Viene usata l'[API Graph di Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md), che ha autorizzazione diverse.
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918043"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267907"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Supporto lingua e area geografica per l'API Traduzione testuale
 
@@ -33,7 +33,10 @@ L'API Traduzione testuale supporta le lingue seguenti per la traduzione da testo
 * Sistema neurale come predefinito: il sistema neurale è il sistema di traduzione predefinito. Usare il parametro `category=smt` per accedere al sistema statistico per l'uso con l'Hub di Microsoft Translator.
 * Solo sistema neurale: è disponibile solo la traduzione neurale.
 
-**API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale. Il traduttore personalizzato è utilizzabile solo con i linguaggi neurali. [Visualizzare le lingue attualmente disponibili in Microsoft Translator Custom](#customization).
+**API Traduzione V3** l'API Traduzione V3 è neurale per impostazione predefinita e i sistemi statistici sono disponibili solo quando non è presente alcun sistema neurale. 
+
+> [!NOTE]
+> Attualmente, un sottoinsieme di lingue neurale sono disponibili in Microsoft Translator personalizzata e che stiamo aggiungendo gradualmente altre sezioni. [Visualizzare le lingue attualmente disponibili in Microsoft Translator Custom](#customization).
 
 |Linguaggio|  Codice lingua|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|

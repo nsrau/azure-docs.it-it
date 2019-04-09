@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 8217eddd6f31a30b9113b178d74b59afb94f42af
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dd73fd8105de2a5fd24ffa8ad5db85da5e52228c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57900863"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918842"
 ---
 # <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 
@@ -39,7 +39,7 @@ I messaggi vengono inviati e ricevuti dalle *code*. Le code consentono di archiv
 
 ![Coda](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-I messaggi nelle code vengono ordinati e vi viene aggiunto un timestamp all'arrivo. Dopo essere stato accettato, il messaggio viene conservato in modo sicuro nella risorsa di archiviazione ridondante. I messaggi vengono recapitati in modalità  *pull*, ovvero su richiesta.
+I messaggi nelle code vengono ordinati e vi viene aggiunto un timestamp all'arrivo. Dopo essere stato accettato, il messaggio viene conservato in modo sicuro nella risorsa di archiviazione ridondante. I messaggi vengono recapitati in modalità *pull*, ovvero su richiesta.
 
 ## <a name="topics"></a>Argomenti
 
@@ -119,7 +119,7 @@ Il bus di servizio si integra completamente con i servizi di Azure seguenti:
 - [App per la logica](https://azure.microsoft.com/services/logic-apps/) 
 - [Funzioni](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
-- [Analisi dei flussi](https://azure.microsoft.com/services/stream-analytics/)
+- [Analisi di flusso](https://azure.microsoft.com/services/stream-analytics/)
  
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -127,5 +127,5 @@ Per iniziare a usare la messaggistica del bus di servizio, vedere gli articoli s
 
 * [Confrontare i servizi di messaggistica di Azure](../event-grid/compare-messaging-services.md?toc=%2fazure%2fservice-bus-messaging%2ftoc.json&bc=%2fazure%2fservice-bus-messaging%2fbreadcrumb%2ftoc.json)
 * Altre informazioni sui livelli [Standard e Premium](https://azure.microsoft.com/pricing/details/service-bus/) del bus di servizio di Azure e sui relativi prezzi
-* [Performance and Latency of Azure Service Bus Premium tier (Prestazioni e latenza del livello Premium del bus di servizio di Azure)](https://blogs.msdn.microsoft.com/servicebus/2016/07/18/premium-messaging-how-fast-is-it/)
+* [Performance and Latency of Azure Service Bus Premium tier (Prestazioni e latenza del livello Premium del bus di servizio di Azure)](https://techcommunity.microsoft.com/t5/Service-Bus-blog/Premium-Messaging-How-fast-is-it/ba-p/370722)
 * Provare le guide introduttive per [.NET](service-bus-dotnet-get-started-with-queues.md), [Java](service-bus-java-how-to-use-queues.md) o [JMS](service-bus-java-how-to-use-jms-api-amqp.md)

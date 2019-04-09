@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057490"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270787"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Esercitazione: configurare Tableau Online per il provisioning utenti automatico
 
@@ -58,7 +58,7 @@ Prima di configurare Tableau Online per il provisioning utenti automatico con Az
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, digitare **Tableau Online**, selezionare **Tableau Online** nel pannello dei risultati quindi fare clic su **Add** pulsante per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Tableau Online** selezionare **Tableau Online** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Tableau Online nell'elenco risultati](common/search-new-app.png)
 
@@ -91,7 +91,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 2. Nell'elenco delle applicazioni selezionare **Tableau Online**.
 
-    ![Il collegamento di Tableau Online nell'elenco delle applicazioni](common/all-applications.png)
+    ![Collegamento di Tableau Online nell'elenco delle applicazioni](common/all-applications.png)
 
 3. Selezionare la scheda **Provisioning**.
 

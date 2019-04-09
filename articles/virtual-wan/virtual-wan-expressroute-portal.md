@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842946"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876327"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Esercitazione: Creare un'associazione ExpressRoute con la rete WAN virtuale di Azure (anteprima)
 
@@ -47,8 +47,7 @@ Prima di poter configurare la rete WAN virtuale, è necessario registrare la sot
 
 **Considerazioni sull'anteprima:**
 
-* Aree di disponibilità: Stati Uniti centro-occidentali
-* Il circuito ExpressRoute deve essere abilitato in un paese che supporta il servizio [Copertura globale di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
+Il circuito ExpressRoute deve essere abilitato in un paese che supporta il servizio [Copertura globale di ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 
 ## <a name="vnet"></a>1. Crea rete virtuale
 
@@ -79,7 +78,7 @@ In un browser passare al [portale di Azure (anteprima)](https://aka.ms/azurevirt
 1. **URI del circuito peer** - URI del circuito fornito dal proprietario del circuito che costituisce l'identificatore univoco per il circuito
 1. **Peso del routing** - [Peso del routing](../expressroute/expressroute-optimize-routing.md) consente di preferire determinati percorsi quando allo stesso hub sono connessi più circuiti da diverse località peer
 1. Fare clic su **Find circuit** (Trova circuito) e selezionare il circuito, se disponibile.
-1. Selezionare uno o più hub dall'elenco a discesa e fare clic su **Salva**
+1. Selezionare uno o più hub dall'elenco a discesa e fare clic su **Salva**.
 
 ## <a name="vnet"></a>5. Connettere la rete virtuale a un hub
 

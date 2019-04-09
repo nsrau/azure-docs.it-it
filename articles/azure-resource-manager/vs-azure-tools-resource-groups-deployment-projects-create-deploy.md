@@ -13,18 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/21/2019
 ms.author: tomfitz
-ms.openlocfilehash: 36815010c3e8fccc2ec24ce344071d0836da219b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 442551424fea353aa7eddef6e7eba6e934f95691
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097458"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905852"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
 Con Visual Studio è possibile creare un progetto che distribuisce l'infrastruttura e il codice in Azure. Ad esempio, è possibile definire l'host Web, il sito Web e il database per l'app e distribuire l'infrastruttura insieme al codice. Visual Studio offre molti modelli di partenza per la distribuzione di scenari comuni. In questo articolo viene eseguita la distribuzione di un'app Web e un database SQL.  
 
 Questo articolo illustra come usare [Visual Studio 2017 con lo sviluppo di Azure e i carichi di lavoro ASP.NET installati](/dotnet/azure/dotnet-tools). Se si usa Visual Studio 2015 Update 2 e Microsoft Azure SDK per .NET 2.9 oppure Visual Studio 2013 con Azure SDK 2.9, l'esperienza è sostanzialmente uguale.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-azure-resource-group-project"></a>Creare un progetto Gruppo di risorse di Azure
 
@@ -148,7 +150,7 @@ Visual Studio fornisce anche il supporto per IntelliSense, per semplificare l'in
    > [!NOTE]
    > È possibile che Visual Studio richieda l'installazione dei cmdlet di Azure PowerShell. Se richiesto, occorre installarli. Per distribuire correttamente i gruppi di risorse sono necessari moduli di Azure PowerShell. Lo script PowerShell del progetto non funziona con il nuovo [modulo Azure PowerShell Az](/powershell/azure/new-azureps-module-az). 
    >
-   > Per altre informazioni, vedere [Installare e configurare moduli Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+   > Per altre informazioni, vedere [Installare e configurare moduli Azure PowerShell](/powershell/azure/install-Az-ps).
    > 
    > 
 6. La distribuzione può richiedere alcuni minuti. Nelle finestre **Output** viene visualizzato lo stato della distribuzione. Al termine della distribuzione, l'ultimo messaggio indica una distribuzione riuscita con un testo simile al seguente:

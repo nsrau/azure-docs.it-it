@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d6250b778cdaec47ccbe2f45d35adea0b676a20a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285514"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882012"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configurare una pipeline CI/CD con l'attività di compilazione dell'emulatore di Azure Cosmos DB in Azure DevOps
 
@@ -130,7 +130,7 @@ namespace todo.Tests
 }
 ```
 
-Passare alle opzioni di esecuzione nell'attività di test di Visual Studio. Nell'opzione **File di impostazioni** specificare che i test sono configurati tramite il file con estensione **runsettings**. Nell'opzione **Esegui override parametri di esecuzione dei test** aggiungere ` -endpoint $(CosmosDbEmulator.Endpoint)`. In questo modo, l'attività di test viene configurata per fare riferimento all'endpoint dell'attività di compilazione dell'emulatore, anziché a quello definito nel file con estensione **runsettings**.  
+Passare alle opzioni di esecuzione nell'attività di test di Visual Studio. Nell'opzione **File di impostazioni** specificare che i test sono configurati tramite il file con estensione **runsettings**. Nell'opzione **Esegui override parametri di esecuzione dei test** aggiungere `-endpoint $(CosmosDbEmulator.Endpoint)`. In questo modo, l'attività di test viene configurata per fare riferimento all'endpoint dell'attività di compilazione dell'emulatore, anziché a quello definito nel file con estensione **runsettings**.  
 
 ![Eseguire l'override della variabile di endpoint con l'endpoint dell'attività di compilazione dell'emulatore](./media/tutorial-setup-ci-cd/addExtension_5.png)
 

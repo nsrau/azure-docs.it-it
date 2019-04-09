@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517930"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268420"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Limitare l'accesso a un registro contenitori di Azure usando una rete virtuale di Azure o le regole del firewall
 
@@ -29,6 +29,8 @@ Questo articolo illustra due scenari per creare regole di accesso alla rete per 
 * Solo un **Premium** registro contenitori può essere configurato con regole di accesso di rete. Per informazioni sui livelli di servizio del Registro di sistema, vedere [SKU del registro contenitori di Azure](container-registry-skus.md). 
 
 * Solo un' [Azure Kubernetes Service](../aks/intro-kubernetes.md) cluster o in Azure [macchina virtuale](../virtual-machines/linux/overview.md) utilizzabile come host per accedere a un registro contenitori in una rete virtuale. *Altri servizi di Azure incluse le istanze di contenitore di Azure non sono attualmente supportati.*
+
+* [Le attività di ACR](container-registry-tasks-overview.md) operazioni non sono attualmente supportate in un registro contenitori distribuito a una rete virtuale.
 
 * Ogni registro di sistema supporta un massimo di 100 regole della rete virtuale.
 
@@ -373,7 +375,7 @@ Sebbene brevemente, questo articolo ha illustrato diverse risorse di rete virtua
 
 * [Rete virtuale](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
 * [Subnet](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
-* [Endpoint servizio](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
+* [Endpoint di servizio](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 
 <!-- IMAGES -->
 
