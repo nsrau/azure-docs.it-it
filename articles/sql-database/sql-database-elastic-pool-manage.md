@@ -1,10 +1,10 @@
 ---
-title: Creare e gestire pool elastici - Database SQL di Azure | Microsoft Docs
+title: Gestire i pool elastici - database SQL di Azure | Microsoft Docs
 description: Creare e gestire pool elastici SQL di Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
@@ -12,14 +12,14 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892399"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267583"
 ---
-# <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creare e gestire pool elastici nel database SQL di Azure
+# <a name="manage-elastic-pools-in-azure-sql-database"></a>Gestire i pool elastici nel Database SQL di Azure
 
 Con un pool elastico si determina la quantità di risorse di cui il pool elastico necessita per gestire il carico di lavoro dei propri database e la quantità di risorse per ogni database in pool.
 

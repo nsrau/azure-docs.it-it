@@ -1,7 +1,6 @@
 ---
 title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come usarli per creare progetti dinamici.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/12/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805573"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279976"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -77,8 +76,8 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 In ogni URI dell'API REST vengono usate variabili che è necessario sostituire con i propri valori:
 
-- `{YourMG}`: sostituire con il nome del gruppo di gestione
-- `{subscriptionId}`: sostituire con l'ID sottoscrizione
+- `{YourMG}` -Sostituire con il nome del gruppo di gestione
+- `{subscriptionId}` -Sostituire con l'ID sottoscrizione
 
 ##### <a name="blueprint-level-parameter"></a>Parametro a livello di progetto
 

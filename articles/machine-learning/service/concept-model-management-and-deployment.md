@@ -11,12 +11,12 @@ author: chris-lauren
 ms.author: clauren
 ms.date: 1/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8dea667b15471accd4fc8b09d0ff1eb7aa5daed5
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 2cd2d328d33744854bc525e5ecf1dfa3b6e4bcc8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57403686"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275443"
 ---
 # <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Gestire e distribuire modelli con il servizio Azure Machine Learning
 
@@ -28,12 +28,12 @@ Il flusso di lavoro di distribuzione comprende i passaggi seguenti:
 1. **Registrazione del modello** in un registro ospitato nell'area di lavoro del servizio Azure Machine Learning
 1. **Registrazione di un'immagine** che associa un modello a uno script di punteggio e alle dipendenze in un contenitore portabile 
 1. **Distribuzione** dell'immagine come un servizio Web nel cloud o nei dispositivi perimetrali
-1. **Monitoraggio e raccolta dati**
+1. **Monitorare e raccogliere i dati**
 1. **Aggiornamento** di una distribuzione per usare una nuova immagine
 
 Ogni passaggio può essere eseguito in modo indipendente o come parte di un comando di distribuzione singolo. Inoltre, è possibile integrare la distribuzione in un **flusso di lavoro CI/CD** come illustrato in questo grafico.
 
-[!['Azure Machine Learning/integrazione continua (CI/CD) ciclo di distribuzione'](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
+[!['Ciclo di Azure Machine Learning/integrazione continua (CI/CD) di distribuzione '](media/concept-model-management-and-deployment/model-ci-cd.png)](media/concept-model-management-and-deployment/model-ci-cd.png#lightbox)
 
 ## <a name="step-1-register-model"></a>Passaggio 1: Registrare il modello
 
@@ -63,7 +63,9 @@ L'immagine può anche includere componenti SDK per la registrazione e il monitor
 Azure Machine Learning supporta i framework più diffusi, ma in genere può funzionare qualsiasi framework in cui si può installare il pip.
 
 Quando l'area di lavoro è stata creata, diverse altre risorse di Azure sono state usate da quell'area di lavoro.
-Tutti gli oggetti usati per creare l'immagine vengono archiviati nell'account di archiviazione di Azure nell'area di lavoro. È possibile specificare altri tag di metadati durante la creazione dell'immagine. I tag dei metadati vengono inoltre archiviati nel registro delle immagini e consentono l'esecuzione di query per trovare l'immagine.
+Tutti gli oggetti utilizzati per creare l'immagine predefinita vengono archiviati nell'account di archiviazione di Azure nell'area di lavoro. È possibile specificare altri tag di metadati durante la creazione dell'immagine. I tag dei metadati vengono inoltre archiviati nel registro delle immagini e consentono l'esecuzione di query per trovare l'immagine.
+
+È anche possibile usare immagini personalizzate, che possono essere caricate in Registro contenitori di Azure e utilizzate dal servizio Azure Machine Learning.
 
 Per altre informazioni, vedere la sezione relativa alla configurazione e alla registrazione di un'immagine nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#configureimage).
 
@@ -73,7 +75,7 @@ Per altre informazioni, vedere la sezione relativa alla configurazione e alla re
 
 È anche possibile cercare le distribuzioni dei servizi Web. Ad esempio, è possibile cercare tutte le distribuzioni di un modello o immagini specifici.
 
-[![Destinazioni di inferenza](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
+[![Idestinazioni nferencing](media/concept-model-management-and-deployment/inferencing-targets.png)](media/concept-model-management-and-deployment/inferencing-targets.png#lightbox)
 
 È possibile distribuire le immagini nelle destinazioni di distribuzione seguenti nel cloud:
 

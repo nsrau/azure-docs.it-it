@@ -13,18 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/28/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f008e981abb11a4927ec045c33342bbac9a05bd8
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: bb9ac9974be94195f6ed0315aece7dfea749ce33
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436797"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057507"
 ---
 # <a name="tutorial-configure-thousandeyes-for-automatic-user-provisioning"></a>Esercitazione: Configurare ThousandEyes per effettuare il provisioning automatico dell'utente
-
 
 Questa esercitazione descrive le procedure da eseguire in ThousandEyes e Azure AD per effettuare automaticamente il provisioning e il deprovisioning degli account utente da Azure AD a ThousandEyes. 
 
@@ -32,15 +31,12 @@ Questa esercitazione descrive le procedure da eseguire in ThousandEyes e Azure A
 
 Per lo scenario descritto in questa esercitazione si presuppone che l'utente disponga di quanto segue:
 
-*   Tenant di Azure Active Directory
-*   Un oggetto attivo [account ThousandEyes](https://www.thousandeyes.com/pricing)
-*   Un account utente di ThousandEyes che è stato assegnato un ruolo che include le autorizzazioni di 3 seguenti:
-    * visualizzare tutti gli utenti
-    * Modifica utente
-    * Autorizzazioni di accesso API
+* Un tenant di Azure Active Directory
+* Un tenant di ThousandEyes con il [piano Standard](https://www.thousandeyes.com/pricing) o superiore abilitato 
+* Un account utente in ThousandEyes con autorizzazioni di amministratore 
 
 > [!NOTE]
-> Integrazione del provisioning di Azure AD si basa sul [API SCIM di ThousandEyes](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK_ThousandEyes-support-for-SCIM). 
+> L'integrazione del provisioning di Azure AD è basata sull'[API SCIM di ThousandEyes](https://success.thousandeyes.com/PublicArticlePage?articleIdParam=kA044000000CnWrCAK), disponibile per i team ThousandEyes con piano Standard o superiore.
 
 ## <a name="assigning-users-to-thousandeyes"></a>Assegnazione di utenti a ThousandEyes
 
@@ -52,33 +48,18 @@ Prima di configurare e abilitare il servizio di provisioning, è necessario stab
 
 ### <a name="important-tips-for-assigning-users-to-thousandeyes"></a>Suggerimenti importanti per l'assegnazione di utenti a ThousandEyes
 
-*   È consigliabile assegnare un singolo utente di Azure AD a ThousandEyes per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
+* È consigliabile assegnare un singolo utente di Azure AD a ThousandEyes per testare la configurazione del provisioning. È possibile assegnare utenti e/o gruppi aggiuntivi in un secondo momento.
 
-*   Quando si assegna un utente a ThousandEyes, è necessario selezionare la **utente** ruolo o un'altra valida specifici dell'applicazione, se disponibile, nella finestra di dialogo di assegnazione. Poiché il ruolo **Accesso predefinito** non è applicabile per il provisioning, i relativi utenti vengono ignorati.
-
-## <a name="configure-auto-provisioned-user-roles-in-thousandeyes"></a>Configurare i ruoli utente sottoposti a provisioning in ThousandEyes
-
-Per ogni gruppo di account, l'utente è il provisioning automatico degli utenti in è possono configurare un set di ruoli da applicare quando viene creato il nuovo account utente. Per impostazione predefinita, il provisioning automatico degli utenti vengono assegnati i _normale utente_ gruppi di ruolo per tutti gli account a meno che non configurato in caso contrario.
-
-1. Per specificare un nuovo set di ruoli per gli utenti sottoposti a provisioning log in ThousandEyes e passare alla sezione Impostazioni SCIM **> l'icona utente nell'angolo superiore destro > Impostazioni Account > dell'organizzazione > autenticazione di & sicurezza.** 
-
-   ![Passare alle impostazioni API SCIM](https://monosnap.com/file/kqY8Il7eysGFAiCLCQWFizzM27PiBG)
-
-2. Aggiungere una voce per ogni gruppo di account, assegnare quindi un set di ruoli *salvare* le modifiche.
-
-   ![Impostare i ruoli predefiniti e i gruppi di account per gli utenti creati tramite l'API SCIM](https://monosnap.com/file/16siam6U8xDQH1RTnaxnmIxvsZuNZG)
-
+* Quando si assegna un utente a ThousandEyes, è necessario selezionare il ruolo **Utente** o un altro ruolo specifico dell'applicazione valido, se disponibile, nella finestra di dialogo di assegnazione. Poiché il ruolo **Accesso predefinito** non è applicabile per il provisioning, i relativi utenti vengono ignorati.
 
 ## <a name="configuring-user-provisioning-to-thousandeyes"></a>Configurazione del provisioning utenti in ThousandEyes 
 
 Questa sezione illustra la connessione di Azure AD all'API per il provisioning degli account utente di ThousandEyes e la configurazione del servizio di provisioning per la creazione, l'aggiornamento e la disabilitazione degli account utente assegnati in ThousandEyes in base all'assegnazione di utenti e gruppi in Azure AD.
 
 > [!TIP]
-> Si può anche scegliere di abilitare basato su SAML Single Sign-On (SSO) per ThousandEyes, seguendo la [istruzioni fornite nell'articolo della knowledge base Azure](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-tutorial) per completare l'accesso SSO. L'accesso SSO può essere configurato indipendentemente dal provisioning automatico, anche se queste due funzionalità sono complementari.
-
+> Si può anche scegliere di abilitare l'accesso Single Sign-On basato su SAML per ThousandEyes, seguendo le istruzioni disponibili nel [portale di Azure](https://portal.azure.com). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning automatico, nonostante queste due funzionalità siano complementari.
 
 ### <a name="configure-automatic-user-account-provisioning-to-thousandeyes-in-azure-ad"></a>Configurare il provisioning automatico degli account utente in ThousandEyes con Azure AD
-
 
 1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
 
@@ -90,7 +71,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
     ![Provisioning di ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes1.png)
 
-5. Sotto il **credenziali di amministratore** sezione il **OAuth Bearer Token** generato dall'account di ThousandEyes (è possibile trovare e o generare un token nell'account ThousandEyes  **Profilare** sezione).
+5. Nella sezione **Credenziali amministratore** inserire il **token di connessione OAuth** generato dal proprio account ThousandEyes (è possibile trovare o generare il token nella sezione **Profilo** dell'account ThousandEyes.
 
     ![Provisioning di ThousandEyes](./media/thousandeyes-provisioning-tutorial/ThousandEyes2.png)
 
@@ -98,7 +79,7 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 7. Immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning nel campo **Messaggio di posta elettronica di notifica** e selezionare la casella di controllo "Invia una notifica di posta elettronica in caso di errore".
 
-8. Fare clic su **Save**. 
+8. Fare clic su **Save**.
 
 9. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to ThousandEyes** (Sincronizza utenti di Azure Active Directory in ThousandEyes).
 
@@ -106,16 +87,15 @@ Questa sezione illustra la connessione di Azure AD all'API per il provisioning d
 
 11. Per abilitare il servizio di provisioning di Azure AD per ThousandEyes, impostare **Stato del provisioning** su **Sì** nella sezione **Impostazioni**.
 
-12. Fare clic su **Save**. 
+12. Fare clic su **Save**.
 
 Viene avviata la sincronizzazione iniziale di tutti gli utenti e/o i gruppi assegnati a ThousandEyes nella sezione Utenti e gruppi. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che saranno eseguite circa ogni 40 minuti per tutto il tempo che il servizio è in esecuzione. È possibile usare la sezione **Dettagli sincronizzazione** per monitorare lo stato di avanzamento e selezionare i collegamenti ai log delle attività di provisioning che descrivono tutte le azioni eseguite dal servizio di provisioning.
 
 Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../manage-apps/check-status-user-account-provisioning.md).
 
-
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Gestione del provisioning degli account utente per app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Gestione di provisioning degli account utente per le app aziendali](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Passaggi successivi

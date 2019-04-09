@@ -1,13 +1,18 @@
 ---
 title: Esempi - Progetto Servizi condivisi ISO 27001 - Panoramica
 description: Panoramica e architettura del progetto di esempio Servizi condivisi ISO 27001.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
+ms.openlocfilehash: ca473474c62d0cb57c3ee76095740568398c67d7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
+ms.contentlocale: it-IT
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272751"
 ---
 # <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Panoramica del progetto di esempio Servizi condivisi ISO 27001
 

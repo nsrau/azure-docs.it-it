@@ -1,7 +1,7 @@
 ---
-title: Creare, caricare ed eseguire query su un indice usando PowerShell e l'API REST - ricerca di Azure
-description: Creare e caricare un indice usando l'API REST di ricerca di Azure PowerShell e Invoke-RestMethod di query.
-ms.date: 03/15/2019
+title: "Guida introduttiva: Creare, caricare ed eseguire query su un indice usando PowerShell e l'API REST - ricerca di Azure"
+description: Creare, caricare ed eseguire query su un indice usando PowerShell Invoke-RestMethod e l'API REST di ricerca di Azure.
+ms.date: 04/08/2019
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -10,14 +10,14 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: 9e1b6fc0dc4e6a6c2c191960fa061c810e3a2e79
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372115"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268025"
 ---
-# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Avvio rapido: Creare un indice di ricerca di Azure con PowerShell e l'API REST
+# <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Guida introduttiva: Creare un indice di ricerca di Azure con PowerShell e l'API REST
 > [!div class="op_single_selector"]
 > * [PowerShell (REST)](search-create-index-rest-api.md)
 > * [C#](search-create-index-dotnet.md)
@@ -29,19 +29,23 @@ Questo articolo illustra il processo di creazione, caricamento e l'esecuzione di
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Creare un servizio di ricerca di Azure](search-create-service-portal.md) oppure [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questa Guida introduttiva. Altri prerequisiti includono gli elementi seguenti.
+I servizi e gli strumenti seguenti vengono usati in questa Guida introduttiva. 
+
+[Creare un servizio Ricerca di Azure](search-create-service-portal.md) o [trovare un servizio esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) nella sottoscrizione corrente. È possibile usare un servizio gratuito per questo avvio rapido. 
 
 [PowerShell 5.1 o versione successiva](https://github.com/PowerShell/PowerShell), usando [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) per i passaggi sequenziali e interattivi.
 
-Ottenere l'endpoint dell'URL e l'amministrazione chiave api del servizio di ricerca. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
+## <a name="get-a-key-and-url"></a>Ottenere una chiave e URL
 
-1. Nel portale di Azure, nel servizio di ricerca **Panoramica** pagina, ottenere l'URL. Un endpoint di esempio potrebbe essere simile a https:\//my-service-name.search.windows.net.
+Le chiamate REST richiedono l'URL del servizio e una chiave di accesso per ogni richiesta. Con entrambi gli elementi viene creato un servizio di ricerca, quindi se si è aggiunto Ricerca di Azure alla sottoscrizione, seguire questi passaggi per ottenere le informazioni necessarie:
 
-2. Nelle **le impostazioni** > **chiavi**, ottenere una chiave amministratore per tutti i diritti sul servizio. Sono disponibili due chiavi amministratore intercambiabili, fornite per la continuità aziendale nel caso in cui è necessario eseguire il rollover di uno. È possibile usare la chiave primaria o secondaria per le richieste per l'aggiunta, modifica e l'eliminazione degli oggetti.
+1. [Accedere al portale di Azure](https://portal.azure.com/)e nel servizio di ricerca **Cenni preliminari su** pagina, ottenere l'URL. Un endpoint di esempio potrebbe essere simile a `https://mydemo.search.windows.net`.
 
-   ![Ottenere una chiave di accesso e di endpoint HTTP](media/search-fiddler/get-url-key.png "ottenere una chiave di accesso e di endpoint HTTP")
+2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-   Tutte le richieste richiedono una chiave api a ogni richiesta inviata al servizio. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
+![Ottenere una chiave di accesso e un endpoint HTTP](media/search-fiddler/get-url-key.png "Ottenere una chiave di accesso e un endpoint HTTP")
+
+Per ogni richiesta inviata al servizio è necessario specificare una chiave API. La presenza di una chiave valida stabilisce una relazione di trust, in base alle singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
 ## <a name="connect-to-azure-search"></a>Connettersi a ricerca di Azure
 
@@ -165,7 +169,7 @@ Risultati dovrebbero essere simili al seguente (troncato per i primi due campi p
 
 <a name="load-documents"></a>
 
-## <a name="2---load-documents"></a>2 - caricare i documenti
+## <a name="2---load-documents"></a>2 - Caricare i documenti
 
 Per eseguire il push documenti, usare una richiesta HTTP POST all'endpoint dell'URL dell'indice. L'API REST per questa attività viene [aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
 

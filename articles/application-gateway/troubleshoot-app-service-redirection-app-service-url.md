@@ -7,18 +7,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123182"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274537"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Risolvere i problemi di un gateway applicazione con il servizio app - Reindirizzamento all'URL del servizio app
+# <a name="troubleshoot-application-gateway-with-app-service"></a>Risolvere i problemi di Gateway applicazione con il servizio App
 
- Informazioni su come diagnosticare e risolvere i problemi di reindirizzamento con un Gateway applicazione in cui viene introduzione esposta URL del servizio App.
+Informazioni su come diagnosticare e risolvere i problemi riscontrati con il Gateway applicazione e servizio App come il server back-end.
 
 ## <a name="overview"></a>Panoramica
+
+In questo articolo si apprenderà come risolvere i problemi seguenti:
+
+> [!div class="checklist"]
+> * URL del servizio App introduzione esposti nel browser quando è presente un reindirizzamento
+> * Dominio del ARRAffinity Cookie del servizio App è impostato su nome host del servizio App (example.azurewebsites.net) anziché host originale
 
 Quando si configura un pubblico con connessione del servizio App nel pool di back-end del Gateway applicazione e se si dispone di un reindirizzamento configurato nel codice dell'applicazione, si noterà che quando si accede ai Gateway applicazione, si verrà reindirizzati direttamente all'App nel browser URL del servizio.
 
@@ -28,6 +34,8 @@ Questo problema può verificarsi a causa dei motivi principali seguenti:
 - È necessario l'autenticazione di Azure AD che causa il reindirizzamento.
 - È stata abilitata l'opzione "Selezionare indirizzo nome Host dal back-end" nelle impostazioni HTTP del Gateway applicazione.
 - Non è necessario il dominio personalizzato registrato con il servizio App.
+
+Quando si usa servizi di applicazione dietro il Gateway applicazione e si usa un dominio personalizzato per il Gateway applicazione di accesso, si può vedere anche il valore di dominio per il cookie ARRAffinity impostato dal servizio App includeranno il nome di dominio "example.azurewebsites.net". Se si desidera che il nome host originale sia anche il dominio del cookie, seguire la soluzione in questo articolo.
 
 ## <a name="sample-configuration"></a>Configurazione di esempio
 
@@ -94,6 +102,16 @@ A tale scopo, è necessario possedere un dominio personalizzato e seguire la pro
 - Associare il probe personalizzato le impostazioni HTTP di back-end e verificare l'integrità back-end se è integro.
 
 - Al termine, il Gateway applicazione ora deve inoltrare lo stesso nome host "www.contoso.com" al servizio App e lo stesso nome host verrà eseguito il reindirizzamento. È possibile verificare le seguenti intestazioni esempio di richiesta e risposta.
+
+Per implementare i passaggi indicati in precedenza tramite PowerShell per un'installazione esistente, eseguire lo script di PowerShell di esempio riportato di seguito. Si noti come non è stato usato gli interruttori - PickHostname nella configurazione del Probe e le impostazioni HTTP.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 

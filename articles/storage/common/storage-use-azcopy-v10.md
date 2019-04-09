@@ -2,18 +2,18 @@
 title: Copiare o spostare i dati in archiviazione di Azure tramite AzCopy v10 (anteprima) | Microsoft Docs
 description: Usare il v10 AzCopy utilità della riga di comando (anteprima) per spostare o copiare dati da o verso blob, data lake e contenuto del file. Copiare i dati in archiviazione di Azure da file locali o copiare i dati all'interno o tra account di archiviazione. Migrare facilmente i dati in archiviazione di Azure.
 services: storage
-author: artemuwka
+author: seguler
 ms.service: storage
 ms.topic: article
-ms.date: 02/24/2019
-ms.author: artemuwka
+ms.date: 04/05/2019
+ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: ad3e96af95d952956af02acfd87d6d317bc29ed0
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: ffd448db86c8658619da5339cd34eb9dba7e05ce
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574978"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278429"
 ---
 # <a name="transfer-data-with-azcopy-v10-preview"></a>Trasferire dati con AzCopy v10 (anteprima)
 
@@ -24,6 +24,7 @@ AzCopy v10 (anteprima) è l'utilità della riga di comando per copiare dati da o
 - Sincronizza i file System all'archivio Blob di Azure o viceversa. Usare `azcopy sync <source> <destination>`. Ideale per scenari di copia incrementale.
 - Supporta le API di Azure Data Lake Storage Gen2. Usare `myaccount.dfs.core.windows.net` come URI per chiamare le API di Data Lake Storage Gen2.
 - Supporta la copia di un intero account (solo servizio BLOB) in un altro account.
+- Supporta la copia dei dati da un bucket Amazon S3 di servizi Web.
 - Utilizza il nuovo [Put Block dall'URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API per supportare account-account-alla copia. Il trasferimento dei dati è più veloce, poiché il trasferimento al client non è necessario.
 - Elenca o rimuove i file e i BLOB in un percorso specificato.
 - Supporta i modelli con caratteri jolly in un percorso e --exclude flag.
@@ -79,8 +80,8 @@ AzCopy v10 presenta una sintassi self-documentata. Quando hanno effettuato l'acc
 .\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/container"
 
 # Examples if you're using SAS tokens to authenticate:
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?sastoken" --recursive=true
-.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?sastoken"
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/container?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D" --recursive=true
+.\azcopy cp "C:\local\path\myfile" "https://account.blob.core.windows.net/container/myfile?st=2019-04-05T04%3A10%3A00Z&se=2019-04-13T04%3A10%3A00Z&sp=rwdl&sv=2018-03-28&sr=c&sig=Qdihej%2Bsbg4AiuyLVyQZklm9pSuVGzX27qJ508wi6Es%3D"
 ```
 
 Ecco come ottenere un elenco di comandi disponibili:
@@ -101,7 +102,7 @@ Per visualizzare la pagina della Guida ed esempi per un comando specifico, esegu
 
 ## <a name="create-a-blob-container-or-file-share"></a>Creare una condivisione di file o contenitore blob 
 
-**Creare un contenitore blob**
+**Creare un contenitore BLOB**
 
 ```azcopy
 .\azcopy make "https://account.blob.core.windows.net/container-name"
@@ -135,16 +136,16 @@ Usare il comando copy per trasferire i dati dall'origine alla destinazione. L'or
 .\azcopy cp <source path> <destination path> --<flag-name>=<flag-value>
 ```
 
-Il comando seguente consente di caricare tutti i file nella cartella `C:\local\path` in modo ricorsivo nel contenitore `mycontainer1`creando `path` directory nel contenitore:
+Il comando seguente consente di caricare tutti i file nella cartella `C:\local\path` in modo ricorsivo nel contenitore `mycontainer1`creando `path` directory nel contenitore. Quando `--put-md5` flag è specificato, AzCopy calcola e archivia l'hash md5 ogni file in `Content-md5` proprietà del blob corrispondente per un uso successivo.
 
 ```azcopy
-.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true
+.\azcopy cp "C:\local\path" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --recursive=true --put-md5
 ```
 
 Il comando seguente consente di caricare tutti i file nella cartella `C:\local\path` (senza ricorsione nelle sottodirectory) nel contenitore `mycontainer1`:
 
 ```azcopy
-.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>"
+.\azcopy cp "C:\local\path\*" "https://account.blob.core.windows.net/mycontainer1<sastoken>" --put-md5
 ```
 
 Per trovare altri esempi, usare il comando seguente:
@@ -153,21 +154,27 @@ Per trovare altri esempi, usare il comando seguente:
 .\azcopy cp -h
 ```
 
-## <a name="copy-data-between-two-storage-accounts"></a>Copiare dati tra due account di archiviazione
+## <a name="copy-blob-data-between-two-storage-accounts"></a>Copiare i dati di Blob tra due account di archiviazione
 
 Copia di dati tra due account di archiviazione Usa la [Put Block From URL](https://docs.microsoft.com/rest/api/storageservices/put-block-from-url) API e non utilizza larghezza di banda di rete del computer client. Copiare i dati tra due server di archiviazione di Azure direttamente, mentre AzCopy Orchestra semplicemente l'operazione di copia. Questa opzione è attualmente disponibile solo per l'archiviazione Blob.
 
-Per copiare i dati tra due account di archiviazione, usare il comando seguente:
+Per copiare tutti i dati tra due account di archiviazione Blob, usare il comando seguente:
 ```azcopy
 .\azcopy cp "https://myaccount.blob.core.windows.net/<sastoken>" "https://myotheraccount.blob.core.windows.net/<sastoken>" --recursive=true
 ```
 
-> [!NOTE]
-> Questo comando enumererà tutti i contenitori blob e copiarle per l'account di destinazione. A questo punto, v10 AzCopy supporta la copia solo i BLOB in blocchi tra due account di archiviazione. Ignorerà tutti gli altri oggetti di account di archiviazione (ad esempio accodare BLOB, BLOB di pagine, file, tabelle e code).
+Per copiare un contenitore Blob in un altro contenitore Blob, usare il comando seguente:
+```azcopy
+.\azcopy cp "https://myaccount.blob.core.windows.net/mycontainer/<sastoken>" "https://myotheraccount.blob.core.windows.net/mycontainer/<sastoken>" --recursive=true
+```
 
 ## <a name="copy-a-vhd-image-to-a-storage-account"></a>Copiare un'immagine di disco rigido virtuale in un account di archiviazione
 
-Per impostazione predefinita, AzCopy v10 carica i dati in BLOB in blocchi. Tuttavia, se un file di origine ha un `.vhd` estensione, AzCopy v10 per impostazione predefinita sarà il caricamento in un blob di pagine. A questo punto, questa azione non è configurabile.
+Per impostazione predefinita, AzCopy carica i dati in BLOB in blocchi. Per caricare i file come BLOB di accodamento o BLOB di pagine, usare il flag `--blob-type=[BlockBlob|PageBlob|AppendBlob]`.
+
+```azcopy
+.\azcopy cp "C:\local\path\mydisk.vhd" "https://myotheraccount.blob.core.windows.net/mycontainer/mydisk.vhd<sastoken>" --blob-type=PageBlob
+```
 
 ## <a name="sync-incremental-copy-and-delete-blob-storage-only"></a>Sincronizzazione: eliminazione e copia incrementale (solo archiviazione BLOB)
 
@@ -192,6 +199,30 @@ Per eseguire la sincronizzazione del file system locale con un account di archiv
 ```
 
 Questo comando consente di sincronizzare in modo incrementale l'origine alla destinazione in base l'ultimo timestamp modificato. Se si aggiunge o si elimina un file nell'origine, AzCopy v10 eseguirà la stessa operazione nella destinazione. Prima dell'eliminazione, AzCopy chiederà di confermare.
+
+## <a name="copy-data-from-amazon-web-services-aws-s3"></a>Copiare dati da Amazon Web Services (AWS) S3
+
+Per eseguire l'autenticazione con un bucket di AWS S3, impostare le variabili di ambiente seguenti:
+
+```
+# For Windows:
+set AWS_ACCESS_KEY_ID=<your AWS access key>
+set AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For Linux:
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+# For MacOS
+export AWS_ACCESS_KEY_ID=<your AWS access key>
+export AWS_SECRET_ACCESS_KEY=<AWS secret access key>
+```
+
+Per copiare il bucket per un contenitore Blob, eseguire il comando seguente:
+
+```
+.\azcopy cp "https://s3.amazonaws.com/mybucket" "https://myaccount.blob.core.windows.net/mycontainer?<sastoken>" --recursive
+```
+
+Per altre informazioni sulla copia di dati da AWS S3 usando AzCopy, vedere la pagina [qui](https://github.com/Azure/azure-storage-azcopy/wiki/Copy-from-AWS-S3).
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata
 
@@ -250,7 +281,7 @@ Il comando seguente otterrà tutti gli errori con stato UPLOADFAILED dal log 04d
 ```azcopy
 cat 04dc9ca9-158f-7945-5933-564021086c79.log | grep -i UPLOADFAILED
 ```
-## <a name="troubleshooting"></a>Risoluzione dei problemi
+## <a name="troubleshooting"></a>risoluzione dei problemi
 
 AzCopy v10 crea file di log e file di piano per ogni processo. È possibile usare i log per analizzare e risolvere eventuali problemi potenziali. Il log conterrà lo stato dell'errore (UPLOADFAILED, COPYFAILED e DOWNLOADFAILED), il percorso completo e il motivo dell'errore. I file di piano e i log dei processi si trovano nella cartella %USERPROFILE\\.azcopy su Windows oppure in $HOME\\.azcopy su Mac e Linux.
 
@@ -277,10 +308,11 @@ Per filtrare i trasferimenti in base allo stato, usare il comando seguente:
 .\azcopy jobs show <job-id> --with-status=Failed
 ```
 
-Usare il comando seguente per riprendere un processo non riuscito/annullato. Questo comando Usa il relativo identificatore insieme al token di firma di accesso condiviso. Non è persistente per motivi di sicurezza:
+Usare il comando seguente per riprendere un processo non riuscito/annullato. Questo comando Usa il relativo identificatore insieme al token di firma di accesso condiviso poiché non è persistente per motivi di sicurezza:
 
 ```azcopy
-.\azcopy jobs resume <jobid> --sourcesastokenhere --destinationsastokenhere
+.\azcopy jobs resume <jobid> --source-sas="<sastokenhere>"
+.\azcopy jobs resume <jobid> --destination-sas="<sastokenhere>"
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: jingwang
-ms.openlocfilehash: 2c04c13eb6399bebf908337d8f71bd03adf4d06a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8e3a23b38dc95f05ed9a6d99d303f3d86eac60ad
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447230"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269266"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen2-with-azure-data-factory"></a>Caricare dati in Azure Data Lake Storage Gen2 con Azure Data Factory
 
@@ -34,12 +34,12 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* Account di Archiviazione di Azure con Data Lake Storage Gen2 abilitato: se non è disponibile un account di archiviazione, fare clic [qui](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM) per crearne uno.
+* Account di Archiviazione di Azure con Data Lake Storage Gen2 abilitato: Se non hai un account di archiviazione [creare un account](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM).
 * Account AWS con un bucket S3 che contiene i dati: In questo articolo viene illustrato come copiare i dati da Amazon S3. È possibile usare altri archivi dati seguendo una procedura simile.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra, selezionare **crea una risorsa** > **dati + Analitica** > **Data Factory**:
+1. Nel menu a sinistra selezionare **Crea una risorsa** > **Dati e analisi** > **Data factory**:
    
    ![Selezione di Data Factory nel riquadro "Nuovo"](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -104,7 +104,7 @@ Questo articolo illustra come usare lo strumento Copia dati di Data Factory per 
    
    ![Specificare un account di Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2/specify-adls.png)
 
-9. Nella pagina **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **copyfroms3** come nome della cartella di output, quindi selezionare **Avanti**: 
+9. Nel **scegliere il file di output o la cartella** pagina, immettere **copyfroms3** come nome di cartella di output, selezionare **Avanti**. Azure Data factory creerà il sistema di file di Azure Data Lake Store Gen2 corrispondente e le sottocartelle durante la copia, se non esiste.
 
     ![Specificare la cartella di output](./media/load-azure-data-lake-storage-gen2/specify-adls-path.png)
 
@@ -141,4 +141,4 @@ Quando si copia un volume considerevole di dati dall'archivio dati basato su fil
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Panoramica dell'attività di copia](copy-activity-overview.md)
-* [Connettore di Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
+* [Connettore Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
