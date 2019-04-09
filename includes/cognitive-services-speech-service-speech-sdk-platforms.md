@@ -6,7 +6,7 @@ ms.date: 02/08/2019
 ms.author: wolfma
 ms.openlocfilehash: 1e466f63f1dd1ba07e977aefea9c986f06ab64b2
 ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56448161"

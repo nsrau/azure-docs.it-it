@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339398"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005159"
 ---
 # <a name="enable-custom-pronunciation"></a>Abilitare la pronuncia personalizzata
 
@@ -63,7 +63,7 @@ La pronuncia personalizzata è al momento supportata solo per l'inglese (en-US) 
 Un modulo di visualizzazione può essere solo una parola personalizzata, l'acronimo o parole composte che combinano parole esistente.
 
 >[!NOTE]
->Non è consigliabile usare questa funzionalità per riformulare parole comuni o per modificare la forma parlata. È preferibile eseguire il decoder per verificare se alcune parole insolite (ad esempio abbreviazioni, parole tecniche o parole straniere) non sono state decodificate correttamente. Se lo sono state, aggiungerle al file di pronunce personalizzato. Nel modello linguistico è necessario usare sempre e solo la forma visualizzata di una parola.
+>Non è consigliabile usare questa funzionalità per riformulare parole comuni o per modificare la forma parlata. È un controllo migliore se alcune parole insolite (ad esempio le abbreviazioni, termini tecnici o parole straniere) vengono erroneamente transribed prima di questa funzionalità viene usata. Se lo sono state, aggiungerle al file di pronunce personalizzato. Nel modello linguistico è necessario usare sempre e solo la forma visualizzata di una parola.
 
 ## <a name="requirements-for-the-file-size"></a>Requisiti per le dimensioni del file
 Le dimensioni del file con estensione TXT che contiene le voci di pronuncia sono limitate a 1 megabyte (1 KB per le chiavi di livello gratuito). In genere non è necessario caricare grandi quantità di dati tramite questo file. Le dimensioni della maggior parte dei file di pronunce sono di pochi kilobyte (KB). La codifica del file TXT per tutte le impostazioni locali deve essere UTF-8 BOM. Per le impostazioni locali della lingua inglese è accettabile anche ANSI.

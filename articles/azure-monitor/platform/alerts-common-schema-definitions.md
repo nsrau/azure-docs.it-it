@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 1a55fa4f39f2ebc2cdcc421eb6d7fecc62277f90
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851799"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010397"
 ---
-# <a name="common-alert-schema-definitions"></a>Definizioni di avviso dello schema comuni
+# <a name="common-alert-schema-definitions"></a>Definizioni dello schema di avviso comune
 
 Questo articolo descrive la [definizioni di avviso dello schema comuni](https://aka.ms/commonAlertSchemaDocs) Webhook/logica App o funzioni di Azure. 
 
@@ -152,6 +152,9 @@ Qualsiasi istanza di avviso descrive **la risorsa che è stata interessata** e *
 ```
 
 ### <a name="log-alerts"></a>Avvisi del log
+
+> [!NOTE]
+> Se si usa l'opzione JSON personalizzata per gli avvisi di log esistente, la personalizzazione non viene mantenuta nello schema comune.
 
 #### <a name="monitoringservice--log-analytics"></a>monitoringService = 'Log Analytics'
 
